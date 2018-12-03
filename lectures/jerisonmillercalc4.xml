@@ -1,0 +1,1128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="110" d="2210">The following content is
+provided under a Creative</p>
+<p t="2320" d="830">Commons license.</p>
+<p t="3150" d="2780">Your support will help
+MIT OpenCourseWare</p>
+<p t="5930" d="4030">continue to offer high quality
+educational resources for free.</p>
+<p t="9960" d="2670">To make a donation, or to
+view additional materials</p>
+<p t="12630" d="3280">from hundreds of MIT courses
+visit MIT OpenCourseWare</p>
+<p t="15910" d="6330">at ocw.mit.edu.</p>
+<p t="22240" d="2810">Professor: I am Haynes
+Miller, I am substituting</p>
+<p t="25050" d="1460">for David Jerison today.</p>
+<p t="26510" d="15370">So you have a substitute
+teacher today.</p>
+<p t="41880" d="2520">So I haven't been here
+in this class with you</p>
+<p t="44400" d="3180">so I'm not completely
+sure where you are.</p>
+<p t="47580" d="4590">I think you've just been
+talking about differentiation</p>
+<p t="52170" d="4670">and you've got some examples
+of differentiation like these</p>
+<p t="56840" d="3020">basic examples: the
+derivative of x^n is nx^(n-1).</p>
+<p t="63197" d="2083">But I think maybe you've
+spent some time computing</p>
+<p t="65280" d="5950">the derivative of the sine
+function as well, recently.</p>
+<p t="71230" d="5060">And I think you have
+some rules for extending</p>
+<p t="76290" d="2660">these calculations as well.</p>
+<p t="78950" d="5130">For instance, I think you
+know that if you differentiate</p>
+<p t="84080" d="3690">a constant times a
+function, what do you get?</p>
+<p t="87770" d="4820">Student: [INAUDIBLE].</p>
+<p t="92590" d="4080">Professor: The constant
+comes outside like this.</p>
+<p t="96670" d="3360">Or I could write (cu)' = cu'.</p>
+<p t="102550" d="2800">That's this rule,
+multiplying by a constant,</p>
+<p t="105350" d="13520">and I think you also know
+about differentiating a sum.</p>
+<p t="118870" d="4780">Or I could write this
+as (u + v)' = u' + v'.</p>
+<p t="126870" d="2980">So I'm going to be using
+those but today I'll</p>
+<p t="129850" d="2440">talk about a collection
+of other rules</p>
+<p t="132290" d="2790">about how to deal with
+a product of functions,</p>
+<p t="135080" d="3100">a quotient of functions,
+and, best of all,</p>
+<p t="138180" d="1844">composition of functions.</p>
+<p t="140024" d="1666">And then at the end,
+I'll have something</p>
+<p t="141690" d="1790">to say about higher derivatives.</p>
+<p t="143480" d="3190">So that's the story for today.</p>
+<p t="146670" d="2450">That's the program.</p>
+<p t="149120" d="14240">So let's begin by talking
+about the product rule.</p>
+<p t="163360" d="1390">So the product
+rule tells you how</p>
+<p t="164750" d="2010">to differentiate a
+product of functions,</p>
+<p t="166760" d="2510">and I'll just give you
+the rule, first of all.</p>
+<p t="169270" d="2330">The rule is it's u'v + uv'.</p>
+<p t="177280" d="1220">It's a little bit funny.</p>
+<p t="178500" d="3820">Differentiating a
+product gives you a sum.</p>
+<p t="182320" d="4410">But let's see how that works
+out in a particular example.</p>
+<p t="186730" d="1540">For example, suppose
+that I wanted</p>
+<p t="188270" d="3010">to differentiate the product.</p>
+<p t="191280" d="2610">Well, the product
+of these two basic</p>
+<p t="193890" d="1694">examples that we
+just talked about.</p>
+<p t="195584" d="1416">I'm going to use
+the same variable</p>
+<p t="197000" d="3790">in both cases instead of
+different ones like I did here.</p>
+<p t="200790" d="2440">So the derivative
+of x^n times sin x.</p>
+<p t="208430" d="1870">So this is a new thing.</p>
+<p t="210300" d="5820">We couldn't do this without
+using the product rule.</p>
+<p t="216120" d="3550">So the first function is x^n
+and the second one is sin x.</p>
+<p t="219670" d="2070">And we're going to
+apply this rule.</p>
+<p t="221740" d="7710">So u is x^n. u' is, according
+to the rule, nx^(n-1).</p>
+<p t="229450" d="6579">And then I take v and write it
+down the way it is, sine of x.</p>
+<p t="236029" d="1291">And then I do it the other way.</p>
+<p t="237320" d="3370">I take u the way
+it is, that's x^n,</p>
+<p t="240690" d="4570">and multiply it by the
+derivative of v, v'.</p>
+<p t="245260" d="3974">We just saw v' is cosine of x.</p>
+<p t="249234" d="2286">So that's it.</p>
+<p t="251520" d="3460">Obviously, you can
+differentiate longer products,</p>
+<p t="254980" d="5580">products of more things
+by doing it one at a time.</p>
+<p t="260560" d="2140">Let's see why this is true.</p>
+<p t="262700" d="3030">I want to try to show you
+why the product rule holds.</p>
+<p t="265730" d="5760">So you have a standard way
+of trying to understand this,</p>
+<p t="271490" d="3100">and it involves looking at
+the change in the function</p>
+<p t="274590" d="2760">that you're interested
+in differentiating.</p>
+<p t="277350" d="4040">So I should look at how
+much the product uv changes</p>
+<p t="281390" d="3240">when x changes a little bit.</p>
+<p t="284630" d="2490">Well, so how do
+compute the change?</p>
+<p t="287120" d="2210">Well, I write down the
+value of the function</p>
+<p t="289330" d="6830">at some new value
+of x, x + delta x.</p>
+<p t="296160" d="2250">Well, I better write
+down the whole new value</p>
+<p t="298410" d="3070">of the function, and
+the function is uv.</p>
+<p t="301480" d="3750">So the whole new
+value looks like this.</p>
+<p t="305230" d="4220">It's u(x + delta x)
+times v(x + delta x).</p>
+<p t="309450" d="1510">That's the new value.</p>
+<p t="310960" d="2240">But what's the change
+in the product?</p>
+<p t="313200" d="2210">Well, I better subtract
+off what the old value</p>
+<p t="315410" d="5510">was, which is u(x) v(x).</p>
+<p t="320920" d="4030">Okay, according to the
+rule we're trying to prove,</p>
+<p t="324950" d="2800">I have to get u' involved.</p>
+<p t="327750" d="3670">So I want to involve the
+change in u alone, by itself.</p>
+<p t="331420" d="1570">Let's just try that.</p>
+<p t="332990" d="3630">I see part of the formula for
+the change in u right there.</p>
+<p t="336620" d="3640">Let's see if we can get
+the rest of it in place.</p>
+<p t="340260" d="6070">So the change in x is
+(u(x + delta x) - u(x).</p>
+<p t="346330" d="3750">That's the change in x
+[Correction: change in u].</p>
+<p t="350080" d="4680">This part of it occurs up here,
+multiplied by v(x + delta x),</p>
+<p t="354760" d="3130">so let's put that in too.</p>
+<p t="357890" d="2550">Now this equality sign
+isn't very good right now.</p>
+<p t="360440" d="4330">I've got this
+product here so far,</p>
+<p t="364770" d="1920">but I've introduced
+something I don't like.</p>
+<p t="366690" d="3110">I've introduced u times
+v(x delta x), right?</p>
+<p t="369800" d="2210">Minus that.</p>
+<p t="372010" d="5110">So the next thing I'm gonna do
+is correct that little defect</p>
+<p t="377120" d="7500">by adding in u(x)
+v(x + delta x).</p>
+<p t="384620" d="4214">Okay, now I cancelled off
+what was wrong with this line.</p>
+<p t="388834" d="1666">But I'm still not
+quite there, because I</p>
+<p t="390500" d="2170">haven't put this in yet.</p>
+<p t="392670" d="5750">So I better subtract off
+uv, and then I'll be home.</p>
+<p t="398420" d="2080">But I'm going to do
+that in a clever way,</p>
+<p t="400500" d="3400">because I noticed that
+I already have a u here.</p>
+<p t="403900" d="2720">So I'm gonna take
+this factor of u</p>
+<p t="406620" d="1940">and make it the
+same as this factor.</p>
+<p t="408560" d="3950">So I get u(x) times this,
+minus u(x) times that.</p>
+<p t="412510" d="4670">That's the same thing as
+u times the difference.</p>
+<p t="417180" d="2226">So that was a
+little bit strange,</p>
+<p t="419406" d="1624">but when you stand
+back and look at it,</p>
+<p t="421030" d="3250">you can see multiplied out,
+the middle terms cancel.</p>
+<p t="424280" d="3060">And you get the right answer.</p>
+<p t="427340" d="3080">Well I like that because
+it's involved the change in u</p>
+<p t="430420" d="6390">and the change in v. So this
+is equal to delta u times v(x +</p>
+<p t="436810" d="9510">delta x) minus u(x) times
+the change in v. Well,</p>
+<p t="446320" d="1190">I'm almost there.</p>
+<p t="447510" d="2540">The next step in computing
+the derivative is</p>
+<p t="450050" d="12860">take difference quotient,
+divide this by delta x.</p>
+<p t="462910" d="7780">So, (delta (uv)) /
+(delta x) is well,</p>
+<p t="470690" d="12460">I'll say (delta u / delta
+x) times v(x + delta x).</p>
+<p t="483150" d="6850">Have I made a mistake here?</p>
+<p t="490000" d="3340">This plus magically became a
+minus on the way down here,</p>
+<p t="493340" d="5470">so I better fix that.</p>
+<p t="498810" d="4450">Plus u times (delta
+v) / (delta x).</p>
+<p t="503260" d="4690">This u is this u over here.</p>
+<p t="507950" d="2360">So I've just divided
+this formula by delta x,</p>
+<p t="510310" d="4210">and now I can take the limit
+as x goes to 0, so this</p>
+<p t="514520" d="7550">is as delta x goes to 0.</p>
+<p t="522070" d="4410">This becomes the definition
+of the derivative,</p>
+<p t="526480" d="5310">and on this side, I
+get du/dx times...</p>
+<p t="531790" d="5610">now what happens to this
+quantity when delta x goes</p>
+<p t="537400" d="5350">to 0?</p>
+<p t="542750" d="2960">So this quantity is getting
+closer and closer to x.</p>
+<p t="545710" d="3290">So what happens
+to the value of v?</p>
+<p t="549000" d="5030">It becomes equal to x of v.
+That uses continuity of v. So,</p>
+<p t="554030" d="8560">v(x + delta x) goes
+to v(x) by continuity.</p>
+<p t="562590" d="3996">So this gives me times v,
+and then I have u times,</p>
+<p t="566586" d="4094">and delta v / delta
+x gives me dv/dx.</p>
+<p t="570680" d="1139">And that's the formula.</p>
+<p t="571819" d="1541">That's the formula
+as I wrote it down</p>
+<p t="573360" d="2300">at the beginning over here.</p>
+<p t="575660" d="3510">The derivative of a product
+is given by this sum.</p>
+<p t="579170" d="7053">Yeah?</p>
+<p t="586223" d="1833">Student: How did you
+get from the first line</p>
+<p t="588056" d="1458">to the second of
+the long equation?</p>
+<p t="589514" d="1876">Professor: From here to here?</p>
+<p t="591390" d="2070">Student: Yes.</p>
+<p t="593460" d="2920">Professor: So maybe it's easiest
+to work backwards and verify</p>
+<p t="596380" d="3420">that what I wrote
+down is correct here.</p>
+<p t="599800" d="5330">So, if you look there's a u
+times v(x + delta x) there.</p>
+<p t="605130" d="2710">And there's also one here.</p>
+<p t="607840" d="2100">And they occur with
+opposite signs.</p>
+<p t="609940" d="1550">So they cancel.</p>
+<p t="611490" d="9040">What's left is u(x + delta
+x) v(x + delta x) - uv.</p>
+<p t="620530" d="8590">And that's just
+what I started with.</p>
+<p t="629120" d="4800">Student: [INAUDIBLE]
+They cancel right?</p>
+<p t="633920" d="3510">Professor: I cancelled out
+this term and this term,</p>
+<p t="637430" d="2270">and what's left is the ends.</p>
+<p t="639700" d="1790">Any other questions?</p>
+<p t="641490" d="8170">Student: [INAUDIBLE].</p>
+<p t="649660" d="5980">Professor: Well, I just
+calculated what delta uv is,</p>
+<p t="655640" d="2340">and now I'm gonna divide
+that by delta x on my way</p>
+<p t="657980" d="2270">to computing the derivative.</p>
+<p t="660250" d="7510">And so I copied down the right
+hand side and divided delta x.</p>
+<p t="667760" d="3790">I just decided to divide the
+delta u by delta x and delta v</p>
+<p t="671550" d="4680">by delta x.</p>
+<p t="676230" d="760">Good.</p>
+<p t="676990" d="5500">Anything else?</p>
+<p t="682490" d="1770">So we have the
+product rule here.</p>
+<p t="684260" d="2720">The rule for differentiating
+a product of two functions.</p>
+<p t="686980" d="1345">This is making us stronger.</p>
+<p t="688325" d="1375">There are many
+more functions you</p>
+<p t="689700" d="1720">can find derivatives of now.</p>
+<p t="691420" d="2160">How about quotients?</p>
+<p t="693580" d="1790">Let's find out how
+to differentiate</p>
+<p t="695370" d="12299">a quotient of two functions.</p>
+<p t="707669" d="2541">Well again, I'll write down what
+the answer is and then we'll</p>
+<p t="710210" d="2160">try to verify it.</p>
+<p t="712370" d="2822">So there's a quotient.</p>
+<p t="715192" d="958">Let me write this down.</p>
+<p t="716150" d="2820">There's a quotient
+of two functions.</p>
+<p t="718970" d="1370">And here's the rule for it.</p>
+<p t="720340" d="2570">I always have to think about
+this and hope that I get it</p>
+<p t="722910" d="6230">right. (u'v - uv') / v^2.</p>
+<p t="729140" d="2760">This may be the craziest rule
+you'll see in this course,</p>
+<p t="731900" d="2430">but there it is.</p>
+<p t="734330" d="3684">And I'll try to show you why
+that's true and see an example.</p>
+<p t="738014" d="916">Yeah there was a hand?</p>
+<p t="738930" d="8370">Student: [INAUDIBLE]</p>
+<p t="747300" d="5740">Professor: What letters look
+the same? u and v look the same?</p>
+<p t="753040" d="4000">I'll try to make them
+look more different.</p>
+<p t="757040" d="1480">The v's have points
+on the bottom.</p>
+<p t="758520" d="2640">u's have little round
+things on the bottom.</p>
+<p t="761160" d="3820">What's the new value of u?</p>
+<p t="764980" d="10462">The value of u at x + delta
+x is u + delta u, right?</p>
+<p t="775442" d="958">That's what delta u is.</p>
+<p t="776400" d="4927">It's the change in u when
+x gets replaced by delta x</p>
+<p t="781327" d="1083">[Correction: x + delta x].</p>
+<p t="782410" d="7290">And the change in v, the
+new value v, is v + delta v.</p>
+<p t="789700" d="3430">So this is the new value of u
+divided by the new value of v.</p>
+<p t="793130" d="3000">That's the beginning.</p>
+<p t="796130" d="2575">And then I subtract off
+the old values, which</p>
+<p t="798705" d="4205">are u minus v. This'll
+be easier to work out</p>
+<p t="802910" d="3174">when I write it out this way.</p>
+<p t="806084" d="1666">So now, we'll cross
+multiply, as I said.</p>
+<p t="807750" d="11140">So I get uv + (delta u)v minus,
+now I cross multiply this way,</p>
+<p t="818890" d="7440">you get uv - u(delta v).</p>
+<p t="826330" d="3650">And I divide all this
+by (v + delta v)u.</p>
+<p t="832840" d="3130">Okay, now the reason
+I like to do it</p>
+<p t="835970" d="3520">this way is that you see the
+cancellation happening here. uv</p>
+<p t="839490" d="2697">and uv occur twice and
+so I can cancel them.</p>
+<p t="842187" d="2333">And I will, and I'll answer
+these questions in a minute.</p>
+<p t="844520" d="1740">Audience: [INAUDIBLE].</p>
+<p t="846260" d="7770">Professor: Ooh,
+that's a v. All right.</p>
+<p t="854030" d="1540">Good, anything else?</p>
+<p t="855570" d="1180">That's what all hands were.</p>
+<p t="856750" d="1130">Good.</p>
+<p t="857880" d="2990">All right, so I cancel these
+and what I'm left with then</p>
+<p t="860870" d="4030">is delta u times v
+minus u times delta v</p>
+<p t="864900" d="7350">and all this is over v
++ delta v times v. Okay,</p>
+<p t="872250" d="1110">there's the difference.</p>
+<p t="873360" d="3240">There's the change
+in the quotient.</p>
+<p t="876600" d="2980">The change in this function
+is given by this formula.</p>
+<p t="879580" d="1990">And now to compute
+the derivative,</p>
+<p t="881570" d="3430">I want to divide by delta
+x, and take the limit.</p>
+<p t="885000" d="8560">So let's write that down,
+delta(u/v)/delta x is this</p>
+<p t="893560" d="3260">formula here divided by delta x.</p>
+<p t="896820" d="4166">And again, I'm going to put
+the delta x under these delta u</p>
+<p t="900986" d="1794">and delta v. Okay?</p>
+<p t="902780" d="2300">I'm gonna put delta
+x in the denominator,</p>
+<p t="905080" d="2070">but I can think of
+that as dividing</p>
+<p t="907150" d="2770">into this factor
+and this factor.</p>
+<p t="909920" d="7060">So this is (delta u/ delta
+x)v - u(delta v/delta x).</p>
+<p t="921130" d="2000">And all that is divided
+by the same denominator,</p>
+<p t="923130" d="5840">(v + delta v)v. Right?</p>
+<p t="928970" d="4040">Put the delta x up in
+the numerator there.</p>
+<p t="933010" d="4820">Next up, take the limit
+as delta x goes to 0.</p>
+<p t="937830" d="5640">I get, by definition,
+the derivative of (u/v).</p>
+<p t="943470" d="2740">And on the right
+hand side, well, this</p>
+<p t="946210" d="5090">is the derivative du/dx right?</p>
+<p t="951300" d="4270">Times v. See and then
+u times, and here it's</p>
+<p t="955570" d="910">the derivative dv/dx.</p>
+<p t="960420" d="3830">Now what about the denominator?</p>
+<p t="964250" d="5970">So when delta x goes to 0,
+v stays the same, v stays</p>
+<p t="970220" d="500">the same.</p>
+<p t="970720" d="2760">What happens to this delta v?</p>
+<p t="973480" d="4490">It goes to 0, again,
+because v is continuous.</p>
+<p t="977970" d="5360">So again, delta v
+goes to 0 with delta x</p>
+<p t="983330" d="4850">because they're continuous
+and you just get v times v.</p>
+<p t="988180" d="2687">I think that's the formula
+I wrote down over there.</p>
+<p t="990867" d="833">(du/dx)v - u(dv/dx).</p>
+<p t="995510" d="5260">And all divided by the square
+of the old denominator.</p>
+<p t="1000770" d="1390">Well, that's it.</p>
+<p t="1002160" d="1380">That's the quotient rule.</p>
+<p t="1003540" d="980">Weird formula.</p>
+<p t="1004520" d="1640">Let's see an application.</p>
+<p t="1006160" d="4910">Let's see an example.</p>
+<p t="1011070" d="3610">So the example I'm going
+to give is pretty simple.</p>
+<p t="1014680" d="3420">I'm going to take the
+numerator to be just 1.</p>
+<p t="1018100" d="4690">So I'm gonna take u = 1.</p>
+<p t="1022790" d="4790">So now I'm
+differentiating 1 / v,</p>
+<p t="1027580" d="6850">the reciprocal of a
+function; 1 over a function.</p>
+<p t="1034430" d="2450">Here's a copy of my rule.</p>
+<p t="1036880" d="5910">What's du/ dx in that
+case? u is a constant,</p>
+<p t="1042790" d="4260">so that term is 0 in this rule.</p>
+<p t="1047050" d="1650">I don't have to
+worry about this.</p>
+<p t="1048700" d="2950">I get a minus.</p>
+<p t="1051650" d="5150">And then u is 1, and dv/dx.</p>
+<p t="1056800" d="2020">Well, v is whatever v is.</p>
+<p t="1058820" d="1970">I'll write dv/dx as v'.</p>
+<p t="1063854" d="1666">And then I get a v^2
+in the denominator.</p>
+<p t="1065520" d="4550">So that's the rule.</p>
+<p t="1070070" d="1310">I could write it as v^(-2) v'.</p>
+<p t="1076840" d="2460">Minus v' divided by v^2.</p>
+<p t="1079300" d="4430">That's the derivative of 1 / v.</p>
+<p t="1083730" d="8380">How about sub-example of that?</p>
+<p t="1092110" d="3730">I'm going to take the special
+case where u = 1 again.</p>
+<p t="1095840" d="930">And v is a power of x.</p>
+<p t="1101000" d="4630">And I'm gonna use the rule
+that we developed earlier about</p>
+<p t="1105630" d="3450">the derivative of x^n.</p>
+<p t="1109080" d="4150">So what do I get here?</p>
+<p t="1113230" d="9415">d/dx (1/x^n) is, I'm plugging
+into this formula here with v =</p>
+<p t="1122645" d="2615">x^n.</p>
+<p t="1125260" d="6320">So I get minus, uh, v^-2.</p>
+<p t="1131580" d="5670">If v = x^n, v^-2 is, by the
+rule of exponents, x^(-2n).</p>
+<p t="1141430" d="4120">And then v' is the derivative
+of x^n, which is nx^(n-1).</p>
+<p t="1150150" d="1860">Okay, so let's put
+these together.</p>
+<p t="1152010" d="1540">There's several
+powers of x here.</p>
+<p t="1153550" d="1390">I can put them together.</p>
+<p t="1154940" d="7390">I get -n x to the -2n + n - 1.</p>
+<p t="1162330" d="1606">One of these n's cancels.</p>
+<p t="1163936" d="1374">And what I'm left
+with is -n - 1.</p>
+<p t="1169260" d="3290">So we've computed the
+derivative of 1 / x^n,</p>
+<p t="1172550" d="6660">which I could also
+write as x^-n, right?</p>
+<p t="1179210" d="3430">So I've computed the derivative
+of negative powers of x.</p>
+<p t="1182640" d="3920">And this is the
+formula that I get.</p>
+<p t="1186560" d="5430">If you think of this -n as a
+unit, as a thing to itself,</p>
+<p t="1191990" d="2320">it occurs here in the exponent.</p>
+<p t="1194310" d="5580">It occurs here,
+and it occurs here.</p>
+<p t="1199890" d="1930">So how does that
+compare with the formula</p>
+<p t="1201820" d="2300">that we had up here?</p>
+<p t="1204120" d="2740">The derivative of
+a power of x is</p>
+<p t="1206860" d="5440">that power times x to
+one less than that power.</p>
+<p t="1212300" d="3710">That's exactly the same as the
+rule that I wrote down here.</p>
+<p t="1216010" d="3040">But the power here happens
+to be a negative number,</p>
+<p t="1219050" d="3310">and the same negative number
+shows up as a coefficient</p>
+<p t="1222360" d="1420">and there in the exponent.</p>
+<p t="1223780" d="500">Yeah?</p>
+<p t="1224280" d="6160">Student: [INAUDIBLE].</p>
+<p t="1230440" d="4490">Professor: How did I do this?</p>
+<p t="1234930" d="14220">Student: [INAUDIBLE].</p>
+<p t="1249150" d="6840">Professor: Where did
+that x^(-2n) come from?</p>
+<p t="1255990" d="3910">So I'm applying this rule.</p>
+<p t="1259900" d="4540">So the denominator in
+the quotient rule is v^2.</p>
+<p t="1264440" d="6669">And v was x^n, so the
+denominator is x^(2n).</p>
+<p t="1271109" d="1541">And I decided to
+write it as x^(-2n).</p>
+<p t="1279010" d="3070">So the green comments there...</p>
+<p t="1282080" d="4190">What they say is that I
+can enlarge this rule.</p>
+<p t="1286270" d="4960">This exact same rule is true
+for negative values of n,</p>
+<p t="1291230" d="5080">as well as positive values of n.</p>
+<p t="1296310" d="3990">So there's something
+new in your list</p>
+<p t="1300300" d="6370">of rules that you can apply,
+of values of the derivative.</p>
+<p t="1306670" d="2880">That standard rule is true for
+negative as well as positive</p>
+<p t="1309550" d="1570">exponents.</p>
+<p t="1311120" d="6170">And that comes out
+of a quotient rule.</p>
+<p t="1317290" d="1730">Okay, so we've done two rules.</p>
+<p t="1319020" d="5630">I've talked about the product
+rule and the quotient rule.</p>
+<p t="1324650" d="1020">What's next?</p>
+<p t="1325670" d="1480">Let's see the chain rule.</p>
+<p t="1327150" d="15070">So this is a composition rule.</p>
+<p t="1342220" d="2670">So the kind of thing that
+I have in mind, composition</p>
+<p t="1344890" d="3320">of functions is
+about substitution.</p>
+<p t="1348210" d="2896">So the kind of function that I
+have in mind is, for instance,</p>
+<p t="1351106" d="624">y = (sin t)^10.</p>
+<p t="1359700" d="2995">That's a new one.</p>
+<p t="1362695" d="2125">We haven't seen how to
+differentiate that before, I</p>
+<p t="1364820" d="1770">think.</p>
+<p t="1366590" d="4010">This kind of power of a trig
+function happens very often.</p>
+<p t="1370600" d="2940">You've seen them happen,
+as well, I'm sure, already.</p>
+<p t="1373540" d="4480">And there's a little notational
+switch that people use.</p>
+<p t="1378020" d="1300">They'll write sin^10(t).</p>
+<p t="1382910" d="2190">But remember that when
+you write sin^10(t),</p>
+<p t="1385100" d="2930">what you mean is
+take the sine of t,</p>
+<p t="1388030" d="2410">and then take the
+10th power of that.</p>
+<p t="1390440" d="3150">It's the meaning of sin^10(t).</p>
+<p t="1393590" d="7360">So the method of dealing
+with this kind of composition</p>
+<p t="1400950" d="12240">of functions is to use
+new variable names.</p>
+<p t="1413190" d="3640">What I mean is, I can
+think of this (sin t)^10.</p>
+<p t="1419710" d="2360">I can think of it it
+as a two step process.</p>
+<p t="1422070" d="2090">First of all, I
+compute the sine of t.</p>
+<p t="1424160" d="3290">And let's call the result x.</p>
+<p t="1427450" d="2700">There's the new variable name.</p>
+<p t="1430150" d="3190">And then, I express
+y in terms of x.</p>
+<p t="1433340" d="4730">So y says take this and
+raise it to the tenth power.</p>
+<p t="1438070" d="1290">In other words, y = x^10.</p>
+<p t="1443400" d="3020">And then you plug x
+= sin(t) into that,</p>
+<p t="1446420" d="4170">and you get the formula for
+what y is in terms of t.</p>
+<p t="1450590" d="3960">So it's good practice to
+introduce new letters when</p>
+<p t="1454550" d="2510">they're convenient, and
+this is one place where</p>
+<p t="1457060" d="4760">it's very convenient.</p>
+<p t="1461820" d="2440">So let's find a rule
+for differentiating</p>
+<p t="1464260" d="1600">a composition, a
+function that can</p>
+<p t="1465860" d="1910">be expressed by
+doing one function</p>
+<p t="1467770" d="2500">and then applying
+another function.</p>
+<p t="1470270" d="2610">And here's the rule.</p>
+<p t="1472880" d="2050">Well, maybe I'll actually
+derive this rule first,</p>
+<p t="1474930" d="2490">and then you'll see what it is.</p>
+<p t="1477420" d="3180">In fact, the rule is
+very simple to derive.</p>
+<p t="1480600" d="3290">So this is a proof first, and
+then we'll write down the rule.</p>
+<p t="1483890" d="8060">I'm interested in delta y /
+delta t. y is a function of x.</p>
+<p t="1491950" d="1810">x is a function of t.</p>
+<p t="1493760" d="3090">And I'm interested in how
+y changes with respect</p>
+<p t="1496850" d="4000">to t, with respect to
+the original variable t.</p>
+<p t="1500850" d="4310">Well, because of that
+intermediate variable,</p>
+<p t="1505160" d="7510">I can write this as (delta y /
+delta x) (delta x / delta t).</p>
+<p t="1512670" d="2660">It cancels, right?</p>
+<p t="1515330" d="2270">The delta x cancels.</p>
+<p t="1517600" d="5500">The change in that immediate
+variable cancels out.</p>
+<p t="1523100" d="3020">This is just basic algebra.</p>
+<p t="1526120" d="3810">But what happens when I
+let delta t get small?</p>
+<p t="1529930" d="1480">Well this give me dy/dt.</p>
+<p t="1534370" d="7850">On the right-hand side,
+I get (dy/dx) (dx/dt).</p>
+<p t="1542220" d="2210">So students will often
+remember this rule.</p>
+<p t="1544430" d="2700">This is the rule, by saying
+that you can cancel out</p>
+<p t="1547130" d="1950">for the dx's.</p>
+<p t="1549080" d="2780">And that's not so
+far from the truth.</p>
+<p t="1551860" d="3300">That's a good way
+to think of it.</p>
+<p t="1555160" d="6250">In other words, this is
+the so-called chain rule.</p>
+<p t="1561410" d="25280">And it says that differentiation
+of a composition is a product.</p>
+<p t="1586690" d="8220">It's just the product
+of the two derivatives.</p>
+<p t="1594910" d="4660">So that's how you differentiate
+a composite of two functions.</p>
+<p t="1599570" d="2500">And let's just do an example.</p>
+<p t="1602070" d="2620">Let's do this example.</p>
+<p t="1604690" d="4130">Let's see how that comes out.</p>
+<p t="1608820" d="6430">So let's differentiate,
+what did I say?</p>
+<p t="1615250" d="1280">(sin t)^10.</p>
+<p t="1619400" d="3730">Okay, there's an inside function
+and an outside function.</p>
+<p t="1623130" d="4780">The inside function is
+x as a function of t.</p>
+<p t="1627910" d="11260">This is the inside function, and
+this is the outside function.</p>
+<p t="1639170" d="3420">So the rule says, first
+of all let's differentiate</p>
+<p t="1642590" d="960">the outside function.</p>
+<p t="1643550" d="1820">Take dy/dx.</p>
+<p t="1645370" d="3830">Differentiate it with
+respect to that variable x.</p>
+<p t="1649200" d="1820">The outside function
+is the 10th power.</p>
+<p t="1651020" d="3620">What's its derivative?</p>
+<p t="1654640" d="2890">So I get 10x^9.</p>
+<p t="1662440" d="8650">In this account, I'm using
+this newly introduced variable</p>
+<p t="1671090" d="2900">named x.</p>
+<p t="1673990" d="4160">So the derivative of the
+outside function is 10x^9.</p>
+<p t="1678150" d="2210">And then here's the
+inside function,</p>
+<p t="1680360" d="2770">and the next thing I want
+to do is differentiate it.</p>
+<p t="1683130" d="4600">So what's dx/dt, d/dt (sin
+t), the derivative of sine t?</p>
+<p t="1687730" d="3889">All right, that's cosine t.</p>
+<p t="1691619" d="1541">That's what the
+chain rule gives you.</p>
+<p t="1693160" d="4330">This is correct, but
+since we were the ones</p>
+<p t="1697490" d="3240">to introduce this
+notation x here,</p>
+<p t="1700730" d="3830">that wasn't given to us in
+the original problem here.</p>
+<p t="1704560" d="1840">The last step in
+this process should</p>
+<p t="1706400" d="2580">be to put back,
+to substitute back</p>
+<p t="1708980" d="3460">in what x is in terms of t.</p>
+<p t="1712440" d="2880">So x = sin t.</p>
+<p t="1715320" d="10660">So that tells me that I get
+10(sin(t))^9, that's x^9,</p>
+<p t="1725980" d="1880">times the cos(t).</p>
+<p t="1727860" d="3000">Or the same thing
+is sin^9(t)cos(t).</p>
+<p t="1736040" d="3500">So there's an application
+of the chain rule.</p>
+<p t="1739540" d="2964">You know, people often
+wonder where the name chain</p>
+<p t="1742504" d="666">rule comes from.</p>
+<p t="1743170" d="3170">I was just wondering
+about that myself.</p>
+<p t="1746340" d="8890">So is it because
+it chains you down?</p>
+<p t="1755230" d="2840">Is it like a chain fence?</p>
+<p t="1758070" d="1520">I decided what it is.</p>
+<p t="1759590" d="2320">It's because by
+using it, you burst</p>
+<p t="1761910" d="3970">the chains of differentiation,
+and you can differentiate</p>
+<p t="1765880" d="2160">many more functions using it.</p>
+<p t="1768040" d="3513">So when you want to
+think of the chain rule,</p>
+<p t="1771553" d="4087">just think of that chain there.</p>
+<p t="1775640" d="12320">It lets you burst free.</p>
+<p t="1787960" d="16870">Let me give you another
+application of the chain rule.</p>
+<p t="1804830" d="11390">Ready for this one?</p>
+<p t="1816220" d="1750">So I'd like to
+differentiate the sin(10t).</p>
+<p t="1825524" d="1916">Again, this is the
+composite of two functions.</p>
+<p t="1827440" d="2780">What's the inside function?</p>
+<p t="1830220" d="5420">Okay, so I think I'll introduce
+this new notation. x = 10t,</p>
+<p t="1835640" d="2620">and the outside
+function is the sine.</p>
+<p t="1838260" d="3060">So y = sin x.</p>
+<p t="1841320" d="5340">So now the chain
+rule says dy/dt is...</p>
+<p t="1846660" d="1260">Okay, let's see.</p>
+<p t="1847920" d="2790">I take the derivative
+of the outside function,</p>
+<p t="1850710" d="3530">and what's that?</p>
+<p t="1854240" d="2230">Sine prime and we can
+substitute because we</p>
+<p t="1856470" d="2050">know what sine prime is.</p>
+<p t="1858520" d="7950">So I get cosine of whatever,
+x, and then times what?</p>
+<p t="1866470" d="4930">Now I differentiate the inside
+function, which is just 10.</p>
+<p t="1871400" d="4980">So I could write this
+as 10cos of what?</p>
+<p t="1876380" d="980">10t, x is 10t.</p>
+<p t="1880260" d="5910">Now, once you get used to
+this, this middle variable,</p>
+<p t="1886170" d="7020">you don't have to
+give a name for it.</p>
+<p t="1893190" d="1960">You can just to think
+about it in your mind</p>
+<p t="1895150" d="9740">without actually writing
+it down, d/dt (sin(10t)).</p>
+<p t="1907980" d="1880">I'll just do it again
+without introducing</p>
+<p t="1909860" d="2380">this middle variable explicitly.</p>
+<p t="1912240" d="2290">Think about it.</p>
+<p t="1914530" d="3570">I first of all differentiate
+the outside function,</p>
+<p t="1918100" d="1640">and I get cosine.</p>
+<p t="1919740" d="3430">But I don't change the thing
+that I'm plugging into it.</p>
+<p t="1923170" d="5390">It's still x that I'm
+plugging into it. x is 10t.</p>
+<p t="1928560" d="2910">So let's just write 10t and
+not worry about the name</p>
+<p t="1931470" d="1250">of that extra variable.</p>
+<p t="1932720" d="2790">If it confuses you,
+introduce the new variable.</p>
+<p t="1935510" d="2670">And do it carefully
+and slowly like this.</p>
+<p t="1938180" d="1790">But, quite quickly,
+I think you'll</p>
+<p t="1939970" d="3232">get to be able to keep
+that step in your mind.</p>
+<p t="1943202" d="958">I'm not quite done yet.</p>
+<p t="1944160" d="2740">I haven't differentiated
+the inside function,</p>
+<p t="1946900" d="2290">the derivative of 10t = 10.</p>
+<p t="1949190" d="4060">So you get, again,
+the same result.</p>
+<p t="1953250" d="3170">A little shortcut that
+you'll get used to.</p>
+<p t="1956420" d="2260">Really and truly, once
+you have the chain rule,</p>
+<p t="1958680" d="2430">the world is yours to conquer.</p>
+<p t="1961110" d="5620">It puts you in a very,
+very powerful position.</p>
+<p t="1966730" d="3480">Okay, well let's see.</p>
+<p t="1970210" d="1100">What have I covered today?</p>
+<p t="1971310" d="6060">I've talked about product rule,
+quotient rule, composition.</p>
+<p t="1977370" d="2210">I should tell you something
+about higher derivatives,</p>
+<p t="1979580" d="1090">as well.</p>
+<p t="1980670" d="9770">So let's do that.</p>
+<p t="1990440" d="1710">This is a simple story.</p>
+<p t="1992150" d="2800">Higher is kind of
+a strange word.</p>
+<p t="1994950" d="18000">It just means differentiate
+over and over again.</p>
+<p t="2012950" d="1650">All right, so let's see.</p>
+<p t="2014600" d="3910">If we have a function
+u or u(x), please</p>
+<p t="2018510" d="6500">allow me to just write
+it as briefly as u.</p>
+<p t="2025010" d="4320">Well, this is a sort
+of notational thing.</p>
+<p t="2029330" d="2450">I can differentiate
+it and get u'.</p>
+<p t="2034790" d="1110">That's a new function.</p>
+<p t="2035900" d="1780">Like if you started
+with the sine, that's</p>
+<p t="2037680" d="3080">gonna be the cosine.</p>
+<p t="2040760" d="2810">A new function, so I can
+differentiate it again.</p>
+<p t="2043570" d="2210">And the notation for the
+differentiating of it again,</p>
+<p t="2045780" d="1690">is u prime prime.</p>
+<p t="2047470" d="5460">So u'' is just u'
+differentiated again.</p>
+<p t="2052930" d="8450">For example, if u is the sine
+of x, so u' is the cosine of x.</p>
+<p t="2061380" d="2770">Has Professor Jerison
+talked about what</p>
+<p t="2064150" d="2430">the derivative of cosine is?</p>
+<p t="2066580" d="1640">What is it?</p>
+<p t="2068220" d="4800">Ha, okay so u'' is -sin x.</p>
+<p t="2076810" d="2120">Let me go on.</p>
+<p t="2078930" d="4040">What do you suppose u''' means?</p>
+<p t="2082970" d="3450">I guess it's the
+derivative of u''.</p>
+<p t="2086420" d="6630">It's called the
+third derivative.</p>
+<p t="2093050" d="3160">And u'' is called the
+second derivative.</p>
+<p t="2096210" d="2790">And it's u''
+differentiated again.</p>
+<p t="2099000" d="4680">So to compute u''' in this
+example, what do I do?</p>
+<p t="2103680" d="1660">I differentiate that again.</p>
+<p t="2105340" d="3120">There's a constant term,
+-1, constant factor.</p>
+<p t="2108460" d="1490">That comes out.</p>
+<p t="2109950" d="3550">The derivative of sine is what?</p>
+<p t="2113500" d="4430">Okay, so u''' = -cos x.</p>
+<p t="2117930" d="760">Let's do it again.</p>
+<p t="2118690" d="3200">Now after a while, you get
+tired of writing these things.</p>
+<p t="2121890" d="2760">And so maybe I'll use
+the notation u^(4).</p>
+<p t="2124650" d="2640">That's the fourth derivative.</p>
+<p t="2127290" d="2200">That's u''''.</p>
+<p t="2129490" d="3950">Or it's (u''') differentiated
+again, the fourth derivative.</p>
+<p t="2133440" d="4530">And what is that
+in this example?</p>
+<p t="2137970" d="3320">Okay, the cosine has
+derivative minus the sine,</p>
+<p t="2141290" d="720">like you told me.</p>
+<p t="2142010" d="2420">And that minus sign
+cancels with that sign,</p>
+<p t="2144430" d="3210">and all together, I get sin x.</p>
+<p t="2147640" d="1300">That's pretty bizarre.</p>
+<p t="2148940" d="2780">When I differentiate the
+function sine of x four times,</p>
+<p t="2151720" d="5200">I get back to the
+sine of x again.</p>
+<p t="2156920" d="3370">That's the way it is.</p>
+<p t="2160290" d="3201">Now this notation, prime
+prime prime prime, and things</p>
+<p t="2163491" d="499">like that.</p>
+<p t="2163990" d="9660">There are different
+variants of that notation.</p>
+<p t="2173650" d="10420">For example, that's
+another notation.</p>
+<p t="2184070" d="5250">Well, you've used the
+notation du/dx before. u'</p>
+<p t="2189320" d="1310">could also be denoted du/dx.</p>
+<p t="2195730" d="2730">I think we've
+already here, today,</p>
+<p t="2198460" d="4770">used this way of
+rewriting du/dx.</p>
+<p t="2203230" d="4920">I think when I was talking about
+d/dt(uv) and so on, I pulled</p>
+<p t="2208150" d="4210">that d/dt outside and
+put whatever function</p>
+<p t="2212360" d="2650">you're differentiating
+over to the right.</p>
+<p t="2215010" d="2420">So that's just a
+notational switch.</p>
+<p t="2217430" d="680">It looks good.</p>
+<p t="2218110" d="8150">It looks like good
+algebra doesn't it?</p>
+<p t="2226260" d="6150">But what it's doing is regarding
+this notation as an operator.</p>
+<p t="2232410" d="4510">It's something you apply to a
+function to get a new function.</p>
+<p t="2236920" d="3760">I apply it to the sine function,
+and I get the cosine function.</p>
+<p t="2240680" d="3540">I apply it to x^2, and I get 2x.</p>
+<p t="2244220" d="6920">This thing here, that symbol,
+represents an operator,</p>
+<p t="2251140" d="9200">which you apply to a function.</p>
+<p t="2260340" d="4520">And the operator says, take the
+function and differentiate it.</p>
+<p t="2264860" d="2470">So further notation
+that people often use,</p>
+<p t="2267330" d="2130">is they give a different
+name to that operator.</p>
+<p t="2269460" d="2810">And they'll write
+capital D for it.</p>
+<p t="2272270" d="10710">So this is just using capital
+D for the symbol d/dx.</p>
+<p t="2282980" d="2070">So in terms of that
+notation, let's see.</p>
+<p t="2285050" d="15390">Let's write down what higher
+derivatives look like.</p>
+<p t="2300440" d="1430">So let's see.</p>
+<p t="2301870" d="1220">That's what u' is.</p>
+<p t="2303090" d="1270">How about u''?</p>
+<p t="2304360" d="4530">Let's write that in terms
+of the d/dx notation.</p>
+<p t="2308890" d="2820">Well I'm supposed to
+differentiate u' right?</p>
+<p t="2311710" d="3880">So that's d/dx applied
+to the function du/dx.</p>
+<p t="2320920" d="2110">Differentiate the derivative.</p>
+<p t="2323030" d="4210">That's what I've done.</p>
+<p t="2327240" d="7110">Or I could write that as d/dx
+applied to d/dx applied to u.</p>
+<p t="2334350" d="3500">Just pulling that u outside.</p>
+<p t="2337850" d="1720">So I'm doing d/dx twice.</p>
+<p t="2339570" d="2020">I'm doing that operator twice.</p>
+<p t="2341590" d="6440">I could write that as
+(d/dx)^2 applied to u.</p>
+<p t="2348030" d="7140">Differentiate twice, and
+do it to the function u.</p>
+<p t="2355170" d="7960">Or, I can write it as,
+now this is a strange one.</p>
+<p t="2363130" d="10200">I could also write
+as-- like that.</p>
+<p t="2373330" d="3300">It's getting stranger
+and stranger, isn't it?</p>
+<p t="2376630" d="4140">This is definitely just a
+kind of abuse of notation.</p>
+<p t="2380770" d="4260">But people will go even
+further and write d squared</p>
+<p t="2385030" d="1000">u divided by dx squared.</p>
+<p t="2390500" d="1690">So this is the strangest one.</p>
+<p t="2392190" d="4000">This identity quality
+is the strangest one,</p>
+<p t="2396190" d="3940">because you may think that
+you're taking d of the quantity</p>
+<p t="2400130" d="1200">x^2.</p>
+<p t="2401330" d="2600">But that's not what's intended.</p>
+<p t="2403930" d="4310">This is not d(x^2).</p>
+<p t="2408240" d="4510">What's intended is the
+quantity dx squared.</p>
+<p t="2412750" d="1880">In this notation,
+which is very common,</p>
+<p t="2414630" d="1780">what's intended
+by the denominator</p>
+<p t="2416410" d="1840">is the quantity dx squared.</p>
+<p t="2418250" d="5380">It's part of this second
+differentiation operator.</p>
+<p t="2423630" d="2610">So I've written a bunch
+of equalities down here,</p>
+<p t="2426240" d="2330">and the only content
+to them is that these</p>
+<p t="2428570" d="3750">are all different notations
+for the same thing.</p>
+<p t="2432320" d="2620">You'll see this
+notation very commonly.</p>
+<p t="2434940" d="2110">So for instance the
+third derivative</p>
+<p t="2437050" d="10280">is d cubed u divided
+by dx cubed, and so on.</p>
+<p t="2447330" d="500">Sorry?</p>
+<p t="2447830" d="10925">Student: [INAUDIBLE].</p>
+<p t="2458755" d="1125">Professor: Yes, absolutely.</p>
+<p t="2459880" d="4537">Or an equally good notation is
+to write the operator capital</p>
+<p t="2464417" d="1083">D, done three times, to u.</p>
+<p t="2469400" d="2102">Absolutely.</p>
+<p t="2471502" d="2458">So I guess I should also write
+over here when I was talking</p>
+<p t="2473960" d="2220">about d^2, the
+second derivative,</p>
+<p t="2476180" d="4640">another notation is do the
+operator capital D twice.</p>
+<p t="2480820" d="2000">Let's see an example of
+how this can be applied.</p>
+<p t="2482820" d="1083">I'll answer this question.</p>
+<p t="2483903" d="8679">Student: [INAUDIBLE].</p>
+<p t="2492582" d="1458">Professor: Yeah,
+so the question is</p>
+<p t="2494040" d="2190">whether the fourth
+derivative always gives you</p>
+<p t="2496230" d="2650">the original function back,
+like what happened here.</p>
+<p t="2498880" d="700">No.</p>
+<p t="2499580" d="3890">That's very, very special
+to sines and cosines.</p>
+<p t="2503470" d="1730">All right?</p>
+<p t="2505200" d="2650">And, in fact, let's
+see an example of that.</p>
+<p t="2507850" d="3070">I'll do a calculation.</p>
+<p t="2510920" d="15210">Let's calculate the
+nth derivative of x^n.</p>
+<p t="2526130" d="7060">Okay, n is a number,
+like 1, 2, 3, 4.</p>
+<p t="2533190" d="530">Here we go.</p>
+<p t="2533720" d="1640">Let's do this.</p>
+<p t="2535360" d="2290">So, let's do this bit by bit.</p>
+<p t="2537650" d="4850">What's the first
+derivative of x^n?</p>
+<p t="2542500" d="1590">So everybody knows this.</p>
+<p t="2544090" d="3740">I'm just using a new notation,
+this capital D notation.</p>
+<p t="2547830" d="2690">So it's nx^(n-1).</p>
+<p t="2550520" d="3860">Now know, by the way, n could
+be a negative number for that,</p>
+<p t="2554380" d="2870">but for now, for
+this application,</p>
+<p t="2557250" d="4030">I wanna take n to be
+1, 2, 3, and so on;</p>
+<p t="2561280" d="1790">one of those numbers.</p>
+<p t="2563070" d="1480">Okay, we did one derivative.</p>
+<p t="2564550" d="4980">Let's compute the second
+derivative of x^n.</p>
+<p t="2569530" d="2540">Well there's this n
+constant that comes out,</p>
+<p t="2572070" d="7910">and then the exponent comes
+down, and it gets reduced by 1.</p>
+<p t="2579980" d="1210">All right?</p>
+<p t="2581190" d="2590">Should I do one more?</p>
+<p t="2583780" d="3820">D^3 (x^n) is n(n-1).</p>
+<p t="2587600" d="1810">That's the constant from here.</p>
+<p t="2589410" d="3810">Times that exponent,
+n - 2, times 1 less, n</p>
+<p t="2593220" d="2520">- 3 is the new exponent.</p>
+<p t="2595740" d="10690">Well, I keep on going until
+I come to a new blackboard.</p>
+<p t="2606430" d="1670">Now, I think I'm
+going to stop when</p>
+<p t="2608100" d="1880">I get to the n minus
+first derivative,</p>
+<p t="2609980" d="5390">so we can see what's
+likely to happen.</p>
+<p t="2615370" d="3600">So when I took the
+third derivative,</p>
+<p t="2618970" d="3987">I had the n minus
+third power of x.</p>
+<p t="2622957" d="1583">And when I took the
+second derivative,</p>
+<p t="2624540" d="1220">I had the second power of x.</p>
+<p t="2625760" d="2550">So, I think what'll
+happen when I</p>
+<p t="2628310" d="1420">have the n minus
+first derivative</p>
+<p t="2629730" d="3780">is I'll have the first
+power of x left over.</p>
+<p t="2633510" d="1880">The powers of x
+keep coming down.</p>
+<p t="2635390" d="3960">And what I've done it n - 1
+times, I get the first power.</p>
+<p t="2639350" d="4880">And then I get a big constant
+out in front here times more</p>
+<p t="2644230" d="3220">and more and more of these
+smaller and smaller integers</p>
+<p t="2647450" d="1050">that come down.</p>
+<p t="2648500" d="3810">What's the last integer that
+came down before I got x^1</p>
+<p t="2652310" d="5150">here?</p>
+<p t="2657460" d="1930">Well, let's see.</p>
+<p t="2659390" d="3930">It's just 2, because this x^1
+occurred as the derivative</p>
+<p t="2663320" d="1020">of x^2.</p>
+<p t="2664340" d="3460">And the coefficient
+in front of that is 2.</p>
+<p t="2667800" d="1930">So that's what you get.</p>
+<p t="2669730" d="5410">The numbers n, n-1, and so
+on down to 2, times x^1.</p>
+<p t="2675140" d="6420">And now we can differentiate
+one more time and calculate what</p>
+<p t="2681560" d="1210">D^n x^n is.</p>
+<p t="2682770" d="5300">So I get the same number, n
+times n-1 and so on and so on,</p>
+<p t="2688070" d="1610">times 2.</p>
+<p t="2689680" d="2820">And then I guess
+I'll say times 1.</p>
+<p t="2692500" d="6140">Times, what's the derivative
+of x^1= 1, so times 1.</p>
+<p t="2698640" d="2620">Time 1, times 1.</p>
+<p t="2701260" d="9230">Where this one means
+the constant function 1.</p>
+<p t="2710490" d="3580">Does anyone know what
+this number is called?</p>
+<p t="2714070" d="1040">That has a name.</p>
+<p t="2715110" d="4610">It's called n factorial.</p>
+<p t="2719720" d="1680">And it's written n
+exclamation point.</p>
+<p t="2724240" d="4590">And we just used an example
+of mathematical induction.</p>
+<p t="2728830" d="8920">So the end result is
+D^n x^n is n!, constant.</p>
+<p t="2737750" d="4710">Okay that's a neat fact.</p>
+<p t="2742460" d="5110">Final question for the lecture
+is what's D^(n + 1) applied</p>
+<p t="2747570" d="2160">to x^n?</p>
+<p t="2749730" d="1120">Ha.</p>
+<p t="2750850" d="3490">Excellent.</p>
+<p t="2754340" d="2280">It's the derivative
+of a constant.</p>
+<p t="2756620" d="1320">So it's 0.</p>
+<p t="2757940" d="500">Okay.</p>
+<p t="2758440" d="1540">Thank you.</p>
+</body>
+</timedtext>

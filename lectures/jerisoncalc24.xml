@@ -1,0 +1,1370 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="0" d="2330">The following content is
+provided under a Creative</p>
+<p t="2330" d="1280">Commons license.</p>
+<p t="3610" d="2370">Your support will help
+MIT OpenCourseWare</p>
+<p t="5980" d="3950">continue to offer high quality
+educational resources for free.</p>
+<p t="9930" d="2620">To make a donation or to
+view additional materials</p>
+<p t="12550" d="3630">from hundreds of MIT courses,
+visit MIT OpenCourseWare</p>
+<p t="16180" d="5790">at ocw.mit.edu.</p>
+<p t="21970" d="3360">PROFESSOR: Today I
+want to get started</p>
+<p t="25330" d="5010">by correcting a mistake
+that I made last time.</p>
+<p t="30340" d="7070">And this was
+mistaken terminology.</p>
+<p t="37410" d="3880">I said that what
+we were computing,</p>
+<p t="41290" d="3190">when we computed in
+this candy bar example,</p>
+<p t="44480" d="3030">was energy and not heat.</p>
+<p t="47510" d="1760">But it's both.</p>
+<p t="49270" d="1740">They're the same thing.</p>
+<p t="51010" d="4310">And in fact, energy,
+heat and work</p>
+<p t="55320" d="4150">are all the same
+thing in physics.</p>
+<p t="59470" d="4425">I was foolishly
+considering the much more</p>
+<p t="63895" d="4455">- what am I trying to say -
+the intuitive feeling of heat</p>
+<p t="68350" d="2370">as just being the
+same as temperature.</p>
+<p t="70720" d="7170">But in physics, usually
+heat is measured in calories</p>
+<p t="77890" d="2590">and energy can be
+in lots of things.</p>
+<p t="80480" d="6130">Maybe kilowatt-hours or ergs,
+these are various of the units.</p>
+<p t="86610" d="5230">And work would be in
+things like foot-pounds.</p>
+<p t="91840" d="3660">That is, lifting some
+weight some distance.</p>
+<p t="95500" d="3740">And the amount of force
+you have to apply.</p>
+<p t="99240" d="2830">And these all have
+conversions between them.</p>
+<p t="102070" d="3810">They're all the same
+quantity, in different units.</p>
+<p t="105880" d="8150">OK, so these are
+the same quantity.</p>
+<p t="114030" d="6820">Different units.</p>
+<p t="120850" d="8000">So that's about as much
+physics as we'll do for today.</p>
+<p t="128850" d="2440">And sorry about that.</p>
+<p t="131290" d="7510">Now, the example that I was
+starting to discuss last time</p>
+<p t="138800" d="3180">and that I'm going
+to carry out today</p>
+<p t="141980" d="10410">was this dartboard example.</p>
+<p t="152390" d="7770">We have a dartboard, which
+is some kind of target.</p>
+<p t="160160" d="6220">And we have a person,
+your little brother,</p>
+<p t="166380" d="2160">who's standing over there.</p>
+<p t="168540" d="2140">And somebody is throwing darts.</p>
+<p t="170680" d="5110">And the question is, how
+likely is he to be hit.</p>
+<p t="175790" d="4160">So I want to describe
+to you how we're</p>
+<p t="179950" d="2600">going to make this problem
+into a math problem.</p>
+<p t="182550" d="500">Yep.</p>
+<p t="183050" d="854">STUDENT: [INAUDIBLE]</p>
+<p t="183904" d="2166">PROFESSOR: What topic is
+this that we're going over.</p>
+<p t="186070" d="2180">We're going over an example.</p>
+<p t="188250" d="3400">Which is a dartboard example.</p>
+<p t="191650" d="4440">And it has to do
+with probability.</p>
+<p t="196090" d="1280">OK.</p>
+<p t="197370" d="20890">So what is the probability that
+this guy, your little brother,</p>
+<p t="218260" d="9440">gets hit by a dart.</p>
+<p t="227700" d="4320">Now, we have to put some
+assumptions into this problem</p>
+<p t="232020" d="1610">in order to make
+it a math problem.</p>
+<p t="233630" d="2310">And I'm really going
+to try to make them</p>
+<p t="235940" d="2690">pretty realistic assumptions.</p>
+<p t="238630" d="10950">So the first assumption is
+that the number of hits is</p>
+<p t="249580" d="11940">proportional to some
+constant times e^(-r^2).</p>
+<p t="264430" d="3480">So that's actually a kind
+of a normal distribution.</p>
+<p t="267910" d="2650">That's the bell curve.</p>
+<p t="270560" d="3690">But as a function of the radius.</p>
+<p t="274250" d="2810">So this is the
+assumption that I'm</p>
+<p t="277060" d="2930">going to make in this problem.</p>
+<p t="279990" d="4980">And a problem in
+probability is a problem</p>
+<p t="284970" d="3570">of the ratio of the
+part to the whole.</p>
+<p t="288540" d="5040">So the part is where this
+little guy is standing.</p>
+<p t="293580" d="3090">And the whole is all
+the possible places</p>
+<p t="296670" d="1562">where the dart might hit.</p>
+<p t="298232" d="1458">Which is maybe the
+whole blackboard</p>
+<p t="299690" d="2980">or extending beyond,
+depending on how good an aim</p>
+<p t="302670" d="5110">you think that this
+older child has.</p>
+<p t="307780" d="3950">So, if you like, the part
+is-- We'll start simply.</p>
+<p t="311730" d="2560">I mean, this doesn't
+sweep all the way around.</p>
+<p t="314290" d="2880">But we're going to talk
+about some section.</p>
+<p t="317170" d="1760">Like this.</p>
+<p t="318930" d="3470">Where this is some radius
+r_1, and this other radius</p>
+<p t="322400" d="2060">is some longer radius, r_2.</p>
+<p t="324460" d="3370">And the part that we'll
+first keep track of</p>
+<p t="327830" d="1640">is everything around there.</p>
+<p t="329470" d="2000">That's not very well
+centered, but it's supposed</p>
+<p t="331470" d="3590">to be two concentric circles.</p>
+<p t="335060" d="3780">Maybe I should fix that a bit
+so that it's a little bit easier</p>
+<p t="338840" d="944">to read here.</p>
+<p t="339784" d="1476">So here we go.</p>
+<p t="341260" d="5440">So here I have radius r_1,
+and here I have radius r_2.</p>
+<p t="346700" d="2910">And then the region in
+between is what we're</p>
+<p t="349610" d="6440">going to try to keep track of.</p>
+<p t="356050" d="3120">So I claim that we'll
+be able to get--</p>
+<p t="359170" d="4930">So this is what I'm calling
+the part, to start out with.</p>
+<p t="364100" d="1470">And then we'll take
+a section of it</p>
+<p t="365570" d="6650">to get the place where
+the person is standing.</p>
+<p t="372220" d="9937">Now, I want to take a
+side view of e^(-r^2).</p>
+<p t="382157" d="1583">The function that
+we're talking about.</p>
+<p t="383740" d="4910">Again, that's the bell curve.</p>
+<p t="388650" d="3250">And it sort of looks like this.</p>
+<p t="391900" d="4190">This is the top value,
+this is now the r-axis.</p>
+<p t="396090" d="3400">And this is up, or
+at least-- So you</p>
+<p t="399490" d="2050">should think of this
+in terms of the fact</p>
+<p t="401540" d="5360">that the horizontal here is
+the plane of the dartboard.</p>
+<p t="406900" d="2490">And the vertical is
+measuring how likely</p>
+<p t="409390" d="3070">it is that there will
+be darts piling up here.</p>
+<p t="412460" d="3320">So if they were
+balls tumbling down</p>
+<p t="415780" d="1910">or something else
+falling on, many of them</p>
+<p t="417690" d="840">would pile up here.</p>
+<p t="418530" d="4360">Many fewer of them would
+be piling up farther away.</p>
+<p t="422890" d="3540">And the chunk that
+we're keeping track of</p>
+<p t="426430" d="2770">is the chunk
+between r_1 and r_2.</p>
+<p t="429200" d="2390">That's the corresponding
+region here.</p>
+<p t="431590" d="2590">And in order to
+calculate this part,</p>
+<p t="434180" d="6320">we have to calculate this
+volume of revolution.</p>
+<p t="440500" d="850">Sweeping around.</p>
+<p t="441350" d="2810">Because really, in
+disguise, this is a ring.</p>
+<p t="444160" d="2320">This is a side view,
+it's really a ring.</p>
+<p t="446480" d="6620">Because we're rotating
+it around this axis here.</p>
+<p t="453100" d="1890">So we're trying
+to figure out what</p>
+<p t="454990" d="1810">the total volume
+of that ring is.</p>
+<p t="456800" d="3130">And that's going to be our
+weighting, our likelihood</p>
+<p t="459930" d="1460">for whether the
+hits are occurring</p>
+<p t="461390" d="9850">in this section, or in
+this ring, versus the rest.</p>
+<p t="471240" d="2510">To set this up, I
+remind you we're going</p>
+<p t="473750" d="3820">to use the method of shells.</p>
+<p t="477570" d="5460">That's really the only one
+that's going to work here.</p>
+<p t="483030" d="4960">And we want to integrate
+between r_1 and r_2.</p>
+<p t="487990" d="4290">And the range here is that--
+Because this is, if you like,</p>
+<p t="492280" d="1190">a solid of revolution.</p>
+<p t="493470" d="3780">So the variable r is the same
+as what we used to call x.</p>
+<p t="497250" d="1674">And it's ranging
+between r_1 and r_2,</p>
+<p t="498924" d="1416">and then we're
+sweeping it around.</p>
+<p t="500340" d="5580">And the circumference
+of a little piece,</p>
+<p t="505920" d="9120">so at a fixed distance r
+here, the circumference</p>
+<p t="515040" d="2910">is going to be 2 pi r.</p>
+<p t="517950" d="2290">So 2 pi r is the circumference.</p>
+<p t="520240" d="2470">And then the height is the
+height of that green stem</p>
+<p t="522710" d="500">there.</p>
+<p t="523210" d="2250">That's e^(-r^2).</p>
+<p t="525460" d="5000">And then we're multiplying by
+the thickness, which is dr.</p>
+<p t="530460" d="2070">So the thickness
+of the green is dr.</p>
+<p t="532530" d="5330">The height of this little
+green guy is e^(-r^2),</p>
+<p t="537860" d="3450">and the circumference is
+2 pi times the radius,</p>
+<p t="541310" d="2391">when we sweep the circle around.</p>
+<p t="543701" d="499">Question.</p>
+<p t="544200" d="17770">STUDENT: [INAUDIBLE]</p>
+<p t="561970" d="1880">PROFESSOR: So the
+question is, why</p>
+<p t="563850" d="4170">is what we're interested
+in not this pink area.</p>
+<p t="568020" d="3790">And the reason is
+an interpretation</p>
+<p t="571810" d="1620">of what I meant by this.</p>
+<p t="573430" d="4880">What I meant by this is
+that if you wanted to add up</p>
+<p t="578310" d="3880">what the likelihood is that this
+thing will be here versus here,</p>
+<p t="582190" d="2750">I want it to be,
+really, the proportions</p>
+<p t="584940" d="2840">are the number of hits
+times the, if you like,</p>
+<p t="587780" d="1810">I wanted it d area.</p>
+<p t="589590" d="2260">That's really what I meant here.</p>
+<p t="591850" d="4890">The number of hits
+in a little chunk.</p>
+<p t="596740" d="4630">So little, maybe I'll call
+it delta A. A little chunk.</p>
+<p t="601370" d="3110">Is proportional to
+the chunk times that.</p>
+<p t="604480" d="1440">So there's already
+an area factor.</p>
+<p t="605920" d="1000">And there's a height.</p>
+<p t="606920" d="2660">So there are a total of
+three dimensions involved.</p>
+<p t="609580" d="3540">There's the area and
+then this height.</p>
+<p t="613120" d="5520">So it's a matter of the--
+what I was given, what I</p>
+<p t="618640" d="3080">intended to say the problem is.</p>
+<p t="621720" d="1000">Yeah, another question.</p>
+<p t="622720" d="2364">STUDENT: [INAUDIBLE]</p>
+<p t="625084" d="916">PROFESSOR: Yeah, yeah.</p>
+<p t="626000" d="1060">Exactly.</p>
+<p t="627060" d="3510">The height is c times
+that, whatever this c is.</p>
+<p t="630570" d="1650">In fact, we don't
+know what the c is,</p>
+<p t="632220" d="2240">but because we're going to
+have a part and a whole,</p>
+<p t="634460" d="3030">we'll divide, the c
+will always cancel.</p>
+<p t="637490" d="1750">So I'm throwing the c out.</p>
+<p t="639240" d="3510">I don't know what it is, and
+in the end it won't matter.</p>
+<p t="642750" d="1580">That's a very
+important question.</p>
+<p t="644330" d="500">Yes.</p>
+<p t="644830" d="4350">STUDENT: [INAUDIBLE]</p>
+<p t="649180" d="1000">PROFESSOR: Say it again?</p>
+<p t="650180" d="11860">STUDENT: PROFESSOR:</p>
+<p t="662040" d="3880">PROFESSOR: So what I mean is the
+number of hits in some chunk.</p>
+<p t="665920" d="3600">That is, suppose you
+imagine, the question</p>
+<p t="669520" d="2200">is, what does this
+left-hand side mean.</p>
+<p t="671720" d="530">That right?</p>
+<p t="672250" d="5440">Is that the question
+that's you're asking?</p>
+<p t="677690" d="3350">When I try to understand
+what the distribution</p>
+<p t="681040" d="4380">of dartboard hits is, I
+should imagine my dartboard.</p>
+<p t="685420" d="2980">And very often there'll
+be a whole bunch</p>
+<p t="688400" d="1300">of holes in some places.</p>
+<p t="689700" d="1110">And fewer holes else.</p>
+<p t="690810" d="2200">I'm trying to figure out
+what the whole distribution</p>
+<p t="693010" d="2580">of those marks is.</p>
+<p t="695590" d="2820">And so some places will
+have more hits on them</p>
+<p t="698410" d="2650">and some places will
+have fewer hits on them.</p>
+<p t="701060" d="2920">And so what I want to
+measure is, on average,</p>
+<p t="703980" d="930">the number of hits.</p>
+<p t="704910" d="2477">So this would really
+be some-- This constant</p>
+<p t="707387" d="2083">of proportionality is
+ambiguous because it depends</p>
+<p t="709470" d="1083">on how many times you try.</p>
+<p t="710553" d="1917">If you throw a
+thousand times, it'll</p>
+<p t="712470" d="1850">be much more densely packed.</p>
+<p t="714320" d="4460">And if you have only a
+hundred times it'll be fewer.</p>
+<p t="718780" d="3070">So that's where this
+constant comes in.</p>
+<p t="721850" d="2760">But given that you have
+a certain number of times</p>
+<p t="724610" d="2180">that you tried, say,
+a thousand times,</p>
+<p t="726790" d="2710">there will be a whole bunch
+more piled in the middle.</p>
+<p t="729500" d="2520">And fewer and fewer as
+you get farther away.</p>
+<p t="732020" d="3780">Assuming that the person's
+aim is reasonable.</p>
+<p t="735800" d="1224">So that's what we're saying.</p>
+<p t="737024" d="2416">So we're thinking in terms
+of-- The person's always aiming</p>
+<p t="739440" d="625">for the center.</p>
+<p t="740065" d="2595">So it's most likely that the
+person will hit the center.</p>
+<p t="742660" d="2160">But on the other hand,
+it's a fallible person,</p>
+<p t="744820" d="1620">so the person may miss.</p>
+<p t="746440" d="2832">And so it's less and less
+likely as you go farther out.</p>
+<p t="749272" d="2208">And we're just counting how
+many times this gets hit,</p>
+<p t="751480" d="1740">how many time this and so on.</p>
+<p t="753220" d="1610">In proportion to the area.</p>
+<p t="754830" d="5630">STUDENT: [INAUDIBLE]</p>
+<p t="760460" d="1792">PROFESSOR: Yeah. r_1
+and r_2 are arbitrary.</p>
+<p t="762252" d="1999">We're going to make this
+calculation in general.</p>
+<p t="764251" d="1989">We're going to calculate
+what the likelihood is</p>
+<p t="766240" d="4050">that we hit any possible band.</p>
+<p t="770290" d="2720">And I want to leave those
+as just letters for now.</p>
+<p t="773010" d="1980">The r_1 and the r_2.</p>
+<p t="774990" d="2120">Because I want to be able
+to try various different</p>
+<p t="777110" d="880">possibilities.</p>
+<p t="777990" d="5740">STUDENT: [INAUDIBLE]</p>
+<p t="783730" d="2580">PROFESSOR: Say it again, why
+do we have to take volume?</p>
+<p t="786310" d="2520">So this is what we
+were addressing before.</p>
+<p t="788830" d="5070">It's a volume because it's
+number of hit per unit area.</p>
+<p t="793900" d="3690">So there's a height,
+that is, number of hits.</p>
+<p t="797590" d="2230">And then there's an area
+and the product of those</p>
+<p t="799820" d="2790">is-- So this is, if
+you like, a histogram</p>
+<p t="802610" d="2490">of the number of hits.</p>
+<p t="805100" d="1810">But this should be
+measured per area.</p>
+<p t="806910" d="2490">Not per length of r.</p>
+<p t="809400" d="2620">Because on the real diagram,
+it's going all the way around.</p>
+<p t="812020" d="3740">There's a lot more
+area to this red band</p>
+<p t="815760" d="5390">than just the distance implies.</p>
+<p t="821150" d="1790">OK.</p>
+<p t="822940" d="4520">So, having discussed
+the setup, this</p>
+<p t="827460" d="2310">is a pretty standard setup--
+Oh, one more question.</p>
+<p t="829770" d="500">Yes.</p>
+<p t="830270" d="23294">STUDENT: [INAUDIBLE]</p>
+<p t="853564" d="666">PROFESSOR: Yeah.</p>
+<p t="854230" d="3470">So the question is, why
+is this a realistic.</p>
+<p t="857700" d="3560">Why is this choice of
+function here, e^(-r^2),</p>
+<p t="861260" d="4410">a realistic choice of
+function for the darts.</p>
+<p t="865670" d="4810">So I can answer this
+with an analogy.</p>
+<p t="870480" d="2320">When people were
+asking themselves</p>
+<p t="872800" d="5320">where the V-2 rockets
+from Germany hit London,</p>
+<p t="878120" d="1050">they used this model.</p>
+<p t="879170" d="3930">It turned out to be the one
+which was the most accurate.</p>
+<p t="883100" d="5530">So that gives you an idea
+that this is actually real.</p>
+<p t="888630" d="5040">The question, this makes it
+look like people are masters.</p>
+<p t="893670" d="3270">That is, that they'll
+all hit in the center</p>
+<p t="896940" d="1930">more often than elsewhere.</p>
+<p t="898870" d="5090">But that's actually
+somewhat deceptive.</p>
+<p t="903960" d="4080">There's a difference
+between the mode,</p>
+<p t="908040" d="5470">that is, the most likely spot,
+and what happens on average.</p>
+<p t="913510" d="4450">So in other words, the single
+most likely spot is the center.</p>
+<p t="917960" d="2760">But there's rather little
+area in here, and in fact</p>
+<p t="920720" d="4140">the likelihood of hitting
+that is some little tiny bit.</p>
+<p t="924860" d="760">In here.</p>
+<p t="925620" d="4230">In fact, you're much more
+likely to be out here.</p>
+<p t="929850" d="1689">So if you take the
+total of the volume,</p>
+<p t="931539" d="1416">you'll see that
+much of the volume</p>
+<p t="932955" d="1305">is contributed from out here.</p>
+<p t="934260" d="3520">And in fact, the person hits
+rather rarely near the center.</p>
+<p t="937780" d="4957">So this is not a
+ridiculous thing to do.</p>
+<p t="942737" d="2583">If you think of it in terms of
+somebody's aiming at the center</p>
+<p t="945320" d="1630">but there's some
+random thing which</p>
+<p t="946950" d="2820">is throwing the
+person off, then there</p>
+<p t="949770" d="1940">is likely to be to
+left or to the right,</p>
+<p t="951710" d="2370">or they might even get
+lucky and all those errors</p>
+<p t="954080" d="1390">cancel themselves
+and they happen</p>
+<p t="955470" d="3620">to hit pretty much
+near the center.</p>
+<p t="959090" d="1150">Yeah, another question.</p>
+<p t="960240" d="6026">STUDENT: [INAUDIBLE] PROFESSOR:
+How does the little brother</p>
+<p t="966266" d="624">come into play?</p>
+<p t="966890" d="2500">The little brother is going
+to come into play as follows.</p>
+<p t="969390" d="1910">I'll tell you in advance.</p>
+<p t="971300" d="4200">So the thing is, the little
+brother was not so stupid</p>
+<p t="975500" d="4260">as to stand in
+front of the target.</p>
+<p t="979760" d="2460">I know.</p>
+<p t="982220" d="4580">He stood about twice the
+radius of the target away.</p>
+<p t="986800" d="3160">And so, we're going to
+approximate the location</p>
+<p t="989960" d="2500">by some sector here.</p>
+<p t="992460" d="3460">Which is just going to be some
+chunk of one of these things.</p>
+<p t="995920" d="2090">We'll just break
+off a piece of it.</p>
+<p t="998010" d="1840">And that's how we're
+going to capture.</p>
+<p t="999850" d="2180">So the point is,
+the target is here.</p>
+<p t="1002030" d="3970">But there is the possibility
+that the seven-year-old</p>
+<p t="1006000" d="2550">who's throwing the darts
+actually missed the target.</p>
+<p t="1008550" d="2230">That actually happens a lot.</p>
+<p t="1010780" d="3880">So, does that answer
+your question?</p>
+<p t="1014660" d="870">Alright.</p>
+<p t="1015530" d="1640">Are we ready now to to do this?</p>
+<p t="1017170" d="780">One more question.</p>
+<p t="1017950" d="7300">STUDENT: [INAUDIBLE]</p>
+<p t="1025250" d="3070">PROFESSOR: I'm giving
+you this property here.</p>
+<p t="1028320" d="1790">I'm telling you
+that-- This is what's</p>
+<p t="1030110" d="2430">called a mathematical
+model, when you give</p>
+<p t="1032540" d="1360">somebody something like this.</p>
+<p t="1033900" d="2550">In fact, that requires
+further justification.</p>
+<p t="1036450" d="2670">It's an interesting issue.</p>
+<p t="1039120" d="500">Yeah.</p>
+<p t="1039620" d="6464">STUDENT: [INAUDIBLE]</p>
+<p t="1046084" d="1666">PROFESSOR: I'm giving
+it to you for now.</p>
+<p t="1047750" d="2370">And it's something which
+really has to be justified.</p>
+<p t="1050120" d="1960">In certain circumstances
+it is justified.</p>
+<p t="1052080" d="5540">But, OK.</p>
+<p t="1057620" d="6180">So anyway, here's our part.</p>
+<p t="1063800" d="2400">This is going to be
+our chunk, for now,</p>
+<p t="1066200" d="4560">that we're going to
+estimate the importance,</p>
+<p t="1070760" d="5450">the relative importance, of.</p>
+<p t="1076210" d="5250">And now, this is something whose
+antiderivative we can just do</p>
+<p t="1081460" d="2140">by substitution or by guessing.</p>
+<p t="1083600" d="4270">It's just -pi e^(-r^2).</p>
+<p t="1087870" d="2780">If you differentiate
+that, you get a -2r, which</p>
+<p t="1090650" d="2080">cancels the minus sign here.</p>
+<p t="1092730" d="2640">So you get 2pi r e^(-r^2).</p>
+<p t="1095370" d="3030">So that's the antiderivative.</p>
+<p t="1098400" d="6310">And we're evaluating
+it at r_1 and r_2.</p>
+<p t="1104710" d="3780">So with the minus sign
+that's going to get reversed.</p>
+<p t="1108490" d="4860">The answer is going to
+be pi times e^(-r_1^2),</p>
+<p t="1113350" d="5740">that's the bottom one, minus
+e^(r_2^2), that's the top.</p>
+<p t="1119090" d="6687">So this is what
+our part gives us.</p>
+<p t="1125777" d="2333">And, more technically, if you
+wanted to multiply through</p>
+<p t="1128110" d="2240">by c, it would be c times this.</p>
+<p t="1130350" d="4790">I'll say that in just a second.</p>
+<p t="1135140" d="4140">OK, now I want to
+work-- So, if you like,</p>
+<p t="1139280" d="7210">the part is equal to, maybe
+even I'll call it c pi,</p>
+<p t="1146490" d="1250">times e^(-r_1^2) - e^(-r_2^2).</p>
+<p t="1152429" d="2041">That's what it really is
+if I put in this factor.</p>
+<p t="1154470" d="3220">So now there's no prejudice as
+to how many attempts we make.</p>
+<p t="1157690" d="2800">Whether it was a thousand
+attempts or a million</p>
+<p t="1160490" d="2250">attempts at the target.</p>
+<p t="1162740" d="2740">Now, the most important
+second feature</p>
+<p t="1165480" d="1770">here of these kinds
+of modeling problems</p>
+<p t="1167250" d="3310">is, there is always some
+kind of idealization.</p>
+<p t="1170560" d="2510">And the next thing that I
+want to discuss with you</p>
+<p t="1173070" d="3870">is the interpretation
+of the whole.</p>
+<p t="1176940" d="4930">That is, what's the family
+of all possibilities.</p>
+<p t="1181870" d="3920">And in this case, what
+I'm going to claim</p>
+<p t="1185790" d="4370">is that the reasonable
+way to think of the whole</p>
+<p t="1190160" d="5780">is it's that r can range all
+the way from 0 to infinity.</p>
+<p t="1195940" d="1270">Now, you may not like this.</p>
+<p t="1197210" d="4520">But these are maybe my first
+and third favorite number,</p>
+<p t="1201730" d="2080">my second favorite
+number being 1.</p>
+<p t="1203810" d="4120">So infinity is a
+really useful concept.</p>
+<p t="1207930" d="4080">Of course, it's nonsense in
+the context of the darts.</p>
+<p t="1212010" d="2760">Because if you think
+of the basement wall</p>
+<p t="1214770" d="2370">where the kid might
+miss a target,</p>
+<p t="1217140" d="2479">he'd probably hit the wall.</p>
+<p t="1219619" d="2541">He's probably not going to hit
+one of the walls to the right,</p>
+<p t="1222160" d="2920">and anyway he's certainly
+not going to hit over there.</p>
+<p t="1225080" d="3790">So there's something
+artificial about sending</p>
+<p t="1228870" d="3520">the possibility of hits all
+the way out to infinity.</p>
+<p t="1232390" d="2460">On the other hand, the
+shape of this curve</p>
+<p t="1234850" d="3460">is such that the
+real tail ends here,</p>
+<p t="1238310" d="2680">because of this exponential
+decrease, are tiny.</p>
+<p t="1240990" d="1640">And that's negligible.</p>
+<p t="1242630" d="3070">And the point is that
+actually the value,</p>
+<p t="1245700" d="1850">if you go all the
+way out to infinity,</p>
+<p t="1247550" d="2470">is the easiest
+value to calculate.</p>
+<p t="1250020" d="2677">So by doing this, I'm
+idealizing the problem</p>
+<p t="1252697" d="1833">but I'm actually making
+the numbers come out</p>
+<p t="1254530" d="1360">much more cleanly.</p>
+<p t="1255890" d="2290">And this is just always
+done in mathematics.</p>
+<p t="1258180" d="2110">That's what we did when
+we went from differences</p>
+<p t="1260290" d="2170">to differentials,
+to differentiation</p>
+<p t="1262460" d="2180">and infinitesimals.</p>
+<p t="1264640" d="1642">So we like that.</p>
+<p t="1266282" d="2458">Because it makes things easier,
+not because it makes things</p>
+<p t="1268740" d="1580">harder.</p>
+<p t="1270320" d="1920">So we're just going to
+pretend the whole is</p>
+<p t="1272240" d="1210">from 0 to infinity.</p>
+<p t="1273450" d="2100">And now let's just
+see what it is.</p>
+<p t="1275550" d="5780">It's c pi times, the
+starting place is e^(-0^2).</p>
+<p t="1281330" d="3300">That's r_1, right, this is the
+role that r_1 plays is this,</p>
+<p t="1284630" d="1744">and the r_2 is this value.</p>
+<p t="1286374" d="916">Minus e^(-infinity^2).</p>
+<p t="1290180" d="3760">Which is that negligibly
+small number, 0.</p>
+<p t="1293940" d="2810">So this is just c pi.</p>
+<p t="1296750" d="2950">Because this number is 1,
+and this other number is 0.</p>
+<p t="1299700" d="8720">This is just (1 - 0), in
+the parentheses there.</p>
+<p t="1308420" d="3880">And now I can tell you
+from these two numbers</p>
+<p t="1312300" d="2690">what the probability is.</p>
+<p t="1314990" d="3460">The probability that
+we landed on the target</p>
+<p t="1318450" d="5800">in a radius between r_1 and r_2,
+so that's this annulus here,</p>
+<p t="1324250" d="8100">is the ratio of the
+part to the whole.</p>
+<p t="1332350" d="3710">Which in this case
+just cancels the c pi.</p>
+<p t="1336060" d="5220">So it's e^(-r_1^2) - e^(-r_2^2).</p>
+<p t="1341280" d="4240">There's the formula
+for the probability.</p>
+<p t="1345520" d="2580">So the c canceled
+and the pi canceled.</p>
+<p t="1348100" d="4070">It's all gone.</p>
+<p t="1352170" d="1870">Now, again, let
+me just emphasize</p>
+<p t="1354040" d="1710">the way this formula
+is supposed to work.</p>
+<p t="1355750" d="6460">The total probability
+of every possibility</p>
+<p t="1362210" d="3690">here is supposed to
+be set up to be 1.</p>
+<p t="1365900" d="2630">This is some fraction of 1.</p>
+<p t="1368530" d="2661">If you like, it's a percent.</p>
+<p t="1371191" d="499">Yes.</p>
+<p t="1371690" d="5459">STUDENT: [INAUDIBLE]</p>
+<p t="1377149" d="2541">PROFESSOR: This one is giving--
+The question is, doesn't this</p>
+<p t="1379690" d="1090">just give the
+probability of the ring?</p>
+<p t="1380780" d="1840">This gives you the
+probability of the ring,</p>
+<p t="1382620" d="2890">but this is a very,
+very wide ring.</p>
+<p t="1385510" d="2969">This is a ring starting with
+0, nothing, on the inside.</p>
+<p t="1388479" d="1291">And then going all the way out.</p>
+<p t="1389770" d="2110">So that's everything.</p>
+<p t="1391880" d="1500">So this corresponds
+to everything.</p>
+<p t="1393380" d="9270">This corresponds to a ring.</p>
+<p t="1402650" d="2340">So now, let's see.</p>
+<p t="1404990" d="1400">Where do I want to go from here.</p>
+<p t="1406390" d="2160">So in order to
+make progress here,</p>
+<p t="1408550" d="2680">I still have to give you one
+more piece of information.</p>
+<p t="1411230" d="4420">And this is, again,
+supposed to be realistic.</p>
+<p t="1415650" d="4700">When I was three years old
+and my brother's friend Ralph</p>
+<p t="1420350" d="3570">was seven, I watched him
+throwing darts a lot.</p>
+<p t="1423920" d="10280">And I would say that for Ralph,
+so for Ralph, at age seven,</p>
+<p t="1434200" d="2880">anyway, later on he got
+a little better at it.</p>
+<p t="1437080" d="2870">But Ralph at age seven,
+the probability that he</p>
+<p t="1439950" d="8490">hit the target was about 1/2.</p>
+<p t="1448440" d="1220">Right?</p>
+<p t="1449660" d="2380">So he hit the target
+about half the time.</p>
+<p t="1452040" d="2520">And the other times,
+there was cement</p>
+<p t="1454560" d="3310">on the walls of the
+basement, it wasn't that bad.</p>
+<p t="1457870" d="1380">Just bounced off.</p>
+<p t="1459250" d="2750">That also meant that the points
+got a little blunter as time</p>
+<p t="1462000" d="560">went on.</p>
+<p t="1462560" d="3590">So it was a little less
+dangerous when they hit.</p>
+<p t="1466150" d="500">Alright.</p>
+<p t="1466650" d="6560">So now, so here's the extra
+assumption that I want to make.</p>
+<p t="1473210" d="8050">So a is going to be the
+radius of the target.</p>
+<p t="1481260" d="4400">Now, the other realistic
+assumption that I want to make</p>
+<p t="1485660" d="3510">is where this little
+kid would be standing.</p>
+<p t="1489170" d="2480">And now, here, I want
+to get very specific</p>
+<p t="1491650" d="2630">and just do the
+computation in one case.</p>
+<p t="1494280" d="6150">We're going to imagine
+the target is here.</p>
+<p t="1500430" d="2770">And the kid is standing,
+say, between-- So we'll just</p>
+<p t="1503200" d="1230">do a section of this.</p>
+<p t="1504430" d="8700">This is between 3
+o'clock and 5 o'clock.</p>
+<p t="1513130" d="3610">There's more of him, but it's
+lower down and maybe negligible</p>
+<p t="1516740" d="610">here.</p>
+<p t="1517350" d="3050">So this section is
+the part, the chunk</p>
+<p t="1520400" d="2930">that we want to see about.</p>
+<p t="1523330" d="7880">And this is a, and then
+this distance here is 2a.</p>
+<p t="1531210" d="4120">And then the longest
+distance here is 3a.</p>
+<p t="1535330" d="3670">So the longest distance is 3a.</p>
+<p t="1539000" d="1870">So in other words,
+what I'm saying</p>
+<p t="1540870" d="9310">is that the probability, if
+you're standing too close,</p>
+<p t="1550180" d="16480">the chance Ralph hits younger
+brother is about 1/6-- Right?</p>
+<p t="1566660" d="6160">Because 2/12 = 1/6.</p>
+<p t="1572820" d="9200">1/6 of the probability that
+we're between a and 3a.</p>
+<p t="1582020" d="7032">That's the number that
+we're looking for.</p>
+<p t="1589052" d="708">Another question.</p>
+<p t="1589760" d="4140">STUDENT: [INAUDIBLE]</p>
+<p t="1593900" d="2780">PROFESSOR: The 2/12 came from
+the fact that we assumed.</p>
+<p t="1596680" d="2570">So we made a very, very
+bold assumption here.</p>
+<p t="1599250" d="2280">We assumed that
+this human being,</p>
+<p t="1601530" d="5230">who is actually standing--
+The floor is about down here.</p>
+<p t="1606760" d="1700">Maybe he wasn't that tall.</p>
+<p t="1608460" d="3100">But anyway, so he's really
+a little bigger than this.</p>
+<p t="1611560" d="2290">That the part of him that
+was close to the target</p>
+<p t="1613850" d="6650">covered about this section
+here, between radius 2a and 3a.</p>
+<p t="1620500" d="2240">As you'll see, actually
+from the computation,</p>
+<p t="1622740" d="4550">because the likelihood drops
+off pretty quickly, whatever</p>
+<p t="1627290" d="1850">of him was standing
+outside there</p>
+<p t="1629140" d="2129">wouldn't have mattered anyway.</p>
+<p t="1631269" d="1791">So we're just worried
+about the part that's</p>
+<p t="1633060" d="5617">closest to the target here.</p>
+<p t="1638677" d="833">STUDENT: [INAUDIBLE]</p>
+<p t="1639510" d="1291">PROFESSOR: Why is it out of 12?</p>
+<p t="1640801" d="1849">Because I made it a clock.</p>
+<p t="1642650" d="2460">And I made it from 3
+o'clock to 5 o'clock,</p>
+<p t="1645110" d="3680">so it's 2 of the 12
+hours of a clock.</p>
+<p t="1648790" d="3850">It's just a way of me making
+a section that you can visibly</p>
+<p t="1652640" d="3760">see.</p>
+<p t="1656400" d="3660">So now, so here's what
+we're trying to calculate.</p>
+<p t="1660060" d="7730">And in order to figure this
+out, I need one more item. here.</p>
+<p t="1667790" d="2080">So maybe I'll leave myself
+a little bit of room.</p>
+<p t="1669870" d="2140">I have to figure out
+something about what</p>
+<p t="1672010" d="1820">our information gave us.</p>
+<p t="1673830" d="6550">Which is that the probability,
+sorry, this probability</p>
+<p t="1680380" d="1310">was 1/2.</p>
+<p t="1681690" d="1890">So let's remember what this is.</p>
+<p t="1683580" d="5890">This is going to be
+e^(-0^2) - e^(-a^2).</p>
+<p t="1689470" d="1710">That's what's this
+probability is.</p>
+<p t="1691180" d="5030">And that's equal to 1/2.</p>
+<p t="1696210" d="5120">So that means that -
+1 - e^(-a^2). = 1/2.</p>
+<p t="1701330" d="5290">Which means that e^(-a^2) = 1/2.</p>
+<p t="1706620" d="1600">I'm not going to
+calculate a, this</p>
+<p t="1708220" d="1830">is the part about the
+information about a</p>
+<p t="1710050" d="2430">that I want to use.</p>
+<p t="1712480" d="1040">That's what I'll use.</p>
+<p t="1713520" d="2730">And now I'm going to calculate
+this other probability here.</p>
+<p t="1716250" d="5340">So the probability
+right up there is this.</p>
+<p t="1721590" d="5800">And that's going to be the same
+as e^(-(2a)^2) - e^(-(3a)^2).</p>
+<p t="1731610" d="3040">That's what we calculated.</p>
+<p t="1734650" d="4550">And now I want to use some of
+the arithmetic of exponents.</p>
+<p t="1739200" d="2180">This is (e^(-a^2))^2.</p>
+<p t="1745180" d="6710">Because it's really (2a)^2
+is 4-- the quantity is 4a^2,</p>
+<p t="1751890" d="2690">and then I bring
+that exponent out.</p>
+<p t="1754580" d="5160">Minus e^(-a^2) to the
+9th power, that's 3^2.</p>
+<p t="1765040" d="3520">And so this comes out
+to be (1/2)^4 - (1/2)^9.</p>
+<p t="1776190" d="3150">Which is approximately 1/16.</p>
+<p t="1779340" d="1040">This is negligible.</p>
+<p t="1780380" d="800">This part here.</p>
+<p t="1781180" d="1930">And this is actually
+why these tails,</p>
+<p t="1783110" d="5020">as you go out to infinity,
+don't really matter that much.</p>
+<p t="1788130" d="1750">So this is a much
+smaller number.</p>
+<p t="1789880" d="3510">So the probability of
+the whole band is 1/16.</p>
+<p t="1793390" d="2330">And now I can answer
+the question up here.</p>
+<p t="1795720" d="5390">This is approximately
+1/6 * 1/16.</p>
+<p t="1801110" d="6230">Which is about
+1/100, or about 1%.</p>
+<p t="1807340" d="6000">So if I stood there
+for 100 attempts,</p>
+<p t="1813340" d="5380">then my chances of getting
+hit were pretty high.</p>
+<p t="1818720" d="9250">So that's the computation.</p>
+<p t="1827970" d="6970">That's a typical example of
+a problem in probability.</p>
+<p t="1834940" d="1920">And let me just make
+one more connection</p>
+<p t="1836860" d="5800">with what we did before.</p>
+<p t="1842660" d="3470">This is connected to weighted
+averages or integrals</p>
+<p t="1846130" d="1340">over weights.</p>
+<p t="1847470" d="5640">But the weight that's
+involved in this problem</p>
+<p t="1853110" d="6700">was w(r) is equal to-- So let's
+just look at what happened</p>
+<p t="1859810" d="1710">in all of those integrals.</p>
+<p t="1861520" d="2270">What happened in all
+the integrals was, we</p>
+<p t="1863790" d="5270">had this factor here, 2 pi r.</p>
+<p t="1869060" d="14270">And if I include this c, it
+was really 2 pi c r e^(-r^2).</p>
+<p t="1883330" d="4630">This was the weight
+that we were using.</p>
+<p t="1887960" d="2810">The relative
+importance of things.</p>
+<p t="1890770" d="3490">Now, this is not the same as
+the e^(-r^2) that we started out</p>
+<p t="1894260" d="500">with.</p>
+<p t="1894760" d="3240">Because this is the
+one-dimensional histogram.</p>
+<p t="1898000" d="2850">And that has to do with the
+method of shells that gave us</p>
+<p t="1900850" d="2360">that extra factor of r here.</p>
+<p t="1903210" d="1880">So that also connects
+with the question</p>
+<p t="1905090" d="2520">at the beginning, which had
+to do with this paradox,</p>
+<p t="1907610" d="2810">that it looks like these
+places in the middle</p>
+<p t="1910420" d="1020">are the most likely.</p>
+<p t="1911440" d="3060">But that's the plot e^(-r^2).</p>
+<p t="1914500" d="2740">If you actually look
+at this plot here,</p>
+<p t="1917240" d="3090">you see that as r goes
+to 0, it's going to 0.</p>
+<p t="1920330" d="2680">This is a different graph here.</p>
+<p t="1923010" d="4710">And actually, so this is
+what's happening really.</p>
+<p t="1927720" d="2010">In terms of how likely
+it is that you'll</p>
+<p t="1929730" d="8662">get within a certain distance
+of the center of the target.</p>
+<p t="1938392" d="2458">Again, it's not the area under
+that curve that we're doing.</p>
+<p t="1940850" d="7090">It's that volume of revolution.</p>
+<p t="1947940" d="1554">We're going to
+change subjects now.</p>
+<p t="1949494" d="916">OK, one more question.</p>
+<p t="1950410" d="1527">Yes.</p>
+<p t="1951937" d="833">STUDENT: [INAUDIBLE]</p>
+<p t="1952770" d="3350">PROFESSOR: Yeah, that's supposed
+to be the graph of w(r).</p>
+<p t="1956120" d="11239">STUDENT: [INAUDIBLE]</p>
+<p t="1967359" d="1541">PROFESSOR: Well,
+so, the question is,</p>
+<p t="1968900" d="2083">wouldn't the importance
+of the center be greatest?</p>
+<p t="1970983" d="2807">It's a question of which
+variable you're using.</p>
+<p t="1973790" d="3267">According to pure
+radius, it's not.</p>
+<p t="1977057" d="1583">It turns out that
+there are some bands</p>
+<p t="1978640" d="2290">in radius which are more
+important, more likely</p>
+<p t="1980930" d="5276">for hits than others.</p>
+<p t="1986206" d="1374">It really has to
+do with the fact</p>
+<p t="1987580" d="3400">that the center, or the core,
+of the target is really tiny.</p>
+<p t="1990980" d="970">So it's harder to hit.</p>
+<p t="1991950" d="4220">Whereas a whole band around the
+outside has a lot more area.</p>
+<p t="1996170" d="2330">Many, many ways
+to hit that band.</p>
+<p t="1998500" d="1310">So it's a much larger area.</p>
+<p t="1999810" d="4410">So there's a competition there
+between those two things.</p>
+<p t="2004220" d="1690">So we're going to move on.</p>
+<p t="2005910" d="2260">And I want to talk now
+about a different kind</p>
+<p t="2008170" d="2380">of weighted average.</p>
+<p t="2010550" d="5860">These weighted averages are
+going to be much simpler.</p>
+<p t="2016410" d="24850">And they come up in what's
+called numerical integration.</p>
+<p t="2041260" d="3337">There are many, many methods
+of integrating numerically.</p>
+<p t="2044597" d="2083">And they're important
+because many, many integrals</p>
+<p t="2046680" d="1830">don't have formulas.</p>
+<p t="2048510" d="5470">And so you have to compute them
+with a calculator or a machine.</p>
+<p t="2053980" d="10420">So the first type that we've
+already done are Riemann sums.</p>
+<p t="2064400" d="3770">They turned out to be
+incredibly inefficient.</p>
+<p t="2068170" d="2100">They're lousy.</p>
+<p t="2070270" d="1850">The next rule that
+I'm going to describe</p>
+<p t="2072120" d="1250">is a little improvement.</p>
+<p t="2073370" d="4760">It's called the
+trapezoidal rule.</p>
+<p t="2078130" d="3210">And this one is
+much more reasonable</p>
+<p t="2081340" d="2030">than the Riemann sum.</p>
+<p t="2083370" d="5770">Unfortunately, it's
+actually also pretty lousy.</p>
+<p t="2089140" d="4010">There's another rule which is
+just a slightly trickier rule.</p>
+<p t="2093150" d="2880">And it's actually
+amazing that it exists.</p>
+<p t="2096030" d="5720">And it's called Simpson's Rule.</p>
+<p t="2101750" d="4940">And this one is
+actually pretty good.</p>
+<p t="2106690" d="1080">It's clever.</p>
+<p t="2107770" d="4550">So let's get started with these.</p>
+<p t="2112320" d="2710">And the way I'll get
+started is by reminding you</p>
+<p t="2115030" d="1000">what the Riemann sum is.</p>
+<p t="2116030" d="1749">So this is a good
+review, because you need</p>
+<p t="2117779" d="2011">to know all three of these.</p>
+<p t="2119790" d="6750">And you're going to want to see
+them all laid out in parallel.</p>
+<p t="2126540" d="5260">So here's the setup.</p>
+<p t="2131800" d="1780">OK, so here we go.</p>
+<p t="2133580" d="3080">We have our graph, we have our
+function, it starts out at a,</p>
+<p t="2136660" d="1580">it ends up at b.</p>
+<p t="2138240" d="1920">Maybe goes on, but we're
+only paying attention</p>
+<p t="2140160" d="1220">to this interval.</p>
+<p t="2141380" d="3380">This is a function y = f(x).</p>
+<p t="2144760" d="3400">And we split it up when
+we do Riemann sums.</p>
+<p t="2148160" d="2290">So this is 1, this
+is Riemann sums.</p>
+<p t="2150450" d="3480">We start out with a, which
+is a point we call x_0,</p>
+<p t="2153930" d="3440">and then we go a
+certain distance.</p>
+<p t="2157370" d="1340">We go all the way over to b.</p>
+<p t="2158710" d="5440">And we subdivide this
+thing with these delta x's.</p>
+<p t="2164150" d="3980">Which are the step sizes.</p>
+<p t="2168130" d="4710">So we have these little
+steps of size delta x.</p>
+<p t="2172840" d="6020">Corresponding to these x values,
+we have y values. y_0 = f(x_0),</p>
+<p t="2178860" d="2230">that's the point above a.</p>
+<p t="2181090" d="5750">Then y_1 = f(x_1), that's
+the point above x_1.</p>
+<p t="2186840" d="6280">And so forth, all the way
+up to y_n, which is f(x_n).</p>
+<p t="2193120" d="2530">In order to figure out
+the area, you really</p>
+<p t="2195650" d="1750">need to know something
+about the function.</p>
+<p t="2197400" d="1817">You need to be able
+to evaluate it.</p>
+<p t="2199217" d="1083">So that's what we've done.</p>
+<p t="2200300" d="3030">We've evaluated here
+at n + 1 points.</p>
+<p t="2203330" d="2820">Enumerated 0 through n.</p>
+<p t="2206150" d="2760">And those are the
+numbers out of which</p>
+<p t="2208910" d="4480">we're going to get all of our
+approximations to the integral.</p>
+<p t="2213390" d="2980">So somehow we want
+average these numbers.</p>
+<p t="2216370" d="5410">So here's our goal.</p>
+<p t="2221780" d="12670">Our goal is to average, or add,
+I'm using average very loosely</p>
+<p t="2234450" d="500">here.</p>
+<p t="2234950" d="3880">But I was going to say
+add up these numbers</p>
+<p t="2238830" d="6920">to get an approximation.</p>
+<p t="2245750" d="4980">To average or add the y's.</p>
+<p t="2250730" d="6940">To get an approximation
+to the integral.</p>
+<p t="2257670" d="5740">Which we know is the
+area under the curve.</p>
+<p t="2263410" d="6320">So here's what the
+Riemann sum is.</p>
+<p t="2269730" d="1290">It's the following thing.</p>
+<p t="2271020" d="5010">You take y_0 plus y_1
+plus... up to y_(n-1).</p>
+<p t="2276030" d="1490">And you multiply by delta x.</p>
+<p t="2277520" d="2520">That's it.</p>
+<p t="2280040" d="6970">Now, this one is the
+one with left endpoints.</p>
+<p t="2287010" d="2340">So the left-hand sum.</p>
+<p t="2289350" d="1770">There's also a right one.</p>
+<p t="2291120" d="2090">Which is, if you start
+at the right-hand ends.</p>
+<p t="2293210" d="4620">And that will go
+from y_1 to y_n.</p>
+<p t="2297830" d="4340">OK, so this one
+is the right-hand.</p>
+<p t="2302170" d="3000">Right Riemann sum.</p>
+<p t="2305170" d="7940">Those are the two
+that we did before.</p>
+<p t="2313110" d="2830">Now I'm going to describe
+to you the next two.</p>
+<p t="2315940" d="6470">They have a similar
+pattern to them.</p>
+<p t="2322410" d="8790">And the one with trapezoids
+requires a picture.</p>
+<p t="2331200" d="1910">Here's a shape.</p>
+<p t="2333110" d="7580">And here's a bunch of values.</p>
+<p t="2340690" d="8180">And we're trying to estimate
+the size of these chunks.</p>
+<p t="2348870" d="2080">And now, instead of doing
+something stupid, which</p>
+<p t="2350950" d="3100">is to draw horizontal
+lines in rectangles,</p>
+<p t="2354050" d="2270">we're going to do something
+slightly more clever.</p>
+<p t="2356320" d="5230">Which is to draw straight
+lines that are diagonal.</p>
+<p t="2361550" d="1627">You see that many
+of them actually</p>
+<p t="2363177" d="2333">coincide probably pretty
+closely with what I drew there.</p>
+<p t="2365510" d="4140">Although if they're curved,
+they miss by a little bit.</p>
+<p t="2369650" d="2620">So this is called
+the trapezoidal rule.</p>
+<p t="2372270" d="3390">Because if you pick one of
+these shapes, say this is y_2</p>
+<p t="2375660" d="4460">and this is y_3, if you
+pick one of these shapes,</p>
+<p t="2380120" d="4320">this height here is y_2,
+and this height is y_3,</p>
+<p t="2384440" d="3280">and this base is delta x.</p>
+<p t="2387720" d="4870">This is a trapezoid.</p>
+<p t="2392590" d="8910">So this being a trapezoid,
+I can figure out its area.</p>
+<p t="2401500" d="1260">And what do I get?</p>
+<p t="2402760" d="9260">I get the base times
+the average height.</p>
+<p t="2412020" d="2450">If you think about
+if, you work out</p>
+<p t="2414470" d="1590">what happens when
+you do something</p>
+<p t="2416060" d="2160">with a straight line
+on top, like that,</p>
+<p t="2418220" d="2860">you'll get this average.</p>
+<p t="2421080" d="10370">So this is the average
+height of the trapezoid.</p>
+<p t="2431450" d="3130">And now I want to add up.</p>
+<p t="2434580" d="7020">I want to add them all
+up to get my formula</p>
+<p t="2441600" d="3590">for the trapezoidal rule.</p>
+<p t="2445190" d="900">So what do I do?</p>
+<p t="2446090" d="4120">I have delta x
+times the first one.</p>
+<p t="2450210" d="2830">Which is (y_0 + y_1) / 2.</p>
+<p t="2453040" d="1970">That's the first trapezoid.</p>
+<p t="2455010" d="4510">The next one is (y_1 + y_2) / 2.</p>
+<p t="2459520" d="2190">And this keeps on going.</p>
+<p t="2461710" d="6080">And at the end, I have
+(y_(n-2) + y_(n-1)) / 2.</p>
+<p t="2467790" d="2320">And then last of all, I
+have (y_(n-1) + y_n) / 2.</p>
+<p t="2474610" d="1950">That's a very long formula here.</p>
+<p t="2476560" d="4830">We're going to simplify it
+quite a bit in just a second.</p>
+<p t="2481390" d="1210">What's this equal to?</p>
+<p t="2482600" d="6220">Well, notice that I get
+y_0 / 2 to start out with.</p>
+<p t="2488820" d="4110">And now, y_1 got
+mentioned twice.</p>
+<p t="2492930" d="2470">Each time with a factor of 1/2.</p>
+<p t="2495400" d="4005">So we get a whole y_1 in here.</p>
+<p t="2499405" d="1375">And the same thing
+is going to be</p>
+<p t="2500780" d="3160">true of all the middle terms.</p>
+<p t="2503940" d="4640">You're going to get y_2 and
+all the way up to y_(n-1).</p>
+<p t="2508580" d="5170">But then, the last one is
+unmatched. y_n is only 1/2,</p>
+<p t="2513750" d="6040">only counts 1/2.</p>
+<p t="2519790" d="17800">So here is what's known
+as the trapezoidal rule.</p>
+<p t="2537590" d="1840">Now, I'd like to
+compare it for you</p>
+<p t="2539430" d="6050">to the Riemann sums, which are
+sitting just to the left here.</p>
+<p t="2545480" d="3420">Here's the left one, and
+here's the right one.</p>
+<p t="2548900" d="3670">If you take the average
+of the left and the right,</p>
+<p t="2552570" d="2390">that is, a half of this
+plus a half of that,</p>
+<p t="2554960" d="1410">there's an overlap.</p>
+<p t="2556370" d="2880">The y_1 through y_n
+things are listed in both.</p>
+<p t="2559250" d="2610">But the y_0 only
+gets counted 1/2</p>
+<p t="2561860" d="2310">and the y_n only
+gets counted 1/2.</p>
+<p t="2564170" d="2570">So what this is, is this
+is the symmetric compromise</p>
+<p t="2566740" d="2970">between the two Riemann sums.</p>
+<p t="2569710" d="4700">This is actually equal
+to the left Riemann</p>
+<p t="2574410" d="7610">sum plus the right
+Riemann sum divided by 2.</p>
+<p t="2582020" d="8580">It's the average of them.</p>
+<p t="2590600" d="2740">Now, this would be great and
+it does look like it's closer.</p>
+<p t="2593340" d="3160">But actually it's not as
+impressive as it looks.</p>
+<p t="2596500" d="2410">If you actually
+do it in practice,</p>
+<p t="2598910" d="4280">it's not very efficient.</p>
+<p t="2603190" d="1930">Although it's way better
+than a Riemann sum,</p>
+<p t="2605120" d="2440">it's still not good enough.</p>
+<p t="2607560" d="9690">So now I need to describe
+to you the fancier rule.</p>
+<p t="2617250" d="14760">Which is known as
+Simpson's Rule.</p>
+<p t="2632010" d="8150">And so, this is, if
+you like, 3, Method 3.</p>
+<p t="2640160" d="9610">The idea is again to
+divide things into chunks.</p>
+<p t="2649770" d="6920">But now it always
+needs n to be even.</p>
+<p t="2656690" d="4060">In other words, we're going
+to deal not with just one box,</p>
+<p t="2660750" d="4050">we're going to deal
+with pairs of boxes.</p>
+<p t="2664800" d="3570">Here's delta x, and
+here's delta x again.</p>
+<p t="2668370" d="6350">And we're going to study
+the area of this piece here.</p>
+<p t="2674720" d="4550">So let me focus
+just on that part.</p>
+<p t="2679270" d="11430">Let's reproduce it over here.</p>
+<p t="2690700" d="1984">And here's the delta
+x, here's delta x.</p>
+<p t="2692684" d="1666">And of course there
+are various heights.</p>
+<p t="2694350" d="2670">This starts out at
+y_0, this is y_2,</p>
+<p t="2697020" d="6470">and this middle segment is y_1.</p>
+<p t="2703490" d="4710">Now, the approximating curve
+that we're going to use</p>
+<p t="2708200" d="6490">is a parabola.</p>
+<p t="2714690" d="2710">That is, we're going to fit a
+parabola through these three</p>
+<p t="2717400" d="7840">points.</p>
+<p t="2725240" d="3260">And then we're going to use
+that as the approximating area.</p>
+<p t="2728500" d="3860">Now, it doesn't look like--
+This looks like it misses.</p>
+<p t="2732360" d="1902">But actually, most
+functions mostly</p>
+<p t="2734262" d="1458">wiggle either one
+way or the other.</p>
+<p t="2735720" d="770">They don't switch.</p>
+<p t="2736490" d="2310">They don't have
+inflection points.</p>
+<p t="2738800" d="2520">So, this is a lousy,
+at this scale.</p>
+<p t="2741320" d="1570">But when we get to
+a smaller scale,</p>
+<p t="2742890" d="2220">this becomes really fantastic.</p>
+<p t="2745110" d="2320">As an approximation.</p>
+<p t="2747430" d="4970">Now, I need to tell you
+what the arithmetic is.</p>
+<p t="2752400" d="4580">And in order to save
+time, it's on your problem</p>
+<p t="2756980" d="3100">set what the actual formula is.</p>
+<p t="2760080" d="5360">But I'm going to tell you
+how to think about it.</p>
+<p t="2765440" d="4090">I want you to think
+about it as follows.</p>
+<p t="2769530" d="11000">So the area under
+the parabola is</p>
+<p t="2780530" d="10270">going to be a base times
+some kind of average height.</p>
+<p t="2790800" d="2970">And the base here,
+you can already see.</p>
+<p t="2793770" d="2250">It's 2 delta x.</p>
+<p t="2796020" d="3410">The base is 2 delta x.</p>
+<p t="2799430" d="1490">Now, the average
+height is weird.</p>
+<p t="2800920" d="2150">You have to work out what
+it is for a parabola,</p>
+<p t="2803070" d="3350">depending on those three
+numbers, y_0, y_1, and y_2.</p>
+<p t="2806420" d="2340">And it turns out to be
+the following formula.</p>
+<p t="2808760" d="1680">It has to be an
+average, but it's</p>
+<p t="2810440" d="1470">an interesting weighted average.</p>
+<p t="2811910" d="1677">So this was the
+punchline, if you like.</p>
+<p t="2813587" d="2583">Is that they are such things as
+interesting weighted averages.</p>
+<p t="2816170" d="2510">This one's very simple, it
+just involves three numbers.</p>
+<p t="2818680" d="1300">But it's still interesting.</p>
+<p t="2819980" d="791">It's the following.</p>
+<p t="2820771" d="6489">It turns out to be
+(y_0 + 4y_1 + y_2) / 6.</p>
+<p t="2827260" d="900">Why divided by 6?</p>
+<p t="2828160" d="2570">Well, it's supposed
+to be an average.</p>
+<p t="2830730" d="2910">So the total is 1 + 4
++ 1 of these things.</p>
+<p t="2833640" d="2450">And 6 is in the denominator.</p>
+<p t="2836090" d="3700">So it emphasizes the
+middle more than the sides.</p>
+<p t="2839790" d="3650">And that's what happens
+with a parabola.</p>
+<p t="2843440" d="7140">So this is a computation
+which is on your homework.</p>
+<p t="2850580" d="3860">And now we can put this together
+for the full Simpson's Rule</p>
+<p t="2854440" d="1750">formula.</p>
+<p t="2856190" d="15580">Which I'll put up over here.</p>
+<p t="2871770" d="4580">We have here 2 delta
+x, and we divide by 6.</p>
+<p t="2876350" d="7120">And then we have (y_0 +
+4y_1 + y_2) / 6 plus--</p>
+<p t="2883470" d="1920">That's the first chunk.</p>
+<p t="2885390" d="3740">Now, the second chunk, maybe
+I'll just put it in here,</p>
+<p t="2889130" d="2690">starts-- This is x_2.</p>
+<p t="2891820" d="2230">This is x_0.</p>
+<p t="2894050" d="1570">And it goes all the way to x_4.</p>
+<p t="2895620" d="3180">So x_2, x_3, x_4.</p>
+<p t="2898800" d="3120">So the next one involves
+the indices 2, 3 and 4.</p>
+<p t="2901920" d="9660">So this is (y_2 +
+4y_3 + y_4) / 6.</p>
+<p t="2911580" d="2874">Oh, oh, oh, oh, no.</p>
+<p t="2914454" d="1416">I think I'll get
+rid of these 6's.</p>
+<p t="2915870" d="2120">I have too many 6's.</p>
+<p t="2917990" d="1860">Alright.</p>
+<p t="2919850" d="1207">Let's get rid of them here.</p>
+<p t="2921057" d="833">Let's take them out.</p>
+<p t="2921890" d="2150">Put them out here.</p>
+<p t="2924040" d="3830">Thank you.</p>
+<p t="2927870" d="3780">All the way to the end, which is
+y_(n-2) plus 2y_(n-1)-- sorry,</p>
+<p t="2931650" d="2160">plus 4y_(n-1) plus y_n.</p>
+<p t="2937050" d="4530">I was about to divide
+by 6, but you saved me.</p>
+<p t="2941580" d="2770">So here are all the chunks.</p>
+<p t="2944350" d="2610">Now, what does this
+pattern come out to be?</p>
+<p t="2946960" d="3780">This comes out to
+be the following.</p>
+<p t="2950740" d="6210">This is 1, 4, 1, added to
+1, 4, 1 added to 1, 4, 1.</p>
+<p t="2956950" d="810">You add them up.</p>
+<p t="2957760" d="4380">You get 1, 4, and then there's a
+repeat, so you get a 2 and a 4,</p>
+<p t="2962140" d="2030">and a 2 and a 4 and a 1.</p>
+<p t="2964170" d="5080">So the pattern is that it starts
+out with 1's on the far ends.</p>
+<p t="2969250" d="1660">And then 4's next in.</p>
+<p t="2970910" d="4320">And then it alternates
+2's and 4's in between.</p>
+<p t="2975230" d="10210">So the full pattern of
+Simpson's Rule is delta x / 3,</p>
+<p t="2985440" d="3280">I have now succeeded in
+canceling this 2 with this 6</p>
+<p t="2988720" d="2020">and getting out
+that factor of 2.</p>
+<p t="2990740" d="10226">And then here I have y0 +
+4 y1 + 2 y2 + 4 y3 + ...</p>
+<p t="3000966" d="2554">It keeps on going and keeps
+on going and keeps on going.</p>
+<p t="3003520" d="7300">And in the end it's 2 y_(n
+- 2) + 4 y_(n - 1) + y_n.</p>
+<p t="3010820" d="4040">So again, 1 and a 4 to start.</p>
+<p t="3014860" d="1550">4 and a 1 to end.</p>
+<p t="3016410" d="3760">And then alternating 2's
+and 4's in the middle.</p>
+<p t="3020170" d="5480">And this weird weighted
+average is way better.</p>
+<p t="3025650" d="3240">As I will show you next time.</p>
+</body>
+</timedtext>

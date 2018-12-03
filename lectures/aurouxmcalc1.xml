@@ -1,0 +1,1006 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="22350" d="3418">So let's start right away with
+stuff that we will need to see</p>
+<p t="25768" d="2622">before we can go on to more
+advanced things.</p>
+<p t="28390" d="3287">So, hopefully yesterday in
+recitation, you heard a bit</p>
+<p t="31677" d="2909">about vectors.
+How many of you actually knew</p>
+<p t="34586" d="4474">about vectors before that?
+OK, that's the vast majority.</p>
+<p t="39060" d="3006">If you are not one of those
+people, well,</p>
+<p t="42066" d="3684">hopefully you'll learn about
+vectors right now.</p>
+<p t="45750" d="2814">I'm sorry that the learning
+curve will be a bit steeper for</p>
+<p t="48564" d="2386">the first week.
+But hopefully,</p>
+<p t="50950" d="4202">you'll adjust fine.
+If you have trouble with</p>
+<p t="55152" d="4274">vectors, do go to your
+recitation instructor's office</p>
+<p t="59426" d="4274">hours for extra practice if you
+feel the need to.</p>
+<p t="63700" d="6231">You will see it's pretty easy.
+So, just to remind you,</p>
+<p t="69931" d="8852">a vector is a quantity that has
+both a direction and a magnitude</p>
+<p t="78783" d="1827">of length.</p>
+<p t="93890" d="4416">So -- So, concretely the way
+you draw a vector is by some</p>
+<p t="98306" d="1814">arrow, like that,
+OK?</p>
+<p t="100120" d="3606">And so, it has a length,
+and it's pointing in some</p>
+<p t="103726" d="1948">direction.
+And, so, now,</p>
+<p t="105674" d="3521">the way that we compute things
+with vectors,</p>
+<p t="109195" d="4095">typically, as we introduce a
+coordinate system.</p>
+<p t="113290" d="4374">So, if we are in the plane,
+x-y-axis, if we are in space,</p>
+<p t="117664" d="3301">x-y-z axis.
+So, usually I will try to draw</p>
+<p t="120965" d="3504">my x-y-z axis consistently to
+look like this.</p>
+<p t="124469" d="3248">And then, I can represent my
+vector in terms of its</p>
+<p t="127717" d="2533">components along the coordinate
+axis.</p>
+<p t="130250" d="2955">So, that means when I have this
+row, I can ask,</p>
+<p t="133205" d="2635">how much does it go in the x
+direction?</p>
+<p t="135840" d="1750">How much does it go in the y
+direction?</p>
+<p t="137590" d="2940">How much does it go in the z
+direction?</p>
+<p t="140530" d="5240">And, so, let's call this a
+vector A.</p>
+<p t="145770" d="3486">So, it's more convention.
+When we have a vector quantity,</p>
+<p t="149256" d="2794">we put an arrow on top to
+remind us that it's a vector.</p>
+<p t="152050" d="3181">If it's in the textbook,
+then sometimes it's in bold</p>
+<p t="155231" d="4327">because it's easier to typeset.
+If you've tried in your</p>
+<p t="159558" d="5128">favorite word processor,
+bold is easy and vectors are</p>
+<p t="164686" d="4496">not easy.
+So, the vector you can try to</p>
+<p t="169182" d="6854">decompose terms of unit vectors
+directed along the coordinate</p>
+<p t="176036" d="3655">axis.
+So, the convention is there is</p>
+<p t="179691" d="4203">a vector that we call
+***amp***lt;i***amp***gt;</p>
+<p t="183894" d="5025">hat that points along the x
+axis and has length one.</p>
+<p t="188919" d="1657">There's a vector called
+***amp***lt;j***amp***gt;</p>
+<p t="190576" d="1484">hat that does the same along
+the y axis,</p>
+<p t="192060" d="2092">and the
+***amp***lt;k***amp***gt;</p>
+<p t="194152" d="2748">hat that does the same along
+the z axis.</p>
+<p t="196900" d="4022">And, so, we can express any
+vector in terms of its</p>
+<p t="200922" d="4076">components.
+So, the other notation is</p>
+<p t="204998" d="4091">***amp***lt;a1,
+a2, a3 ***amp***gt;</p>
+<p t="209089" d="8071">between these square brackets.
+Well, in angular brackets.</p>
+<p t="217160" d="5210">So, the length of a vector we
+denote by, if you want,</p>
+<p t="222370" d="4710">it's the same notation as the
+absolute value.</p>
+<p t="227080" d="3253">So, that's going to be a
+number, as we say,</p>
+<p t="230333" d="4132">now, a scalar quantity.
+OK, so, a scalar quantity is a</p>
+<p t="234465" d="4245">usual numerical quantity as
+opposed to a vector quantity.</p>
+<p t="238710" d="10220">And, its direction is sometimes
+called dir A,</p>
+<p t="248930" d="4957">and that can be obtained just
+by scaling the vector down to</p>
+<p t="253887" d="3177">unit length,
+for example,</p>
+<p t="257064" d="9921">by dividing it by its length.
+So -- Well, there's a lot of</p>
+<p t="266985" d="5890">notation to be learned.
+So, for example,</p>
+<p t="272875" d="4247">if I have two points,
+P and Q, then I can draw a</p>
+<p t="277122" d="5031">vector from P to Q.
+And, that vector is called</p>
+<p t="282153" d="4347">vector PQ, OK?
+So, maybe we'll call it A.</p>
+<p t="286500" d="2294">But, a vector doesn't really
+have, necessarily,</p>
+<p t="288794" d="1946">a starting point and an ending
+point.</p>
+<p t="290740" d="3264">OK, so if I decide to start
+here and I go by the same</p>
+<p t="294004" d="3516">distance in the same direction,
+this is also vector A.</p>
+<p t="297520" d="6575">It's the same thing.
+So, a lot of vectors we'll draw</p>
+<p t="304095" d="4044">starting at the origin,
+but we don't have to.</p>
+<p t="308139" d="11471">So, let's just check and see
+how things went in recitation.</p>
+<p t="319610" d="4383">So, let's say that I give you
+the vector</p>
+<p t="323993" d="10716">***amp***lt;3,2,1***amp***gt;.
+And so, what do you think about</p>
+<p t="334709" d="11391">the length of this vector?
+OK, I see an answer forming.</p>
+<p t="346100" d="3440">So, a lot of you are answering
+the same thing.</p>
+<p t="349540" d="4849">Maybe it shouldn't spoil it for
+those who haven't given it yet.</p>
+<p t="354389" d="5183">OK, I think the overwhelming
+vote is in favor of answer</p>
+<p t="359572" d="2898">number two.
+I see some sixes, I don't know.</p>
+<p t="362470" d="4381">That's a perfectly good answer,
+too, but hopefully in a few</p>
+<p t="366851" d="3249">minutes it won't be I don't know
+anymore.</p>
+<p t="370100" d="7801">So, let's see.
+How do we find -- -- the length</p>
+<p t="377901" d="6269">of a vector three,
+two, one?</p>
+<p t="384170" d="6333">Well, so, this vector,
+A, it comes towards us along</p>
+<p t="390503" d="6719">the x axis by three units.
+It goes to the right along the</p>
+<p t="397222" d="5393">y axis by two units,
+and then it goes up by one unit</p>
+<p t="402615" d="4260">along the z axis.
+OK, so, it's pointing towards</p>
+<p t="406875" d="4975">here.
+That's pretty hard to draw.</p>
+<p t="411850" d="3566">So, how do we get its length?
+Well, maybe we can start with</p>
+<p t="415416" d="2841">something easier,
+the length of the vector in the</p>
+<p t="418257" d="3499">plane.
+So, observe that A is obtained</p>
+<p t="421756" d="3164">from a vector,
+B, in the plane.</p>
+<p t="424920" d="5050">Say, B equals three (i) hat
+plus two (j) hat.</p>
+<p t="429970" d="5045">And then, we just have to,
+still, go up by one unit,</p>
+<p t="435015" d="1996">OK?
+So, let me try to draw a</p>
+<p t="437011" d="3378">picture in this vertical plane
+that contains A and B.</p>
+<p t="440389" d="2851">If I draw it in the vertical
+plane,</p>
+<p t="443240" d="4100">so, that's the Z axis, 
+that's not any particular axis, </p>
+<p t="447340" d="11065">then my vector B will go here, 
+and my vector A will go above</p>
+<p t="458405" d="5555">it.
+And here, that's one unit.</p>
+<p t="463960" d="5486">And, here I have a right angle.
+So, I can use the Pythagorean</p>
+<p t="469446" d="7774">theorem to find that length A^2
+equals length B^2 plus one.</p>
+<p t="477220" d="2840">Now, we are reduced to finding
+the length of B.</p>
+<p t="480060" d="2784">The length of B,
+we can again find using the</p>
+<p t="482844" d="3820">Pythagorean theorem in the XY
+plane because here we have the</p>
+<p t="486664" d="2823">right angle.
+Here we have three units,</p>
+<p t="489487" d="3480">and here we have two units.
+OK, so, if you do the</p>
+<p t="492967" d="2181">calculations,
+you will see that,</p>
+<p t="495148" d="3166">well, length of B is square
+root of (3^2 2^2),</p>
+<p t="498314" d="5551">that's 13.
+So, the square root of 13 -- --</p>
+<p t="503865" d="8700">and length of A is square root
+of length B^2 plus one (square</p>
+<p t="512565" d="8989">it if you want) which is going
+to be square root of 13 plus one</p>
+<p t="521554" d="8407">is the square root of 14,
+hence, answer number two which</p>
+<p t="529961" d="4698">almost all of you gave.
+OK, so the general formula,</p>
+<p t="534659" d="7408">if you follow it with it,
+in general if we have a vector</p>
+<p t="542067" d="5643">with components a1,
+a2, a3,</p>
+<p t="547710" d="8375">then the length of A is the
+square root of a1^2 plus a2^2</p>
+<p t="556085" d="7785">plus a3^2.
+OK, any questions about that?</p>
+<p t="563870" d="5727">Yes?
+Yes.</p>
+<p t="569597" d="2893">So, in general,
+we indeed can consider vectors</p>
+<p t="572490" d="3730">in abstract spaces that have any
+number of coordinates.</p>
+<p t="576220" d="2240">And that you have more
+components.</p>
+<p t="578460" d="2436">In this class,
+we'll mostly see vectors with</p>
+<p t="580896" d="3344">two or three components because
+they are easier to draw,</p>
+<p t="584240" d="3183">and because a lot of the math
+that we'll see works exactly the</p>
+<p t="587423" d="2766">same way whether you have three
+variables or a million</p>
+<p t="590189" d="2239">variables.
+If we had a factor with more</p>
+<p t="592428" d="3231">components, then we would have a
+lot of trouble drawing it.</p>
+<p t="595659" d="2951">But we could still define its
+length in the same way,</p>
+<p t="598610" d="2439">by summing the squares of the
+components.</p>
+<p t="601049" d="3796">So, I'm sorry to say that here,
+multi-variable,</p>
+<p t="604845" d="3135">multi will mean mostly two or
+three.</p>
+<p t="607980" d="5679">But, be assured that it works
+just the same way if you have</p>
+<p t="613659" d="6941">10,000 variables.
+Just, calculations are longer.</p>
+<p t="620600" d="7672">OK, more questions?
+So, what else can we do with</p>
+<p t="628272" d="2839">vectors?
+Well, another thing that I'm</p>
+<p t="631111" d="4807">sure you know how to do with
+vectors is to add them to scale</p>
+<p t="635918" d="3735">them.
+So, vector addition,</p>
+<p t="639653" d="8480">so, if you have two vectors,
+A and B, then you can form,</p>
+<p t="648133" d="4496">their sum, A plus B.
+How do we do that?</p>
+<p t="652629" d="1739">Well, first,
+I should tell you,</p>
+<p t="654368" d="2202">vectors, they have this double
+life.</p>
+<p t="656570" d="3109">They are, at the same time, 
+geometric objects that we can</p>
+<p t="659679" d="2763">draw like this in pictures,
+and there are also</p>
+<p t="662442" d="3587">computational objects that we
+can represent by numbers.</p>
+<p t="666029" d="3605">So, every question about
+vectors will have two answers,</p>
+<p t="669634" d="2336">one geometric,
+and one numerical.</p>
+<p t="671970" d="2439">OK, so let's start with the
+geometric.</p>
+<p t="674409" d="3366">So, let's say that I have two
+vectors, A and B,</p>
+<p t="677775" d="3252">given to me.
+And, let's say that I thought</p>
+<p t="681027" d="3762">of drawing them at the same
+place to start with.</p>
+<p t="684789" d="4113">Well, to take the sum,
+what I should do is actually</p>
+<p t="688902" d="5018">move B so that it starts at the
+end of A, at the head of A.</p>
+<p t="693920" d="4449">OK, so this is, again, vector B.
+So, observe,</p>
+<p t="698369" d="2936">this actually forms,
+now, a parallelogram,</p>
+<p t="701305" d="2589">right?
+So, this side is,</p>
+<p t="703894" d="4652">again, vector A.
+And now, if we take the</p>
+<p t="708546" d="9223">diagonal of that parallelogram,
+this is what we call A plus B, </p>
+<p t="717769" d="2681">OK, so, the idea being that to
+move along A plus B,</p>
+<p t="720450" d="3430">it's the same as to move first
+along A and then along B,</p>
+<p t="723880" d="5490">or, along B, then along A.
+A plus B equals B plus A.</p>
+<p t="729370" d="4200">OK, now, if we do it
+numerically,</p>
+<p t="733570" d="5843">then all you do is you just add
+the first component of A with</p>
+<p t="739413" d="4427">the first component of B,
+the second with the second, </p>
+<p t="743840" d="4435">and the third with the third.
+OK, say that A was</p>
+<p t="748275" d="3201">***amp***lt;a1,
+a2, a3***amp***gt;</p>
+<p t="751476" d="3880">B was ***amp***lt;b1,
+b2, b3***amp***gt;,</p>
+<p t="755356" d="5433">then you just add this way.
+OK, so it's pretty</p>
+<p t="760789" d="3438">straightforward.
+So, for example,</p>
+<p t="764227" d="4485">I said that my vector over
+there, its components are three,</p>
+<p t="768712" d="5508">two, one.
+But, I also wrote it as 3i 2j k.</p>
+<p t="774220" d="3044">What does that mean?
+OK, so I need to tell you first</p>
+<p t="777264" d="9676">about multiplying by a scalar.
+So, this is about addition.</p>
+<p t="786940" d="4089">So, multiplication by a scalar,
+it's very easy.</p>
+<p t="791029" d="4113">If you have a vector,
+A, then you can form a vector</p>
+<p t="795142" d="5017">2A just by making it go twice as
+far in the same direction.</p>
+<p t="800159" d="4541">Or, we can make half A more
+modestly.</p>
+<p t="804700" d="6979">We can even make minus A,
+and so on.</p>
+<p t="811679" d="3729">So now, you see,
+if I do the calculation,</p>
+<p t="815408" d="3261">3i 2j k, well,
+what does it mean?</p>
+<p t="818669" d="4791">3i is just going to go along
+the x axis, but by distance of</p>
+<p t="823460" d="4105">three instead of one.
+And then, 2j goes two units</p>
+<p t="827565" d="3675">along the y axis,
+and k goes up by one unit.</p>
+<p t="831240" d="3520">Well, if you add these
+together, you will go from the</p>
+<p t="834760" d="3926">origin, then along the x axis,
+then parallel to the y axis,</p>
+<p t="838686" d="3325">and then up.
+And, you will end up,</p>
+<p t="842011" d="3949">indeed, at the endpoint of a
+vector.</p>
+<p t="845960" d="13510">OK, any questions at this point?
+Yes?</p>
+<p t="859470" d="2352">Exactly.
+To add vectors geometrically,</p>
+<p t="861822" d="3213">you just put the head of the
+first vector and the tail of the</p>
+<p t="865035" d="5844">second vector in the same place.
+And then, it's head to tail</p>
+<p t="870879" d="4511">addition.
+Any other questions?</p>
+<p t="875390" d="5739">Yes?
+That's correct.</p>
+<p t="881129" d="2497">If you subtract two vectors,
+that just means you add the</p>
+<p t="883626" d="2047">opposite of a vector.
+So, for example,</p>
+<p t="885673" d="3512">if I wanted to do A minus B,
+I would first go along A and</p>
+<p t="889185" d="3010">then along minus B,
+which would take me somewhere</p>
+<p t="892195" d="3260">over there, OK?
+So, A minus B,</p>
+<p t="895455" d="5875">if you want,
+would go from here to here.</p>
+<p t="901330" d="7553">OK, so hopefully you've kind of
+seen that stuff either before in</p>
+<p t="908883" d="4317">your lives, or at least
+yesterday.</p>
+<p t="913200" d="10530">So, I'm going to use that as an
+excuse to move quickly forward.</p>
+<p t="923730" d="5124">So, now we are going to learn a
+few more operations about</p>
+<p t="928854" d="2511">vectors.
+And, these operations will be</p>
+<p t="931365" d="3245">useful to us when we start
+trying to do a bit of geometry.</p>
+<p t="934610" d="2439">So, of course,
+you've all done some geometry.</p>
+<p t="937049" d="3250">But, we are going to see that
+geometry can be done using</p>
+<p t="940299" d="1759">vectors.
+And, in many ways,</p>
+<p t="942058" d="2272">it's the right language for
+that,</p>
+<p t="944330" d="3335">and in particular when we learn
+about functions we really will</p>
+<p t="947665" d="3911">want to use vectors more than,
+maybe, the other kind of</p>
+<p t="951576" d="2983">geometry that you've seen
+before.</p>
+<p t="954559" d="2401">I mean, of course,
+it's just a language in a way.</p>
+<p t="956960" d="2823">I mean, we are just
+reformulating things that you</p>
+<p t="959783" d="2707">have seen, you already know
+since childhood.</p>
+<p t="962490" d="5338">But, you will see that notation
+somehow helps to make it more</p>
+<p t="967828" d="3042">straightforward.
+So, what is dot product?</p>
+<p t="970870" d="5749">Well, dot product as a way of
+multiplying two vectors to get a</p>
+<p t="976619" d="4387">number, a scalar.
+And, well, let me start by</p>
+<p t="981006" d="4793">giving you a definition in terms
+of components.</p>
+<p t="985799" d="3387">What we do, let's say that we
+have a vector,</p>
+<p t="989186" d="3386">A, with components a1,
+a2, a3, vector B with</p>
+<p t="992572" d="2048">components b1,
+b2, b3.</p>
+<p t="994620" d="3884">Well, we multiply the first
+components by the first</p>
+<p t="998504" d="4895">components, the second by the
+second, the third by the third.</p>
+<p t="1003399" d="2791">If you have N components,
+you keep going.</p>
+<p t="1006190" d="3239">And, you sum all of these
+together.</p>
+<p t="1009429" d="6291">OK, and important:
+this is a scalar.</p>
+<p t="1015720" d="3289">OK, you do not get a vector.
+You get a number.</p>
+<p t="1019009" d="2004">I know it sounds completely
+obvious from the definition</p>
+<p t="1021013" d="2578">here,
+but in the middle of the action</p>
+<p t="1023591" d="3459">when you're going to do
+complicated problems,</p>
+<p t="1027050" d="7180">it's sometimes easy to forget.
+So, that's the definition.</p>
+<p t="1034230" d="3527">What is it good for?
+Why would we ever want to do</p>
+<p t="1037757" d="2634">that?
+That's kind of a strange</p>
+<p t="1040391" d="3078">operation.
+So, probably to see what it's</p>
+<p t="1043469" d="4261">good for, I should first tell
+you what it is geometrically.</p>
+<p t="1047730" d="1750">OK, so what does it do
+geometrically?</p>
+<p t="1058660" d="4063">Well, what you do when you
+multiply two vectors in this</p>
+<p t="1062723" d="3146">way,
+I claim the answer is equal to</p>
+<p t="1065869" d="5239">the length of A times the length
+of B times the cosine of the</p>
+<p t="1071108" d="8452">angle between them.
+So, I have my vector, A, </p>
+<p t="1079560" d="4584">and if I have my vector, B, 
+and I have some angle between</p>
+<p t="1084144" d="2415">them,
+I multiply the length of A</p>
+<p t="1086559" d="4071">times the length of B times the
+cosine of that angle.</p>
+<p t="1090630" d="3250">So, that looks like a very
+artificial operation.</p>
+<p t="1093880" d="3090">I mean, why would want to do
+that complicated multiplication?</p>
+<p t="1096970" d="4555">Well, the basic answer is it
+tells us at the same time about</p>
+<p t="1101525" d="4156">lengths and about angles.
+And, the extra bonus thing is</p>
+<p t="1105681" d="3785">that it's very easy to compute
+if you have components,</p>
+<p t="1109466" d="3214">see, that formula is actually
+pretty easy.</p>
+<p t="1112680" d="6332">So, OK, maybe I should first
+tell you, how do we get this</p>
+<p t="1119012" d="2313">from that?
+Because, you know,</p>
+<p t="1121325" d="3184">in math, one tries to justify
+everything to prove theorems.</p>
+<p t="1124509" d="1050">So, if you want,
+that's the theorem.</p>
+<p t="1125559" d="2191">That's the first theorem in
+18.02.</p>
+<p t="1127750" d="4264">So, how do we prove the theorem?
+How do we check that this is,</p>
+<p t="1132014" d="3515">indeed, correct using this
+definition?</p>
+<p t="1135529" d="10490">So, in more common language,
+what does this geometric</p>
+<p t="1146019" d="5192">definition mean?
+Well, the first thing it means,</p>
+<p t="1151211" d="2820">before we multiply two vectors,
+let's start multiplying a</p>
+<p t="1154031" d="3359">vector with itself.
+That's probably easier.</p>
+<p t="1157390" d="2501">So, if we multiply a vector,
+A, with itself,</p>
+<p t="1159891" d="2211">using this dot product,
+so, by the way,</p>
+<p t="1162102" d="2618">I should point out,
+we put this dot here.</p>
+<p t="1164720" d="4089">That's why it's called dot
+product.</p>
+<p t="1168809" d="4875">So, what this tells us is we
+should get the same thing as</p>
+<p t="1173684" d="4526">multiplying the length of A with
+itself, so, squared,</p>
+<p t="1178210" d="5778">times the cosine of the angle.
+But now, the cosine of an</p>
+<p t="1183988" d="5072">angle, of zero,
+cosine of zero you all know is</p>
+<p t="1189060" d="3931">one.
+OK, so that's going to be</p>
+<p t="1192991" d="3044">length A^2.
+Well, doesn't stand a chance of</p>
+<p t="1196035" d="1695">being true?
+Well, let's see.</p>
+<p t="1197730" d="5508">If we do AdotA using this
+formula, we will get a1^2 a2^2</p>
+<p t="1203238" d="3970">a3^2.
+That is, indeed,</p>
+<p t="1207208" d="7302">the square of the length.
+So, check.</p>
+<p t="1214510" d="4150">That works.
+OK, now, what about two</p>
+<p t="1218660" d="5080">different vectors?
+Can we understand what this</p>
+<p t="1223740" d="3640">says, and how it relates to
+that?</p>
+<p t="1227380" d="5693">So, let's say that I have two
+different vectors,</p>
+<p t="1233073" d="7147">A and B, and I want to try to
+understand what's going on.</p>
+<p t="1240220" d="4847">So, my claim is that we are
+going to be able to understand</p>
+<p t="1245067" d="4762">the relation between this and
+that in terms of the law of</p>
+<p t="1249829" d="2708">cosines.
+So, the law of cosines is</p>
+<p t="1252537" d="4119">something that tells you about
+the length of the third side in</p>
+<p t="1256656" d="3714">the triangle like this in terms
+of these two sides,</p>
+<p t="1260370" d="6945">and the angle here.
+OK, so the law of cosines,</p>
+<p t="1267315" d="4078">which hopefully you have seen
+before, says that,</p>
+<p t="1271393" d="3297">so let me give a name to this
+side.</p>
+<p t="1274690" d="5244">Let's call this side C,
+and as a vector,</p>
+<p t="1279934" d="9585">C is A minus B.
+It's minus B plus A.</p>
+<p t="1289519" d="7921">So, it's getting a bit
+cluttered here.</p>
+<p t="1297440" d="7780">So, the law of cosines says
+that the length of the third</p>
+<p t="1305220" d="8629">side in this triangle is equal
+to length A2 plus length B2.</p>
+<p t="1313849" d="2385">Well, if I stopped here,
+that would be Pythagoras,</p>
+<p t="1316234" d="5509">but I don't have a right angle.
+So, I have a third term which</p>
+<p t="1321743" d="5519">is twice length A,
+length B, cosine theta,</p>
+<p t="1327262" d="3537">OK?
+Has everyone seen this formula</p>
+<p t="1330799" d="2561">sometime?
+I hear some yeah's.</p>
+<p t="1333360" d="2964">I hear some no's.
+Well, it's a fact about,</p>
+<p t="1336324" d="2807">I mean, you probably haven't
+seen it with vectors,</p>
+<p t="1339131" d="3208">but it's a fact about the side
+lengths in a triangle.</p>
+<p t="1342339" d="4849">And, well, let's say,
+if you haven't seen it before,</p>
+<p t="1347188" d="5325">then this is going to be a
+proof of the law of cosines if</p>
+<p t="1352513" d="7467">you believe this.
+Otherwise, it's the other way</p>
+<p t="1359980" d="3745">around.
+So, let's try to see how this</p>
+<p t="1363725" d="3854">relates to what I'm saying about
+the dot product.</p>
+<p t="1367579" d="6433">So, I've been saying that
+length C^2, that's the same</p>
+<p t="1374012" d="2598">thing as CdotC,
+OK?</p>
+<p t="1376610" d="4962">That, we have checked.
+Now, CdotC, well,</p>
+<p t="1381572" d="4810">C is A minus B.
+So, it's A minus B,</p>
+<p t="1386382" d="3147">dot product,
+A minus B.</p>
+<p t="1389529" d="2000">Now, what do we want to do in a
+situation like that?</p>
+<p t="1391529" d="4781">Well, we want to expand this
+into a sum of four terms.</p>
+<p t="1396310" d="3677">Are we allowed to do that?
+Well, we have this dot product</p>
+<p t="1399987" d="2063">that's a mysterious new
+operation.</p>
+<p t="1402050" d="2302">We don't really know.
+Well, the answer is yes,</p>
+<p t="1404352" d="2710">we can do it.
+You can check from this</p>
+<p t="1407062" d="4373">definition that it behaves in
+the usual way in terms of</p>
+<p t="1411435" d="2834">expanding, vectoring,
+and so on.</p>
+<p t="1414269" d="14970">So, I can write that as AdotA
+minus AdotB minus BdotA plus</p>
+<p t="1429239" d="5830">BdotB.
+So, AdotA is length A^2.</p>
+<p t="1435069" d="1671">Let me jump ahead to the last
+term.</p>
+<p t="1436740" d="4467">BdotB is length B^2,
+and then these two terms,</p>
+<p t="1441207" d="3713">well, they're the same.
+You can check from the</p>
+<p t="1444920" d="2910">definition that AdotB and BdotA
+are the same thing.</p>
+<p t="1460299" d="4634">Well, you see that this term,
+I mean, this is the only</p>
+<p t="1464933" d="5247">difference between these two
+formulas for the length of C.</p>
+<p t="1470180" d="4526">So, if you believe in the law
+of cosines, then it tells you</p>
+<p t="1474706" d="4527">that, yes, this a proof that
+AdotB equals length A length B</p>
+<p t="1479233" d="2402">cosine theta.
+Or, vice versa,</p>
+<p t="1481635" d="4158">if you've never seen the law of
+cosines, you are willing to</p>
+<p t="1485793" d="3716">believe this.
+Then, this is the proof of the</p>
+<p t="1489509" d="4068">law of cosines.
+So, the law of cosines,</p>
+<p t="1493577" d="6333">or this interpretation,
+are equivalent to each other.</p>
+<p t="1499910" d="8070">OK, any questions?
+Yes?</p>
+<p t="1507980" d="4254">So, in the second one there
+isn't a cosine theta because I'm</p>
+<p t="1512234" d="4003">just expanding a dot product.
+OK, so I'm just writing C</p>
+<p t="1516237" d="3111">equals A minus B,
+and then I'm expanding this</p>
+<p t="1519348" d="2875">algebraically.
+And then, I get to an answer</p>
+<p t="1522223" d="2536">that has an A.B.
+So then, if I wanted to express</p>
+<p t="1524759" d="2792">that without a dot product,
+then I would have to introduce</p>
+<p t="1527551" d="4192">a cosine.
+And, I would get the same as</p>
+<p t="1531743" d="2600">that, OK?
+So, yeah, if you want,</p>
+<p t="1534343" d="3762">the next step to recall the law
+of cosines would be plug in this</p>
+<p t="1538105" d="5262">formula for AdotB.
+And then you would have a</p>
+<p t="1543367" d="14753">cosine.
+OK, let's keep going.</p>
+<p t="1558120" d="5356">OK, so what is this good for?
+Now that we have a definition,</p>
+<p t="1563476" d="2573">we should figure out what we
+can do with it.</p>
+<p t="1566049" d="5341">So, what are the applications
+of dot product?</p>
+<p t="1571390" d="3175">Well, will this discover new
+applications of dot product</p>
+<p t="1574565" d="3001">throughout the entire
+semester,but let me tell you at</p>
+<p t="1577566" d="2713">least about those that are
+readily visible.</p>
+<p t="1580279" d="13171">So, one is to compute lengths
+and angles, especially angles.</p>
+<p t="1593450" d="5996">So, let's do an example.
+Let's say that,</p>
+<p t="1599446" d="4865">for example,
+I have in space,</p>
+<p t="1604311" d="7298">I have a point,
+P, which is at (1,0,0).</p>
+<p t="1611609" d="4240">I have a point,
+Q, which is at (0,1,0).</p>
+<p t="1615849" d="2940">So, it's at distance one here,
+one here.</p>
+<p t="1618789" d="4328">And, I have a third point,
+R at (0,0,2),</p>
+<p t="1623117" d="4490">so it's at height two.
+And, let's say that I'm</p>
+<p t="1627607" d="4053">curious, and I'm wondering what
+is the angle here?</p>
+<p t="1631660" d="3977">So, here I have a triangle in
+space connect P,</p>
+<p t="1635637" d="4863">Q, and R, and I'm wondering,
+what is this angle here?</p>
+<p t="1640500" d="2599">OK, so, of course,
+one solution is to build a</p>
+<p t="1643099" d="2481">model and then go and measure
+the angle.</p>
+<p t="1645580" d="3198">But, we can do better than that.
+We can just find the angle</p>
+<p t="1648778" d="3632">using dot product.
+So, how would we do that?</p>
+<p t="1652410" d="5697">Well, so, if we look at this
+formula, we see,</p>
+<p t="1658107" d="6732">so, let's say that we want to
+find the angle here.</p>
+<p t="1664839" d="6141">Well, let's look at the formula
+for PQdotPR.</p>
+<p t="1670980" d="5385">Well, we said it should be
+length PQ times length PR times</p>
+<p t="1676365" d="2835">the cosine of the angle,
+OK?</p>
+<p t="1679200" d="2349">Now, what do we know,
+and what do we not know?</p>
+<p t="1681549" d="2815">Well, certainly at this point
+we don't know the cosine of the</p>
+<p t="1684364" d="2434">angle.
+That's what we would like to</p>
+<p t="1686798" d="1244">find.
+The lengths,</p>
+<p t="1688042" d="3429">certainly we can compute.
+We know how to find these</p>
+<p t="1691471" d="2529">lengths.
+And, this dot product we know</p>
+<p t="1694000" d="3509">how to compute because we have
+an easy formula here.</p>
+<p t="1697509" d="2621">OK, so we can compute
+everything else and then find</p>
+<p t="1700130" d="4988">theta.
+So, I'll tell you what we will</p>
+<p t="1705118" d="6701">do is we will find theta -- --
+in this way.</p>
+<p t="1711819" d="2966">We'll take the dot product of
+PQ with PR, and then we'll</p>
+<p t="1714785" d="1295">divide by the lengths.</p>
+<p t="1754630" d="13364">OK, so let's see.
+So, we said cosine theta is</p>
+<p t="1767994" d="5835">PQdotPR over length PQ length
+PR.</p>
+<p t="1773829" d="2297">So, let's try to figure out
+what this vector,</p>
+<p t="1776126" d="3153">PQ,
+well, to go from P to Q, </p>
+<p t="1779279" d="3749">I should go minus one unit
+along the x direction plus one</p>
+<p t="1783028" d="3844">unit along the y direction.
+And, I'm not moving in the z</p>
+<p t="1786872" d="2926">direction.
+So, to go from P to Q,</p>
+<p t="1789798" d="4952">I have to move by
+***amp***lt;-1,1,0***amp***gt;.</p>
+<p t="1794750" d="4391">To go from P to R,
+I go -1 along the x axis and 2</p>
+<p t="1799141" d="5388">along the z axis.
+So, PR, I claim, is this.</p>
+<p t="1804529" d="7951">OK, then, the lengths of these
+vectors, well,(-1)^2 (1)^2</p>
+<p t="1812480" d="6672">(0)^2, square root,
+and then same thing with the</p>
+<p t="1819152" d="4860">other one.
+OK, so, the denominator will</p>
+<p t="1824012" d="6258">become the square root of 2,
+and there's a square root of 5.</p>
+<p t="1830270" d="4275">What about the numerator?
+Well, so, remember,</p>
+<p t="1834545" d="3304">to do the dot product,
+we multiply this by this,</p>
+<p t="1837849" d="2391">and that by that,
+that by that.</p>
+<p t="1840240" d="5472">And, we add.
+Minus 1 times minus 1 makes 1</p>
+<p t="1845712" d="3518">plus 1 times 0,
+that's 0.</p>
+<p t="1849230" d="6658">Zero times 2 is 0 again.
+So, we will get 1 over square</p>
+<p t="1855888" d="3512">root of 10.
+That's the cosine of the angle.</p>
+<p t="1859400" d="3994">And, of course if we want the
+actual angle,</p>
+<p t="1863394" d="4851">well, we have to take a
+calculator, find the inverse</p>
+<p t="1868245" d="4374">cosine, and you'll find it's
+about 71.5°.</p>
+<p t="1872619" d="6046">Actually, we'll be using mostly
+radians, but for today,</p>
+<p t="1878665" d="8025">that's certainly more speaking.
+OK, any questions about that?</p>
+<p t="1886690" d="2578">No?
+OK, so in particular,</p>
+<p t="1889268" d="3276">I should point out one thing
+that's really neat about the</p>
+<p t="1892544" d="1825">answer.
+I mean, we got this number.</p>
+<p t="1894369" d="3108">We don't really know what it
+means exactly because it mixes</p>
+<p t="1897477" d="1983">together the lengths and the
+angle.</p>
+<p t="1899460" d="2438">But, one thing that's
+interesting here,</p>
+<p t="1901898" d="3786">it's the sign of the answer,
+the fact that we got a positive</p>
+<p t="1905684" d="2530">number.
+So, if you think about it,</p>
+<p t="1908214" d="2315">the lengths are always
+positive.</p>
+<p t="1910529" d="6124">So, the sign of a dot product
+is the same as a sign of cosine</p>
+<p t="1916653" d="3392">theta.
+So, in fact,</p>
+<p t="1920045" d="13094">the sign of AdotB is going to
+be positive if the angle is less</p>
+<p t="1933139" d="4460">than 90°.
+So, that means geometrically,</p>
+<p t="1937599" d="3511">my two vectors are going more
+or less in the same direction.</p>
+<p t="1941110" d="6485">They make an acute angle.
+It's going to be zero if the</p>
+<p t="1947595" d="6012">angle is exactly 90°,
+OK, because that's when the</p>
+<p t="1953607" d="5557">cosine will be zero.
+And, it will be negative if the</p>
+<p t="1959164" d="4173">angle is more than 90°.
+So, that means they go,</p>
+<p t="1963337" d="2823">however, in opposite
+directions.</p>
+<p t="1966160" d="4534">So, that's basically one way to
+think about what dot product</p>
+<p t="1970694" d="3904">measures.
+It measures how much the two</p>
+<p t="1974598" d="3931">vectors are going along each
+other.</p>
+<p t="1978529" d="4090">OK, and that actually leads us
+to the next application.</p>
+<p t="1982619" d="3201">So, let's see,
+did I have a number one there?</p>
+<p t="1985820" d="2024">Yes.
+So, if I had a number one,</p>
+<p t="1987844" d="4204">I must have number two.
+The second application is to</p>
+<p t="1992048" d="4759">detect orthogonality.
+It's to figure out when two</p>
+<p t="1996807" d="4922">things are perpendicular.
+OK, so orthogonality is just a</p>
+<p t="2001729" d="4981">complicated word from Greek to
+say things are perpendicular.</p>
+<p t="2006710" d="7606">So, let's just take an example.
+Let's say I give you the</p>
+<p t="2014316" d="6739">equation x 2y 3z = 0.
+OK, so that defines a certain</p>
+<p t="2021055" d="5496">set of points in space,
+and what do you think the set</p>
+<p t="2026551" d="5708">of solutions look like if I give
+you this equation?</p>
+<p t="2032259" d="9018">So far I see one,
+two, three answers,</p>
+<p t="2041277" d="4943">OK.
+So, I see various competing</p>
+<p t="2046220" d="5468">answers, but,
+yeah, I see a lot of people</p>
+<p t="2051688" d="6408">voting for answer number four.
+I see also some I don't knows,</p>
+<p t="2058096" d="4582">and some other things.
+But, the majority vote seems to</p>
+<p t="2062678" d="3501">be a plane.
+And, indeed that's the correct</p>
+<p t="2066179" d="2141">answer.
+So, how do we see that it's a</p>
+<p t="2068320" d="370">plane?</p>
+<p t="2083699" d="5536">So, I should say,
+this is the equation of a</p>
+<p t="2089235" d="3084">plane.
+So, there's many ways to see</p>
+<p t="2092319" d="3550">that, and I'm not going to give
+you all of them.</p>
+<p t="2095869" d="2951">But, here's one way to think
+about it.</p>
+<p t="2098820" d="5042">So, let's think geometrically
+about how to express this</p>
+<p t="2103862" d="5893">condition in terms of vectors.
+So, let's take the origin O,</p>
+<p t="2109755" d="3734">by convention is the point
+(0,0,0).</p>
+<p t="2113489" d="4728">And, let's take a point,
+P, that will satisfy this</p>
+<p t="2118217" d="3474">equation on it,
+so, at coordinates x,</p>
+<p t="2121691" d="2843">y, z.
+So, what does this condition</p>
+<p t="2124534" d="3927">here mean?
+Well, it means the following</p>
+<p t="2128461" d="4328">thing.
+So, let's take the vector, OP.</p>
+<p t="2132789" d="4925">OK, so vector OP,
+of course, has components x,</p>
+<p t="2137714" d="2696">y, z.
+Now, we can think of this as</p>
+<p t="2140410" d="4204">actually a dot product between
+OP and a mysterious vector that</p>
+<p t="2144614" d="2896">won't remain mysterious for very
+long,</p>
+<p t="2147510" d="3339">namely, the vector one,
+two, three.</p>
+<p t="2150849" d="9032">OK, so, this condition is the
+same as OP.A equals zero,</p>
+<p t="2159881" d="3821">right?
+If I take the dot product</p>
+<p t="2163702" d="6158">OPdotA I get x times one plus y
+times two plus z times three.</p>
+<p t="2169860" d="4772">But now, what does it mean that
+the dot product between OP and A</p>
+<p t="2174632" d="4981">is zero?
+Well, it means that OP and A</p>
+<p t="2179613" d="6256">are perpendicular.
+OK, so I have this vector, A.</p>
+<p t="2185869" d="2351">I'm not going to be able to
+draw it realistically.</p>
+<p t="2188220" d="4412">Let's say it goes this way.
+Then, a point,</p>
+<p t="2192632" d="4672">P, solves this equation exactly
+when the vector from O to P is</p>
+<p t="2197304" d="3464">perpendicular to A.
+And, I claim that defines a</p>
+<p t="2200768" d="1185">plane.
+For example,</p>
+<p t="2201953" d="3077">if it helps you to see it,
+take a vertical vector.</p>
+<p t="2205030" d="2165">What does it mean to be
+perpendicular to the vertical</p>
+<p t="2207195" d="2125">vector?
+It means you are horizontal.</p>
+<p t="2209320" d="6839">It's the horizontal plane.
+Here, it's a plane that passes</p>
+<p t="2216159" d="9611">through the origin and is
+perpendicular to this vector,</p>
+<p t="2225770" d="9061">A.
+OK, so what we get is a plane</p>
+<p t="2234831" d="10989">through the origin perpendicular
+to A.</p>
+<p t="2245820" d="3683">And, in general, 
+what you should remember is</p>
+<p t="2249503" d="5690">that two vectors have a dot
+product equal to zero if and</p>
+<p t="2255193" d="6622">only if that's equivalent to the
+cosine of the angle between them</p>
+<p t="2261815" d="5085">is zero.
+That means the angle is 90°.</p>
+<p t="2266900" d="4440">That means A and B are
+perpendicular.</p>
+<p t="2271340" d="5905">So, we have a very fast way of
+checking whether two vectors are</p>
+<p t="2277245" d="4176">perpendicular.
+So, one additional application</p>
+<p t="2281421" d="4332">I think we'll see actually
+tomorrow is to find the</p>
+<p t="2285753" d="4596">components of a vector along a
+certain direction.</p>
+<p t="2290349" d="3054">So, I claim we can use this
+intuition I gave about dot</p>
+<p t="2293403" d="3572">product telling us how much to
+vectors go in the same direction</p>
+<p t="2296975" d="2881">to actually give a precise
+meaning to the notion of</p>
+<p t="2299856" d="2955">component for vector,
+not just along the x,</p>
+<p t="2302811" d="4449">y, or z axis,
+but along any direction in</p>
+<p t="2307260" d="4340">space.
+So, I think I should probably</p>
+<p t="2311600" d="3320">stop here.
+But, I will see you tomorrow at</p>
+<p t="2314920" d="3734">2:00 here, and we'll learn more
+about that and about cross</p>
+<p t="2318654" d="5786">products.
+ </p>
+</body>
+</timedtext>

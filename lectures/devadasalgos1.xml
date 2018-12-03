@@ -1,0 +1,1653 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="50" d="1720">The following
+content is provided</p>
+<p t="1770" d="2240">under a Creative
+Commons license.</p>
+<p t="4010" d="2850">Your support will help MIT
+OpenCourseWare continue</p>
+<p t="6860" d="3860">to offer high quality
+educational resources for free.</p>
+<p t="10720" d="2610">To make a donation or
+view additional materials</p>
+<p t="13330" d="3877">from hundreds of MIT courses,
+visit MIT OpenCourseWare</p>
+<p t="17207" d="625">at ocw.mit.edu.</p>
+<p t="22730" d="660">PROFESSOR: Hi.</p>
+<p t="23390" d="1360">I'm Srini Devadas.</p>
+<p t="24750" d="2290">I'm a professor of electrical
+engineering and computer</p>
+<p t="27040" d="610">science.</p>
+<p t="27650" d="3320">I'm going to be co-lecturing
+6.006-- Introduction</p>
+<p t="30970" d="3980">to Algorithms-- this term
+with professor Erik Domane.</p>
+<p t="34950" d="1051">Eric, say hi.</p>
+<p t="36001" d="882">ERIK DOMANE: Hi.</p>
+<p t="36883" d="1767">[LAUGHTER]</p>
+<p t="38650" d="1560">PROFESSOR: And we
+hope you're going</p>
+<p t="40210" d="3500">to have a fun time
+in 6.006 learning</p>
+<p t="43710" d="2050">a variety of algorithms.</p>
+<p t="45760" d="5000">What I want to do today is
+spend literally a minute or so</p>
+<p t="50760" d="4244">on administrative
+details, maybe even less.</p>
+<p t="55004" d="1416">What I'd like to
+do is to tell you</p>
+<p t="56420" d="4250">to go to the website that's
+listed up there and read it.</p>
+<p t="60670" d="1580">And you'll get all
+information you</p>
+<p t="62250" d="4180">need about what this class
+is about from a standpoint</p>
+<p t="66430" d="5160">of syllabus; what's expected
+of you; the problem set</p>
+<p t="71590" d="4070">schedule; the quiz schedule;
+and so on and so forth.</p>
+<p t="75660" d="3800">I want to dive right in and tell
+you about interesting things,</p>
+<p t="79460" d="5090">like algorithms and
+complexity of algorithms.</p>
+<p t="84550" d="1940">I want to spend
+some time giving you</p>
+<p t="86490" d="2890">an overview of the
+course content.</p>
+<p t="89380" d="2260">And then we're
+going to dive right</p>
+<p t="91640" d="3590">in and look at a
+particular problem of peak</p>
+<p t="95230" d="3130">finding-- both the one
+dimensional version and a two</p>
+<p t="98360" d="3540">dimensional version-- and
+talk about algorithms to solve</p>
+<p t="101900" d="4770">this peak finding problem--
+both varieties of it.</p>
+<p t="106670" d="3330">And you'll find
+that there's really</p>
+<p t="110000" d="3090">a difference between
+these various algorithms</p>
+<p t="113090" d="3390">that we'll look at in
+terms of their complexity.</p>
+<p t="116480" d="2590">And what I mean
+by that is you're</p>
+<p t="119070" d="3680">going to have different run
+times of these algorithms</p>
+<p t="122750" d="3460">depending on input
+size, based on how</p>
+<p t="126210" d="2390">efficient these algorithms are.</p>
+<p t="128600" d="5770">And a prerequisite for
+this class is 6.042.</p>
+<p t="134370" d="4250">And in 6.042 you learned
+about asymptotic complexity.</p>
+<p t="138620" d="2620">And you'll see that
+in this lecture</p>
+<p t="141240" d="4190">we'll analyze relatively
+simple algorithms today</p>
+<p t="145430" d="2640">in terms of their
+asymptotic complexity.</p>
+<p t="148070" d="2270">And you'll be able
+to compare and say</p>
+<p t="150340" d="3600">that this algorithm is fasten
+this other one-- assuming</p>
+<p t="153940" d="3380">that you have large
+inputs-- because it's</p>
+<p t="157320" d="3520">asymptotically less complex.</p>
+<p t="160840" d="2345">So let's dive right in
+and talk about the class.</p>
+<p t="172420" d="2130">So the one sentence
+summary of this class</p>
+<p t="174550" d="4360">is that this is about
+efficient procedures</p>
+<p t="178910" d="5940">for solving problems
+on large inputs.</p>
+<p t="184850" d="1950">And when I say large
+inputs, I mean things</p>
+<p t="186800" d="3920">like the US highway
+system, a map</p>
+<p t="190720" d="3390">of all of the highways
+in the United States;</p>
+<p t="194110" d="3740">the human genome, which
+has a billion letters</p>
+<p t="197850" d="5320">in its alphabet; a social
+network responding to Facebook,</p>
+<p t="203170" d="3670">that I guess has 500
+million nodes or so.</p>
+<p t="206840" d="1440">So these are large inputs.</p>
+<p t="208280" d="3190">Now our definition of large has
+really changed with the times.</p>
+<p t="211470" d="3970">And so really the 21st
+century definition of large</p>
+<p t="215440" d="1531">is, I guess, a trillion.</p>
+<p t="216971" d="499">Right?</p>
+<p t="217470" d="3210">Back when I was your age
+large was like 1,000.</p>
+<p t="220680" d="1720">[LAUGHTER]</p>
+<p t="222400" d="2444">I guess I'm dating myself here.</p>
+<p t="224844" d="1916">Back when Eric was your
+age, it was a million.</p>
+<p t="226760" d="500">Right?</p>
+<p t="227260" d="1390">[LAUGHTER]</p>
+<p t="228650" d="6350">But what's happening really
+the world is moving faster,</p>
+<p t="235000" d="1420">things are getting bigger.</p>
+<p t="236420" d="4460">We have the capability of
+computing on large inputs,</p>
+<p t="240880" d="2340">but that doesn't
+mean that efficiency</p>
+<p t="243220" d="2540">isn't of paramount concern.</p>
+<p t="245760" d="2930">The fact of matter is
+that you can, maybe,</p>
+<p t="248690" d="4860">scan a billion elements
+in a matter of seconds.</p>
+<p t="253550" d="4200">But if you had an algorithm
+that required cubic complexity,</p>
+<p t="257750" d="2149">suddenly you're not talking
+about 10 raised to 9,</p>
+<p t="259899" d="2180">you're talking about
+10 raised to 27.</p>
+<p t="262079" d="2431">And even current
+computers can't really</p>
+<p t="264510" d="6380">handle those kinds of numbers,
+so efficiency is a concern.</p>
+<p t="270890" d="3930">And as inputs get larger, it
+becomes more of a concern.</p>
+<p t="274820" d="500">All right?</p>
+<p t="275320" d="4078">So we're concerned about--</p>
+<p t="283760" d="7550">--efficient procedures-- for
+solving large scale problems</p>
+<p t="291310" d="630">in this class.</p>
+<p t="298140" d="3500">And we're concerned
+about scalability,</p>
+<p t="301640" d="5390">because-- just as,
+you know, 1,000</p>
+<p t="307030" d="2570">was a big number a
+couple of decades ago,</p>
+<p t="309600" d="2540">and now it's kind of
+a small number-- it's</p>
+<p t="312140" d="4290">quite possible that by the
+time you guys are professors</p>
+<p t="316430" d="1790">teaching this class
+in some university</p>
+<p t="318220" d="2470">that a trillion is going
+to be a small number.</p>
+<p t="320690" d="3740">And we're going to be talking
+about-- I don't know--</p>
+<p t="324430" d="3090">10 raised to 18
+as being something</p>
+<p t="327520" d="5100">that we're concerned with from
+a standpoint of a common case</p>
+<p t="332620" d="1890">input for an algorithm.</p>
+<p t="334510" d="3610">So scalability is important.</p>
+<p t="338120" d="3360">And we want to be able to track
+how our algorithms are going</p>
+<p t="341480" d="2520">to do as inputs get
+larger and larger.</p>
+<p t="347210" d="4970">You going to learn a bunch
+of different data structures.</p>
+<p t="352180" d="4470">We'll call them classic
+data structures,</p>
+<p t="356650" d="4800">like binary search
+trees, hash tables-- that</p>
+<p t="361450" d="4570">are called dictionaries
+in Python-- and data</p>
+<p t="366020" d="3450">structures-- such as balanced
+binary search trees-- that</p>
+<p t="369470" d="3505">are more efficient than just
+the regular binary search trees.</p>
+<p t="372975" d="1375">And these are all
+data structures</p>
+<p t="374350" d="4190">that were invented
+many decades ago.</p>
+<p t="378540" d="2310">But they've stood
+the test of time,</p>
+<p t="380850" d="2680">and they continue to be useful.</p>
+<p t="383530" d="2680">We're going to augment these
+data structures in various ways</p>
+<p t="386210" d="4120">to make them more efficient
+for certain kinds of problems.</p>
+<p t="390330" d="3650">And while you're not going to be
+doing a whole lot of algorithm</p>
+<p t="393980" d="2200">design in this
+class, you will be</p>
+<p t="396180" d="2155">doing some design and a
+whole lot of analysis.</p>
+<p t="400880" d="5180">The class following this
+one, 6.046 Designing Analysis</p>
+<p t="406060" d="2470">of Algorithms, is
+a class that you</p>
+<p t="408530" d="3550">should take if
+you like this one.</p>
+<p t="412080" d="5100">And you can do a whole lot more
+design of algorithms in 6.046.</p>
+<p t="417180" d="2700">But you will look at
+classic data structures</p>
+<p t="419880" d="6380">and classical algorithms
+for these data structures,</p>
+<p t="426260" d="6210">including things like sorting
+and matching, and so on.</p>
+<p t="432470" d="4730">And one of the nice
+things about this class</p>
+<p t="437200" d="4600">is that you'll be doing real
+implementations of these data</p>
+<p t="441800" d="3330">structures and
+algorithms in Python.</p>
+<p t="448220" d="2660">And in particular are
+each of the problem</p>
+<p t="450880" d="7800">sets in this class are
+going to have both a theory</p>
+<p t="458680" d="3250">part to them, and a
+programming part to them.</p>
+<p t="461930" d="1500">So hopefully it'll
+all tie together.</p>
+<p t="463430" d="2630">The kinds of things we're going
+to be talking about in lectures</p>
+<p t="466060" d="5140">and recitations are going
+to be directly connected</p>
+<p t="471200" d="2060">to the theory parts
+of the problem sets.</p>
+<p t="473260" d="2540">And you'll be programming the
+algorithms that we talk about</p>
+<p t="475800" d="2880">in lecture, or augmenting
+them, running them.</p>
+<p t="478680" d="4500">Figuring out whether they work
+well on large inputs or not.</p>
+<p t="486510" d="3020">So let me talk a little
+bit about the modules</p>
+<p t="489530" d="1932">in this class and
+the problem sets.</p>
+<p t="491462" d="1458">And we hope that
+these problem sets</p>
+<p t="492920" d="2550">are going to be fun for you.</p>
+<p t="495470" d="3960">And by fun I don't mean easy.</p>
+<p t="499430" d="3226">I mean challenging and
+worthwhile, so at the end of it</p>
+<p t="502656" d="1624">you feel like you've
+learned something,</p>
+<p t="504280" d="2590">and you had some
+fun along the way.</p>
+<p t="506870" d="1710">All right?</p>
+<p t="508580" d="1970">So content wise--</p>
+<p t="517350" d="4480">--we have eight
+modules in the class.</p>
+<p t="521830" d="2660">Each of which,
+roughly speaking, has</p>
+<p t="524490" d="2530">a problem set
+associated with it.</p>
+<p t="527020" d="4930">The first of these is what
+we call algorithmic thinking.</p>
+<p t="535710" d="3420">And we'll kick start
+that one today.</p>
+<p t="539130" d="2350">We'll look at a particular
+problem, as I mentioned,</p>
+<p t="541480" d="1310">of peak finding.</p>
+<p t="542790" d="1560">And as part of
+this, you're going</p>
+<p t="544350" d="3610">to have a problem set that's
+going to go out today as well.</p>
+<p t="547960" d="4360">And you'll find that
+in this problem set</p>
+<p t="552320" d="2100">some of these algorithms
+I talk about today will</p>
+<p t="554420" d="2670">be coded in Python and given to.</p>
+<p t="557090" d="3100">A couple of them are going
+to have bugs in them.</p>
+<p t="560190" d="4150">You'll have to analyze the
+complexity of these algorithms;</p>
+<p t="564340" d="3040">figure out which ones are
+correct and efficient;</p>
+<p t="567380" d="2380">and write a proof
+for one of them.</p>
+<p t="569760" d="500">All right?</p>
+<p t="570260" d="3060">So that's sort of an
+example problem set.</p>
+<p t="573320" d="4280">And you can expect that
+most of the problem sets</p>
+<p t="577600" d="2436">are going to follow
+that sort of template.</p>
+<p t="580036" d="714">All right.</p>
+<p t="580750" d="4060">So you'll get a
+better sense of this</p>
+<p t="584810" d="1880">by the end of the
+day today for sure.</p>
+<p t="586690" d="2240">Or a concrete sense
+of this, because we'll</p>
+<p t="588930" d="3920">be done with lecture and you'll
+see your first problem set.</p>
+<p t="592850" d="4690">We're going to be doing a
+module on sorting and trees.</p>
+<p t="597540" d="3079">Sorting you now about,
+sorting a bunch of numbers.</p>
+<p t="600619" d="1541">Imagine if you had
+a trillion numbers</p>
+<p t="602160" d="2090">and you wanted to sort them.</p>
+<p t="604250" d="3360">What kind of algorithm
+could use for that?</p>
+<p t="607610" d="2670">Trees are a wonderful
+data structure.</p>
+<p t="610280" d="4480">There's different varieties, the
+most common being binary trees.</p>
+<p t="614760" d="2820">And there's ways of doing
+all sorts of things,</p>
+<p t="617580" d="4980">like scheduling, and sorting,
+using various kinds of trees,</p>
+<p t="622560" d="1640">including binary trees.</p>
+<p t="624200" d="7130">And we have a problem set on
+simulating a logic network</p>
+<p t="631330" d="5330">using a particular kind of
+sorting algorithm in a data</p>
+<p t="636660" d="1680">structure.</p>
+<p t="638340" d="2810">That is going to be
+your second problem set.</p>
+<p t="641150" d="6040">And more quickly, we're going
+to have modules on hashing,</p>
+<p t="647190" d="4050">where we do things
+like genome comparison.</p>
+<p t="651240" d="5090">In past terms we compared a
+human genome to a rat genome,</p>
+<p t="656330" d="3020">and discovered they
+were pretty similar.</p>
+<p t="659350" d="2510">99% similar, which
+is kind of amazing.</p>
+<p t="661860" d="3100">But again, these things
+are so large that you</p>
+<p t="664960" d="2630">have to have efficiency
+in the comparison methods</p>
+<p t="667590" d="870">that you use.</p>
+<p t="668460" d="3230">And you'll find that if you
+don't get the complexity low</p>
+<p t="671690" d="3610">enough, you just won't
+be able to complete--</p>
+<p t="675300" d="4650">your program won't be able to
+finish running within the time</p>
+<p t="679950" d="1310">that your problem set is do.</p>
+<p t="681260" d="500">Right?</p>
+<p t="681760" d="2900">Which is a bit of a problem.</p>
+<p t="684660" d="4200">So that's something to keep
+in mind as you test your code.</p>
+<p t="688860" d="3280">The fact is that you will get
+large inputs to run your code.</p>
+<p t="692140" d="2820">And you want to keep
+complexity in mind</p>
+<p t="694960" d="5110">as you're coding and thinking
+about the pseudocode,</p>
+<p t="700070" d="3554">if you will, of your
+algorithm itself.</p>
+<p t="703624" d="1166">We will talk about numerics.</p>
+<p t="707420" d="3420">A lot of the time we talk
+about such large numbers</p>
+<p t="710840" d="3450">that 32 bits isn't enough.</p>
+<p t="714290" d="2840">Or 64 bits isn't enough to
+represent these numbers.</p>
+<p t="717130" d="1780">These numbers have
+thousands of bits.</p>
+<p t="718910" d="2200">A good example is
+RSA encryption,</p>
+<p t="721110" d="4030">that is used in
+SSL, for example.</p>
+<p t="725140" d="4580">And when you go-- use
+https on websites,</p>
+<p t="729720" d="2990">RSA is used at the back end.</p>
+<p t="732710" d="2650">And typically you work
+with prime numbers</p>
+<p t="735360" d="3150">that are thousands
+of bits long in RSA.</p>
+<p t="738510" d="1420">So how do you handle that?</p>
+<p t="739930" d="1340">How does Python handle that?</p>
+<p t="741270" d="1680">How do you write
+algorithms that can</p>
+<p t="742950" d="3320">deal with what are called
+infinite precision numbers?</p>
+<p t="746270" d="4230">So we have a module on numerics
+in the middle of the term that</p>
+<p t="750500" d="1350">talks about that.</p>
+<p t="751850" d="3630">Graphs, really a
+fundamental data structure</p>
+<p t="755480" d="2490">in all of computer science.</p>
+<p t="757970" d="4640">You might have heard of the
+famous Rubik's cube assignment</p>
+<p t="762610" d="500">from .</p>
+<p t="763110" d="3740">006 a 2 by 2 by 2 Rubik's cube.</p>
+<p t="766850" d="1840">What's the minimum
+number of moves</p>
+<p t="768690" d="4550">necessary to go from a
+given starting configuration</p>
+<p t="773240" d="3400">to the final end configuration,
+where all of the faces-- each</p>
+<p t="776640" d="2300">of the faces has uniform color?</p>
+<p t="778940" d="2890">And that can be posed
+as a graph problem.</p>
+<p t="781830" d="2222">We'll probably do
+that one this term.</p>
+<p t="784052" d="1708">In previous terms
+we've done other things</p>
+<p t="785760" d="1550">like the 15 puzzle.</p>
+<p t="787310" d="2860">And so some of
+these are tentative.</p>
+<p t="790170" d="2250">We definitely know what the
+first problem set is like,</p>
+<p t="792420" d="4000">but the rest of them are,
+at this moment, tentative.</p>
+<p t="796420" d="3920">And to finish up shortest paths.</p>
+<p t="800340" d="4320">Again in terms past
+we've asked you</p>
+<p t="804660" d="2720">to write code using a
+particular algorithm that</p>
+<p t="807380" d="3604">finds the shortest path
+from Caltech to MIT.</p>
+<p t="810984" d="2166">This time we may do things
+a little bit differently.</p>
+<p t="813150" d="4000">We were thinking maybe we'll
+give you a street map of Boston</p>
+<p t="817150" d="4210">and go figure out
+if Paul Revere used</p>
+<p t="821360" d="2780">the shortest path to get
+to where he was going,</p>
+<p t="824140" d="885">or things like that.</p>
+<p t="825025" d="2515">We'll try and make it fun.</p>
+<p t="827540" d="6880">Dynamic programming is an
+important algorithm design</p>
+<p t="834420" d="6270">technique that's used
+in many, many problems.</p>
+<p t="840690" d="3820">And it can be used to do a
+variety of things, including</p>
+<p t="844510" d="2090">image compression.</p>
+<p t="846600" d="3460">How do you compress an image
+so the number of pixels</p>
+<p t="850060" d="2900">reduces, but it still
+looks like the image</p>
+<p t="852960" d="2801">that you started out with,
+that had many more pixels?</p>
+<p t="855761" d="499">All right?</p>
+<p t="856260" d="2710">So you could use dynamic
+programming for that.</p>
+<p t="858970" d="4400">And finally, advanced topics,
+complexity theory, research</p>
+<p t="863370" d="2390">and algorithms.</p>
+<p t="865760" d="2830">Hopefully by now-- by
+this time in the course,</p>
+<p t="868590" d="1740">you have been sold
+on algorithms.</p>
+<p t="870330" d="2275">And most, if not
+all of you, would</p>
+<p t="872605" d="1945">want to pursue a
+carrier in algorithms.</p>
+<p t="874550" d="3130">And we'll give you a sense
+of what else is there.</p>
+<p t="877680" d="2684">We're just scratching the
+surface in this class,</p>
+<p t="880364" d="2166">and there's many, many
+classes that you can possibly</p>
+<p t="882530" d="5120">take if you want to continue
+in-- to learn about algorithms,</p>
+<p t="887650" d="2140">or to pursue a
+career in algorithms.</p>
+<p t="889790" d="1790">All right?</p>
+<p t="891580" d="2410">So that's the
+story of the class,</p>
+<p t="893990" d="1850">or the synopsis of the class.</p>
+<p t="895840" d="6110">And I encourage you to go spend
+a few minutes on the website.</p>
+<p t="901950" d="3900">In particular please read the
+collaboration policy, and get</p>
+<p t="905850" d="2590">a sense of what is
+expected of you.</p>
+<p t="908440" d="5140">What the rules are in terms
+of doing the problem sets.</p>
+<p t="913580" d="3520">And the course
+grading break down,</p>
+<p t="917100" d="3760">the grading policies are all
+listed on the website as well.</p>
+<p t="920860" d="2140">All right.</p>
+<p t="923000" d="870">OK.</p>
+<p t="923870" d="2340">So let's get started.</p>
+<p t="926210" d="2720">I want to talk about
+a specific problem.</p>
+<p t="928930" d="3070">And talk about algorithms
+for a specific problem.</p>
+<p t="932000" d="3560">We picked this problem, because
+it's so easy to understand.</p>
+<p t="935560" d="3230">And they're fairly
+straightforward algorithms</p>
+<p t="938790" d="2490">that are not particularly
+efficient to solve</p>
+<p t="941280" d="1250">this problem.</p>
+<p t="942530" d="2530">And so this is a, kind
+of, a toy problem.</p>
+<p t="945060" d="4600">But like a lot of
+toy problems, it's</p>
+<p t="949660" d="5570">very evocative in that it
+points out the issues involved</p>
+<p t="955230" d="2509">in designing
+efficient algorithms.</p>
+<p t="957739" d="1541">So we'll start with
+a one dimensional</p>
+<p t="959280" d="3115">version of what we
+call peak finding.</p>
+<p t="965810" d="4825">And a peak finder is something
+in the one dimensional case.</p>
+<p t="974180" d="4060">Runs on an array of numbers.</p>
+<p t="978240" d="4530">And I'm just putting--</p>
+<p t="982770" d="4250">--symbols for each of
+these numbers here.</p>
+<p t="987020" d="4526">And the numbers are
+positive, negative.</p>
+<p t="991546" d="1624">We'll just assume
+they're all positive,</p>
+<p t="993170" d="1310">it doesn't really matter.</p>
+<p t="994480" d="3980">The algorithms we
+describe will work.</p>
+<p t="998460" d="2870">And so we have this
+one dimensional array</p>
+<p t="1001330" d="2120">that has nine
+different positions.</p>
+<p t="1003450" d="3955">And a through i are numbers.</p>
+<p t="1009910" d="3120">And we want to find a peak.</p>
+<p t="1013030" d="3150">And so we have to define
+what we mean by a peak.</p>
+<p t="1016180" d="4140">And so, in particular,
+as an example,</p>
+<p t="1020320" d="7049">position 2 is a
+peak if, and only</p>
+<p t="1027369" d="9151">if, b greater than or equal to
+a, and b greater than or equal</p>
+<p t="1036520" d="1500">to c.</p>
+<p t="1038020" d="3339">So it's really a very local
+property corresponding</p>
+<p t="1041359" d="911">to a peak.</p>
+<p t="1042270" d="2750">In the one dimensional
+case, it's trivial.</p>
+<p t="1045020" d="1200">Look to your left.</p>
+<p t="1046220" d="1770">Look to your right.</p>
+<p t="1047990" d="4000">If you are equal or greater
+than both of the elements</p>
+<p t="1051990" d="3130">that you see on the left and
+the right, you're a peak.</p>
+<p t="1055120" d="640">OK?</p>
+<p t="1055760" d="2930">And in the case of
+the edges, you only</p>
+<p t="1058690" d="2010">have to look to one side.</p>
+<p t="1060700" d="12867">So position 9 is a peak if i
+greater than or equal to h.</p>
+<p t="1073567" d="1833">So you just have to
+look to your left there,</p>
+<p t="1075400" d="2083">because you're all the way
+on the right hand side.</p>
+<p t="1077483" d="787">All right?</p>
+<p t="1078270" d="2210">So that's it.</p>
+<p t="1080480" d="3440">And the statement of the
+problem, the one dimensional</p>
+<p t="1083920" d="9900">version, is find the
+peak if it exists.</p>
+<p t="1099490" d="2580">All right?</p>
+<p t="1102070" d="2440">That's all there is to it.</p>
+<p t="1104510" d="3380">I'm going to give you a
+straightforward algorithm.</p>
+<p t="1107890" d="2740">And then we'll see
+if we can improve it.</p>
+<p t="1110630" d="640">All right?</p>
+<p t="1111270" d="2840">You can imagine that the
+straightforward algorithm is</p>
+<p t="1114110" d="5330">something that just, you
+know, walks across the array.</p>
+<p t="1119440" d="4189">But we need that as a starting
+point for building something</p>
+<p t="1123629" d="791">more sophisticated.</p>
+<p t="1129680" d="7660">So let's say we start
+from left and all</p>
+<p t="1137340" d="4160">we have is one
+traversal, really.</p>
+<p t="1145360" d="2570">So let's say we have
+1, 2, and then we</p>
+<p t="1147930" d="2880">have n over 2 over
+here corresponding</p>
+<p t="1150810" d="3810">to the middle of
+this n element array.</p>
+<p t="1154620" d="4350">And then we have
+n minus 1, and n.</p>
+<p t="1158970" d="2120">What I'm interested
+in doing is, not only</p>
+<p t="1161090" d="3790">coming up with a
+straightforward algorithm,</p>
+<p t="1164880" d="4420">but also precisely
+characterizing</p>
+<p t="1169300" d="2730">what its complexity
+is in relation</p>
+<p t="1172030" d="3230">to n, which is the
+number of inputs.</p>
+<p t="1175260" d="500">Yeah?</p>
+<p t="1175760" d="1155">Question?</p>
+<p t="1176915" d="1541">AUDIENCE: Why do
+you say if it exists</p>
+<p t="1178456" d="1892">when the criteria
+in the [INAUDIBLE]</p>
+<p t="1180348" d="1049">guarantees [INAUDIBLE]?</p>
+<p t="1181397" d="1333">PROFESSOR: That's exactly right.</p>
+<p t="1182730" d="1810">I was going to get to that.</p>
+<p t="1184540" d="5990">So if you look at the
+definition of the peak,</p>
+<p t="1190530" d="4680">then what I have here is
+greater than or equal to.</p>
+<p t="1195210" d="800">OK?</p>
+<p t="1196010" d="3650">And so this-- That's a great
+question that was asked.</p>
+<p t="1199660" d="4810">Why is there "if it
+exists" in this problem?</p>
+<p t="1204470" d="3970">Now in the case where I have
+greater than or equal to,</p>
+<p t="1208440" d="3870">then-- this is a homework
+question for you,</p>
+<p t="1212310" d="5930">and for the rest of you-- argue
+that any array will always</p>
+<p t="1218240" d="1370">have a peak.</p>
+<p t="1219610" d="1180">OK?</p>
+<p t="1220790" d="3510">Now if you didn't have the
+greater than or equal to,</p>
+<p t="1224300" d="4770">and you had a greater than,
+then can you make that argument?</p>
+<p t="1229070" d="1050">No, you can't.</p>
+<p t="1230120" d="700">Right?</p>
+<p t="1230820" d="2410">So great question.</p>
+<p t="1233230" d="2629">In this case it's
+just a question--</p>
+<p t="1235859" d="1541">You would want to
+modify this problem</p>
+<p t="1237400" d="1550">statement to find the peak.</p>
+<p t="1238950" d="4760">But if I had a different
+definition of a peak-- and this</p>
+<p t="1243710" d="2140">is part of algorithmic thinking.</p>
+<p t="1245850" d="3730">You want to be able to create
+algorithms that are general,</p>
+<p t="1249580" d="2550">so if the problem
+definition changes on you,</p>
+<p t="1252130" d="2170">you still have a starting
+point to go attack</p>
+<p t="1254300" d="2200">the second version
+of the problem.</p>
+<p t="1256500" d="810">OK?</p>
+<p t="1257310" d="4169">So you could eliminate
+this in the case</p>
+<p t="1261479" d="1791">of the greater than or
+equal to definition.</p>
+<p t="1263270" d="2394">The "if it exists", because
+a peak will always exist.</p>
+<p t="1265664" d="1666">But you probably want
+to argue that when</p>
+<p t="1267330" d="2620">you want to show the
+correctness of your algorithm.</p>
+<p t="1269950" d="3260">And if in fact you had
+a different definition,</p>
+<p t="1273210" d="5920">well you would have to create
+an algorithm that tells you</p>
+<p t="1279130" d="3180">for sure that a peak
+doesn't exist, or find</p>
+<p t="1282310" d="1590">a peak if it exists.</p>
+<p t="1283900" d="500">All right?</p>
+<p t="1284400" d="1900">So that's really
+the general case.</p>
+<p t="1286300" d="3530">Many a time it's possible that
+you're asked to do something,</p>
+<p t="1289830" d="5160">and you can't actually give
+an answer to the question,</p>
+<p t="1294990" d="4345">or find something that satisfies
+all the constraints required.</p>
+<p t="1299335" d="2375">And in that case, you want to
+be able to put up your hand</p>
+<p t="1301710" d="1760">and say, you know what?</p>
+<p t="1303470" d="1400">I searched long and hard.</p>
+<p t="1304870" d="1860">I searched exhaustively.</p>
+<p t="1306730" d="3200">Here's my argument that
+I searched exhaustively,</p>
+<p t="1309930" d="1171">and I couldn't find it.</p>
+<p t="1311101" d="499">Right?</p>
+<p t="1311600" d="1890">If you do that, you
+get to keep your job.</p>
+<p t="1313490" d="1090">Right?</p>
+<p t="1314580" d="2810">Otherwise there's
+always the case</p>
+<p t="1317390" d="1670">that you didn't
+search hard enough.</p>
+<p t="1319060" d="3250">So it's nice to
+have that argument.</p>
+<p t="1322310" d="500">All right?</p>
+<p t="1322810" d="270">Great.</p>
+<p t="1323080" d="1110">Thanks for the question.</p>
+<p t="1324190" d="980">Feel free to interrupt.</p>
+<p t="1325170" d="2670">Raise your hand, and
+I'm watching you guys,</p>
+<p t="1327840" d="3710">and I'm happy to answer
+questions at any time.</p>
+<p t="1331550" d="2990">So let's talk about the
+straightforward algorithm.</p>
+<p t="1334540" d="1970">The straightforward
+algorithm is something</p>
+<p t="1336510" d="4430">that starts from the left
+and just walks across.</p>
+<p t="1340940" d="3345">And you might have something
+that looks like that.</p>
+<p t="1344285" d="675">All right?</p>
+<p t="1344960" d="2870">By that-- By this I mean
+the numbers are increasing</p>
+<p t="1347830" d="2900">as you start from the
+left, the peak is somewhere</p>
+<p t="1350730" d="2890">in the middle, and then
+things start decreasing.</p>
+<p t="1353620" d="500">Right?</p>
+<p t="1354120" d="5450">So in this case, you know,
+this might be the peak.</p>
+<p t="1366950" d="2600">You also may have
+a situation where</p>
+<p t="1369550" d="1690">the peak is all the
+way on the right,</p>
+<p t="1371240" d="1540">you started from the left.</p>
+<p t="1372780" d="2280">And it's 1, 2, 3,
+4, 5, 6, literally</p>
+<p t="1375060" d="1330">in terms of the numbers.</p>
+<p t="1376390" d="4610">And you're going to look at
+n elements going all the way</p>
+<p t="1381000" d="3800">to the right in order
+to find the peak.</p>
+<p t="1384800" d="2510">So in the case of
+the middle you'd</p>
+<p t="1387310" d="3630">look at n over 2 elements.</p>
+<p t="1393770" d="1250">If it was right in the middle.</p>
+<p t="1398340" d="8000">And the complexity,
+worst case complexity--</p>
+<p t="1406340" d="3490">--is what we call theta n.</p>
+<p t="1409830" d="3750">And it's theta n, because
+in the worst case,</p>
+<p t="1413580" d="2714">you may have to look
+at all n elements.</p>
+<p t="1416294" d="2416">And that would be the case
+where you started from the left</p>
+<p t="1418710" d="2150">and you had to go all
+the way to the right.</p>
+<p t="1420860" d="2990">Now remember theta n is
+essentially something</p>
+<p t="1423850" d="1980">that's says of the order of n.</p>
+<p t="1425830" d="3570">So it gives you both the lower
+bound and an upper bound.</p>
+<p t="1429400" d="3070">Big [? O ?] of n is
+just upper bound.</p>
+<p t="1432470" d="1500">And what we're
+saying here is, we're</p>
+<p t="1433970" d="4140">saying this algorithm
+that starts from the left</p>
+<p t="1438110" d="5360">is going to, essentially,
+require in the worst case</p>
+<p t="1443470" d="3270">something that's a
+constant times n.</p>
+<p t="1446740" d="1140">OK?</p>
+<p t="1447880" d="3330">And you know that
+constant could be 1.</p>
+<p t="1451210" d="2190">You could certainly
+set things up that way.</p>
+<p t="1453400" d="2460">Or if you had a different
+kind of algorithm,</p>
+<p t="1455860" d="2600">maybe you could work
+on the constant.</p>
+<p t="1458460" d="3900">But bottom line, we're only
+concerned, at this moment,</p>
+<p t="1462360" d="2400">about as asymptotic complexity.</p>
+<p t="1464760" d="4270">And the asymptotic complexity
+of this algorithm is linear.</p>
+<p t="1469030" d="680">All right?</p>
+<p t="1469710" d="2440">That make sense?</p>
+<p t="1472150" d="780">OK.</p>
+<p t="1472930" d="6020">So someone help me do better.</p>
+<p t="1478950" d="940">How can we do better?</p>
+<p t="1479890" d="3150">How can we lower the
+asymptotic complexity</p>
+<p t="1483040" d="3660">of a one dimensional
+peak finder?</p>
+<p t="1486700" d="1750">Anybody want to
+take a stab at that?</p>
+<p t="1488450" d="500">Yeah?</p>
+<p t="1488950" d="1136">Back there.</p>
+<p t="1490086" d="1992">AUDIENCE: Do a
+binary search subset.</p>
+<p t="1492078" d="2158">You look at the
+middle, and whatever</p>
+<p t="1494236" d="4316">is higher-- whichever side is
+higher, then cut that in half,</p>
+<p t="1498552" d="1738">because you know there's a peak.</p>
+<p t="1500290" d="120">PROFESSOR: On--</p>
+<p t="1500410" d="1168">AUDIENCE: For example
+if you're in the middle</p>
+<p t="1501578" d="1914">on the right side--
+there's a higher number</p>
+<p t="1503492" d="1624">on the right side--
+then you would just</p>
+<p t="1505116" d="1830">look at that, because you know
+that your peak's somewhere</p>
+<p t="1506946" d="500">in there.</p>
+<p t="1507446" d="1454">And you continue
+cutting in half.</p>
+<p t="1508900" d="460">PROFESSOR: Excellent!</p>
+<p t="1509360" d="499">Excellent!</p>
+<p t="1509859" d="1341">That's exactly right.</p>
+<p t="1511200" d="3650">So you can-- You can do
+something different, which</p>
+<p t="1514850" d="4390">is essentially try and
+break up this problem.</p>
+<p t="1519240" d="3410">Use a divide and conquer
+strategy, and recursively break</p>
+<p t="1522650" d="3900">up this one dimensional
+array into smaller arrays.</p>
+<p t="1526550" d="3390">And try and get this
+complexity down.</p>
+<p t="1529940" d="500">Yeah?</p>
+<p t="1530440" d="2799">AUDIENCE: Are we assuming
+that there's only one peak?</p>
+<p t="1533239" d="1041">PROFESSOR: No, we're not.</p>
+<p t="1534280" d="700">AUDIENCE: OK.</p>
+<p t="1534980" d="4239">PROFESSOR: It's find
+a peak if it exists.</p>
+<p t="1539219" d="1541">And in this case
+it's, "find a peak",</p>
+<p t="1540760" d="1850">because of the definition.</p>
+<p t="1542610" d="3300">We don't really need
+this as it was discussed.</p>
+<p t="1545910" d="750">All right?</p>
+<p t="1546660" d="520">OK.</p>
+<p t="1547180" d="1900">So--</p>
+<p t="1549080" d="4312">So that was a great answer,
+and-- You know this class</p>
+<p t="1553392" d="1458">after while is
+going to get boring.</p>
+<p t="1554850" d="920">Right?</p>
+<p t="1555770" d="1880">Every class gets boring.</p>
+<p t="1557650" d="3127">So we, you know, try and
+break the monotony here a bit.</p>
+<p t="1560777" d="2083">And so-- And then the other
+thing that we realized</p>
+<p t="1562860" d="1930">was that these seats
+you're sitting on-- this</p>
+<p t="1564790" d="2208">is a nice classroom-- but
+the seats you're sitting on</p>
+<p t="1566998" d="752">are kind of hard.</p>
+<p t="1567750" d="500">Right?</p>
+<p t="1568250" d="2537">So what Eric and I
+did was we decided</p>
+<p t="1570787" d="1833">we'll help you guys
+out, especially the ones</p>
+<p t="1572620" d="3250">who are-- who are
+interacting with us.</p>
+<p t="1575870" d="1710">And we have these--</p>
+<p t="1577580" d="1030">[LAUGHTER]</p>
+<p t="1578610" d="3535">--cushions that
+are 6.006 cushions.</p>
+<p t="1582145" d="3025">And, you know, that's a 2
+by 2 by 2 Rubik's cube here.</p>
+<p t="1585170" d="3240">And since you answered the first
+question, you get a cushion.</p>
+<p t="1588410" d="3100">This is kind of like a
+Frisbee, but not really.</p>
+<p t="1591510" d="500">So--</p>
+<p t="1592010" d="500">[LAUGHTER]</p>
+<p t="1592510" d="2680">I'm not sure-- I'm not sure
+I'm going to get it to you.</p>
+<p t="1595190" d="1375">But the other
+thing I want to say</p>
+<p t="1596565" d="1405">is this is not a baseball game.</p>
+<p t="1597970" d="499">Right?</p>
+<p t="1598469" d="2091">Where you just grab the
+ball as it comes by.</p>
+<p t="1600560" d="3110">This is meant for him, my
+friend in the red shirt.</p>
+<p t="1603670" d="2250">So here you go.</p>
+<p t="1605920" d="900">Ah, too bad.</p>
+<p t="1606820" d="800">All right.</p>
+<p t="1607620" d="960">It is soft.</p>
+<p t="1608580" d="2675">So, you know, it won't-- it
+won't hurt you if hits you.</p>
+<p t="1611255" d="655">[LAUGHTER]</p>
+<p t="1611910" d="630">All right.</p>
+<p t="1612540" d="1676">So we got a bunch of these.</p>
+<p t="1614216" d="3084">And raise your hands,
+you know, going</p>
+<p t="1617300" d="3725">to ask-- There's going
+to be-- I think-- There's</p>
+<p t="1621025" d="2125">some trivial questions that
+we're going to ask just</p>
+<p t="1623150" d="2030">to make sure you're awake.</p>
+<p t="1625180" d="2570">So an answer to that
+doesn't get you a cushion.</p>
+<p t="1627750" d="2764">But an answer like--
+What's your name?</p>
+<p t="1630514" d="666">AUDIENCE: Chase.</p>
+<p t="1631180" d="710">PROFESSOR: Chase.</p>
+<p t="1631890" d="3244">An answer like
+Chase just gave is--</p>
+<p t="1635134" d="1916">that's a good answer to
+a nontrivial question.</p>
+<p t="1637050" d="1450">That gets you a cushion.</p>
+<p t="1638500" d="790">OK?</p>
+<p t="1639290" d="1010">All right, great.</p>
+<p t="1640300" d="3930">So let's put up by
+Chase's algorithm up here.</p>
+<p t="1644230" d="2280">I'm going to write it
+out for the 1D version.</p>
+<p t="1661390" d="3815">So what we have here is
+a recursive algorithm.</p>
+<p t="1682967" d="1833">So the picture you want
+to keep in your head</p>
+<p t="1684800" d="2060">is this picture
+that I put up there.</p>
+<p t="1686860" d="4150">And this is a divide
+and conquer algorithm.</p>
+<p t="1691010" d="3130">You're going to see this over
+and over-- this paradigm--</p>
+<p t="1694140" d="3220">over and over in 6.006.</p>
+<p t="1697360" d="5385">We're going to look at
+the n over 2 position.</p>
+<p t="1705990" d="2710">And we're going to
+look to the left,</p>
+<p t="1708700" d="2310">and we're going to
+look to the right.</p>
+<p t="1711010" d="2410">And we're going to
+do that in sequence.</p>
+<p t="1713420" d="500">So--</p>
+<p t="1716680" d="14270">--if a n over 2 is less than
+a n over 2 minus 1, then--</p>
+<p t="1730950" d="3430">--only look at the left half.</p>
+<p t="1737680" d="6730">1 through n over 2 minus 1 to
+look for peak-- for a peak.</p>
+<p t="1748381" d="499">All right?</p>
+<p t="1748880" d="1415">So that's step one.</p>
+<p t="1750295" d="1875">And you know I could
+put it on the right hand</p>
+<p t="1752170" d="3820">side or the left hand side,
+doesn't really matter.</p>
+<p t="1755990" d="4321">I chose to do the left hand
+side first, the left half.</p>
+<p t="1760311" d="4259">And so what I've done is,
+through that one step,</p>
+<p t="1764570" d="5440">if in fact you have that
+condition-- a n over 2</p>
+<p t="1770010" d="3620">is less than a n over 2 minus
+1-- then you move to your left</p>
+<p t="1773630" d="3860">and you work on one
+half of the problem.</p>
+<p t="1777490" d="5630">But if that's not the case,
+then if n over-- n over 2</p>
+<p t="1783120" d="5050">is less than a over n
+over-- n by 2 plus 1,</p>
+<p t="1788170" d="9350">then only look at n over 2
+plus 1 through n for a peak.</p>
+<p t="1797520" d="2440">So I haven't bothered
+writing out all the words.</p>
+<p t="1799960" d="3520">They're exactly the same
+as the left hand side.</p>
+<p t="1803480" d="2680">You just look to
+the right hand side.</p>
+<p t="1806160" d="4270">Otherwise if both of these
+conditions don't fire,</p>
+<p t="1810430" d="1730">you're actually done.</p>
+<p t="1812160" d="500">OK?</p>
+<p t="1812660" d="3470">That's actually the best case
+in terms of finishing early,</p>
+<p t="1816130" d="2210">at least in this recursive step.</p>
+<p t="1818340" d="4240">Because now the n over
+2 position is a peak.</p>
+<p t="1827210" d="3290">Because what you found is
+that the n over 2 position</p>
+<p t="1830500" d="4240">is greater than or equal to
+both of its adjacent positions,</p>
+<p t="1834740" d="2110">and that's exactly the
+definition of a peak.</p>
+<p t="1836850" d="1580">So you're done.</p>
+<p t="1838430" d="920">OK?</p>
+<p t="1839350" d="5150">So all of this is good.</p>
+<p t="1844500" d="8807">You want to write an argument
+that this algorithm is correct.</p>
+<p t="1853307" d="1583">And I'm not going
+to bother with that.</p>
+<p t="1854890" d="4640">I just wave my hands a
+bit, and you all nodded,</p>
+<p t="1859530" d="1700">so we're done with that.</p>
+<p t="1861230" d="6080">But the point being you
+will see in your problem set</p>
+<p t="1867310" d="4250">a precise argument for a more
+complicated algorithm, the 2D</p>
+<p t="1871560" d="1160">version of this.</p>
+<p t="1872720" d="4180">And that should be a template
+for you to go write a proof,</p>
+<p t="1876900" d="2300">or an argument, a
+formal argument,</p>
+<p t="1879200" d="2420">that a particular
+algorithm is correct.</p>
+<p t="1881620" d="1930">That it does what
+it claims to do.</p>
+<p t="1883550" d="6820">And in this case it's two,
+three lines of careful reasoning</p>
+<p t="1890370" d="4150">that essentially say, given
+the definition of the peak,</p>
+<p t="1894520" d="4080">that this is going to
+find a peak in the array</p>
+<p t="1898600" d="1260">that you're given.</p>
+<p t="1899860" d="1040">All right?</p>
+<p t="1900900" d="4010">So we all believe that
+this algorithm is correct.</p>
+<p t="1904910" d="3740">Let's talk now about the
+complexity of this algorithm.</p>
+<p t="1908650" d="1980">Because the whole
+point of this algorithm</p>
+<p t="1910630" d="2070">was because we didn't
+like this theta</p>
+<p t="1912700" d="3650">n complexity corresponding to
+the straightforward algorithm.</p>
+<p t="1916350" d="1120">So it'd like to do better.</p>
+<p t="1928350" d="2480">So what I'd like to
+do is ask one of you</p>
+<p t="1930830" d="4060">to give me a recurrence relation
+of the kind, you know, T of n</p>
+<p t="1934890" d="3150">equals blah, blah, blah.</p>
+<p t="1938040" d="4270">That would correspond to
+this recursive algorithm,</p>
+<p t="1942310" d="1710">this divide and
+conquer algorithm.</p>
+<p t="1944020" d="5030">And then using that, I'd like
+to get to the actual complexity</p>
+<p t="1949050" d="4230">in terms of what the theta
+of complexity corresponds to.</p>
+<p t="1953280" d="500">Yeah?</p>
+<p t="1953780" d="972">Back there?</p>
+<p t="1954752" d="4928">AUDIENCE: So the worst
+case scenario if T of n</p>
+<p t="1959680" d="3115">is going to be some
+constant amount of time--</p>
+<p t="1962795" d="625">PROFESSOR: Yep.</p>
+<p t="1963420" d="3696">AUDIENCE: --it takes to
+investigate whether a certain</p>
+<p t="1967116" d="2735">element is [INAUDIBLE], plus--</p>
+<p t="1969851" d="862">[COUGH]</p>
+<p t="1970713" d="1309">--T of n over 2?</p>
+<p t="1972022" d="708">PROFESSOR: Great.</p>
+<p t="1972730" d="820">Exactly right.</p>
+<p t="1973550" d="910">That's exactly right.</p>
+<p t="1974460" d="3910">So if you look at this
+algorithm and you say,</p>
+<p t="1978370" d="2920">from a computation
+standpoint, can I</p>
+<p t="1981290" d="4220">write an equation
+corresponding to the execution</p>
+<p t="1985510" d="1060">of this algorithm?</p>
+<p t="1986570" d="4780">And you say, T of n is the work
+that this algorithm does on--</p>
+<p t="1991350" d="2280">as input of size n.</p>
+<p t="1993630" d="500">OK?</p>
+<p t="2005390" d="3160">Then I can write this equation.</p>
+<p t="2011310" d="3220">And this theta 1 corresponds
+to the two comparisons</p>
+<p t="2014530" d="3167">that you do looking at--
+potentially the two comparisons</p>
+<p t="2017697" d="1583">that you do-- looking
+at the left hand</p>
+<p t="2019280" d="2160">side and the right hand side.</p>
+<p t="2021440" d="3140">So that's-- 2 is a constant,
+so that's why we put theta 1.</p>
+<p t="2024580" d="620">All right?</p>
+<p t="2025200" d="1860">So you get a cushion, too.</p>
+<p t="2027060" d="2570">Watch out guys.</p>
+<p t="2029630" d="1150">Whoa!</p>
+<p t="2030780" d="1412">Oh actually that wasn't so bad.</p>
+<p t="2032192" d="1808">Good.</p>
+<p t="2034000" d="1620">Veers left, Eric.</p>
+<p t="2035620" d="1800">Veers left.</p>
+<p t="2037420" d="5940">So if you take this and
+you start expanding it,</p>
+<p t="2043360" d="1820">eventually you're going
+to get to the base</p>
+<p t="2045180" d="6911">case, which is T
+of 1 is theta 1.</p>
+<p t="2052091" d="499">Right?</p>
+<p t="2052590" d="3990">Because you have a one element
+array you just for that array</p>
+<p t="2056580" d="3070">it's just going to
+return that as a peak.</p>
+<p t="2059650" d="3480">And so if you do that, and
+you expand it all the way out,</p>
+<p t="2063130" d="7950">then you can write T of n
+equals theta 1 plus theta 1.</p>
+<p t="2071080" d="8220">And you're going to do this
+log to the base 2 of n times.</p>
+<p t="2079300" d="4360">And adding these
+all up, gives you</p>
+<p t="2083660" d="2700">a complexity theta log 2 of n.</p>
+<p t="2086360" d="1970">Right?</p>
+<p t="2088330" d="4759">So now you compare
+this with that.</p>
+<p t="2093089" d="1541">And there's really
+a huge difference.</p>
+<p t="2094630" d="2810">There's an exponential
+difference.</p>
+<p t="2097440" d="4420">If you coded up this
+algorithm in Python--</p>
+<p t="2101860" d="4310">and I did-- both these
+algorithms for the 1D version--</p>
+<p t="2106170" d="7990">and if you run it on n
+being 10 million or so,</p>
+<p t="2114160" d="3660">then this algorithm
+takes 13 seconds.</p>
+<p t="2117820" d="500">OK?</p>
+<p t="2118320" d="3560">The-- The theta 10
+algorithm takes 13 seconds.</p>
+<p t="2121880" d="4190">And this one takes
+0.001 seconds.</p>
+<p t="2126070" d="500">OK?</p>
+<p t="2126570" d="1359">Huge difference.</p>
+<p t="2127929" d="2416">So there is a big difference
+between theta n and theta log</p>
+<p t="2130345" d="1625">n.</p>
+<p t="2131970" d="3870">It's literally the difference
+between 2 raised to n, and n.</p>
+<p t="2135840" d="4280">It makes sense to try
+and reduce complexity</p>
+<p t="2140120" d="2880">as you can see,
+especially if you're</p>
+<p t="2143000" d="1450">talking about large inputs.</p>
+<p t="2144450" d="940">All right?</p>
+<p t="2145390" d="3470">And you'll see that
+more clearly as we</p>
+<p t="2148860" d="2440">go to a 2D version
+of this problem.</p>
+<p t="2151300" d="902">All right?</p>
+<p t="2152202" d="1708">So you can't really
+do better for the 1D.</p>
+<p t="2153910" d="2840">The 1D is a
+straightforward problem.</p>
+<p t="2156750" d="1750">It gets a little
+more interesting--</p>
+<p t="2158500" d="2580">the problems get a
+little-- excuse me,</p>
+<p t="2161080" d="2520">the algorithms get a
+little more sophisticated</p>
+<p t="2163600" d="4740">when we look at a 2D
+version of peak finding.</p>
+<p t="2168340" d="2195">So let's talk about
+the 2D version.</p>
+<p t="2175810" d="2440">So as you can imagine
+in the 2D version</p>
+<p t="2178250" d="2465">you have a matrix, or a
+two dimensional array.</p>
+<p t="2183490" d="6085">And we'll say this thing
+has n rows and m columns.</p>
+<p t="2194700" d="2490">And now we have to
+define what a peak is.</p>
+<p t="2197190" d="1160">And it's a hill.</p>
+<p t="2198350" d="3190">It's the obvious
+definition of a peak.</p>
+<p t="2201540" d="8950">So if you had a in
+here, c, b, d, e.</p>
+<p t="2210490" d="11760">Then as you can guess, a is
+a 2D peak if, and only if,</p>
+<p t="2222250" d="6580">a greater than or equal to b;
+a greater than or equal to d, c</p>
+<p t="2228830" d="1231">and e.</p>
+<p t="2230061" d="499">All right?</p>
+<p t="2230560" d="1670">So it's a little hill up there.</p>
+<p t="2232230" d="500">All right?</p>
+<p t="2232730" d="2390">And again I've used the
+greater than or equal to here,</p>
+<p t="2235120" d="3370">so that's similar to
+the 1D in the case</p>
+<p t="2238490" d="2855">that you'll always find
+a peak in any 2D matrix.</p>
+<p t="2243960" d="5250">Now again I'll give you the
+straightforward algorithm,</p>
+<p t="2249210" d="2430">and we'll call it the
+Greedy Ascent algorithm.</p>
+<p t="2261660" d="4160">And the Greedy Ascent algorithm
+essentially picks a direction</p>
+<p t="2265820" d="4740">and, you know, tries to
+follow that direction in order</p>
+<p t="2270560" d="2210">to find a peak.</p>
+<p t="2272770" d="9070">So for example, if I
+had this particular--</p>
+<p t="2281840" d="8950">--matrix; 14, 13,
+12, 15, 9, 11, 17--</p>
+<p t="2297010" d="3840">Then what might happen is if
+I started at some arbitrary</p>
+<p t="2300850" d="2510">midpoint-- So the
+Greedy Ascent algorithm</p>
+<p t="2303360" d="2850">has to make choices
+as to where to start.</p>
+<p t="2306210" d="2932">Just like we had
+different cases here,</p>
+<p t="2309142" d="1958">you have to make a choice
+as to where to start.</p>
+<p t="2311100" d="1670">You might want to
+start in the middle,</p>
+<p t="2312770" d="2790">and you might want to
+work your way left first.</p>
+<p t="2315560" d="2820">Or you're going to all--
+You just keep going left,</p>
+<p t="2318380" d="1340">our keep going right.</p>
+<p t="2319720" d="2620">And if you hit an
+edge, you go down.</p>
+<p t="2322340" d="4110">So you make some choices as
+to what the default traversal</p>
+<p t="2326450" d="1360">directions are.</p>
+<p t="2327810" d="3010">And so if you say you
+want to start with 12,</p>
+<p t="2330820" d="3230">you are going to go look
+for something to left.</p>
+<p t="2334050" d="4420">And if it's greater than, you're
+going to follow that direction.</p>
+<p t="2338470" d="2480">If it's not, if it's
+less, then you're</p>
+<p t="2340950" d="3250">going to go in the other
+direction, in this case,</p>
+<p t="2344200" d="960">for example.</p>
+<p t="2345160" d="7960">So in this case you'll go to
+12, 13 , 14, 15, 16, 17, 19,</p>
+<p t="2353120" d="1110">and 20.</p>
+<p t="2354230" d="3535">And you'd find-- You
+'d find this peak.</p>
+<p t="2357765" d="3915">Now I haven't given you
+the specific details</p>
+<p t="2361680" d="2070">of a Greedy Ascent algorithm.</p>
+<p t="2363750" d="9650">But I think if you look at
+the worst case possibilities</p>
+<p t="2373400" d="2970">here, with respect
+to a given matrix,</p>
+<p t="2376370" d="2550">and for any given
+starting point,</p>
+<p t="2378920" d="4350">and for any given strategy-- in
+terms of choosing left first,</p>
+<p t="2383270" d="5360">versus right first, or down
+first versus up first--</p>
+<p t="2388630" d="2740">you will have a
+situation where-- just</p>
+<p t="2391370" d="4080">like we had in the 1D
+case-- you may end up</p>
+<p t="2395450" d="6565">touching a large fraction of
+the elements in this 2D array.</p>
+<p t="2402015" d="735">OK?</p>
+<p t="2402750" d="2440">So in this case, we
+ended up, you know,</p>
+<p t="2405190" d="1700">touching a bunch of
+different elements.</p>
+<p t="2406890" d="3639">And it's quite possible that
+you could end up touching--</p>
+<p t="2410529" d="2291">starting from the midpoint--
+you could up touching half</p>
+<p t="2412820" d="4170">the elements, and in some cases,
+touching all the elements.</p>
+<p t="2416990" d="6010">So if you do a worst case
+analysis of this algorithm--</p>
+<p t="2423000" d="2410">a particular algorithm with
+particular choices in terms</p>
+<p t="2425410" d="4960">of the starting point and
+the direction of search--</p>
+<p t="2430370" d="3380">a Greedy Ascent algorithm would
+have theta n m complexity.</p>
+<p t="2433750" d="570">All right?</p>
+<p t="2434320" d="8160">And in the case where n
+equals m, or m equals n,</p>
+<p t="2442480" d="2360">you'd have theta n
+squared complexity.</p>
+<p t="2444840" d="1450">OK?</p>
+<p t="2446290" d="2150">I won't spend very
+much time on this,</p>
+<p t="2448440" d="3710">because I want to talk
+to you about the divide</p>
+<p t="2452150" d="5870">and conquer versions of this
+algorithm for the 2D peak.</p>
+<p t="2458020" d="2840">But hopefully you're
+all with me with respect</p>
+<p t="2460860" d="2670">to what the worst
+case complexity is.</p>
+<p t="2463530" d="1460">All right?</p>
+<p t="2464990" d="1080">People buy that?</p>
+<p t="2466070" d="500">Yeah.</p>
+<p t="2466570" d="820">Question back there.</p>
+<p t="2467390" d="1874">AUDIENCE: Can you-- Is
+that an approximation?</p>
+<p t="2469264" d="5366">Or can you actually get
+to n times m traversals?</p>
+<p t="2474630" d="4150">PROFESSOR: So there are specific
+Greedy Ascent algorithms,</p>
+<p t="2478780" d="2900">and specific matrices
+where, if I give you</p>
+<p t="2481680" d="3000">the code for the algorithm, and
+I give you a specific matrix,</p>
+<p t="2484680" d="3520">that I could make you touch
+all of these elements.</p>
+<p t="2488200" d="670">That's correct.</p>
+<p t="2488870" d="1730">So we're talking
+about worst case.</p>
+<p t="2490600" d="1660">You're being very
+paranoid when you</p>
+<p t="2492260" d="2280">talk about worst
+case complexity.</p>
+<p t="2494540" d="4260">And so I'm-- hand
+waving a bit here,</p>
+<p t="2498800" d="2350">simply because I haven't
+given you the specifics</p>
+<p t="2501150" d="1000">of the algorithm yet.</p>
+<p t="2502150" d="500">Right?</p>
+<p t="2502650" d="2019">This is really a
+set of algorithms,</p>
+<p t="2504669" d="1541">because I haven't
+given you the code,</p>
+<p t="2506210" d="1458">I haven't told you
+where it starts,</p>
+<p t="2507668" d="1382">and which direction it goes.</p>
+<p t="2509050" d="3330">But you go, do
+that, fix it, and I</p>
+<p t="2512380" d="3000">would be the person who tries to
+find the worst case complexity.</p>
+<p t="2515380" d="2870">Suddenly it's very
+easy to get to theta n</p>
+<p t="2518250" d="4890">m in terms of having some
+constant multiplying n times m.</p>
+<p t="2523140" d="2670">But you can definitely
+get to that constant</p>
+<p t="2525810" d="2710">being very close to 1.</p>
+<p t="2528520" d="1390">OK?</p>
+<p t="2529910" d="1440">If not 1.</p>
+<p t="2531350" d="840">All right.</p>
+<p t="2532190" d="2290">So let's talk about
+divide and conquer.</p>
+<p t="2534480" d="4240">And let's say that
+I did something</p>
+<p t="2538720" d="4050">like this, where I just tried
+to jam the binary search</p>
+<p t="2542770" d="3570">algorithm into the 2D version.</p>
+<p t="2546340" d="500">All right?</p>
+<p t="2557780" d="6050">So what I'm going to do is--</p>
+<p t="2563830" d="11600">--I'm going to pick the middle
+column, j equals m over 2.</p>
+<p t="2575430" d="5280">And I'm going to
+find a 1D peak using</p>
+<p t="2580710" d="1100">whatever algorithm I want.</p>
+<p t="2581810" d="3010">And I'll probably end up using
+the more efficient algorithm,</p>
+<p t="2584820" d="3030">the binary search
+version that's gone</p>
+<p t="2587850" d="2680">all the way to the left
+of the board there.</p>
+<p t="2590530" d="3470">And let's say I find a
+binary peak at (i, j).</p>
+<p t="2594000" d="3060">Because I've picked a column,
+and I'm just finding a 1D peak.</p>
+<p t="2600320" d="3230">So this is j equals m over 2.</p>
+<p t="2603550" d="2140">That's i.</p>
+<p t="2605690" d="4160">Now I use (i,j).</p>
+<p t="2609850" d="8880">In particular row i as a start--</p>
+<p t="2618730" d="3580">--to find a 1D peak on row i.</p>
+<p t="2627470" d="2571">And I stand up here,
+I'm really happy.</p>
+<p t="2630041" d="499">OK?</p>
+<p t="2630540" d="2900">Because I say, wow.</p>
+<p t="2633440" d="3410">I picked a middle column,
+I found a 1D peak,</p>
+<p t="2636850" d="4500">that is theta m complexity to
+find a 1D peak as we argued.</p>
+<p t="2641350" d="5315">And one side-- the theta m--</p>
+<p t="2646665" d="994">AUDIENCE: Log n.</p>
+<p t="2647659" d="1041">PROFESSOR: Oh, I'm sorry.</p>
+<p t="2648700" d="1030">You're right.</p>
+<p t="2649730" d="3760">The log n complexity,
+that's what this was.</p>
+<p t="2653490" d="1541">So I do have that here.</p>
+<p t="2655031" d="499">Yeah.</p>
+<p t="2655530" d="940">Log n complexity.</p>
+<p t="2656470" d="2450">Thanks, Eric.</p>
+<p t="2658920" d="7210">And then once I do that, I
+can find a 1D peak on row i.</p>
+<p t="2666130" d="2560">In this case row
+i would be m wide,</p>
+<p t="2668690" d="1940">so it would be log m complexity.</p>
+<p t="2670630" d="3210">If n equals m, then I have
+a couple of steps of log n,</p>
+<p t="2673840" d="1210">and I'm done.</p>
+<p t="2675050" d="980">All right?</p>
+<p t="2676030" d="2290">Am I done?</p>
+<p t="2678320" d="1320">No.</p>
+<p t="2679640" d="3130">Can someone tell me
+why I'm not done?</p>
+<p t="2682770" d="500">Precisely?</p>
+<p t="2683270" d="677">Yep.</p>
+<p t="2683947" d="2894">AUDIENCE: Because when
+you do the second part</p>
+<p t="2686841" d="3314">to find the peak in
+row i, you might not</p>
+<p t="2690155" d="2832">have that column
+peak-- There might not</p>
+<p t="2692987" d="1333">be a peak on the column anymore.</p>
+<p t="2694320" d="1920">PROFESSOR: That's
+exactly correct.</p>
+<p t="2696240" d="3040">So this algorithm is incorrect.</p>
+<p t="2699280" d="500">OK?</p>
+<p t="2699780" d="1680">It doesn't work.</p>
+<p t="2701460" d="2920">It's efficient, but incorrect.</p>
+<p t="2704380" d="1010">OK?</p>
+<p t="2705390" d="1825">It's-- You want to be correct.</p>
+<p t="2707215" d="2425">You know being correcting
+and inefficient</p>
+<p t="2709640" d="3940">is definitely better than
+being inefficient-- I'm sorry.</p>
+<p t="2713580" d="2210">Being incorrect and efficient.</p>
+<p t="2715790" d="2080">So this is an
+efficient algorithm,</p>
+<p t="2717870" d="4207">in the sense that it will
+only take log n time,</p>
+<p t="2722077" d="833">but it doesn't work.</p>
+<p t="2722910" d="2710">And I'll give you
+a simple example</p>
+<p t="2725620" d="2030">here where it doesn't work.</p>
+<p t="2732490" d="3190">The problem is--</p>
+<p t="2735680" d="4280">--a 2D peak--</p>
+<p t="2739960" d="4190">--may not exist--</p>
+<p t="2744150" d="1940">--on row i.</p>
+<p t="2746090" d="1610">And here's an example of that.</p>
+<p t="2753640" d="4720">Actually this is-- This is
+exactly the example of that.</p>
+<p t="2758360" d="4330">Let's say that I
+started with this row.</p>
+<p t="2762690" d="2367">Since it's-- I'm starting
+with the middle row,</p>
+<p t="2765057" d="1833">and I could start with
+this one or that one.</p>
+<p t="2766890" d="3750">Let's say I started
+with that one.</p>
+<p t="2770640" d="5710">I end up finding a peak.</p>
+<p t="2776350" d="5980">And if this were 10 up here,
+I'd choose 12 as a peak.</p>
+<p t="2782330" d="3526">And it's quite possible
+that I return 12 as a peak.</p>
+<p t="2785856" d="2044">Even though 19 is
+bigger, because 12</p>
+<p t="2787900" d="2470">is a peak given
+10 and 11 up here.</p>
+<p t="2790370" d="2690">And then when I choose
+this particular row,</p>
+<p t="2793060" d="3660">and I find a peak on
+this row, it would be 14.</p>
+<p t="2796720" d="2150">That is a 1D peak on this row.</p>
+<p t="2798870" d="2970">But 14 is not a 2D peak.</p>
+<p t="2801840" d="950">OK?</p>
+<p t="2802790" d="4612">So this particular example,
+14 would return 14.</p>
+<p t="2807402" d="3338">And 14 is not a 2D peak.</p>
+<p t="2810740" d="2990">All right?</p>
+<p t="2813730" d="3730">You can collect your
+cushion after the class.</p>
+<p t="2817460" d="4420">So not so good.</p>
+<p t="2821880" d="3550">Look like an efficient
+algorithm, but doesn't work.</p>
+<p t="2825430" d="750">All right?</p>
+<p t="2826180" d="3110">So how can we get to
+something that actually works?</p>
+<p t="2829290" d="5010">So the last algorithm that
+I'm going to show you--</p>
+<p t="2834300" d="2620">And you'll see four different
+algorithms in your problem</p>
+<p t="2836920" d="4340">set--</p>
+<p t="2841260" d="3080">--that you'll have to analyze
+the complexity for and decide</p>
+<p t="2844340" d="3840">if they're efficient,
+and if they're correct.</p>
+<p t="2848180" d="5260">But here's a-- a
+recursive version</p>
+<p t="2853440" d="4210">that is better than,
+in terms of complexity,</p>
+<p t="2857650" d="2470">than the Greedy
+Ascent algorithm.</p>
+<p t="2860120" d="3290">And this one works.</p>
+<p t="2863410" d="3060">So what I'm going to do
+is pick a middle column.</p>
+<p t="2869750" d="1685">j equals m over 2 as before.</p>
+<p t="2874050" d="8430">I'm going to find the
+global maximum on column j.</p>
+<p t="2885316" d="1374">And that's going
+to be at (i, j).</p>
+<p t="2889580" d="8650">I'm going to compare (i comma
+j minus 1), (i comma j),</p>
+<p t="2898230" d="2210">and (i,j plus 1).</p>
+<p t="2900440" d="3180">Which means that once I've
+found the maximum in this row,</p>
+<p t="2903620" d="2270">all I'm going to look to
+the left and the right,</p>
+<p t="2905890" d="2030">and compare.</p>
+<p t="2907920" d="2905">I'm going to pick
+the left columns.</p>
+<p t="2913520" d="7370">If (i comma j minus 1) is
+greater than (i comma j)--</p>
+<p t="2920890" d="1530">and similarly for the right.</p>
+<p t="2929490" d="6230">And if in fact I-- either
+of these two conditions</p>
+<p t="2935720" d="4490">don't fire, and what
+I have is (i comma j)</p>
+<p t="2940210" d="4070">is greater than or equal
+to (i comma j minus 1)</p>
+<p t="2944280" d="3350">and (i comma j plus
+1), then I'm done.</p>
+<p t="2947630" d="5130">Just like I had
+for the 1D version.</p>
+<p t="2952760" d="4740">If (i comma j) is greater
+than or equal to (i comma</p>
+<p t="2957500" d="8850">j minus 1), and (i comma j
+plus 1), that implies (i, j)</p>
+<p t="2966350" d="2241">is a 2D peak.</p>
+<p t="2968591" d="621">OK?</p>
+<p t="2969212" d="1458">And the reason that
+is the case, is</p>
+<p t="2970670" d="5232">because (i comma j) was the
+maximum element in that column.</p>
+<p t="2975902" d="1458">So you know that
+you've compared it</p>
+<p t="2977360" d="4160">to all of the adjacent elements,
+looking up and looking down,</p>
+<p t="2981520" d="1480">that's the maximum element.</p>
+<p t="2983000" d="2150">Now you've look at the
+left and the right,</p>
+<p t="2985150" d="2600">and in fact it's greater
+than or equal to the elements</p>
+<p t="2987750" d="1360">on the left and the right.</p>
+<p t="2989110" d="2180">And so therefore it's a 2D peak.</p>
+<p t="2991290" d="980">OK?</p>
+<p t="2992270" d="5440">So in this case, when you pick
+the left or the right columns--</p>
+<p t="2997710" d="1860">you'll pick one of
+them-- you're going</p>
+<p t="2999570" d="8455">to solve the new problem with
+half the number of columns.</p>
+<p t="3016540" d="1040">All right?</p>
+<p t="3017580" d="3385">And again, you have to
+go through an analysis,</p>
+<p t="3020965" d="3985">or an argument, to make sure
+that this algorithm is correct.</p>
+<p t="3024950" d="4790">But its intuitively correct,
+simply because it matches</p>
+<p t="3029740" d="3450">the 1D version
+much more closely.</p>
+<p t="3033190" d="4680">And you also have your condition
+where you break away right</p>
+<p t="3037870" d="3290">here, where you have a 2D
+peak, just like the 1D version.</p>
+<p t="3041160" d="2770">And what you've done
+is break this matrix up</p>
+<p t="3043930" d="2260">into half the size.</p>
+<p t="3046190" d="4900">And that's essentially
+why this algorithm works.</p>
+<p t="3051090" d="4716">When you have a single column--</p>
+<p t="3061070" d="8540">--find the global
+maximum and you're done.</p>
+<p t="3069610" d="500">All right?</p>
+<p t="3070110" d="2460">So that's the base case.</p>
+<p t="3072570" d="2100">So let me end with
+just writing out</p>
+<p t="3074670" d="3200">what the recurrence relation
+for the complexity of this</p>
+<p t="3077870" d="4611">is, and argue what the overall
+complexity of this algorithm</p>
+<p t="3082481" d="499">is.</p>
+<p t="3085221" d="1499">And then I'll give
+you the bad news.</p>
+<p t="3090781" d="499">All right.</p>
+<p t="3091280" d="4980">So overall what you have is, you
+have something like T of (n, m)</p>
+<p t="3096260" d="6310">equals T of (n, m
+over 2) plus theta n.</p>
+<p t="3102570" d="1070">Why is that?</p>
+<p t="3103640" d="4190">Well n is the number of rows,
+m is the number of columns.</p>
+<p t="3107830" d="3600">In one case you'll be
+breaking things down</p>
+<p t="3111430" d="3200">into half the number of
+columns, which is m over 2.</p>
+<p t="3114630" d="2890">And in order to find
+the global maximum,</p>
+<p t="3117520" d="2700">you'll be doing theta
+n work, because you're</p>
+<p t="3120220" d="1275">finding the global maximum.</p>
+<p t="3121495" d="500">Right?</p>
+<p t="3121995" d="3275">You just have to
+scan it-- this--</p>
+<p t="3125270" d="3570">That's the way-- That's
+what it's going to take.</p>
+<p t="3128840" d="3120">And so if you do that, and
+you go run it through--</p>
+<p t="3131960" d="4250">and you know that T of
+(n, 1) is theta n-- which</p>
+<p t="3136210" d="4670">is this last part over
+here-- that's your base case.</p>
+<p t="3140880" d="7680">You get T of (n, m) is theta
+of n added to theta of n,</p>
+<p t="3148560" d="6260">log of m times--
+log 2 of m times.</p>
+<p t="3154820" d="7430">Which is theta of
+n-- log 2 of m.</p>
+<p t="3162250" d="1390">All right?</p>
+<p t="3163640" d="4480">So you're not done
+with peak finding.</p>
+<p t="3168120" d="4962">What you'll see is at four
+algorithms coded in Python--</p>
+<p t="3173082" d="2208">I'm not going to give away
+what those algorithms are,</p>
+<p t="3175290" d="1800">but you'll have
+to recognize them.</p>
+<p t="3177090" d="3090">You will have seen versions
+of those algorithms</p>
+<p t="3180180" d="1670">already in lecture.</p>
+<p t="3181850" d="4360">And your job is going to be to
+analyze the algorithms, as I</p>
+<p t="3186210" d="3480">said before, prove that
+one of them is correct,</p>
+<p t="3189690" d="3094">and find counter-examples for
+the ones that aren't correct.</p>
+<p t="3192784" d="1416">The course staff
+will stick around</p>
+<p t="3194200" d="2910">here to answer questions--
+logistical questions--</p>
+<p t="3197110" d="1880">or questions about lecture.</p>
+<p t="3198990" d="2660">And I owe that
+gentleman a cushion.</p>
+</body>
+</timedtext>

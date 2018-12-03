@@ -1,0 +1,1077 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="8711" d="499">Hi.</p>
+<p t="9210" d="5020">This is the first lecture
+in MIT's course 18.06,</p>
+<p t="14230" d="5200">linear algebra, and
+I'm Gilbert Strang.</p>
+<p t="19430" d="4010">The text for the
+course is this book,</p>
+<p t="23440" d="2630">Introduction to Linear Algebra.</p>
+<p t="26070" d="6659">And the course web page, which
+has got a lot of exercises from</p>
+<p t="32729" d="5741">the past, MatLab codes, the
+syllabus for the course,</p>
+<p t="38470" d="5590">is web.mit.edu/18.06.</p>
+<p t="44060" d="3290">And this is the first
+lecture, lecture one.</p>
+<p t="49920" d="5570">So, and later we'll give the
+web address for viewing these,</p>
+<p t="55490" d="1780">videotapes.</p>
+<p t="57270" d="1930">Okay, so what's in
+the first lecture?</p>
+<p t="62680" d="2850">This is my plan.</p>
+<p t="65530" d="3810">The fundamental problem
+of linear algebra,</p>
+<p t="69340" d="4540">which is to solve a system
+of linear equations.</p>
+<p t="73880" d="2330">So let's start
+with a case when we</p>
+<p t="76210" d="5230">have some number of equations,
+say n equations and n unknowns.</p>
+<p t="81440" d="2380">So an equal number of
+equations and unknowns.</p>
+<p t="83820" d="3040">That's the normal, nice case.</p>
+<p t="86860" d="5010">And what I want to do is --
+with examples, of course --</p>
+<p t="91870" d="5360">to describe, first, what
+I call the Row picture.</p>
+<p t="97230" d="3640">That's the picture of
+one equation at a time.</p>
+<p t="100870" d="3110">It's the picture you've
+seen before in two</p>
+<p t="103980" d="2370">by two equations
+where lines meet.</p>
+<p t="106350" d="3110">So in a minute, you'll
+see lines meeting.</p>
+<p t="109460" d="2770">The second picture,
+I'll put a star</p>
+<p t="112230" d="2840">beside that, because that's
+such an important one.</p>
+<p t="115070" d="6530">And maybe new to you is the
+picture -- a column at a time.</p>
+<p t="121600" d="3840">And those are the rows
+and columns of a matrix.</p>
+<p t="125440" d="3530">So the third -- the algebra
+way to look at the problem is</p>
+<p t="128970" d="4820">the matrix form and using
+a matrix that I'll call A.</p>
+<p t="133790" d="3700">Okay, so can I do an example?</p>
+<p t="137490" d="5930">The whole semester will be
+examples and then see what's</p>
+<p t="143420" d="1690">going on with the example.</p>
+<p t="145110" d="2880">So, take an example.</p>
+<p t="147990" d="2440">Two equations, two unknowns.</p>
+<p t="150430" d="7860">So let me take 2x
+-y =0, let's say.</p>
+<p t="158290" d="7060">And -x 2y=3.</p>
+<p t="165350" d="1180">Okay.</p>
+<p t="166530" d="4150">let me -- I can even
+say right away --</p>
+<p t="170680" d="6970">what's the matrix, that is,
+what's the coefficient matrix?</p>
+<p t="177650" d="2940">The matrix that involves
+these numbers --</p>
+<p t="180590" d="4600">a matrix is just a
+rectangular array of numbers.</p>
+<p t="185190" d="4420">Here it's two rows and
+two columns, so 2 and --</p>
+<p t="189610" d="4810">minus 1 in the first row minus
+1 and 2 in the second row,</p>
+<p t="194420" d="2280">that's the matrix.</p>
+<p t="196700" d="4910">And the right-hand
+-- the, unknown --</p>
+<p t="201610" d="1480">well, we've got two unknowns.</p>
+<p t="203090" d="4280">So we've got a vector, with
+two components, x and y,</p>
+<p t="207370" d="3780">and we've got two right-hand
+sides that go into a vector</p>
+<p t="211150" d="1790">0 3.</p>
+<p t="212940" d="5320">I couldn't resist writing
+the matrix form, right --</p>
+<p t="218260" d="2790">even before the pictures.</p>
+<p t="221050" d="3980">So I always will think
+of this as the matrix A,</p>
+<p t="225030" d="4410">the matrix of coefficients,
+then there's a vector of</p>
+<p t="229440" d="590">unknowns.</p>
+<p t="230030" d="1760">Here we've only
+got two unknowns.</p>
+<p t="231790" d="2310">Later we'll have any
+number of unknowns.</p>
+<p t="234100" d="3520">And that vector of
+unknowns, well I'll often --</p>
+<p t="237620" d="2200">I'll make that x --</p>
+<p t="239820" d="1330">extra bold.</p>
+<p t="241150" d="3700">A and the right-hand
+side is also a vector</p>
+<p t="244850" d="3380">that I'll always call b.</p>
+<p t="248230" d="5560">So linear equations are A
+x equal b and the idea now</p>
+<p t="253790" d="3030">is to solve this
+particular example</p>
+<p t="256820" d="4120">and then step back to
+see the bigger picture.</p>
+<p t="260940" d="3690">Okay, what's the picture for
+this example, the Row picture?</p>
+<p t="264630" d="2110">Okay, so here comes
+the Row picture.</p>
+<p t="270210" d="2680">So that means I take
+one row at a time</p>
+<p t="272890" d="5630">and I'm drawing
+here the xy plane</p>
+<p t="278520" d="5470">and I'm going to plot
+all the points that</p>
+<p t="283990" d="3870">satisfy that first equation.</p>
+<p t="287860" d="5260">So I'm looking at all the
+points that satisfy 2x-y =0.</p>
+<p t="293120" d="5880">It's often good to start with
+which point on the horizontal</p>
+<p t="299000" d="3480">line -- on this horizontal
+line, y is zero.</p>
+<p t="302480" d="4030">The x axis has y as zero and
+that -- in this case, actually,</p>
+<p t="306510" d="1210">then x is zero.</p>
+<p t="307720" d="3510">So the point, the origin --</p>
+<p t="311230" d="5330">the point with coordinates
+(0,0) is on the line.</p>
+<p t="316560" d="1730">It solves that equation.</p>
+<p t="318290" d="4050">Okay, tell me in -- well,
+I guess I have to tell you</p>
+<p t="322340" d="4640">another point that solves
+this same equation.</p>
+<p t="326980" d="5110">Let me suppose x is one,
+so I'll take x to be one.</p>
+<p t="332090" d="2840">Then y should be two, right?</p>
+<p t="334930" d="5320">So there's the point one two
+that also solves this equation.</p>
+<p t="340250" d="2590">And I could put in more points.</p>
+<p t="342840" d="2880">But, but let me put
+in all the points</p>
+<p t="345720" d="5090">at once, because they all
+lie on a straight line.</p>
+<p t="350810" d="2730">This is a linear equation
+and that word linear</p>
+<p t="353540" d="770">got the letters</p>
+<p t="354310" d="2450">Okay, thanks. for line in it.</p>
+<p t="356760" d="3000">That's the equation --
+this is the line that ...</p>
+<p t="359760" d="8930">of solutions to 2x-y=0 my
+first row, first equation.</p>
+<p t="368690" d="5370">So typically, maybe, x equal
+a half, y equal one will work.</p>
+<p t="374060" d="1600">And sure enough it does.</p>
+<p t="375660" d="1940">Okay, that's the first one.</p>
+<p t="377600" d="5150">Now the second one is not
+going to go through the origin.</p>
+<p t="382750" d="1640">It's always important.</p>
+<p t="384390" d="2510">Do we go through
+the origin or not?</p>
+<p t="386900" d="3120">In this case, yes, because
+there's a zero over there.</p>
+<p t="390020" d="2250">In this case we don't
+go through the origin,</p>
+<p t="392270" d="3950">because if x and y are
+zero, we don't get three.</p>
+<p t="396220" d="4130">So, let me again say
+suppose y is zero,</p>
+<p t="400350" d="2210">what x do we actually get?</p>
+<p t="402560" d="5670">If y is zero, then I
+get x is minus three.</p>
+<p t="408230" d="4380">So if y is zero, I
+go along minus three.</p>
+<p t="412610" d="3750">So there's one point
+on this second line.</p>
+<p t="416360" d="7090">Now let me say, well,
+suppose x is minus one --</p>
+<p t="423450" d="1920">just to take another x.</p>
+<p t="425370" d="3910">If x is minus one,
+then this is a one</p>
+<p t="429280" d="6590">and I think y should be a one,
+because if x is minus one,</p>
+<p t="435870" d="3920">then I think y should be a
+one and we'll get that point.</p>
+<p t="439790" d="1110">Is that right?</p>
+<p t="440900" d="2430">If x is minus one, that's a one.</p>
+<p t="443330" d="2310">If y is a one, that's
+a two and the one</p>
+<p t="445640" d="2910">and the two make three and
+that point's on the equation.</p>
+<p t="448550" d="780">Okay.</p>
+<p t="449330" d="2410">Now, I should just
+draw the line, right,</p>
+<p t="451740" d="2730">connecting those
+two points at --</p>
+<p t="454470" d="1940">that will give me
+the whole line.</p>
+<p t="456410" d="4070">And if I've done
+this reasonably well,</p>
+<p t="460480" d="2160">I think it's going to happen
+to go through -- well,</p>
+<p t="462640" d="3880">not happen -- it was arranged
+to go through that point.</p>
+<p t="466520" d="4080">So I think that the
+second line is this one,</p>
+<p t="470600" d="5500">and this is the all-important
+point that lies on both lines.</p>
+<p t="476100" d="2730">Shall we just check
+that that point which</p>
+<p t="478830" d="4860">is the point x equal one
+and y was two, right?</p>
+<p t="483690" d="4100">That's the point there
+and that, I believe,</p>
+<p t="487790" d="2740">solves both equations.</p>
+<p t="490530" d="970">Let's just check this.</p>
+<p t="491500" d="7090">If x is one, I have a minus one
+plus four equals three, okay.</p>
+<p t="498590" d="3090">Apologies for
+drawing this picture</p>
+<p t="501680" d="3470">that you've seen before.</p>
+<p t="505150" d="4540">But this -- seeing
+the row picture --</p>
+<p t="509690" d="3450">first of all, for n equal 2,
+two equations and two unknowns,</p>
+<p t="513140" d="2320">it's the right place to start.</p>
+<p t="515460" d="810">Okay.</p>
+<p t="516270" d="1420">So we've got the solution.</p>
+<p t="517690" d="1989">The point that
+lies on both lines.</p>
+<p t="519679" d="3921">Now can I come to
+the column picture?</p>
+<p t="523600" d="4280">Pay attention, this
+is the key point.</p>
+<p t="527880" d="2050">So the column picture.</p>
+<p t="529930" d="3590">I'm now going to look at
+the columns of the matrix.</p>
+<p t="533520" d="3270">I'm going to look at
+this part and this part.</p>
+<p t="536790" d="8220">I'm going to say that the
+x part is really x times --</p>
+<p t="545010" d="1730">you see, I'm putting the two --</p>
+<p t="546740" d="3420">I'm kind of getting the
+two equations at once --</p>
+<p t="550160" d="5130">that part and then I have a
+y and in the first equation</p>
+<p t="555290" d="3970">it's multiplying a minus one and
+in the second equation a two,</p>
+<p t="559260" d="2770">and on the right-hand
+side, zero and three.</p>
+<p t="566500" d="3360">You see, the columns of the
+matrix, the columns of A</p>
+<p t="569860" d="3190">are here and the
+right-hand side b is there.</p>
+<p t="573050" d="3890">And now what is the
+equation asking for?</p>
+<p t="576940" d="5810">It's asking us to find --
+somehow to combine that vector</p>
+<p t="582750" d="4720">and this one in the right
+amounts to get that one.</p>
+<p t="587470" d="4360">It's asking us to find the
+right linear combination --</p>
+<p t="591830" d="3590">this is called a
+linear combination.</p>
+<p t="595420" d="3420">And it's the most fundamental
+operation in the whole course.</p>
+<p t="601710" d="4620">It's a linear combination
+of the columns.</p>
+<p t="606330" d="3220">That's what we're
+seeing on the left side.</p>
+<p t="609550" d="3640">Again, I don't want to
+write down a big definition.</p>
+<p t="613190" d="1820">You can see what it is.</p>
+<p t="615010" d="2460">There's column one,
+there's column two.</p>
+<p t="617470" d="4220">I multiply by some
+numbers and I add.</p>
+<p t="621690" d="4250">That's a combination -- a linear
+combination and I want to make</p>
+<p t="625940" d="4930">those numbers the right
+numbers to produce zero three.</p>
+<p t="630870" d="1200">Okay.</p>
+<p t="632070" d="5040">Now I want to draw a picture
+that, represents what this --</p>
+<p t="637110" d="1120">this is algebra.</p>
+<p t="638230" d="3510">What's the geometry, what's
+the picture that goes with it?</p>
+<p t="641740" d="620">Okay.</p>
+<p t="642360" d="2900">So again, these vectors
+have two components,</p>
+<p t="645260" d="5470">so I better draw a
+picture like that.</p>
+<p t="650730" d="1950">So can I put down these columns?</p>
+<p t="652680" d="2790">I'll draw these
+columns as they are,</p>
+<p t="655470" d="3230">and then I'll do a
+combination of them.</p>
+<p t="658700" d="5300">So the first column is over
+two and down one, right?</p>
+<p t="664000" d="2210">So there's the first column.</p>
+<p t="666210" d="1650">The first column.</p>
+<p t="667860" d="3100">Column one.</p>
+<p t="670960" d="2870">It's the vector two minus one.</p>
+<p t="673830" d="4750">The second column is --</p>
+<p t="678580" d="3420">minus one is the first
+component and up two.</p>
+<p t="682000" d="2960">It's here.</p>
+<p t="684960" d="2750">There's column two.</p>
+<p t="687710" d="4570">So this, again, you see
+what its components are.</p>
+<p t="692280" d="3250">Its components are
+minus one, two.</p>
+<p t="695530" d="500">Good.</p>
+<p t="696030" d="810">That's this guy.</p>
+<p t="699471" d="1374">Now I have to take
+a combination.</p>
+<p t="703740" d="3570">What combination shall I take?</p>
+<p t="707310" d="3200">Why not the right
+combination, what the hell?</p>
+<p t="710510" d="500">Okay.</p>
+<p t="711010" d="2830">So the combination
+I'm going to take</p>
+<p t="713840" d="3410">is the right one to
+produce zero three</p>
+<p t="717250" d="2370">and then we'll see it
+happen in the picture.</p>
+<p t="719620" d="4910">So the right combination is
+to take x as one of those</p>
+<p t="724530" d="1610">and two of these.</p>
+<p t="729230" d="3530">It's because we already know
+that that's the right x and y,</p>
+<p t="732760" d="2960">so why not take the correct
+combination here and see it</p>
+<p t="735720" d="560">happen?</p>
+<p t="736280" d="5560">Okay, so how do I picture
+this linear combination?</p>
+<p t="741840" d="3340">So I start with this vector
+that's already here --</p>
+<p t="745180" d="3040">so that's one of column
+one, that's one times column</p>
+<p t="748220" d="2180">one, right there.</p>
+<p t="750400" d="3320">And now I want to add on --
+so I'm going to hook the next</p>
+<p t="753720" d="4940">vector onto the front of the
+arrow will start the next</p>
+<p t="758660" d="1930">vector and it will go this way.</p>
+<p t="760590" d="3580">So let's see, can I do it right?</p>
+<p t="764170" d="2070">If I added on one
+of these vectors,</p>
+<p t="766240" d="4349">it would go left one and up two,
+so we'd go left one and up two,</p>
+<p t="770589" d="1541">so it would probably
+get us to there.</p>
+<p t="772130" d="2520">Maybe I'll do dotted
+line for that.</p>
+<p t="774650" d="960">Okay?</p>
+<p t="775610" d="4100">That's one of column
+two tucked onto the end,</p>
+<p t="779710" d="3680">but I wanted to tuck
+on two of column two.</p>
+<p t="783390" d="3610">So that -- the second one --
+we'll go up left one and up two</p>
+<p t="787000" d="660">also.</p>
+<p t="787660" d="1780">It'll probably end there.</p>
+<p t="789440" d="1080">And there's another one.</p>
+<p t="790520" d="3830">So what I've put in here
+is two of column two.</p>
+<p t="797310" d="2030">Added on.</p>
+<p t="799340" d="1275">And where did I end up?</p>
+<p t="803280" d="4950">What are the coordinates
+of this result?</p>
+<p t="808230" d="4340">What do I get when I take
+one of this plus two of that?</p>
+<p t="812570" d="2240">I do get that, of course.</p>
+<p t="814810" d="4060">There it is, x is zero,
+y is three, that's b.</p>
+<p t="818870" d="2660">That's the answer we wanted.</p>
+<p t="821530" d="2000">And how do I do it?</p>
+<p t="823530" d="3330">You see I do it just
+like the first component.</p>
+<p t="826860" d="3840">I have a two and a minus
+two that produces a zero,</p>
+<p t="830700" d="3980">and in the second component I
+have a minus one and a four,</p>
+<p t="834680" d="3070">they combine to give the three.</p>
+<p t="837750" d="3440">But look at this picture.</p>
+<p t="841190" d="2040">So here's our key picture.</p>
+<p t="843230" d="7050">I combine this column and
+this column to get this guy.</p>
+<p t="850280" d="1080">That was the b.</p>
+<p t="851360" d="2320">That's the zero three.</p>
+<p t="853680" d="860">Okay.</p>
+<p t="854540" d="4250">So that idea of linear
+combination is crucial,</p>
+<p t="858790" d="2340">and also --</p>
+<p t="861130" d="1785">do we want to think
+about this question?</p>
+<p t="865420" d="1050">Sure, why not.</p>
+<p t="866470" d="3360">What are all the combinations?</p>
+<p t="869830" d="2825">If I took -- can I
+go back to xs and ys?</p>
+<p t="875240" d="3370">This is a question for really --</p>
+<p t="878610" d="2840">it's going to come
+up over and over,</p>
+<p t="881450" d="3900">but why don't we
+see it once now?</p>
+<p t="885350" d="5260">If I took all the xs and all
+the ys, all the combinations,</p>
+<p t="890610" d="3220">what would be all the results?</p>
+<p t="893830" d="2370">And, actually, the
+result would be</p>
+<p t="896200" d="3200">that I could get any
+right-hand side at all.</p>
+<p t="899400" d="3280">The combinations
+of this and this</p>
+<p t="902680" d="3570">would fill the whole plane.</p>
+<p t="906250" d="2260">You can tuck that away.</p>
+<p t="908510" d="5570">We'll, explore it further.</p>
+<p t="914080" d="5530">But this idea of what linear
+combination gives b and what do</p>
+<p t="919610" d="2040">all the linear
+combinations give,</p>
+<p t="921650" d="3420">what are all the possible,
+achievable right-hand sides be</p>
+<p t="925070" d="1540">-- that's going to be basic.</p>
+<p t="926610" d="610">Okay.</p>
+<p t="927220" d="4760">Can I move to three
+equations and three unknowns?</p>
+<p t="931980" d="6630">Because it's easy to
+picture the two by two case.</p>
+<p t="938610" d="2370">Let me do a three
+by three example.</p>
+<p t="940980" d="2350">Okay, I'll sort of
+start it the same way,</p>
+<p t="943330" d="6880">say maybe 2x-y and maybe I'll
+take no zs as a zero and maybe</p>
+<p t="950210" d="5730">a -x 2y and maybe
+a -z as a -- oh,</p>
+<p t="955940" d="5190">let me make that a minus one
+and, just for variety let me</p>
+<p t="961130" d="8800">take, -3z, -3ys, I should
+keep the ys in that line,</p>
+<p t="969930" d="4470">and 4zs is, say, 4.</p>
+<p t="974400" d="2080">Okay.</p>
+<p t="976480" d="2620">That's three equations.</p>
+<p t="979100" d="3280">I'm in three
+dimensions, x, y, z.</p>
+<p t="982380" d="4830">And, I don't have
+a solution yet.</p>
+<p t="987210" d="5020">So I want to understand the
+equations and then solve them.</p>
+<p t="992230" d="550">Okay.</p>
+<p t="992780" d="2670">So how do I you understand them?</p>
+<p t="995450" d="1900">The row picture one way.</p>
+<p t="997350" d="3770">The column picture is
+another very important way.</p>
+<p t="1001120" d="2600">Just let's remember
+the matrix form, here,</p>
+<p t="1003720" d="1300">because that's easy.</p>
+<p t="1005020" d="4120">The matrix form --
+what's our matrix A?</p>
+<p t="1009140" d="5140">Our matrix A is this right-hand
+side, the two and the minus one</p>
+<p t="1014280" d="4340">and the zero from the first
+row, the minus one and the two</p>
+<p t="1018620" d="2160">and the minus one
+from the second row,</p>
+<p t="1020780" d="7750">the zero, the minus three and
+the four from the third row.</p>
+<p t="1028530" d="2520">So it's a three by three matrix.</p>
+<p t="1031050" d="1920">Three equations, three unknowns.</p>
+<p t="1032970" d="1710">And what's our right-hand side?</p>
+<p t="1034680" d="5510">Of course, it's the vector,
+zero minus one, four.</p>
+<p t="1040190" d="990">Okay.</p>
+<p t="1041180" d="5770">So that's the way, well, that's
+the short-hand to write out</p>
+<p t="1046950" d="1740">the three equations.</p>
+<p t="1048690" d="2739">But it's the picture that
+I'm looking for today.</p>
+<p t="1051429" d="1041">Okay, so the row picture.</p>
+<p t="1052470" d="5900">All right, so I'm in
+three dimensions, x,</p>
+<p t="1058370" d="4310">find out when there
+isn't a solution.</p>
+<p t="1062680" d="3270">y and z.</p>
+<p t="1065950" d="5200">And I want to take those
+equations one at a time and ask</p>
+<p t="1071150" d="670">--</p>
+<p t="1071820" d="3460">and make a picture of all
+the points that satisfy --</p>
+<p t="1075280" d="2680">let's take equation number two.</p>
+<p t="1077960" d="2860">If I make a picture of all
+the points that satisfy --</p>
+<p t="1080820" d="5080">all the x, y, z points
+that solve this equation --</p>
+<p t="1085900" d="3650">well, first of all, the
+origin is not one of them.</p>
+<p t="1089550" d="5070">x, y, z -- it being 0, 0, 0
+would not solve that equation.</p>
+<p t="1094620" d="3170">So what are some points
+that do solve the equation?</p>
+<p t="1097790" d="5960">Let's see, maybe if x is
+one, y and z could be zero.</p>
+<p t="1103750" d="1000">That would work, right?</p>
+<p t="1104750" d="2120">So there's one point.</p>
+<p t="1106870" d="2650">I'm looking at this
+second equation,</p>
+<p t="1109520" d="3600">here, just, to start with.</p>
+<p t="1113120" d="550">Let's see.</p>
+<p t="1113670" d="2760">Also, I guess, if
+z could be one,</p>
+<p t="1116430" d="2280">x and y could be zero,
+so that would just</p>
+<p t="1118710" d="3220">go straight up that axis.</p>
+<p t="1121930" d="4950">And, probably I'd want
+a third point here.</p>
+<p t="1126880" d="8510">Let me take x to be
+zero, z to be zero,</p>
+<p t="1135390" d="5010">then y would be
+minus a half, right?</p>
+<p t="1140400" d="5720">So there's a third point,
+somewhere -- oh my -- okay.</p>
+<p t="1146120" d="1780">Let's see.</p>
+<p t="1147900" d="5180">I want to put in all the points
+that satisfy that equation.</p>
+<p t="1153080" d="4850">Do you know what that
+bunch of points will be?</p>
+<p t="1157930" d="1420">It's a plane.</p>
+<p t="1159350" d="3080">If we have a linear
+equation, then, fortunately,</p>
+<p t="1162430" d="4640">the graph of the thing, the plot
+of all the points that solve it</p>
+<p t="1167070" d="3320">are a plane.</p>
+<p t="1170390" d="1830">These three points
+determine a plane,</p>
+<p t="1172220" d="5350">but your lecturer
+is not Rembrandt</p>
+<p t="1177570" d="5810">and the art is going to
+be the weak point here.</p>
+<p t="1183380" d="3080">So I'm just going to
+draw a plane, right?</p>
+<p t="1186460" d="1850">There's a plane somewhere.</p>
+<p t="1188310" d="2490">That's my plane.</p>
+<p t="1190800" d="4160">That plane is all the
+points that solves this guy.</p>
+<p t="1194960" d="4920">Then, what about this one?</p>
+<p t="1199880" d="2880">Two x minus y plus zero z.</p>
+<p t="1202760" d="2650">So z actually can be anything.</p>
+<p t="1205410" d="2980">Again, it's going
+to be another plane.</p>
+<p t="1208390" d="2900">Each row in a three
+by three problem</p>
+<p t="1211290" d="3190">gives us a plane in
+three dimensions.</p>
+<p t="1214480" d="3250">So this one is going to
+be some other plane --</p>
+<p t="1217730" d="2520">maybe I'll try to
+draw it like this.</p>
+<p t="1220250" d="4990">And those two planes
+meet in a line.</p>
+<p t="1225240" d="4040">So if I have two equations,
+just the first two</p>
+<p t="1229280" d="4100">equations in three dimensions,
+those give me a line.</p>
+<p t="1233380" d="1910">The line where those
+two planes meet.</p>
+<p t="1235290" d="6920">And now, the third
+guy is a third plane.</p>
+<p t="1242210" d="7080">And it goes somewhere.</p>
+<p t="1249290" d="2530">Okay, those three
+things meet in a point.</p>
+<p t="1251820" d="3270">Now I don't know where
+that point is, frankly.</p>
+<p t="1255090" d="3050">But -- linear
+algebra will find it.</p>
+<p t="1258140" d="7440">The main point is that the three
+planes, because they're not</p>
+<p t="1265580" d="2520">parallel, they're not special.</p>
+<p t="1268100" d="3680">They do meet in one point
+and that's the solution.</p>
+<p t="1271780" d="5130">But, maybe you can see
+that this row picture is</p>
+<p t="1276910" d="2210">getting a little hard to see.</p>
+<p t="1279120" d="5400">The row picture was a cinch
+when we looked at two lines</p>
+<p t="1284520" d="700">meeting.</p>
+<p t="1285220" d="2520">When we look at
+three planes meeting,</p>
+<p t="1287740" d="5150">it's not so clear and in
+four dimensions probably</p>
+<p t="1292890" d="1890">a little less clear.</p>
+<p t="1294780" d="2750">So, can I quit on
+the row picture?</p>
+<p t="1297530" d="4340">Or quit on the row picture
+before I've successfully</p>
+<p t="1301870" d="4070">found the point where
+the three planes meet?</p>
+<p t="1305940" d="5570">All I really want to see is
+that the row picture consists</p>
+<p t="1311510" d="4270">of three planes and, if
+everything works right,</p>
+<p t="1315780" d="3560">three planes meet in one
+point and that's a solution.</p>
+<p t="1319340" d="5390">Now, you can tell I
+prefer the column picture.</p>
+<p t="1324730" d="2260">Okay, so let me take
+the column picture.</p>
+<p t="1326990" d="2830">That's x times --</p>
+<p t="1329820" d="4580">so there were two xs in the
+first equation minus one x is,</p>
+<p t="1334400" d="2290">and no xs in the third.</p>
+<p t="1336690" d="2310">It's just the first
+column of that.</p>
+<p t="1339000" d="2300">And how many ys are there?</p>
+<p t="1341300" d="3430">There's minus one in the first
+equations, two in the second</p>
+<p t="1344730" d="2700">and maybe minus
+three in the third.</p>
+<p t="1347430" d="2400">Just the second
+column of my matrix.</p>
+<p t="1349830" d="7910">And z times no zs minus
+one zs and four zs.</p>
+<p t="1357740" d="3530">And it's those three
+columns, right,</p>
+<p t="1361270" d="5370">that I have to combine to
+produce the right-hand side,</p>
+<p t="1366640" d="2305">which is zero minus one four.</p>
+<p t="1372830" d="2080">Okay.</p>
+<p t="1374910" d="3030">So what have we got on
+this left-hand side?</p>
+<p t="1377940" d="1530">A linear combination.</p>
+<p t="1379470" d="3070">It's a linear combination
+now of three vectors,</p>
+<p t="1382540" d="3180">and they happen to be -- each
+one is a three dimensional</p>
+<p t="1385720" d="4280">vector, so we want to know
+what combination of those three</p>
+<p t="1390000" d="2090">vectors produces that one.</p>
+<p t="1392090" d="3730">Shall I try to draw the
+column picture, then?</p>
+<p t="1395820" d="3010">So, since these vectors
+have three components --</p>
+<p t="1398830" d="2830">so it's some multiple -- let
+me draw in the first column</p>
+<p t="1401660" d="1680">as before --</p>
+<p t="1403340" d="3947">x is two and y is minus one.</p>
+<p t="1407287" d="1333">Maybe there is the first column.</p>
+<p t="1412320" d="6250">y -- the second column has maybe
+a minus one and a two and the y</p>
+<p t="1418570" d="5610">is a minus three, somewhere,
+there possibly, column two.</p>
+<p t="1424180" d="2770">And the third column has --</p>
+<p t="1426950" d="5810">no zero minus one four,
+so how shall I draw that?</p>
+<p t="1432760" d="4240">So this was the first component.</p>
+<p t="1437000" d="2230">The second component
+was a minus one.</p>
+<p t="1439230" d="2040">Maybe up here.</p>
+<p t="1441270" d="7651">That's column three, that's the
+column zero minus one and four.</p>
+<p t="1448921" d="499">This guy.</p>
+<p t="1452050" d="3380">So, again, what's my problem?</p>
+<p t="1455430" d="2830">What this equation
+is asking me to do</p>
+<p t="1458260" d="3080">is to combine
+these three vectors</p>
+<p t="1461340" d="6560">with a right combination
+to produce this one.</p>
+<p t="1467900" d="5720">Well, you can see what the
+right combination is, because</p>
+<p t="1473620" d="4630">in this special problem,
+specially chosen</p>
+<p t="1478250" d="4530">by the lecturer, that right-hand
+side that I'm trying to get</p>
+<p t="1482780" d="2280">is actually one
+of these columns.</p>
+<p t="1485060" d="1600">So I know how to get that one.</p>
+<p t="1486660" d="1760">So what's the solution?</p>
+<p t="1488420" d="2490">What combination will work?</p>
+<p t="1490910" d="3030">I just want one of
+these and none of these.</p>
+<p t="1493940" d="5130">So x should be zero, y
+should be zero and z should</p>
+<p t="1499070" d="970">be one.</p>
+<p t="1502860" d="1660">That's the combination.</p>
+<p t="1504520" d="3080">One of those is
+obviously the right one.</p>
+<p t="1507600" d="2270">Column three is
+actually the same</p>
+<p t="1509870" d="2220">as b in this particular problem.</p>
+<p t="1515640" d="2220">I made it work
+that way just so we</p>
+<p t="1517860" d="3910">would get an answer,
+(0,0,1), so somehow that's</p>
+<p t="1521770" d="4120">the point where those
+three planes met</p>
+<p t="1525890" d="2820">and I couldn't see it before.</p>
+<p t="1528710" d="3120">Of course, I won't always be
+able to see it from the column</p>
+<p t="1531830" d="1340">picture, either.</p>
+<p t="1533170" d="6220">It's the next lecture, actually,
+which is about elimination,</p>
+<p t="1539390" d="7280">which is the systematic
+way that everybody --</p>
+<p t="1546670" d="5280">every bit of software, too --</p>
+<p t="1551950" d="4880">production, large-scale software
+would solve the equations.</p>
+<p t="1556830" d="2190">So the lecture that's coming up.</p>
+<p t="1559020" d="3430">If I was to add that
+to the syllabus,</p>
+<p t="1562450" d="6600">will be about how to find
+x, y, z in all cases.</p>
+<p t="1569050" d="6060">Can I just think again,
+though, about the big picture?</p>
+<p t="1575110" d="3800">By the big picture I mean
+let's keep this same matrix</p>
+<p t="1578910" d="3080">on the left but
+imagine that we have</p>
+<p t="1581990" d="2260">a different right-hand side.</p>
+<p t="1584250" d="3180">Oh, let me take a
+different right-hand side.</p>
+<p t="1587430" d="1670">So I'll change that
+right-hand side</p>
+<p t="1589100" d="5510">to something that actually
+is also pretty special.</p>
+<p t="1594610" d="2200">Let me change it to --</p>
+<p t="1596810" d="2130">if I add those
+first two columns,</p>
+<p t="1598940" d="4280">that would give me a one
+and a one and a minus three.</p>
+<p t="1603220" d="2990">There's a very special
+right-hand side.</p>
+<p t="1606210" d="5210">I just cooked it up by
+adding this one to this one.</p>
+<p t="1611420" d="3220">Now, what's the solution with
+this new right-hand side?</p>
+<p t="1614640" d="4320">The solution with this new
+right-hand side is clear.</p>
+<p t="1618960" d="5920">took one of these
+and none of those.</p>
+<p t="1624880" d="3150">So actually, it just
+changed around to this</p>
+<p t="1628030" d="3120">when I took this
+new right-hand side.</p>
+<p t="1631150" d="860">Okay.</p>
+<p t="1632010" d="7060">So in the row picture, I
+have three different planes,</p>
+<p t="1639070" d="4730">three new planes meeting
+now at this point.</p>
+<p t="1643800" d="3200">In the column picture, I
+have the same three columns,</p>
+<p t="1647000" d="3640">but now I'm combining
+them to produce this guy,</p>
+<p t="1650640" d="3460">and it turned out that column
+one plus column two which would</p>
+<p t="1654100" d="4400">be somewhere -- there
+is the right column --</p>
+<p t="1658500" d="3760">one of this and one of this
+would give me the new b.</p>
+<p t="1665190" d="500">Okay.</p>
+<p t="1665690" d="3040">So we squeezed in
+an extra example.</p>
+<p t="1668730" d="7240">But now think about all
+bs, all right-hand sides.</p>
+<p t="1675970" d="2950">Can I solve these equations
+for every right-hand side?</p>
+<p t="1682030" d="2950">Can I ask that question?</p>
+<p t="1684980" d="2040">So that's the algebra question.</p>
+<p t="1687020" d="4850">Can I solve A x=b for every b?</p>
+<p t="1691870" d="1620">Let me write that down.</p>
+<p t="1693490" d="10830">Can I solve A x =b for
+every right-hand side b?</p>
+<p t="1704320" d="2100">I mean, is there a solution?</p>
+<p t="1706420" d="3250">And then, if there
+is, elimination</p>
+<p t="1709670" d="2270">will give me a way to find it.</p>
+<p t="1711940" d="2580">I really wanted to ask,
+is there a solution</p>
+<p t="1714520" d="2330">for every right-hand side?</p>
+<p t="1716850" d="3540">So now, can I put that
+in different words --</p>
+<p t="1720390" d="2750">in this linear
+combination words?</p>
+<p t="1723140" d="9370">So in linear combination words,
+do the linear combinations</p>
+<p t="1732510" d="10550">of the columns fill
+three dimensional space?</p>
+<p t="1745740" d="6760">Every b means all the bs
+in three dimensional space.</p>
+<p t="1752500" d="3550">Do you see that I'm just
+asking the same question</p>
+<p t="1756050" d="3550">in different words?</p>
+<p t="1759600" d="1440">Solving A x --</p>
+<p t="1761040" d="3980">A x -- that's very important.</p>
+<p t="1765020" d="6770">A times x -- when I multiply
+a matrix by a vector,</p>
+<p t="1771790" d="3150">I get a combination
+of the columns.</p>
+<p t="1774940" d="3710">I'll write that
+down in a moment.</p>
+<p t="1778650" d="4900">But in my column picture,
+that's really what I'm doing.</p>
+<p t="1783550" d="3530">I'm taking linear combinations
+of these three columns</p>
+<p t="1787080" d="3540">and I'm trying to find b.</p>
+<p t="1790620" d="7130">And, actually, the answer
+for this matrix will be yes.</p>
+<p t="1797750" d="6580">For this matrix A -- for these
+columns, the answer is yes.</p>
+<p t="1804330" d="15260">This matrix -- that I chose for
+an example is a good matrix.</p>
+<p t="1819590" d="2190">A non-singular matrix.</p>
+<p t="1821780" d="1400">An invertible matrix.</p>
+<p t="1823180" d="3520">Those will be the matrices
+that we like best.</p>
+<p t="1826700" d="2790">There could be other --</p>
+<p t="1829490" d="5580">and we will see other matrices
+where the answer becomes, no --</p>
+<p t="1835070" d="3250">oh, actually, you can see
+when it would become no.</p>
+<p t="1838320" d="5570">What could go wrong? find out
+-- because if elimination fails,</p>
+<p t="1843890" d="2930">How could it go wrong
+that out of these --</p>
+<p t="1846820" d="4490">out of three columns and
+all their combinations --</p>
+<p t="1851310" d="7080">when would I not be able
+to produce some b off here?</p>
+<p t="1858390" d="2220">When could it go wrong?</p>
+<p t="1860610" d="3740">Do you see that
+the combinations --</p>
+<p t="1864350" d="2020">let me say when it goes wrong.</p>
+<p t="1866370" d="5940">If these three columns
+all lie in the same plane,</p>
+<p t="1872310" d="5800">then their combinations
+will lie in that same plane.</p>
+<p t="1878110" d="1530">So then we're in trouble.</p>
+<p t="1879640" d="4240">If the three columns
+of my matrix --</p>
+<p t="1883880" d="4300">if those three vectors happen
+to lie in the same plane --</p>
+<p t="1888180" d="2910">for example, if
+column three is just</p>
+<p t="1891090" d="5270">the sum of column one and column
+two, I would be in trouble.</p>
+<p t="1896360" d="3700">That would be a matrix A
+where the answer would be no,</p>
+<p t="1900060" d="4300">because the combinations --</p>
+<p t="1904360" d="3900">if column three is in the same
+plane as column one and two,</p>
+<p t="1908260" d="1990">I don't get anything
+new from that.</p>
+<p t="1910250" d="4360">All the combinations are in the
+plane and only right-hand sides</p>
+<p t="1914610" d="5400">b that I could get would
+be the ones in that plane.</p>
+<p t="1920010" d="3670">So I could solve it for
+some right-hand sides, when</p>
+<p t="1923680" d="4640">b is in the plane, but
+most right-hand sides</p>
+<p t="1928320" d="2950">would be out of the
+plane and unreachable.</p>
+<p t="1931270" d="2920">So that would be
+a singular case.</p>
+<p t="1934190" d="2640">The matrix would
+be not invertible.</p>
+<p t="1936830" d="2980">There would not be a
+solution for every b.</p>
+<p t="1939810" d="2701">The answer would
+become no for that.</p>
+<p t="1942511" d="499">Okay.</p>
+<p t="1945740" d="1300">I don't know --</p>
+<p t="1947040" d="2150">shall we take just a
+little shot at thinking</p>
+<p t="1949190" d="5320">about nine dimensions?</p>
+<p t="1954510" d="4135">Imagine that we have vectors
+with nine components.</p>
+<p t="1961170" d="3750">Well, it's going to be
+hard to visualize those.</p>
+<p t="1964920" d="1880">I don't pretend to do it.</p>
+<p t="1966800" d="5150">But somehow, pretend you do.</p>
+<p t="1971950" d="3660">Pretend we have -- if this
+was nine equations and nine</p>
+<p t="1975610" d="3650">unknowns, then we would
+have nine columns,</p>
+<p t="1979260" d="3460">and each one would be a vector
+in nine-dimensional space</p>
+<p t="1982720" d="4210">and we would be looking at
+their linear combinations.</p>
+<p t="1986930" d="2410">So we would be having
+the linear combinations</p>
+<p t="1989340" d="2980">of nine vectors in
+nine-dimensional space,</p>
+<p t="1992320" d="3060">and we would be trying to
+find the combination that hit</p>
+<p t="1995380" d="2620">the correct right-hand side b.</p>
+<p t="1998000" d="4990">And we might also ask the
+question can we always do it?</p>
+<p t="2002990" d="2390">Can we get every
+right-hand side b?</p>
+<p t="2005380" d="4460">And certainly it will depend
+on those nine columns.</p>
+<p t="2009840" d="2640">Sometimes the answer
+will be yes --</p>
+<p t="2012480" d="3020">if I picked a random matrix,
+it would be yes, actually.</p>
+<p t="2015500" d="4130">If I used MatLab and just used
+the random command, picked</p>
+<p t="2019630" d="5190">out a nine by nine matrix,
+I guarantee it would be</p>
+<p t="2024820" d="500">good.</p>
+<p t="2025320" d="1820">It would be
+non-singular, it would</p>
+<p t="2027140" d="2130">be invertible, all beautiful.</p>
+<p t="2029270" d="11480">But if I choose those columns
+so that they're not independent,</p>
+<p t="2040750" d="5040">so that the ninth column is
+the same as the eighth column,</p>
+<p t="2045790" d="3230">then it contributes
+nothing new and there</p>
+<p t="2049020" d="4060">would be right-hand sides
+b that I couldn't get.</p>
+<p t="2053080" d="5130">Can you sort of think
+about nine vectors</p>
+<p t="2058210" d="3840">in nine-dimensional space
+an take their combinations?</p>
+<p t="2062050" d="4410">That's really the
+central thought --</p>
+<p t="2066460" d="4460">that you get kind of used
+to in linear algebra.</p>
+<p t="2070920" d="2420">Even though you can't
+really visualize it,</p>
+<p t="2073340" d="2799">you sort of think you
+can after a while.</p>
+<p t="2076139" d="4691">Those nine columns and
+all their combinations</p>
+<p t="2080830" d="4200">may very well fill out the
+whole nine-dimensional space.</p>
+<p t="2085030" d="3209">But if the ninth column happened
+to be the same as the eighth</p>
+<p t="2088239" d="2851">column and gave nothing new,
+then probably what it would</p>
+<p t="2091090" d="2012">fill out would be --</p>
+<p t="2095820" d="7250">I hesitate even to say this --
+it would be a sort of a plane</p>
+<p t="2103070" d="1250">--</p>
+<p t="2104320" d="5710">an eight dimensional plane
+inside nine-dimensional space.</p>
+<p t="2110030" d="2860">And it's those eight
+dimensional planes</p>
+<p t="2112890" d="3150">inside nine-dimensional
+space that we</p>
+<p t="2116040" d="2790">have to work with eventually.</p>
+<p t="2118830" d="7140">For now, let's stay with a nice
+case where the matrices work,</p>
+<p t="2125970" d="4010">we can get every
+right-hand side b and here</p>
+<p t="2129980" d="2370">we see how to do
+it with columns.</p>
+<p t="2132350" d="810">Okay.</p>
+<p t="2133160" d="3360">There was one step
+which I realized</p>
+<p t="2136520" d="4690">I was saying in words that I
+now want to write in letters.</p>
+<p t="2141210" d="4540">Because I'm coming back to the
+matrix form of the equation,</p>
+<p t="2145750" d="3460">so let me write it here.</p>
+<p t="2149210" d="5060">The matrix form of my
+equation, of my system</p>
+<p t="2154270" d="3700">is some matrix A
+times some vector x</p>
+<p t="2157970" d="2950">equals some right-hand side b.</p>
+<p t="2160920" d="1030">Okay.</p>
+<p t="2161950" d="1500">So this is a multiplication.</p>
+<p t="2163450" d="1070">A times x.</p>
+<p t="2164520" d="2910">Matrix times vector,
+and I just want to say</p>
+<p t="2167430" d="4190">how do you multiply
+a matrix by a vector?</p>
+<p t="2171620" d="4930">Okay, so I'm just going
+to create a matrix --</p>
+<p t="2176550" d="5090">let me take two
+five one three --</p>
+<p t="2181640" d="6500">and let me take a vector
+x to be, say, 1and 2.</p>
+<p t="2188140" d="3360">How do I multiply a
+matrix by a vector?</p>
+<p t="2194150" d="6380">But just think a little
+bit about matrix notation</p>
+<p t="2200530" d="1590">and how to do that
+in multiplication.</p>
+<p t="2202120" d="3270">So let me say how I multiply
+a matrix by a vector.</p>
+<p t="2205390" d="2370">Actually, there are
+two ways to do it.</p>
+<p t="2207760" d="2670">Let me tell you my favorite way.</p>
+<p t="2210430" d="2340">It's columns again.</p>
+<p t="2212770" d="1950">It's a column at a time.</p>
+<p t="2214720" d="3260">For me, this matrix
+multiplication</p>
+<p t="2217980" d="5310">says I take one of that column
+and two of that column and add.</p>
+<p t="2223290" d="3480">So this is the way
+I would think of it</p>
+<p t="2226770" d="6050">is one of the first column
+and two of the second column</p>
+<p t="2232820" d="4480">and let's just see what we get.</p>
+<p t="2237300" d="4210">So in the first component
+I'm getting a two and a ten.</p>
+<p t="2241510" d="1960">I'm getting a twelve there.</p>
+<p t="2243470" d="2750">In the second component I'm
+getting a one and a six,</p>
+<p t="2246220" d="1640">I'm getting a seven.</p>
+<p t="2247860" d="7600">So that matrix times that
+vector is twelve seven.</p>
+<p t="2255460" d="3747">Now, you could do
+that another way.</p>
+<p t="2259207" d="1333">You could do it a row at a time.</p>
+<p t="2260540" d="3220">And you would get this twelve --
+and actually I pretty much did</p>
+<p t="2263760" d="1210">it here --</p>
+<p t="2264970" d="740">this way.</p>
+<p t="2265710" d="2760">Two -- I could take that
+row times my vector.</p>
+<p t="2268470" d="4710">This is the idea
+of a dot product.</p>
+<p t="2273180" d="4960">This vector times this vector,
+two times one plus five times</p>
+<p t="2278140" d="2580">two is the twelve.</p>
+<p t="2280720" d="3890">This vector times this vector --
+one times one plus three times</p>
+<p t="2284610" d="1390">two is the seven.</p>
+<p t="2286000" d="5810">So I can do it by rows,
+and in each row times</p>
+<p t="2291810" d="4550">my x is what I'll later
+call a dot product.</p>
+<p t="2296360" d="3070">But I also like to
+see it by columns.</p>
+<p t="2299430" d="3060">I see this as a linear
+combination of a column.</p>
+<p t="2302490" d="1640">So here's my point.</p>
+<p t="2304130" d="12050">A times x is a combination
+of the columns of A.</p>
+<p t="2316180" d="7470">That's how I hope you will
+think of A times x when we need</p>
+<p t="2323650" d="500">it.</p>
+<p t="2324150" d="3080">Right now we've got
+-- with small ones,</p>
+<p t="2327230" d="4160">we can always do it in
+different ways, but later,</p>
+<p t="2331390" d="2540">think of it that way.</p>
+<p t="2333930" d="550">Okay.</p>
+<p t="2334480" d="7540">So that's the picture
+for a two by two system.</p>
+<p t="2342020" d="3950">And if the right-hand side B
+happened to be twelve seven,</p>
+<p t="2345970" d="6140">then of course the correct
+solution would be one two.</p>
+<p t="2352110" d="500">Okay.</p>
+<p t="2352610" d="5340">So let me come back next
+time to a systematic way,</p>
+<p t="2357950" d="5520">using elimination,
+to find the solution,</p>
+<p t="2363470" d="6340">if there is one, to a
+system of any size and</p>
+</body>
+</timedtext>

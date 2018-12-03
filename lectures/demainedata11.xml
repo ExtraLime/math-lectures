@@ -1,0 +1,2563 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="90" d="2400">The following content is
+provided under a Creative</p>
+<p t="2490" d="1540">Commons license.</p>
+<p t="4030" d="2330">Your support will help
+MIT OpenCourseWare</p>
+<p t="6360" d="4360">continue to offer high quality
+educational resources for free.</p>
+<p t="10720" d="2600">To make a donation or
+view additional materials</p>
+<p t="13320" d="3960">from hundreds of MIT courses,
+visit MIT OpenCourseWare</p>
+<p t="17280" d="1170">at ocw.mit.edu.</p>
+<p t="20970" d="1000">ERIK DEMAINE: All right.</p>
+<p t="21970" d="2934">Today is all about the
+predecessor problem, which</p>
+<p t="24904" d="2166">is a problem we've certainly
+talked about implicitly</p>
+<p t="27070" d="1470">with, say, binary search trees.</p>
+<p t="28540" d="2400">You want to be able to
+insert and delete into a set,</p>
+<p t="30940" d="3630">and compute the predecessor
+and successor of any given key.</p>
+<p t="34570" d="4545">So maybe define that formally.</p>
+<p t="48160" d="2910">And this is not
+really our first,</p>
+<p t="51070" d="3300">but it is an example of
+an integer data structure.</p>
+<p t="54370" d="2610">And for whatever
+reason, I don't brand</p>
+<p t="56980" d="1920">hashing as an integer
+data structure,</p>
+<p t="58900" d="2484">just because it's its own beast.</p>
+<p t="61384" d="2166">But in particular, today,
+I need to be a little more</p>
+<p t="63550" d="2480">formal about the models of
+computation we're allowing--</p>
+<p t="66030" d="1570">or I want to be.</p>
+<p t="67600" d="5280">In particular, because, in the
+predecessor problem, which is,</p>
+<p t="72880" d="6530">insert, delete,
+predecessor, successor,</p>
+<p t="79410" d="3130">there are actually lower bounds
+that say you cannot do better</p>
+<p t="82540" d="1410">than such and such.</p>
+<p t="83950" d="2220">With hashing, there aren't
+really any lower bounds,</p>
+<p t="86170" d="1916">because you can do
+everything in constant time</p>
+<p t="88086" d="931">with high probability.</p>
+<p t="89017" d="1833">So I mean, there are
+maybe some lower bounds</p>
+<p t="90850" d="1140">on deterministic hashing.</p>
+<p t="91990" d="1090">That's harder.</p>
+<p t="93080" d="2770">But if you allow randomization,
+there's no real lower bounds,</p>
+<p t="95850" d="1860">whereas predecessor, there is.</p>
+<p t="100430" d="6136">And in general,
+predecessor problem--</p>
+<p t="106566" d="2104">the key thing I
+want to highlight</p>
+<p t="108670" d="4830">is that we're maintaining
+here a set of--</p>
+<p t="113500" d="10770">the set is called s
+of n elements, which</p>
+<p t="124270" d="2620">live in some universe, U--</p>
+<p t="126890" d="1124">just like last time.</p>
+<p t="128014" d="2166">When you insert, you can
+insert an arbitrary element</p>
+<p t="130180" d="720">of the universe.</p>
+<p t="130900" d="3995">That probably shouldn't be an
+s, or it will get thrown away.</p>
+<p t="134895" d="2125">But the key thing is that
+predecessor and successor</p>
+<p t="137020" d="2580">operate not just on
+the [INAUDIBLE] in s,</p>
+<p t="139600" d="1400">but you can give it any key.</p>
+<p t="141000" d="1390">It doesn't have to be in there.</p>
+<p t="142390" d="2085">And it will find the
+previous key that is in s,</p>
+<p t="144475" d="1875">or the next key that is in s.</p>
+<p t="146350" d="2930">So predecessor is
+the largest key</p>
+<p t="149280" d="4750">that is less than or equal
+to x that's in your set.</p>
+<p t="157550" d="5856">And successor is the
+smallest that is larger--</p>
+<p t="163406" d="1124">of course, if there is one.</p>
+<p t="168675" d="2125">So those are the kinds of
+operations we want to do.</p>
+<p t="170800" d="3240">Now, we know how to do all of
+this n log n time, no problem,</p>
+<p t="174040" d="3810">with binary search trees,
+in the comparison model.</p>
+<p t="177850" d="3480">But I want to introduce two
+more, say, realistic models</p>
+<p t="181330" d="4290">of computers, that ignore
+the memory hierarchy,</p>
+<p t="185620" d="3000">but think about
+regular RAM machines--</p>
+<p t="188620" d="4592">random access machines--
+and what they can really do.</p>
+<p t="193212" d="2458">And it's a model we're going
+to be working on for the next,</p>
+<p t="195670" d="2110">I think, five lectures.</p>
+<p t="197780" d="1850">So, important to
+set the stage right.</p>
+<p t="202150" d="4117">So these are models for
+integer data structures.</p>
+<p t="209470" d="5490">In general, we have
+a unifying concept,</p>
+<p t="214960" d="5085">which is a word of
+information, a word of data,</p>
+<p t="220045" d="1645">a word of memory.</p>
+<p t="221690" d="3040">It's used all over the
+place-- a word of input.</p>
+<p t="224730" d="3910">A word is the machine
+theoretic sense,</p>
+<p t="228640" d="2150">not like the linguistic sense.</p>
+<p t="230790" d="3510">It's going to be
+a w-bit integer.</p>
+<p t="234300" d="3490">And so this defines the
+universe, which is--</p>
+<p t="237790" d="3120">I'm going to assume they're
+all unsigned integers.</p>
+<p t="240910" d="4210">So this is 2 to the w minus one.</p>
+<p t="245120" d="1880">Those are all the
+unsigned integers</p>
+<p t="247000" d="1760">you can represent with w-bits.</p>
+<p t="248760" d="3100">We'll also call this number,
+2 to the w, little u.</p>
+<p t="251860" d="4200">That is the size of the
+universe, which is capital U.</p>
+<p t="256060" d="2339">So this matches
+notation from last time.</p>
+<p t="258399" d="4951">But I'm really highlighting how
+many bits we have, which is w.</p>
+<p t="263350" d="3630">Now, here's where
+things get interesting.</p>
+<p t="266980" d="1950">I'm going to get to
+a model called a word</p>
+<p t="268930" d="3539">RAM, which is what you
+might expect, more or less.</p>
+<p t="272469" d="2041">But before I get there I
+want to define something</p>
+<p t="274510" d="4260">called transdichotomous RAM--</p>
+<p t="278770" d="1510">tough word to spell.</p>
+<p t="280280" d="3080">It just means bridging
+a dichotomy-- bridging</p>
+<p t="283360" d="3150">two worlds, if you will.</p>
+<p t="286510" d="3660">RAM is a random access machine.</p>
+<p t="290170" d="4124">I've certainly mentioned
+the word RAM before.</p>
+<p t="294294" d="2416">But now we're going to get a
+little more precise about it.</p>
+<p t="296710" d="3650">So in general, in the
+RAM, memory is an array.</p>
+<p t="300360" d="2170">And you can do random
+access into the array.</p>
+<p t="302530" d="4050">But now, we're going to say,
+the cells of the memory--</p>
+<p t="306580" d="1410">each slot in that array--</p>
+<p t="307990" d="1050">is a word.</p>
+<p t="309040" d="1500">Everything is
+going to be a word.</p>
+<p t="310540" d="4347">Every input-- all these
+x's are going to be words.</p>
+<p t="314887" d="1083">Everything will be a word.</p>
+<p t="315970" d="2550">And in particular, the things
+in your memory are words.</p>
+<p t="321070" d="1230">Let's say you have s of them.</p>
+<p t="322300" d="3450">That's your space bound.</p>
+<p t="325750" d="1680">In general, in
+transdichotomous RAM,</p>
+<p t="327430" d="6750">you can do any operation
+that reads and writes</p>
+<p t="334180" d="6420">a constant number
+of words in memory.</p>
+<p t="340600" d="5260">And in particular, you can do
+random access to that memory.</p>
+<p t="345860" d="6365">But in particular, we use
+words to serve as pointers.</p>
+<p t="357460" d="2205">Here's my memory of words.</p>
+<p t="362590" d="2870">Each of them is w bits--</p>
+<p t="365460" d="6580">so s of them, from, I
+guess, 0 to s minus one.</p>
+<p t="372040" d="5130">And if you have, like,
+the number 3 here,</p>
+<p t="377170" d="4440">that can be used as a pointer
+to the third slot of memory.</p>
+<p t="381610" d="3300">One, two, three.</p>
+<p t="384910" d="2277">You can use numbers as
+indexes into memory.</p>
+<p t="387187" d="2083">So that's what I mean by,
+words serve as pointers.</p>
+<p t="389270" d="2840">So particularly, you can
+implement a pointer machine,</p>
+<p t="392110" d="1740">which-- no surprise--</p>
+<p t="393850" d="5910">but for this to work, we
+need a lower bound on w.</p>
+<p t="399760" d="4680">This implies w has to be at
+least log of the space bound.</p>
+<p t="404440" d="3120">Otherwise, you just can't
+index your whole memory.</p>
+<p t="407560" d="3380">And if you've got s minus 1
+things, this 2 to the w minus 1</p>
+<p t="410940" d="2940">better be at least s minus 1.</p>
+<p t="413880" d="2100">So we get this lower bound.</p>
+<p t="415980" d="7641">So in particular, presumably, s
+is at least your problem size,</p>
+<p t="423621" d="499">n.</p>
+<p t="424120" d="1760">If you're trying to
+maintain n items,</p>
+<p t="425880" d="2790">you've got to store them.</p>
+<p t="428670" d="3750">So w is at least log n.</p>
+<p t="432420" d="5340">Now, this relation is
+essentially a statement</p>
+<p t="437760" d="1170">bridging two worlds.</p>
+<p t="438930" d="1630">Namely, you have,
+on the one hand,</p>
+<p t="440560" d="3485">your model of computation, which
+has a particular word size.</p>
+<p t="444045" d="4545">And in reality, we think of that
+as being 32 or 64 or maybe 128.</p>
+<p t="448590" d="2640">Some fancy operations
+on Intel machines,</p>
+<p t="451230" d="3420">you can do 128-bit or so.</p>
+<p t="454650" d="1560">And then there's
+your problem size,</p>
+<p t="456210" d="1620">which we think of as an input.</p>
+<p t="457830" d="1980">Now, this is relating the two.</p>
+<p t="459810" d="1119">It's a little weird.</p>
+<p t="460929" d="2541">I guess you could say it's just
+a limitation for a given CPU.</p>
+<p t="463470" d="2630">There's only certain
+problems you can solve.</p>
+<p t="466100" d="3587">But theoretically, it
+makes a lot of sense</p>
+<p t="469687" d="833">to relate these two.</p>
+<p t="470520" d="2250">Because if you're
+in a RAM, and you've</p>
+<p t="472770" d="2119">got to be able to
+index your data,</p>
+<p t="474889" d="1541">you need at least
+that many bits just</p>
+<p t="476430" d="2430">to be able to talk
+about all those things.</p>
+<p t="478860" d="2820">And so the claim is,
+basically, machines</p>
+<p t="481680" d="2300">will grow to
+accommodate memory size.</p>
+<p t="483980" d="2720">As memory size grows,
+you'll need more bits.</p>
+<p t="486700" d="5194">Now, in reality, there's
+only about 2 to 256--</p>
+<p t="491894" d="1426">what do you call
+them-- particles</p>
+<p t="493320" d="1930">in the known universe.</p>
+<p t="495250" d="3270">So word size probably
+won't get that much bigger.</p>
+<p t="498520" d="1920">Beyond 256 should be OK.</p>
+<p t="500440" d="3170">But theoretically,
+this is a nice way</p>
+<p t="503610" d="2610">to formalize this claim
+that word sizes don't</p>
+<p t="506220" d="3150">need to get too big unless
+memories get gigantic.</p>
+<p t="509370" d="3030">So it may seem weird at
+first, but it's very natural.</p>
+<p t="512400" d="3149">And all real world machines
+have big enough words</p>
+<p t="515549" d="1201">to accommodate that.</p>
+<p t="516750" d="2083">Word size could be bigger,
+and that will give you,</p>
+<p t="518833" d="1487">essentially, more parallelism.</p>
+<p t="520320" d="2469">But it should be
+at least that big.</p>
+<p t="522789" d="500">All right.</p>
+<p t="523289" d="2741">Enough proselytizing.</p>
+<p t="530410" d="1940">That's the transdichotomous RAM.</p>
+<p t="532350" d="1710">The end.</p>
+<p t="534060" d="2160">And the word RAM is
+a specific version</p>
+<p t="536220" d="8010">of the transdichotomous
+RAM, where</p>
+<p t="544230" d="3210">you restrict the operations
+to c-like operations.</p>
+<p t="551610" d="1752">These are sort of the standard--</p>
+<p t="553362" d="1458">they're instructions
+on, basically,</p>
+<p t="554820" d="4030">all computers, except a few
+risk architectures don't have</p>
+<p t="558850" d="2800">multiplication and division.</p>
+<p t="561650" d="4541">But everything else
+is on everything.</p>
+<p t="569350" d="5850">So these are the operators,
+unless I missed one, in c.</p>
+<p t="575200" d="2330">They're all in Python,
+and pick your--</p>
+<p t="577530" d="1035">most languages.</p>
+<p t="578565" d="4131">You've got integer
+arithmetic, including mod.</p>
+<p t="582696" d="3534">You've got bitwise and,
+bitwise or, bitwise x</p>
+<p t="586230" d="4500">or, bitwise negation, and
+shift left, and shift right.</p>
+<p t="590730" d="2670">These we all view as
+taking constant time.</p>
+<p t="593400" d="6300">They take one or two integer
+inputs-- words as inputs.</p>
+<p t="599700" d="1420">They can compute an answer.</p>
+<p t="601120" d="2030">They write out another word.</p>
+<p t="603150" d="2621">Of course, there's also random
+access-- array dereference,</p>
+<p t="605771" d="499">I guess.</p>
+<p t="610980" d="1130">So that's the word RAM.</p>
+<p t="612110" d="1150">You restrict to
+these operations.</p>
+<p t="613260" d="1200">Whereas transdichotomous
+RAM, you</p>
+<p t="614460" d="2041">can do weird things, as
+long as they only involve</p>
+<p t="616501" d="1529">a constant number of words.</p>
+<p t="618030" d="1860">Word RAM-- it's
+the regular thing.</p>
+<p t="619890" d="2910">So this is basically
+the standard model</p>
+<p t="622800" d="2550">that all integer data
+structures use, pretty much.</p>
+<p t="625350" d="2850">If they don't use this
+model, they have to say so.</p>
+<p t="628200" d="3390">Otherwise this model has become
+accepted as the normal one.</p>
+<p t="631590" d="2340">It took several years
+before people realized</p>
+<p t="633930" d="2430">that's a good model--
+good enough to capture</p>
+<p t="636360" d="2940">pretty much everything we want.</p>
+<p t="639300" d="1980">The cool thing
+about word RAM is,</p>
+<p t="641280" d="2700">it lets you do things
+on w-bits in parallel.</p>
+<p t="643980" d="3940">You can take the and of
+w-bits, pairwise, all at once.</p>
+<p t="647920" d="1764">So you get some speed up.</p>
+<p t="649684" d="1916">But it's a natural
+generalization of something</p>
+<p t="651600" d="1083">like the comparison model.</p>
+<p t="652683" d="2532">Comparison model-- I guess
+I didn't write those.</p>
+<p t="655215" d="3825">It's more operations-- less
+than, greater than, and so on.</p>
+<p t="659040" d="2250">You can compare two
+numbers in constant time,</p>
+<p t="661290" d="2610">get a Boolean output
+via, say, subtraction,</p>
+<p t="663900" d="1150">and computing the sine.</p>
+<p t="669000" d="2230">And you think of comparisons
+as taking constant time,</p>
+<p t="671230" d="3620">so why not all of these things?</p>
+<p t="674850" d="1080">Cool.</p>
+<p t="675930" d="5780">One more model-- this
+is kind of a weird one.</p>
+<p t="681710" d="4210">It's called cell
+probe model, which</p>
+<p t="685920" d="5520">is, we just count
+the number of memory</p>
+<p t="691440" d="10766">reads and writes that we
+need to do to solve a data</p>
+<p t="702206" d="874">structure or a query.</p>
+<p t="703080" d="1825">Like, you you're
+looking at predecessor,</p>
+<p t="704905" d="2375">and you just want to know,
+how much of the data structure</p>
+<p t="707280" d="2991">do I have to read in order to be
+able to answer the predecessor</p>
+<p t="710271" d="499">problem?</p>
+<p t="710770" d="1541">How much do I have
+to write out to do</p>
+<p t="712311" d="2829">an insertion, or whatever?</p>
+<p t="715140" d="5340">And so in this model,
+computation is free.</p>
+<p t="720480" d="4409">And this is kind of like
+the external memory model,</p>
+<p t="724889" d="1291">and the cache oblivious models.</p>
+<p t="726180" d="1650">There, we were
+measuring how many block</p>
+<p t="727830" d="1125">reads and writes there are.</p>
+<p t="728955" d="2205">Here, our blocks are
+actually our words.</p>
+<p t="731160" d="3237">So there is a bit of a relation,
+except there's no real--</p>
+<p t="734397" d="1833">you can either think
+of there being no cache</p>
+<p t="736230" d="900">here, because
+you're just reading</p>
+<p t="737130" d="2333">in a constant number of words,
+doing something, spitting</p>
+<p t="739463" d="566">stuff out.</p>
+<p t="740029" d="1541">Or in the cell probe
+model, you could</p>
+<p t="741570" d="3060">imagine there being an infinite
+cache for this operation,</p>
+<p t="744630" d="1735">but no cache from
+operation to operation.</p>
+<p t="746365" d="2375">It's just, how much do I have
+to [INAUDIBLE] information,</p>
+<p t="748740" d="2450">theoretically, to solve a
+particular predecessor problem?</p>
+<p t="751190" d="1870">We'll deal with this
+a lot in a couple</p>
+<p t="753060" d="2170">of lectures-- not quite yet.</p>
+<p t="755230" d="2970">This model is just
+used for lower bounds.</p>
+<p t="758200" d="1940">It's not a realistic
+model, because you</p>
+<p t="760140" d="3654">have to pay for computation
+in the real world.</p>
+<p t="763794" d="1416">But if you can
+prove that you need</p>
+<p t="765210" d="2310">to read at least a certain
+number of words, then,</p>
+<p t="767520" d="3400">of course, you have to do at
+least that many operations.</p>
+<p t="770920" d="1670">So it's nice for lower bounds.</p>
+<p t="772590" d="5430">In general, we have this
+sort of hierarchy of models,</p>
+<p t="778020" d="5370">where this is the most
+powerful, strongest,</p>
+<p t="783390" d="10530">and below cell probe, we
+have transdichotomous RAM,</p>
+<p t="793920" d="6180">then word RAM, then--
+just to fit it in context,</p>
+<p t="800100" d="1230">what we've been doing--</p>
+<p t="801330" d="4290">below that is pointer
+machine, and below that</p>
+<p t="805620" d="1200">would be binary search tree.</p>
+<p t="806820" d="1625">I've mentioned before,
+pointer machines</p>
+<p t="808445" d="1795">are more powerful than
+binary search tree.</p>
+<p t="810240" d="2041">And of course, we can
+implement a pointer machine</p>
+<p t="812281" d="629">on a word RAM.</p>
+<p t="812910" d="2202">So we have these relations.</p>
+<p t="815112" d="1458">There are, of
+course, other models.</p>
+<p t="816570" d="2880">But this is a quick picture
+of models we've seen so far.</p>
+<p t="827140" d="3190">So now, we have this
+notion of a word.</p>
+<p t="830330" d="4145">In the predecessor problem,
+these elements are words.</p>
+<p t="837090" d="3221">They're w-bit integers,
+universe-defined.</p>
+<p t="840311" d="2249">And we want to be able to
+insert, delete, predecessor,</p>
+<p t="842560" d="2196">and successor over words.</p>
+<p t="844756" d="2802">So that's our challenge.</p>
+<p t="852910" d="1680">In the binary search
+tree model, we</p>
+<p t="854590" d="2100">know the answer to this
+problem is theta log n.</p>
+<p t="856690" d="3000">In general, any
+comparison-based data structure,</p>
+<p t="859690" d="2620">you need theta log
+n, in the worst case.</p>
+<p t="862310" d="2400">It's an easy lower bound.</p>
+<p t="864710" d="3530">But we're going to do better on
+these other models in the word</p>
+<p t="868240" d="1800">RAM.</p>
+<p t="870040" d="1395">So here are some results.</p>
+<p t="878440" d="2400">First data structure is
+called Van Emde Boas.</p>
+<p t="880840" d="2110">You might guess it
+is by van Emde Boas--</p>
+<p t="882950" d="2210">Peter.</p>
+<p t="885160" d="1740">It actually has a
+couple other authors</p>
+<p t="886900" d="1600">in some versions of
+the papers, which</p>
+<p t="888500" d="1070">makes a little bit confusing.</p>
+<p t="889570" d="1791">But for whatever reason,
+the data structure</p>
+<p t="891361" d="2979">is just named Van Emde Boas.</p>
+<p t="894340" d="9430">And it achieves log
+w per operation.</p>
+<p t="903770" d="1580">I think I'll rewrite this.</p>
+<p t="905350" d="4140">This is log log u per operation.</p>
+<p t="909490" d="2760">But it requires u space.</p>
+<p t="912250" d="4080">So think of u space as
+being, like, for every item</p>
+<p t="916330" d="3030">in the universe I store,
+yes or no, is it in the set?</p>
+<p t="919360" d="5340">So that's a lot of space, unless
+n and u are not too different.</p>
+<p t="924700" d="2610">But we can do better.</p>
+<p t="927310" d="1710">But the cool thing
+is the running time.</p>
+<p t="929020" d="1950">This is really fast--</p>
+<p t="930970" d="2070">log log u.</p>
+<p t="933040" d="2070">If you think about,
+for example--</p>
+<p t="935110" d="5550">I don't know-- the universe
+being polynomial in n,</p>
+<p t="940660" d="2640">or even if the universe
+is something like--</p>
+<p t="943300" d="2160">polynomial in n is
+the same as this--</p>
+<p t="945460" d="1500">2 to the c log n.</p>
+<p t="946960" d="2690">You can go crazy and
+say log to the c power--</p>
+<p t="949650" d="2450">so, like, 2 to the log
+to the fifth power.</p>
+<p t="952100" d="3440">All those things,
+you take log twice.</p>
+<p t="955540" d="7050">Then log log u becomes
+theta log log n.</p>
+<p t="962590" d="8955">So as long as your word
+size is not insanely large,</p>
+<p t="971545" d="2095">you're getting log
+log n performance.</p>
+<p t="973640" d="10060">So in general, when, let's
+say, w is is polylog n,</p>
+<p t="983700" d="2450">then we're getting this
+kind of performance.</p>
+<p t="986150" d="2390">And I think on most computers,
+w is polylogarithmic.</p>
+<p t="988540" d="1950">We said it has to
+be at least log.</p>
+<p t="990490" d="2180">It's also, generally, not
+so much bigger than log.</p>
+<p t="992670" d="2920">So log squared is probably
+fine most of the time,</p>
+<p t="995590" d="4090">unless you have a
+really small problem.</p>
+<p t="999680" d="1000">OK, so cool.</p>
+<p t="1000680" d="1090">But the space is giant.</p>
+<p t="1001770" d="1710">So how do we do
+better than that?</p>
+<p t="1003480" d="3220">Well, there's a
+couple of answers.</p>
+<p t="1006700" d="7940">One is that you can achieve
+log w with high probability,</p>
+<p t="1014640" d="4020">and order n space.</p>
+<p t="1018660" d="3270">With a slight tweak, basically,
+you combine Van Emde Boas</p>
+<p t="1021930" d="3946">plus hashing, and you get that.</p>
+<p t="1025876" d="2924">I don't actually know what the
+reference is for this result.</p>
+<p t="1028800" d="5549">It's been an exercise in
+various courses, and so on.</p>
+<p t="1034349" d="2054">I can talk more
+about that later.</p>
+<p t="1036403" d="2416">Then alternatively, there's
+another data structure, which,</p>
+<p t="1038819" d="1921">in many ways, is simpler.</p>
+<p t="1040740" d="1500">It really embraces hashing.</p>
+<p t="1042240" d="1740">It's called y-fast trees.</p>
+<p t="1043980" d="2924">It achieves the same
+bounds-- so log w</p>
+<p t="1046904" d="2806">with high probability
+and linear space.</p>
+<p t="1049710" d="3720">It's basically just a hash
+table with some cleverness.</p>
+<p t="1053430" d="810">So we'll get there.</p>
+<p t="1054240" d="1541">Even though it's
+simpler, we're going</p>
+<p t="1055781" d="2239">to start with this structure.</p>
+<p t="1058020" d="2190">Historically, this is
+the way it happened--</p>
+<p t="1060210" d="3525">Van Emde Boas, then y-fast
+trees, which are by Willard.</p>
+<p t="1063735" d="1935">And it'll be kind
+of a nice finale.</p>
+<p t="1069750" d="3730">There's another data structure
+I want to talk about,</p>
+<p t="1073480" d="5300">which is designed for the
+case when w is very large--</p>
+<p t="1078780" d="2280">much bigger than polylog n.</p>
+<p t="1081060" d="3300">In that case, there's
+something called fusion trees.</p>
+<p t="1084360" d="4941">And you can achieve
+log base w of n--</p>
+<p t="1089301" d="4539">and, I guess, with high
+probability and linear space.</p>
+<p t="1096480" d="1710">The original fusion
+trees are static.</p>
+<p t="1098190" d="3690">And you could just do log base
+w of n deterministic queries.</p>
+<p t="1101880" d="2550">But there's a later
+version that dynamic,</p>
+<p t="1104430" d="5730">achieves this using hashing
+for updates, insertions,</p>
+<p t="1110160" d="1740">and deletions.</p>
+<p t="1111900" d="660">Cool.</p>
+<p t="1112560" d="2430">So this is an
+almost upside-down--</p>
+<p t="1114990" d="1500">it's obviously
+always an improvement</p>
+<p t="1116490" d="5400">over just log base 2 of n.</p>
+<p t="1121890" d="2540">But it's sometimes better and
+sometimes worse than log w.</p>
+<p t="1124430" d="4060">In fact, it kind of makes
+sense to take the min of them.</p>
+<p t="1128490" d="2290">When w is small, you
+want to use log w.</p>
+<p t="1130780" d="3170">When w is big, you want
+to use log base w of n.</p>
+<p t="1133950" d="10940">They're going to balance out
+when w is 2 to the root log n--</p>
+<p t="1144890" d="2210">something like that.</p>
+<p t="1147100" d="2460">The easy thing is,
+when these balance out</p>
+<p t="1149560" d="1590">is when they're equal.</p>
+<p t="1151150" d="5700">And that will be when this
+is log n divided by log w.</p>
+<p t="1156850" d="3530">So when log w equals
+log n divided by log w--</p>
+<p t="1160380" d="1870">let do that over here.</p>
+<p t="1162250" d="5620">log w is log n over log w.</p>
+<p t="1167870" d="4370">Then this is like saying
+log squared w equals log n,</p>
+<p t="1172240" d="4401">or log w is root log n.</p>
+<p t="1176641" d="2619">So I was right. w is
+2 to the root log in,</p>
+<p t="1179260" d="1092">which is a weird quantity.</p>
+<p t="1180352" d="1958">But the easy thing to
+think about is this one--</p>
+<p t="1182310" d="1690">log w is root log n.</p>
+<p t="1184000" d="3610">And in that case, the running
+time you get is root log n.</p>
+<p t="1191050" d="1830">So it's always, at most, this.</p>
+<p t="1192880" d="4460">And the worst case is when
+these things are balanced,</p>
+<p t="1197340" d="2950">or these two are the same, and
+they both achieve root log n.</p>
+<p t="1200290" d="2490">But if w is smaller or
+larger than this threshold,</p>
+<p t="1202780" d="2250">these structures will be
+even better than root log n.</p>
+<p t="1205030" d="1416">But in particular,
+it's a nice way</p>
+<p t="1206446" d="2934">to think about, oh, we're
+doing sort of a square factor</p>
+<p t="1209380" d="3550">better than binary search trees.</p>
+<p t="1212930" d="3950">And we can do this high
+probability in linear space.</p>
+<p t="1220120" d="650">So that's cool.</p>
+<p t="1227530" d="3340">Turns out it's also
+pretty much optimal.</p>
+<p t="1230870" d="7670">And that's not at all
+obvious, and wasn't</p>
+<p t="1238540" d="1140">known for many years.</p>
+<p t="1246650" d="4230">So there's a cell
+probe lower bound.</p>
+<p t="1250880" d="6700">So these are all in
+the word RAM model--</p>
+<p t="1257580" d="1090">all these results.</p>
+<p t="1258670" d="2566">The first one actually kind of
+works in the pointer machine.</p>
+<p t="1261236" d="1124">I'll talk about that later.</p>
+<p t="1270570" d="4570">This lower bound's a
+little bit messy to state.</p>
+<p t="1275140" d="2960">The bound is slightly
+more complicated</p>
+<p t="1278100" d="1600">than what we've seen.</p>
+<p t="1279700" d="2460">But I'm going to restrict to
+a special situation, which is,</p>
+<p t="1282160" d="2500">if you have n polylog n space.</p>
+<p t="1284660" d="2810">So this is a lower bound
+on static predecessor.</p>
+<p t="1287470" d="2730">All you need to do is solve
+predecessor and successor,</p>
+<p t="1290200" d="1590">or even just predecessor.</p>
+<p t="1291790" d="1980">There's no inserts and deletes.</p>
+<p t="1293770" d="3480">In that case, if you use lots of
+space, like u space, of course,</p>
+<p t="1297250" d="1860">you can do constant
+time for everything.</p>
+<p t="1299110" d="2340">You just store all the answers.</p>
+<p t="1301450" d="4182">But if you want space that's
+not much bigger than n--</p>
+<p t="1305632" d="2208">in particular, if you wanted
+to be able to do updates</p>
+<p t="1307840" d="1980">in polylog, this
+is the most space</p>
+<p t="1309820" d="2010">you could ever hope to achieve.</p>
+<p t="1311830" d="4620">So assuming that, which
+is pretty reasonable,</p>
+<p t="1316450" d="3600">there's a bound of the
+min of two things--</p>
+<p t="1320050" d="2700">log base w of n,
+which is fusion trees,</p>
+<p t="1322750" d="3180">and, roughly, log w,
+which is Van Emde Boas.</p>
+<p t="1325930" d="1890">But it's slightly
+smaller than that.</p>
+<p t="1336170" d="1430">Yeah, pretty weird.</p>
+<p t="1337600" d="2020">Let me tell you
+the consequences--</p>
+<p t="1339620" d="1430">a little easier to think about.</p>
+<p t="1341050" d="5220">Van Emde Boas is going to be
+optimal for the kind of cases</p>
+<p t="1346270" d="4090">we care about, which
+is when w is polylog n.</p>
+<p t="1355270" d="3510">And fusion trees are
+optimal when w is big.</p>
+<p t="1369910" d="5540">Square root log n log log n.</p>
+<p t="1375450" d="4420">OK-- a little messy.</p>
+<p t="1379870" d="4020">So there's this divided by
+log of log w over log n.</p>
+<p t="1383890" d="4617">If w is polylog n, then this
+is just order log log n.</p>
+<p t="1388507" d="833">And so this cancels.</p>
+<p t="1389340" d="1272">This becomes constant.</p>
+<p t="1390612" d="2458">So in these situations, which
+are the ones I mentioned over</p>
+<p t="1393070" d="2370">here, w is polylog
+n, which is when</p>
+<p t="1395440" d="1320">we get log log n performance.</p>
+<p t="1396760" d="2010">And that's kind of the
+case we care about.</p>
+<p t="1398770" d="2550">Van Emde Boas is the
+best thing to do.</p>
+<p t="1401320" d="2820">Turns out, this is
+actually the right answer.</p>
+<p t="1404140" d="2530">You can do slightly better.</p>
+<p t="1406670" d="1160">It's almost an exercise.</p>
+<p t="1407830" d="2880">You can tweak Van Emde Boas and
+get this slight improvement.</p>
+<p t="1410710" d="2890">But most word sizes, it
+really doesn't matter.</p>
+<p t="1413600" d="2820">You're not saving much.</p>
+<p t="1416420" d="980">Cool.</p>
+<p t="1417400" d="1650">So other than that
+little factor,</p>
+<p t="1419050" d="1166">these are the right answers.</p>
+<p t="1420216" d="1744">You have to know
+about Van Emde Boas.</p>
+<p t="1421960" d="1500">You have to know
+about fusion trees.</p>
+<p t="1423460" d="1920">And so this lecture is
+about Van Emde Boas.</p>
+<p t="1425380" d="3510">Next lecture is
+about fusion trees.</p>
+<p t="1428890" d="16150">This result is from 2006
+and 2007, so pretty recent.</p>
+<p t="1445040" d="2060">So let's start a Van Emde Boas.</p>
+<p t="1479540" d="509">Yeah.</p>
+<p t="1480049" d="791">Let's dive into it.</p>
+<p t="1480840" d="3320">I'll talk about
+history a little later.</p>
+<p t="1484160" d="1640">The central idea,
+I guess, if you</p>
+<p t="1485800" d="3730">wanted to sum up Van Emde
+Boas in an equation, which</p>
+<p t="1489530" d="3450">is something we very rarely
+get to do in algorithms,</p>
+<p t="1492980" d="2135">is to think about
+this recurrence--</p>
+<p t="1495115" d="5315">T of u is T of square
+root of u plus order 1.</p>
+<p t="1500430" d="1880">What does this solve to?</p>
+<p t="1502310" d="3160">log log u.</p>
+<p t="1505470" d="4610">All right, just
+think of taking logs.</p>
+<p t="1510080" d="3390">This is the same as
+T of w equals T of w</p>
+<p t="1513470" d="2460">over 2 plus order 1.</p>
+<p t="1515930" d="1670">w is the word size.</p>
+<p t="1517600" d="1870">And so this is log w.</p>
+<p t="1519470" d="2718">It's the same thing.</p>
+<p t="1522188" d="3222">If we could achieve
+this recurrence, then--</p>
+<p t="1525410" d="2680">boom-- we get our
+bound of log w.</p>
+<p t="1530810" d="1990">So how do we do it.</p>
+<p t="1532800" d="12680">We split the universe
+into root u clusters,</p>
+<p t="1545480" d="2810">each of size root u.</p>
+<p t="1551980" d="7960">OK, so, if here is our
+universe, then I just</p>
+<p t="1559940" d="3150">split every square
+root of u items.</p>
+<p t="1563090" d="3780">So each of these is root u long.</p>
+<p t="1566870" d="2262">The number of them
+is square root of u.</p>
+<p t="1569132" d="1458">And then somehow,
+I want to recurse</p>
+<p t="1570590" d="3870">on each of these clusters.</p>
+<p t="1574460" d="1940">And I only get to
+recurse on one of them--</p>
+<p t="1576400" d="1000">so a pretty simple idea.</p>
+<p t="1594550" d="530">Yeah.</p>
+<p t="1595080" d="1541">So I'll talk about
+how to actually do</p>
+<p t="1596621" d="1189">that recursion in a moment.</p>
+<p t="1597810" d="1499">Before I get there,
+I want to define</p>
+<p t="1599309" d="4481">a sort of hierarchical
+coordinate system.</p>
+<p t="1603790" d="2940">This is a new way of
+phrasing it for me.</p>
+<p t="1606730" d="2060">So I hope you like it.</p>
+<p t="1608790" d="3720">If we have a word x, I
+want to write it as two</p>
+<p t="1612510" d="2930">coordinates-- c and i.</p>
+<p t="1615440" d="2030">I'm going to use
+angle brackets, so it</p>
+<p t="1617470" d="3230">doesn't get too confusing. c
+is which cluster you're in.</p>
+<p t="1620700" d="3270">So this is cluster 0, cluster
+1, cluster 2, cluster three.</p>
+<p t="1623970" d="1850">i is your index
+within the cluster.</p>
+<p t="1625820" d="3617">So this is 0, 1, 2, 3, 4,
+5-- up to root u minus 1</p>
+<p t="1629437" d="833">within this cluster.</p>
+<p t="1630270" d="2400">Then 0, 1, 2, 3, 4, 5
+up to root u minus 1</p>
+<p t="1632670" d="2550">with in this
+cluster-- so the i is</p>
+<p t="1635220" d="4500">your index within the
+cluster, like this,</p>
+<p t="1639720" d="4030">and c is which
+cluster you are in.</p>
+<p t="1643750" d="500">OK.</p>
+<p t="1644250" d="1290">Pretty simple.</p>
+<p t="1645540" d="3720">And there's easy
+arithmetic to do this.</p>
+<p t="1649260" d="4170">c is x integer divide root u.</p>
+<p t="1653430" d="4770">And i is x integer mod root u.</p>
+<p t="1658200" d="3360">I used Python notation here.</p>
+<p t="1661560" d="2957">So fine, I think
+you all know this--</p>
+<p t="1664517" d="583">pretty simple.</p>
+<p t="1665100" d="2130">And if I gave you
+c and i, you could</p>
+<p t="1667230" d="1840">reconstruct x by just
+saying, oh, well,</p>
+<p t="1669070" d="3530">that's c times root u plus i.</p>
+<p t="1672600" d="3090">So in constant time, you
+can decompose a number</p>
+<p t="1675690" d="1260">into its two coordinates.</p>
+<p t="1676950" d="2631">That's the point.</p>
+<p t="1679581" d="1499">In fact, it's much
+easier than this.</p>
+<p t="1681080" d="1870">You don't even
+have to do division</p>
+<p t="1682950" d="1960">if you think of
+everything in binary,</p>
+<p t="1684910" d="1670">which computers tend to do.</p>
+<p t="1686580" d="9980">So the binary perspective
+is that x is a word.</p>
+<p t="1696560" d="1850">So it's a bunch of bits.</p>
+<p t="1698410" d="6590">0, 1, 1, 0, 1, 0,
+0, 1-- whatever.</p>
+<p t="1705000" d="4440">Divide that bit sequence
+in half, and then this part</p>
+<p t="1709440" d="3480">is c, this part is i.</p>
+<p t="1712920" d="2820">And if you assume that
+w is a power of 2,</p>
+<p t="1715740" d="1272">these two are identical.</p>
+<p t="1717012" d="1458">If they're not a
+power of 2, you've</p>
+<p t="1718470" d="2130">got to round a little bit here.</p>
+<p t="1720600" d="1870">It doesn't matter.</p>
+<p t="1722470" d="3720">But you can use this definition
+instead of this one either way.</p>
+<p t="1726190" d="2240">So in this case, c is--</p>
+<p t="1728430" d="5670">ooh, boy-- x shifted
+right, w over 2, basically.</p>
+<p t="1734100" d="4000">So this w over 2--</p>
+<p t="1738100" d="2120">w over 2.</p>
+<p t="1740220" d="4000">The whole thing is w bits.</p>
+<p t="1744220" d="2930">So if I shift right, I get
+rid of the low order bits,</p>
+<p t="1747150" d="1090">if I want.</p>
+<p t="1748240" d="1880">i is slightly more annoying.</p>
+<p t="1750120" d="7950">But I can't do it
+as an and with one</p>
+<p t="1758070" d="6620">shifted left w over 2 minus 1.</p>
+<p t="1764690" d="1600">That's probably
+how you do it in c.</p>
+<p t="1766290" d="900">I don't know if
+you're used to this.</p>
+<p t="1767190" d="2280">But if I take it a 1 bit,
+I shift it over to here,</p>
+<p t="1769470" d="840">and I subtract 1.</p>
+<p t="1770310" d="1590">Then I get a whole
+bunch of 1 bits.</p>
+<p t="1771900" d="2760">And then you mask
+with that bit pattern.</p>
+<p t="1774660" d="2190">So I'm masking with 1, 1, 1, 1.</p>
+<p t="1776850" d="2040">Then I'll just get
+the low order bits.</p>
+<p t="1778890" d="2010">Computers do the
+super fast-- way</p>
+<p t="1780900" d="1710">faster than integer division.</p>
+<p t="1782610" d="2220">Because this is just
+like routing bits around.</p>
+<p t="1784830" d="2940">So this is easy to
+do on a typical CPU.</p>
+<p t="1787770" d="1950">And this will be much
+faster than this code,</p>
+<p t="1789720" d="3720">even though looks like
+more operations, typically.</p>
+<p t="1793440" d="570">All right.</p>
+<p t="1794010" d="930">So fine.</p>
+<p t="1794940" d="3150">The point is, I can
+decompos x into c and i.</p>
+<p t="1798090" d="3320">Of course, I can
+also do the reverse.</p>
+<p t="1801410" d="4945">This would be c shifted
+left w over 2, ord with i.</p>
+<p t="1810160" d="1760">It's a slight diversion.</p>
+<p t="1811920" d="3480">Now, I can tell you
+the actual recursion,</p>
+<p t="1815400" d="3840">and then talk about
+how to maintain it.</p>
+<p t="1819240" d="5340">So we're going to define
+a recursive Van Emde Boas</p>
+<p t="1824580" d="7700">structure of size
+u and word size w.</p>
+<p t="1837660" d="2010">And what it's going
+to look like is,</p>
+<p t="1839670" d="9160">we have a bunch of clusters,
+each of size square root of u.</p>
+<p t="1854820" d="1927">So this represents the
+first root u items.</p>
+<p t="1856747" d="1583">This represents the
+next root u items.</p>
+<p t="1858330" d="2770">This represents the last
+root u items, and so on.</p>
+<p t="1861100" d="2610">So that's the obvious
+recursion from this.</p>
+<p t="1863710" d="1830">So this is going to
+be a Van Emde Boas</p>
+<p t="1865540" d="2310">structure of size root u.</p>
+<p t="1867850" d="2130">And then we also
+have a structure</p>
+<p t="1869980" d="4950">up top, which is called
+the summary structure.</p>
+<p t="1874930" d="4320">And the idea is, it represents,
+for each of these clusters,</p>
+<p t="1879250" d="2370">is the cluster empty or not?</p>
+<p t="1881620" d="3000">Does this cluster
+have any items in it?</p>
+<p t="1884620" d="1150">Yes or no.</p>
+<p t="1885770" d="3170">If yes, then the
+name of this cluster</p>
+<p t="1888940" d="2400">is in the summary structure.</p>
+<p t="1891340" d="2610">So notice, by this
+hierarchical decomposition,</p>
+<p t="1893950" d="3390">the cluster number
+and the index are</p>
+<p t="1897340" d="2680">valid names of items
+within these substructures.</p>
+<p t="1900020" d="3957">And basically we're going to use
+the i part to talk about things</p>
+<p t="1903977" d="833">within the clusters.</p>
+<p t="1904810" d="1830">And we're going to use the
+c part to talk about things</p>
+<p t="1906640" d="1208">within the summary structure.</p>
+<p t="1907848" d="2432">They're both numbers between
+0 and root u minus 1.</p>
+<p t="1910280" d="3890">And so we get this perspective.</p>
+<p t="1914170" d="660">All right.</p>
+<p t="1914830" d="6900">So formally, or some
+notation, cluster i--</p>
+<p t="1921730" d="3570">so we're going to have
+an array of clusters.</p>
+<p t="1925300" d="5170">It is Van Emde Boas thing
+of size square root u,</p>
+<p t="1930470" d="5150">and word size w over 2.</p>
+<p t="1935620" d="3480">This is slightly weird,
+because the machine, of course,</p>
+<p t="1939100" d="1530">its word size remains w.</p>
+<p t="1940630" d="2260">It doesn't get smaller
+as you recurse.</p>
+<p t="1942890" d="2000">We're not going to try
+to spread the parallelism</p>
+<p t="1944890" d="2060">around or whatever.</p>
+<p t="1946950" d="1750">But this is just a
+notational convenience.</p>
+<p t="1948700" d="2640">I want to say the
+word size conceptually</p>
+<p t="1951340" d="2700">goes down to w over 2, so
+that this definition still</p>
+<p t="1954040" d="1230">makes sense.</p>
+<p t="1955270" d="3210">Because as I look at a
+smaller part of the word,</p>
+<p t="1958480" d="3210">in order to divide it in
+half, I have to shift right</p>
+<p t="1961690" d="1260">by a smaller amount.</p>
+<p t="1962950" d="4380">So that's the w that I'm
+passing into the structure.</p>
+<p t="1967330" d="5380">OK, and then v dot
+summary is same thing.</p>
+<p t="1972710" d="5400">It's also Van Emde Boa's
+thing of size root u.</p>
+<p t="1978110" d="3440">Then the one other clever idea,
+which makes all of this work,</p>
+<p t="1981550" d="3490">is that we store the minimum
+element in v dot min.</p>
+<p t="1990490" d="2654">And we do not store
+it recursively.</p>
+<p t="2000070" d="7010">So there's also one item here,
+size 1, which is the min.</p>
+<p t="2007080" d="1450">It's just stored
+off to the side.</p>
+<p t="2008530" d="2060">It doesn't live in
+these structures.</p>
+<p t="2010590" d="2614">Every other item
+lives down here.</p>
+<p t="2013204" d="1916">And furthermore, if one
+of these is not empty,</p>
+<p t="2015120" d="3630">there's also a
+corresponding item up here.</p>
+<p t="2018750" d="5130">This turns out to be crucial
+to make a Van Emde Boas work.</p>
+<p t="2023880" d="2970">And then v dot
+max, we also need--</p>
+<p t="2026850" d="1532">but it can be
+stored recursively.</p>
+<p t="2028382" d="1708">So just think of it
+as a copy of whatever</p>
+<p t="2030090" d="2542">the maximum element is.</p>
+<p t="2032632" d="1958">OK, so in constant time,
+we can compute the min</p>
+<p t="2034590" d="930">and compute the max.</p>
+<p t="2035520" d="630">That's good.</p>
+<p t="2036150" d="3690">But then I claim also in log
+w time-- log log u time--</p>
+<p t="2039840" d="2652">we can do insert, delete,
+predecessor, successor.</p>
+<p t="2048889" d="881">So let's do that.</p>
+<p t="2062380" d="1660">This data structure--
+the solution</p>
+<p t="2064040" d="2324">is both simple and
+a little bit subtle.</p>
+<p t="2066364" d="1666">And so this will be
+one of the few times</p>
+<p t="2068030" d="2220">I'm going to write
+explicit pseudocode-- say</p>
+<p t="2070250" d="3150">exactly how to maintain
+this data structure.</p>
+<p t="2073400" d="1920">It's short code, which is good.</p>
+<p t="2075320" d="3419">Each algorithm is
+only a few lines.</p>
+<p t="2078739" d="1562">But every line matters.</p>
+<p t="2080301" d="2249">So I want to write them down
+so I can talk about them.</p>
+<p t="2086040" d="2990">And with this new
+hierarchical notation,</p>
+<p t="2089030" d="3430">I think it's even easier
+to write these down.</p>
+<p t="2092460" d="2230">Let's see how I do.</p>
+<p t="2168510" d="2424">OK, so we'll start with
+the successor code.</p>
+<p t="2170934" d="1416">Predecessor is,
+of course, metric.</p>
+<p t="2188000" d="3624">And it basically has two cases.</p>
+<p t="2191624" d="1916">There's a special case
+in the beginning, which</p>
+<p t="2193540" d="2730">is, if the thing you're
+querying happens to be less</p>
+<p t="2196270" d="2400">than the minimum of the
+whole thing, then of course,</p>
+<p t="2198670" d="1902">the minimum is the successor.</p>
+<p t="2200572" d="2208">This has to be done specially,
+because the min is not</p>
+<p t="2202780" d="1207">stored recursively.</p>
+<p t="2203987" d="1583">And so you've got
+to check for the min</p>
+<p t="2205570" d="2681">every single level
+of the recursion.</p>
+<p t="2208251" d="1249">But that's just constant time.</p>
+<p t="2209500" d="834">No big deal.</p>
+<p t="2210334" d="1416">Then the interesting
+things is, we</p>
+<p t="2211750" d="2670">have recursions in both sides--</p>
+<p t="2214420" d="3730">in both cases-- but only one.</p>
+<p t="2218150" d="2230">The key is, we want
+this recurrence--</p>
+<p t="2220380" d="5440">T of u is 1 times T of
+root u plus order 1.</p>
+<p t="2225820" d="1640">That gives us log log u.</p>
+<p t="2227460" d="5300">If there was a 2 here, we would
+get log u, which is no good.</p>
+<p t="2232760" d="800">We want the one.</p>
+<p t="2233560" d="3250">So in one case, we call
+successor on a cluster.</p>
+<p t="2236810" d="1820">In the other case,
+we call successor</p>
+<p t="2238630" d="3600">on the summary structure.</p>
+<p t="2242230" d="2610">But we don't want to do both.</p>
+<p t="2244840" d="3060">So let's just think about,
+intuitively, what's going on.</p>
+<p t="2247900" d="1520">We've got this--</p>
+<p t="2249420" d="1780">I guess I can do it
+in the same picture.</p>
+<p t="2251200" d="3510">We've got this summary
+and a bunch of clusters.</p>
+<p t="2254710" d="2160">And let's say you want
+to compute, what's</p>
+<p t="2256870" d="2170">the successor of this item?</p>
+<p t="2259040" d="1790">So via this
+transformation, we compute</p>
+<p t="2260830" d="3270">which cluster it lives in and
+where it is within the cluster.</p>
+<p t="2264100" d="940">That's i.</p>
+<p t="2265040" d="1520">So it's some item here.</p>
+<p t="2266560" d="3090">Now, it could be the successor
+is inside the same cluster.</p>
+<p t="2269650" d="2220">Maybe there's an
+item right there.</p>
+<p t="2271870" d="2460">Then want to recurse in here.</p>
+<p t="2274330" d="2760">Or it could be, it's
+in some future cluster.</p>
+<p t="2280570" d="2340">Let's do the first case.</p>
+<p t="2282910" d="5280">If, basically, we are less than
+the max of our own cluster,</p>
+<p t="2288190" d="3874">that means that the
+answer is in there.</p>
+<p t="2292064" d="1916">Figure out what the max
+is in this structure--</p>
+<p t="2293980" d="4800">the rightmost item in s
+that's inside this cluster c.</p>
+<p t="2298780" d="2520">This is c.</p>
+<p t="2301300" d="4545">If our index is less than the
+max's index, then if we recurse</p>
+<p t="2305845" d="2374">in here, we will find an answer.</p>
+<p t="2308219" d="1541">If we're bigger than
+the max, then we</p>
+<p t="2309760" d="1291">won't find an answer down here.</p>
+<p t="2311051" d="1719">We have to recurse
+somewhere else.</p>
+<p t="2312770" d="2120">So that's what we do.</p>
+<p t="2314890" d="2610">If we're less than
+the max, then we just</p>
+<p t="2317500" d="4590">recursively find the successor
+of our index within cluster c.</p>
+<p t="2322090" d="3540">And we have to add
+on the c in front.</p>
+<p t="2325630" d="1830">Because successor
+within this cluster</p>
+<p t="2327460" d="2910">will only give an index
+within the cluster.</p>
+<p t="2330370" d="4250">And we have to prepend this
+c part to give a global name.</p>
+<p t="2334620" d="1450">OK, so that's case 1.</p>
+<p t="2336070" d="1450">Very easy.</p>
+<p t="2337520" d="4070">The other case is where we're
+slightly clever, in some sense.</p>
+<p t="2341590" d="5040">We say, OK, well, if there's no
+successor within the cluster,</p>
+<p t="2346630" d="1410">maybe it's in the next cluster.</p>
+<p t="2348040" d="1620">Of course, that one might
+be empty, in which case,</p>
+<p t="2349660" d="820">it's in the next cluster.</p>
+<p t="2350480" d="2570">But that one might be empty,
+so look at the next cluster.</p>
+<p t="2353050" d="2580">We need to find, what is
+the next non-empty cluster?</p>
+<p t="2355630" d="3390">For that, we use the
+summary structure.</p>
+<p t="2359020" d="3210">So we go up to position c here.</p>
+<p t="2362230" d="3170">We say, OK, what is the next
+non-empty structure after c?</p>
+<p t="2365400" d="2550">Because we know that's
+going to be where</p>
+<p t="2367950" d="2237">our answer lives for successor.</p>
+<p t="2370187" d="1583">So that's going to
+give us, basically,</p>
+<p t="2371770" d="4980">a pointer to one of these
+structures-- c prime, which--</p>
+<p t="2376750" d="1499">all these guys are empty.</p>
+<p t="2378249" d="1541">And so there's no
+successor in there.</p>
+<p t="2379790" d="3360">The successor is then the
+min in this structure.</p>
+<p t="2383150" d="1010">So that's all we do.</p>
+<p t="2384160" d="3970">Compute the successor of c
+in the summary structure.</p>
+<p t="2388130" d="3770">And then, in that
+cluster, c prime,</p>
+<p t="2391900" d="2340">find the min, which
+takes constant time,</p>
+<p t="2394240" d="4820">and then prepend c prime to
+that to get a global name.</p>
+<p t="2399060" d="2260">And that's our successor.</p>
+<p t="2401320" d="650">Yeah, question.</p>
+<p t="2401970" d="3894">AUDIENCE: Could you repeat
+why min is not recursive?</p>
+<p t="2405864" d="1374">Because looking
+at this, it looks</p>
+<p t="2407238" d="3130">like all these smaller
+[INAUDIBLE] trees have</p>
+<p t="2410368" d="2347">[INAUDIBLE]</p>
+<p t="2412715" d="875">ERIK DEMAINE: Ah, OK.</p>
+<p t="2413590" d="705">Sorry.</p>
+<p t="2414295" d="2210">The question is, why is
+the minimum not recursive?</p>
+<p t="2416505" d="1875">The answer to that
+question is not yet clear.</p>
+<p t="2418380" d="1510">It will have to
+do with insertion.</p>
+<p t="2419890" d="2170">But I think what
+exactly this means,</p>
+<p t="2422060" d="3380">I maybe didn't state
+carefully enough.</p>
+<p t="2425440" d="2580">Every Van Emde Boas
+structure has a min--</p>
+<p t="2428020" d="1440">stores a min.</p>
+<p t="2429460" d="2620">In that sense, this is done--</p>
+<p t="2432080" d="2240">that's funny-- not
+so recursively.</p>
+<p t="2434320" d="1860">But every one stores it.</p>
+<p t="2436180" d="2670">The point is that
+this item doesn't</p>
+<p t="2438850" d="1890">get put into one
+of these clusters</p>
+<p t="2440740" d="1930">recursively-- just the item.</p>
+<p t="2442670" d="1640">But each of these
+has its own min,</p>
+<p t="2444310" d="2310">which is then not stored
+at the next level down.</p>
+<p t="2446620" d="2100">And each of those has
+its own min, which is not</p>
+<p t="2448720" d="1470">stored at the next level down.</p>
+<p t="2450190" d="2254">Think of this as kind
+of like a little buffer.</p>
+<p t="2452444" d="1916">The first time I insert
+it into the structure,</p>
+<p t="2454360" d="1208">I just stick it into the min.</p>
+<p t="2455568" d="2219">I don't touch anything else.</p>
+<p t="2457787" d="2083">You'll see when we get to
+the insertion algorithm.</p>
+<p t="2459870" d="2560">But it sort of slows
+things down from trickling.</p>
+<p t="2462430" d="4696">AUDIENCE: So putting that min,
+is that what prevents from--</p>
+<p t="2467126" d="1874">ERIK DEMAINE: That will
+prevent the insertion</p>
+<p t="2469000" d="2051">from doing two recursions
+instead of one.</p>
+<p t="2471051" d="1249">So we'll see that in a moment.</p>
+<p t="2472300" d="3079">At this point, just
+successor is very clear.</p>
+<p t="2475379" d="2541">This would work whether the min
+is stored recursively or not.</p>
+<p t="2477920" d="2520">But we need to know what the
+min is of every structure,</p>
+<p t="2480440" d="2942">and we need to know the
+max of every structure.</p>
+<p t="2483382" d="2458">At this point, you could just
+say that min and max could be</p>
+<p t="2485840" d="1770">copies-- no big deal--</p>
+<p t="2487610" d="940">and we'd be happy.</p>
+<p t="2488550" d="2744">And of course, predecessor
+does the same thing.</p>
+<p t="2491294" d="2416">So the slight cleverness here
+is that we use the min here.</p>
+<p t="2493710" d="2930">This could have been a successor
+operation with minus infinity</p>
+<p t="2496640" d="1200">as the query.</p>
+<p t="2497840" d="2280">But that would be
+two recursions.</p>
+<p t="2500120" d="1017">We can only afford one.</p>
+<p t="2501137" d="1833">Fortunately, it's the
+min item that we need.</p>
+<p t="2502970" d="2770">So we're done with successor.</p>
+<p t="2505740" d="1130">That was the easy case--</p>
+<p t="2506870" d="930">or the easy one.</p>
+<p t="2507800" d="2910">Insert is slightly harder.</p>
+<p t="2510710" d="2355">Delete is just slightly messier.</p>
+<p t="2513065" d="1505">It's basically the
+same as insert.</p>
+<p t="2519610" d="4180">So insert-- let me
+write the code again.</p>
+<p t="2597170" d="3170">Insertion also has
+two main cases.</p>
+<p t="2600340" d="2280">There's this case,
+and the other case.</p>
+<p t="2602620" d="1230">But there's no else here.</p>
+<p t="2603850" d="1800">This happens in both cases.</p>
+<p t="2605650" d="2250">And then there's some just
+annoying little details</p>
+<p t="2607900" d="900">at the beginning.</p>
+<p t="2608800" d="2610">Just like over here, we had to
+check for the min specially,</p>
+<p t="2611410" d="2760">here, we've got to
+update the min and max.</p>
+<p t="2614170" d="3666">And there's a special case,
+which I haven't mentioned yet.</p>
+<p t="2617836" d="6864">v dot min-- special case is,
+it will be this value, none,</p>
+<p t="2624700" d="3780">if the whole structure is empty.</p>
+<p t="2628480" d="4260">So this is the obvious way to
+tell whether a structure is</p>
+<p t="2632740" d="1507">empty and has no min.</p>
+<p t="2634247" d="1583">Because if there's
+any items in there,</p>
+<p t="2635830" d="1980">there's going to be
+one in the min slot.</p>
+<p t="2637810" d="2600">So first thing we do is
+check, is our structure empty?</p>
+<p t="2640410" d="4300">If it's empty, the min and the
+max become the inserted item.</p>
+<p t="2644710" d="1340">We're done.</p>
+<p t="2646050" d="1360">So that's the easy case.</p>
+<p t="2647410" d="4410">We do not store it
+recursively in here.</p>
+<p t="2651820" d="2760">That's what this means.</p>
+<p t="2654580" d="3314">This element does not get
+stored in any of the clusters.</p>
+<p t="2657894" d="2416">If it's not the very first
+item, or it's not the min item,</p>
+<p t="2660310" d="4210">then we're going to recursively
+insert it into a cluster.</p>
+<p t="2664520" d="4610">So if we have x in
+cluster c, we always</p>
+<p t="2669130" d="7710">insert index i into cluster
+c, except if it's the min.</p>
+<p t="2676840" d="2640">Now, it could be where a
+structure is non-empty.</p>
+<p t="2679480" d="1132">There is a min item there.</p>
+<p t="2680612" d="1208">But we are less than the min.</p>
+<p t="2681820" d="1830">In that case, we're the new
+min, and we just swap those.</p>
+<p t="2683650" d="2083">And now, we have to
+recursively insert the old min</p>
+<p t="2685733" d="1947">into the rest of the structure.</p>
+<p t="2687680" d="1610">So that's a simple case.</p>
+<p t="2689290" d="1640">Then we also have
+to update v dot max,</p>
+<p t="2690930" d="1000">just in the obvious way.</p>
+<p t="2691930" d="3939">This is the easy way to
+maintain v dot max in variant,</p>
+<p t="2695869" d="1041">that is the maximum item.</p>
+<p t="2696910" d="3330">OK, now we have the two cases.</p>
+<p t="2700240" d="1860">I mean, this is really
+the obvious thing</p>
+<p t="2702100" d="1770">to get to do insertion.</p>
+<p t="2703870" d="3030">We have to update the
+summary structure, meaning,</p>
+<p t="2706900" d="3120">if the cluster that we are
+inserting into-- cluster c--</p>
+<p t="2710020" d="3310">is empty, that means it was not
+yet in the summary structure.</p>
+<p t="2713330" d="1170">We need to put it in there.</p>
+<p t="2714500" d="2690">So we just insert c
+into v dot summary--</p>
+<p t="2717190" d="1180">pretty obvious.</p>
+<p t="2718370" d="5674">And in all cases, we insert
+our item into cluster c.</p>
+<p t="2724044" d="1666">This looks bad,
+however, because there's</p>
+<p t="2725710" d="2110">two recursions in some cases.</p>
+<p t="2727820" d="2060">If this if doesn't hold,
+it's one recursion.</p>
+<p t="2729880" d="1050">Everything's fine.</p>
+<p t="2730930" d="3390">So if the cluster was
+already in use, great.</p>
+<p t="2734320" d="1450">This is one recursion.</p>
+<p t="2735770" d="1600">This is constant work.</p>
+<p t="2737370" d="1180">We're done.</p>
+<p t="2738550" d="2250">The worry is, if the
+cluster was empty</p>
+<p t="2740800" d="3870">before, then this insertion
+is a whole recursion.</p>
+<p t="2744670" d="3340">That's scary, because we can't
+afford a second recursion.</p>
+<p t="2748010" d="2300">But it's all OK.</p>
+<p t="2750310" d="2850">Because if we do
+this recursion, that</p>
+<p t="2753160" d="3090">means that this cluster
+was empty, which means,</p>
+<p t="2756250" d="3660">in this recursion, we fall
+into this very first case.</p>
+<p t="2759910" d="2040">That structure,
+it's min is none.</p>
+<p t="2761950" d="1800">That's what we just checked for.</p>
+<p t="2763750" d="2822">If it's none, we do
+constant work and stop.</p>
+<p t="2766572" d="3678">So everything's OK.</p>
+<p t="2770250" d="2920">If we recursed in the
+summary structure,</p>
+<p t="2773170" d="1890">this recursion will be
+a shallow recursion.</p>
+<p t="2775060" d="1230">It just does one thing.</p>
+<p t="2776290" d="7050">You could actually put this
+code into this if case,</p>
+<p t="2783340" d="1710">and make this an else case.</p>
+<p t="2785050" d="1764">That's another way
+to write the code.</p>
+<p t="2786814" d="1666">But this will be a
+very short recursion.</p>
+<p t="2788480" d="2100">So either you just
+do this recursion,</p>
+<p t="2790580" d="1580">which could be
+expensive, or you just</p>
+<p t="2792160" d="2310">do this one, in which case,
+we know this one was cheap.</p>
+<p t="2794470" d="2320">If this happens, we know
+this will take constant time.</p>
+<p t="2796790" d="2870">So in both cases, we
+get this recursion--</p>
+<p t="2799660" d="3540">square root of u plus constant.</p>
+<p t="2803200" d="1886">And so we get log
+log u insertion.</p>
+<p t="2808507" d="1083">Do you want to see delete?</p>
+<p t="2809590" d="1820">I mean, it's basically
+the same thing.</p>
+<p t="2811410" d="2585">It's in the notes.</p>
+<p t="2813995" d="1625">I mean, you do the
+obvious thing, which</p>
+<p t="2815620" d="2299">is, you delete in the cluster.</p>
+<p t="2817919" d="1541">And then if it became
+empty, you also</p>
+<p t="2819460" d="3090">have to delete in the
+summary structure.</p>
+<p t="2822550" d="2960">So there's, again, a chance
+that you do two recursions.</p>
+<p t="2825510" d="2620">But-- OK, I'm talking about it.</p>
+<p t="2828130" d="2790">Maybe I'll write a
+little bit of the code.</p>
+<p t="2837672" d="1458">I think I won't
+write all the code,</p>
+<p t="2839130" d="1320">though-- just the main stuff.</p>
+<p t="2844600" d="6530">So if we want to
+delete, then basically,</p>
+<p t="2851130" d="5670">we delete in cluster c, index i.</p>
+<p t="2859920" d="4590">And then if the cluster
+has become empty</p>
+<p t="2864510" d="5460">as a result of
+that, then we have</p>
+<p t="2869970" d="3900">to delete cluster c from
+the summary structure,</p>
+<p t="2873870" d="2370">so that our predecessor and
+successor queries actually</p>
+<p t="2876240" d="690">still work.</p>
+<p t="2884132" d="1458">OK, so that's the
+bulk of the code.</p>
+<p t="2885590" d="1666">I mean, that's where
+the action happens.</p>
+<p t="2887256" d="1934">And the worry would be,
+in this if case, we're</p>
+<p t="2889190" d="3210">doing two recursive deletes.</p>
+<p t="2892400" d="3900">The claim is, if we
+do this second delete,</p>
+<p t="2896300" d="3630">which is potentially expensive--
+this one was really cheap--</p>
+<p t="2899930" d="3499">the claim is that emptying
+a Van Emde Boas structure</p>
+<p t="2903429" d="1541">takes constant time--
+like, if you're</p>
+<p t="2904970" d="1871">deleting the last element.</p>
+<p t="2906841" d="499">Why?</p>
+<p t="2907340" d="2420">Because when you're
+deleting the last element,</p>
+<p t="2909760" d="2500">it's in the min right here.</p>
+<p t="2912260" d="2760">Everything below it-- all
+the recursive structures--</p>
+<p t="2915020" d="1650">will be empty if
+there's only one item,</p>
+<p t="2916670" d="1249">because it will be right here.</p>
+<p t="2917919" d="2051">And you can check that
+from the insertion.</p>
+<p t="2919970" d="3420">If it was empty, all we did was
+change v dot min and v dot max.</p>
+<p t="2923390" d="2300">So the inverse, which
+I want right here,</p>
+<p t="2925690" d="2660">is just to clear out v
+dot min and v dot max.</p>
+<p t="2928350" d="4280">So if this ends up happening,
+this only took constant time.</p>
+<p t="2932630" d="2940">You don't have to recurse when
+you're deleting the last item.</p>
+<p t="2935570" d="3430">So in either case, you're really
+only doing one deep recursion.</p>
+<p t="2939000" d="2870">So you get the same recurrence,
+and you get log log u.</p>
+<p t="2941870" d="2520">So for the details,
+check out the notes.</p>
+<p t="2944390" d="4860">I want to go to other
+perspectives of Van Emde Boas.</p>
+<p t="2949250" d="1860">This is one way
+to think about it.</p>
+<p t="2951110" d="3150">And amusingly, and this is
+probably the most taut way</p>
+<p t="2954260" d="2280">to do Van Emde Boas.</p>
+<p t="2956540" d="2580">It's, in CLRS,
+described this way,</p>
+<p t="2959120" d="2847">because in 2001, when
+I first came here,</p>
+<p t="2961967" d="2583">I presented Van Emde Boas like
+this in an undergrad algorithms</p>
+<p t="2964550" d="2380">class with more details.</p>
+<p t="2966930" d="2570">You guys are grads, so I did
+it like three times faster</p>
+<p t="2969500" d="4997">than I would in 6046.</p>
+<p t="2974497" d="1583">So now, it's in
+textbooks and whatnot.</p>
+<p t="2976080" d="1560">But this is not
+how Van Emde Boas</p>
+<p t="2977640" d="2192">presented this data
+structure-- just out</p>
+<p t="2979832" d="958">of historical interest.</p>
+<p t="2980790" d="3611">This is a way that I believe
+was invented by Michael Bender</p>
+<p t="2984401" d="1999">and Martin Farach-Colton,
+who are the co-authors</p>
+<p t="2986400" d="1680">on "Cache-oblivious B-trees."</p>
+<p t="2988080" d="1650">And around 2001,
+they were looking</p>
+<p t="2989730" d="2950">at lots of old data structures
+and simplifying them.</p>
+<p t="2992680" d="2120">And I think this is a
+very clean, simple way</p>
+<p t="2994800" d="1629">to think about Van Emde Boas.</p>
+<p t="2996429" d="1791">But I want to tell you
+the other way, which</p>
+<p t="2998220" d="4380">is the way it originally
+appeared in their papers.</p>
+<p t="3002600" d="3240">There's actually three
+papers by van Emde</p>
+<p t="3005840" d="3420">Boas about this structure.</p>
+<p t="3009260" d="1380">Many papers appear twice--</p>
+<p t="3010640" d="2130">once in a conference,
+once in a journal--</p>
+<p t="3012770" d="2580">this one, there's
+three relevant papers.</p>
+<p t="3015350" d="2755">There's conference
+version, journal version.</p>
+<p t="3018105" d="2375">The only weird thing there is
+that the conference version</p>
+<p t="3020480" d="1670">has one author-- van Emde Boas.</p>
+<p t="3022150" d="1980">The journal version
+has three authors--</p>
+<p t="3024130" d="4005">van Emde Boas,
+Kaas, and Zijlstra.</p>
+<p t="3028135" d="2125">And they're acknowledged
+in the conference version,</p>
+<p t="3030260" d="2730">so I guess they
+helped even more.</p>
+<p t="3032990" d="2550">In particular, they, I think,
+implemented this data structure</p>
+<p t="3035540" d="640">for the first time.</p>
+<p t="3036180" d="1374">It's a really easy
+data structure</p>
+<p t="3037554" d="1306">to implement, and very fast.</p>
+<p t="3041370" d="2030">Then there's a third
+paper by van Emde Boas</p>
+<p t="3043400" d="3610">only in a journal which
+improves the space a little bit.</p>
+<p t="3047010" d="3850">So we'll see a little
+bit what that's about.</p>
+<p t="3050860" d="1750">But what I like about
+both of these papers</p>
+<p t="3052610" d="7530">is they offer a simpler way
+to get log log u, successor,</p>
+<p t="3060140" d="1350">predecessor.</p>
+<p t="3061490" d="3000">Let's not worry about insertions
+and deletions for a little bit,</p>
+<p t="3064490" d="4500">and take what I'll call
+the simple tree view.</p>
+<p t="3074660" d="3490">So I'm going to draw a picture--</p>
+<p t="3078150" d="3610">0, 1, 0, 0, 0, 0, 0--</p>
+<p t="3087780" d="1940">OK.</p>
+<p t="3089720" d="6480">This is what we call a bit
+vector, meaning, here's</p>
+<p t="3096200" d="2310">item zero, item one, item two.</p>
+<p t="3098510" d="3685">And here is u minus 1.</p>
+<p t="3102195" d="3275">And I'll put a 1 if that
+element is in my set, and a 0</p>
+<p t="3105470" d="1810">otherwise.</p>
+<p t="3107280" d="4400">OK, so one is in the set, nine--</p>
+<p t="3111680" d="3510">I think-- is in the set,
+10, and 15 are in the set.</p>
+<p t="3118597" d="1333">I kind of want to maintain this.</p>
+<p t="3119930" d="1050">This is, of course,
+easy to maintain</p>
+<p t="3120980" d="1166">by insertions and deletions.</p>
+<p t="3122146" d="1594">I just flip a bit on or off.</p>
+<p t="3123740" d="2020">But I want to be able
+to do successor queries.</p>
+<p t="3125760" d="2090">And if I want the
+successor of, say, this 0,</p>
+<p t="3127850" d="894">finding the next 1--</p>
+<p t="3128744" d="1416">I don't want to
+have to walk down.</p>
+<p t="3130160" d="2730">That would take order
+u time-- very bad.</p>
+<p t="3132890" d="2400">So obvious thing to do is
+build a tree on this thing.</p>
+<p t="3140990" d="4275">And I'm going to put in here
+the or of the two children.</p>
+<p t="3145265" d="1875">Every node will store
+the or of its children.</p>
+<p t="3151160" d="1830">And then keep building the tree.</p>
+<p t="3164630" d="4770">Now we have a binary tree,
+with bits on the vertices.</p>
+<p t="3169400" d="2100">And I claim, if
+I want to compute</p>
+<p t="3171500" d="2520">the successor of this
+item, I can do it</p>
+<p t="3174020" d="4270">in a pretty natural way
+in the log log u time.</p>
+<p t="3178290" d="5560">So keep in mind, this
+height here is w--</p>
+<p t="3183850" d="500">log u.</p>
+<p t="3187610" d="1660">So I need to achieve log w.</p>
+<p t="3189270" d="3470">So of course, you could try
+just walking down this tree,</p>
+<p t="3192740" d="1920">or walking up and
+then back down.</p>
+<p t="3194660" d="2850">That would take order w time.</p>
+<p t="3197510" d="1830">That's the obvious BST approach.</p>
+<p t="3199340" d="2260">I want to do log w.</p>
+<p t="3201600" d="760">So how do I do it?</p>
+<p t="3202360" d="5266">I'm going to binary
+search on the height.</p>
+<p t="3207626" d="2294">How could I binary
+search on the height?</p>
+<p t="3209920" d="3420">Well, what I'd really like
+to do, in some sense--</p>
+<p t="3213340" d="4230">if I look at the path of
+this node to the route--</p>
+<p t="3217570" d="3370">where is my red chalk?</p>
+<p t="3220940" d="2770">So here's the path to the root.</p>
+<p t="3226840" d="3700">These bits are saying, is
+there anybody down here?</p>
+<p t="3230540" d="2330">That's what the or gives you.</p>
+<p t="3232870" d="2670">So it's like the
+summary structure.</p>
+<p t="3235540" d="4050">If I want to search for this
+guy-- well, if I walked up,</p>
+<p t="3239590" d="2070">eventually, I find a 1.</p>
+<p t="3241660" d="2520">And that's when I find
+the first nearby element.</p>
+<p t="3244180" d="2040">Now, in this case it's
+not the successor I find.</p>
+<p t="3246220" d="1890">It's really the
+predecessor I found.</p>
+<p t="3248110" d="3210">When you get to the first one--
+the transition from 0 to 1--</p>
+<p t="3251320" d="1410">you look at your sibling--</p>
+<p t="3252730" d="2520">the other child of that one.</p>
+<p t="3255250" d="3960">And down in this subtree, there
+will be either the predecessor</p>
+<p t="3259210" d="1064">or the successor.</p>
+<p t="3260274" d="1666">In this case, we've
+got the predecessor,</p>
+<p t="3261940" d="1520">because it was to the left.</p>
+<p t="3263460" d="1680">We take the max
+element in there,</p>
+<p t="3265140" d="1941">and that's the
+predecessor of this item.</p>
+<p t="3267081" d="1999">If instead, we had found
+this was our first one,</p>
+<p t="3269080" d="1776">then we look over
+here, take the min--</p>
+<p t="3270856" d="1374">there's, of course,
+nothing here.</p>
+<p t="3272230" d="2880">But in that situation,
+the min over there</p>
+<p t="3275110" d="1560">would be our successor.</p>
+<p t="3276670" d="2550">So we can't guarantee
+which one we find.</p>
+<p t="3279220" d="2910">But we will find either the
+predecessor or the successor</p>
+<p t="3282130" d="3280">if we could find the first
+transition from 0 to 1.</p>
+<p t="3285410" d="2060">And we can do that
+via binary search,</p>
+<p t="3287470" d="2126">because this string is monotone.</p>
+<p t="3289596" d="1624">It's a whole bunch
+of zeros for awhile,</p>
+<p t="3291220" d="1541">and then once you
+get a 1, it's going</p>
+<p t="3292761" d="1969">to continue to be 1,
+because those are or.</p>
+<p t="3294730" d="1150">That one will propagate up.</p>
+<p t="3318090" d="3120">So this is the new idea to
+get log log u, predecessor,</p>
+<p t="3321210" d="4166">successor is to--</p>
+<p t="3325376" d="9179">let's say-- any root-to-leaf
+path is monotone.</p>
+<p t="3334555" d="2535">It's 0 for awhile, and
+then it becomes 1 forever.</p>
+<p t="3340550" d="4340">So we should be able to
+binary search for the 0</p>
+<p t="3344890" d="1346">to 1 transition.</p>
+<p t="3351200" d="6270">And it either looks like
+this, or it looks like this.</p>
+<p t="3357470" d="7275">So our query was somewhere
+down here in the 0 part.</p>
+<p t="3364745" d="1625">I'm assuming that
+our query is not a 1.</p>
+<p t="3366370" d="2620">Otherwise, it's an
+immediate 0 to 1 transition.</p>
+<p t="3368990" d="1420">And that's a special case.</p>
+<p t="3370410" d="1360">It's easy to deal with.</p>
+<p t="3371770" d="5420">And then there's
+the other tree--</p>
+<p t="3377190" d="2260">the sibling of x--</p>
+<p t="3379450" d="3360">the other child of the 1.</p>
+<p t="3382810" d="3060">And in this case, we
+want to take the min.</p>
+<p t="3385870" d="2370">And that will give us
+our successor of x.</p>
+<p t="3391540" d="2679">And in this case, we want
+to take the max over here,</p>
+<p t="3394219" d="1791">and that will give us
+the predecessor of x.</p>
+<p t="3401110" d="1750">So as long as we have
+minimax of subtrees,</p>
+<p t="3402860" d="1830">this is constant time.</p>
+<p t="3404690" d="2790">We find either the
+predecessor or the successor.</p>
+<p t="3407480" d="1920">Now, how do we
+get the other one?</p>
+<p t="3409400" d="930">Pretty easy.</p>
+<p t="3410330" d="3810">Just store a linked list
+of all the items, in order.</p>
+<p t="3414140" d="3840">So I'm going to store a pointer
+from this one to this one,</p>
+<p t="3417980" d="1410">and vice versa--</p>
+<p t="3419390" d="1630">and this one or this one.</p>
+<p t="3421020" d="3190">This is actually really
+easy to maintain.</p>
+<p t="3424210" d="3184">Because when you insert,
+if you can compute</p>
+<p t="3427394" d="1416">the predecessor
+and the successor,</p>
+<p t="3428810" d="1470">you can just stick it
+in the linked list.</p>
+<p t="3430280" d="820">That's really easy.</p>
+<p t="3431100" d="2160">We know how to do
+that in constant time.</p>
+<p t="3433260" d="2510">So once you do this, it's
+enough to find one of them,</p>
+<p t="3435770" d="1500">as long as you know
+which one it is.</p>
+<p t="3437270" d="1560">Because then you just
+follow a pointer--</p>
+<p t="3438830" d="1160">either a forward or
+a backward pointer--</p>
+<p t="3439990" d="1070">and you get the other one.</p>
+<p t="3441060" d="1208">So whichever one you wanted--</p>
+<p t="3442268" d="2082">you find both the
+predecessor and successor</p>
+<p t="3444350" d="2340">at the cost of
+finding either one.</p>
+<p t="3446690" d="3480">So that's a cute little trick.</p>
+<p t="3450170" d="4440">This is hard to maintain,
+dynamically, at the moment.</p>
+<p t="3454610" d="3060">But this is, I think,
+where the Van Emde Boas</p>
+<p t="3457670" d="1410">structure came from.</p>
+<p t="3459080" d="3750">It's nice to think about
+it in the tree view.</p>
+<p t="3462830" d="8490">So we get log log you u,
+predecessor, and successor.</p>
+<p t="3474260" d="3780">I should say what this relies on
+is the ability to binary search</p>
+<p t="3478040" d="1710">on any route-to-node path.</p>
+<p t="3479750" d="3990">Now, there aren't enough
+pointers to do that.</p>
+<p t="3483740" d="940">So you have a choice.</p>
+<p t="3484680" d="2840">Either you realize,
+oh, this is a bunch</p>
+<p t="3487520" d="2470">of bits in a
+complete binary tree,</p>
+<p t="3489990" d="4100">so I can store them
+sequentially in array.</p>
+<p t="3494090" d="3960">And given a particular node
+position in that array,</p>
+<p t="3498050" d="2610">I can compute, what is
+the second ancestor,</p>
+<p t="3500660" d="3310">or the fourth ancestor or
+whatever, in constant time.</p>
+<p t="3503970" d="2360">I just do some arithmetic
+and I can compute from here</p>
+<p t="3506330" d="875">where to go to there.</p>
+<p t="3507205" d="2425">It's like the regular old
+heaps, but a little bit</p>
+<p t="3509630" d="1625">embellished, because
+you have to divide</p>
+<p t="3511255" d="2285">by a larger power of two,
+not just one of them.</p>
+<p t="3513540" d="2460">So that's one way to do it.</p>
+<p t="3516000" d="3310">So in a RAM, that
+all works fine.</p>
+<p t="3519310" d="2835">When van Emde Boas wrote this
+paper, though, the RAM didn't--</p>
+<p t="3522145" d="1345">it kind of existed.</p>
+<p t="3523490" d="2100">It just wasn't as
+well-developed then.</p>
+<p t="3525590" d="3930">And the hot thing at the
+time was the pointer machine,</p>
+<p t="3529520" d="2790">or I guess at that point, they
+called it the Pascal machine,</p>
+<p t="3532310" d="1380">more or less.</p>
+<p t="3533690" d="1590">Pascal does have arrays.</p>
+<p t="3535280" d="4380">And the funny thing is, Van
+Emde Boas does use arrays,</p>
+<p t="3539660" d="1560">but mostly it's pointers.</p>
+<p t="3541220" d="2620">And you can get rid of the
+arrays from their structure.</p>
+<p t="3543840" d="3200">And essentially, in
+the end, Van Emde Boas,</p>
+<p t="3547040" d="3704">as presented like this,
+is in a pointer machine.</p>
+<p t="3550744" d="1666">Let me tell you a
+little bit about that.</p>
+<p t="3556440" d="11600">So original Van Emde Boas, which
+I'll call stratified trees--</p>
+<p t="3568040" d="2940">that's what he called it--</p>
+<p t="3570980" d="4540">is basically this tree structure
+with a lot more pointers.</p>
+<p t="3575520" d="3980">So in particular, each leaf--</p>
+<p t="3579500" d="2500">or every node,
+actually, let's say--</p>
+<p t="3582000" d="12080">stores a pointer to 2
+to the ith ancestor,</p>
+<p t="3594080" d="8043">where i is 0, 1, up to log w.</p>
+<p t="3602123" d="2467">Because it was the
+2 to the-- here.</p>
+<p t="3604590" d="3457">So once you get the
+ancestor immediately</p>
+<p t="3608047" d="2083">above me, two steps above
+me, four steps above me,</p>
+<p t="3610130" d="1750">eight steps above me,
+that's what I really</p>
+<p t="3611880" d="1820">need to do this binary search.</p>
+<p t="3613700" d="2394">The first thing I
+need is halfway up.</p>
+<p t="3616094" d="1416">And then if I have
+to go down, I'm</p>
+<p t="3617510" d="1800">going to need a
+quarter of the way up.</p>
+<p t="3619310" d="2490">And if I have to go down, I
+want an eighth of the way up.</p>
+<p t="3621800" d="3310">Whenever I go up, from-- if
+I decide, oh, this is a 0.</p>
+<p t="3625110" d="1322">I've got to go above here.</p>
+<p t="3626432" d="1458">Then I do the same
+thing from here.</p>
+<p t="3627890" d="2080">I want to go halfway
+up from here--</p>
+<p t="3629970" d="860">from this node.</p>
+<p t="3630830" d="5310">So as long as every node knows
+how to go up by any power of 2,</p>
+<p t="3636140" d="660">we're golden.</p>
+<p t="3636800" d="2596">We can do a binary search.</p>
+<p t="3639396" d="1874">The trouble with this
+is, it increases space.</p>
+<p t="3641270" d="6290">This is u log w space, which
+is a little bit bigger than u.</p>
+<p t="3647560" d="2500">And the original van Emde Boas
+paper, conference and journal</p>
+<p t="3650060" d="1770">version, achieves this bound--</p>
+<p t="3651830" d="1380">not u.</p>
+<p t="3653210" d="2580">Little historical fun fact--</p>
+<p t="3655790" d="2460">not terribly well known.</p>
+<p t="3658250" d="540">Cool.</p>
+<p t="3658790" d="2445">So that's stratified trees.</p>
+<p t="3665620" d="2480">Anything else?</p>
+<p t="3668100" d="500">All right.</p>
+<p t="3668600" d="1080">Stratified tree.</p>
+<p t="3669680" d="1050">Right.</p>
+<p t="3670730" d="2817">At this point, we have fast
+search, but slow update let.</p>
+<p t="3673547" d="1583">Me tell you about
+updates in a second.</p>
+<p t="3675130" d="950">Yeah, question.</p>
+<p t="3676080" d="2922">AUDIENCE: So once you do binary
+search to find the first 1,</p>
+<p t="3679002" d="3908">how do you walk
+back down the tree--</p>
+<p t="3682910" d="1490">ERIK DEMAINE: Oh,
+I didn't mention,</p>
+<p t="3684400" d="1960">but also, every node
+stores min and max.</p>
+<p t="3693500" d="3450">So that lets me do the
+teleportation back down.</p>
+<p t="3696950" d="2620">Every node knows the min
+and the max of its subtree.</p>
+<p t="3699570" d="500">Right.</p>
+<p t="3700070" d="2847">One more thing I was
+forgetting here--</p>
+<p t="3702917" d="1833">when I say, this a lot
+of pointers to store.</p>
+<p t="3704750" d="2580">You can't store them
+all in one node.</p>
+<p t="3707330" d="2890">And in the van Emde Boas
+paper, it's stored in an array.</p>
+<p t="3710220" d="1250">But it doesn't really
+need that its an array.</p>
+<p t="3711470" d="1650">It could just as well
+be a linked list.</p>
+<p t="3713120" d="3480">And that's how you
+get pointer machine.</p>
+<p t="3716600" d="2886">So this could be linked list.</p>
+<p t="3719486" d="2124">And then this whole thing
+works in pointer machine,</p>
+<p t="3721610" d="1620">which is kind of neat.</p>
+<p t="3723230" d="4249">And it's a little weird,
+because if you used a comparison</p>
+<p t="3727479" d="2291">pointer machine, where all
+you can do is compare items,</p>
+<p t="3729770" d="2340">there's a lower bound of
+log n, because you only</p>
+<p t="3732110" d="2670">have branching factor constant.</p>
+<p t="3734780" d="3840">But here, the formulation of
+the problem is, when I say,</p>
+<p t="3738620" d="1860">give me the successor
+of this, I actually</p>
+<p t="3740480" d="3487">give you a pointer to this item.</p>
+<p t="3743967" d="2333">And then from there, you can
+do all this jumping around,</p>
+<p t="3746300" d="2220">and find your
+predecessor or successor.</p>
+<p t="3748520" d="2310">So in this world, you
+need at least u space,</p>
+<p t="3750830" d="1725">even to be able to
+specify the input.</p>
+<p t="3755290" d="2460">So that's kind of a limitation
+of the pointer machine.</p>
+<p t="3757750" d="2208">And you can actually show
+in the pointer machine log,</p>
+<p t="3759958" d="6112">log u is optimal for any
+predecessor data structure</p>
+<p t="3766070" d="1440">in the pointer machine.</p>
+<p t="3767510" d="6057">So there's a matching lower
+bound log log u in this model.</p>
+<p t="3773567" d="1083">And you need to use space.</p>
+<p t="3774650" d="1370">So it's not very exciting.</p>
+<p t="3776020" d="2100">What we like is the word RAM.</p>
+<p t="3778120" d="1950">There, we can reduce space to n.</p>
+<p t="3780070" d="3330">And that's what I want
+to do next, I believe--</p>
+<p t="3783400" d="1380">almost next.</p>
+<p t="3784780" d="3600">One more mention--
+actual stratified trees--</p>
+<p t="3788380" d="2730">here, we got query
+fast, update slow.</p>
+<p t="3791110" d="2880">Stratified trees actually
+do update fast, as well.</p>
+<p t="3793990" d="3720">Essentially, it's this idea,
+plus you don't recursively</p>
+<p t="3797710" d="2580">store the min, which,
+of course, makes</p>
+<p t="3800290" d="1610">all these bits no
+longer accurate,</p>
+<p t="3801900" d="1840">as it gets much messier.</p>
+<p t="3803740" d="3060">But in the end, it's doing
+exactly the same thing</p>
+<p t="3806800" d="1375">as this recursion.</p>
+<p t="3808175" d="1925">In fact, you can
+draw the picture.</p>
+<p t="3810100" d="5770">It is this part up here--</p>
+<p t="3815870" d="1460">the top half of the tree--</p>
+<p t="3817330" d="800">this is summary.</p>
+<p t="3821110" d="5298">And each of these bottom
+halves is a cluster.</p>
+<p t="3826408" d="5412">And there's root u
+clusters down here.</p>
+<p t="3831820" d="1680">So those are smaller structures.</p>
+<p t="3833500" d="4110">And there's one root u sized
+Van Emde Boas structure, which</p>
+<p t="3837610" d="1290">is a summary structure.</p>
+<p t="3838900" d="3717">These bits here is the
+bit vector representation</p>
+<p t="3842617" d="1083">of the summary structures.</p>
+<p t="3843700" d="1583">It's, is there anyone
+in this cluster?</p>
+<p t="3845283" d="3314">Is there anyone in this
+cluster, and so on?</p>
+<p t="3848597" d="2333">This, of course, also looks
+a lot like the Van Emde Boas</p>
+<p t="3850930" d="720">layout.</p>
+<p t="3851650" d="2487">Take a binary tree, cut
+it in half, do the top,</p>
+<p t="3854137" d="1083">recursively do the bottom.</p>
+<p t="3855220" d="2208">So that's why it was called
+the Van Emde Boas layout,</p>
+<p t="3857428" d="1363">is this picture.</p>
+<p t="3858791" d="1499">But if you take
+this tree structure,</p>
+<p t="3860290" d="1749">and then you don't
+recursively store mins,</p>
+<p t="3862039" d="2841">and then the bits are not
+quite accurate, it's messy.</p>
+<p t="3864880" d="1889">And so stratified
+trees-- you should</p>
+<p t="3866769" d="1291">try to read the original paper.</p>
+<p t="3868060" d="810">It's a mess.</p>
+<p t="3868870" d="2770">Whereas this code--
+pretty clean.</p>
+<p t="3871640" d="1640">And so once you
+say, oh, I'm just</p>
+<p t="3873280" d="2160">going to store all these
+clusters as an array</p>
+<p t="3875440" d="2100">and not worry about
+keeping track of the tree,</p>
+<p t="3877540" d="2080">it actually gets a lot easier.</p>
+<p t="3879620" d="3470">And that was the
+Bender/Farach-Colton cleaning</p>
+<p t="3883090" d="1830">up, which never
+appeared in print.</p>
+<p t="3884920" d="3460">But it's appeared in the lecture
+notes all over the place--</p>
+<p t="3888380" d="2320">and now CLRS.</p>
+<p t="3890700" d="1240">Cool.</p>
+<p t="3891940" d="1716">I want to tell you
+about two more things.</p>
+<p t="3893656" d="1374">It's actually
+going to get easier</p>
+<p t="3895030" d="2959">the more time we spend
+with this data structure.</p>
+<p t="3921970" d="2820">All right.</p>
+<p t="3924790" d="3180">Let me draw a box.</p>
+<p t="3927970" d="3960">At this point, we've seen a
+clean way to get Van Emde Boas.</p>
+<p t="3931930" d="2640">And we've seen a
+cute way in a tree</p>
+<p t="3934570" d="2670">to get search fast,
+but update slow.</p>
+<p t="3937240" d="2040">I want to talk a
+little more about that.</p>
+<p t="3939280" d="1920">Let's suppose I have
+this data structure.</p>
+<p t="3941200" d="4920">It's achieves log w
+query, which is fast,</p>
+<p t="3946120" d="4470">but it only achieves w
+update, which is slow.</p>
+<p t="3950590" d="1680">How do you update the structure?</p>
+<p t="3952270" d="1740">You update one
+bit at the bottom,</p>
+<p t="3954010" d="2970">and then you've got to update
+all the bits up the path.</p>
+<p t="3956980" d="2610">So you spend w time to
+do an update over here.</p>
+<p t="3962410" d="3270">If updates are slow, I just
+want to do less updates.</p>
+<p t="3965680" d="1890">We have a trick for
+doing this, which</p>
+<p t="3967570" d="3060">is, you put little things
+down here of size theta w.</p>
+<p t="3976810" d="3000">And then only one item
+from here gets promoted</p>
+<p t="3979810" d="1680">into the top structure.</p>
+<p t="3981490" d="5370">We only end up having n over
+w items up here, and about 1</p>
+<p t="3986860" d="2190">over w as many updates.</p>
+<p t="3989050" d="2880">If I want to do an
+insertion, I do a search here</p>
+<p t="3991930" d="1950">to figure out which
+of these little--</p>
+<p t="3993880" d="5490">I'll call these "chunks--" which
+little chunk it belongs in.</p>
+<p t="3999370" d="2430">I do an insert there.</p>
+<p t="4001800" d="1560">If that structure
+gets too big-- it's</p>
+<p t="4003360" d="2370">bigger than, say, 2
+times w, or 4 times w,</p>
+<p t="4005730" d="2786">whatever-- then I'll split it.</p>
+<p t="4008516" d="2249">And if I delete from something,
+and it gets too small,</p>
+<p t="4010765" d="2565">I'll merge with the
+neighbor, or maybe re-split--</p>
+<p t="4013330" d="2250">just like B-trees.</p>
+<p t="4015580" d="3240">We've done this
+many times, by now.</p>
+<p t="4018820" d="2670">But only when it
+splits, or I do a merge,</p>
+<p t="4021490" d="1560">do I have to do
+an update up here.</p>
+<p t="4023050" d="2490">Only when the set
+of chunks changes do</p>
+<p t="4025540" d="2250">I need to do a single
+insertion or deletion</p>
+<p t="4027790" d="2310">up here-- or a constant number.</p>
+<p t="4030100" d="5760">So this update time goes
+down by a factor of w.</p>
+<p t="4035860" d="2707">But I have to pay whatever
+the update cost is here.</p>
+<p t="4038567" d="1583">So what I do with
+this data structure?</p>
+<p t="4040150" d="1380">I don't want use Van
+Emde Boas, because this</p>
+<p t="4041530" d="1050">could be a very big universe.</p>
+<p t="4042580" d="625">Who knows what?</p>
+<p t="4043205" d="3155">I use the binary search tree.</p>
+<p t="4046360" d="1890">Here, I can afford a
+binary search tree,</p>
+<p t="4048250" d="2360">because then it's only log w.</p>
+<p t="4050610" d="2304">log w is the bound
+we're trying to get.</p>
+<p t="4052914" d="1666">So you can do these
+binary search trees.</p>
+<p t="4054580" d="910">It's trivial.</p>
+<p t="4055490" d="2480">Just do insert, delete, search.</p>
+<p t="4057970" d="2024">Everything will be log w.</p>
+<p t="4059994" d="2416">So if I want to do a search,
+I search through here, which,</p>
+<p t="4062410" d="2066">conveniently, is
+already fast-- log w--</p>
+<p t="4064476" d="2374">and then I do a search through
+here, which is also log w.</p>
+<p t="4066850" d="595">So it's nice and balanced.</p>
+<p t="4067445" d="1085">Everything's log w.</p>
+<p t="4071632" d="2208">If I want to do an insertion,
+I do an insertion here.</p>
+<p t="4073840" d="2250">If it splits, I do
+an insertion here.</p>
+<p t="4076090" d="4380">But that order w update
+cost, I charge to the order</p>
+<p t="4080470" d="2190">w updates I would have
+had to do in this chunk</p>
+<p t="4082660" d="2040">before it got split.</p>
+<p t="4084700" d="3360">So this our good friend
+indirection, a technique we</p>
+<p t="4088060" d="1740">will use over and
+over in this class.</p>
+<p t="4089800" d="4650">It's very helpful when you're
+almost at the right bound.</p>
+<p t="4094450" d="3029">And that's actually in the
+follow-up van Emde Boas paper.</p>
+<p t="4097479" d="3041">A similar indirection
+trick is in there.</p>
+<p t="4100520" d="10850">So we can charge the
+order w update in top to--</p>
+<p t="4111370" d="1650">that's the cost of the update--</p>
+<p t="4113020" d="5160">to the order w updates
+that have actually</p>
+<p t="4118180" d="4560">been performed in the bottom.</p>
+<p t="4122740" d="1860">Because when
+somebody gets split,</p>
+<p t="4124600" d="2730">it's nice in its average
+state-- or when it gets merged,</p>
+<p t="4127330" d="1310">it's going to be close
+to its average state.</p>
+<p t="4128640" d="1958">You have to do a lot of
+insertions or deletions</p>
+<p t="4130598" d="4032">to get it out of whack, and
+cause a split or a merge.</p>
+<p t="4134630" d="1370">So-- boom.</p>
+<p t="4136000" d="5700">This means the
+updates become log w.</p>
+<p t="4141700" d="2430">Searches are also log w.</p>
+<p t="4144130" d="3420">So we've got Van Emde
+Boas again, in a new way.</p>
+<p t="4147550" d="3577">Bonus points-- if you
+take this structure--</p>
+<p t="4154330" d="2620">even this structure, if we
+did it in the array form--</p>
+<p t="4156950" d="500">great.</p>
+<p t="4157450" d="1440">It was order u space.</p>
+<p t="4158890" d="1860">If we did it with
+all these pointers,</p>
+<p t="4160750" d="1958">and we wanted a pointer
+machine data structure,</p>
+<p t="4162708" d="2881">we needed u log w space.</p>
+<p t="4165589" d="2541">But this indirection trick, you
+can also get rid of the log w</p>
+<p t="4168130" d="2030">in space factor.</p>
+<p t="4170160" d="1180">It's a little less obvious.</p>
+<p t="4171340" d="1680">But you take this--</p>
+<p t="4173020" d="1839">here, we reduced n
+by a factor of w.</p>
+<p t="4174859" d="2561">You can also reduce
+u by a factor of w.</p>
+<p t="4177420" d="1000">I'll just wave my hands.</p>
+<p t="4178420" d="1080">That's possible.</p>
+<p t="4179500" d="2010">So u gets a little bit smaller.</p>
+<p t="4181510" d="2610">And so when we
+pay u log w space,</p>
+<p t="4184120" d="1920">if you got smaller
+by a factor of w,</p>
+<p t="4186040" d="2649">this basically disappears.</p>
+<p t="4188689" d="1891">So you get, at
+most, order u space.</p>
+<p t="4193210" d="1180">But order u is not order n.</p>
+<p t="4194390" d="2160">I want order n space, darn it.</p>
+<p t="4196550" d="4850">So let's reduce space.</p>
+<p t="4201400" d="2615">As I said, this is going
+to get easier and easier.</p>
+<p t="4204015" d="2375">By the end, we will have very
+little of a data structure.</p>
+<p t="4206390" d="3760">But still, we'll have log log u.</p>
+<p t="4210150" d="3710">And you thought this was
+easy, but wait, there's more.</p>
+<p t="4216680" d="2730">Right now, we have two
+ways to get log log u--</p>
+<p t="4219410" d="3540">query and order u space.</p>
+<p t="4222950" d="2220">There's the one I'm
+erasing, and there's</p>
+<p t="4225170" d="3240">this-- take this tree structure
+with the very simple pointers.</p>
+<p t="4228410" d="1457">Add indirection.</p>
+<p t="4229867" d="2083">So admittedly, it's more
+complicated to implement.</p>
+<p t="4231950" d="1576">But conceptually,
+it's super simple.</p>
+<p t="4233526" d="1874">It's like, do this
+obvious tree binary search</p>
+<p t="4235400" d="1530">on the level thing.</p>
+<p t="4236930" d="3150">And then add indirection,
+and it fixes all your bounds,</p>
+<p t="4240080" d="1590">magically.</p>
+<p t="4241670" d="1930">So conceptually, very simple--</p>
+<p t="4243600" d="4250">practically, you definitely
+want to do this-- much simpler.</p>
+<p t="4247850" d="3375">Now, what about saving space?</p>
+<p t="4254420" d="2400">Very simple idea--
+which, I think,</p>
+<p t="4256820" d="4740">again, comes from Michael
+Bender and Martin Farach-Colton.</p>
+<p t="4261560" d="3930">Don't store empty structures.</p>
+<p t="4265490" d="4130">So in this picture, we had
+an array of all the clusters.</p>
+<p t="4269620" d="3580">But a cluster could be
+entirely empty, like this one--</p>
+<p t="4273200" d="2270">this entirely empty cluster.</p>
+<p t="4275470" d="970">Don't store it.</p>
+<p t="4276440" d="1670">It's a waste.</p>
+<p t="4278110" d="2600">If you store them all, you're
+going to spend order u space.</p>
+<p t="4280710" d="1420">If you don't store them all--</p>
+<p t="4282130" d="1650">just don't store
+the empty ones--</p>
+<p t="4283780" d="1430">I claim your order n space.</p>
+<p t="4285210" d="2700">Done.</p>
+<p t="4287910" d="2440">So I'm going back to
+the structure I erased.</p>
+<p t="4290350" d="2760">Ignore the tree
+perspective for awhile.</p>
+<p t="4293110" d="6330">Don't store empty clusters.</p>
+<p t="4299440" d="2520">OK, now, this sounds easy.</p>
+<p t="4301960" d="2130">But in reality, it's a
+little bit more annoying.</p>
+<p t="4304090" d="3550">Because we wanted to have
+an array of clusters.</p>
+<p t="4307640" d="3620">So we could quickly
+find the cluster.</p>
+<p t="4311260" d="1550">If you store an
+array, you're going</p>
+<p t="4312810" d="1840">to spend at least
+square rot of u space.</p>
+<p t="4314650" d="2070">Because at the very
+beginning, you say,</p>
+<p t="4316720" d="1320">here are my root u clusters.</p>
+<p t="4318040" d="1708">Now, some of them
+might be null pointers.</p>
+<p t="4319748" d="4232">But I can't afford to store
+that entire array of clusters.</p>
+<p t="4323980" d="1430">So don't use an array.</p>
+<p t="4325410" d="1570">Use a perfect hash table.</p>
+<p t="4330730" d="3260">So v dot cluster, instead
+of being an array,</p>
+<p t="4333990" d="4660">is now, let's say, a
+dynamic perfect hashing.</p>
+<p t="4338650" d="2600">And I'm going to use the
+version which I did not present.</p>
+<p t="4341250" d="2500">The version I presented,
+which used universal hashing,</p>
+<p t="4343750" d="2520">was order 1 expected.</p>
+<p t="4346270" d="4140">But I said that it can be
+constant with high probability</p>
+<p t="4350410" d="630">per operation.</p>
+<p t="4351040" d="3030">It's a little bit stronger.</p>
+<p t="4354070" d="1470">So now, everything's fine.</p>
+<p t="4355540" d="2340">If I do an index
+v dot cluster c,</p>
+<p t="4357880" d="3240">that's still constant time,
+with high probability now.</p>
+<p t="4361120" d="4820">And I claim this structure
+is now order n's space.</p>
+<p t="4365940" d="1600">Why is it order n's space?</p>
+<p t="4367540" d="8970">By simple amortization--
+charge each table entry in that</p>
+<p t="4376510" d="4740">hash table to the
+min of the cluster.</p>
+<p t="4386924" d="1416">We're only storing
+non-empty ones.</p>
+<p t="4388340" d="3500">So if one of these guys
+exists in the hash table,</p>
+<p t="4391840" d="1830">we had to store a
+pointer to it, then</p>
+<p t="4393670" d="2430">that means the summary
+structure is non-zero.</p>
+<p t="4396100" d="1890">It means this guy is not empty.</p>
+<p t="4397990" d="1820">So it has an item in its min.</p>
+<p t="4399810" d="3010">Charge the space up here to
+store the pointer to that min</p>
+<p t="4402820" d="990">guy.</p>
+<p t="4403810" d="3390">Then each item-- each min item--</p>
+<p t="4407200" d="1680">only gets charged once.</p>
+<p t="4408880" d="3500">Because it only has one parent
+that has a pointer to it.</p>
+<p t="4412380" d="1600">So you only charge once.</p>
+<p t="4413980" d="4310">And therefore-- charge
+and table entry--</p>
+<p t="4423010" d="2040">only charge each element once.</p>
+<p t="4429800" d="1110">And that's all your space.</p>
+<p t="4430910" d="2400">So it's order n space.</p>
+<p t="4433310" d="2940">Done.</p>
+<p t="4436250" d="800">Kind of crazy.</p>
+<p t="4437050" d="3130">I guess, if you want, there's
+also the pointer to the summary</p>
+<p t="4440180" d="500">structure.</p>
+<p t="4440680" d="1610">You could charge
+that to your own min.</p>
+<p t="4442290" d="1291">And then you're charging twice.</p>
+<p t="4443581" d="3709">But it's constant per item.</p>
+<p t="4447290" d="1227">So this is kind of funny.</p>
+<p t="4448517" d="2333">Again, it doesn't appear in
+print anywhere, except maybe</p>
+<p t="4450850" d="2070">as an exercise in CLRS now.</p>
+<p t="4452920" d="3840">But you get linear
+order n space,</p>
+<p t="4456760" d="2130">just by adding hashing
+in the obvious way.</p>
+<p t="4458890" d="4290">Now, for whatever reason,
+Willard didn't see this,</p>
+<p t="4463180" d="1980">or wanted to do his
+own thing, and so he</p>
+<p t="4465160" d="5249">found another way to do
+order n space log log u query</p>
+<p t="4470409" d="541">with hashing.</p>
+<p t="4474000" d="1570">Well, I guess, also,
+you had to think</p>
+<p t="4475570" d="1210">of it in this simple form.</p>
+<p t="4476780" d="1730">It's harder to do
+this in the tree.</p>
+<p t="4478510" d="1290">It can be done, I think.</p>
+<p t="4479800" d="2730">But this is a simpler view
+than the tree, I think.</p>
+<p t="4482530" d="2790">And then boom-- order n space.</p>
+<p t="4485320" d="2820">But it turns out there's
+another way to do it.</p>
+<p t="4488140" d="1680">This is a completely
+different way</p>
+<p t="4489820" d="3120">to do Van Emde Boas-- actually,
+not that completely different.</p>
+<p t="4492940" d="5673">It's another way to
+do this with hashing.</p>
+<p t="4502690" d="3450">And we're going to start with
+what's called x-fast trees,</p>
+<p t="4506140" d="2370">and then we will modify
+it to get y-fast trees.</p>
+<p t="4508510" d="3372">That's Willard's terminology.</p>
+<p t="4511882" d="3678">OK, so x-fast trees
+is, store this tree,</p>
+<p t="4515560" d="2500">but don't store the zeros.</p>
+<p t="4518060" d="3530">So don't store zeros.</p>
+<p t="4521590" d="5940">Only store the ones in the-- we
+call this the simple tree view.</p>
+<p t="4527530" d="1500">This is why I, in
+particular, wanted</p>
+<p t="4529030" d="1625">to tell you about
+the simple tree view,</p>
+<p t="4530655" d="2665">because it is really
+what x fast trees do.</p>
+<p t="4533320" d="2010">So what do I mean by
+only store the ones?</p>
+<p t="4535330" d="5950">Well, each of these
+ones has sort of a name.</p>
+<p t="4541280" d="1310">What is the name of this item?</p>
+<p t="4542590" d="990">Its name is one--</p>
+<p t="4543580" d="2647">or in other words, 0, 0, 0, 1.</p>
+<p t="4546227" d="1583">Each of these nodes,
+you can think of,</p>
+<p t="4547810" d="1770">what is the path to get here?</p>
+<p t="4549580" d="3150">Like, the path to get
+to this one is 1, 0, 0.</p>
+<p t="4552730" d="720">1 means right.</p>
+<p t="4553450" d="1350">0 means left.</p>
+<p t="4554800" d="2160">Those names give you
+the binary indicator</p>
+<p t="4556960" d="3900">of where that node is in
+the tree, in some sense.</p>
+<p t="4560860" d="12456">So store the ones as binary
+strings in a hash table--</p>
+<p t="4577260" d="2010">again, a dynamic
+perfect hash table.</p>
+<p t="4579270" d="2880">Let's say I can get constant
+with high probability.</p>
+<p t="4582150" d="1710">OK.</p>
+<p t="4583860" d="2420">And if you're a
+little concerned--</p>
+<p t="4586280" d="3010">so what this means--
+the ones are exactly</p>
+<p t="4589290" d="2760">the prefixes of the paths
+to each of the items.</p>
+<p t="4592050" d="1230">This was item one.</p>
+<p t="4593280" d="4140">And so I want to store this
+one, which is empty string,</p>
+<p t="4597420" d="2700">this one, which is 0, this
+one, which is 00, this one,</p>
+<p t="4600120" d="3940">which is 000, this
+one, which is 0001.</p>
+<p t="4604060" d="5540">So I take 0001, which is
+the item I want to store.</p>
+<p t="4609600" d="2370">And there's all
+these prefixes, which</p>
+<p t="4611970" d="2340">are the items I want to store.</p>
+<p t="4614310" d="1980">And for this really
+to make sense,</p>
+<p t="4616290" d="1890">you also need the
+length of the string.</p>
+<p t="4618180" d="3630">Strings of different lengths
+should be in different worlds.</p>
+<p t="4621810" d="1980">So the way, actually,
+x-fast trees originally</p>
+<p t="4623790" d="1710">did it in the paper is,
+have a different hash</p>
+<p t="4625500" d="1624">table for strings of
+different lengths.</p>
+<p t="4627124" d="2186">So that's probably an easier
+way to think about it.</p>
+<p t="4629310" d="2460">You store all the items
+themselves in a hash table.</p>
+<p t="4631770" d="1560">You store all the
+prefixes of all</p>
+<p t="4633330" d="2910">but the last bit in a
+separate hash table,</p>
+<p t="4636240" d="3880">all but the last two bits in a
+separate hash table, and so on.</p>
+<p t="4640120" d="2440">Now, what does this let you do?</p>
+<p t="4642560" d="1660">It lets you do this--</p>
+<p t="4644220" d="3942">binary search for the
+0 to 1 transition.</p>
+<p t="4650760" d="1680">What we did here was--</p>
+<p t="4652440" d="3030">I look at the bit, is it 0 or 1?</p>
+<p t="4655470" d="2730">Instead of doing that, you do
+a query into the hash table,</p>
+<p t="4658200" d="1560">and say, is it in
+the hash table?</p>
+<p t="4659760" d="3140">It's in the hash table
+if and only if it is one.</p>
+<p t="4662900" d="2080">So looking at a bit in
+this conceptual tree</p>
+<p t="4664980" d="2370">is the same thing as
+checking for containment</p>
+<p t="4667350" d="1410">in this hash table.</p>
+<p t="4668760" d="3870">But now, we don't have to
+store the zeros, which is cool.</p>
+<p t="4675930" d="8670">We can now do search,
+predecessor or successor, fast,</p>
+<p t="4684600" d="7050">in log w time, via
+this old thing.</p>
+<p t="4691650" d="3430">Again, you have to have min
+and max pointers, as well.</p>
+<p t="4695080" d="1959">So in this hash table,
+you store the min</p>
+<p t="4697039" d="1166">and the max of your subtree.</p>
+<p t="4701030" d="1930">Or actually, from
+a 1, you actually</p>
+<p t="4702960" d="2310">need the max of
+the left subtree,</p>
+<p t="4705270" d="1900">and you need the min
+of the right subtree.</p>
+<p t="4707170" d="3020">But it's a constant amount
+of information per thing.</p>
+<p t="4710190" d="6000">This is not perfect, however,
+in that it uses nw space.</p>
+<p t="4718920" d="1920">And also, updates are slow.</p>
+<p t="4720840" d="1935">It's order w updates.</p>
+<p t="4741540" d="1110">But we're almost there.</p>
+<p t="4742650" d="3870">Because we have fast
+queries, slow updates, not</p>
+<p t="4746520" d="1470">optimal space.</p>
+<p t="4747990" d="1350">Take this.</p>
+<p t="4749340" d="2615">Add indirection-- done.</p>
+<p t="4751955" d="1000">And that's y-fast trees.</p>
+<p t="4757950" d="2710">y-fast trees-- you
+take x-fast trees,</p>
+<p t="4760660" d="4810">you add this
+indirection right here,</p>
+<p t="4765470" d="7796">and you get log w per
+operation order and space.</p>
+<p t="4773266" d="1684">Of course, this is
+a high probability</p>
+<p t="4774950" d="2790">because we're using hashing.</p>
+<p t="4777740" d="2550">Because we have a
+factor w bad here,</p>
+<p t="4780290" d="1110">we have factor w bad here.</p>
+<p t="4781400" d="990">You divide by w.</p>
+<p t="4782390" d="1380">You're done.</p>
+<p t="4783770" d="4590">Up here, you have n over w
+space. n over w times w is n.</p>
+<p t="4788360" d="3000">Queries, just like
+before, remain log w.</p>
+<p t="4791360" d="1680">But now-- boom--</p>
+<p t="4793040" d="3120">updates, we pay log w
+because of the binary search</p>
+<p t="4796160" d="2875">trees at the bottom,
+but pretty cool.</p>
+<p t="4799035" d="1805">Isn't that neat?</p>
+<p t="4800840" d="1350">I've never seen this before.</p>
+<p t="4802190" d="2500">OK, I've seen x-fast
+trees and y-fast trees.</p>
+<p t="4804690" d="2000">But it's really just the same--</p>
+<p t="4806690" d="3300">we're taking Van Emde Boas,
+looking at it in the tree view.</p>
+<p t="4809990" d="1709">You can see where
+Willard got this stuff.</p>
+<p t="4811699" d="2374">It's like, oh, man I really
+want to store all these bits,</p>
+<p t="4814073" d="1227">but hey, it's way too big.</p>
+<p t="4815300" d="1980">Just don't store the zeros.</p>
+<p t="4817280" d="1980">That means we should
+use a hash table.</p>
+<p t="4819260" d="3510">Ah , hash table just gives you
+whether the bit is in or out.</p>
+<p t="4822770" d="1710">Great.</p>
+<p t="4824480" d="1269">Now use indirection.</p>
+<p t="4825749" d="1791">And indirection was
+already floating around</p>
+<p t="4827540" d="1680">as a concept at the time--</p>
+<p t="4829220" d="1340">slightly different parameters.</p>
+<p t="4830560" d="2410">Van Emde Boas had
+his own indirection</p>
+<p t="4832970" d="5217">to reduce the space
+from u times log w to u.</p>
+<p t="4838187" d="1833">But Willard did it,
+and-- boom-- it got down</p>
+<p t="4840020" d="3120">to n space in this way.</p>
+<p t="4843140" d="2560">But as you saw, you can also do
+it directly to Van Emde Boas.</p>
+<p t="4845700" d="1604">All these ideas can
+be interchanged.</p>
+<p t="4847304" d="1416">You can combine
+any data structure</p>
+<p t="4848720" d="1500">you want with any
+space saving trick</p>
+<p t="4850220" d="1590">you want, with
+indirection, if you</p>
+<p t="4851810" d="3480">need to, to speed things up
+and reduce space a little bit.</p>
+<p t="4855290" d="1900">So there's many,
+many ways to do this.</p>
+<p t="4857190" d="2040">But in the end, you get
+log w per operation,</p>
+<p t="4859230" d="1520">and order n space.</p>
+<p t="4860750" d="1320">And that sort of result one.</p>
+<p t="4862070" d="2460">And it's probably the most
+useful predecessor data</p>
+<p t="4864530" d="957">structure, in general.</p>
+<p t="4865487" d="1833">But next time, we'll
+see fusion trees, which</p>
+<p t="4867320" d="3410">are good for when w is huge.</p>
+</body>
+</timedtext>

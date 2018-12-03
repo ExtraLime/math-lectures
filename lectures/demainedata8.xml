@@ -1,0 +1,2513 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="90" d="2400">The following content is
+provided under a Creative</p>
+<p t="2490" d="1540">Commons license.</p>
+<p t="4030" d="2330">Your support will help
+MIT OpenCourseWare</p>
+<p t="6360" d="4360">continue to offer high-quality
+educational resources for free.</p>
+<p t="10720" d="2600">To make a donation or
+view additional materials</p>
+<p t="13320" d="3960">from hundreds of MIT courses,
+visit MIT OpenCourseWare</p>
+<p t="17280" d="1170">at ocw.mit.edu.</p>
+<p t="20860" d="1000">ERIK DEMAINE: All right.</p>
+<p t="21860" d="4620">Today, we resume our theme of
+memory hierarchy efficient data</p>
+<p t="26480" d="1200">structures.</p>
+<p t="27680" d="3240">And last time, we saw
+cache-oblivious b-trees,</p>
+<p t="30920" d="6480">which achieve log base B
+of N for all operations--</p>
+<p t="40350" d="2060">insert, delete, search.</p>
+<p t="46160" d="1950">And the cool part is
+that we could do that</p>
+<p t="48110" d="3660">without knowing what B was.</p>
+<p t="51770" d="3390">And it was basically
+a binary search tree</p>
+<p t="55160" d="3150">stored in a funny order,
+this van Emde Boas order,</p>
+<p t="58310" d="2730">with an ordered file
+on the bottom, which</p>
+<p t="61040" d="1110">we left as a black box.</p>
+<p t="62150" d="1680">And today, we're
+going to see how</p>
+<p t="63830" d="1980">to actually do ordered files--</p>
+<p t="65810" d="6150">in log squared N, data
+moves per insert and delete.</p>
+<p t="71960" d="2100">And then as a little
+diversion, we'll</p>
+<p t="74060" d="1800">see a closer related
+problem to this</p>
+<p t="75860" d="3300">is called list labeling,
+which we needed in Lecture 1</p>
+<p t="79160" d="2940">and left it as a black
+box for full persistence.</p>
+<p t="82100" d="3930">We had this version tree
+with full persistence,</p>
+<p t="86030" d="4110">and we needed to linearize
+that version tree</p>
+<p t="90140" d="2670">into a bunch of numbers
+so that we could then</p>
+<p t="92810" d="3014">compare whether one version
+was an ancestor of another.</p>
+<p t="95824" d="2416">And for that, we needed to be
+able to store a linked list,</p>
+<p t="98240" d="2160">and insert and delete
+in the linked list,</p>
+<p t="100400" d="4530">and be able to query, who is
+this node in the linked list,</p>
+<p t="104930" d="2760">precede this node
+in the linked list</p>
+<p t="107690" d="1345">in constant time per operation.</p>
+<p t="109035" d="5074">So we'll also do that
+today because it's time.</p>
+<p t="114109" d="2041">And then we're going to
+do a completely different</p>
+<p t="116150" d="1920">cache-oblivious data structure.</p>
+<p t="118070" d="3600">That's interesting, mainly in
+the way that it adapts to M,</p>
+<p t="121670" d="4680">not just B. So remember, B was
+the size of a memory block.</p>
+<p t="126350" d="1500">When we fetch
+something from memory,</p>
+<p t="127850" d="4200">we get the entire block of size
+B. M was the size of the cache.</p>
+<p t="132050" d="2760">And so there were M over B
+blocks in the cache of size</p>
+<p t="134810" d="5370">B. So that's what
+we'll do today.</p>
+<p t="140180" d="4215">I'm also going to need a claim--</p>
+<p t="147332" d="2378">which we won't prove here--</p>
+<p t="149710" d="3560">that you can sort
+cache-obliviously in N</p>
+<p t="153270" d="3650">over B log base N
+over B of N over B.</p>
+<p t="156920" d="2200">So I'm going to use this
+as a black box today.</p>
+<p t="159120" d="2083">And we're not going to
+fill it in because it's not</p>
+<p t="161203" d="2277">a data structure, and it's
+a data structures class.</p>
+<p t="163480" d="2860">To give you some feeling for
+why this is the right bound</p>
+<p t="166340" d="3630">for sorting, if
+you know M and B,</p>
+<p t="169970" d="5070">then the answer is M
+over B way mergesort.</p>
+<p t="181480" d="2810">So you all know
+binary mergesort,</p>
+<p t="184290" d="1770">where you split into two parts.</p>
+<p t="186060" d="2100">If you split into M
+over B parts and then do</p>
+<p t="188160" d="2790">an M over B way merge,
+that's exactly what</p>
+<p t="190950" d="1440">a cache can handle.</p>
+<p t="192390" d="2930">It can read one block
+from each of the lists</p>
+<p t="195320" d="2150">that it's trying to merge.</p>
+<p t="197470" d="3530">It has just enough
+cache blocks for that.</p>
+<p t="201000" d="3210">And then you do the merge
+block by block, load new blocks</p>
+<p t="204210" d="956">as necessary.</p>
+<p t="205166" d="1624">That will give you
+a linear time merge.</p>
+<p t="206790" d="3060">And so you'll get N over
+B times log base M over B.</p>
+<p t="209850" d="2610">And it turns out the right
+thing in here is N over B or N</p>
+<p t="212460" d="3060">is basically the same,
+because it's inside the log.</p>
+<p t="215520" d="2010">It's not a big deal.</p>
+<p t="217530" d="2560">So external memory wise,
+that's how you do it.</p>
+<p t="220090" d="2360">You can do this
+cache-obliviously in a similar</p>
+<p t="222450" d="675">way to--</p>
+<p t="225930" d="1920">roughly speaking, in a
+similar way to the way</p>
+<p t="227850" d="2220">we do b-trees,
+where you're binary</p>
+<p t="230070" d="3990">searching in the
+number of ways you</p>
+<p t="234060" d="3341">should divide your array into.</p>
+<p t="237401" d="1749">I'm not going to get
+into details on that.</p>
+<p t="239150" d="2710">We'll focus on
+cache-oblivious priority</p>
+<p t="241860" d="4271">queues, which do a similar kind
+of thing, but get it a dynamic.</p>
+<p t="246131" d="499">All right.</p>
+<p t="246630" d="4110">But before we go there, let's
+do ordered file maintenance.</p>
+<p t="260070" d="3570">So let me first remind
+you of the problem.</p>
+<p t="263640" d="8880">We want to store N
+items in a file, which</p>
+<p t="272520" d="8520">think of as an array, size
+order N. This constant's</p>
+<p t="281040" d="5130">bigger than 1, with
+constant-sized gaps.</p>
+<p t="293970" d="12060">And then-- I should
+say in specified order,</p>
+<p t="306030" d="3300">subject to inserting and
+deleting items in that order.</p>
+<p t="329420" d="4820">So this was the picture.</p>
+<p t="334240" d="830">We have an array.</p>
+<p t="337820" d="4860">We get to store some
+objects in the array</p>
+<p t="342680" d="2500">and have these blank
+cells in between.</p>
+<p t="345180" d="1860">But each of these gaps
+has constant size.</p>
+<p t="352960" d="2460">Maybe these data items
+are sorted, maybe not.</p>
+<p t="358540" d="1770">And then we're able
+to say things like,</p>
+<p t="360310" d="5240">OK, insert a new
+item 8 right after 7.</p>
+<p t="365550" d="1990">And so then you'd
+like to do that.</p>
+<p t="367540" d="5370">Then you'd also, then, like to
+say OK, now insert new item 9,</p>
+<p t="372910" d="1620">here.</p>
+<p t="374530" d="2970">And then this guy will
+maybe get shifted over.</p>
+<p t="377500" d="2070">So 12 is over here.</p>
+<p t="379570" d="2687">This becomes blank, and then
+you can fit the 9, and so on.</p>
+<p t="382257" d="2083">You want to be able to do
+insertions and deletions</p>
+<p t="384340" d="1470">like that quickly.</p>
+<p t="393970" d="1920">And quickly, here,
+means whenever</p>
+<p t="395890" d="2550">we do an insert or delete,
+we're going to rearrange items</p>
+<p t="398440" d="740">in an interval.</p>
+<p t="402530" d="3830">And that interval is
+going to be small--</p>
+<p t="406360" d="3700">log squared N amortized.</p>
+<p t="415542" d="1758">That's all I need to say here.</p>
+<p t="420689" d="1791">I guess we also want
+to say that when we're</p>
+<p t="422480" d="1458">moving these items
+in the interval,</p>
+<p t="423938" d="2292">we can do it efficiently
+cache-obliviously, because we</p>
+<p t="426230" d="3570">really want log
+squared N divided by B.</p>
+<p t="429800" d="10010">And we say that via constant
+number of interleaved scans.</p>
+<p t="439810" d="3190">Scans, we know, as long as
+there's a number of them</p>
+<p t="443000" d="3319">and your cache has at least a
+constant size number of blocks,</p>
+<p t="446319" d="2291">then interleave scans are
+always going to be efficient.</p>
+<p t="448610" d="3540">You always get to divide
+by B. But the focus</p>
+<p t="452150" d="2220">will be on making sure
+the interval is small.</p>
+<p t="454370" d="2670">The rearrangement will actually
+be very simple, so not too hard</p>
+<p t="457040" d="500">to do.</p>
+<p t="459920" d="9390">So this will give us log squared
+N over B amortized memory</p>
+<p t="469310" d="1770">transfers.</p>
+<p t="471080" d="1950">So that was the
+black box we needed</p>
+<p t="473030" d="3090">to get cache-oblivious b-trees.</p>
+<p t="476120" d="1980">Remember, we got rid of
+the square in the log</p>
+<p t="478100" d="3210">by using a level of indirection
+that removed one of the logs.</p>
+<p t="481310" d="1950">So we got log N
+over B. So we were</p>
+<p t="483260" d="1740">dominated by log
+base B of N, which</p>
+<p t="485000" d="4240">is what we had for
+the search over here.</p>
+<p t="489240" d="1430">So this is the step we need.</p>
+<p t="490670" d="1847">And this is a general
+tool used in a bunch</p>
+<p t="492517" d="2083">of different cache-oblivious
+data structures, sort</p>
+<p t="494600" d="2310">of one of the first
+cache-oblivious data structure</p>
+<p t="496910" d="1780">tools.</p>
+<p t="498690" d="2400">It's pretty handy.</p>
+<p t="501090" d="2080">It's actually much older
+than cache-oblivious</p>
+<p t="503170" d="2030">or external memory models.</p>
+<p t="505200" d="3590">This results-- removing the
+last line and this part,</p>
+<p t="508790" d="2130">which makes it
+efficient in this model.</p>
+<p t="510920" d="3239">Just thinking about moving
+around intervals in a file</p>
+<p t="514159" d="4201">goes back to Itai,
+Konheim, and Rodeh in 1981.</p>
+<p t="518360" d="1710">So it's pretty old.</p>
+<p t="520070" d="4360">And then it was brought to the
+cache-oblivious world in 2000,</p>
+<p t="524430" d="4310">right when this model
+was getting started.</p>
+<p t="528740" d="3810">So that's the goal.</p>
+<p t="532550" d="4180">Now let me tell you how
+this is going to work.</p>
+<p t="536730" d="2250">So a rough idea is very simple.</p>
+<p t="538980" d="2390">You have your array.</p>
+<p t="541370" d="4180">And when you insert an
+item, what we want to do</p>
+<p t="545550" d="3780">is find an interval
+containing that item</p>
+<p t="549330" d="3530">of some reasonable
+size that's not</p>
+<p t="552860" d="2940">too full and not too sparse.</p>
+<p t="555800" d="2289">If we can find--</p>
+<p t="558089" d="1791">so like right here,
+when we're inserting 9,</p>
+<p t="559880" d="1645">it looks really bad
+right around there.</p>
+<p t="561525" d="1625">And so there's, like,
+too many elements</p>
+<p t="563150" d="1374">packed right around
+that element.</p>
+<p t="564524" d="1416">And that feels bad to us.</p>
+<p t="565940" d="3180">So we grow an interval around
+it until we've got enough gaps.</p>
+<p t="569120" d="2280">And then we just evenly
+redistribute the items</p>
+<p t="571400" d="2269">in that interval.</p>
+<p t="573669" d="1791">So that's basically
+what we're going to do.</p>
+<p t="575460" d="2090">We just have to
+find the right size</p>
+<p t="577550" d="1960">interval to rearrange items in.</p>
+<p t="579510" d="1550">Then when we do
+the rearrangement,</p>
+<p t="581060" d="2550">it's always going to be
+evenly redistributing</p>
+<p t="583610" d="1770">within the interval.</p>
+<p t="585380" d="1260">So that strategy is simple.</p>
+<p t="586640" d="3120">And to think about intervals
+in a nice controlled way,</p>
+<p t="589760" d="2860">we're going to build
+a binary tree--</p>
+<p t="592620" d="1400">our good friend.</p>
+<p t="594020" d="8490">So let me just draw
+this binary tree.</p>
+<p t="607550" d="1770">Now I need to do
+something a little bit</p>
+<p t="609320" d="3150">special at the leaves.</p>
+<p t="612470" d="5280">I'm going to cluster
+together log N items.</p>
+<p t="617750" d="3120">So down here is the array,
+and all of this stuff</p>
+<p t="620870" d="1380">up here is conceptual.</p>
+<p t="622250" d="1330">We don't really build it.</p>
+<p t="628370" d="2400">In my lecture notes, I
+can just copy and paste</p>
+<p t="630770" d="3190">and this is a lot easier.</p>
+<p t="633960" d="3605">So we have these chunks of
+size theta log N at the bottom.</p>
+<p t="641610" d="3440">I don't really care
+what the constant is.</p>
+<p t="645050" d="1200">1 is probably fine.</p>
+<p t="654840" d="1800">So this is the array
+down here, and we're</p>
+<p t="656640" d="7170">splitting every log N items,
+or log N cells in the array.</p>
+<p t="663810" d="2710">And then we say, OK,
+well conceptually build</p>
+<p t="666520" d="1250">a binary structure tree, here.</p>
+<p t="667770" d="3330">And then this node
+represents this interval.</p>
+<p t="671100" d="3830">And this node represents
+this interval.</p>
+<p t="674930" d="2800">Every node just represents the
+interval of all its descendant</p>
+<p t="677730" d="1350">leaves.</p>
+<p t="679080" d="3960">We've seen this trick
+over and over again.</p>
+<p t="683040" d="1990">But we're not going to
+build any data structure</p>
+<p t="685030" d="2900">or have some augmentation
+for each of these nodes.</p>
+<p t="687930" d="2720">This is how we're going
+to build the intervals.</p>
+<p t="690650" d="1375">We're going to
+start at the leaf.</p>
+<p t="692025" d="2715">Let's say we want to
+insert an item in here.</p>
+<p t="694740" d="910">So we insert it here.</p>
+<p t="695650" d="2505">If there's not room for it,
+we're going to walk up the tree</p>
+<p t="698155" d="3455">and say, OK, if this
+interval is too dense,</p>
+<p t="701610" d="2970">I'll look at this node and
+its corresponding interval</p>
+<p t="704580" d="1260">here to here.</p>
+<p t="705840" d="3330">If that's still too dense,
+I'll walk up to the parent,</p>
+<p t="709170" d="2850">and so look at this
+interval from here to here,</p>
+<p t="712020" d="3300">and so on, until I find
+that in the end, at most,</p>
+<p t="715320" d="3960">I redistribute the entire array.</p>
+<p t="719280" d="3330">And when I do that, I'll
+just evenly redistribute.</p>
+<p t="722610" d="6730">Let me write down the
+algorithm for update.</p>
+<p t="729340" d="4990">So for insert or
+delete, same algorithm,</p>
+<p t="734330" d="6945">you update the leaf log N chunk.</p>
+<p t="745220" d="3770">You can do that just by
+rewriting the entire chunk.</p>
+<p t="748990" d="1750">We're trying to get a
+log squared N bound,</p>
+<p t="750740" d="1958">so we can afford to
+rewrite it interval as size</p>
+<p t="752698" d="2572">log N. So that's for free.</p>
+<p t="758270" d="2940">So whatever leaf
+contains the element</p>
+<p t="761210" d="1350">you want to insert or delete.</p>
+<p t="767480" d="3030">And then we're going to
+walk up the tree until we</p>
+<p t="770510" d="1455">find a suitable interval.</p>
+<p t="783640" d="6830">And we're going to call
+that node, or that interval,</p>
+<p t="790470" d="1140">within threshold.</p>
+<p t="800550" d="2100">So let me define
+within threshold.</p>
+<p t="802650" d="4650">We're going to look at
+the density of a node,</p>
+<p t="807300" d="2700">or an interval.</p>
+<p t="810000" d="3840">And that's just going to be the
+ratio of the number of elements</p>
+<p t="813840" d="3684">that are actually down there
+versus the amount of slots</p>
+<p t="817524" d="1416">in the array that
+are down there--</p>
+<p t="822052" d="1208">so just how much is occupied.</p>
+<p t="840794" d="916">So look at that ratio.</p>
+<p t="841710" d="2470">If it's 100%, then there are
+no blank cells down there.</p>
+<p t="844180" d="3970">If it's 0%, then
+everybody is blank.</p>
+<p t="848150" d="1750">So we don't want either
+of those extremes.</p>
+<p t="849900" d="1770">We want something in between.</p>
+<p t="851670" d="2340">And we're going to do that
+by specifying thresholds</p>
+<p t="854010" d="2220">on this density and
+try to keep the density</p>
+<p t="856230" d="2480">within those thresholds.</p>
+<p t="858710" d="2894">Let me let me define
+those thresholds.</p>
+<p t="870800" d="5070">The fun part is that the density
+thresholds that you maintain</p>
+<p t="875870" d="2100">depend on which level you are.</p>
+<p t="881120" d="4410">Not, like, experience points,
+but in which height of the tree</p>
+<p t="885530" d="660">you are.</p>
+<p t="886190" d="3360">So down here, we don't really
+care how well-distributed</p>
+<p t="889550" d="1020">the leaves are.</p>
+<p t="890570" d="2730">I mean, it can't
+be 0% because then</p>
+<p t="893300" d="1620">that would be a really big gap.</p>
+<p t="894920" d="2700">But it could be say
+between 50% and 100%.</p>
+<p t="897620" d="1680">It could be totally full.</p>
+<p t="899300" d="2850">And then once it's overflowing,
+then we've got to go up.</p>
+<p t="902150" d="4790">And the higher we go,
+the stricter we get--</p>
+<p t="906940" d="5630">hopefully, yes-- strictest
+at the top of the tree.</p>
+<p t="912570" d="12230">So in general, if we have
+a node of the depth, d,</p>
+<p t="924800" d="8010">then we want the density
+to be at least 1/2</p>
+<p t="932810" d="3720">minus 1/4 d over h.</p>
+<p t="939590" d="13100">And we want the density to be at
+most 3/4 plus 1/4 d over it h.</p>
+<p t="952690" d="6475">So h, here, is the height
+of this tree, which</p>
+<p t="959165" d="3245">is going to be something
+like log N minus log-log N.</p>
+<p t="962410" d="1820">But it doesn't really matter.</p>
+<p t="964230" d="2390">This is depth 0,
+depth 1, depth h.</p>
+<p t="971850" d="3990">We just are linearly
+interpolating between--</p>
+<p t="975840" d="4065">let's see, this is always
+between 1/4 and 1/2--</p>
+<p t="982790" d="3540">1/2 when this is 0,
+1/4 when this is h.</p>
+<p t="986330" d="2460">So you get a 1/2 minus 1/4.</p>
+<p t="988790" d="7170">And this one is always
+in the range 3/4 to 1.</p>
+<p t="995960" d="4350">It's 3/4 when this is
+0, and 1 when this is h.</p>
+<p t="1000310" d="2312">So at the bottom--</p>
+<p t="1002622" d="958">I was a little bit off.</p>
+<p t="1003580" d="5820">At the bottom, the leaf
+level, when these are both h--</p>
+<p t="1009400" d="4200">the density has to be at
+least a 1/4 and at most, 100%.</p>
+<p t="1013600" d="1830">And then at the root,
+it's going to have</p>
+<p t="1015430" d="4980">to be between 1/2 and 3/4.</p>
+<p t="1020410" d="2700">So it's a narrower range.</p>
+<p t="1023110" d="3150">And the higher you go up,
+the more narrow the range</p>
+<p t="1026260" d="2199">on the density gets.</p>
+<p t="1028459" d="2541">And we do it just sort of in
+the obvious linear interpolation</p>
+<p t="1031000" d="1530">way.</p>
+<p t="1032530" d="3079">The not so obvious thing is that
+this is the right way to do it.</p>
+<p t="1035609" d="2291">There's a lot of choices
+for how to set these density</p>
+<p t="1037900" d="650">thresholds.</p>
+<p t="1038550" d="3460">But we have to basically
+maintain constant density</p>
+<p t="1042010" d="2160">everywhere because
+we're trying to maintain</p>
+<p t="1044170" d="1689">gaps of constant size.</p>
+<p t="1045859" d="2475">So we don't have a
+lot of flexibility.</p>
+<p t="1048334" d="1416">But it turns out,
+this flexibility</p>
+<p t="1049750" d="2880">between two constants,
+like 1/4 and 1/2</p>
+<p t="1052630" d="4390">is enough to give us
+the performance we need.</p>
+<p t="1057020" d="1760">So let's see why.</p>
+<p t="1061662" d="1208">Let me finish this algorithm.</p>
+<p t="1062870" d="2810">We walk up the tree
+until reaching a node</p>
+<p t="1065680" d="990">within threshold.</p>
+<p t="1066670" d="1590">Density is this.</p>
+<p t="1068260" d="1520">Density threshold is this.</p>
+<p t="1069780" d="2050">So now we know within
+threshold means.</p>
+<p t="1071830" d="8010">And then we evenly
+rebalance or redistribute</p>
+<p t="1079840" d="8430">all the descendant
+elements in that interval</p>
+<p t="1088270" d="1140">that is within threshold.</p>
+<p t="1098629" d="1541">So what you need to
+check is that you</p>
+<p t="1100170" d="2250">can do this with a
+constant number of scans.</p>
+<p t="1102420" d="1800">It's not that hard.</p>
+<p t="1104220" d="1350">Just read the elements in order.</p>
+<p t="1105570" d="1539">Write them out to
+a temporary array,</p>
+<p t="1107109" d="1041">and then write them back.</p>
+<p t="1108150" d="2830">Or if you're fancy,
+you can do it in place.</p>
+<p t="1110980" d="2450">But you can just do it by
+a constant number of scans</p>
+<p t="1113430" d="750">through the array.</p>
+<p t="1117390" d="4530">Just compute what should
+be the average gap</p>
+<p t="1121920" d="1310">between the elements.</p>
+<p t="1123230" d="1000">Leave that many gaps.</p>
+<p t="1127070" d="3810">So the algorithm
+is pretty simple</p>
+<p t="1130880" d="3210">once you say, OK, I'm
+going to grow intervals.</p>
+<p t="1134090" d="2686">Then maybe, you think OK,
+I guess I'll grow intervals</p>
+<p t="1136776" d="1124">according to a binary tree.</p>
+<p t="1137900" d="1416">It's a little bit
+more controlled.</p>
+<p t="1139316" d="2104">Probably don't have
+to do it this way.</p>
+<p t="1141420" d="3380">You could just grow
+them by a factor of 2,</p>
+<p t="1144800" d="1290">just around your point.</p>
+<p t="1146090" d="4031">But it's easier to analyze in
+the setting of a binary tree.</p>
+<p t="1150121" d="1999">And then once you're doing
+that, the tricky part</p>
+<p t="1152120" d="1480">is to set the
+density thresholds.</p>
+<p t="1153600" d="1610">But you fool around
+and this seems</p>
+<p t="1155210" d="3660">to be the best way to do it.</p>
+<p t="1158870" d="2050">Now the question is,
+why does this work.</p>
+<p t="1160920" d="6390">How do we prove log squared
+amortized interval size when we</p>
+<p t="1167310" d="1250">follow these dense thresholds?</p>
+<p t="1168560" d="2430">Notice that we're
+not keeping intervals</p>
+<p t="1170990" d="3360">within density at all times.</p>
+<p t="1174350" d="3750">I mean, the whole problem
+is that things are not</p>
+<p t="1178100" d="2120">within threshold
+right at the start.</p>
+<p t="1180220" d="4120">And we have to walk up the tree
+quite a ways, potentially--</p>
+<p t="1184340" d="4140">claim is only about log-log
+N levels up the tree--</p>
+<p t="1188480" d="1680">to find something
+that's within density.</p>
+<p t="1190160" d="1410">And then we can redistribute.</p>
+<p t="1191570" d="3900">And then we fix
+everything below us.</p>
+<p t="1195470" d="500">All right.</p>
+<p t="1195970" d="1480">Well, let's get to that.</p>
+<p t="1211864" d="1541">This is really the
+direction we want.</p>
+<p t="1213405" d="2055">The thresholds are getting
+tighter and tighter,</p>
+<p t="1215460" d="1490">more constrained as we go up.</p>
+<p t="1216950" d="2640">Because it means if
+we walk up a lot,</p>
+<p t="1219590" d="4050">we, essentially, can pay for it
+because we bring that interval</p>
+<p t="1223640" d="3860">even farther within threshold.</p>
+<p t="1227500" d="5900">So we have some node,
+which is within threshold.</p>
+<p t="1233400" d="2240">So we bring it into the
+density thresholds of here.</p>
+<p t="1235640" d="2640">If we look at the
+children of that node,</p>
+<p t="1238280" d="4650">their density
+thresholds are smaller--</p>
+<p t="1242930" d="1530">sorry, are more relaxed.</p>
+<p t="1244460" d="1890">So if we bring this
+node into threshold</p>
+<p t="1246350" d="2100">by rewriting all the
+leaves down here,</p>
+<p t="1248450" d="2370">these nodes will not
+only be within threshold,</p>
+<p t="1250820" d="3270">they'll be far within threshold.</p>
+<p t="1254090" d="4570">If you look at their ratios,
+you know, their densities--</p>
+<p t="1258660" d="3054">the number of elements in there,
+divided by the array slots.</p>
+<p t="1261714" d="1416">It's going to be
+exactly the same.</p>
+<p t="1263130" d="3920">The density is equal
+because we're uniformly</p>
+<p t="1267050" d="1176">distributing the items here.</p>
+<p t="1268226" d="1374">And there's some
+rounding errors,</p>
+<p t="1269600" d="2470">but other than rounding.</p>
+<p t="1272070" d="2600">And that's actually why we have
+these leaves as size theta log</p>
+<p t="1274670" d="1680">N, so the rounding
+doesn't bite us.</p>
+<p t="1278990" d="2460">We're evenly redistributing
+so the density is equal</p>
+<p t="1281450" d="1100">everywhere.</p>
+<p t="1282550" d="2770">Left child had the same
+density as the parent.</p>
+<p t="1285320" d="3570">But if you look at the density
+thresholds of the child,</p>
+<p t="1288890" d="2380">they will be more relaxed
+compared to the parent.</p>
+<p t="1291270" d="1580">So if the parent is
+within threshold,</p>
+<p t="1292850" d="2610">the child will be
+far within threshold</p>
+<p t="1295460" d="5330">by at least a d over
+h additive amount.</p>
+<p t="1300790" d="3070">Sorry, 1 over h, because
+their depths differ by 1.</p>
+<p t="1303860" d="2100">If this is d, this
+would be d plus 1.</p>
+<p t="1311480" d="16920">When we rebalance a
+node, we put the children</p>
+<p t="1328400" d="1500">far within threshold.</p>
+<p t="1335610" d="6770">Meaning, if we look at
+the absolute difference</p>
+<p t="1342380" d="3900">between the density and
+either the upper threshold</p>
+<p t="1346280" d="9300">or the lower threshold, that
+will be, I guess, at least 1</p>
+<p t="1355580" d="8380">over 4h because we're
+increasing d by 1.</p>
+<p t="1363960" d="5510">And it's 1 over for 4h
+for each step we take.</p>
+<p t="1369470" d="3990">OK so the children
+are extra happy.</p>
+<p t="1373460" d="2430">We walked up here
+because before--</p>
+<p t="1375890" d="1620">let's say we walked
+up this path.</p>
+<p t="1377510" d="2640">So we walked from
+the right child.</p>
+<p t="1380150" d="3240">We didn't stop here,
+which means this node was</p>
+<p t="1383390" d="3030">was beyond threshold.</p>
+<p t="1386420" d="6600">But now we walked up and now
+we fixed this entire interval.</p>
+<p t="1393020" d="1680">And now it's far
+within threshold.</p>
+<p t="1394700" d="3660">So before, you know, the
+density minus the threshold</p>
+<p t="1398360" d="2250">went the wrong way,
+had the wrong sign.</p>
+<p t="1400610" d="3760">Now we're good, and we're
+good by at least a 1 over 4h.</p>
+<p t="1404370" d="3050">Now h, here, was the
+height of the tree.</p>
+<p t="1407420" d="5520">It's log N minus log-log N. All
+we need is that this is theta</p>
+<p t="1412940" d="2240">log N--</p>
+<p t="1415180" d="9040">sorry, theta 1 over log
+N. h is theta log N.</p>
+<p t="1424220" d="3710">And this is a ratio--</p>
+<p t="1427930" d="2400">1 over log N--</p>
+<p t="1430330" d="3649">of the number of items
+versus the number of slots.</p>
+<p t="1433979" d="1541">But we know the
+number of slots we're</p>
+<p t="1435520" d="6510">dealing with is theta log N. And
+so this is at least one item.</p>
+<p t="1442030" d="5310">This log N is designed
+to balance the h, here.</p>
+<p t="1447340" d="970">OK, cool.</p>
+<p t="1451260" d="1530">Let's go over here.</p>
+<p t="1459270" d="2600">So the idea is if we're
+far within threshold,</p>
+<p t="1461870" d="1844">we can charge to those items.</p>
+<p t="1463714" d="666">That's our goal.</p>
+<p t="1490950" d="1590">What we're interested
+in-- if we just</p>
+<p t="1492540" d="2280">rebalanced this node, say x.</p>
+<p t="1494820" d="3570">We want to know when is the
+next time x can be rebalanced?</p>
+<p t="1498390" d="2220">For x to have to be
+rebalanced, that means,</p>
+<p t="1500610" d="3270">again, one of its children will
+have to be out of threshold.</p>
+<p t="1503880" d="2640">And then we insert or
+delete within that child.</p>
+<p t="1506520" d="2610">And then that
+propagates up to x.</p>
+<p t="1509130" d="2329">But right now, the children
+are far within threshold.</p>
+<p t="1511459" d="1541">So the question is,
+how long would it</p>
+<p t="1513000" d="3060">take for them to get
+out of threshold again?</p>
+<p t="1516060" d="2550">Well, you'd have to change
+the density by at least 1</p>
+<p t="1518610" d="1770">over an additive--</p>
+<p t="1520380" d="3420">1 over log N. If you
+multiply by the size,</p>
+<p t="1523800" d="2864">it's the size of
+the interval divided</p>
+<p t="1526664" d="2416">by log N. You've got to have
+at least that many insertions</p>
+<p t="1529080" d="720">or deletions.</p>
+<p t="1532650" d="8481">Before this node rebalances
+again, one of its children</p>
+<p t="1541131" d="999">must get out of balance.</p>
+<p t="1547890" d="6510">And so you must have
+done at least the size</p>
+<p t="1554400" d="9060">of the interval
+divided by theta log N</p>
+<p t="1563460" d="7110">updates for one of the children
+to become out of balance again.</p>
+<p t="1570570" d="1320">Boom.</p>
+<p t="1571890" d="2400">So when this rebalance
+happens again,</p>
+<p t="1574290" d="4060">we're going to charge to
+those updates, which is good</p>
+<p t="1578350" d="2230">because the time it takes
+us to do the rebalance</p>
+<p t="1580580" d="1280">is the size of the interval.</p>
+<p t="1584680" d="5660">We need to charge each of
+these items log N times.</p>
+<p t="1590340" d="12790">So charge the
+rebalance cost, which</p>
+<p t="1603130" d="9800">is the size of the
+interval to these updates.</p>
+<p t="1617430" d="1500">And what we know
+is that the updates</p>
+<p t="1618930" d="1140">are within the interval.</p>
+<p t="1631360" d="5100">So this looks like a log N
+bound, which is not right.</p>
+<p t="1636460" d="2580">It should be a log
+squared N bound.</p>
+<p t="1639040" d="8610">The idea is when we insert
+into one of these leaves,</p>
+<p t="1647650" d="4530">we're simultaneously making this
+node worse and this node worse</p>
+<p t="1652180" d="2580">and this node worse.</p>
+<p t="1654760" d="1740">Whenever we insert
+a node, it belongs</p>
+<p t="1656500" d="3109">to log N intervals
+that we care about.</p>
+<p t="1659609" d="1791">So in fact, not only
+are we losing this log</p>
+<p t="1661400" d="3515">N, because there aren't quite
+enough items to charge to--</p>
+<p t="1664915" d="1875">the log N factor less.</p>
+<p t="1666790" d="4170">We're also charging to each item
+another factor of log N times</p>
+<p t="1670960" d="2938">because it lives in all
+these different intervals.</p>
+<p t="1683610" d="10650">Each update gets charged at
+most, h, which is order log</p>
+<p t="1694260" d="730">N times.</p>
+<p t="1700770" d="3480">We looked at what
+happens for node x,</p>
+<p t="1704250" d="2190">but we have to apply this
+argument simultaneously</p>
+<p t="1706440" d="1500">for all nodes x.</p>
+<p t="1707940" d="2310">Fortunately, this
+node versus this node,</p>
+<p t="1710250" d="1500">they don't share
+any descendants.</p>
+<p t="1711750" d="1900">And so there's no
+multiple charging.</p>
+<p t="1713650" d="2355">But node x and its
+parent and grandparent</p>
+<p t="1716005" d="2885">and all its
+ancestors, they're all</p>
+<p t="1718890" d="1350">talking about the same nodes.</p>
+<p t="1720240" d="1500">And so they will
+multiple charge,</p>
+<p t="1721740" d="1800">but only by a factor
+of log N. That's</p>
+<p t="1723540" d="3330">something we've seen a few
+times, charging log N times,</p>
+<p t="1726870" d="3000">for every node in the
+tree, like range trees</p>
+<p t="1729870" d="2850">having N log N space
+in two dimensions.</p>
+<p t="1732720" d="2750">Same deal.</p>
+<p t="1735470" d="3490">So we've got size of the
+interval divided by log N guys</p>
+<p t="1738960" d="3570">to charge to, which we multiply
+charge log N times, so we get</p>
+<p t="1742530" d="1760">a log squared amortized bound.</p>
+<p t="1755180" d="5310">So this log N is hard to avoid
+because we have a binary tree</p>
+<p t="1760490" d="2400">that's pretty natural.</p>
+<p t="1762890" d="5160">This log N, essentially,
+comes from this h.</p>
+<p t="1768050" d="2411">The fact that we can only
+go from one constant factor</p>
+<p t="1770461" d="499">to another.</p>
+<p t="1770960" d="2610">And we've got log N
+different steps to make.</p>
+<p t="1773570" d="4290">We have to do 1 over log
+N increment every step.</p>
+<p t="1777860" d="1770">That's the best we could afford.</p>
+<p t="1779630" d="6250">That's why these are evenly
+spaced out in this linear way.</p>
+<p t="1785880" d="3320">But if we had a little more
+space, we could do better.</p>
+<p t="1789200" d="2994">So that's going to lead us to
+this list labeling problem.</p>
+<p t="1792194" d="1416">But first, are
+there any questions</p>
+<p t="1793610" d="1208">about order file maintenance?</p>
+<p t="1794818" d="1552">At this point, we are done.</p>
+<p t="1796370" d="664">Yeah.</p>
+<p t="1797034" d="2458">AUDIENCE: Can you explain again
+how is it that you get from</p>
+<p t="1799492" d="3055">the size of the interval
+[INAUDIBLE] and that each--</p>
+<p t="1802547" d="1333">ERIK DEMAINE: This amortization?</p>
+<p t="1803880" d="2019">AUDIENCE: Yeah, how you
+got to the amortized.</p>
+<p t="1805899" d="791">ERIK DEMAINE: Yeah.</p>
+<p t="1806690" d="999">So let me explain again.</p>
+<p t="1807689" d="3021">So when we do rebalance
+of an interval,</p>
+<p t="1810710" d="1542">the cost is the size
+of the interval.</p>
+<p t="1812252" d="2291">We're trying to analyze, what
+is the size the interval?</p>
+<p t="1814543" d="1727">Prove that is log
+squared N. So we have</p>
+<p t="1816270" d="2150">this cost of size of interval.</p>
+<p t="1818420" d="5010">We're charging it to the
+items which just got inserted</p>
+<p t="1823430" d="1920">or deleted into that interval.</p>
+<p t="1825350" d="4650">Before this node rebalances
+again, but in general,</p>
+<p t="1830000" d="1950">we're interested in the--</p>
+<p t="1831950" d="2760">we can afford to rebalance
+every node at the beginning.</p>
+<p t="1834710" d="3300">And then whenever
+a node rebalances--</p>
+<p t="1838010" d="3030">before it rebalances,
+one of its children</p>
+<p t="1841040" d="1350">had to be out of whack.</p>
+<p t="1842390" d="3990">For one of its children
+to be out of whack,</p>
+<p t="1846380" d="1500">there had to have
+been an insertion</p>
+<p t="1847880" d="4860">of at least the size of the
+interval divided by log N,</p>
+<p t="1852740" d="1692">because log was h.</p>
+<p t="1854432" d="1458">There's a slight
+discrepancy, here.</p>
+<p t="1855890" d="1680">We're talking about
+the size of the parent</p>
+<p t="1857570" d="1958">interval versus the size
+of the child interval,</p>
+<p t="1859528" d="2032">but that's just a factor of 2.</p>
+<p t="1861560" d="2820">So that's incorporated
+by this theta.</p>
+<p t="1864380" d="3450">So you could have a little
+theta here, too, if you like.</p>
+<p t="1867830" d="2130">OK, so for the child
+to be out of whack,</p>
+<p t="1869960" d="2910">we had to have done updates of
+size interval divided by log N.</p>
+<p t="1872870" d="2740">So we charge this cost to them.</p>
+<p t="1875610" d="3080">And so we have to charge log
+N to each of those items,</p>
+<p t="1878690" d="1954">each of those updates.</p>
+<p t="1880644" d="1416">And then there's
+a second problem,</p>
+<p t="1882060" d="4130">which is everybody gets charged
+by all of its ancestors.</p>
+<p t="1886190" d="2740">And it has log N ancestors.</p>
+<p t="1888930" d="3450">So in all, each update gets
+charged at most log squared N</p>
+<p t="1892380" d="790">times.</p>
+<p t="1893170" d="2960">So you get amortized
+log squared per update.</p>
+<p t="1901400" d="3310">Other questions?</p>
+<p t="1904710" d="600">Cool.</p>
+<p t="1905310" d="1170">So that's ordered files.</p>
+<p t="1906480" d="2140">Now we have b-trees.</p>
+<p t="1908620" d="4610">We can handle this log squared
+N. That was OK for B trees,</p>
+<p t="1913230" d="1680">using a layer of indirection.</p>
+<p t="1914910" d="4560">But it's natural to wonder
+whether you can do better.</p>
+<p t="1919470" d="2520">In general, the conjecture
+is that for ordered files,</p>
+<p t="1921990" d="1230">you cannot do better.</p>
+<p t="1923220" d="2520">If this is your problem
+setup, if you can only</p>
+<p t="1925740" d="3180">have constant sized gaps,
+you need a linear size array.</p>
+<p t="1928920" d="2190">You need log squared
+N interval updates,</p>
+<p t="1931110" d="2210">but no one's proved
+that lower bound.</p>
+<p t="1933320" d="2350">So that's one open question.</p>
+<p t="1935670" d="3330">Another fun fact is
+we did amortized,</p>
+<p t="1939000" d="4080">but it's actually
+possible to do worst case.</p>
+<p t="1943080" d="1170">It's complicated.</p>
+<p t="1944250" d="7440">Willard did it in 1992.</p>
+<p t="1951690" d="2640">But let's talk about
+relaxing the problem.</p>
+<p t="1954330" d="2900">So instead of saying, well, the
+array has to be linear size,</p>
+<p t="1957230" d="1860">what if we let it to be bigger?</p>
+<p t="1959090" d="1350">And then you can do better.</p>
+<p t="1964890" d="2940">And this is a problem
+called list labeling.</p>
+<p t="1973740" d="4130">So I'm going to rephrase it,
+but it's essentially the same</p>
+<p t="1977870" d="1680">as order file maintenance.</p>
+<p t="1979550" d="5409">It's a little bit
+less restriction.</p>
+<p t="2014310" d="1860">So it's a dynamic
+linked list problem,</p>
+<p t="2016170" d="1410">like we've seen before.</p>
+<p t="2017580" d="11000">And each node at all
+times stores a label such</p>
+<p t="2028580" d="10710">that labels are always
+monotone down the list.</p>
+<p t="2042650" d="1480">So think of it this way.</p>
+<p t="2044130" d="1940">We have a linked list.</p>
+<p t="2051355" d="2375">And all we're interested is
+maintaining this linked list.</p>
+<p t="2053730" d="3050">So we want to be able to
+say, OK, delete this item</p>
+<p t="2056780" d="2250">and update these pointers.</p>
+<p t="2059030" d="4260">Or maybe, insert a
+new item over here.</p>
+<p t="2063290" d="2040">And so it's going to
+be linked like that.</p>
+<p t="2065330" d="3059">And at all times in
+this cell here, we're</p>
+<p t="2068389" d="6885">storing a number, 3, 7,
+12, 14, 42, whatever.</p>
+<p t="2075274" d="3465">It could be any
+integer, let's say.</p>
+<p t="2078739" d="2051">And we need that the
+numbers are increasing order</p>
+<p t="2080790" d="2449">down the linked list.</p>
+<p t="2083239" d="3761">Now, I claim this is basically
+the same as an ordered file</p>
+<p t="2087000" d="1130">problem.</p>
+<p t="2088130" d="2490">Just think of this number as
+being the index in the array</p>
+<p t="2090620" d="1630">that you store it.</p>
+<p t="2092250" d="2252">So this should be
+strictly monotone--</p>
+<p t="2097280" d="6390">I guess, increasing
+down the list.</p>
+<p t="2103670" d="1980">That means none of these
+numbers are the same.</p>
+<p t="2105650" d="2700">So we can store the items--</p>
+<p t="2108350" d="2580">whatever data is
+associated with this node--</p>
+<p t="2110930" d="2790">we can store that in
+the array position 3,</p>
+<p t="2113720" d="2970">in the array position 7,
+in the array position 12.</p>
+<p t="2116690" d="5424">When we insert, we have to find
+a new label between 3 and 7.</p>
+<p t="2122114" d="2166">Now we're allowed to change
+the labels dynamically--</p>
+<p t="2124280" d="1410">that's what makes
+this possible--</p>
+<p t="2125690" d="3720">which corresponds to
+moving items in the array.</p>
+<p t="2129410" d="5010">And the only difference is about
+how this is physically done.</p>
+<p t="2134420" d="2730">With ordered file, you have
+to physically move items</p>
+<p t="2137150" d="750">in the array.</p>
+<p t="2137900" d="5130">Here, you just change a number
+and that's moving the item.</p>
+<p t="2143030" d="3180">Where this gets interesting is
+if you allow the label space--</p>
+<p t="2146210" d="2640">which is the storage
+space of the array--</p>
+<p t="2148850" d="1920">to become super linear.</p>
+<p t="2150770" d="2880">With ordered files, it doesn't
+really make a lot of sense</p>
+<p t="2153650" d="2880">to go super linear, at least,
+not by more than a couple log</p>
+<p t="2156530" d="3810">factors because time is
+always at least space.</p>
+<p t="2160340" d="2790">If you have a giant array,
+you have to initialize it.</p>
+<p t="2163130" d="2250">And you can't afford to
+initialize an array of, say,</p>
+<p t="2165380" d="3580">N squared size, if you're
+trying to maintain N items.</p>
+<p t="2168960" d="1460">But in list labeling, you can.</p>
+<p t="2170420" d="3960">I mean, if you say all these
+numbers are between 0 and N</p>
+<p t="2174380" d="3120">squared, that's no
+big deal because you</p>
+<p t="2177500" d="3990">can represent a number up to
+N squared, which is two log N</p>
+<p t="2181490" d="910">bits.</p>
+<p t="2182400" d="2807">So squaring the space is no
+big deal for list labeling.</p>
+<p t="2185207" d="2083">It would be a big deal for
+order file maintenance,</p>
+<p t="2187290" d="1310">so that's why we rephrase.</p>
+<p t="2188600" d="3240">But they're basically
+the same problem--</p>
+<p t="2191840" d="3300">just a little less useful
+for cache-oblivious stuff.</p>
+<p t="2202740" d="2349">Let me tell you what's
+known about mislabelling.</p>
+<p t="2216825" d="14395">In terms of the amount of
+label space you're given,</p>
+<p t="2231220" d="2590">and how good a running
+time per update</p>
+<p t="2233810" d="3650">we can get, in terms
+of best known results.</p>
+<p t="2237460" d="3930">So what we just saw
+is that if you do--</p>
+<p t="2241390" d="1414">we just said linear space.</p>
+<p t="2242804" d="1916">But in fact, you can get
+1 plus epsilon space.</p>
+<p t="2244720" d="3660">You can say, oh, I wouldn't want
+to waste 1% of my storage space</p>
+<p t="2248380" d="1180">in the array.</p>
+<p t="2249560" d="2810">And if you set the
+theta at the leaves,</p>
+<p t="2252370" d="4242">here, to the right value,
+then you can just waste 1%</p>
+<p t="2256612" d="1458">and still maintain
+an ordered file.</p>
+<p t="2258070" d="2840">I think this is cool from
+a file system perspective.</p>
+<p t="2260910" d="3880">But in particular, it
+gives us what we need.</p>
+<p t="2264790" d="3150">And if you go up
+to N log N space,</p>
+<p t="2267940" d="2550">it doesn't seem
+to help you much.</p>
+<p t="2270490" d="3525">The best we know is log
+squared N. As I mentioned,</p>
+<p t="2274015" d="4815">it could be amortized
+or worst case.</p>
+<p t="2278830" d="2690">If you bump up the space to
+N to the 1 plus epsilon--</p>
+<p t="2281520" d="2536">so a little bit super linear--</p>
+<p t="2284056" d="6066">and anything polynomial, then
+the best we know is log N.</p>
+<p t="2290122" d="1458">And there is actually
+a lower bound</p>
+<p t="2291580" d="3550">for this result in
+a particular model.</p>
+<p t="2295130" d="3830">So it seems pretty clear that--</p>
+<p t="2298960" d="2670">at least for these style
+of data structures,</p>
+<p t="2301630" d="2520">the best you can do in
+this situation is log N.</p>
+<p t="2304150" d="3220">But hey, log N is
+better than log squared.</p>
+<p t="2307370" d="3680">And the other obvious bound is
+if you have exponential space,</p>
+<p t="2311050" d="3072">you can do constant,
+essentially.</p>
+<p t="2314122" d="1458">Because with
+exponential space, you</p>
+<p t="2315580" d="1530">can just keep
+bisecting the interval</p>
+<p t="2317110" d="2520">between two items
+in constant time</p>
+<p t="2319630" d="1857">until you've inserted N items.</p>
+<p t="2321487" d="2083">And then you can rebuild
+the whole data structure.</p>
+<p t="2323570" d="2990">So that's sort of
+the trivial result.</p>
+<p t="2326560" d="3030">If you don't care about
+how big these labels get--</p>
+<p t="2329590" d="2561">and how big they would
+get is 2 to the N--</p>
+<p t="2332151" d="1249">then you can do constant time.</p>
+<p t="2333400" d="2290">That's really the only way
+we know how to do constant.</p>
+<p t="2338650" d="1830">So the interesting
+new result, here,</p>
+<p t="2340480" d="2880">that I'm talking about
+is for polynomial space,</p>
+<p t="2343360" d="2010">we can get log N.</p>
+<p t="2345370" d="3890">And rough idea is you just
+fixed these density intervals.</p>
+<p t="2349260" d="3220">Now you don't have to make it--</p>
+<p t="2352480" d="2610">I mean, you're still going
+to be divided by h, here,</p>
+<p t="2355090" d="2440">but your spread
+can be much bigger.</p>
+<p t="2357530" d="2150">So your densities no longer
+have to be constants.</p>
+<p t="2359680" d="2040">Now we can afford a density--</p>
+<p t="2361720" d="3330">near the root, we can get
+a density of like 1 over--</p>
+<p t="2365050" d="2610">actually, anywhere, we
+can afford a density of 1</p>
+<p t="2367660" d="4320">over N. Because if we have N
+squared slots and only N items</p>
+<p t="2371980" d="3830">to put in them, then a decent
+density is 1 over N, in fact.</p>
+<p t="2375810" d="1530">It could also be constant.</p>
+<p t="2377340" d="1990">Constant would be all right.</p>
+<p t="2379330" d="2850">So we've got a big spread there,
+from 1 over N to constant.</p>
+<p t="2382180" d="3080">And so we can afford to
+take much bigger jumps here,</p>
+<p t="2385260" d="8390">of like 1 over N. And so that
+gets rid of this log N factor,</p>
+<p t="2393650" d="2000">essentially.</p>
+<p t="2395650" d="2800">That was the rough sketch.</p>
+<p t="2398450" d="7500">I have written, here,
+that the densities we use</p>
+<p t="2405950" d="2110">are no longer uniformly spaced.</p>
+<p t="2408060" d="3050">The 1 over alpha to the d.</p>
+<p t="2411110" d="8490">Alpha, here, is some constant
+in the interval between 1 and 2.</p>
+<p t="2419600" d="1470">And d is the depth.</p>
+<p t="2421070" d="3060">So now we have exponentially
+increasing densities</p>
+<p t="2424130" d="4530">which give you a big gap--</p>
+<p t="2428660" d="3660">no longer lose
+this log N factor.</p>
+<p t="2432320" d="2670">So you do exactly the
+same data structure,</p>
+<p t="2434990" d="1660">these different densities.</p>
+<p t="2436650" d="2360">Now you've got room to
+fill in a whole bunch</p>
+<p t="2439010" d="3830">more densities when you
+have, say, N squared space.</p>
+<p t="2442840" d="3580">And so you only get the log N
+factor because of the number</p>
+<p t="2446420" d="1051">of ancestors of a node.</p>
+<p t="2447471" d="1499">And you lose the
+other log N factor.</p>
+<p t="2455470" d="4170">Now let me tell you
+about another problem</p>
+<p t="2459640" d="980">building on this.</p>
+<p t="2471672" d="3652">So this is the list order
+maintenance problem.</p>
+<p t="2475324" d="1916">And this is the problem
+we saw in a Lecture 1.</p>
+<p t="2482520" d="10020">So here, same as before,
+maintain a linked list,</p>
+<p t="2492540" d="8340">subject to, insert a
+node at this location,</p>
+<p t="2500880" d="5955">delete a node at this
+location, and order queries.</p>
+<p t="2513720" d="6390">Is node x before
+node y in the list?</p>
+<p t="2523110" d="3300">This is what we needed to
+support full persistence.</p>
+<p t="2526410" d="1125">You have a big linked list.</p>
+<p t="2534430" d="2330">And then if I give you
+this node and this node,</p>
+<p t="2536760" d="2190">I want to know that this
+node is before that node</p>
+<p t="2538950" d="2760">in the list in constant time.</p>
+<p t="2541710" d="3540">I claim that we can solve this
+problem given our solutions</p>
+<p t="2545250" d="3000">to list labeling--</p>
+<p t="2548250" d="3590">not so obvious, how.</p>
+<p t="2551840" d="1944">List labeling is
+great because it lets</p>
+<p t="2553784" d="1166">you do order queries, right?</p>
+<p t="2554950" d="2180">You just compare the two
+labels and you instantly</p>
+<p t="2557130" d="2550">discover which is before which.</p>
+<p t="2559680" d="2160">And so if we could afford
+log N time over there,</p>
+<p t="2561840" d="1980">we could just use this solution.</p>
+<p t="2563820" d="1600">And this is reasonable.</p>
+<p t="2565420" d="2720">But we really want constant
+time per operation.</p>
+<p t="2568140" d="1740">Now if we do constant
+time per operation</p>
+<p t="2569880" d="2530">and we use exponential
+label space,</p>
+<p t="2572410" d="1900">this is not so good
+because it means you need</p>
+<p t="2574310" d="2230">N bits to write down a label.</p>
+<p t="2576540" d="2400">So it's going to take,
+like, linear time to modify</p>
+<p t="2578940" d="3060">or to compare two labels.</p>
+<p t="2582000" d="2540">This doesn't save you.</p>
+<p t="2584540" d="1330">We can afford to do this.</p>
+<p t="2585870" d="3030">This is only log
+N bits per label.</p>
+<p t="2588900" d="1860">And we assume all
+of our integers</p>
+<p t="2590760" d="2430">can store at least log N bits--</p>
+<p t="2593190" d="3550">something called
+a Word RAM Model.</p>
+<p t="2596740" d="3230">And so we can afford
+to store these labels,</p>
+<p t="2599970" d="2170">but we pay this log N time.</p>
+<p t="2602140" d="2420">So you've got to
+remove a log N factor.</p>
+<p t="2604560" d="1190">How do we do that?</p>
+<p t="2605750" d="2860">Indirection-- just
+like last class.</p>
+<p t="2614230" d="1480">Let's do that on this board.</p>
+<p t="2628860" d="6810">On the top, we're going to
+store N over log N items</p>
+<p t="2635670" d="16010">using this list labeling with
+label space, say, N squared.</p>
+<p t="2651680" d="1740">Any polynomial will do.</p>
+<p t="2653420" d="2140">And so this takes
+log N per operation</p>
+<p t="2655560" d="2920">to do anything on these
+N over log N items.</p>
+<p t="2658480" d="1550">And then at the
+bottom, we have lots</p>
+<p t="2660030" d="2970">of little structures
+of size log N.</p>
+<p t="2663000" d="2910">And that's supposed to eat up
+a factor of log N in our update</p>
+<p t="2665910" d="1220">time if we do it right.</p>
+<p t="2675030" d="3640">Actually, I can just do list
+labeling down here as well.</p>
+<p t="2678670" d="3170">So if I'm only
+storing log N items,</p>
+<p t="2681840" d="3120">then I can afford to use
+the exponential solution--</p>
+<p t="2684960" d="3810">the trivial thing where I just
+bisect all the labels until all</p>
+<p t="2688770" d="1710">the log items have changed.</p>
+<p t="2690480" d="1200">Then, rewrite them.</p>
+<p t="2691680" d="4320">Because 2 to the log N is only
+N. So here, in each of these,</p>
+<p t="2696000" d="8370">I do a list labeling with
+space 2 to the log N,</p>
+<p t="2704370" d="2430">also known as N.</p>
+<p t="2706800" d="4120">So these guys are constant
+time to do anything in</p>
+<p t="2710920" d="1580">to maintain the labels.</p>
+<p t="2712500" d="1920">And to maintain levels up here--</p>
+<p t="2714420" d="3330">so to maintain, basically, each
+of these N over log N guys,</p>
+<p t="2717750" d="4460">is one representative element
+representing this entire group</p>
+<p t="2722210" d="1840">as N over log N of these groups.</p>
+<p t="2727320" d="1470">So this label
+structure is supposed</p>
+<p t="2728790" d="1980">to distinguish the
+different groups.</p>
+<p t="2730770" d="3570">And then the labels in here
+are distinguishing the items</p>
+<p t="2734340" d="930">within the group.</p>
+<p t="2735270" d="6350">Now this cost log N amortized
+to keep what we need up here.</p>
+<p t="2741620" d="2560">But now if I want
+the label of an item,</p>
+<p t="2744180" d="4850">I just take this label,
+comma, this label.</p>
+<p t="2749030" d="3260">So if I have an item
+here, for example,</p>
+<p t="2752290" d="2330">at first, I look at
+the label of this block</p>
+<p t="2754620" d="2380">as stored by this
+data structure.</p>
+<p t="2757000" d="2180">And then I look at the
+label within the block.</p>
+<p t="2759180" d="6510">And so my composite
+label is going</p>
+<p t="2765690" d="6330">to be an ordered pair of top
+label, comma, the bottom label.</p>
+<p t="2778017" d="1583">This is kind of funny
+because it looks</p>
+<p t="2779600" d="2430">like we're solving the list
+labeling problem again,</p>
+<p t="2782030" d="3000">with now a space of N cubed.</p>
+<p t="2785030" d="2730">We've got N squared for
+the first coordinate,</p>
+<p t="2787760" d="1711">and then N for the
+second coordinate.</p>
+<p t="2789471" d="1499">So if you just
+concatenate those two</p>
+<p t="2790970" d="4770">labels, that lives in a bigger
+label space of size N cubed.</p>
+<p t="2795740" d="2780">And yet, I claim this
+takes constant amortized</p>
+<p t="2798520" d="2230">and is not a solution
+to list labeling.</p>
+<p t="2800750" d="3810">It's just a matter of, again,
+how updates are performed.</p>
+<p t="2804560" d="2700">With order file maintenance, we
+had to physically move items.</p>
+<p t="2807260" d="2070">With list labeling
+problem, we had</p>
+<p t="2809330" d="3120">to modify the number
+stored with each node.</p>
+<p t="2812450" d="1560">That's expensive.</p>
+<p t="2814010" d="4560">In this world, if we
+change a label up here,</p>
+<p t="2818570" d="2400">we are basically
+instantly-- say,</p>
+<p t="2820970" d="3480">we changed the label
+corresponding to this group</p>
+<p t="2824450" d="1050">in here.</p>
+<p t="2825500" d="3570">We changed the label all of
+these items in one operation.</p>
+<p t="2829070" d="2100">Or actually, it
+takes log N time.</p>
+<p t="2831170" d="2890">And then we change the label
+of all log N of these items.</p>
+<p t="2834060" d="3020">So that's why we get
+constant amortized.</p>
+<p t="2837080" d="1360">So how does this work?</p>
+<p t="2838440" d="1790">If we insert a new
+item, we stick it</p>
+<p t="2840230" d="2010">into one of these blocks.</p>
+<p t="2842240" d="1680">The block that it fits into.</p>
+<p t="2843920" d="3930">If this block gets too full,
+more than, say, 1 times log N,</p>
+<p t="2847850" d="1410">then we split it in half.</p>
+<p t="2849260" d="3150">If it gets too sparse by
+deletion, say, less than a 1/4</p>
+<p t="2852410" d="2670">log N, then we'll merge it
+with one of its neighbors,</p>
+<p t="2855080" d="1470">and then possibly split.</p>
+<p t="2856550" d="2250">Each of those triggers a
+constant number of operations</p>
+<p t="2858800" d="1100">up here.</p>
+<p t="2859900" d="2020">And so we pay log N,
+but we only pay it</p>
+<p t="2861920" d="3930">when we've made theta log N
+changes to one of these blocks.</p>
+<p t="2865850" d="3300">So we can charge this log N
+cost to those log N updates.</p>
+<p t="2869150" d="1620">And so this turns into constant.</p>
+<p t="2870770" d="1900">This down here is
+always constant.</p>
+<p t="2872670" d="2001">And so it's constant amortized.</p>
+<p t="2882530" d="2880">And if each of these
+blocks remembers</p>
+<p t="2885410" d="2070">what the corresponding--</p>
+<p t="2887480" d="1890">and, basically, this
+is a linked list, here.</p>
+<p t="2889370" d="1624">And then we have
+linked list down here,</p>
+<p t="2890994" d="1406">and they have labels.</p>
+<p t="2892400" d="3540">And it's like a, what do you
+call, a skip list with just two</p>
+<p t="2895940" d="1170">levels.</p>
+<p t="2897110" d="1710">And every node
+here just remembers</p>
+<p t="2898820" d="1707">what its parent is up here.</p>
+<p t="2900527" d="1833">So if you want to know
+your composite label,</p>
+<p t="2902360" d="3300">you just look at the bottom
+label and then walk up.</p>
+<p t="2905660" d="1350">Look at the top label.</p>
+<p t="2907010" d="2130">Those are just stored
+right there in the nodes.</p>
+<p t="2909140" d="2208">And so in constant time,
+you can find your top label,</p>
+<p t="2911348" d="852">your bottom label.</p>
+<p t="2912200" d="3010">Therefore, you can compare
+two items in constant time.</p>
+<p t="2915210" d="2170">So this solves the problem
+we needed in Lecture 1.</p>
+<p t="2917380" d="499">Question?</p>
+<p t="2917879" d="3829">AUDIENCE: Sorry, why isn't it
+the same as the N cubed label</p>
+<p t="2921708" d="502">space?</p>
+<p t="2922210" d="708">ERIK DEMAINE: OK.</p>
+<p t="2922918" d="2962">Why is it not same as N cubed
+label space, which I claim</p>
+<p t="2925880" d="1890">has a lower amount of log N?</p>
+<p t="2927770" d="2880">The difference is
+with list labeling,</p>
+<p t="2930650" d="2940">you have to explicitly change
+the label of each items.</p>
+<p t="2933590" d="2400">And here, we're
+basically computing</p>
+<p t="2935990" d="2502">the label of a node now becomes
+a constant time algorithm.</p>
+<p t="2938492" d="1458">We're allowed to
+look at the label,</p>
+<p t="2939950" d="2064">here, then walk up, then
+look at the label, here.</p>
+<p t="2942014" d="1416">And by changing
+the label up here,</p>
+<p t="2943430" d="3120">we change it simultaneously
+for log N guys down there.</p>
+<p t="2946550" d="2850">So that's the big difference
+between this list order</p>
+<p t="2949400" d="3600">maintenance problem from
+the list labeling problem.</p>
+<p t="2953000" d="2010">These were actually all
+solved in the same paper</p>
+<p t="2955010" d="1530">by Dietz and Slater.</p>
+<p t="2956540" d="3660">But sort of successively--</p>
+<p t="2960200" d="1531">slightly relaxing
+on a problem makes</p>
+<p t="2961731" d="2249">a huge difference in the
+running time you can achieve.</p>
+<p t="2963980" d="2041">Obviously, we can't get
+any better than constant.</p>
+<p t="2966021" d="2386">So we're done in--</p>
+<p t="2968407" d="2083">of course, then there's
+external memory versions--</p>
+<p t="2970490" d="5860">but in terms of regular
+data structures.</p>
+<p t="2976350" d="4850">And again, Willard made
+it worst case constant.</p>
+<p t="2981200" d="2600">That's a lot harder.</p>
+<p t="2983800" d="2861">Other questions?</p>
+<p t="2986661" d="499">Cool.</p>
+<p t="2987160" d="5100">So that does order file
+maintenance and list labeling.</p>
+<p t="2992260" d="2950">And so next, we're going to
+move to a very different data</p>
+<p t="2995210" d="2310">structure, which is
+cache-oblivious priority queue.</p>
+<p t="3009912" d="1958">We haven't really done
+any cache-oblivious data</p>
+<p t="3011870" d="666">structures, yet.</p>
+<p t="3012536" d="3174">So it's time to return
+to our original goal.</p>
+<p t="3019640" d="2180">We're not actually going
+to use ordered files.</p>
+<p t="3021820" d="1980">Sadly, that was last lecture.</p>
+<p t="3026644" d="3906">So All of this was a
+continuation of last lecture.</p>
+<p t="3030550" d="2220">Now we're going to do a
+different data structure.</p>
+<p t="3032770" d="1500">It's going to adapt
+to B, it's going</p>
+<p t="3034270" d="1900">to adapt to M. It's
+cache-oblivious.</p>
+<p t="3036170" d="1910">And it achieves priority queue.</p>
+<p t="3038080" d="2040">Now remember, this
+sorting bound--</p>
+<p t="3044830" d="4290">N over B log base M of N over
+B This is our sorting bound.</p>
+<p t="3049120" d="4150">Then the priority queue bound
+we want is this divided by N.</p>
+<p t="3053270" d="4250">So we want to be able to
+do 1 over B log base M</p>
+<p t="3057520" d="4470">over B, N over b.</p>
+<p t="3061990" d="3930">Insert and delete
+min, let's say.</p>
+<p t="3065920" d="2370">And this is an interesting
+bound because it's usually</p>
+<p t="3068290" d="1770">much less than 1.</p>
+<p t="3070060" d="1930">It's a sub constant bound.</p>
+<p t="3071990" d="2750">This is going to
+be a little o of 1,</p>
+<p t="3074740" d="5790">assuming this log is
+smaller than this B.</p>
+<p t="3080530" d="9660">So it's a little o of
+1 if, let's say, B is</p>
+<p t="3090190" d="3430">bigger than the log N, roughly.</p>
+<p t="3093620" d="3770">This would, in
+particular, be enough.</p>
+<p t="3097390" d="2430">No pun intended-- be enough.</p>
+<p t="3099820" d="3210">So if our block size
+is reasonably big--</p>
+<p t="3103030" d="2005">cache line is bigger
+than log N, which</p>
+<p t="3105035" d="3515">is probably most likely
+in typical caches</p>
+<p t="3108550" d="1350">and architectures--</p>
+<p t="3109900" d="4520">then this is more like 1
+over B, never mind the log.</p>
+<p t="3114420" d="3550">And so we have to do B
+operations in one step.</p>
+<p t="3117970" d="2280">And then to really
+get the log right,</p>
+<p t="3120250" d="10440">we have to depend
+on M, not just B.</p>
+<p t="3130690" d="5610">As I mentioned, that's the
+bound we're going to achieve.</p>
+<p t="3136300" d="2400">We do need to make an
+assumption about M and B</p>
+<p t="3138700" d="1720">and how they relate.</p>
+<p t="3140420" d="10830">So we're going to assume a
+tall cache, which is M is,</p>
+<p t="3151250" d="3980">let's say, B to
+the 1 plus epsilon.</p>
+<p t="3155230" d="3150">So it has to be substantially
+bigger than B, not</p>
+<p t="3158380" d="1095">by a huge amount.</p>
+<p t="3159475" d="1125">It could be B squared.</p>
+<p t="3160600" d="2310">It could be B to the 1.1 power.</p>
+<p t="3162910" d="2332">But M is definitely
+at least B. And I want</p>
+<p t="3165242" d="1208">it to be a little bit bigger.</p>
+<p t="3166450" d="2970">I want the number of
+blocks to be not so tiny.</p>
+<p t="3173537" d="833">Here's how we do it.</p>
+<p t="3199940" d="2730">I think I need a big picture.</p>
+<p t="3209260" d="2750">So the kind of funny thing about
+cache-oblivious priority queues</p>
+<p t="3212010" d="1435">is we're not going to use trees.</p>
+<p t="3216190" d="3900">It's basically a bunch of
+arrays in a linear order.</p>
+<p t="3222814" d="2856">In some ways, it's an
+easier data structure.</p>
+<p t="3225670" d="2386">But it's definitely
+more complicated.</p>
+<p t="3232030" d="2756">But, hey, it's
+faster than b-trees.</p>
+<p t="3234786" d="2374">If you don't need to be able
+to do searches-- if you just</p>
+<p t="3237160" d="2610">need to be able to delete
+min, then priority queues</p>
+<p t="3239770" d="2040">are a lot faster than b-trees.</p>
+<p t="3250206" d="1124">Let me draw this.</p>
+<p t="3264420" d="4080">I want to try to draw
+this pseudo-accurate size.</p>
+<p t="3291132" d="2098">The only part that's
+inaccurate about this picture</p>
+<p t="3293230" d="1820">is the dot dot dots.</p>
+<p t="3295050" d="1050">Lets me cheat a little.</p>
+<p t="3309160" d="10280">So we have x to that
+9/4, x to the 3/2 and x.</p>
+<p t="3319440" d="4820">This is sort of what the
+levels are going to look like.</p>
+<p t="3324260" d="2250">So we have a linear
+sequence of levels.</p>
+<p t="3326510" d="5580">They are increasing doubly
+exponentially in size.</p>
+<p t="3332090" d="2750">If you look at what's
+going on here--</p>
+<p t="3338137" d="833">double exponential--</p>
+<p t="3338970" d="956">AUDIENCE: Are those
+exponentials the same as those?</p>
+<p t="3339926" d="1088">Or are they inverted?</p>
+<p t="3341014" d="1666">ERIK DEMAINE: It's
+supposed to be this--</p>
+<p t="3342680" d="4720">so this is the top level,
+and this is the bottom level.</p>
+<p t="3351100" d="2960">So at the top, we're going
+to have something of size N.</p>
+<p t="3354060" d="2560">And at the bottom, we're going
+to have something of a size C,</p>
+<p t="3356620" d="1150">constant.</p>
+<p t="3357770" d="2600">And what I've drawn is
+the generic middle part.</p>
+<p t="3360370" d="3030">So we go from x, to x
+to 3/2, to x to the 9/4.</p>
+<p t="3363400" d="3120">Or you could say x to the
+9/4, down to x to the 3/2,</p>
+<p t="3366520" d="5520">down to x, according to
+this exponential geometric</p>
+<p t="3372040" d="1570">progression, I guess.</p>
+<p t="3373610" d="3000">So that's how they go.</p>
+<p t="3376610" d="2360">So I mean, if it was
+just exponential,</p>
+<p t="3378970" d="2610">it would be, like, N,
+N over 2, N over 4.</p>
+<p t="3381580" d="2370">But we're doing--
+in logarithms, we're</p>
+<p t="3383950" d="1250">changing by constant factors.</p>
+<p t="3385200" d="2920">So it's doubly exponential.</p>
+<p t="3388120" d="2580">And then each of the
+levels is decomposed</p>
+<p t="3390700" d="3110">into top buffers and bottom--</p>
+<p t="3393810" d="3310">or, sorry, up buffers
+and down buffers.</p>
+<p t="3397120" d="2700">And as you see, the
+size of the top buffer</p>
+<p t="3399820" d="3780">is equal to the sum of the
+sizes of the bottom buffers.</p>
+<p t="3403600" d="5320">So let me elaborate
+on how this works.</p>
+<p t="3408920" d="4850">It's level x to the 3/2.</p>
+<p t="3413770" d="2730">We're going to, generically,
+be looking at x to the 3/2.</p>
+<p t="3416500" d="1050">So I can easily go down.</p>
+<p t="3417550" d="840">That's of size x.</p>
+<p t="3418390" d="2555">And up is x to the 9/4--</p>
+<p t="3420945" d="500">easily.</p>
+<p t="3424660" d="10665">There's always one up
+buffer of size x to the 3/2.</p>
+<p t="3437840" d="2010">So maybe some color.</p>
+<p t="3442410" d="5010">So this buffer, here,
+is x to the 3/2.</p>
+<p t="3447420" d="15780">And then we also have up to x
+to the 1/2 down buffers, each</p>
+<p t="3463200" d="2985">of size theta x.</p>
+<p t="3469750" d="2170">Each of these guys
+has size theta x.</p>
+<p t="3475700" d="4682">And then the number of them
+is, at most, x to the 1/2.</p>
+<p t="3480382" d="1458">And so you take
+the product, that's</p>
+<p t="3481840" d="2970">x to 3/2, which is the
+same as the up buffer.</p>
+<p t="3484810" d="3450">So that's the way
+this cookie crumbles.</p>
+<p t="3488260" d="4200">That's how each of these guys
+decomposes into little pieces.</p>
+<p t="3492460" d="3090">And so, in particular, this
+up buffer, if you work it out,</p>
+<p t="3495550" d="3630">should be exactly the same
+size as this down buffer.</p>
+<p t="3499180" d="2070">Maybe it's easier
+to do these two.</p>
+<p t="3501250" d="3000">So this down buffer has size x.</p>
+<p t="3504250" d="3820">And if you have a structure size
+x, the up buffer has size x.</p>
+<p t="3508070" d="2780">x of 3/2 has an up
+buffer size of x 3/2.</p>
+<p t="3510850" d="1380">So this will be size x.</p>
+<p t="3512230" d="2990">And so these match.</p>
+<p t="3515220" d="950">These are equal size.</p>
+<p t="3516170" d="1250">That's why I drew it this way.</p>
+<p t="3520630" d="2870">Now the dot dot dot hides the
+fact that they're x to the 1/2</p>
+<p t="3523500" d="500">of these.</p>
+<p t="3524000" d="1422">So there's a lot
+of down buffers.</p>
+<p t="3525422" d="1958">They're actually a lot
+smaller than up buffers.</p>
+<p t="3527380" d="2660">But these two match in
+size and these two match</p>
+<p t="3530040" d="820">in size, and so on.</p>
+<p t="3539370" d="2670">OK, there's a small exception.</p>
+<p t="3542040" d="2900">I'd put theta x here.</p>
+<p t="3544940" d="3280">The exception is that the
+very first down buffer</p>
+<p t="3548220" d="2670">might be mostly empty.</p>
+<p t="3550890" d="3000">So this one is not
+actually data x.</p>
+<p t="3553890" d="2490">Each of these will be theta x.</p>
+<p t="3556380" d="3110">And this one over on the
+left will be big O of x.</p>
+<p t="3562300" d="2839">Small typo in the notes, here.</p>
+<p t="3571010" d="4589">So if that's not sufficiently
+messy, let me redraw it--</p>
+<p t="3575599" d="1041">make it a little cleaner.</p>
+<p t="3600060" d="3300">I want to look at two
+consecutive levels</p>
+<p t="3603360" d="2900">and specify invariants.</p>
+<p t="3612001" d="2249">So after all, I'm trying to
+maintain a priority queue.</p>
+<p t="3614250" d="2250">What the heck is this thing?</p>
+<p t="3616500" d="2130">The idea is that
+towards the bottom,</p>
+<p t="3618630" d="2130">that's where the min is.</p>
+<p t="3620760" d="2190">That would seem good,
+because at the bottom,</p>
+<p t="3622950" d="1380">you're constant size.</p>
+<p t="3624330" d="1845">I can diddle with the
+thing of constant size</p>
+<p t="3626175" d="2325">if fits in a block
+or if it's in cache.</p>
+<p t="3628500" d="3390">It takes me zero time to
+touch things near the bottom.</p>
+<p t="3631890" d="2640">So as long as I always
+keep the min down there,</p>
+<p t="3634530" d="2430">I can do fine min in zero time.</p>
+<p t="3636960" d="2490">And delete min will
+also be pretty fast.</p>
+<p t="3639450" d="2460">I'm also going to insert
+there, because I don't</p>
+<p t="3641910" d="1290">know where else to put it.</p>
+<p t="3643200" d="2430">I'd like the larger items
+to be at near the top.</p>
+<p t="3645630" d="2430">I'd like the smaller items
+to be near the bottom,</p>
+<p t="3648060" d="3420">but kind of hard to know,
+when I insert an item,</p>
+<p t="3651480" d="1020">where it belongs.</p>
+<p t="3652500" d="1920">So I'll just start by
+inserting at the bottom.</p>
+<p t="3654420" d="4080">And the idea is as I insert,
+insert, insert down here,</p>
+<p t="3658500" d="1530">things will start to trickle up.</p>
+<p t="3660030" d="3940">That's what the up arrows mean,
+that these items are moving up.</p>
+<p t="3663970" d="4600">And then down arrow items are
+items that are moving down.</p>
+<p t="3668570" d="1250">Somehow this is going to work.</p>
+<p t="3669820" d="2110">So let me tell
+you the invariants</p>
+<p t="3671930" d="2260">that will make this work.</p>
+<p t="3674190" d="4110">If you look at the down
+buffers, they are sorted.</p>
+<p t="3678300" d="1620">Or I should say, all
+the items in here</p>
+<p t="3679920" d="3090">are less than all the
+items in here, and so on.</p>
+<p t="3683010" d="4260">But within each down
+buffer, it's disordered.</p>
+<p t="3687270" d="9020">Then we also know this.</p>
+<p t="3696290" d="2290">All the items in the up
+buffer in a given level--</p>
+<p t="3698580" d="3595">this is x to the 3/2, let's say.</p>
+<p t="3702175" d="2785">And this is x.</p>
+<p t="3704960" d="5970">All of the up items are larger
+than all of the down items.</p>
+<p t="3710930" d="2875">I mean, it's just
+an inequality here.</p>
+<p t="3713805" d="1625">So these guys are
+basically in a chain.</p>
+<p t="3715430" d="2576">Again, the items in
+here are not sorted.</p>
+<p t="3718006" d="2374">But all the items here are
+bigger than all the items here</p>
+<p t="3720380" d="1230">are bigger than all
+of the items here are</p>
+<p t="3721610" d="1291">bigger than all the items here.</p>
+<p t="3722901" d="2609">Now what about from
+level to level?</p>
+<p t="3725510" d="2220">This is a little more subtle.</p>
+<p t="3727730" d="3150">What we know is this.</p>
+<p t="3734089" d="2291">So again, we know that all
+the down buffers are sorted.</p>
+<p t="3736380" d="1416">And we know that
+this down buffer,</p>
+<p t="3737796" d="3024">all these items come before
+all this down buffer items.</p>
+<p t="3740820" d="2320">But these up buffer
+items, we don't know yet,</p>
+<p t="3743140" d="1640">because they're still moving up.</p>
+<p t="3744780" d="2350">Now we know this.</p>
+<p t="3747130" d="1232">They need to move up.</p>
+<p t="3748362" d="1458">But we still don't
+know how far up.</p>
+<p t="3749820" d="2208">We don't know how these
+items compare to these items.</p>
+<p t="3752028" d="2562">Or these items could
+have to go higher,</p>
+<p t="3754590" d="3670">could be they belong here,
+or are here, who knows.</p>
+<p t="3758260" d="3020">So basically, the down buffers
+are more or less sorted.</p>
+<p t="3761280" d="2160">And so the mins are going
+to be down at the bottom.</p>
+<p t="3763440" d="2449">And the up buffer items, I
+mean, they're still moving up.</p>
+<p t="3765889" d="1541">We don't know where
+they belong, yet.</p>
+<p t="3767430" d="1624">But eventually they'll
+find their place</p>
+<p t="3769054" d="1676">and start trickling down.</p>
+<p t="3770730" d="2271">Roughly speaking, an item
+will go up for a while</p>
+<p t="3773001" d="999">and then come back down.</p>
+<p t="3774000" d="1320">Although, that's
+not literally true.</p>
+<p t="3775320" d="750">It's roughly true.</p>
+<p t="3781100" d="3660">I should say something
+about how we actually</p>
+<p t="3784760" d="3480">store this in memory, because
+the whole name of the game</p>
+<p t="3788240" d="2480">is how you lay
+things out in memory.</p>
+<p t="3790720" d="2500">In cache-oblivious, that's all
+you get to choose, basically.</p>
+<p t="3793220" d="3480">The rest is algorithm,
+regular RAM algorithm.</p>
+<p t="3796700" d="1980">And all we do is store
+the items in order,</p>
+<p t="3798680" d="1470">say, from bottom to top.</p>
+<p t="3800150" d="2250">So store the entire C
+level, then the next level</p>
+<p t="3802400" d="3435">up, to store these items
+as consecutive arrays.</p>
+<p t="3805835" d="2355">That's what we need to.</p>
+<p t="3808190" d="2610">Leave enough space for x to
+the 1/2 down buffers, each</p>
+<p t="3810800" d="1460">at size theta x.</p>
+<p t="3834430" d="5410">So how do we do
+inserts and deletes?</p>
+<p t="3846814" d="3516">Let's start with insert.</p>
+<p t="3850330" d="3365">As I mentioned, we want to start
+by inserting in the bottom,</p>
+<p t="3853695" d="1625">until we run out of
+room in the bottom.</p>
+<p t="3855320" d="2460">And then things
+have to trickle up.</p>
+<p t="3857780" d="1803">So here's the basic algorithm.</p>
+<p t="3872770" d="1770">You look at the bottom level.</p>
+<p t="3874540" d="3490">You stick the item
+into the up buffer.</p>
+<p t="3878030" d="2022">This is not necessarily
+the right thing to do.</p>
+<p t="3880052" d="1708">So here, you stick it
+into the up buffer.</p>
+<p t="3881760" d="2630">But these things are supposed
+to be roughly sorted.</p>
+<p t="3884390" d="2390">So once you stick it there,
+you say, oh, well maybe I</p>
+<p t="3886780" d="1300">have to go down here.</p>
+<p t="3888080" d="821">Go down here.</p>
+<p t="3888901" d="1749">The point is the up
+buffer is the only one</p>
+<p t="3890650" d="2100">I want to be growing in size.</p>
+<p t="3892750" d="1680">So I insert into the up buffer.</p>
+<p t="3894430" d="2940">And say, oh, potentially
+I have to swap down here.</p>
+<p t="3897370" d="1120">Swap down here.</p>
+<p t="3898490" d="1250">I mean, this is constant size.</p>
+<p t="3899740" d="3630">I can afford to look at all
+the items here in zero time</p>
+<p t="3903370" d="2250">and find out which
+buffer it belongs to.</p>
+<p t="3905620" d="2220">As I move the item
+down here, I swap.</p>
+<p t="3907840" d="3220">So I take the max item here
+and move it up to here.</p>
+<p t="3911060" d="2450">Move the max item from
+the next down buffer</p>
+<p t="3913510" d="3120">and propagate it up, so that
+I keep these things in order.</p>
+<p t="3922530" d="11500">Swap into bottom down
+buffers if necessary--</p>
+<p t="3936730" d="1380">or maybe, as necessary.</p>
+<p t="3938110" d="1799">You might have to
+do a bunch of swaps.</p>
+<p t="3939909" d="916">But it's all constant.</p>
+<p t="3944560" d="2670">And then the point
+is the only buffer</p>
+<p t="3947230" d="3030">that got larger by one item was
+the up buffer, because, here,</p>
+<p t="3950260" d="2220">we did swaps to preserve size.</p>
+<p t="3952480" d="3188">And if that overflows, then
+we do something interesting.</p>
+<p t="3959580" d="2670">And something interesting
+is called push.</p>
+<p t="3966200" d="5520">This is a separate team,
+which I'll define now.</p>
+<p t="3989000" d="2040">So this is the
+bottom level push.</p>
+<p t="3991040" d="2730">But I wanted to find the
+generic level of push, which</p>
+<p t="3993770" d="7380">is we're going to be pushing
+x elements into level x</p>
+<p t="4001150" d="565">to the 3/2.</p>
+<p t="4007500" d="3650">So why is that?</p>
+<p t="4011150" d="1170">Check it out.</p>
+<p t="4012320" d="3784">If we're at level x and
+our up buffer overflows,</p>
+<p t="4016104" d="1916">and we're trying to push
+into the next level--</p>
+<p t="4018020" d="1950">that's level x to 3/2--</p>
+<p t="4019970" d="5465">then the up buffer that we're
+trying to push has size x.</p>
+<p t="4025435" d="3745">The up buffer has the same
+size as the level name.</p>
+<p t="4029180" d="2010">So if we're at level
+x, this has size x.</p>
+<p t="4031190" d="2590">We're trying to push x items
+up into the next thing.</p>
+<p t="4038215" d="1625">We're going to empty
+out the up buffer.</p>
+<p t="4039840" d="1390">Send all those items up there.</p>
+<p t="4044330" d="660">Cool.</p>
+<p t="4044990" d="780">So what do we do?</p>
+<p t="4045770" d="1620">How do we do this push?</p>
+<p t="4047390" d="4200">First thing we do
+is sort the items--</p>
+<p t="4051590" d="1980">those x items.</p>
+<p t="4053570" d="2730">This is where I need
+the black box, which</p>
+<p t="4056300" d="2700">is that we can sort
+N over B log base N</p>
+<p t="4059000" d="2340">over B, N over B
+cache-obliviously.</p>
+<p t="4061340" d="4140">So we're going to use that here.</p>
+<p t="4065480" d="3330">It's not hard, but I don't
+want to spend time on it.</p>
+<p t="4068810" d="5670">Now the interesting bit
+is how we do the push.</p>
+<p t="4074480" d="2520">The tricky part is we
+have all these items,</p>
+<p t="4077000" d="2479">we know that they're bigger
+than all the items below them.</p>
+<p t="4079479" d="1291">Maybe, here's a better picture.</p>
+<p t="4080770" d="1600">We know these guys
+need to go up.</p>
+<p t="4082370" d="3930">They're bigger than everything,
+all the down items below us.</p>
+<p t="4086300" d="1500">But we don't know,
+does it fit here?</p>
+<p t="4087800" d="650">Here?</p>
+<p t="4088450" d="500">Here?</p>
+<p t="4088950" d="1655">Or here?</p>
+<p t="4090605" d="1875">But we do know that
+these things are ordered.</p>
+<p t="4092480" d="2370">And so if we sort these
+items, then we can say,</p>
+<p t="4094850" d="2009">well, let's start
+by looking here.</p>
+<p t="4096859" d="2131">Do any of these items
+fit in this block?</p>
+<p t="4098990" d="1800">Just look at the max, here.</p>
+<p t="4100790" d="3060">And if these guys are
+smaller than the max, here,</p>
+<p t="4103850" d="969">then they belong here.</p>
+<p t="4104819" d="1611">So keep inserting there.</p>
+<p t="4106430" d="2849">Eventually, we'll get bigger
+than the max, then we go here.</p>
+<p t="4109279" d="1370">Look at the max item, here.</p>
+<p t="4110649" d="2458">As long as we have items here
+that are smaller than the max</p>
+<p t="4113107" d="3703">here, insert, insert,
+insert, insert, and so on.</p>
+<p t="4116810" d="2586">And then when we're beyond
+all of these-- maybe</p>
+<p t="4119396" d="1583">we're immediately
+beyond all of these.</p>
+<p t="4120979" d="1380">We have to check, oh,
+bigger than the max,</p>
+<p t="4122359" d="1741">bigger than the max,
+bigger than the max.</p>
+<p t="4124100" d="4270">Then we put all the remaining
+items into the up buffer.</p>
+<p t="4128370" d="1655">This is called distribution.</p>
+<p t="4151390" d="3280">So we're looking at
+level x to the 3/2,</p>
+<p t="4154670" d="2433">and just scanning sequentially.</p>
+<p t="4161740" d="3600">Because we just sorted them,
+we're scanning them in order.</p>
+<p t="4165340" d="3300">We visit the down
+buffers in order.</p>
+<p t="4178460" d="2700">And insert into the appropriate
+down buffer as we go.</p>
+<p t="4183740" d="3210">Now there's a little bit
+that can happen, here.</p>
+<p t="4186950" d="2760">Our down buffers
+have a limit in size.</p>
+<p t="4189710" d="3300">Down buffers are supposed to
+have size theta x at level</p>
+<p t="4193010" d="1269">x the 3/2.</p>
+<p t="4194279" d="3201">So as we're inserting into here,
+a down buffer might overflow.</p>
+<p t="4197480" d="1200">I've got theta slop, here.</p>
+<p t="4198680" d="3420">So when a down buffer overflows,
+I just split it in half.</p>
+<p t="4202100" d="2154">I then make two down buffers.</p>
+<p t="4204254" d="1416">Well, actually,
+it would be, like,</p>
+<p t="4205670" d="1770">here and right next to it.</p>
+<p t="4207440" d="3480">I'm going to maintain a
+linked list of down buffers.</p>
+<p t="4210920" d="3550">And each of them will have
+space for say, 2x items.</p>
+<p t="4214470" d="4670">But once I do a split,
+they'll both be half full.</p>
+<p t="4219140" d="21530">So when a down buffer
+overflows, split in half</p>
+<p t="4240670" d="3030">and maintain a linked
+list of down buffers.</p>
+<p t="4248840" d="2860">Another thing that can happen
+is when you increase the number</p>
+<p t="4251700" d="2530">down buffers, we have a limit
+on how many down buffers</p>
+<p t="4254230" d="960">we can have--</p>
+<p t="4255190" d="2490">up to x the 1/2 of them.</p>
+<p t="4257680" d="2700">So if we run out of down
+buffers by splitting,</p>
+<p t="4260380" d="2620">then we need to start
+using the up buffer.</p>
+<p t="4263000" d="5860">So maybe here, we split,
+maybe, this buffer--</p>
+<p t="4268860" d="1945">is now too many
+down buffers total.</p>
+<p t="4270805" d="1875">Then we'll just take
+all the elements in here</p>
+<p t="4272680" d="2610">and stick them into the
+up buffer, because that's</p>
+<p t="4275290" d="2740">where they belong.</p>
+<p t="4278030" d="2810">So when the number
+of down buffers</p>
+<p t="4280840" d="10760">is too big, when that
+number overflows,</p>
+<p t="4291600" d="11120">move the last down buffer
+into the up buffer.</p>
+<p t="4306972" d="2208">So there's basically two
+ways that elements are going</p>
+<p t="4309180" d="1290">to get into the up buffer.</p>
+<p t="4310470" d="1830">One way is that we run
+out of down buffers,</p>
+<p t="4312300" d="1920">and so the last down
+buffer starts getting</p>
+<p t="4314220" d="2412">promoted into the up buffer.</p>
+<p t="4316632" d="1458">The other possibility
+is that we're</p>
+<p t="4318090" d="3370">inserting items that are
+just really big in value.</p>
+<p t="4321460" d="2000">And if the items
+that are getting</p>
+<p t="4323460" d="1770">promoted from here
+into the next level</p>
+<p t="4325230" d="2200">just happen to be larger
+than all these items,</p>
+<p t="4327430" d="2360">we will immediately start
+inserting into the up buffer.</p>
+<p t="4329790" d="2040">But in general, we have to
+look at this down buffer.</p>
+<p t="4331830" d="708">Look at this one.</p>
+<p t="4332538" d="3762">Look at this one, then that one.</p>
+<p t="4336300" d="1770">That is insert and push.</p>
+<p t="4338070" d="2940">I think before I
+talk about delete,</p>
+<p t="4341010" d="2160">I'd like to talk about the
+analysis of just insert</p>
+<p t="4343170" d="870">and push.</p>
+<p t="4344040" d="1680">Keep it simple.</p>
+<p t="4345720" d="2400">And then I'll briefly
+tell you about deletion.</p>
+<p t="4371620" d="930">Oh, I didn't say.</p>
+<p t="4372550" d="660">Sorry.</p>
+<p t="4373210" d="2097">There's one more step,
+which is the recursion.</p>
+<p t="4377990" d="1460">Running out a room, here.</p>
+<p t="4379450" d="1944">Maybe I'll go over here.</p>
+<p t="4381394" d="1041">This is nothing relevant.</p>
+<p t="4391112" d="1208">So I need to recurse somehow.</p>
+<p t="4395890" d="2850">At some point, inserting things
+into the up offer, the up</p>
+<p t="4398740" d="1020">buffer might overflow.</p>
+<p t="4399760" d="2220">That's the one last thing
+that could overflow.</p>
+<p t="4401980" d="2700">When that happens, I just
+push it to the next level up.</p>
+<p t="4432030" d="3457">So as we do
+insertions in here, we</p>
+<p t="4435487" d="1583">might start inserting
+a lot into here.</p>
+<p t="4437070" d="1416">Eventually, this
+will get too big.</p>
+<p t="4438486" d="1714">It's supposed to
+have size x the 3/2.</p>
+<p t="4440200" d="2150">If it gets bigger than
+that, take all these items</p>
+<p t="4442350" d="3270">and just recursively push
+them up to the next level.</p>
+<p t="4445620" d="2390">And conveniently, that's
+exactly the same size</p>
+<p t="4448010" d="1000">as we were doing before.</p>
+<p t="4449010" d="2680">Here, we did x into
+level x to the 3/2.</p>
+<p t="4451690" d="4956">Next will be x to the 3/2 into
+level x to the 9/4, and so on.</p>
+<p t="4456646" d="1374">Always the size
+of the up buffer.</p>
+<p t="4462040" d="3260">So the claim is if we
+look at the push at level</p>
+<p t="4465300" d="960">x to the 3/2--</p>
+<p t="4466260" d="3420">which is what we
+just described--</p>
+<p t="4469680" d="2310">and we ignore the recursion.</p>
+<p t="4480910" d="10650">Then the cost is x over B log
+base M over B of x over B--</p>
+<p t="4491560" d="3030">so sorting bound on x items.</p>
+<p t="4494590" d="3210">So we spend that right away
+in the very first step.</p>
+<p t="4497800" d="2250">We sort x items.</p>
+<p t="4500050" d="4542">So that costs x over B. It has
+log base M over B of x over B.</p>
+<p t="4504592" d="1458">And the whole point
+of the analysis</p>
+<p t="4506050" d="3330">is to show that this
+distribution step doesn't cost</p>
+<p t="4509380" d="1740">any more than the sorting step.</p>
+<p t="4514180" d="5040">So let's prove this claim.</p>
+<p t="4519220" d="3900">And the first
+observation-- maybe,</p>
+<p t="4523120" d="1710">don't even need to
+write this down.</p>
+<p t="4524830" d="2562">So remember, with
+cache-oblivious b-trees,</p>
+<p t="4527392" d="1458">we looked at a
+level of detail that</p>
+<p t="4528850" d="1374">was sort of the
+relevant one that</p>
+<p t="4530224" d="3606">straddled B. Now we
+have this data structure</p>
+<p t="4533830" d="2970">and there's no longer recursive
+levels in this picture.</p>
+<p t="4536800" d="1497">It's just a list.</p>
+<p t="4538297" d="1833">But one of the things
+we said is that if you</p>
+<p t="4540130" d="1440">look at the very
+small structures,</p>
+<p t="4541570" d="2550">those are free because
+they just stay in cache.</p>
+<p t="4544120" d="1020">I'm going to assume--</p>
+<p t="4545140" d="2640">it's a little bit of a
+bastardization of notation--</p>
+<p t="4547780" d="4530">assume that all the levels
+up to M fit in cache.</p>
+<p t="4552310" d="2490">It's really up to, like,
+size M over 2 or something,</p>
+<p t="4554800" d="1290">but let's just call it all.</p>
+<p t="4556090" d="2460">If x is less than
+M, then you know</p>
+<p t="4558550" d="3060">all this stuff has size order
+M. And so let's just say--</p>
+<p t="4561610" d="2790">by redefining what M is
+by a constant factor--</p>
+<p t="4564400" d="1810">that just fits in cache.</p>
+<p t="4566210" d="2000">Because we can assume
+whatever cache replacement</p>
+<p t="4568210" d="2880">strategy we want,
+assume that these things</p>
+<p t="4571090" d="2440">stay in cache forever.</p>
+<p t="4573530" d="7070">So all of that bottom
+stuff, size up to M,</p>
+<p t="4580600" d="3330">is permanently in cache
+and costs zero to access.</p>
+<p t="4583930" d="1860">So those levels are for free.</p>
+<p t="4585790" d="2914">So it's all about when we
+touch the upper levels.</p>
+<p t="4588704" d="1541">And, really, the
+most important level</p>
+<p t="4590245" d="1935">would be the transition
+from the things that</p>
+<p t="4592180" d="3090">fit in cache to the next level
+up that does not fit in cache.</p>
+<p t="4595270" d="1650">That's going to
+be the key level.</p>
+<p t="4596920" d="7100">But in general,
+let's look at push.</p>
+<p t="4604020" d="13480">Or let's just assume x to
+the 3/2 is bigger than M.</p>
+<p t="4617500" d="3030">Because we're looking at a
+push at level x to the 3/2.</p>
+<p t="4620530" d="4440">And just by definition, if
+it's less than M, it's free.</p>
+<p t="4624970" d="1731">Question?</p>
+<p t="4626701" d="2027">AUDIENCE: So how can
+you assume that all</p>
+<p t="4628728" d="2743">of the things below
+that particular size</p>
+<p t="4631471" d="1431">always stay in cache empty?</p>
+<p t="4632902" d="2728">So you're making assumptions
+on the cache replacement?</p>
+<p t="4635630" d="890">ERIK DEMAINE: I'm
+making assumption</p>
+<p t="4636520" d="2125">on the cache replacement
+strategy, which I actually</p>
+<p t="4638645" d="1295">made last lecture.</p>
+<p t="4639940" d="2910">So I said, magically
+assume that we</p>
+<p t="4642850" d="2790">use optimal cache replacement.</p>
+<p t="4645640" d="4180">So whatever I choose, opt is
+going to be better than that.</p>
+<p t="4649820" d="920">So you're right.</p>
+<p t="4650740" d="2580">The algorithm doesn't get to
+choose what stays in cache.</p>
+<p t="4653320" d="2340">But for analysis purposes,
+I can say well, suppose</p>
+<p t="4655660" d="1291">all these things stay in cache.</p>
+<p t="4656951" d="2489">If I prove an upper
+bound in that world,</p>
+<p t="4659440" d="3350">then the optimal
+replacement will do better.</p>
+<p t="4662790" d="4060">And the LRU or FIFO
+replacement will</p>
+<p t="4666850" d="3090">do within a constant
+factor of that,</p>
+<p t="4669940" d="2340">again, by changing M
+by a constant factor.</p>
+<p t="4672280" d="2550">So I'm freely throwing away
+constant factors in my cache</p>
+<p t="4674830" d="3250">size, but then I will get
+that these effectively</p>
+<p t="4678080" d="880">stay in cache.</p>
+<p t="4678960" d="5050">FIFO or LRU will do that just
+as well, or almost as well.</p>
+<p t="4684010" d="1730">Good question.</p>
+<p t="4685740" d="2725">So now we can just look at
+the pushes above that level.</p>
+<p t="4688465" d="2125">And I really want to look
+at this transition level,</p>
+<p t="4690590" d="1958">but we're going to have
+to look at all of them.</p>
+<p t="4692548" d="952">So let's do this.</p>
+<p t="4693500" d="6350">Now I also have tall
+cache assumption.</p>
+<p t="4699850" d="2610">M is at least B to
+the 1 plus epsilon.</p>
+<p t="4702460" d="2710">I actually want a somewhat
+bigger assumption,</p>
+<p t="4705170" d="3950">which is that M is greater
+than or equal to B squared.</p>
+<p t="4709120" d="2820">If it's not B squared,
+you have to change</p>
+<p t="4711940" d="3840">this 3/2 and 9/4 and stuff
+to be something a little bit</p>
+<p t="4715780" d="1080">bigger than 1.</p>
+<p t="4716860" d="1840">And it gets really messy
+to write that down.</p>
+<p t="4718700" d="2879">So this data structure with
+appropriate modification</p>
+<p t="4721579" d="1791">does work for other
+tall cache assumptions,</p>
+<p t="4723370" d="1410">but let's just assume this one.</p>
+<p t="4724780" d="2970">So this means M over B
+is at least B. That's</p>
+<p t="4727750" d="2190">sort of the clean statement.</p>
+<p t="4729940" d="6390">It's true for most caches also,
+but this will be my assumption.</p>
+<p t="4736330" d="1310">OK.</p>
+<p t="4737640" d="550">Cool.</p>
+<p t="4738190" d="4860">So if we just do some algebra.</p>
+<p t="4743050" d="5320">Claim is this is x is
+greater than B to the 4/3.</p>
+<p t="4748370" d="3560">So that's just taking
+this inequality,</p>
+<p t="4751930" d="2490">x the 3/2 is greater than
+or equal to B squared</p>
+<p t="4754420" d="2250">and raising to
+the exponent, 2/3.</p>
+<p t="4756670" d="2010">And so this turns
+into x and this</p>
+<p t="4758680" d="2890">turns into B to the 2 times
+2/3, which would be the 4/3.</p>
+<p t="4761570" d="4550">So x is quite a
+bit bigger than B.</p>
+<p t="4766120" d="4680">In particular, this means that
+x over B is bigger than 1,</p>
+<p t="4770800" d="660">by a lot.</p>
+<p t="4771460" d="3660">But if we take ceiling's
+on this, no big deal.</p>
+<p t="4775120" d="2631">So we don't have to
+worry about the ceilings.</p>
+<p t="4777751" d="499">All right.</p>
+<p t="4778250" d="8130">Now the claim is that the
+distribution step costs--</p>
+<p t="4786380" d="2220">this is really the
+interesting part--</p>
+<p t="4788600" d="5430">x over B plus x to the
+1/2 memory transfers.</p>
+<p t="4797060" d="990">OK.</p>
+<p t="4798050" d="1680">Why?</p>
+<p t="4799730" d="3860">Remember, up here we have
+x to 1/2 down buffers</p>
+<p t="4803590" d="975">that we're looking at.</p>
+<p t="4804565" d="1375">And we're visiting
+them in order.</p>
+<p t="4805940" d="2160">We touch this down buffer.</p>
+<p t="4808100" d="4890">And really, we just care
+about the max, here.</p>
+<p t="4812990" d="2550">And then we start writing
+elements one by one.</p>
+<p t="4815540" d="2160">But if we write
+elements one by one,</p>
+<p t="4817700" d="2531">the very first element we
+write costs an entire memory</p>
+<p t="4820231" d="499">transfer.</p>
+<p t="4820730" d="1570">We have to load in a block.</p>
+<p t="4822300" d="3000">But then we can fill that block
+and then write out that block.</p>
+<p t="4825300" d="2970">So we get to write out
+B items in one step.</p>
+<p t="4828270" d="2780">So we pay x to
+the 1/2 because we</p>
+<p t="4831050" d="4812">have to touch the last
+block of this down buffer,</p>
+<p t="4835862" d="1458">this down buffer,
+this down buffer.</p>
+<p t="4837320" d="2520">And they're x to the
+1/2 down buffers.</p>
+<p t="4839840" d="1560">So each one, we have to pay 1.</p>
+<p t="4841400" d="750">That's this part.</p>
+<p t="4842150" d="1227">That's the expensive part.</p>
+<p t="4843377" d="1833">But then, once we're
+actually writing items,</p>
+<p t="4845210" d="3690">if we stay here for a while,
+that's basically for free.</p>
+<p t="4848900" d="2100">Overall, we're writing x items.</p>
+<p t="4851000" d="4920">And so to write them all will
+only take x over B ceiling,</p>
+<p t="4855920" d="2370">sort of, over the
+entire summation.</p>
+<p t="4858290" d="4410">But we have to pay 1 to start
+out here, here, and here.</p>
+<p t="4862700" d="2910">So this is the real
+amount of time.</p>
+<p t="4865610" d="2390">And I want to amortize
+that, essentially.</p>
+<p t="4870800" d="3810">So there's two cases now.</p>
+<p t="4874610" d="5880">If x is greater than or equal
+to B squared, then we're happy.</p>
+<p t="4880490" d="2610">x is greater than or
+equal to B squared,</p>
+<p t="4883100" d="4410">then this term dominates.</p>
+<p t="4887510" d="2040">And so this is tinier.</p>
+<p t="4889550" d="730">All right.</p>
+<p t="4890280" d="4730">Say, x is B cubed, then
+this is x to the 3/2--</p>
+<p t="4895010" d="1350">sorry, this is the B to the 3/2.</p>
+<p t="4896360" d="2520">This is B squared,
+so this is bigger.</p>
+<p t="4898880" d="5730">And so then the cost
+is just x over B.</p>
+<p t="4904610" d="2190">And we're done, because
+we needed to prove</p>
+<p t="4906800" d="1280">it's x over B times log.</p>
+<p t="4908080" d="3610">We had to do this to sort, but
+this distribution will be free.</p>
+<p t="4911690" d="4050">Now that says all the
+high levels are free.</p>
+<p t="4915740" d="1250">All the low levels are free.</p>
+<p t="4919394" d="2166">If you're less than B
+squared, then your less than M</p>
+<p t="4921560" d="794">and you're free.</p>
+<p t="4922354" d="2416">It's saying, if you're bigger
+than B squared, you're free.</p>
+<p t="4924770" d="2940">But there's going to be one
+level right in between where</p>
+<p t="4927710" d="1725">you're not really
+bigger or smaller.</p>
+<p t="4933100" d="7670">So there's one level where it's
+going to B to the 4/3 less than</p>
+<p t="4940770" d="3080">or equal to x less than
+or equal to B squared,</p>
+<p t="4943850" d="2010">strictly less than.</p>
+<p t="4945860" d="3420">Because you're jumping in
+this doubly exponential way,</p>
+<p t="4949280" d="1900">you might miss slightly.</p>
+<p t="4951180" d="2350">And so you're in between
+these two levels.</p>
+<p t="4956920" d="520">Why is this?</p>
+<p t="4957440" d="3090">Because we only know that x
+to the 3/2 is less than M.</p>
+<p t="4960530" d="3870">We don't know that
+x is less than M.</p>
+<p t="4964400" d="2262">So we have a bit of slot there.</p>
+<p t="4972790" d="6930">So then at this transition
+point, what we do</p>
+<p t="4979720" d="6420">is say, OK, we can't afford
+to store this whole-- x to 3/2</p>
+<p t="4986140" d="1620">is not less than M.
+So we can't afford</p>
+<p t="4987760" d="1530">to store all this in the cache.</p>
+<p t="4989290" d="3535">But we can afford to store
+the last block of this guy</p>
+<p t="4992825" d="1625">and the last block
+of this guy, all the</p>
+<p t="4994450" d="3000">down buffers we can store
+the last block in cache.</p>
+<p t="4997450" d="1890">Why?</p>
+<p t="4999340" d="6070">Because there's only
+x to the 1/2 of them.</p>
+<p t="5005410" d="2820">And we know that x is
+less than B squared.</p>
+<p t="5008230" d="4460">So if x is less than B
+squared, x to the 1/2</p>
+<p t="5012690" d="3630">is less than B, which
+is less than M over B</p>
+<p t="5016320" d="4240">because M is least B squared,
+by tall cache assumption.</p>
+<p t="5020560" d="2945">So this is the number of blocks
+that we can afford in cache.</p>
+<p t="5023505" d="1375">This is number of
+blocks we want.</p>
+<p t="5024880" d="2340">I want 1 block
+for each of these.</p>
+<p t="5027220" d="2390">So basically then,
+this x to the one half</p>
+<p t="5029610" d="3910">term disappears for the
+one transition level.</p>
+<p t="5033520" d="2860">So this is free.</p>
+<p t="5036380" d="15340">Because you can afford 1 block
+per down buffer in cache.</p>
+<p t="5051720" d="4900">And so, again, we
+get an x over B cost.</p>
+<p t="5056620" d="2480">So the distribution
+is basically free.</p>
+<p t="5059100" d="2670">The hard part is the sorting.</p>
+<p t="5061770" d="2430">And then the idea
+is that, well, OK--</p>
+<p t="5064200" d="2160">now this is one push.</p>
+<p t="5066360" d="3570">When we do an insert, that item
+might get pushed many times,</p>
+<p t="5069930" d="3270">but basically can only
+get pushed once per level.</p>
+<p t="5073200" d="4770">So you end up taking this cost
+and summing it over all x.</p>
+<p t="5077970" d="4530">So if you look at an insertion,
+amortize what you pay--</p>
+<p t="5082500" d="2670">or you look at the sum
+over all these things.</p>
+<p t="5088680" d="3630">You get the sorting bound
+on x-- summed over x where x</p>
+<p t="5092310" d="2160">is growing doubly exponential.</p>
+<p t="5094470" d="2430">And so this becomes a
+geometric series, or even</p>
+<p t="5096900" d="1410">super geometric.</p>
+<p t="5098310" d="2880">And so you get--</p>
+<p t="5101190" d="2460">I guess I should look
+at it per element.</p>
+<p t="5103650" d="2910">You look at the amortized
+cost per element,</p>
+<p t="5106560" d="2220">so I get to divide by x.</p>
+<p t="5108780" d="2510">Because when I do a
+push, I push x elements.</p>
+<p t="5111290" d="1690">So I get to divide by x, here.</p>
+<p t="5112980" d="2470">And then if an element
+gets pushed to all levels,</p>
+<p t="5115450" d="2050">I have to sum over
+all these x's.</p>
+<p t="5117500" d="3420">But you do this summation
+and you get order--</p>
+<p t="5120920" d="1720">it's dominated by the last term.</p>
+<p t="5127360" d="4970">Sorry, this should be N.</p>
+<p t="5132330" d="1020">This is the fun part.</p>
+<p t="5133350" d="2280">We're taking logs, here,
+but conveniently this</p>
+<p t="5135630" d="3030">was doubly exponential
+growing, the x over B.</p>
+<p t="5138660" d="3240">So when we sum these
+is singly exponential.</p>
+<p t="5141900" d="2120">So it's a geometric series.</p>
+<p t="5144020" d="2830">And so we are just dominated
+by the last term, which</p>
+<p t="5146850" d="2040">is where we get log base
+M over B of N over B.</p>
+<p t="5148890" d="5430">And this is our amortized
+cost per insertion.</p>
+<p t="5154320" d="2140">Deletions are
+basically the same.</p>
+<p t="5156460" d="1814">You just two pulls
+instead of pushes.</p>
+<p t="5158274" d="2166">And you have, sort of, the
+reverse of a distribution</p>
+<p t="5160440" d="2235">step-- in some
+ways, even simpler.</p>
+<p t="5162675" d="3165">You don't have to do
+this clever analysis.</p>
+<p t="5165840" d="500">Question?</p>
+<p t="5166340" d="1634">AUDIENCE: Can you
+explain, once again,</p>
+<p t="5167974" d="3199">how is it that you got the
+distributed cost of x over B?</p>
+<p t="5171173" d="1718">So I understand
+that every time, you</p>
+<p t="5172891" d="2812">need to pay that x to the
+1/2 because you need to load.</p>
+<p t="5175703" d="1467">But where did the x over B come?</p>
+<p t="5177170" d="730">ERIK DEMAINE: This
+is essentially</p>
+<p t="5177900" d="1290">amortized per element.</p>
+<p t="5179190" d="3390">We're just paying 1 over B.
+Once the block has been loaded--</p>
+<p t="5182580" d="2010">it's only after we
+insert B items that we</p>
+<p t="5184590" d="1930">have to load another item.</p>
+<p t="5186520" d="3420">So that's why it's
+x over B, here.</p>
+<p t="5189940" d="1081">Good.</p>
+<p t="5191021" d="499">Question?</p>
+<p t="5191520" d="2844">AUDIENCE: Which buffers do
+we keep sorted at all times?</p>
+<p t="5194364" d="1166">ERIK DEMAINE: Which buffer--</p>
+<p t="5195530" d="820">AUDIENCE: Which buffers
+do we keep sorted?</p>
+<p t="5196350" d="2541">ERIK DEMAINE: We're only going
+to keep the very bottom buffer</p>
+<p t="5198891" d="2439">sorted at all times.</p>
+<p t="5201330" d="1500">So I mean, it doesn't
+really matter.</p>
+<p t="5202830" d="1140">You don't even have
+to keep those sorted,</p>
+<p t="5203970" d="1440">because you can afford
+to look at all of them.</p>
+<p t="5205410" d="1638">AUDIENCE: [INAUDIBLE] I
+think the upper levels when</p>
+<p t="5207048" d="2112">we're trying to figure
+out where it goes?</p>
+<p t="5209160" d="1470">ERIK DEMAINE: What we do
+need-- we don't need them</p>
+<p t="5210630" d="720">in sorted order.</p>
+<p t="5211350" d="3780">But we need to know
+where the max is, yeah.</p>
+<p t="5215130" d="3390">So I guess, maybe, maintain
+a linked list of the items</p>
+<p t="5218520" d="1120">would be one way to do it.</p>
+<p t="5219640" d="2240">So the sort order is in there,
+but they're not physically</p>
+<p t="5221880" d="1020">stored in sorted order.</p>
+<p t="5222900" d="3021">That would be a little bit
+too much to hope for, I think.</p>
+<p t="5225921" d="499">Yeah.</p>
+<p t="5226420" d="1499">We do need to keep
+track of the max,</p>
+<p t="5227919" d="3191">but that's easy to do
+as you're inserting.</p>
+<p t="5231110" d="1570">Cool.</p>
+<p t="5232680" d="1110">So that's priority queues.</p>
+<p t="5233790" d="2880">You can look at the
+notes for deletions.</p>
+</body>
+</timedtext>

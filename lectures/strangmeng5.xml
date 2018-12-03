@@ -1,0 +1,1457 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="499" d="2267">The following content is
+provided under a Creative</p>
+<p t="2766" d="854">Commons license.</p>
+<p t="3620" d="3110">Your support will help
+MIT OpenCourseWare</p>
+<p t="6730" d="3320">continue to offer high quality
+educational resources for free.</p>
+<p t="10050" d="3400">To make a donation, or to
+view additional materials</p>
+<p t="13450" d="2700">from hundreds of MIT courses,
+visit MIT OpenCourseWare</p>
+<p t="16150" d="3180">at ocw.mit.edu.</p>
+<p t="19330" d="6970">PROFESSOR STRANG:
+Shall we start?</p>
+<p t="26300" d="5090">The main job of today is
+eigenvalues and eigenvectors.</p>
+<p t="31390" d="2940">The next section in the
+book and a very big topic</p>
+<p t="34330" d="2840">and things to say about it.</p>
+<p t="37170" d="4000">I do want to begin with a
+recap of what I didn't quite</p>
+<p t="41170" d="3960">finish last time.</p>
+<p t="45130" d="5230">So what we did was solve this
+very straightforward equation.</p>
+<p t="50360" d="2970">Straightforward except
+that it has a point source,</p>
+<p t="53330" d="1580">a delta function.</p>
+<p t="54910" d="3440">And we solved it, both
+the fixed-fixed case</p>
+<p t="58350" d="4370">when a straight line
+went up and back down</p>
+<p t="62720" d="2800">and in the free-fixed
+case when it</p>
+<p t="65520" d="6270">was a horizontal line and then
+down with slope minus one.</p>
+<p t="71790" d="3270">And there are different
+ways to get to this answer.</p>
+<p t="75060" d="3510">But once you have it,
+you can look at it</p>
+<p t="78570" d="1660">and say, well is it right?</p>
+<p t="80230" d="2600">Certainly the boundary
+conditions are correct.</p>
+<p t="82830" d="3230">Zero slope, went through
+zero, that's good.</p>
+<p t="86060" d="2410">And then the only
+thing you really</p>
+<p t="88470" d="4760">have to check is does
+the slope drop by one</p>
+<p t="93230" d="3550">at the point of the impulse?</p>
+<p t="96780" d="3800">Because that's what this
+is forcing us to do.</p>
+<p t="100580" d="2600">It's saying the slope
+should drop by one.</p>
+<p t="103180" d="3370">And here the slope
+is 1-a going up.</p>
+<p t="106550" d="4780">And if I take the derivative,
+it's -a going down.</p>
+<p t="111330" d="3410">1-a dropped to -a, good.</p>
+<p t="114740" d="1900">Here the slope was zero.</p>
+<p t="116640" d="3460">Here the slope was
+minus one, good.</p>
+<p t="120100" d="1750">So those are the right answers.</p>
+<p t="121850" d="9270">And this is simple, but
+really a great example.</p>
+<p t="131120" d="3210">And then, what I
+wanted to do was</p>
+<p t="134330" d="3170">catch the same thing
+for the matrices.</p>
+<p t="137500" d="7140">So those matrices, we all
+know what K is and what T is.</p>
+<p t="144640" d="2740">So I'm solving,
+I'm really solving</p>
+<p t="147380" d="4510">K K inverse equal identity.</p>
+<p t="151890" d="1630">That's the equation I'm solving.</p>
+<p t="153520" d="3820">So I'm looking for
+K inverse and trying</p>
+<p t="157340" d="2750">to get the columns
+of the identity.</p>
+<p t="160090" d="2840">And you realize the
+columns of the identity</p>
+<p t="162930" d="2730">are just like delta vectors.</p>
+<p t="165660" d="2340">They've got a one
+in one spot, they're</p>
+<p t="168000" d="4620">a point load just
+like this thing.</p>
+<p t="172620" d="3990">So can I just say how
+I remember K inverse?</p>
+<p t="176610" d="2030">I finally, you
+know-- again there</p>
+<p t="178640" d="3150">are different ways to get to it.</p>
+<p t="181790" d="2110">One way is MATLAB, just do it.</p>
+<p t="183900" d="4720">But I guess maybe
+the whole point</p>
+<p t="188620" d="4480">is, the whole point of these
+and the eigenvalues that</p>
+<p t="193100" d="3270">are coming too, is this.</p>
+<p t="196370" d="8860">That we have here the chance
+to see important special cases</p>
+<p t="205230" d="1350">that work out.</p>
+<p t="206580" d="2130">Normally we don't
+find the inverse,</p>
+<p t="208710" d="1930">print out the
+inverse of a matrix.</p>
+<p t="210640" d="1730">It's not nice.</p>
+<p t="212370" d="4500">Normally we just let eig
+find the eigenvalues.</p>
+<p t="216870" d="2720">Because that's an even
+worse calculation,</p>
+<p t="219590" d="2540">to find eigenvalues, in general.</p>
+<p t="222130" d="5110">I'm talking here about our
+matrices of all sizes n by n.</p>
+<p t="227240" d="4440">Nobody finds the eigenvalues
+by hand of n by n matrices.</p>
+<p t="231680" d="4200">But these have
+terrific eigenvalues</p>
+<p t="235880" d="2500">and especially eigenvectors.</p>
+<p t="238380" d="5630">So in a way this is a little
+bit like, typical of math.</p>
+<p t="244010" d="3690">That you ask about
+general stuff or you</p>
+<p t="247700" d="6990">write the equation
+with a matrix A.</p>
+<p t="254690" d="2850">So that's the
+general information.</p>
+<p t="257540" d="3570">And then there's the
+specific, special guys</p>
+<p t="261110" d="1870">with special functions.</p>
+<p t="262980" d="4190">And here there'll be sines
+and cosines and exponentials.</p>
+<p t="267170" d="2070">Other places in
+applied math, there</p>
+<p t="269240" d="2470">are Bessel functions
+and Legendre functions.</p>
+<p t="271710" d="1500">Special guys.</p>
+<p t="273210" d="3870">So here, these are special.</p>
+<p t="277080" d="3800">And how do I complete K inverse?</p>
+<p t="280880" d="3930">So this four, three, two, one.</p>
+<p t="284810" d="1370">Let me complete T inverse.</p>
+<p t="286180" d="2280">You probably know
+T inverse already.</p>
+<p t="288460" d="3630">So T, this is, four,
+three, two, one,</p>
+<p t="292090" d="5000">is when the load is way
+over at the far left end</p>
+<p t="297090" d="2160">and it's just descending.</p>
+<p t="299250" d="6520">And now I'm going to-- Let me
+show you how I write it in.</p>
+<p t="305770" d="2120">Pay attention here
+to the diagonal.</p>
+<p t="307890" d="7920">So this will be three,
+three, two, one.</p>
+<p t="315810" d="8300">Do you see that's the solution
+that's sort of like this one?</p>
+<p t="324110" d="4200">That's the second column of
+the inverse so it's solving,</p>
+<p t="328310" d="3510">I'm solving, T T
+inverse equals I here.</p>
+<p t="331820" d="2880">It's the-- The second
+column is the guy</p>
+<p t="334700" d="4330">with a one in the second place.</p>
+<p t="339030" d="3370">So that's where the load
+is, in position number two.</p>
+<p t="342400" d="3600">So I'm level, three,
+three, up to that load.</p>
+<p t="346000" d="5620">And then I'm dropping
+after the load.</p>
+<p t="351620" d="5100">What's the third
+column of T inverse?</p>
+<p t="356720" d="2510">I started with that
+first column and I</p>
+<p t="359230" d="2470">knew that the answer
+would be symmetric</p>
+<p t="361700" d="2010">because T is symmetric,
+so that allowed</p>
+<p t="363710" d="2180">me to write the first row.</p>
+<p t="365890" d="2870">And now we can fill in the rest.</p>
+<p t="368760" d="3690">So what do you think, if
+the point load is-- Now,</p>
+<p t="372450" d="3800">I'm looking at the third column,
+third column of the identity,</p>
+<p t="376250" d="3100">the load has moved down
+to position number three.</p>
+<p t="379350" d="2730">So what do I have
+there and there?</p>
+<p t="382080" d="1680">Two and two.</p>
+<p t="383760" d="2481">And what do I have last?</p>
+<p t="386241" d="499">One.</p>
+<p t="386740" d="1550">It's dropping to zero.</p>
+<p t="388290" d="3440">You could put zero in
+green here if you wanted.</p>
+<p t="391730" d="7080">Zero is the unseen
+last boundary,</p>
+<p t="398810" d="3560">you know, row at this end.</p>
+<p t="402370" d="3620">And finally, what's
+happening here?</p>
+<p t="405990" d="4090">What do I get from that?</p>
+<p t="410080" d="4340">All one, one, one
+to the diagonal.</p>
+<p t="414420" d="3470">And then sure enough
+it drops to zero.</p>
+<p t="417890" d="3120">So this would be a case
+where the load is there.</p>
+<p t="421010" d="5000">It would be one, one,
+one, one and then boom.</p>
+<p t="426010" d="1102">No, it wouldn't be.</p>
+<p t="427112" d="958">It'd be more like this.</p>
+<p t="428070" d="6710">One, one, one, one
+and then down to--</p>
+<p t="434780" d="500">Okay.</p>
+<p t="435280" d="3100">That's a pretty clean inverse.</p>
+<p t="438380" d="3860">That's a very beautiful matrix.</p>
+<p t="442240" d="1870">Don't you admire that matrix?</p>
+<p t="444110" d="2990">I mean, if they were
+all like that, gee,</p>
+<p t="447100" d="2530">this would be a great world.</p>
+<p t="449630" d="11130">But of course it's not sparse.</p>
+<p t="460760" d="2750">That's why we don't
+often use the inverse.</p>
+<p t="463510" d="2580">Because we had a
+sparse matrix T that</p>
+<p t="466090" d="2290">was really fast to compute with.</p>
+<p t="468380" d="2450">And here, if you
+tell me the inverse,</p>
+<p t="470830" d="1800">you've actually slowed me down.</p>
+<p t="472630" d="6090">Because you've given me now a
+dense matrix, no zeroes even</p>
+<p t="478720" d="6110">and multiplying T inverse
+times the right side</p>
+<p t="484830" d="3970">would be slower than
+just doing elimination.</p>
+<p t="488800" d="2600">Now this is the kind of
+more interesting one.</p>
+<p t="491400" d="4600">Because this is the one that
+has to go up to the diagonal</p>
+<p t="496000" d="2490">and then down.</p>
+<p t="498490" d="4190">So let me-- can I fill in what
+I think-- way this one goes?</p>
+<p t="502680" d="3690">I'm going upwards
+to the diagonal</p>
+<p t="506370" d="1800">and then I'm coming
+down to zero.</p>
+<p t="508170" d="3430">Remember that I'm coming
+down to zero on this K.</p>
+<p t="511600" d="5990">So Zero, zero, zero, zero
+is kind of the row number.</p>
+<p t="517590" d="3950">If that's row number zero,
+here's one, two, three, four,</p>
+<p t="521540" d="1160">the real thing.</p>
+<p t="522700" d="5700">And then row five is
+getting back to zero again.</p>
+<p t="528400" d="4260">So what do you think, finish
+the rest of that column.</p>
+<p t="532660" d="3890">So you're telling me now
+the response to the load</p>
+<p t="536550" d="1300">in position two.</p>
+<p t="537850" d="2060">So it's going to look like this.</p>
+<p t="539910" d="3100">In fact, it's going to
+look very like this.</p>
+<p t="543010" d="3000">There's the three and then
+this is in position two.</p>
+<p t="546010" d="2740">And then I'm going to have
+something here and something</p>
+<p t="548750" d="3760">here and it'll drop to zero.</p>
+<p t="552510" d="1540">What do I get?</p>
+<p t="554050" d="1580">Four, two.</p>
+<p t="555630" d="2200">Six, four, two, zero.</p>
+<p t="557830" d="1660">It's dropping to zero.</p>
+<p t="559490" d="2090">I'm going to finish
+this in but then I'm</p>
+<p t="561580" d="4080">going to look back and see
+have I really got it right.</p>
+<p t="565660" d="3220">How does this go now?</p>
+<p t="568880" d="2600">Two, let's see.</p>
+<p t="571480" d="5320">Now it's going up from
+zero to two to four to six.</p>
+<p t="576800" d="1530">That's on the diagonal.</p>
+<p t="578330" d="1290">Now it starts down.</p>
+<p t="579620" d="3680">It's got to get to zero,
+so that'll be a three.</p>
+<p t="583300" d="5020">Here is a one going up
+to two to three to four.</p>
+<p t="588320" d="1040">Is that right?</p>
+<p t="589360" d="2760">And then dropped fast to zero.</p>
+<p t="592120" d="3480">Is that correct?</p>
+<p t="595600" d="1810">Think so, yep.</p>
+<p t="597410" d="3850">Except, wait a minute now.</p>
+<p t="601260" d="2480">We've got the right
+overall picture.</p>
+<p t="603740" d="2430">Climbing up, dropping down.</p>
+<p t="606170" d="1800">Climbing up, dropping down.</p>
+<p t="607970" d="1580">Climbing up, dropping down.</p>
+<p t="609550" d="870">All good.</p>
+<p t="610420" d="6770">But we haven't yet got,
+we haven't checked yet</p>
+<p t="617190" d="5940">that the change in the
+slope is supposed to be one.</p>
+<p t="623130" d="1550">And it's not.</p>
+<p t="624680" d="4450">Here the slope is like,
+three, It's going up by threes</p>
+<p t="629130" d="4710">and then it's
+going down by twos.</p>
+<p t="633840" d="4410">So we've gone from going
+up at a slope of three</p>
+<p t="638250" d="2760">to down to a slope of two.</p>
+<p t="641010" d="3130">Up three, down just like this.</p>
+<p t="644140" d="3380">But that would be a
+change in slope of five.</p>
+<p t="647520" d="3970">Therefore there's a 1/5.</p>
+<p t="651490" d="2840">So this is going up with
+a slope of four and down</p>
+<p t="654330" d="1430">with a slope of one.</p>
+<p t="655760" d="4290">Four dropping to one when I
+divide by the five, that's</p>
+<p t="660050" d="1020">what I like.</p>
+<p t="661070" d="2990">Here is up by twos,
+down by threes, again</p>
+<p t="664060" d="3030">it's a change of five
+so I need the five.</p>
+<p t="667090" d="2630">Up by ones, down by four.</p>
+<p t="669720" d="3020">Sudden, that's a
+fast drop of four.</p>
+<p t="672740" d="3450">Again, the slope changed
+by five, dividing by five,</p>
+<p t="676190" d="1420">that's got it.</p>
+<p t="677610" d="1080">So that's my picture.</p>
+<p t="678690" d="3730">You could now create K
+inverse for any size.</p>
+<p t="682420" d="7740">And more than that, sort
+of see into K inverse</p>
+<p t="690160" d="2090">what those numbers are.</p>
+<p t="692250" d="3100">Because if I wrote the
+five by five or six</p>
+<p t="695350" d="4120">by six, doing it a
+column at a time,</p>
+<p t="699470" d="2820">it would look like
+a bunch of numbers.</p>
+<p t="702290" d="1760">But you see it now.</p>
+<p t="704050" d="2830">Do you see the pattern?</p>
+<p t="706880" d="4680">Right.</p>
+<p t="711560" d="2700">This is one way to
+get to those inverses,</p>
+<p t="714260" d="3280">and homework problems
+are offering other ways.</p>
+<p t="717540" d="6700">T, in particular, is
+quite easy to invert.</p>
+<p t="724240" d="3160">Do I have any other
+comment on inverses</p>
+<p t="727400" d="5110">before the lecture on
+eigenvalues really starts?</p>
+<p t="732510" d="5690">Maybe I do have one comment,
+one important comment.</p>
+<p t="738200" d="2710">It's this, and I won't
+develop it in full,</p>
+<p t="740910" d="3620">but let's just say it.</p>
+<p t="744530" d="4200">What if the load is
+not a delta function?</p>
+<p t="748730" d="3130">What if I have other loads?</p>
+<p t="751860" d="4120">Like the uniform load of
+all ones or any other load?</p>
+<p t="755980" d="9680">What if the discrete load
+here is not a delta vector?</p>
+<p t="765660" d="4690">I now know the responses to each
+column of the identity, right?</p>
+<p t="770350" d="3790">If I put a load in position
+one, there's the response.</p>
+<p t="774140" d="4340">If I put a load in position
+two, there is the response.</p>
+<p t="778480" d="4860">Now, what if I have other loads?</p>
+<p t="783340" d="1800">Let me take a typical load.</p>
+<p t="785140" d="5050">What if the load was, well,
+the one we looked at before.</p>
+<p t="790190" d="3300">If the load was [1, 1, 1, 1].</p>
+<p t="793490" d="7270">So that I had, the bar was
+hanging by its own weight,</p>
+<p t="800760" d="4170">let's say.</p>
+<p t="804930" d="4160">In other words, could
+I solve all problems</p>
+<p t="809090" d="2390">by knowing these answers?</p>
+<p t="811480" d="2030">That's what I'm
+trying to get to.</p>
+<p t="813510" d="3410">If I know these
+special delta loads,</p>
+<p t="816920" d="4420">then can I get the
+solution for every load?</p>
+<p t="821340" d="910">Yes, no?</p>
+<p t="822250" d="1240">What do you think?</p>
+<p t="823490" d="2240">Yes, right.</p>
+<p t="825730" d="2160">Now with this
+matrix it's kind of</p>
+<p t="827890" d="3150">easy to see because if you
+know the inverse matrix, well</p>
+<p t="831040" d="1980">you're obviously in business.</p>
+<p t="833020" d="6370">If I had another load, say
+another load f for load,</p>
+<p t="839390" d="4060">I would just multiply by
+K inverse, no problem.</p>
+<p t="843450" d="2040">But I want to look
+a little deeper.</p>
+<p t="845490" d="6310">Because if I had other loads
+here than a delta function,</p>
+<p t="851800" d="2910">obviously if I had
+two delta functions</p>
+<p t="854710" d="2990">I could just combine
+the two solutions.</p>
+<p t="857700" d="2770">That's linearity that
+we're using all the time.</p>
+<p t="860470" d="3100">If I had ten delta functions
+I could combine them.</p>
+<p t="863570" d="5850">But then suppose I had
+instead of a bunch of spikes,</p>
+<p t="869420" d="1910">instead of a bunch
+of point loads,</p>
+<p t="871330" d="2380">I had a distributed load.</p>
+<p t="873710" d="4400">Like all ones,
+how could I do it?</p>
+<p t="878110" d="1580">Main point is I could.</p>
+<p t="879690" d="720">Right?</p>
+<p t="880410" d="3810">If I know these answers,
+I know all answers.</p>
+<p t="884220" d="3560">If I know the response
+to a load at each point,</p>
+<p t="887780" d="3070">then-- come back to
+the discrete one.</p>
+<p t="890850" d="6290">What would be the answer if
+the load was [1, 1, 1, 1]?</p>
+<p t="897140" d="9230">Suppose I now try to solve
+the equation Ku=ones(4,1),</p>
+<p t="906370" d="2139">so all ones.</p>
+<p t="908509" d="1041">What would be the answer?</p>
+<p t="909550" d="3410">How would I get it?</p>
+<p t="912960" d="2550">I would just add the columns.</p>
+<p t="915510" d="5480">Now why would I do that?</p>
+<p t="920990" d="600">Right.</p>
+<p t="921590" d="3090">Because this, the
+right-hand side,</p>
+<p t="924680" d="4950">the input is the sum of
+the four columns, the four</p>
+<p t="929630" d="1700">special inputs.</p>
+<p t="931330" d="4670">So the output is the sum
+of the four outputs, right.</p>
+<p t="936000" d="3140">In other words, as you saw,
+we must know everything.</p>
+<p t="939140" d="2810">And that's the way
+we really know it.</p>
+<p t="941950" d="570">By linearity.</p>
+<p t="942520" d="4060">If the input is a
+combination of these,</p>
+<p t="946580" d="3370">the output is the same
+combination of those.</p>
+<p t="949950" d="820">Right.</p>
+<p t="950770" d="9470">So, for example, in this T case,
+if input was, if I did Tu=ones,</p>
+<p t="960240" d="6520">I would just add those and the
+output would be [10 9, 7, 4].</p>
+<p t="966760" d="3620">That would be the output
+from [1, 1, 1, 1].</p>
+<p t="970380" d="10090">And now, oh boy.</p>
+<p t="980470" d="4250">Actually, let me just
+introduce a guy's name</p>
+<p t="984720" d="6830">for these solutions
+and not today show you.</p>
+<p t="991550" d="2420">You have the idea, of course.</p>
+<p t="993970" d="3960">Here we added because
+everything was discrete.</p>
+<p t="997930" d="2620">So you know what we're
+going to do over here.</p>
+<p t="1000550" d="3740">We'll take integrals, right?</p>
+<p t="1004290" d="7140">A general load will be an
+integral over point loads.</p>
+<p t="1011430" d="1660">That's the idea.</p>
+<p t="1013090" d="1130">A fundamental idea.</p>
+<p t="1014220" d="6740">That some other load, f(x),
+is an integral of these guys.</p>
+<p t="1020960" d="4360">So the solution will be the
+same integral of these guys.</p>
+<p t="1025320" d="3380">Let me not go there except
+to tell you the name,</p>
+<p t="1028700" d="2320">because it's a very famous name.</p>
+<p t="1031020" d="3810">This solution u with
+the delta function</p>
+<p t="1034830" d="2650">is called the Green's function.</p>
+<p t="1037480" d="4180">So I've now introduced the idea,
+this is the Green's function.</p>
+<p t="1041660" d="8660">This guy is the Green's function
+for the fixed-fixed problem.</p>
+<p t="1050320" d="2690">And this guy is the
+Green's function</p>
+<p t="1053010" d="3270">for the free-fixed problem.</p>
+<p t="1056280" d="2540">And the whole point
+is, maybe this</p>
+<p t="1058820" d="5880">is the one point I want you to
+sort of see always by analogy.</p>
+<p t="1064700" d="5750">The Green's function is
+just like the inverse.</p>
+<p t="1070450" d="1630">What is the Green's function?</p>
+<p t="1072080" d="6990">The Green's function is the
+response at x, the u at x,</p>
+<p t="1079070" d="3940">when the input, when
+the impulse is at a.</p>
+<p t="1083010" d="1790">So it sort of depends
+on two things.</p>
+<p t="1084800" d="5140">It depends on the position a
+of the input and it tells you</p>
+<p t="1089940" d="5050">the response at position x.</p>
+<p t="1094990" d="4270">And often we would use
+the letter G for Green.</p>
+<p t="1099260" d="4420">So it depends on x and a.</p>
+<p t="1103680" d="5970">And maybe I'm happy if you
+just sort of see in some way</p>
+<p t="1109650" d="3550">what we did there is just
+like what we did here.</p>
+<p t="1113200" d="2020">And therefore the
+Green's function</p>
+<p t="1115220" d="5600">must be just a differential,
+continuous version</p>
+<p t="1120820" d="5510">of an inverse matrix.</p>
+<p t="1126330" d="6430">Let's move on to
+eigenvalues with that point</p>
+<p t="1132760" d="6470">sort of made, but not driven
+home by many, many examples.</p>
+<p t="1139230" d="16590">Question, I'll take
+a question, shoot.</p>
+<p t="1155820" d="5400">Why did I increase zero, three,
+six and then decrease six?</p>
+<p t="1161220" d="8130">Well intuitively it's
+because this is copying this.</p>
+<p t="1169350" d="3310">What's wonderful is that
+it's a perfect copy.</p>
+<p t="1172660" d="4800">I mean, intuitively the solution
+to our difference equation</p>
+<p t="1177460" d="3250">should be like the solution
+to our differential equation.</p>
+<p t="1180710" d="3820">That's why if we have
+some computational,</p>
+<p t="1184530" d="2540">some differential equation
+that we can't solve,</p>
+<p t="1187070" d="2860">which would be much more
+typical than this one,</p>
+<p t="1189930" d="3290">that we couldn't solve it
+exactly by pencil and paper,</p>
+<p t="1193220" d="5710">we would replace derivatives
+by differences and go over here</p>
+<p t="1198930" d="3960">and we would hope that they
+were like pretty close.</p>
+<p t="1202890" d="4930">Here they're right,
+they're the same.</p>
+<p t="1207820" d="1060">Oh the other columns?</p>
+<p t="1208880" d="750">Absolutely.</p>
+<p t="1209630" d="1980">These guys?</p>
+<p t="1211610" d="3270">Zero, two, four, six going up.</p>
+<p t="1214880" d="3300">Six, three, zero coming back.</p>
+<p t="1218180" d="7340">So that's a discrete
+thing of one like that.</p>
+<p t="1225520" d="2150">And then the next
+guy and the last guy</p>
+<p t="1227670" d="2640">would be going up
+one, two, three, four</p>
+<p t="1230310" d="4050">and then sudden drop.</p>
+<p t="1234360" d="1580">Thanks for all questions.</p>
+<p t="1235940" d="3650">I mean, this sort of,
+by adding these guys in,</p>
+<p t="1239590" d="2160">the first one actually
+went up that way.</p>
+<p t="1241750" d="3750">You see the Green's functions.</p>
+<p t="1245500" d="2250">But of course this
+has a Green's function</p>
+<p t="1247750" d="5550">for every a. x and a are running
+all the way from zero to one.</p>
+<p t="1253300" d="5250">Here they're just
+discrete positions.</p>
+<p t="1258550" d="4110">Thanks.</p>
+<p t="1262660" d="3480">So playing with
+these delta functions</p>
+<p t="1266140" d="2980">and coming up with
+this solution,</p>
+<p t="1269120" d="3790">well, as I say,
+different ways to do it.</p>
+<p t="1272910" d="3800">I worked through one
+way in class last time.</p>
+<p t="1276710" d="1760">It takes practice.</p>
+<p t="1278470" d="3140">So that's what the
+homework's really for.</p>
+<p t="1281610" d="3210">You can see me come
+up with this thing,</p>
+<p t="1284820" d="3990">then you can, with leisure,
+you can follow the steps,</p>
+<p t="1288810" d="3930">but you've gotta do
+it yourself to see.</p>
+<p t="1292740" d="3720">Eigenvalues and, of
+course, eigenvectors.</p>
+<p t="1296460" d="9860">We have to give
+them a fair shot.</p>
+<p t="1306320" d="3630">Square matrix.</p>
+<p t="1309950" d="3520">So I'm talking
+about general, what</p>
+<p t="1313470" d="3630">eigenvectors and eigenvalues
+are and why do we want them.</p>
+<p t="1317100" d="4300">I'm always trying to say
+what's the purpose, you know,</p>
+<p t="1321400" d="5920">not doing this just for
+abstract linear algebra.</p>
+<p t="1327320" d="3110">We do this, we look
+for these things</p>
+<p t="1330430" d="3080">because they tremendously
+simplify a problem</p>
+<p t="1333510" d="2750">if we can find it.</p>
+<p t="1336260" d="3710">So what's an eigenvector?</p>
+<p t="1339970" d="3540">The eigenvalue is
+this number, lambda,</p>
+<p t="1343510" d="3330">and the eigenvector
+is this vector y.</p>
+<p t="1346840" d="6280">And now, how do I
+think about those?</p>
+<p t="1353120" d="4730">Suppose I take a vector
+and I multiply by A.</p>
+<p t="1357850" d="4400">So the vector is headed
+off in some direction.</p>
+<p t="1362250" d="2990">Here's a vector
+v. If I multiply,</p>
+<p t="1365240" d="1830">and I'm given this
+matrix, so I'm</p>
+<p t="1367070" d="3960">given the matrix,
+whatever my matrix is.</p>
+<p t="1371030" d="3250">Could be one of those
+matrices, any other matrix.</p>
+<p t="1374280" d="5850">If I multiply that by v,
+I get some result, Av.</p>
+<p t="1380130" d="1280">What do I do?</p>
+<p t="1381410" d="5080">I look at that and I say that
+v was not an eigenvector.</p>
+<p t="1386490" d="3800">Eigenvectors are the
+special vectors which</p>
+<p t="1390290" d="2680">come out in the same direction.</p>
+<p t="1392970" d="5780">Av comes out parallel to v. So
+this was not an eigenvector.</p>
+<p t="1398750" d="2610">Very few vectors
+are eigenvectors,</p>
+<p t="1401360" d="1530">they're very special.</p>
+<p t="1402890" d="3070">Most vectors, that'll
+be a typical picture.</p>
+<p t="1405960" d="7220">But there's a few of them
+where I've a vector y</p>
+<p t="1413180" d="3660">and I multiply by A. And
+then what's the point?</p>
+<p t="1416840" d="5690">Ay is in the same direction.</p>
+<p t="1422530" d="2560">It's on that same line as y.</p>
+<p t="1425090" d="3800">It could be, it might
+be twice as far out.</p>
+<p t="1428890" d="2990">That would be Ay=2y.</p>
+<p t="1431880" d="1830">It might go backwards.</p>
+<p t="1433710" d="2360">This would be a
+possibility, Ay=-y.</p>
+<p t="1438830" d="3370">It could be just halfway.</p>
+<p t="1442200" d="2820">It could be, not move at all.</p>
+<p t="1445020" d="1380">That's even a possibility.</p>
+<p t="1446400" d="1560">Ay=0y.</p>
+<p t="1447960" d="2950">Count that.</p>
+<p t="1450910" d="5960">Those y's are eigenvectors
+and the eigenvalue is just,</p>
+<p t="1456870" d="3040">from this point of view, the
+eigenvalue has come in second</p>
+<p t="1459910" d="5480">because it's-- So y was a
+special vector that kept its</p>
+<p t="1465390" d="900">direction.</p>
+<p t="1466290" d="6140">And then lambda is just the
+number, the two, the zero,</p>
+<p t="1472430" d="6620">the minus one, the 1/2
+that tells you stretching,</p>
+<p t="1479050" d="2210">shrinking, reversing, whatever.</p>
+<p t="1481260" d="1500">That's the number.</p>
+<p t="1482760" d="3070">But y is the vector.</p>
+<p t="1485830" d="7400">And notice that
+if I knew y and I</p>
+<p t="1493230" d="3210">knew it was an eigenvector, then
+of course if I multiply by A,</p>
+<p t="1496440" d="2920">I'll learn the eigenvalue.</p>
+<p t="1499360" d="2010">And if I knew an
+eigenvalue, you'll</p>
+<p t="1501370" d="2420">see how I could find
+the eigenvector.</p>
+<p t="1503790" d="2280">Problem is you have
+to find them both.</p>
+<p t="1506070" d="1740">And they multiply each other.</p>
+<p t="1507810" d="3240">So we're not talking about
+linear equations anymore.</p>
+<p t="1511050" d="2490">Because one unknown is
+multiplying another.</p>
+<p t="1513540" d="6240">But we'll find a way to look
+to discover eigenvectors</p>
+<p t="1519780" d="4010">and eigenvalues.</p>
+<p t="1523790" d="3960">I said I would try to make
+clear what's the purpose.</p>
+<p t="1527750" d="8710">The purpose is that in this
+direction on this y line, line</p>
+<p t="1536460" d="6620">of multiples of y, A is
+just acting like a number.</p>
+<p t="1543080" d="4970">A is some big n by n,
+1,000 by 1,000 matrix.</p>
+<p t="1548050" d="2000">So a million numbers.</p>
+<p t="1550050" d="8060">But on this line, if we find
+it, if we find an eigenline,</p>
+<p t="1558110" d="4900">you could say, an eigendirection
+in that direction,</p>
+<p t="1563010" d="3060">all the complications
+of A are gone.</p>
+<p t="1566070" d="2130">It's just acting like a number.</p>
+<p t="1568200" d="6210">So in particular we could solve
+1,000 differential equations</p>
+<p t="1574410" d="9270">with 1,000 unknown u's with
+this 1,000 by 1,000 matrix.</p>
+<p t="1583680" d="2940">We can find a
+solution and this is</p>
+<p t="1586620" d="2930">where the eigenvector
+and eigenvalue</p>
+<p t="1589550" d="4700">are going to pay off.</p>
+<p t="1594250" d="1000">You recognize this.</p>
+<p t="1595250" d="2850">Matrix A is of size 1,000.</p>
+<p t="1598100" d="3840">And u is a vector
+of 1,000 unknowns.</p>
+<p t="1601940" d="2390">So that's a system
+of 1,000 equations.</p>
+<p t="1604330" d="6540">But if we have found an
+eigenvector and its eigenvalue</p>
+<p t="1610870" d="5730">then the equation will, if
+it starts in that direction</p>
+<p t="1616600" d="3170">it'll stay in that direction
+and the matrix will just</p>
+<p t="1619770" d="1430">be acting like a number.</p>
+<p t="1621200" d="2460">And we know how to
+solve u'=lambda*u.</p>
+<p t="1626850" d="3700">That one by one scalar
+problem we know how to solve.</p>
+<p t="1630550" d="3220">The solution to that
+is e to the lambda*t.</p>
+<p t="1637430" d="3840">And of course it could
+have a constant in it.</p>
+<p t="1641270" d="4680">Don't forget that these
+equations are linear.</p>
+<p t="1645950" d="3500">If I multiply it, if
+I take 2e^(lambda*t),</p>
+<p t="1649450" d="2730">I have a two here and a two
+here and it's just as good.</p>
+<p t="1652180" d="5480">So I better allow that as well.</p>
+<p t="1657660" d="3940">A constant times
+e^(lambda*t) times y.</p>
+<p t="1661600" d="1640">Notice this is a vector.</p>
+<p t="1663240" d="4250">It's a number times
+a number, the growth.</p>
+<p t="1667490" d="3030">So the lambda is now, for
+the differential equation,</p>
+<p t="1670520" d="4050">the lambda, this number
+lambda is crucial.</p>
+<p t="1674570" d="4240">It's telling us whether the
+solution grows, whether it</p>
+<p t="1678810" d="2520">decays, whether it oscillates.</p>
+<p t="1681330" d="3350">And we're just looking
+at this one normal mode,</p>
+<p t="1684680" d="4880">you could say normal
+mode, for eigenvector y.</p>
+<p t="1689560" d="8450">We certainly have not found
+all possible solutions.</p>
+<p t="1698010" d="7060">If we have an eigenvector,
+we found that one.</p>
+<p t="1705070" d="5270">And there's other uses
+and then, let me think.</p>
+<p t="1710340" d="1170">Other uses, what?</p>
+<p t="1711510" d="2440">So let me write again
+the fundamental equation,</p>
+<p t="1713950" d="500">Ay=lambda*y.</p>
+<p t="1717330" d="3820">So that was a
+differential equation.</p>
+<p t="1721150" d="2050">Going forward in time.</p>
+<p t="1723200" d="5890">Now if we go forward in
+steps we might multiply by A</p>
+<p t="1729090" d="6370">at every step.</p>
+<p t="1735460" d="3680">Tell me an eigenvector
+of A squared.</p>
+<p t="1739140" d="2820">I'm looking for a vector
+that doesn't change direction</p>
+<p t="1741960" d="4850">when I multiply twice by
+A. You're going to tell me</p>
+<p t="1746810" d="3740">it's y. y will work.</p>
+<p t="1750550" d="4770">If I multiply once by
+A I get lambda times y.</p>
+<p t="1755320" d="5300">When I multiply again by A I
+get lambda squared times y.</p>
+<p t="1760620" d="9360">You see eigenvalues are
+great for powers of a matrix,</p>
+<p t="1769980" d="3860">for differential equations.</p>
+<p t="1773840" d="3600">The nth power will just take
+the eigenvalue to the nth.</p>
+<p t="1777440" d="5360">The nth power of A will just
+have lambda to the nth there.</p>
+<p t="1782800" d="4550">You know, the pivots
+of a matrix are all</p>
+<p t="1787350" d="2010">messed up when I square it.</p>
+<p t="1789360" d="3120">I can't see what's
+happening with the pivots.</p>
+<p t="1792480" d="4390">The eigenvalues are a different
+way to look at a matrix.</p>
+<p t="1796870" d="4900">The pivots are critical numbers
+for steady-state problems.</p>
+<p t="1801770" d="3160">The eigenvalues are
+the critical numbers</p>
+<p t="1804930" d="4320">for moving problems,
+dynamic problems,</p>
+<p t="1809250" d="4270">things are oscillating
+or growing or decaying.</p>
+<p t="1813520" d="5850">And by the way, let's just
+recognize since this is</p>
+<p t="1819370" d="5620">the only thing that's
+changing in time,</p>
+<p t="1824990" d="6410">what would be the-- I'll just
+go down here, e^(lambda*t).</p>
+<p t="1831400" d="1450">Let's just look and see.</p>
+<p t="1832850" d="2780">When would I have decay?</p>
+<p t="1835630" d="2530">Which you might want
+to call stability.</p>
+<p t="1838160" d="2640">A stable problem.</p>
+<p t="1840800" d="2040">What would be the
+condition on lambda</p>
+<p t="1842840" d="4140">to get-- for this to decay.</p>
+<p t="1846980" d="2020">Lambda less than zero.</p>
+<p t="1849000" d="3600">Now there's one little
+bit of bad news.</p>
+<p t="1852600" d="2580">Lambda could be complex.</p>
+<p t="1855180" d="2820">Lambda could be 3+4i.</p>
+<p t="1860850" d="3010">It can be a complex
+number, these eigenvalues,</p>
+<p t="1863860" d="5340">even if A is real.</p>
+<p t="1869200" d="2170">You'll say, how did
+that happen, let me see?</p>
+<p t="1871370" d="1830">I didn't think.</p>
+<p t="1873200" d="1780">Well, let me finish
+this thought.</p>
+<p t="1874980" d="3060">Suppose lambda was 3+4i.</p>
+<p t="1882090" d="4520">So I'm thinking about what would
+e to the lambda*t do in that</p>
+<p t="1886610" d="1290">case?</p>
+<p t="1887900" d="2920">So this is small example.</p>
+<p t="1890820" d="1690">If I had lambda is (3+4i), t.</p>
+<p t="1895860" d="4660">What does that do as time grows?</p>
+<p t="1900520" d="1890">It's going to grow
+and oscillate.</p>
+<p t="1902410" d="2750">And what decides the growth?</p>
+<p t="1905160" d="1520">The real part.</p>
+<p t="1906680" d="2450">So it's really the
+decay or growth</p>
+<p t="1909130" d="2720">is decided by the real part.</p>
+<p t="1911850" d="3960">The three, e to the 3t,
+that would be a growth.</p>
+<p t="1915810" d="2620">Let me put growth.</p>
+<p t="1918430" d="2760">And that would be,
+of course, unstable.</p>
+<p t="1921190" d="3810">And that's a problem
+when I have a real part</p>
+<p t="1925000" d="2910">of lambda bigger than zero.</p>
+<p t="1927910" d="4430">And then if lambda
+has a zero real part,</p>
+<p t="1932340" d="5300">so it's pure oscillation, let
+me just take a case like that.</p>
+<p t="1937640" d="610">So e^(4it).</p>
+<p t="1940990" d="3590">So that would be,
+oscillating, right?</p>
+<p t="1944580" d="6990">It's cos(4t) + i*sin(4t),
+it's just oscillating.</p>
+<p t="1951570" d="7860">So in this discussion we've
+seen growth and decay.</p>
+<p t="1959430" d="2060">Tell me the parallels
+because I'm always</p>
+<p t="1961490" d="1660">shooting for the parallels.</p>
+<p t="1963150" d="2780">What about the growth of A?</p>
+<p t="1965930" d="5370">What matrices, how
+can I recognize</p>
+<p t="1971300" d="5200">a matrix whose powers grow?</p>
+<p t="1976500" d="6450">How can I recognize a matrix
+whose powers go to zero?</p>
+<p t="1982950" d="2680">I'm asking you for
+powers here, over there</p>
+<p t="1985630" d="3310">for exponentials somehow.</p>
+<p t="1988940" d="6460">So here would be A to
+higher and higher powers</p>
+<p t="1995400" d="3270">goes to zero, the zero matrix.</p>
+<p t="1998670" d="2070">In other words, when
+I multiply, multiply,</p>
+<p t="2000740" d="3700">multiply by that matrix I get
+smaller and smaller and smaller</p>
+<p t="2004440" d="2320">matrices, zero in the limit.</p>
+<p t="2006760" d="6970">What do you think's the
+test on the lambda now?</p>
+<p t="2013730" d="3770">So what are the
+eigenvalues of A to the k?</p>
+<p t="2017500" d="500">Let's see.</p>
+<p t="2018000" d="2980">If A had eigenvalues
+lambda, A squared</p>
+<p t="2020980" d="2020">will have eigenvalues
+lambda squared,</p>
+<p t="2023000" d="2510">A cubed will have
+eigenvalues lambda cubed,</p>
+<p t="2025510" d="2655">A to the thousandth will
+have eigenvalues lambda</p>
+<p t="2028165" d="1615">to the thousandth.</p>
+<p t="2029780" d="5040">And what's the test for
+that to be getting small?</p>
+<p t="2034820" d="3820">Lambda less than one.</p>
+<p t="2038640" d="5240">So the test for stability will
+be-- In the discrete case,</p>
+<p t="2043880" d="3650">it won't be the
+real part of lambda,</p>
+<p t="2047530" d="3350">it'll be the size of
+lambda less than one.</p>
+<p t="2050880" d="5550">And growth would be the size
+of lambda greater than one.</p>
+<p t="2056430" d="2970">And again, there'd be
+this borderline case</p>
+<p t="2059400" d="4910">when the eigenvalue has
+magnitude exactly one.</p>
+<p t="2064310" d="5690">So you're seeing here
+and also here the idea</p>
+<p t="2070000" d="4850">that we may have to deal
+with complex numbers here.</p>
+<p t="2074850" d="2340">We don't have to deal
+with the whole world</p>
+<p t="2077190" d="3430">of complex functions
+and everything</p>
+<p t="2080620" d="5090">but it's possible for
+complex numbers to come in.</p>
+<p t="2085710" d="4010">Well while I'm saying that,
+why don't I give an example</p>
+<p t="2089720" d="8830">where it would come in.</p>
+<p t="2098550" d="4580">This is going to
+be a real matrix</p>
+<p t="2103130" d="4230">with complex eigenvalues.</p>
+<p t="2107360" d="3670">Complex lambdas.</p>
+<p t="2111030" d="8740">It'll be an example.</p>
+<p t="2119770" d="2760">So I guess I'm
+looking for a matrix</p>
+<p t="2122530" d="6790">where y and Ay never come
+out in the same direction.</p>
+<p t="2129320" d="4920">For real y's I know, okay,
+here's a good matrix.</p>
+<p t="2134240" d="7450">Take the matrix that rotates
+every vector by 90 degrees.</p>
+<p t="2141690" d="1880">Or by theta.</p>
+<p t="2143570" d="4880">But let's say here's a matrix
+that rotates every vector</p>
+<p t="2148450" d="7050">by 90 degrees.</p>
+<p t="2155500" d="1850">I'm going to raise
+this board and hide it</p>
+<p t="2157350" d="1620">behind there in a minute.</p>
+<p t="2158970" d="6320">I just wanted to-- just to open
+up this thought that we will</p>
+<p t="2165290" d="4670">have to face complex numbers.</p>
+<p t="2169960" d="5650">If you know how to multiply two
+complex numbers and add them,</p>
+<p t="2175610" d="1190">you're okay.</p>
+<p t="2176800" d="3680">This isn't going to
+turn into a big deal.</p>
+<p t="2180480" d="4540">But let's just realize
+that-- Suppose that matrix,</p>
+<p t="2185020" d="5020">if I put in a vector y and
+I multiply by that matrix,</p>
+<p t="2190040" d="3540">it'll turn it
+through 90 degrees.</p>
+<p t="2193580" d="1840">So y couldn't be an eigenvector.</p>
+<p t="2195420" d="1650">That's the point
+I'm trying to make.</p>
+<p t="2197070" d="4790">No real vector could
+be the eigenvector</p>
+<p t="2201860" d="4860">of a rotation matrix because
+every vector gets turned.</p>
+<p t="2206720" d="6510">So that's an example where you'd
+have to go to complex vectors.</p>
+<p t="2213230" d="5730">and I think if I tried
+the vector [1, i],</p>
+<p t="2218960" d="3770">so I'm letting the square
+root of minus one into here,</p>
+<p t="2222730" d="2980">then I think it would come out.</p>
+<p t="2225710" d="3330">If I do that multiplication
+I get minus i.</p>
+<p t="2229040" d="1630">And I get one.</p>
+<p t="2230670" d="5040">And I think that
+this is, what is it?</p>
+<p t="2235710" d="2220">This is probably
+minus i times that.</p>
+<p t="2237930" d="14300">So this is minus
+i times the input.</p>
+<p t="2252230" d="1890">No big deal.</p>
+<p t="2254120" d="2820">That was like, you
+can forget that.</p>
+<p t="2256940" d="6370">It's just complex
+numbers can come in.</p>
+<p t="2263310" d="9340">Now let me come back to the
+main point about eigenvectors.</p>
+<p t="2272650" d="5060">Things can be complex.</p>
+<p t="2277710" d="4690">So the main point is
+how do we use them?</p>
+<p t="2282400" d="6290">And how many are there?</p>
+<p t="2288690" d="1920">Here's the key.</p>
+<p t="2290610" d="2910">A typical, good
+matrix, which includes</p>
+<p t="2293520" d="2290">every symmetric
+matrix, so it includes</p>
+<p t="2295810" d="5060">all of our examples and
+more, if it's of size 1,000,</p>
+<p t="2300870" d="3940">it will have 1,000
+different eigenvectors.</p>
+<p t="2304810" d="4960">And let me just say for
+our symmetric matrices</p>
+<p t="2309770" d="3480">those eigenvectors
+will all be real.</p>
+<p t="2313250" d="3920">They're great, the eigenvectors
+of symmetric matrices.</p>
+<p t="2317170" d="3810">Oh, let me find them for one
+particular symmetric matrix.</p>
+<p t="2320980" d="6060">Say this guy.</p>
+<p t="2327040" d="2910">So that's a matrix, two by two.</p>
+<p t="2329950" d="3900">How many eigenvectors
+am I now looking for?</p>
+<p t="2333850" d="2110">Two.</p>
+<p t="2335960" d="4020">You could say, how
+do I find them?</p>
+<p t="2339980" d="7760">Maybe with a two by two,
+I can even just wing it.</p>
+<p t="2347740" d="5610">We can come up with a vector
+that is an eigenvector.</p>
+<p t="2353350" d="2490">Actually that's what
+we're going to do</p>
+<p t="2355840" d="4230">here is we're going to
+guess the eigenvectors</p>
+<p t="2360070" d="2260">and then we're going to
+show that they really</p>
+<p t="2362330" d="2660">are eigenvectors and then
+we'll know the eigenvalues</p>
+<p t="2364990" d="2020">and it's fantastic.</p>
+<p t="2367010" d="4130">So like let's start here
+with the two by two case.</p>
+<p t="2371140" d="1910">Anybody spot an eigenvector?</p>
+<p t="2373050" d="2310">Is [1, 0] an eigenvector?</p>
+<p t="2375360" d="950">Try [1, 0].</p>
+<p t="2376310" d="3220">What comes out of [1, 0]?</p>
+<p t="2379530" d="4000">Well that picks the
+first column, right?</p>
+<p t="2383530" d="2330">That's how I see,
+multiplying by [1, 0],</p>
+<p t="2385860" d="2600">that says take one
+of the first column.</p>
+<p t="2388460" d="3990">And is it an eigenvector?</p>
+<p t="2392450" d="1510">Yes, no?</p>
+<p t="2393960" d="1800">No.</p>
+<p t="2395760" d="3540">This vector is not in the
+same direction as that one.</p>
+<p t="2399300" d="1570">No good.</p>
+<p t="2400870" d="8490">Now can you tell me one that is?</p>
+<p t="2409360" d="2840">You're going to
+guess it. [1,  1].</p>
+<p t="2412200" d="2800">Try [1, 1].</p>
+<p t="2415000" d="6080">Do the multiplication
+and what do you get?</p>
+<p t="2421080" d="2700">Right?</p>
+<p t="2423780" d="5220">If I input this vector
+y, what do I get out?</p>
+<p t="2429000" d="4390">Actually I get y itself.</p>
+<p t="2433390" d="3120">Right?</p>
+<p t="2436510" d="2110">The point is it didn't
+change direction,</p>
+<p t="2438620" d="2160">and it didn't even
+change length.</p>
+<p t="2440780" d="2060">So what's the
+eigenvalue for that?</p>
+<p t="2442840" d="5000">So I've got one eigenvalue
+now, one eigenvector. [1, 1].</p>
+<p t="2447840" d="3280">And I've got the eigenvalue.</p>
+<p t="2451120" d="2860">So here are the
+vectors, the y's.</p>
+<p t="2453980" d="1710">And here are the lambdas.</p>
+<p t="2455690" d="5750">And I've got one of them
+and it's one, right?</p>
+<p t="2461440" d="1950">Would you like to
+guess the other one?</p>
+<p t="2463390" d="3170">I'm only looking for two because
+it's a two by two matrix.</p>
+<p t="2466560" d="3460">So let me erase here,
+hope that you'll</p>
+<p t="2470020" d="7330">come up with another one. [1,
+ -1] is certainly worth a try.</p>
+<p t="2477350" d="1870">Let's test it.</p>
+<p t="2479220" d="2210">If it's an eigenvector,
+then it should come out</p>
+<p t="2481430" d="1000">in the same direction.</p>
+<p t="2482430" d="3860">What do I get when I do that?</p>
+<p t="2486290" d="2310">So I do that multiplication.</p>
+<p t="2488600" d="4140">Three and I get three
+and minus three,</p>
+<p t="2492740" d="3050">so have we got an eigenvector?</p>
+<p t="2495790" d="1600">Yep.</p>
+<p t="2497390" d="5000">And what's, so if this was
+y, what is this vector?</p>
+<p t="2502390" d="1830">3y.</p>
+<p t="2504220" d="3440">So there's the other
+eigenvector, is [1, -1],</p>
+<p t="2507660" d="8490">and the other
+eigenvalue is three.</p>
+<p t="2516150" d="5220">So we did it by
+spotting it here.</p>
+<p t="2521370" d="2050">MATLAB can't do it that way.</p>
+<p t="2523420" d="2890">It's got to figure it out.</p>
+<p t="2526310" d="5810">But we're ahead of
+MATLAB this time.</p>
+<p t="2532120" d="3530">So what do I notice?</p>
+<p t="2535650" d="1900">What do I notice
+about this matrix?</p>
+<p t="2537550" d="3140">It was symmetric.</p>
+<p t="2540690" d="4460">And what do I notice
+about the eigenvectors?</p>
+<p t="2545150" d="4240">If I show you those two
+vectors, [1, 1] and [1, -1],</p>
+<p t="2549390" d="3320">what do you see there?</p>
+<p t="2552710" d="5560">They're orthogonal. [1, 1]
+is orthogonal to [1, -1],</p>
+<p t="2558270" d="2640">perpendicular is the
+same as orthogonal.</p>
+<p t="2560910" d="8980">These are orthogonal,
+perpendicular.</p>
+<p t="2569890" d="3200">I can draw them, of course,
+and see that. [1, 1]</p>
+<p t="2573090" d="5170">will go, if this is
+one, it'll go here.</p>
+<p t="2578260" d="2250">So that's [1, 1].</p>
+<p t="2580510" d="2910">And [1, -1] will go
+there, it'll go down,</p>
+<p t="2583420" d="2610">this would be the
+other one. [1,  -1].</p>
+<p t="2586030" d="1790">So there's y_1.</p>
+<p t="2587820" d="960">There's y_2.</p>
+<p t="2588780" d="2480">And they are perpendicular.</p>
+<p t="2591260" d="6040">But of course I don't draw
+pictures all the time.</p>
+<p t="2597300" d="4620">What's the test for two
+vectors being orthogonal?</p>
+<p t="2601920" d="1520">The dot product.</p>
+<p t="2603440" d="1090">The dot product.</p>
+<p t="2604530" d="7010">The inner product. y
+transpose-- y_1 transpose * y_2.</p>
+<p t="2611540" d="3970">Do you prefer to write it
+as y_1 with a dot, y_2?</p>
+<p t="2618550" d="4110">This is maybe better because
+it's matrix notation.</p>
+<p t="2622660" d="8760">And the point is orthogonal,
+the dot product is zero.</p>
+<p t="2631420" d="1740">So that's good.</p>
+<p t="2633160" d="3080">Very good, in fact.</p>
+<p t="2636240" d="2940">So here's a very important fact.</p>
+<p t="2639180" d="7550">Symmetric matrices have
+orthogonal eigenvectors.</p>
+<p t="2646730" d="2740">What I'm trying to say is
+eigenvectors and eigenvalues</p>
+<p t="2649470" d="3920">are like a new way
+to look at a matrix.</p>
+<p t="2653390" d="3430">A new way to see into it.</p>
+<p t="2656820" d="4450">And when the matrix is
+symmetric, what we see</p>
+<p t="2661270" d="3770">is perpendicular eigenvectors.</p>
+<p t="2665040" d="3040">And what comment do you
+have about the eigenvalues</p>
+<p t="2668080" d="4180">of this symmetric matrix?</p>
+<p t="2672260" d="4030">Remembering what
+was on the board</p>
+<p t="2676290" d="4040">for this anti-symmetric matrix.</p>
+<p t="2680330" d="3960">What was the point about
+that anti-symmetric matrix?</p>
+<p t="2684290" d="7040">Its eigenvalues were imaginary
+actually, an i there.</p>
+<p t="2691330" d="1910">Here it's the opposite.</p>
+<p t="2693240" d="3380">What's the property
+of the eigenvalues</p>
+<p t="2696620" d="4320">for a symmetric matrix
+that you would just guess?</p>
+<p t="2700940" d="1140">They're real.</p>
+<p t="2702080" d="1590">They're real.</p>
+<p t="2703670" d="2610">Symmetric matrices
+are great because they</p>
+<p t="2706280" d="12680">have real eigenvalues and they
+have perpendicular eigenvectors</p>
+<p t="2718960" d="3420">and actually, probably if a
+matrix has real eigenvalues</p>
+<p t="2722380" d="4710">and perpendicular eigenvectors,
+it's going to be symmetric.</p>
+<p t="2727090" d="5140">So symmetry is a great property
+and it shows up in a great way</p>
+<p t="2732230" d="6350">in this real eigenvalue, real
+lambdas, and orthogonal y's.</p>
+<p t="2738580" d="9690">Shows up perfectly
+in the eigenpicture.</p>
+<p t="2748270" d="5390">Here's a handy little
+check on the eigenvalues</p>
+<p t="2753660" d="1920">to see if we got it right.</p>
+<p t="2755580" d="1120">Course we did.</p>
+<p t="2756700" d="2760">That's one and three we can get.</p>
+<p t="2759460" d="4490">But let me just show you two
+useful checks if you haven't</p>
+<p t="2763950" d="2280">seen eigenvalues before.</p>
+<p t="2766230" d="4290">If I add the eigenvalues,
+what do I get?</p>
+<p t="2770520" d="1620">Four.</p>
+<p t="2772140" d="2920">And I compare that
+with adding down</p>
+<p t="2775060" d="2280">the diagonal of the matrix.</p>
+<p t="2777340" d="2010">Two and two, four.</p>
+<p t="2779350" d="2450">And that check always works.</p>
+<p t="2781800" d="3360">The sum of the eigenvalues
+matches the sum</p>
+<p t="2785160" d="1060">down the diagonal.</p>
+<p t="2786220" d="4590">So that's like, if you got all
+the eigenvalues but one, that</p>
+<p t="2790810" d="1340">would tell you the last one.</p>
+<p t="2792150" d="3910">Because the sum
+of the eigenvalues</p>
+<p t="2796060" d="3930">matches the sum
+down the diagonal.</p>
+<p t="2799990" d="5140">You have no clue where that
+comes from but it's true.</p>
+<p t="2805130" d="2930">And another useful fact.</p>
+<p t="2808060" d="4280">If I multiply the
+eigenvalues what do I get?</p>
+<p t="2812340" d="1280">Three?</p>
+<p t="2813620" d="4770">And now, where do you
+see a three over here?</p>
+<p t="2818390" d="2340">The determinant.</p>
+<p t="2820730" d="2640">4-1=3.</p>
+<p t="2823370" d="4490">Can I just write those two
+facts with no idea of proof.</p>
+<p t="2827860" d="4430">The sum of the lambdas,
+I could write "sum".</p>
+<p t="2836000" d="5680">This is for any matrix, the sum
+of the lambdas is equal to the,</p>
+<p t="2841680" d="3490">it's called the
+trace, of the matrix.</p>
+<p t="2845170" d="4020">The trace of the matrix is
+the sum down the diagonal.</p>
+<p t="2849190" d="7170">And the product of the lambdas,
+lambda_1 times lambda_2</p>
+<p t="2856360" d="3940">is the determinant
+of the matrix.</p>
+<p t="2860300" d="2530">Or if I had ten eigenvalues,
+I would multiply all ten</p>
+<p t="2862830" d="4390">and I'd get the determinant.</p>
+<p t="2867220" d="4280">So that's some facts
+about eigenvalues.</p>
+<p t="2871500" d="4460">There's more, of
+course, in section 1.5</p>
+<p t="2875960" d="2300">about how you would
+find eigenvalues</p>
+<p t="2878260" d="6500">and how you would use them.</p>
+<p t="2884760" d="5010">That's of course the key point,
+is how would we use them.</p>
+<p t="2889770" d="6000">Let me say something more about
+that, how to use eigenvalues.</p>
+<p t="2895770" d="6710">Suppose I have this system of
+1,000 differential equations.</p>
+<p t="2902480" d="5120">Linear, constant coefficients,
+starts from some u(0).</p>
+<p t="2914220" d="3160">How do eigenvalues
+and eigenvectors help?</p>
+<p t="2917380" d="2680">Well, first I have to
+find them, that's the job.</p>
+<p t="2920060" d="4140">So suppose I find 1,000
+eigenvalues and eigenvectors.</p>
+<p t="2924200" d="6480">A times eigenvector number
+i is eigenvalue number i</p>
+<p t="2930680" d="1790">times eigenvector number i.</p>
+<p t="2932470" d="7760">So these, y_1 to y_1000, so y_1
+to y_1000 are the eigenvectors.</p>
+<p t="2940230" d="2690">And each one has
+its own eigenvalue,</p>
+<p t="2942920" d="2910">lambda_1 to lambda_1000.</p>
+<p t="2945830" d="5430">And now if I did that work,
+sort of like, in advance,</p>
+<p t="2951260" d="3050">now I come to the
+differential equation.</p>
+<p t="2954310" d="6940">How could I use this?</p>
+<p t="2961250" d="5520">This is now going to
+be the most-- it's</p>
+<p t="2966770" d="2690">three steps to use
+it, three steps</p>
+<p t="2969460" d="4140">to use these to get the answer.</p>
+<p t="2973600" d="3870">Ready for step one.</p>
+<p t="2977470" d="6810">Step one is break u
+nought into eigenvectors.</p>
+<p t="2984280" d="4160">Split, separate,
+write, express u(0)</p>
+<p t="2988440" d="13600">as a combination
+of eigenvectors.</p>
+<p t="3002040" d="3320">Now step two.</p>
+<p t="3005360" d="2790">What happens to
+each eigenvector?</p>
+<p t="3008150" d="2400">So this is where the
+differential equation</p>
+<p t="3010550" d="650">starts from.</p>
+<p t="3011200" d="2280">This is the initial condition.</p>
+<p t="3013480" d="4010">1,000 components of u
+at the start and it's</p>
+<p t="3017490" d="5900">separated into 1,000
+eigenvector pieces.</p>
+<p t="3023390" d="5190">Now step two is watch
+each piece separately.</p>
+<p t="3028580" d="13040">So step two will be multiply
+say c_1 by e^(lambda_1*t),</p>
+<p t="3041620" d="2530">by its growth.</p>
+<p t="3044150" d="3530">This is following
+eigenvector number one.</p>
+<p t="3047680" d="5570">And in general, I would multiply
+every one of the c's by e</p>
+<p t="3053250" d="1890">to those guys.</p>
+<p t="3055140" d="4410">So what would I have now?</p>
+<p t="3059550" d="2310">This is one piece of the start.</p>
+<p t="3061860" d="3440">And that gives me one
+piece of the finish.</p>
+<p t="3065300" d="8920">So the finish is, the answer
+is to add up the 1,000 pieces.</p>
+<p t="3074220" d="4680">And if you're with me, you see
+what those 1,000 pieces are.</p>
+<p t="3078900" d="4580">Here's a piece, some multiple
+of the first eigenvector.</p>
+<p t="3083480" d="2890">Now if we only were
+working with that piece,</p>
+<p t="3086370" d="3100">we follow it in time
+by multiplying it</p>
+<p t="3089470" d="2170">by e to the lambda_1
+* t, and what do we</p>
+<p t="3091640" d="4394">have at a later time?</p>
+<p t="3096034" d="916">c_1*e^(lambda_1*t)y_1.</p>
+<p t="3101990" d="3530">This piece has grown into that.</p>
+<p t="3105520" d="2940">And other pieces have
+grown into other things.</p>
+<p t="3108460" d="2380">And what about the last piece?</p>
+<p t="3110840" d="6260">So what is it that
+I have to add up?</p>
+<p t="3117100" d="2590">Tell me what to write here.</p>
+<p t="3119690" d="5500">c_1000, however much
+of eigenvector 1,000</p>
+<p t="3125190" d="5510">was in there, and
+then finally, never</p>
+<p t="3130700" d="9390">written left-handed
+before, e to the who?</p>
+<p t="3140090" d="3220">Lambda number 1,000,
+not 1,000 itself,</p>
+<p t="3143310" d="8190">but its eigenvalue, 1,000, t.</p>
+<p t="3151500" d="5400">This is just splitting, this
+is constantly, constantly</p>
+<p t="3156900" d="5070">the method, the way to use
+eigenvalues and eigenvectors.</p>
+<p t="3161970" d="3520">Split the problem
+into the pieces that</p>
+<p t="3165490" d="2890">go-- that are eigenvectors.</p>
+<p t="3168380" d="5410">Watch each piece,
+add up the pieces.</p>
+<p t="3173790" d="2770">That's why eigenvectors
+are so important.</p>
+<p t="3176560" d="3240">Yeah?</p>
+<p t="3179800" d="2800">Yes, right.</p>
+<p t="3182600" d="6160">Well, now, very good question.</p>
+<p t="3188760" d="1219">Let's see.</p>
+<p t="3189979" d="1541">Well, the first
+thing we have to know</p>
+<p t="3191520" d="3240">is that we do find
+1,000 eigenvectors.</p>
+<p t="3194760" d="5180">And so my answer is going to
+be for symmetric matrices,</p>
+<p t="3199940" d="1910">everything always works.</p>
+<p t="3201850" d="3210">For symmetric matrices,
+if size is 1,000,</p>
+<p t="3205060" d="3300">they have 1,000 eigenvectors,
+and next time we'll</p>
+<p t="3208360" d="1970">have a shot at some of these.</p>
+<p t="3210330" d="3590">What some of them are for
+these special matrices.</p>
+<p t="3213920" d="2970">So this method
+always works if I've</p>
+<p t="3216890" d="5770">got a full family of
+independent eigenvectors.</p>
+<p t="3222660" d="5120">If it's of size 1,000, I need,
+you're right, exactly right.</p>
+<p t="3227780" d="4910">To see that this was
+the questionable step.</p>
+<p t="3232690" d="2580">If I haven't got
+1,000 eigenvectors,</p>
+<p t="3235270" d="2000">I'm not going to be
+able to take that step.</p>
+<p t="3237270" d="2620">And it happens.</p>
+<p t="3239890" d="5450">I am sad to report that
+some matrices haven't</p>
+<p t="3245340" d="2310">got enough eigenvectors.</p>
+<p t="3247650" d="4150">Some matrices, they collapse.</p>
+<p t="3251800" d="3500">This always happens
+in math, somehow.</p>
+<p t="3255300" d="3720">Two eigenvectors collapse
+into one and the matrix</p>
+<p t="3259020" d="4930">is defective, like it's a loser.</p>
+<p t="3263950" d="4940">So now you have to, of
+course, the equation</p>
+<p t="3268890" d="2830">still has a solution.</p>
+<p t="3271720" d="2600">So there has to be
+something there,</p>
+<p t="3274320" d="3570">but the pure eigenvector
+method is not</p>
+<p t="3277890" d="3000">going to make it on
+those special matrices.</p>
+<p t="3280890" d="2640">I could write down
+one but why should we</p>
+<p t="3283530" d="3230">give space to a loser?</p>
+<p t="3286760" d="4700">But what happens in that case?</p>
+<p t="3291460" d="2850">You might remember from
+differential equations</p>
+<p t="3294310" d="3950">when two of these roots,
+these are like roots,</p>
+<p t="3298260" d="2460">these lambdas are
+like roots that you</p>
+<p t="3300720" d="4190">found in solving a
+differential equation.</p>
+<p t="3304910" d="4380">When two of them come together,
+that's when the danger is.</p>
+<p t="3309290" d="2390">When I have a double
+eigenvalue, then there's</p>
+<p t="3311680" d="3410">a high risk that I've
+only got one eigenvector.</p>
+<p t="3315090" d="5640">And I'll just put in this
+little thing what the other,</p>
+<p t="3320730" d="3180">so the e^(lambda_1*t) is fine.</p>
+<p t="3323910" d="5220">But if that y_1 is like, if
+the lambda_1's in there twice,</p>
+<p t="3329130" d="1440">I need something new.</p>
+<p t="3330570" d="4190">And the new thing turns
+out to be t*e^(lambda* t).</p>
+<p t="3338220" d="2100">I don't know if
+anybody remembers.</p>
+<p t="3340320" d="4250">This was probably hammered back
+in differential equations that</p>
+<p t="3344570" d="5090">if you had repeated
+something or other then this,</p>
+<p t="3349660" d="3520">you didn't get pure
+e^(lambda*t)'s, you got also</p>
+<p t="3353180" d="1470">a t*e^(lambda*t).</p>
+<p t="3354650" d="2010">Anyway that's the answer.</p>
+<p t="3356660" d="2210">That if we're
+short eigenvectors,</p>
+<p t="3358870" d="3510">and it can happen, but it
+won't for our good matrices.</p>
+<p t="3362380" d="5200">Okay, so Monday
+I've got lots to do.</p>
+<p t="3367580" d="3823">Special eigenvalues and vectors
+and then positive definite.</p>
+</body>
+</timedtext>

@@ -1,0 +1,2504 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="90" d="2400">The following content is
+provided under a Creative</p>
+<p t="2490" d="1569">Commons license.</p>
+<p t="4059" d="2301">Your support will help
+MIT OpenCourseWare</p>
+<p t="6360" d="4360">continue to offer high quality
+educational resources for free.</p>
+<p t="10720" d="2600">To make a donation or
+view additional materials</p>
+<p t="13320" d="3960">from hundreds of MIT courses,
+visit MIT OpenCourseWare</p>
+<p t="17280" d="3830">at ocw.mit.edu</p>
+<p t="21110" d="3130">PROFESSOR: All right today we
+begin a topic dear to my heart.</p>
+<p t="24240" d="2190">It's a problem that's
+still pretty open,</p>
+<p t="26430" d="1410">but I've worked on a lot.</p>
+<p t="27840" d="1560">Dynamic optimality.</p>
+<p t="29400" d="3450">Central question here is, is
+there one binary search tree</p>
+<p t="32850" d="2460">that's at least as good as
+all other binary search trees?</p>
+<p t="35310" d="3270">Is there one binary search
+tree to rule them all?</p>
+<p t="38580" d="1650">It's kind of a
+fundamental question.</p>
+<p t="40230" d="2750">Goes back to the '80s.</p>
+<p t="42980" d="3600">In particular splay trees, which
+you have probably seen before.</p>
+<p t="46580" d="2500">We'll review them briefly here.</p>
+<p t="49080" d="1740">And there's a lot of
+technology built up,</p>
+<p t="50820" d="2850">which we'll talk about this
+lecture and next lecture,</p>
+<p t="53670" d="2380">about how to tackle
+this problem.</p>
+<p t="56050" d="3260">It's still active
+area of research.</p>
+<p t="59310" d="7270">So before I get to-- well
+the central question here is,</p>
+<p t="66580" d="6920">is there one best
+binary search tree?</p>
+<p t="76634" d="2416">It's a natural question because
+we use binary search trees</p>
+<p t="79050" d="541">all the time.</p>
+<p t="79591" d="1919">Already in this class,
+probably every lecture,</p>
+<p t="81510" d="2680">we've used a binary
+search tree for something.</p>
+<p t="84190" d="6690">And we all know how to do order
+log in balanced binary search</p>
+<p t="90880" d="500">trees.</p>
+<p t="95760" d="3180">And the question becomes,
+is this the best you can do?</p>
+<p t="109590" d="9670">To make this more formal
+of a problem, well, yeah.</p>
+<p t="119260" d="6080">I want to define binary search
+tree as a model of computation.</p>
+<p t="125340" d="2300">OK we've talked about
+pointer machine model.</p>
+<p t="127640" d="3290">Binary search tree model is
+a more restricted version</p>
+<p t="130930" d="1050">of pointer machine.</p>
+<p t="131980" d="2940">So it's less than
+pointer machine.</p>
+<p t="138270" d="3670">Just so it's clear what
+the name of this game is,</p>
+<p t="141940" d="8880">we require the data to be
+stored in a binary search</p>
+<p t="150820" d="3705">tree as it's keys.</p>
+<p t="160120" d="2430">And then we allow
+basic operations.</p>
+<p t="166610" d="5300">Let me make sure I
+get the right list.</p>
+<p t="181950" d="1980">You can follow
+pointers, and we're</p>
+<p t="183930" d="3210">going to assume our BST
+has left triad pointers,</p>
+<p t="187140" d="2130">right triad pointers,
+and parent pointers.</p>
+<p t="189270" d="2100">You can do each of
+these in constant time.</p>
+<p t="191370" d="3480">And then the interesting one,
+interesting thing you can do,</p>
+<p t="194850" d="3360">is rotate a node and its parent.</p>
+<p t="203550" d="3410">So sure you've seen
+rotations before.</p>
+<p t="214160" d="2250">If this is my node
+x, and I do rotate</p>
+<p t="216410" d="6660">x, it's going to be my
+definition of rotation,</p>
+<p t="223070" d="1770">x moves to the root.</p>
+<p t="224840" d="2930">It's in this case because x
+is to the right of it's parent</p>
+<p t="227770" d="4100">it remains now to the
+right of it's, what</p>
+<p t="231870" d="1070">now becomes it's child.</p>
+<p t="236100" d="2150">These sub-trees come
+along for the ride.</p>
+<p t="238250" d="3030">This preserves the binary
+search tree property.</p>
+<p t="241280" d="2284">And you could get
+back by rotating y.</p>
+<p t="246230" d="2317">OK by this definition
+of rotate we</p>
+<p t="248547" d="1583">don't need to
+distinguish between left</p>
+<p t="250130" d="2100">and right rotations.</p>
+<p t="252230" d="3260">We always name the child and
+it's parent is well defined.</p>
+<p t="255490" d="1700">That's who we rotate with.</p>
+<p t="257190" d="2820">So it's just flipping this edge.</p>
+<p t="260010" d="3110">So these are the operations
+you can do, and in this model</p>
+<p t="263120" d="2070">really the only thing
+you can do is a search.</p>
+<p t="265190" d="2460">Suppose I want to
+search for a key.</p>
+<p t="267650" d="10650">The model is to do a search I
+start at the root of the tree,</p>
+<p t="278300" d="1320">of the binary search tree.</p>
+<p t="279620" d="1050">I can do these walks.</p>
+<p t="280670" d="1830">I could do rotations.</p>
+<p t="282500" d="2430">And I must visit--</p>
+<p t="284930" d="11040">if I'm going to search for x,
+must visit the node with key</p>
+<p t="295970" d="2190">equal to x.</p>
+<p t="298160" d="2130">And we're going to assume
+throughout these lectures</p>
+<p t="300290" d="1560">that searches are
+always successful.</p>
+<p t="301850" d="2707">You're only searching for
+keys that are in the tree.</p>
+<p t="304557" d="1583">Doesn't make that
+much of a difference</p>
+<p t="306140" d="1860">if you're searching for keys
+that are not in the tree.</p>
+<p t="308000" d="2880">Think of it as searching for the
+predecessor or the successor.</p>
+<p t="310880" d="1266">Not a big deal.</p>
+<p t="312146" d="1374">And so for
+simplicity, we're just</p>
+<p t="313520" d="3300">going to assume
+successful searches.</p>
+<p t="316820" d="2970">We're also going to assume
+no insertions and deletions</p>
+<p t="319790" d="4230">in this model, because they just
+make problem a little messier.</p>
+<p t="324020" d="2670">Some papers have considered
+insertions and deletions,</p>
+<p t="326690" d="1980">and to the large extent
+things just work.</p>
+<p t="328670" d="2480">So, we're going to
+focus on searches.</p>
+<p t="331150" d="3590">Searches is interesting
+enough for this problem.</p>
+<p t="334740" d="1640">Suppose I have n items.</p>
+<p t="336380" d="1350">Now the model is clear.</p>
+<p t="337730" d="2337">I store them in a
+binary search tree.</p>
+<p t="340067" d="1833">These are the only
+things I'm allowed to do.</p>
+<p t="346520" d="4110">Could I imagine beating log n?</p>
+<p t="350630" d="4230">Well, no in the worst case.</p>
+<p t="354860" d="1770">This is best possible
+in the worst case.</p>
+<p t="362930" d="1380">Why?</p>
+<p t="364310" d="2540">Because your tree has
+to have depth at least</p>
+<p t="366850" d="3700">log n if you're going to store
+n things, and if it's binary.</p>
+<p t="370550" d="2345">So your adversary could
+always be, could always just</p>
+<p t="372895" d="1375">look at your tree
+and say, Oh I'm</p>
+<p t="374270" d="3944">going to pick anybody who's
+a log in depth or lower,</p>
+<p t="378214" d="1666">and if you're going
+to start at the root</p>
+<p t="379880" d="1567">and walk left and
+right to get there,</p>
+<p t="381447" d="1583">you're going to have
+to pay log n time</p>
+<p t="383030" d="3980">every single, every
+single operation.</p>
+<p t="387010" d="2000">So actually there's a lot
+of sequences, in fact,</p>
+<p t="389010" d="625">most sequences.</p>
+<p t="389635" d="3235">You take an average sequence,
+this will be the case.</p>
+<p t="392870" d="3970">But we'll see formal ways
+to prove that next class.</p>
+<p t="396840" d="1880">But, easy adversary
+argument tells you</p>
+<p t="398720" d="3490">you need to go down,
+log n in the worst case.</p>
+<p t="404900" d="3280">But, that's the worst case.</p>
+<p t="408180" d="1970">The name of the game
+in dynamic optimality</p>
+<p t="410150" d="3510">is to consider every case
+separately, and do as</p>
+<p t="413660" d="1410">well as you can all the time.</p>
+<p t="415070" d="3120">In general, the answer
+to this question is that,</p>
+<p t="418190" d="2160">is log n best possible?</p>
+<p t="420350" d="3169">Depends on the access sequence.</p>
+<p t="423519" d="1541">Depends on what
+you're searching for.</p>
+<p t="435750" d="7560">So, let's say we're, to
+make things a little clean,</p>
+<p t="443310" d="3330">let's assume that the
+key is we're storing are</p>
+<p t="446640" d="3492">the numbers,
+integers, one up to n.</p>
+<p t="450132" d="1458">So in particular
+there's n of them.</p>
+<p t="451590" d="2040">And really we just
+care about their order,</p>
+<p t="453630" d="3450">so I'm going to relabel
+them to be one up to n.</p>
+<p t="457080" d="9540">And say we search for x 1
+first, then we search for x 2,</p>
+<p t="466620" d="4440">and so on, up to x m.</p>
+<p t="471060" d="3240">So, these indices
+are time, basically.</p>
+<p t="474300" d="3050">Over time, and you can
+plot this if you like.</p>
+<p t="477350" d="2550">Here is time.</p>
+<p t="479900" d="2540">Here is space.</p>
+<p t="482440" d="5390">So at the first time
+unit we search at x 1,</p>
+<p t="487830" d="3270">then some other place,
+then some other place.</p>
+<p t="491100" d="4490">We can have repeats, whatever.</p>
+<p t="495590" d="790">OK.</p>
+<p t="496380" d="3060">Some search sequences
+are going to be slow,</p>
+<p t="499440" d="2190">they're going to require
+log n time per access.</p>
+<p t="501630" d="2340">In particular, if I always,
+if the adversary chooses</p>
+<p t="503970" d="3210">x i to be the deepest node
+in the tree repeatedly.</p>
+<p t="507180" d="2295">But some search sequences
+are going to be fast.</p>
+<p t="513240" d="3809">Any suggestions, if you don't
+have the notes in front of you,</p>
+<p t="517049" d="5295">of access sequences that we
+can do in less than log n</p>
+<p t="522344" d="791">time per operation.</p>
+<p t="523135" d="3015">Let's A constant.</p>
+<p t="526150" d="2260">There's a lot of possible
+answers, I think.</p>
+<p t="534710" d="500">Yeah?</p>
+<p t="535210" d="1960">AUDIENCE: N divided by two.</p>
+<p t="537170" d="2010">PROFESSOR: N divided by two.</p>
+<p t="539180" d="1890">What do you mean.</p>
+<p t="541070" d="3869">AUDIENCE: Like it's
+going to be [INAUDIBLE]</p>
+<p t="544939" d="2041">PROFESSOR: Oh, if you're
+searching for the median</p>
+<p t="546980" d="1700">in a perfectly balanced tree?</p>
+<p t="548680" d="2279">Yeah, that's true.</p>
+<p t="550959" d="2291">So if you're always searching
+for the root of the tree,</p>
+<p t="553250" d="3870">in particular, that's
+going to be good.</p>
+<p t="557120" d="2310">That's hard to, that
+depends on the tree though.</p>
+<p t="559430" d="2280">I'd like a particular
+access sequence</p>
+<p t="561710" d="5740">that I can always serve
+as well, with some tree.</p>
+<p t="567450" d="1380">AUDIENCE: n order walk.</p>
+<p t="568830" d="1010">PROFESSOR: n order walk.</p>
+<p t="569840" d="1780">Yeah, good.</p>
+<p t="571620" d="5820">So this has a name.</p>
+<p t="577440" d="1410">Sequential access property.</p>
+<p t="586870" d="4330">If you want to access the
+elements in order, so one</p>
+<p t="591200" d="5320">through n, this should only
+cost constant amortized.</p>
+<p t="602737" d="1833">Because for any tree
+you can do and in order</p>
+<p t="604570" d="1650">walk in linear time.</p>
+<p t="606220" d="4470">And so per search, if you're
+careful about how you do this,</p>
+<p t="610690" d="4170">now this is not totally obvious
+in the model that I've set up,</p>
+<p t="614860" d="2830">because I said search
+always starts at the root.</p>
+<p t="617690" d="2570">If you let your search
+start where you left off,</p>
+<p t="620260" d="2310">then you can definitely do this.</p>
+<p t="622570" d="2190">It turns out you can
+assume this or not,</p>
+<p t="624760" d="1590">it doesn't make a difference.</p>
+<p t="626350" d="1257">That's maybe a fun exercise.</p>
+<p t="627607" d="1833">But if, you can essentially
+reroute the tree</p>
+<p t="629440" d="2402">to be wherever you left off.</p>
+<p t="631842" d="2408">I'm not going to
+prove that here.</p>
+<p t="634250" d="4670">OK, but in particular, some
+trees have this property.</p>
+<p t="638920" d="690">Some don't.</p>
+<p t="639610" d="2458">I mean if you use a red black
+tree, and you search for one,</p>
+<p t="642068" d="1712">then search for two,
+then search for n,</p>
+<p t="643780" d="1830">you're not going to
+get constant amortized,</p>
+<p t="645610" d="2140">because it doesn't
+realize this is happening.</p>
+<p t="647750" d="3866">But if you're clever, of
+course, this can be achieved.</p>
+<p t="651616" d="1374">Easy way to see
+how to achieve it</p>
+<p t="652990" d="4510">is, this is your
+binary search tree.</p>
+<p t="657500" d="2660">You access one, then
+you do a rotation</p>
+<p t="660160" d="1760">with the right child of one.</p>
+<p t="661920" d="3430">So then you have this
+binary search tree,</p>
+<p t="665350" d="4620">and then you access two,
+and then you do a rotation.</p>
+<p t="669970" d="4740">This is basically a
+way to make a deck.</p>
+<p t="674710" d="4170">View a, use a link, simulate a
+linked list in a binary search</p>
+<p t="678880" d="1380">tree.</p>
+<p t="680260" d="4600">OK, so it definitely can be
+done by some binary search tree.</p>
+<p t="684860" d="3445">A stronger version of the
+sequential access property,</p>
+<p t="688305" d="4495">it's a little more interesting,
+is dynamic finger property.</p>
+<p t="692800" d="2940">This is something that should
+hold for every access sequence,</p>
+<p t="695740" d="2460">and it gives you a measure
+of how expensive an access</p>
+<p t="698200" d="1620">sequence is.</p>
+<p t="699820" d="3420">So we're doing x
+one x two up to x m.</p>
+<p t="703240" d="7110">And we say, if we
+measure the key distance</p>
+<p t="710350" d="3420">between our current access,
+x i and the previous access,</p>
+<p t="713770" d="1520">x i minus 1.</p>
+<p t="715290" d="4210">If that equals k,
+then ideally we</p>
+<p t="719500" d="4170">should be able to do log
+k amortize per operation.</p>
+<p t="726184" d="1416">So in the worst
+case this is going</p>
+<p t="727600" d="5340">to be log n, but if I look
+at my space-time diagram</p>
+<p t="732940" d="5010">here, if for example, if
+I do sequential access,</p>
+<p t="737950" d="3900">then this number is always one,
+and so I get constant time.</p>
+<p t="741850" d="5070">If I do something like this,
+where my spatial distance is</p>
+<p t="746920" d="2010">not changing too much,
+and this is the reason</p>
+<p t="748930" d="2130">I numbered the keys like this.</p>
+<p t="751060" d="2640">What I really mean is, in
+the sorted order of the keys,</p>
+<p t="753700" d="1710">how do the ranks differ.</p>
+<p t="755410" d="2310">But if I number the
+keys one through n,</p>
+<p t="757720" d="2869">that's just their
+absolute difference.</p>
+<p t="760589" d="1541">So anything like
+this, dynamic finger</p>
+<p t="762130" d="3744">properly tells you
+you're doing well.</p>
+<p t="765874" d="2416">Dynamic finger property can
+be achieved by a binary search</p>
+<p t="768290" d="3250">tree, but it's quite difficult
+as you might imagine.</p>
+<p t="771540" d="4860">Or it's difficult, let's say
+not necessarily super hard.</p>
+<p t="776400" d="2580">If you don't need to do it in
+a binary search tree model,</p>
+<p t="778980" d="2310">an easy way to do
+it is with what's</p>
+<p t="781290" d="1200">called a level linked tree.</p>
+<p t="784849" d="1541">So a level link tree
+looks like this,</p>
+<p t="786390" d="2550">and I add pointers
+between adjacent nodes</p>
+<p t="788940" d="1342">in the same level.</p>
+<p t="790282" d="1708">This is a pointer
+machine data structure,</p>
+<p t="791990" d="2350">it's not a binary search
+tree, because binary search</p>
+<p t="794340" d="3780">trees we only allowed to do walk
+left, walk right, walk parent,</p>
+<p t="798120" d="2350">But it's an easy way
+to do dynamic finger.</p>
+<p t="800470" d="2930">You start from
+somewhere, you basically</p>
+<p t="803400" d="4230">walk up to the right level,
+move over, walk back down,</p>
+<p t="807630" d="6210">and you can do a search for x
+i from x i minus one relatively</p>
+<p t="813840" d="630">quickly.</p>
+<p t="814470" d="2250">It turns out this can be
+stimulated by a binary search</p>
+<p t="816720" d="2250">tree, but we won't
+go into it here.</p>
+<p t="818970" d="3070">Lots of fun puzzles here.</p>
+<p t="822040" d="8150">Let's move on to some
+more bounds or properties.</p>
+<p t="838320" d="3570">So, next property is called
+the entropy property,</p>
+<p t="841890" d="2120">or entropy bound.</p>
+<p t="844010" d="13300">And it says if key k appears
+p sub k fraction of the time,</p>
+<p t="857310" d="9330">then I'd like to achieve
+a bound of entropy p</p>
+<p t="866640" d="4650">k log one over p
+k per operation.</p>
+<p t="871290" d="2782">This is, everything here
+today will be amortized.</p>
+<p t="876780" d="3125">So, if you haven't seen
+entropy, that's the definition.</p>
+<p t="879905" d="2065">It's the entropy of
+this distribution.</p>
+<p t="881970" d="2070">We're thinking of
+these as probabilities,</p>
+<p t="884040" d="2830">although they're not
+really probabilities.</p>
+<p t="886870" d="4280">They're, because this is
+over a particular sample.</p>
+<p t="891150" d="3520">We have this sequence x1 to x
+n, There's no randomness here,</p>
+<p t="894670" d="1940">but we just measure
+what is the fraction,</p>
+<p t="896610" d="2770">what is sort of the observed
+probability for each of these x</p>
+<p t="899380" d="830">i's.</p>
+<p t="900210" d="2910">And then just say,
+what is the, what</p>
+<p t="903120" d="1500">is the entropy of
+that distribution?</p>
+<p t="904620" d="2250">In the worst case
+it's log n, if say</p>
+<p t="906870" d="2770">everybody's equally likely,
+everyone's accessed once,</p>
+<p t="909640" d="2090">or the same number of times.</p>
+<p t="911730" d="2400">But if it's highly
+skewed, like if only one</p>
+<p t="914130" d="2349">element is accessed, the
+entropy will be constant.</p>
+<p t="916479" d="1791">If a small number of
+elements are accessed,</p>
+<p t="918270" d="1041">entropy will be constant.</p>
+<p t="921940" d="2150">So this can be
+achieved, and in fact,</p>
+<p t="924090" d="3180">if you disallow
+rotations, so if I change</p>
+<p t="927270" d="2430">the model to forbid
+rotations, all I get to do</p>
+<p t="929700" d="2040">is set up some
+binary search tree,</p>
+<p t="931740" d="2720">and then I have to walk left,
+walk right, walk parent,</p>
+<p t="934460" d="3220">from in that binary
+search tree to do this.</p>
+<p t="937680" d="2220">So if I get to
+see the x i's then</p>
+<p t="939900" d="3120">I get to build a
+binary search tree.</p>
+<p t="943020" d="2190">One binary search tree.</p>
+<p t="945210" d="1950">This is what's called
+the static optimal, when</p>
+<p t="947160" d="3150">you're not allowed to change the
+tree as you're doing searches.</p>
+<p t="950310" d="2420">Entropy is the best
+bound you can get.</p>
+<p t="952730" d="5260">And roughly speaking, key k
+appears at height, or depth,</p>
+<p t="957990" d="3480">log one over p k in the
+tree, maybe plus one.</p>
+<p t="961470" d="5010">And you can show there's always
+a tree where every node ends up</p>
+<p t="966480" d="2100">at depth log one over p k.</p>
+<p t="968580" d="4890">Again, not hard, but
+we won't do it here.</p>
+<p t="973470" d="5560">OK, a related property,
+it's called the working set</p>
+<p t="979030" d="500">property.</p>
+<p t="988770" d="1350">Little bit harder to state.</p>
+<p t="1023020" d="3270">For each search we
+do x i, we're going</p>
+<p t="1026290" d="4680">to see when that's some key,
+when was the last time that key</p>
+<p t="1030970" d="1210">was accessed.</p>
+<p t="1032180" d="7035">So, in our space-time diagram
+we have some access at time i,</p>
+<p t="1039215" d="2765">we want to look backwards
+in time to the last time</p>
+<p t="1041980" d="2339">that key was accessed.</p>
+<p t="1044319" d="6541">Say that was, well some other
+time j, and in this interval</p>
+<p t="1050860" d="5700">we want to know, how many
+distinct keys were accessed.</p>
+<p t="1056560" d="4500">So it's at most, i
+minus j, but maybe there</p>
+<p t="1061060" d="3280">were some repeated accesses,
+we only count those as one.</p>
+<p t="1064340" d="2630">So how many different
+keys were accessed</p>
+<p t="1066970" d="1530">during that time interval?</p>
+<p t="1068500" d="3760">Claim is, we only have
+to pay log of that.</p>
+<p t="1072260" d="2620">So what this means, what this
+implies, is in particular,</p>
+<p t="1074880" d="4810">if you're only accessing say
+k different elements at all,</p>
+<p t="1079690" d="1690">and you ignore all
+the other elements,</p>
+<p t="1081380" d="2487">then you'll only pay
+log k per operation.</p>
+<p t="1083867" d="1583">That's why it's sort
+of a working set.</p>
+<p t="1085450" d="1375">If you're focusing
+your attention</p>
+<p t="1086825" d="3605">on k elements for a
+while, you only pay log k.</p>
+<p t="1090430" d="2430">But in general, for any access
+sequence you can compute,</p>
+<p t="1092860" d="1500">what is the working
+set costs, which</p>
+<p t="1094360" d="3180">is you sum over all
+the i's of log t i,</p>
+<p t="1097540" d="2400">that is your total cost
+for the access sequence.</p>
+<p t="1099940" d="3530">Divide by n, that's
+the amortized cost.</p>
+<p t="1103470" d="1450">OK?</p>
+<p t="1104920" d="1470">That's another
+nice property, not</p>
+<p t="1106390" d="3850">so obvious is that working
+set implies the entropy bound,</p>
+<p t="1110240" d="3110">so this is a stronger property.</p>
+<p t="1113350" d="3450">I guess dynamic finger
+implies sequential access,</p>
+<p t="1116800" d="4150">but there's no relation between
+working set and dynamic finger.</p>
+<p t="1120950" d="2810">In fact, they're kind of
+transposes of each other.</p>
+<p t="1123760" d="2270">Working set is
+about, if you access</p>
+<p t="1126030" d="3490">a key that was accessed
+recently, then it's fast.</p>
+<p t="1129520" d="1950">Dynamic finger is
+saying, if you access</p>
+<p t="1131470" d="4860">a key that is close in space
+to the previous access,</p>
+<p t="1136330" d="2910">so here we're looking
+at a key and basically</p>
+<p t="1139240" d="2640">in the very previous
+time step we're</p>
+<p t="1141880" d="2520">looking at how far
+away it was vertically,</p>
+<p t="1144400" d="2700">here we're looking at how
+far away it was horizontally.</p>
+<p t="1147100" d="2580">So they're almost
+duals of each other.</p>
+<p t="1149680" d="2520">Be nice if you could
+have one property that</p>
+<p t="1152200" d="3510">included both dynamic
+finger and working set.</p>
+<p t="1155710" d="2100">I should mention, again
+this is not obvious</p>
+<p t="1157810" d="1890">how to do it with a
+binary search tree,</p>
+<p t="1159700" d="1870">but it can be done.</p>
+<p t="1161570" d="1270">Leave it at that.</p>
+<p t="1162840" d="2380">We'll see eventually
+some trees that have it.</p>
+<p t="1168586" d="1374">For now I just
+want to cover what</p>
+<p t="1169960" d="2980">are the conceivable
+goals we should aim for.</p>
+<p t="1172940" d="3290">All right, log n is too easy, so
+we need more challenging goals.</p>
+<p t="1179380" d="2490">So the next property,
+it was introduced,</p>
+<p t="1181870" d="6840">this is we're getting into
+more recent territory, 2001,</p>
+<p t="1188710" d="2160">it's called the
+unified property.</p>
+<p t="1190870" d="3900">Natural name, and it tries
+to unify dynamic finger</p>
+<p t="1194770" d="2790">with working set.</p>
+<p t="1197560" d="1770">And the rough idea
+is, that if you</p>
+<p t="1199330" d="3300">access a key that
+is close in space</p>
+<p t="1202630" d="2670">to a key that was
+accessed recently in time,</p>
+<p t="1205300" d="2710">then your access should be fast.</p>
+<p t="1208010" d="3215">So, here's the formal statement.</p>
+<p t="1256790" d="3420">So here's the unified bound.</p>
+<p t="1260210" d="2850">Let's draw a picture.</p>
+<p t="1263060" d="8680">So here we're accessing
+x i at time i, sorry j.</p>
+<p t="1271740" d="2690">Change of notation.</p>
+<p t="1274430" d="500">Time j.</p>
+<p t="1274930" d="3330">We want to evaluate
+the cost of x j,</p>
+<p t="1278260" d="4580">and we're basically
+going to look in--</p>
+<p t="1282840" d="3910">I guess one way to think
+of it is this cone.</p>
+<p t="1286750" d="4260">90 degree cone, where
+these are 45 degree angles.</p>
+<p t="1291010" d="2580">And if there's something--</p>
+<p t="1293590" d="3720">and look at the first thing
+that you hit in that cone.</p>
+<p t="1297310" d="1650">Is that the right
+way to think of it?</p>
+<p t="1298960" d="2190">Maybe not.</p>
+<p t="1301150" d="3660">It's like you're growing a box,
+this is probably more accurate,</p>
+<p t="1304810" d="2202">and you find the first key
+that you hit in that box.</p>
+<p t="1307012" d="1458">It's a little more
+subtle than that</p>
+<p t="1308470" d="2510">because we're only
+counting distinct keys,</p>
+<p t="1310980" d="4150">and let's say you find this
+key, and this key is good</p>
+<p t="1315130" d="8340">because it's temporal distance,
+this time, is only this big.</p>
+<p t="1323470" d="2130">It's spatial distance
+is only this big.</p>
+<p t="1325600" d="3000">What we're going to
+pay is, log of the sum</p>
+<p t="1328600" d="3396">of the spatial distance,
+and the temporal distance.</p>
+<p t="1331996" d="1374">And temporal
+distance is measured</p>
+<p t="1333370" d="3270">as the number of distinct keys
+accessed in this time interval.</p>
+<p t="1339560" d="4250">So, as long as there is some
+key in the recent past that</p>
+<p t="1343810" d="4230">is close in space, you take
+the min over all such keys,</p>
+<p t="1348040" d="1770">magically a unified
+structure has</p>
+<p t="1349810" d="3240">to find what is the
+most recent close item</p>
+<p t="1353050" d="2810">and search from there,
+and achieve log of that.</p>
+<p t="1355860" d="3100">There's a plus 2 just to make
+sure if these things are zero,</p>
+<p t="1358960" d="2220">you still get a constant.</p>
+<p t="1361180" d="3210">Always have to
+pay constant time.</p>
+<p t="1364390" d="2580">OK, so that's a
+unified property.</p>
+<p t="1366970" d="4410">Fairly natural generalization of
+dynamic finger and working set.</p>
+<p t="1371380" d="2890">I mean you could change this
+plus to a product or a max,</p>
+<p t="1374270" d="1457">doesn't make a difference.</p>
+<p t="1379070" d="1310">Yeah.</p>
+<p t="1380380" d="1380">Sadly we don't
+know whether there</p>
+<p t="1381760" d="3960">is any binary search tree that
+achieves the unified property.</p>
+<p t="1385720" d="3300">What we know is that
+this can be done,</p>
+<p t="1389020" d="6120">this property can be achieved
+by a pointer machine data</p>
+<p t="1395140" d="2861">structure, which is more
+powerful than a binary search</p>
+<p t="1398001" d="499">tree.</p>
+<p t="1404100" d="4960">But we don't know whether
+it's possible to achieve</p>
+<p t="1409060" d="3330">by a binary search tree.</p>
+<p t="1412390" d="4080">Best bound so far, is
+that you can achieve</p>
+<p t="1416470" d="2700">this bound plus log log n.</p>
+<p t="1419170" d="2555">So as long as this
+never gets too small,</p>
+<p t="1421725" d="2705">as long as this quantity
+never gets smaller than log n,</p>
+<p t="1424430" d="2636">then this thing will be
+log log n, and it's fine.</p>
+<p t="1427066" d="1624">But in particular,
+if this is constant,</p>
+<p t="1428690" d="2980">then it's only achieving
+log log n, so it's not--</p>
+<p t="1431670" d="3560">there's an additive log
+log n per operation loss.</p>
+<p t="1435230" d="2200">That's the best binary
+search, unified binary search</p>
+<p t="1437430" d="499">tree known.</p>
+<p t="1440520" d="3570">OK, so this is all good.</p>
+<p t="1444090" d="3940">And this is sort of where the,
+what we call analytic bounds,</p>
+<p t="1448030" d="2580">here ends.</p>
+<p t="1450610" d="1392">There are various attempts to--</p>
+<p t="1452002" d="1458">in general we want
+to characterize,</p>
+<p t="1453460" d="4260">what is the optimal
+thing we could hope for.</p>
+<p t="1457720" d="1920">When can we do
+better than log n?</p>
+<p t="1459640" d="1500">These are all
+specific cases where</p>
+<p t="1461140" d="1708">we can do better than
+log n, but it's not</p>
+<p t="1462848" d="1672">a complete characterization.</p>
+<p t="1464520" d="2890">There are sequences that
+have large unified bound,</p>
+<p t="1467410" d="1755">but have no--</p>
+<p t="1471730" d="2010">yet they can be
+accessed more quickly</p>
+<p t="1473740" d="1884">by the optimal
+binary search tree.</p>
+<p t="1475624" d="1916">And so, while it would
+be nice to characterize</p>
+<p t="1477540" d="4240">with some clean algebraic,
+whatever, most of the work,</p>
+<p t="1481780" d="2190">beyond what I've
+told you about here,</p>
+<p t="1483970" d="2430">is just trying to
+figure out what opt is.</p>
+<p t="1486400" d="3859">Instead of trying to write
+it down, try to compute it.</p>
+<p t="1490259" d="1541">Instead of trying
+to define something</p>
+<p t="1491800" d="1890">that happens to
+match the optimal,</p>
+<p t="1493690" d="2410">let's just go for optimal.</p>
+<p t="1496100" d="2333">And this is the notion
+of dynamic optimality.</p>
+<p t="1502510" d="1580">And in modern
+terminology this would</p>
+<p t="1504090" d="5770">be called constant
+competitive, but the paper then</p>
+<p t="1509860" d="3285">introduced dynamic optimality
+preceded competitive analysis,</p>
+<p t="1513145" d="2835">so it has another name.</p>
+<p t="1515980" d="3570">What we'd like, is that
+the total cost of all</p>
+<p t="1519550" d="2980">your accesses, so this
+is like amortized cost,</p>
+<p t="1522530" d="4390">is within a constant
+factor of the optimal.</p>
+<p t="1526920" d="2320">What's the optimal?</p>
+<p t="1529240" d="3840">This is the-- over all
+binary search trees,</p>
+<p t="1533080" d="2640">I mean to be precise I should
+talk about binary search tree</p>
+<p t="1535720" d="3780">algorithms, meaning you specify
+somehow how to do a search,</p>
+<p t="1539500" d="2400">and it may involve
+rotations and walks.</p>
+<p t="1541900" d="2610">So, you know, it could
+be red black tree,</p>
+<p t="1544510" d="2190">it could be an AVL tree,
+could be a [? BB ?] alpha</p>
+<p t="1546700" d="2940">tree, anything that can be
+implemented in this way.</p>
+<p t="1549640" d="2690">Those are all kind of boring.</p>
+<p t="1552330" d="3520">More sophisticated is
+something like a splay tree.</p>
+<p t="1555850" d="4065">Ideally, you take
+the min over all--</p>
+<p t="1562840" d="3870">min over all binary
+search tree algorithms.</p>
+<p t="1566710" d="7110">The cost of that algorithm, on
+that access sequence x, and you</p>
+<p t="1573820" d="1920">want the total cost
+of your algorithm</p>
+<p t="1575740" d="4020">on x to be within a constant
+factor of the optimal algorithm</p>
+<p t="1579760" d="1020">on x.</p>
+<p t="1580780" d="2830">x is a vector.</p>
+<p t="1583610" d="2930">So this is what you call
+the offline optimal,</p>
+<p t="1586540" d="3060">because here you basically get
+to choose the binary search</p>
+<p t="1589600" d="4200">tree algorithm to
+be customized to x,</p>
+<p t="1593800" d="6510">and yet somehow you want to
+achieve dynamic optimality.</p>
+<p t="1600310" d="3660">Open question, is this possible?</p>
+<p t="1613990" d="3340">And, of course, we're only
+interested in online solutions.</p>
+<p t="1617330" d="2102">So, you want to build a
+binary search tree that</p>
+<p t="1619432" d="1458">doesn't know the
+future, it doesn't</p>
+<p t="1620890" d="1860">know what accesses
+are to come, but it</p>
+<p t="1622750" d="3270">has to be within a constant
+factor of the offline solution</p>
+<p t="1626020" d="1908">that does know.</p>
+<p t="1627928" d="2232">And we don't know
+whether this is possible.</p>
+<p t="1630160" d="2370">Another interesting
+question, is whether it's</p>
+<p t="1632530" d="5104">possible for a pointer
+machine, because save</p>
+<p t="1637634" d="1916">for the unified property
+we know how to get it</p>
+<p t="1639550" d="2430">for a pointer machine.</p>
+<p t="1641980" d="1750">And there's two versions
+of this question.</p>
+<p t="1643730" d="2240">You can consider, is
+there a pointer machine</p>
+<p t="1645970" d="2126">that matches the optimal
+binary search tree,</p>
+<p t="1648096" d="2374">or you could ask, is there a
+pointer machine that matches</p>
+<p t="1650470" d="1309">the optimal pointer machine.</p>
+<p t="1651779" d="2291">That's a little less defined,
+although there are some--</p>
+<p t="1654070" d="2458">I have some ideas on how to
+define that problem, maybe will</p>
+<p t="1656528" d="932">work on it.</p>
+<p t="1657460" d="3900">But all versions of this
+problem are open, basically.</p>
+<p t="1661360" d="2220">So, this may seem
+rather depressing.</p>
+<p t="1663580" d="2892">What else am I going to do
+for a lecture and a half?</p>
+<p t="1666472" d="2208">But actually, there's a lot
+of study of this problem,</p>
+<p t="1668680" d="1333">and we do know some good things.</p>
+<p t="1670013" d="6894">For example, we can get
+log log n competitive.</p>
+<p t="1680890" d="1650">So, not within a
+constant factor,</p>
+<p t="1682540" d="3940">but we can get within a log
+log n factor of the optimal.</p>
+<p t="1686480" d="1305">So, that's pretty good.</p>
+<p t="1687785" d="3859">An easy result is to
+get log n competitive.</p>
+<p t="1691644" d="1666">Any balanced binary
+search tree is log n</p>
+<p t="1693310" d="2760">competitive, because best case
+you could hope for is constant,</p>
+<p t="1696070" d="2090">the worst case you
+can hope for is log n.</p>
+<p t="1698160" d="1802">So at least within
+the log factor,</p>
+<p t="1699962" d="1458">but we can do
+exponentially better.</p>
+<p t="1701420" d="3140">We'll do that next class.</p>
+<p t="1704560" d="7260">Before we go there, I want to
+tell you about two structures,</p>
+<p t="1711820" d="4290">to binary search trees that
+we conjecture are dynamically</p>
+<p t="1716110" d="1920">optimal, but we can't prove it.</p>
+<p t="1741300" d="2590">So first one, and the classic
+one, is splayed trees.</p>
+<p t="1743890" d="2900">I don't want to spend too
+much time on splay trees,</p>
+<p t="1746790" d="3130">but just to let you know what
+they are if you don't already</p>
+<p t="1749920" d="1350">know.</p>
+<p t="1751270" d="3630">If you want to search
+for x, you search for x.</p>
+<p t="1754900" d="2850">You do a binary search
+for x in the tree.</p>
+<p t="1757750" d="2180">You locate x, and then you--</p>
+<p t="1759930" d="4340">splay trees always
+move x to the root.</p>
+<p t="1764270" d="2960">So, this is what we call
+a self-adjusting tree.</p>
+<p t="1767230" d="2940">It changes the structure of
+the tree as you do searches,</p>
+<p t="1770170" d="3990">not just when you're
+doing updates,</p>
+<p t="1774160" d="2410">and there are two cases.</p>
+<p t="1776570" d="2630">If you look at x, and its
+parent and its grandparent,</p>
+<p t="1779200" d="1450">if they're oriented
+the same way.</p>
+<p t="1780650" d="3530">So, here it's two left pointers,
+could be two right pointers.</p>
+<p t="1784180" d="2670">Then you flip them.</p>
+<p t="1786850" d="10810">So we rotate y, and then rotate
+x, so it's in this model.</p>
+<p t="1797660" d="5000">And we get x y z
+in the other order.</p>
+<p t="1802660" d="1950">There's pretty much
+only one way to move</p>
+<p t="1804610" d="1560">x to the root in that picture.</p>
+<p t="1809020" d="8235">Then the other case is
+the zigzag case, y, w, x.</p>
+<p t="1820330" d="2560">So, here the two parent pointers
+are in different directions,</p>
+<p t="1822890" d="1640">one is left, one is right.</p>
+<p t="1824530" d="1990">There's a symmetric picture.</p>
+<p t="1826520" d="3240">In this case, we rotate
+in the other order.</p>
+<p t="1829760" d="3140">So, we rotate x, and
+then we rotate y.</p>
+<p t="1835930" d="8535">And in that case you get x
+nice, x, w, y, and the subtrees</p>
+<p t="1844465" d="550">hang off.</p>
+<p t="1845015" d="1625">I'm not labeling the
+subtrees, but they</p>
+<p t="1846640" d="4300">have to be labeled in the
+same order, left to right.</p>
+<p t="1850940" d="1190">OK, this is splay trees.</p>
+<p t="1852130" d="4230">You do this for x. x is
+the thing you search for,</p>
+<p t="1856360" d="2100">now x is up here,
+then you repeat.</p>
+<p t="1858460" d="2950">You look at it's two parents,
+it's one of these two cases,</p>
+<p t="1861410" d="2240">you do the appropriate
+two rotations.</p>
+<p t="1863650" d="2012">Until x is either the
+root, and you're done,</p>
+<p t="1865662" d="1708">or it's one child from
+the root, and then</p>
+<p t="1867370" d="1666">you do one rotation
+to make it the root.</p>
+<p t="1872040" d="2080">Seems simple enough.</p>
+<p t="1874120" d="3170">It's slightly more sophisticated
+than an algorithm known as move</p>
+<p t="1877290" d="2490">to root, which is just
+rotate x, rotate x,</p>
+<p t="1879780" d="2670">rotate x, which would
+eventually propagate it up.</p>
+<p t="1882450" d="1740">Move to root is a
+really bad algorithm.</p>
+<p t="1884190" d="2580">It can show its can be a
+factor of square root of n.</p>
+<p t="1886770" d="3990">It can be square root of n per
+operation if you're unlucky.</p>
+<p t="1890760" d="3750">Splay trees are always, at most
+log n amortized per operation,</p>
+<p t="1894510" d="1800">although that's
+not at all obvious.</p>
+<p t="1896310" d="3360">Rough intuition, is if you
+look at the path, the route</p>
+<p t="1899670" d="5070">to x path, half of the nodes,
+at most half of the nodes</p>
+<p t="1904740" d="2910">go down when you splay.</p>
+<p t="1907650" d="1380">So why is that?</p>
+<p t="1909030" d="3220">Here, see y stays
+at the same level.</p>
+<p t="1912250" d="2900">z goes down, but x goes up.</p>
+<p t="1915150" d="5560">Here, w stays at the same level,
+x goes up, y goes down by one,</p>
+<p t="1920710" d="3350">x goes up by two, so you might
+call that a net improvement.</p>
+<p t="1924060" d="2880">But in general you don't
+mess up the path too much.</p>
+<p t="1926940" d="2380">Half the items stay
+where they are,</p>
+<p t="1929320" d="3080">and so it's something
+like your bisecting--</p>
+<p t="1932400" d="1755">if you repeatedly
+search for x, well</p>
+<p t="1934155" d="1935">I'm not really searching
+for x, but if you repeatedly</p>
+<p t="1936090" d="1583">search for things
+in that path, you're</p>
+<p t="1937673" d="1877">kind of cutting the path
+and half repeatedly.</p>
+<p t="1939550" d="4160">It'll look kind of logarithmic,
+that's a very vague argument.</p>
+<p t="1943710" d="2220">And in the advanced
+algorithms, it's</p>
+<p t="1945930" d="1860">proved why this is
+log n amortized.</p>
+<p t="1947790" d="917">Question?</p>
+<p t="1948707" d="6473">AUDIENCE: [INAUDIBLE]</p>
+<p t="1955180" d="3170">PROFESSOR: Rotate x, rotate
+x, I think you're right.</p>
+<p t="1958350" d="4040">Yeah, y would go
+somewhere else, thanks.</p>
+<p t="1962390" d="6190">Yeah, so here it looks like
+move to root, here it doesn't.</p>
+<p t="1968580" d="3850">Good, and there's lots of
+things known about splay trees.</p>
+<p t="1972430" d="4150">So for example, they satisfy
+the sequential access property.</p>
+<p t="1976580" d="3800">There's an entire paper,
+combinatoric on 1985 Tarjan</p>
+<p t="1980380" d="3480">I believe, proving splay trees
+have the sequential access</p>
+<p t="1983860" d="600">property.</p>
+<p t="1984460" d="3660">Not at all obvious,
+but it's true.</p>
+<p t="1988120" d="1920">They have the
+working set property,</p>
+<p t="1990040" d="2360">and therefore they have
+the entropy property.</p>
+<p t="1992400" d="1754">That's in the original
+splay tree paper.</p>
+<p t="1994154" d="1166">It's not that hard to prove.</p>
+<p t="1995320" d="2520">Once you prove log n, with
+a little bit more effort</p>
+<p t="1997840" d="1710">you can prove the
+working set property.</p>
+<p t="1999550" d="2340">We won't do it here.</p>
+<p t="2001890" d="4770">It's a cool amortization.</p>
+<p t="2006660" d="3030">Splay trees also have the
+dynamic finger property.</p>
+<p t="2009690" d="3720">This is a series of two
+papers, over 100 pages long.</p>
+<p t="2013410" d="1250">Very difficult to prove.</p>
+<p t="2014660" d="1960">In general, splay trees
+are hard to work with,</p>
+<p t="2016620" d="2772">because it's hard to keep
+track of what's going on.</p>
+<p t="2019392" d="1458">You can define
+potential functions,</p>
+<p t="2020850" d="2220">and that will prove this,
+and with a lot of effort</p>
+<p t="2023070" d="1410">it will prove this.</p>
+<p t="2024480" d="1950">We don't know whether
+splay trees satisfy</p>
+<p t="2026430" d="1934">the unified property,
+and more to the point,</p>
+<p t="2028364" d="2416">we don't know whether splay
+trees are dynamically optimal.</p>
+<p t="2030780" d="3120">This is the big question, and
+in the original splay tree paper</p>
+<p t="2033900" d="2310">it asked this question,
+are splay trees</p>
+<p t="2036210" d="1380">dynamically optimal.</p>
+<p t="2037590" d="4110">Still open, I wish I knew
+the answer, but we don't.</p>
+<p t="2045390" d="2749">So what the rest of today's
+lecture is going to be about</p>
+<p t="2048139" d="4608">is a geometric view, which
+I've kind of been hinting</p>
+<p t="2052747" d="2083">at with this picture, but
+it's, there's more to it</p>
+<p t="2054830" d="3750">than just plot the
+points of searches.</p>
+<p t="2058580" d="2579">There's a way, not only to
+see what the searches are,</p>
+<p t="2061159" d="3743">but to see what the binary
+search tree algorithm is.</p>
+<p t="2064902" d="1958">So, at this point binary
+search tree algorithms</p>
+<p t="2066860" d="1230">are kind of abstract.</p>
+<p t="2068090" d="1890">I mean, we've kind
+of drawn pictures,</p>
+<p t="2069980" d="1830">and how to do
+specific cases, you</p>
+<p t="2071810" d="3040">know how red black
+trees or something work.</p>
+<p t="2074850" d="1940">But, you know, it's
+complicated to write down</p>
+<p t="2076790" d="999">one of these algorithms.</p>
+<p t="2077789" d="3261">How would we think
+about all of them?</p>
+<p t="2081050" d="2070">What would you think
+about the optimal one?</p>
+<p t="2083120" d="2820">Turns out there's a geometric
+view, in which it's actually</p>
+<p t="2085940" d="2850">very easy to see what
+the algorithm is,</p>
+<p t="2088790" d="1710">but it takes a
+little bit of work</p>
+<p t="2090500" d="2250">to prove that it's
+the right thing.</p>
+<p t="2092750" d="5070">And it suggests a totally
+obvious offline optimal</p>
+<p t="2097820" d="3030">algorithm, which we
+don't know is optimal,</p>
+<p t="2100850" d="3090">but we think is offline optimal.</p>
+<p t="2103940" d="6210">It's like the obvious thing
+to do, which we'll get to,</p>
+<p t="2110150" d="1950">and we can actually
+make it online.</p>
+<p t="2112100" d="2250">So, this is-- this
+gives us a binary search</p>
+<p t="2114350" d="2760">tree that is so
+obviously optimal,</p>
+<p t="2117110" d="3330">where splay trees is kind
+of vaguely feels good,</p>
+<p t="2120440" d="2835">this is really obvious,
+yet we can't prove it.</p>
+<p t="2123275" d="3435">So it's like we're one step
+closer, but not quite there.</p>
+<p t="2129594" d="1166">So that's where we're going.</p>
+<p t="2156550" d="2700">So this geometric view was
+the topic of [? Deion ?]</p>
+<p t="2159250" d="2490">[? Harmon's ?] PhD
+thesis, here at MIT.</p>
+<p t="2161740" d="2977">And it's also with John Iacono,
+[? Danielle ?] [? Caine, ?] who</p>
+<p t="2164717" d="2333">was an undergrad here, and
+[? Mihal ?] [? Piotrowski, ?]</p>
+<p t="2167050" d="2400">who was an undergrad
+and a PhD here.</p>
+<p t="2169450" d="4440">It was published
+three years ago, 2009.</p>
+<p t="2173890" d="3240">So, here's the idea.</p>
+<p t="2177130" d="4650">Access sequence, this is the
+sequence of searches you do.</p>
+<p t="2181780" d="5190">That's very easy, you just
+map it to the set of points</p>
+<p t="2186970" d="2940">where, I guess I'm going
+to switch things on you.</p>
+<p t="2189910" d="3120">Sorry about that.</p>
+<p t="2193030" d="5250">X-axis is going to be space,
+y-axis is going to be time.</p>
+<p t="2198280" d="2190">And I'm going to look at a
+specific example of this.</p>
+<p t="2204720" d="2430">Sort of pinwheel.</p>
+<p t="2207150" d="2670">Four accesses at--
+the first time</p>
+<p t="2209820" d="2820">we access key three, then
+we access key one, then</p>
+<p t="2212640" d="2040">key four, then key two.</p>
+<p t="2214680" d="3030">We've been drawing this
+picture throughout the lecture.</p>
+<p t="2217710" d="4380">Now the interesting part, is
+if you look at a binary search</p>
+<p t="2222090" d="4780">tree that actually
+accesses these elements,</p>
+<p t="2226870" d="2030">here's the exciting part.</p>
+<p t="2228900" d="5460">We're going to map this
+to a point set, which</p>
+<p t="2234360" d="15210">is which nodes get
+touched during a search,</p>
+<p t="2249570" d="1230">during each search.</p>
+<p t="2257720" d="2810">OK, this is the fun part.</p>
+<p t="2260530" d="1200">So, what does touched mean?</p>
+<p t="2261730" d="3475">I erased the model, but in
+general with a binary search</p>
+<p t="2265205" d="1875">tree, we only have one
+pointer into the tree.</p>
+<p t="2267080" d="2810">It starts at the root, it
+can go left, it can go right,</p>
+<p t="2269890" d="1680">it can go to the parent.</p>
+<p t="2271570" d="2250">Every node that gets
+visited during-- it</p>
+<p t="2273820" d="2160">can do rotations,
+every node that</p>
+<p t="2275980" d="5610">gets visited by walking, that's
+what I call a touched node.</p>
+<p t="2281590" d="1480">Just look at all of them.</p>
+<p t="2283070" d="2105">So for example,
+in this picture--</p>
+<p t="2291260" d="3660">color-- suppose,
+maybe we're lucky,</p>
+<p t="2294920" d="2170">and key three is at the root.</p>
+<p t="2297090" d="3300">So that's the only
+thing I touch.</p>
+<p t="2300390" d="2382">If that's the case,
+when I access one,</p>
+<p t="2302772" d="1208">it's definitely not the root.</p>
+<p t="2303980" d="5330">So, in particular, I definitely
+have to have touched that node.</p>
+<p t="2309310" d="7060">And I'm just going to fill
+in a reasonable choice.</p>
+<p t="2316370" d="3940">I happen to know, this is
+a valid binary search tree.</p>
+<p t="2320310" d="2600">Not so obvious, but
+you can find one.</p>
+<p t="2322910" d="2410">I'm using here, the
+greedy algorithm actually,</p>
+<p t="2325320" d="1370">I'm cheating.</p>
+<p t="2326690" d="2770">We'll get to what that is.</p>
+<p t="2329460" d="2600">But in general, some point
+sets, like this point set,</p>
+<p t="2332060" d="1440">are not valid.</p>
+<p t="2333500" d="2520">There's no binary search tree
+that has this touch pattern.</p>
+<p t="2336020" d="1770">You just can't jump
+around, teleport,</p>
+<p t="2337790" d="3700">without getting somewhere.</p>
+<p t="2341490" d="1250">But, this one is valid.</p>
+<p t="2342740" d="1289">So, which ones are valid?</p>
+<p t="2344029" d="1291">Oh sorry I need one more point.</p>
+<p t="2348726" d="1874">Which ones are valid,
+which ones are invalid?</p>
+<p t="2350600" d="1560">How did I know that
+that was invalid,</p>
+<p t="2352160" d="1990">and now this one is valid?</p>
+<p t="2354150" d="2290">Well, there's a
+theorem tell you.</p>
+<p t="2356440" d="3430">Then what I was just doing
+there will become clear.</p>
+<p t="2376970" d="4970">So, I want to know when is
+the point set a valid BST</p>
+<p t="2381940" d="5910">execution, and I claim
+it is, if and only</p>
+<p t="2387850" d="19680">if, in every rectangle
+spanned by two points</p>
+<p t="2407530" d="18630">not on a common horizontal
+or vertical line,</p>
+<p t="2426160" d="2490">in every rectangle, there
+there's another point.</p>
+<p t="2437710" d="1680">So, let me draw a picture.</p>
+<p t="2439390" d="1810">I have some point set.</p>
+<p t="2441200" d="2000">We'll look at this
+one in a moment.</p>
+<p t="2443200" d="1740">In general, I take
+any two points</p>
+<p t="2444940" d="2700">that are not horizontally
+or vertically aligned,</p>
+<p t="2447640" d="2547">that spans a rectangle.</p>
+<p t="2450187" d="1833">In other words, the
+rectangle with those two</p>
+<p t="2452020" d="1830">as opposite corners.</p>
+<p t="2453850" d="2232">There's got to be another
+point in there, somewhere.</p>
+<p t="2456082" d="1833">Could be on the boundary,
+could be interior.</p>
+<p t="2460490" d="2280">OK, in fact, you can
+pump this a little bit.</p>
+<p t="2462770" d="3110">So once I find some point,
+let's say on the interior,</p>
+<p t="2465880" d="3600">then my picture looks like this.</p>
+<p t="2469480" d="3490">Maybe I'll just
+draw it as a circle.</p>
+<p t="2472970" d="1700">Well, here's another rectangle.</p>
+<p t="2474670" d="1830">That one has to have
+a point inside it.</p>
+<p t="2476500" d="1590">Here's another
+rectangle, that one</p>
+<p t="2478090" d="2320">has to have a point inside it.</p>
+<p t="2480410" d="5180">You could keep going, until you
+know maybe I'd put one here,</p>
+<p t="2485590" d="2170">maybe I put one here.</p>
+<p t="2487760" d="2240">OK if I update the
+picture then, I still</p>
+<p t="2490000" d="3410">have a little
+rectangle like that,</p>
+<p t="2493410" d="3190">little rectangle like that,
+little rectangle like this.</p>
+<p t="2496600" d="2160">At this point, this point
+is no longer involved</p>
+<p t="2498760" d="2989">in any rectangles
+essentially, because there's</p>
+<p t="2501749" d="1541">no rectangle between
+these two points</p>
+<p t="2503290" d="2190">because they're
+horizontally aligned.</p>
+<p t="2505480" d="5010">I could finish this off,
+finally, by adding points,</p>
+<p t="2510490" d="1860">let's say at the corners.</p>
+<p t="2512350" d="3510">Once I add points at the
+corners this will be satisfied.</p>
+<p t="2515860" d="3855">We call this property
+arborally satisfied.</p>
+<p t="2519715" d="2055">Gotta look up the spelling.</p>
+<p t="2521770" d="4650">Arboral satisfaction.</p>
+<p t="2526420" d="3750">Arboral means having
+to do with a tree.</p>
+<p t="2530170" d="3390">OK, so this is saying that
+point set is treelike,</p>
+<p t="2533560" d="2010">if it has this property.</p>
+<p t="2535570" d="1920">OK this picture is
+getting a little messy,</p>
+<p t="2537490" d="5970">but if I have any monotone path,
+like this, this is satisfied.</p>
+<p t="2543460" d="3960">If you look at any rectangle,
+say this one, it has points--</p>
+<p t="2547420" d="1750">other points in it.</p>
+<p t="2549170" d="2410">OK, if I look at, I
+don't know, this one,</p>
+<p t="2551580" d="1330">it has another point in it.</p>
+<p t="2552910" d="2583">But look at this one, that one
+doesn't count because it's just</p>
+<p t="2555493" d="927">a vertical line.</p>
+<p t="2556420" d="2635">So it has to have non-zero area.</p>
+<p t="2559055" d="2915">If you look at any two
+points, this one and this one,</p>
+<p t="2561970" d="2370">they span a rectangle, there's
+another point in there.</p>
+<p t="2564340" d="1690">So, monotone paths are good.</p>
+<p t="2566030" d="1010">This point set.</p>
+<p t="2567040" d="3860">If I drew it correctly, is good.</p>
+<p t="2570900" d="3580">I look at any rectangle here,
+it's got another point in it.</p>
+<p t="2578680" d="3990">Takes some practice to be able
+to see all the rectangles,</p>
+<p t="2582670" d="1464">but check it.</p>
+<p t="2584134" d="1166">Eventually this one is good.</p>
+<p t="2585300" d="1041">This one's obviously bad.</p>
+<p t="2586341" d="2599">It has lots of wrecked-- we
+call these empty rectangles,</p>
+<p t="2588940" d="3540">unsatisfied rectangles, that
+have no extra points in them.</p>
+<p t="2592480" d="3292">So, this is a valid BST
+execution, this is not.</p>
+<p t="2595772" d="2208">Let's prove this theorem
+it's actually not that hard.</p>
+<p t="2611470" d="2270">The consequence
+of the theorem, is</p>
+<p t="2613740" d="3700">it tells us what we need to do.</p>
+<p t="2617440" d="2000">We are given a
+point set like this,</p>
+<p t="2619440" d="3520">we want a point set like this.</p>
+<p t="2622960" d="4550">We can define the cost
+of a binary search tree</p>
+<p t="2627510" d="2130">to be how many
+nodes does it touch.</p>
+<p t="2629640" d="3250">That's within a constant factor
+of how many operations you do.</p>
+<p t="2632890" d="2030">If you don't want to,
+it's pointless to touch</p>
+<p t="2634920" d="2010">a node more than a
+constant number of times.</p>
+<p t="2636930" d="1290">You can prove that.</p>
+<p t="2638220" d="3840">So, really we just care about
+how many nodes get touched.</p>
+<p t="2642060" d="3300">So, what we want to do is find
+a minimum superset of this point</p>
+<p t="2645360" d="2790">set that is satisfied.</p>
+<p t="2648150" d="2080">We're given a set to
+represent or access</p>
+<p t="2650230" d="1812">sequence that is not satisfied.</p>
+<p t="2652042" d="1958">We need to act-- we need
+to touch those points.</p>
+<p t="2654000" d="2400">That's the definition of search.</p>
+<p t="2656400" d="2610">And now we'd just like to also
+touch some other points that</p>
+<p t="2659010" d="750">make it satisfied.</p>
+<p t="2659760" d="4290">This is a geometric
+interpretation of dynamic opt.</p>
+<p t="2664050" d="3102">Can you find the
+offline optimal, is--</p>
+<p t="2667152" d="1458">what's the minimum
+number of points</p>
+<p t="2668610" d="4950">to add in order to make your
+point set arborally satisfied.</p>
+<p t="2673560" d="2040">We don't know whether
+that problem is NP hard.</p>
+<p t="2675600" d="1800">Probably it is.</p>
+<p t="2677400" d="2669">We don't know how to compute it.</p>
+<p t="2680069" d="1791">We don't know how to
+find a constant factor</p>
+<p t="2681860" d="2830">approximation, unfortunately.</p>
+<p t="2684690" d="1192">Yeah?</p>
+<p t="2685882" d="4568">AUDIENCE: So, this is for and
+access sequence, so every time</p>
+<p t="2690450" d="2949">corresponds to just
+seeking like one</p>
+<p t="2693399" d="1291">individually thing in the tree?</p>
+<p t="2694690" d="720">PROFESSOR: Right.</p>
+<p t="2695410" d="800">AUDIENCE: OK, that
+makes more sense.</p>
+<p t="2696210" d="1870">PROFESSOR: Yes, so the input--</p>
+<p t="2698080" d="3290">there is a unique
+thing, a key, that</p>
+<p t="2701370" d="1690">gets accessed at each time.</p>
+<p t="2703060" d="4190">So if you draw any horizontal
+line, in the input point</p>
+<p t="2707250" d="2310">set there's only one point
+in each horizontal line.</p>
+<p t="2709560" d="3120">There can be multiple points
+in each vertical line, which</p>
+<p t="2712680" d="2756">would mean that key gets
+accessed more than one time.</p>
+<p t="2715436" d="1624">That's the obvious
+interpretation terms</p>
+<p t="2717060" d="2375">of binary search tree, turns
+out you don't need to assume</p>
+<p t="2719435" d="1345">either of those things.</p>
+<p t="2720780" d="2010">You could allow a
+sort of multi-search,</p>
+<p t="2722790" d="4080">where I say during this round
+you have to access key 5 and 7,</p>
+<p t="2726870" d="1860">I don't care in what order.</p>
+<p t="2728730" d="2280">Whereas normally I say,
+you have access key 5,</p>
+<p t="2731010" d="1534">then you have to access key 7.</p>
+<p t="2732544" d="1416">You could do a
+multi-search, where</p>
+<p t="2733960" d="2960">there's multiple
+points in a single row.</p>
+<p t="2736920" d="2340">All of the things I'll say
+work, it doesn't really</p>
+<p t="2739260" d="2190">make a difference as the claim.</p>
+<p t="2741450" d="4290">You could also assume that no
+key is accessed more than once,</p>
+<p t="2745740" d="1530">so then there's only one--</p>
+<p t="2747270" d="1590">those would be the
+opposite extreme.</p>
+<p t="2748860" d="2949">You can assume there's
+only one key per column.</p>
+<p t="2751809" d="1791">That turns out not to
+make much difference.</p>
+<p t="2753600" d="2100">If there's multiple keys
+in the same position,</p>
+<p t="2755700" d="2520">just spread them out
+a little and you'll</p>
+<p t="2758220" d="2740">get roughly the same cost.</p>
+<p t="2760960" d="1226">So, good question.</p>
+<p t="2762186" d="1374">But in the natural
+interpretation</p>
+<p t="2763560" d="1708">there's one per row,
+multiple per column,</p>
+<p t="2765268" d="1712">but it doesn't,
+neither one matters.</p>
+<p t="2769855" d="500">OK.</p>
+<p t="2774210" d="3150">So this becomes the problem,
+go from this to this,</p>
+<p t="2777360" d="3270">with a minimum number
+of added points.</p>
+<p t="2780630" d="3500">We do know a log log n
+approximation to that problem.</p>
+<p t="2784130" d="2410">That's the best we know.</p>
+<p t="2786540" d="2460">You just take this
+binary search tree,</p>
+<p t="2789000" d="4170">and apply this transformation,
+and it tells you</p>
+<p t="2793170" d="1470">if you have a
+binary search tree,</p>
+<p t="2794640" d="2382">you can turn it into a way
+to satisfy a point set.</p>
+<p t="2797022" d="2208">But this is actually the
+best approximation algorithm</p>
+<p t="2799230" d="1230">that we know.</p>
+<p t="2800460" d="3600">But as you'll see, the geometric
+view offers a lot of insight.</p>
+<p t="2804060" d="1810">Gives us a lot of
+power, and in some sense</p>
+<p t="2805870" d="3840">we use it to construct this.</p>
+<p t="2809710" d="3775">OK, so let's prove the theorem.</p>
+<p t="2821360" d="1300">So there's two directions.</p>
+<p t="2822660" d="2010">We'll start with
+the easy direction.</p>
+<p t="2824670" d="1950">If you have a
+binary search tree,</p>
+<p t="2826620" d="2784">then it must be
+arborally satisfied.</p>
+<p t="2829404" d="1416">Then we'll have
+to do the reverse,</p>
+<p t="2830820" d="2370">actually build a binary search
+tree out of a point set.</p>
+<p t="2833190" d="3930">That's kind of the harder step.</p>
+<p t="2837120" d="2550">So, let's say we
+have two points.</p>
+<p t="2842610" d="5250">Let's say this is that
+time i, we access key x,</p>
+<p t="2847860" d="3750">and this one is at time
+j, we access key y.</p>
+<p t="2851610" d="1730">Let's suppose y
+is greater than x,</p>
+<p t="2853340" d="2650">there's the symmetric picture.</p>
+<p t="2855990" d="2280">We want to argue that
+there is some other point</p>
+<p t="2858270" d="3740">in this rectangle.</p>
+<p t="2862010" d="9040">OK, here's the plan, let a be
+the lowest common ancestor of x</p>
+<p t="2871050" d="1650">and y.</p>
+<p t="2872700" d="4410">x is a key, y is a key,
+they are nodes in the tree.</p>
+<p t="2877110" d="1560">This is a changing quantity.</p>
+<p t="2878670" d="2380">As the tree wiggles
+around those rotations,</p>
+<p t="2881050" d="1780">the least common
+ancestor changes.</p>
+<p t="2882830" d="3081">But at every time,
+there is, it has</p>
+<p t="2885911" d="1249">some of these common ancestor.</p>
+<p t="2887160" d="3090">Might be x, might be y,
+might be some other node.</p>
+<p t="2890250" d="1590">OK?</p>
+<p t="2891840" d="1710">I want to look at
+a couple of things.</p>
+<p t="2897460" d="16740">Let's say, right before
+x is touched at time i,</p>
+<p t="2914200" d="3420">or I guess right before time i
+would be the proper phrasing.</p>
+<p t="2921970" d="5280">So we're at this moment, I
+want to know does a equal x?</p>
+<p t="2931730" d="6360">If a does not equal
+x, then I'm going</p>
+<p t="2938090" d="4150">to use the point a comma i.</p>
+<p t="2942240" d="560">OK?</p>
+<p t="2942800" d="5070">Least common ancestor has the
+property that x is less than</p>
+<p t="2947870" d="2550">or equal to a, is less
+than or equal to y.</p>
+<p t="2950420" d="1830">Common ancestor,
+least common ancestor</p>
+<p t="2952250" d="3510">will be between x and y.</p>
+<p t="2955760" d="2110">And we also know that
+it's an ancestor of x,</p>
+<p t="2957870" d="1160">and it's an ancestor of y.</p>
+<p t="2959030" d="3520">So, if you're going to
+touch x, you must touch a.</p>
+<p t="2962550" d="3710">If you're going to touch
+y, you must touch a.</p>
+<p t="2966260" d="4260">So a comma i is going to
+be some point here, which</p>
+<p t="2970520" d="1890">is what we need.</p>
+<p t="2972410" d="8670">Except, if a equals x, sorry,
+what the heck did I do?</p>
+<p t="2981080" d="990">Transposed again.</p>
+<p t="2982070" d="7678">OK, this is time i, time
+j, x, y, sorry about that.</p>
+<p t="2989748" d="4802">OK, here's time i, here is a.</p>
+<p t="2994550" d="4485">So, if a does not equal
+x, we know at time i,</p>
+<p t="2999035" d="1875">we must access
+all ancestor of x,</p>
+<p t="3000910" d="3120">we must touch all ancestors
+of x, before we touch x.</p>
+<p t="3004030" d="2100">Therefore, this is
+a point and we're</p>
+<p t="3006130" d="3165">done, unless a equals
+x at this time,</p>
+<p t="3009295" d="1375">because then it's
+the same point.</p>
+<p t="3010670" d="1666">We didn't get a third
+point, we at least</p>
+<p t="3012336" d="3544">need to find some different
+point other than these two.</p>
+<p t="3015880" d="1740">OK, so that would be good.</p>
+<p t="3017620" d="5520">We can-- so it must actually be
+that at this time, at time i,</p>
+<p t="3023140" d="2310">a is right here.</p>
+<p t="3025450" d="1580">Let's then look at time j.</p>
+<p t="3032110" d="4260">Same deal, at time j,
+here's y that gets access.</p>
+<p t="3036370" d="2250">We must also access a.</p>
+<p t="3038620" d="3120">Now it could be its equal to y,
+or it could be somewhere else.</p>
+<p t="3041740" d="3510">It could be here, or
+could be still here.</p>
+<p t="3045250" d="3480">In those cases we're
+happy, but this one also</p>
+<p t="3048730" d="2460">could have been at the corner.</p>
+<p t="3051190" d="6510">The case we're not happy is when
+b equals x, sorry, a equals y.</p>
+<p t="3057700" d="2610">Getting my letters mixed up.</p>
+<p t="3060310" d="1920">As long as a does
+not equal y, then</p>
+<p t="3062230" d="3282">we can use the point a
+comma j, that must be,</p>
+<p t="3065512" d="1458">these are always
+in your execution,</p>
+<p t="3066970" d="3450">and if a does not equal y, then
+we're, that's a third point</p>
+<p t="3070420" d="2710">and we're done.</p>
+<p t="3073130" d="4324">So we're left with one more
+case, which is that at time i,</p>
+<p t="3077454" d="7996">a is here, here's a, and
+at time j, a is here.</p>
+<p t="3085450" d="3270">Question is, what
+happened in between?</p>
+<p t="3088720" d="790">a changed.</p>
+<p t="3092130" d="5430">For a to change, something
+in here has to get rotated.</p>
+<p t="3097560" d="3390">That's the [? clam. ?] I mean
+here's the picture, you have a,</p>
+<p t="3100950" d="5940">actually-- picture is
+at the beginning a is x.</p>
+<p t="3106890" d="5070">So, here we have x, and then
+y is an ancestor, sorry,</p>
+<p t="3111960" d="3360">y is a descendant of
+x, because this is a.</p>
+<p t="3115320" d="1830">And then somehow we
+have to transition</p>
+<p t="3117150" d="2040">to the reverse picture,
+which is that y is</p>
+<p t="3119190" d="4360">the least common ancestor, x.</p>
+<p t="3123550" d="4910">And for this to happen, somebody
+here has to get rotated.</p>
+<p t="3128460" d="2040">I guess, in particular x.</p>
+<p t="3130500" d="5620">At some point x had to
+overtake y, had to be moved up.</p>
+<p t="3136120" d="3050">So, at some point x was
+rotated, and that would</p>
+<p t="3139170" d="1170">correspond to a point here.</p>
+<p t="3143030" d="9280">So else x must be
+rotated at some time</p>
+<p t="3152310" d="4800">k, where k is between i and j.</p>
+<p t="3167710" d="3710">And if we set it up right, I
+guess because here a was still</p>
+<p t="3171420" d="8920">x, and here a is y, then it
+must be strictly between.</p>
+<p t="3183700" d="2550">Maybe like this would
+be what we want.</p>
+<p t="3189110" d="4510">And so then we use
+the point k comma x.</p>
+<p t="3199886" d="1164">Is that more or less clear?</p>
+<p t="3204522" d="958">This was the easy case.</p>
+<p t="3208570" d="2220">I guess it depends
+what you consider easy.</p>
+<p t="3210790" d="3190">Here we're just, we're
+given a search tree</p>
+<p t="3213980" d="4830">and the short version is, look
+at the least common ancestor.</p>
+<p t="3218810" d="3650">It's got to move around at
+some point, or not, either way</p>
+<p t="3222460" d="1990">you're happy.</p>
+<p t="3224450" d="1970">So the least common
+ancestor gives you</p>
+<p t="3226420" d="2230">the points you care about.</p>
+<p t="3228650" d="3170">So for that we just needed the
+least common ancestor idea.</p>
+<p t="3231820" d="1650">For the other
+direction, if we're</p>
+<p t="3233470" d="1800">given a point set
+that corresponds</p>
+<p t="3235270" d="3240">to, that has this
+satisfaction property,</p>
+<p t="3238510" d="3697">we have to somehow build from
+scratch a binary search tree.</p>
+<p t="3242207" d="2333">How the heck are we going to
+build a binary search tree?</p>
+<p t="3244540" d="4305">Well, with treaps.</p>
+<p t="3277370" d="1980">So, this is the other direction.</p>
+<p t="3286520" d="5836">Treap is a portmanteau
+of tree and heap.</p>
+<p t="3292356" d="3824">Underline it
+correctly, tree, heap.</p>
+<p t="3296180" d="4980">So, it's simultaneously a binary
+search tree and a min heap,</p>
+<p t="3301160" d="1950">in this case.</p>
+<p t="3303110" d="2090">It's a binary search tree
+because it has to be.</p>
+<p t="3305200" d="2590">It's a binary search
+tree on the keys.</p>
+<p t="3307790" d="4380">It's going to be heap on
+a different set of values.</p>
+<p t="3312170" d="10230">So, binary search tree on
+the keys, and it's heap</p>
+<p t="3322400" d="10020">ordered, min heap
+ordered, by next access.</p>
+<p t="3335625" d="2375">I didn't say I was going to
+give you an online algorithm,</p>
+<p t="3338000" d="2280">this is an offline algorithm.</p>
+<p t="3340280" d="3780">So it looks-- if
+I look at a key,</p>
+<p t="3344060" d="4290">and it's going to be accessed
+next, it better be at the root.</p>
+<p t="3348350" d="2380">Next access will
+always be at the root,</p>
+<p t="3350730" d="1000">if you're heap ordered.</p>
+<p t="3351730" d="2320">If you're a min
+heap by next access.</p>
+<p t="3354050" d="2100">This is great, that
+means the thing you're</p>
+<p t="3356150" d="1500">searching for is
+always at the root,</p>
+<p t="3357650" d="3210">and it's basically
+free to touch.</p>
+<p t="3360860" d="2435">But you may choose
+to touch other nodes.</p>
+<p t="3363295" d="2575">And in fact, we're told
+how to touch notes.</p>
+<p t="3365870" d="1680">We're given a pattern
+that says, well,</p>
+<p t="3367550" d="3270">at this time you have-- you
+will touch this node, this node,</p>
+<p t="3370820" d="1830">and this node.</p>
+<p t="3372650" d="3787">By that definition, this
+one will be at the root,</p>
+<p t="3376437" d="1583">but you're going to
+touch these nodes,</p>
+<p t="3378020" d="2730">and possibly you
+could rotate them.</p>
+<p t="3380750" d="1710">Change the tree.</p>
+<p t="3382460" d="2190">You'll have to, actually,
+because next access</p>
+<p t="3384650" d="1860">time is constantly changing.</p>
+<p t="3386510" d="1980">And as soon as you
+access an item,</p>
+<p t="3388490" d="2550">it's next access goes in
+sometime in the future,</p>
+<p t="3391040" d="2970">possibly infinity, and so you'd
+like to start pushing it down</p>
+<p t="3394010" d="500">in the tree.</p>
+<p t="3397420" d="2000">So, what we need to
+do is show that we</p>
+<p t="3399420" d="2500">can maintain-- it's always going
+to be a binary search tree,</p>
+<p t="3401920" d="1680">because we only do rotations.</p>
+<p t="3403600" d="2880">We have to somehow use rotations
+to maintain this heap order</p>
+<p t="3406480" d="5760">property, and only touch
+the nodes that we're</p>
+<p t="3412240" d="1680">supposed to touch.</p>
+<p t="3413920" d="3460">That's the challenge.</p>
+<p t="3417380" d="4970">So, I should mention, this is
+not a uniquely defined tree.</p>
+<p t="3422350" d="3090">Usually treaps are unique,
+if you specify a key order,</p>
+<p t="3425440" d="1540">and you specify a
+heap order, there</p>
+<p t="3426980" d="3860">is exactly one tree that
+satisfies both of them.</p>
+<p t="3430840" d="2880">But here it's not quite
+unique, because the next access</p>
+<p t="3433720" d="3490">time-- there are many keys that
+are going, sorry, next touch.</p>
+<p t="3440770" d="2250">Next touch time.</p>
+<p t="3443020" d="6390">So, for example, at this
+moment all three of these nodes</p>
+<p t="3449410" d="3200">are going to be accessed
+at the same time.</p>
+<p t="3452610" d="2365">And so you don't
+know, or I'm not</p>
+<p t="3454975" d="2625">specifying how they're supposed
+to be heap ordered in the tree.</p>
+<p t="3457600" d="3670">Just break ties arbitrarily,
+it doesn't matter.</p>
+<p t="3461270" d="2180">OK.</p>
+<p t="3463450" d="10350">So, let's look at a time i.</p>
+<p t="3473800" d="3870">When we reach that
+time i, the nodes</p>
+<p t="3477670" d="12596">to touch form and connected
+subtree containing the root.</p>
+<p t="3493620" d="2200">Because according to
+heap order, they're all,</p>
+<p t="3495820" d="1710">they all want to be at the root.</p>
+<p t="3497530" d="5910">So we break ties arbitrarily,
+somehow, you know all the nodes</p>
+<p t="3503440" d="3840">that we're supposed to touch,
+live in some connected subtree</p>
+<p t="3507280" d="3020">of the root.</p>
+<p t="3510300" d="4570">Sorry, some connected
+subtree containing the root.</p>
+<p t="3514870" d="5550">Everything down here has
+a later next touch time,</p>
+<p t="3520420" d="4640">and so they're below, by
+definition of heap order.</p>
+<p t="3525060" d="2669">OK, now one of these is the
+one we actually want to access.</p>
+<p t="3527729" d="2291">But we need to touch all of
+them, so touch all of them,</p>
+<p t="3530020" d="791">you know, navigate.</p>
+<p t="3530811" d="1609">Walk left, right, whatever.</p>
+<p t="3532420" d="2940">The big question is, what
+should we change this tree into?</p>
+<p t="3535360" d="6570">I'd like to change it to
+some other top structure.</p>
+<p t="3541930" d="1590">I can't touch
+anything down here,</p>
+<p t="3543520" d="2270">I'm only allowed to
+touch these points.</p>
+<p t="3545790" d="3717">I only want to
+rotate these somehow.</p>
+<p t="3549507" d="2083">There's a convenient
+theorem, if you have one tree</p>
+<p t="3551590" d="1666">and you want to convert
+it into another,</p>
+<p t="3553256" d="2714">you can always do it in a
+linear number of rotations.</p>
+<p t="3555970" d="2160">So, rotations are basically
+free and this model,</p>
+<p t="3558130" d="2520">it's just about how
+many nodes we touch.</p>
+<p t="3560650" d="1620">We're told which nodes to touch.</p>
+<p t="3562270" d="2850">We want to somehow rearrange
+them to restore this heap order</p>
+<p t="3565120" d="910">property.</p>
+<p t="3566030" d="500">Right?</p>
+<p t="3566530" d="1560">As soon as we touch
+all these nodes,</p>
+<p t="3568090" d="3720">their next touch time will
+be sometime in the future.</p>
+<p t="3571810" d="2890">We need to rearrange the
+tree to still be heap ordered</p>
+<p t="3574700" d="2300">by that new next touch time.</p>
+<p t="3579600" d="2650">OK, here's what we do.</p>
+<p t="3585731" d="1499">I mean there's only
+one thing to do.</p>
+<p t="3589870" d="4740">Rearrange those nodes in
+this connected subtree</p>
+<p t="3594610" d="9630">to be a local treap by
+the new next touch time.</p>
+<p t="3604240" d="7440">These are the only nodes to
+get a new next touch time,</p>
+<p t="3611680" d="4290">so it's more or less unique
+how to rearrange them.</p>
+<p t="3615970" d="1290">Do that.</p>
+<p t="3617260" d="3170">Now the hard part is to argue
+that the whole thing is now</p>
+<p t="3620430" d="500">a treap.</p>
+<p t="3624140" d="5070">Why was it enough to
+only modify these nodes?</p>
+<p t="3629210" d="3300">Maybe you set one of these nodes
+to have a very large next touch</p>
+<p t="3632510" d="2689">time, so it's got to be
+really deep down there.</p>
+<p t="3635199" d="2541">And you can't afford to push it
+down deep, because you're not</p>
+<p t="3637740" d="2460">allowed to touch
+any of these nodes.</p>
+<p t="3640200" d="4170">Looks worrisome, but
+turns out, it just works.</p>
+<p t="3647390" d="7960">So, if there were a failure,
+picture would be like this.</p>
+<p t="3655350" d="3940">We rearrange these nodes
+perfectly, in particular,</p>
+<p t="3659290" d="2430">let's look at some
+node x that has a child</p>
+<p t="3661720" d="2180">y, that was not touched.</p>
+<p t="3663900" d="2790">So x was touched, all of
+it's ancestors were touched,</p>
+<p t="3666690" d="2700">but y was not touched.</p>
+<p t="3669390" d="3477">So we know that the
+next touch time of x</p>
+<p t="3672867" d="2583">is greater than or equal to the
+next touch time of its parent,</p>
+<p t="3675450" d="2280">of it's ancestor,
+up to the root.</p>
+<p t="3677730" d="3120">The worry would be that
+the next touch time of x</p>
+<p t="3680850" d="2870">is greater than the
+next touch time of y.</p>
+<p t="3683720" d="15082">So suppose next touch of x is
+greater than next touch of y.</p>
+<p t="3698802" d="2583">This would be a problem, because
+then you would not be a heap.</p>
+<p t="3706000" d="31850">So, claim is we get an
+unsatisfied rectangle</p>
+<p t="3737850" d="3090">based on x and it's next touch
+time, and y and it's next touch</p>
+<p t="3740940" d="780">time.</p>
+<p t="3741720" d="2310">So let's draw the picture.</p>
+<p t="3744030" d="6510">Here's time, here's
+space, I'm going</p>
+<p t="3750540" d="4410">to assume by symmetry x
+is to the left of y and</p>
+<p t="3754950" d="4020">[? keyspace, ?] and
+now we're supposing</p>
+<p t="3758970" d="3405">the next touch time of y is
+earlier than the next touch</p>
+<p t="3762375" d="675">time of x.</p>
+<p t="3763050" d="2770">So it looks like this.</p>
+<p t="3765820" d="7910">So this is next touch time of
+x, this is the next time of y,</p>
+<p t="3773730" d="6311">and I claim that there are
+no other points in here.</p>
+<p t="3780041" d="1999">That would be a contradiction,
+because we assume</p>
+<p t="3782040" d="1200">that the thing is satisfied.</p>
+<p t="3790650" d="5700">To prove this, I need to go back
+a little bit to the definition,</p>
+<p t="3796350" d="540">over here.</p>
+<p t="3800955" d="1875">There are actually a
+couple of different ways</p>
+<p t="3802830" d="3720">to think about satisfaction,
+which I was getting at here,</p>
+<p t="3806550" d="1590">but I didn't solidify.</p>
+<p t="3808140" d="1680">So, I said OK, if
+you have two points</p>
+<p t="3809820" d="1870">and that rectangle
+is satisfied, there</p>
+<p t="3811690" d="4290">is some point, possibly in the
+interior, in that rectangle.</p>
+<p t="3815980" d="3890">But if it's interior,
+then I can keep going.</p>
+<p t="3819870" d="5970">If I keep going, in the end I
+can conclude that not only is</p>
+<p t="3825840" d="1890">this rectangle
+non-empty, but there</p>
+<p t="3827730" d="5150">has to be a point on
+one of these two sides,</p>
+<p t="3832880" d="1987">because if I choose
+any other point,</p>
+<p t="3834867" d="1083">I get a smaller rectangle.</p>
+<p t="3835950" d="2910">Eventually, I have to get one
+on one of those two sides.</p>
+<p t="3838860" d="2382">Could be at the
+corner, or this corner,</p>
+<p t="3841242" d="2208">but one of those two sides
+has to have a point on it.</p>
+<p t="3843450" d="3339">Also, one of these two sides
+has to have a point on it.</p>
+<p t="3846789" d="1541">It could be both of
+these constraints</p>
+<p t="3848330" d="3970">are met at once by having
+one point in the corner.</p>
+<p t="3852300" d="2460">Well that's a somewhat stronger
+formulation, but equivalent</p>
+<p t="3854760" d="3360">formulation of the
+satisfaction property.</p>
+<p t="3858120" d="5040">So in particular over
+here, it should be the case</p>
+<p t="3863160" d="2940">that there's a point,
+either here or here,</p>
+<p t="3866100" d="2310">and there should be a
+point, either here or here.</p>
+<p t="3868410" d="1950">I claim that one of
+those is violated.</p>
+<p t="3885649" d="2291">You think I'd know this stuff,
+I wrote the paper, but--</p>
+<p t="3890640" d="3450">it's all these subtle
+details, easy to get wrong.</p>
+<p t="3894090" d="5950">I think what I want
+to look at is, now,</p>
+<p t="3900040" d="3540">which is the moment we're
+drawing this diagram, versus</p>
+<p t="3903580" d="2430">the next time of y.</p>
+<p t="3906010" d="3090">Sorry, so this is x comma now.</p>
+<p t="3911354" d="1666">That's what my diagram
+looks like there,</p>
+<p t="3913020" d="2050">so I think that's what I mean.</p>
+<p t="3915070" d="1080">So ignore this picture.</p>
+<p t="3920190" d="3640">What we learn, what we know
+is the next access to x,</p>
+<p t="3923830" d="1364">is sometime in the future.</p>
+<p t="3925194" d="1166">That's what we're told here.</p>
+<p t="3926360" d="4100">Next touch of x is greater
+than next touch of y.</p>
+<p t="3930460" d="5120">So next touch of x is up here,
+which means this is empty.</p>
+<p t="3935580" d="4431">OK, if that's empty,
+this better not be empty.</p>
+<p t="3940011" d="1999">All right that's what we
+claim, one of these two</p>
+<p t="3942010" d="2820">has to have a point in it.</p>
+<p t="3944830" d="2610">This one's empty, so
+this better not be empty,</p>
+<p t="3947440" d="1230">but I claim this is empty.</p>
+<p t="3948670" d="4731">Suppose it's not, suppose it
+is, suppose it's not empty--</p>
+<p t="3953401" d="3059">Wait, no, one of these.</p>
+<p t="3956460" d="4390">Suppose it's not empty, should
+be the correct scenario.</p>
+<p t="3960850" d="2610">Look at the left most
+point in this range.</p>
+<p t="3969960" d="765">This guy.</p>
+<p t="3975620" d="4000">It's a point between x and
+y, in terms of key value.</p>
+<p t="3979620" d="4250">So, in this picture,
+where could it be?</p>
+<p t="3983870" d="5600">Where are the points between
+x and y in this diagram?</p>
+<p t="3989470" d="2391">They have to be in
+the left subtree of y.</p>
+<p t="3991861" d="499">Right?</p>
+<p t="3992360" d="2467">The only points in a binary
+search-- if x and y are--</p>
+<p t="3994827" d="2333">if y is a child of x, the
+only points in the binary tree</p>
+<p t="3997160" d="3480">that are between x and y,
+or the left subtree of y,</p>
+<p t="4000640" d="2760">or there's a symmetric case,
+but in this picture left subtree</p>
+<p t="4003400" d="1470">of y.</p>
+<p t="4004870" d="1100">But I put an x here.</p>
+<p t="4005970" d="2530">That means that whoever
+we're looking at,</p>
+<p t="4008500" d="4260">some point between x and y,
+has to be in this top tree.</p>
+<p t="4012760" d="2550">Contradiction, done, OK?</p>
+<p t="4015310" d="2820">If this guy is in there,
+then y was also in there,</p>
+<p t="4018130" d="3424">which meant there
+was a point here,</p>
+<p t="4021554" d="1916">and that's what we're
+assuming did not happen.</p>
+<p t="4023470" d="1458">This is supposed
+to be an interface</p>
+<p t="4024928" d="2622">between inside the
+set of touched nodes,</p>
+<p t="4027550" d="3190">and outside the set
+of touched nodes.</p>
+<p t="4030740" d="3350">So there can't be
+any points in here,</p>
+<p t="4034090" d="3596">which means this is empty, which
+means you weren't satisfied.</p>
+<p t="4037686" d="1624">OK, maybe I should
+write down the words</p>
+<p t="4039310" d="1800">to go with that argument, but--</p>
+<p t="4045680" d="9090">So, this part is empty by
+next touch of x being greater</p>
+<p t="4054770" d="2760">than next touch of y.</p>
+<p t="4057530" d="7650">And this part is empty
+else, or it's empty</p>
+<p t="4065180" d="18780">because any key
+between x and y is</p>
+<p t="4083960" d="14229">in the left subtree of
+y, which would imply</p>
+<p t="4098189" d="10741">if it's touched then so is y.</p>
+<p t="4108930" d="3520">But y cannot be
+touched, by assumption.</p>
+<p t="4112450" d="2510">So that's the end of that proof.</p>
+<p t="4114960" d="3177">A little bit longer,
+but hopefully</p>
+<p t="4118137" d="1333">it's pretty clear at this point.</p>
+<p t="4119470" d="1308">Question?</p>
+<p t="4120778" d="2370">AUDIENCE: Can't
+there be something</p>
+<p t="4123148" d="2662">like a descendent of x,
+but an ancestor of y,</p>
+<p t="4125810" d="3224">instead of being in
+a subtree with y?</p>
+<p t="4129034" d="1416">PROFESSOR: Would,
+so you could say</p>
+<p t="4130450" d="1434">it could be in between here.</p>
+<p t="4131884" d="2166">It could be a descendant
+of x, but an ancestor of y,</p>
+<p t="4134050" d="2760">but we're assuming here that
+this was a child relation.</p>
+<p t="4136810" d="1500">y was a child of x.</p>
+<p t="4138310" d="1084">This was a--</p>
+<p t="4139394" d="2142">I didn't say that
+at the beginning.</p>
+<p t="4141536" d="1874">On a claim that's a
+global treap, if it's not</p>
+<p t="4143410" d="3300">a global treap, there is
+some edge that's violated,</p>
+<p t="4146710" d="1630">that does not have
+heap order property.</p>
+<p t="4148340" d="2840">So assuming this was
+an edge, x is OK,</p>
+<p t="4151180" d="2429">it was in the local
+treap, y somehow</p>
+<p t="4153609" d="2491">is going to be bad, because
+it's next touch time was,</p>
+<p t="4156100" d="870">should be higher.</p>
+<p t="4156970" d="1080">Should be above.</p>
+<p t="4158050" d="958">Other question?</p>
+<p t="4159008" d="1992">AUDIENCE: So that
+[INAUDIBLE] you drew,</p>
+<p t="4161000" d="4980">and all the everything in that
+subtree root that gets taken</p>
+<p t="4165980" d="996">to--</p>
+<p t="4166976" d="1992">Like the picture on
+the right is also,</p>
+<p t="4168968" d="1494">it's the same subtree right?</p>
+<p t="4170462" d="2017">But after you change
+their [INAUDIBLE]</p>
+<p t="4172479" d="1861">PROFESSOR: These two subtrees
+have the same set of nodes,</p>
+<p t="4174340" d="1416">they've just been
+rotated somehow.</p>
+<p t="4175756" d="3170">AUDIENCE: OK, but then
+how do you-- but didn't</p>
+<p t="4178926" d="2598">we change the next touch times
+of all the nodes in there?</p>
+<p t="4181524" d="1948">So how you do know if
+the root is still going</p>
+<p t="4183472" d="1948">to be some guy in that subtree?</p>
+<p t="4188850" d="1339">PROFESSOR: Buy this argument.</p>
+<p t="4190189" d="3151">So the question is
+say, after we do this,</p>
+<p t="4193340" d="2520">we make some root,
+which is going,</p>
+<p t="4195860" d="2250">the root is going to
+be among all the nodes</p>
+<p t="4198110" d="4170">that just got touched now, who
+is going to be touched next?</p>
+<p t="4202280" d="1440">That's who we put at the root.</p>
+<p t="4203720" d="3330">And the claim is, that
+is globally the node that</p>
+<p t="4207050" d="1050">will be touched next.</p>
+<p t="4208100" d="700">Why?</p>
+<p t="4208800" d="2420">By this argument.</p>
+<p t="4211220" d="4140">If there were some other node
+down here that has a smaller</p>
+<p t="4215360" d="3295">next access time, then--</p>
+<p t="4222947" d="1833">but we know that it was
+heap ordered before,</p>
+<p t="4224780" d="1720">so all of these guys
+are heap ordered.</p>
+<p t="4226500" d="2180">So, this guy would
+then have the minimum.</p>
+<p t="4228680" d="1470">And then we look
+at that interface,</p>
+<p t="4230150" d="2750">and the claim is by the
+satisfaction property,</p>
+<p t="4232900" d="2406">actually this point should
+have been in the set.</p>
+<p t="4235306" d="1624">So, what this tells
+you is the guy that</p>
+<p t="4236930" d="2040">has to be accessed
+next, in particular,</p>
+<p t="4238970" d="2370">must be in your set.</p>
+<p t="4241340" d="1479">Must be touched now.</p>
+<p t="4246950" d="1860">Kind of magical.</p>
+<p t="4248810" d="2370">Well actually, it's because
+they're tie-breaking</p>
+<p t="4251180" d="2510">I think, that this works out.</p>
+<p t="4253690" d="1764">Anyway, another question?</p>
+<p t="4255454" d="3952">AUDIENCE: So, like when you're
+rearranging the [INAUDIBLE]</p>
+<p t="4259406" d="5394">in the sort of subtree
+on top [INAUDIBLE]</p>
+<p t="4264800" d="2000">PROFESSOR: Yeah, we're
+doing this transformation</p>
+<p t="4266800" d="2589">of the top tree into the
+local tree by rotations.</p>
+<p t="4269389" d="541">I mentioned--</p>
+<p t="4269930" d="2744">AUDIENCE: [INAUDIBLE]
+It's always--</p>
+<p t="4272674" d="1416">PROFESSOR: Right,
+so we're staying</p>
+<p t="4274090" d="2458">within the binary search tree
+model, and in particular then</p>
+<p t="4276548" d="1506">we stay a binary search tree.</p>
+<p t="4278054" d="1166">So, we can't mess things up.</p>
+<p t="4279220" d="2040">And there's a nice theorem that
+if you have two binary search</p>
+<p t="4281260" d="1740">trees on the same,
+keys there's a way</p>
+<p t="4283000" d="2280">to get there with the
+linear number of rotates,</p>
+<p t="4285280" d="2850">so that's for free.</p>
+<p t="4288130" d="3660">So, our new cost model
+is just to count points.</p>
+<p t="4291790" d="2790">The cost of this access is
+one, the cost of this access</p>
+<p t="4294580" d="2490">is two, two, three.</p>
+<p t="4297070" d="3300">If we just count how
+many nodes are touched,</p>
+<p t="4300370" d="3180">then the cost of the
+binary search tree</p>
+<p t="4303550" d="5280">is equal to the cost of
+the minimum satisfied</p>
+<p t="4308830" d="1440">superset of your point.</p>
+<p t="4310270" d="2490">So this is the problem now.</p>
+<p t="4312760" d="3630">Sadly we don't know how
+to solve the problem.</p>
+<p t="4316390" d="4690">We do know some things.</p>
+<p t="4321080" d="2742">I don't think I'll go
+through an example of this,</p>
+<p t="4323822" d="958">it's not very exciting.</p>
+<p t="4324780" d="3400">You could run
+through this picture,</p>
+<p t="4328180" d="2070">and see how the binary
+[? structure ?] changes.</p>
+<p t="4330250" d="1458">Actually the binary
+[? structure ?]</p>
+<p t="4331708" d="2652">won't change it all here, so
+it's a little anticlimactic</p>
+<p t="4334360" d="670">of an example.</p>
+<p t="4335030" d="3170">You can see it in the notes.</p>
+<p t="4338200" d="7340">I want to get to the greedy
+algorithm, so let's go here.</p>
+<p t="4354850" d="1048">Last bullet.</p>
+<p t="4394860" d="3680">The idea is to imagine
+your points are added one</p>
+<p t="4398540" d="2160">at a time, bottom up.</p>
+<p t="4404060" d="1620">So I'm going to do
+the same example.</p>
+<p t="4405680" d="2100">First we add this point.</p>
+<p t="4407780" d="1950">That's a satisfied set, done.</p>
+<p t="4409730" d="20500">In general add necessary points
+on the same row as the search.</p>
+<p t="4430230" d="1530">OK, there's nothing to add here.</p>
+<p t="4431760" d="2150">Next point we add is over here.</p>
+<p t="4433910" d="2260">I've got the orientation
+correct, yeah.</p>
+<p t="4436170" d="2890">So this was three, this was one.</p>
+<p t="4439060" d="1280">Is this satisfied?</p>
+<p t="4440340" d="2597">No, there's a bad
+rectangle here.</p>
+<p t="4442937" d="2083">There's two obvious ways
+to satisfy the rectangle,</p>
+<p t="4445020" d="2530">I could add a point here,
+or I could add a point here.</p>
+<p t="4447550" d="2250">I'm going to add a point
+here, because that's the row,</p>
+<p t="4449800" d="920">this is current time.</p>
+<p t="4450720" d="3330">OK, it's like a
+sweep line algorithm.</p>
+<p t="4454050" d="4671">We go up, next
+point is over here.</p>
+<p t="4458721" d="2169">That's the Next
+position to sweep line.</p>
+<p t="4460890" d="1950">Now there's a bad rectangle.</p>
+<p t="4462840" d="1580">We fix it by adding this point.</p>
+<p t="4467010" d="2940">Now we're good, all
+rectangles are satisfied.</p>
+<p t="4469950" d="3540">Next level is,
+there's a point here.</p>
+<p t="4473490" d="1950">Now there's two bad rectangles.</p>
+<p t="4475440" d="2730">This one, I'm going
+to add a point here,</p>
+<p t="4478170" d="2806">and this one, I'm going
+to add a point here.</p>
+<p t="4484640" d="1980">Now we're good.</p>
+<p t="4486620" d="3120">And that should be
+what I did here.</p>
+<p t="4489740" d="500">Yeah.</p>
+<p t="4492619" d="1541">So that's how I
+found that point set,</p>
+<p t="4494160" d="3380">and in general claim is
+this is a good algorithm.</p>
+<p t="4497540" d="3780">It seems, in fact,
+pretty obvious.</p>
+<p t="4501320" d="2940">There was a choice of
+course, we could satisfy</p>
+<p t="4504260" d="1680">this corner or this corner.</p>
+<p t="4505940" d="3390">Or some monotone
+path in between.</p>
+<p t="4509330" d="1680">But the claim would be that--</p>
+<p t="4515510" d="1950">doesn't make that
+big a difference.</p>
+<p t="4517460" d="1510">Doing things later
+is always better.</p>
+<p t="4518970" d="1580">It's kind of a lazy property.</p>
+<p t="4520550" d="2064">Or you could think of this--</p>
+<p t="4522614" d="1416">Originally actually
+this algorithm</p>
+<p t="4524030" d="2130">goes back in tree land.</p>
+<p t="4526160" d="2881">And in tree land, if you follow
+through this reduction, which</p>
+<p t="4529041" d="1499">we did, you know
+if you convert this</p>
+<p t="4530540" d="3210">into a treap, what
+this is saying is,</p>
+<p t="4533750" d="2760">look you search for an
+item, you follow a path.</p>
+<p t="4536510" d="2640">Take all the nodes on
+the path that you follow,</p>
+<p t="4539150" d="2550">rearrange them optimally
+for the future,</p>
+<p t="4541700" d="3990">build a heap based on the next
+access time, next touch time,</p>
+<p t="4545690" d="2580">whenever that happens to be.</p>
+<p t="4548270" d="2790">Next access time
+actually, in that case.</p>
+<p t="4551060" d="4140">That is equivalent
+to this algorithm.</p>
+<p t="4555200" d="2257">That seems like the right
+thing to do offline.</p>
+<p t="4557457" d="2583">You visit your item, you do the
+minimum amount you have to do,</p>
+<p t="4560040" d="1640">which is following
+the search path.</p>
+<p t="4561680" d="2910">You rearrange those items to
+be optimal for the future.</p>
+<p t="4564590" d="2430">It's an offline algorithm,
+seems like a really good one.</p>
+<p t="4567020" d="1590">The only thing
+it's missing out on</p>
+<p t="4568610" d="2310">is maybe you should
+go off the path</p>
+<p t="4570920" d="3042">and bring other guys
+closer to the root.</p>
+<p t="4573962" d="2208">But if you believe, which
+we don't know how to prove,</p>
+<p t="4576170" d="1333">if you believe that there's no--</p>
+<p t="4577503" d="1637">it doesn't really
+buy you anything</p>
+<p t="4579140" d="3150">to go off the path now,
+you can always do it later,</p>
+<p t="4582290" d="4210">then this algorithm
+is optimal offline.</p>
+<p t="4586500" d="1500">And in terms of the
+point set it's--</p>
+<p t="4588000" d="1749">in the point set of
+view it's kind of nice</p>
+<p t="4589749" d="1611">because it almost
+looks online, right.</p>
+<p t="4591360" d="2150">You only have to
+look at each time</p>
+<p t="4593510" d="3570">and add the points at
+that time that are useful,</p>
+<p t="4597080" d="1410">in terms of the past.</p>
+<p t="4598490" d="2954">You only had to satisfy
+the rectangles of the past.</p>
+<p t="4601444" d="1666">So this is where
+things get interesting,</p>
+<p t="4603110" d="2990">because in terms of a tree
+view, with this transformation,</p>
+<p t="4606100" d="2710">this looks like an
+offline tree because it</p>
+<p t="4608810" d="1080">needs to know the future.</p>
+<p t="4609890" d="2380">And it does if you
+want to build a heap.</p>
+<p t="4612270" d="2090">OK, but if you look
+at in the geometric</p>
+<p t="4614360" d="2280">view, suddenly it looks
+online, because you're only</p>
+<p t="4616640" d="1666">looking at the points
+and all the points</p>
+<p t="4618306" d="1634">you've accessed in the past.</p>
+<p t="4619940" d="4110">So, in fact, there's a
+way to make this online.</p>
+<p t="4628550" d="2779">This is where things
+get interesting.</p>
+<p t="4631329" d="1541">There is a transformation
+that if you</p>
+<p t="4632870" d="4230">have an online satisfying
+point set, meaning you</p>
+<p t="4637100" d="2310">can decide what points to
+add based only on the past,</p>
+<p t="4639410" d="2070">not on the future.</p>
+<p t="4641480" d="2290">So it's a fancier version
+of this transformation,</p>
+<p t="4643770" d="3690">you get an actual online
+binary search tree.</p>
+<p t="4647460" d="6050">So, this algorithm goes
+back to the '90s I think.</p>
+<p t="4653510" d="3930">Actually '88, it's in a
+thesis 1988 as rediscovered</p>
+<p t="4657440" d="5190">by my PhD adviser in 2000.</p>
+<p t="4662630" d="3124">It's totally natural
+algorithm, but they thought</p>
+<p t="4665754" d="1166">it was an offline algorithm.</p>
+<p t="4666920" d="2340">With this view, it's
+an online algorithm.</p>
+<p t="4669260" d="2670">Let me quickly convince
+you, or sketch to you,</p>
+<p t="4671930" d="2520">how we make this online.</p>
+<p t="4674450" d="7197">So we do the same thing, except
+we don't know how to heapify,</p>
+<p t="4681647" d="1833">because we don't know
+the next access times.</p>
+<p t="4683480" d="1545">But we know whatever
+we touch, it's</p>
+<p t="4685025" d="1965">some connected
+subtree of the root.</p>
+<p t="4686990" d="1050">We know what we touch.</p>
+<p t="4688040" d="2190">We touch whatever greedy
+tells us to touch.</p>
+<p t="4690230" d="2469">We'll touch all
+these guys, whatever.</p>
+<p t="4692699" d="1041">How do we rearrange them?</p>
+<p t="4693740" d="1350">We don't rearrange them.</p>
+<p t="4695090" d="3210">We store them into something
+called a split tree.</p>
+<p t="4701090" d="2250">Split tree has the
+feature, it's a tree.</p>
+<p t="4703340" d="4590">Binary search tree, and if
+you ask for some item x,</p>
+<p t="4707930" d="3300">you can move x to the root.</p>
+<p t="4711230" d="2520">So then you have a
+left subtree of x,</p>
+<p t="4713750" d="3660">right subtree of x,
+and then delete x,</p>
+<p t="4717410" d="2850">and now you're left with
+things that are less than x,</p>
+<p t="4720260" d="1910">and things that
+are greater than x.</p>
+<p t="4722170" d="2380">Things are greater than x.</p>
+<p t="4724550" d="2730">And you can do all this
+in constant amortize time.</p>
+<p t="4731030" d="2580">This is what we need,
+if you think about here.</p>
+<p t="4733610" d="2850">I'm going to take all these
+items that were touched,</p>
+<p t="4736460" d="2820">throw them into a split tree.</p>
+<p t="4739280" d="3150">My resulting structure will
+be a tree of split trees.</p>
+<p t="4742430" d="3020">So think of it as, when
+I touch all these items</p>
+<p t="4745450" d="1750">I just sort of throw
+them all in the root,</p>
+<p t="4747200" d="2340">but that root is
+represented by a split tree.</p>
+<p t="4749540" d="2640">And then hanging off here, there
+are other split trees which</p>
+<p t="4752180" d="4110">may have several keys in them.</p>
+<p t="4756290" d="3060">When I do, when I
+now touch a node,</p>
+<p t="4759350" d="2820">you can show that if I'm
+trying to touch some node here,</p>
+<p t="4762170" d="1710">I can't just magically
+touch a node here.</p>
+<p t="4763880" d="1790">I've got to, I had
+to have followed</p>
+<p t="4765670" d="2500">in the actual tree, whatever
+the optimal tree is,</p>
+<p t="4768170" d="2552">I had to follow some
+route to leave path.</p>
+<p t="4770722" d="1708">So in fact, the
+predecessor and successor</p>
+<p t="4772430" d="3960">here had to have been touched
+before I touched this one.</p>
+<p t="4776390" d="3890">Which means I'm going
+to split those nodes.</p>
+<p t="4780280" d="3920">So, when I actually-- this
+is basically lazy evaluation.</p>
+<p t="4784200" d="2580">When I actually access
+something in here,</p>
+<p t="4786780" d="1770">that means I want to
+pull it to the root.</p>
+<p t="4788550" d="2970">I wanted to pretend that
+it was at the root, that's</p>
+<p t="4791520" d="2340">what the treap would have done.</p>
+<p t="4793860" d="2760">So basically pull it
+up, be a root, split,</p>
+<p t="4796620" d="2400">because now there's
+two structures left</p>
+<p t="4799020" d="1830">where I don't know
+their orders, but I</p>
+<p t="4800850" d="3030">know that this item was first.</p>
+<p t="4803880" d="1389">And so I end up with--</p>
+<p t="4805269" d="1791">I don't actually remove
+it, but I remove it</p>
+<p t="4807060" d="4510">from the split trees, so
+I make it look like this.</p>
+<p t="4811570" d="3220">And here's the guy where I
+wanted to access something.</p>
+<p t="4814790" d="2460">So, I split this root
+into two split trees,</p>
+<p t="4817250" d="2650">and I have an
+individual node up here.</p>
+<p t="4819900" d="1830">If I can do this in
+constant amortize time,</p>
+<p t="4821730" d="2410">it's as if this node was at
+the root in the first place.</p>
+<p t="4824140" d="2830">And so I simulate this
+perfect treap order,</p>
+<p t="4826970" d="2560">but using a data
+structure, split trees,</p>
+<p t="4829530" d="2092">which can actually be solved.</p>
+<p t="4831622" d="1208">How do you solve split trees?</p>
+<p t="4832830" d="4280">You just do the obvious
+thing, more or less.</p>
+<p t="4837110" d="2500">Ideas, you know red
+black trees, take</p>
+<p t="4839610" d="1860">your favorite balanced
+binary search tree,</p>
+<p t="4841470" d="4150">red black trees work fine.</p>
+<p t="4845620" d="2540">If you're given a node,
+you can split there.</p>
+<p t="4848160" d="3510">You basically just
+carve it in half.</p>
+<p t="4851670" d="1500">How much does it cost to split?</p>
+<p t="4853170" d="2040">Well if you're a
+little bit clever,</p>
+<p t="4855210" d="2677">let me go to a
+board of cleverness.</p>
+<p t="4860259" d="1541">The one thing we
+have to optimize for</p>
+<p t="4861800" d="1625">is, what if you're
+splitting like right</p>
+<p t="4863425" d="2335">here, very close to the left?</p>
+<p t="4865760" d="2820">If you're clever,
+you'll search from here,</p>
+<p t="4868580" d="2460">and cut off this part in
+time basically proportional</p>
+<p t="4871040" d="2150">to the height of that tree.</p>
+<p t="4873190" d="1990">OK, you might get some
+propagation up here,</p>
+<p t="4875180" d="2542">but that's very small amortized.</p>
+<p t="4877722" d="1958">OK, on the other hand,
+if you search over here,</p>
+<p t="4879680" d="2920">you'd like to spend only
+time proportional to this.</p>
+<p t="4882600" d="4460">So in general, if you just
+search in parallel here,</p>
+<p t="4887060" d="2510">you can split in--</p>
+<p t="4889570" d="4840">let's say this has size n one,
+and the rest has size n two.</p>
+<p t="4894410" d="7300">You can split in order log
+the min of n one and n two.</p>
+<p t="4901710" d="2510">And you can show that if you
+just-- that's straightforward</p>
+<p t="4904220" d="1990">splitting, that's
+really easy to do.</p>
+<p t="4906210" d="2720">You can show that that
+implies constant amortized,</p>
+<p t="4908930" d="2400">because either you're cutting
+off a very little nibble</p>
+<p t="4911330" d="1980">and the cost is small,
+or you're cutting things</p>
+<p t="4913310" d="2340">more or less in half, but
+that can't happen very much.</p>
+<p t="4915650" d="3480">Then you charge to the fact
+that log n is going down by one,</p>
+<p t="4919130" d="4270">and overall you get a linear
+cost to splitting nodes.</p>
+<p t="4926070" d="1064">It's an amortization.</p>
+<p t="4927134" d="2166">Now the trouble is this is
+not a binary search tree.</p>
+<p t="4929300" d="1541">How in the heck do
+I have to pointers</p>
+<p t="4930841" d="1489">that in parallel search?</p>
+<p t="4932330" d="2550">Well you have to take these
+two halves of the tree</p>
+<p t="4934880" d="2430">and interleave them to make
+them a binary search tree.</p>
+<p t="4937310" d="3900">It's kind of awkward, but just
+put it, mash it all together.</p>
+<p t="4941210" d="3140">Fold it in half, basically
+and turn it upside down,</p>
+<p t="4944350" d="1624">and you've got a
+binary search tree.</p>
+<p t="4945974" d="1416">So there's some
+messy stuff there,</p>
+<p t="4947390" d="2190">but that's just a
+hand-wavy argument</p>
+<p t="4949580" d="2820">that you can make greedy online.</p>
+<p t="4952400" d="2880">Next class we'll talk about
+lower bounds, which almost</p>
+<p t="4955280" d="1350">proved the greedy is optimal.</p>
+<p t="4956630" d="2000">But not quite.</p>
+</body>
+</timedtext>

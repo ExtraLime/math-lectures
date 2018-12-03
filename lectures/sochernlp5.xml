@@ -1,0 +1,2031 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="0" d="4839">[MUSIC]</p>
+<p t="4839" d="3551">&gt;&gt; Stanford University.</p>
+<p t="8390" d="3600">&gt;&gt; About the full back
+propagation algorithm.</p>
+<p t="11990" d="5250">And I promise you as the last bit of
+super heavy math- After that you can have</p>
+<p t="17240" d="5490">a warm fuzzy feeling around most of the
+state of the art deep learning techniques.</p>
+<p t="22730" d="2130">Both for natural language processing and
+even a little bit for</p>
+<p t="24860" d="1540">computer vision a lot of other places.</p>
+<p t="26400" d="5890">So, I know this can be a lot if you're not
+super familiar with multivariate calculus.</p>
+<p t="32290" d="4420">And so, I'll actually describe
+backprop in four different ways today.</p>
+<p t="36710" d="4610">And hopefully bring most
+of you into the backprop</p>
+<p t="41320" d="5550">the group of people who know
+back propagation really well.</p>
+<p t="46870" d="3060">So 4 different descriptions of
+essentially the same thing.</p>
+<p t="49930" d="5870">But hopefully, some will resonate
+more with some folks than others.</p>
+<p t="55800" d="3180">And so to show you that afterwards
+we can have a lot more fun.</p>
+<p t="58980" d="3280">Well, actually then the second sort of,
+well, not quite half, but</p>
+<p t="62260" d="3180">maybe the last third,
+talk about the projects and</p>
+<p t="65440" d="2190">encourage you to get
+started on the project.</p>
+<p t="67630" d="3150">Give you some advice on what the projects</p>
+<p t="70780" d="4730">will likely entail if you choose to do
+a project instead of the last problem set.</p>
+<p t="75510" d="3300">Maybe one small hint for problem set one.</p>
+<p t="79840" d="3730">Again, it's super important to understand
+the math and dimensionality, and if you do</p>
+<p t="83570" d="4040">that on paper, and then you still have
+some trouble in the implementation.</p>
+<p t="87610" d="4360">It can be very helpful to
+essentially set break points and</p>
+<p t="91970" d="4530">then print out the shape of all the
+various derivatives you may be computing,</p>
+<p t="96500" d="3550">and that can help you in your
+debugging process a little bit.</p>
+<p t="101640" d="3320">All right, are there any questions around
+organization, problem sets, one, no?</p>
+<p t="106230" d="3240">All right, my project,</p>
+<p t="109470" d="2520">my office hours going to be a half
+hour after the class ends today.</p>
+<p t="111990" d="5520">So if you have project questions,
+I'll be there after the class.</p>
+<p t="119280" d="3370">All right, let's go to explanation
+number 1 for back propagation.</p>
+<p t="122650" d="3660">And again, just to motivate you of
+why we want to go through this.</p>
+<p t="126310" d="4230">Why do I torture some of you
+with all these derivatives?</p>
+<p t="130540" d="3650">It is really important to have an actual
+understanding of the math behind</p>
+<p t="134190" d="1650">most of deep learning.</p>
+<p t="135840" d="4800">And in many cases, in the future, you will
+kind of abstract the way backpropagation.</p>
+<p t="140640" d="3310">You'll just kind of assume it
+works based on a framework,</p>
+<p t="143950" d="1940">software package that you might use.</p>
+<p t="145890" d="3740">But that sometimes leads you to not
+understand why your model might not</p>
+<p t="149630" d="1080">be working, right?</p>
+<p t="150710" d="2680">In theory,
+you say it's just abstracted away,</p>
+<p t="153390" d="1660">I don't have to worry about it anymore.</p>
+<p t="155050" d="6220">But really in practice, in the
+optimization you might run into problems.</p>
+<p t="161270" d="2230">And if you don't understand
+the actual back propagation,</p>
+<p t="163500" d="1730">you don't know why you
+will have these problems.</p>
+<p t="165230" d="4860">And so in addition to that, we kinda wanna
+prepare you to not just be a user of</p>
+<p t="170090" d="3150">deep learning, but
+maybe even eventually do research.</p>
+<p t="173240" d="4580">In this field and maybe think of and
+implement and be very,</p>
+<p t="177820" d="2660">very good at debugging
+completely new kinds of models.</p>
+<p t="180480" d="4160">And you'll observe that depending on which
+software package you'll use in the future,</p>
+<p t="184640" d="3890">not everything is de facto supported
+in some of these frameworks.</p>
+<p t="188530" d="4245">So if you want to create a completely new
+model that's sort of outside the convex</p>
+<p t="192775" d="2995">Known things, you will need to implement,
+the forward and</p>
+<p t="195770" d="4880">the backward propagation for a new
+sub-module that you might have invented.</p>
+<p t="200650" d="4110">So, you just have to trust me
+a little bit in why it's useful.</p>
+<p t="204760" d="1630">Hopefully this helps.</p>
+<p t="207390" d="4310">So last time we ended with
+this kind of neural network,</p>
+<p t="211700" d="2540">where we had a single hidden layer.</p>
+<p t="214240" d="3910">And we derive all the gradients for</p>
+<p t="218150" d="3630">all the different parameters of this
+model, namely the word vectors here.</p>
+<p t="221780" d="5550">The W, the weight matrix for
+our single hidden layer and</p>
+<p t="227330" d="4570">the U for the simple linear layer here.</p>
+<p t="231900" d="5160">And we defined this objective function and
+we ended up writing,</p>
+<p t="237060" d="4260">for instance, one such derivative here
+fully out where we have the indicator</p>
+<p t="241320" d="2510">function whether we're in this regime or
+if it's zero.</p>
+<p t="243830" d="3225">And if it's above zero,
+then this was the derivative.</p>
+<p t="247055" d="4655">In here, I just rewrote the same
+derivative twice, essentially showing you</p>
+<p t="251710" d="4840">that instead of having to recompute,
+this if you had basically</p>
+<p t="258060" d="3590">stored during forward propagation
+the activations of this,</p>
+<p t="261650" d="5790">this is exactly the same thing,
+so f(Wx + b) we defined</p>
+<p t="267440" d="4110">as our hidden activation, a, then you
+could reuse those to compute derivatives.</p>
+<p t="274330" d="4800">Alright, now we're going to take it up
+a notch and add an additional hidden</p>
+<p t="279130" d="4950">layer to that exact same model, and it's
+the same kind of layer but in out that</p>
+<p t="284080" d="4720">we have 2, we have to be very careful here
+about our superscript which will indicate.</p>
+<p t="288800" d="1350">The layers that we're in.</p>
+<p t="291220" d="1760">So it's the same kind
+of window definition,</p>
+<p t="292980" d="4990">we'll go over corpus, we'll select
+samples for our positive class and</p>
+<p t="297970" d="4230">everything that doesn't for instance have
+an entity will be our negative class.</p>
+<p t="302200" d="4230">Everything else is the same, but
+we're adding one hidden layer to this.</p>
+<p t="307920" d="1910">And so, let's go through the definition.</p>
+<p t="309830" d="5880">We'll define x here, our Windows and
+our word vectors that we concatenated,</p>
+<p t="315710" d="3430">as our first activations,
+our first hidden layer.</p>
+<p t="319140" d="4710">And now to compute to intermediate
+representation for our second layer,</p>
+<p t="323850" d="4810">just a linear part of that,
+we basically have here W1.</p>
+<p t="328660" d="2160">A superscript matrix times x plus b1.</p>
+<p t="330820" d="4970">And then to compute the activations A,
+superscript two of that will apply</p>
+<p t="335790" d="3890">the element-wise nonlinearities,
+such as the sigmoid function.</p>
+<p t="339680" d="5740">All right, and
+then we'll define this here as z3,</p>
+<p t="345420" d="4360">same idea but this could potentially have
+different dimensionalities, w1, w2 for</p>
+<p t="349780" d="2500">instance don't have to have
+exactly the same dimensionality.</p>
+<p t="353280" d="2120">Do the same thing again,
+element wise nonlinearity and</p>
+<p t="355400" d="1980">we have the same linear layer at the top.</p>
+<p t="357380" d="5202">All right, are there any questions
+around the definition of this here?</p>
+<p t="362582" d="2838">&gt;&gt; [INAUDIBLE]
+&gt;&gt; The question is do those two element</p>
+<p t="365420" d="1450">wise functions here have to be the same?</p>
+<p t="366870" d="1480">And the answer is they do not.</p>
+<p t="368350" d="4360">And if fact this is something
+that you could cross-validate and</p>
+<p t="372710" d="2550">try as different
+hyper-parameters of the model.</p>
+<p t="376510" d="2480">We so far have only introduced
+to you the sigmoid.</p>
+<p t="378990" d="2610">So let's assume for now, it's the same.</p>
+<p t="381600" d="4016">But in a later lecture, I think next week,
+we'll describe a lot of other</p>
+<p t="385616" d="5024">kinds of non-linearities.</p>
+<p t="390640" d="1101">Yeah.</p>
+<p t="395348" d="2062">How do you choose which
+of these functions.</p>
+<p t="397410" d="2690">We'll go into all of that once
+we know that we have which or</p>
+<p t="400100" d="1020">what the options are.</p>
+<p t="401120" d="3020">The best answer usually is,
+you let your data speak for</p>
+<p t="404140" d="4660">yourself and you run experiments
+with a lot of different options.</p>
+<p t="408800" d="2580">Once you do that, after a while you gain,
+again, certain intuitions.</p>
+<p t="411380" d="2260">And you don't have to redo it every time.</p>
+<p t="413640" d="3170">Especially if you have ten layers, you
+don't wanna go through the cross-product</p>
+<p t="416810" d="2180">of five different nonlinearities.</p>
+<p t="418990" d="1950">And then all the different variations.</p>
+<p t="420940" d="3080">Usually, you get diminishing returns for
+some of those type of parameters.</p>
+<p t="424020" d="500">&gt;&gt; Question.</p>
+<p t="425520" d="5223">&gt;&gt; Yeah?
+[INAUDIBLE]</p>
+<p t="436418" d="722">&gt;&gt; Sorry, I didn't hear you.</p>
+<p t="439915" d="2353">Right.</p>
+<p t="442268" d="6119">So the question</p>
+<p t="448387" d="6433">is,could we put the b into the w?</p>
+<p t="454820" d="900">And if that's confusing,</p>
+<p t="455720" d="5660">you could essentially assume
+that b is this biased term here.</p>
+<p t="461380" d="2850">Is another element of this W matrix,</p>
+<p t="464230" d="4908">if we add a single one to every
+activation that we have here.</p>
+<p t="469138" d="4872">So, if a two frame,</p>
+<p t="474010" d="2910">since we just added one here, then we
+could get rid of this bias term and</p>
+<p t="476920" d="4949">we'd have an additional Row or
+column depending on what we have in W.</p>
+<p t="481869" d="3385">So yes, we could fold b into W
+to simplify the notation, but</p>
+<p t="485254" d="4701">then as we're taking derivatives we want
+to keep everything separate and clear.</p>
+<p t="489955" d="2875">And you'll usually back propagate
+through these activations,</p>
+<p t="492830" d="2045">whereas you don't back
+propagate through b.</p>
+<p t="494875" d="2361">So for this math,
+it's better to keep them separate.</p>
+<p t="497236" d="1499">Yeah.</p>
+<p t="502068" d="4177">So U transpose is our last,
+the question is what's U transposed?</p>
+<p t="506245" d="3566">And U transpose is our last layer,
+if you will.</p>
+<p t="509811" d="4927">But there's no non-linearity with it,
+and it's just a single vector.</p>
+<p t="514738" d="4522">And so because by default here in
+the notation of the class we assume these</p>
+<p t="519260" d="1344">are column vectors.</p>
+<p t="520604" d="2716">We transpose it so
+that we have a simple inner product.</p>
+<p t="523320" d="3450">So it's just another set of
+parameters that will score</p>
+<p t="526770" d="3340">the final activations to be
+high if they're a named entity,</p>
+<p t="530110" d="3680">if there's a named entity of
+the center of this window.</p>
+<p t="533790" d="1460">And scored low if not.</p>
+<p t="538565" d="675">That's correct.</p>
+<p t="539240" d="2190">It is just a score that
+we're trying to maximize and</p>
+<p t="541430" d="3210">we compute that final score
+with this inner product.</p>
+<p t="544640" d="2958">And so these activations
+are now something that we</p>
+<p t="547598" d="3882">compute in this pretty complex
+neural network function, yeah.</p>
+<p t="560021" d="1992">Here everything is a column vector,
+that's correct.</p>
+<p t="562013" d="2362">All the x's are column vectors.</p>
+<p t="574576" d="1249">So the question is,</p>
+<p t="575825" d="4895">is there a particular reason of why we
+chose a linear layer as the last layer?</p>
+<p t="580720" d="2695">And the answer here is to
+simplify the math a little bit.</p>
+<p t="583415" d="4851">And because and to introduce to you
+another kind of objective function,</p>
+<p t="588266" d="5864">not everything has to be normalized and
+basically summed to 1 as probabilities.</p>
+<p t="594130" d="4176">If you just care about finding one
+thing versus a lot of other things,</p>
+<p t="598306" d="4621">like I just want to find named entities
+that are locations as center words.</p>
+<p t="602927" d="2091">And if it's high, then that's likely one.</p>
+<p t="605018" d="3842">And if it's low,
+then it's likely not a center location.</p>
+<p t="608860" d="1180">Then that's all you need to do.</p>
+<p t="610040" d="5044">And in some sense, you could add here
+a sigmoid after this, and then call it</p>
+<p t="615084" d="5227">a probability, and then use standard
+cross entropy loss to, in your model.</p>
+<p t="620311" d="3020">There's no reason of why
+you shouldn't do it.</p>
+<p t="623331" d="5282">That's something you have to do in the
+problem sets, trying to combine, we derive</p>
+<p t="628613" d="4689">that, we help you derive the softmax and
+cross entropy pair optimization.</p>
+<p t="633302" d="4404">And then we going through this and
+hopefully you can combine the two and</p>
+<p t="637706" d="1994">you'll see how both work.</p>
+<p t="639700" d="2793">But it's essentially
+a modeling decision and</p>
+<p t="642493" d="2440">it's not wrong to apply a sigmoid here.</p>
+<p t="644933" d="2347">And then call this a probability,
+instead of a score.</p>
+<p t="649385" d="4529">All right, so now,
+we have this two layer neural network, and</p>
+<p t="653914" d="5906">we essentially did most of the work
+already to derive the final things here.</p>
+<p t="659820" d="4550">We already knew how to
+derive our U gradients.</p>
+<p t="664370" d="4140">And what used to be just
+W is not W superscript 2,</p>
+<p t="668510" d="3160">but just because we add the superscript
+all the math is the same.</p>
+<p t="672680" d="3280">So here, same derivation that we did for</p>
+<p t="675960" d="4320">W, it's just now sitting
+on a2 instead of on just a.</p>
+<p t="680280" d="5450">And so what we did here, basically,
+follows directly to what we now have.</p>
+<p t="685730" d="4740">It's the same thing, but we now have
+to be careful to add these superscripts</p>
+<p t="690470" d="2230">depending on where we
+are in the neural network.</p>
+<p t="694640" d="4670">And we'll have the same definition
+here when we multiply Ui and</p>
+<p t="699310" d="4650">f prime of zi superscript 3, we'll
+just call that delta superscript 3 and</p>
+<p t="703960" d="1490">subscript i, for the ith element.</p>
+<p t="705450" d="4690">And this is going to give us the partial
+derivative with respect to Wij,</p>
+<p t="710140" d="1960">the i jth element of the W matrix.</p>
+<p t="713460" d="2510">So this one we've already
+derived in all its glory.</p>
+<p t="715970" d="5320">I'm just putting here again
+with the right superscripts.</p>
+<p t="723050" d="3980">Now, the total function
+that we have is this one.</p>
+<p t="727030" d="4970">And, again, we have here this same
+derivative, I just copied it over.</p>
+<p t="732000" d="4110">And in matrix notation, we have to
+find this as the outer product here.</p>
+<p t="736110" d="4020">That would give us the cross product,
+all the pairs of i and</p>
+<p t="740130" d="3590">j to have the full
+gradient of the W2 matrix.</p>
+<p t="745010" d="3980">So this one was exactly as before, except
+that we now add the superscript a2 here.</p>
+<p t="750090" d="1958">Now, in terms of the notation,</p>
+<p t="752048" d="3345">we defined this delta i in
+terms of all these elements.</p>
+<p t="755393" d="3617">And these are basically,
+if you think about it, two vectors.</p>
+<p t="759010" d="3000">This Ui we could write as the full U.</p>
+<p t="762010" d="2080">All the elements of the u vector.</p>
+<p t="764090" d="4050">And f prime of zi we could
+write as f prime of z3 where</p>
+<p t="768140" d="3860">we basically drop the index and assume
+this is just one vector of a bunch of</p>
+<p t="772000" d="5670">element wise applications of this gradient
+function of this derivative here.</p>
+<p t="777670" d="3730">So we'll introduce now this notation
+which will come in very handy.</p>
+<p t="781400" d="3735">And we call the Hadamard product or
+element-wise product.</p>
+<p t="785135" d="2330">Sometimes you'll see it as little circles.</p>
+<p t="787465" d="3505">Sometimes it's a circle with a cross or
+with a dot inside.</p>
+<p t="790970" d="1963">Whenever you see these
+in backprop derivatives,</p>
+<p t="792933" d="1457">it's usually means the same thing.</p>
+<p t="794390" d="4939">Which we just element-wise multiply all
+the elements of the two vectors with one</p>
+<p t="799329" d="661">another.</p>
+<p t="801440" d="3680">So this is how we'll define
+from now on this delta,</p>
+<p t="805120" d="3730">the air signal that's
+coming in at this layer.</p>
+<p t="808850" d="3120">So the last missing piece for
+back propagation and</p>
+<p t="811970" d="6010">to understand it is essentially
+the gradient with respect to W1,</p>
+<p t="817980" d="3590">the second layer now,
+that we're moving through.</p>
+<p t="824092" d="4408">Any questions around the Hadamard product,
+the outer product from the W?</p>
+<p t="832062" d="554">Yeah?</p>
+<p t="839539" d="877">It is no longer what?</p>
+<p t="845310" d="900">Sorry it's.</p>
+<p t="848285" d="1951">Associated, so yes.</p>
+<p t="850236" d="4288">So the question is once you use the
+Hadamard product, how is this related to</p>
+<p t="854524" d="3736">the matrix multiplication here or
+the vector, outer product?</p>
+<p t="858260" d="3510">And so
+you basically first have to compute this.</p>
+<p t="861770" d="2580">And then you have the full
+delta definition.</p>
+<p t="864350" d="6086">And then you can multiply these and
+outer product to get the gradient.</p>
+<p t="870436" d="750">Yeah.</p>
+<p t="878230" d="4583">Sure, so the question is, could you
+assume that these are diagonal matrices?</p>
+<p t="882813" d="2867">And yes, it's this kind of the same thing.</p>
+<p t="885680" d="4490">But in terms of the multiplication
+you have to then make sure your</p>
+<p t="890170" d="4770">diagonal matrix is efficiently implemented
+when it's multiplied with another vector.</p>
+<p t="894940" d="3632">And as you write this out,
+if this is confusing,</p>
+<p t="898572" d="3817">write out what it means to
+have a matrix times this.</p>
+<p t="902389" d="2441">And what if this is
+just a diagonal matrix?</p>
+<p t="904830" d="4519">And what do you get versus just
+multiplying each of these elements with</p>
+<p t="909349" d="926">one another?</p>
+<p t="910275" d="2817">So just write out the definitions
+of the matrix product and</p>
+<p t="913092" d="2772">then you'll observe that you
+could think of it this way.</p>
+<p t="915864" d="3675">But then really this f prime here,</p>
+<p t="919539" d="5324">is just as a single vector
+why apply the derivative</p>
+<p t="924863" d="6369">function to a bunch of zeros,
+in this case, zero, two so.</p>
+<p t="931232" d="5908">All right, so the last missing piece,
+W1, the gradient for it.</p>
+<p t="937140" d="3775">And so the main thing we have to figure
+out now is what's the bottom layer's</p>
+<p t="940915" d="3470">error message delta 2 that's coming in?</p>
+<p t="944385" d="2820">And I'm not going to go
+through all the indices again.</p>
+<p t="947205" d="2030">It would take a while and
+it's kind of repetitive.</p>
+<p t="949235" d="3380">And it's very, very similar to what
+we've done in the last lecture.</p>
+<p t="952615" d="4135">But essentially,
+we had already arrived at this expression.</p>
+<p t="956750" d="3040">As the next lower update.</p>
+<p t="959790" d="3460">And in our previous model,
+we would just arrive,</p>
+<p t="963250" d="4060">that would be the signal that
+arrives at the word vectors.</p>
+<p t="967310" d="5550">So our final word vector
+update was defined this way.</p>
+<p t="972860" d="2893">And what we now basically
+have to do is once more,</p>
+<p t="975753" d="4917">just apply the chain rule because instead
+of having coming up at the word vectors.</p>
+<p t="980670" d="2500">Instead, we're actually
+coming up at another layer.</p>
+<p t="985710" d="4060">So basically, you can kind of call
+it a local gradient also, but</p>
+<p t="989770" d="6110">it's when you multiply whatever error
+signal comes from the top layer,</p>
+<p t="995880" d="4560">you multiply that with your local error
+signal, in this case, f prime here.</p>
+<p t="1000440" d="6560">Then together, you'll get the update for
+either the weights that are at that layer,</p>
+<p t="1007000" d="4860">or the intermediate term for
+the gradient for lower layers.</p>
+<p t="1011860" d="1860">So that's what we mean by our signal.</p>
+<p t="1013720" d="3361">And it might help in the next definition,</p>
+<p t="1017081" d="5679">it might give you a better explanation
+of this in backprop number two.</p>
+<p t="1022760" d="1811">All right, so almost there.</p>
+<p t="1024571" d="2299">Basically, we apply the chain rule again.</p>
+<p t="1026870" d="3880">And if the chain rule for such a complex
+function is maybe less intuitive,</p>
+<p t="1030750" d="2770">so one thing that helped
+me many years ago,</p>
+<p t="1033520" d="5290">is to essentially assume all of these
+are scalars, just single variable.</p>
+<p t="1038810" d="4300">And then derive all this,
+assuming it just, U, W,</p>
+<p t="1043110" d="2830">and x are all just single numbers.</p>
+<p t="1045940" d="4260">And then derive it,
+that will help you gain some intuition.</p>
+<p t="1050200" d="5450">And then you'll observe in the end that
+the final delta 2 is essentially similar</p>
+<p t="1055650" d="5870">to what we had derived in a very detailed
+way, which is W2 transposed times delta 3,</p>
+<p t="1061520" d="5980">and then Hadamard product times f
+prime of Z2 which is that layer here.</p>
+<p t="1069170" d="4600">And this is basically it,
+if you understand these two equations, and</p>
+<p t="1073770" d="4590">you feel you can derive them now,
+then you will know all the updates for</p>
+<p t="1078360" d="2320">all standard multilayer neural networks.</p>
+<p t="1080680" d="4330">You will, in the end,
+always arrive at these two equations.</p>
+<p t="1085010" d="4839">And that is, if you wanna
+compute the error signal that's</p>
+<p t="1089849" d="4837">coming into a new layer,
+then you'll have some form of W,</p>
+<p t="1094686" d="6457">of the high layer transposed times
+the error signal that's coming in there.</p>
+<p t="1101143" d="7667">Hadamard product with element y's
+derivatives here of f in the f prime.</p>
+<p t="1108810" d="4830">And in the final update for each W,
+will always be this outer product</p>
+<p t="1113640" d="3810">of delta error signal times
+the activation at that layer.</p>
+<p t="1119390" d="4020">And here, I include also our
+standard regularization term.</p>
+<p t="1126590" d="5290">And you can even describe the top and
+bottom layers this way.</p>
+<p t="1131880" d="2100">And then lead to word vectors and
+the linear layer, but</p>
+<p t="1133980" d="2110">they just have a very simple delta.</p>
+<p t="1137280" d="4172">All right, now, for some of you, just like
+all right, now I understand everything,</p>
+<p t="1141452" d="2974">and it's great that I fully
+understand back propagation.</p>
+<p t="1144426" d="3464">But judging from Piazza and</p>
+<p t="1147890" d="5000">just from previous years, it's also
+quite a lot to wrap your head around.</p>
+<p t="1152890" d="4454">And so I will go through three
+additional explanations now,</p>
+<p t="1157344" d="2279">of this exact same algorithm.</p>
+<p t="1159623" d="4422">And there, we're going through much
+simpler functions not full neural</p>
+<p t="1164045" d="3055">networks, but
+much simpler kinds of functions.</p>
+<p t="1167100" d="4815">But maybe for some, it will help to wrap
+their heads around sort of the general</p>
+<p t="1171915" d="4465">idea of these error signals through
+these simpler kinds of functions.</p>
+<p t="1176380" d="3840">So instead of having a crazy neural
+network with lots of matrices and</p>
+<p t="1180220" d="1888">hidden layers.</p>
+<p t="1182108" d="3259">We'll just kinda look at
+a simple function like this, and</p>
+<p t="1185367" d="2493">we'll arrive at a similar kind of idea.</p>
+<p t="1187860" d="4695">Namely, recursively applying and
+computing these error signals or</p>
+<p t="1192555" d="4135">local gradients as we
+move through a network.</p>
+<p t="1196690" d="4850">Now, the networks in this idea seen
+function as circuits are going to be much,</p>
+<p t="1201540" d="1365">much simpler.</p>
+<p t="1202905" d="5505">And these are examples from another
+lecture on Git learning for</p>
+<p t="1208410" d="1510">convolutional neural networks and</p>
+<p t="1209920" d="5430">computer vision, and we're basically
+copying here some of their slides.</p>
+<p t="1215350" d="7149">And so let's take, for example, this very
+simple function, f of three variables.</p>
+<p t="1222499" d="3731">And this simple function
+is just x plus y times z.</p>
+<p t="1227720" d="4690">And let's assume we start with
+some random initial values for</p>
+<p t="1232410" d="3550">x, y, and z from which we start and
+wanna compute derivatives.</p>
+<p t="1237040" d="4800">Now, just as before with a complex neural
+network, we can define intermediate</p>
+<p t="1241840" d="3960">terms but now, the intermediate
+terms are very, very simple.</p>
+<p t="1245800" d="3913">So we'll just take q, for instance,
+and we define q as x plus y,</p>
+<p t="1249713" d="1607">this local computation.</p>
+<p t="1251320" d="4724">And now,
+we can look at the partial derivatives</p>
+<p t="1256044" d="4736">here of q with respect to x and
+with respect to y.</p>
+<p t="1261840" d="3240">They're very simple,
+it's just addition, right, just one.</p>
+<p t="1265080" d="2870">And we can also define f now,
+in terms of q times z,</p>
+<p t="1267950" d="4890">where we use our intermediately
+defined function here.</p>
+<p t="1272840" d="4240">And here, we're kind of simplifying q, it
+should be q is a function of x and y, but</p>
+<p t="1277080" d="1450">we just drop that.</p>
+<p t="1280110" d="5838">And we can also define our partials of f,
+our overall function with respect to q.</p>
+<p t="1285948" d="3082">Now, again, to connect that
+to what we looked at before.</p>
+<p t="1289030" d="4635">F could be our lost function, x, y, z
+could be parameters of this and we wanna,</p>
+<p t="1293665" d="2645">for instance, minimize our lost function.</p>
+<p t="1297550" d="5940">So now, what we want is, we want the final
+updates to update these variables.</p>
+<p t="1304750" d="2668">So we'll start with at the very top.</p>
+<p t="1307418" d="7072">Just a df by df which is just 1,
+so it's not much there.</p>
+<p t="1314490" d="3050">We usually start with that.</p>
+<p t="1317540" d="4720">And now, we want to update and
+learn how do we update our z vectors?</p>
+<p t="1322260" d="5980">So we look at dfdz, and what is that?</p>
+<p t="1328240" d="8756">Well, we wrote down here all our different
+derivatives, so df by dz is just q.</p>
+<p t="1336996" d="4632">And we define q as x + y, and x and</p>
+<p t="1341628" d="3043">y is minus 2 and 5.</p>
+<p t="1344671" d="3652">And so the gradient or
+the partial derivative here is just 3.</p>
+<p t="1350834" d="5551">All right, so far we're just very
+simple q times derivative z, that's it.</p>
+<p t="1356385" d="5193">All right, now,
+we can move also through this circuit.</p>
+<p t="1361578" d="3227">And are there questions around just
+the description of this circuit,</p>
+<p t="1364805" d="1923">of this function in terms of the circuit?</p>
+<p t="1371607" d="7716">All right, so now, let's look at the dfdq
+which is the element here of the circuit,</p>
+<p t="1379323" d="5202">this node in the circuit
+description of this function.</p>
+<p t="1384525" d="6295">Now, the dfdq is again, quite simple
+we already wrote it right here.</p>
+<p t="1390820" d="3837">It's just z, and z is just minus 4.</p>
+<p t="1394657" d="3596">But now, the chain rule,
+we have to multiply and</p>
+<p t="1398253" d="4007">this is essentially a delta
+kind of error message.</p>
+<p t="1402260" d="4130">We multiply what we have from
+the higher node in the circuit, but</p>
+<p t="1406390" d="2229">that's in this case, is just 1.</p>
+<p t="1408619" d="5259">And so the overall is just z times 1,
+and z is minus 4, z is minus 4.</p>
+<p t="1413878" d="4708">And now,
+we're going to move through this plus</p>
+<p t="1418586" d="4954">node to compute the next
+lower derivatives here.</p>
+<p t="1423540" d="6051">And this is, we end up at the final
+nodes here, the final leaf nodes if you</p>
+<p t="1429591" d="5077">will of this tree structure,
+and we wanna compute the dfdy.</p>
+<p t="1434668" d="5760">Now dfdy,
+We basically wanna use the chain rule,</p>
+<p t="1440428" d="5189">and we're going to multiply what
+we have in the previous one, dfdq,</p>
+<p t="1445617" d="6082">which is the error signal coming from here
+times dqdy, which is the local error,</p>
+<p t="1451699" d="4830">the local gradient,
+it's not really the full gradient right,</p>
+<p t="1456529" d="3344">this is the local part
+of the gradient dqdy.</p>
+<p t="1459873" d="4472">So we multiply these two terms,
+the dfdq we wrote down here,</p>
+<p t="1464345" d="4395">that says z minus 4, times dqdy,
+as you wrote down here.</p>
+<p t="1468740" d="3620">It's just one, so
+minus 4 times 1, we got minus 4.</p>
+<p t="1474610" d="3017">And we can do the same thing for
+x, again, apply the chain rule.</p>
+<p t="1477627" d="6021">All right, so in general, in this way of
+seeing all these functions as circuits,</p>
+<p t="1483648" d="3316">we basically always have
+some kind of input so</p>
+<p t="1486964" d="5326">each node in the circuit and
+we compute some kind of output.</p>
+<p t="1492290" d="3770">And what's important is we can
+compute our local gradients here</p>
+<p t="1496060" d="2990">directly during the forward propagation.</p>
+<p t="1499050" d="3980">We don't need to know this
+local part of the gradient.</p>
+<p t="1503030" d="1840">We don't need to know what's up before.</p>
+<p t="1504870" d="2780">But in general, we will run this forward.</p>
+<p t="1507650" d="2378">We'll around some of these values.</p>
+<p t="1510028" d="4892">And then in back propagation,
+we get the gradient signals from any</p>
+<p t="1514920" d="5510">element upstream from each of
+these nodes in the circuits.</p>
+<p t="1520430" d="3443">And essentially then,
+use the chain rule and</p>
+<p t="1523873" d="3540">multiply all of these
+to compute the updates.</p>
+<p t="1527413" d="4589">All right, any questions around
+the definition of the circuits for</p>
+<p t="1532002" d="1378">simple functions?</p>
+<p t="1533380" d="2330">It's very hard to take this
+kind of abstraction, and</p>
+<p t="1535710" d="1995">then get all the way to this full update.</p>
+<p t="1537705" d="4290">Therefore, a full near
+layer neural network, but</p>
+<p t="1541995" d="6599">it's very good to gain intuition of
+what's really going on, on a high level.</p>
+<p t="1556347" d="1371">&gt;&gt; All right, so now,</p>
+<p t="1557718" d="4946">let's go through a little more complex
+example of what this looks like.</p>
+<p t="1562664" d="4782">And I think of at the end of that you
+kind of gain some good intuition of how</p>
+<p t="1567446" d="2873">we basically do forward propagation, and</p>
+<p t="1570319" d="5531">recursively call these kinds of
+circuits to compute the full update.</p>
+<p t="1575850" d="4550">So here,
+we have a little bit more of a complex</p>
+<p t="1580400" d="4280">function namely actually our sigmoid
+function that we had before.</p>
+<p t="1584680" d="1580">Usually when we have our sigmoid function,</p>
+<p t="1586260" d="2840">this was one activation
+of one hidden layer.</p>
+<p t="1590190" d="4445">In most cases, x was our input and
+w were the weights.</p>
+<p t="1594635" d="4604">So we defined this already, and now,
+let's assume we just want to compute</p>
+<p t="1599239" d="4182">the partial derivatives with respect
+to all the elements, w and x.</p>
+<p t="1603421" d="4240">And let's assume x and w are just,
+x is two-dimensional, and</p>
+<p t="1607661" d="1869">w is three-dimensional.</p>
+<p t="1609530" d="3670">And we have here the bias term
+as just an extra element of w.</p>
+<p t="1614440" d="4610">So now, if you take this whole function,
+we're gonna now compute or</p>
+<p t="1619050" d="1540">define this as a circuit.</p>
+<p t="1620590" d="5212">That one description that's the most
+detailed description of this function</p>
+<p t="1625802" d="4570">as a circuit would look like this,
+where you basically recursively</p>
+<p t="1630372" d="4904">divide this function into all
+the separate actions that you might take.</p>
+<p t="1635276" d="2365">And you can compute gradients and</p>
+<p t="1637641" d="4063">the local gradients at each
+note in this kind of circuit.</p>
+<p t="1641704" d="5189">So the last operation to compute
+the final output f here of this function,</p>
+<p t="1646893" d="2187">is 1 over whatever is in here.</p>
+<p t="1649080" d="5168">And so that's our last element of
+the circuit, and from the bottom it</p>
+<p t="1654248" d="5884">starts with multiplying these two numbers,
+multiplying these two numbers,</p>
+<p t="1660132" d="4925">and then adding to their summation
+this w2 install, all right?</p>
+<p t="1665057" d="3330">Are there any questions around
+the description of the circuit?</p>
+<p t="1674293" d="5184">All right, so now, let's assume we
+start with these simple numbers here,</p>
+<p t="1679477" d="6173">so w2, w0 starts at 2, x0 starts at minus
+1, minus 3, minus 2, and minus 3 here.</p>
+<p t="1686840" d="3721">So we just move forward through
+the circuit to compute our forward</p>
+<p t="1690561" d="1359">propagation, right?</p>
+<p t="1691920" d="6580">So this is a relatively simple
+concatenation of functions.</p>
+<p t="1698500" d="3470">And now, we wanna compute all our partial</p>
+<p t="1701970" d="4290">derivatives with respect to all
+these different elements here.</p>
+<p t="1706260" d="5030">So we'll now go backwards and recursively
+backwards through this circuit, and</p>
+<p t="1711290" d="2790">apply the chain rule every time.</p>
+<p t="1714080" d="5210">So let's start the final value to the
+forward propagation numbers here in green,</p>
+<p t="1719290" d="4200">at the top the final
+value of this is 0.73.</p>
+<p t="1723490" d="7590">And again, the first delta derivative of
+just the function with itself, is just 1.</p>
+<p t="1731080" d="5250">And now, we hit this node in a circuit,
+and we want to now compute</p>
+<p t="1736330" d="2780">the derivative of this function,
+and the function's 1 over x.</p>
+<p t="1739110" d="3578">And so the derivative is
+just minus 1 over x squared.</p>
+<p t="1742688" d="5280">x is 1.73, and so we basically compute</p>
+<p t="1747968" d="7343">minus 1 divided by 1.37,
+sorry, 1.37 squared.</p>
+<p t="1755311" d="4442">And then we multiply using a chain rule,</p>
+<p t="1759753" d="6935">the gradient signal here from
+the top that goes into this node.</p>
+<p t="1766688" d="5173">So now, you multiple these two,
+and you get the number minus 0.53.</p>
+<p t="1775686" d="6768">Now, we're moved to the next node,
+so this node here,</p>
+<p t="1782454" d="5040">we just sum up a constant
+with the value x,</p>
+<p t="1787494" d="4896">and so the derivative of that is just 1.</p>
+<p t="1792390" d="4740">So we multiply, use the chain rule,
+multiply these two elements,</p>
+<p t="1797130" d="4710">the error signal or
+gradient signal from the top as it moves</p>
+<p t="1801840" d="5600">through this element of the circuit,
+which is just minus 0.3 times 1 so</p>
+<p t="1807440" d="4902">we get again minus 0.53, sorry.</p>
+<p t="1812342" d="1918">Now, we move through the exponent.</p>
+<p t="1814260" d="1430">It's a little more interesting.</p>
+<p t="1815690" d="3890">So here, derivative of e to
+the x is just e to the x.</p>
+<p t="1819580" d="5420">And we have the incoming value
+which is minus 1, so that's our x.</p>
+<p t="1826140" d="4347">So we have e to the minus
+1 times minus 0.53,</p>
+<p t="1830487" d="5206">the gradient signal from
+the higher node in this circuit.</p>
+<p t="1839000" d="4212">And we basically continue like this for
+a while, and</p>
+<p t="1843212" d="4705">compute the same for plus,
+similar to this plus and so on.</p>
+<p t="1847917" d="2868">And that the end, we arrive right here.</p>
+<p t="1850785" d="4565">And our error signal is 0.2, and
+we have this multiplication here.</p>
+<p t="1855350" d="5044">And we know in multiplication, the partial</p>
+<p t="1860394" d="6417">of w0 times x0 partial with
+respect to x0 is just w0.</p>
+<p t="1866811" d="7737">And so we multiply 0.2 times the value
+here which is 2 and we get 0.4.</p>
+<p t="1874548" d="5170">And now, we have an update for
+this parameter after we've moved</p>
+<p t="1879718" d="5278">recursively through the circuit
+all the way to where it was used.</p>
+<p t="1887600" d="3937">And this is essentially the same thing
+that we've done for the very complex</p>
+<p t="1891537" d="3888">neural network, but sort of one step
+at a time for a very simple function.</p>
+<p t="1901033" d="4854">Any questions around this
+sort of circuit description</p>
+<p t="1905887" d="3381">of the same back propagation at year.</p>
+<p t="1909268" d="5132">Namely reusing the derivatives,
+multiplying local error signals</p>
+<p t="1914400" d="5349">with the global error signals from
+higher Layers, where here, the layer</p>
+<p t="1919749" d="3460">definition's a bit stretched, it's very,
+very simple kinds of operations.</p>
+<p t="1926620" d="598">Yeah?</p>
+<p t="1932645" d="4289">That's right, so here,
+each time the sort of gradient,</p>
+<p t="1936934" d="5616">the local gradient times the global or
+above higher layer gradient signal.</p>
+<p t="1942550" d="2390">When you multiply them,
+you get an actual gradient.</p>
+<p t="1944940" d="2035">So they're not really gradients, right,</p>
+<p t="1946975" d="2478">they're sort of intermediate
+values of a gradient.</p>
+<p t="1952874" d="769">Yep.</p>
+<p t="1973706" d="4118">So the question is we're
+using this kind of circuit</p>
+<p t="1977824" d="5281">interpretation to compute derivatives and
+that's correct.</p>
+<p t="1984125" d="4185">If you were to just do
+standard math on this equation</p>
+<p t="1988310" d="2760">you would end up with something
+that looks exactly like this.</p>
+<p t="1991070" d="3580">And you would also have
+similar kinds of numbers.</p>
+<p t="1994650" d="3980">But we're making it a little
+more complicated, in some ways,</p>
+<p t="1998630" d="4850">to compute the derivatives here,
+of each of the elements of this function.</p>
+<p t="2003480" d="4060">We're kind of push the chain rule to its</p>
+<p t="2007540" d="5110">maximum by defining every single
+operation as a separate function.</p>
+<p t="2012650" d="3000">And then computing gradients at
+every single separate function.</p>
+<p t="2015650" d="5300">And when you do that, even for this kind
+of simple function, you usually wouldn't</p>
+<p t="2020950" d="4130">write out this complex thing and take
+a derivative with respect to this node,</p>
+<p t="2025080" d="2298">which is just plus,
+cuz we all know how to do that.</p>
+<p t="2027378" d="2272">And usually we just move
+through this very quickly but</p>
+<p t="2029650" d="5160">the circuit definitions can help you
+understand the idea that at each node what</p>
+<p t="2034810" d="5060">you end up getting is the local gradient
+times the gradient signal from the top.</p>
+<p t="2041710" d="4600">So in the end you get the exact same
+updates as if you had just taken</p>
+<p t="2046310" d="1990">the derivatives using
+the chain rule like this.</p>
+<p t="2049620" d="5190">And in fact, the definition of the circuit
+can be arbitrary too and sometimes</p>
+<p t="2054810" d="6280">it's a lot more work to write out all the
+different sub components of a function.</p>
+<p t="2061090" d="2760">So for instance,
+we know if we just described</p>
+<p t="2064910" d="5010">sigma of x as our sigmoid function, we
+could kind of combine all these different</p>
+<p t="2069920" d="5840">elements of the circuit as
+just one node in the circuit.</p>
+<p t="2075760" d="4540">And we know, with this one little
+trick here, the derivative</p>
+<p t="2080300" d="4580">of sigma x with respect to x can actually
+be described in terms of sigma x.</p>
+<p t="2084880" d="3500">So we don't need to do any extra
+computation like we did internally here,</p>
+<p t="2088380" d="2200">take another exponent and so on.</p>
+<p t="2090580" d="4902">We actually can just know, well if that
+was our value here of sigma x then</p>
+<p t="2095482" d="4997">the derivative that will come out here
+is just 1- sigma x times sigma x.</p>
+<p t="2100479" d="4273">And so we could, in theory, also define
+our circuit differently, and in fact</p>
+<p t="2104752" d="4630">the circuits we eventually define are this
+whole thing is one neural network layer.</p>
+<p t="2109382" d="4712">And internally we know exactly the kinds
+of messages that pass through such</p>
+<p t="2114094" d="4886">a layer, or the error signals, or
+again, elements of the final gradients.</p>
+<p t="2120080" d="500">Yeah?</p>
+<p t="2126314" d="1956">That's a good question, sorry, yes.</p>
+<p t="2128270" d="2080">So the question is, we're talking
+about back propagation here, and</p>
+<p t="2130350" d="950">what is forward propagation?</p>
+<p t="2131300" d="3185">Yeah, forward propagation just means
+computing the value of your overall</p>
+<p t="2134485" d="512">function.</p>
+<p t="2137828" d="4211">The relationship between the two is
+forward propagation is what you compute,</p>
+<p t="2142039" d="4291">what you do at test time, to compute
+the final output of your function.</p>
+<p t="2146330" d="5870">So, you want the probability for
+this node to be a location, or for this</p>
+<p t="2152200" d="4350">word to be a location, you'd do forward
+propagation to compute that probability.</p>
+<p t="2156550" d="3744">And the you do backward propagation to
+compute the gradients if you wanna train</p>
+<p t="2160294" d="2962">and update your model if you have
+a training data set and so on.</p>
+<p t="2167457" d="4373">That's right, the red numbers here at
+the bottom are all the partial derivatives</p>
+<p t="2171830" d="2318">with respect to each of these parameters.</p>
+<p t="2174148" d="5724">And here all the intermediate values
+that we use as that gradient flows</p>
+<p t="2179872" d="6897">through the circuit to the parameters that
+we might wanna update, great question.</p>
+<p t="2190972" d="857">All right, so</p>
+<p t="2191829" d="5501">essentially we recursively applied the
+chain rule as we moved through this graph.</p>
+<p t="2197330" d="3150">And we end up with a similar
+kind of intuition,</p>
+<p t="2202410" d="4715">as we did with the same,
+with just using math and</p>
+<p t="2207125" d="4855">multivariate calculus, to arrive at these
+final gradients, to update our parameters.</p>
+<p t="2213010" d="3022">All right,
+any questions around the circuit?</p>
+<p t="2216032" d="3693">Interpretation of back propagation, yeah.</p>
+<p t="2223642" d="5389">So here w2 is our bias term,
+it doesn't depend on the values of x,</p>
+<p t="2229031" d="4109">we just add it, and
+w2 down here in the circuit.</p>
+<p t="2233140" d="5857">So that is the last element we add
+after adding these two multiplications.</p>
+<p t="2244206" d="3575">All right, so,
+now if that was too simple and</p>
+<p t="2247781" d="3483">you wanna get a little
+bit high level again,</p>
+<p t="2251264" d="5196">you can essentially think of these
+circuits also as flow graphs.</p>
+<p t="2256460" d="5254">And circuit is the terminology that
+Andrej Karpathy used in 231 and</p>
+<p t="2261714" d="4987">Yoshua Bengio, for instance,
+another very famous researcher in</p>
+<p t="2266701" d="4986">deep learning uses the terminology
+of flow graphs, but, again,</p>
+<p t="2271687" d="2873">we have the very similar kind of idea.</p>
+<p t="2274560" d="1671">You start with some input x,</p>
+<p t="2276231" d="3422">you do forward propagation to
+compute some kind of value.</p>
+<p t="2279653" d="4863">You go through some intermediate variables
+y, and then, in back propagation,</p>
+<p t="2284516" d="4793">you compute your gradients going backwards
+in the reverse order to what you've</p>
+<p t="2289309" d="2161">done during forward propagation.</p>
+<p t="2293534" d="4589">And so this is if you just have one
+intermediate value now if x, and</p>
+<p t="2298123" d="5341">this is something else important to
+know it for the circuits it's the same,</p>
+<p t="2303464" d="3671">if x modifies two paths in
+your flow graph you end up,</p>
+<p t="2307135" d="3795">based on the multiple variable Chain Rule.</p>
+<p t="2310930" d="6230">You have to sum up the local air signals
+for both from both of the paths.</p>
+<p t="2317160" d="3720">And in general,
+again you move backwards through them.</p>
+<p t="2320880" d="5160">So usually as long as you have some
+kind of directed basically graph or</p>
+<p t="2326040" d="3830">tree structure,
+you can always compute these flows and</p>
+<p t="2329870" d="3790">these elements of your gradient.</p>
+<p t="2335030" d="5010">And in general, if x goes through multiple
+different elements in your flow graph,</p>
+<p t="2340040" d="3650">you just sum up all the partials this way.</p>
+<p t="2345550" d="4615">And so this is another interpretation much
+more high level without defining exactly</p>
+<p t="2350165" d="2933">what kinds of computation
+you have here at each node.</p>
+<p t="2353098" d="4103">But in general you can define
+these kind of flow graphs and</p>
+<p t="2357201" d="3521">each node is some kind
+of computational result.</p>
+<p t="2360722" d="3193">And each arc here is some kind
+of dependency, so you need,</p>
+<p t="2363915" d="2765">in order to compute this, you needed this.</p>
+<p t="2366680" d="3174">And you can define more complex
+things where you have so</p>
+<p t="2369854" d="4968">called short circuit connections, we'll
+define those much later in the class, but</p>
+<p t="2374822" d="2898">in general,
+you move forward through your node.</p>
+<p t="2377720" d="3905">So this is a more realistic example
+where we may have some input x,</p>
+<p t="2381625" d="4268">we have some probability, or
+sorry some class y for our train data set.</p>
+<p t="2385893" d="4921">And in forward propagation,
+we'll move these through a sigmoid neural</p>
+<p t="2390814" d="3236">network layer here such
+as h is just sigma of Vx.</p>
+<p t="2394050" d="2670">We dropped here The bias term.</p>
+<p t="2396720" d="4920">And so, you can also describe your
+v as part of this flow graph.</p>
+<p t="2401640" d="4510">You move through a next layer, and
+then you may have a softmax layer here,</p>
+<p t="2406150" d="3540">similar to the one that you
+derived in problem set one.</p>
+<p t="2409690" d="2730">And then you have your
+negative log likelihood, and</p>
+<p t="2412420" d="5680">you compute that final cost function for
+this pair xy, for this training element.</p>
+<p t="2418100" d="3497">And then back propagation again,
+you move backwards through the flow graph.</p>
+<p t="2421597" d="5274">And you update your parameters as
+you move through the flow graph.</p>
+<p t="2435548" d="4746">Now, before I go through the last and
+final explanation, the good news is you</p>
+<p t="2440294" d="3956">won't actually have to do that for
+very complex neural networks.</p>
+<p t="2444250" d="1540">It would be close to impossible for</p>
+<p t="2445790" d="4230">the kinds of large complex neural
+networks to do this by hand.</p>
+<p t="2450020" d="2620">Many years ago, when I had started my PhD,</p>
+<p t="2452640" d="3020">there weren't any software packages
+with automatic differentiation.</p>
+<p t="2455660" d="1550">So you did have to do that.</p>
+<p t="2457210" d="2400">And it slowed us down a little bit.</p>
+<p t="2459610" d="3760">But, nowadays,
+you can essentially automatically</p>
+<p t="2463370" d="4210">infer your back propagation updates
+based on the forward propagation.</p>
+<p t="2467580" d="2650">It's a completely deterministic process,
+and</p>
+<p t="2470230" d="4240">so can use symbolic expressions for
+your forward prop.</p>
+<p t="2474470" d="4560">And then have algorithms automatically
+determine your gradient, right?</p>
+<p t="2479030" d="2040">The gradients always exist for
+these kinds of functions.</p>
+<p t="2482150" d="2990">And so that will allow us
+to much faster prototyping.</p>
+<p t="2485140" d="4140">And you'll get introduced
+next week to a tensor flow,</p>
+<p t="2489280" d="4970">which is one such package that essentially
+takes all these headaches away from you.</p>
+<p t="2494250" d="1723">But with this knowledge,</p>
+<p t="2495973" d="4869">you'll actually know what's going on
+under the hood of these packages.</p>
+<p t="2500842" d="3688">All right, any question around the flow
+graph interpretation of back propagation?</p>
+<p t="2505950" d="500">Yes?</p>
+<p t="2511209" d="1971">It's actually in closed form.</p>
+<p t="2513180" d="1400">Yeah, it's not numerically solved.</p>
+<p t="2514580" d="4645">So sorry, the question was, the automatic
+differentiation, is it numeric or</p>
+<p t="2519225" d="706">symbolic?</p>
+<p t="2519931" d="779">It's usually symbolic.</p>
+<p t="2523310" d="4010">All right, now, for the last and
+final explanation of the same idea.</p>
+<p t="2528800" d="5890">But combining the idea of the flow graph
+with the math that you've seen before,</p>
+<p t="2534690" d="2340">and hopefully that will help.</p>
+<p t="2537030" d="4810">So, let's bring back this complex
+two layer neural network.</p>
+<p t="2541840" d="5270">Now, how can we describe this
+at a much simplified kind of</p>
+<p t="2547110" d="5130">flow graph or circuit where we can combine
+in a lot of different elements instead of</p>
+<p t="2552240" d="5440">writing every multiplication, summation,
+exponent, negation, and so and out?</p>
+<p t="2557680" d="2860">This is the kind of flow
+graph that kind of yeah,</p>
+<p t="2560540" d="2340">kind of combines these two worlds.</p>
+<p t="2562880" d="3460">So we assumed here we had our delta</p>
+<p t="2567980" d="4400">error signal coming from
+the simple score that we have.</p>
+<p t="2572380" d="4691">And let's say that our final, we want all
+the updates, essentially, to W(2) and</p>
+<p t="2577071" d="598">W(1).</p>
+<p t="2577669" d="6911">Now W(2), as we move through this
+linear score, the delta doesn't change.</p>
+<p t="2584580" d="6536">And so the update that we get for W(2)
+here is just this outer product again.</p>
+<p t="2591116" d="5901">And that's kind of, as we move through
+this very high level flow graph,</p>
+<p t="2597017" d="6803">we basically now update W(2) once we get
+the error message from the layer above.</p>
+<p t="2604900" d="2742">Now, as we move through W(2),</p>
+<p t="2607642" d="5202">this kind of circuit will essentially
+just multiply the affine,</p>
+<p t="2612844" d="7000">like as we move through this simple affine
+transformation this matrix vector product,</p>
+<p t="2619844" d="5512">we're just required to transpose
+the forward propagation matrix.</p>
+<p t="2625356" d="5079">And we arrived why this is before,
+but this is kind of the interpretation</p>
+<p t="2630435" d="5345">of this flow graph in terms of a complex
+and large realistic neural network.</p>
+<p t="2636930" d="3627">And so notice also that
+the dimensions here line up perfectly.</p>
+<p t="2640557" d="7299">So the output here, we multiply this delta
+that has the dimensionality of the output.</p>
+<p t="2647856" d="4978">With the transpose, we get exactly
+the dimensionality of the input of this W.</p>
+<p t="2652834" d="1206">So it's quite intuitive, right?</p>
+<p t="2654040" d="5300">You have the linear transformation,
+affine transformation through this W</p>
+<p t="2659340" d="4890">as you move backwards to this W,
+you just multiply it with its transpose.</p>
+<p t="2664230" d="5383">And now, we are hitting this
+element wise nonlinearity.</p>
+<p t="2669613" d="3719">And so as we update the next delta,</p>
+<p t="2673332" d="5647">we essentially have also
+an element wise derivative</p>
+<p t="2678979" d="5291">here of each of the elements
+of this activation.</p>
+<p t="2684270" d="3672">So as we're moving our error vector,
+error signal, or</p>
+<p t="2687942" d="5162">global parts of the gradient through
+these point-wise nonlinearities, we need</p>
+<p t="2693104" d="5885">to apply point-wise multiplications with
+the local gradients of the non-linearity.</p>
+<p t="2701110" d="3667">And now we have this delta
+that's arrived at W(1).</p>
+<p t="2704777" d="4060">And so W1 we can now compute
+the final gradient with respect to</p>
+<p t="2708837" d="4480">W(1) as just the delta again times
+the activation of the previous layer,</p>
+<p t="2713317" d="3703">which is a(1) and
+we have this outer product.</p>
+<p t="2717020" d="3870">So this is combining the different
+interpretations that we've learned.</p>
+<p t="2721910" d="4150">We arrived through this through
+just multivariate calculus.</p>
+<p t="2726060" d="5000">And now this is the flow graph or
+circuit interpretation of what's going on.</p>
+<p t="2732840" d="553">Yes?</p>
+<p t="2739080" d="3814">&gt;&gt; If I mean point-wise non linearity,
+I mean coordinate wise, yes,</p>
+<p t="2742894" d="1068">they are the same.</p>
+<p t="2743962" d="4627">So, whenever we write f(z) here, and</p>
+<p t="2748589" d="4898">z was a vector of z1, z2, for instance,</p>
+<p t="2753487" d="4371">then we meant f(z1) and f(z2).</p>
+<p t="2757858" d="2890">And the same is true if
+we write it like this.</p>
+<p t="2762360" d="2807">And look at the partial derivatives.</p>
+<p t="2765167" d="897">Yeah?
+&gt;&gt; I know.</p>
+<p t="2776168" d="3371">&gt;&gt; That's just, from matrix [INAUDIBLE].</p>
+<p t="2788926" d="3655">It is, yes, so the question is the delta
+here the same as in the definition of</p>
+<p t="2792581" d="1499">the two layer neural network?</p>
+<p t="2794080" d="1110">And it is, yeah.</p>
+<p t="2795190" d="1968">So this delta here is this and</p>
+<p t="2797158" d="4360">you notice here that it's the same
+thing that we wrote before.</p>
+<p t="2801518" d="2937">We have W(2) transpose times delta(3).</p>
+<p t="2804455" d="5391">And then you have the Hadamard product
+with the element-wise derivatives here.</p>
+<p t="2816574" d="2796">All right, congratulations!</p>
+<p t="2819370" d="830">You've done it.
+So</p>
+<p t="2820200" d="5020">now, understand the inner workings of
+most deep learning models out there.</p>
+<p t="2825220" d="1730">And this was literally
+the hardest part of the class.</p>
+<p t="2826950" d="3570">I think it's gonna go all uphill
+from here for many of you.</p>
+<p t="2830520" d="5170">And everything from now on is really
+just more matrix multiplications and</p>
+<p t="2835690" d="1690">this kind of back propagation.</p>
+<p t="2837380" d="3940">It's really 90% of the state of
+the art models out there right now and</p>
+<p t="2841320" d="2600">top new papers that
+are coming out this year.</p>
+<p t="2843920" d="2662">You now can have a warm, fuzzy feeling,</p>
+<p t="2846582" d="3926">as you look through the forward
+propagation definitions.</p>
+<p t="2850508" d="7488">All right, with that, let's have a little
+intermission and look at a paper.</p>
+<p t="2857996" d="2025">Take it away.
+&gt;&gt; Hi everyone.</p>
+<p t="2860021" d="4544">So yeah, so let's take a break from neural
+networks, and let's talk about this</p>
+<p t="2864565" d="4133">paper which came out from Facebook ARV
+search just this past summer.</p>
+<p t="2868698" d="5233">So text classification is
+a really important topic in NLP.</p>
+<p t="2873931" d="3583">Given a piece of text, we may wanna say,
+is this a positive sentiment or</p>
+<p t="2877514" d="2646">does it have negative sentiment?</p>
+<p t="2880160" d="3338">Is this spam or ham, or
+did JK Rowling actually write this?</p>
+<p t="2883498" d="3731">And so
+this one's particular from a website and</p>
+<p t="2887229" d="4298">it's basing [COUGH] an example
+of sentiment analysis.</p>
+<p t="2891527" d="5126">And so if you recall from your
+problem set in problem four.</p>
+<p t="2896653" d="4959">An easy way to featurize a sentence
+is to just average out all the word</p>
+<p t="2901612" d="1968">vectors in a sentence.</p>
+<p t="2903580" d="3930">And that's basically what
+the model from this paper does.</p>
+<p t="2907510" d="3420">And so they use really low
+dimensional word vectors.</p>
+<p t="2910930" d="3300">Take the average of them, kind of you
+know you lose the ordering of it and</p>
+<p t="2914230" d="5420">then you get this low dimensional text
+vector which represents the sentence.</p>
+<p t="2919650" d="5214">In order to kind of get some of
+the ordering back, they also use n-grams.</p>
+<p t="2924864" d="4607">And so now that we have the text vector
+that's kind of like in the hidden layer.</p>
+<p t="2929471" d="3331">We then feed it through a linear
+classifier which uses softmax compute</p>
+<p t="2932802" d="2438">the probability over all
+the predictive classes.</p>
+<p t="2936490" d="3031">The hidden representation is also
+shared by all the classifiers for</p>
+<p t="2939521" d="1448">all the different categories.</p>
+<p t="2940969" d="4968">Which helps the classifier use information
+about words learned from one category for</p>
+<p t="2945937" d="1173">another category.</p>
+<p t="2949052" d="2958">And so
+will look a little bit more familiar</p>
+<p t="2952010" d="3290">to you now that you guys have gone
+through all the costs and whatnot.</p>
+<p t="2955300" d="4010">So we minimize the negative flaws
+likelihood over all the classes, and</p>
+<p t="2959310" d="3225">the model's trying to using
+stochastic gradient descent and</p>
+<p t="2962535" d="3520">a linear decaying learning rate.</p>
+<p t="2966055" d="3640">Another thing that makes it really fast
+is the use of the hierarchical softmax.</p>
+<p t="2969695" d="3300">And so by using this, the classes
+are organized in like this tree kind of</p>
+<p t="2972995" d="1823">fashion instead of just like in a list.</p>
+<p t="2974818" d="4375">And so this also helps with the timing, so</p>
+<p t="2979193" d="4747">we go from linear time
+to logarithmic time.</p>
+<p t="2983940" d="3761">Because also the costs are organized
+in terms of how frequent they are.</p>
+<p t="2987701" d="3111">So in case, we have maybe like a lot
+of class, but less of one class.</p>
+<p t="2990812" d="3583">This helps kind of balance that out so
+NLP is really hot right now.</p>
+<p t="2994395" d="5319">So in here the depth is much smaller,
+so we can access that cost a lot faster.</p>
+<p t="2999714" d="3027">But maybe for some less popular topics,
+I just made some up here,</p>
+<p t="3002741" d="1663">that's not actually my opinion.</p>
+<p t="3004404" d="5867">But they have a much deeper depth
+because they are much more infrequent.</p>
+<p t="3010271" d="2895">And so especially in this day and age when
+we're really crazy about neural networks,</p>
+<p t="3013166" d="2147">the question is like how well
+does this stack up against them?</p>
+<p t="3015313" d="3522">Because it uses a linear classifier, it
+doesn't really have all those layers for</p>
+<p t="3018835" d="1435">neural network.</p>
+<p t="3020270" d="3260">And as it turns out,
+this actually performs really well.</p>
+<p t="3023530" d="4915">It's not only really fast, but it performs
+just as well if not sometimes better than</p>
+<p t="3028445" d="1615">neural networks which is pretty crazy.</p>
+<p t="3031230" d="1079">And so just a quick summary.</p>
+<p t="3032309" d="4654">FastText, which is what they call their
+model is often on par with deep learning</p>
+<p t="3036963" d="909">classifiers.</p>
+<p t="3037872" d="2246">It takes seconds to train,
+instead of days,</p>
+<p t="3040118" d="3854">thanks to their use of low dimensional
+word vectors in the hierarchical softmax.</p>
+<p t="3043972" d="4083">And another side bit, is that it can also
+learn vector representations of words in</p>
+<p t="3048055" d="3569">different languages,
+with performs even better than word2vec.</p>
+<p t="3051624" d="626">Thank you.</p>
+<p t="3052250" d="7233">&gt;&gt; [APPLAUSE]
+&gt;&gt; All right, and you know what's awesome?</p>
+<p t="3059483" d="3340">Like this kind of equation you could
+totally derive all the gradients now too.</p>
+<p t="3062823" d="4676">&gt;&gt; [LAUGH]
+&gt;&gt; Just another day in the office.</p>
+<p t="3067499" d="4433">All right, so class project.</p>
+<p t="3071932" d="6622">This is for many, the most lasting and
+fun part of the class.</p>
+<p t="3078554" d="3665">But some people also don't
+have a research agenda or</p>
+<p t="3082219" d="5091">some kind of interesting data set,
+so you don't have to do the project.</p>
+<p t="3088610" d="4896">If you do a project,
+we want you to have a mandatory mentor.</p>
+<p t="3093506" d="6361">The mentors that are pre-approved are all
+the PhD students, and Chris and me.</p>
+<p t="3099867" d="3281">So we wanna really give
+you good advice and</p>
+<p t="3103148" d="3577">we want you to meet your
+mentors frequently.</p>
+<p t="3106725" d="3577">So think I'll have 25, Chris has 25, and</p>
+<p t="3110302" d="4604">then I guess each of the PhD TAs
+also has at most 25 groups.</p>
+<p t="3114906" d="2080">It's a very large class.</p>
+<p t="3116986" d="3514">But yeah, so
+basically your class projects,</p>
+<p t="3120500" d="4247">if you do decide to do it,
+is 30% of your final grade.</p>
+<p t="3124747" d="4729">And sometimes real paper
+submissions come out from these.</p>
+<p t="3129476" d="1568">It's really exciting, you get to travel.</p>
+<p t="3131044" d="3164">You get probably paid,
+depending on who you're working with.</p>
+<p t="3134208" d="3360">If you're a grad student and
+you write a paper,</p>
+<p t="3137568" d="2613">to go to some fun places in the world.</p>
+<p t="3140181" d="4149">And something that's really helpful for
+people's careers.</p>
+<p t="3144330" d="1492">Sometimes these papers,</p>
+<p t="3145822" d="4213">people get contacted from various
+companies once we put these papers up.</p>
+<p t="3150035" d="1702">If you do a really good job,</p>
+<p t="3151737" d="3927">it can have really lasting impact
+on the kinda work that you do.</p>
+<p t="3155664" d="3863">So on the choice of doing assignment four,
+the final project.</p>
+<p t="3159527" d="2378">We don't wanna force you
+to do the final project,</p>
+<p t="3161905" d="3466">cuz some people just wanna learn
+the concepts and then move on with life.</p>
+<p t="3165371" d="3970">And it can be a little painful to
+try to come up with something.</p>
+<p t="3169341" d="2286">So there is a final project, and</p>
+<p t="3171627" d="4501">we will ask you to sort of define
+your project with your mentor.</p>
+<p t="3176128" d="1624">And then we might encourage you or</p>
+<p t="3177752" d="2729">discourage you from moving
+forward with that project.</p>
+<p t="3180481" d="3749">Some projects might be too large in
+scope or too small in scope, and so on.</p>
+<p t="3184230" d="6276">And so do check with the TAs of whether
+the project is the right thing for you.</p>
+<p t="3190506" d="5244">If you do a project, and if you decide
+to do it you really have to start early.</p>
+<p t="3195750" d="4596">Ideally you will start meeting me today,
+or</p>
+<p t="3200346" d="5728">latest like next week or
+two weeks and or the other TAs.</p>
+<p t="3206074" d="6879">We write out a lot of the sort of
+organizational things on the website.</p>
+<p t="3212953" d="2267">So let's look at the website really quick.</p>
+<p t="3215220" d="2469">It's now linked from our main page.</p>
+<p t="3217689" d="3916">So you can get a couple of different
+ideas from these top conferences.</p>
+<p t="3221605" d="3811">So one project idea and
+we'll go into that a little bit later,</p>
+<p t="3225416" d="3811">is to take one of these newest
+papers from the various groups or</p>
+<p t="3229227" d="4243">various conferences and
+just try to replicate the results.</p>
+<p t="3233470" d="4332">You will notice that despite having in
+theory, everything written in the paper,</p>
+<p t="3237802" d="3220">if it's a nontrivial model
+there's a lot of subtle detail.</p>
+<p t="3241022" d="3444">And it's hard to squeeze all of
+those details in eight pages.</p>
+<p t="3244466" d="4187">So usually the maximum page them in so
+replicating sometimes,</p>
+<p t="3248653" d="4430">this paper is sufficient enough for
+most papers in most projects.</p>
+<p t="3256107" d="5446">So here, here's some very concrete
+papers that you can look at and</p>
+<p t="3261553" d="2341">to get adheres from others.</p>
+<p t="3263894" d="5952">And what's kind of interesting and
+new these days, this is by no means and</p>
+<p t="3269846" d="5434">exclusive list,
+there a lot more other interesting papers.</p>
+<p t="3275280" d="4151">So again here there sort of pre
+proofed mentors for projects.</p>
+<p t="3279431" d="2803">You'll have to contact
+us through office hours.</p>
+<p t="3282234" d="5043">And if you do a project
+in your project proposal,</p>
+<p t="3287277" d="4064">you have to write out who the mentor is.</p>
+<p t="3291341" d="3827">A lot of other mentors, we'll
+actually list probably next week now.</p>
+<p t="3295168" d="3906">A list of potential projects that
+are coming from people who spend all their</p>
+<p t="3299074" d="3226">time thinking about deep learning and NLP.</p>
+<p t="3302300" d="4041">So if you don't have an idea, but you
+really do wanna do some interesting novel</p>
+<p t="3306341" d="2891">research project,
+we'll post that link internally.</p>
+<p t="3309232" d="4178">So that not the whole world sees it,
+but only the students in this class.</p>
+<p t="3313410" d="3237">Cuz sometimes, the PhD students
+have some interesting novel idea.</p>
+<p t="3316647" d="3465">They don't want it to get scooped and
+have some other researchers do that idea,</p>
+<p t="3320112" d="2495">but they do wanna collaborate
+with students and youths.</p>
+<p t="3322607" d="5290">So we'll keep those
+ideas under wraps here.</p>
+<p t="3327897" d="1377">So yeah, this is your project proposal.</p>
+<p t="3329274" d="2845">You have to define all these things, and</p>
+<p t="3332119" d="4771">we'll go through that now in
+some of the details here.</p>
+<p t="3336890" d="2667">And then you have a final submission,
+you have to write a report.</p>
+<p t="3339557" d="3014">And then we'll also have
+a poster presentation,</p>
+<p t="3342571" d="3386">where all the projects
+are basically being described.</p>
+<p t="3345957" d="3561">You'll have to print a little poster,
+and we'll walk around.</p>
+<p t="3349518" d="895">It's usually quite fun.</p>
+<p t="3350413" d="5445">Maybe we'll even come up with a prize for
+best poster, and best paper, and so on.</p>
+<p t="3355858" d="3692">All right, so
+these are the organizational, Tips.</p>
+<p t="3359550" d="4790">Posters and projects by the way
+I have maximum of three people.</p>
+<p t="3364340" d="4490">If you have some insanely,
+well thought out plan,</p>
+<p t="3368830" d="2000">we may make an exception and go to four.</p>
+<p t="3370830" d="2090">But the standard default is three.</p>
+<p t="3372920" d="4620">So the exception kind of has to be
+mailed to the TAs or Aston Piazza.</p>
+<p t="3380530" d="2990">Any questions around the organizational
+aspects of the project?</p>
+<p t="3384720" d="650">Groups.</p>
+<p t="3385370" d="2690">You can do groups of one, two, or three.</p>
+<p t="3388060" d="1460">So it doesn't have to be three.</p>
+<p t="3389520" d="3630">The bigger your group,
+the more we expect from the project.</p>
+<p t="3393150" d="5830">And you have to also write out exactly
+what each person in the project has done.</p>
+<p t="3398980" d="8320">You can actually use any kind of open
+source library and code that you want.</p>
+<p t="3407300" d="2390">It's just a realistic research project.</p>
+<p t="3409690" d="4410">But if you just take Kaldi,
+which is a speech recognition system, and</p>
+<p t="3414100" d="1370">you say I did speech recognition.</p>
+<p t="3415470" d="2430">And then really all you did
+was download the package and</p>
+<p t="3417900" d="2830">run it, then that's not very impressive.</p>
+<p t="3420730" d="4770">So the more you use,
+the more you also have to be careful and</p>
+<p t="3425500" d="3730">say exactly what parts
+you actually implemented.</p>
+<p t="3431030" d="3520">And in the code,
+you also have to submit your code, so</p>
+<p t="3434550" d="4168">that we understand what you've done and
+the results are real.</p>
+<p t="3450368" d="4492">So this year we do want
+some language in there.</p>
+<p t="3454860" d="1760">Some natural human language.</p>
+<p t="3458270" d="1330">Last year I was a little more open.</p>
+<p t="3459600" d="1870">It could be the language of music and
+so on now.</p>
+<p t="3461470" d="1520">But this year it's [INAUDIBLE].</p>
+<p t="3462990" d="3958">So we've got to have some
+natural language in there, yeah.</p>
+<p t="3468984" d="2892">But other than that,
+that can be done quite easily so</p>
+<p t="3471876" d="3884">we'll go through the types of
+projects you might want to do.</p>
+<p t="3475760" d="3670">And if you have a more theoretically
+inclined project where you</p>
+<p t="3479430" d="4950">really are just faking out some clever
+way of doing a sarcastic ready to sent or</p>
+<p t="3484380" d="2720">using different kinds of
+optimization functions.</p>
+<p t="3487100" d="3290">An optimizers that we'll talk
+about leading the class to</p>
+<p t="3490390" d="2910">then as long as you at least
+applied it in one experiment</p>
+<p t="3493300" d="3970">to a natural language processing data set
+that would still be a pretty cool project.</p>
+<p t="3498870" d="2650">So you can also apply
+it to genomics data and</p>
+<p t="3501520" d="3370">to text data if you wanna have
+a little bit of that flavor.</p>
+<p t="3504890" d="3524">But there is gonna be at least one
+experiment where you apply it to a text</p>
+<p t="3508414" d="553">data set.</p>
+<p t="3512183" d="5518">All right, so now let's walk through the
+different kinds of projects that you might</p>
+<p t="3517701" d="5219">wanna consider, and what might be entailed
+in such project to give you an idea.</p>
+<p t="3525070" d="3447">Unless there are any other questions
+around the organization of the projects,</p>
+<p t="3528517" d="933">deadlines and so on.</p>
+<p t="3531491" d="3084">So, let's start with
+the kind of simplest and</p>
+<p t="3534575" d="5125">all the other ones are sort of bonuses
+on top of that simple kind of project.</p>
+<p t="3539700" d="6110">And this is actually, I think generally,
+good advice, not just for a class project,</p>
+<p t="3545810" d="4400">but in general, how to apply a deep
+learning algorithm to any kind of problem,</p>
+<p t="3550210" d="3410">whether in academia or
+in industry, or elsewhere.</p>
+<p t="3553620" d="3100">So, let's assume you want to</p>
+<p t="3557960" d="3190">apply an existing neural
+network to an existing task.</p>
+<p t="3562370" d="2920">So in our case, for instance,
+let's take summarization.</p>
+<p t="3566320" d="3150">So you want to be able to
+take a long document and</p>
+<p t="3569470" d="2910">summarize into a short paragraph.</p>
+<p t="3572380" d="830">Let's say that was your goal.</p>
+<p t="3574540" d="4820">Now step one, after you define your task,
+is you have to define your dataset.</p>
+<p t="3579360" d="4760">And that is actually, sadly,
+in many cases in both industry and</p>
+<p t="3584120" d="4300">in academia,
+an incredibly time intensive problem.</p>
+<p t="3588420" d="3780">And so, the simplest solution
+to that is you just search for</p>
+<p t="3592200" d="1920">an existing academic dataset.</p>
+<p t="3594120" d="4100">There's some people who've
+worked in summarization before.</p>
+<p t="3598220" d="2890">The nice thing is if you use
+an existing data set, for instance,</p>
+<p t="3601110" d="4340">from the Document Understanding
+Conference, DUC here, then other people</p>
+<p t="3605450" d="3320">have already applied some algorithms
+to it, you'll have some base lines,</p>
+<p t="3608770" d="5210">you know what kind of metric or evaluation
+is reasonable versus close to random.</p>
+<p t="3613980" d="2080">And so on,
+cuz sometimes that's not always obvious.</p>
+<p t="3616060" d="2960">We don't always us just accuracy for
+instance.</p>
+<p t="3619020" d="4180">So in that case, using an existing
+academic data set gets rid</p>
+<p t="3624470" d="4120">of a lot of complexity.</p>
+<p t="3628590" d="5710">However, it is really fun if you actually
+come up with your own kind of dataset too.</p>
+<p t="3634300" d="4510">So maybe you're really excited about food,
+and you want to prowl Yelp, or</p>
+<p t="3638810" d="4940">use a Yelp dataset for restaurant review,
+or something like that.</p>
+<p t="3643750" d="3030">So, however,
+when you do decide to do that,</p>
+<p t="3646780" d="4290">you definitely have to check in with your
+mentor, or with Chris and me, and others.</p>
+<p t="3652350" d="3900">Because I sadly have seen several projects</p>
+<p t="3656250" d="2650">in the last couple of years where
+people have this amazing idea.</p>
+<p t="3658900" d="1680">I'm excited, they're excited.</p>
+<p t="3660580" d="5330">And then they spent 80% of the time
+on their project on a web crawler</p>
+<p t="3665910" d="2960">getting not blocked from IP addresses,</p>
+<p t="3668870" d="4595">writing multiple IP addresses,
+having multiple machines, and crawling.</p>
+<p t="3673465" d="2790">And so on, then they realize,
+all right, it's super noisy.</p>
+<p t="3676255" d="2900">Sometimes it's just the document
+they were hoping to get and</p>
+<p t="3679155" d="920">crawl, it's just a 404 page.</p>
+<p t="3680075" d="1800">And now they've filtered that.</p>
+<p t="3681875" d="3340">And then they realize HTML,
+and they filter that.</p>
+<p t="3685215" d="710">And before you know it,</p>
+<p t="3685925" d="3745">it's like, they have like three more days
+left to do any deep learning for NLP.</p>
+<p t="3691090" d="4060">And so, it has happened before so
+don't fall into that trap.</p>
+<p t="3695150" d="6660">If you do decide to do that, check with us
+and try to, before the milestone deadline.</p>
+<p t="3701810" d="3930">For sure have the data set ready so
+you can actually do deep learning for NLP,</p>
+<p t="3705740" d="4590">cuz sadly we just can't give you a good
+grade for a deep learning for NLP class if</p>
+<p t="3710330" d="4260">you spend 95% of your time writing a web
+crawler and explaining your data set.</p>
+<p t="3714590" d="4850">So in this case, for instance, you might
+say all right, I want to use Wikipedia.</p>
+<p t="3719440" d="1990">Wikipedia slightly easier to crawl.</p>
+<p t="3721430" d="3840">You can actually download sort of
+already pre-crawled versions of it.</p>
+<p t="3725270" d="2770">Maybe you want to say my intro paragraph</p>
+<p t="3728040" d="3410">is the summary of the whole
+rest of the article.</p>
+<p t="3731450" d="3900">Not completely crazy to
+make that assumption, but</p>
+<p t="3735350" d="2635">really you can be creative in this part.</p>
+<p t="3737985" d="3570">You can try to connect it to your
+own research or your own job if your</p>
+<p t="3741555" d="3870">a [INAUDIBLE] student, or
+just any kind of interest that you have.</p>
+<p t="3745425" d="3660">Song lyrics come up from time
+to time it's really fun NLP</p>
+<p t="3749085" d="3030">combine with language of music
+with natural language and so on.</p>
+<p t="3752115" d="4450">So you can be creative here, and
+we kind of value a little bit of</p>
+<p t="3756565" d="3420">the creativity this is like a task of
+data set we had never seen before and</p>
+<p t="3759985" d="4315">you actually gain some interesting
+Linguistic insights or something.</p>
+<p t="3764300" d="3320">That is the cool part of the project,
+right.</p>
+<p t="3767620" d="1785">Any questions around defining a data set?</p>
+<p t="3773762" d="5528">All right, so
+then you wanna define your metric.</p>
+<p t="3779290" d="1650">This is also super important.</p>
+<p t="3782260" d="3130">For instance, you have maybe
+have crawled your dataset and</p>
+<p t="3785390" d="4720">let's say you did something simpler like
+restaurant star rating classification.</p>
+<p t="3790110" d="3940">This is a review and I want to
+classify if this a four star review or</p>
+<p t="3794050" d="3740">a one star review or a two or three.</p>
+<p t="3797790" d="6674">And now you may have a class
+distribution where this is one star,</p>
+<p t="3804464" d="7059">this is two stars, three and four,
+and now the majority are three.</p>
+<p t="3811523" d="2051">Maybe that you troll kind of funny and</p>
+<p t="3813574" d="3486">so really most of the reviews
+are three star reviews.</p>
+<p t="3817060" d="5166">So this is just like number
+of reviews per star category.</p>
+<p t="3822226" d="7324">And maybe 90% of the things you
+called are in the third class.</p>
+<p t="3829550" d="2960">And then you write your report, you're
+super excited, it was a new data set,</p>
+<p t="3832510" d="1950">you did well, you crawled it quickly.</p>
+<p t="3834460" d="2640">And then all you give us
+is an accuracy metric, so</p>
+<p t="3837100" d="3290">accuracy is total correct
+divided by total.</p>
+<p t="3840390" d="2348">And now, let's say your accuracy is 90%.</p>
+<p t="3842738" d="5842">It's 90% accurate, 90% of the cases
+gives you the ride star rating.</p>
+<p t="3848580" d="3020">Sadly, it just always gives three.</p>
+<p t="3851600" d="3230">It never gives any other result.</p>
+<p t="3854830" d="3181">You're essentially overfit
+to your dataset and</p>
+<p t="3858011" d="3112">your evaluation metric
+was completely bogus.</p>
+<p t="3861123" d="3038">It's hard to know whether they basically
+could have implemented a one line</p>
+<p t="3864161" d="3469">algorithm that's just as accurate as yours
+which is just, no matter what the input,</p>
+<p t="3867630" d="640">return three.</p>
+<p t="3869480" d="4300">So hard to give a good grade on that and
+it's a very tricky trap to fall into.</p>
+<p t="3873780" d="4738">I see it all the time in industry and
+for young researchers and so on.</p>
+<p t="3878518" d="2623">So in this case, you should've used,</p>
+<p t="3881141" d="3977">does anybody know what kind
+of metric you should've used?</p>
+<p t="3885118" d="969">F1, that's right.</p>
+<p t="3886087" d="3765">So, and we'll go through some of
+these as we go through the class but</p>
+<p t="3889852" d="2788">it's very important to
+define your metric well.</p>
+<p t="3893650" d="2640">Now, for something as tricky as
+summarization, this isn't where you're</p>
+<p t="3896290" d="2610">really just like, this is the class,
+this is the final answer.</p>
+<p t="3898900" d="5328">You have to actually either extract or
+generate a longer sequence.</p>
+<p t="3904228" d="3100">And there are a lot of different
+kinds of metrics you can use.</p>
+<p t="3907328" d="5670">BLEU's n-gram overlap or Rouge share
+which is a Recall-Oriented Understudy for</p>
+<p t="3912998" d="5184">Gisting Evaluation which essentially
+is just a metric to weigh differently</p>
+<p t="3918182" d="5597">how many n-grams are correctly overlapping
+between a human generated summary.</p>
+<p t="3923779" d="2948">For instance,
+your Wikipedia paragraph number one, and</p>
+<p t="3926727" d="2053">whatever output your algorithm gives.</p>
+<p t="3930420" d="1985">So, Rouge is the official metric for</p>
+<p t="3932405" d="4357">summarization in different sub-communities
+and NOP have their own metrics and</p>
+<p t="3936762" d="3088">it's important that you know
+what you're optimizing.</p>
+<p t="3939850" d="4521">So, the machine translation, for
+instance, you might use BLEU scores,</p>
+<p t="3944371" d="4115">BLEU scores are essentially also
+a type of n-gram overlap metric.</p>
+<p t="3948486" d="2084">If you have a skewed data set,
+you wanna use F1.</p>
+<p t="3950570" d="2120">And in some cases,
+you can just use accuracy.</p>
+<p t="3954150" d="2930">And this is generally useful
+even if you're in industry and</p>
+<p t="3957080" d="2530">later in life, you always wanna
+know what metric you're optimizing.</p>
+<p t="3959610" d="4430">It's hard to do well if you don't know
+the metric that you're optimizing for,</p>
+<p t="3964040" d="1886">both in life and deep learning projects.</p>
+<p t="3965926" d="4214">All right so,
+let's say you defined your metric now,</p>
+<p t="3970140" d="1820">you need to split your dataset.</p>
+<p t="3971960" d="2520">And it's also very important step and</p>
+<p t="3974480" d="6070">it's also something that you can
+easily make sort of honest mistakes.</p>
+<p t="3980550" d="4820">Again, in advantage of taking pre-existing
+academic dataset is that in many cases,</p>
+<p t="3985370" d="3130">it's already pre-split but not always.</p>
+<p t="3989690" d="2110">And you don't wanna look at your</p>
+<p t="3992820" d="3890">final test split until around
+1 week before the deadline.</p>
+<p t="3996710" d="4318">So, let's say you have downloaded
+a lot of different articles and</p>
+<p t="4001028" d="4712">now you basically have 100% of
+some articles you wanna summarize.</p>
+<p t="4005740" d="3696">And normal split would be take 80% for
+training,</p>
+<p t="4009436" d="4464">you take 10% for your validation and
+your development.</p>
+<p t="4013900" d="3216">So, oftentimes this is called
+the validation split, or</p>
+<p t="4017116" d="3625">the development split, or
+dev split, or various other terms.</p>
+<p t="4020741" d="2149">And 10% for your final test split.</p>
+<p t="4022890" d="5620">And so, the final one, you ideally get a
+sense of how your algorithm would work in</p>
+<p t="4028510" d="5030">real life, on data you've never
+seen before, you didn't try to chew</p>
+<p t="4033540" d="4651">on your model like, how many layers should
+I use, how wide should each layer be?</p>
+<p t="4038191" d="4657">You'll try a lot of these things,
+we'll describe these in the future.</p>
+<p t="4042848" d="7320">But it's very important to correctly split
+and why do I make such a fuss about that?</p>
+<p t="4050168" d="2922">Well, there too, you might make mistakes.</p>
+<p t="4053090" d="3024">So let's say,
+you have unused text and let's say,</p>
+<p t="4056114" d="4535">you crawled it in such a way there's a lot
+of mistakes that you can make if you try</p>
+<p t="4060649" d="4503">to predict the soft market for instance,
+don't do that, it doesn't work.</p>
+<p t="4065152" d="5878">But in many cases, you might say,
+or there some temporal sequence.</p>
+<p t="4071030" d="5490">And now, you basically have all your
+dataset and the perfect thing to do</p>
+<p t="4076520" d="5720">is actually do it like this, you take 80%
+of let's say, month January to May or</p>
+<p t="4082240" d="3970">something and then,
+your final test split is from November.</p>
+<p t="4086210" d="1720">That way you know there's no overlap.</p>
+<p t="4089000" d="4060">But maybe you made a mistake and
+you said well, I crawled it this way, but</p>
+<p t="4093060" d="2070">now I'm just randomly sample.</p>
+<p t="4095130" d="2980">So, as sample an article from here,
+and one from here, and one from here.</p>
+<p t="4098110" d="4110">And then the random sample goes
+to the 80% of my training data.</p>
+<p t="4102220" d="4595">And now, the test data and the development
+data might actually have some overlap.</p>
+<p t="4106815" d="5685">Cuz if you're depending on how you
+chose your dataset maybe the another</p>
+<p t="4112500" d="5420">article which just like a slight addition,
+like some update to an emerging story.</p>
+<p t="4117920" d="2823">And now the summary is
+almost exact same but</p>
+<p t="4120743" d="2911">the input document just
+changed a tiny bit.</p>
+<p t="4123654" d="6602">And you have one article in your training
+set and another one in your test set.</p>
+<p t="4130256" d="3696">But the test set article is really only
+one extra paragraph on an emerging story</p>
+<p t="4133952" d="1916">and the rest is exactly the same.</p>
+<p t="4135868" d="2842">So now you have an overlap of your
+training and your testing data.</p>
+<p t="4139980" d="1830">And so in general,</p>
+<p t="4141810" d="5370">if this is your training data and
+this should be your test data.</p>
+<p t="4147180" d="2100">It should be not overlapping at all.</p>
+<p t="4150770" d="3887">And whenever you do really well, you run
+your first experiment and you get 90 F1.</p>
+<p t="4154657" d="4359">And things look just too good to be
+true sadly in many cases they are and</p>
+<p t="4159016" d="4963">you made some mistake where maybe your
+test set had some overlap for instance,</p>
+<p t="4163979" d="1671">with your training data.</p>
+<p t="4167070" d="4580">It's very important to be a little
+paranoid about that when your first couple</p>
+<p t="4171650" d="3180">of experiments turn out just
+to be too good to be true.</p>
+<p t="4174830" d="4891">That can mean either your training,
+your task is too simple,</p>
+<p t="4179721" d="4903">or you made a mistake in splitting and
+defining your dataset.</p>
+<p t="4186080" d="3448">All right, any questions around defining
+a metric or your dataset, yeah?</p>
+<p t="4200975" d="3725">So, if we split it temporally, wouldn't
+we learn a different distribution?</p>
+<p t="4204700" d="3397">That is correct,
+we would learn a different distribution,</p>
+<p t="4208097" d="1675">these are non-stationary.</p>
+<p t="4209772" d="4550">And that is kinda true for a lot of texts,
+but if you, ideally, when you built</p>
+<p t="4214322" d="4618">a deep learning system for an LP you
+want it to built it so that it's robust.</p>
+<p t="4218940" d="2489">It's robust to sum such changes over time.</p>
+<p t="4221429" d="3848">And you wanna make sure that when
+you run it in a real world setting,</p>
+<p t="4225277" d="4335">on something you've never seen before,
+you've shipped your software,</p>
+<p t="4229612" d="3023">it's doing something, it will still work.</p>
+<p t="4232635" d="2520">And this was the most realistic way</p>
+<p t="4235155" d="2174">to capture how well it
+would work in real life.</p>
+<p t="4244400" d="3561">Would it be appropriate to run both
+experiments as in both where you subsample</p>
+<p t="4247961" d="3059">randomly, and
+then you subsample temporally for your?</p>
+<p t="4251020" d="5009">You could do that, and the intuitive
+thing that is likely going to happen</p>
+<p t="4256029" d="5006">is if you sample randomly from all
+over the place, then you will probably</p>
+<p t="4261035" d="4457">do better than if you have this
+sort of more strict kind of split.</p>
+<p t="4265492" d="5528">But running an additional experiment will
+rarely ever get you points subtracted.</p>
+<p t="4271020" d="5077">You can always run more experiments,
+and we're trying really</p>
+<p t="4276097" d="5384">hard to help you get computing
+infrastructure and Cloud compute.</p>
+<p t="4281481" d="3369">So you don't feel restricted with
+the number of experiments you run.</p>
+<p t="4290145" d="3920">All right, now, number 5,
+establish a baseline.</p>
+<p t="4294065" d="3410">So, you basically wanna implement
+the simplest model first.</p>
+<p t="4297475" d="4396">This could just be a very simple logistic
+regression on unigrams or bigrams.</p>
+<p t="4301871" d="3905">Then, compute your metrics on your train
+data and your development data, so</p>
+<p t="4305776" d="3839">you understand whether you're
+overfitting or underfitting.</p>
+<p t="4309615" d="4645">If, for instance, you're training Metric.</p>
+<p t="4314260" d="3190">Let's say your loss is very,
+very low on training.</p>
+<p t="4317450" d="3770">You do very well on training, but
+you don't do very well on testing,</p>
+<p t="4321220" d="2090">then you're in an over fitting regime.</p>
+<p t="4323310" d="3820">If you do very well on training and well
+on testing, you're done, you're happy.</p>
+<p t="4327130" d="4626">But if your training loss can't be lower,
+so you're not even doing well on your</p>
+<p t="4331756" d="4314">training, that often means your
+model is not powerful enough.</p>
+<p t="4336070" d="3540">So it's very important to compute
+both the metrics on your training and</p>
+<p t="4339610" d="808">your development split.</p>
+<p t="4340418" d="3812">And then, and this is something
+we value a lot in this class too.</p>
+<p t="4344230" d="3330">And it's something very important for
+you in both research and</p>
+<p t="4347560" d="3550">industries like you wanna analyze your
+errors carefully for that baseline.</p>
+<p t="4352200" d="4310">And if the metrics are amazing and
+there are no errors, you're done,.</p>
+<p t="4356510" d="1230">Probably a problem was too easy and</p>
+<p t="4357740" d="3260">you may wanna restart unless it's really
+a valuable problem for the world.</p>
+<p t="4361000" d="4480">And then maybe you can just really
+describe it carefully and you're done too.</p>
+<p t="4365480" d="4727">All right, now, any questions
+around establishing your baseline?</p>
+<p t="4370207" d="2753">It is very important to not just go in and
+add lots of bells and</p>
+<p t="4372960" d="3582">whistles that you'll learn about in
+the next couple of weeks in this class and</p>
+<p t="4376542" d="2108">create this monster of a model.</p>
+<p t="4378650" d="1971">You want to start with something simple,</p>
+<p t="4380621" d="3779">sanity check, make sure you didn't
+make mistakes in splitting your data.</p>
+<p t="4384400" d="1780">You have the right kind of metric.</p>
+<p t="4386180" d="5220">And in many cases, it's a good indicator
+for how successful your final project</p>
+<p t="4391400" d="6140">is if you can get this baseline
+In the first half of the quarter.</p>
+<p t="4397540" d="5260">Cuz that means you figured out a lot
+of these potential issues here.</p>
+<p t="4402800" d="2140">And you kind of have your right data set.</p>
+<p t="4404940" d="3260">You know what the metric is, you know what
+you're optimizing, and everything is good.</p>
+<p t="4408200" d="2585">So try to get to this point
+as quickly as possible.</p>
+<p t="4410785" d="2316">Cuz that is also not as interesting, and</p>
+<p t="4413101" d="3349">you can't really use that much
+knowledge from the class.</p>
+<p t="4416450" d="2720">Now then it gets more interesting.</p>
+<p t="4419170" d="3360">And now you can implement some
+existing neural network model that</p>
+<p t="4422530" d="1860">we taught you in class.</p>
+<p t="4424390" d="3690">For instance, this Window-based model if
+your task is named entity recognition.</p>
+<p t="4428080" d="3310">You can compute your metric
+again on your train AND dev set.</p>
+<p t="4431390" d="5290">Hopefully you'll see some interesting
+patterns such as usually train</p>
+<p t="4436680" d="6120">neural nets is quite easy in a sense
+that we lower the loss very well.</p>
+<p t="4442800" d="3120">And then we might not generalize
+as well in the development set.</p>
+<p t="4445920" d="4080">And then you'll play around
+with regularization techniques.</p>
+<p t="4450000" d="3570">And don't worry if some of the stuff
+I'm saying now is kind of confusing.</p>
+<p t="4453570" d="1140">If you want to do this,</p>
+<p t="4454710" d="2670">we'll walk you through that as we're
+mentoring you through the project.</p>
+<p t="4457380" d="5778">And that's why each project has to
+have an assigned mentor that we trust.</p>
+<p t="4463158" d="3427">All right, then you analyze your
+output and your errors again.</p>
+<p t="4466585" d="1400">Very important, be close to your data.</p>
+<p t="4467985" d="4480">You can't give too many
+examples usually ever.</p>
+<p t="4472465" d="1790">And this is kind of the minimum bar for
+this class.</p>
+<p t="4474255" d="1430">So if you've done this well and</p>
+<p t="4475685" d="5205">there's an interesting dataset, then
+your project is kind of in a safe haven.</p>
+<p t="4480890" d="3910">Now again it's very important
+to be close to your data.</p>
+<p t="4484800" d="1950">Once you have a metric and
+everything looks good,</p>
+<p t="4486750" d="4420">we still want you to visualize the kind
+of data, even if it's a known data set.</p>
+<p t="4491170" d="3360">We wanted you to visualize it,
+collect summary statistics.</p>
+<p t="4494530" d="3920">It's always good to know the distribution
+if you have different kinds of classes.</p>
+<p t="4498450" d="3935">You want to, again very important, look
+at the errors that your model is making.</p>
+<p t="4502385" d="2905">Cuz that can also give you
+intuitions of what kinds of</p>
+<p t="4505290" d="3470">patterns can your deep learning
+algorithm not capture.</p>
+<p t="4508760" d="2450">Maybe you need to add
+a memory component or</p>
+<p t="4511210" d="4800">maybe you need to have longer temporal
+kind of dependencies and so on.</p>
+<p t="4516010" d="3030">Those things you can only figure out
+if you're close to your data and</p>
+<p t="4519040" d="2990">you look at the errors that your
+baseline models are making.</p>
+<p t="4523970" d="2820">And then we want you to analyze
+also different hyperparameters.</p>
+<p t="4526790" d="1770">A lot of these models
+have lots of choices.</p>
+<p t="4528560" d="2200">Did we add the sigmoid to that score or
+not?</p>
+<p t="4530760" d="3260">Is the second layer 100 dimensional or
+200 dimensional?</p>
+<p t="4534020" d="4118">Should we use 50 dimensional word vectors
+or 1,000 dimensional word vectors?</p>
+<p t="4538138" d="2262">There are a lot of choices that you make.</p>
+<p t="4540400" d="4400">And it's really good in your first
+couple projects to try more and</p>
+<p t="4544800" d="2110">gain that intuition yourself.</p>
+<p t="4546910" d="3650">And sometimes, if you're running
+out of time, and only so much, so</p>
+<p t="4550560" d="3790">many experiments you can run, we can help
+you, and use our intuition to guide you,.</p>
+<p t="4554350" d="3010">But it's best if you do
+that a little bit yourself.</p>
+<p t="4557360" d="4510">And once you've done all of that, now you
+can try different model variants, and</p>
+<p t="4561870" d="2480">you'll soon see a lot of
+these kinds of options.</p>
+<p t="4564350" d="2890">We'll talk through all
+of them in the class.</p>
+<p t="4568920" d="2860">So now another</p>
+<p t="4571780" d="4050">kind of class project is you actually
+wanna implement a new fancy model.</p>
+<p t="4575830" d="3820">Those are the kinds of things that
+will put you into potentially writing</p>
+<p t="4579650" d="3060">an academic paper, peer review,
+and at a conference, and so on.</p>
+<p t="4583890" d="3500">The tricky bit of that is you kinda have
+to do all the other steps that I just</p>
+<p t="4587390" d="1510">described first.</p>
+<p t="4588900" d="3460">And then, on top of that,
+you know the errors that you're making.</p>
+<p t="4592360" d="4280">And now you can gain some intuition of
+why the existing models are flawed.</p>
+<p t="4596640" d="2550">And you come up with your own new model.</p>
+<p t="4600480" d="5290">If you do that, you really wanna be in
+close contact with your mentor and some</p>
+<p t="4605770" d="4230">researchers, unless you're a researcher
+yourself, and you earned your PhD.</p>
+<p t="4610000" d="3260">But even then,
+you should chat with us from the class.</p>
+<p t="4613260" d="3190">You want to basically try to set up</p>
+<p t="4616450" d="2090">an infrastructure such that
+you can iterate quickly.</p>
+<p t="4618540" d="5710">You're like, maybe I should add this new
+layer type to this part of my model.</p>
+<p t="4624250" d="3600">You want to be able to quickly iterate and
+see if that helps or not.</p>
+<p t="4627850" d="1170">So it's important and</p>
+<p t="4629020" d="4130">actually require a fair amount of software
+engineering skills to set up efficient</p>
+<p t="4633150" d="4830">experimental frameworks that
+allow you to collect results.</p>
+<p t="4637980" d="3020">And again you want to start with
+simple models and then go to more and</p>
+<p t="4641000" d="890">more complex ones.</p>
+<p t="4641890" d="3418">So for instance, in summarization you
+might start with something super simple</p>
+<p t="4645308" d="2507">like just average all your
+word vectors in the paragraph.</p>
+<p t="4647815" d="3655">And then do a greedy search of
+generating one word at a time.</p>
+<p t="4651470" d="4640">Or even greedily searching for
+just snippets from the existing</p>
+<p t="4658570" d="4370">article in Wikipedia and
+you're just copying certain snippets over.</p>
+<p t="4664190" d="3005">And then stretch goal is something more
+advanced would be lets you actually</p>
+<p t="4667195" d="1245">generate that whole summary.</p>
+<p t="4668440" d="2870">And so here are a couple of project ideas.</p>
+<p t="4671310" d="5290">But, again, we'll post the whole
+list of them with potential mentors</p>
+<p t="4676600" d="5130">from the NOP group and the vision group
+and various other groups inside Stanford.</p>
+<p t="4681730" d="1710">Sentiment is also a fun data set.</p>
+<p t="4683440" d="2810">You can look at this URL here for</p>
+<p t="4686250" d="3247">one of the preexisting data sets
+that a lot of people have worked on.</p>
+<p t="4689497" d="3303">All right, so
+next week we'll look at some fun and</p>
+<p t="4692800" d="2320">fundamental linguistic tasks
+like syntactic parsing.</p>
+<p t="4695120" d="3800">And then you'll learn TensorFlow and
+have some great tools under your belt.</p>
+<p t="4698920" d="500">Thank you.</p>
+</body>
+</timedtext>

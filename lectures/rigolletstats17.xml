@@ -1,0 +1,2483 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="120" d="2340">The following content is
+provided under a Creative</p>
+<p t="2460" d="1420">Commons license.</p>
+<p t="3880" d="2210">Your support will help
+MIT OpenCourseWare</p>
+<p t="6090" d="4090">continue to offer high quality
+educational resources for free.</p>
+<p t="10180" d="2540">To make a donation or to
+view additional materials</p>
+<p t="12720" d="2490">from hundreds of
+MIT courses, visit</p>
+<p t="15210" d="6260">MITOpenCourseWare@OCW.MIT.edu</p>
+<p t="21470" d="5200">PHILIPPE RIGOLLET: So today
+WE'LL actually just do a brief</p>
+<p t="26670" d="1920">chapter on Bayesian statistics.</p>
+<p t="28590" d="2790">And there's entire courses
+on Bayesian statistics,</p>
+<p t="31380" d="2100">there's entire books
+on Bayesian statistics,</p>
+<p t="33480" d="2650">there's entire careers
+in Bayesian statistics.</p>
+<p t="36130" d="3140">So admittedly, I'm
+not going to be</p>
+<p t="39270" d="1650">able to do it
+justice and tell you</p>
+<p t="40920" d="1930">all the interesting
+things that are happening</p>
+<p t="42850" d="1190">in Bayesian statistics.</p>
+<p t="44040" d="3270">But I think it's important
+as a statistician</p>
+<p t="47310" d="2010">to know what it
+is, how it works,</p>
+<p t="49320" d="3180">because it's actually
+a weapon of choice</p>
+<p t="52500" d="2760">for many practitioners.</p>
+<p t="55260" d="2820">And because it allows them to
+incorporate their knowledge</p>
+<p t="58080" d="2710">about a problem in a
+fairly systematic manner.</p>
+<p t="60790" d="3309">So if you look at like, say the
+Bayesian statistics literature,</p>
+<p t="64099" d="1390">it's huge.</p>
+<p t="65489" d="4081">And so here I give
+you sort of a range</p>
+<p t="69570" d="3270">of what you can expect to
+see in Bayesian statistics</p>
+<p t="72840" d="5460">from your second edition of
+a traditional book, something</p>
+<p t="78300" d="2280">that involves computation,
+some things that</p>
+<p t="80580" d="1620">involve risk thinking.</p>
+<p t="82200" d="2550">And there's a lot of
+Bayesian thinking.</p>
+<p t="84750" d="1890">There's a lot of
+things that you know</p>
+<p t="86640" d="2370">talking about sort of like
+philosophy of thinking</p>
+<p t="89010" d="1170">Bayesian.</p>
+<p t="90180" d="2200">This book, for example,
+seems to be one of them.</p>
+<p t="92380" d="2330">This book is
+definitely one of them.</p>
+<p t="94710" d="4170">This one represents sort of
+a wide, a broad literature</p>
+<p t="98880" d="3490">on Bayesian statistics, for
+applications for example,</p>
+<p t="102370" d="1250">in social sciences.</p>
+<p t="103620" d="1760">But even in large
+scale machine learning,</p>
+<p t="105380" d="1960">there's a lot of Bayesian
+statistics happening,</p>
+<p t="107340" d="2940">particular using something
+called Bayesian parametrics,</p>
+<p t="110280" d="3210">or hierarchical
+Bayesian modeling.</p>
+<p t="113490" d="5980">So we do have some experts
+at MIT in the c-cell.</p>
+<p t="119470" d="2600">Tamara Broderick for
+example, is a person</p>
+<p t="122070" d="2490">who does quite a bit
+of interesting work</p>
+<p t="124560" d="1533">on Bayesian parametrics.</p>
+<p t="126093" d="2166">And if that's something you
+want to know more about,</p>
+<p t="128259" d="2630">I urge you to go
+and talk to her.</p>
+<p t="130889" d="3181">So before we go into
+more advanced things,</p>
+<p t="134070" d="3150">we need to start with what
+is the Bayesian approach.</p>
+<p t="137220" d="2070">What do Bayesians
+do, and how is it</p>
+<p t="139290" d="3430">different from what
+we've been doing so far?</p>
+<p t="142720" d="3620">So to understand the
+difference between Bayesians</p>
+<p t="146340" d="2460">and what we've been
+doing so far is,</p>
+<p t="148800" d="2550">we need to first put a name on
+what we've been doing so far.</p>
+<p t="151350" d="1590">It's called
+frequentist statistics.</p>
+<p t="152940" d="3780">Which usually Bayesian versus
+frequentist statistics,</p>
+<p t="156720" d="2040">by versus I don't mean
+that there is naturally</p>
+<p t="158760" d="1620">in opposition to them.</p>
+<p t="160380" d="2970">Actually, often you will
+see the same method that</p>
+<p t="163350" d="2070">comes out of both approaches.</p>
+<p t="165420" d="1440">So let's see how
+we did it, right.</p>
+<p t="166860" d="2070">The first thing, we had data.</p>
+<p t="168930" d="1770">We observed some data.</p>
+<p t="170700" d="2280">And we assumed that this
+data was generated randomly.</p>
+<p t="172980" d="1860">The reason we did
+that is because this</p>
+<p t="174840" d="3000">would allow us to leverage
+tools from probability.</p>
+<p t="177840" d="3180">So let's say by nature,
+measurements, you do a survey,</p>
+<p t="181020" d="2070">you get some data.</p>
+<p t="183090" d="2940">Then we made some assumptions
+on the data generating process.</p>
+<p t="186030" d="1909">For example, we
+assumed they were iid.</p>
+<p t="187939" d="1541">That was one of the
+recurring things.</p>
+<p t="189480" d="2050">Sometimes we assume
+it was Gaussian.</p>
+<p t="191530" d="1940">If you wanted to
+use say, T-test.</p>
+<p t="193470" d="1860">Maybe we did some
+nonparametric statistics.</p>
+<p t="195330" d="2910">We assume it was a
+smooth function or maybe</p>
+<p t="198240" d="2110">linear regression function.</p>
+<p t="200350" d="1190">So those are our modeling.</p>
+<p t="201540" d="3310">And this was basically
+a way to say, well,</p>
+<p t="204850" d="3590">we're not going to allow for
+any distributions for the data</p>
+<p t="208440" d="720">that we have.</p>
+<p t="209160" d="2480">But maybe a small
+set of distributions</p>
+<p t="211640" d="3130">that indexed by some small
+parameters, for example.</p>
+<p t="214770" d="3630">Or at least remove some
+of the possibilities.</p>
+<p t="218400" d="3260">Otherwise, there's
+nothing we can learn.</p>
+<p t="221660" d="3610">And so for example,
+this was associated</p>
+<p t="225270" d="3710">to some parameter of
+interest, say data or beta</p>
+<p t="228980" d="2290">in the regression model.</p>
+<p t="231270" d="4590">Then we had this unknown
+problem and this unknown thing,</p>
+<p t="235860" d="750">a known parameter.</p>
+<p t="236610" d="1041">And we wanted to find it.</p>
+<p t="237651" d="1959">We wanted to either
+estimate it or test it,</p>
+<p t="239610" d="2850">or maybe find a confidence
+interval for the subject.</p>
+<p t="242460" d="3570">So, so far I should not have
+said anything that's new.</p>
+<p t="246030" d="2180">But this last
+sentence is actually</p>
+<p t="248210" d="2380">what's going to be different
+from the Bayesian part.</p>
+<p t="250590" d="2399">And particular, this
+unknown but fixed things</p>
+<p t="252989" d="1291">is what's going to be changing.</p>
+<p t="256965" d="1775">In the Bayesian
+approach, we still</p>
+<p t="258740" d="3310">assume that we observe
+some random data.</p>
+<p t="262050" d="2130">But the generating process
+is slightly different.</p>
+<p t="264180" d="1557">It's sort of a
+two later process.</p>
+<p t="265737" d="1583">And there's one
+process that generates</p>
+<p t="267320" d="1420">the parameter and
+then one process</p>
+<p t="268740" d="2730">that, given this parameter
+generates the data.</p>
+<p t="271470" d="4520">So what the first layer
+does, nobody really</p>
+<p t="275990" d="2040">believes that there's
+some random process that's</p>
+<p t="278030" d="2970">happening, about
+generating what is going</p>
+<p t="281000" d="3820">to be the true expected
+number of people</p>
+<p t="284820" d="2240">who turn their head to
+the right when they kiss.</p>
+<p t="287060" d="2375">But this is actually going to
+be something that brings us</p>
+<p t="289435" d="3835">some easiness for
+us to incorporate</p>
+<p t="293270" d="3960">what we call prior belief.</p>
+<p t="297230" d="1410">We'll see an
+example in a second.</p>
+<p t="298640" d="2790">But often, you actually
+have prior belief</p>
+<p t="301430" d="1530">of what this
+parameter should be.</p>
+<p t="302960" d="2550">When we, say least
+squares, we looked</p>
+<p t="305510" d="3840">over all of the vectors
+in all of R to the p,</p>
+<p t="309350" d="2490">including the ones that
+have coefficients equal</p>
+<p t="311840" d="3240">to 50 million.</p>
+<p t="315080" d="2970">Those are things that we
+might be able to rule out.</p>
+<p t="318050" d="3750">We might be able to rule out
+that on a much smaller scale.</p>
+<p t="321800" d="2850">For example, well
+I'm not an expert</p>
+<p t="324650" d="4530">on turning your head to
+the right or to the left.</p>
+<p t="329180" d="1770">But maybe you can
+rule out the fact</p>
+<p t="330950" d="2250">that almost everybody
+is turning their head</p>
+<p t="333200" d="2790">in the same direction, or almost
+everybody is turning their head</p>
+<p t="335990" d="2100">to another direction.</p>
+<p t="338090" d="1890">So we have this prior belief.</p>
+<p t="339980" d="3770">And this belief is going
+to play say, hopefully</p>
+<p t="343750" d="3784">less and less important role as
+we collect more and more data.</p>
+<p t="347534" d="1666">But if we have a
+smaller amount of data,</p>
+<p t="349200" d="3310">we might want to be able
+to use this information,</p>
+<p t="352510" d="2190">rather than just
+shooting in the dark.</p>
+<p t="354700" d="3450">And so the idea is to
+have this prior belief.</p>
+<p t="358150" d="2280">And then, we want to
+update this prior belief</p>
+<p t="360430" d="3120">into what's called the
+posterior belief after we've</p>
+<p t="363550" d="1320">seen some data.</p>
+<p t="364870" d="3180">Maybe I believe that
+there's something</p>
+<p t="368050" d="1590">that should be in some range.</p>
+<p t="369640" d="2940">But maybe after I see data, it's
+comforting me in my beliefs.</p>
+<p t="372580" d="2750">So I'm actually having
+maybe a belief that's more.</p>
+<p t="375330" d="3130">So belief encompasses
+basically what you think</p>
+<p t="378460" d="1540">and how strongly
+you think about it.</p>
+<p t="380000" d="1370">That's what I call belief.</p>
+<p t="381370" d="2700">So for example, if I have a
+belief about some parameter</p>
+<p t="384070" d="1980">theta, maybe my
+belief is telling me</p>
+<p t="386050" d="2920">where theta should
+be and how strongly I</p>
+<p t="388970" d="3950">believe in it, in the sense
+that I have a very narrow region</p>
+<p t="392920" d="2550">where theta could be.</p>
+<p t="395470" d="2340">The posterior beliefs, as
+well, you see some data.</p>
+<p t="397810" d="2190">And maybe you're more confident
+or less confident about what</p>
+<p t="400000" d="499">you've seen.</p>
+<p t="400499" d="2297">Maybe you've shifted
+your belief a little bit.</p>
+<p t="402796" d="1874">And so that's what we're
+going to try to see,</p>
+<p t="404670" d="3960">and how to do this in
+a principal manner.</p>
+<p t="408630" d="1560">To understand this
+better, there's</p>
+<p t="410190" d="1960">nothing better than an example.</p>
+<p t="412150" d="4070">So let's talk about another
+stupid statistical question.</p>
+<p t="416220" d="2400">Which is, let's try
+to understand p.</p>
+<p t="418620" d="2810">Of course, I'm not going to
+talk about politics from now on.</p>
+<p t="421430" d="2500">So let's talk about p,
+the proportion of women</p>
+<p t="423930" d="1020">in the population.</p>
+<p t="435330" d="6520">And so what I could do is
+to collect some data, X1, Xn</p>
+<p t="441850" d="2100">and assume that
+they're Bernoulli</p>
+<p t="443950" d="1950">with some parameter, p unknown.</p>
+<p t="445900" d="4910">So p is in 0, 1.</p>
+<p t="450810" d="2460">OK, let's assume that
+those guys are iid.</p>
+<p t="453270" d="4920">So this is just an indicator
+for each of my collected data,</p>
+<p t="458190" d="3940">whether the person I randomly
+sample is a woman, I get a one.</p>
+<p t="462130" d="1220">If it's a man, I get a zero.</p>
+<p t="466200" d="3270">Now the question is, I
+sample these people randomly.</p>
+<p t="469470" d="2090">I do you know their gender.</p>
+<p t="471560" d="3040">And the frequentist
+approach was just saying,</p>
+<p t="474600" d="3650">OK, let's just estimate
+p hat being Xn bar.</p>
+<p t="478250" d="2860">And then we could do some tests.</p>
+<p t="481110" d="1130">So here, there's a test.</p>
+<p t="482240" d="3090">I want to test maybe if
+p is equal to 0.5 or not.</p>
+<p t="485330" d="4380">That sounds like a pretty
+reasonable thing to test.</p>
+<p t="489710" d="3390">But we want to also
+maybe estimate p.</p>
+<p t="493100" d="3060">But here, this is a case where
+we definitely prior belief</p>
+<p t="496160" d="1560">of what p should be.</p>
+<p t="497720" d="4320">We are pretty confident that
+p is not going to be 0.7.</p>
+<p t="502040" d="1530">We actually believe
+that we should</p>
+<p t="503570" d="5760">be extremely close to one
+half, but maybe not exactly.</p>
+<p t="509330" d="3349">Maybe this population is not
+the population in the world.</p>
+<p t="512679" d="2980">But maybe this is the
+population of, say some college</p>
+<p t="515659" d="3061">and we want to understand if
+this college has half women</p>
+<p t="518720" d="1349">or not.</p>
+<p t="520069" d="2041">Maybe we know it's going
+to be close to one half,</p>
+<p t="522110" d="1350">but maybe we're not quite sure.</p>
+<p t="526840" d="3120">We're going to want to
+integrate that knowledge.</p>
+<p t="529960" d="2700">So I could integrate it in
+a blunt manner by saying,</p>
+<p t="532660" d="2760">discard the data and say
+that p is equal to one half.</p>
+<p t="535420" d="2230">But maybe that's just
+a little too much.</p>
+<p t="537650" d="3710">So how do I do this trade
+off between adding the data</p>
+<p t="541360" d="5400">and combining it with
+this prior knowledge?</p>
+<p t="546760" d="2850">In many instances, essentially
+what's going to happen</p>
+<p t="549610" d="4720">is this one half is going to
+act like one new observation.</p>
+<p t="554330" d="2732">So if you have
+five observations,</p>
+<p t="557062" d="1458">this is just the
+sixth observation,</p>
+<p t="558520" d="1720">which will play a role.</p>
+<p t="560240" d="1550">If you have a
+million observations,</p>
+<p t="561790" d="1070">you're going to have
+a million and one.</p>
+<p t="562860" d="1708">It's not going to play
+so much of a role.</p>
+<p t="564568" d="1332">That's basically how it goes.</p>
+<p t="568760" d="4710">But, definitely not
+always because we'll</p>
+<p t="573470" d="3230">see that if I take my prior to
+be a point minus one half here,</p>
+<p t="576700" d="2590">it's basically as if I
+was discarding my data.</p>
+<p t="579290" d="2450">So essentially, there's
+also your ability</p>
+<p t="581740" d="3780">to encompass how strongly
+you believe in this prior.</p>
+<p t="585520" d="2289">And if you believe
+infinitely more in the prior</p>
+<p t="587809" d="1791">than you believe in
+the data you collected,</p>
+<p t="589600" d="5000">then it's not going to act
+like one more observation.</p>
+<p t="594600" d="2220">The Bayesian approach
+is a tool to one,</p>
+<p t="596820" d="2190">include mathematically
+our prior.</p>
+<p t="599010" d="3570">And our prior belief into
+statistical procedures.</p>
+<p t="602580" d="1450">Maybe I have this
+prior knowledge.</p>
+<p t="604030" d="2060">But if I'm a medical
+doctor, it's not clear to me</p>
+<p t="606090" d="3780">how I'm going to turn this into
+some principal way of building</p>
+<p t="609870" d="540">estimators.</p>
+<p t="610410" d="1920">And the second
+goal is going to be</p>
+<p t="612330" d="3930">to update this prior belief
+into a posterior belief</p>
+<p t="616260" d="1010">by using the data.</p>
+<p t="622200" d="1717">How do I do this?</p>
+<p t="623917" d="1583">And at some point,
+I sort of suggested</p>
+<p t="625500" d="3110">that there's two layers.</p>
+<p t="628610" d="3050">One is where you draw
+the parameter at random.</p>
+<p t="631660" d="3630">And two, once you
+have the parameter,</p>
+<p t="635290" d="4030">conditionless parameter,
+you draw your data.</p>
+<p t="639320" d="2760">Nobody believed this actually is
+happening, that nature is just</p>
+<p t="642080" d="3430">rolling dice for us and
+choosing parameters at random.</p>
+<p t="645510" d="2750">But what's happening
+is that, this idea</p>
+<p t="648260" d="3150">that the parameter comes
+from some random distribution</p>
+<p t="651410" d="3450">actually captures, very
+well, this idea that how</p>
+<p t="654860" d="2100">you would encompass your prior.</p>
+<p t="656960" d="2130">How would you say, my
+belief is as follows?</p>
+<p t="659090" d="2780">Well here's an example about p.</p>
+<p t="661870" d="5986">I'm 90% sure that p is
+between 0.4 and 0.6.</p>
+<p t="667856" d="6374">And I'm 95% sure that p
+is between 0.3 and 0.8.</p>
+<p t="674230" d="4260">So essentially, I have
+this possible value of p.</p>
+<p t="678490" d="16940">And what I know is that, there's
+90% here between 0.4 and 0.6.</p>
+<p t="695430" d="3910">And then I have 0.3 and 0.8.</p>
+<p t="699340" d="4860">And I know that I'm 95%
+sure that I'm in here.</p>
+<p t="704200" d="2850">If you remember, this sort of
+looks like the kind of pictures</p>
+<p t="707050" d="3060">that I made when I had
+some Gaussian, for example.</p>
+<p t="710110" d="4110">And I said, oh here we have
+90% of the observations.</p>
+<p t="714220" d="2885">And here, we have 95%
+of the observations.</p>
+<p t="720500" d="4070">So in a way, if I
+were able to tell you</p>
+<p t="724570" d="3040">all those ranges for
+all possible values,</p>
+<p t="727610" d="2900">then I would essentially
+describe a probability</p>
+<p t="730510" d="2890">distribution for p.</p>
+<p t="733400" d="2010">And what I'm saying
+is that, p is going</p>
+<p t="735410" d="1172">to have this kind of shape.</p>
+<p t="736582" d="2458">So of course, if I tell you
+only two twice this information</p>
+<p t="739040" d="3240">that there's 90% I'm here,
+and I'm between here and here.</p>
+<p t="742280" d="2700">And 95%, I'm between here
+and here, then there's</p>
+<p t="744980" d="1865">many ways I can
+accomplish that, right.</p>
+<p t="746845" d="2125">I could have something that
+looks like this, maybe.</p>
+<p t="753190" d="2640">It could be like this.</p>
+<p t="755830" d="1775">There's many ways
+I can have this.</p>
+<p t="757605" d="1375">Some of them are
+definitely going</p>
+<p t="758980" d="3300">to be mathematically more
+convenient than others.</p>
+<p t="762280" d="2040">And hopefully, we're
+going to have things</p>
+<p t="764320" d="2910">that I can
+parameterize very well.</p>
+<p t="767230" d="2670">Because if I tell
+you this is this guy,</p>
+<p t="769900" d="4440">then there's basically one,
+two three, four, five, six,</p>
+<p t="774340" d="2214">seven parameters.</p>
+<p t="776554" d="1416">So I probably don't
+want something</p>
+<p t="777970" d="1083">that has seven parameters.</p>
+<p t="779053" d="2529">But maybe I can say, oh,
+it's a Gaussian and I all</p>
+<p t="781582" d="1958">I have to do is to tell
+you where it's centered</p>
+<p t="783540" d="1458">and what the standard
+deviation is.</p>
+<p t="787250" d="3780">So the idea of using
+this two layer thing,</p>
+<p t="791030" d="1770">where we think of
+the parameter p</p>
+<p t="792800" d="1650">as being drawn from
+some distribution,</p>
+<p t="794450" d="3210">is really just a way for us
+to capture this information.</p>
+<p t="797660" d="2760">Our prior belief
+being, well there's</p>
+<p t="800420" d="2374">this percentage of
+chances that it's there.</p>
+<p t="802794" d="1916">But the percentage of
+this chance, I'm not I'm</p>
+<p t="804710" d="4020">deliberately not using
+probability here.</p>
+<p t="808730" d="2250">So it's really a way
+to get close to this.</p>
+<p t="813620" d="2550">That's why I say, the true
+parameter is not random.</p>
+<p t="816170" d="4250">But the Bayesian approach
+does as if it was random.</p>
+<p t="820420" d="2010">And then, just spits
+out a procedure</p>
+<p t="822430" d="6680">out of this thought process,
+this thought experiment.</p>
+<p t="829110" d="4950">So when you practice
+Bayesian statistics a lot,</p>
+<p t="834060" d="3780">you start getting automatisms.</p>
+<p t="837840" d="3065">You start getting some things
+that you do without really</p>
+<p t="840905" d="1375">thinking about
+it. just like when</p>
+<p t="842280" d="2580">you you're a statistician,
+the first thing you do is,</p>
+<p t="844860" d="2559">can I think of this data as
+being Gaussian for example?</p>
+<p t="847419" d="1791">When you're Bayesian
+you're thinking about,</p>
+<p t="849210" d="2190">OK I have a set of parameters.</p>
+<p t="851400" d="2850">So here, I can
+describe my parameter</p>
+<p t="854250" d="5940">as being theta in
+general, in some big space</p>
+<p t="860190" d="1350">parameter of theta.</p>
+<p t="861540" d="3190">But what spaces
+did we encounter?</p>
+<p t="864730" d="2360">Well, we encountered
+the real line.</p>
+<p t="867090" d="4230">We encountered the interval
+0, 1 for Bernoulli's And we</p>
+<p t="871320" d="5000">encountered some of
+the positive real line</p>
+<p t="876320" d="3000">for exponential
+distributions, etc.</p>
+<p t="879320" d="2700">And so what I'm
+going to need to do,</p>
+<p t="882020" d="2550">if I want to put some
+prior on those spaces,</p>
+<p t="884570" d="3124">I'm going to have to
+have a usual set of tools</p>
+<p t="887694" d="1916">for this guy, usual set
+of tools for this guy,</p>
+<p t="889610" d="1566">usual sort of
+tools for this guy.</p>
+<p t="891176" d="1374">And by usual set
+of tools, I mean</p>
+<p t="892550" d="2416">I'm going to have to have a
+family of distributions that's</p>
+<p t="894966" d="1724">supported on this.</p>
+<p t="896690" d="2320">So in particular,
+this is the speed</p>
+<p t="899010" d="2600">in which my parameter
+that I usually denote</p>
+<p t="901610" d="2290">by p for Bernoulli lives.</p>
+<p t="903900" d="3940">And so what I need is to find a
+distribution on the interval 0,</p>
+<p t="907840" d="5700">1 just like this guy.</p>
+<p t="913540" d="1770">The problem with the
+Gaussian is that it's</p>
+<p t="915310" d="2580">not on the interval 0, 1.</p>
+<p t="917890" d="2340">It's going to spill
+out in the end.</p>
+<p t="920230" d="2620">And it's not going to be
+something that works for me.</p>
+<p t="922850" d="2952">And so the question is, I need
+to think about distributions</p>
+<p t="925802" d="1208">that are probably continuous.</p>
+<p t="927010" d="3060">Why would I restrict myself
+to discrete distributions that</p>
+<p t="930070" d="3990">are actually convenient and for
+Bernoulli, one that's actually</p>
+<p t="934060" d="2670">basically the main tool
+that everybody is using</p>
+<p t="936730" d="2940">is the so-called
+beta distribution.</p>
+<p t="939670" d="2520">So the beta distribution
+has two parameters.</p>
+<p t="950680" d="6230">So x follows a beta
+with parameters</p>
+<p t="956910" d="8160">a and b if it has
+a density, f of x</p>
+<p t="965070" d="3980">is equal to x to the a minus 1.</p>
+<p t="969050" d="6750">1 minus x to the b minus 1,
+if x is in the interval 0,</p>
+<p t="975800" d="6930">1 and 0 for all other x's.</p>
+<p t="982730" d="500">OK?</p>
+<p t="987590" d="2880">Why is that a good thing?</p>
+<p t="990470" d="3400">Well, it's a density that's
+on the interval 0, 1 for sure.</p>
+<p t="993870" d="3260">But now I have these two
+parameters and a set of shapes</p>
+<p t="997130" d="4395">that I can get by tweaking those
+two parameters is incredible.</p>
+<p t="1004260" d="1930">It's going to be a
+unimodal distribution.</p>
+<p t="1006190" d="1070">It's still fairly nice.</p>
+<p t="1007260" d="2500">It's not going to be something
+that goes like this and this.</p>
+<p t="1009760" d="3030">Because if you think
+about this, what</p>
+<p t="1012790" d="2760">would it mean if your prior
+distribution of the interval 0,</p>
+<p t="1015550" d="1570">1 had this shape?</p>
+<p t="1019630" d="2304">It would mean that, maybe
+you think that p is here</p>
+<p t="1021934" d="1416">or maybe you think
+that p is here,</p>
+<p t="1023350" d="1777">or maybe you think
+that p is here.</p>
+<p t="1025127" d="1583">Which essentially
+means that you think</p>
+<p t="1026710" d="3951">that p can come from
+three different phenomena.</p>
+<p t="1030661" d="1958">And there's other models
+that are called mixers</p>
+<p t="1032619" d="2460">for that, that directly
+account for the fact</p>
+<p t="1035079" d="4471">that maybe there are several
+phenomena that are aggregated</p>
+<p t="1039550" d="1500">in your data set.</p>
+<p t="1041050" d="2340">But if you think that your
+data set is sort of pure,</p>
+<p t="1043390" d="2260">and that everything comes
+from the same phenomenon,</p>
+<p t="1045650" d="3200">you want something
+that looks like this,</p>
+<p t="1048850" d="4000">or maybe looks like this, or
+maybe is sort of symmetric.</p>
+<p t="1052850" d="1560">You want to get all this stuff.</p>
+<p t="1054410" d="2490">Maybe you want something
+that says, well</p>
+<p t="1056900" d="5430">if I'm talking about p being the
+probability of the proportion</p>
+<p t="1062330" d="3510">of women in the whole world, you
+want something that's probably</p>
+<p t="1065840" d="2760">really spiked around one half.</p>
+<p t="1068600" d="2250">Almost the point
+math, because you know</p>
+<p t="1070850" d="4140">let's agree that 0.5
+is the actual number.</p>
+<p t="1074990" d="3960">So you want something that
+says, OK maybe I'm wrong.</p>
+<p t="1078950" d="2350">But I'm sure I'm not going
+to be really that way off.</p>
+<p t="1081300" d="2000">So you want something
+that's really pointy.</p>
+<p t="1083300" d="3360">But if it's something
+you've never checked,</p>
+<p t="1086660" d="3120">and again I can not make
+references at this point,</p>
+<p t="1089780" d="3417">but something where you might
+have some uncertainty that</p>
+<p t="1093197" d="1083">should be around one half.</p>
+<p t="1094280" d="2790">Maybe you want something
+that a little more allows</p>
+<p t="1097070" d="2340">you to say, well, I think
+there's more around one half.</p>
+<p t="1099410" d="3540">But there's still some
+fluctuations that are possible.</p>
+<p t="1102950" d="2160">And in particular
+here, I talk about p,</p>
+<p t="1105110" d="4200">where the two parameters a
+and b are actually the same.</p>
+<p t="1109310" d="1190">I call them a.</p>
+<p t="1110500" d="1210">One is called scale.</p>
+<p t="1111710" d="1720">The other one is called shape.</p>
+<p t="1113430" d="2070">Oh sorry, this is not a density.</p>
+<p t="1115500" d="3146">So it actually has
+to be normalized.</p>
+<p t="1118646" d="1374">When you integrate
+this guy, it's</p>
+<p t="1120020" d="1470">going to be some function
+that depends on a</p>
+<p t="1121490" d="1920">and b, actually depends
+on this function</p>
+<p t="1123410" d="2017">through the beta function.</p>
+<p t="1125427" d="1833">Which is this combination
+of gamma function,</p>
+<p t="1127260" d="4255">so that's why it's
+called beta distribution.</p>
+<p t="1131515" d="2125">That's the definition of
+the beta function when you</p>
+<p t="1133640" d="2081">integrate this thing anyway.</p>
+<p t="1135721" d="1249">You just have to normalize it.</p>
+<p t="1136970" d="2760">That's just a number that
+depends on the a and b.</p>
+<p t="1139730" d="1812">So here, if you
+take a equal to b,</p>
+<p t="1141542" d="1458">you have something
+that essentially</p>
+<p t="1143000" d="2340">is symmetric around one half.</p>
+<p t="1145340" d="1780">Because what does it look like?</p>
+<p t="1147120" d="3860">Well, so my density f of
+x, is going to be what?</p>
+<p t="1150980" d="8220">It's going to be my constant
+times x, times one minus x</p>
+<p t="1159200" d="2470">to a minus one.</p>
+<p t="1161670" d="4410">And this function, x times
+1 minus x looks like this.</p>
+<p t="1166080" d="1650">We've drawn it before.</p>
+<p t="1167730" d="1650">That was something
+that showed up</p>
+<p t="1169380" d="7110">as being the variance
+of my Bernoulli.</p>
+<p t="1176490" d="5750">So we know it's something that
+takes its maximum at one half.</p>
+<p t="1182240" d="1950">And now I'm just taking
+a power of this guy.</p>
+<p t="1184190" d="1830">So I'm really just
+distorting this thing</p>
+<p t="1186020" d="5320">into some fairly
+symmetric manner.</p>
+<p t="1196400" d="4230">This distribution that
+we actually take for p.</p>
+<p t="1200630" d="2400">I assume that p, the
+parameter, notice</p>
+<p t="1203030" d="1440">that this is kind of weird.</p>
+<p t="1204470" d="1874">First of all, this is
+probably the first time</p>
+<p t="1206344" d="3226">in this entire
+course that something</p>
+<p t="1209570" d="2515">has a distribution when it's
+actually a lower case letter.</p>
+<p t="1212085" d="1625">That's something you
+have to deal with,</p>
+<p t="1213710" d="3117">because we've been using lower
+case letters for parameters.</p>
+<p t="1216827" d="1833">And now we want them
+to have a distribution.</p>
+<p t="1218660" d="1890">So that's what's
+going to happen.</p>
+<p t="1220550" d="3300">This is called the
+prior distribution.</p>
+<p t="1223850" d="3900">So really, I should write
+something like f of p</p>
+<p t="1227750" d="7540">is equal to a constant times
+p, 1 minus p, to the n minus 1.</p>
+<p t="1235290" d="4695">Well no, actually I should not
+because then it's confusing.</p>
+<p t="1239985" d="1625">One thing in terms
+of notation that I'm</p>
+<p t="1241610" d="2029">going to write, when
+I have a constant here</p>
+<p t="1243639" d="1541">and I don't want to
+make it explicit.</p>
+<p t="1245180" d="3300">And we'll see in a second why I
+don't need to make it explicit.</p>
+<p t="1248480" d="4770">I'm going to write
+this as f of x</p>
+<p t="1253250" d="10810">is proportional to x 1
+minus x to the n minus 1.</p>
+<p t="1264060" d="4680">That's just to say, equal to
+some constant that does not</p>
+<p t="1268740" d="2520">depend on x times this thing.</p>
+<p t="1276320" d="5610">So if we continue
+with our experiment</p>
+<p t="1281930" d="3480">where I'm drawing
+this data, X1 to Xn,</p>
+<p t="1285410" d="3640">which is Bernoulli p, if
+p has some distribution</p>
+<p t="1289050" d="2000">it's not clear what it
+means to have a Bernoulli</p>
+<p t="1291050" d="1377">with some random parameter.</p>
+<p t="1292427" d="2583">So what I'm going to do is, then
+I'm going to first draw my p.</p>
+<p t="1295010" d="3300">Let's say I get a number, 0.52.</p>
+<p t="1298310" d="2790">And then, I'm going to draw
+my data conditionally on p.</p>
+<p t="1301100" d="4050">So here comes the first and
+last flowchart of this class.</p>
+<p t="1309500" d="1690">So nature first draws p.</p>
+<p t="1313930" d="4430">p follows some data on a, a.</p>
+<p t="1318360" d="1310">Then I condition on p.</p>
+<p t="1322460" d="8300">And then I draw X1, Xn
+that are iid, Bernoulli p.</p>
+<p t="1330760" d="3490">Everybody understand the
+process of generating this data?</p>
+<p t="1334250" d="2000">So you first draw a
+parameter, and then you just</p>
+<p t="1336250" d="4790">flip those independent biased
+coins with this particular p.</p>
+<p t="1341040" d="2190">There's this layered thing.</p>
+<p t="1346570" d="4440">Now conditionally p, right so
+here I have this prior about p</p>
+<p t="1351010" d="1060">which was the thing.</p>
+<p t="1352070" d="2020">So this is just the
+thought process again,</p>
+<p t="1354090" d="2390">it's not anything that
+actually happens in practice.</p>
+<p t="1356480" d="3440">This is my way of thinking about
+how the data was generated.</p>
+<p t="1359920" d="3390">And from this, I'm going to try
+to come up with some procedure.</p>
+<p t="1363310" d="4570">Just like, if your estimator
+is the average of the data,</p>
+<p t="1367880" d="1820">you don't have to
+understand probability</p>
+<p t="1369700" d="2970">to say that my estimator
+is the average of the data.</p>
+<p t="1372670" d="1530">Anyone outside this
+room understands</p>
+<p t="1374200" d="1770">that the average
+is a good estimator</p>
+<p t="1375970" d="2580">for some average behavior.</p>
+<p t="1378550" d="2520">And they don't need
+to think of the data</p>
+<p t="1381070" d="1890">as being a random
+variable, et cetera.</p>
+<p t="1382960" d="1610">So same thing, basically.</p>
+<p t="1390760" d="3030">In this case, you can see that
+the posterior distribution</p>
+<p t="1393790" d="930">is still a beta.</p>
+<p t="1398320" d="1770">What it means is that,
+I had this thing.</p>
+<p t="1400090" d="1560">Then, I observed my data.</p>
+<p t="1401650" d="1920">And then, I continue
+and here I'm</p>
+<p t="1403570" d="9230">going to update my prior
+into some posterior</p>
+<p t="1412800" d="3880">distribution, pi.</p>
+<p t="1416680" d="2530">And here, this guy is
+actually also a beta.</p>
+<p t="1423370" d="2580">My posterior
+distribution, p, is also</p>
+<p t="1425950" d="2052">a beta distribution
+with the parameters</p>
+<p t="1428002" d="958">that are on this slide.</p>
+<p t="1428960" d="2710">And I'll have the space
+to reproduce them.</p>
+<p t="1431670" d="2510">So I start the beginning
+of this flowchart</p>
+<p t="1434180" d="2950">as having p, which is a prior.</p>
+<p t="1437130" d="1680">I'm going to get
+some observations</p>
+<p t="1438810" d="2310">and then, I'm going to
+update what my posterior is.</p>
+<p t="1444530" d="2370">This posterior is
+basically something</p>
+<p t="1446900" d="2790">that's, in business
+statistics was</p>
+<p t="1449690" d="4030">beautiful is as soon as
+you have this distribution,</p>
+<p t="1453720" d="3310">it's essentially capturing all
+the information about the data</p>
+<p t="1457030" d="1980">that you want for p.</p>
+<p t="1459010" d="1419">And it's not just the point.</p>
+<p t="1460429" d="1041">It's not just an average.</p>
+<p t="1461470" d="2190">It's actually an
+entire distribution</p>
+<p t="1463660" d="3390">for the possible
+values of theta.</p>
+<p t="1467050" d="3690">And it's not the same
+thing as saying, well</p>
+<p t="1470740" d="4290">if theta hat is equal to Xn
+bar, in the Gaussian case I know</p>
+<p t="1475030" d="2100">that this is some mean, mu.</p>
+<p t="1477130" d="2550">And then maybe it has
+varying sigma squared over n.</p>
+<p t="1479680" d="3870">That's not what I mean by, this
+is my posterior distribution.</p>
+<p t="1483550" d="3090">This is not what I mean.</p>
+<p t="1486640" d="3150">This is going to come from
+this guy, the Gaussian thing</p>
+<p t="1489790" d="1560">and the central limit theorem.</p>
+<p t="1491350" d="1620">But what I mean is this guy.</p>
+<p t="1492970" d="5160">And this came exclusively
+from the prior distribution.</p>
+<p t="1498130" d="2700">If I had another prior,
+I would not necessarily</p>
+<p t="1500830" d="3010">have a beta distribution
+on the output.</p>
+<p t="1503840" d="3740">So when I have the same
+family of distributions</p>
+<p t="1507580" d="3510">at the beginning and at
+the end of this flowchart,</p>
+<p t="1511090" d="5430">I say that beta is
+a conjugate prior.</p>
+<p t="1521200" d="6190">Meaning I put in beta as a prior
+and I get beta as [INAUDIBLE]</p>
+<p t="1527390" d="3460">And that's why betas
+are so popular.</p>
+<p t="1530850" d="1430">Conjugate priors
+are really nice,</p>
+<p t="1532280" d="3450">because you know that whatever
+you put in, what you're going</p>
+<p t="1535730" d="1440">to get in the end is a beta.</p>
+<p t="1537170" d="1620">So all you have to think
+about is the parameters.</p>
+<p t="1538790" d="2250">You don't have to check
+again what the posterior is</p>
+<p t="1541040" d="2250">going to look like, what the
+PDF of this guy is going to be.</p>
+<p t="1543290" d="1374">You don't have to
+think about it.</p>
+<p t="1544664" d="1986">You just have to check
+what the parameters are.</p>
+<p t="1546650" d="1708">And there's families
+of conjugate priors.</p>
+<p t="1548358" d="2792">Gaussian gives
+Gaussian, for example.</p>
+<p t="1551150" d="1020">There's a bunch of them.</p>
+<p t="1552170" d="5040">And this is what drives people
+into using specific priors as</p>
+<p t="1557210" d="990">opposed to others.</p>
+<p t="1558200" d="2460">It has nice
+mathematical properties.</p>
+<p t="1560660" d="5250">Nobody believes that p is really
+distributed according to beta.</p>
+<p t="1565910" d="2730">But it's flexible enough
+and super convenient</p>
+<p t="1568640" d="1060">mathematically.</p>
+<p t="1572450" d="2190">Now let's see for one
+second, before we actually</p>
+<p t="1574640" d="2440">go any further.</p>
+<p t="1577080" d="2710">I didn't mention A and
+B are both in here,</p>
+<p t="1579790" d="1750">A and B are both
+positive numbers.</p>
+<p t="1584320" d="3290">They can be anything positive.</p>
+<p t="1587610" d="1850">So here what I did
+is that, I updated A</p>
+<p t="1589460" d="5190">into a plus the sum
+of my data, and b</p>
+<p t="1594650" d="3850">into b plus n minus
+the sum of my data.</p>
+<p t="1598500" d="3410">So that's essentially, a becomes
+a plus the number of ones.</p>
+<p t="1605040" d="2310">Well, that's only
+when I have a and a.</p>
+<p t="1607350" d="2766">So the first parameters become
+itself plus the number of ones.</p>
+<p t="1610116" d="1374">And the second
+one becomes itself</p>
+<p t="1611490" d="1041">plus the number of zeros.</p>
+<p t="1615440" d="3720">And so just as a sanity
+check, what does this mean?</p>
+<p t="1619160" d="9750">If a it goes to zero, what
+is the beta when a goes to 0?</p>
+<p t="1628910" d="1500">We can actually
+read this from here.</p>
+<p t="1636920" d="2250">Actually, let's take a goes to--</p>
+<p t="1645370" d="740">no.</p>
+<p t="1646110" d="1200">Sorry, let's just do this.</p>
+<p t="1658670" d="2170">I'll do it when we talk
+about non-informative prior,</p>
+<p t="1660840" d="2000">because it's a little too messy.</p>
+<p t="1667220" d="750">How do we do this?</p>
+<p t="1667970" d="3420">How did I get this posterior
+distribution, given the prior?</p>
+<p t="1671390" d="4680">How do I update This well this
+is called Bayesian statistics.</p>
+<p t="1676070" d="2730">And you've heard this
+word, Bayes before.</p>
+<p t="1678800" d="3210">And the way you've heard
+it is in the Bayes formula.</p>
+<p t="1682010" d="1670">What was the Bayes formula?</p>
+<p t="1683680" d="1510">The Bayes formula
+was telling you</p>
+<p t="1685190" d="6200">that the probability of A, given
+B was equal to something that</p>
+<p t="1691390" d="3040">depended on the probability of
+B, given A. That's what it was.</p>
+<p t="1696787" d="1833">You can actually either
+remember the formula</p>
+<p t="1698620" d="1630">or you can remember
+the definition.</p>
+<p t="1700250" d="5750">And this is what p of A
+and B divided by p of B.</p>
+<p t="1706000" d="9480">So this is p of B, given A
+times p of A divided by p of B.</p>
+<p t="1715480" d="2110">That's what Bayes
+formula is telling you.</p>
+<p t="1717590" d="2460">Agree?</p>
+<p t="1720050" d="6150">So now what I want is to have
+something that's telling me</p>
+<p t="1726200" d="3530">how this is going to work.</p>
+<p t="1729730" d="4680">What is going to play the
+role of those events, A and B?</p>
+<p t="1734410" d="4870">Well one is going
+to be, this is going</p>
+<p t="1739280" d="2700">to be the distribution
+of my parameter of theta,</p>
+<p t="1741980" d="1914">given that I see the data.</p>
+<p t="1743894" d="1416">And this is going
+to tell me, what</p>
+<p t="1745310" d="2291">is the distribution of the
+data, given that I know what</p>
+<p t="1747601" d="1669">my parameter if theta is.</p>
+<p t="1749270" d="2186">But that part, if
+this is theta and this</p>
+<p t="1751456" d="1624">is the parameter of
+theta, this is what</p>
+<p t="1753080" d="2640">we've been doing all along.</p>
+<p t="1755720" d="3000">The distribution of the data,
+given the parameter here</p>
+<p t="1758720" d="3630">was n iid Bernoulli p.</p>
+<p t="1762350" d="5610">I knew exactly what their joint
+probability mass function is.</p>
+<p t="1767960" d="1330">Then, that was what?</p>
+<p t="1769290" d="3410">So we said that this
+is going to be my data</p>
+<p t="1772700" d="2030">and this is going
+to be my parameter.</p>
+<p t="1777270" d="2940">So that means that, this is
+the probability of my data,</p>
+<p t="1780210" d="2790">given the parameter.</p>
+<p t="1783000" d="2729">This is the probability
+of the parameter.</p>
+<p t="1785729" d="541">What is this?</p>
+<p t="1786270" d="2825">What did we call this?</p>
+<p t="1789095" d="1185">This is the prior.</p>
+<p t="1790280" d="3410">It's just the distribution
+of my parameter.</p>
+<p t="1793690" d="2340">Now what is this?</p>
+<p t="1796030" d="1460">Well, this is just
+the distribution</p>
+<p t="1797490" d="2850">of the data, itself.</p>
+<p t="1800340" d="6460">This is essentially the
+distribution of this,</p>
+<p t="1806800" d="8280">if this was indeed
+not conditioned on p.</p>
+<p t="1815080" d="3630">So if I don't condition
+on p, this data</p>
+<p t="1818710" d="5272">is going to be a bunch of iid,
+Bernoulli with some parameter.</p>
+<p t="1823982" d="1458">But the perimeter
+is random, right.</p>
+<p t="1825440" d="2397">So for different realization
+of this data set,</p>
+<p t="1827837" d="2333">I'm going to get different
+parameters for the Bernoulli.</p>
+<p t="1830170" d="4209">And so that leads to
+some sort of convolution.</p>
+<p t="1834379" d="1791">It's not really a
+convolution in this case,</p>
+<p t="1836170" d="2490">but it's like some sort of
+composition of distributions.</p>
+<p t="1838660" d="2940">I have the randomness that
+comes from here and then,</p>
+<p t="1841600" d="3157">the randomness that comes
+from realizing the Bernoulli.</p>
+<p t="1844757" d="1583">That's just the
+marginal distribution.</p>
+<p t="1846340" d="3480">It actually might be painful to
+understand what this is, right.</p>
+<p t="1849820" d="3150">In a way, it's sort of a
+mixture and it's not super nice.</p>
+<p t="1852970" d="2910">But we'll see that this
+actually won't matter for us.</p>
+<p t="1855880" d="1360">This is going to be some number.</p>
+<p t="1857240" d="980">It's going to be there.</p>
+<p t="1858220" d="2040">But it will matter
+for us, what it is.</p>
+<p t="1860260" d="2250">Because it actually does
+not depend on the parameter.</p>
+<p t="1862510" d="1830">And that's all
+that matters to us.</p>
+<p t="1869100" d="2070">Let's put some names
+on those things.</p>
+<p t="1871170" d="1690">This was very informal.</p>
+<p t="1872860" d="6850">So let's put some actual
+names on what we call prior.</p>
+<p t="1879710" d="2610">So what is the formal
+definition of a prior,</p>
+<p t="1882320" d="2640">what is the formal
+definition of a posterior,</p>
+<p t="1884960" d="2490">and what are the
+rules to update it?</p>
+<p t="1887450" d="2650">So I'm going to have my data,
+which is going to be X1, Xn.</p>
+<p t="1895710" d="2810">Let's say they are iid, but
+they don't actually have to.</p>
+<p t="1898520" d="2740">And so I'm going to
+have given, theta.</p>
+<p t="1907450" d="1440">And when I say
+given, it's either</p>
+<p t="1908890" d="3000">given like I did in the
+first part of this course</p>
+<p t="1911890" d="4050">in all previous chapters,
+or conditionally on.</p>
+<p t="1915940" d="2400">If you're thinking like a
+Bayesian, what I really mean</p>
+<p t="1918340" d="3910">is conditionally on
+this random parameter.</p>
+<p t="1922250" d="4100">It's as if it was
+a fixed number.</p>
+<p t="1926350" d="2060">They're going to
+have a distribution,</p>
+<p t="1928410" d="3940">X1, Xn is going to
+have some distribution.</p>
+<p t="1932350" d="6910">Let's assume for now
+it's a PDF, pn of X1, Xn.</p>
+<p t="1939260" d="2880">I'm going to write
+theta like this.</p>
+<p t="1942140" d="2760">So for example, what is this?</p>
+<p t="1944900" d="2240">Let's say this is a PDF.</p>
+<p t="1947140" d="970">It could be a PMF.</p>
+<p t="1948110" d="3087">Everything I say, I'm going to
+think of them as being PDF's.</p>
+<p t="1951197" d="1833">I'm going to combine
+PDF's with PDF's, but I</p>
+<p t="1953030" d="4410">could combine PDF it PMF, PMF
+with PDF's or PMF with PMF.</p>
+<p t="1957440" d="4150">So everywhere you see
+a D could be an M.</p>
+<p t="1961590" d="1000">Now I have those things.</p>
+<p t="1962590" d="875">So what does it mean?</p>
+<p t="1963465" d="2965">So here is an example.</p>
+<p t="1966430" d="7540">X1, Xn or iid, and theta 1.</p>
+<p t="1973970" d="3560">Now I know exactly what the
+joint PDF of this thing is.</p>
+<p t="1977530" d="6260">It means that pn of X1, Xn
+given theta is equal to what?</p>
+<p t="1983790" d="6770">Well it's 1 over
+2pi to the power n</p>
+<p t="1990560" d="4440">e, to the minus sum
+from i equal 1 to n</p>
+<p t="1995000" d="3450">of xi minus theta
+squared divided by 2.</p>
+<p t="1998450" d="2770">So that's just the joint
+distribution of n iid</p>
+<p t="2001220" d="3900">and theta 1, random variables.</p>
+<p t="2005120" d="2170">That's my pn given theta.</p>
+<p t="2007290" d="6020">Now this is what we denoted
+by f sub theta before.</p>
+<p t="2013310" d="3480">We had the subscript before, but
+now we just put a bar in theta</p>
+<p t="2016790" d="2070">because we want to remember
+that this is actually</p>
+<p t="2018860" d="1800">conditioned on theta.</p>
+<p t="2020660" d="1470">But this is just notation.</p>
+<p t="2022130" d="3930">You should just think of this
+as being, just the usual thing</p>
+<p t="2026060" d="4850">that you get from some
+statistical model.</p>
+<p t="2030910" d="3000">Now, that's going to be pn.</p>
+<p t="2051020" d="8480">Theta has prior
+distribution, pi.</p>
+<p t="2062400" d="6730">For example, so think of it
+as either PDF or PMF again.</p>
+<p t="2069130" d="4790">For example, pi
+of theta was what?</p>
+<p t="2073920" d="6239">Well it was some constant
+times theta to the a minus 1,</p>
+<p t="2080159" d="3580">1 minus theta to a minus 1.</p>
+<p t="2083739" d="2161">So it has some
+prior distribution,</p>
+<p t="2085900" d="3150">and that's another PMF.</p>
+<p t="2089050" d="2040">So now I'm given the
+distribution of my,</p>
+<p t="2091090" d="2910">x is given theta and given
+the distribution of my theta.</p>
+<p t="2094000" d="3410">I'm given this guy.</p>
+<p t="2097410" d="2690">That's this guy.</p>
+<p t="2100100" d="5240">I'm given that guy,
+which is my pi.</p>
+<p t="2105340" d="6360">So that's my pn of
+X1, Xn given theta.</p>
+<p t="2111700" d="1363">That's my pi of theta.</p>
+<p t="2117390" d="3740">Well, this is just
+the integral of pn</p>
+<p t="2121130" d="7150">of X1, Xn times pi
+of theta, d theta,</p>
+<p t="2128280" d="1440">over all possible sets of theta.</p>
+<p t="2129720" d="3640">That's just when I
+integrate out my theta,</p>
+<p t="2133360" d="2430">or I compute the
+marginal distribution,</p>
+<p t="2135790" d="1500">I did this by integrating.</p>
+<p t="2137290" d="3720">That's just basic probability,
+conditional probabilities.</p>
+<p t="2141010" d="1600">Then if I had the
+PMF, I would just</p>
+<p t="2142610" d="1360">sum over the values of thetas.</p>
+<p t="2149020" d="6190">Now what I want is to
+find what's called,</p>
+<p t="2155210" d="3660">so that's the
+prior distribution,</p>
+<p t="2158870" d="2357">and I want to find the
+posterior distribution.</p>
+<p t="2175110" d="3580">It's pi of theta, given X1, Xn.</p>
+<p t="2181780" d="2190">If I use Bayes' rule
+I know that this</p>
+<p t="2183970" d="10680">is pn of X1, Xn, given
+theta times pi of theta.</p>
+<p t="2194650" d="2880">And then it's divided
+by the distribution</p>
+<p t="2197530" d="3540">of those guys, which I will
+write as integral over theta</p>
+<p t="2201070" d="7760">of pn, X1, Xn, given theta
+times pi of theta, d theta.</p>
+<p t="2215360" d="2340">Everybody's with me, still?</p>
+<p t="2217700" d="1500">If you're not
+comfortable with this,</p>
+<p t="2219200" d="3810">it means that you probably need
+to go read your couple of pages</p>
+<p t="2223010" d="1920">on conditional densities
+and conditional</p>
+<p t="2224930" d="2490">PMF's from your probably class.</p>
+<p t="2227420" d="1450">There's really not much there.</p>
+<p t="2228870" d="4790">It's just a matter of being able
+to define those quantities, f</p>
+<p t="2233660" d="1629">density of x, given y.</p>
+<p t="2235289" d="2041">This is just what's called
+a conditional density.</p>
+<p t="2237330" d="1749">You need to understand
+what this object is</p>
+<p t="2239079" d="2841">and how it relates to the
+joint distribution of x and y,</p>
+<p t="2241920" d="2382">or maybe the distribution of
+x or the distribution of y.</p>
+<p t="2247400" d="2520">But it's the same rules.</p>
+<p t="2249920" d="1545">One way to actually
+remember this</p>
+<p t="2251465" d="2265">is, this is exactly
+the same rules as this.</p>
+<p t="2253730" d="2880">When you see a bar, it's the
+same thing as the probability</p>
+<p t="2256610" d="1180">of this and this guy.</p>
+<p t="2257790" d="2270">So for densities,
+it's just a comma</p>
+<p t="2260060" d="3180">divided by the second the
+probably the second guy.</p>
+<p t="2263240" d="1880">That's it.</p>
+<p t="2265120" d="3240">So if you remember this, you can
+just do some pattern matching</p>
+<p t="2268360" d="1620">and see what I just wrote here.</p>
+<p t="2273220" d="3790">Now, I can compute every
+single one of these guys.</p>
+<p t="2277010" d="7020">This something I get
+from my modeling.</p>
+<p t="2284030" d="1260">So I did not write this.</p>
+<p t="2285290" d="3840">It's not written in the slides.</p>
+<p t="2289130" d="5690">But I give a name to this guy
+that was my prior distribution.</p>
+<p t="2294820" d="1730">And that was my
+posterior distribution.</p>
+<p t="2302550" d="4430">In chapter three, maybe
+what did we call this guy?</p>
+<p t="2312120" d="3060">The one that does not have a
+name and that's in the box.</p>
+<p t="2319347" d="833">What did we call it?</p>
+<p t="2323498" d="2837">AUDIENCE: [INAUDIBLE]</p>
+<p t="2326335" d="2500">PHILLIPE RIGOLLET: It is the
+joint distribution of the Xi's.</p>
+<p t="2331950" d="1285">And we gave it a name.</p>
+<p t="2333235" d="979">AUDIENCE: [INAUDIBLE]</p>
+<p t="2334214" d="1916">PHILLIPE RIGOLLET: It's
+the likelihood, right?</p>
+<p t="2336130" d="1500">This is exactly the likelihood.</p>
+<p t="2337630" d="1470">This was the
+likelihood of theta.</p>
+<p t="2343920" d="2430">And this is something that's
+very important to remember,</p>
+<p t="2346350" d="4170">and that really reminds you
+that these things are really not</p>
+<p t="2350520" d="1020">that different.</p>
+<p t="2351540" d="2430">Maximum likelihood estimation
+and Bayesian estimation,</p>
+<p t="2353970" d="4890">because your posterior is really
+just your likelihood times</p>
+<p t="2358860" d="4710">something that's just putting
+some weights on the thetas,</p>
+<p t="2363570" d="2820">depending on where you
+think theta should be.</p>
+<p t="2366390" d="2030">If I had, say a maximum
+likelihood estimate,</p>
+<p t="2368420" d="2710">and my likelihood and
+theta looked like this,</p>
+<p t="2371130" d="2280">but my prior and theta
+looked like this.</p>
+<p t="2373410" d="3630">I said, oh I really want
+thetas that are like this.</p>
+<p t="2377040" d="1670">So what's going to
+happen is that, I'm</p>
+<p t="2378710" d="2610">going to turn this into some
+posterior that looks like this.</p>
+<p t="2384400" d="3210">So I'm just really
+waiting, this posterior,</p>
+<p t="2387610" d="2361">this is a constant that does
+not depend on theta right?</p>
+<p t="2389971" d="499">Agreed?</p>
+<p t="2390470" d="2990">I integrated over
+theta, so theta is gone.</p>
+<p t="2393460" d="2760">So forget about this guy.</p>
+<p t="2396220" d="3027">I have basically, that the
+posterior distribution up</p>
+<p t="2399247" d="2583">to scaling, because it has to
+be a probability density and not</p>
+<p t="2401830" d="1980">just anything any
+function that's positive,</p>
+<p t="2403810" d="1260">is the product of this guy.</p>
+<p t="2405070" d="1850">It's a weighted version
+of my likelihood.</p>
+<p t="2406920" d="970">That's all it is.</p>
+<p t="2407890" d="2100">I'm just weighing
+the likelihood,</p>
+<p t="2409990" d="3160">using my prior belief on theta.</p>
+<p t="2413150" d="3720">And so given this guy
+a natural estimator,</p>
+<p t="2416870" d="2610">if you follow the maximum
+likelihood principle,</p>
+<p t="2419480" d="3670">would be the maximum
+of this posterior.</p>
+<p t="2423150" d="1470">Agreed?</p>
+<p t="2424620" d="4210">That would basically be doing
+exactly what maximum likelihood</p>
+<p t="2428830" d="2910">estimation is telling you.</p>
+<p t="2431740" d="1820">So it turns out that you can.</p>
+<p t="2433560" d="1770">It's called Maximum
+A Posteriori,</p>
+<p t="2435330" d="4040">and I won't talk much
+about this, or MAP.</p>
+<p t="2439370" d="5130">That's Maximum a Posteriori.</p>
+<p t="2444500" d="2700">So it's just the
+theta hat is the arc</p>
+<p t="2447200" d="3590">max of pi theta, given X1, Xn.</p>
+<p t="2454990" d="1200">And it sounds like it's OK.</p>
+<p t="2456190" d="2470">I'll give you a
+density and you say, OK</p>
+<p t="2458660" d="2310">I have a density for all
+values of my parameters.</p>
+<p t="2460970" d="2470">You're asking me to
+summarize it into one number.</p>
+<p t="2463440" d="3130">I'm just going to take the most
+likely number of those guys.</p>
+<p t="2466570" d="1740">But you could summarize
+it, otherwise.</p>
+<p t="2468310" d="2460">You could take the average.</p>
+<p t="2470770" d="1650">You could take the median.</p>
+<p t="2472420" d="1950">You could take a
+bunch of numbers.</p>
+<p t="2474370" d="1710">And the beauty of
+Bayesian statistics</p>
+<p t="2476080" d="3150">is that, you don't have to
+take any number in particular.</p>
+<p t="2479230" d="2250">You have an entire
+posterior distribution.</p>
+<p t="2481480" d="3600">This is not only telling
+you where theta is,</p>
+<p t="2485080" d="4080">but it's actually telling
+you the difference</p>
+<p t="2489160" d="2760">if you actually
+give as something</p>
+<p t="2491920" d="1260">that gives you the posterior.</p>
+<p t="2493180" d="3090">Now, let's say the theta
+is p between 0 and 1.</p>
+<p t="2496270" d="3720">If my posterior distribution
+looks like this,</p>
+<p t="2499990" d="3420">or my posterior distribution
+looks like this,</p>
+<p t="2503410" d="4200">then those two guys
+have one, the same mode.</p>
+<p t="2507610" d="1590">This is the same value.</p>
+<p t="2509200" d="2430">And their symmetric, so they'll
+also have the same mean.</p>
+<p t="2511630" d="1500">So these two posterior
+distributions</p>
+<p t="2513130" d="2370">give me the same
+summary into one number.</p>
+<p t="2515500" d="2729">However clearly, one
+is much more confident</p>
+<p t="2518229" d="791">than the other one.</p>
+<p t="2519020" d="4990">So I might as well just
+spit it out as a solution.</p>
+<p t="2524010" d="1170">You can do even better.</p>
+<p t="2525180" d="4380">People actually do things,
+such as drawing a random number</p>
+<p t="2529560" d="1040">from this distribution.</p>
+<p t="2530600" d="2340">Say, this is my number.</p>
+<p t="2532940" d="1500">That's kind of
+dangerous, but you</p>
+<p t="2534440" d="1250">can imagine you could do this.</p>
+<p t="2540730" d="1410">This is what works.</p>
+<p t="2542140" d="1540">That's what we went through.</p>
+<p t="2543680" d="4970">So here, as you notice I don't
+care so much about this part</p>
+<p t="2548650" d="1590">here.</p>
+<p t="2550240" d="2000">Because it does not
+depend on theta.</p>
+<p t="2552240" d="2950">So I know that given the
+product of those two things,</p>
+<p t="2555190" d="2460">this thing is only the
+constant that I need to divide</p>
+<p t="2557650" d="2400">so that when I integrate
+this thing over theta,</p>
+<p t="2560050" d="1410">it integrates to one.</p>
+<p t="2561460" d="4080">Because this has to be a
+probability density on theta.</p>
+<p t="2565540" d="2370">I can write this and just
+forget about that part.</p>
+<p t="2567910" d="4370">And that's what's written
+on the top of this slide.</p>
+<p t="2572280" d="5640">This notation, this sort of
+weird alpha, or I don't know.</p>
+<p t="2577920" d="1860">Infinity sign
+propped to the right.</p>
+<p t="2579780" d="2550">Whatever you want
+to call this thing</p>
+<p t="2582330" d="2370">is actually just really
+emphasizing the fact</p>
+<p t="2584700" d="1610">that I don't care.</p>
+<p t="2586310" d="6180">I write it because I can,
+but you know what it is.</p>
+<p t="2597314" d="2166">In some instances, you have
+to compute the integral.</p>
+<p t="2599480" d="2160">In some instances, you don't
+have to compute the integral.</p>
+<p t="2601640" d="1560">And a lot of
+Bayesian computation</p>
+<p t="2603200" d="2400">is about saying,
+OK it's actually</p>
+<p t="2605600" d="1546">really hard to
+compute this integral,</p>
+<p t="2607146" d="1124">so I'd rather not doing it.</p>
+<p t="2608270" d="3180">So let me try to find some
+methods that will allow me</p>
+<p t="2611450" d="2339">to sample from the
+posterior distribution,</p>
+<p t="2613789" d="1291">without having to compute this.</p>
+<p t="2615080" d="2640">And that's what's called
+Monte-Carlo Markov</p>
+<p t="2617720" d="2860">chains, or MCMC, and that's
+exactly what they're doing.</p>
+<p t="2620580" d="1790">They're just using
+only ratios of things,</p>
+<p t="2622370" d="1760">like that for different thetas.</p>
+<p t="2624130" d="1760">And which means that
+if you take ratios,</p>
+<p t="2625890" d="1970">the normalizing constant
+is gone and you don't</p>
+<p t="2627860" d="2950">need to find this integral.</p>
+<p t="2630810" d="2205">So we won't go into
+those details at all.</p>
+<p t="2633015" d="1875">That would be the purpose
+of an entire course</p>
+<p t="2634890" d="1740">on Bayesian inference.</p>
+<p t="2636630" d="2940">Actually, even
+Bayesian computations</p>
+<p t="2639570" d="2584">would be an entire
+course on its own.</p>
+<p t="2642154" d="1666">And there's some very
+interesting things</p>
+<p t="2643820" d="1958">that are going on there,
+the interface of stats</p>
+<p t="2645778" d="1112">and computation.</p>
+<p t="2650054" d="2416">So let's go back to our example
+and see if we can actually</p>
+<p t="2652470" d="1166">compute any of those things.</p>
+<p t="2653636" d="3784">Because it's very nice to give
+you some data, some formulas.</p>
+<p t="2657420" d="2570">Let's see if we
+can actually do it.</p>
+<p t="2659990" d="3820">In particular, can I
+actually recover this claim</p>
+<p t="2663810" d="7440">that the posterior associated
+to a beta prior with a Bernoulli</p>
+<p t="2671250" d="4530">likelihood is actually
+giving me a beta again?</p>
+<p t="2675780" d="930">What was my prior?</p>
+<p t="2682670" d="3300">So p was following
+a beta AA, which</p>
+<p t="2685970" d="2350">means that p, the density.</p>
+<p t="2693620" d="2990">That was pi of theta.</p>
+<p t="2696610" d="2970">Well I'm going to
+write this as pi of p--</p>
+<p t="2699580" d="6220">was proportional to p to the
+A minus 1 times 1 minus p</p>
+<p t="2705800" d="3006">to the A minus 1.</p>
+<p t="2708806" d="2624">So that's the first ingredient
+I need to complete my posterior.</p>
+<p t="2711430" d="2940">I really need only two, if I
+wanted to bound up to constant.</p>
+<p t="2714370" d="1864">The second one was p hat.</p>
+<p t="2720710" d="1910">We've computed that many times.</p>
+<p t="2722620" d="2990">And we had even a nice
+compact way of writing it,</p>
+<p t="2725610" d="6960">which was that pn of X1,
+Xn, given the parameter p.</p>
+<p t="2732570" d="4280">So the joint density of my data,
+given p, that's my likelihood.</p>
+<p t="2736850" d="1880">The likelihood of p was what?</p>
+<p t="2738730" d="2500">Well it was p to
+the sum of Xi's.</p>
+<p t="2744030" d="2270">1 minus p to the n
+minus some of the Xi's.</p>
+<p t="2750990" d="2760">Anybody wants me
+to parse this more?</p>
+<p t="2753750" d="2310">Or do you remember seeing
+that from maximum likelihood</p>
+<p t="2756060" d="1000">estimation?</p>
+<p t="2757060" d="637">Yeah?</p>
+<p t="2757697" d="5232">AUDIENCE: [INAUDIBLE]</p>
+<p t="2762929" d="2041">PHILLIPE RIGOLLET: That's
+what conditioning does.</p>
+<p t="2770838" d="4401">AUDIENCE: [INAUDIBLE]
+previous slide.</p>
+<p t="2775239" d="3912">[INAUDIBLE] bottom
+there, it says D pi of t.</p>
+<p t="2779151" d="4419">Shouldn't it be dt pi of t?</p>
+<p t="2783570" d="1730">PHILLIPE RIGOLLET:
+So D pi of T is</p>
+<p t="2785300" d="3810">a measure theoretic notation,
+which I used without thinking.</p>
+<p t="2789110" d="3270">And I should not because
+I can see it upsets you.</p>
+<p t="2792380" d="2670">D pi of T is just a
+natural way to say</p>
+<p t="2795050" d="3120">that I integrate
+against whatever I'm</p>
+<p t="2798170" d="5760">given for the prior of theta.</p>
+<p t="2803930" d="4890">In particular, if theta is just
+the mix of a PDF and a point</p>
+<p t="2808820" d="2610">mass, maybe I say
+that my p takes</p>
+<p t="2811430" d="2970">value 0.5 with probability 0.5.</p>
+<p t="2814400" d="4500">And then is uniform on the
+interval with probability 0.5.</p>
+<p t="2818900" d="3030">For this, I neither
+have a PDF nor a PMF.</p>
+<p t="2821930" d="2220">But I can still talk about
+integrating with respect</p>
+<p t="2824150" d="780">to this, right?</p>
+<p t="2824930" d="3600">It's going to look like, if
+I take a function f of T,</p>
+<p t="2828530" d="5950">D pi of T is going to be
+one half of f of one half.</p>
+<p t="2834480" d="2000">That's the point mass
+with probability one half,</p>
+<p t="2836480" d="1080">at one half.</p>
+<p t="2837560" d="5670">Plus one half of the integral
+between 0 and 1, of f of TDT.</p>
+<p t="2843230" d="3750">This is just the notation, which
+is actually funnily enough,</p>
+<p t="2846980" d="2380">interchangeable with pi of DT.</p>
+<p t="2852460" d="2430">But if you have a
+density, it's really</p>
+<p t="2854890" d="4911">just the density pi of TDT.</p>
+<p t="2859801" d="2139">If pi is really a
+density, but that's</p>
+<p t="2861940" d="2180">when it's when pi is and
+measure and not a density.</p>
+<p t="2866820" d="2880">Everybody else,
+forget about this.</p>
+<p t="2869700" d="1927">This is not something
+you should really</p>
+<p t="2871627" d="1083">worry about at this point.</p>
+<p t="2872710" d="3009">This is more graduate
+level probability classes.</p>
+<p t="2875719" d="1541">But yeah, it's called
+measure theory.</p>
+<p t="2877260" d="1900">And that's when you think
+of pi as being a measure</p>
+<p t="2879160" d="820">in an abstract fashion.</p>
+<p t="2879980" d="1916">You don't have to worry
+whether it's a density</p>
+<p t="2881896" d="2104">or not, or whether
+it has a density.</p>
+<p t="2888350" d="1900">So everybody is OK with this?</p>
+<p t="2895530" d="1860">Now I need to
+compute my posterior.</p>
+<p t="2897390" d="5730">And as I said, my
+posterior is really</p>
+<p t="2903120" d="2430">just the product of
+the likelihood weighted</p>
+<p t="2905550" d="3420">by the prior.</p>
+<p t="2908970" d="4060">Hopefully, at this stage
+of your application,</p>
+<p t="2913030" d="2360">you can multiply two functions.</p>
+<p t="2915390" d="2190">So what's happening is,
+if I multiply this guy</p>
+<p t="2917580" d="3720">with this guy, p gets
+this guy to the power</p>
+<p t="2921300" d="1560">this guy plus this guy.</p>
+<p t="2933810" d="6210">And then 1 minus p gets the
+power n minus some of Xi's.</p>
+<p t="2940020" d="2880">So this is always
+from I equal 1 to n.</p>
+<p t="2942900" d="1490">And then plus A minus 1 as well.</p>
+<p t="2950010" d="5550">This is up to constant, because
+I still need to solve this.</p>
+<p t="2955560" d="1699">And I could try to do it.</p>
+<p t="2957259" d="1541">But I really don't
+have to, because I</p>
+<p t="2958800" d="5580">know that if my density
+has this form, then</p>
+<p t="2964380" d="1152">it's a beta distribution.</p>
+<p t="2965532" d="1458">And then I can just
+go on Wikipedia</p>
+<p t="2966990" d="2031">and see what should be
+the normalization factor.</p>
+<p t="2969021" d="1999">But I know it's going to
+be a beta distribution.</p>
+<p t="2971020" d="3000">It's actually the
+beta with parameter.</p>
+<p t="2974020" d="5190">So this is really my beta
+with parameter, sum of Xi,</p>
+<p t="2979210" d="4370">i equal 1 to n plus A minus 1.</p>
+<p t="2983580" d="2550">And then the second
+parameter is n minus sum</p>
+<p t="2986130" d="3676">of the Xi's plus A minus 1.</p>
+<p t="2994980" d="4050">I just wrote what was here.</p>
+<p t="2999030" d="2550">What happened to my one?</p>
+<p t="3001580" d="1340">Oh no, sorry.</p>
+<p t="3002920" d="2720">Beta has the power minus 1.</p>
+<p t="3005640" d="3207">So that's the
+parameter of the beta.</p>
+<p t="3008847" d="1583">And this is the
+parameter of the beta.</p>
+<p t="3015127" d="1083">Beta is over there, right?</p>
+<p t="3016210" d="3642">So I just replace
+A by what I see.</p>
+<p t="3019852" d="2438">A is just becoming
+this guy plus this guy</p>
+<p t="3022290" d="4110">and this guy plus this guy.</p>
+<p t="3026400" d="2262">Everybody is comfortable
+with this computation?</p>
+<p t="3034170" d="4680">We just agreed that beta priors
+for Bernoulli observations</p>
+<p t="3038850" d="3690">are certainly convenient.</p>
+<p t="3042540" d="1917">Because they are just
+conjugate, and we know</p>
+<p t="3044457" d="1833">that's what is going
+to come out in the end.</p>
+<p t="3046290" d="2609">That's going to
+be a beta as well.</p>
+<p t="3048899" d="1291">I just claim it was convenient.</p>
+<p t="3050190" d="2700">It was certainly convenient
+to compute this, right?</p>
+<p t="3052890" d="2851">There was certainly
+some compatibility</p>
+<p t="3055741" d="2249">when I had to multiply this
+function by that function.</p>
+<p t="3057990" d="2926">And you can imagine that things
+could go much more wrong,</p>
+<p t="3060916" d="2624">than just having p to some power
+and p to some power, 1 minus p</p>
+<p t="3063540" d="2850">to some power, when it might
+just be some other power.</p>
+<p t="3066390" d="2890">Things were nice.</p>
+<p t="3069280" d="3130">Now this is nice, but I can also
+question the following things.</p>
+<p t="3072410" d="1920">Why beta, for one?</p>
+<p t="3074330" d="3510">The beta tells me something.</p>
+<p t="3077840" d="2796">That's convenient, but
+then how do I pick A?</p>
+<p t="3080636" d="6864">I know that A should definitely
+capture the fact that where</p>
+<p t="3087500" d="2700">I want to have my p
+most likely located.</p>
+<p t="3090200" d="2190">But it also actually
+also captures</p>
+<p t="3092390" d="2190">the variance of my beta.</p>
+<p t="3094580" d="2160">And so choosing
+different As is going</p>
+<p t="3096740" d="1210">to have different functions.</p>
+<p t="3097950" d="5100">If I have A and B, If I started
+with the beta with parameter.</p>
+<p t="3103050" d="5060">If I started with a B here, I
+would just pick up the B here.</p>
+<p t="3108110" d="1752">Agreed?</p>
+<p t="3109862" d="1458">And that would just
+be a symmetric.</p>
+<p t="3111320" d="1950">But they're going to
+capture mean and variance</p>
+<p t="3113270" d="583">of this thing.</p>
+<p t="3113853" d="2177">And so how do I pick those guys?</p>
+<p t="3116030" d="3407">If I'm a doctor and
+you're asking me,</p>
+<p t="3119437" d="2083">what do you think the
+chances of this drug working</p>
+<p t="3121520" d="1710">in this kind of patients is?</p>
+<p t="3123230" d="2850">And I have to spit out the
+parameters of a beta for you,</p>
+<p t="3126080" d="2550">it might be a bit of a
+complicated thing to do.</p>
+<p t="3128630" d="2090">So how do you do this,
+especially for problems?</p>
+<p t="3130720" d="4030">So by now, people
+have actually mastered</p>
+<p t="3134750" d="4540">the art of coming up with how
+to formulate those numbers.</p>
+<p t="3139290" d="2370">But in new problems that
+come up, how do you do this?</p>
+<p t="3141660" d="2180">What happens if you want
+to use Bayesian methods,</p>
+<p t="3143840" d="6300">but you actually do not
+know what you expect to see?</p>
+<p t="3150140" d="3120">To be fair, before we started
+this class, I hope all of you</p>
+<p t="3153260" d="3610">had no idea whether people tend
+to bend their head to the right</p>
+<p t="3156870" d="1302">or to the left before kissing.</p>
+<p t="3158172" d="1958">Because if you did, well
+you have too much time</p>
+<p t="3160130" d="2000">on your hands and I should
+double your homework.</p>
+<p t="3164390" d="2580">So in this case,
+maybe you still want</p>
+<p t="3166970" d="1860">to use the Bayesian machinery.</p>
+<p t="3168830" d="2150">Maybe you just want
+to do something nice.</p>
+<p t="3170980" d="2532">It's nice right, I mean
+it worked out pretty well.</p>
+<p t="3173512" d="958">What if you want to do?</p>
+<p t="3174470" d="2400">Well you actually want
+to use some priors that</p>
+<p t="3176870" d="3300">carry no information, that
+basically do not prefer</p>
+<p t="3180170" d="2580">any theta to another theta.</p>
+<p t="3182750" d="2685">Now, you could read
+this slide or you</p>
+<p t="3185435" d="1125">could look at this formula.</p>
+<p t="3190010" d="4910">We just said that this
+pi here was just here</p>
+<p t="3194920" d="3300">to weigh some thetas more
+than others, depending</p>
+<p t="3198220" d="1650">on their prior belief.</p>
+<p t="3199870" d="1530">If our prior belief
+does not want</p>
+<p t="3201400" d="3480">to put any preference towards
+some thetas than to others,</p>
+<p t="3204880" d="1452">what do I do?</p>
+<p t="3206332" d="1323">AUDIENCE: [INAUDIBLE]</p>
+<p t="3207655" d="1807">PHILLIPE RIGOLLET:
+Yeah, I remove it.</p>
+<p t="3209462" d="1958">And the way to remove
+something we multiply by,</p>
+<p t="3211420" d="1230">is just replace it by one.</p>
+<p t="3212650" d="2450">That's really what we're doing.</p>
+<p t="3215100" d="3460">If this was a constant
+not depending on theta,</p>
+<p t="3218560" d="2840">then that would mean that
+we're not preferring any theta.</p>
+<p t="3221400" d="2970">And we're looking
+at the likelihood.</p>
+<p t="3224370" d="2190">But not as a function that
+we're trying to maximize,</p>
+<p t="3226560" d="3660">but it is a function that
+we normalize in such a way</p>
+<p t="3230220" d="2350">that it's actually
+a distribution.</p>
+<p t="3232570" d="2212">So if I have pi,
+which is not here,</p>
+<p t="3234782" d="1958">this is really just taking
+the like likelihood,</p>
+<p t="3236740" d="1250">which is a positive function.</p>
+<p t="3237990" d="1980">It may not integrate
+to 1, so I normalize it</p>
+<p t="3239970" d="2360">so that it integrates to 1.</p>
+<p t="3242330" d="2790">And then I just say, well this
+is my posterior distribution.</p>
+<p t="3245120" d="1650">Now I could just
+maximize this thing</p>
+<p t="3246770" d="2410">and spit out my maximum
+likelihood estimator.</p>
+<p t="3249180" d="1670">But I can also
+integrate and find</p>
+<p t="3250850" d="1500">what the expectation
+of this guy is.</p>
+<p t="3252350" d="1860">I can find what the
+median of this guy is.</p>
+<p t="3254210" d="2160">I can sample data from this guy.</p>
+<p t="3256370" d="3060">I can build, understand what
+the variance of this guy is.</p>
+<p t="3259430" d="2400">Which is something we did
+not do when we just did</p>
+<p t="3261830" d="2970">maximum likelihood estimation
+because given a function, all</p>
+<p t="3264800" d="3198">we cared about was the
+arc max of this function.</p>
+<p t="3271680" d="4440">These priors are
+called uninformative.</p>
+<p t="3276120" d="7320">This is just replacing this
+number by one or by a constant.</p>
+<p t="3283440" d="1580">Because it still
+has to be a density.</p>
+<p t="3289236" d="1374">If I have a bounded
+set, I'm just</p>
+<p t="3290610" d="2340">looking for the
+uniform distribution</p>
+<p t="3292950" d="3630">on this bounded set, the
+one that puts constant one</p>
+<p t="3296580" d="2620">over the size of this thing.</p>
+<p t="3299200" d="2390">But if I have an
+invalid set, what</p>
+<p t="3301590" d="2280">is the density that
+takes a constant value</p>
+<p t="3303870" d="3685">on the entire real
+line, for example?</p>
+<p t="3307555" d="875">What is this density?</p>
+<p t="3313200" d="3350">AUDIENCE: [INAUDIBLE]</p>
+<p t="3316550" d="1980">PHILLIPE RIGOLLET:
+Doesn't exist, right?</p>
+<p t="3318530" d="2460">It just doesn't exist.</p>
+<p t="3320990" d="1780">The way you can think
+of it is a Gaussian</p>
+<p t="3322770" d="2090">with the variance going
+to infinity, maybe,</p>
+<p t="3324860" d="1429">or something like this.</p>
+<p t="3326289" d="1541">But you can think
+of it in many ways.</p>
+<p t="3327830" d="4500">You can think of the limit of
+the uniform between minus T</p>
+<p t="3332330" d="1920">and T, with T going to infinity.</p>
+<p t="3334250" d="2230">But this thing is actually zero.</p>
+<p t="3336480" d="3050">There's nothing there.</p>
+<p t="3339530" d="2460">You can actually
+still talk about this.</p>
+<p t="3341990" d="2400">You could always talk
+about this thing, where</p>
+<p t="3344390" d="2160">you think of this guy
+as being a constant,</p>
+<p t="3346550" d="2530">remove this thing from this
+equation, and just say,</p>
+<p t="3349080" d="2240">well my posterior is
+just the likelihood</p>
+<p t="3351320" d="3360">divided by the integral of
+the likelihood over theta.</p>
+<p t="3354680" d="3970">And if theta is the entire
+real line, so be it.</p>
+<p t="3358650" d="1740">As long as this
+integral converges,</p>
+<p t="3360390" d="1500">you can still talk
+about this stuff.</p>
+<p t="3364460" d="1840">This is what's called
+an improper prior.</p>
+<p t="3369140" d="2850">An improper prior is just a
+non-negative function defined</p>
+<p t="3371990" d="5400">in theta, but it does not have
+to integrate neither to one,</p>
+<p t="3377390" d="780">nor to anything.</p>
+<p t="3380900" d="1800">If I integrate the
+function equal to 1</p>
+<p t="3382700" d="1630">on the entire real
+line, what do I get?</p>
+<p t="3387800" d="720">Infinity.</p>
+<p t="3392390" d="3570">It's not a proper prior, and
+it's called and improper prior.</p>
+<p t="3395960" d="3420">And those improper
+priors are usually</p>
+<p t="3399380" d="3450">what you see when you start
+to want non-informative priors</p>
+<p t="3402830" d="1530">on infinite sets of datas.</p>
+<p t="3404360" d="2520">That's just the nature of it.</p>
+<p t="3406880" d="3140">You should think of them as
+being the uniform distribution</p>
+<p t="3410020" d="2530">of some infinite set, if
+that thing were to exist.</p>
+<p t="3416360" d="4710">Let's see some examples
+about non-informative priors.</p>
+<p t="3421070" d="3340">If I'm in the interval 0,
+1 this is a finite set.</p>
+<p t="3424410" d="3320">So I can talk about
+the uniform prior</p>
+<p t="3427730" d="2870">on the interval 0, 1 for a
+parameter, p of a Bernoulli.</p>
+<p t="3446380" d="1620">If I want to talk
+about this, then it</p>
+<p t="3448000" d="7910">means that my prior is p follows
+some uniform on the interval</p>
+<p t="3455910" d="1660">0, 1.</p>
+<p t="3457570" d="11370">So that means that f of
+x is 1 if x is in 0, 1.</p>
+<p t="3468940" d="3060">Otherwise, there is actually
+not even a normalization.</p>
+<p t="3472000" d="1860">This thing integrates to 1.</p>
+<p t="3473860" d="2277">And so now if I look
+at my likelihood,</p>
+<p t="3476137" d="1083">it's still the same thing.</p>
+<p t="3477220" d="7290">So my posterior
+becomes theta X1, Xn.</p>
+<p t="3484510" d="2512">That's my posterior.</p>
+<p t="3487022" d="1458">I don't write the
+likelihood again,</p>
+<p t="3488480" d="1350">because we still have it--</p>
+<p t="3489830" d="1753">well we don't have
+it here anymore.</p>
+<p t="3495440" d="2500">The likelihood is given here.</p>
+<p t="3497940" d="2990">Copy, paste over there.</p>
+<p t="3500930" d="2139">The posterior is just
+this thing times 1.</p>
+<p t="3503069" d="1291">So you will see it in a second.</p>
+<p t="3504360" d="4210">So it's p to the power sum
+of the Xi's, one minus p</p>
+<p t="3508570" d="3400">to the power, n minus
+sum of the Xi's.</p>
+<p t="3511970" d="4410">And then it's multiplied by
+1, and then divided by this</p>
+<p t="3516380" d="5870">integral between 0 and
+1 of p, sum of the Xi's.</p>
+<p t="3522250" d="5620">1 minus p, n minus
+sum of the Xi's.</p>
+<p t="3527870" d="3996">Dp, which does not depend on p.</p>
+<p t="3531866" d="2124">And I really don't care
+what the thing actually is.</p>
+<p t="3538900" d="4650">That's posterior of p.</p>
+<p t="3543550" d="2730">And now I can see,
+well what is this?</p>
+<p t="3546280" d="6590">It's actually just the
+beta with parameters.</p>
+<p t="3552870" d="1250">This guy plus 1.</p>
+<p t="3559670" d="2010">And this guy plus 1.</p>
+<p t="3574430" d="3627">I didn't tell you what the
+expectation of a beta was.</p>
+<p t="3578057" d="1833">We don't know what the
+expectation of a beta</p>
+<p t="3579890" d="2310">is, agreed?</p>
+<p t="3582200" d="3780">If I wanted to find say, the
+expectation of this thing that</p>
+<p t="3585980" d="2010">would be some good
+estimator, we know</p>
+<p t="3587990" d="1912">that the maximum
+of this guy-- what</p>
+<p t="3589902" d="1208">is the maximum of this thing?</p>
+<p t="3594880" d="3057">Well, it's just this thing,
+it's the average of the Xi's.</p>
+<p t="3597937" d="1833">That's just the maximum
+likelihood estimator</p>
+<p t="3599770" d="583">for Bernoulli.</p>
+<p t="3600353" d="1349">We know it's the average.</p>
+<p t="3601702" d="2208">Do you think if I take the
+expectation of this thing,</p>
+<p t="3603910" d="1385">I'm going to get the average?</p>
+<p t="3613864" d="1916">So actually, I'm not
+going to get the average.</p>
+<p t="3615780" d="4010">I'm going to get this guy plus
+this guy, divided by n plus 1.</p>
+<p t="3627246" d="1624">Let's look at what
+this thing is doing.</p>
+<p t="3628870" d="5494">It's looking at the number
+of ones and it's adding one.</p>
+<p t="3634364" d="1916">And this guy is looking
+at the number of zeros</p>
+<p t="3636280" d="2910">and it's adding one.</p>
+<p t="3639190" d="2720">Why is it adding this one?</p>
+<p t="3641910" d="930">What's going on here?</p>
+<p t="3647510" d="4530">This is going to matter
+mostly when the number of ones</p>
+<p t="3652040" d="4020">is actually zero, or the
+number of zeros is zero.</p>
+<p t="3656060" d="3940">Because what it does is just
+pushes the zero from non-zero.</p>
+<p t="3660000" d="3020">And why is that something that
+this Bayesian method actually</p>
+<p t="3663020" d="1580">does for you automatically?</p>
+<p t="3664600" d="1930">It's because when we
+put this non-informative</p>
+<p t="3666530" d="4639">prior on p, which was
+uniform on the interval 0, 1.</p>
+<p t="3671169" d="1791">In particular, we know
+that the probability</p>
+<p t="3672960" d="3730">that p is equal to 0 is zero.</p>
+<p t="3676690" d="2490">And the probability p
+is equal to 1 is zero.</p>
+<p t="3679180" d="2700">And so the problem
+is that if I did not</p>
+<p t="3681880" d="2640">add this 1 with some
+positive probability,</p>
+<p t="3684520" d="3600">I wouldn't be allowed to spit
+out something that actually had</p>
+<p t="3688120" d="2520">p hat, which was equal to 0.</p>
+<p t="3690640" d="2640">If by chance, let's say
+I have n is equal to 3,</p>
+<p t="3693280" d="4470">and I get only 0, 0, 0, that
+could happen with probability.</p>
+<p t="3697750" d="3720">1 over pq, one over 1 minus pq.</p>
+<p t="3706360" d="1520">That's not something
+that I want.</p>
+<p t="3707880" d="1479">And I'm using my priors.</p>
+<p t="3709359" d="2541">My prior is not informative,
+but somehow it captures the fact</p>
+<p t="3711900" d="1650">that I don't want to
+believe p is going</p>
+<p t="3713550" d="2560">to be either equal to 0 or 1.</p>
+<p t="3716110" d="3680">So that's sort of
+taken care of here.</p>
+<p t="3719790" d="5850">So let's move away a little
+bit from the Bernoulli example,</p>
+<p t="3725640" d="670">shall we?</p>
+<p t="3726310" d="1810">I think we've seen enough of it.</p>
+<p t="3728120" d="2740">And so let's talk about
+the Gaussian model.</p>
+<p t="3730860" d="1830">Let's say I want to
+do Gaussian inference.</p>
+<p t="3737859" d="1791">I want to do inference
+in a Gaussian model,</p>
+<p t="3739650" d="1080">using Bayesian methods.</p>
+<p t="3750600" d="9240">What I want is that Xi,
+X1, Xn, or say 0, 1 iid.</p>
+<p t="3764720" d="3050">Sorry, theta 1, iid
+conditionally on theta.</p>
+<p t="3770630" d="5670">That means that pn of
+X1, Xn, given theta</p>
+<p t="3776300" d="2370">is equal to exactly
+what I wrote before.</p>
+<p t="3778670" d="6090">So 1 square root to pi, to the
+n exponential minus one half</p>
+<p t="3784760" d="4819">sum of Xi minus theta squared.</p>
+<p t="3789579" d="1541">So that's just the
+joint distribution</p>
+<p t="3791120" d="2290">of my Gaussian with mean data.</p>
+<p t="3793410" d="1400">And the another
+question is, what</p>
+<p t="3794810" d="2730">is the posterior distribution?</p>
+<p t="3797540" d="4960">Well here I said, let's use
+the uninformative prior,</p>
+<p t="3802500" d="1340">which is an improper prior.</p>
+<p t="3803840" d="1650">It puts weight on everyone.</p>
+<p t="3805490" d="3820">That's the so-called uniform
+on the entire real line.</p>
+<p t="3809310" d="1880">So that's certainly
+not a density.</p>
+<p t="3811190" d="3170">But it can still just use this.</p>
+<p t="3814360" d="6070">So all I need to do
+is get this divided</p>
+<p t="3820430" d="4260">by normalizing this thing.</p>
+<p t="3824690" d="3210">But if you look at
+this, essentially I</p>
+<p t="3827900" d="1630">want to understand.</p>
+<p t="3829530" d="2940">So this is proportional
+to the exponential</p>
+<p t="3832470" d="2570">minus one half
+sum from I equal 1</p>
+<p t="3835040" d="3910">to n of Xi minus theta squared.</p>
+<p t="3838950" d="2420">And now I want to see
+this thing as a density,</p>
+<p t="3841370" d="2190">not on the Xi's but on theta.</p>
+<p t="3846420" d="3700">What I want is a
+density on theta.</p>
+<p t="3850120" d="3530">So it looks like I have
+chances of getting something</p>
+<p t="3853650" d="3150">that looks like a Gaussian.</p>
+<p t="3856800" d="2700">To have a Gaussian, I would
+need to see minus one half.</p>
+<p t="3859500" d="2160">And then I would need to
+see theta minus something</p>
+<p t="3861660" d="3570">here, not just the sum of
+something minus thetas.</p>
+<p t="3865230" d="4590">So I need to work
+a little bit more,</p>
+<p t="3869820" d="1655">to expand the square here.</p>
+<p t="3871475" d="1375">So this thing here
+is going to be</p>
+<p t="3872850" d="4480">equal to exponential minus
+one half sum from I equal 1</p>
+<p t="3877330" d="7950">to n of Xi squared minus 2Xi
+theta plus theta squared.</p>
+<p t="3910590" d="3000">Now what I'm going to do
+is, everything remember</p>
+<p t="3913590" d="2280">is up to this little sign.</p>
+<p t="3915870" d="3840">So every time I see a term
+that does not depend on theta,</p>
+<p t="3919710" d="2540">I can just push it in there
+and just make it disappear.</p>
+<p t="3922250" d="2300">Agreed?</p>
+<p t="3924550" d="3870">This term here, exponential
+minus one half sum of Xi</p>
+<p t="3928420" d="3241">squared, does it
+depend on theta?</p>
+<p t="3931661" d="499">No.</p>
+<p t="3932160" d="1260">So I'm just pushing it here.</p>
+<p t="3933420" d="1110">This guy, yes.</p>
+<p t="3934530" d="1440">And the other one, yes.</p>
+<p t="3935970" d="9050">So this is proportional to
+exponential sum of the Xi.</p>
+<p t="3945020" d="2760">And then I'm going to pull out
+my theta, the minus one half</p>
+<p t="3947780" d="2370">canceled with the minus 2.</p>
+<p t="3950150" d="6310">And then I have minus
+one half sum from I</p>
+<p t="3956460" d="1720">equal 1 to n of theta squared.</p>
+<p t="3961480" d="1980">Agreed?</p>
+<p t="3963460" d="1890">So now what this
+thing looks like,</p>
+<p t="3965350" d="4220">this looks very much like some
+theta minus something squared.</p>
+<p t="3969570" d="5540">This thing here is really
+just n over 2 times theta.</p>
+<p t="3978520" d="3220">Sorry, times theta squared.</p>
+<p t="3981740" d="3380">So now what I need to do is to
+write this of the form, theta</p>
+<p t="3985120" d="1110">minus something.</p>
+<p t="3986230" d="5590">Let's call it mu, squared,
+divided by 2 sigma squared.</p>
+<p t="3991820" d="2340">I want to turn this into
+that, maybe up to terms</p>
+<p t="3994160" d="2350">that do not depend on theta.</p>
+<p t="3996510" d="2552">That's what I'm
+going to try to do.</p>
+<p t="3999062" d="1708">So that's called
+completing the squaring.</p>
+<p t="4000770" d="1240">That's some exercises you do.</p>
+<p t="4002010" d="2250">You've done it probably,
+already in the homework.</p>
+<p t="4004260" d="2300">And that's something
+you do a lot when</p>
+<p t="4006560" d="2190">you do Bayesian
+statistics, in particular.</p>
+<p t="4008750" d="1260">So let's do this.</p>
+<p t="4010010" d="1900">What is it going to
+be the leading term?</p>
+<p t="4011910" d="2250">Theta squared is going to
+be multiplied by this thing.</p>
+<p t="4014160" d="2970">So I'm going to pull
+out my n over 2.</p>
+<p t="4017130" d="5940">And then I'm going to write
+this as minus theta over 2.</p>
+<p t="4023070" d="3150">And then I'm going to write
+theta minus something squared.</p>
+<p t="4026220" d="2670">And this something is going
+to be one half of what</p>
+<p t="4028890" d="1270">I see in the cross-product.</p>
+<p t="4032966" d="1624">I need to actually
+pull this thing out.</p>
+<p t="4034590" d="3750">So let me write it
+like that first.</p>
+<p t="4038340" d="3520">So that's theta squared.</p>
+<p t="4041860" d="8820">And then I'm going to write it
+as minus 2 times 1 over n sum</p>
+<p t="4050680" d="6300">from I equal 1 to n
+of Xi's times theta.</p>
+<p t="4056980" d="2894">That's exactly just a rewriting
+of what we had before.</p>
+<p t="4059874" d="1666">And that should look
+much more familiar.</p>
+<p t="4064990" d="4710">A squared minus 2 blap A,
+and then I missed something.</p>
+<p t="4069700" d="2160">So this thing, I'm going
+to be able to rewrite</p>
+<p t="4071860" d="6070">as theta minus Xn bar squared.</p>
+<p t="4077930" d="2790">But then I need to remove
+the square of Xn bar.</p>
+<p t="4080720" d="1020">Because it's not here.</p>
+<p t="4089210" d="2087">So I just complete the square.</p>
+<p t="4091297" d="2583">And then I actually really don't
+care with this thing actually</p>
+<p t="4093880" d="3019">was, because it's going to go
+again in the little Alpha's</p>
+<p t="4096899" d="1517">sign over there.</p>
+<p t="4098416" d="1374">So this thing
+eventually is going</p>
+<p t="4099790" d="4830">to be proportional
+to exponential</p>
+<p t="4104620" d="6470">of minus n over 2 times theta
+of minus Xn bar squared.</p>
+<p t="4111090" d="2280">And so we know that if
+this is a density that's</p>
+<p t="4113370" d="10730">proportional to this guy, it has
+to be some n with mean, Xn bar.</p>
+<p t="4124100" d="3420">And variance, this is supposed
+to be 1 over sigma squared.</p>
+<p t="4127520" d="1798">This guy over here, this n.</p>
+<p t="4129318" d="1291">So that's really just 1 over n.</p>
+<p t="4133870" d="7870">So the posterior
+distribution is a Gaussian</p>
+<p t="4141740" d="4079">centered at the average
+of my observations.</p>
+<p t="4145819" d="2611">And with variance, 1 over n.</p>
+<p t="4153307" d="833">Everybody's with me?</p>
+<p t="4156740" d="3039">Why I'm saying this, this was
+the output of some computation.</p>
+<p t="4159779" d="1671">But it sort of
+makes sense, right?</p>
+<p t="4161450" d="2760">It's really telling me that
+the more observations I have,</p>
+<p t="4164210" d="2040">the more concentrated
+this posterior is.</p>
+<p t="4166250" d="1569">Concentrated around what?</p>
+<p t="4167819" d="2710">Well around this Xn bar.</p>
+<p t="4170529" d="2611">That looks like something
+we've sort of seen before.</p>
+<p t="4173140" d="2280">But it does not have the
+same meaning, somehow.</p>
+<p t="4175420" d="2160">This is really just the
+posterior distribution.</p>
+<p t="4180490" d="2670">It's sort of a sanity check,
+that I have this 1 over n</p>
+<p t="4183160" d="979">when I have Xn bar.</p>
+<p t="4184139" d="1541">But it's not the
+same thing as saying</p>
+<p t="4185680" d="2749">that the variance of Xn bar was
+1 over n, like we had before.</p>
+<p t="4195670" d="3720">As an exercise,
+I would recommend</p>
+<p t="4199390" d="10750">if you don't get it,
+just try pi of theta</p>
+<p t="4210140" d="5150">to be equal to some n mu 1.</p>
+<p t="4218120" d="4230">Here, the prior that we used
+was completely non-informative.</p>
+<p t="4222350" d="3244">What happens if I take my prior
+to be some Gaussian, which</p>
+<p t="4225594" d="1916">is centered at mu and
+it has the same variance</p>
+<p t="4227510" d="2610">as the other guys?</p>
+<p t="4230120" d="2084">So what's going to
+happen here is that we're</p>
+<p t="4232204" d="916">going to put a weight.</p>
+<p t="4233120" d="1416">And everything
+that's away from mu</p>
+<p t="4234536" d="3933">is going to actually
+get less weight.</p>
+<p t="4238469" d="1791">I want to know how I'm
+going to be updating</p>
+<p t="4240260" d="1590">this prior into a posterior.</p>
+<p t="4244520" d="2520">Everybody sees what
+I'm saying here?</p>
+<p t="4247040" d="3000">So that means that pi of theta
+has the density proportional</p>
+<p t="4250040" d="5640">to exponential minus one
+half theta minus mu squared.</p>
+<p t="4255680" d="4860">So I need to multiply
+my posterior with this,</p>
+<p t="4260540" d="1309">and then see.</p>
+<p t="4261849" d="1541">It's actually going
+to be a Gaussian.</p>
+<p t="4263390" d="1384">This is also a conjugate prior.</p>
+<p t="4264774" d="1666">It's going to spit
+out another Gaussian.</p>
+<p t="4266440" d="2950">You're going to have to complete
+a square again, and just check</p>
+<p t="4269390" d="1424">what it's actually giving you.</p>
+<p t="4270814" d="1666">And so spoiler alert,
+it's going to look</p>
+<p t="4272480" d="2310">like you get an extra
+observation, which is actually</p>
+<p t="4274790" d="570">equal to mu.</p>
+<p t="4278800" d="3640">It's going to be the average
+of n plus 1 observations.</p>
+<p t="4282440" d="1670">The first n1's being X1 to Xn.</p>
+<p t="4284110" d="3420">And then, the last one being mu.</p>
+<p t="4287530" d="3330">And it sort of makes sense.</p>
+<p t="4290860" d="3840">That's actually a
+fairly simple exercise.</p>
+<p t="4294700" d="1741">Rather than going
+into more computation,</p>
+<p t="4296441" d="1499">this is something
+you can definitely</p>
+<p t="4297940" d="3570">do when you're in the
+comfort of your room.</p>
+<p t="4301510" d="2400">I want to talk about
+other types of priors.</p>
+<p t="4303910" d="3420">The first thing I said is,
+there's this beta prior</p>
+<p t="4307330" d="3060">that I just pulled out of my hat
+and that was just convenient.</p>
+<p t="4310390" d="2470">Then there was this
+non-informative prior.</p>
+<p t="4312860" d="860">It was convenient.</p>
+<p t="4313720" d="2580">It was non-informative, so
+if you don't know anything</p>
+<p t="4316300" d="2650">else maybe that's
+what you want to do.</p>
+<p t="4318950" d="2990">The question is, are there
+any other priors that</p>
+<p t="4321940" d="2550">are sort of principled
+and generic, in the sense</p>
+<p t="4324490" d="4110">that the uninformative
+prior was generic, right?</p>
+<p t="4328600" d="2800">It was equal to 1, that's
+as generic as it gets.</p>
+<p t="4331400" d="2790">So is there anything
+that's generic as well?</p>
+<p t="4334190" d="2990">Well, there's this priors that
+are called Jeffrey's priors.</p>
+<p t="4337180" d="3360">And Jeffrey's prior, which is
+proportional to square root</p>
+<p t="4340540" d="2750">of the determinant of the
+Fisher information of theta.</p>
+<p t="4346360" d="2240">This is actually a
+weird thing to do.</p>
+<p t="4348600" d="2780">It says, look at your model.</p>
+<p t="4351380" d="2772">Your model is going to
+have a Fisher information.</p>
+<p t="4354152" d="833">Let's say it exists.</p>
+<p t="4358150" d="1807">Because we know it
+does not always exist.</p>
+<p t="4359957" d="1583">For example, in the
+multinomial model,</p>
+<p t="4361540" d="3120">we didn't have a
+Fisher information.</p>
+<p t="4364660" d="2010">The determinant of
+a matrix is somehow</p>
+<p t="4366670" d="2130">measuring the size of a matrix.</p>
+<p t="4368800" d="1740">If you don't trust
+me, just think</p>
+<p t="4370540" d="3330">about the matrix being
+of size one by one,</p>
+<p t="4373870" d="3040">then the determinant is just
+the number that you have there.</p>
+<p t="4376910" d="3860">And so this is really something
+that looks like the Fisher</p>
+<p t="4380770" d="900">information.</p>
+<p t="4384374" d="1916">It's proportional to the
+amount of information</p>
+<p t="4386290" d="3330">that you have at
+a certain point.</p>
+<p t="4389620" d="2690">And so what my prior
+is saying well,</p>
+<p t="4392310" d="1970">I want to put more weights
+on those thetas that</p>
+<p t="4394280" d="2770">are going to just extract more
+information from the data.</p>
+<p t="4400510" d="2250">You can actually
+compute those things.</p>
+<p t="4402760" d="3455">In the first example,
+Jeffrey's prior</p>
+<p t="4406215" d="2145">is something that
+looks like this.</p>
+<p t="4408360" d="1870">In one dimension,
+Fisher information</p>
+<p t="4410230" d="3246">is essentially one
+the word variance.</p>
+<p t="4413476" d="2124">That's just 1 over the
+square root of the variance,</p>
+<p t="4415600" d="1950">because I have the square root.</p>
+<p t="4417550" d="8220">And when I have the Jeffrey's
+prior, when I have the Gaussian</p>
+<p t="4425770" d="3000">case, this is the
+identity matrix</p>
+<p t="4428770" d="2070">that I would have in
+the Gaussian case.</p>
+<p t="4430840" d="1740">The determinant of
+the identities is 1.</p>
+<p t="4432580" d="3600">So square root of 1 is 1, and
+so I would basically get 1.</p>
+<p t="4436180" d="2990">And that gives me my improper
+prior, my uninformative prior</p>
+<p t="4439170" d="1850">that I had.</p>
+<p t="4441020" d="2670">So the uninformative
+prior 1 is fine.</p>
+<p t="4443690" d="3090">Clearly, all the thetas
+carry the same information</p>
+<p t="4446780" d="1380">in the Gaussian model.</p>
+<p t="4448160" d="2040">Whether I translate
+it here or here,</p>
+<p t="4450200" d="1920">it's pretty clear none
+of them is actually</p>
+<p t="4452120" d="1020">better than the other.</p>
+<p t="4453140" d="3390">But clearly for
+the Bernoulli case,</p>
+<p t="4456530" d="6030">the p's that are closer
+to the boundary carry</p>
+<p t="4462560" d="1380">more information.</p>
+<p t="4463940" d="2310">I sort of like those
+guys, because they just</p>
+<p t="4466250" d="1507">carry more information.</p>
+<p t="4467757" d="1583">So what I do is, I
+take this function.</p>
+<p t="4469340" d="960">So p1 minus p.</p>
+<p t="4470300" d="3870">Remember, it's something
+that looks like this.</p>
+<p t="4474170" d="1220">On the interval 0, 1.</p>
+<p t="4478710" d="2269">This guy, 1 over square
+root of p1 minus p</p>
+<p t="4480979" d="1416">is something that
+looks like this.</p>
+<p t="4485780" d="1840">Agreed</p>
+<p t="4487620" d="2160">What it's doing is
+sort of wants to push</p>
+<p t="4489780" d="4806">towards the piece that actually
+carry more information.</p>
+<p t="4494586" d="1624">Whether you want to
+bias your data that</p>
+<p t="4496210" d="2910">way or not, is something
+you need to think about.</p>
+<p t="4499120" d="2430">When you put a prior on your
+data, on your parameter,</p>
+<p t="4501550" d="4590">you're sort of biasing
+towards this idea your data.</p>
+<p t="4506140" d="1560">That's maybe not
+such a good idea,</p>
+<p t="4507700" d="5460">when you have some p that's
+actually close to one half,</p>
+<p t="4513160" d="660">for example.</p>
+<p t="4513820" d="1140">You're actually
+saying, no I don't</p>
+<p t="4514960" d="1650">want to see a p that's
+close to one half.</p>
+<p t="4516610" d="1740">Just make a decision,
+one way or another.</p>
+<p t="4518350" d="1349">But just make a decision.</p>
+<p t="4519699" d="1291">So it's forcing you to do that.</p>
+<p t="4523690" d="2400">Jeffrey's prior, I'm
+running out of time</p>
+<p t="4526090" d="3760">so I don't want to go
+into too much detail.</p>
+<p t="4529850" d="1820">We'll probably stop
+here, actually.</p>
+<p t="4544570" d="3240">So Jeffrey's priors have
+this very nice property.</p>
+<p t="4547810" d="3930">It's that they actually do not
+care about the parameterization</p>
+<p t="4551740" d="1410">of your space.</p>
+<p t="4553150" d="3210">If you actually have
+p and you suddenly</p>
+<p t="4556360" d="2490">decide that p is not the
+right parameter for Bernoulli,</p>
+<p t="4558850" d="1890">but it's p squared.</p>
+<p t="4560740" d="2460">You could decide to
+parameterize this by p squared.</p>
+<p t="4563200" d="2640">Maybe your doctor is
+actually much more able</p>
+<p t="4565840" d="3000">to formulate some prior
+assumption on p squared,</p>
+<p t="4568840" d="960">rather than p.</p>
+<p t="4569800" d="1300">You never know.</p>
+<p t="4571100" d="3290">And so what happens is
+that Jeffrey's priors</p>
+<p t="4574390" d="1600">are an invariant in this.</p>
+<p t="4575990" d="2570">And the reason is because
+the information carried by p</p>
+<p t="4578560" d="2570">is the same as the information
+carried by p squared, somehow.</p>
+<p t="4588822" d="1458">They're essentially
+the same thing.</p>
+<p t="4592950" d="1680">You need to have one to one map.</p>
+<p t="4594630" d="3266">Where you basically for
+each parameter, before</p>
+<p t="4597896" d="1124">you have another parameter.</p>
+<p t="4599020" d="1790">Let's call Eta the
+new parameters.</p>
+<p t="4605790" d="4590">The PDF of the new prior
+indexed by Eta this time</p>
+<p t="4610380" d="2610">is actually also
+Jeffrey's prior.</p>
+<p t="4612990" d="2184">But this time, the
+new Fisher information</p>
+<p t="4615174" d="2166">is not the Fisher information
+with respect to theta.</p>
+<p t="4617340" d="2670">But it's this Fisher
+information associated</p>
+<p t="4620010" d="3120">to this statistical
+model indexed by Eta.</p>
+<p t="4623130" d="4980">So essentially, when you
+change the parameterization</p>
+<p t="4628110" d="2490">of your model, you still
+get Jeffrey's prior</p>
+<p t="4630600" d="2220">for the new parameterization.</p>
+<p t="4632820" d="2200">Which is, in a way,
+a desirable property.</p>
+<p t="4639410" d="2510">Jeffrey's prior is just
+an uninformative priors,</p>
+<p t="4641920" d="2220">or priors you want
+to use when you</p>
+<p t="4644140" d="2340">want a systematic way without
+really thinking about what</p>
+<p t="4646480" d="916">to pick for your mile.</p>
+<p t="4655440" d="1620">I'll finish this next time.</p>
+<p t="4657060" d="2850">And we'll talk about
+Bayesian confidence regions.</p>
+<p t="4659910" d="1710">We'll talk about
+Bayesian estimation.</p>
+<p t="4661620" d="2454">Once I have a posterior,
+what do I get?</p>
+<p t="4664074" d="1416">And basically, the
+only message is</p>
+<p t="4665490" d="2370">going to be that you
+might want to integrate</p>
+<p t="4667860" d="1050">against the posterior.</p>
+<p t="4668910" d="2580">Find the posterior, the
+expectation of your posterior</p>
+<p t="4671490" d="640">distribution.</p>
+<p t="4672130" d="1880">That's a good point
+estimator for theta.</p>
+<p t="4676860" d="4160">We'll just do a
+couple of computation.</p>
+</body>
+</timedtext>

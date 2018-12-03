@@ -1,0 +1,1492 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="20000" d="13665">The topic for today is --
+Today we're going to talk,</p>
+<p t="33665" d="2535">I'm postponing the linear
+equations to next time.</p>
+<p t="36200" d="4020">Instead, I think it's a good
+idea, since in real life,</p>
+<p t="40220" d="2155">most of the
+differential equations</p>
+<p t="42375" d="3940">are solved by numerical methods
+to introduce you to those right</p>
+<p t="46315" d="500">away.</p>
+<p t="46815" d="2629">Even when you see
+the compute where</p>
+<p t="49444" d="3889">you saw the computer screen,
+the solutions being drawn.</p>
+<p t="53333" d="2111">Of course, what
+really was happening</p>
+<p t="55444" d="3556">was that the computer was
+calculating the solutions</p>
+<p t="59000" d="4000">numerically, and
+plotting the points.</p>
+<p t="63000" d="2000">So, this is the main
+way, numerically,</p>
+<p t="65000" d="4000">it is the main way differential
+equations are actually solved,</p>
+<p t="69000" d="3000">if they are of any
+complexity at all.</p>
+<p t="72000" d="3000">So, the problem is, that
+initial value problem,</p>
+<p t="75000" d="3744">let's write up the first
+order problem the way</p>
+<p t="78744" d="2381">we talked about it on Wednesday.</p>
+<p t="81125" d="3540">And now, I'll specifically add
+to that, the starting point</p>
+<p t="84665" d="3763">that you used when you did
+the computer experiments.</p>
+<p t="88428" d="4472">And, I'll write the
+starting point this way.</p>
+<p t="92900" d="2100">So, y of x0 should be y0.</p>
+<p t="95000" d="3500">So, this is the
+initial condition,</p>
+<p t="98500" d="3900">and this is the first order
+differential equation.</p>
+<p t="102400" d="3376">And, as you know,
+the two of them</p>
+<p t="105776" d="3724">together are called an IVP,
+an initial value problem,</p>
+<p t="109500" d="2500">which means two things,
+the differential</p>
+<p t="112000" d="3500">equation and the
+initial value that you</p>
+<p t="115500" d="3680">want to start the solution at.</p>
+<p t="119180" d="5820">Okay, now, the method we
+are going to talk about,</p>
+<p t="125000" d="3666">the basic method of
+which many others</p>
+<p t="128666" d="5334">are merely refinements
+in one way or another,</p>
+<p t="134000" d="2856">is called Euler's method.</p>
+<p t="136856" d="5144">Euler, who did, of course,
+everything in analysis,</p>
+<p t="142000" d="4250">as far as I know,
+didn't actually</p>
+<p t="146250" d="5750">use it to compute solutions
+of differential equations.</p>
+<p t="152000" d="4000">His interest was theoretical.</p>
+<p t="156000" d="4000">He used it as a method of
+proving the existence theorem,</p>
+<p t="160000" d="2664">proving that solutions existed.</p>
+<p t="162664" d="3836">But, nowadays, it's used
+to calculate the solutions</p>
+<p t="166500" d="500">numerically.</p>
+<p t="167000" d="4000">And, the method is very
+simple to describe.</p>
+<p t="171000" d="2331">It's so naive that
+you probably think</p>
+<p t="173331" d="3169">that if you that
+living 300 years ago,</p>
+<p t="176500" d="4375">you would have discovered
+it and covered yourself</p>
+<p t="180875" d="3125">with glory for all eternity.</p>
+<p t="184000" d="3000">So, here is our starting
+point, (x0, y0).</p>
+<p t="187000" d="3000">Now, what information
+do we have?</p>
+<p t="190000" d="4444">At that point all we have is
+the little line element, whose</p>
+<p t="194444" d="3556">slope is given by f of (x, y).</p>
+<p t="198000" d="4248">So, if I start the
+solution, the only way</p>
+<p t="202248" d="2496">the solution could
+possibly go would</p>
+<p t="204744" d="3920">be to start off in
+that direction, since I</p>
+<p t="208664" d="2050">have no other information.</p>
+<p t="210714" d="5286">At least it has the correct
+direction at (x0, y0).</p>
+<p t="216000" d="4750">But, of course, it's not likely
+to have the correct direction</p>
+<p t="220750" d="750">anywhere else.</p>
+<p t="221500" d="3804">Now, what you do, then,
+is choose a step size.</p>
+<p t="225304" d="3196">I'll try just two
+steps of the method.</p>
+<p t="228500" d="2356">That's, I think, good enough.</p>
+<p t="230856" d="4144">Choose a uniform step size,
+which is usually called h.</p>
+<p t="235000" d="2768">And, you continue that
+solution until you</p>
+<p t="237768" d="5374">get to the next point, which
+will be x0 + h, as I've</p>
+<p t="243142" d="2858">drawn it on the picture.</p>
+<p t="246000" d="1500">So, we get to here.</p>
+<p t="247500" d="2400">We stop at that
+point, and now you</p>
+<p t="249900" d="2100">recalculate what the
+line element is here.</p>
+<p t="252000" d="4712">Suppose, here, the line
+element, now, through this point</p>
+<p t="256712" d="1288">goes like that.</p>
+<p t="258000" d="2400">Well, then, that's
+the new direction</p>
+<p t="260400" d="3265">that you should start
+out with going from here.</p>
+<p t="263665" d="4513">And so, the next step of the
+process will carry you to here.</p>
+<p t="268178" d="2322">That's two steps
+of Euler's method.</p>
+<p t="270500" d="5500">Notice it produces a broken line
+approximation to the solution.</p>
+<p t="276000" d="3000">But, in fact, you only
+see that broken line</p>
+<p t="279000" d="4000">if you are at a computer if
+you are looking at the computer</p>
+<p t="283000" d="4000">visual, for example, whose
+purpose is to illustrate</p>
+<p t="287000" d="1712">for you Euler's method.</p>
+<p t="288712" d="2788">In actual practice,
+what you see is,</p>
+<p t="291500" d="2000">the computer is
+simply calculating</p>
+<p t="293500" d="4070">this point, that point, and
+the succession of points.</p>
+<p t="297570" d="1985">And, many programs
+will just automatically</p>
+<p t="299555" d="4445">connect those points by
+a smooth looking curve</p>
+<p t="304000" d="4000">if that's what
+you prefer to see.</p>
+<p t="308000" d="3000">Well, that's all there
+is to the method.</p>
+<p t="311000" d="4375">What we have to do now is derive
+the equations for the method.</p>
+<p t="315375" d="3000">Now, how are we
+going to do that?</p>
+<p t="318375" d="5349">Well, the essence of it is
+how to get from the nth step</p>
+<p t="323724" d="2651">to the n plus first step?</p>
+<p t="326375" d="4441">So, I'm going to draw a picture
+just to illustrate that.</p>
+<p t="330816" d="3184">So, now we are not at x0.</p>
+<p t="334000" d="3375">But let's say we've
+already gotten to (xn, yn).</p>
+<p t="337375" d="2625">How do I take the next step?</p>
+<p t="340000" d="3330">Well, I take the line
+element, and it goes up</p>
+<p t="343330" d="3670">like that, let's say,
+because the slope is this.</p>
+<p t="347000" d="4000">I'm going to call
+that slope A sub n.</p>
+<p t="351000" d="4329">Of course, A sub n is the
+value of the right hand side</p>
+<p t="355329" d="4071">at the point (xn, yn), and we
+will need that in the equation,</p>
+<p t="359400" d="5904">-- -- but I think it will be
+a little bit clearer if I just</p>
+<p t="365304" d="2981">give it a capital
+letter at this point.</p>
+<p t="368285" d="3893">Now, this is the new point,
+and all I want to know</p>
+<p t="372178" d="1822">is what are its coordinates?</p>
+<p t="374000" d="3000">Well, the x n plus one is there.</p>
+<p t="377000" d="2000">The y n plus one is here.</p>
+<p t="379000" d="2664">Clearly I should
+draw this triangle,</p>
+<p t="381664" d="1336">complete the triangle.</p>
+<p t="383000" d="4000">This side of the triangle,
+the hypotenuse has slope An.</p>
+<p t="387000" d="3000">This side of the
+triangle has length h.</p>
+<p t="390000" d="1665">h is the step size.</p>
+<p t="391665" d="1835">Perhaps I'd better
+indicate that,</p>
+<p t="393500" d="5500">actually put that up so
+that you know the word step.</p>
+<p t="399000" d="2856">It's the step size
+on the x axis,</p>
+<p t="401856" d="5144">how far you have to go to get
+from each x to the next one.</p>
+<p t="407000" d="1000">What's this?</p>
+<p t="408000" d="5000">Well, if that slope has this,
+the slope An, this is h.</p>
+<p t="413000" d="5000">Then this must be h times
+An, the length of that side,</p>
+<p t="418000" d="4224">in order that the ratio of
+the height to this width</p>
+<p t="422224" d="1347">should be An.</p>
+<p t="423571" d="3429">And, that gives us the method.</p>
+<p t="427000" d="6332">How do I get from, clearly, to
+get from xn to x n plus one,</p>
+<p t="433332" d="2668">I simply add h.</p>
+<p t="436000" d="3000">So, that's the
+trivial part of it.</p>
+<p t="439000" d="6452">The interesting thing is, how
+do I get the new y n plus one?</p>
+<p t="445452" d="4879">And so, the best way to write
+it as, that y n plus one</p>
+<p t="450331" d="2469">minus yn divided
+by h, well, sorry,</p>
+<p t="452800" d="7862">y n plus one minus yn is this
+line, the same as the line</p>
+<p t="460662" d="2338">h times An.</p>
+<p t="463000" d="2331">So, that's the way to write it.</p>
+<p t="465331" d="3544">Or, since the computer is
+interested in calculating</p>
+<p t="468875" d="5303">y n plus one itself, put
+this on the other side.</p>
+<p t="474178" d="2911">You take the old yn,
+the previous one,</p>
+<p t="477089" d="2911">and to it, you add h times An.</p>
+<p t="480000" d="4000">And, what, pray tell, is An?</p>
+<p t="484000" d="5664">Well, the computer has to be
+told that An is the value of f.</p>
+<p t="489664" d="2224">So, now, with that,
+let's actually</p>
+<p t="491888" d="3112">write the Euler program,
+not the program,</p>
+<p t="495000" d="4000">but the Euler-- the
+Euler method equations,</p>
+<p t="499000" d="3000">let's just call it
+the Euler equations.</p>
+<p t="502000" d="1140">What will they be?</p>
+<p t="503140" d="4860">First of all, the new
+x is the old x plus h.</p>
+<p t="508000" d="3000">The new y is just what
+I've written there,</p>
+<p t="511000" d="7000">the old y plus h times a
+certain number, An, and finally,</p>
+<p t="518000" d="6332">An has the value-- It's the
+slope of the line element here,</p>
+<p t="524332" d="5668">and therefore by definition,
+that's f of (xn,yn).</p>
+<p t="530000" d="5000">So, if these three equations
+which define Euler's method.</p>
+<p t="535000" d="5000">I assume in 1.00 you must
+be asked to, at some point,</p>
+<p t="540000" d="4576">as an exercise in the term
+at one point to program</p>
+<p t="544576" d="4924">the computer in C or whatever
+they're using, Java, now,</p>
+<p t="549500" d="4500">I guess, to do Euler's method.</p>
+<p t="554000" d="4662">And, these would be
+the recursive equations</p>
+<p t="558662" d="5154">that you would
+put in to do that.</p>
+<p t="563816" d="3809">Okay, let's try
+an example, then.</p>
+<p t="567625" d="5575">So, what would be a
+good color for Euler?</p>
+<p t="573200" d="1800">Well, a purple.</p>
+<p t="575000" d="3330">I assume nobody can see purple.</p>
+<p t="578330" d="1670">Is that correct?</p>
+<p t="580000" d="6000">Can anyone in the back of the
+room see that that's purple?</p>
+<p t="586000" d="666">Okay.</p>
+<p t="586666" d="1334">Sit closer.</p>
+<p t="588000" d="2400">So, let's calculate.</p>
+<p t="590400" d="5600">The example, I'll
+use a simple example,</p>
+<p t="596000" d="4000">but it's not entirely trivial.</p>
+<p t="600000" d="2000">My example is going
+to be the equation,</p>
+<p t="602000" d="5000">x squared minus y squared
+on the right hand side.</p>
+<p t="607000" d="3750">And, let's start with y of
+zero equals one, let's say.</p>
+<p t="610750" d="3250">And so, this is my
+initial value problem,</p>
+<p t="614000" d="2000">that pair of equations.</p>
+<p t="616000" d="2000">And, I have to
+specify a step size.</p>
+<p t="618000" d="2000">So, let's take the
+step size to 0.1.</p>
+<p t="620000" d="4000">You choose the step size,
+or the computer does.</p>
+<p t="624000" d="3000">We'll have to talk about
+that in a few minutes.</p>
+<p t="627000" d="1815">Now, what do you do?</p>
+<p t="628815" d="4685">Well, I say this is a nontrivial
+equation because this equation,</p>
+<p t="633500" d="5000">as far as I know, cannot be
+solved in terms of elementary</p>
+<p t="638500" d="500">functions.</p>
+<p t="639000" d="2541">So, this equation
+would be, in fact,</p>
+<p t="641541" d="4459">a very good candidate for a
+numerical method like Euler's.</p>
+<p t="646000" d="4428">And, you had to use it, or maybe
+it was the other way around,</p>
+<p t="650428" d="856">I forget.</p>
+<p t="651284" d="4916">On your problem set, you drew a
+picture of the direction field</p>
+<p t="656200" d="3300">and answered some questions
+about the isoclines,</p>
+<p t="659500" d="1875">how the solutions behave.</p>
+<p t="661375" d="3351">Now, the main thing
+I want you to get,</p>
+<p t="664726" d="2541">this is not just
+for Euler's, talking</p>
+<p t="667267" d="1233">about Euler's equations.</p>
+<p t="668500" d="2400">But in general, for
+the calculations</p>
+<p t="670900" d="3300">you have to do in this course,
+it's extremely important</p>
+<p t="674200" d="3550">to be systematic because
+if you are not systematic,</p>
+<p t="677750" d="3750">you know, if you just scribble,
+scribble, scribble, scribble,</p>
+<p t="681500" d="2900">scribble, you can do
+the work, but it becomes</p>
+<p t="684400" d="1200">impossible to find mistakes.</p>
+<p t="685600" d="3321">You must do the work
+in a form in which it</p>
+<p t="688921" d="3412">can be checked, which you
+can look over it and find,</p>
+<p t="692333" d="4887">and try to see where mistakes
+are if, in fact, there are any.</p>
+<p t="697220" d="4000">So, I strongly suggest,
+this is not a suggestion,</p>
+<p t="701220" d="5524">this is a command, that you make
+a little table to do Euler's</p>
+<p t="706744" d="4469">method by hand, I'd only
+ask you for a step or two,</p>
+<p t="711213" d="2619">but since I'm just
+trying to make</p>
+<p t="713832" d="3328">sure you have some
+idea of these equations</p>
+<p t="717160" d="2172">and where they come from.</p>
+<p t="719332" d="4483">So, first, the value of
+n, then the value of xn,</p>
+<p t="723815" d="2953">then the value of
+the yn, and then,</p>
+<p t="726768" d="3072">a couple of more
+columns which tell you</p>
+<p t="729840" d="2048">how to do the calculation.</p>
+<p t="731888" d="4111">You are going to need
+the value of the slope,</p>
+<p t="735999" d="2455">and it's probably
+a good idea, also,</p>
+<p t="738454" d="4546">because otherwise you'll
+forget it, to put in h An</p>
+<p t="743000" d="3000">because that occurs
+in the formula.</p>
+<p t="746000" d="4000">All right, let's start doing it.</p>
+<p t="750000" d="2541">The first value of n is zero.</p>
+<p t="752541" d="1459">That's the starting point.</p>
+<p t="754000" d="4000">At the starting point, (x0,
+y0), x has the value zero,</p>
+<p t="758000" d="4000">and y has the value
+one, so, zero and one.</p>
+<p t="762000" d="3000">In other words, starting,
+I'm carrying out</p>
+<p t="765000" d="2800">exactly what I drew
+pictorially only now</p>
+<p t="767800" d="3864">I'm doing it arithmetically
+using a table</p>
+<p t="771664" d="3336">and substituting
+into the formulas.</p>
+<p t="775000" d="5000">Okay, the next thing we
+have to calculate is An.</p>
+<p t="780000" d="3000">Well, since An is the value
+of the right hand side,</p>
+<p t="783000" d="4000">at the point zero one,
+you have to plug that in.</p>
+<p t="787000" d="4000">The right hand side is x
+squared minus y squared.</p>
+<p t="791000" d="3000">So, it's 0 squared
+minus 1 squared.</p>
+<p t="794000" d="6000">The value of the slope, there,
+is minus one, negative one.</p>
+<p t="800000" d="2000">Now, I have to
+multiply that by H.</p>
+<p t="802000" d="999">h is 0.1.</p>
+<p t="802999" d="2453">So, it's negative,
+I'll never learn that.</p>
+<p t="805452" d="2881">The way you learn to
+talk in kindergarten</p>
+<p t="808333" d="4917">is the way you learn to
+talk the rest of your life,</p>
+<p t="813250" d="1250">unfortunately.</p>
+<p t="814500" d="4300">In kindergarten, we said minus.</p>
+<p t="818800" d="1200">Negative 0.1.</p>
+<p t="820000" d="2220">n is one now.</p>
+<p t="822220" d="2780">What's the value of xn?</p>
+<p t="825000" d="3000">Well, to the old
+value I add 1/10.</p>
+<p t="828000" d="2775">What's the value of y?</p>
+<p t="830775" d="5225">Well, at this point, you
+have to do the calculation.</p>
+<p t="836000" d="3000">It's the old value of y.</p>
+<p t="839000" d="7000">To get this new value, it's
+the old value plus this number.</p>
+<p t="846000" d="6816">Well, that's this plus
+that number is nine tenths.</p>
+<p t="852816" d="6364">An, now I have to calculate
+the new slope at this point.</p>
+<p t="859180" d="6320">Okay, that is one tenth squared
+minus nine tenths squared.</p>
+<p t="865500" d="12500">That's 0.01 minus 0.81, which
+makes minus 0.80, I hope.</p>
+<p t="878000" d="2270">Check it on your calculators.</p>
+<p t="880270" d="3158">Whip them out and
+press the buttons.</p>
+<p t="883428" d="3404">I now multiply that
+by h, which means</p>
+<p t="886832" d="4596">it's going to be minus 0.08,
+perhaps with a zero after.</p>
+<p t="891428" d="3572">I didn't tell you how
+many decimal places.</p>
+<p t="895000" d="4000">Let's carry it out to
+two decimal places.</p>
+<p t="899000" d="4000">I think that will
+be good enough.</p>
+<p t="903000" d="7000">And finally, the last step, 2,
+here, add another one tenth,</p>
+<p t="910000" d="5000">so the value of x
+is now two tenths.</p>
+<p t="915000" d="3000">And finally, what's
+the value of y?</p>
+<p t="918000" d="4000">Well, I didn't tell
+you where to stop.</p>
+<p t="922000" d="5328">Let's stop at y of
+0.2 because there's</p>
+<p t="927328" d="3672">no more room on the blackboard.</p>
+<p t="931000" d="3500">About approximately
+how big is that?</p>
+<p t="934500" d="3316">In other words,
+this is, then, this</p>
+<p t="937816" d="5984">is going to be the old y
+plus this number, which</p>
+<p t="943800" d="4200">seems to be 0.82 to me.</p>
+<p t="948000" d="3000">So, the answer is,
+the new value is 0.82.</p>
+<p t="951000" d="1665">Okay, we got a number.</p>
+<p t="952665" d="2535">We did what we are
+supposed to do.</p>
+<p t="955200" d="800">We got a number.</p>
+<p t="956000" d="1000">Next question?</p>
+<p t="957000" d="3000">Now, let's ask a few questions.</p>
+<p t="960000" d="2625">One of the first,
+most basic things</p>
+<p t="962625" d="2373">is, you know, how right is this?</p>
+<p t="964998" d="4802">How can I answer such a question
+if I have no explicit formula</p>
+<p t="969800" d="1200">for that solution?</p>
+<p t="971000" d="4000">That's the basic problem
+with numerical calculation.</p>
+<p t="975000" d="2400">In other words, I
+have to wander around</p>
+<p t="977400" d="2400">in the dark to some
+extent, and yet</p>
+<p t="979800" d="4200">have some idea when I've arrived
+at the place that I want to go.</p>
+<p t="984000" d="4000">Well, the first question
+I'd like to answer,</p>
+<p t="988000" d="2800">is this too high or too low?</p>
+<p t="990800" d="5200">Is Euler, sorry, he'll forgive
+me in heaven, I will use him.</p>
+<p t="996000" d="2500">By this, I mean,
+is the result, let</p>
+<p t="998500" d="4875">me just say something first,
+and that I'll criticize it.</p>
+<p t="1003375" d="2625">Is Euler too high or too low?</p>
+<p t="1006000" d="4333">In other words, is the result
+of using Euler's method,</p>
+<p t="1010333" d="3095">i.e. is this number
+too high or too low?</p>
+<p t="1013428" d="5072">Is it higher than the right
+answer, what it should be?</p>
+<p t="1018500" d="4250">Or, is it lower than
+the right answer?</p>
+<p t="1022750" d="4026">Or, God forbid, is
+it exactly right?</p>
+<p t="1026776" d="2824">Well, it's almost
+never exactly right.</p>
+<p t="1029600" d="2400">That's not an option.</p>
+<p t="1032000" d="4000">Now, how will we
+answer that question?</p>
+<p t="1036000" d="3000">Well, let's answer
+it geometrically.</p>
+<p t="1039000" d="5454">Basically, if the solution
+were a straight line, then</p>
+<p t="1044454" d="4546">the Euler method would be
+exactly right all the time.</p>
+<p t="1049000" d="2775">But, it's not a line.</p>
+<p t="1051775" d="2225">Then it's a curve.</p>
+<p t="1054000" d="4000">Well, the critical
+question is, is it curved?</p>
+<p t="1058000" d="1284">Is the solution?</p>
+<p t="1059284" d="1716">So, here's a solution.</p>
+<p t="1061000" d="3600">Let's call it y1
+of x, and let's say</p>
+<p t="1064600" d="2176">here was the starting point.</p>
+<p t="1066776" d="2224">Here, the solution is convex.</p>
+<p t="1069000" d="3000">And, here the solution
+is concave, right?</p>
+<p t="1072000" d="5000">Concave up or concave down,
+if you learn those words,</p>
+<p t="1077000" d="4000">but I think those have,
+by now, I hope pretty well</p>
+<p t="1081000" d="2000">disappeared from the curriculum.</p>
+<p t="1083000" d="3888">Call it, if you
+haven't up until now,</p>
+<p t="1086888" d="3112">what mathematicians
+call it, convex is that,</p>
+<p t="1090000" d="1632">and the other one is concave.</p>
+<p t="1091632" d="1768">Well, how do Euler's
+solutions look?</p>
+<p t="1093400" d="1600">Well, I'll just sketch.</p>
+<p t="1095000" d="3684">I think from this you can see
+already, when you start out</p>
+<p t="1098684" d="3316">on the Euler's solution,
+it's going to go like that.</p>
+<p t="1102000" d="1500">Now you are too low.</p>
+<p t="1103500" d="2400">Well, let's suppose after
+that, the line element</p>
+<p t="1105900" d="4098">here is approximately the
+same as what it is there,</p>
+<p t="1109998" d="2002">or roughly parallel.</p>
+<p t="1112000" d="2000">After all, they are
+not too far apart.</p>
+<p t="1114000" d="3000">And, the direction
+field is continuous.</p>
+<p t="1117000" d="2331">That is, the directions
+don't change drastically</p>
+<p t="1119331" d="1569">from one point to another.</p>
+<p t="1120900" d="2433">But now, you see
+it's still too low.</p>
+<p t="1123333" d="3951">It's even lower as it
+pathetically tries to follow.</p>
+<p t="1127284" d="2841">It's losing territory,
+and that's basically</p>
+<p t="1130125" d="1875">because the curve is convex.</p>
+<p t="1132000" d="1800">Exactly the opposite
+what would happen</p>
+<p t="1133800" d="5484">if the curve were concave,
+if the solution curve were</p>
+<p t="1139284" d="716">concave.</p>
+<p t="1140000" d="2904">Now it's too high,
+and it's not going</p>
+<p t="1142904" d="4728">to be able to correct that
+as long as the solution</p>
+<p t="1147632" d="1368">curve stays concave.</p>
+<p t="1149000" d="4000">Well, that's probably
+too optimistic.</p>
+<p t="1153000" d="2220">It's probably more like this.</p>
+<p t="1155220" d="5780">So, in other words, in this
+case, if the curve is convex,</p>
+<p t="1161000" d="4000">Euler is going to be too
+high, sorry, too low.</p>
+<p t="1165000" d="3125">Let's put E for Euler.</p>
+<p t="1168125" d="1875">How about that?</p>
+<p t="1170000" d="1140">Euler is too low.</p>
+<p t="1171140" d="3360">If it's concave, then
+Euler is too high.</p>
+<p t="1174500" d="1500">Okay, that's great.</p>
+<p t="1176000" d="4000">There's just one little
+problem left, namely,</p>
+<p t="1180000" d="4000">if we don't have a
+formula for the solution,</p>
+<p t="1184000" d="3178">and we don't have
+a computer that's</p>
+<p t="1187178" d="4092">busy drawing the picture
+for us, in which case</p>
+<p t="1191270" d="3313">we wouldn't need
+any of this anyway,</p>
+<p t="1194583" d="6417">how are we supposed to tell
+if it's convex or concave?</p>
+<p t="1201000" d="1284">Back to calculus.</p>
+<p t="1202284" d="1716">Calculus to the rescue!</p>
+<p t="1204000" d="1665">When is a curve convex?</p>
+<p t="1205665" d="3424">A curve is convex if its
+second derivative is positive</p>
+<p t="1209089" d="4624">because the first to be convex
+means the first derivative is</p>
+<p t="1213713" d="2287">increasing all the time.</p>
+<p t="1216000" d="2000">And therefore, the
+second derivative,</p>
+<p t="1218000" d="4000">which is the derivative
+of the first derivative,</p>
+<p t="1222000" d="1284">should be positive.</p>
+<p t="1223284" d="2716">Just the opposite
+here; the curve,</p>
+<p t="1226000" d="3000">the slope is, the
+first derivative,</p>
+<p t="1229000" d="4000">is decreasing all the time and
+therefore the second derivative</p>
+<p t="1233000" d="1000">is negative.</p>
+<p t="1234000" d="5500">So, all we have to do is decide
+what the second derivative</p>
+<p t="1239500" d="1500">of the solution is.</p>
+<p t="1241000" d="2000">We should probably
+call it a solution.</p>
+<p t="1243000" d="3000">y of x is a little too vague.</p>
+<p t="1246000" d="3000">y1 means the solution
+started at this point.</p>
+<p t="1249000" d="2625">So, in fact, probably
+it would have</p>
+<p t="1251625" d="3231">been better from the beginning
+to call that y1, except there's</p>
+<p t="1254856" d="2144">no room, y1, let's say.</p>
+<p t="1257000" d="2800">That means the solution
+which started out</p>
+<p t="1259800" d="1950">at the point, (0, 1).</p>
+<p t="1261750" d="3582">So, I'm still talking about
+at a solution like that.</p>
+<p t="1265332" d="3523">All right, so I want to
+know if this is positive,</p>
+<p t="1268855" d="3365">the second derivative is
+positive at the starting point,</p>
+<p t="1272220" d="1780">zero, or it's negative.</p>
+<p t="1274000" d="3000">Now, again, how you can
+regulate the second derivative,</p>
+<p t="1277000" d="3000">if you don't know what the
+solution is explicitly,</p>
+<p t="1280000" d="4070">then the answer is you can do it
+from the differential equation</p>
+<p t="1284070" d="500">itself.</p>
+<p t="1284570" d="1430">How do I do that?</p>
+<p t="1286000" d="4250">Well: easy. y prime equals
+x squared minus y squared.</p>
+<p t="1290250" d="4166">Okay, that tells
+me how to calculate</p>
+<p t="1294416" d="4584">y prime if I know
+the value of x and y,</p>
+<p t="1299000" d="2000">in other words, the 0.01.</p>
+<p t="1301000" d="4000">What would be the value
+of y double prime?</p>
+<p t="1305000" d="3000">Well, differentiate
+the equation.</p>
+<p t="1308000" d="4000">It's two x minus two y y prime.</p>
+<p t="1312000" d="3000">Don't forget to
+use the chain rule.</p>
+<p t="1315000" d="5000">So, if I want to calculate
+at (0, 1), in other words,</p>
+<p t="1320000" d="4000">if my starting point is that
+curve convex or concave,</p>
+<p t="1324000" d="6000">well, let's calculate.
+y of zero equals one.</p>
+<p t="1330000" d="2000">Okay, what's y prime of zero?</p>
+<p t="1332000" d="4000">Well, I don't have to
+repeat that calculation.</p>
+<p t="1336000" d="2333">Using this, I've
+already calculated</p>
+<p t="1338333" d="1667">that it was negative one.</p>
+<p t="1340000" d="4000">And now, the new thing,
+what's y double prime of zero?</p>
+<p t="1344000" d="2000">Well, it is this.</p>
+<p t="1346000" d="1200">I'll write it out.</p>
+<p t="1347200" d="3800">It's two times zero minus two
+times negative y, which is one,</p>
+<p t="1351000" d="5000">two times one times y prime,
+which is negative one.</p>
+<p t="1356000" d="7400">You want to see we are pulling
+ourselves up by our own boot</p>
+<p t="1363400" d="1600">straps, which is impossible.</p>
+<p t="1365000" d="4000">But, it is not impossible
+because we are doing it.</p>
+<p t="1369000" d="1712">So, what's the answer?</p>
+<p t="1370712" d="3288">Zero here, two, I've
+calculated without having</p>
+<p t="1374000" d="6270">the foggiest idea of what the
+solution is or how it looks.</p>
+<p t="1380270" d="3301">I've calculated that
+its second derivative</p>
+<p t="1383571" d="3429">at the starting point is two.</p>
+<p t="1387000" d="6000">Therefore, my solution is
+convex at the starting point.</p>
+<p t="1393000" d="4000">And therefore, this
+Euler approximation,</p>
+<p t="1397000" d="5000">if I don't carry it out
+too far, will be too low.</p>
+<p t="1402000" d="3000">So, it's convex Euler, too low.</p>
+<p t="1405000" d="7000">Now, you could argue, yeah,
+well, what about this?</p>
+<p t="1412000" d="4000">[LAUGHTER] So, you
+could go like this,</p>
+<p t="1416000" d="3000">and then you can
+see it catches up.</p>
+<p t="1419000" d="6875">Well, of course, if the curve
+changes from convex to concave,</p>
+<p t="1425875" d="6250">then it's really impossible
+to make any prediction at all.</p>
+<p t="1432125" d="1875">That's a difficulty.</p>
+<p t="1434000" d="8000">So, all this analysis is
+only if you stay very nearby.</p>
+<p t="1442000" d="2763">However, I wanted to show
+you, the main purpose</p>
+<p t="1444763" d="3733">of it in my mind
+was to show you how</p>
+<p t="1448496" d="2504">do you use, it's
+these equations,</p>
+<p t="1451000" d="3000">how to use the differential
+equation itself to get</p>
+<p t="1454000" d="3885">information about the solutions,
+without actually being</p>
+<p t="1457885" d="2615">able to calculate the solutions?</p>
+<p t="1460500" d="3388">Now, so that's the
+method, and that's</p>
+<p t="1463888" d="3112">how to find out
+something about it.</p>
+<p t="1467000" d="5000">And now, what I'd like
+to talk about is errors.</p>
+<p t="1472000" d="2000">How do I handle, right?</p>
+<p t="1474000" d="4500">So, in a sense, I've
+started the error analysis.</p>
+<p t="1478500" d="5100">In other words, the error,
+by definition, the error</p>
+<p t="1483600" d="2400">is this difference, e.</p>
+<p t="1486000" d="4000">So, in other words,
+what I'm asking here,</p>
+<p t="1490000" d="2000">is the error positive?</p>
+<p t="1492000" d="3816">It depends which we measure it.</p>
+<p t="1495816" d="3755">Usually, you take
+this minus that.</p>
+<p t="1499571" d="4429">So, here, the error would
+be considered positive,</p>
+<p t="1504000" d="3600">and here it would be
+considered negative,</p>
+<p t="1507600" d="6308">although I'm sure there's a book
+somewhere in the world, which</p>
+<p t="1513908" d="1362">does the opposite.</p>
+<p t="1515270" d="4810">Most hedge by just using the
+absolute value of the error</p>
+<p t="1520080" d="3808">plus a statement that the
+method is producing answers</p>
+<p t="1523888" d="3112">which are too low or too high.</p>
+<p t="1527000" d="3714">The question, then,
+is, naturally, this</p>
+<p t="1530714" d="4286">is not the world's best method.</p>
+<p t="1535000" d="1750">It's not as bad as it seems.</p>
+<p t="1536750" d="2850">It's not the world's best
+method because that convexity</p>
+<p t="1539600" d="3000">and concavity means that
+you are automatically</p>
+<p t="1542600" d="2400">introducing a systematic error.</p>
+<p t="1545000" d="2565">If you can predict
+which way the error is</p>
+<p t="1547565" d="2685">going to be by just knowing
+whether the curve is</p>
+<p t="1550250" d="2415">convex or concave,
+it's not what you want.</p>
+<p t="1552665" d="2585">I mean, you want
+to at least have</p>
+<p t="1555250" d="1750">a chance of getting
+the right answer,</p>
+<p t="1557000" d="2800">whereas this is telling
+you you're definitely</p>
+<p t="1559800" d="1950">going to get the wrong answer.</p>
+<p t="1561750" d="2582">All it tells you is,
+and it's telling you</p>
+<p t="1564332" d="4668">whether your answer is going
+to be too high or too low.</p>
+<p t="1569000" d="5220">We've like a better chance
+of getting the right answer.</p>
+<p t="1574220" d="6007">Now, so the question is, how
+do you get a better method?</p>
+<p t="1580227" d="3373">A search is for a better method.</p>
+<p t="1583600" d="3288">Now, the first
+method, which will</p>
+<p t="1586888" d="4777">occur, I'm sure, to anyone
+who looks at that picture,</p>
+<p t="1591665" d="4335">is, look, if you
+want this yellow line</p>
+<p t="1596000" d="4000">to follow the white
+one, the white solution,</p>
+<p t="1600000" d="3000">more accurately,
+for heaven's sake,</p>
+<p t="1603000" d="4375">don't take such big steps.</p>
+<p t="1607375" d="7533">Take small steps, and then
+it will follow better.</p>
+<p t="1614908" d="5092">All right, let's draw a picture.</p>
+<p t="1620000" d="2000">Excuse me.</p>
+<p t="1622000" d="6000">My little box of
+treasures, here.</p>
+<p t="1628000" d="5000">[LAUGHTER] So, use
+a smaller step size.</p>
+<p t="1633000" d="5332">And the picture, roughly,
+which is going to justify that,</p>
+<p t="1638332" d="2668">will look like this.</p>
+<p t="1641000" d="3328">If the solution curve
+looks like this, then</p>
+<p t="1644328" d="5172">with a big step size,
+I'm liable to have</p>
+<p t="1649500" d="3500">something that looks like that.</p>
+<p t="1653000" d="3072">But, if I take a
+smaller step size,</p>
+<p t="1656072" d="2261">suppose I halve the step size.</p>
+<p t="1658333" d="2095">How's it going to look, then?</p>
+<p t="1660428" d="3572">Well, I better switch
+to a different color.</p>
+<p t="1664000" d="6000">If I halve the step size, I'll
+get a littler, goes like that.</p>
+<p t="1670000" d="2500">And now it's following closer.</p>
+<p t="1672500" d="3214">Of course, I'm
+stacking the deck,</p>
+<p t="1675714" d="4286">but see how close it follows?</p>
+<p t="1680000" d="2000">I'm definitely not to
+be trusted on this.</p>
+<p t="1682000" d="3000">Okay, let's do the opposite,
+make really big steps.</p>
+<p t="1685000" d="1500">Suppose instead
+of the yellow ones</p>
+<p t="1686500" d="2625">I used the green one
+of double step size.</p>
+<p t="1689125" d="2275">Well, what would
+have happened then?</p>
+<p t="1691400" d="3600">Well, I've started out, but now
+I've gone all the way to there.</p>
+<p t="1695000" d="2000">And now, on my
+way up, of course,</p>
+<p t="1697000" d="2125">it has a little further to go.</p>
+<p t="1699125" d="2875">But, if for some reason, I
+stop there, you could see,</p>
+<p t="1702000" d="1250">I would be still lower.</p>
+<p t="1703250" d="5750">In other words, the bigger the
+steps size, the more the error.</p>
+<p t="1709000" d="4000">And, where are the errors
+that we are talking about?</p>
+<p t="1713000" d="3744">Well, the way to think
+of the errors, this</p>
+<p t="1716744" d="3032">is the error, that
+number the error.</p>
+<p t="1719776" d="2779">You can make it
+positive, negative,</p>
+<p t="1722555" d="6158">or just put it automatically an
+absolute value sign around it.</p>
+<p t="1728713" d="2287">That's not so important.</p>
+<p t="1731000" d="2568">So, in other words,
+the conclusion</p>
+<p t="1733568" d="3762">is, that the error
+e, the difference</p>
+<p t="1737330" d="4166">between the true value
+that I should have gotten,</p>
+<p t="1741496" d="3836">and the Euler value that
+the calculation produced,</p>
+<p t="1745332" d="5168">that the error e,
+depends on the step size.</p>
+<p t="1750500" d="4356">Now, how does it depend
+on the step size?</p>
+<p t="1754856" d="3428">Well, it's impossible to
+give an exact formula,</p>
+<p t="1758284" d="2715">but there's an approximate
+answer, which is,</p>
+<p t="1760999" d="1401">by and large, true.</p>
+<p t="1762400" d="4600">So, the answer is, e is
+going to be a function of h.</p>
+<p t="1767000" d="1500">What function?</p>
+<p t="1768500" d="3276">Well, asymptotically,
+which is another way</p>
+<p t="1771776" d="3424">of putting quotation marks
+around, what did I say?</p>
+<p t="1775200" d="4800">It's going to be a constant,
+some constant, times H.</p>
+<p t="1780000" d="34220">[LAUGHTER] It looks like
+this, and for this reason</p>
+<p t="1814220" d="6780">it's called a first order, the
+Euler is a first order method.</p>
+<p t="1821000" d="5918">And now, first order does
+not refer to the first order</p>
+<p t="1826918" d="2796">of the differential equation.</p>
+<p t="1829714" d="6062">It's not the first order
+because it's y prime</p>
+<p t="1835776" d="2224">equals f of (x, y).</p>
+<p t="1838000" d="3856">The first order
+means the fact that h</p>
+<p t="1841856" d="2144">occurs to the first power.</p>
+<p t="1844000" d="2912">The way people
+usually say this is</p>
+<p t="1846912" d="3420">since the normal way of
+decreasing the step size,</p>
+<p t="1850332" d="4168">as you'll see as is you
+try to use a computer</p>
+<p t="1854500" d="3500">visual that deals
+with the Euler method,</p>
+<p t="1858000" d="3108">which I highly
+recommend, by the way,</p>
+<p t="1861108" d="3391">so highly recommended
+that you have to do it,</p>
+<p t="1864499" d="7501">is that the way to say it, each
+new step halves the step size.</p>
+<p t="1872000" d="4305">That's the usual way to do it.</p>
+<p t="1876305" d="6875">If you halve the step size,
+since this is a constant,</p>
+<p t="1883180" d="9820">if I halve the step size, I
+halve the error, approximately.</p>
+<p t="1893000" d="3000">Halve the step size,
+halve the error.</p>
+<p t="1896000" d="4905">That tells you how the
+error varies with step</p>
+<p t="1900905" d="3095">size for Euler's method.</p>
+<p t="1904000" d="3875">Please understand,
+that's what people</p>
+<p t="1907875" d="4553">say, and please understand
+the grammatical construction.</p>
+<p t="1912428" d="4208">Since everyone in
+the math department</p>
+<p t="1916636" d="6364">has a cold these days
+except me for the moment,</p>
+<p t="1923000" d="6000">everyone goes around
+chanting this mantra.</p>
+<p t="1929000" d="2284">This is totally irrelevant.</p>
+<p t="1931284" d="3716">This whole mantra, feed
+a cold, starve a fever.</p>
+<p t="1935000" d="3200">And if you asked
+them what it means,</p>
+<p t="1938200" d="3799">they say eat a lot
+if you have a cold.</p>
+<p t="1941999" d="3816">And if you have a fever,
+don't eat very much, which</p>
+<p t="1945815" d="3185">is not what it means at all.</p>
+<p t="1949000" d="4000">Grammatically, it's exactly
+the same construction as this.</p>
+<p t="1953000" d="4000">What this means is if
+you halve the step size,</p>
+<p t="1957000" d="1500">you will halve the error.</p>
+<p t="1958500" d="3100">That's what feed a cold,
+starve a fever means.</p>
+<p t="1961600" d="3150">And, remember this for
+the rest of your life.</p>
+<p t="1964750" d="4100">If you feed a cold, if you eat
+too much when you have a cold,</p>
+<p t="1968850" d="4750">you will get a fever and end up
+still having to starve yourself</p>
+<p t="1973600" d="3400">because, of course, nobody,
+when you have a fever,</p>
+<p t="1977000" d="5000">nobody feels like eating,
+so they don't eat anything.</p>
+<p t="1982000" d="3330">All right, you got that?</p>
+<p t="1985330" d="670">Good.</p>
+<p t="1986000" d="8000">I want all of you to go home
+and tell that to your mothers.</p>
+<p t="1994000" d="7000">You know, that's the way
+we always used to speak.</p>
+<p t="2001000" d="4666">Grimmer ones: spare
+the rod, spoil</p>
+<p t="2005666" d="8084">the child does not mean that
+you should not hit your kid.</p>
+<p t="2013750" d="6915">It means that if you
+fail to hit your kid,</p>
+<p t="2020665" d="5135">he or she will be spoiled,
+whatever that means.</p>
+<p t="2025800" d="4200">So, you don't want to do that.</p>
+<p t="2030000" d="6000">I guess the mantra today
+would be, I don't know.</p>
+<p t="2036000" d="4081">Okay, so the first
+line of defense</p>
+<p t="2040081" d="5419">is simply to keep having
+the step size in Euler.</p>
+<p t="2045500" d="4600">And, what people do is, if
+they don't want to use anything</p>
+<p t="2050100" d="3804">better than Euler's method, is
+you keep having the step size</p>
+<p t="2053904" d="2761">until the curve doesn't
+seem to change anymore.</p>
+<p t="2056665" d="3335">And then you say, well,
+that must be the solution.</p>
+<p t="2060000" d="2921">And, I asked you on the
+problems set, how much would</p>
+<p t="2062921" d="3650">you continue to have to
+halve the step size in order</p>
+<p t="2066571" d="3429">for that good thing to happen?</p>
+<p t="2070000" d="3330">However, there are
+more efficient methods</p>
+<p t="2073330" d="2670">which get the results faster.</p>
+<p t="2076000" d="3571">So if that's our
+good method, let's</p>
+<p t="2079571" d="3429">call this our still
+better method.</p>
+<p t="2083000" d="4000">The better methods
+aim at being better.</p>
+<p t="2087000" d="4000">They keep the same
+idea as Euler's method,</p>
+<p t="2091000" d="5600">but they say, look, let's try
+to improve that slope, An.</p>
+<p t="2096600" d="4176">In other words, since the
+slope, An, that we start with</p>
+<p t="2100776" d="4224">is guaranteed to be wrong if
+the curve is convex or concave,</p>
+<p t="2105000" d="1875">can we somehow correct it?</p>
+<p t="2106875" d="3125">So, for example, instead of
+immediately aiming there,</p>
+<p t="2110000" d="3632">can't we somehow aim it
+so that by luck, we just,</p>
+<p t="2113632" d="3368">at the next step just lands
+us back on the curve again?</p>
+<p t="2117000" d="3666">In other words, with sort of
+looking for the short path,</p>
+<p t="2120666" d="2331">a shortcut path,
+which by good luck</p>
+<p t="2122997" d="2803">will end us up back
+on the curve again.</p>
+<p t="2125800" d="3200">And, all the simple improvements
+on the Euler method,</p>
+<p t="2129000" d="3284">and they are the
+most stable in ways</p>
+<p t="2132284" d="2430">to solve differential
+equations numerically,</p>
+<p t="2134714" d="4286">aim at finding a better slope.</p>
+<p t="2139000" d="4000">So, they find a better
+value for a better slope,</p>
+<p t="2143000" d="2496">find a better value than An.</p>
+<p t="2145496" d="3504">Try to improve that
+slope that you found.</p>
+<p t="2149000" d="5625">Now, once you have the idea that
+you should look for a better</p>
+<p t="2154625" d="4375">slope, it's not very difficult
+to see what, in fact,</p>
+<p t="2159000" d="1332">you should try.</p>
+<p t="2160332" d="4000">Again, I think most
+of you would say, hey,</p>
+<p t="2164332" d="2668">I would have thought of that.</p>
+<p t="2167000" d="2541">And, you would be
+closer in time,</p>
+<p t="2169541" d="2073">since these methods
+were only found</p>
+<p t="2171614" d="4011">about around the turn of the
+last century is when I place</p>
+<p t="2175625" d="3750">them, mostly by some
+German mathematicians</p>
+<p t="2179375" d="2625">interested in solving
+equations numerically.</p>
+<p t="2182000" d="3000">All right, so what
+is the better method?</p>
+<p t="2185000" d="4666">Our better slope, what should
+we look for in our better slope?</p>
+<p t="2189666" d="4834">Well, the simplest
+procedure is, once again, we</p>
+<p t="2194500" d="3580">are starting from there,
+and the Euler slope would</p>
+<p t="2198080" d="2920">be the same as a line element.</p>
+<p t="2201000" d="3000">So, the line element
+looks like this.</p>
+<p t="2204000" d="3200">And, our yellow slope,
+A, and I'll still</p>
+<p t="2207200" d="3800">continue to call it An, goes
+like that, gets to here.</p>
+<p t="2211000" d="4000">Okay, now if it were convex,
+if the curve were convex,</p>
+<p t="2215000" d="2140">this would be too low.</p>
+<p t="2217140" d="2675">And therefore, the
+next step would be,</p>
+<p t="2219815" d="4060">I'm going to draw this
+next step in pink.</p>
+<p t="2223875" d="4925">Well, let's continue in here,
+would be going up like that.</p>
+<p t="2228800" d="2532">I'll call this Bn,
+just because it's</p>
+<p t="2231332" d="2668">the next step of Euler's method.</p>
+<p t="2234000" d="5000">It could be called An prime
+or something like that.</p>
+<p t="2239000" d="1200">But this will do.</p>
+<p t="2240200" d="4600">And now what you do is,
+let me put an arrow on it</p>
+<p t="2244800" d="3700">to indicate parallelness,
+go back to the beginning,</p>
+<p t="2248500" d="2500">draw this parallel to Bn.</p>
+<p t="2251000" d="1452">So, here is Bn.</p>
+<p t="2252452" d="2923">Again, just a line
+of that same slope.</p>
+<p t="2255375" d="4623">And now, what you should use
+as the simplest improvement</p>
+<p t="2259998" d="5817">on Euler's method, is take
+the average of these two</p>
+<p t="2265815" d="2985">because that's
+more likely to hit</p>
+<p t="2268800" d="4000">the curve than An will,
+which is sure to be</p>
+<p t="2272800" d="2912">too low if the curve is convex.</p>
+<p t="2275712" d="2488">In other words,
+use this instead.</p>
+<p t="2278200" d="800">Use that.</p>
+<p t="2279000" d="3498">So, this is our better slope.</p>
+<p t="2282498" d="3787">Okay, what will we
+call that slope?</p>
+<p t="2286285" d="2143">We don't have to
+call it anything.</p>
+<p t="2288428" d="3428">What were the equations
+for the method be?</p>
+<p t="2291856" d="5144">Well, x n plus one is gotten
+by adding the step size.</p>
+<p t="2297000" d="3000">So, here's my step size
+just as it was before.</p>
+<p t="2300000" d="3072">Just as it was
+before, the new thing</p>
+<p t="2303072" d="3260">is how to get the
+new value of y.</p>
+<p t="2306332" d="4935">So, y n plus one should be
+the old yn, plus h times not</p>
+<p t="2311267" d="5733">this crummy slope, An, but
+the better, the pink slope.</p>
+<p t="2317000" d="2000">What's the formula
+for the pink slope?</p>
+<p t="2319000" d="2499">Well, let's do it in two steps.</p>
+<p t="2321499" d="2501">It's the average of An and Bn.</p>
+<p t="2324000" d="4285">Hey, but you didn't tell me, or
+I didn't tell you what Bn was.</p>
+<p t="2328285" d="4379">So, you now must tell the
+computer, oh yes, by the way,</p>
+<p t="2332664" d="3736">you remember that An
+was what it always was.</p>
+<p t="2336400" d="2884">The interesting
+thing is, what is Bn?</p>
+<p t="2339284" d="4047">Well, to get Bn, Bn is
+the slope of the line</p>
+<p t="2343331" d="1669">element at this new point.</p>
+<p t="2345000" d="3000">Now, what am I going
+to call that new point?</p>
+<p t="2348000" d="4000">I don't want to call this
+y value, y n plus one,</p>
+<p t="2352000" d="3500">because that's, it's
+this up here that's</p>
+<p t="2355500" d="1900">going to be the y n plus one.</p>
+<p t="2357400" d="2376">All this is, is
+a temporary value</p>
+<p t="2359776" d="3889">used to make another
+calculation, which will then</p>
+<p t="2363665" d="3335">be combined with the
+previous calculations</p>
+<p t="2367000" d="2000">to get the right value.</p>
+<p t="2369000" d="2500">Therefore, give it
+a temporary name.</p>
+<p t="2371500" d="3114">That point, we'll
+call it, it's not</p>
+<p t="2374614" d="3386">going to be the final,
+the real y n plus one.</p>
+<p t="2378000" d="3499">We'll call it y n plus
+one twiddle, y n plus one</p>
+<p t="2381499" d="499">temporary.</p>
+<p t="2381998" d="2002">And, what's the formula for it?</p>
+<p t="2384000" d="3630">Well, it's just going to
+be what the original Euler</p>
+<p t="2387630" d="3562">formula; it's going to be y n
+plus what you would have gotten</p>
+<p t="2391192" d="2408">if you had calculated,
+in other words,</p>
+<p t="2393600" d="2800">it's the point that the
+Euler method produced,</p>
+<p t="2396400" d="4600">but it's not, finally,
+the point that we want.</p>
+<p t="2401000" d="3000">Now, do I have to
+say anything else?</p>
+<p t="2404000" d="4000">Yeah, I didn't tell the
+computer what Bn was.</p>
+<p t="2408000" d="3688">Okay, Bn is the slope
+of the direction</p>
+<p t="2411688" d="3740">field at the point n plus one.</p>
+<p t="2415428" d="4372">And the computer
+knows what that is.</p>
+<p t="2419800" d="4200">And, this point, y n
+plus one temporary.</p>
+<p t="2424000" d="7000">So, you make a temporary choice
+of this, calculate that number,</p>
+<p t="2431000" d="3000">and then go back,
+and as it were,</p>
+<p t="2434000" d="5625">correct that value to this value
+by using this better slope.</p>
+<p t="2439625" d="4875">Now, that's all there
+is to the method,</p>
+<p t="2444500" d="3500">except I didn't
+give you its name.</p>
+<p t="2448000" d="4000">Well, it has three names,
+four names in fact.</p>
+<p t="2452000" d="2664">Which one shall I give you?</p>
+<p t="2454664" d="1336">I don't care.</p>
+<p t="2456000" d="4000">Okay, the shortest
+name is Heun's method.</p>
+<p t="2460000" d="5000">But nobody pronounces
+that correctly.</p>
+<p t="2465000" d="2664">So, it's Heun's method.</p>
+<p t="2467664" d="5336">It's called, also, the
+Improved Euler method.</p>
+<p t="2473000" d="6000">It's called Modified Euler,
+very expressive word,</p>
+<p t="2479000" d="2250">Modified Euler's method.</p>
+<p t="2481250" d="3750">And, it's also called RK2.</p>
+<p t="2485000" d="6000">I'm sure you'll
+like that name best.</p>
+<p t="2491000" d="2000">It has a Star Wars
+sort of sound.</p>
+<p t="2493000" d="4576">RK stands for Runge Kutta,
+and the reason for the two</p>
+<p t="2497576" d="4731">is not that it uses, well, it
+is that it uses two slopes,</p>
+<p t="2502307" d="4693">but the real reason for the two
+is that it is a second order</p>
+<p t="2507000" d="500">method.</p>
+<p t="2507500" d="5224">So, that's the most important
+thing to put down about it.</p>
+<p t="2512724" d="4776">It's a second order method,
+whereas Euler's was only</p>
+<p t="2517500" d="2500">a first order method.</p>
+<p t="2520000" d="3000">So, Heun's method, or
+RK2, let's write it,</p>
+<p t="2523000" d="5000">is the shortest thing to write,
+is a second order method,</p>
+<p t="2528000" d="3632">meaning that the error
+varies with the step</p>
+<p t="2531632" d="3368">size like some
+constant, it will not</p>
+<p t="2535000" d="5500">be the same as the constant
+for Euler's method, times</p>
+<p t="2540500" d="1500">h squared.</p>
+<p t="2542000" d="3227">That's a big saving
+because it now</p>
+<p t="2545227" d="3681">means that if you
+halve the step size,</p>
+<p t="2548908" d="5342">you're going to decrease
+the error by a factor of one</p>
+<p t="2554250" d="625">quarter.</p>
+<p t="2554875" d="3125">You will quarter the error.</p>
+<p t="2558000" d="3142">Now, you say, hey, why should
+anyone use anything else?</p>
+<p t="2561142" d="2858">Well, think a little second.</p>
+<p t="2564000" d="4000">The real thing which determines
+how slowly one of these methods</p>
+<p t="2568000" d="3927">run is you look at the
+hardest step of the method</p>
+<p t="2571927" d="2525">and ask how long
+does the computer</p>
+<p t="2574452" d="3214">take, how many of those
+hardest steps are there?</p>
+<p t="2577666" d="3834">Now, the answer is, the
+hardest step is always</p>
+<p t="2581500" d="3952">the evaluation of the function
+because the functions that</p>
+<p t="2585452" d="4348">are common use are not x
+squared minus y squared.</p>
+<p t="2589800" d="5056">They take half a page and
+have, as coefficients,</p>
+<p t="2594856" d="3394">you know, ten decimal
+place numbers, whatever</p>
+<p t="2598250" d="4500">the engineers doing it,
+whatever their accuracy was.</p>
+<p t="2602750" d="3850">So, the thing that controls
+how long a method runs</p>
+<p t="2606600" d="6400">is how many times the slope,
+the function, must be evaluated.</p>
+<p t="2613000" d="4000">For Euler, I only have
+to evaluate it once.</p>
+<p t="2617000" d="3000">Here, I have to
+evaluate it twice.</p>
+<p t="2620000" d="4571">Now, roughly speaking, the
+number of function evaluations</p>
+<p t="2624571" d="3429">will each give you the exponent.</p>
+<p t="2628000" d="4440">The method that's called
+Runge Kutta fourth order</p>
+<p t="2632440" d="3560">will require four
+evaluations of slope,</p>
+<p t="2636000" d="9000">but the accuracy will be like
+h to the fourth: very accurate.</p>
+<p t="2645000" d="4863">You halve the step size, and
+it goes down by a factor of</p>
+<p t="2649863" d="500">16.</p>
+<p t="2650363" d="500">Great.</p>
+<p t="2650863" d="3137">But you had to evaluate
+the slope four times.</p>
+<p t="2654000" d="5000">Suppose, instead, you halve
+four times this thing.</p>
+<p t="2659000" d="2496">And, what would you have done?</p>
+<p t="2661496" d="5004">You would have decreased it
+to 1/16th to what it was.</p>
+<p t="2666500" d="5000">You still would increase the
+number of function evaluations</p>
+<p t="2671500" d="6700">you needed by four, and you
+would have decreased the error</p>
+<p t="2678200" d="1800">by a 16th.</p>
+<p t="2680000" d="2625">So, in some sense,
+it really doesn't</p>
+<p t="2682625" d="3975">matter whether you use a very
+fancy method, which requires</p>
+<p t="2686600" d="1900">more function evaluations.</p>
+<p t="2688500" d="1500">That's true.</p>
+<p t="2690000" d="2664">The error goes down
+faster, but you are</p>
+<p t="2692664" d="2461">having to more work to get it.</p>
+<p t="2695125" d="1875">So, anyway, nothing is free.</p>
+<p t="2697000" d="2000">Now, there is an RK4.</p>
+<p t="2699000" d="3362">I think I'll skip
+that, since I wouldn't</p>
+<p t="2702362" d="3638">dare to ask you any
+questions about it.</p>
+<p t="2706000" d="2904">But, let me just
+mention it, at least,</p>
+<p t="2708904" d="1696">because it's the standard.</p>
+<p t="2710600" d="2400">It uses four evaluations.</p>
+<p t="2713000" d="2800">It's the standard
+method, if you don't</p>
+<p t="2715800" d="2400">want to do anything fancier.</p>
+<p t="2718200" d="2800">It's rather
+inefficient, but it's</p>
+<p t="2721000" d="2444">very accurate, standard
+method, accurate,</p>
+<p t="2723444" d="3556">and you'll see when
+you use the programs,</p>
+<p t="2727000" d="4000">it's, in fact, a program
+which is drawing those curves,</p>
+<p t="2731000" d="3816">the numerical method which
+draws all those curves</p>
+<p t="2734816" d="3809">that you believe in
+on the computer screen</p>
+<p t="2738625" d="2500">is the RK4 method.</p>
+<p t="2741125" d="4875">The Runge Kutta, I should
+give them their names.</p>
+<p t="2746000" d="3400">Runge Kutta, fourth
+order method.</p>
+<p t="2749400" d="4100">Two mathematicians, I believe
+both German mathematicians</p>
+<p t="2753500" d="4830">around the turn of the
+last century, Runge Kutta</p>
+<p t="2758330" d="3545">fourth order method
+requires four slopes,</p>
+<p t="2761875" d="3696">requires you to
+calculate four slopes.</p>
+<p t="2765571" d="3929">I won't bother telling
+you what you do,</p>
+<p t="2769500" d="1500">but it's a procedure like that.</p>
+<p t="2771000" d="3000">It's just a little
+bit more elaborate.</p>
+<p t="2774000" d="3000">And you take two of these,
+you make up a weighted average</p>
+<p t="2777000" d="1500">for the super slope.</p>
+<p t="2778500" d="1500">You use weighted average.</p>
+<p t="2780000" d="3000">What should I divide that
+by to get the right...?</p>
+<p t="2783000" d="1000">Six.</p>
+<p t="2784000" d="570">Why six?</p>
+<p t="2784570" d="2430">Well, because if all these
+numbers were the same,</p>
+<p t="2787000" d="5330">I'd want it to come out to be
+whatever that common value was.</p>
+<p t="2792330" d="3124">Therefore, in a
+weighted average,</p>
+<p t="2795454" d="4546">you must always divide by
+the sum of the coefficients.</p>
+<p t="2800000" d="2178">So, this is the super slope.</p>
+<p t="2802178" d="3154">And, if you plug that
+super slope into here,</p>
+<p t="2805332" d="3168">you will be using the
+Runge Kutta method,</p>
+<p t="2808500" d="2875">and get the best
+possible results.</p>
+<p t="2811375" d="3196">Now, I wanted to
+spend the last three</p>
+<p t="2814571" d="4029">minutes talking about pitfalls
+of numerical computation</p>
+<p t="2818600" d="1200">in general.</p>
+<p t="2819800" d="5532">One pitfall I am leaving
+you on the homework</p>
+<p t="2825332" d="2668">to discover for yourself.</p>
+<p t="2828000" d="4000">Don't worry, it won't
+cause you any grief.</p>
+<p t="2832000" d="4000">It'll just destroy your
+faith in these things</p>
+<p t="2836000" d="6000">for the rest of your life,
+which is probably a good thing.</p>
+<p t="2842000" d="3800">So, pitfalls, number one,
+you find, you'll find.</p>
+<p t="2845800" d="3925">Let me talk, instead,
+briefly about number two,</p>
+<p t="2849725" d="4775">which I am not giving
+you an exercise in.</p>
+<p t="2854500" d="3784">Number two is illustrated
+by the following equation.</p>
+<p t="2858284" d="1716">What could be simpler?</p>
+<p t="2860000" d="4000">This is a very bad equation
+to try to solve numerically.</p>
+<p t="2864000" d="856">Now, why?</p>
+<p t="2864856" d="2394">Well, because if I
+separate variables,</p>
+<p t="2867250" d="1750">why don't I save a little time?</p>
+<p t="2869000" d="4000">I'll just tell you what
+the solution is, okay?</p>
+<p t="2873000" d="2000">You obviously
+separate variables.</p>
+<p t="2875000" d="2000">Maybe you can do
+it in your head.</p>
+<p t="2877000" d="1998">The solution will
+be, the solutions</p>
+<p t="2878998" d="2334">will have an arbitrary
+constant in them,</p>
+<p t="2881332" d="2223">and they won't be
+very complicated.</p>
+<p t="2883555" d="4445">They will be one over c minus x.</p>
+<p t="2888000" d="4250">C is an arbitrary constant, and
+as you give different values,</p>
+<p t="2892250" d="2750">you get, now, what do
+those guys look like?</p>
+<p t="2895000" d="1360">Okay, so here I am.</p>
+<p t="2896360" d="1840">I start out at the point, one.</p>
+<p t="2898200" d="2252">And, I start out, I
+tell the computer,</p>
+<p t="2900452" d="3403">compute for me the value
+of the solution at one</p>
+<p t="2903855" d="1145">starting out at one.</p>
+<p t="2905000" d="3000">And, it computes and
+computes a little while.</p>
+<p t="2908000" d="3600">But the solution, how does
+this curve actually look?</p>
+<p t="2911600" d="6400">So, in other words, suppose I
+say that y of zero equals one.</p>
+<p t="2918000" d="1875">Find me y of two.</p>
+<p t="2919875" d="2925">In other words, take a
+nice small step size.</p>
+<p t="2922800" d="2913">Use the Runge Kutta
+fourth order method.</p>
+<p t="2925713" d="3103">Calculate a little
+bit, and tell me,</p>
+<p t="2928816" d="2684">I just want to know
+what y of two is.</p>
+<p t="2931500" d="1500">Well, what is y of two?</p>
+<p t="2933000" d="3000">Well, unfortunately, how
+does that curve look?</p>
+<p t="2936000" d="3125">The curve looks like this.</p>
+<p t="2939125" d="3207">At that point, it
+drops to infinity</p>
+<p t="2942332" d="3468">in a manner of speaking,
+and then sort of comes back</p>
+<p t="2945800" d="1200">up again like that.</p>
+<p t="2947000" d="2400">What is the value of y?</p>
+<p t="2949400" d="1822">This is the point, one.</p>
+<p t="2951222" d="1778">What is the value of y of two?</p>
+<p t="2953000" d="2000">Is it here?</p>
+<p t="2955000" d="855">Is it this?</p>
+<p t="2955855" d="3593">Well, I don't know, but I do
+know that the computer will not</p>
+<p t="2959448" d="552">find it.</p>
+<p t="2960000" d="2724">The computer will
+follow this along,</p>
+<p t="2962724" d="3026">and get lost in
+eternity, in infinity,</p>
+<p t="2965750" d="4650">and see no reason whatever
+why it should start again</p>
+<p t="2970400" d="3600">on this branch of the curve.</p>
+<p t="2974000" d="2800">Okay, well, can't we
+predict that that's</p>
+<p t="2976800" d="3200">going to happen somehow,
+avoid what I should have.</p>
+<p t="2980000" d="4500">The whole difficulty is, this
+is called a singular point.</p>
+<p t="2984500" d="4900">The solution has a singularity,
+in other words, a single place</p>
+<p t="2989400" d="4326">where it goes to infinity or
+becomes discontinuous, maybe as</p>
+<p t="2993726" d="1089">a jump discontinuity.</p>
+<p t="2994815" d="3385">It has a singularity
+at x equals c.</p>
+<p t="2998200" d="4020">This, in particular,
+at x equals one here,</p>
+<p t="3002220" d="4505">but from the differential
+equation, where is that c?</p>
+<p t="3006725" d="3608">There is no way
+of predicting it.</p>
+<p t="3010333" d="4667">Each solution, in other words,
+to this differential equation,</p>
+<p t="3015000" d="2000">has its own,
+private singularity,</p>
+<p t="3017000" d="4400">which only it knows about, and
+where it's going to blow up,</p>
+<p t="3021400" d="4100">and there's no way of telling
+from the differential equation</p>
+<p t="3025500" d="2500">where that's going to be.</p>
+<p t="3028000" d="4000">That's one of the things that
+makes numerical calculation</p>
+<p t="3032000" d="5000">difficult, when you cannot
+predict where things are going</p>
+<p t="3037000" d="2450">to go bad in advance.</p>
+</body>
+</timedtext>

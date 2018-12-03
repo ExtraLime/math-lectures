@@ -1,0 +1,2481 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="90" d="2400">The following content is
+provided under a Creative</p>
+<p t="2490" d="1540">Commons license.</p>
+<p t="4030" d="2330">Your support will help
+MIT OpenCourseWare</p>
+<p t="6360" d="4360">continue to offer high quality
+educational resources for free.</p>
+<p t="10720" d="2600">To make a donation or
+view additional materials</p>
+<p t="13320" d="3960">from hundreds of MIT courses,
+visit MIT OpenCourseWare</p>
+<p t="17280" d="1170">at ocw.mit.edu.</p>
+<p t="21709" d="1791">ERIK DEMAINE: All right,
+let's get started.</p>
+<p t="23500" d="4460">So today, we start out geometry,
+geometric data structures.</p>
+<p t="27960" d="1720">There are two lectures on this.</p>
+<p t="29680" d="1400">This is lecture one.</p>
+<p t="31080" d="2830">And we're going to solve
+two main problems today.</p>
+<p t="33910" d="2990">One is point location, which
+is finding yourself on a map.</p>
+<p t="36900" d="1840">And the other is
+orthogonal range searching,</p>
+<p t="38740" d="4540">which is catching a bunch of
+dots with a rectangular net.</p>
+<p t="43280" d="1420">And they're fun problems.</p>
+<p t="44700" d="3720">And they're good illustrations
+of a couple of techniques.</p>
+<p t="48420" d="3101">We're going to cover two general
+techniques for data structure</p>
+<p t="51521" d="499">building.</p>
+<p t="52020" d="2100">One is dynamizing
+static data structures,</p>
+<p t="54120" d="2910">turning static into dynamic
+using a technique called weight</p>
+<p t="57030" d="1552">balance, which is really cool.</p>
+<p t="58582" d="1958">And another one is called
+fractional cascading,</p>
+<p t="60540" d="1791">which has probably one
+of the coolest names</p>
+<p t="62331" d="2408">of any algorithmic or
+data structures technique.</p>
+<p t="64739" d="2581">It's actually a very simple
+idea, but sounds very scary.</p>
+<p t="70710" d="1760">And with point
+location, we're going</p>
+<p t="72470" d="2710">to see some fun connections to
+persistence and retroactivity,</p>
+<p t="75180" d="3455">which was the topic of the last
+two lectures, you may recall.</p>
+<p t="78635" d="1375">And so we'll start
+out with that.</p>
+<p t="82970" d="4630">Planar point location, you
+can do it in higher dimensions</p>
+<p t="87600" d="900">as well.</p>
+<p t="88500" d="1560">In general, geometric
+data structures</p>
+<p t="90060" d="2620">are about going to more
+than one dimension.</p>
+<p t="92680" d="3170">Most data structures are about
+one dimensional ordered data.</p>
+<p t="95850" d="3580">Now, we have points
+in the plane.</p>
+<p t="99430" d="3200">We might have
+polygons in the plane.</p>
+<p t="102630" d="6180">So this is what we
+call a planar map,</p>
+<p t="108810" d="1740">got a bunch of line
+segments and points</p>
+<p t="110550" d="1380">forming a graph structure.</p>
+<p t="111930" d="1680">So think of it as a
+planar graph drawn</p>
+<p t="113610" d="3450">in the plane where every edge
+is a straight line segment.</p>
+<p t="117060" d="3990">And none of the edges
+cross, let's say.</p>
+<p t="121050" d="3285">So this is a planar map.</p>
+<p t="124335" d="4185">It's also called a planar
+straight line graph.</p>
+<p t="128520" d="3490">And the static version
+of this problem--</p>
+<p t="132010" d="2900">so there's two versions,
+one is static--</p>
+<p t="134910" d="3580">you want to preprocess the map.</p>
+<p t="138490" d="3470">So I give you a
+single map up front.</p>
+<p t="141960" d="5160">And then I want to support
+dynamic queries, which are</p>
+<p t="147120" d="6680">which face contains a point p.</p>
+<p t="158010" d="1560">So that point is
+going to be given</p>
+<p t="159570" d="3180">to you as coordinates x and y.</p>
+<p t="162750" d="4680">So maybe I mark a
+point like this one.</p>
+<p t="167430" d="1570">I give you those x
+and y coordinates.</p>
+<p t="169000" d="2930">I want to quickly
+determine that this face is</p>
+<p t="171930" d="1425">the one that contains it.</p>
+<p t="173355" d="1605">I give you another
+point over here.</p>
+<p t="174960" d="2290">It quickly determines this face.</p>
+<p t="177250" d="1340">This has a lot of applications.</p>
+<p t="178590" d="3547">If you're writing a GUI and
+someone clicks on the screen,</p>
+<p t="182137" d="2333">you need to map the coordinates
+that the mouse gives you</p>
+<p t="184470" d="4290">to which GUI element
+you're clicking on.</p>
+<p t="188760" d="3310">If you have a GPS
+device and it has a map,</p>
+<p t="192070" d="2300">so it's preprocessed
+the map all at once.</p>
+<p t="194370" d="2190">And now, given two GPS
+coordinates, latitude,</p>
+<p t="196560" d="2461">longitude, it needs to
+know which city you're in,</p>
+<p t="199021" d="2249">which part of the map you're
+in, so that it knows what</p>
+<p t="201270" d="2980">to display, that sort of thing.</p>
+<p t="204250" d="1940">These are all planar
+point location problems.</p>
+<p t="206190" d="1960">It comes up in simulation,
+lots of things.</p>
+<p t="208150" d="1624">It's actually one of
+the first problems</p>
+<p t="209774" d="4156">I got interested in
+algorithms way back</p>
+<p t="213930" d="2670">in my oceanography days.</p>
+<p t="216600" d="3060">So that's planar point location.</p>
+<p t="219660" d="1110">That's the static version.</p>
+<p t="220770" d="3240">The dynamic version--
+make things harder--</p>
+<p t="224010" d="1966">is the map is dynamic.</p>
+<p t="225976" d="1124">So here, the map is static.</p>
+<p t="227100" d="2010">The queries are
+still coming online.</p>
+<p t="229110" d="4830">Dynamic version, you can insert
+and delete edges in your map.</p>
+<p t="237390" d="2340">And let's say if you get
+a vertex down to degree 0,</p>
+<p t="239730" d="2450">you can delete the vertex
+as well, add new degrees</p>
+<p t="242180" d="1210">0 vertices.</p>
+<p t="243390" d="1830">As long as you
+don't have crossings</p>
+<p t="245220" d="2760">introduced by inserting
+edges, you can change things.</p>
+<p t="247980" d="3060">So that's obviously harder.</p>
+<p t="251040" d="3110">And we can solve this problem
+using persistence and using</p>
+<p t="254150" d="4929">retroactivity in a pretty simple
+way using a technique which you</p>
+<p t="259079" d="3961">may have seen before,
+pretty classic technique</p>
+<p t="263040" d="1146">in computational geometry.</p>
+<p t="264186" d="1374">So this is a
+technique that comes</p>
+<p t="265560" d="1560">from the algorithms world.</p>
+<p t="267120" d="4740">And we're going to apply it
+to the data structures world.</p>
+<p t="271860" d="5500">So, sweep line technique,
+it's a very simple idea.</p>
+<p t="277360" d="5540">So you have some line
+segments in the plane,</p>
+<p t="282900" d="2100">something like this.</p>
+<p t="285000" d="3750">And I'm going to
+take a vertical line.</p>
+<p t="288750" d="4150">So the algorithmic
+problem is I want to know</p>
+<p t="292900" d="1010">are there any crossings.</p>
+<p t="293910" d="1291">Do any of these segments cross?</p>
+<p t="295201" d="2039">This is where sweep line
+technique comes from,</p>
+<p t="297240" d="1220">I believe.</p>
+<p t="298460" d="4190">So the idea is we want to
+linearize or one-dimensionalify</p>
+<p t="302650" d="510">the problem.</p>
+<p t="303160" d="3050">So just take a slice of the
+problem with a vertical line.</p>
+<p t="306210" d="3160">And imagine sweeping that
+line from left to right.</p>
+<p t="309370" d="2240">So you imagine it
+moving continuously.</p>
+<p t="311610" d="3120">Of course, in reality,
+it moves discretely.</p>
+<p t="320390" d="3120">Let me unambiguate
+this a little bit.</p>
+<p t="333291" d="499">OK.</p>
+<p t="333790" d="1530">There are discrete
+moments in time</p>
+<p t="335320" d="3105">when what is hit by
+the sweep line changes.</p>
+<p t="341370" d="1560">Let me maybe label
+these segments.</p>
+<p t="342930" d="5860">We've got a, b, c, and d.</p>
+<p t="348790" d="1830">So initially, we hit nothing.</p>
+<p t="350620" d="3444">Then we hit a, then we hit b.</p>
+<p t="354064" d="666">Why do we hit b?</p>
+<p t="354730" d="2247">Because we saw the
+left end point of b.</p>
+<p t="356977" d="2583">Then we see the right endpoint
+of a which means we no longer--</p>
+<p t="359560" d="5050">sorry, at this point, we see
+both a and b in that order.</p>
+<p t="364610" d="2620">Then we lose a, so
+we're down to b.</p>
+<p t="367230" d="1180">Then we see c.</p>
+<p t="368410" d="2640">c is above b.</p>
+<p t="371050" d="4710">Then we see d. d
+is above c and b.</p>
+<p t="375760" d="2420">Then c and d cross.</p>
+<p t="378180" d="2740">So c and d change positions.</p>
+<p t="380920" d="1980">And then we have b.</p>
+<p t="382900" d="5730">Then we lose b, then we lose c.</p>
+<p t="388630" d="2340">Then we lose d.</p>
+<p t="390970" d="3960">This is a classic algorithm for
+detecting these intersections.</p>
+<p t="394930" d="2160">I don't want to get into
+details how you do this.</p>
+<p t="397090" d="4020">But you're trying to look for
+when things change in order</p>
+<p t="401110" d="1572">in these cross-sections.</p>
+<p t="402682" d="1458">The way you do that
+is you maintain</p>
+<p t="404140" d="2530">the cross-section in
+a binary search tree,</p>
+<p t="406670" d="1370">so you maintain the order.</p>
+<p t="408040" d="2040">If you hit a left endpoint, you
+insert into the binary search</p>
+<p t="410080" d="180">tree.</p>
+<p t="410260" d="2040">If you see a right endpoint, you
+delete from the binary search</p>
+<p t="412300" d="810">tree.</p>
+<p t="413110" d="1560">And you do some stuff
+to check for crossings.</p>
+<p t="414670" d="1666">In this problem, there
+are no crossings.</p>
+<p t="416336" d="2954">So we don't need to
+worry about that.</p>
+<p t="419290" d="1990">But we're taking this technique.</p>
+<p t="421280" d="2190">Say, OK, there's a
+data structure here,</p>
+<p t="423470" d="5330">which is the binary search tree
+maintaining the cross-section.</p>
+<p t="428800" d="530">OK.</p>
+<p t="429330" d="16790">So, typically, the
+cross-section data structure</p>
+<p t="446120" d="3710">is regular balanced
+binary search tree.</p>
+<p t="454150" d="5110">Our idea is what if
+we add persistence</p>
+<p t="459260" d="1140">to that binary search tree?</p>
+<p t="460400" d="2041">So instead of using a
+regular binary search tree,</p>
+<p t="462441" d="2999">we use a partially persistent
+balanced binary search</p>
+<p t="465440" d="1699">tree, which we know how to do.</p>
+<p t="467139" d="1541">This is a bounded
+n degree structure.</p>
+<p t="468680" d="4390">We can make it partially
+persistent, constant overhead.</p>
+<p t="473070" d="14360">So if we add
+partial persistence,</p>
+<p t="487430" d="2160">what does that let us do?</p>
+<p t="489590" d="1770">Well, let's just
+look at a moment</p>
+<p t="491360" d="2980">in the past, partial persistence
+about querying the past.</p>
+<p t="494340" d="2870">So there's a sequence of
+insertions and deletions</p>
+<p t="497210" d="2007">that occur from the sweep line.</p>
+<p t="499217" d="1833">But now, if we can query
+in the past, that's</p>
+<p t="501050" d="3810">like going to a desired
+x-coordinate and saying,</p>
+<p t="504860" d="3760">what does my data structure
+look like at this moment?</p>
+<p t="508620" d="1120">OK.</p>
+<p t="509740" d="2309">Now, the data structure,
+let's maybe look at this one,</p>
+<p t="512049" d="3821">because it's got three
+elements, very exciting.</p>
+<p t="515870" d="4100">So you've got d, then c, then b.</p>
+<p t="519970" d="1560">So you've got a
+little data structure</p>
+<p t="521530" d="3340">that looks something like this.</p>
+<p t="524870" d="1910">It understands the order
+of the cross-section</p>
+<p t="526780" d="1890">of those segments.</p>
+<p t="528670" d="4020">And so, for example, if
+I was given a query point</p>
+<p t="532690" d="4680">like this one, I
+could figure out</p>
+<p t="537370" d="2640">what is the segment above me,
+what is the segment below me.</p>
+<p t="540010" d="3180">That is a successor query
+and a predecessor query</p>
+<p t="543190" d="1650">in that binary search tree.</p>
+<p t="551500" d="5250">This notation maybe-- a query
+at time t of, let's say,</p>
+<p t="556750" d="18620">successor of y is what we call
+an upward ray shooting query</p>
+<p t="575370" d="3250">from coordinates t,y.</p>
+<p t="578620" d="3710">So t, the time, is
+acting as x-coordinate.</p>
+<p t="582330" d="3310">Time is left to right here.</p>
+<p t="585640" d="3440">And so what's happening is we're
+imagining, from this point,</p>
+<p t="589080" d="2880">shooting a ray upward
+and asking what is</p>
+<p t="591960" d="1710">the segment that I hit first.</p>
+<p t="593670" d="2460">That's an upward
+ray shooting query.</p>
+<p t="596130" d="5580">And this is from a problem
+called vertical ray shooting,</p>
+<p t="601710" d="3345">which is more or less equivalent
+to planar point location.</p>
+<p t="610710" d="5850">So vertical ray shooting, again,
+you're given a map, planar map.</p>
+<p t="616560" d="2980">And the queries are like this.</p>
+<p t="619540" d="3890">What is the first segment that
+you hit with an upward ray?</p>
+<p t="635750" d="3360">So I give you a point, x,y.</p>
+<p t="639110" d="1950">And I ask, if I
+go up from there,</p>
+<p t="641060" d="2660">what's the next edge that I get?</p>
+<p t="643720" d="2077">That's the vertical
+ray shooting problem.</p>
+<p t="645797" d="1458">And we just solved
+the vertical ray</p>
+<p t="647255" d="2085">shooting problem for static.</p>
+<p t="649340" d="3090">If you're given a static map,
+you run this algorithm once,</p>
+<p t="652430" d="2619">assume there are no crossings.</p>
+<p t="655049" d="1791">Then to answer vertical
+ray shooting query,</p>
+<p t="656840" d="2550">we just go back
+in time to time t,</p>
+<p t="659390" d="3150">do the successor query,
+which takes log n time,</p>
+<p t="662540" d="2140">and then we get
+the answer to this.</p>
+<p t="664680" d="8540">So we can do this in
+log n per query static.</p>
+<p t="673220" d="2661">This is all two dimensional.</p>
+<p t="675881" d="1959">I should probably say that.</p>
+<p t="677840" d="1200">You can generalize.</p>
+<p t="682560" d="540">Questions?</p>
+<p t="683100" d="1260">This is actually really easy.</p>
+<p t="684360" d="2280">This is the stuff we get
+for free out of persistence</p>
+<p t="686640" d="2280">and, at the moment,
+retroactivity.</p>
+<p t="688920" d="2310">I believe this is one of
+the reasons persistence</p>
+<p t="691230" d="1499">was invented in the first place.</p>
+<p t="692729" d="2291">There were a bunch of early
+persistent data structures.</p>
+<p t="695020" d="1666">Then there was a
+general Driscoll paper,</p>
+<p t="696686" d="1600">which I talked about.</p>
+<p t="698286" d="4014">But I think geometry was
+one of the main motivations.</p>
+<p t="702300" d="2100">Because it lets you
+add a dimension.</p>
+<p t="706960" d="3840">As long as that dimension
+is time-like, then</p>
+<p t="710800" d="2610">you get the dimension
+sort of for free.</p>
+<p t="713410" d="1230">So that's nice.</p>
+<p t="714640" d="500">OK.</p>
+<p t="715140" d="1400">What about retroactivity?</p>
+<p t="719730" d="3060">Again, we're going to use
+partial retroactivity.</p>
+<p t="722790" d="2440">And I can tell you for
+certainty, because I was there,</p>
+<p t="725230" d="1730">this is why retroactivity
+was invented.</p>
+<p t="729930" d="3330">So retroactivity,
+so that would mean</p>
+<p t="733260" d="3990">that we get to
+dynamically add and delete</p>
+<p t="737250" d="2310">insertions and deletions.</p>
+<p t="739560" d="2790">So that's like adding
+and deleting segments</p>
+<p t="742350" d="996">from the structure.</p>
+<p t="743346" d="1374">Again, we have a
+linear timeline.</p>
+<p t="744720" d="1874">We always want to maintain
+a linear timeline,</p>
+<p t="746594" d="1666">because that is reality.</p>
+<p t="748260" d="1980">That corresponds to
+the x-coordinate.</p>
+<p t="750240" d="3030">And now I want to be able to
+add a segment like this, which</p>
+<p t="753270" d="2310">means there was an insertion
+at this time, a deletion</p>
+<p t="755580" d="1800">at this time.</p>
+<p t="757380" d="1300">Now, this doesn't quite work.</p>
+<p t="758680" d="2670">Because this point
+in cross-section,</p>
+<p t="761350" d="1950">it's actually moving over time.</p>
+<p t="763300" d="4160">Binary search trees, that's
+OK, because things are simple.</p>
+<p t="767460" d="2430">But at the moment,
+all we know how to do</p>
+<p t="769890" d="5070">is actually horizontal segments,
+which are inserted and deleted</p>
+<p t="774960" d="3460">at the same y-coordinate.</p>
+<p t="778420" d="6896">So then we can do
+insert at time t1,</p>
+<p t="785316" d="5334">an insertion of
+some y-coordinate,</p>
+<p t="790650" d="4730">and then an insert
+at some later time,</p>
+<p t="795380" d="1994">the deletion of
+that y-coordinate.</p>
+<p t="800650" d="4670">So this is a partially
+retroactive successor problem.</p>
+<p t="805320" d="7182">This is equal to dynamic
+vertical ray shooting.</p>
+<p t="816930" d="2830">I guess this
+insertion corresponds</p>
+<p t="819760" d="1280">to the insertion of a thing.</p>
+<p t="821040" d="3180">If you instead do
+delete here, then you're</p>
+<p t="824220" d="2820">deleting one of the segments.</p>
+<p t="827040" d="2865">This is among
+horizontal segments.</p>
+<p t="835720" d="2960">So if your map is made of
+horizontal and vertical</p>
+<p t="838680" d="1210">segments--</p>
+<p t="839890" d="1700">so it's an orthogonal map--</p>
+<p t="841590" d="2820">then you can solve the dynamic
+problem using a partially</p>
+<p t="844410" d="1710">retroactive successor.</p>
+<p t="846120" d="3140">Again, we want to do
+successor just like before,</p>
+<p t="849260" d="1660">querying the past.</p>
+<p t="850920" d="2015">But now, our updates
+are different.</p>
+<p t="852935" d="1375">Now, we have
+retroactive updates.</p>
+<p t="854310" d="3100">That lets us dynamically
+change the past,</p>
+<p t="857410" d="2510">which is like inserting
+and deleting edges</p>
+<p t="859920" d="1152">through that algorithm.</p>
+<p t="861072" d="1458">But at the moment,
+we only know how</p>
+<p t="862530" d="1990">to do this for
+horizontal segments.</p>
+<p t="864520" d="2030">So this gives us,
+if you remember,</p>
+<p t="866550" d="3710">the retroactive
+successor result.</p>
+<p t="870260" d="2120">We haven't seen
+that, how it works.</p>
+<p t="872380" d="980">It's complicated.</p>
+<p t="873360" d="5610">But it achieves log n insert,
+delete successor retroactively.</p>
+<p t="878970" d="2700">And so we get a log n,
+which is an optimal solution</p>
+<p t="881670" d="2130">for dynamic vertical
+ray shooting</p>
+<p t="883800" d="3210">among horizontal segments.</p>
+<p t="887010" d="2610">There are a bunch
+of open problems.</p>
+<p t="889620" d="2340">What about general maps?</p>
+<p t="896220" d="13990">So for a dynamic vertical
+ray shooting in general maps,</p>
+<p t="910210" d="3650">if you want log n
+query, the best results</p>
+<p t="913860" d="2100">are log to the 1 plus
+epsilon insert log</p>
+<p t="915960" d="1930">to the 2 plus epsilon delete.</p>
+<p t="917890" d="1250">There's some other trade-offs.</p>
+<p t="919140" d="2860">You can get log times log
+log n query and reduce.</p>
+<p t="922000" d="3110">Still, we don't know
+how to delete faster</p>
+<p t="925110" d="3150">than log squared in any
+of the general solutions.</p>
+<p t="928260" d="2580">So you can do log
+square for everything.</p>
+<p t="930840" d="3347">But the hope would be you could
+do log for everything even when</p>
+<p t="934187" d="1333">the segments are not horizontal.</p>
+<p t="935520" d="6460">But here, retroactivity
+doesn't seem to buy you things.</p>
+<p t="941980" d="1110">It'd be nice if you could.</p>
+<p t="943090" d="4080">Another fun open
+problem is, what</p>
+<p t="947170" d="10840">about non-vertical rays,
+general rays, non-vertical rays?</p>
+<p t="961240" d="3910">So I give you a point
+and I give you a vector,</p>
+<p t="965150" d="1976">I want to know what do
+I hit in that direction.</p>
+<p t="967126" d="874">This is a lot harder.</p>
+<p t="968000" d="1790">You can't use any
+of these tricks.</p>
+<p t="969790" d="3330">And in fact, it's believed you
+cannot get polylog performance</p>
+<p t="973120" d="2290">unless you have a ton of space.</p>
+<p t="975410" d="3072">So the best known result is--</p>
+<p t="978482" d="1208">I'll just throw this up here.</p>
+<p t="979690" d="8040">You can get n over square
+root s polylog and query.</p>
+<p t="987730" d="1820">If you use, basically, s space.</p>
+<p t="996320" d="2760">So you need quite
+a bit of space.</p>
+<p t="999080" d="3180">Because if you use n to
+the 1 plus epsilon space,</p>
+<p t="1002260" d="2830">you can get roughly
+root n query time.</p>
+<p t="1005090" d="5110">If you use n to
+5 space, then you</p>
+<p t="1010200" d="3455">get somewhat better query
+time, but still not great.</p>
+<p t="1013655" d="2305">You can maybe get down
+to n to the epsilon</p>
+<p t="1015960" d="4560">if you have very large
+polynomial space.</p>
+<p t="1020520" d="2370">But this is conjectured
+to be roughly optimal,</p>
+<p t="1022890" d="1840">I assume, other than
+the polylog factors.</p>
+<p t="1024730" d="2157">The belief is you cannot
+beat this for general ray.</p>
+<p t="1026887" d="1583">This is kind of
+annoying, because this</p>
+<p t="1028470" d="1180">is a problem we care about.</p>
+<p t="1029650" d="2915">Especially in 3D,
+this is ray tracing.</p>
+<p t="1032565" d="1427">You shoot a ray,
+what does it hit?</p>
+<p t="1033992" d="583">You bounce it.</p>
+<p t="1034575" d="1125">You shoot another ray.</p>
+<p t="1035700" d="2460">I always want to know
+what objects am I hitting.</p>
+<p t="1038160" d="2881">And for special cases,
+you can do better.</p>
+<p t="1041041" d="1499">But in general, it
+seems quite hard.</p>
+<p t="1042540" d="2208">This is even in two dimensions.</p>
+<p t="1044748" d="5752">But there are a bunch of
+papers on 3D and so on.</p>
+<p t="1050500" d="2760">I just wanted to give you those
+connections to persistence</p>
+<p t="1053260" d="1380">and retroactivity.</p>
+<p t="1054640" d="2430">And that's point location.</p>
+<p t="1057070" d="5670">And now, I want to go on two
+orthogonal range searching.</p>
+<p t="1062740" d="3890">We can do some new data
+structures, new to us.</p>
+<p t="1071480" d="2010">So first, what is the problem?</p>
+<p t="1090930" d="3540">So it's sort of the reverse
+kind of problem here.</p>
+<p t="1094470" d="7240">You're given a bunch of points
+before the query was a point.</p>
+<p t="1101710" d="3350">And the query, in
+this case, is going</p>
+<p t="1105060" d="4500">to be, in two dimensions,
+a rectangle, a window</p>
+<p t="1109560" d="730">if you will.</p>
+<p t="1110290" d="5030">And you want to know what
+points are in the rectangle.</p>
+<p t="1115320" d="14630">So given n points and d
+dimensions, query in general</p>
+<p t="1129950" d="2460">is going to be a box.</p>
+<p t="1132410" d="3420">So in 2D, it's an interval
+crossing interval.</p>
+<p t="1135830" d="3260">In 3D, it's three intervals
+cross-product together.</p>
+<p t="1141801" d="499">OK.</p>
+<p t="1142300" d="3414">So in the static version, you
+get to preprocess the points.</p>
+<p t="1145714" d="1416">In the dynamic
+version, the points</p>
+<p t="1147130" d="2250">are being added and deleted.</p>
+<p t="1149380" d="2220">And in all cases, we
+have dynamic queries,</p>
+<p t="1151600" d="1900">which are what are
+the points in the box.</p>
+<p t="1153500" d="1750">Now, there are different
+versions of this query.</p>
+<p t="1155250" d="1958">There is an existence
+query, which is are there</p>
+<p t="1157208" d="1392">any points in the box?</p>
+<p t="1158600" d="1370">That's sort of the easiest.</p>
+<p t="1159970" d="2830">Next level up is, how many
+points are in the box?</p>
+<p t="1162800" d="1970">Which you can use
+to solve existence.</p>
+<p t="1164770" d="2970">Next level up is give me
+all the points in the box,</p>
+<p t="1167740" d="4360">or give me 10 points in the
+box, give me a point in the box.</p>
+<p t="1172100" d="2000">All of these problems are
+more or less the same.</p>
+<p t="1174100" d="1410">They do differ in some cases.</p>
+<p t="1175510" d="1458">But the things
+we'll see today, you</p>
+<p t="1176968" d="1882">can solve them all
+about as efficiently.</p>
+<p t="1178850" d="2220">But, of course, if you want to
+list all the points in the box,</p>
+<p t="1181070" d="958">it could be everything.</p>
+<p t="1182028" d="2162">And so that could
+take linear time.</p>
+<p t="1184190" d="2810">So in general, our goal is to
+get a running time something</p>
+<p t="1187000" d="4740">like log n plus k, where k
+is the size of the output.</p>
+<p t="1194630" d="2205">So if you're asking how
+many points are in there,</p>
+<p t="1196835" d="1805">the size the output
+is a single number.</p>
+<p t="1198640" d="2640">So k is 1, you should
+get log n time.</p>
+<p t="1201280" d="3240">If you want to list 100
+points in there, k is 100.</p>
+<p t="1204520" d="2760">And so you have to
+pay that to list them.</p>
+<p t="1207280" d="1875">If you want to know all
+of them, well, then k</p>
+<p t="1209155" d="2115">is the number of points
+that are in there.</p>
+<p t="1211270" d="6720">And we'll be able to achieve
+these kinds of bounds</p>
+<p t="1217990" d="2760">pretty much all the time,
+definitely in two dimensions.</p>
+<p t="1220750" d="4496">In D dimensions, it's
+going to get harder.</p>
+<p t="1225246" d="499">OK.</p>
+<p t="1228760" d="2910">So I want to start out
+with one dimension just</p>
+<p t="1231670" d="3030">to make sure we're
+on the same page.</p>
+<p t="1234700" d="2580">And in general, we're going to
+start with a solution called</p>
+<p t="1237280" d="4950">range trees, which were
+simultaneously invented</p>
+<p t="1242230" d="3570">by a lot of people in the
+late '70s, Bentley, one</p>
+<p t="1245800" d="1920">of the main guys.</p>
+<p t="1247720" d="4500">And in general, we're going to
+aim here for a log to the d n</p>
+<p t="1252220" d="1410">plus k query time.</p>
+<p t="1257370" d="2580">So I like this, but now we
+have a dependence on dimension.</p>
+<p t="1259950" d="1380">And for 2D, this is not great.</p>
+<p t="1261330" d="2010">It's log squared.</p>
+<p t="1263340" d="1480">And we're going to do better.</p>
+<p t="1264820" d="500">OK.</p>
+<p t="1265320" d="2880">But let's start with d equals 1.</p>
+<p t="1268200" d="2060">How do you do this?</p>
+<p t="1270260" d="2830">How do I achieve
+log n plus k query?</p>
+<p t="1277360" d="870">Sort the points.</p>
+<p t="1278230" d="500">Yeah.</p>
+<p t="1278730" d="2900">I could sort the points,
+then do binary search.</p>
+<p t="1281630" d="4640">So the query now is
+just an interval.</p>
+<p t="1286270" d="2520">That's the one dimensional
+version of a box.</p>
+<p t="1288790" d="3510">So if I search for a, search
+for b in a sorted list,</p>
+<p t="1292300" d="1740">then all the points
+in between I can</p>
+<p t="1294040" d="1689">count the different indices--</p>
+<p t="1295729" d="1791">or subtract the two
+indices into the array.</p>
+<p t="1297520" d="1800">That will give me how
+many points there are</p>
+<p t="1299320" d="3600">in the box, all these things.</p>
+<p t="1302920" d="2350">Arrays aren't going to
+generalize super nicely.</p>
+<p t="1305270" d="3390">Although, we'll come
+back to arrays later.</p>
+<p t="1308660" d="3730">For now, I'd like to think
+of a binary search tree,</p>
+<p t="1312390" d="1969">balanced binary search tree.</p>
+<p t="1314359" d="1791">And I'm going to make
+it a little different</p>
+<p t="1316150" d="2670">from the usual kind
+of binary search tree.</p>
+<p t="1318820" d="2055">I want the data to
+be in the leaves.</p>
+<p t="1324190" d="3240">So I want the leaves
+to be my points.</p>
+<p t="1327430" d="3720">And this will be convenient
+for higher dimensions.</p>
+<p t="1331150" d="1800">It doesn't really matter
+for one dimension,</p>
+<p t="1332950" d="2280">but it's kind of
+nice to think about.</p>
+<p t="1335230" d="2250">So you've got a
+binary search tree.</p>
+<p t="1337480" d="3840">And then here is the data sorted
+by the only coordinate that</p>
+<p t="1341320" d="2680">exists, the x-coordinate.</p>
+<p t="1344000" d="2240">And so, of course,
+I can search for a,</p>
+<p t="1346240" d="3630">here's a maybe, search for b.</p>
+<p t="1349870" d="5576">And the stuff in between
+here, that is my result.</p>
+<p t="1355446" d="5094">And in a little more detail,
+as you search for a and b,</p>
+<p t="1360540" d="2885">at some point,
+they will diverge.</p>
+<p t="1363425" d="1500">One will go left,
+one will go right.</p>
+<p t="1370730" d="1950">At some point, you reach a.</p>
+<p t="1372680" d="2024">Maybe a isn't actually
+in the structure.</p>
+<p t="1374704" d="2416">You're searching for everything
+between a and b inclusive,</p>
+<p t="1377120" d="1690">but a may not be there.</p>
+<p t="1378810" d="2180">So in general, we're going
+to find the predecessor</p>
+<p t="1380990" d="1335">and successor of a.</p>
+<p t="1382325" d="2955">In this case, I'm interested
+in the predecessor.</p>
+<p t="1385280" d="5730">And similarly over
+here, eventually--</p>
+<p t="1391010" d="2070">this is all, of course,
+logarithmic time--</p>
+<p t="1393080" d="3639">I find the successor of b.</p>
+<p t="1396719" d="1791">Those are the two things
+I'm interested in.</p>
+<p t="1398510" d="2250">And now, all the
+leaves in between here,</p>
+<p t="1400760" d="1247">that's the result. Question?</p>
+<p t="1402007" d="2208">AUDIENCE: So if you have
+the data just on the leaves,</p>
+<p t="1404215" d="2055">what do you have
+intermediate node?</p>
+<p t="1406270" d="1000">ERIK DEMAINE: Ah, right.</p>
+<p t="1407270" d="1874">So in the intermediate
+nodes, I need to know,</p>
+<p t="1409144" d="3376">let's say, if every subtree
+knows the min and max, then</p>
+<p t="1412520" d="4027">at a node, I can decide should
+I go left, should I go right?</p>
+<p t="1416547" d="2333">I think every node can store
+the max of the left subtree</p>
+<p t="1418880" d="1689">if you just want
+one key per node.</p>
+<p t="1420569" d="1041">But, yeah, good question.</p>
+<p t="1421610" d="1720">Sorry, I forgot to mention that.</p>
+<p t="1423330" d="3940">You store a representative
+sort of in the middle</p>
+<p t="1427270" d="3190">that lets you decide
+whether to go left or right.</p>
+<p t="1430460" d="1270">So you can still do searches.</p>
+<p t="1431730" d="1340">We can find these two nodes.</p>
+<p t="1433070" d="4035">And now, the answer is
+basically all of this stuff.</p>
+<p t="1441660" d="4200">I did not leave
+myself enough space.</p>
+<p t="1445860" d="1350">That's the left child.</p>
+<p t="1452840" d="730">OK.</p>
+<p t="1453570" d="3330">So wherever this
+left branch went</p>
+<p t="1456900" d="3070">left, the right
+branches in the answer.</p>
+<p t="1459970" d="2000">Whenever this right
+branch went right,</p>
+<p t="1461970" d="1790">the left branch is the answer.</p>
+<p t="1463760" d="2530">But from here, there's no
+subtree that we care about.</p>
+<p t="1466290" d="2790">Because this is all greater
+than what we care about.</p>
+<p t="1469080" d="500">OK.</p>
+<p t="1469580" d="1375">But the good news
+is there's only</p>
+<p t="1470955" d="2145">log n of these subtrees,
+maybe two log n.</p>
+<p t="1473100" d="2230">Because there's the left
+side, the right side.</p>
+<p t="1475330" d="500">OK.</p>
+<p t="1475830" d="3960">So the answer is
+implicitly represented.</p>
+<p t="1479790" d="2220">We don't have to explicitly
+touch all these items.</p>
+<p t="1482010" d="2710">We just know that they
+live in the subtrees,</p>
+<p t="1484720" d="4650">in those order log n subtrees.</p>
+<p t="1489370" d="3410">So in particular, if every node
+stores the size of its subtree,</p>
+<p t="1492780" d="1650">then we can add up
+these log n numbers.</p>
+<p t="1494430" d="1700">And we get the
+size of the answer.</p>
+<p t="1496130" d="3250">If we want the first k items,
+we can visit the first k items</p>
+<p t="1499380" d="4110">here in order k time.</p>
+<p t="1503490" d="3660">So in log n time, we get a nice
+representation of the answers,</p>
+<p t="1507150" d="1500">log n subtrees.</p>
+<p t="1508650" d="3210">Of course, we also had a nice
+answer when we had an array.</p>
+<p t="1511860" d="3070">But this one will be
+easier to generalize.</p>
+<p t="1514930" d="1760">And that's range trees.</p>
+<p t="1521540" d="1889">So that was a 1D range tree.</p>
+<p t="1523429" d="2041">The only difference is we
+put data at the leaves.</p>
+<p t="1528796" d="6184">2D range tree has a simple idea.</p>
+<p t="1534980" d="2820">We have the data
+in these subtrees.</p>
+<p t="1537800" d="1372">These are the matches.</p>
+<p t="1539172" d="1458">Let's think we have
+an x-coordinate</p>
+<p t="1540630" d="791">and a y-coordinate.</p>
+<p t="1541421" d="2079">We have an x range
+and a y range.</p>
+<p t="1543500" d="1440">Let's do this for x.</p>
+<p t="1544940" d="3400">Now, we have a representation
+of all the matches in x.</p>
+<p t="1548340" d="2150">So we want this rectangle.</p>
+<p t="1550490" d="3870">But we can get this
+entire slab in log n time,</p>
+<p t="1554360" d="2400">and we have log n
+subtrees that we now</p>
+<p t="1556760" d="1320">have to filter in terms of y.</p>
+<p t="1558080" d="2530">There's all these points out
+here that we don't care about.</p>
+<p t="1560610" d="5310">We want to get rid of those and
+just focus in on these points.</p>
+<p t="1565920" d="2060">So we're going to do
+the same thing on y,</p>
+<p t="1567980" d="2550">but we want to do
+that for this subtree.</p>
+<p t="1570530" d="1740">And we want to do
+it for this subtree,</p>
+<p t="1572270" d="3060">and for this subtree,
+so simple idea.</p>
+<p t="1575330" d="5140">For each subtree, let's
+call it an x subtree.</p>
+<p t="1580470" d="2340">So we have one tree which
+represents all the x data.</p>
+<p t="1582810" d="1880">It looks just like this.</p>
+<p t="1584690" d="3240">And then for each
+subtree of that x tree,</p>
+<p t="1587930" d="11820">we store, let's say,
+a pointer to a y tree,</p>
+<p t="1599750" d="3480">which is also a 1D range tree.</p>
+<p t="1603230" d="9490">So this guy has a pointer to
+a similarly sized triangle.</p>
+<p t="1612720" d="1650">Except, this one is on y.</p>
+<p t="1614370" d="1230">This one's sorted by x.</p>
+<p t="1615600" d="3020">This one's sorted
+by y, same points.</p>
+<p t="1618620" d="5590">This subtree also has one,
+same data as over here,</p>
+<p t="1624210" d="2790">but now sorted an
+y instead of x.</p>
+<p t="1627000" d="5220">For example, there is a
+smaller tree inside this one.</p>
+<p t="1632220" d="3665">That one also has a pointer
+to a smaller y tree.</p>
+<p t="1635885" d="1375">Except, now, these
+are disjoined,</p>
+<p t="1637260" d="1920">because these are completely--</p>
+<p t="1639180" d="540">yeah.</p>
+<p t="1639720" d="1950">This is a subset of that one.</p>
+<p t="1641670" d="2730">But we're going to store a y
+tree for this one and a y tree</p>
+<p t="1644400" d="580">for this one.</p>
+<p t="1644980" d="1083">So we're blowing up space.</p>
+<p t="1649320" d="11370">Every element, every point
+lives in log n y trees.</p>
+<p t="1663186" d="1624">Because if you look
+at a point, there's</p>
+<p t="1664810" d="2280">the tiny y tree that contains
+it bigger, bigger, bigger,</p>
+<p t="1667090" d="1960">bigger until the entire
+tree also contains it.</p>
+<p t="1669050" d="2680">Each of those has a
+corresponding y tree.</p>
+<p t="1671730" d="3630">So the overall space
+will be n log n.</p>
+<p t="1678550" d="2260">We're repeating points here.</p>
+<p t="1680810" d="2540">But the good news is now I can
+do search really efficiently,</p>
+<p t="1683350" d="1980">well, log squared efficiently.</p>
+<p t="1685330" d="3030">I spend log time to find
+these x trees that represent</p>
+<p t="1688360" d="2310">the slabs that I care about.</p>
+<p t="1690670" d="3300">So it's more like this picture.</p>
+<p t="1693970" d="2490">So there's a bunch of
+disjoint slabs, which together</p>
+<p t="1696460" d="2580">contain my points in x.</p>
+<p t="1699040" d="2160">And now I want to filter
+each of them by y.</p>
+<p t="1701200" d="2520">So for each of them, I
+jump over to y space and do</p>
+<p t="1703720" d="5770">a range query in y space just
+like what we were doing here.</p>
+<p t="1709490" d="3980">So search for a, search
+for b, but in y-coordinate.</p>
+<p t="1713470" d="3390">And then I get log n subtrees
+in here, log n subtrees in here,</p>
+<p t="1716860" d="1500">log n subtrees in here.</p>
+<p t="1718360" d="10706">So the query gives me
+log squared y subtrees.</p>
+<p t="1729066" d="2624">It takes me log squared
+n time to find them.</p>
+<p t="1731690" d="2360">If I have subtree sizes, I
+compute the number of matches</p>
+<p t="1734050" d="1690">in log squared n time.</p>
+<p t="1735740" d="2720">If I want k items, I
+can grab k items out</p>
+<p t="1738460" d="2270">of them in order k time.</p>
+<p t="1740730" d="1250">OK.</p>
+<p t="1741980" d="1020">Pretty easy.</p>
+<p t="1743000" d="3300">Of course, D dimensions
+is just the same trick.</p>
+<p t="1746300" d="1470">You have x tree.</p>
+<p t="1747770" d="1620">Every subtree links to a y tree.</p>
+<p t="1749390" d="1930">Every y subtree
+links to a z tree.</p>
+<p t="1751320" d="3710">Every z subtree links
+to a w tree, and so on.</p>
+<p t="1755030" d="6330">For D dimensions, you're going
+to get log to the D query</p>
+<p t="1761360" d="3180">as I claimed before.</p>
+<p t="1764540" d="1140">How much space?</p>
+<p t="1765680" d="2370">Well, every dimension you
+add adds another log factor</p>
+<p t="1768050" d="1170">of space.</p>
+<p t="1769220" d="6300">So it's going to be n log
+to the d minus 1 space.</p>
+<p t="1775520" d="2820">And if you want to
+do this statically,</p>
+<p t="1778340" d="7200">you can also build the
+data structure in n log</p>
+<p t="1785540" d="4080">to the d minus 1 n time,
+except for d equals 1 where</p>
+<p t="1789620" d="2400">you need n log n time to sort.</p>
+<p t="1792020" d="1920">But as long as d
+is bigger than 1,</p>
+<p t="1793940" d="2960">this is the right bound
+for higher dimensions.</p>
+<p t="1796900" d="3070">It takes a little bit of
+effort to actually build</p>
+<p t="1799970" d="2680">the structure in that much
+time, but it can be done.</p>
+<p t="1806010" d="500">OK.</p>
+<p t="1806510" d="1583">That's the very
+simple data structure.</p>
+<p t="1808093" d="3232">Any questions about that
+before we make it cooler?</p>
+<p t="1811325" d="1875">You may have seen this
+data structure before.</p>
+<p t="1813200" d="1500">It's kind of classic.</p>
+<p t="1814700" d="2190">But you can do
+much better, well,</p>
+<p t="1816890" d="1616">at least a log factor better.</p>
+<p t="1818506" d="834">AUDIENCE: Question.</p>
+<p t="1819340" d="791">ERIK DEMAINE: Yeah.</p>
+<p t="1820131" d="3455">AUDIENCE: So when your storing
+one pointer for each subtree,</p>
+<p t="1823586" d="3374">you essentially have a
+pointer for each root,</p>
+<p t="1826960" d="970">like for each node?</p>
+<p t="1827930" d="360">ERIK DEMAINE: Yeah.</p>
+<p t="1828290" d="499">Right.</p>
+<p t="1828789" d="731">Every node.</p>
+<p t="1829520" d="3270">So I know these are the nodes
+that the stuff below them</p>
+<p t="1832790" d="1620">represents my answer in x.</p>
+<p t="1834410" d="3871">And so I teleport over to the
+y universe from the x universe.</p>
+<p t="1838281" d="2083">AUDIENCE: So, basically,
+it has all the same nodes</p>
+<p t="1840364" d="1385">of that subtree, but [INAUDIBLE]</p>
+<p t="1841749" d="791">ERIK DEMAINE: Yeah.</p>
+<p t="1842540" d="1800">All the points that
+are in here also</p>
+<p t="1844340" d="2120">live in here, except these
+ones are sorted by x.</p>
+<p t="1846460" d="1630">These ones are sorted by y.</p>
+<p t="1848090" d="5120">If I kept following pointers,
+I get to z and w and so on.</p>
+<p t="1853210" d="750">Other questions?</p>
+<p t="1853960" d="802">Yeah.</p>
+<p t="1854762" d="1958">AUDIENCE: So if we were
+doing the dynamic case,</p>
+<p t="1856720" d="2300">how would we implement
+rotations in the [INAUDIBLE]?</p>
+<p t="1859020" d="708">ERIK DEMAINE: OK.</p>
+<p t="1862850" d="2321">Dynamic is annoying.</p>
+<p t="1865171" d="499">Yeah.</p>
+<p t="1865670" d="2430">Rotations are annoying.</p>
+<p t="1868100" d="2610">I think we'll come back to that.</p>
+<p t="1870710" d="1094">We can solve that.</p>
+<p t="1871804" d="1666">I thought it was easy,
+but you're right.</p>
+<p t="1873470" d="2160">Rotations are kind of annoying.</p>
+<p t="1875630" d="3210">And we can solve that using
+this dynamization trick.</p>
+<p t="1878840" d="4962">So we don't have to worry
+about it till we get there.</p>
+<p t="1883802" d="2208">It's going to get even harder
+to make things dynamic.</p>
+<p t="1886010" d="4870">And so then we really need
+to pull out the black box.</p>
+<p t="1890880" d="1240">Well, it's not a black box.</p>
+<p t="1892120" d="1420">We're going to see how it works.</p>
+<p t="1893540" d="1250">But it's a general
+transformation</p>
+<p t="1894790" d="1083">that makes things dynamic.</p>
+<p t="1900465" d="500">OK.</p>
+<p t="1903830" d="3150">Before we get a dynamic,
+stick with static.</p>
+<p t="1906980" d="2115">And let's improve
+things by a log factor.</p>
+<p t="1914530" d="2540">This is an idea called
+layered range trees.</p>
+<p t="1922240" d="5280">It's also sometimes called
+fractional cascading,</p>
+<p t="1927520" d="2670">which is the technique
+we're going to get to later.</p>
+<p t="1930190" d="2550">I would say it involves one
+half of fractional cascading.</p>
+<p t="1932740" d="2220">Fractional cascading
+has two ideas.</p>
+<p t="1934960" d="2840">And the one that it's named
+after is not this idea.</p>
+<p t="1937800" d="5620">So idea one is basically
+to reuse searches.</p>
+<p t="1943420" d="2070">The idea is we're
+searching in this subtree</p>
+<p t="1945490" d="2430">or, I guess, this subtree
+with respect to y.</p>
+<p t="1947920" d="3510">We're also searching for
+the same interval of y</p>
+<p t="1951430" d="720">in this subtree.</p>
+<p t="1952150" d="1680">Completely different
+elements, but</p>
+<p t="1953830" d="2830">if there was some way we
+could reuse the searches for y</p>
+<p t="1956660" d="3500">in all of these log n subtrees,
+we could save a log factor.</p>
+<p t="1960160" d="1390">And it turns out we can.</p>
+<p t="1961550" d="1970">And this is one idea in
+fractional cascading,</p>
+<p t="1963520" d="1680">but there will be
+another one later.</p>
+<p t="1968110" d="2360">OK.</p>
+<p t="1970470" d="3100">So, fun stuff.</p>
+<p t="1973570" d="2600">This is where I want
+to change my notes.</p>
+<p t="1976170" d="7020">So we're searching in x with
+a regular 1D range tree.</p>
+<p t="1983190" d="4300">I also want to have a
+regular 1D range tree--</p>
+<p t="1987490" d="1160">range tree?</p>
+<p t="1988650" d="539">Sure.</p>
+<p t="1989189" d="1541">Actually, it doesn't
+matter too much.</p>
+<p t="1990730" d="2840">I want to have an array
+of all the items sorted</p>
+<p t="1993570" d="3040">by y-coordinate.</p>
+<p t="1996610" d="2130">And we're going to
+simplify things here.</p>
+<p t="1998740" d="1680">Instead of pointing
+to a tree, I'm</p>
+<p t="2000420" d="2280">going to point to an
+array sorted by y.</p>
+<p t="2002700" d="2000">This is totally static.</p>
+<p t="2004700" d="3940">And this is where
+dynamic gets harder,</p>
+<p t="2008640" d="3360">not that know how to
+do it over there yet.</p>
+<p t="2012000" d="4500">So for each x
+subtree, we're going</p>
+<p t="2016500" d="3240">to have a pointer to the
+same elements sorted by y.</p>
+<p t="2025360" d="2070">So all the leaves
+that are down here</p>
+<p t="2027430" d="5922">are, basically, also there, but
+by y coordinate instead of x.</p>
+<p t="2033352" d="1708">Obviously, we can
+still do the same thing</p>
+<p t="2035060" d="2450">we could do before, spend
+log n time to search</p>
+<p t="2037510" d="4200">in each of these log n arrays
+corresponding to these log n</p>
+<p t="2041710" d="1210">subtrees.</p>
+<p t="2042920" d="2790">And in log squared n,
+we'll have our answers.</p>
+<p t="2045710" d="2240">But we can do better now.</p>
+<p t="2047950" d="3600">I only want to do one
+binary search in y.</p>
+<p t="2051550" d="1910">And that will be at the root.</p>
+<p t="2053460" d="1750">So the root, there's
+an array representing</p>
+<p t="2055210" d="1949">everything sorted by y.</p>
+<p t="2057159" d="2565">I search for the
+lower y-coordinate.</p>
+<p t="2059724" d="3947">I search for the upper
+y-coordinate, some things.</p>
+<p t="2063671" d="1499">It's hard to draw
+this, because it's</p>
+<p t="2065170" d="1749">in the dimensional
+orthogonal to this one.</p>
+<p t="2066919" d="4320">I guess I should really
+draw the arrays like this.</p>
+<p t="2071239" d="1521">So this guy has an array.</p>
+<p t="2072760" d="2010">We find the upper
+and lower bounds</p>
+<p t="2074770" d="2730">for the y-coordinate
+in the global space.</p>
+<p t="2077500" d="2291">This takes log n time
+to do two searches.</p>
+<p t="2079791" d="499">Question.</p>
+<p t="2080290" d="1467">AUDIENCE: Those are the
+upper and lower bounds</p>
+<p t="2081757" d="2292">from the predecessor [INAUDIBLE]
+successor [INAUDIBLE]?</p>
+<p t="2084049" d="1082">ERIK DEMAINE: Yeah, right.</p>
+<p t="2085131" d="2778">So we're doing a predecessor
+and successor search, let's say,</p>
+<p t="2087909" d="961">in this array.</p>
+<p t="2088870" d="3300">Binary search we find--</p>
+<p t="2092170" d="2790">I didn't give them
+names, but in the notes</p>
+<p t="2094960" d="5580">they're a1 through b1 and x.</p>
+<p t="2100540" d="4020">And they're a2 through b2 and y.</p>
+<p t="2104560" d="2180">So that's my query,
+this rectangle.</p>
+<p t="2106740" d="4640">I'm doing the search for a2
+and for b2 in the top array.</p>
+<p t="2111380" d="3080">Now, what I'd like to do
+is keep that information</p>
+<p t="2114460" d="1290">as I walk down the tree.</p>
+<p t="2118760" d="2630">So that in the end, when
+I get to these nodes,</p>
+<p t="2121390" d="5130">I know where I am in
+those arrays in y.</p>
+<p t="2126520" d="1920">So let's think of that
+just step by step.</p>
+<p t="2147460" d="6440">So imagine in the x
+tree, I'm at some node.</p>
+<p t="2153900" d="3180">And then I follow, let's
+say, a right pointer</p>
+<p t="2157080" d="2500">to the right child.</p>
+<p t="2159580" d="500">OK.</p>
+<p t="2160080" d="2160">Now, in y space--</p>
+<p t="2162240" d="4260">maybe I should switch
+to red for y space.</p>
+<p t="2166500" d="6510">This guy has a really big array
+representing all of the nodes</p>
+<p t="2173010" d="2990">down here, but sorted
+by y-coordinate.</p>
+<p t="2176000" d="2410">This guy has a
+corresponding array</p>
+<p t="2178410" d="2370">with some subset of the nodes.</p>
+<p t="2180780" d="1380">Which subset?</p>
+<p t="2182160" d="2500">The ones that are to the
+right of this x-coordinate.</p>
+<p t="2184660" d="1130">So there's no relation.</p>
+<p t="2185790" d="2797">I mean, some of the
+guys that are here--</p>
+<p t="2188587" d="833">let me circle them--</p>
+<p t="2192180" d="2220">some of these guys
+exist over here.</p>
+<p t="2194400" d="3340">They'll be in the
+same relative order.</p>
+<p t="2197740" d="3480">So here's those four
+guys, then one, and two.</p>
+<p t="2201220" d="2679">So some of these guys will
+be preserved over here.</p>
+<p t="2203899" d="2291">Some of them won't, because
+their x-coordinate smaller.</p>
+<p t="2206190" d="1590">It's an arbitrary subset.</p>
+<p t="2207780" d="2880">These guys will also live here.</p>
+<p t="2210660" d="750">OK.</p>
+<p t="2211410" d="4770">The idea is store pointers from
+every element over here to,</p>
+<p t="2216180" d="2910">let's say, the
+successor over here.</p>
+<p t="2219090" d="3590">So store these red arrows.</p>
+<p t="2222680" d="4120">let's say, these guys
+all point to this node.</p>
+<p t="2226800" d="2460">These guys point to that node.</p>
+<p t="2229260" d="3060">I guess these guys just
+point to some adjacent node,</p>
+<p t="2232320" d="3230">either the predecessor
+or the successor.</p>
+<p t="2235550" d="4742">So the result is if I know where
+a2 and b2 live in this array,</p>
+<p t="2240292" d="1958">I can figure out where
+they live in this array.</p>
+<p t="2242250" d="1670">I just follow the pointer.</p>
+<p t="2243920" d="1856">Easy.</p>
+<p t="2245776" d="2464">Done.</p>
+<p t="2248240" d="510">OK.</p>
+<p t="2248750" d="1600">Let's think about
+what this means.</p>
+<p t="2250350" d="9230">So I'm going to store
+pointers from the y</p>
+<p t="2259580" d="5530">array of some x node.</p>
+<p t="2269560" d="6780">Let's call that
+node v in the x tree</p>
+<p t="2276340" d="8600">to the corresponding places,
+corresponding points,</p>
+<p t="2284940" d="10470">let's say, in the y
+arrays of left child of v</p>
+<p t="2295410" d="1350">and the right child of v.</p>
+<p t="2296760" d="3062">So, actually,
+every array item is</p>
+<p t="2299822" d="1708">going to have two
+pointers, one if you're</p>
+<p t="2301530" d="1760">going right in the x
+tree, one if you're</p>
+<p t="2303290" d="3020">going the left in the x tree.</p>
+<p t="2306310" d="2390">But we can afford a constant
+number of pointers per node.</p>
+<p t="2308700" d="3359">This only increases space
+by a constant factor.</p>
+<p t="2312059" d="2041">And now, it tells me
+exactly what I need to know.</p>
+<p t="2314100" d="1410">I start at the root.</p>
+<p t="2315510" d="1080">I do a binary search.</p>
+<p t="2316590" d="1230">That's the slow part.</p>
+<p t="2317820" d="1920">I spend log n time,
+find those two slots.</p>
+<p t="2319740" d="2520">Every time I go down,
+I follow the pointer.</p>
+<p t="2322260" d="4860">I know exactly where a2 and
+b2 live in the next array.</p>
+<p t="2327120" d="2950">In constant time, as I walk
+down, I can figure this out.</p>
+<p t="2330070" d="2360">I can remember the information
+on both sides here.</p>
+<p t="2332430" d="3510">And every time I go to
+one of these subtrees,</p>
+<p t="2335940" d="3030">I know exactly where I live--</p>
+<p t="2338970" d="3970">it's no longer a tree--
+now, in that array.</p>
+<p t="2342940" d="3770">So I can identify the
+regions in these arrays.</p>
+<p t="2346710" d="4830">that correspond to these
+matching subrectangles</p>
+<p t="2351540" d="1020">with no extra time.</p>
+<p t="2352560" d="2046">So I save that last log factor.</p>
+<p t="2354606" d="1624">If you generalize
+this to D dimensions,</p>
+<p t="2356230" d="1500">it only works in
+the last dimension.</p>
+<p t="2357730" d="2000">You can use this trick
+in the last dimension</p>
+<p t="2359730" d="6150">and improve from log to the d
+query to log to the d minus 1.</p>
+<p t="2365880" d="2579">In the higher dimensions, we
+just use regular range trees.</p>
+<p t="2368459" d="2041">And when we get down to
+the two dimensional case,</p>
+<p t="2370500" d="1254">it's a recursion.</p>
+<p t="2371754" d="2166">Before we were stopping at
+the one dimensional case.</p>
+<p t="2373920" d="2160">We use a regular
+binary search tree.</p>
+<p t="2376080" d="2310">Now, we stop at the
+two dimensional case,</p>
+<p t="2378390" d="1200">and we use this fancy thing.</p>
+<p t="2383370" d="1410">I call this cross-linking.</p>
+<p t="2384780" d="2190">A lot of people call it
+fractional cascading.</p>
+<p t="2386970" d="2550">Both are valid names.</p>
+<p t="2389520" d="2580">It's a cool idea,
+but simple once you</p>
+<p t="2392100" d="2470">can see both dimensions
+at once, which I know it's</p>
+<p t="2394570" d="1250">hard to see in two dimensions.</p>
+<p t="2395820" d="3240">But it can be done.</p>
+<p t="2399060" d="1570">All right.</p>
+<p t="2400630" d="620">Questions?</p>
+<p t="2404270" d="2430">I guess the obvious
+question is dynamic.</p>
+<p t="2406700" d="3340">Now, we're going
+to go to dynamic.</p>
+<p t="2410040" d="1820">This is a very static
+thing to be doing.</p>
+<p t="2411860" d="2272">How in the world
+would we maintain this</p>
+<p t="2414132" d="1208">if the point set is changing?</p>
+<p t="2415340" d="2250">All these pointers are
+going to move around.</p>
+<p t="2417590" d="2760">Life seems so hard.</p>
+<p t="2420350" d="1980">But it's not.</p>
+<p t="2422330" d="2730">In fact, updates are a lot
+easier than you might think.</p>
+<p t="2445850" d="3690">Some of you may believe
+this in your heart.</p>
+<p t="2449540" d="1650">Some of you may not.</p>
+<p t="2451190" d="4560">But if you've ever seen an
+amortization argument that</p>
+<p t="2455750" d="1934">says, basically, when
+you modify a tree,</p>
+<p t="2457684" d="1666">only a constant number
+of things happen.</p>
+<p t="2459350" d="2270">And they usually
+happen near the leaves.</p>
+<p t="2461620" d="2280">I'm thinking of a
+binary search tree.</p>
+<p t="2463900" d="1800">The easiest way to see
+this is in a B-tree</p>
+<p t="2465700" d="2170">if you know B-trees.</p>
+<p t="2467870" d="1697">Usually, if you do
+insertion, you're</p>
+<p t="2469567" d="2083">going to do maybe one or
+two splits at the bottom,</p>
+<p t="2471650" d="929">and that's it.</p>
+<p t="2472579" d="2041">Constant fraction at a
+time, that's all there is.</p>
+<p t="2474620" d="2280">So it should only take
+constant time to do an update.</p>
+<p t="2476900" d="5035">This structure is easy
+to update at the leaves.</p>
+<p t="2481935" d="2375">If you look at one of these
+structures, a constant number</p>
+<p t="2484310" d="2190">of items, there's a
+constant size array.</p>
+<p t="2486500" d="3340">You could update everything
+in constant time.</p>
+<p t="2489840" d="2905">If we're only up to hitting near
+the leaves, then life is good.</p>
+<p t="2492745" d="1375">Occasionally,
+though, we're going</p>
+<p t="2494120" d="2489">to have to update
+these giant structures.</p>
+<p t="2496609" d="2041">And then we're going to
+have to spend giant time.</p>
+<p t="2498650" d="2670">That's OK.</p>
+<p t="2501320" d="2400">The only thing we need
+out of this data structure</p>
+<p t="2503720" d="3030">is that it takes the same amount
+of space and pre-processing</p>
+<p t="2506750" d="6200">time, n log to d minus 1
+space, and time to build</p>
+<p t="2512950" d="3850">the static data structure.</p>
+<p t="2516800" d="4740">If we have this, it turns out
+we can make it dynamic for free.</p>
+<p t="2521540" d="2360">This is the magic of
+weight balance trees.</p>
+<p t="2535610" d="4530">In general, there are many
+kinds of weight balance trees.</p>
+<p t="2540140" d="2430">We're going to look
+at one called BB alpha</p>
+<p t="2542570" d="5880">trees, which are the oldest
+and sort of the simplest.</p>
+<p t="2548450" d="760">Well, you'll see.</p>
+<p t="2549210" d="2030">It's pretty easy to do.</p>
+<p t="2551240" d="2040">You've already seen
+height balance trees.</p>
+<p t="2553280" d="2910">AVL trees, for example, you keep
+the left and the right subtree.</p>
+<p t="2556190" d="2291">You want their height to be
+within an additive constant</p>
+<p t="2558481" d="2149">of each other, 1.</p>
+<p t="2560630" d="3150">Red black trees are
+multiplicative factor 2.</p>
+<p t="2563780" d="1470">Left and right
+subtree, the heights</p>
+<p t="2565250" d="1740">will be roughly the same.</p>
+<p t="2566990" d="2460">Weight balance trees,
+weight is the number</p>
+<p t="2569450" d="1555">of nodes in a subtree.</p>
+<p t="2571005" d="1625">Weight balance trees,
+they want to keep</p>
+<p t="2572630" d="2700">the size of the left subtree and
+the size of the right subtree</p>
+<p t="2575330" d="2230">to be roughly the same.</p>
+<p t="2577560" d="5150">So here's the definition
+of BB alpha trees.</p>
+<p t="2582710" d="9190">For each node v, size
+of the left subtree of v</p>
+<p t="2591900" d="4400">is at least alpha
+times the size of v.</p>
+<p t="2596300" d="5240">And size of the
+right subtree of v</p>
+<p t="2601540" d="6320">is at least alpha times
+the size of v. Now, size,</p>
+<p t="2607860" d="950">I didn't define size.</p>
+<p t="2608810" d="1830">It could be the total number
+of nodes in the subtree.</p>
+<p t="2610640" d="2024">It could be the number
+of leaves in the subtree.</p>
+<p t="2612664" d="916">Doesn't really matter.</p>
+<p t="2616160" d="1980">What else?</p>
+<p t="2618140" d="940">What's alpha?</p>
+<p t="2619080" d="1820">Alpha is a half,
+you're in trouble.</p>
+<p t="2620900" d="2730">Because then it has to
+be perfectly balanced.</p>
+<p t="2623630" d="2940">But just make alpha small,
+like 1/10 or something.</p>
+<p t="2626570" d="2770">Any constant less
+than a half will do.</p>
+<p t="2632500" d="610">Right.</p>
+<p t="2633110" d="1458">The nice thing
+about weight balance</p>
+<p t="2634568" d="1422">is they imply height balance.</p>
+<p t="2635990" d="3300">If you have this property
+that neither your left</p>
+<p t="2639290" d="5010">nor your right subtree are too
+small, then as you go down,</p>
+<p t="2644300" d="2640">every time you take a
+left or a right child,</p>
+<p t="2646940" d="3900">you throw away an alpha
+fraction of your nodes.</p>
+<p t="2650840" d="1640">So initially, you
+have all the nodes.</p>
+<p t="2652480" d="2124">Every time you go down,
+you lose an alpha fraction.</p>
+<p t="2654604" d="1636">How many times can that happen?</p>
+<p t="2656240" d="5040">Log base alpha, basically,
+so log base 1 over alpha.</p>
+<p t="2661280" d="8070">The height is log base
+1 over alpha of n.</p>
+<p t="2669350" d="3000">So this is really a stronger
+property than height balance.</p>
+<p t="2672350" d="2521">It implies that your
+heights are good.</p>
+<p t="2674871" d="2249">So it implies the height of
+the left and right subtree</p>
+<p t="2677120" d="2220">are not too far from each other.</p>
+<p t="2679340" d="1950">But it's a lot stronger.</p>
+<p t="2681290" d="5670">It lets you do updates
+lickety fast, basically.</p>
+<p t="2686960" d="1170">So how do we do an update?</p>
+<p t="2697710" d="3540">The idea is, normally,
+you insert a leaf,</p>
+<p t="2701250" d="2270">do a regular BST,
+insert a delete.</p>
+<p t="2703520" d="2830">You add a leaf at the
+bottom or delete a leaf.</p>
+<p t="2706350" d="4890">And so you have to update like
+that node and maybe its parent.</p>
+<p t="2711240" d="2410">As long as you have
+weight balance,</p>
+<p t="2713650" d="2000">you're just making little
+constant sized changes</p>
+<p t="2715650" d="780">at the bottom.</p>
+<p t="2716430" d="1900">Everything's good.</p>
+<p t="2718330" d="500">OK.</p>
+<p t="2718830" d="2583">The trouble is when one of these
+constraints becomes violated.</p>
+<p t="2721413" d="2467">Then you want to do a
+rotation or something.</p>
+<p t="2723880" d="500">OK.</p>
+<p t="2724380" d="10270">So when a node is
+not weight balanced,</p>
+<p t="2734650" d="2570">it's a pretty loose algorithm.</p>
+<p t="2737220" d="2160">But it's easy to find nodes.</p>
+<p t="2739380" d="2250">You just store all the
+weights, all the subtree sizes,</p>
+<p t="2741630" d="1980">which we were doing already.</p>
+<p t="2743610" d="3540">You can detect when nodes are
+no longer weight balanced.</p>
+<p t="2747150" d="1894">And then we just want
+to weight balance it.</p>
+<p t="2749044" d="1166">How do we weight balance it?</p>
+<p t="2750210" d="3880">We rebuild the entire
+subtree from scratch.</p>
+<p t="2754090" d="2297">This is sort of the only
+thing we know how to do.</p>
+<p t="2756387" d="1333">We have a static data structure.</p>
+<p t="2757720" d="2510">This is a general
+transformation, dynamization</p>
+<p t="2760230" d="3510">when you have augmentation.</p>
+<p t="2763740" d="1320">We have this data structure.</p>
+<p t="2765060" d="1500">It's got all these
+augmented things.</p>
+<p t="2766560" d="1200">It's complicated.</p>
+<p t="2767760" d="1800">But at least it's sort
+of downward looking.</p>
+<p t="2769560" d="3100">I mean, you only need to
+store pointers from here down,</p>
+<p t="2772660" d="1180">not up.</p>
+<p t="2773840" d="1500">I mean, your parent
+points into you.</p>
+<p t="2775340" d="2159">But you have a nice local thing.</p>
+<p t="2777499" d="1541">So if this guy's
+not weight balanced,</p>
+<p t="2779040" d="4490">if this left subtree is way
+heavier than the right subtree</p>
+<p t="2783530" d="3420">by this alpha factor,
+one over alpha factor,</p>
+<p t="2786950" d="3070">then just redo
+everything in here.</p>
+<p t="2790020" d="1560">Find the median.</p>
+<p t="2791580" d="1942">Make a perfect
+binary search tree.</p>
+<p t="2793522" d="1958">Then the weights between
+the left and the right</p>
+<p t="2795480" d="1260">will be perfectly balanced.</p>
+<p t="2796740" d="4140">We'll have achieved the one
+half, one half split of weight.</p>
+<p t="2800880" d="2730">How long before it
+gets unbalanced again?</p>
+<p t="2803610" d="2094">A long time.</p>
+<p t="2805704" d="2166">If I start with a one half,
+one half split, and then</p>
+<p t="2807870" d="3990">I have to get to an alpha
+1 minus alpha split,</p>
+<p t="2811860" d="4505">a lot of nodes had to move
+from one side to the other.</p>
+<p t="2816365" d="1405">The alpha gets messy.</p>
+<p t="2817770" d="3990">So let me just say
+when this happens,</p>
+<p t="2821760" d="2160">rebuild entire subtree.</p>
+<p t="2828940" d="3736">I guess it's like a 1/2
+minus alpha had to move.</p>
+<p t="2832676" d="1874">1/2 minus alpha times
+the size of the subtree</p>
+<p t="2834550" d="3420">had to be inserted or deleted,
+had to happen, or maybe half</p>
+<p t="2837970" d="1907">of that, some constant fraction.</p>
+<p t="2839877" d="833">I don't really care.</p>
+<p t="2840710" d="1940">Alpha's a constant.</p>
+<p t="2842650" d="6140">I'm going to charge
+to the theta k</p>
+<p t="2848790" d="9770">updates that unbalance things.</p>
+<p t="2867150" d="2500">k here is the size
+of the subtree.</p>
+<p t="2874260" d="3180">k So when I see a node is
+on balance, just fix it.</p>
+<p t="2877440" d="1830">Make it perfect.</p>
+<p t="2879270" d="2540">And if I started out perfect,
+the subtree started out</p>
+<p t="2881810" d="2970">perfect, I know there were theta
+k updates that I can charge to.</p>
+<p t="2884780" d="4420">The only catch is I'm actually
+double charging quite a bit,</p>
+<p t="2889200" d="500">actually.</p>
+<p t="2889700" d="5160">If you look at a tree,
+if I do an insert here,</p>
+<p t="2894860" d="2790">it makes this subtree
+potentially slightly</p>
+<p t="2897650" d="540">unbalanced.</p>
+<p t="2898190" d="1240">It makes this subtrees
+slightly unbalanced.</p>
+<p t="2899430" d="1750">It makes this subtree
+slightly unbalanced.</p>
+<p t="2901180" d="3400">There are log n subtrees
+that contain that item.</p>
+<p t="2904580" d="2515">Each of them may
+be getting worse.</p>
+<p t="2907095" d="2375">So if I say, well, yeah, there
+are these theta k updates,</p>
+<p t="2909470" d="2166">but actually there are log
+n different subtrees that</p>
+<p t="2911636" d="1954">will charge to the same update.</p>
+<p t="2913590" d="2900">So I lose a log n factor
+in this amortization.</p>
+<p t="2916490" d="1620">But it's not so bad.</p>
+<p t="2918110" d="2310">I get log n amortized update.</p>
+<p t="2926680" d="3830">This is if a rebuild
+costs linear time.</p>
+<p t="2937616" d="874">This is pretty nifty.</p>
+<p t="2938490" d="2440">I don't have to do
+rotations per se.</p>
+<p t="2940930" d="3050">I just take all the notes in
+the subtree, write them down.</p>
+<p t="2943980" d="1170">I do an in order traverse.</p>
+<p t="2945150" d="1650">I have them sorted,
+take the median,</p>
+<p t="2946800" d="2940">build a nice perfect binary
+search tree on those items.</p>
+<p t="2949740" d="2830">I can easily do
+that in linear time.</p>
+<p t="2952570" d="2360">And so this is like
+the brain dead way</p>
+<p t="2954930" d="4830">to make this weight
+balanced tree dynamic.</p>
+<p t="2959760" d="1920">The original BB alpha
+trees use rotations.</p>
+<p t="2961680" d="1279">But you don't have to.</p>
+<p t="2962959" d="2291">You can do this very simple
+thing and still get a log n</p>
+<p t="2965250" d="2400">amortized update.</p>
+<p t="2967650" d="2610">And the good news is, if you
+have augmentation as well--</p>
+<p t="2970260" d="1680">because with this
+subtree, there's</p>
+<p t="2971940" d="4050">tons of extra stuff, all these
+arrays and pointers and stuff,</p>
+<p t="2975990" d="1860">it's easy to build from scratch.</p>
+<p t="2977850" d="1590">But it's hard to
+maintain dynamically.</p>
+<p t="2979440" d="2160">The point is, now,
+we don't have to.</p>
+<p t="2981600" d="1650">If ever we need
+to change a node,</p>
+<p t="2983250" d="1620">we just rebuild
+the entire subtree.</p>
+<p t="2984870" d="4750">And we can afford it at the
+loss of a logarithmic overhead.</p>
+<p t="2989620" d="3890">So we had n log to the d minus
+1 n time to build the structure.</p>
+<p t="2993510" d="1500">So for a structure
+of size k, it's</p>
+<p t="2995010" d="5144">going to be k times log
+to the d minus 1 of k.</p>
+<p t="3000154" d="1666">We're going to lose
+an extra log factor.</p>
+<p t="3001820" d="2400">So this d minus 1 is going
+to turn into a d minus 2</p>
+<p t="3004220" d="615">for updates.</p>
+<p t="3024590" d="6420">So that was the
+generic structure.</p>
+<p t="3031010" d="7710">And now, if we apply this
+to layered range trees,</p>
+<p t="3038720" d="7530">we get log to the d
+n amortized update.</p>
+<p t="3052160" d="4005">Because we had k
+times log to the d</p>
+<p t="3056165" d="5055">minus 1 of k pre-processing
+to rebuild node.</p>
+<p t="3064460" d="2920">And just to recall,
+we still have log</p>
+<p t="3067380" d="4520">to the d minus 1 of n query.</p>
+<p t="3071900" d="2880">So this was regular range trees.</p>
+<p t="3074780" d="4710">And we've made them dynamic,
+the same time as range trees.</p>
+<p t="3079490" d="2760">And still, the query
+is a log factor faster.</p>
+<p t="3082250" d="3810">So for 2D, we get log n query
+log squired n update insertion</p>
+<p t="3086060" d="2640">and deletion of points.</p>
+<p t="3088700" d="890">Questions about that?</p>
+<p t="3093180" d="1470">Cool.</p>
+<p t="3094650" d="4340">Well, that is range searching,
+orthogonal range searching.</p>
+<p t="3102750" d="2230">Let's see.</p>
+<p t="3104980" d="2880">There are more
+results, which I don't</p>
+<p t="3107860" d="2670">want to cover in detail here.</p>
+<p t="3110530" d="2634">But you should at
+least know about them.</p>
+<p t="3113164" d="2166">And then we're going to
+turn to fractional cascading</p>
+<p t="3115330" d="1308">a little more generally.</p>
+<p t="3125110" d="5745">So where is this result?</p>
+<p t="3130855" d="625">Somewhere here.</p>
+<p t="3141160" d="6950">So for static orthogonal
+range searching,</p>
+<p t="3148110" d="1980">range searching is a big area.</p>
+<p t="3150090" d="1707">We're looking at
+the orthogonal case.</p>
+<p t="3151797" d="1833">There's other versions
+where you're querying</p>
+<p t="3153630" d="3510">with a triangle or a simplex.</p>
+<p t="3157140" d="2880">You can query with
+two-sided box, which</p>
+<p t="3160020" d="1410">goes out to infinity here.</p>
+<p t="3161430" d="2620">All sorts of things
+are out there.</p>
+<p t="3164050" d="2262">But let me stick to rectangles.</p>
+<p t="3166312" d="4448">Because that's what we've
+seen and we can relate to.</p>
+<p t="3170760" d="3640">You can achieve
+these same bounds--</p>
+<p t="3174400" d="1100">sorry, no update.</p>
+<p t="3175500" d="1920">You can achieve the
+log to the d minus 1</p>
+<p t="3177420" d="4270">n query using less space.</p>
+<p t="3181690" d="4940">So I can get log
+to the d minus 1 n</p>
+<p t="3186630" d="9540">query and n log to the
+d minus 1 n space--</p>
+<p t="3196170" d="2100">that's what we were
+getting before--</p>
+<p t="3198270" d="2970">divided by log log n.</p>
+<p t="3201240" d="2040">Slight improvement.</p>
+<p t="3203280" d="3090">And in a certain model,
+this is basically optimal,</p>
+<p t="3206370" d="1590">which is kind of even crazier.</p>
+<p t="3207960" d="4010">This is an old
+result by Chazelle.</p>
+<p t="3211970" d="2590">That's in '86.</p>
+<p t="3214560" d="1110">OK.</p>
+<p t="3215670" d="5655">This is 2D-- sorry, not
+2D, just in general.</p>
+<p t="3225600" d="3240">Turns out this query
+time is not optimal.</p>
+<p t="3228840" d="2790">If you allow the space
+to go up a little bit,</p>
+<p t="3231630" d="3558">you can get another
+log improvement.</p>
+<p t="3235188" d="3972">So I can get log
+to the d minus 2</p>
+<p t="3239160" d="5515">and query if I'm
+willing to pay--</p>
+<p t="3244675" d="1040">I didn't this is space--</p>
+<p t="3249210" d="6300">n log to the d n space.</p>
+<p t="3255510" d="3750">So if I give up another
+log factor in space,</p>
+<p t="3259260" d="1800">I can get another
+log factor in query.</p>
+<p t="3261060" d="1980">I don't think you
+can keep doing that.</p>
+<p t="3263040" d="2480">But for one more step, you can.</p>
+<p t="3265520" d="3250">I believe this is conjectured
+optimal for query.</p>
+<p t="3268770" d="3270">I don't know if it's proved.</p>
+<p t="3272040" d="3150">And this was originally
+done by Chazelle and Guibas</p>
+<p t="3275190" d="3000">using fractional cascading.</p>
+<p t="3278190" d="1380">And we'll see.</p>
+<p t="3279570" d="3860">If there's time next class,
+I'll show you how this works.</p>
+<p t="3283430" d="1750">But for now, I want
+to tell you in general</p>
+<p t="3285180" d="3360">how fractional cascading
+works in generality.</p>
+<p t="3288540" d="1710">This is part of
+fractional cascading,</p>
+<p t="3290250" d="3720">this idea of cross-linking from
+a bigger structure to a smaller</p>
+<p t="3293970" d="2670">one, so that you don't
+have to keep researching.</p>
+<p t="3296640" d="2700">You just reuse where you were.</p>
+<p t="3299340" d="1140">But there's another idea.</p>
+<p t="3300480" d="1208">I want to show you that idea.</p>
+<p t="3304200" d="1980">So, fractional cascading.</p>
+<p t="3322052" d="2488">AUDIENCE: Would that
+work for d equals 2?</p>
+<p t="3324540" d="3300">ERIK DEMAINE: For d equals
+2, no it does not work.</p>
+<p t="3327840" d="3750">So I should say this
+is for 2D and higher.</p>
+<p t="3331590" d="2030">D has to be bigger than 1.</p>
+<p t="3333620" d="2300">Because you can never be log n.</p>
+<p t="3335920" d="3550">So for 2D and higher, we could
+use the trick that we just did.</p>
+<p t="3339470" d="3980">For 3D and higher, you can
+improve by another long,</p>
+<p t="3343450" d="1534">thanks.</p>
+<p t="3344984" d="666">Other questions?</p>
+<p t="3345650" d="1890">AUDIENCE: But you said
+you can never beat log n.</p>
+<p t="3347540" d="1583">ERIK DEMAINE: We can
+never beat log n.</p>
+<p t="3349123" d="3757">In this model, which is
+basically comparison model,</p>
+<p t="3352880" d="1700">we're comparing coordinates.</p>
+<p t="3354580" d="2110">In that model and
+many other models,</p>
+<p t="3356690" d="2072">you can't beat log n query.</p>
+<p t="3358762" d="2458">Because in particular, you have
+to solve the search problem</p>
+<p t="3361220" d="1350">in 1D.</p>
+<p t="3362570" d="1740">So we're always
+hampered by that.</p>
+<p t="3364310" d="3860">But the question is,
+how does it grow with d?</p>
+<p t="3368170" d="2430">And the claim is we can get
+log n all the way up to three</p>
+<p t="3370600" d="630">dimensions.</p>
+<p t="3371230" d="2670">Only at four dimensions do
+we have to pay log squared.</p>
+<p t="3373900" d="3970">It's pretty amazing I think.</p>
+<p t="3377870" d="700">OK.</p>
+<p t="3378570" d="13621">Fractional cascading-- super
+cool name, kind of scary name.</p>
+<p t="3392191" d="2499">I was always scared when I heard
+about fractional cascading.</p>
+<p t="3394690" d="1250">But it turns out,
+it's very simple.</p>
+<p t="3395940" d="1390">Goal today is to not be scared.</p>
+<p t="3400110" d="3450">Let's start with
+a warm up problem.</p>
+<p t="3403560" d="2630">And then I'll tell you
+its full generality.</p>
+<p t="3406190" d="2180">But simple version
+of the problem</p>
+<p t="3408370" d="1920">is not geometry, per se.</p>
+<p t="3410290" d="2610">It's kind of 1 and 1/2
+dimensions, if you will.</p>
+<p t="3412900" d="9720">Suppose I have k lists
+and each has size n.</p>
+<p t="3422620" d="2010">They're sorted
+lists, think of them.</p>
+<p t="3424630" d="4830">So we have n items come
+from an ordered universe.</p>
+<p t="3429460" d="1380">Here's list one.</p>
+<p t="3430840" d="1920">Here's list two.</p>
+<p t="3432760" d="1500">Here's a list three.</p>
+<p t="3434260" d="2070">There's k of them.</p>
+<p t="3436330" d="2850">Each of them has n items.</p>
+<p t="3439180" d="2625">I would like to
+search the query.</p>
+<p t="3444712" d="2208">We'll just do static here.</p>
+<p t="3446920" d="2960">Original fractional
+cascading was just static.</p>
+<p t="3449880" d="2274">And these results
+are just static.</p>
+<p t="3452154" d="2166">You can make it dynamic,
+but there is some overhead.</p>
+<p t="3454320" d="1600">And I don't want
+to get into that.</p>
+<p t="3455920" d="4530">It's even messier,
+or it is messy.</p>
+<p t="3460450" d="3450">Fractional cascading by
+itself is a very simple idea.</p>
+<p t="3463900" d="6820">Query is search
+for x in all lists.</p>
+<p t="3473870" d="500">OK.</p>
+<p t="3474370" d="3269">So I want to know what is the
+predecessor and successor of x</p>
+<p t="3477639" d="541">in this list.</p>
+<p t="3478180" d="1380">I want to know what
+is the predecessor</p>
+<p t="3479560" d="1130">and successor in this list.</p>
+<p t="3480690" d="2320">I want to know what's the
+predecessor and successor</p>
+<p t="3483010" d="1754">in this list, all of them.</p>
+<p t="3484764" d="916">It's more information.</p>
+<p t="3485680" d="2790">If I just merged the
+lists and searched for x,</p>
+<p t="3488470" d="2754">I would find where
+x fits globally.</p>
+<p t="3491224" d="2166">But I want to know how it
+fits relative to this list</p>
+<p t="3493390" d="3090">and relative to this list
+and relative to this list.</p>
+<p t="3496480" d="1950">How do I do it?</p>
+<p t="3498430" d="1900">I could just do k
+binary searches.</p>
+<p t="3500330" d="4940">So this is an easy
+problem to solve.</p>
+<p t="3505270" d="4230">You get k times log n.</p>
+<p t="3509500" d="2550">But, now, fractional
+cascading comes in.</p>
+<p t="3512050" d="8710">And we can get the optimal
+bound, which is k plus log n.</p>
+<p t="3520760" d="2840">I need k to write
+down the answers.</p>
+<p t="3523600" d="2040">I need log n to do the
+search in one list.</p>
+<p t="3525640" d="1860">It turns out I can
+search on all k lists,</p>
+<p t="3527500" d="5070">simultaneously get all k
+answers in k plus log n time.</p>
+<p t="3532570" d="4830">It's kind of cool and,
+actually, quite easy to do.</p>
+<p t="3537400" d="1245">We want to use this concept.</p>
+<p t="3541390" d="3480">If I could search for
+my item, for x, in here,</p>
+<p t="3544870" d="2510">and then basically follow
+a pointer to where I want</p>
+<p t="3547380" d="2530">to go in here, I'd be done.</p>
+<p t="3549910" d="2590">Sadly, that can't be done.</p>
+<p t="3552500" d="800">Why?</p>
+<p t="3553300" d="3510">Because who knows what
+elements are in here?</p>
+<p t="3556810" d="4670">All of these elements could
+fit right in this slot.</p>
+<p t="3561480" d="2920">And so how do I know where
+to go in this giant list?</p>
+<p t="3564400" d="3280">If these all fit in
+here and, recursively,</p>
+<p t="3567680" d="2600">these all fit in here,
+then by searching up here,</p>
+<p t="3570280" d="2140">I learn nothing about
+where x fits in here.</p>
+<p t="3572420" d="1400">I have to do another search.</p>
+<p t="3573820" d="2166">And then I learn nothing
+about where x fits in here.</p>
+<p t="3575986" d="1734">So it doesn't work straight up.</p>
+<p t="3577720" d="4110">But if we combine this idea
+with fractional cascading,</p>
+<p t="3581830" d="1956">then we can do it.</p>
+<p t="3583786" d="2384">So I can erase this now.</p>
+<p t="3598040" d="1550">So what do we do?</p>
+<p t="3602720" d="1710">Idea is very simple.</p>
+<p t="3604430" d="5980">So I'm going to call these
+lists L1, L2, L3 up to Lk.</p>
+<p t="3613780" d="21520">I want to add every other
+item in Lk to Lk minus 1</p>
+<p t="3635300" d="2040">and produce a new
+list Lk minus 1 prime.</p>
+<p t="3639880" d="5270">So I take every
+second item here,</p>
+<p t="3645150" d="1490">just insert them into this list.</p>
+<p t="3649320" d="3140">[INAUDIBLE] it's a
+constant fraction bigger.</p>
+<p t="3652460" d="1620">And then repeat.</p>
+<p t="3654080" d="2010">This is the fractional part.</p>
+<p t="3656090" d="1759">Here, a fraction is one half.</p>
+<p t="3657849" d="1541">You can make it
+whatever fraction you</p>
+<p t="3659390" d="3150">like less than one.</p>
+<p t="3662540" d="4020">In general, I'm going to
+add every other item--</p>
+<p t="3669720" d="3640">this is in sorted order
+in Lk, of course--</p>
+<p t="3673360" d="3250">that's in Li prime--</p>
+<p t="3676610" d="1800">the prime is the
+important part here--</p>
+<p t="3678410" d="6370">to Li minus 1 to
+form Li minus prime.</p>
+<p t="3684780" d="2740">So I've got this new
+larger version of L2.</p>
+<p t="3687520" d="1510">I take half the items from here.</p>
+<p t="3689030" d="2820">Some of them may be
+items that were in L3.</p>
+<p t="3691850" d="2430">Some of them are items
+that were originally in L2.</p>
+<p t="3694280" d="1750">But all of them get promoted.</p>
+<p t="3696030" d="4520">Or half of them
+get promoted to L1.</p>
+<p t="3700550" d="3330">So I keep promoting
+from the bottom up.</p>
+<p t="3703880" d="2460">How big do my lists get?</p>
+<p t="3706340" d="4210">What is the size of Li prime?</p>
+<p t="3710550" d="3740">Well, it started with Li.</p>
+<p t="3714290" d="3390">And then I added
+half of the items</p>
+<p t="3717680" d="4520">that were in the next
+level down, Li plus 1.</p>
+<p t="3722200" d="500">OK.</p>
+<p t="3722700" d="3100">So this is n.</p>
+<p t="3725800" d="2170">And so this is going
+to be half of n</p>
+<p t="3727970" d="2576">plus half of another
+n plus half of--</p>
+<p t="3730546" d="2374">I mean, it's going to be n
+plus a half n plus a quarter n</p>
+<p t="3732920" d="1090">plus an eighth n.</p>
+<p t="3734010" d="1660">It's a geometric series.</p>
+<p t="3735670" d="2545">This is just a
+constant factor growth.</p>
+<p t="3738215" d="2295">I'm assuming all the lists
+have the same size here</p>
+<p t="3740510" d="630">for simplicity.</p>
+<p t="3741140" d="3240">You can generalize.</p>
+<p t="3744380" d="3540">So I didn't really make the
+lists any bigger, per se.</p>
+<p t="3747920" d="2310">But I fixed this problem.</p>
+<p t="3750230" d="6100">If all of the elements in
+L2 fit right here in L1,</p>
+<p t="3756330" d="1430">it's no longer a problem.</p>
+<p t="3757760" d="3330">Because, now, half of the
+items from L2 now live in L1.</p>
+<p t="3761090" d="2790">So when I search among
+L1, I'm not quite</p>
+<p t="3763880" d="1620">doing a global search.</p>
+<p t="3765500" d="2090">But I'm finding
+where I fit in L1.</p>
+<p t="3767590" d="3400">I didn't contaminate
+it too much from L2.</p>
+<p t="3770990" d="5400">And then now, it's useful to
+have pointers from L1 to L2.</p>
+<p t="3776390" d="1414">Let me draw a picture maybe.</p>
+<p t="3792130" d="9570">So here's L1, L2, L3.</p>
+<p t="3801700" d="7680">So half of the items here
+have been inserted into here.</p>
+<p t="3809380" d="2490">Now, we don't really know--</p>
+<p t="3811870" d="4610">maybe many of them went
+near the same location.</p>
+<p t="3816480" d="1227">But they went there.</p>
+<p t="3817707" d="2083">And I'm going to have
+pointers in both directions.</p>
+<p t="3819790" d="2986">Let's say I need them down.</p>
+<p t="3822776" d="1874">So that if I search in
+here, I can figure out</p>
+<p t="3824650" d="1260">where I am down here.</p>
+<p t="3829020" d="2650">Then half of these guys--</p>
+<p t="3831670" d="3450">maybe I'll use another color--</p>
+<p t="3835120" d="2220">get promoted to
+the next level up.</p>
+<p t="3837340" d="2730">So maybe this one gets promoted.</p>
+<p t="3840070" d="2600">Maybe this one gets promoted.</p>
+<p t="3842670" d="5070">I guess half would be that one,
+that one, that one, that one,</p>
+<p t="3847740" d="970">that one.</p>
+<p t="3848710" d="2250">These guys get promoted
+to the next level.</p>
+<p t="3866450" d="1150">OK.</p>
+<p t="3867600" d="1690">I claim this is
+enough information.</p>
+<p t="3869290" d="2730">This is fractional cascading
+in its full generality.</p>
+<p t="3872020" d="1470">We have the
+cross-linking that we</p>
+<p t="3873490" d="2910">had in the layered range trees.</p>
+<p t="3876400" d="2587">But, now, we also have the
+fractional cascading part,</p>
+<p t="3878987" d="1833">which is you take a
+fraction, you cascade it</p>
+<p t="3880820" d="1160">into the next layer.</p>
+<p t="3881980" d="3350">The cascading refers to those
+guys continue to get promoted.</p>
+<p t="3885330" d="4000">Half of them get
+promoted up recursively.</p>
+<p t="3889330" d="2620">That's where the
+name comes from.</p>
+<p t="3891950" d="1467">So now, how do we do a search?</p>
+<p t="3893417" d="1333">We're going to start at the top.</p>
+<p t="3894750" d="2740">And we're going to do a regular
+binary search at the top.</p>
+<p t="3897490" d="2160">Because we can
+afford log n once.</p>
+<p t="3899650" d="2580">So we do the binary
+search at the top.</p>
+<p t="3902230" d="5370">So maybe we find that our
+item fits here in this search.</p>
+<p t="3907600" d="2820">So that tells us,
+oh, well, this is</p>
+<p t="3910420" d="3540">where item x fits in this list.</p>
+<p t="3913960" d="606">Great.</p>
+<p t="3914566" d="1374">Now, I need to
+know where it fits</p>
+<p t="3915940" d="3030">in the next list
+in constant time.</p>
+<p t="3918970" d="2010">Well, I need some more
+pointers for this.</p>
+<p t="3920980" d="2010">So for each item
+in here, I'm going</p>
+<p t="3922990" d="2890">to store a pointer to the
+previous and next, let's say,</p>
+<p t="3925880" d="2690">red node, the
+previous and next node</p>
+<p t="3928570" d="2920">that was promoted
+from the list below.</p>
+<p t="3931490" d="500">OK.</p>
+<p t="3931990" d="3300">So, now, I basically
+know where it fits here.</p>
+<p t="3935290" d="3060">Not quite, because this
+is only half the items.</p>
+<p t="3938350" d="3690">So I know that it fits
+between this guy and this guy</p>
+<p t="3942040" d="5220">in list 2 prime, technically.</p>
+<p t="3947260" d="4110">So the only thing I don't
+know is, is it here or here?</p>
+<p t="3951370" d="2220">So I compare with this one item.</p>
+<p t="3953590" d="2970">And in general, if
+it's not a half,</p>
+<p t="3956560" d="1630">if the fraction is
+some other constant,</p>
+<p t="3958190" d="2930">I spend constant time to look
+at a constant number of items,</p>
+<p t="3961120" d="1810">figure out where it
+fits among those items.</p>
+<p t="3962930" d="3050">Now, I know where
+it fits in L2 prime.</p>
+<p t="3965980" d="3510">Then I, again, follow
+pointers to the next items.</p>
+<p t="3969490" d="2020">In this case, they're
+the white items.</p>
+<p t="3971510" d="3640">So let's say it fits
+here, basically.</p>
+<p t="3975150" d="3380">I have a pointer to the
+previous and next white item</p>
+<p t="3978530" d="1370">from that item.</p>
+<p t="3979900" d="1170">Follow those pointers down.</p>
+<p t="3981070" d="3560">And now, I know it's either,
+basically, here, here, here.</p>
+<p t="3984630" d="3670">It's somewhere in that little
+range of either equaling this</p>
+<p t="3988300" d="2120">or being between these
+two items or on this item</p>
+<p t="3990420" d="2860">or between those two
+items or on this item.</p>
+<p t="3993280" d="2130">And, again, constant number
+of things to look at.</p>
+<p t="3995410" d="1830">I figure out where I belong.</p>
+<p t="3997240" d="6210">In the primed list, which is
+not quite the original list,</p>
+<p t="4003450" d="2645">maybe I determine
+that x falls here.</p>
+<p t="4006095" d="1375">And what I really
+want to know is</p>
+<p t="4007470" d="3700">it's between this item and
+that item of the original list.</p>
+<p t="4011170" d="2750">I don't care so much
+about the promoted lists.</p>
+<p t="4013920" d="2750">So I need more
+pointers, which tell me</p>
+<p t="4016670" d="6700">if it happens that I fall here,
+basically, every promoted item</p>
+<p t="4023370" d="2160">has a pointer to the
+previous and next unpromoted</p>
+<p t="4025530" d="2270">item from the original list.</p>
+<p t="4027800" d="1240">This is static.</p>
+<p t="4029040" d="1610">I can have all these pointers.</p>
+<p t="4030650" d="1840">Let's write them down.</p>
+<p t="4032490" d="11130">So every promoted
+item in Li prime--</p>
+<p t="4043620" d="4440">that means it came from
+a promotion from below--</p>
+<p t="4048060" d="14230">has a pointer to the previous
+and next non-promoted item.</p>
+<p t="4062290" d="3060">So that's an item in Li.</p>
+<p t="4065350" d="500">OK.</p>
+<p t="4065850" d="1710">That's two pointers.</p>
+<p t="4067560" d="2520">And that's what we just use.</p>
+<p t="4070080" d="2880">So I found where I was
+among the entire L1</p>
+<p t="4072960" d="3630">prime, which was almost like
+a global search, not quite.</p>
+<p t="4076590" d="2910">And then I follow these
+points to figure out where</p>
+<p t="4079500" d="1290">it was in the original L1.</p>
+<p t="4085137" d="1833">Well, so if I found
+that I was in the middle</p>
+<p t="4086970" d="3210">of this big white region, I need
+to find the next red region.</p>
+<p t="4090180" d="1630">So it's basically the reverse.</p>
+<p t="4091810" d="7544">Every non-promoted item, every
+item in Li, has a pointer.</p>
+<p t="4103229" d="4115">So this is basically Li
+prime minus Li, if you will.</p>
+<p t="4107344" d="1416">And then these
+guys need a pointer</p>
+<p t="4108760" d="6780">to the next and previous
+in that, so previous</p>
+<p t="4115540" d="10180">and the next item in
+Li prime minus Li.</p>
+<p t="4125720" d="1888">So these are the promoted items.</p>
+<p t="4127608" d="1291">These are the unpromoted items.</p>
+<p t="4128899" d="3121">So it's actually just
+two pointers per item.</p>
+<p t="4132020" d="2540">If you're promoted, you
+store the previous and next.</p>
+<p t="4134560" d="1450">Unpromoted, if
+you're unpromoted,</p>
+<p t="4136010" d="1729">you store the previous
+and next promoted.</p>
+<p t="4137739" d="1000">It's nice and symmetric.</p>
+<p t="4138739" d="1811">It's pretty clean,
+a lot of pointers,</p>
+<p t="4140550" d="3809">hard to draw, but quite
+simple in the end.</p>
+<p t="4144359" d="991">There's two main ideas.</p>
+<p t="4145350" d="2210">One is to promote
+recursively up,</p>
+<p t="4147560" d="4145">just a constant fraction, so
+the lists don't get much bigger.</p>
+<p t="4151705" d="1375">Because it's a
+constant fraction,</p>
+<p t="4153080" d="2699">the gaps when you walk
+down are constant size.</p>
+<p t="4155779" d="2040">And so you basically
+get free relocalization</p>
+<p t="4157819" d="2551">within each list with
+the help of some pointers</p>
+<p t="4160370" d="5850">to walk down and jump left and
+right between the two colors.</p>
+<p t="4166220" d="1219">OK.</p>
+<p t="4167439" d="1911">That's basic
+fractional cascading</p>
+<p t="4169350" d="5110">in that we solved this problem,
+searched within k lists</p>
+<p t="4174460" d="4350">each of size n and k plus log n
+time, which is kind of amazing</p>
+<p t="4178810" d="1890">I think, pretty cool.</p>
+<p t="4184510" d="3080">But there's a more
+general form of this,</p>
+<p t="4187590" d="1939">uses the exact same ideas.</p>
+<p t="4189529" d="4620">But I just want to tell you
+how they generalized it.</p>
+<p t="4198084" d="1166">This is Chazelle and Guibas.</p>
+<p t="4207958" d="14962">So in general,
+fractional cascading,</p>
+<p t="4222920" d="2145">if you look at what
+cascading is happening here--</p>
+<p t="4227660" d="4140">here being here-- we essentially
+have a path of cascades.</p>
+<p t="4231800" d="2980">We start at the bottom and
+push into the predecessor</p>
+<p t="4234780" d="500">in the path.</p>
+<p t="4235280" d="2250">We push into the
+predecessor in the path.</p>
+<p t="4237530" d="2430">In the general case, we
+do it on a graph instead</p>
+<p t="4239960" d="2620">of a path, arbitrary graph.</p>
+<p t="4242580" d="3930">So we have a graph.</p>
+<p t="4246510" d="2360">The input, in some
+sense, you can think</p>
+<p t="4248870" d="3210">of this as a transformation.</p>
+<p t="4252080" d="2430">But it's for a specific
+kind of data structure.</p>
+<p t="4254510" d="5130">The data structure is
+represented by a graph.</p>
+<p t="4259640" d="11730">And each vertex of the
+graph has a set of elements</p>
+<p t="4271370" d="1170">or a list of elements.</p>
+<p t="4272540" d="1140">That's what we had here.</p>
+<p t="4273680" d="3735">We had a path here.</p>
+<p t="4277415" d="2625">And each node in the path had a
+corresponding list of elements.</p>
+<p t="4280040" d="2942">And we wanted to search
+among those lists.</p>
+<p t="4282982" d="1708">Before I tell you
+exactly what search is,</p>
+<p t="4284690" d="2100">let me tell you about
+the rest of the graph.</p>
+<p t="4294500" d="4210">And this is, sorry, in
+an ordered universe.</p>
+<p t="4298710" d="1457">So it's one dimensional.</p>
+<p t="4303750" d="6495">Edge is labeled with a range
+from that ordered universe a,</p>
+<p t="4310245" d="695">b.</p>
+<p t="4310940" d="1500">Every edge has some range.</p>
+<p t="4315454" d="1666">You can think of it
+as a directed graph.</p>
+<p t="4317120" d="960">It's probably cleaner.</p>
+<p t="4318080" d="4500">So when I follow this
+edge, there's a range here.</p>
+<p t="4322580" d="2550">And, basically, I'm only
+allowed to follow that edge</p>
+<p t="4325130" d="3600">if the range contains the
+thing I'm searching for.</p>
+<p t="4328730" d="4472">So here, I was searching for
+some item x in all the lists.</p>
+<p t="4333202" d="958">There's no ranges here.</p>
+<p t="4334160" d="2514">But in general, you
+get to specify a range.</p>
+<p t="4336674" d="1416">Why do we want to
+specify a range?</p>
+<p t="4338090" d="3543">We need a sort of bounded
+degree constraint.</p>
+<p t="4348890" d="4458">We want to have
+bounded n degree.</p>
+<p t="4353348" d="3768">So here we had n degree
+1 for every node.</p>
+<p t="4357116" d="1374">In general, we
+don't want to have</p>
+<p t="4358490" d="1270">too many nodes pointing in.</p>
+<p t="4359760" d="2732">Because we want to take
+half the nodes in here,</p>
+<p t="4362492" d="1458">or a constant
+fraction of the items</p>
+<p t="4363950" d="2922">here, and promote them into
+all the nodes that point to it,</p>
+<p t="4366872" d="1458">so that when we
+follow the pointer,</p>
+<p t="4368330" d="2070">we get to know where
+we belong here.</p>
+<p t="4370400" d="2130">That's the general concept.</p>
+<p t="4372530" d="2040">So, ideally, we have
+bounded n degree.</p>
+<p t="4374570" d="1560">If we do, we're done.</p>
+<p t="4376130" d="2070">We can have a slightly
+weaker condition,</p>
+<p t="4378200" d="3810">which is called
+locally-bounded n degree where</p>
+<p t="4382010" d="10740">the number of incoming edges for
+a node whose labels are ranges</p>
+<p t="4392750" d="3210">The labels have to have
+a common intersection, x.</p>
+<p t="4395960" d="3300">So we're searching
+for some item x.</p>
+<p t="4399260" d="2970">And if all the possible ways we
+can enter this node given item</p>
+<p t="4402230" d="690">x--</p>
+<p t="4402920" d="3060">so this x has to fall
+in all those ranges--</p>
+<p t="4405980" d="6720">that should be bounded, so,
+at most, some constant c.</p>
+<p t="4412700" d="1770">If it's always at
+most c for all nodes</p>
+<p t="4414470" d="3570">and for all x's, then this
+is locally-bounded degree.</p>
+<p t="4418040" d="4680">And these range labels help
+you achieve this property.</p>
+<p t="4422720" d="1612">If you can constrain
+that you're only</p>
+<p t="4424332" d="1958">going to follow this edge
+in certain situations</p>
+<p t="4426290" d="1416">and there aren't
+too many ways you</p>
+<p t="4427706" d="2634">could have gotten to a node,
+then you have this property.</p>
+<p t="4430340" d="6870">AUDIENCE: [INAUDIBLE]
+bound to x?</p>
+<p t="4437210" d="4820">ERIK DEMAINE: Contain x is
+a backwards containment.</p>
+<p t="4442030" d="1310">Let me put it this way.</p>
+<p t="4443340" d="1280">You have a node.</p>
+<p t="4444620" d="3120">You have all these
+edges coming into it.</p>
+<p t="4447740" d="3450">I want x to be a valid choice
+for each of these edges.</p>
+<p t="4451190" d="5790">Meaning, the range, each of them
+is some interval on the line.</p>
+<p t="4456980" d="1920">All those intervals
+should contain x.</p>
+<p t="4462740" d="2970">It's basically, if you laid
+out all the intervals incoming</p>
+<p t="4465710" d="2580">into this node, what
+is the maximum depth</p>
+<p t="4468290" d="1020">of those intervals?</p>
+<p t="4469310" d="2730">What's the maximum intersection
+between all those intervals?</p>
+<p t="4472040" d="2160">That is your local degree.</p>
+<p t="4474200" d="2520">And as long as that's the
+constant, we're happy.</p>
+<p t="4479516" d="2804">All right.</p>
+<p t="4482320" d="2270">So now, let me specify
+what a search means.</p>
+<p t="4487120" d="2375">This is the problem that
+fractional cascading can solve.</p>
+<p t="4492150" d="13160">Goal is to find x in
+some k vertex sets.</p>
+<p t="4505310" d="3490">So k vertices, each
+of them has a set.</p>
+<p t="4508800" d="2060">I want to find x in k of them.</p>
+<p t="4510860" d="1810">Not all of them, k of them.</p>
+<p t="4512670" d="1980">That's the general problem.</p>
+<p t="4514650" d="2295">I have a constraint on
+how those sets are found.</p>
+<p t="4523170" d="5605">They're found by navigating this
+graph starting from any vertex.</p>
+<p t="4535010" d="6990">And we navigate by following
+edges whose labels contain x.</p>
+<p t="4550520" d="2550">So we started some
+vertex in the graph.</p>
+<p t="4553070" d="3090">We can follow some
+edges that contain</p>
+<p t="4556160" d="3530">x. x is a valid choice here
+that's inside the interval.</p>
+<p t="4559690" d="3040">Then from here, maybe we
+follow some more where</p>
+<p t="4562730" d="4260">x is a valid choice, and so on.</p>
+<p t="4566990" d="2495">It could look like anything.</p>
+<p t="4569485" d="2125">It doesn't have to be depth
+first or breadth first.</p>
+<p t="4571610" d="3420">It's just you follow
+some tree from some node</p>
+<p t="4575030" d="4500">where all of the
+edges are valid for x.</p>
+<p t="4579530" d="2610">At some point, you decide
+that I've seen enough.</p>
+<p t="4582140" d="5610">And now, the goal is to find
+in this set, where is x?</p>
+<p t="4587750" d="1160">In this set, where is x?</p>
+<p t="4588910" d="2580">In this set, where is x?</p>
+<p t="4591490" d="2600">In each of these lists, what
+is a predecessor and successor</p>
+<p t="4594090" d="810">of x?</p>
+<p t="4594900" d="500">Question.</p>
+<p t="4595400" d="1874">AUDIENCE: So there's
+generally some root node</p>
+<p t="4597274" d="1756">from which all queries start?</p>
+<p t="4599030" d="3390">ERIK DEMAINE: I believe you do
+not need a single root node.</p>
+<p t="4602420" d="2504">Each search could start
+from a different point.</p>
+<p t="4604924" d="541">AUDIENCE: OK.</p>
+<p t="4605465" d="833">So it's [INAUDIBLE].</p>
+<p t="4606298" d="1792">ERIK DEMAINE: But
+you're told where.</p>
+<p t="4608090" d="2490">So imagine this is like
+an interaction between two</p>
+<p t="4610580" d="520">parties.</p>
+<p t="4611100" d="4250">So the input basically says,
+look, I'm searching for x.</p>
+<p t="4615350" d="1701">And I'm going to
+start at this node.</p>
+<p t="4617051" d="1999">And then the fractional
+cascading data structure</p>
+<p t="4619050" d="2510">says, OK, here's where
+x is in that node.</p>
+<p t="4621560" d="1497">It tells you immediately.</p>
+<p t="4623057" d="1163">Why not?</p>
+<p t="4624220" d="2830">Then it says, OK, I'd
+like to follow this edge</p>
+<p t="4627050" d="1404">and go to this node.</p>
+<p t="4628454" d="1416">And fractional
+cascading says, OK,</p>
+<p t="4629870" d="2800">here's where x is in this
+node in constant time.</p>
+<p t="4632670" d="500">OK.</p>
+<p t="4633170" d="1550">Then now these two
+guys are active.</p>
+<p t="4634720" d="4310">And now, the adversary, the
+input, whatever, can decide,</p>
+<p t="4639030" d="3380">OK, I'm going to follow this
+edge, or this edge, any order.</p>
+<p t="4642410" d="1710">It can build this
+tree in any order.</p>
+<p t="4644120" d="3390">And every time it says here's
+the edge I want to follow,</p>
+<p t="4647510" d="2730">the fractional cascading data
+structure in constant time</p>
+<p t="4650240" d="1950">tells you here's
+where x is among all</p>
+<p t="4652190" d="1940">the items in that node.</p>
+<p t="4654130" d="1600">How does it do that?</p>
+<p t="4655730" d="1470">With fractional cascading.</p>
+<p t="4657200" d="2250">You just take half the items.</p>
+<p t="4659450" d="1590">Half doesn't work anymore.</p>
+<p t="4661040" d="3090">Now, it depends on
+that bounded n degree.</p>
+<p t="4664130" d="2400">But you take some
+function of that degree</p>
+<p t="4666530" d="4260">c, take some constant
+fraction of the items,</p>
+<p t="4670790" d="3240">promote them to all
+the things, keep going.</p>
+<p t="4674030" d="3239">It's a little trickier,
+because now you have cycles.</p>
+<p t="4677269" d="2041">So you could actually
+promote back into yourself,</p>
+<p t="4679310" d="2040">eventually, by chain reactions.</p>
+<p t="4681350" d="1690">But if you set the
+constant low enough,</p>
+<p t="4683040" d="2660">it's like radioactive decay.</p>
+<p t="4685700" d="3581">Eventually, it all
+goes away, right?</p>
+<p t="4689281" d="499">I wish.</p>
+<p t="4692390" d="2220">So it's much better
+than radioactive decay.</p>
+<p t="4694610" d="1140">Radioactive is logarithmic.</p>
+<p t="4695750" d="1360">This is exponential.</p>
+<p t="4697110" d="1400">So it's decreasing very quickly.</p>
+<p t="4698510" d="2520">After log n steps, all
+your items are gone.</p>
+<p t="4701030" d="2590">So, yeah, maybe you go in
+a short loop for a while.</p>
+<p t="4703620" d="3112">But after log n
+steps, it's all gone.</p>
+<p t="4706732" d="1958">So you're, at most,
+increasing by a log factor.</p>
+<p t="4708690" d="1760">In fact, you just increase
+by a constant factor,</p>
+<p t="4710450" d="1625">because the number
+of items that remain</p>
+<p t="4712075" d="3069">gets so tiny very quickly.</p>
+<p t="4715144" d="1666">So I'm not going to
+go into the details,</p>
+<p t="4716810" d="3510">but you just take this list
+idea, apply it to your graph.</p>
+<p t="4720320" d="1380">It works.</p>
+<p t="4721700" d="1530">It gets messier.</p>
+<p t="4723230" d="2010">But in this very
+general scenario,</p>
+<p t="4725240" d="3630">you can support
+these searches in k</p>
+<p t="4728870" d="4440">plus log n where n, let's
+say, is the maximum size</p>
+<p t="4733310" d="2340">of any vertex set.</p>
+<p t="4741200" d="2580">So just it directly generalizes.</p>
+<p t="4743780" d="2640">And this is the
+thing that you can</p>
+<p t="4746420" d="5100">use to get this log
+factor improvement</p>
+<p t="4751520" d="1110">and many other things.</p>
+<p t="4752630" d="3012">Actually, this was such
+a big thing at the time.</p>
+<p t="4755642" d="2208">There were two papers on
+fractional cascading, part 1</p>
+<p t="4757850" d="1020">and part 2.</p>
+<p t="4758870" d="2820">Part 1 is what is solving this.</p>
+<p t="4761690" d="1622">And part 2 is applications.</p>
+<p t="4763312" d="1708">They solved a ton of
+problems that no one</p>
+<p t="4765020" d="3360">knew how to solve using this
+general fractional cascading</p>
+<p t="4768380" d="900">technique.</p>
+<p t="4769280" d="2150">That's it for today.</p>
+</body>
+</timedtext>

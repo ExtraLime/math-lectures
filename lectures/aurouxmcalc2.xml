@@ -1,0 +1,1116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="23250" d="5697">So -- So, yesterday we learned
+about the questions of planes</p>
+<p t="28947" d="4732">and how to think of 3x3 linear
+systems in terms of</p>
+<p t="33679" d="4829">intersections of planes and how
+to think about them</p>
+<p t="38508" d="4111">geometrically.
+And, that in particular led us</p>
+<p t="42619" d="4431">to see which cases actually we
+don't have a unique solution to</p>
+<p t="47050" d="2914">the system,
+but maybe we have no solutions</p>
+<p t="49964" d="3222">or infinitely many solutions
+because maybe the line at</p>
+<p t="53186" d="3527">intersection of two of the
+planes happens to be parallel to</p>
+<p t="56713" d="5831">the other plane.
+So, today, we'll start by</p>
+<p t="62544" d="6376">looking at the equations of
+lines.</p>
+<p t="68920" d="9551">And, so in a way it seems like
+something which we've already</p>
+<p t="78471" d="10037">seen last time because we have
+seen that we can think of a line</p>
+<p t="88508" d="6152">as the intersection of two
+planes.</p>
+<p t="94660" d="3329">And, we know what equations of
+planes look like.</p>
+<p t="97989" d="4735">So, we could describe a line by
+two equations telling us about</p>
+<p t="102724" d="3416">the two planes that intersect on
+the line.</p>
+<p t="106140" d="2836">But that's not the most
+convenient way to think about</p>
+<p t="108976" d="2509">the line usually,
+though, because when you have</p>
+<p t="111485" d="2455">these two questions,
+have you solve them?</p>
+<p t="113940" d="3650">Well, OK, you can,
+but it takes a bit of effort.</p>
+<p t="117590" d="6199">So, instead,
+there is another representation</p>
+<p t="123789" d="3711">of a line.
+So, if you have a line in</p>
+<p t="127500" d="5150">space, well, you can imagine may
+be that you have a point on it.</p>
+<p t="132650" d="2160">And, that point is moving in
+time.</p>
+<p t="134810" d="5079">And, the line is the trajectory
+of a point as time varies.</p>
+<p t="139889" d="14021">So, think of a line as the
+trajectory of a moving point.</p>
+<p t="153910" d="10887">And, so when we think of the
+trajectory of the moving point,</p>
+<p t="164797" d="7013">that's called a parametric
+equation.</p>
+<p t="171810" d="9277">OK, so we are going to learn
+about parametric equations of</p>
+<p t="181087" d="6051">lines.
+So, let's say for example that</p>
+<p t="187138" d="6826">we are looking at the line.
+So, to specify a line in space,</p>
+<p t="193964" d="4790">I can do that by giving you two
+points on the line or by giving</p>
+<p t="198754" d="3785">you a point and a vector
+parallel to the line.</p>
+<p t="202539" d="5688">For example,
+so let's say I give you two</p>
+<p t="208227" d="7000">points on the line:
+(-1,2,2), and the other point</p>
+<p t="215227" d="5141">will be (1,3,-1).
+So, OK, it's pretty good</p>
+<p t="220368" d="3551">because we have two points in
+that line.</p>
+<p t="223919" d="2701">Now, how do we find all the
+other points?</p>
+<p t="226620" d="3650">Well, the other points in
+between these guys and also on</p>
+<p t="230270" d="4164">either side.
+Let's imagine that we have a</p>
+<p t="234434" d="5661">point that's moving on the line,
+and at time zero,</p>
+<p t="240095" d="3226">it's here at Q0.
+And, in a unit time,</p>
+<p t="243321" d="1959">I'm not telling you what the
+unit is.</p>
+<p t="245280" d="2836">It could be a second.
+It could be an hour.</p>
+<p t="248116" d="4534">It could be a year.
+At t=1, it's going to be at Q1.</p>
+<p t="252650" d="1889">And, it moves at a constant
+speed.</p>
+<p t="254539" d="2790">So, maybe at time one half,
+it's going to be here.</p>
+<p t="257329" d="2000">Times two, it would be over
+there.</p>
+<p t="259329" d="2151">And, in fact,
+that point didn't start here.</p>
+<p t="261480" d="2640">Maybe it's always been moving
+on that line.</p>
+<p t="264120" d="4940">At time minus two,
+it was down there.</p>
+<p t="269060" d="22490">So, let's say Q(t) is a moving
+point, and at t=0 it's at Q0.</p>
+<p t="291550" d="3933">And, let's say that it moves.
+Well, we couldn't make it move</p>
+<p t="295483" d="2700">in any way we want.
+But, probably the easiest to</p>
+<p t="298183" d="3952">find, so our role is going to
+find formulas for a position of</p>
+<p t="302135" d="3901">this moving point in terms of t.
+And, we'll use that to say,</p>
+<p t="306036" d="2386">well,
+any point on the line is of</p>
+<p t="308422" d="4165">this form where you have to plug
+in the current value of t</p>
+<p t="312587" d="3653">depending on when it's hit by
+the moving point.</p>
+<p t="316240" d="7875">So, perhaps it's easiest to do
+it if we make it move at a</p>
+<p t="324115" d="7594">constant speed on the line,
+and that speed is chosen so</p>
+<p t="331709" d="4641">that at time one,
+it's at Q1.</p>
+<p t="345319" d="11575">So, the question we want to
+answer is, what is the position</p>
+<p t="356894" d="6385">at time t, so,
+the point Q(t)?</p>
+<p t="363279" d="5592">Well, to answer that we have an
+easy observation,</p>
+<p t="368871" d="6990">which is that the vector from
+Q0 to Q of t is proportional to</p>
+<p t="375861" d="8092">the vector from Q0 to Q1.
+And, what's the proportionality</p>
+<p t="383953" d="4017">factor here?
+Yeah, it's exactly t.</p>
+<p t="387970" d="6340">At time one,
+Q0 Q is exactly the same.</p>
+<p t="394310" d="2340">Maybe I should draw another
+picture again.</p>
+<p t="396650" d="7213">I have Q0.
+I have Q1, and after time t,</p>
+<p t="403863" d="12436">I'm here at Q of t where this
+vector from Q0 Q(t) is actually</p>
+<p t="416299" d="8290">going to be t times the vector
+Q0 Q1.</p>
+<p t="424589" d="5341">So, when t increases,
+it gets longer and longer.</p>
+<p t="429930" d="5839">So, does everybody see this now?
+Is that OK?</p>
+<p t="435769" d="8380">Any questions about that?
+Yes?</p>
+<p t="444149" d="2051">OK, so I will try to avoid
+using blue.</p>
+<p t="446200" d="11095">Thanks for, that's fine.
+So, OK, I will not use blue</p>
+<p t="457295" d="5360">anymore.
+OK, well, first let me just</p>
+<p t="462655" d="3595">make everything white just for
+now.</p>
+<p t="466250" d="3240">This is the vector from Q0 to
+Q(t).</p>
+<p t="469490" d="6940">This is the point Q(t).
+OK, is it kind of visible now?</p>
+<p t="476430" d="6831">OK, thanks for pointing it out.
+I will switch to brighter</p>
+<p t="483261" d="6128">colors.
+So, OK, so apart from that, </p>
+<p t="489389" d="4000">I claim now we can find the
+position of its moving point</p>
+<p t="493389" d="2274">because,
+well, this vector,</p>
+<p t="495663" d="4257">Q0Q1 we can find from the
+coordinates of Q0 and Q1.</p>
+<p t="499920" d="6615">So, we just subtract the
+coordinates of Q0 from those of</p>
+<p t="506535" d="5652">Q1 will get that vector Q0 Q1 is
+&amp;lt;2,1, -3&amp;gt;</p>
+<p t="512187" d="3945">OK,
+so, if I look at it,</p>
+<p t="516132" d="8203">well, so let's call x(t),
+y(t), and z(t) the coordinates</p>
+<p t="524335" d="6265">of the point that's moving on
+the line.</p>
+<p t="530600" d="9708">Then we get x of t minus,
+well, actually plus one equals</p>
+<p t="540308" d="7080">t times two.
+I'm writing the components of</p>
+<p t="547388" d="5829">Q0Q(t).
+And here, I'm writing t times</p>
+<p t="553217" d="6380">Q0Q1.
+y(t) minus two equals t,</p>
+<p t="559597" d="8976">and z(t) minus two equals -3t.
+So, in other terms,</p>
+<p t="568573" d="6377">the more familiar way that we
+used to write these equations,</p>
+<p t="574950" d="7736">let me do it that way instead, 
+minus one plus 2t,</p>
+<p t="582686" d="11046">y(t) = 2 t, z(t) = 2 - 3t.
+And, if you prefer,</p>
+<p t="593732" d="8738">I can just say Q(t) is Q0 plus
+t times vector Q0Q1.</p>
+<p t="602470" d="4958">OK, so that's our first
+parametric equation of a line in</p>
+<p t="607428" d="2724">this class.
+And, I hope you see it's not</p>
+<p t="610152" d="2951">extremely hard.
+In fact, parametric equations</p>
+<p t="613103" d="4663">of lines always look like that.
+x, y, and z are functions of t</p>
+<p t="617766" d="4454">but are of the form a constant
+plus a constant times t.</p>
+<p t="622220" d="4589">The coefficients of t tell us
+about a vector along the line.</p>
+<p t="626809" d="6781">Here, we have a vector,
+Q0Q1, which is &amp;lt;2,1,-3&amp;gt;.</p>
+<p t="633590" d="3640">And, the constant terms tell us
+about where we are at t=0.</p>
+<p t="637230" d="3781">If I plug t=0 these guys go
+away, I get minus 1,2,</p>
+<p t="641011" d="5599">2.
+That's my starting point.</p>
+<p t="646610" d="13120">OK, so, any questions about
+that?</p>
+<p t="659730" d="5395">No?
+OK, so let's see,</p>
+<p t="665125" d="6875">now, what we can do with these
+parametric equations.</p>
+<p t="672000" d="14409">So, one application is to think
+about the relative position of a</p>
+<p t="686409" d="10520">line and a plane with respect to
+each other.</p>
+<p t="696929" d="7805">So, let's say that we take
+still the same line up there,</p>
+<p t="704734" d="8655">and let's consider the plane
+with the equation x 2y 4z = 7.</p>
+<p t="713389" d="1890">OK, so I'm giving you this
+plane.</p>
+<p t="715279" d="3115">And, the questions that we are
+going to ask ourselves are,</p>
+<p t="718394" d="2296">well, does the line intersect
+the plane?</p>
+<p t="720690" d="1790">And, where does it intersect
+the plane?</p>
+<p t="742340" d="5862">So, let's start with the first
+primary question that maybe we</p>
+<p t="748202" d="4577">should try to understand.
+We have these points.</p>
+<p t="752779" d="3104">We have this plane,
+and we have these points,</p>
+<p t="755883" d="2484">Q0 and Q1.
+I'm going to draw them in</p>
+<p t="758367" d="4029">completely random places.
+Well, are Q0 and Q1 on the same</p>
+<p t="762396" d="4653">side of a plane or on different
+sides, on opposite sides of the</p>
+<p t="767049" d="2979">planes?
+Could it be that maybe one of</p>
+<p t="770028" d="8987">the points is in the plane?
+So, I think I'm going to let</p>
+<p t="779015" d="6351">you vote on that.
+So, is that readable?</p>
+<p t="785366" d="2908">Is it too small?
+OK, so anyway,</p>
+<p t="788274" d="3786">the question says,
+relative to the plane,</p>
+<p t="792060" d="4437">x 2y 4z = 7.
+This point, Q0 and Q1,</p>
+<p t="796497" d="6036">are they on the same side,
+on opposite sides,</p>
+<p t="802533" d="6997">is one of them on the plane,
+or we can't decide?</p>
+<p t="809530" d="12151">OK, that should be better.
+So, I see relatively few</p>
+<p t="821681" d="4938">answers.
+OK, it looks like also a lot of</p>
+<p t="826619" d="4896">you have forgotten the cards
+and, so I see people raising two</p>
+<p t="831515" d="3835">fingers, I see people raising
+three fingers.</p>
+<p t="835350" d="2189">And, I see people raising four
+fingers.</p>
+<p t="837539" d="4191">I don't see anyone answering
+number one.</p>
+<p t="841730" d="2169">So, the general idea seems to
+be that either they are on</p>
+<p t="843899" d="3172">opposite sides.
+Maybe one of them is on the</p>
+<p t="847071" d="2939">plane.
+Well, let's try to see.</p>
+<p t="850010" d="4639">Is one of them on the plane?
+Well, let's check.</p>
+<p t="854649" d="5459">OK, so let's look at the point,
+sorry.</p>
+<p t="860108" d="5311">I have one blackboard to use
+here.</p>
+<p t="865419" d="5990">So, I take the point Q0,
+which is at (-1,2,2).</p>
+<p t="871409" d="5732">Well, if I plug that into the
+plane equation,</p>
+<p t="877141" d="7815">so, x 2y 4z will equal minus
+one plus two times two plus four</p>
+<p t="884956" d="3595">times two.
+That's, well,</p>
+<p t="888551" d="3951">four plus eight,
+12 minus one,</p>
+<p t="892502" d="1805">11.
+That, I think,</p>
+<p t="894307" d="7443">is bigger than seven.
+OK, so Q0 is not in the plane.</p>
+<p t="901750" d="5961">Let's try again with Q1.
+(1,3, - 1) well,</p>
+<p t="907711" d="7326">if we plug that into x 2y 4z,
+we'll have one plus two times</p>
+<p t="915037" d="5744">three makes seven.
+But, we add four times negative</p>
+<p t="920781" d="2680">one.
+We add up with three less than</p>
+<p t="923461" d="1811">seven.
+Well, that one is not in the</p>
+<p t="925272" d="2521">plane, either.
+So, I don't think,</p>
+<p t="927793" d="5067">actually, that the answer
+should be number three.</p>
+<p t="932860" d="4539">So, let's get rid of answer
+number three.</p>
+<p t="937399" d="5258">OK, let's see,
+in light of this,</p>
+<p t="942657" d="7463">are you willing to reconsider
+your answer?</p>
+<p t="950120" d="3529">OK, so I think now everyone
+seems to be interested in</p>
+<p t="953649" d="4003">answering number two.
+And, I would agree with that</p>
+<p t="957652" d="2747">answer.
+So, let's think about it.</p>
+<p t="960399" d="2329">These points are not in the
+plane, but they are not in the</p>
+<p t="962728" d="2752">plane in different ways.
+One of them somehow overshoots;</p>
+<p t="965480" d="2613">we get 11.
+The other one we only get 3.</p>
+<p t="968093" d="3952">That's less than seven.
+If you think about how a plan</p>
+<p t="972045" d="3915">splits space into two half
+spaces on either side,</p>
+<p t="975960" d="6280">well, one of them is going to
+be the point where x 2y 4z is</p>
+<p t="982240" d="5019">less than seven.
+And, the other one will be,</p>
+<p t="987259" d="5660">so, that's somehow this side.
+And, that's where Q1 is.</p>
+<p t="992919" d="10814">And, the other side is where x
+2y 4z is actually bigger than</p>
+<p t="1003733" d="4002">seven.
+And, to go from one to the</p>
+<p t="1007735" d="5654">other, well, x 2y 4z needs to go
+through the value seven.</p>
+<p t="1013389" d="4102">If you're moving along any path
+from Q0 to Q1,</p>
+<p t="1017491" d="4648">this thing will change
+continuously from 11 to 3.</p>
+<p t="1022139" d="3041">At some time,
+it has to go through 7.</p>
+<p t="1025180" d="4325">Does that make sense?
+So, to go from Q0 to Q1 we need</p>
+<p t="1029505" d="3385">to cross P at some place.
+So, they're on opposite sides.</p>
+<p t="1051890" d="5936">OK, now that doesn't quite
+finish answering the question</p>
+<p t="1057826" d="5612">that we had, which was,
+where does the line intersect</p>
+<p t="1063438" d="3026">the plane?
+But, why can't we do the same</p>
+<p t="1066464" d="2104">thing?
+Now, we know not only the</p>
+<p t="1068568" d="3138">points Q0 and Q1,
+we know actually any point on</p>
+<p t="1071706" d="3384">the line because we have a
+parametric equation up there</p>
+<p t="1075090" d="2840">telling us,
+where is the point that's</p>
+<p t="1077930" d="6878">moving on the line at time t?
+So, what about the moving</p>
+<p t="1084808" d="3634">point, Q(t)?
+Well, let's plug its</p>
+<p t="1088442" d="2298">coordinates into the plane
+equation.</p>
+<p t="1090740" d="13451">So, we'll take x(t) 2y(t) 4z(t).
+OK, that's equal to,</p>
+<p t="1104191" d="10049">well, (-1 2t) 2( 2 t) 4( 2 -
+3t).</p>
+<p t="1114240" d="6900">So, if you simplify this a bit,
+you get 2t 2t -12t.</p>
+<p t="1121140" d="5616">That should be -8t.
+And, the constant term is minus</p>
+<p t="1126756" d="7367">one plus four plus eight is 11.
+OK, and we have to compare that</p>
+<p t="1134123" d="3291">with seven.
+OK, the question is,</p>
+<p t="1137414" d="10064">is this ever equal to seven?
+Well, so, Q(t) is in the plane</p>
+<p t="1147478" d="8702">exactly when -8t 11 equals
+seven.</p>
+<p t="1156180" d="4700">And, that' the same.
+If you manipulate this,</p>
+<p t="1160880" d="6573">you will get t equals one half.
+In fact, that's not very</p>
+<p t="1167453" d="2577">surprising.
+If you look at these values,</p>
+<p t="1170030" d="2812">11 and three,
+you see that seven is actually</p>
+<p t="1172842" d="3131">right in between.
+It's the average of these two</p>
+<p t="1175973" d="3100">numbers.
+So, it would make sense that</p>
+<p t="1179073" d="5246">it's halfway in between Q0 and
+Q1, but we will get seven.</p>
+<p t="1184319" d="6013">OK, and that at that time,
+Q at time one half,</p>
+<p t="1190332" d="9625">well, let's plug the values.
+So, minus one plus 2t will be</p>
+<p t="1199957" d="4808">zero.
+Two plus t will be two and a</p>
+<p t="1204765" d="6641">half of five halves,
+and two minus three halves will</p>
+<p t="1211406" d="4044">be one half, OK?
+So, this is where the line</p>
+<p t="1215450" d="1330">intersects the plane.</p>
+<p t="1243970" d="3096">So, you see that's actually a
+pretty easy way of finding where</p>
+<p t="1247066" d="2233">a line on the plane intersects
+each other.</p>
+<p t="1249299" d="3488">If we can find a parametric
+equation of a line and an</p>
+<p t="1252787" d="2940">equation of a plane,
+but we basically just plug one</p>
+<p t="1255727" d="3947">into the other,
+and see at what time the moving</p>
+<p t="1259674" d="4986">point hits the plane so that we
+know where this.</p>
+<p t="1264660" d="18750">OK, other questions about this?
+Yes?</p>
+<p t="1283410" d="7189">Sorry, can you say that?
+Yes, so what if we don't get a</p>
+<p t="1290599" d="1841">solution?
+What happens?</p>
+<p t="1292440" d="3937">So, indeed our line could have
+been parallel to the plane or</p>
+<p t="1296377" d="2402">maybe even contained in the
+plane.</p>
+<p t="1298779" d="3629">Well, if the line is parallel
+to the plane then maybe what</p>
+<p t="1302408" d="3691">happens is that what we plug in
+the positions of the moving</p>
+<p t="1306099" d="2065">point,
+we actually get something that</p>
+<p t="1308164" d="2776">never equals seven because maybe
+we get actually a constant.</p>
+<p t="1310940" d="2593">Say that we had gotten,
+I don't know,</p>
+<p t="1313533" d="3187">13 all the time.
+Well, when is 13 equal to seven?</p>
+<p t="1316720" d="3263">The answer is never.
+OK, so that's what would tell</p>
+<p t="1319983" d="2126">you that the line is actually
+parallel to the plane.</p>
+<p t="1322109" d="4149">You would not find a solution
+to the equation that you get at</p>
+<p t="1326258" d="7192">the end.
+Yes?</p>
+<p t="1333450" d="2845">So, if there's no solution at
+all to the equation that you</p>
+<p t="1336295" d="3146">get, it means that at no time is
+the traveling point going to be</p>
+<p t="1339441" d="2614">in the plane.
+That means the line really does</p>
+<p t="1342055" d="3081">not have the plane ever.
+So, it has to be parallel</p>
+<p t="1345136" d="2050">outside of it.
+On the other hand,</p>
+<p t="1347186" d="3523">if a line is inside the plane,
+then that means that no matter</p>
+<p t="1350709" d="2701">what time you choose,
+you always get seven.</p>
+<p t="1353410" d="3815">OK, that's what would happen if
+a line is in the plane.</p>
+<p t="1357225" d="6869">You always get seven.
+So, maybe I should write this</p>
+<p t="1364094" d="10366">down.
+So, if a line is in the plane</p>
+<p t="1374460" d="16320">then plugging x(t),
+y(t), z(t) into the equation,</p>
+<p t="1390780" d="8072">we always get, 
+well, here in this case seven</p>
+<p t="1398852" d="3548">or whatever the value should be
+for the plane,</p>
+<p t="1402400" d="12121">If the line is parallel to the
+plane -- -- in fact,</p>
+<p t="1414521" d="10909">we, well, get,
+let's see, another constant.</p>
+<p t="1425430" d="3722">So, in fact,
+you know, when you plug in</p>
+<p t="1429152" d="2800">these things,
+normally you get a quantity</p>
+<p t="1431952" d="2310">that's of a form,
+something times t plus a</p>
+<p t="1434262" d="3547">constant because that's what you
+plug into the equation of a</p>
+<p t="1437809" d="1452">plane.
+And so, in general,</p>
+<p t="1439261" d="2639">you have an equation of the
+form, something times t plus</p>
+<p t="1441900" d="3794">something equals something.
+And, that usually has a single</p>
+<p t="1445694" d="2555">solution.
+And, the special case is if</p>
+<p t="1448249" d="3671">this coefficient of t turns out
+to be zero in the end,</p>
+<p t="1451920" d="2199">and that's actually going to
+happen,</p>
+<p t="1454119" d="6331">exactly when the line is either
+parallel or in the plane.</p>
+<p t="1460450" d="3589">In fact, if you think this
+through carefully,</p>
+<p t="1464039" d="2250">the coefficient of t that you
+get here,</p>
+<p t="1466289" d="4247">see, it's one times two plus
+two times one plus four times</p>
+<p t="1470536" d="3042">minus three.
+It's the dot product between</p>
+<p t="1473578" d="4281">the normal vector of a plane and
+the vector along the line.</p>
+<p t="1477859" d="3699">So, see, this coefficient
+becomes zero exactly when the</p>
+<p t="1481558" d="3082">line is perpendicular to the
+normal vector.</p>
+<p t="1484640" d="1800">That means it's parallel to the
+plane.</p>
+<p t="1486440" d="5021">So, everything makes sense.
+OK, if you're confused about</p>
+<p t="1491461" d="3609">what I just said,
+you can ignore it.</p>
+<p t="1495070" d="8055">OK, more questions? No?
+OK, so if not,</p>
+<p t="1503125" d="5964">let's move on to linear
+parametric equations.</p>
+<p t="1509089" d="4832">So, I hope you've seen here
+that parametric equations are a</p>
+<p t="1513921" d="4725">great way to think about lines.
+There are also a great way to</p>
+<p t="1518646" d="3885">think about actually any curve,
+any trajectory that can be</p>
+<p t="1522531" d="12119">traced by a moving point.
+So -- -- more generally,</p>
+<p t="1534650" d="25951">we can use parametric equations
+-- -- for arbitrary motions --</p>
+<p t="1560601" d="15329">-- in the plane or in space.
+So, let's look at an example.</p>
+<p t="1575930" d="4291">Let's take, so,
+it's a famous curve called a</p>
+<p t="1580221" d="3264">cycloid.
+A cycloid is something that you</p>
+<p t="1583485" d="4385">can actually see sometimes at
+night when people are biking If</p>
+<p t="1587870" d="4020">you have something that reflects
+light on the wheel.</p>
+<p t="1591890" d="2040">So, let me explain what's the
+definition of a cycloid.</p>
+<p t="1625950" d="2000">So, I should say,
+I've seen a lecture where,</p>
+<p t="1627950" d="2558">actually, the professor had a
+volunteer on a unicycle to</p>
+<p t="1630508" d="3396">demonstrate how that works.
+But, I didn't arrange for that,</p>
+<p t="1633904" d="3658">so instead I will explain it to
+you using more conventional</p>
+<p t="1637562" d="5792">means.
+So, let's say that we have a</p>
+<p t="1643354" d="8396">wheel that's rolling on a
+horizontal ground.</p>
+<p t="1651750" d="2990">And, as it's rolling of course
+it's going to turn.</p>
+<p t="1654740" d="6250">So, it's going to move forward
+to a new position.</p>
+<p t="1660990" d="4220">And, now, let's mention that we
+have a point that's been painted</p>
+<p t="1665210" d="2680">red on the circumference of the
+wheel.</p>
+<p t="1667890" d="3240">And, initially,
+that point is here.</p>
+<p t="1671130" d="2456">So, as the wheel stops
+rotating, well,</p>
+<p t="1673586" d="3783">of course, it moves forward,
+and so it turns on itself.</p>
+<p t="1677369" d="5215">So, that point starts falling
+back behind the point of contact</p>
+<p t="1682584" d="5130">because the wheel is rotating at
+the same time as it's moving</p>
+<p t="1687714" d="4410">forward.
+And so, the cycloid is the</p>
+<p t="1692124" d="9385">trajectory of this moving point.
+OK, so the cycloid is obtained</p>
+<p t="1701509" d="5769">by considering,
+so we have a wheel,</p>
+<p t="1707278" d="10747">let's say, of radius a.
+So, this height here is (a)</p>
+<p t="1718025" d="9855">rolling on the floor which is
+the x axis.</p>
+<p t="1727880" d="5942">And, let's -- And,
+we have a point,</p>
+<p t="1733822" d="7818">P, that's painted on the wheel.
+Initially, it's at the origin.</p>
+<p t="1741640" d="2981">But, of course,
+as time goes by,</p>
+<p t="1744621" d="9109">it moves on the wheel.
+P is a point on the rim of the</p>
+<p t="1753730" d="8160">wheel, and it starts at the
+origin.</p>
+<p t="1761890" d="5939">So, the question is,
+what happens?</p>
+<p t="1767829" d="4377">In particular,
+can we find the position of</p>
+<p t="1772206" d="5123">this point, x(t),
+y(t), as a function of time?</p>
+<p t="1777329" d="5290">So, that's the reason why I
+have this computer.</p>
+<p t="1782619" d="6114">So, I'm not sure it will be
+very easy to visualize,</p>
+<p t="1788733" d="6236">but so we have a wheel,
+well, I hope you can vaguely</p>
+<p t="1794969" d="5381">see that there's a circle that's
+moving.</p>
+<p t="1800350" d="5069">The wheel is green here.
+And, there's a radius that's</p>
+<p t="1805419" d="4259">been painted blue in it.
+And, that radius rotates around</p>
+<p t="1809678" d="3181">the wheel as the wheel is moving
+forward.</p>
+<p t="1812859" d="10980">So, now, let's try to paint,
+actually, the trajectory of a</p>
+<p t="1823839" d="2586">point.
+[LAUGHTER]</p>
+<p t="1826425" d="4495">OK, so that's what the cycloid
+looks like.</p>
+<p t="1830920" d="6136">[APPLAUSE]
+OK, so -- So the cycloid,</p>
+<p t="1837056" d="10344">well, I guess it doesn't quite
+look like what I've drawn.</p>
+<p t="1847400" d="4911">It looks like it goes a bit
+higher up, which will be the</p>
+<p t="1852311" d="5407">trajectory of this red point.
+And, see, it hits the bottom</p>
+<p t="1857718" d="3782">once in a while.
+It forms these arches because</p>
+<p t="1861500" d="3309">when the wheel has rotated by a
+full turn,</p>
+<p t="1864809" d="2290">then you're basically back at
+the same situation,</p>
+<p t="1867099" d="2791">except a bit further along the
+route.</p>
+<p t="1869890" d="3601">So, if we do it once more,
+you see the point now is at the</p>
+<p t="1873491" d="4812">top, and now it's at the bottom.
+And then we start again.</p>
+<p t="1878303" d="5217">It's at the top,
+and then again at the bottom.</p>
+<p t="1883520" d="16870">OK.
+No.</p>
+<p t="1900390" d="8428">[LAUGHTER]
+OK, so the question that we</p>
+<p t="1908818" d="9796">want to answer is what is the
+position x(t),</p>
+<p t="1918614" d="7031">y(t), of the point P?
+OK, so actually,</p>
+<p t="1925645" d="2005">I'm writing x(t),
+y(t).</p>
+<p t="1927650" d="2444">That means that I have,
+maybe I'm expressing the</p>
+<p t="1930094" d="3280">position in terms of time.
+Let's see, is time going to be</p>
+<p t="1933374" d="2202">a good thing to do?
+Well, suddenly,</p>
+<p t="1935576" d="4477">the position changes over time.
+But doesn't actually matter how</p>
+<p t="1940053" d="4475">fast the wheel is rolling?
+No, because I can just play the</p>
+<p t="1944528" d="3244">motion fast-forward.
+The wheel will be going faster,</p>
+<p t="1947772" d="1978">but the trajectory is still the
+same.</p>
+<p t="1949750" d="2809">So, in fact,
+time is not the most relevant</p>
+<p t="1952559" d="3451">thing here.
+What matters to us now is how</p>
+<p t="1956010" d="3895">far the wheel has gone.
+So, we could use as a</p>
+<p t="1959905" d="4565">parameter, for example,
+the distance by which the wheel</p>
+<p t="1964470" d="2408">has moved.
+We can do even better because</p>
+<p t="1966878" d="2302">we see that, really,
+the most complicated thing that</p>
+<p t="1969180" d="1760">happens here is really the
+rotation.</p>
+<p t="1970940" d="4270">So, maybe we can actually use
+the angle by which the wheel has</p>
+<p t="1975210" d="2520">turned to parameterize the
+motion.</p>
+<p t="1977730" d="4464">So, there's various choices.
+You can choose whichever one</p>
+<p t="1982194" d="1941">you prefer.
+But, I think here,</p>
+<p t="1984135" d="3382">we will get the simplest answer
+if we parameterize things by the</p>
+<p t="1987517" d="3461">angle.
+So, in fact,</p>
+<p t="1990978" d="12906">instead of t I will be using
+what's called theta as a</p>
+<p t="2003884" d="12659">function of the angle,
+theta, by which the wheel has</p>
+<p t="2016543" d="14447">rotated.
+So, how are we going to do that?</p>
+<p t="2030990" d="6551">Well, because we are going to
+try to use our new knowledge,</p>
+<p t="2037541" d="5649">let's try to do it using
+vectors in a smart way.</p>
+<p t="2043190" d="4522">So, let me draw a picture of
+the wheel after things have</p>
+<p t="2047712" d="4953">rotated by a certain amount.
+So, maybe my point,</p>
+<p t="2052665" d="5515">P, now, is here.
+And, so the wheel has rotated</p>
+<p t="2058180" d="3707">by this angle here.
+And, I want to find the</p>
+<p t="2061887" d="1812">position of my point,
+P, OK?</p>
+<p t="2063699" d="5847">So, the position of this point,
+P, is going to be the same as</p>
+<p t="2069546" d="5943">knowing the vector OP from the
+origin to this moving point.</p>
+<p t="2075489" d="3909">So, I haven't really simplify
+the problem yet because we don't</p>
+<p t="2079398" d="4356">really know about vector OP.
+But, maybe we know about</p>
+<p t="2083754" d="3956">simpler vectors where some will
+be OP.</p>
+<p t="2087710" d="2665">So, let's see,
+let's give names to a few of</p>
+<p t="2090375" d="1718">our points.
+For example,</p>
+<p t="2092093" d="2756">let's say that this will be
+point A.</p>
+<p t="2094849" d="3330">A is the point where the wheel
+is touching the road.</p>
+<p t="2098179" d="4641">And, B will be the center of
+the wheel.</p>
+<p t="2102820" d="4263">Then, it looks like maybe I
+have actually a chance of</p>
+<p t="2107083" d="5165">understanding vectors like maybe
+OA doesn't look quite so scary,</p>
+<p t="2112248" d="4442">or AB doesn't look too bad.
+BP doesn't look too bad.</p>
+<p t="2116690" d="10320">And, if I sum them together,
+I will obtain OP.</p>
+<p t="2127010" d="8520">So, let's do that.
+So, now we've greatly</p>
+<p t="2135530" d="3688">simplified the problem.
+We had to find one vector that</p>
+<p t="2139218" d="3449">we didn't know.
+Now we have to find three</p>
+<p t="2142667" d="4566">vectors which we don't know.
+But, you will see each of them</p>
+<p t="2147233" d="3477">as fairly easy to think about.
+So, let's see.</p>
+<p t="2150710" d="6040">Should we start with vector OA,
+maybe?</p>
+<p t="2156750" d="7329">So, OA has two components.
+One of them should be very easy.</p>
+<p t="2164079" d="2517">Well, the y component is just
+going to be zero,</p>
+<p t="2166596" d="3914">OK?
+It's directed along the x axis.</p>
+<p t="2170510" d="4996">What about the x component?
+So, OA is the distance by which</p>
+<p t="2175506" d="5584">the wheel has traveled to get to
+its current position.</p>
+<p t="2181090" d="2446">Yeah.
+I hear a lot of people saying R</p>
+<p t="2183536" d="2276">theta.
+Let me actually say a(theta)</p>
+<p t="2185812" d="2908">because I've called a the radius
+of the wheel.</p>
+<p t="2188720" d="5049">So, this distance is a(theta).
+Why is it a(theta)?</p>
+<p t="2193769" d="2597">Well, that's because the wheel,
+well, there's an assumption</p>
+<p t="2196366" d="2596">which is that the wheel is
+rolling on something normal like</p>
+<p t="2198962" d="1970">a road,
+and not on, maybe,</p>
+<p t="2200932" d="4286">ice, or something like that.
+S So, it's rolling without</p>
+<p t="2205218" d="2861">slipping.
+So, that means that this</p>
+<p t="2208079" d="5336">distance on the road is actually
+equal to the distance here on</p>
+<p t="2213415" d="3875">the circumference of the wheel.
+This point, P,</p>
+<p t="2217290" d="3797">was there, and the amount by
+which the things have moved can</p>
+<p t="2221087" d="5303">be measured either here or here.
+These are the same distances.</p>
+<p t="2226390" d="9032">OK, so, that makes it a(theta), 
+and maybe I should justify by</p>
+<p t="2235422" d="6588">saying amount by which the wheel
+has rolled,</p>
+<p t="2242010" d="8664">has moved, is equal to the, 
+so, the distance from O to A is</p>
+<p t="2250674" d="6790">equal to the arc length on the
+circumference of the circle from</p>
+<p t="2257464" d="2652">A to P.
+And, you know that if you have</p>
+<p t="2260116" d="2284">a sector corresponding to an
+angle, theta,</p>
+<p t="2262400" d="3254">then its length is a times
+theta, provided that,</p>
+<p t="2265654" d="3186">of course, you express the
+angel in radians.</p>
+<p t="2268840" d="9529">That's the reason why we always
+used radians in math.</p>
+<p t="2278369" d="3451">Now, let's think about vector
+AB and vector BP.</p>
+<p t="2310889" d="8788">OK, so AB is pretty easy,
+right, because it's pointing</p>
+<p t="2319677" d="5803">straight up, and its length is
+a.</p>
+<p t="2325480" d="10150">So, it's just zero, a.
+Now, the most serious one we've</p>
+<p t="2335630" d="4460">kept for the end.
+What about vector BP?</p>
+<p t="2340090" d="4339">So, vector BP,
+we know two things about it.</p>
+<p t="2344429" d="12709">We know actually its length,
+so, the magnitude of BP -- --</p>
+<p t="2357138" d="5939">a.
+And, we know it makes an angle,</p>
+<p t="2363077" d="6208">theta, with the vertical.
+So, that should let us find its</p>
+<p t="2369285" d="5465">components.
+Let's draw a closer picture.</p>
+<p t="2374750" d="6030">Now, in the picture I'm going
+to center things at B.</p>
+<p t="2380780" d="4129">So, I have my point P.
+Here I have theta.</p>
+<p t="2384909" d="4896">This length is A.
+Well, what are the components</p>
+<p t="2389805" d="7538">of BP?
+Well, the X component is going</p>
+<p t="2397343" d="2015">to be?
+Almost.</p>
+<p t="2399358" d="3652">I hear people saying things
+about a, but I agree with a.</p>
+<p t="2403010" d="1750">I hear some cosines.
+I hear some sines.</p>
+<p t="2404760" d="2816">I think it's actually the sine.
+Yes.</p>
+<p t="2407576" d="3014">It's a(sin(theta)),
+except it's going to the left.</p>
+<p t="2410590" d="8100">So, actually it will have a
+negative a(sin(theta)).</p>
+<p t="2418690" d="4730">And, the vertical component,
+well, it will be a(cos(theta)),</p>
+<p t="2423420" d="4090">but also negative because we
+are going downwards.</p>
+<p t="2427510" d="18845">So, it's negative a(cos(theta)).
+So, now we can answer the</p>
+<p t="2446355" d="6526">initial question because vector
+OP, well, we just add up OA,</p>
+<p t="2452881" d="4294">AB, and BP.
+So, the X component will be</p>
+<p t="2457175" d="11975">a(theta) - a(sin(theta)).
+And, a-a(cos(theta)).</p>
+<p t="2469150" d="16070">OK.
+So, any questions about that?</p>
+<p t="2485220" d="4517">OK, so, what's the answer?
+Because this thing here is the</p>
+<p t="2489737" d="5847">x coordinate as a function of
+theta, and that one is the y</p>
+<p t="2495584" d="3796">coordinate as a function of
+theta.</p>
+<p t="2499380" d="4646">So, now, just to show you that
+we can do a lot of things when</p>
+<p t="2504026" d="4414">we have a parametric equation,
+here is a small mystery.</p>
+<p t="2508440" d="6190">So, what happens exactly near
+the bottom point?</p>
+<p t="2514630" d="2635">What does the curve look like?
+The computer tells us,</p>
+<p t="2517265" d="2709">well, it looks like it has some
+sort of pointy thing,</p>
+<p t="2519974" d="2136">but isn't that something of a
+display?</p>
+<p t="2522110" d="9946">Is it actually what happens?
+So, what do you think happens</p>
+<p t="2532056" d="7574">near the bottom point?
+Remember, we had that picture.</p>
+<p t="2539630" d="4986">Let me show you once more,
+where you have these</p>
+<p t="2544616" d="3793">corner-like things at the
+bottom.</p>
+<p t="2548409" d="3175">Well, actually,
+is it indeed a corner with some</p>
+<p t="2551584" d="2416">angle between the two
+directions?</p>
+<p t="2554000" d="4045">Does it make an angle?
+Or, is it actually a smooth</p>
+<p t="2558045" d="3958">curve without any corner,
+but we don't see it because</p>
+<p t="2562003" d="4187">it's too small to be visible on
+the computer screen?</p>
+<p t="2566190" d="4694">Does it actually make a loop?
+Does it actually come down and</p>
+<p t="2570884" d="4550">then back up without going to
+the left or to the right and</p>
+<p t="2575434" d="5605">without making an angle?
+So, yeah, I see the majority</p>
+<p t="2581039" d="4680">votes for answers number two or
+four.</p>
+<p t="2585719" d="2791">And, well, at this point,
+we can't quite tell.</p>
+<p t="2588510" d="2250">So, let's try to figure it out
+from these formulas.</p>
+<p t="2590760" d="6345">The way to answer that for sure
+is to actually look at the</p>
+<p t="2597105" d="6147">formulas.
+OK, so question that we are</p>
+<p t="2603252" d="10938">trying to answer now is what
+happens near the bottom point?</p>
+<p t="2632850" d="5874">OK, so how do we answer that?
+Well, we should probably try to</p>
+<p t="2638724" d="4495">find simpler formulas for these
+things.</p>
+<p t="2643219" d="3401">Well, to simplify,
+let's divide everything by a.</p>
+<p t="2646620" d="2126">Let's rescale everything by a.
+If you want,</p>
+<p t="2648746" d="3381">let's say that we take the unit
+of length to be the radius of</p>
+<p t="2652127" d="3078">our wheel.
+So, instead of measuring things</p>
+<p t="2655205" d="3328">in feet or meters,
+we'll just measure them in</p>
+<p t="2658533" d="6709">radius.
+So, take the length unit to be</p>
+<p t="2665242" d="6968">equal to the radius.
+So, that means we'll have a=1.</p>
+<p t="2672210" d="2940">Then, our formulas are slightly
+simpler.</p>
+<p t="2675150" d="10695">We get x(theta) is theta -
+sin(theta), and y equals 1 - cos</p>
+<p t="2685845" d="3224">(theta).
+OK, so, if we want to</p>
+<p t="2689069" d="3810">understand what these things
+look like, maybe we should try</p>
+<p t="2692879" d="3305">to take some approximation.
+OK, so what about</p>
+<p t="2696184" d="4682">approximations?
+Well, probably you know that if</p>
+<p t="2700866" d="6853">I take the sine of a very small
+angle, it's close to the actual</p>
+<p t="2707719" d="4311">angle itself if theta is very
+small.</p>
+<p t="2712030" d="6485">And, you know that the cosine
+of an angle that's very small is</p>
+<p t="2718515" d="2684">close to one.
+Well, that's pretty good.</p>
+<p t="2721199" d="2786">If we use that,
+we will get theta minus theta,</p>
+<p t="2723985" d="2724">one minus one,
+it looks like it's not precise</p>
+<p t="2726709" d="2330">enough.
+We just get zero and zero.</p>
+<p t="2729039" d="2640">That's not telling us much
+about what happens.</p>
+<p t="2731679" d="7491">OK, so we need actually better
+approximations than that.</p>
+<p t="2739170" d="11136">So -- So, hopefully you have
+seen in one variable calculus</p>
+<p t="2750306" d="7034">something called Taylor
+expansion.</p>
+<p t="2757340" d="17299">That's [GROANS].
+I see that -- OK, </p>
+<p t="2774639" d="2400">so if you have not seen Taylor
+expansion,</p>
+<p t="2777039" d="4728">or somehow it was so traumatic
+that you've blocked it out of</p>
+<p t="2781767" d="2693">your memory,
+let me just remind you that</p>
+<p t="2784460" d="3534">Taylor expansion is a way to get
+a better approximation than just</p>
+<p t="2787994" d="4045">looking at the function,
+its derivative.</p>
+<p t="2792039" d="10702">So -- And, here's an example of
+where it actually comes in handy</p>
+<p t="2802741" d="10071">in real life.
+So, Taylor approximation says</p>
+<p t="2812812" d="8633">that if t is small,
+then the value of the function,</p>
+<p t="2821445" d="3495">f(t), is approximately equal
+to,</p>
+<p t="2824940" d="2990">well, our first guess,
+of course, would be f(0).</p>
+<p t="2827930" d="4685">That's our first approximation.
+If we want to be a bit more</p>
+<p t="2832615" d="2404">precise, we know that when we
+change by t,</p>
+<p t="2835019" d="2950">well, t times the derivative
+comes in,</p>
+<p t="2837969" d="5880">that's for linear approximation
+to how the function changes.</p>
+<p t="2843849" d="4557">Now, if we want to be even more
+precise, there's another term,</p>
+<p t="2848406" d="3883">which is t^2 over two times the
+second derivative.</p>
+<p t="2852289" d="5298">And, if we want to be even more
+precise, you will have t^3 over</p>
+<p t="2857587" d="3503">six times the third derivative
+at zero.</p>
+<p t="2861090" d="2790">OK, and you can continue,
+and so on.</p>
+<p t="2863880" d="5162">But, we won't need more.
+So, if you use this here,</p>
+<p t="2869042" d="4271">it tells you that the sine of a
+smaller angle,</p>
+<p t="2873313" d="3987">theta, well,
+yeah, it looks like theta.</p>
+<p t="2877300" d="4220">But, if we want to be more
+precise, then we should add</p>
+<p t="2881520" d="4897">minus theta cubed over six.
+And, cosine of theta,</p>
+<p t="2886417" d="6127">well, it's not quite one.
+It's close to one minus theta</p>
+<p t="2892544" d="3926">squared over two.
+OK, so these are slightly</p>
+<p t="2896470" d="4979">better approximations of sine
+and cosine for small angles.</p>
+<p t="2901449" d="6946">So, now, if we try to figure
+out, again, what happens to our</p>
+<p t="2908395" d="3414">x of theta, well,
+it would be,</p>
+<p t="2911809" d="5181">sorry, theta minus theta cubed
+over six.</p>
+<p t="2916990" d="7705">That's theta cubed over six.
+And y, on the other hand,</p>
+<p t="2924695" d="8643">is going to be one minus that.
+That's about theta squared over</p>
+<p t="2933338" d="3711">two.
+So, now, which one of them is</p>
+<p t="2937049" d="4291">bigger when theta is small?
+Yeah, y is much larger.</p>
+<p t="2941340" d="2650">OK, if you take the cube of a
+very small number,</p>
+<p t="2943990" d="2029">it becomes very,
+very, very small.</p>
+<p t="2946019" d="3901">So, in fact,
+we can look at that.</p>
+<p t="2949920" d="5739">So, x, an absolute value,
+is much smaller than y.</p>
+<p t="2955659" d="2175">And, in fact,
+what we can do is we can look</p>
+<p t="2957834" d="3966">at the ratio between y and x.
+That tells us the slope with</p>
+<p t="2961800" d="5651">which we approach the origin.
+So, y over x is,</p>
+<p t="2967451" d="7998">well, let's take the ratio of
+this, too.</p>
+<p t="2975449" d="3451">That gives us three divided by
+theta.</p>
+<p t="2978900" d="6630">That tends to infinity when
+theta approaches zero.</p>
+<p t="2985530" d="8201">So, that means that the slope
+of our curve,</p>
+<p t="2993731" d="6638">the origin is actually
+infinite.</p>
+<p t="3000369" d="4721">And so, the curve picture is
+really something like this.</p>
+<p t="3005090" d="2683">So, the instantaneous motion,
+if you had to describe what</p>
+<p t="3007773" d="2149">happens very,
+very close to the origin is</p>
+<p t="3009922" d="3021">that your point is actually not
+moving to the left or to the</p>
+<p t="3012943" d="4727">right along with the wheel.
+It's moving down and up.</p>
+<p t="3017670" d="2995">I mean, at the same time it is
+actually moving a little bit</p>
+<p t="3020665" d="3577">forward at the same time.
+But, the dominant motion,</p>
+<p t="3024242" d="4888">near the origin is really where
+it goes down and back up,</p>
+<p t="3029130" d="4540">so answer number four,
+you have vertical tangent.</p>
+<p t="3033670" d="4300">OK, I think I'm at the end of
+time.</p>
+<p t="3037970" d="6030">So, have a nice weekend.
+And, I'll see you on Tuesday.</p>
+<p t="3044000" d="3902">So, on Tuesday I will have
+practice exams for next week's</p>
+<p t="3047902" d="2098">test.
+ </p>
+</body>
+</timedtext>

@@ -1,0 +1,1188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="9860" d="760">Okay.</p>
+<p t="10620" d="3670">This is lecture five
+in linear algebra.</p>
+<p t="14290" d="4725">And, it will complete
+this chapter of the book.</p>
+<p t="21620" d="2410">So the last section
+of this chapter</p>
+<p t="24030" d="6030">is two point seven that talks
+about permutations, which</p>
+<p t="30060" d="4180">finished the previous
+lecture, and transposes,</p>
+<p t="34240" d="2410">which also came in
+the previous lecture.</p>
+<p t="36650" d="4100">There's a little more to do
+with those guys, permutations</p>
+<p t="40750" d="2110">and transposes.</p>
+<p t="42860" d="5320">But then the heart of the
+lecture will be the beginning</p>
+<p t="48180" d="3730">of what you could say is the
+beginning of linear algebra,</p>
+<p t="51910" d="5560">the beginning of real linear
+algebra which is seeing</p>
+<p t="57470" d="4120">a bigger picture with vector
+spaces -- not just vectors,</p>
+<p t="61590" d="5060">but spaces of vectors and
+sub-spaces of those spaces.</p>
+<p t="66650" d="4460">So we're a little ahead
+of the syllabus, which</p>
+<p t="71110" d="2040">is good, because we're
+coming to the place</p>
+<p t="73150" d="2630">where, there's a lot to</p>
+<p t="75780" d="840">do.</p>
+<p t="76620" d="1180">Okay.</p>
+<p t="77800" d="4600">So, to begin with permutations.</p>
+<p t="82400" d="4390">Can I just --</p>
+<p t="86790" d="10060">so these permutations, those
+are matrices P and they execute</p>
+<p t="96850" d="1550">row exchanges.</p>
+<p t="102160" d="2750">And we may need them.</p>
+<p t="104910" d="2210">We may have a
+perfectly good matrix,</p>
+<p t="107120" d="5190">a perfect matrix A that's
+invertible that we can solve A</p>
+<p t="112310" d="3270">x=b, but to do it --</p>
+<p t="115580" d="4470">I've got to allow myself
+that extra freedom</p>
+<p t="120050" d="5020">that if a zero shows up in the
+pivot position I move it away.</p>
+<p t="125070" d="1560">I get a non-zero.</p>
+<p t="126630" d="5830">I get a proper pivot there by
+exchanging from a row below.</p>
+<p t="132460" d="2540">And you've seen that
+already, and I just</p>
+<p t="135000" d="3200">want to collect
+the ideas together.</p>
+<p t="138200" d="3110">And principle, I
+could even have to do</p>
+<p t="141310" d="3440">that two times, or more times.</p>
+<p t="144750" d="2540">So I have to allow --</p>
+<p t="147290" d="2040">to complete the --</p>
+<p t="149330" d="5040">the theory, the possibility
+that I take my matrix A,</p>
+<p t="154370" d="4170">I start elimination, I find
+out that I need row exchanges</p>
+<p t="158540" d="3080">and I do it and
+continue and I finish.</p>
+<p t="161620" d="1130">Okay.</p>
+<p t="162750" d="6400">Then all I want to do is say --
+and I won't make a big project</p>
+<p t="169150" d="2010">out of this --</p>
+<p t="171160" d="3140">what happens to A equal L U?</p>
+<p t="174300" d="5270">So A equal L U --</p>
+<p t="179570" d="5560">this was a matrix L with ones
+on the diagonal and zeroes</p>
+<p t="185130" d="4320">above and multipliers
+below, and this U</p>
+<p t="189450" d="3975">we know, with zeroes down here.</p>
+<p t="196940" d="2140">That's only possible.</p>
+<p t="199080" d="2690">That description of
+elimination assumes</p>
+<p t="201770" d="4710">that we don't have a P, that we
+don't have any row exchanges.</p>
+<p t="206480" d="3090">And now I just want
+to say, okay, how</p>
+<p t="209570" d="1650">do I account for row exchanges?</p>
+<p t="211220" d="2770">Because that doesn't.</p>
+<p t="213990" d="6040">The P in this factorization
+is the identity matrix.</p>
+<p t="220030" d="4110">The rows were in a good
+order, we left them there.</p>
+<p t="224140" d="3690">Maybe I'll just add a
+little moment of reality,</p>
+<p t="227830" d="7360">too, about how Matlab
+actually does elimination.</p>
+<p t="235190" d="4330">Matlab not only checks whether
+that pivot is not zero,</p>
+<p t="239520" d="3250">as every human would do.</p>
+<p t="242770" d="2710">It checks for is that
+pivot big enough,</p>
+<p t="245480" d="3900">because it doesn't like
+very, very small pivots.</p>
+<p t="249380" d="4170">Pivots close to zero
+are numerically bad.</p>
+<p t="253550" d="3110">So actually if we ask
+Matlab to solve a system,</p>
+<p t="256660" d="4760">it will do some elimination
+some row exchanges, which</p>
+<p t="261420" d="1760">we don't think are necessary.</p>
+<p t="263180" d="4750">Algebra doesn't say they're
+necessary, but accuracy --</p>
+<p t="267930" d="3750">numerical accuracy
+says they are.</p>
+<p t="271680" d="4250">Well, we're doing
+algebra, so here we</p>
+<p t="275930" d="3450">will say, well, what
+do row exchanges do,</p>
+<p t="279380" d="2850">but we won't do them
+unless we have to.</p>
+<p t="282230" d="3110">But we may have to.</p>
+<p t="285340" d="5040">And then, the result is --</p>
+<p t="290380" d="1470">it's hiding here.</p>
+<p t="291850" d="4190">It's the main fact.</p>
+<p t="296040" d="4060">This is the description of
+elimination with row exchanges.</p>
+<p t="300100" d="12180">So A equal L U
+becomes P A equal L U.</p>
+<p t="312280" d="2930">So this P is the matrix
+that does the row exchanges,</p>
+<p t="315210" d="2870">and actually it does them --</p>
+<p t="318080" d="2700">it gets the rows
+into the right order,</p>
+<p t="320780" d="3030">into the good order
+where pivots will not --</p>
+<p t="323810" d="3310">where zeroes won't appear
+in the pivot position,</p>
+<p t="327120" d="5580">where L and U will come
+out right as up here.</p>
+<p t="332700" d="3730">So, that's the point.</p>
+<p t="336430" d="3220">Actually, I don't want
+to labor that point,</p>
+<p t="339650" d="3460">that a permutation matrix --</p>
+<p t="343110" d="4150">and you remember
+what those were.</p>
+<p t="347260" d="4020">I'll remind you from last time
+of what the main points about</p>
+<p t="351280" d="6540">permutation matrices were --</p>
+<p t="357820" d="2520">and then just leave
+this factorization</p>
+<p t="360340" d="3480">as the general case.</p>
+<p t="363820" d="13400">This is -- any
+invertible A we get this.</p>
+<p t="377220" d="2870">For almost every one,
+we don't need a P.</p>
+<p t="380090" d="4130">But there's that handful
+that do need row exchanges,</p>
+<p t="384220" d="2260">and if we do need
+them, there they are.</p>
+<p t="386480" d="3930">Okay, finally, just to
+remember what P was.</p>
+<p t="390410" d="16030">So permutations, P is
+the identity matrix</p>
+<p t="406440" d="5040">with reordered rows.</p>
+<p t="416710" d="2997">I include in reordering the
+possibility that you just</p>
+<p t="419707" d="833">leave them the same.</p>
+<p t="420540" d="2340">So the identity
+matrix is -- okay.</p>
+<p t="422880" d="5610">That's, like, your basic
+permutation matrix --</p>
+<p t="428490" d="4350">your do-nothing permutation
+matrix is the identity.</p>
+<p t="432840" d="2890">And then there are the ones
+that exchange two rows and then</p>
+<p t="435730" d="3210">the ones that exchange three
+rows and then then ones that</p>
+<p t="438940" d="2100">exchange four --</p>
+<p t="441040" d="3600">well, it gets a little --</p>
+<p t="444640" d="2670">it gets more interesting
+algebraically</p>
+<p t="447310" d="3320">if you've got four rows,
+you might exchange them</p>
+<p t="450630" d="1560">all in one big cycle.</p>
+<p t="452190" d="3360">One to two, two to three,
+three to four, four to one.</p>
+<p t="455550" d="5520">Or you might have -- exchange
+one and two and three and four.</p>
+<p t="461070" d="1397">Lots of possibilities there.</p>
+<p t="462467" d="1333">In fact, how many possibilities?</p>
+<p t="466570" d="2740">The answer was (n)factorial.</p>
+<p t="469310" d="1674">This is n(n-1)(n-2)...</p>
+<p t="476920" d="1310">(3)(2)(1).</p>
+<p t="478230" d="6870">That's the number of --
+this counts the reorderings,</p>
+<p t="485100" d="2890">the possible reorderings.</p>
+<p t="487990" d="7740">So it counts all the
+n by n permutations.</p>
+<p t="503170" d="3030">And all those
+matrices have these --</p>
+<p t="506200" d="6180">have this nice property
+that they're all invertible,</p>
+<p t="512380" d="6760">because we can bring those rows
+back into the normal order.</p>
+<p t="519140" d="3539">And the matrix that
+does that is just P --</p>
+<p t="522679" d="3911">is just the same
+as the transpose.</p>
+<p t="526590" d="2590">You might take a
+permutation matrix,</p>
+<p t="529180" d="2640">multiply by its transpose
+and you will see how --</p>
+<p t="531820" d="5400">that the ones hit the ones and
+give the ones in the identity</p>
+<p t="537220" d="790">matrix.</p>
+<p t="538010" d="1970">So this is a --</p>
+<p t="539980" d="2610">we'll be highly
+interested in matrices</p>
+<p t="542590" d="2390">that have nice properties.</p>
+<p t="544980" d="4600">And one property that -- maybe
+I could rewrite that as P</p>
+<p t="549580" d="4300">transpose P is the identity.</p>
+<p t="553880" d="3070">That tells me in
+other words that this</p>
+<p t="556950" d="2350">is the inverse of that.</p>
+<p t="559300" d="910">Okay.</p>
+<p t="560210" d="5730">We'll be interested in
+matrices that have P transpose</p>
+<p t="565940" d="2000">P equal the identity.</p>
+<p t="567940" d="2530">There are more of them
+than just permutations,</p>
+<p t="570470" d="4530">but my point right now is that
+permutations are like a little</p>
+<p t="575000" d="1870">group in the middle --</p>
+<p t="576870" d="5310">in the center of these
+special matrices.</p>
+<p t="582180" d="1090">Okay.</p>
+<p t="583270" d="4320">So now we know how
+many there are.</p>
+<p t="587590" d="3160">Twenty four in the case of
+-- there are twenty four four</p>
+<p t="590750" d="5210">by four permutations, there
+are five factorial which is</p>
+<p t="595960" d="4380">a hundred and twenty, five times
+twenty four would bump us up</p>
+<p t="600340" d="3370">to a hundred and twenty -- so
+listing all the five by five</p>
+<p t="603710" d="6280">permutations would
+be not so much fun.</p>
+<p t="609990" d="2390">Okay.</p>
+<p t="612380" d="2940">So that's permutations.</p>
+<p t="615320" d="5640">Now also in section two seven is
+some discussion of transposes.</p>
+<p t="620960" d="1935">And can I just complete
+that discussion.</p>
+<p t="625610" d="5300">First of all, I haven't
+even transposed a matrix</p>
+<p t="630910" d="1200">on the board here, have I?</p>
+<p t="632110" d="1600">So I'd better do it.</p>
+<p t="633710" d="6265">So suppose I take a matrix
+like (1 2 4; 3 3 1).</p>
+<p t="643660" d="3980">It's a rectangular
+matrix, three by two.</p>
+<p t="647640" d="3390">And I want to transpose it.</p>
+<p t="651030" d="2350">So what's --</p>
+<p t="653380" d="5660">I'll use a T, also
+Matlab would use a prime.</p>
+<p t="659040" d="3010">And the result will be --</p>
+<p t="662050" d="5720">I'll right it here, because this
+was three rows and two columns,</p>
+<p t="667770" d="2290">this was a three by two matrix.</p>
+<p t="670060" d="3020">The transpose will be two
+rows and three columns,</p>
+<p t="673080" d="2300">two by three.</p>
+<p t="675380" d="4800">So it's short and wider.</p>
+<p t="680180" d="5550">And, of course, that row --
+that column becomes a row --</p>
+<p t="685730" d="1780">that column becomes
+the other row.</p>
+<p t="690060" d="6140">And at the same time,
+that row became a column.</p>
+<p t="696200" d="1770">This row became a column.</p>
+<p t="697970" d="3640">Oh, what's the general
+formula for the transpose?</p>
+<p t="701610" d="7310">So the transpose --</p>
+<p t="708920" d="1820">you see it in numbers.</p>
+<p t="710740" d="3830">What I'm going to write is
+the same thing in symbols.</p>
+<p t="714570" d="3350">The numbers are the
+clearest, of course.</p>
+<p t="717920" d="6250">But in symbols, if
+I take A transpose</p>
+<p t="724170" d="5965">and I ask what number is in row
+I and column J of A transpose?</p>
+<p t="734600" d="1720">Well, it came out of A.</p>
+<p t="736320" d="5760">It came out A by this flip
+across the main diagonal.</p>
+<p t="742080" d="5950">And, actually, it
+was the number in A</p>
+<p t="748030" d="6510">which was in row J, column I.</p>
+<p t="754540" d="2380">So the row and column --</p>
+<p t="756920" d="2960">the row and column
+numbers just get reversed.</p>
+<p t="759880" d="2150">The row number becomes
+the column number,</p>
+<p t="762030" d="2420">the column number
+becomes the row number.</p>
+<p t="764450" d="1160">No problem.</p>
+<p t="765610" d="650">Okay.</p>
+<p t="766260" d="3020">Now, a special --</p>
+<p t="769280" d="3600">the best matrices, we could say.</p>
+<p t="772880" d="5710">In a lot of applications,
+symmetric matrices show up.</p>
+<p t="778590" d="3555">So can I just call attention
+to symmetric matrices?</p>
+<p t="787960" d="880">What does that mean?</p>
+<p t="788840" d="2270">What does that word
+symmetric mean?</p>
+<p t="791110" d="4890">It means that this transposing
+doesn't change the matrix.</p>
+<p t="796000" d="1690">A transpose equals A.</p>
+<p t="797690" d="3565">And an example.</p>
+<p t="805740" d="4160">So, let's take a matrix
+that's symmetric,</p>
+<p t="809900" d="3850">so whatever is sitting
+on the diagonal --</p>
+<p t="813750" d="3050">but now what's above the
+diagonal, like a one,</p>
+<p t="816800" d="4830">had better be there, a
+seven had better be here,</p>
+<p t="821630" d="1780">a nine had better be there.</p>
+<p t="823410" d="4050">There's a symmetric matrix.</p>
+<p t="827460" d="4960">I happened to use all positive
+numbers as its entries.</p>
+<p t="832420" d="1610">That's not the point.</p>
+<p t="834030" d="3130">The point is that if I
+transpose that matrix,</p>
+<p t="837160" d="1720">I get it back again.</p>
+<p t="838880" d="4490">So symmetric matrices have this
+property A transpose equals A.</p>
+<p t="843370" d="3780">I guess at this point --</p>
+<p t="847150" d="6980">I'm just asking you to notice
+this family of matrices that</p>
+<p t="854130" d="3700">are unchanged by transposing.</p>
+<p t="857830" d="5120">And they're easy to
+identify, of course.</p>
+<p t="862950" d="5110">You know, it's not maybe so
+easy before we had a case where</p>
+<p t="868060" d="3770">the transpose gave the inverse.</p>
+<p t="871830" d="4400">That's highly important,
+but not so simple to see.</p>
+<p t="876230" d="2970">This is the case where the
+transpose gives the same matrix</p>
+<p t="879200" d="520">back again.</p>
+<p t="879720" d="2790">That's totally simple to see.</p>
+<p t="882510" d="870">Okay.</p>
+<p t="883380" d="6030">Could actually -- maybe I could
+even say when would we get such</p>
+<p t="889410" d="1740">a matrix?</p>
+<p t="891150" d="4590">For example, this -- that
+matrix is absolutely far from</p>
+<p t="895740" d="2110">symmetric, right?</p>
+<p t="897850" d="3300">The transpose isn't
+even the same shape --</p>
+<p t="901150" d="2550">because it's rectangular,
+it turns the --</p>
+<p t="903700" d="2880">lies down on its side.</p>
+<p t="906580" d="4390">But let me tell you a way to
+get a symmetric matrix out of</p>
+<p t="910970" d="910">this.</p>
+<p t="911880" d="2760">Multiply those together.</p>
+<p t="914640" d="2570">If I multiply this
+rectangular, shall I</p>
+<p t="917210" d="1700">call it R for rectangular?</p>
+<p t="918910" d="3980">So let that be R for
+rectangular matrix</p>
+<p t="922890" d="4690">and let that be R
+transpose, which it is.</p>
+<p t="927580" d="4420">Then I think that if I
+multiply those together,</p>
+<p t="932000" d="2390">I get a symmetric matrix.</p>
+<p t="934390" d="2390">Can I just do it
+with the numbers</p>
+<p t="936780" d="7920">and then ask you why, how did
+I know it would be symmetric?</p>
+<p t="944700" d="7715">So my point is that R transpose
+R is always symmetric.</p>
+<p t="952415" d="499">Okay?</p>
+<p t="957560" d="3910">And I'm going to do it for that
+particular R transpose R which</p>
+<p t="961470" d="1280">was --</p>
+<p t="962750" d="3065">let's see, the column was
+one two four three three one.</p>
+<p t="969700" d="2000">I called that one R
+transpose, didn't I,</p>
+<p t="971700" d="4330">and I called this guy one
+two four three three one.</p>
+<p t="976030" d="1520">I called that R.</p>
+<p t="977550" d="2420">Shall we just do
+that multiplication?</p>
+<p t="979970" d="2990">Okay, so up here
+I'm getting a ten.</p>
+<p t="982960" d="4350">Next to it I'm getting two, a
+nine, I'm getting an eleven.</p>
+<p t="987310" d="3080">Next to that I'm getting
+four and three, a seven.</p>
+<p t="990390" d="2260">Now what do I get there?</p>
+<p t="992650" d="5000">This eleven came from one
+three times two three, right?</p>
+<p t="997650" d="2070">Row one, column two.</p>
+<p t="999720" d="1810">What goes here?</p>
+<p t="1001530" d="1830">Row two, column one.</p>
+<p t="1003360" d="2690">But no difference.</p>
+<p t="1006050" d="4170">One three two three or two
+three one three, same thing.</p>
+<p t="1010220" d="1530">It's going to be an eleven.</p>
+<p t="1011750" d="2560">That's the symmetry.</p>
+<p t="1014310" d="1920">I can continue to fill it out.</p>
+<p t="1016230" d="1870">What -- oh, let's
+get that seven.</p>
+<p t="1018100" d="2420">That seven will show
+up down here, too,</p>
+<p t="1020520" d="2130">and then four more numbers.</p>
+<p t="1022650" d="3969">That seven will show up here
+because one three times four</p>
+<p t="1026619" d="4011">one gave the seven, but also
+four one times one three</p>
+<p t="1030630" d="969">will give that seven.</p>
+<p t="1031599" d="4431">Do you see that it works?</p>
+<p t="1036030" d="8600">Actually, do you want to see it
+work also in matrix language?</p>
+<p t="1044630" d="2459">I mean, that's quite
+convincing, right?</p>
+<p t="1047089" d="2876">That seven is no accident.</p>
+<p t="1052630" d="2920">The eleven is no accident.</p>
+<p t="1055550" d="5130">But just tell me how do I know
+if I transpose this guy --</p>
+<p t="1060680" d="2140">How do I know it's symmetric?</p>
+<p t="1062820" d="2800">Well, I'm going to transpose it.</p>
+<p t="1065620" d="3990">And when I transpose
+it, I'm hoping</p>
+<p t="1069610" d="2600">I get the matrix back again.</p>
+<p t="1072210" d="2420">So can I transpose
+R transpose R?</p>
+<p t="1074630" d="1527">So just -- so, why?</p>
+<p t="1079880" d="3065">Well, my suggestion
+is take the transpose.</p>
+<p t="1089800" d="1870">That's the only way to
+show it's symmetric.</p>
+<p t="1091670" d="2670">Take the transpose and
+see that it didn't change.</p>
+<p t="1094340" d="5630">Okay, so I take the
+transpose of R transpose R.</p>
+<p t="1099970" d="500">Okay.</p>
+<p t="1100470" d="2720">How do I do that?</p>
+<p t="1103190" d="4490">This is our little practice
+on the rules for transposes.</p>
+<p t="1107680" d="6100">So the rule for transposes
+is the order gets reversed.</p>
+<p t="1113780" d="4520">Just like inverses,
+which we did prove,</p>
+<p t="1118300" d="6090">same rule for transposes
+and -- which we'll now use.</p>
+<p t="1124390" d="1720">So the order gets reversed.</p>
+<p t="1126110" d="5490">It's the transpose of
+that that comes first,</p>
+<p t="1131600" d="5280">and the transpose of
+this that comes -- no.</p>
+<p t="1136880" d="1130">Is that -- yeah.</p>
+<p t="1138010" d="3120">That's what I have
+to write, right?</p>
+<p t="1141130" d="2370">This is a product of two
+matrices and I want its</p>
+<p t="1143500" d="850">transpose.</p>
+<p t="1144350" d="2530">So I put the matrices
+in the opposite order</p>
+<p t="1146880" d="1600">and I transpose them.</p>
+<p t="1148480" d="1300">But what have I got here?</p>
+<p t="1149780" d="2540">What is R transpose transpose?</p>
+<p t="1155300" d="3370">Well, don't all speak at once.</p>
+<p t="1158670" d="3410">R transpose transpose, I
+flipped over the diagonal,</p>
+<p t="1162080" d="6460">I flipped over the diagonal
+again, so I've got R.</p>
+<p t="1168540" d="4230">And that's just my point, that
+if I started with this matrix,</p>
+<p t="1172770" d="1970">I transposed it, I
+got it back again.</p>
+<p t="1177850" d="8960">So that's the check, without
+using numbers, but with --</p>
+<p t="1186810" d="5700">it checked in two lines that I
+always get symmetric matrices</p>
+<p t="1192510" d="970">this way.</p>
+<p t="1193480" d="2200">And actually, that's
+where they come</p>
+<p t="1195680" d="4540">from in so many
+practical applications.</p>
+<p t="1200220" d="2510">Okay.</p>
+<p t="1202730" d="4850">So now I've said something today
+about permutations and about</p>
+<p t="1207580" d="6960">transposes and about
+symmetry and I'm ready</p>
+<p t="1214540" d="2750">for chapter three.</p>
+<p t="1217290" d="4260">Can we take a breath --</p>
+<p t="1221550" d="3700">the tape won't take a breath,
+but the lecturer will,</p>
+<p t="1225250" d="6730">because to tell you
+about vector spaces is --</p>
+<p t="1231980" d="6240">we really have to start now
+and think, okay, listen up.</p>
+<p t="1238220" d="1280">What are vector spaces?</p>
+<p t="1247400" d="1000">And what are sub-spaces?</p>
+<p t="1251160" d="730">Okay.</p>
+<p t="1251890" d="9540">So, the point is, The main
+operations that we do --</p>
+<p t="1261430" d="3020">what do we do with vectors?</p>
+<p t="1264450" d="1370">We add them.</p>
+<p t="1265820" d="1450">We know how to add two vectors.</p>
+<p t="1269880" d="4050">We multiply them by numbers,
+usually called scalers.</p>
+<p t="1273930" d="3420">If we have a vector, we
+know what three V is.</p>
+<p t="1277350" d="6680">If we have a vector V and
+W, we know what V plus W is.</p>
+<p t="1284030" d="2640">Those are the two
+operations that we've</p>
+<p t="1286670" d="2420">got to be able to do.</p>
+<p t="1289090" d="4130">To legitimately talk
+about a space of vectors,</p>
+<p t="1293220" d="2650">the requirement
+is that we should</p>
+<p t="1295870" d="4120">be able to add the things
+and multiply by numbers</p>
+<p t="1299990" d="4390">and that there should be
+some decent rules satisfied.</p>
+<p t="1304380" d="990">Okay.</p>
+<p t="1305370" d="3220">So let me start with examples.</p>
+<p t="1308590" d="2165">So I'm talking now
+about vector spaces.</p>
+<p t="1316810" d="1875">And I'm going to
+start with examples.</p>
+<p t="1326690" d="2790">Let me say again what this
+word space is meaning.</p>
+<p t="1329480" d="4530">When I say that word
+space, that means to me</p>
+<p t="1334010" d="5430">that I've got a bunch of
+vectors, a space of vectors.</p>
+<p t="1339440" d="1570">But not just any
+bunch of vectors.</p>
+<p t="1344010" d="4710">It has to be a
+space of vectors --</p>
+<p t="1348720" d="2580">has to allow me to do the
+operations that vectors</p>
+<p t="1351300" d="1440">are for.</p>
+<p t="1352740" d="4370">I have to be able to add
+vectors and multiply by numbers.</p>
+<p t="1357110" d="2450">I have to be able to
+take linear combinations.</p>
+<p t="1359560" d="3560">Well, where did we meet
+linear combinations?</p>
+<p t="1363120" d="5840">We met them back in, say in R^2.</p>
+<p t="1368960" d="2410">So there's a vector space.</p>
+<p t="1371370" d="2640">What's that vector space?</p>
+<p t="1374010" d="5260">So R two is telling me I'm
+talking about real numbers</p>
+<p t="1379270" d="2100">and I'm talking about
+two real numbers.</p>
+<p t="1381370" d="10100">So this is all two
+dimensional vectors --</p>
+<p t="1391470" d="5110">real, such as --</p>
+<p t="1396580" d="2170">well, I'm not going to
+be able to list them all.</p>
+<p t="1398750" d="1460">But let me put a few down.</p>
+<p t="1400210" d="10210">|3; 2|, |0;0|, |pi; e|.</p>
+<p t="1410420" d="500">So on.</p>
+<p t="1415450" d="4440">And it's natural -- okay.</p>
+<p t="1419890" d="4380">Let's see, I guess I
+should do algebra first.</p>
+<p t="1424270" d="2710">Algebra means what can
+I do to these vectors?</p>
+<p t="1426980" d="1150">I can add them.</p>
+<p t="1428130" d="2390">I can add that to that.</p>
+<p t="1430520" d="1140">And how do I do it?</p>
+<p t="1431660" d="2800">A component at a
+time, of course.</p>
+<p t="1434460" d="3780">Three two added to zero
+zero gives me, three two.</p>
+<p t="1438240" d="1950">Sorry about that.</p>
+<p t="1440190" d="5590">Three two added to pi e gives
+me three plus pi, two plus e.</p>
+<p t="1445780" d="1480">Oh, you know what it does.</p>
+<p t="1447260" d="3980">And you know the picture
+that goes with it.</p>
+<p t="1451240" d="3590">There's the vector three two.</p>
+<p t="1454830" d="4690">And often, the
+picture has an arrow.</p>
+<p t="1459520" d="3030">The vector zero zero, which is
+a highly important vector --</p>
+<p t="1462550" d="2060">it's got, like, the
+most important here</p>
+<p t="1464610" d="1320">-- is there.</p>
+<p t="1465930" d="3910">And of course there's
+not much of an arrow.</p>
+<p t="1469840" d="5270">Pi -- I'll have to remember --
+pi is about three and a little</p>
+<p t="1475110" d="2460">more, e is about two
+and a little more.</p>
+<p t="1477570" d="3520">So maybe there's pi e.</p>
+<p t="1481090" d="3600">I never drew pi e before.</p>
+<p t="1484690" d="2340">It's just natural to --</p>
+<p t="1487030" d="8530">this is the first
+component on the horizontal</p>
+<p t="1495560" d="3910">and this is the
+second component,</p>
+<p t="1499470" d="2540">going up the vertical.</p>
+<p t="1502010" d="900">Okay.</p>
+<p t="1502910" d="4660">And the whole plane is R two.</p>
+<p t="1507570" d="7410">So R two is, we
+could say, the plane.</p>
+<p t="1514980" d="2730">The xy plane.</p>
+<p t="1517710" d="1210">That's what everybody thinks.</p>
+<p t="1524770" d="8030">But the point is it's a vector
+space because all those vectors</p>
+<p t="1532800" d="1340">are in there.</p>
+<p t="1534140" d="3240">If I removed one of them --</p>
+<p t="1537380" d="2040">Suppose I removed zero zero.</p>
+<p t="1539420" d="4060">Suppose I tried to take the --
+considered the X Y plane with</p>
+<p t="1543480" d="2880">a puncture, with
+a point removed.</p>
+<p t="1546360" d="840">Like the origin.</p>
+<p t="1547200" d="3270">That would be, like, awful
+to take the origin away.</p>
+<p t="1550470" d="2100">Why is that?</p>
+<p t="1552570" d="1980">Why do I need the origin there?</p>
+<p t="1554550" d="5020">Because I have to be allowed --
+if I had these other vectors,</p>
+<p t="1559570" d="3760">I have to be allowed to
+multiply three two --</p>
+<p t="1563330" d="2280">this was three two --</p>
+<p t="1565610" d="4210">by anything, by any
+scaler, including zero.</p>
+<p t="1569820" d="2200">I've got to be allowed
+to multiply by zero</p>
+<p t="1572020" d="2990">and the result's
+got to be there.</p>
+<p t="1575010" d="3100">I can't do without that point.</p>
+<p t="1578110" d="5560">And I have to be able to add
+three two to the opposite guy,</p>
+<p t="1583670" d="3130">minus three minus two.</p>
+<p t="1586800" d="2430">And if I add those I'm
+back to the origin again.</p>
+<p t="1589230" d="2130">No way I can do
+without the origin.</p>
+<p t="1591360" d="4920">Every vector space has got
+that zero vector in it.</p>
+<p t="1596280" d="2370">Okay, that's an
+easy vector space,</p>
+<p t="1598650" d="3870">because we have a
+natural picture of it.</p>
+<p t="1602520" d="1320">Okay.</p>
+<p t="1603840" d="2420">Similarly easy is R^3.</p>
+<p t="1610340" d="4290">This would be all -- let
+me go up a little here.</p>
+<p t="1614630" d="3190">This would be --</p>
+<p t="1617820" d="4850">R three would be all three
+dimensional vectors --</p>
+<p t="1622670" d="6975">or shall I say vectors
+with three real components.</p>
+<p t="1634320" d="680">Okay.</p>
+<p t="1635000" d="6030">Let me just to be
+sure we're together,</p>
+<p t="1641030" d="2631">let me take the
+vector three two zero.</p>
+<p t="1649410" d="3980">Is that a vector in R^2 or R^3?</p>
+<p t="1653390" d="5100">Definitely it's in R^3.</p>
+<p t="1658490" d="1660">It's got three components.</p>
+<p t="1660150" d="2890">One of them happens to be zero,
+but that's a perfectly okay</p>
+<p t="1663040" d="810">number.</p>
+<p t="1663850" d="4440">So that's a vector in R^3.</p>
+<p t="1668290" d="3300">We don't want to mix up the --</p>
+<p t="1671590" d="3500">I mean, keep these vectors
+straight and keep R^n straight.</p>
+<p t="1675090" d="2540">So what's R^n?</p>
+<p t="1677630" d="1520">R^n.</p>
+<p t="1679150" d="6840">So this is our big example, is
+all vectors with n components.</p>
+<p t="1685990" d="5180">And I'm making these darn
+things column vectors.</p>
+<p t="1691170" d="2880">Can I try to follow
+that convention,</p>
+<p t="1694050" d="3480">that they'll be column vectors,
+and their components should</p>
+<p t="1697530" d="3160">be real numbers.</p>
+<p t="1700690" d="4140">Later we'll need complex
+numbers and complex vectors,</p>
+<p t="1704830" d="1891">but much later.</p>
+<p t="1706721" d="499">Okay.</p>
+<p t="1707220" d="1560">So that's a vector space.</p>
+<p t="1711420" d="2250">Now, let's see.</p>
+<p t="1713670" d="2240">What do I have to tell
+you about vector spaces?</p>
+<p t="1715910" d="8180">I said the most important thing,
+which is that we can add any</p>
+<p t="1724090" d="2670">two of these and
+we -- still in R^2.</p>
+<p t="1726760" d="3460">We can multiply by any number
+and we're still in R^2.</p>
+<p t="1730220" d="3160">We can take any combination
+and we're still in R^2.</p>
+<p t="1733380" d="1910">And same goes for R^n.</p>
+<p t="1735290" d="6950">It's -- honesty requires me to
+mention that these operations</p>
+<p t="1742240" d="6060">of adding and multiplying
+have to obey a few rules.</p>
+<p t="1748300" d="4490">Like, we can't just arbitrarily
+say, okay, the sum of three two</p>
+<p t="1752790" d="2820">and pi e is zero zero.</p>
+<p t="1755610" d="2800">It's not.</p>
+<p t="1758410" d="4240">The sum of three two and
+minus three two is zero zero.</p>
+<p t="1762650" d="4380">So -- oh, I'm not going
+to -- the book, actually,</p>
+<p t="1767030" d="5390">lists the eight rules that the
+addition and multiplication</p>
+<p t="1772420" d="2260">have to satisfy, but they do.</p>
+<p t="1774680" d="4130">They certainly satisfy it in
+R^n and usually it's not those</p>
+<p t="1778810" d="3360">eight rules that are in doubt.</p>
+<p t="1782170" d="7900">What's -- the question is, can
+we do those additions and do we</p>
+<p t="1790070" d="1180">stay in the space?</p>
+<p t="1791250" d="4330">Let me show you a
+case where you can't.</p>
+<p t="1795580" d="4230">So suppose this is going
+to be not a vector space.</p>
+<p t="1805490" d="3290">Suppose I take the xy
+plane -- so there's R^2.</p>
+<p t="1808780" d="2460">That is a vector space.</p>
+<p t="1811240" d="4700">Now suppose I just
+take part of it.</p>
+<p t="1815940" d="1730">Just this.</p>
+<p t="1817670" d="4600">Just this one -- this is one
+quarter of the vector space.</p>
+<p t="1824910" d="5055">All the vectors with positive
+or at least not negative</p>
+<p t="1829965" d="500">components.</p>
+<p t="1833070" d="4470">Can I add those safely?</p>
+<p t="1837540" d="870">Yes.</p>
+<p t="1838410" d="3280">If I add a vector
+with, like, two --</p>
+<p t="1841690" d="3340">three two to another
+vector like five six,</p>
+<p t="1845030" d="3920">I'm still up in this quarter,
+no problem with adding.</p>
+<p t="1848950" d="5910">But there's a heck of a problem
+with multiplying by scalers,</p>
+<p t="1854860" d="3830">because there's a lot of
+scalers that will take me out</p>
+<p t="1858690" d="3590">of this quarter plane,
+like negative ones.</p>
+<p t="1862280" d="3540">If I took three two and I
+multiplied by minus five,</p>
+<p t="1865820" d="2420">I'm way down here.</p>
+<p t="1868240" d="3980">So that's not a vector
+space, because it's not --</p>
+<p t="1872220" d="2030">closed is the right word.</p>
+<p t="1874250" d="3620">It's not closed
+under multiplication</p>
+<p t="1877870" d="1980">by all real numbers.</p>
+<p t="1882500" d="4650">So a vector space has to be
+closed under multiplication</p>
+<p t="1887150" d="1860">and addition of vectors.</p>
+<p t="1889010" d="2670">In other words,
+linear combinations.</p>
+<p t="1891680" d="5880">It -- so, it means that if
+I give you a few vectors --</p>
+<p t="1897560" d="2420">yeah look, here's an
+important -- here --</p>
+<p t="1899980" d="2440">now we're getting to some
+really important vector spaces.</p>
+<p t="1902420" d="5040">Well, R^n -- like, they
+are the most important.</p>
+<p t="1907460" d="5060">But we will be interested in
+so- in vector spaces that are</p>
+<p t="1912520" d="3180">inside R^n.</p>
+<p t="1915700" d="6090">Vector spaces that follow
+the rules, but they --</p>
+<p t="1921790" d="8350">we don't need all of -- see,
+there we started with R^2 here,</p>
+<p t="1930140" d="4920">and took part of it
+and messed it up.</p>
+<p t="1935060" d="2360">What we got was
+not a vector space.</p>
+<p t="1937420" d="8250">Now tell me a vector space that
+is part of R^2 and is still</p>
+<p t="1945670" d="5810">safely -- we can multiply, we
+can add and we stay in this</p>
+<p t="1951480" d="1400">smaller vector space.</p>
+<p t="1952880" d="2800">So it's going to be
+called a subspace.</p>
+<p t="1955680" d="5310">So I'm going to change this
+bad example to a good one.</p>
+<p t="1960990" d="1450">Okay.</p>
+<p t="1962440" d="3180">So I'm going to
+start again with R^2,</p>
+<p t="1965620" d="4500">but I'm going to take an
+example -- it is a vector space,</p>
+<p t="1970120" d="3685">so it'll be a vector
+space inside R^2.</p>
+<p t="1976970" d="6590">And we'll call that
+a subspace of R^2.</p>
+<p t="1986450" d="590">Okay.</p>
+<p t="1987040" d="1970">What can I do?</p>
+<p t="1989010" d="2950">It's got something in it.</p>
+<p t="1991960" d="2770">Suppose it's got
+this vector in it.</p>
+<p t="1994730" d="2340">Okay.</p>
+<p t="1997070" d="2670">If that vector's in
+my little subspace</p>
+<p t="1999740" d="3760">and it's a true
+subspace, then there's</p>
+<p t="2003500" d="1490">got to be some more in it,</p>
+<p t="2004990" d="650">right?</p>
+<p t="2005640" d="3260">I have to be able to
+multiply that by two,</p>
+<p t="2008900" d="4760">and that double vector
+has to be included.</p>
+<p t="2013660" d="2950">Have to be able to multiply
+by zero, that vector,</p>
+<p t="2016610" d="2810">or by half, or by
+three quarters.</p>
+<p t="2019420" d="890">All these vectors.</p>
+<p t="2020310" d="4160">Or by minus a half,
+or by minus one.</p>
+<p t="2024470" d="4260">I have to be able to
+multiply by any number.</p>
+<p t="2028730" d="3520">So that is going to say that I
+have to have that whole line.</p>
+<p t="2032250" d="4160">Do you see that?</p>
+<p t="2036410" d="2030">Once I get a vector in there --</p>
+<p t="2038440" d="4630">I've got the whole line of
+all multiples of that vector.</p>
+<p t="2043070" d="6250">I can't have a vector space
+without extending to get</p>
+<p t="2049320" d="1450">those multiples in there.</p>
+<p t="2050770" d="1629">Now I still have
+to check addition.</p>
+<p t="2055000" d="1179">But that comes out okay.</p>
+<p t="2056179" d="4381">This line is going to work,
+because I could add something</p>
+<p t="2060560" d="2659">on the line to something
+else on the line</p>
+<p t="2063219" d="3321">and I'm still on the line.</p>
+<p t="2066540" d="1929">So, example.</p>
+<p t="2068469" d="4871">So this is all examples
+of a subspace --</p>
+<p t="2073340" d="11859">our example is a line in R^2
+actually -- not just any line.</p>
+<p t="2085199" d="5040">If I took this
+line, would that --</p>
+<p t="2090239" d="1721">so all the vectors on that line.</p>
+<p t="2091960" d="4969">So that vector and that vector
+and this vector and this vector</p>
+<p t="2096929" d="1451">--</p>
+<p t="2098380" d="7070">in lighter type, I'm drawing
+something that doesn't work.</p>
+<p t="2105450" d="2060">It's not a subspace.</p>
+<p t="2107510" d="2380">The line in R^2 --
+to be a subspace,</p>
+<p t="2109890" d="5330">the line in R^2 must go
+through the zero vector.</p>
+<p t="2119400" d="2300">Because -- why is
+this line no good?</p>
+<p t="2121700" d="1440">Let me do a dashed line.</p>
+<p t="2127500" d="3790">Because if I multiplied that
+vector on the dashed line</p>
+<p t="2131290" d="3200">by zero, then I'm down here,
+I'm not on the dashed line.</p>
+<p t="2134490" d="2130">Z- zero's got to be.</p>
+<p t="2136620" d="3300">Every subspace has
+got to contain zero --</p>
+<p t="2139920" d="3310">because I must be allowed to
+multiply by zero and that will</p>
+<p t="2143230" d="3070">always give me the zero vector.</p>
+<p t="2146300" d="1720">Okay.</p>
+<p t="2148020" d="3390">Now, I was going to make --</p>
+<p t="2151410" d="3050">create some subspaces.</p>
+<p t="2154460" d="5150">Oh, while I'm in R^2,
+why don't we think of all</p>
+<p t="2159610" d="1500">the possibilities.</p>
+<p t="2161110" d="2650">R two, there can't be that many.</p>
+<p t="2163760" d="3750">So what are the possible
+subspaces of R^2?</p>
+<p t="2167510" d="1210">Let me list them.</p>
+<p t="2171480" d="4740">So I'm listing now
+the subspaces of R^2.</p>
+<p t="2179660" d="4090">And one possibility
+that we always allow</p>
+<p t="2183750" d="6010">is all of R two, the whole
+thing, the whole space.</p>
+<p t="2189760" d="4250">That counts as a
+subspace of itself.</p>
+<p t="2194010" d="1820">You always want to allow that.</p>
+<p t="2195830" d="3920">Then the others are lines --</p>
+<p t="2199750" d="5940">any line, meaning infinitely
+far in both directions</p>
+<p t="2205690" d="4120">through the zero.</p>
+<p t="2215110" d="2680">So that's like
+the whole space --</p>
+<p t="2217790" d="2760">that's like whole two D space.</p>
+<p t="2220550" d="2310">This is like one dimension.</p>
+<p t="2222860" d="2460">Is this line the same as R^1 ?</p>
+<p t="2225320" d="2150">No.</p>
+<p t="2227470" d="3730">You could say it
+looks a lot like R^1.</p>
+<p t="2231200" d="3180">R^1 was just a line
+and this is a line.</p>
+<p t="2234380" d="3080">But this is a line inside R^2.</p>
+<p t="2237460" d="2980">The vectors here
+have two components.</p>
+<p t="2240440" d="3160">So that's not the same as R^1,
+because there the vectors only</p>
+<p t="2243600" d="1970">have one component.</p>
+<p t="2245570" d="4020">Very close, you could
+say, but not the same.</p>
+<p t="2249590" d="730">Okay.</p>
+<p t="2250320" d="1930">And now there's a
+third possibility.</p>
+<p t="2256550" d="4390">There's a third
+subspace that's --</p>
+<p t="2260940" d="7030">of R^2 that's not the whole
+thing, and it's not a line.</p>
+<p t="2267970" d="2200">It's even less.</p>
+<p t="2270170" d="2670">It's just the zero vector alone.</p>
+<p t="2272840" d="2330">The zero vector alone, only.</p>
+<p t="2281250" d="4300">I'll often call this
+subspace Z, just for zero.</p>
+<p t="2285550" d="2150">Here's a line, L.</p>
+<p t="2287700" d="2310">Here's a plane, all of R^2.</p>
+<p t="2290010" d="4670">So, do you see that
+the zero vector's okay?</p>
+<p t="2294680" d="2290">You would just -- to
+understand subspaces,</p>
+<p t="2296970" d="3850">we have to know the rules -- and
+knowing the rules means that we</p>
+<p t="2300820" d="4220">have to see that yes, the
+zero vector by itself,</p>
+<p t="2305040" d="2950">just this guy alone
+satisfies the rules.</p>
+<p t="2307990" d="700">Why's that?</p>
+<p t="2308690" d="2630">Oh, it's too dumb to tell you.</p>
+<p t="2311320" d="5110">If I took that and added it
+to itself, I'm still there.</p>
+<p t="2316430" d="3890">If I took that and multiplied
+by seventeen, I'm still there.</p>
+<p t="2320320" d="3750">So I've done the operations,
+adding and multiplying</p>
+<p t="2324070" d="2940">by numbers, that are
+required, and I didn't go</p>
+<p t="2327010" d="3290">outside this one point space.</p>
+<p t="2333570" d="3600">So that's always -- that's
+the littlest subspace.</p>
+<p t="2337170" d="3760">And the largest subspace is the
+whole thing and in-between come</p>
+<p t="2340930" d="1440">all --</p>
+<p t="2342370" d="1710">whatever's in between.</p>
+<p t="2344080" d="500">Okay.</p>
+<p t="2344580" d="3030">So for example, what's
+in between for R^3?</p>
+<p t="2347610" d="4490">So if I'm in ordinary three
+dimensions, the subspace is R,</p>
+<p t="2352100" d="6150">all of R^3 at one extreme,
+the zero vector at the bottom.</p>
+<p t="2358250" d="5180">And then a plane, a
+plane through the origin.</p>
+<p t="2363430" d="3080">Or a line, a line
+through the origin.</p>
+<p t="2366510" d="6460">So with R^3, the subspaces were
+R^3, plane through the origin,</p>
+<p t="2372970" d="4590">line through the origin and
+a zero vector by itself,</p>
+<p t="2377560" d="5470">zero zero zero, just
+that single vector.</p>
+<p t="2383030" d="1330">Okay, you've got the idea.</p>
+<p t="2387470" d="3610">But, now comes --</p>
+<p t="2391080" d="2270">the reality is --</p>
+<p t="2393350" d="4180">what are these -- where
+do these subspaces come --</p>
+<p t="2397530" d="3420">how do they come
+out of matrices?</p>
+<p t="2400950" d="5130">And I want to take
+this matrix --</p>
+<p t="2406080" d="2270">oh, let me take that matrix.</p>
+<p t="2408350" d="9080">So I want to create some
+subspaces out of that matrix.</p>
+<p t="2417430" d="9550">Well, one subspace
+is from the columns.</p>
+<p t="2426980" d="2780">Okay.</p>
+<p t="2429760" d="4290">So this is the
+important subspace,</p>
+<p t="2434050" d="4140">the first important subspace
+that comes from that matrix --</p>
+<p t="2438190" d="2560">I'm going to -- let
+me call it A again.</p>
+<p t="2440750" d="3620">Back to -- okay.</p>
+<p t="2444370" d="3780">I'm looking at the columns of A.</p>
+<p t="2448150" d="2380">Those are vectors in R^3.</p>
+<p t="2450530" d="1850">So the columns are in R^3.</p>
+<p t="2452380" d="5720">The columns are in R^3.</p>
+<p t="2462280" d="2305">So I want those columns
+to be in my subspace.</p>
+<p t="2468970" d="2990">Now I can't just put two
+columns in my subspace</p>
+<p t="2471960" d="2552">and call it a subspace.</p>
+<p t="2474512" d="2458">What do I have to throw in --
+if I'm going to put those two</p>
+<p t="2476970" d="4490">columns in, what else has got
+to be there to have a subspace?</p>
+<p t="2481460" d="3590">I must be able to
+add those things.</p>
+<p t="2485050" d="3410">So the sum of those columns --</p>
+<p t="2488460" d="6510">so these columns are in R^3,
+and I have to be able --</p>
+<p t="2494970" d="2360">I'm, you know, I want
+that to be in my subspace,</p>
+<p t="2497330" d="1750">I want that to be
+in my subspace,</p>
+<p t="2499080" d="3800">but therefore I have to be able
+to multiply them by anything.</p>
+<p t="2502880" d="3030">Zero zero zero has got
+to be in my subspace.</p>
+<p t="2505910" d="2720">I have to be able to add
+them so that four five five</p>
+<p t="2508630" d="1520">is in the subspace.</p>
+<p t="2510150" d="2904">I've got to be able to add one
+of these plus three of these.</p>
+<p t="2513054" d="1416">That'll give me
+some other vector.</p>
+<p t="2517100" d="5080">I have to be able to take
+all the linear combinations.</p>
+<p t="2522180" d="12020">So these are columns in R^3 and
+all there linear combinations</p>
+<p t="2534200" d="2720">form a subspace.</p>
+<p t="2541260" d="2140">What do I mean by
+linear combinations?</p>
+<p t="2543400" d="2660">I mean multiply
+that by something,</p>
+<p t="2546060" d="2230">multiply that by
+something and add.</p>
+<p t="2548290" d="5060">The two operations of linear
+algebra, multiplying by numbers</p>
+<p t="2553350" d="2710">and adding vectors.</p>
+<p t="2556060" d="2870">And, if I include
+all the results,</p>
+<p t="2558930" d="1945">then I'm guaranteed
+to have a subspace.</p>
+<p t="2563570" d="3290">I've done the job.</p>
+<p t="2566860" d="2350">And we'll give it a name --</p>
+<p t="2569210" d="750">the column space.</p>
+<p t="2573740" d="640">Column space.</p>
+<p t="2581220" d="4700">And maybe I'll call it C of A.</p>
+<p t="2585920" d="1200">C for column space.</p>
+<p t="2591580" d="3440">There's an idea there that --</p>
+<p t="2595020" d="7730">Like, the central idea
+for today's lecture is --</p>
+<p t="2602750" d="2470">got a few vectors.</p>
+<p t="2605220" d="1910">Not satisfied with
+a few vectors,</p>
+<p t="2607130" d="2670">we want a space of vectors.</p>
+<p t="2609800" d="3360">The vectors, they're in --
+these vectors in -- are in R^3 ,</p>
+<p t="2613160" d="3890">so our space of vectors
+will be vectors in R^3.</p>
+<p t="2617050" d="3890">The key idea's -- we
+have to be able to take</p>
+<p t="2620940" d="1460">their combinations.</p>
+<p t="2622400" d="4900">So tell me, geometrically,
+if I drew all these things --</p>
+<p t="2627300" d="2760">like if I drew one two four,
+that would be somewhere maybe</p>
+<p t="2630060" d="870">there.</p>
+<p t="2630930" d="3810">If I drew three three one,
+who knows, might be --</p>
+<p t="2634740" d="2400">I don't know, I'll say there.</p>
+<p t="2637140" d="4550">There's column one,
+there's column two.</p>
+<p t="2641690" d="5010">What else -- what's in
+the whole column space?</p>
+<p t="2646700" d="4460">How do I draw the
+whole column space now?</p>
+<p t="2651160" d="2270">I take all combinations
+of those two vectors.</p>
+<p t="2655970" d="2250">Do I get -- well, I
+guess I actually listed</p>
+<p t="2658220" d="940">the possibilities.</p>
+<p t="2659160" d="2780">Do I get the whole space?</p>
+<p t="2661940" d="2250">Do I get a plane?</p>
+<p t="2664190" d="2794">I get more than a
+line, that's for sure.</p>
+<p t="2666984" d="1916">And I certainly get more
+than the zero vector,</p>
+<p t="2668900" d="2710">but I do get the
+zero vector included.</p>
+<p t="2671610" d="2550">What do I get if I combine --</p>
+<p t="2674160" d="4955">take all the combinations
+of two vectors in R^3 ?</p>
+<p t="2684040" d="2410">So I've got all this stuff on --</p>
+<p t="2686450" d="2590">that whole line gets filled
+out, that whole line gets filled</p>
+<p t="2689040" d="2150">out, but all in-between
+gets filled out --</p>
+<p t="2691190" d="1710">between the two
+lines because I --</p>
+<p t="2692900" d="3710">I allowed to add something
+from one line, something</p>
+<p t="2696610" d="1240">from the other.</p>
+<p t="2697850" d="960">You see what's coming?</p>
+<p t="2698810" d="833">I'm getting a plane.</p>
+<p t="2705060" d="1730">That's my -- and it's
+through the origin.</p>
+<p t="2710210" d="7740">Those two vectors, namely one
+two four and three three one,</p>
+<p t="2717950" d="2640">when I take all
+their combinations,</p>
+<p t="2720590" d="1180">I fill out a whole plane.</p>
+<p t="2721770" d="3470">Please think about that.</p>
+<p t="2725240" d="3040">That's the picture
+you have to see.</p>
+<p t="2728280" d="3660">You sure have to see it in R^3
+, because we're going to do it</p>
+<p t="2731940" d="4940">in R^10, and we may take a
+combination of five vectors</p>
+<p t="2736880" d="3860">in R^10, and what will we have?</p>
+<p t="2740740" d="890">God knows.</p>
+<p t="2741630" d="3280">It's some subspace.</p>
+<p t="2744910" d="1970">We'll have five vectors.</p>
+<p t="2746880" d="2130">They'll all have ten components.</p>
+<p t="2749010" d="3310">We take their combinations.</p>
+<p t="2752320" d="5920">We don't have R^5 , because our
+vectors have ten components.</p>
+<p t="2758240" d="6780">And we possibly have, like,
+some five dimensional flat thing</p>
+<p t="2765020" d="1660">going through the
+origin for sure.</p>
+<p t="2769220" d="2890">Well, of course, if those five
+vectors were all on the line,</p>
+<p t="2772110" d="1600">then we would only
+get that line.</p>
+<p t="2773710" d="3130">So, you see, there are, like,
+other possibilities here.</p>
+<p t="2776840" d="4850">It depends what -- it depends
+on those five vectors.</p>
+<p t="2781690" d="3750">Just like if our two columns
+had been on the same line,</p>
+<p t="2785440" d="3200">then the column space would
+have been only a line.</p>
+<p t="2788640" d="2800">Here it was a plane.</p>
+<p t="2791440" d="500">Okay.</p>
+<p t="2795700" d="1910">I'm going to stop at that point.</p>
+<p t="2797610" d="6610">That's the central idea of
+-- the great example of how</p>
+<p t="2804220" d="4740">to create a subspace
+from a matrix.</p>
+<p t="2808960" d="3030">Take its columns, take
+their combinations,</p>
+<p t="2811990" d="5370">all their linear combinations
+and you get the column space.</p>
+<p t="2817360" d="3700">And that's the
+central sort of --</p>
+<p t="2821060" d="3260">we're looking at linear
+algebra at a higher level.</p>
+<p t="2824320" d="3280">When I look at A -- now,
+I want to look at Ax=b.</p>
+<p t="2827600" d="2490">That'll be the first
+thing in the next lecture.</p>
+<p t="2833650" d="3650">How do I understand
+Ax=b in this language --</p>
+<p t="2837300" d="5280">in this new language of vector
+spaces and column spaces.</p>
+<p t="2842580" d="2250">And what are other subspaces?</p>
+<p t="2844830" d="5400">So the column space is a big
+one, there are others to come.</p>
+<p t="2850230" d="2040">Okay, thanks.</p>
+</body>
+</timedtext>

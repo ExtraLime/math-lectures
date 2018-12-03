@@ -1,0 +1,2833 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="120" d="2340">The following content is
+provided under a Creative</p>
+<p t="2460" d="1420">Commons license.</p>
+<p t="3880" d="2210">Your support will help
+MIT OpenCourseWare</p>
+<p t="6090" d="4090">continue to offer high quality
+educational resources for free.</p>
+<p t="10180" d="2540">To make a donation or to
+view additional materials</p>
+<p t="12720" d="3930">from hundreds of MIT courses,
+visit MIT OpenCourseWare</p>
+<p t="16650" d="1230">at ocw.mit.edu.</p>
+<p t="19792" d="1958">PHILIPPE RIGOLLET: Doesn't
+to run Flash Player.</p>
+<p t="21750" d="4810">So I had to run them on Chrome.</p>
+<p t="26560" d="2890">All right, so let's move
+on to our second chapter.</p>
+<p t="29450" d="1820">And hopefully, in
+this chapter, you</p>
+<p t="31270" d="2550">will feel a little
+better if you felt</p>
+<p t="33820" d="2592">like it was going a bit
+fast in the first chapter.</p>
+<p t="36412" d="2208">And the main reason we
+actually went fast, especially</p>
+<p t="38620" d="1914">in terms of
+confidence intervals.</p>
+<p t="40534" d="1416">Some of you came
+and asked me what</p>
+<p t="41950" d="1930">you mean by this is a
+confidence interval?</p>
+<p t="43880" d="1708">What does it mean that
+it's not happening</p>
+<p t="45588" d="2074">in there with probability
+95%, et cetera?</p>
+<p t="47662" d="1458">I just went really
+fast so that you</p>
+<p t="49120" d="4320">could see why I didn't want
+to give you a first week doing</p>
+<p t="53440" d="3730">probability only
+without understanding</p>
+<p t="57170" d="2610">what the statistical
+context for it was.</p>
+<p t="59780" d="2261">So hopefully, all
+these things that we've</p>
+<p t="62041" d="1749">done in terms of
+probability, you actually</p>
+<p t="63790" d="1911">know why we've been doing them.</p>
+<p t="65701" d="2499">And so we're basically going
+to go back to what we're doing,</p>
+<p t="68200" d="2910">maybe start with some
+statistical setup.</p>
+<p t="71110" d="1890">But the goal of this
+lecture is really</p>
+<p t="73000" d="4500">going to go back again to
+what we've seen from a purely</p>
+<p t="77500" d="1440">statistical perspective.</p>
+<p t="78940" d="930">All right?</p>
+<p t="79870" d="2790">So the first thing
+we're going to do</p>
+<p t="82660" d="3420">is explain why we're doing
+statistical modeling, right?</p>
+<p t="86080" d="2730">So in practice,
+if you have data,</p>
+<p t="88810" d="1810">if you observe a
+bunch of points--</p>
+<p t="90620" d="4200">in here, I gave you some
+numbers, for example.</p>
+<p t="94820" d="3140">So here's the partial data sets
+with the number of siblings,</p>
+<p t="97960" d="2220">including self, that were
+collected from college</p>
+<p t="100180" d="1290">students a few years back.</p>
+<p t="101470" d="2100">So I was teaching
+a class like yours</p>
+<p t="103570" d="1380">and actually asked
+students to go</p>
+<p t="104950" d="2610">and fill out some Google form
+and tell me a bunch of things.</p>
+<p t="107560" d="2310">And one of the questions
+was, including yourself,</p>
+<p t="109870" d="1650">how many siblings do you have?</p>
+<p t="111520" d="3270">And so they gave me this
+list of numbers, right?</p>
+<p t="114790" d="2621">And there's many ways I can
+think of this list of numbers,</p>
+<p t="117411" d="499">right?</p>
+<p t="117910" d="3870">I could think of it as being
+just a discrete distribution</p>
+<p t="121780" d="3420">on the set of
+numbers between 1--</p>
+<p t="125200" d="2870">I know there's not going to be
+an answer which is less than 1,</p>
+<p t="128070" d="2879">unless, well, someone doesn't
+understand the question.</p>
+<p t="130949" d="3671">But all the answers I should
+get are positive integers--</p>
+<p t="134620" d="1830">1, 2, 3, et cetera.</p>
+<p t="136450" d="2520">And there probably
+is an upper bound,</p>
+<p t="138970" d="1810">but I don't know it
+on the top of my head.</p>
+<p t="140780" d="2120">So maybe I should say 100.</p>
+<p t="142900" d="1650">Maybe I should say 15.</p>
+<p t="144550" d="1110">It depends, right?</p>
+<p t="145660" d="2951">And so I think the largest
+number I got for this was 6.</p>
+<p t="148611" d="499">All right?</p>
+<p t="149110" d="4500">So here you can see you have
+pretty standard families,</p>
+<p t="153610" d="4320">you know, lots of
+1s, 2s, and 3s.</p>
+<p t="157930" d="1710">What statistical
+modeling is doing</p>
+<p t="159640" d="2520">is to try to compress
+this information that I</p>
+<p t="162160" d="2760">could actually describe
+in a very naive way.</p>
+<p t="164920" d="4460">So let's start with the
+basic usual statistical set</p>
+<p t="169380" d="580">up, right?</p>
+<p t="169960" d="2580">So I will start with many
+of the boards that look</p>
+<p t="172540" d="6030">like x1, xn, random variables.</p>
+<p t="178570" d="2550">And what I'm going to
+assume, as we said typically</p>
+<p t="181120" d="3480">is that those guys are IID.</p>
+<p t="184600" d="2130">And they have some
+distribution, all right?</p>
+<p t="186730" d="1692">So they all share the
+same distribution.</p>
+<p t="188422" d="2208">And the fact that their IID
+is so that I can actually</p>
+<p t="190630" d="720">do statistics.</p>
+<p t="191350" d="4490">Statistics means looking at
+the global averaging thing</p>
+<p t="195840" d="2050">so that I can actually
+get a sense of what</p>
+<p t="197890" d="2426">the global behavior is
+for the population, right?</p>
+<p t="200316" d="2374">If I start assuming that those
+things are not identically</p>
+<p t="202690" d="2120">distributed-- they all
+live on their own--</p>
+<p t="204810" d="3570">that my sequence of number
+is your number of siblings--</p>
+<p t="208380" d="1810">the shoe size of this person--</p>
+<p t="210190" d="1566">the depth of the
+Charles River, and I</p>
+<p t="211756" d="1374">start measuring
+a bunch of stuff.</p>
+<p t="213130" d="1860">There's nothing I can
+actually get together.</p>
+<p t="214990" d="2340">I need to have something
+that's cohesive.</p>
+<p t="217330" d="4020">And so here, I collected
+some data that was cohesive.</p>
+<p t="221350" d="960">And so the goal here--</p>
+<p t="222310" d="2520">the first thing is to say what
+is the distribution that I</p>
+<p t="224830" d="1756">actually have here, right?</p>
+<p t="230250" d="2580">So I could actually
+be very general.</p>
+<p t="232830" d="3810">I could just say at
+some distribution p.</p>
+<p t="236640" d="2800">And let's so those are random
+variables, not random vectors,</p>
+<p t="239440" d="500">right?</p>
+<p t="239940" d="2120">I could collect entire
+vectors about students,</p>
+<p t="242060" d="3340">but let's say those are
+just random variables.</p>
+<p t="245400" d="2130">And so now I can start
+making assumptions</p>
+<p t="247530" d="2100">on this distribution p, right?</p>
+<p t="249630" d="1920">What can I say about
+a distribution?</p>
+<p t="251550" d="3090">Well, maybe if those
+numbers are continues,</p>
+<p t="254640" d="2394">for example, I could assume
+they have a density--</p>
+<p t="257034" d="2776">a probability density function.</p>
+<p t="259810" d="1410">That's already an assumption.</p>
+<p t="261220" d="2249">Maybe I could start to assume
+that they're probability</p>
+<p t="263469" d="2151">density function is smooth.</p>
+<p t="265620" d="1202">That's another assumption.</p>
+<p t="266822" d="2458">Maybe I could actually assume
+that it's piecewise constant.</p>
+<p t="269280" d="1680">That's even better, right?</p>
+<p t="270960" d="2310">And those things make my
+life simpler and simpler,</p>
+<p t="273270" d="3990">because what I do by making
+the successive assumptions is</p>
+<p t="277260" d="2930">reducing the degrees of
+freedom of the space in which I</p>
+<p t="280190" d="2780">am actually searching
+the distribution.</p>
+<p t="282970" d="3260">And so what we actually
+want is to have something</p>
+<p t="286230" d="2280">which is small enough
+so we can actually</p>
+<p t="288510" d="2200">have some averaging going on.</p>
+<p t="290710" d="3230">But we also want something
+which is big enough</p>
+<p t="293940" d="1610">that it can actually express.</p>
+<p t="295550" d="3040">It has chances of actually
+containing a distribution that</p>
+<p t="298590" d="1247">makes sense for us.</p>
+<p t="299837" d="2083">So let's start with the
+simplest possible example,</p>
+<p t="301920" d="5500">which is when the
+xi's belong to 0, 1.</p>
+<p t="307420" d="1890">And as I said, here,
+we don't have a choice.</p>
+<p t="309310" d="5570">The distribution of those
+guys has to be Bernoulli.</p>
+<p t="314880" d="3450">And since they are IID,
+they all share the same p.</p>
+<p t="318330" d="2190">So that's definitely the
+simplest possible thing</p>
+<p t="320520" d="1080">I could think of.</p>
+<p t="321600" d="2640">They are just Bernoulli p.</p>
+<p t="324240" d="3790">And so all I would have to
+figure out in this case is p.</p>
+<p t="331770" d="2260">And this is the simplest case.</p>
+<p t="334030" d="3540">And unsurprisingly, it has
+the simplest answer, right?</p>
+<p t="337570" d="1770">We will come back
+to this example</p>
+<p t="339340" d="3060">when we study maximum
+likelihood estimators or method</p>
+<p t="342400" d="2830">of moments estimators
+by method of moments.</p>
+<p t="345230" d="3950">But at the end of
+the day, the things</p>
+<p t="349180" d="1800">that we did-- the
+things that we will do</p>
+<p t="350980" d="1650">are always the
+naive estimator you</p>
+<p t="352630" d="2860">would come up with is what
+is the proportion of 1.</p>
+<p t="355490" d="3070">And this will be, in
+pretty much all respects,</p>
+<p t="358560" d="2511">the best estimator
+you can think of.</p>
+<p t="361071" d="499">All right?</p>
+<p t="361570" d="2249">So then we're going to try
+to assess this performance.</p>
+<p t="363819" d="3011">And we saw how to do that in
+the first chapter as well.</p>
+<p t="366830" d="3590">So this problem here somehow
+is completely understood.</p>
+<p t="370420" d="1210">We'll come back to it.</p>
+<p t="371630" d="2770">But there's nothing fancy
+that is going to happen.</p>
+<p t="374400" d="2860">But now, I could have some
+more complicated things.</p>
+<p t="377260" d="3240">For example, in the example
+of the students now,</p>
+<p t="380500" d="5550">my xi's belong to the
+sequence of integers 1, 2, 3,</p>
+<p t="386050" d="5251">et cetera, OK, which is also
+denoted by n, maybe without 0</p>
+<p t="391301" d="1499">if you want to put
+0 in that, right?</p>
+<p t="392800" d="3450">So the positive integers.</p>
+<p t="396250" d="2610">Or I could actually
+just maybe put</p>
+<p t="398860" d="2490">some prior knowledge
+about how humans</p>
+<p t="401350" d="1530">have time to have families.</p>
+<p t="402880" d="4590">But maybe some people thought
+of their college mates</p>
+<p t="407470" d="1620">as being their
+brothers and sisters.</p>
+<p t="409090" d="4650">And one student would
+actually put 465 siblings,</p>
+<p t="413740" d="2790">because we're all good friends.</p>
+<p t="416530" d="2749">Or maybe they actually think
+that all their Facebook</p>
+<p t="419279" d="1541">contacts are actually
+their siblings.</p>
+<p t="420820" d="2340">And so you never know
+what's going to happen.</p>
+<p t="423160" d="1714">So maybe you want
+to account for this,</p>
+<p t="424874" d="1916">but maybe you know that
+people are reasonable,</p>
+<p t="426790" d="2166">and they will actually give
+you something like this.</p>
+<p t="431790" d="1955">Now intuitively, maybe
+you would say, well,</p>
+<p t="433745" d="1875">why would you bother
+doing this if you're not</p>
+<p t="435620" d="1800">really sure about the 20?</p>
+<p t="437420" d="1500">But I think that
+probably all of you</p>
+<p t="438920" d="2910">intuitively guess that this
+is probably a good idea</p>
+<p t="441830" d="2300">to start putting this
+kind of assumption</p>
+<p t="444130" d="2620">rather than allowing for any
+number in the first place,</p>
+<p t="446750" d="4080">because this eventually
+will be injected</p>
+<p t="450830" d="2315">into the precision
+of our estimators.</p>
+<p t="453145" d="2875">If I allow anything, it's going
+to be more complicated for me</p>
+<p t="456020" d="1580">to get an accurate estimator.</p>
+<p t="457600" d="2770">If I know that the numbers
+are either 1 or 2, then</p>
+<p t="460370" d="2560">I'm actually going to be
+slightly more accurate as well.</p>
+<p t="462930" d="500">All right?</p>
+<p t="463430" d="2130">Because I know that, for
+example, somebody put the 5,</p>
+<p t="465560" d="666">I can remove it.</p>
+<p t="466226" d="2754">Then it's not going to actually
+corrupt with my estimator.</p>
+<p t="468980" d="6340">All right, so now,
+let's say we actually</p>
+<p t="475320" d="1760">agree that we have numbers.</p>
+<p t="477080" d="4210">And here I put
+seven numbers, OK?</p>
+<p t="481290" d="2705">So I just said,
+well, let's assume</p>
+<p t="483995" d="1375">that the numbers
+I'm going to get</p>
+<p t="485370" d="4680">are going to be 1 all the way
+to say this number that I denote</p>
+<p t="490050" d="2310">by larger than or
+equal to 7, which</p>
+<p t="492360" d="3210">is a placeholder for any
+numbers larger than 7, OK?</p>
+<p t="495570" d="1680">Because I know
+maybe I don't want</p>
+<p t="497250" d="3500">to distinguish between people
+that have 9 or 25 siblings.</p>
+<p t="500750" d="3520">OK, and so now, this
+is a distribution</p>
+<p t="504270" d="3840">on seven possible values--
+the discrete distributions.</p>
+<p t="508110" d="2408">And you know from
+your probability class</p>
+<p t="510518" d="1791">that the way you describe
+this distribution</p>
+<p t="512309" d="2240">is using the probability
+mass function.</p>
+<p t="524520" d="1040">OK, or PMF--</p>
+<p t="528570" d="3240">So that's how we describe
+a discrete distribution.</p>
+<p t="531810" d="4560">And the PMF is just a
+list of numbers, right?</p>
+<p t="536370" d="2220">So as I wrote here, you
+have a list of numbers.</p>
+<p t="538590" d="2160">And here, you wrote
+the possible value</p>
+<p t="540750" d="2250">that your random
+variable can take.</p>
+<p t="543000" d="1500">And here you rate
+the probability</p>
+<p t="544500" d="2520">that your random variable
+takes this value.</p>
+<p t="547020" d="4950">So the possible values being 1,
+2, 3 all the way to larger than</p>
+<p t="551970" d="1650">or equal to 7.</p>
+<p t="553620" d="2430">And then I'm trying to
+estimate those numbers.</p>
+<p t="556050" d="570">Right?</p>
+<p t="556620" d="3860">If I give you those
+numbers, at least up to this</p>
+<p t="560480" d="2650">you know compression of all
+numbers that are equal to 7,</p>
+<p t="563130" d="2670">you have the full description
+of your distribution.</p>
+<p t="565800" d="3390">And that is the ultimate
+goal of statistics, right?</p>
+<p t="569190" d="1620">The ultimate goal
+of statistics is</p>
+<p t="570810" d="2504">to say what distribution
+your data came from,</p>
+<p t="573314" d="1666">because that's basically
+the best you're</p>
+<p t="574980" d="1990">going to be able to do.</p>
+<p t="576970" d="4010">Now admittedly, if I started
+looking at the fraction of 1s,</p>
+<p t="580980" d="3630">and the fraction of 2s, and
+the fraction of 3s, et cetera,</p>
+<p t="584610" d="3570">I would actually eventually
+get those numbers--</p>
+<p t="588180" d="1770">just like looking at
+the fraction of 1s</p>
+<p t="589950" d="3050">gave me a good estimate for
+p in the Bernoulli case,</p>
+<p t="593000" d="2060">it would do the same
+in this case, right?</p>
+<p t="595060" d="1690">It's a pretty intuitive idea.</p>
+<p t="596750" d="2326">It's just the law
+of large numbers.</p>
+<p t="599076" d="1124">Everybody agrees with that?</p>
+<p t="600200" d="2360">If I look at the proportion
+of 1s, the proportion of 2s,</p>
+<p t="602560" d="1750">the proportion of 3s,
+that should actually</p>
+<p t="604310" d="2500">give me something that gets
+closer and closer, as my sample</p>
+<p t="606810" d="3550">size increases to what I want.</p>
+<p t="610360" d="4250">But the problem is if my
+sample size is not huge,</p>
+<p t="614610" d="2840">here I have seven
+numbers to estimate.</p>
+<p t="617450" d="3250">And if I have 20
+observations, the ratio</p>
+<p t="620700" d="2580">is not really in my favor--</p>
+<p t="623280" d="2809">20 observations to estimate
+seven parameters-- some of them</p>
+<p t="626089" d="1541">are going to be
+pretty off, typically</p>
+<p t="627630" d="1790">the ones with the large values.</p>
+<p t="629420" d="2960">If you have only 20 students,
+look at the list of numbers.</p>
+<p t="632380" d="2208">I don't know how many numbers
+I have, but it probably</p>
+<p t="634588" d="872">is close to 20--</p>
+<p t="635460" d="1680">maybe 15 or something.</p>
+<p t="637140" d="2280">And so if you look at
+this list, nobody's</p>
+<p t="639420" d="6150">actually-- nobody has four
+or more siblings, right?</p>
+<p t="645570" d="1330">There's no such person.</p>
+<p t="646900" d="2300">So that means that eventually
+from this data set,</p>
+<p t="649200" d="1480">my estimates--</p>
+<p t="650680" d="5360">so those numbers I denote by
+say p1, p2, p3, et cetera--</p>
+<p t="656040" d="5350">those estimates p4 hat would be
+equal to what from this data?</p>
+<p t="666150" d="1200">0, right?</p>
+<p t="667350" d="4990">And p5 hat equal to 0 and
+p6 hat would be equal to 0.</p>
+<p t="672340" d="3750">And p larger than or equal
+to 7 hat would be equal to 0.</p>
+<p t="676090" d="3600">That would be my estimate
+from this data set.</p>
+<p t="679690" d="1890">So maybe this is not--</p>
+<p t="681580" d="3720">maybe I want to actually
+pull some information</p>
+<p t="685300" d="3160">from the people who
+have less siblings</p>
+<p t="688460" d="2750">to try to make a guess,
+which is probably</p>
+<p t="691210" d="2730">slightly better for the
+larger values, right?</p>
+<p t="693940" d="5800">It's pretty clear that in
+average, there is more than 0--</p>
+<p t="699740" d="3110">the proportion of the
+population of households</p>
+<p t="702850" d="3610">that have four children or
+more is definitely more than 0,</p>
+<p t="706460" d="500">all right?</p>
+<p t="706960" d="2515">So it means that
+my data set is not</p>
+<p t="709475" d="1625">representative of
+what I'm going to try</p>
+<p t="711100" d="2549">to do is to find a model that
+tries to use the data they have</p>
+<p t="713649" d="2541">for the smaller values that I
+can observe and just push it up</p>
+<p t="716190" d="1340">to the other ones.</p>
+<p t="717530" d="3440">And so what we can do is to
+just reduce those parameters</p>
+<p t="720970" d="2770">into something
+that's understood.</p>
+<p t="723740" d="2210">And this is part of the
+modeling that I talked about</p>
+<p t="725950" d="1150">in the first place.</p>
+<p t="727100" d="5347">Now, how do you succinctly
+describe a number of something?</p>
+<p t="732447" d="2333">Well, one thing that you do
+is the Poisson distribution,</p>
+<p t="734780" d="770">right?</p>
+<p t="735550" d="1680">Why do Poisson?</p>
+<p t="737230" d="1440">There's many reasons.</p>
+<p t="738670" d="1990">Again, that's part
+of statical modeling.</p>
+<p t="740660" d="3050">But once you know that you
+have number of something that</p>
+<p t="743710" d="2592">can be modeled by a Poisson,
+why not try a Poisson, right?</p>
+<p t="746302" d="1208">You could just fit a Poisson.</p>
+<p t="747510" d="2830">And the Poisson is something
+that looks like this.</p>
+<p t="750340" d="1750">And I guess you've all seen it.</p>
+<p t="752090" d="3950">But if x follows a
+Poisson distribution</p>
+<p t="756040" d="2130">with parameter lambda,
+than the probability</p>
+<p t="758170" d="4030">that x is equal to little
+x is equal to lambda</p>
+<p t="762200" d="5220">to the x over factorial
+x e to the minus lambda.</p>
+<p t="767420" d="500">OK?</p>
+<p t="771280" d="3130">And if you did the sheet that
+I gave you on the first day,</p>
+<p t="774410" d="1560">you can check those numbers.</p>
+<p t="775970" d="4230">So this is, of course, for x
+equals 0, 1, et cetera, right?</p>
+<p t="780200" d="4270">So x is in natural integers.</p>
+<p t="784470" d="4010">And if you sum from x equals 0
+to infinity, this thing you get</p>
+<p t="788480" d="1180">is e to the lambda.</p>
+<p t="789660" d="1730">And so they cancel,
+and you have some</p>
+<p t="791390" d="2340">which is equal to 1,
+which is indeed a PMF.</p>
+<p t="793730" d="3880">But what's key about this PMF
+is that it never takes value 0.</p>
+<p t="797610" d="2990">Like this thing is
+always strictly positive.</p>
+<p t="800600" d="3476">So whatever value of lambda
+I find from this data</p>
+<p t="804076" d="1624">will give me something
+that's certainly</p>
+<p t="805700" d="3540">more interesting than
+just putting the value 0.</p>
+<p t="809240" d="2250">But more importantly,
+rather than having</p>
+<p t="811490" d="3900">to estimate seven parameters
+and, as a consequence,</p>
+<p t="815390" d="2400">to actually have
+to estimate 1, 2,</p>
+<p t="817790" d="4360">3, 4 of them being equal to
+0, I have only one parameter</p>
+<p t="822150" d="2530">to estimate which is lambda.</p>
+<p t="824680" d="4390">The problem with doing this
+is that now lambda may not</p>
+<p t="829070" d="4590">be just something as simple as
+computing the average number.</p>
+<p t="833660" d="900">Right?</p>
+<p t="834560" d="1130">In this case, it will.</p>
+<p t="835690" d="3250">But in many instances,
+it's actually not clear</p>
+<p t="838940" d="2335">that this parametrization
+with lambda that I chose--</p>
+<p t="841275" d="2375">I'm going to be able to estimate
+lambda just by computing</p>
+<p t="843650" d="2570">the average number that I get.</p>
+<p t="846220" d="1310">It will be the case.</p>
+<p t="847530" d="3110">But if it's not, remember this
+example of the exponential</p>
+<p t="850640" d="1604">we did in the last lecture--</p>
+<p t="852244" d="1666">we could use the delta
+method and things</p>
+<p t="853910" d="2490">like that to estimate them.</p>
+<p t="856400" d="4500">All right, so
+here's modeling 101.</p>
+<p t="860900" d="2050">So the purpose of
+modeling is to restrict</p>
+<p t="862950" d="3680">the base of possible
+distributions</p>
+<p t="866630" d="3330">to a subspace that's actually
+plausible, but much simpler</p>
+<p t="869960" d="1630">for me to estimate.</p>
+<p t="871590" d="2640">So we went from
+all distributions</p>
+<p t="874230" d="2880">on seven parameters,
+which is a large space--</p>
+<p t="877110" d="1480">that's a lot of things--</p>
+<p t="878590" d="2440">to something which
+is just one number.</p>
+<p t="881030" d="1340">This number is positive.</p>
+<p t="886490" d="4260">Any question about the
+purpose of doing this?</p>
+<p t="890750" d="5130">OK, so we're going to have to do
+a little bit of formalism now.</p>
+<p t="895880" d="2190">And so if we want to talk--</p>
+<p t="898070" d="1350">this is a statistics classroom.</p>
+<p t="899420" d="2280">I'm not going to want to
+talk about the Poisson model</p>
+<p t="901700" d="1560">specifically every single time.</p>
+<p t="903260" d="2040">I'm going to want to talk
+about generic models.</p>
+<p t="905300" d="3070">And then you're going to build
+to plug in your favorite word--</p>
+<p t="908370" d="2696">Poisson, binomial,
+exponential, uniform--</p>
+<p t="911066" d="1374">all these words
+that you've seen,</p>
+<p t="912440" d="1480">you're going to be
+able to plug in there.</p>
+<p t="913920" d="2125">But we're just going to
+have some generic notations</p>
+<p t="916045" d="3125">and some generic terminology
+for a statistical model.</p>
+<p t="919170" d="500">All right?</p>
+<p t="919670" d="2760">So here is the
+formal definition.</p>
+<p t="922430" d="1730">So I'm going to go
+through it with you.</p>
+<p t="929710" d="5870">OK, so the definition is
+that of a statistical model.</p>
+<p t="947330" d="500">OK?</p>
+<p t="950814" d="2466">Sorry, that's a statistical
+experiment, I should say.</p>
+<p t="960520" d="4341">So a statistical experiment
+is actually just a pair--</p>
+<p t="964861" d="4069">E. And that's a set--</p>
+<p t="971630" d="8010">and a family of distributions
+P theta, where theta ranges</p>
+<p t="979640" d="2410">in some set capital theta.</p>
+<p t="982050" d="500">OK?</p>
+<p t="982550" d="3490">So I hope you're up to date
+with your Greek letters.</p>
+<p t="986040" d="2830">So the small theta
+is the capital theta.</p>
+<p t="988870" d="1110">And enough of us--</p>
+<p t="989980" d="1710">I don't have the handwriting.</p>
+<p t="991690" d="2320">So if you don't see
+something, just ask me.</p>
+<p t="994010" d="2640">And so this thing now--
+so each of this guy</p>
+<p t="996650" d="4050">is a probability distribution.</p>
+<p t="1000700" d="690">All right?</p>
+<p t="1001390" d="6070">So for example, this could be
+a Poisson with parameter theta</p>
+<p t="1007460" d="4100">or a Bernoulli with
+parameter theta--</p>
+<p t="1011560" d="2531">OK, or an exponential
+with parameter--</p>
+<p t="1014091" d="1999">I don't know-- 1 over
+theta squared if you want.</p>
+<p t="1018620" d="2230">OK, but they're just
+indexed by theta.</p>
+<p t="1020850" d="1970">But for each theta,
+this completely</p>
+<p t="1022820" d="2370">describes the distribution.</p>
+<p t="1025190" d="1320">It could be more complicated.</p>
+<p t="1026510" d="3470">This theta should be a pair--
+could be a pair-- a mu sigma</p>
+<p t="1029980" d="639">square.</p>
+<p t="1030619" d="6171">And that could actually give
+you some n mu sigma squared.</p>
+<p t="1036790" d="3930">OK so anything where
+you can actually--</p>
+<p t="1040720" d="3599">rather than actually giving
+you a full distribution,</p>
+<p t="1044319" d="1874">I can compress into a parameter.</p>
+<p t="1046193" d="916">But it could be worse.</p>
+<p t="1047109" d="1351">It could be this guy here.</p>
+<p t="1048460" d="500">Right?</p>
+<p t="1048960" d="3150">Theta could be p1--</p>
+<p t="1052110" d="2740">p larger than or equal to 7.</p>
+<p t="1054850" d="2760">And my distribution could just
+be something that has PMF--</p>
+<p t="1060830" d="3949">p1-- p larger than 7.</p>
+<p t="1064779" d="1041">That's another parameter.</p>
+<p t="1065820" d="2704">This one is seven dimensional.</p>
+<p t="1068524" d="1166">This one is two dimensional.</p>
+<p t="1069690" d="2900">And all these guys are
+just one dimensional.</p>
+<p t="1072590" d="2870">All these guys are parameters.</p>
+<p t="1075460" d="1479">Is that clear?</p>
+<p t="1076939" d="2291">What's important here is that
+once they give you theta,</p>
+<p t="1079230" d="1630">you know exactly all the
+probabilities associated</p>
+<p t="1080860" d="980">with this random variable.</p>
+<p t="1081840" d="1561">You know its
+distribution perfectly.</p>
+<p t="1089307" d="1083">So this is the definition.</p>
+<p t="1090390" d="760">Is that clear?</p>
+<p t="1091150" d="2532">Is there a question
+about this distribution--</p>
+<p t="1093682" d="1208">about this definition, sorry?</p>
+<p t="1097670" d="690">All right.</p>
+<p t="1098360" d="4080">So really, the key thing is the
+statistical model associated</p>
+<p t="1102440" d="1650">to a statistical experiments.</p>
+<p t="1104090" d="500">OK?</p>
+<p t="1107807" d="1333">So let's just see some examples.</p>
+<p t="1109140" d="2490">It's probably just better
+because, again, the formalism</p>
+<p t="1111630" d="2270">is never really clear.</p>
+<p t="1113900" d="1960">Actually, that's the next slide.</p>
+<p t="1115860" d="5040">OK, so there's two
+things we need to assume.</p>
+<p t="1120900" d="3780">OK, so the purpose of
+a statistical model</p>
+<p t="1124680" d="2115">is once I estimate
+the parameter,</p>
+<p t="1126795" d="4515">I actually know exactly what
+distribution it has, OK?</p>
+<p t="1131310" d="3450">So it means that I
+could potentially</p>
+<p t="1134760" d="1650">have several
+parameters that give me</p>
+<p t="1136410" d="2624">the same distribution that would
+still be fine, because I could</p>
+<p t="1139034" d="766">estimate one guy.</p>
+<p t="1139800" d="1350">Or I could estimate
+the other guy.</p>
+<p t="1141150" d="2070">And I would still recover
+the underlying distribution</p>
+<p t="1143220" d="510">of my data.</p>
+<p t="1144850" d="2570">The problem is that this
+creates really annoying</p>
+<p t="1147420" d="2377">theoretical
+problems, like things</p>
+<p t="1149797" d="1583">don't work, the
+algorithms won't work,</p>
+<p t="1151380" d="1249">the guarantees won't work.</p>
+<p t="1152629" d="2041">And so what we typically
+assume is that the model</p>
+<p t="1154670" d="1630">is so-called well-specified.</p>
+<p t="1158980" d="1685">Sorry, that's not
+well specified.</p>
+<p t="1160665" d="3075">I'm jumping ahead of myself.</p>
+<p t="1163740" d="4950">OK, well-specified
+means that your data--</p>
+<p t="1168690" d="4030">the distribution of your data
+is actually one of those guys.</p>
+<p t="1172720" d="500">OK?</p>
+<p t="1173220" d="12850">So some vocabulary--
+so well-specified</p>
+<p t="1186070" d="5240">means that for my
+observations x,</p>
+<p t="1191310" d="3940">there exists a theta
+in capital theta</p>
+<p t="1195250" d="5514">such that x follows p sub theta.</p>
+<p t="1200764" d="2846">I should put a double bar.</p>
+<p t="1203610" d="3240">OK, so that's what
+well-specified means.</p>
+<p t="1206850" d="1920">So that means that
+the distribution</p>
+<p t="1208770" d="4150">of your actual data is
+just one of those guys.</p>
+<p t="1212920" d="5870">This is a bit strong
+of an assumption.</p>
+<p t="1218790" d="2130">It's strong in the sense that--</p>
+<p t="1220920" d="5820">I don't know if you've heard of
+this sense, which I don't know,</p>
+<p t="1226740" d="1630">I can tell you who
+it's attributed to,</p>
+<p t="1228370" d="2000">but that probably means
+that this person did not</p>
+<p t="1230370" d="1560">come up with it.</p>
+<p t="1231930" d="3990">But I said that all models
+are wrong, but some of them</p>
+<p t="1235920" d="1970">are useful.</p>
+<p t="1237890" d="2800">All right, so all
+models are wrong</p>
+<p t="1240690" d="3780">means that maybe it's not true
+that this Poisson distribution</p>
+<p t="1244470" d="3495">that I assume for the number of
+siblings for college students--</p>
+<p t="1247965" d="2385">maybe that's not
+perfectly correct.</p>
+<p t="1250350" d="2860">Maybe there's a spike
+at three, right?</p>
+<p t="1253210" d="2690">Maybe there's a spike at
+one, because you know,</p>
+<p t="1255900" d="2280">maybe those are slightly
+more educated families.</p>
+<p t="1258180" d="1080">They have less children.</p>
+<p t="1259260" d="3000">Maybe this is actually
+not exactly perfect.</p>
+<p t="1262260" d="2236">But it's probably good
+enough for our purposes.</p>
+<p t="1264496" d="1374">And when we make
+this assumption,</p>
+<p t="1265870" d="1880">we're actually assuming
+that the data really</p>
+<p t="1267750" d="2006">comes from a Poisson model.</p>
+<p t="1269756" d="1624">There is a lot of
+research that goes on</p>
+<p t="1271380" d="3000">about misspecified
+models and that tells you</p>
+<p t="1274380" d="2306">how well you're doing
+in the model that's</p>
+<p t="1276686" d="1624">the closest to the
+actual distribution.</p>
+<p t="1278310" d="1320">So that's pretty much it.</p>
+<p t="1279630" d="1419">Yeah?</p>
+<p t="1281049" d="1421">AUDIENCE: [INAUDIBLE].</p>
+<p t="1284130" d="1840">PHILIPPE RIGOLLET: So my data--</p>
+<p t="1285970" d="3650">so it's always the
+way I denote one</p>
+<p t="1289620" d="1860">of the generic
+observations, right?</p>
+<p t="1291480" d="4620">So my observations are x1, xn.</p>
+<p t="1296100" d="3570">And they're IID with
+distribution p--</p>
+<p t="1299670" d="1320">always.</p>
+<p t="1300990" d="1620">So x is just one of those guys.</p>
+<p t="1302610" d="4110">I don't want to write x5 or x4.</p>
+<p t="1306720" d="770">They're IID.</p>
+<p t="1307490" d="2350">So they all have the
+same distribution.</p>
+<p t="1309840" d="4940">So OK-- no, no, no.</p>
+<p t="1314780" d="710">They're all IID.</p>
+<p t="1315490" d="2000">So they all have
+the same p data.</p>
+<p t="1317490" d="1660">They'll have the
+same p, which means</p>
+<p t="1319150" d="1690">they'll have the same p data.</p>
+<p t="1320840" d="1410">So I can pick any one of them.</p>
+<p t="1322250" d="3220">So I'd just remove the
+index just so we're clear.</p>
+<p t="1325470" d="1470">OK?</p>
+<p t="1326940" d="2640">So when I write x, I
+just mean think of x1.</p>
+<p t="1329580" d="960">Right they're an idea.</p>
+<p t="1330540" d="2067">I can pick whichever I want.</p>
+<p t="1332607" d="1083">I'm not going to write x1.</p>
+<p t="1333690" d="958">It's going to be weird.</p>
+<p t="1337070" d="1400">OK?</p>
+<p t="1338470" d="1200">Is that clear?</p>
+<p t="1339670" d="1110">OK.</p>
+<p t="1340780" d="5742">So this particular theta is
+called the true parameter.</p>
+<p t="1354240" d="2820">Sometimes since we're going
+to want some variable theta,</p>
+<p t="1357060" d="4550">we might denote it by
+theta star as opposed</p>
+<p t="1361610" d="2140">to theta hat, which is
+always our estimator.</p>
+<p t="1363750" d="3500">But I'll keep it to
+be theta for now.</p>
+<p t="1367250" d="3030">And so the aim of this
+physical experiment</p>
+<p t="1370280" d="2220">is to estimate theta
+so that once I actually</p>
+<p t="1372500" d="3510">plug in theta in the form of
+my distribution, for example,</p>
+<p t="1376010" d="2010">I could plug in theta here.</p>
+<p t="1378020" d="3580">So theta here was
+actually lambda.</p>
+<p t="1381600" d="2000">So once I estimate this
+guy, I would plug it in,</p>
+<p t="1383600" d="2583">and I would know the probability
+that my random variable takes</p>
+<p t="1386183" d="3057">any value, by just putting the
+lambda hat and the lambda hat</p>
+<p t="1389240" d="1460">here.</p>
+<p t="1390700" d="540">OK?</p>
+<p t="1391240" d="1720">So my goal is going
+to be to estimate</p>
+<p t="1392960" d="3120">this guy so that I can actually
+compute those distributions.</p>
+<p t="1396080" d="2440">But actually, we'll
+see, for example,</p>
+<p t="1398520" d="3020">when we talk about regression
+that this parameter actually</p>
+<p t="1401540" d="1800">has a meaning in many instances.</p>
+<p t="1403340" d="3330">And so just knowing
+the parameter itself</p>
+<p t="1406670" d="3690">intuitively or say more--</p>
+<p t="1410360" d="3320">let's say more so than just
+computing probabilities,</p>
+<p t="1413680" d="2800">will actually tell us
+something about the process.</p>
+<p t="1416480" d="2400">For example, we're going
+to run linear regression.</p>
+<p t="1418880" d="1380">And when we do
+linear regression,</p>
+<p t="1420260" d="1230">there's going to be
+some coefficients</p>
+<p t="1421490" d="1320">in the linear regression.</p>
+<p t="1422810" d="1440">And the value of
+this coefficient</p>
+<p t="1424250" d="3210">is actually telling me what is
+the sensitivity of the response</p>
+<p t="1427460" d="3160">that I'm looking at to
+this particular input.</p>
+<p t="1430620" d="500">All right?</p>
+<p t="1431120" d="1830">So just knowing if
+this number is larger</p>
+<p t="1432950" d="2100">or if this number
+is small is actually</p>
+<p t="1435050" d="3130">going to be useful for us
+to just look at this guy.</p>
+<p t="1438180" d="500">All right?</p>
+<p t="1438680" d="1805">So there's going to be
+some instances where</p>
+<p t="1440485" d="1125">it's going to be important.</p>
+<p t="1441610" d="2416">Sometimes we're going to want
+to know if this parameter is</p>
+<p t="1444026" d="3234">larger or smaller than something
+or if it's equal to something</p>
+<p t="1447260" d="1387">or not equal to something.</p>
+<p t="1448647" d="2083">And those things are also
+important-- for example,</p>
+<p t="1450730" d="2361">if theta actually
+measures the true--</p>
+<p t="1453091" d="499">right?</p>
+<p t="1453590" d="2790">So theta is the true unknown
+parameter-- true efficacy</p>
+<p t="1456380" d="1630">of a drug.</p>
+<p t="1458010" d="500">OK?</p>
+<p t="1458510" d="3210">Let's say I want to know what
+the true efficacy of a drug is.</p>
+<p t="1461720" d="3364">And what I'm going to want to
+know is maybe it's a score.</p>
+<p t="1465084" d="2416">Maybe I'm going to want to
+know if theta is larger than 2.</p>
+<p t="1467500" d="2666">Maybe I want to know if theta is
+the average number of siblings.</p>
+<p t="1470166" d="1914">Is this true number
+larger than 2 or not?</p>
+<p t="1472080" d="500">Right?</p>
+<p t="1472580" d="4830">Maybe I am interested in knowing
+if college students come from--</p>
+<p t="1477410" d="2807">so maybe from a
+sociological perspective,</p>
+<p t="1480217" d="2083">I'm interested in knowing
+if college students come</p>
+<p t="1482300" d="3075">from households with
+more than two children.</p>
+<p t="1485375" d="1695">All right, so those
+can be the questions</p>
+<p t="1487070" d="1744">that I may ask myself.</p>
+<p t="1488814" d="1916">I'm going to want to
+know maybe theta is going</p>
+<p t="1490730" d="1210">to be equal to 1/2 or not.</p>
+<p t="1491940" d="2870">So maybe for a drug
+efficacy, is it completely</p>
+<p t="1494810" d="2830">standard-- maybe for elections.</p>
+<p t="1497640" d="1580">Is the proportion
+of the population</p>
+<p t="1499220" d="3160">that is going to vote for
+this particular candidate</p>
+<p t="1502380" d="1040">equal to 0.5?</p>
+<p t="1503420" d="2164">Or is it different from 0.5?</p>
+<p t="1505584" d="1666">OK, and I can think
+of different things.</p>
+<p t="1507250" d="1775">When I'm talking
+about the regression,</p>
+<p t="1509025" d="2375">I'm going to want to test if
+this coefficient is actually</p>
+<p t="1511400" d="2250">0 or not, because
+if it's 0, it means</p>
+<p t="1513650" d="3550">that the variable that's in
+front of it actually goes out.</p>
+<p t="1517200" d="1700">And so those are
+things we're testing.</p>
+<p t="1518900" d="3150">Actually having this very
+specific yes/no answer</p>
+<p t="1522050" d="4710">is going to give me a huge
+intuition or huge understanding</p>
+<p t="1526760" d="3090">of what's going on in the
+phenomenon that I observe.</p>
+<p t="1529850" d="3000">But actually, since the
+questions are so precise,</p>
+<p t="1532850" d="1354">it's going to be much more--</p>
+<p t="1534204" d="2166">I'm going to be much better
+at answering them rather</p>
+<p t="1536370" d="2150">than giving you an
+estimate for theta</p>
+<p t="1538520" d="2720">with some confidence around it.</p>
+<p t="1541240" d="3630">All right, it's sort of the same
+principle as trying to reduce.</p>
+<p t="1544870" d="1750">What you're trying to
+do as a statistician</p>
+<p t="1546620" d="3210">is to inject as much knowledge
+about the question and about</p>
+<p t="1549830" d="2910">the problem that you
+can so that the data has</p>
+<p t="1552740" d="1710">to do a minimal job.</p>
+<p t="1554450" d="3850">And henceforth, you
+actually need less data.</p>
+<p t="1558300" d="2420">So from now on, we
+will always assume--</p>
+<p t="1560720" d="2310">and this is because this
+is an intro stats class--</p>
+<p t="1563030" d="2520">you will always
+assume that theta--</p>
+<p t="1565550" d="3630">the subset of parameters
+is a subset of r to the d.</p>
+<p t="1569180" d="2760">That means that
+theta is a vector</p>
+<p t="1571940" d="4380">with at most a finite
+number of coordinates.</p>
+<p t="1576320" d="1650">Why do I say this?</p>
+<p t="1577970" d="2310">Well, this is called
+a parametric model.</p>
+<p t="1580280" d="11470">So it's called a parametric
+model or sometimes</p>
+<p t="1591750" d="3272">parametric statistics.</p>
+<p t="1595022" d="2458">Actually, we don't really talk
+about parametric statistics.</p>
+<p t="1597480" d="2850">But we talk a lot about
+nonparametric statistics</p>
+<p t="1600330" d="2010">or a non-parametric model.</p>
+<p t="1602340" d="3512">Can somebody think of a model
+which is non-parametric?</p>
+<p t="1613090" d="3100">For example, in the
+siblings example,</p>
+<p t="1616190" d="4970">if I did not cap the
+number of siblings to 7,</p>
+<p t="1621160" d="5190">but I let this list
+go to infinity,</p>
+<p t="1626350" d="3180">I would have an infinite number
+of parameters to estimate.</p>
+<p t="1629530" d="2677">Very likely, the
+last ones would be 0.</p>
+<p t="1632207" d="2333">But still, I would have an
+infinite number of parameters</p>
+<p t="1634540" d="755">to estimate.</p>
+<p t="1635295" d="2105">So this would not be
+a parametric model</p>
+<p t="1637400" d="2030">if I just let this
+list of things</p>
+<p t="1639430" d="2310">to be estimated to be infinite.</p>
+<p t="1641740" d="2840">But there's other classes
+that are actually infinite</p>
+<p t="1644580" d="2410">and cannot represented
+by vectors.</p>
+<p t="1646990" d="2710">For example, function-- right?</p>
+<p t="1649700" d="9170">If I tell you my
+model, pf, is just</p>
+<p t="1658870" d="5010">the distribution of x's, the
+probability distributions,</p>
+<p t="1663880" d="4307">that have density f, right?</p>
+<p t="1668187" d="2083">So what I know is that the
+density is non-negative</p>
+<p t="1670270" d="1830">and that it integrates
+to one, right?</p>
+<p t="1672100" d="2800">That's all I know
+about densities.</p>
+<p t="1674900" d="2720">Well f is not
+something you're going</p>
+<p t="1677620" d="3630">to be able to describe with a
+finite number of values, right?</p>
+<p t="1681250" d="2360">All possible functions
+is the huge set.</p>
+<p t="1683610" d="5120">It's certainly not
+representable by 10 numbers.</p>
+<p t="1688730" d="3740">And so non-parametric
+estimation is typically</p>
+<p t="1692470" d="2130">when you actually want
+to parametrize this</p>
+<p t="1694600" d="3000">by a large class of functions.</p>
+<p t="1697600" d="3210">And so for example,
+histograms is the prime tool</p>
+<p t="1700810" d="2160">of non-parametric
+estimation, because when</p>
+<p t="1702970" d="1500">you fit a histogram
+to data, you're</p>
+<p t="1704470" d="2459">trying to estimate the
+density of your data,</p>
+<p t="1706929" d="1541">but you're not trying
+to represent it</p>
+<p t="1708470" d="3450">as a finite number of points.</p>
+<p t="1711920" d="3120">That's really-- I
+mean, effectively,</p>
+<p t="1715040" d="1350">you have to represent it, right?</p>
+<p t="1716390" d="2090">So you actually truncate
+somewhere and just</p>
+<p t="1718480" d="2190">say those things are
+not going to matter.</p>
+<p t="1720670" d="690">All right?</p>
+<p t="1721360" d="3330">But really the key thing is
+that this is non-parametric</p>
+<p t="1724690" d="2670">where you have a potentially
+infinite number of parameters.</p>
+<p t="1727360" d="2130">Whereas we're going to
+only talk about finites.</p>
+<p t="1729490" d="4300">And actually finite in the
+overwhelming majority of cases</p>
+<p t="1733790" d="1530">is going to be 1.</p>
+<p t="1735320" d="3084">So theta is going to
+be a subset of r1.</p>
+<p t="1738404" d="1916">OK, we're going to be
+interested in estimating</p>
+<p t="1740320" d="3450">one parameter just like
+the parameter of a Poisson</p>
+<p t="1743770" d="1990">or the parameter
+of an exponential--</p>
+<p t="1745760" d="1700">the parameter of Bernoulli.</p>
+<p t="1747460" d="2079">But for example,
+really, we're going</p>
+<p t="1749539" d="1791">to be interested in
+estimating mu and sigma</p>
+<p t="1751330" d="1400">square for the normal.</p>
+<p t="1757880" d="1970">So here are some
+statistical models.</p>
+<p t="1759850" d="500">All right?</p>
+<p t="1760350" d="2690">So I'm going to go
+through them with you.</p>
+<p t="1771360" d="3690">So if I tell you I observe--</p>
+<p t="1775050" d="3890">I'm interested in
+understanding--</p>
+<p t="1778940" d="3100">I'm still [INAUDIBLE] I'm
+interested in understanding</p>
+<p t="1782040" d="2640">the proportion of people
+who kiss by bending</p>
+<p t="1784680" d="1560">their head to the right.</p>
+<p t="1786240" d="3810">And for that, I
+collected n observations.</p>
+<p t="1790050" d="3000">And I'm interested in
+making some inference</p>
+<p t="1793050" d="1830">in the statistical model.</p>
+<p t="1794880" d="3120">My question to you is, what
+is the statistical model?</p>
+<p t="1798000" d="2050">Well, if you want to read
+the statistical model,</p>
+<p t="1800050" d="2120">you're going to have
+to write this E--</p>
+<p t="1802170" d="1790">oh, sorry, I never
+told you what E was.</p>
+<p t="1803960" d="2650">OK, well actually just
+go to the examples,</p>
+<p t="1806610" d="2740">and then you'll know what E is.</p>
+<p t="1809350" d="5182">So you're going to have to write
+to me an E and a p theta, OK?</p>
+<p t="1814532" d="1708">So let's start with
+the Bernoulli trials.</p>
+<p t="1825180" d="4300">So this e here is
+called the sample space.</p>
+<p t="1833290" d="3750">And in the normal
+people's words,</p>
+<p t="1837040" d="7940">it just means the space or
+the set in which x and--</p>
+<p t="1844980" d="3220">back to your question, x is
+just a generic observation lips.</p>
+<p t="1851620" d="4490">OK, and hopefully, this is
+the smallest you can think of.</p>
+<p t="1856110" d="2450">OK, so for example,
+for Bernoulli trials,</p>
+<p t="1858560" d="2710">I'm going to observe a
+sequence of 0's and 1's.</p>
+<p t="1861270" d="3090">So my experiment is going to
+be-- as written on the board,</p>
+<p t="1864360" d="2520">is going to be 1, 0, 1.</p>
+<p t="1866880" d="1777">And then the probability
+distributions</p>
+<p t="1868657" d="1583">are going to be,
+well, it's just going</p>
+<p t="1870240" d="3050">to be the Bernoulli
+distributions indexed</p>
+<p t="1873290" d="950">by p, right?</p>
+<p t="1874240" d="2810">So rather than
+writing p sub p, I'm</p>
+<p t="1877050" d="3600">going to write it
+as Bernoulli p,</p>
+<p t="1880650" d="3495">because it's clear what
+I mean when I write that.</p>
+<p t="1884145" d="1392">Is everybody happy?</p>
+<p t="1885537" d="1833">Actually, I need to
+tell you something more.</p>
+<p t="1887370" d="1510">This is a family
+of distributions.</p>
+<p t="1888880" d="1052">So I need p.</p>
+<p t="1889932" d="1458">And maybe I don't
+want to have to p</p>
+<p t="1891390" d="1980">that's a value 0, 1, right?</p>
+<p t="1893370" d="1020">It doesn't make sense.</p>
+<p t="1894390" d="3270">I would probably not
+look at this problem</p>
+<p t="1897660" d="3000">if I anticipated that everybody
+would kiss to the right.</p>
+<p t="1900660" d="2620">And everybody would
+kiss to the left.</p>
+<p t="1903280" d="2120">So I am going to assume
+that p is in 0, 1,</p>
+<p t="1905400" d="2530">but does not have 0 and 1.</p>
+<p t="1907930" d="500">OK?</p>
+<p t="1908430" d="4064">So that's the statistical
+model for a Bernoulli trial.</p>
+<p t="1920250" d="2930">OK, now the next
+one, what do we have?</p>
+<p t="1923180" d="811">Exponential.</p>
+<p t="1923991" d="499">OK?</p>
+<p t="1929630" d="3054">OK, so when I have
+exponential distributions,</p>
+<p t="1932684" d="2166">what is the support of the
+exponential distribution?</p>
+<p t="1934850" d="2300">What value is it going to take?</p>
+<p t="1940520" d="2670">0 to infinity, right?</p>
+<p t="1943190" d="3510">So what I have is
+that my first space</p>
+<p t="1946700" d="2040">is the value that my
+random variables can take.</p>
+<p t="1948740" d="5550">So its-- well, actually I
+can remove the 0 again--</p>
+<p t="1954290" d="2850">0 to plus infinity.</p>
+<p t="1957140" d="2310">And then the family
+of distributions</p>
+<p t="1959450" d="3870">that I have are exponential
+with parameter lambda.</p>
+<p t="1963320" d="1770">And again, maybe you've
+seen me switching</p>
+<p t="1965090" d="4057">from p, to lambda, to theta,
+to mu, to sigma square.</p>
+<p t="1969147" d="1583">Honestly you can do
+whatever you want.</p>
+<p t="1970730" d="2700">But its just that it's customary
+to have this particular group</p>
+<p t="1973430" d="1310">of letters.</p>
+<p t="1974740" d="880">OK?</p>
+<p t="1975620" d="3330">And so the parameters
+of an exponential</p>
+<p t="1978950" d="3260">are just positive numbers.</p>
+<p t="1982210" d="500">OK?</p>
+<p t="1982710" d="6004">And that's my exponential model.</p>
+<p t="1988714" d="916">What is the third one?</p>
+<p t="1989630" d="2330">Can somebody tell me?</p>
+<p t="1991960" d="1000">Poisson, OK?</p>
+<p t="1996080" d="4150">OK, so Poisson-- is a
+Poisson random verbal</p>
+<p t="2000230" d="1315">discrete or continuous?</p>
+<p t="2007720" d="2020">Go back to your probability.</p>
+<p t="2009740" d="4410">All right, so the answer being
+the opposite of continuous--</p>
+<p t="2014150" d="2640">good job.</p>
+<p t="2016790" d="1681">All right, so it's going to be--</p>
+<p t="2018471" d="1249">what value can a Poisson take?</p>
+<p t="2023157" d="1333">All the natural integers, right?</p>
+<p t="2024490" d="2944">So 0, 1, 2, 3, all
+the way to infinity.</p>
+<p t="2027434" d="1416">We don't have any
+control of this.</p>
+<p t="2028850" d="4980">So I'm going to write
+this as n without 0.</p>
+<p t="2033830" d="2052">I think in the slides,
+it's n-star maybe.</p>
+<p t="2035882" d="1458">Actually, no, you
+can take value 0.</p>
+<p t="2037340" d="500">I'm sorry.</p>
+<p t="2037840" d="1790">This actually takes
+value 0 quite a lot.</p>
+<p t="2039630" d="3560">That's typically, in many
+instances, actually the mode.</p>
+<p t="2043190" d="2590">So it's n, and then
+I'm going to write it</p>
+<p t="2045780" d="2720">as Poisson with
+parameter-- well,</p>
+<p t="2048500" d="2850">here it's again
+lambda as a parameter.</p>
+<p t="2051350" d="2142">And lambda can take
+any positive value.</p>
+<p t="2053492" d="500">OK?</p>
+<p t="2057469" d="3811">And that's where you can
+actually see that the model</p>
+<p t="2061280" d="2439">that we had for the
+siblings-- right?</p>
+<p t="2063719" d="3551">So let me actually just squeeze
+in the siblings model here.</p>
+<p t="2071230" d="4690">So that was the bad model
+that I had in the first place</p>
+<p t="2075920" d="1290">when I actually kept this.</p>
+<p t="2077210" d="1896">Let's say we just kept it at 7.</p>
+<p t="2079106" d="1624">Forget about larger
+than or equal to 7.</p>
+<p t="2080730" d="1560">We just assumed it was 7.</p>
+<p t="2082290" d="1459">What was our sample space?</p>
+<p t="2094228" d="2471">We said 7.</p>
+<p t="2096699" d="4831">So it's 1, 2, to 7, right?</p>
+<p t="2101530" d="3240">Those were the possible values
+that this thing would take.</p>
+<p t="2104770" d="1390">And then what was my--</p>
+<p t="2106160" d="1170">what's my parameter space?</p>
+<p t="2110550" d="2200">So it's going to be
+a nightmare write.</p>
+<p t="2112750" d="1460">But I'm going to write it.</p>
+<p t="2114210" d="4170">OK, so I'm going to write it as
+something like the probability</p>
+<p t="2118380" d="4090">that x is equal to k
+is equal to p sub k.</p>
+<p t="2126210" d="1330">OK?</p>
+<p t="2127540" d="5940">And that's going to be for p.</p>
+<p t="2133480" d="2670">OK, so that's for
+all k's, right?</p>
+<p t="2136150" d="2740">Or for k equal 1 to 7.</p>
+<p t="2138890" d="6109">And here the index is the
+set of parameters p1 to pk.</p>
+<p t="2144999" d="2041">And I know a little more
+about those guys, right?</p>
+<p t="2147040" d="2630">I know there are going
+to be non-negative--</p>
+<p t="2149670" d="1240">PJ non-negative.</p>
+<p t="2150910" d="1410">And I know that they sum to 1.</p>
+<p t="2157960" d="3810">OK, so maybe writing
+this, you start</p>
+<p t="2161770" d="4110">seeing why we like those
+Poisson, exponential,</p>
+<p t="2165880" d="2130">and short notation, because
+I actually don't have</p>
+<p t="2168010" d="1520">to write the PMF of a Poisson.</p>
+<p t="2169530" d="1340">The Poisson is really just this.</p>
+<p t="2170870" d="1700">But I call it Poisson
+so I don't have</p>
+<p t="2172570" d="2030">to rewrite this all the time.</p>
+<p t="2174600" d="3020">And so here, I did not
+use a particular form.</p>
+<p t="2177620" d="2190">So I just have this thing,
+and that's what it is.</p>
+<p t="2179810" d="5130">The set of parameters is the
+set of positive numbers of--</p>
+<p t="2184940" d="3620">p1 to p7, pk--</p>
+<p t="2188560" d="2450">and sum to 7, right?</p>
+<p t="2191010" d="3100">And so this as just
+a list of numbers</p>
+<p t="2194110" d="3130">that are non-negative
+and sum up to 1.</p>
+<p t="2197240" d="2731">So that's my parameter space.</p>
+<p t="2199971" d="499">OK?</p>
+<p t="2200470" d="1810">So here that's my theta.</p>
+<p t="2202280" d="3080">This whole thing here--</p>
+<p t="2205360" d="2191">this is my capital theta.</p>
+<p t="2207551" d="500">OK?</p>
+<p t="2211947" d="1813">So that's just the
+set of parameters</p>
+<p t="2213760" d="1770">that theta-- the
+set of parameters</p>
+<p t="2215530" d="2910">that theta is allowed to take.</p>
+<p t="2218440" d="3450">OK, and finally, we're going
+to end with the star of all,</p>
+<p t="2221890" d="2080">and that's the
+normal distribution.</p>
+<p t="2223970" d="2990">And in the normal
+distribution, you still</p>
+<p t="2226960" d="3120">have also some flexibility
+in terms of choices,</p>
+<p t="2230080" d="3630">because then naturally,
+the normal distribution</p>
+<p t="2233710" d="3030">is parametrized by--</p>
+<p t="2236740" d="2640">the normal distribution is
+parametrized by two parameters,</p>
+<p t="2239380" d="500">right?</p>
+<p t="2239880" d="829">Mean and variance.</p>
+<p t="2246200" d="4250">So what values can a Gaussian
+random variable take?</p>
+<p t="2250450" d="3530">An entire real line, right?</p>
+<p t="2253980" d="2010">And the set of
+parameters that it</p>
+<p t="2255990" d="6210">can take it-- so this is going
+to be n, mu, sigma square.</p>
+<p t="2262200" d="3990">And mu is going to be positive.</p>
+<p t="2266190" d="2890">And stigma square is going--</p>
+<p t="2269080" d="2640">sorry, m is going to be an r.</p>
+<p t="2271720" d="3350">And sigma square is
+going to be positive.</p>
+<p t="2275070" d="2344">OK, so again here,
+that's the way</p>
+<p t="2277414" d="1166">you're supposed to write it.</p>
+<p t="2278580" d="4680">If you really want to
+identify what theta is,</p>
+<p t="2283260" d="5500">well, theta formally is the set
+of mu sigma square such that--</p>
+<p t="2288760" d="7061">well, in r times
+0 infinity, right?</p>
+<p t="2299120" d="3080">That's just to be formal, but
+this does the job just fine.</p>
+<p t="2302200" d="500">OK?</p>
+<p t="2302700" d="3120">You don't have to
+be super formal.</p>
+<p t="2305820" d="2680">OK, that's not three.</p>
+<p t="2308500" d="1670">That's like five.</p>
+<p t="2310170" d="1950">Actually, I just want
+to write another one.</p>
+<p t="2312120" d="3010">Let's call it 5-bit.</p>
+<p t="2315130" d="5900">And 5-bit is just Gaussian
+with known variants.</p>
+<p t="2326760" d="3470">And this arises a
+lot in labs when</p>
+<p t="2330230" d="1320">you have measurement error--</p>
+<p t="2331550" d="4320">when you actually receive
+your measurement device.</p>
+<p t="2335870" d="2040">This thing has been
+tested by the manufacturer</p>
+<p t="2337910" d="3030">so much that it actually comes
+in on the side of the box.</p>
+<p t="2340940" d="3090">It says that the standard
+deviation of your measurements</p>
+<p t="2344030" d="3544">is going to be 0.23.</p>
+<p t="2347574" d="1916">OK, and actually why you
+do this is because we</p>
+<p t="2349490" d="1800">can brag about accuracy, right?</p>
+<p t="2351290" d="2220">That's how they sell you
+this particular device.</p>
+<p t="2353510" d="2970">And so you actually know
+exactly what sigma square is.</p>
+<p t="2356480" d="3750">So once you actually get
+your data in the lab,</p>
+<p t="2360230" d="1980">you actually only
+have to estimate mu,</p>
+<p t="2362210" d="3320">because stigma
+comes on the label.</p>
+<p t="2365530" d="3130">So now, what is your
+statistical model?</p>
+<p t="2368660" d="4530">Well, the numbers are
+collecting still in r.</p>
+<p t="2373190" d="8844">But now, the models that I
+have is n, mu, sigma squared.</p>
+<p t="2382034" d="3976">But the parameter space is not
+mu, and r, and sigma positive.</p>
+<p t="2386010" d="887">It's just mu and r.</p>
+<p t="2394530" d="3919">And to be a little more
+emphatic about this,</p>
+<p t="2398449" d="1541">this is enough to
+describe it, right?</p>
+<p t="2399990" d="2310">Because if sigma
+is the sigma that</p>
+<p t="2402300" d="2280">was specified by
+the manufacturer,</p>
+<p t="2404580" d="2760">then this is the sigma you want.</p>
+<p t="2407340" d="3370">But you can actually
+write sigma is equal to--</p>
+<p t="2410710" d="4710">sigma square is equal to
+sigma square manufacturer.</p>
+<p t="2415420" d="500">Right?</p>
+<p t="2415920" d="2940">You can just fix it to
+be this particular value.</p>
+<p t="2418860" d="2370">Or maybe you don't want
+to write that index that's</p>
+<p t="2421230" d="777">the manufacturer.</p>
+<p t="2422007" d="1583">And so you just say,
+well, the sigma--</p>
+<p t="2423590" d="1150">when I write n
+squared what I mean</p>
+<p t="2424740" d="1750">is the sigma square
+from the manufacturer.</p>
+<p t="2426490" d="914">Yeah?</p>
+<p t="2427404" d="1964">AUDIENCE: [INAUDIBLE]</p>
+<p t="2435320" d="1760">PHILIPPE RIGOLLET: Yeah.</p>
+<p t="2437080" d="2517">For a particular
+measuring device?</p>
+<p t="2439597" d="2583">You know, you're in a lab, and
+you have some measuring device.</p>
+<p t="2442180" d="3080">I don't know--
+something that measures</p>
+<p t="2445260" d="2782">tensile strength of something.</p>
+<p t="2448042" d="1708">And it's just going
+to measure something.</p>
+<p t="2449750" d="1730">And it will naturally
+make errors.</p>
+<p t="2451480" d="2385">But it's been tested so
+much by the manufacturer</p>
+<p t="2453865" d="1905">and calibrated by them.</p>
+<p t="2455770" d="2037">They know it's not
+going to be perfect.</p>
+<p t="2457807" d="1458">But they knew
+exactly what error it</p>
+<p t="2459265" d="1425">was making, because
+they've actually tried it</p>
+<p t="2460690" d="1541">on things for which
+they exactly knew</p>
+<p t="2462231" d="2200">what the tensile strength was.</p>
+<p t="2464431" d="954">OK?</p>
+<p t="2465385" d="954">Yeah.</p>
+<p t="2466339" d="1431">AUDIENCE: [INAUDIBLE]</p>
+<p t="2469155" d="1000">PHILIPPE RIGOLLET: This?</p>
+<p t="2470155" d="1445">AUDIENCE: [INAUDIBLE]</p>
+<p t="2471600" d="2298">PHILIPPE RIGOLLET: Oh,
+like that's pointing to--</p>
+<p t="2473898" d="988">5 prime?</p>
+<p t="2479340" d="1920">OK?</p>
+<p t="2481260" d="2970">And we can come up with
+other examples, right?</p>
+<p t="2484230" d="1800">So for example,
+here's another one.</p>
+<p t="2490380" d="2970">So the names don't
+really matter, right?</p>
+<p t="2493350" d="1320">I call it the siblings model.</p>
+<p t="2494670" d="2992">But you won't find the siblings
+model in the textbook, right?</p>
+<p t="2497662" d="1208">So I wouldn't worry too much.</p>
+<p t="2498870" d="2940">But for example, let's say
+you have something-- so</p>
+<p t="2501810" d="900">let's call it 6.</p>
+<p t="2502710" d="2990">You have-- I don't know--</p>
+<p t="2505700" d="8540">a truncated-- and that's the
+name I just came up with.</p>
+<p t="2514240" d="3250">But it's actually not exactly
+describing what I want.</p>
+<p t="2517490" d="6020">But let's say I observe y, which
+is the indicator of x larger</p>
+<p t="2523510" d="7950">than say 5 when x follows some
+exponential with parameter</p>
+<p t="2531460" d="1721">lambda.</p>
+<p t="2533181" d="499">OK?</p>
+<p t="2533680" d="1890">This is what I get to observe.</p>
+<p t="2535570" d="3420">I only observe if
+my waiting time</p>
+<p t="2538990" d="1620">was more than five
+minutes, because I</p>
+<p t="2540610" d="2550">see somebody coming out
+of the Kendall Station</p>
+<p t="2543160" d="1220">being really upset.</p>
+<p t="2544380" d="1930">And that's all I record
+is I've been waiting</p>
+<p t="2546310" d="1460">for more than five minutes.</p>
+<p t="2547770" d="1690">And that's all I get to record.</p>
+<p t="2549460" d="500">OK?</p>
+<p t="2549960" d="1149">That happens a lot.</p>
+<p t="2551109" d="1291">These are called censored data.</p>
+<p t="2552400" d="2560">I should probably not
+call it truncated,</p>
+<p t="2554960" d="1752">but this should be censored.</p>
+<p t="2556712" d="1428">OK?</p>
+<p t="2558140" d="2480">You see a lot of censored
+data when you ask people</p>
+<p t="2560620" d="1670">how much they make.</p>
+<p t="2562290" d="3040">They say, well, more
+than five figures.</p>
+<p t="2565330" d="2390">And that's all they
+want to tell you.</p>
+<p t="2567720" d="660">OK?</p>
+<p t="2568380" d="6030">And so you see a lot of censored
+data in survival analysis,</p>
+<p t="2574410" d="1150">right?</p>
+<p t="2575560" d="3060">You are trying to understand
+how long your patients are going</p>
+<p t="2578620" d="3100">to live after some surgery, OK?</p>
+<p t="2581720" d="4250">And maybe you're not going
+to keep people alive,</p>
+<p t="2585970" d="1521">and you're not
+going to actually be</p>
+<p t="2587491" d="1999">in touch in their family
+every day and ask them,</p>
+<p t="2589490" d="1430">is the guy still alive?</p>
+<p t="2590920" d="1830">And so what you
+can do is just you</p>
+<p t="2592750" d="2790">ask people maybe five
+years after your study</p>
+<p t="2595540" d="2520">and say, please, come in.</p>
+<p t="2598060" d="2910">And you will just happen to
+have some people say, well, you</p>
+<p t="2600970" d="1500">know, the person is deceased.</p>
+<p t="2602470" d="3090">And you will only be able to
+know that the person deceased</p>
+<p t="2605560" d="2220">less than five years ago.</p>
+<p t="2607780" d="4200">But you only see what
+happens after that, OK?</p>
+<p t="2611980" d="2100">And so this is this
+truncated and censored data.</p>
+<p t="2614080" d="1860">It happens all the
+time just because you</p>
+<p t="2615940" d="3810">don't have the ability
+to do better than that.</p>
+<p t="2619750" d="2630">So this could happen here.</p>
+<p t="2622380" d="2890">So what is my physical
+experiment, right?</p>
+<p t="2625270" d="2380">So here, I should probably
+write this like this,</p>
+<p t="2627650" d="2730">because I just told you that my
+observations are going to be x,</p>
+<p t="2630380" d="2340">but there is some unknown y.</p>
+<p t="2632720" d="1490">I will never get to see this y.</p>
+<p t="2634210" d="3020">I only get to see the x.</p>
+<p t="2637230" d="1470">What is my statistical
+experiment?</p>
+<p t="2638700" d="1515">Please help me.</p>
+<p t="2640215" d="2245">So is it the real line?</p>
+<p t="2642460" d="2390">My sample space--
+is it the real line?</p>
+<p t="2649270" d="3140">Sorry, who does not
+know what this means?</p>
+<p t="2652410" d="1030">I'm sorry.</p>
+<p t="2653440" d="2010">OK.</p>
+<p t="2655450" d="3010">So this is called an indicator.</p>
+<p t="2658460" d="2126">So I read it as--</p>
+<p t="2660586" d="3354">if I wrote well, that would
+be one with a double bar.</p>
+<p t="2663940" d="2130">You can also write
+i if you prefer</p>
+<p t="2666070" d="2130">if you don't feel like
+writing one in double bars.</p>
+<p t="2668200" d="3035">And it's one of say--</p>
+<p t="2671235" d="1375">I'm going to write
+it like that--</p>
+<p t="2672610" d="10980">1 of a is equal to 1 if a
+is true and 0 if a is false.</p>
+<p t="2683590" d="1290">OK?</p>
+<p t="2684880" d="3490">So that means that if y is
+larger than 4, this thing is 1.</p>
+<p t="2688370" d="3980">And if y is not larger
+than 5, this thing is 0.</p>
+<p t="2692350" d="1404">OK.</p>
+<p t="2693754" d="2493">So that's called an indicator--</p>
+<p t="2700143" d="1461">indicator function.</p>
+<p t="2706480" d="4280">It was very useful to just
+turn anything into a 0, 1.</p>
+<p t="2710760" d="3627">So now that I'm here,
+what is my sample space?</p>
+<p t="2717380" d="1420">0, 1.</p>
+<p t="2718800" d="2810">Well, whatever this
+thing I did not tell you</p>
+<p t="2721610" d="2637">was taking value with the
+thing you should have--</p>
+<p t="2724247" d="2333">if I end up telling you that
+is taking value 6 or 7 that</p>
+<p t="2726580" d="3180">would be your sample space, OK?</p>
+<p t="2729760" d="3460">OK, so it takes values 0, 1.</p>
+<p t="2733220" d="3840">And then what is the
+probability here?</p>
+<p t="2737060" d="1350">What should I write here?</p>
+<p t="2738410" d="1833">What should you write
+without even thinking?</p>
+<p t="2744062" d="958">Yeah.</p>
+<p t="2745020" d="2050">So let's assume
+there's two seconds</p>
+<p t="2747070" d="1760">before the end of the exam.</p>
+<p t="2748830" d="1334">You're going to write Bernoulli.</p>
+<p t="2750164" d="2499">And that's where you're going
+to start checking if I'm going</p>
+<p t="2752663" d="1511">to give you extra time, OK?</p>
+<p t="2754174" d="1666">So you write Bernoulli
+without thinking,</p>
+<p t="2755840" d="1490">because it's taking value 0, 1.</p>
+<p t="2757330" d="2430">So you just write Bernoulli,
+but you still have to tell me</p>
+<p t="2759760" d="4350">what possible parameters
+this thing is taking, right?</p>
+<p t="2764110" d="2340">So I'm going to write it
+p, because I don't know.</p>
+<p t="2766450" d="2630">And then p take value--</p>
+<p t="2769080" d="2290">OK, so sorry.</p>
+<p t="2771370" d="3610">I could write it like that.</p>
+<p t="2774980" d="1930">Right?</p>
+<p t="2776910" d="4350">That would be perfectly
+valid, but actually no more.</p>
+<p t="2781260" d="2130">It's not any p.</p>
+<p t="2783390" d="2940">The p is the probability
+that an exponential lambda</p>
+<p t="2786330" d="1230">is larger than 5.</p>
+<p t="2787560" d="2970">And maybe I want to have
+lambda as a parameter.</p>
+<p t="2790530" d="2920">OK, so what I need to
+actually compute is,</p>
+<p t="2793450" d="4730">what is the probability
+that y is larger than 5--</p>
+<p t="2798180" d="2545">when y is this
+exponential lambda,</p>
+<p t="2800725" d="1625">which means that what
+I need to compute</p>
+<p t="2802350" d="4064">is the integral between
+5 and infinity of--</p>
+<p t="2806414" d="974">what is it?</p>
+<p t="2807388" d="2435">1 over lambda.</p>
+<p t="2809823" d="2922">How did I define
+it in this class?</p>
+<p t="2812745" d="1461">Did I change it-- what?</p>
+<p t="2814206" d="2944">AUDIENCE: [INAUDIBLE].</p>
+<p t="2817150" d="1940">PHILIPPE RIGOLLET: Yeah,
+right, right, right.</p>
+<p t="2819090" d="670">Yeah.</p>
+<p t="2819760" d="4470">Lambda e to the minus
+lambda x dx, right?</p>
+<p t="2824230" d="3530">So that's what I
+need to compute.</p>
+<p t="2827760" d="1820">What is this?</p>
+<p t="2829580" d="2098">Yeah, so what is the
+value of this integral?</p>
+<p t="2834666" d="1992">Can you take
+appropriate measures?</p>
+<p t="2845622" d="2490">AUDIENCE: [INAUDIBLE]</p>
+<p t="2852594" d="1016">PHILIPPE RIGOLLET: OK?</p>
+<p t="2853610" d="2374">And again, you can
+cancel this, right?</p>
+<p t="2855984" d="1666">So when I'm going to
+integrate this guy,</p>
+<p t="2857650" d="1420">those guys are going to cancel.</p>
+<p t="2859070" d="1830">I'm going to get 0 for infinity.</p>
+<p t="2860900" d="2029">I'm going to get
+a 5 for this guy.</p>
+<p t="2862929" d="2541">And well, I know it's going to
+be positive number, so I'm not</p>
+<p t="2865470" d="1420">really going to
+bother with the signs,</p>
+<p t="2866890" d="1666">because I know that's
+what it should be.</p>
+<p t="2868556" d="3294">OK, so I get e to
+the minus 5 lambda.</p>
+<p t="2871850" d="3381">And so that means that I can
+actually write this like that--</p>
+<p t="2877973" d="3737">and now parametrize this
+thing by lambda positive.</p>
+<p t="2881710" d="500">OK?</p>
+<p t="2882210" d="3270">So what I did here is I changed
+the parametrization from p</p>
+<p t="2885480" d="1410">to lambda.</p>
+<p t="2886890" d="600">Why?</p>
+<p t="2887490" d="3060">Well, because maybe if I
+know this is happening,</p>
+<p t="2890550" d="2850">maybe I am actually
+interested in reporting lambda</p>
+<p t="2893400" d="2510">to MBTA, for example.</p>
+<p t="2895910" d="4465">Maybe I'm actually trying to
+estimate 1 over lambda, so</p>
+<p t="2900375" d="2482">that I know it is--</p>
+<p t="2902857" d="1583">well, lambda is
+actually the intensity</p>
+<p t="2904440" d="2379">of arrival of my
+Poisson process, right?</p>
+<p t="2906819" d="1041">I have a Poisson process.</p>
+<p t="2907860" d="3497">That's how my trains
+are coming in.</p>
+<p t="2911357" d="1333">And so I'm interested in lambda.</p>
+<p t="2912690" d="1624">So I will parametrize
+things by lambda.</p>
+<p t="2914314" d="1366">So the thing I get is lambda.</p>
+<p t="2915680" d="1330">You can play with this, right?</p>
+<p t="2917010" d="2041">I mean, I could parametrize
+this by 1 over lambda</p>
+<p t="2919051" d="3909">and put 1 over lambda
+here if I want it.</p>
+<p t="2922960" d="3690">But you know, the
+context of your problem</p>
+<p t="2926650" d="3671">will tell you exactly
+how to parametrize this.</p>
+<p t="2930321" d="499">OK?</p>
+<p t="2933890" d="5310">So what else did I
+want to tell you?</p>
+<p t="2939200" d="1488">OK, let's do a final one.</p>
+<p t="2953660" d="4140">By the way, are you guys OK
+with Poisson exponential,</p>
+<p t="2957800" d="3260">Bernoulli's--</p>
+<p t="2961060" d="1870">I don't know, binomial, normal--</p>
+<p t="2962930" d="1225">all these things.</p>
+<p t="2964155" d="1625">I'm not going to go
+back to it, but I'm</p>
+<p t="2965780" d="1083">going to use them heavily.</p>
+<p t="2966863" d="2572">So just spend five
+minutes on Wikipedia</p>
+<p t="2969435" d="2435">if you forgot about
+what those things are.</p>
+<p t="2971870" d="3270">Usually, you must have seen them
+the in your probability class.</p>
+<p t="2975140" d="1530">So they should not
+be a crazy name.</p>
+<p t="2976670" d="1740">And again, I'm
+not expecting you.</p>
+<p t="2978410" d="2394">I don't remember what the
+density of an exponential is.</p>
+<p t="2980804" d="1416">So it would be
+pretty unfair of me</p>
+<p t="2982220" d="1849">to actually ask you to
+remember what it is.</p>
+<p t="2984069" d="1541">Even for the Gaussian,
+I don't expect</p>
+<p t="2985610" d="1150">you to remember what it is.</p>
+<p t="2986760" d="4790">But I want you to remember that
+if I add 5 to a Gaussian, then</p>
+<p t="2991550" d="2940">I have a Gaussian with me and
+mu plus 5 if I multiply it</p>
+<p t="2994490" d="1310">by something, right?</p>
+<p t="2995800" d="3370">You need to know how to
+operate those things.</p>
+<p t="2999170" d="2940">But knowing
+complicated densities</p>
+<p t="3002110" d="2180">is definitely not
+part of the game.</p>
+<p t="3004290" d="1450">OK?</p>
+<p t="3005740" d="3851">So let's do a final one.</p>
+<p t="3009591" d="1499">I don't know what
+number I have now.</p>
+<p t="3011090" d="1208">I'm going to just do uniform.</p>
+<p t="3014999" d="791">That's another one.</p>
+<p t="3015790" d="2580">Everybody knows what uniform is?</p>
+<p t="3018370" d="990">So it's uniform, right?</p>
+<p t="3019360" d="3450">So I'm going to have x,
+which my observations are</p>
+<p t="3022810" d="4330">going to be uniform on the
+interval 0 theta, right?</p>
+<p t="3027140" d="2960">So if I want to define
+a uniform distribution</p>
+<p t="3030100" d="2475">for a random variable, I have
+to tell you which interval</p>
+<p t="3032575" d="2625">or which set I want
+it to be uniform on.</p>
+<p t="3035200" d="3010">And so here I'm telling you
+is the interval 0 theta.</p>
+<p t="3038210" d="3060">And so what is going
+to be my sample space?</p>
+<p t="3041270" d="934">AUDIENCE: [INAUDIBLE]</p>
+<p t="3042204" d="2276">PHILIPPE RIGOLLET: I'm sorry?</p>
+<p t="3044480" d="500">0 to theta.</p>
+<p t="3047620" d="3150">And then what is my
+probability distribution?</p>
+<p t="3050770" d="1458">My family of parameters?</p>
+<p t="3057100" d="2900">So well, I can write
+it like this, right?</p>
+<p t="3060000" d="3444">Uniform theta, right?</p>
+<p t="3063444" d="2964">And theta let's say is positive.</p>
+<p t="3069866" d="2470">Can somebody tell me what's
+wrong with what I wrote?</p>
+<p t="3078780" d="1812">This makes no sense.</p>
+<p t="3080592" d="962">Tell me why.</p>
+<p t="3084440" d="2405">Yeah?</p>
+<p t="3086845" d="3447">Yeah, this set depends on theta,
+and why is that a problem?</p>
+<p t="3090292" d="1896">AUDIENCE: [INAUDIBLE]</p>
+<p t="3096869" d="1541">PHILIPPE RIGOLLET:
+There is no theta.</p>
+<p t="3098410" d="2580">Right now, there's
+the families of theta.</p>
+<p t="3100990" d="2440">Which one did you pick here?</p>
+<p t="3103430" d="3110">Right, this is just something
+that's indexed by theta,</p>
+<p t="3106540" d="2550">but I could have very well
+written it as, you know,</p>
+<p t="3109090" d="2770">just not being
+Greek for a second,</p>
+<p t="3111860" d="3792">I could have just written
+this as t rather than theta.</p>
+<p t="3115652" d="1208">That would be the same thing.</p>
+<p t="3116860" d="2489">And then what the hell is theta?</p>
+<p t="3119349" d="1291">There's no such thing as theta.</p>
+<p t="3120640" d="1590">We don't know what
+the parameter is.</p>
+<p t="3122230" d="2084">This parameter should
+move with everyone.</p>
+<p t="3124314" d="1666">And so that means
+that I actually am not</p>
+<p t="3125980" d="1220">allowed to pick this theta.</p>
+<p t="3127200" d="2860">I'm actually-- just for
+the reason that there is no</p>
+<p t="3130060" d="1996">parameter to put
+on the left side--</p>
+<p t="3132056" d="1124">there should not be, right?</p>
+<p t="3133180" d="1730">So you just said, well, there's
+a problem because the parameter</p>
+<p t="3134910" d="1120">is on the left-hand side.</p>
+<p t="3136030" d="1375">But there's not
+even a parameter.</p>
+<p t="3137405" d="2225">I'm describing the family
+of possible parameters.</p>
+<p t="3139630" d="2430">There is no one that you
+can actually plug it in.</p>
+<p t="3142060" d="2292">So this should really be 1.</p>
+<p t="3144352" d="1458">And I'm going to
+go back to writing</p>
+<p t="3145810" d="3966">this as theta because
+that's pretty standard.</p>
+<p t="3149776" d="1974">Is that clear for everyone.</p>
+<p t="3151750" d="6030">I cannot just pick one and put
+it in there and just take the--</p>
+<p t="3157780" d="2820">before I run my experiments,
+I could potentially</p>
+<p t="3160600" d="1770">get numbers that are
+all the way up to 1,</p>
+<p t="3162370" d="2836">because I don't know what theta
+is going to be ahead of time.</p>
+<p t="3165206" d="2534">Now, if somebody
+promised to me that theta</p>
+<p t="3167740" d="1950">was going to be less
+than 0.5, that would be--</p>
+<p t="3169690" d="1290">sorry, why do I put 1 here?</p>
+<p t="3176740" d="1750">I could put theta
+between 0 and 1.</p>
+<p t="3178490" d="1660">But if somebody is going
+to promise me, for example,</p>
+<p t="3180150" d="1499">if theta is going
+to be less than 1,</p>
+<p t="3181649" d="1950">then you expect to put 0, 1.</p>
+<p t="3183599" d="966">All right?</p>
+<p t="3188912" d="3398">Is that clear?</p>
+<p t="3192310" d="3100">OK, so now you know how
+to answer the question--</p>
+<p t="3195410" d="2980">what is the statistical model?</p>
+<p t="3198390" d="1750">And again, within the
+scope of this class,</p>
+<p t="3200140" d="2970">you will not be asked to just
+come up with a model right that</p>
+<p t="3203110" d="1150">will just tell you.</p>
+<p t="3204260" d="2130">Poisson would be probably
+be a good idea here.</p>
+<p t="3206390" d="2291">And then you would just have
+to trust me that indeed it</p>
+<p t="3208681" d="1779">would be a good idea.</p>
+<p t="3210460" d="4770">All right, so what I started
+talking about 20 minutes ago--</p>
+<p t="3215230" d="3120">so it's definitely
+ahead of myself</p>
+<p t="3218350" d="1650">is the notion-- so
+that's when I was</p>
+<p t="3220000" d="1290">talking about well-specified.</p>
+<p t="3221290" d="3360">Remember, well-specified says
+that the true distribution</p>
+<p t="3224650" d="2430">is one of the distributions
+in this parametric families</p>
+<p t="3227080" d="1230">of distribution.</p>
+<p t="3228310" d="1740">The true distribution
+of my siblings</p>
+<p t="3230050" d="2520">is actually a Poisson
+with some parameters.</p>
+<p t="3232570" d="4230">And all I need to figure out
+is what this parameter is.</p>
+<p t="3236800" d="1760">When I started saying
+that, I said, well,</p>
+<p t="3238560" d="1410">but then that
+could be that there</p>
+<p t="3239970" d="1458">are several parameters
+that give me</p>
+<p t="3241428" d="1582">the same distribution, right?</p>
+<p t="3243010" d="4830">It could be the case that
+Poisson 5 and Poisson 17</p>
+<p t="3247840" d="2070">are exactly the same
+distributions when</p>
+<p t="3249910" d="3630">I started putting those numbers
+in the formula which I erased,</p>
+<p t="3253540" d="600">OK?</p>
+<p t="3254140" d="3930">So it could be the case that two
+different numbers would give me</p>
+<p t="3258070" d="2290">exactly the same probabilities.</p>
+<p t="3260360" d="4240">And in this case, we see that
+the model is not identifiable.</p>
+<p t="3264600" d="2080">I mean, the parameter
+is not identifiable.</p>
+<p t="3266680" d="2730">I cannot identify the parameter,
+even if you actually gave me</p>
+<p t="3269410" d="2670">an infinite amount of data,
+which means that I could</p>
+<p t="3272080" d="2670">actually estimate
+exactly the PMF.</p>
+<p t="3274750" d="2527">I might not be able to go
+back, because there would</p>
+<p t="3277277" d="1583">be several candidates,
+and I would not</p>
+<p t="3278860" d="2500">be able to tell you which one
+it was in the first place.</p>
+<p t="3281360" d="500">OK?</p>
+<p t="3281860" d="3450">So what we want is
+that this function--</p>
+<p t="3285310" d="4410">theta maps to p
+theta is injective.</p>
+<p t="3289720" d="1347">And that really can be fancy.</p>
+<p t="3294410" d="3150">What I really mean
+is that if theta</p>
+<p t="3297560" d="4020">is different from theta
+prime, then p of theta</p>
+<p t="3301580" d="2520">is different from
+p of theta prime.</p>
+<p t="3304100" d="3480">Or, if you prefer to think about
+the contrapositive of this,</p>
+<p t="3307580" d="4380">this is the same as saying
+that if p theta gives me</p>
+<p t="3311960" d="3360">the same distribution
+as theta prime,</p>
+<p t="3315320" d="2160">then that implies
+that theta must</p>
+<p t="3317480" d="2700">be equal to the theta prime.</p>
+<p t="3320180" d="4150">The logic of those two
+things are equivalent, right?</p>
+<p t="3324330" d="2450">So that's what this means.</p>
+<p t="3326780" d="10350">So this is-- we say that the
+parameter is identifiable</p>
+<p t="3337130" d="4284">or identified-- it
+doesn't really matter--</p>
+<p t="3341414" d="972">in this model.</p>
+<p t="3349170" d="1750">And this is something
+we're going to want.</p>
+<p t="3350920" d="1000">OK?</p>
+<p t="3351920" d="3060">So in all the examples
+that I gave you,</p>
+<p t="3354980" d="2110">those parameters are
+completely identified.</p>
+<p t="3357090" d="500">Right?</p>
+<p t="3357590" d="820">If I tell you--</p>
+<p t="3358410" d="3030">I mean, if those things
+are in probability box,</p>
+<p t="3361440" d="2480">it means that they were
+probably thought through, right?</p>
+<p t="3363920" d="2370">So when I say
+exponential lambda,</p>
+<p t="3366290" d="3697">I'm really talking about one
+specific distribution and not--</p>
+<p t="3369987" d="1833">there's not another
+lambda going to give you</p>
+<p t="3371820" d="2090">exactly the same distribution.</p>
+<p t="3373910" d="1110">OK so that was the case.</p>
+<p t="3375020" d="2130">And you can check that,
+but it's a little annoying.</p>
+<p t="3377150" d="2156">So I would probably not do it.</p>
+<p t="3379306" d="1624">But rather than doing
+this, let me just</p>
+<p t="3380930" d="3280">give you some examples where
+it would not be the case.</p>
+<p t="3384210" d="1770">Again, here's an
+example, if I take xi--</p>
+<p t="3391220" d="5760">so now I'm back to just using
+this indicator function--</p>
+<p t="3396980" d="2100">but now for a Gaussian.</p>
+<p t="3399080" d="2950">So what I observe is
+x is the indicator</p>
+<p t="3402030" d="1990">that y is, what did we say?</p>
+<p t="3404020" d="894">Positive.</p>
+<p t="3408050" d="1300">OK?</p>
+<p t="3409350" d="2108">So this is a Bernoulli
+random variable, right?</p>
+<p t="3416400" d="1309">And it has some parameter p.</p>
+<p t="3417709" d="1541">But p now is going
+to depend-- sorry,</p>
+<p t="3419250" d="5640">and here y is n mu sigma square.</p>
+<p t="3424890" d="4200">So the p, the probability
+that this thing is positive,</p>
+<p t="3429090" d="930">is actually--</p>
+<p t="3430020" d="1370">I don't think I put the 0.</p>
+<p t="3431390" d="1620">Oh, yeah, because I have mu.</p>
+<p t="3433010" d="2925">OK, so this distribution--
+this p the probability</p>
+<p t="3435935" d="1625">that it's positive
+is just the probably</p>
+<p t="3437560" d="2155">that some Gaussian is positive.</p>
+<p t="3439715" d="2695">And it will depend on
+mu and sigma, right?</p>
+<p t="3442410" d="9270">Because if I draw a 0, and I
+draw my Gaussian around mu,</p>
+<p t="3451680" d="3750">then the probability of
+this Bernoulli being 1</p>
+<p t="3455430" d="4360">is really the area
+under the curve here.</p>
+<p t="3459790" d="980">Right?</p>
+<p t="3460770" d="2057">And this thing-- well,
+if mu is very large,</p>
+<p t="3462827" d="1333">it's going to become very large.</p>
+<p t="3464160" d="4380">If mu is very small, it's
+going to become very small.</p>
+<p t="3468540" d="3421">And if sigma changes, it's
+also going to effect--</p>
+<p t="3471961" d="2009">is that clear for everyone?</p>
+<p t="3473970" d="2070">But we can actually
+compute this, right?</p>
+<p t="3476040" d="3570">So the parameter p that
+I'm looking for here</p>
+<p t="3479610" d="2040">as a function of mu
+and sigma is simply</p>
+<p t="3481650" d="4620">the probability that
+some y is non-negative,</p>
+<p t="3486270" d="5880">which is the probability that
+y minus mu divided by sigma</p>
+<p t="3492150" d="4640">is larger than minus
+mu divided by sigma.</p>
+<p t="3496790" d="3370">But when you study probability,
+is that some operation you</p>
+<p t="3500160" d="2010">were used to making?</p>
+<p t="3502170" d="3840">Removing the mean and dividing
+by the standard deviation?</p>
+<p t="3506010" d="2106">What is the effect of
+doing that on the Gaussian</p>
+<p t="3508116" d="2539">random variable?</p>
+<p t="3510655" d="1375">Yeah, so you
+normalize it, right?</p>
+<p t="3512030" d="1460">And you standardize it.</p>
+<p t="3513490" d="1410">You make it a standard Gaussian.</p>
+<p t="3514900" d="1980">You remove the mean.</p>
+<p t="3516880" d="1590">The mean 0 is Gaussian.</p>
+<p t="3518470" d="2700">And you remove the variance
+for it to become 1.</p>
+<p t="3521170" d="1849">So when you have a
+Gaussian, remove the mean</p>
+<p t="3523019" d="1541">and divide by the
+standard deviation,</p>
+<p t="3524560" d="2010">it becomes a standard Gaussian--</p>
+<p t="3526570" d="4405">which this thing has
+n , 0, 1 distribution,</p>
+<p t="3530975" d="2375">which is the one you can read
+the quintiles of at the end</p>
+<p t="3533350" d="1290">of the book.</p>
+<p t="3534640" d="500">Right?</p>
+<p t="3535140" d="1880">And that's exactly what we did.</p>
+<p t="3537020" d="500">OK?</p>
+<p t="3537520" d="2670">So now you have the probability
+that some standard Gaussian</p>
+<p t="3540190" d="4176">exceeds negative mu
+over sigma, which</p>
+<p t="3544366" d="2124">I can write in terms of
+the cumulative distribution</p>
+<p t="3546490" d="1404">function, capital phi--</p>
+<p t="3554720" d="1840">like we did in
+the first lecture.</p>
+<p t="3556560" d="2510">So if I do this cumulative
+distribution function,</p>
+<p t="3559070" d="1942">what is this probability
+in terms of phi?</p>
+<p t="3565431" d="982">[INAUDIBLE]?</p>
+<p t="3566413" d="1894">AUDIENCE: [INAUDIBLE].</p>
+<p t="3568307" d="2333">PHILIPPE RIGOLLET: Well,
+that's what your name tag says.</p>
+<p t="3573400" d="966">1 minus--</p>
+<p t="3574366" d="1668">AUDIENCE: [INAUDIBLE].</p>
+<p t="3576034" d="1666">PHILLIPPE RIGOLLET:
+1 minus mu of sigma.</p>
+<p t="3577700" d="2086">What happens with phi in our--</p>
+<p t="3579786" d="3664">do you think I
+defined this for fun?</p>
+<p t="3583450" d="6760">1 minus phi of mu
+over sigma, right?</p>
+<p t="3590210" d="500">Right?</p>
+<p t="3590710" d="1610">Because this is 1
+minus the probability</p>
+<p t="3592320" d="1041">that it's less than this.</p>
+<p t="3593361" d="1819">And this is exactly
+the definition</p>
+<p t="3595180" d="2735">of the cumulative
+distribution function.</p>
+<p t="3597915" d="6165">So in particular, this thing
+only depends on mu over sigma.</p>
+<p t="3604080" d="1560">Agreed?</p>
+<p t="3605640" d="3990">So in particular, if I
+had 2 mu over 2 sigma,</p>
+<p t="3609630" d="1610">p would remain unchanged.</p>
+<p t="3611240" d="4100">If I have 12 mu over
+12 sigma, this thing</p>
+<p t="3615340" d="3030">would remain
+unchanged, which means</p>
+<p t="3618370" d="4410">that p does not
+change if I scale mu</p>
+<p t="3622780" d="2630">and sigma by the same factor.</p>
+<p t="3625410" d="3430">So there's no way just
+by observing x, even</p>
+<p t="3628840" d="3250">an infinite times, so that I can
+actually get exactly what p is.</p>
+<p t="3632090" d="2780">I'm never going to be able to
+get mu and sigma separately.</p>
+<p t="3634870" d="2972">All I'm going to be able
+to get is mu over sigma.</p>
+<p t="3637842" d="3888">So here, we say that mu sigma--</p>
+<p t="3641730" d="1390">the parameter mu sigma--</p>
+<p t="3643120" d="2936">or actually each of them
+individually-- those guys--</p>
+<p t="3650310" d="1459">they're not identifiable.</p>
+<p t="3658810" d="4370">But the parameter mu over
+sigma is identifiable.</p>
+<p t="3669180" d="4640">So if I wanted to write a
+statistical model in which</p>
+<p t="3673820" d="1800">the parameter is identifiable--</p>
+<p t="3685660" d="6780">I would write 0, 1 Bernoulli.</p>
+<p t="3692440" d="8849">And then I would write 1
+minus phi over mu over sigma.</p>
+<p t="3701289" d="1541">And then I would
+take two parameters,</p>
+<p t="3702830" d="6110">which are mu and r and
+sigma squared positive.</p>
+<p t="3708940" d="3304">So let's write sigma positive.</p>
+<p t="3712244" d="500">Right?</p>
+<p t="3716970" d="2470">No, this is not identifiable.</p>
+<p t="3719440" d="3408">I cannot write those two guys
+as being two things different.</p>
+<p t="3732010" d="10040">Instead, what I want to write
+is 0, 1, Bernoulli 1 minus--</p>
+<p t="3746026" d="3976">and now my parameter--</p>
+<p t="3750002" d="7608">I forgot this-- my
+parameter is mu over sigma.</p>
+<p t="3757610" d="3570">Can somebody tell me
+where mu over sigma lives?</p>
+<p t="3761180" d="1490">What values can this thing take?</p>
+<p t="3766630" d="1485">Any real value, right?</p>
+<p t="3773070" d="2850">OK, so now I've done this
+definitely out of convenience,</p>
+<p t="3775920" d="510">right?</p>
+<p t="3776430" d="2700">Because that was the only
+thing I was able to identify--</p>
+<p t="3779130" d="1890">the ratio of mu over sigma.</p>
+<p t="3781020" d="3240">But it's still something
+that has some meaning.</p>
+<p t="3784260" d="2310">It's the normalized mean.</p>
+<p t="3786570" d="2310">It really tells me what
+the mean is compared</p>
+<p t="3788880" d="1320">to the standard deviation.</p>
+<p t="3790200" d="3780">So in some models, in reality,
+in some real applications,</p>
+<p t="3793980" d="2070">this actually might
+have a good meaning.</p>
+<p t="3796050" d="1890">It's just telling
+me how big the mean</p>
+<p t="3797940" d="4680">is compared to the standard
+fluctuations of this model.</p>
+<p t="3802620" d="2316">But I won't be able
+to get more than that.</p>
+<p t="3804936" d="500">Agreed?</p>
+<p t="3810630" d="1870">All right?</p>
+<p t="3812500" d="5010">So now that we've set
+a parametric model,</p>
+<p t="3817510" d="3070">let's try to see what our
+goals are going to be.</p>
+<p t="3820580" d="500">OK?</p>
+<p t="3821080" d="3660">So now we have a sample
+and a statistical model.</p>
+<p t="3824740" d="2820">And we want to estimate
+the parameter theta,</p>
+<p t="3827560" d="1950">and I could say,
+well, you know what?</p>
+<p t="3829510" d="1680">I don't have time
+for this analysis.</p>
+<p t="3831190" d="2200">Collecting data is going
+to take me a while.</p>
+<p t="3833390" d="1620">So I'm just going to mmm--</p>
+<p t="3835010" d="2499">and I'm going to say
+that mu over sigma is 4.</p>
+<p t="3837509" d="1541">And I'm just going
+to give it to you.</p>
+<p t="3839050" d="1920">And maybe you will
+tell me, yeah,</p>
+<p t="3840970" d="1170">it's not very good, right?</p>
+<p t="3842140" d="2730">So we need some
+measure of performance</p>
+<p t="3844870" d="900">of a given parameter.</p>
+<p t="3845770" d="3540">We need to be able to evaluate
+if eyeballing the problem</p>
+<p t="3849310" d="2370">is worse than
+actually collecting</p>
+<p t="3851680" d="1350">a large amount of theta.</p>
+<p t="3853030" d="3120">We need to know if even if I
+come up with an estimator that</p>
+<p t="3856150" d="2370">actually sort of uses
+the data, does it</p>
+<p t="3858520" d="2100">make an efficient
+use of the data?</p>
+<p t="3860620" d="2130">Would I actually need 10
+times more observations</p>
+<p t="3862750" d="1529">to achieve the same accuracy?</p>
+<p t="3864279" d="1541">To be able to answer
+these questions,</p>
+<p t="3865820" d="2570">well, I need to define
+what accuracy means.</p>
+<p t="3868390" d="2160">And accuracy is something
+that sort of makes sense.</p>
+<p t="3870550" d="1166">It says, well, I want theta.</p>
+<p t="3871716" d="1804">I have to be close to theta.</p>
+<p t="3873520" d="1824">And the theta is
+a random variable.</p>
+<p t="3875344" d="1416">So I'm going to
+have to understand</p>
+<p t="3876760" d="1458">what it means for
+a random variable</p>
+<p t="3878218" d="2352">to be close to a
+deterministic number.</p>
+<p t="3880570" d="3784">And so, what is a
+parameter estimator, right?</p>
+<p t="3884354" d="2416">So I have an estimator, and I
+said it's a random variable.</p>
+<p t="3889692" d="1948">And the formal definition--</p>
+<p t="3899920" d="10550">so an estimator is a measurable
+function of the data.</p>
+<p t="3910470" d="2100">So when I write
+theta hat, and that</p>
+<p t="3912570" d="5490">will typically be my notation
+for an estimator, right?</p>
+<p t="3918060" d="6760">I should really write
+theta hat of x1 xn.</p>
+<p t="3924820" d="560">OK?</p>
+<p t="3925380" d="1550">That's what an estimator is.</p>
+<p t="3926930" d="1690">If you want to know
+an estimator is,</p>
+<p t="3928620" d="1780">this is a measurable
+function of the data.</p>
+<p t="3930400" d="4787">And it's actually also
+known as a statistic.</p>
+<p t="3937767" d="1583">And you know, if
+you're interested in,</p>
+<p t="3939350" d="3990">you know, I see every day
+I think when I have like,</p>
+<p t="3943340" d="3910">you know, a dinner
+with normal people.</p>
+<p t="3947250" d="1380">And they say I'm a statistician.</p>
+<p t="3948630" d="2030">Oh, yeah, I really
+like baseball.</p>
+<p t="3950660" d="2550">And they talk to me
+about batting averages.</p>
+<p t="3953210" d="909">That's not what I do.</p>
+<p t="3954119" d="1791">But for them, that's
+what it is, and that's</p>
+<p t="3955910" d="2100">because in a way, that's
+what a statistic is.</p>
+<p t="3958010" d="2440">A batting average
+is a statistic.</p>
+<p t="3960450" d="1790">OK, and so here
+are some examples.</p>
+<p t="3962240" d="2010">You can take the average xn bar.</p>
+<p t="3964250" d="2150">You can take the maximum
+of your observation.</p>
+<p t="3966400" d="970">That's the statistics.</p>
+<p t="3967370" d="1620">You can take the first one.</p>
+<p t="3968990" d="1830">You can take the first
+one plus log of 1</p>
+<p t="3970820" d="2010">plus the absolute
+value of the last one.</p>
+<p t="3972830" d="3150">You can do whatever you want
+that will be an estimator.</p>
+<p t="3975980" d="1800">Some of them are
+clearly going to be bad.</p>
+<p t="3977780" d="2310">But that's still a statistic,
+and you can do this.</p>
+<p t="3980090" d="4520">Now, when I say
+measurable, I always have--</p>
+<p t="3984610" d="1667">so you know, graduate
+students sometimes</p>
+<p t="3986277" d="2666">ask me like, yeah, how do I know
+if this estimator is measurable</p>
+<p t="3988943" d="537">or not.</p>
+<p t="3989480" d="2230">And usually, my answer is,
+well, if I give you data,</p>
+<p t="3991710" d="1156">can you compute it.</p>
+<p t="3992866" d="2374">And they say, yeah, I'm like,
+well, then it's measurable.</p>
+<p t="3995240" d="3150">That's a very good rule to
+check if you can actually--</p>
+<p t="3998390" d="2580">if something is
+actually measurable.</p>
+<p t="4000970" d="1590">When is this thing
+non-measurable?</p>
+<p t="4002560" d="2190">It's when it's
+implicitly defined.</p>
+<p t="4004750" d="1950">OK, and in
+particular, the things</p>
+<p t="4006700" d="2180">that give you problems are--</p>
+<p t="4012370" d="1155">sup or inf.</p>
+<p t="4013525" d="2295">Anybody knows what
+a sup or an inf is?</p>
+<p t="4015820" d="1740">It's like a max or a min.</p>
+<p t="4017560" d="2160">But it's not always attained.</p>
+<p t="4019720" d="2400">OK, so if I have x1.</p>
+<p t="4022120" d="4680">So if I look at the
+infimum of the function</p>
+<p t="4026800" d="4810">f of x for x on the real
+line and f of x, sorry,</p>
+<p t="4031610" d="2270">let's say x on the 1 infinity.</p>
+<p t="4033880" d="3090">And f of x is equal to 1 over x.</p>
+<p t="4036970" d="1100">Right?</p>
+<p t="4038070" d="1960">Then the infimum is
+the smallest value</p>
+<p t="4040030" d="2820">we can take except
+that it doesn't really</p>
+<p t="4042850" d="5420">take it at 0 right, because
+1 over x is going to 0.</p>
+<p t="4048270" d="1970">But it's never
+really getting there.</p>
+<p t="4050240" d="2350">So we just called the inf 0.</p>
+<p t="4052590" d="1750">But it's not the value
+that it ever takes.</p>
+<p t="4054340" d="3612">And these things might actually
+be complicated to compute.</p>
+<p t="4057952" d="2208">And so that's when you
+actually have problems, right?</p>
+<p t="4060160" d="1710">When the limit is not--</p>
+<p t="4061870" d="2160">you're not really quite
+reaching the limit.</p>
+<p t="4064030" d="3451">You won't have this problem in
+general, but just so you know,</p>
+<p t="4067481" d="1499">an estimator is not
+really anything.</p>
+<p t="4068980" d="2460">It has to actually
+be measurable.</p>
+<p t="4071440" d="3190">OK, so the first thing we
+want to know I mentioned it--</p>
+<p t="4074630" d="3060">so an estimator is a statistic
+which does not depend on theta,</p>
+<p t="4077690" d="980">of course.</p>
+<p t="4078670" d="2760">So if I give you the data, you
+have to be able to compute it.</p>
+<p t="4081430" d="2820">And that probably should not
+require not knowing any known</p>
+<p t="4084250" d="2590">parameters.</p>
+<p t="4086840" d="4230">OK, so an estimator is
+said to be consistent.</p>
+<p t="4091070" d="2720">When my data-- when I collect
+more and more data, this thing</p>
+<p t="4093790" d="2340">is getting closer and closer
+to the true parameter.</p>
+<p t="4096130" d="499">All right?</p>
+<p t="4096629" d="3451">And we said that eyeballing and
+saying that it's going to be 4</p>
+<p t="4100080" d="1690">is not really something
+that's probably</p>
+<p t="4101770" d="1137">going to be consistent.</p>
+<p t="4102907" d="1833">But they can have things
+that are consistent</p>
+<p t="4104740" d="4110">but that are converging to
+theta at different speeds.</p>
+<p t="4108850" d="966">OK?</p>
+<p t="4109816" d="2663">And we know also that
+this is a random variable.</p>
+<p t="4112479" d="1170">It converges to something.</p>
+<p t="4113649" d="1741">And there might be
+some different notions</p>
+<p t="4115390" d="1166">of convergence that kick in.</p>
+<p t="4116556" d="1504">And actually there are.</p>
+<p t="4118060" d="2790">And we say that it's weakly
+convergent if it converges</p>
+<p t="4120850" d="2820">in probability and
+strongly convergent</p>
+<p t="4123670" d="2640">if it converges
+almost [INAUDIBLE]..</p>
+<p t="4126310" d="660">OK?</p>
+<p t="4126970" d="1920">And this is just vocabulary.</p>
+<p t="4128890" d="1691">It won't make a big difference.</p>
+<p t="4130581" d="499">OK?</p>
+<p t="4131080" d="5148">So we will typically say it's
+consistent with any of the two.</p>
+<p t="4136228" d="1479">AUDIENCE: [INAUDIBLE].</p>
+<p t="4142637" d="4851">PHILIPPE RIGOLLET: Well, so
+in parametric statistics,</p>
+<p t="4147488" d="2041">it's actually a little
+difficult to come up with.</p>
+<p t="4149529" d="5493">But in non-parametric ones, I
+could just say, if I had xi,</p>
+<p t="4155022" d="9158">yi, and I know that yi is
+f of xi plus noise s1i.</p>
+<p t="4164180" d="2620">And I know that f belongs
+to some class of function,</p>
+<p t="4166800" d="1130">let's say--</p>
+<p t="4167930" d="3380">[INAUDIBLE] class of smooth
+functions-- it's massive.</p>
+<p t="4171310" d="2500">And now, I'm going to actually
+find the following estimator.</p>
+<p t="4173810" d="1469">I'm going to take the average.</p>
+<p t="4175279" d="1666">So I'm going to do
+least squares, right?</p>
+<p t="4180310" d="1410">So I just check.</p>
+<p t="4181720" d="2580">I'm trying to minimize the
+distance of each of my f of xi</p>
+<p t="4184300" d="1679">to my yi.</p>
+<p t="4185979" d="3721">And now, I want to find
+the smallest of them.</p>
+<p t="4189700" d="6540">So if I look at the infimum
+here, then the question is--</p>
+<p t="4196240" d="1350">so that could be--</p>
+<p t="4197590" d="2160">well, that's not really
+an estimator for f.</p>
+<p t="4199750" d="2880">But it's an estimator for
+the smallest possible value.</p>
+<p t="4202630" d="1920">And so for example,
+this is actually</p>
+<p t="4204550" d="2790">an estimator for the
+variance of sigma square.</p>
+<p t="4207340" d="2650">This might not be attained,
+and this might not</p>
+<p t="4209990" d="3720">be measurable if f is massive?</p>
+<p t="4213710" d="2575">All right, so that's the
+infimum over some class f of x.</p>
+<p t="4216285" d="1865">OK?</p>
+<p t="4218150" d="2660">So those are all voice things
+that are defined implicitly.</p>
+<p t="4220810" d="4172">If it's an average, for example,
+it's completely measurable.</p>
+<p t="4224982" d="2485">OK?</p>
+<p t="4227467" d="1491">Any other question?</p>
+<p t="4231950" d="5859">OK, so we know that the first
+thing we might want to check,</p>
+<p t="4237809" d="2541">and that's definitely something
+we want about estimators that</p>
+<p t="4240350" d="2670">is consistent, because
+all consistency tells</p>
+<p t="4243020" d="2904">us is that just as I
+collect more and more data,</p>
+<p t="4245924" d="1458">my estimator is
+going to get closer</p>
+<p t="4247382" d="3918">and closer to the parameter.</p>
+<p t="4251300" d="1630">There's other things
+we can look at.</p>
+<p t="4252930" d="2670">For each possible value
+of n-- now, right now,</p>
+<p t="4255600" d="4960">I have a finite number
+of observations--</p>
+<p t="4260560" d="1290">25.</p>
+<p t="4261850" d="2600">And I want to know something
+about my estimator.</p>
+<p t="4264450" d="4222">The first thing I want to check
+is maybe if in average, right?</p>
+<p t="4268672" d="1208">So this is a random variable.</p>
+<p t="4269880" d="1980">Is this random
+variable in average</p>
+<p t="4271860" d="2680">going to be close
+to theta or not?</p>
+<p t="4274540" d="2720">And so the difference
+how far I am from theta</p>
+<p t="4277260" d="2880">is actually called the bias.</p>
+<p t="4280140" d="8260">So the bias of an estimator is
+the expectation of theta hat</p>
+<p t="4288400" d="3240">minus the value that I hope
+it gets, which is theta.</p>
+<p t="4291640" d="7002">If this thing is equal to 0, we
+say that theta hat is unbiased.</p>
+<p t="4302030" d="2650">And unbiased estimators
+are things that people</p>
+<p t="4304680" d="2287">are looking for in general.</p>
+<p t="4306967" d="2333">The problem is that there's
+lots of unbiased estimators.</p>
+<p t="4309300" d="3529">And so it might be misleading
+to look for unbiasedness</p>
+<p t="4312829" d="1541">when that's not
+really the only thing</p>
+<p t="4314370" d="1500">you should be looking for.</p>
+<p t="4315870" d="2820">OK, so what does it
+mean to be unbiased?</p>
+<p t="4318690" d="1742">Maybe for this
+particular round of data</p>
+<p t="4320432" d="1708">you collected, you're
+actually pretty far</p>
+<p t="4322140" d="2100">from the true estimator.</p>
+<p t="4324240" d="4200">But one thing that actually--</p>
+<p t="4328440" d="4140">what it means is that if I redid
+this experiment over, and over,</p>
+<p t="4332580" d="4290">and over again, and I averaged
+all the values of my estimators</p>
+<p t="4336870" d="2900">that I got, then this would
+actually be the right--</p>
+<p t="4339770" d="1601">the true parameter.</p>
+<p t="4341371" d="499">OK.</p>
+<p t="4341870" d="1120">That's what it means.</p>
+<p t="4342990" d="2370">If I were to repeat
+this experiment,</p>
+<p t="4345360" d="2250">in average, I would actually
+get the right thing.</p>
+<p t="4347610" d="2690">But you don't get to
+repeat the experiment.</p>
+<p t="4350300" d="2770">OK, just a remark
+about estimators,</p>
+<p t="4353070" d="1840">look at this estimator-- xn bar.</p>
+<p t="4354910" d="500">Right?</p>
+<p t="4355410" d="1260">Think of the kiss example.</p>
+<p t="4356670" d="2935">I'm looking at the average
+of my observations.</p>
+<p t="4359605" d="2375">And I want to know what the
+expectation of this thing is.</p>
+<p t="4364670" d="1110">OK?</p>
+<p t="4365780" d="11063">Now, this guy is by
+linearity of the expectation,</p>
+<p t="4376843" d="2867">it is this, right?</p>
+<p t="4379710" d="4140">But my data is
+identically distributed.</p>
+<p t="4383850" d="3210">So in particular, all the xi's
+have the same expectation,</p>
+<p t="4387060" d="2010">right?</p>
+<p t="4389070" d="1664">Everybody agrees with this.</p>
+<p t="4390734" d="1416">When it's identically
+distributed,</p>
+<p t="4392150" d="2720">they'll get the
+same expectation.</p>
+<p t="4394870" d="3080">So what it means is
+that this guy's here--</p>
+<p t="4397950" d="4260">they're all equal to
+the expectation of x1.</p>
+<p t="4402210" d="1500">Right?</p>
+<p t="4403710" d="2270">So what it means is
+that these guys--</p>
+<p t="4405980" d="2300">I have the average
+of the same number.</p>
+<p t="4408280" d="3550">So this is actually
+the expectation of x1.</p>
+<p t="4411830" d="687">OK?</p>
+<p t="4412517" d="583">And it's true.</p>
+<p t="4413100" d="3736">In the kiss example, this was p.</p>
+<p t="4416836" d="944">And this is p--</p>
+<p t="4420620" d="2580">the probability of
+turning your head right.</p>
+<p t="4423200" d="640">OK?</p>
+<p t="4423840" d="1830">So those two things
+are the same.</p>
+<p t="4425670" d="4350">In particular, that means
+that xn bar and just x1</p>
+<p t="4430020" d="4100">have the same bias.</p>
+<p t="4434120" d="1980">So that should probably
+illustrate to you</p>
+<p t="4436100" d="3300">that bias is not something
+that really is telling you</p>
+<p t="4439400" d="3530">the entire picture, Right?</p>
+<p t="4442930" d="2420">I can take only one
+of my observations--</p>
+<p t="4445350" d="1134">Bernoulli 0, 1.</p>
+<p t="4446484" d="1416">This thing will
+have the same bias</p>
+<p t="4447900" d="2980">as if I average 1,000 of them.</p>
+<p t="4450880" d="2470">But the bias is really telling
+you where I am in average.</p>
+<p t="4453350" d="2911">But it's really not telling me
+what fluctuations I'm getting.</p>
+<p t="4456261" d="2249">And so if you want to start
+having fluctuations coming</p>
+<p t="4458510" d="1950">into the picture,
+we actually have</p>
+<p t="4460460" d="1890">to look at the risk
+or the quadratic risk</p>
+<p t="4462350" d="1502">of the estimator.</p>
+<p t="4463852" d="1708">And so the quadratic
+risk is the finest--</p>
+<p t="4465560" d="3030">the expectation of the square
+distance between theta hat</p>
+<p t="4468590" d="2180">and theta.</p>
+<p t="4470770" d="2385">OK?</p>
+<p t="4473155" d="1365">So let's look at this.</p>
+<p t="4482360" d="1470">So the quadratic risk--</p>
+<p t="4487270" d="1440">sometimes it's
+denoted that people</p>
+<p t="4488710" d="8880">call it the l2 risk of
+theta hat, of course.</p>
+<p t="4497590" d="2360">I'm sorry for maintaining
+such an ugly board.</p>
+<p t="4499950" d="960">[INAUDIBLE] this stuff.</p>
+<p t="4509460" d="1500">OK, so I look at
+the square distance</p>
+<p t="4510960" d="1110">between theta hat and theta.</p>
+<p t="4512070" d="2460">This is still-- this is the
+function of a random variable.</p>
+<p t="4514530" d="1720">So it's a random
+variable as well.</p>
+<p t="4516250" d="2831">And now I'm looking at the
+expectation of this guy.</p>
+<p t="4519081" d="3979">That's the definition.</p>
+<p t="4523060" d="2500">I claimed that when this
+thing goes to 0, then</p>
+<p t="4525560" d="2790">my estimator is actually
+going to be consistent.</p>
+<p t="4528350" d="1948">Everybody agrees with this?</p>
+<p t="4537116" d="10599">So if it goes to zero as n
+goes to infinity-- and here,</p>
+<p t="4547715" d="2375">I don't need to tell you what
+kind of convergence I have,</p>
+<p t="4550090" d="1625">because this is just
+the number, right?</p>
+<p t="4551715" d="925">It's an expectation.</p>
+<p t="4552640" d="4620">So it's a regular, usual
+calculus-style convergence.</p>
+<p t="4557260" d="6066">Then that implies that theta hat
+is actually weakly consistent.</p>
+<p t="4567294" d="2480">What did I use to tell you this?</p>
+<p t="4574740" d="2710">Yeah, this is the
+convergence in l2.</p>
+<p t="4577450" d="2500">This actually is
+strictly equivalent.</p>
+<p t="4579950" d="6314">This is by definition saying
+that theta hat converges in l2</p>
+<p t="4586264" d="3096">to theta.</p>
+<p t="4589360" d="1830">And we know that
+convergence in l2</p>
+<p t="4591190" d="6115">implies convergence in
+credibility to theta.</p>
+<p t="4597305" d="875">That was the picture.</p>
+<p t="4598180" d="1980">We're going up.</p>
+<p t="4600160" d="2338">And this is actually
+equivalent to a consistency</p>
+<p t="4602498" d="3831">by definition-- a
+weak consistency.</p>
+<p t="4606329" d="2041">OK, so this is actually
+telling you a little more</p>
+<p t="4608370" d="2010">because this guy here--</p>
+<p t="4610380" d="2430">they are both unbiased.</p>
+<p t="4612810" d="2200">Theta xn bar is unbiased.</p>
+<p t="4615010" d="1460">X1 is unbiased.</p>
+<p t="4616470" d="1590">But x1 is certainly
+not consistent ,</p>
+<p t="4618060" d="3090">because the more data I collect,
+I'm not even doing anything</p>
+<p t="4621150" d="500">with it.</p>
+<p t="4621650" d="2470">I'm just taking the first data
+point you're giving to me.</p>
+<p t="4624120" d="1530">So they're both unbiased.</p>
+<p t="4625650" d="1770">But this one is not consistent.</p>
+<p t="4627420" d="2510">And this one we'll see
+is actually consistent.</p>
+<p t="4629930" d="1440">xn bar is consistent.</p>
+<p t="4631370" d="2988">And actually, we've
+seen that last time.</p>
+<p t="4634358" d="1458">And that's because of the?</p>
+<p t="4639704" d="4048">What guarantees the fact
+that xn bar is consistent?</p>
+<p t="4643752" d="1458">AUDIENCE: The law
+of large numbers.</p>
+<p t="4645210" d="900">PHILIPPE RIGOLLET: The law
+of large numbers, right?</p>
+<p t="4646110" d="1670">Actually, it's
+strongly consistent</p>
+<p t="4647780" d="2100">if you have a
+strong [INAUDIBLE]..</p>
+<p t="4649880" d="5700">OK, so just in the
+last two minutes,</p>
+<p t="4655580" d="4340">I want to tell you a little bit
+about how this risk is linked</p>
+<p t="4659920" d="3430">to see, quadratic
+risk is equal to bias</p>
+<p t="4663350" d="1490">squared plus the variance.</p>
+<p t="4664840" d="3190">So let's see what
+I mean by this?</p>
+<p t="4668030" d="2000">So I'm going to forget
+about the absolute values</p>
+<p t="4670030" d="958">that you have a square.</p>
+<p t="4670988" d="3612">I don't really need them.</p>
+<p t="4674600" d="2930">If theta hat was
+unbiased, this thing</p>
+<p t="4677530" d="4089">would be the expectation
+of theta hat.</p>
+<p t="4681619" d="1041">It might not be the case.</p>
+<p t="4682660" d="3804">So let me see how I can actually
+see-- put the bias in there.</p>
+<p t="4686464" d="1416">Well, one way to
+do this is to see</p>
+<p t="4687880" d="2290">that this is equal to
+the expectation of theta</p>
+<p t="4690170" d="2940">hat minus the
+expectation of theta hat,</p>
+<p t="4693110" d="4050">plus the expectation of
+theta hat minus theta.</p>
+<p t="4701450" d="1170">OK?</p>
+<p t="4702620" d="2240">I just removed the same
+and added the same thing.</p>
+<p t="4704860" d="2170">So I didn't change anything.</p>
+<p t="4707030" d="2810">Now, this guy is my bias, right?</p>
+<p t="4712570" d="2110">So now let me expand the square.</p>
+<p t="4714680" d="3000">So what I get is the expectation
+of the square of theta</p>
+<p t="4717680" d="1615">hat minus its expectation.</p>
+<p t="4722480" d="3370">I should put some
+square brackets--</p>
+<p t="4725850" d="4560">plus two times
+the cross-product.</p>
+<p t="4730410" d="2490">So the cross-product
+is what expectation</p>
+<p t="4732900" d="6840">of theta hat minus the
+expectation of theta hat times</p>
+<p t="4739740" d="3776">expectation of theta
+hat minus theta.</p>
+<p t="4747250" d="1642">And then I have the last square.</p>
+<p t="4757830" d="5060">Expectation of theta
+hat minus theta squared.</p>
+<p t="4762890" d="1350">OK?</p>
+<p t="4764240" d="2860">So square,
+cross-products, square.</p>
+<p t="4767100" d="2880">Everybody is with me?</p>
+<p t="4769980" d="2850">now this guy here--</p>
+<p t="4772830" d="2240">if you pay attention, this
+thing is the expectation</p>
+<p t="4775070" d="1000">of some random variable.</p>
+<p t="4776070" d="2380">So it's a deterministic number.</p>
+<p t="4778450" d="1350">Theta is the true parameter.</p>
+<p t="4779800" d="2010">It's a deterministic number.</p>
+<p t="4781810" d="2210">So what I can do is pull
+out this entire thing out</p>
+<p t="4784020" d="8070">of the expectation like this
+and compute the expectation only</p>
+<p t="4792090" d="1517">with respect to that part.</p>
+<p t="4793607" d="2922">But what is the
+expectation of this thing?</p>
+<p t="4799460" d="780">It's zero, right?</p>
+<p t="4800240" d="2083">The expectation of theta
+hat minus the expectation</p>
+<p t="4802323" d="1529">of theta hat is 0.</p>
+<p t="4803852" d="4048">So this entire thing is equal 0.</p>
+<p t="4807900" d="4300">So now when I actually collect
+back my quadratic terms--</p>
+<p t="4812200" d="3780">my two squared terms
+in this expansion--</p>
+<p t="4815980" d="2670">what I get is that
+the expectation</p>
+<p t="4818650" d="3150">of theta hat minus
+theta squared is</p>
+<p t="4821800" d="4650">equal to the expectation of
+theta hat minus expectation</p>
+<p t="4826450" d="5770">of theta hat squared plus
+the square of expectation</p>
+<p t="4832220" d="3430">of theta hat minus theta.</p>
+<p t="4840550" d="640">Right?</p>
+<p t="4841190" d="1410">So those are just the two--</p>
+<p t="4842600" d="3960">the first and the last term
+of the previous equality?</p>
+<p t="4846560" d="2130">Now, here I have the
+expectation of the square</p>
+<p t="4848690" d="1791">of the difference
+between a random variable</p>
+<p t="4850481" d="1959">and its expectation.</p>
+<p t="4852440" d="3660">This is otherwise known
+as the variance, right?</p>
+<p t="4856100" d="7560">So this is actually equal to
+the variance of theta hat.</p>
+<p t="4863660" d="2030">And well, this was the bias.</p>
+<p t="4865690" d="1510">We already said that's there.</p>
+<p t="4867200" d="2185">So this whole thing
+is the bias square.</p>
+<p t="4872531" d="499">OK?</p>
+<p t="4873030" d="2520">And hence the quadratic
+term is the sum</p>
+<p t="4875550" d="2460">of the variance and
+the squared bias.</p>
+<p t="4878010" d="930">Why squared bias?</p>
+<p t="4878940" d="2190">Well, because otherwise,
+you would add dollars</p>
+<p t="4881130" d="1669">in dollars squared.</p>
+<p t="4882799" d="1916">So you need to add dollars
+squared and dollars</p>
+<p t="4884715" d="3155">squared so that this thing
+is actually homogeneous.</p>
+<p t="4887870" d="3040">So if x is in dollars, then
+the bias is in dollars,</p>
+<p t="4890910" d="1960">but the variance is
+in dollars squared.</p>
+<p t="4892870" d="2166">OK, and the square here
+forced you to put everything</p>
+<p t="4895036" d="1114">on the square scale.</p>
+<p t="4896150" d="3040">All right, so what's nice is
+that if the quadratic risk goes</p>
+<p t="4899190" d="3630">to 0, then since I have the
+sum of two positive terms,</p>
+<p t="4902820" d="2220">both of them have to go to 0.</p>
+<p t="4905040" d="1890">That means that my
+variance is going to 0--</p>
+<p t="4906930" d="1860">very little fluctuations.</p>
+<p t="4908790" d="2790">And my bias is also going to 0,
+which means that I'm actually</p>
+<p t="4911580" d="1680">going to be on
+target once I reduce</p>
+<p t="4913260" d="2190">my fluctuations, because
+it's one thing to reduce</p>
+<p t="4915450" d="1282">the fluctuations.</p>
+<p t="4916732" d="1958">But if I'm not on target,
+it's an issue, right?</p>
+<p t="4918690" d="4732">For example, the estimator for
+the value 4 has no variance.</p>
+<p t="4923422" d="1958">Every time I'm going to
+repeat the experiments,</p>
+<p t="4925380" d="2130">I'm going to get 4, 4, 4, 4--</p>
+<p t="4927510" d="1380">variance is 0.</p>
+<p t="4928890" d="1500">But the bias is bad.</p>
+<p t="4930390" d="2490">The bias is 4 minus theta.</p>
+<p t="4932880" d="4260">And if theta is far from 4,
+that's not doing very well.</p>
+<p t="4937140" d="4280">OK, so next week, we will--</p>
+<p t="4941420" d="3640">we'll talk about what
+is a good estimate--</p>
+<p t="4945060" d="1680">how estimators
+change if they have</p>
+<p t="4946740" d="5700">high variance or low variance
+or high bias and low bias.</p>
+<p t="4952440" d="3200">And we'll talk about
+confidence intervals as well.</p>
+</body>
+</timedtext>

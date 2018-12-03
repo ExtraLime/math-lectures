@@ -1,0 +1,1278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="7000" d="5555">I just recalling some of the
+notation we are going to need</p>
+<p t="12555" d="5849">for today, and a couple of the
+facts that we're going to use,</p>
+<p t="18404" d="5263">plus trying to clear up a
+couple of confusions that the</p>
+<p t="23667" d="4387">recitations report.
+This can be thought of two</p>
+<p t="28054" d="3411">ways.
+It's a formal polynomial in D,</p>
+<p t="31465" d="4709">in the letter D.
+It just has the shape of the</p>
+<p t="36174" d="4117">polynomial, D squared plus AD
+plus B.</p>
+<p t="40291" d="2563">A and B are constant
+coefficients.</p>
+<p t="42854" d="2485">But, it's also,
+at the same time,</p>
+<p t="45339" d="3961">if you think what it does,
+it's a linear operator on</p>
+<p t="49300" d="2719">functions.
+It's a linear operator on</p>
+<p t="52019" d="4427">functions like y of t.
+You think of it both ways:</p>
+<p t="56446" d="4660">formal polynomial because we
+want to do things like factoring</p>
+<p t="61106" d="4894">it, substituting two for D and
+things like that.</p>
+<p t="66000" d="2494">Those are things you do with
+polynomials.</p>
+<p t="68494" d="3056">You do them algebraically.
+You can take the formal</p>
+<p t="71550" d="3305">derivative of the polynomial
+because it's just sums of</p>
+<p t="74855" d="1560">powers.
+On the other hand,</p>
+<p t="76415" d="3243">as a linear operator,
+it does something to functions.</p>
+<p t="79658" d="3367">It differentiates them,
+multiplies them by constants or</p>
+<p t="83025" d="2557">something like that.
+So it's, so to speak,</p>
+<p t="85582" d="3493">has a dual aspect this way.
+And, that's one of the things</p>
+<p t="89075" d="3368">we are exploiting what we use
+operator methods to solve</p>
+<p t="92443" d="4730">differential equations.
+Now, let me remind you of the</p>
+<p t="97173" d="3597">key thing we were interested in.
+f of t:</p>
+<p t="100770" d="3672">not any old function,
+we'll get to that next time,</p>
+<p t="104442" d="2473">but f of t,
+exponentials.</p>
+<p t="106915" d="3822">So, it should be an exponential
+or something like an</p>
+<p t="110737" d="3522">exponential, or pretty close to
+it, for example,</p>
+<p t="114259" d="3298">something with sine t
+and cosine t,</p>
+<p t="117557" d="3822">or e to the,
+that could be thought of as</p>
+<p t="121379" d="5621">part of the real or imaginary
+part of a complex exponential.</p>
+<p t="127000" d="3844">And, maybe by the end of today,
+we will have generalized that</p>
+<p t="130844" d="1986">even little more.
+But basically,</p>
+<p t="132830" d="3780">I'm interested in exponentials.
+Let's make it alpha complex.</p>
+<p t="136610" d="3779">That will at least take care of
+the cases, e to the ax times</p>
+<p t="140389" d="3076">cosine bx, sin bx,</p>
+<p t="143465" d="3203">which are the main cases.
+Those are the main cases.</p>
+<p t="146668" d="3332">Then, remember the little table
+we made.</p>
+<p t="150000" d="4772">I simply gave you the formula
+for the particular solution.</p>
+<p t="154772" d="5107">So, what we're looking for is
+we already know how to solve the</p>
+<p t="159879" d="4353">homogeneous equation.
+What we want is that particular</p>
+<p t="164232" d="3181">solution.
+And then, the recipe for it I</p>
+<p t="167413" d="4940">gave you, these things were
+proved by the substitution rules</p>
+<p t="172353" d="4772">and exponential shift rules.
+The recipe was that if f of t</p>
+<p t="177125" d="3265">was, let's make a
+little table.</p>
+<p t="180390" d="3349">f of t is, well,
+it's always e to the a t.</p>
+<p t="183739" d="3531">So, in other words,</p>
+<p t="187270" d="2874">it's e to the a t.
+The cases are,</p>
+<p t="190144" d="3477">so yp, what is the yp?
+Well, it is the normal case is</p>
+<p t="193621" d="4145">yp equals e to that alpha t
+divided by the</p>
+<p t="197766" d="3810">polynomial where you substitute,
+you take that polynomial,</p>
+<p t="201576" d="3410">and wherever you see a D,
+you substitute the complex</p>
+<p t="204986" d="2941">number, alpha.
+There, I'm thinking of it as a</p>
+<p t="207927" d="3971">formal polynomial.
+I'm not thinking of it as an</p>
+<p t="211898" d="2102">operator.
+Now, this breaks down.</p>
+<p t="214000" d="3389">So, that's the formula for the
+particular solution.</p>
+<p t="217389" d="3458">The only trouble is,
+it breaks down if p of alpha is</p>
+<p t="220847" d="2441">zero.
+So, we have to assume that it's</p>
+<p t="223288" d="2101">not.
+Now, if p of alpha is zero,</p>
+<p t="225389" d="2983">that means alpha is a root of
+the polynomial,</p>
+<p t="228372" d="2780">a zero of the polynomial is a
+better word.</p>
+<p t="231152" d="2983">So, in that case,
+it will be e to the alpha t</p>
+<p t="234135" d="3729">divided by p prime of alpha.</p>
+<p t="237864" d="4136">Differentiate formally the
+polynomials, --</p>
+<p t="242000" d="2417">-- and you will get 2D plus A.</p>
+<p t="244417" d="1933">And now, substitute in the
+alpha.</p>
+<p t="246350" d="3687">And, this will be okay provided
+p prime of alpha</p>
+<p t="250037" d="2417">is not zero.
+That means that alpha is the</p>
+<p t="252454" d="3384">simple root, simple zero of p.
+And then, there's one more</p>
+<p t="255838" d="3505">case, which, since I won't need
+today, I won't write on the</p>
+<p t="259343" d="1752">board.
+But, you'll need it for</p>
+<p t="261095" d="2115">homework.
+So, make sure you know it.</p>
+<p t="263210" d="1813">Another words,
+if this is zero,</p>
+<p t="265023" d="3686">then you've got a double root.
+And, there is still a different</p>
+<p t="268709" d="2175">formula.
+And, this is wrong because I</p>
+<p t="270884" d="2871">forgot the t.
+Yes?</p>
+<p t="273755" d="8122">I could tell on your faces.
+That was before,</p>
+<p t="281877" d="9822">and now we are up to today.
+What we are interested in</p>
+<p t="291699" d="12089">talking about today is what this
+has to do with the phenomenon of</p>
+<p t="303788" d="5505">resonance.
+Everybody knows at least one</p>
+<p t="309293" d="2048">case of resonance,
+I hope.</p>
+<p t="311341" d="2867">A little kid is on his swing,
+right?</p>
+<p t="314208" d="2703">Back and forth,
+and they are very,</p>
+<p t="316911" d="2621">very little,
+so they want a push.</p>
+<p t="319532" d="4341">Okay, well, everybody knows
+that to make the swing go,</p>
+<p t="323873" d="3195">a swing has a certain natural
+frequency.</p>
+<p t="327068" d="3932">It swings back and forth like
+that.</p>
+<p t="331000" d="3435">It's a simple pendulum.
+It's actually damped,</p>
+<p t="334435" d="2421">but let's pretend that it
+isn't.</p>
+<p t="336856" d="4373">Everybody knows you want to
+push a kid on a swing so that</p>
+<p t="341229" d="2655">they go high.
+You have to push with</p>
+<p t="343884" d="4607">essentially the same frequency
+that the natural frequency of</p>
+<p t="348491" d="3357">the spring, of the swing is.
+It's automatic,</p>
+<p t="351848" d="3827">because when you come back
+here, it gets to there,</p>
+<p t="355675" d="3435">and that's where you push.
+So, automatically,</p>
+<p t="359110" d="4938">you time your pushes.
+But if you want the kid to</p>
+<p t="364048" d="4256">stop, you just do the opposite.
+Push at the wrong time.</p>
+<p t="368304" d="4176">So anyway, that's resonance.
+Of course, there are more</p>
+<p t="372480" d="4098">serious applications of it.
+It's what made the Tacoma</p>
+<p t="376578" d="3704">Bridge fall down,
+and I think movies of that are</p>
+<p t="380282" d="4571">now being shown not merely on
+television, but in elementary</p>
+<p t="384853" d="2364">school.
+Resonance is what made,</p>
+<p t="387217" d="3783">okay, more resonance stories
+later.</p>
+<p t="391000" d="2707">So, my aim is,
+what is this physical</p>
+<p t="393707" d="4409">phenomenon, that to get a big
+amplitude you should have it</p>
+<p t="398116" d="3868">match the frequency?
+What does that have to do with</p>
+<p t="401984" d="4255">a differential equation?
+Well, the differential equation</p>
+<p t="406239" d="4023">for that simple pendulum,
+let's assume it's undamped,</p>
+<p t="410262" d="3713">will be of the type y double
+prime plus,</p>
+<p t="413975" d="2398">I'm using t now since t is
+time.</p>
+<p t="416373" d="3172">That will be our new
+independent variable,</p>
+<p t="419545" d="4177">plus omega nought squared
+is the natural</p>
+<p t="423722" d="4642">frequency of the pendulum or of
+the spring, or whatever it is</p>
+<p t="428364" d="7059">that's doing the vibrating.
+Yeah, any questions?</p>
+<p t="435423" d="8216">What we're doing is driving
+that with the cosine,</p>
+<p t="443639" d="7361">with something of a different
+frequency.</p>
+<p t="451000" d="5186">So, this is the input,
+or the driving term as it's</p>
+<p t="456186" d="4339">often called,
+or it's sometimes called the</p>
+<p t="460525" d="4551">forcing term.
+And, the point is I'm going to</p>
+<p t="465076" d="4022">assume that the frequency is
+different.</p>
+<p t="469098" d="5292">The driving frequency is
+different from the natural</p>
+<p t="474390" d="3281">frequency.
+So, this is the input</p>
+<p t="477671" d="3898">frequency.
+Okay, and now let's simply</p>
+<p t="481569" d="2295">solve the equation and see what
+we get.</p>
+<p t="483864" d="2475">So, it's if I write it using
+the operator,</p>
+<p t="486339" d="3140">it's D squared plus omega
+nought squared applied to y</p>
+<p t="489479" d="2536">is equal to cosine.</p>
+<p t="492015" d="3441">It's a good idea to do this
+because the formulas are going</p>
+<p t="495456" d="2536">to ask you to substitute into a
+polynomial.</p>
+<p t="497992" d="3441">So, it's good to have the
+polynomial right in front of you</p>
+<p t="501433" d="1993">to avoid the possibility of
+error.</p>
+<p t="503426" d="3079">Well, really what I want is the
+particular solution.</p>
+<p t="506505" d="3502">It's the particular solution
+that's going to give me a pure</p>
+<p t="510007" d="3681">oscillation.
+And, the thing to do is,</p>
+<p t="513688" d="4010">of course, since this cosine,
+you want to make it complex.</p>
+<p t="517698" d="4362">So, we are going to complexify
+the equation in order to be able</p>
+<p t="522060" d="3799">to solve it more easily,
+and in order to be able to use</p>
+<p t="525859" d="2955">those formulas.
+So, the complex equation is</p>
+<p t="528814" d="3799">going to be D squared plus omega
+nought squared.</p>
+<p t="532613" d="2603">Well, it's going to be a</p>
+<p t="535216" d="4784">complex, particular solution.
+So, I'll call it y tilde.</p>
+<p t="540000" d="4045">And, on the right-hand side,
+that's going to be e to the i</p>
+<p t="544045" d="3833">omega1 t.
+Cosine is the real part of</p>
+<p t="547878" d="2272">this.
+So, when we get our answer,</p>
+<p t="550150" d="3833">we want to be sure to take the
+real part of the answer.</p>
+<p t="553983" d="3762">I don't want the complex
+answer, I want its real part.</p>
+<p t="557745" d="2697">I want the real answer,
+in other words,</p>
+<p t="560442" d="3123">the really real answer,
+the real real answer.</p>
+<p t="563565" d="3904">So, now without further ado,
+because of those beautiful,</p>
+<p t="567469" d="3975">the problem has been solved
+once and for all by using the</p>
+<p t="571444" d="4978">substitution rule.
+I did that for you on Monday.</p>
+<p t="576422" d="4846">The answer is simply e to the i
+omega1 t</p>
+<p t="581268" d="3844">divided by what?
+This polynomial with omega one</p>
+<p t="585112" d="4846">substituted in for D.
+So, sorry, i omega one,</p>
+<p t="589958" d="3175">the complex
+coefficient of t.</p>
+<p t="593133" d="4428">So, it is substitute i omega
+for D, I omega one for D,</p>
+<p t="597561" d="4177">and you get (i omega one)
+squared plus omega nought</p>
+<p t="601738" d="4262">squared.</p>
+<p t="606000" d="3969">Well, let's make that look a
+little bit better.</p>
+<p t="609969" d="4919">This should be e to the (i
+omega one t)</p>
+<p t="614888" d="2416">divided by, now,
+what's this?</p>
+<p t="617304" d="5005">This is simply omega nought
+squared minus omega</p>
+<p t="622309" d="4833">one squared.
+But, I want the real part of</p>
+<p t="627142" d="1726">it.
+So, as one final,</p>
+<p t="628868" d="4832">last step, the real part of
+that is what we call just the</p>
+<p t="633700" d="4228">real particular solution,
+so, yp without the tilde</p>
+<p t="637928" d="4120">anymore.
+And, the real part of this,</p>
+<p t="642048" d="3869">well, this cosine plus i sine.
+And, the denominator,</p>
+<p t="645917" d="4324">luckily, turns out to be real.
+So, it's simply going to be</p>
+<p t="650241" d="2731">cosine omega one t.</p>
+<p t="652972" d="2807">That's the top,
+divided by this thing,</p>
+<p t="655779" d="4400">omega nought squared minus
+omega one squared.</p>
+<p t="660179" d="3264">In other words,</p>
+<p t="663443" d="3656">that's the response.
+This is the input,</p>
+<p t="667099" d="4426">and that's what came out.
+Well, in other words,</p>
+<p t="671525" d="4138">what one sees is,
+regardless of what natural</p>
+<p t="675663" d="4426">frequency this system wanted to
+use for itself,</p>
+<p t="680089" d="5100">at least for this solution,
+what it responds to is the</p>
+<p t="685189" d="4811">driving frequency,
+the input frequency.</p>
+<p t="690000" d="4597">The only thing is that the
+amplitude has changed,</p>
+<p t="694597" d="5363">and in a rather dramatic way,
+if omega1, depending on the</p>
+<p t="699960" d="3352">relative sizes of omega1 and
+omega2.</p>
+<p t="703312" d="5651">Now, the interesting case is
+when omega one is very close to</p>
+<p t="708963" d="4789">omega, the natural frequency.
+When you push it with</p>
+<p t="713752" d="5459">approximately it's natural
+frequency, then the solution is</p>
+<p t="719211" d="4789">big amplitude.
+The amplitude is large.</p>
+<p t="724000" d="3186">So, the solution looks like the
+frequency.</p>
+<p t="727186" d="2877">The input might have looked
+like this.</p>
+<p t="730063" d="3653">Well, it's cosine,
+so it ought to start up here.</p>
+<p t="733716" d="4586">The input might have looked
+like this, but the response will</p>
+<p t="738302" d="3887">be a curve with the same
+frequency and still a pure</p>
+<p t="742189" d="2720">oscillation.
+But, it will have much,</p>
+<p t="744909" d="3343">much bigger amplitude.
+And, it's because the</p>
+<p t="748252" d="4353">denominator, omega nought
+squared minus omega</p>
+<p t="752605" d="3342">one squared,
+is always zero.</p>
+<p t="755947" d="5053">So, the response will,
+instead, look like this.</p>
+<p t="761000" d="3908">Now, to all intents and
+purposes, that's resonance.</p>
+<p t="764908" d="4065">You are pushing something with
+approximately the same</p>
+<p t="768973" d="3440">frequency, something that wants
+to oscillate.</p>
+<p t="772413" d="4691">And, you are pushing it with
+approximately the same frequency</p>
+<p t="777104" d="3205">that it would like to oscillate
+by itself.</p>
+<p t="780309" d="4691">And, what that does is it
+builds up the amplitude</p>
+<p t="785000" d="5232">Well, what happens if omega one
+is actually equal </p>
+<p t="790232" d="4305">to omega zero?
+So, that's the case I'd like to</p>
+<p t="794537" d="3882">analyze for you now.
+Suppose the two are equal,</p>
+<p t="798419" d="3038">in other words.
+Well, the problem is,</p>
+<p t="801457" d="3461">of course, I can't use that
+same solution.</p>
+<p t="804918" d="3882">It isn't applicable.
+But that's why I gave you,</p>
+<p t="808800" d="4811">derived for you using the
+exponential shift law last time,</p>
+<p t="813611" d="4389">the second version,
+when it is a root.</p>
+<p t="818000" d="4468">So, if omega one equals omega
+nought,</p>
+<p t="822468" d="4549">so now our equation looks like
+D squared plus omega nought</p>
+<p t="827017" d="4549">squared, the natural frequency,
+y.</p>
+<p t="831566" d="2872">But this time,
+the driving frequency,</p>
+<p t="834438" d="3432">the input frequency,
+is omega nought itself.</p>
+<p t="837870" d="3112">Then, the same analysis,
+a lot of it is,</p>
+<p t="840982" d="3990">well, I'd better be careful.
+I'd better be careful.</p>
+<p t="844972" d="5028">Let's go through the analysis
+again very rapidly.</p>
+<p t="850000" d="3416">What we want to do is first
+complexify it,</p>
+<p t="853416" d="3667">and then solve.
+So, the complex equation will</p>
+<p t="857083" d="5000">be D squared plus omega nought
+squared times y tilde equals e</p>
+<p t="862083" d="2833">to the i omega nought t,
+this time.</p>
+<p t="869000" d="3992">But now, i omega is zero of
+this polynomial.</p>
+<p t="872992" d="2692">That's why I picked it,
+right?</p>
+<p t="875684" d="5292">If I plug in i omega zero,
+I get i omega zero</p>
+<p t="880976" d="5384">quantity squared plus omega
+nought squared.</p>
+<p t="886360" d="2321">That's zero.</p>
+<p t="888681" d="5292">So, I'm in the second case.
+So, i omega nought is a simple</p>
+<p t="893973" d="4456">root, simple zero,
+of D squared plus </p>
+<p t="898429" d="5571">omega nought,
+that polynomial squared.</p>
+<p t="904000" d="4212">Therefore, the complex
+particular solution is now t e</p>
+<p t="908212" d="5104">to the i omega nought t
+divided by p prime,</p>
+<p t="913316" d="4051">where you plug in that root,
+the i omega nought.</p>
+<p t="917367" d="2349">Now, what's p prime?</p>
+<p t="919716" d="2592">p prime is 2D, right?</p>
+<p t="922308" d="3808">If I differentiate this
+formally, as if D were a</p>
+<p t="926116" d="3808">variable, the way you
+differentiate polynomials,</p>
+<p t="929924" d="2754">the derivative,
+this is a constant,</p>
+<p t="932678" d="6182">and the derivative is 2D.
+So, the denominator should have</p>
+<p t="938860" d="3875">two times for D.
+You are going to plug in i</p>
+<p t="942735" d="4797">omega zero.
+So, it's 2 i omega zero.</p>
+<p t="947532" d="3506">And now, I want the real part</p>
+<p t="951038" d="4060">of that, which is what?
+Well, think about it.</p>
+<p t="955098" d="5443">The top is cosine plus i sine.
+The real part is now going to</p>
+<p t="960541" d="4613">come from the sine,
+right, because it's cosine plus</p>
+<p t="965154" d="4039">i sine.
+But this i is going to divide</p>
+<p t="969193" d="2571">out the i that goes with this
+sine.</p>
+<p t="971764" d="3404">And, therefore,
+the real part is going to be t</p>
+<p t="975168" d="3252">times the sine,
+this time, of omega nought t.</p>
+<p t="978420" d="3857">And, that's going to be divided</p>
+<p t="982277" d="4765">by, well, the i canceled out the
+i that was in front of the sine</p>
+<p t="987042" d="1739">function.
+And therefore,</p>
+<p t="988781" d="5219">what's left is two omega nought
+down below.</p>
+<p t="994000" d="2822">So, that's our particular
+solution now.</p>
+<p t="996822" d="2823">Well, it looks different from
+that guy.</p>
+<p t="999645" d="2452">It doesn't look like that
+anymore.</p>
+<p t="1002097" d="3937">What does it look like?
+Well, it shows the way to plot</p>
+<p t="1006034" d="4605">such things is basically it's an
+oscillation of frequency omega</p>
+<p t="1010639" d="3640">nought.
+But, its amplitude is changing.</p>
+<p t="1014279" d="4012">So, the way to do it is,
+as always, if you have a basic</p>
+<p t="1018291" d="3714">oscillation which is neither too
+fast nor too slow,</p>
+<p t="1022005" d="4309">think of that as the thing,
+and the other stuff multiplying</p>
+<p t="1026314" d="4457">it, think of it as changing the
+amplitude of that oscillation</p>
+<p t="1030771" d="4028">with time.
+So, the amplitude is that</p>
+<p t="1034799" d="3598">function, t divided by two omega
+zero.</p>
+<p t="1038397" d="3383">So, just as we did when we
+talked about damping,</p>
+<p t="1041780" d="3310">you plot that and it's negative
+on the picture.</p>
+<p t="1045090" d="4391">So, this is the function whose
+graph is t divided by two omega</p>
+<p t="1049481" d="4780">nought.
+That's the changing amplitude,</p>
+<p t="1054261" d="3015">as it were.
+And then, the function itself</p>
+<p t="1057276" d="4522">does what oscillation it can,
+but it has to stay within those</p>
+<p t="1061798" d="1960">lines.
+So, the thing that's</p>
+<p t="1063758" d="3920">oscillating is sine omega nought
+t,</p>
+<p t="1067678" d="4447">which would like to be a pure
+oscillation, but can't because</p>
+<p t="1072125" d="3317">its amplitude is being changed
+by that thing.</p>
+<p t="1075442" d="3467">So, it's doing this,
+and now the rest I have to</p>
+<p t="1078909" d="4247">leave to your imagination.
+In other words,</p>
+<p t="1083156" d="4548">what happens when omega nought
+is equal to, when the driving</p>
+<p t="1087704" d="3315">frequency is actually equal to
+omega nought,</p>
+<p t="1091019" d="4548">mathematically this turns into
+a different looking solution,</p>
+<p t="1095567" d="2929">one with steadily increasing
+amplitude.</p>
+<p t="1098496" d="3932">The amplitude increases
+linearly like the function t</p>
+<p t="1102428" d="3546">divided by two omega nought.</p>
+<p t="1105974" d="3469">Well, many people are upset by
+this, slightly,</p>
+<p t="1109443" d="3237">in the sense that there is a
+funny feeling.</p>
+<p t="1112680" d="5320">How is it that that solution
+can turn into this one?</p>
+<p t="1118000" d="5111">If I simply let omega one go to
+omega zero, what happens?</p>
+<p t="1123111" d="4381">Well, the pink curve just gets
+taller and taller,</p>
+<p t="1127492" d="4837">and after a while all you see
+of it is just a bunch of</p>
+<p t="1132329" d="5385">vertical lines which seem to be
+spaced at whatever the right</p>
+<p t="1137714" d="6247">period is for that function.
+It's sort of like being in a</p>
+<p t="1143961" d="4971">first story window and watching
+a giraffe go by.</p>
+<p t="1148932" d="3068">All you see is that.
+Okay.</p>
+<p t="1160000" d="4436">So, my concern is how does that
+function turn into this one?</p>
+<p t="1164436" d="3082">I have something in mind to
+remind you of,</p>
+<p t="1167518" d="3910">and that's why we'll go through
+this little exercise.</p>
+<p t="1171428" d="3684">It's a simple exercise.
+But the function of it is,</p>
+<p t="1175112" d="3910">of course that as omega one
+goes to omega zero cannot</p>
+<p t="1179022" d="4135">possibly turn into this.
+It's doing the wrong thing near</p>
+<p t="1183157" d="2181">zero.
+It's already zooming up.</p>
+<p t="1185338" d="3684">But, the point is,
+this is not the only particular</p>
+<p t="1189022" d="3910">solution on the block.
+Any solution whatsoever of the</p>
+<p t="1192932" d="3684">differential equation,
+the inhomogeneous equation,</p>
+<p t="1196616" d="5127">is a particular solution.
+It's like Fred Rogers:</p>
+<p t="1201743" d="3726">everybody is special.
+Okay, so all solutions are</p>
+<p t="1205469" d="3012">special.
+We don't have to use that one.</p>
+<p t="1208481" d="3012">So, I will use,
+where are all the other</p>
+<p t="1211493" d="2775">solutions?
+So, I'm going back to the</p>
+<p t="1214268" d="3884">equation D squared plus omega
+zero squared,</p>
+<p t="1218152" d="2061">applied to y,</p>
+<p t="1220213" d="3805">is equal to cosine
+omega one t.</p>
+<p t="1224018" d="3963">Now, the particular solution we
+found was that one,</p>
+<p t="1227981" d="4756">cosine omega one t divided by
+that omega nought squared minus</p>
+<p t="1232737" d="6263">omega one squared.</p>
+<p t="1239000" d="5276">What do the other particular
+solutions look like?</p>
+<p t="1244276" d="4947">Well, in general,
+any particular solution will</p>
+<p t="1249223" d="5716">look like that one we found,
+what is it, omega nought</p>
+<p t="1254939" d="6486">squared minus omega 
+one squared,</p>
+<p t="1261425" d="6486">plus I'm allowed to add to it
+any piece of the complementary</p>
+<p t="1267911" d="3522">solution.
+Equally particular,</p>
+<p t="1271433" d="3321">and equally good,
+as a particular solution is</p>
+<p t="1274754" d="4227">this plus anything which solved
+the homogeneous equation.</p>
+<p t="1278981" d="4452">Now, all I'm going to do is
+pick out one good function which</p>
+<p t="1283433" d="3548">solves the homogeneous equation,
+and here it is.</p>
+<p t="1286981" d="5314">It's the function minus cosine.
+In fact, what does solve the</p>
+<p t="1292295" d="4262">homogeneous equation?
+Well, it's solved by sine omega</p>
+<p t="1296557" d="3934">nought t,
+cosine omega nought t,</p>
+<p t="1300491" d="3853">and any linear combination of</p>
+<p t="1304344" d="3033">those.
+So, out of all those functions,</p>
+<p t="1307377" d="4098">the one I'm going to pick is
+cosine omega nought t.</p>
+<p t="1311475" d="3606">And, I'm going to divide it by
+this same guy.</p>
+<p t="1315081" d="4919">So, this is part of the
+complementary solution.</p>
+<p t="1320000" d="2869">That's what we call the
+complementary solution,</p>
+<p t="1322869" d="3180">the solution to the associated
+homogeneous equation,</p>
+<p t="1326049" d="2869">to the reduced equation.
+Call it what you like.</p>
+<p t="1328918" d="3306">So, this is one of the guys in
+there, and it's still a</p>
+<p t="1332224" d="3056">particular solution to take the
+one I first found,</p>
+<p t="1335280" d="3742">and add to it anything which
+solves the homogeneous equation.</p>
+<p t="1339022" d="3181">I showed you that when we first
+set out to solve the</p>
+<p t="1342203" d="2058">inhomogeneous equation in
+general.</p>
+<p t="1344261" d="2869">Now, why do I pick that?
+Well, I'm going to now</p>
+<p t="1347130" d="4770">calculate, what's the limit?
+So, these guys are also good</p>
+<p t="1351900" d="3326">solutions to that.
+This is a good solution to that</p>
+<p t="1355226" d="3393">equation, this equation.
+All I'm going to do now is</p>
+<p t="1358619" d="4141">calculate the limit as omega one
+approaches omega zero of this</p>
+<p t="1362760" d="3393">function.
+Well, what is that?</p>
+<p t="1366153" d="4005">It's cosine omega one t minus
+cosine omega zero t divided by</p>
+<p t="1370158" d="4208">omega nought squared minus omega
+one squared.</p>
+<p t="1377081" d="5042">Now, you see why I did that.
+If I let just this guy,</p>
+<p t="1382123" d="4892">omega one approaches
+omega zero,</p>
+<p t="1387015" d="3323">I get infinity.
+I don't get anything.</p>
+<p t="1390338" d="4523">But, this is different here
+because I fixed it up,</p>
+<p t="1394861" d="3046">now.
+The denominator becomes zero,</p>
+<p t="1397907" d="3785">but so does the numerator.
+In other words,</p>
+<p t="1401692" d="4523">I've put myself in position to
+use L'Hopital rule.</p>
+<p t="1406215" d="3508">So, let's L'Hopital it.
+It's the limit.</p>
+<p t="1409723" d="4984">As omega one approaches omega
+zero, and what do you do?</p>
+<p t="1414707" d="7293">You differentiate the top and
+the bottom with respect to what?</p>
+<p t="1422000" d="2223">Right, with respect to omega
+one.</p>
+<p t="1424223" d="3406">Omega one is the variable.
+That's what's changing.</p>
+<p t="1427629" d="2988">The t that I'm thinking of is,
+I'm thinking,</p>
+<p t="1430617" d="3267">for the temporary fixed.
+This has a fixed value.</p>
+<p t="1433884" d="3405">Omega nought is fixed.
+All that's changing in this</p>
+<p t="1437289" d="3743">limit operation is omega one.
+And therefore,</p>
+<p t="1441032" d="3981">it's with respect to omega one
+that I differentiate it.</p>
+<p t="1445013" d="3245">You got that?
+Well, you are in no position to</p>
+<p t="1448258" d="3023">say yes or no,
+so I shouldn't even ask the</p>
+<p t="1451281" d="2875">question, but okay,
+rhetorical question.</p>
+<p t="1454156" d="3392">All right, let's differentiate
+this expression,</p>
+<p t="1457548" d="3244">the top and bottom with respect
+to omega one.</p>
+<p t="1460792" d="4203">So, the derivative of the top
+with respect to omega one is</p>
+<p t="1464995" d="3244">negative sine omega one t.</p>
+<p t="1468239" d="3761">But, I have to use the chain
+rule.</p>
+<p t="1472000" d="3704">That's differentiating with
+respect to this argument,</p>
+<p t="1475704" d="3135">this variable.
+But now, I must take times the</p>
+<p t="1478839" d="4346">derivative of this thing with
+respect to omega one.</p>
+<p t="1483185" d="2921">And that is t is the constant,
+so times t.</p>
+<p t="1486106" d="3848">And, how about the bottom?
+The derivative of the bottom</p>
+<p t="1489954" d="3776">with respect to omega one is,
+well, that's a constant.</p>
+<p t="1493730" d="3562">So, it becomes zero.
+And, this becomes negative two</p>
+<p t="1497292" d="4674">omega one.
+So, it's the limit of this</p>
+<p t="1501966" d="4010">expression as omega one
+approaches omega zero.</p>
+<p t="1505976" d="3253">And now it's not indeterminate</p>
+<p t="1509229" d="1664">anymore.
+The answer is,</p>
+<p t="1510893" d="4312">the negative signs cancel.
+It's simply t sine omega nought</p>
+<p t="1515205" d="3858">t divided by two omega nought.</p>
+<p t="1519063" d="2724">So, that's how we get that</p>
+<p t="1521787" d="2647">solution.
+It is a limit as omega one,</p>
+<p t="1524434" d="4086">but not of the
+particular solution we found</p>
+<p t="1528520" d="5711">first, but of this other one.
+Now, it's still too much</p>
+<p t="1534231" d="3440">algebra.
+I mean, what's going on here?</p>
+<p t="1537671" d="3997">Well, that's something else you
+should know.</p>
+<p t="1541668" d="5114">Okay, so my question is,
+therefore, what does this mean?</p>
+<p t="1546782" d="3719">What's the geometric meaning of
+all this?</p>
+<p t="1550501" d="3997">In other words,
+what does that function look</p>
+<p t="1554498" d="2325">like?
+Well, that's another</p>
+<p t="1556823" d="4555">trigonometric identity,
+which in your book is just</p>
+<p t="1561378" d="5764">buried as half of one line sort
+of casual as if everybody knows</p>
+<p t="1567142" d="5858">it, and I know that virtually no
+one knows it.</p>
+<p t="1573000" d="4274">But, here's your chance.
+So, the cosine of B minus the</p>
+<p t="1577274" d="5080">cosine of A can be expressed 
+as a product of</p>
+<p t="1582354" d="2742">signs.
+It's the sine of (A minus B)</p>
+<p t="1585096" d="4516">over two times the sine of (A
+plus B) over two,</p>
+<p t="1589612" d="3388">I believe.</p>
+<p t="1593000" d="4752">My only uncertainty:
+is there a two in front of</p>
+<p t="1597752" d="2997">that?
+I think there has to be.</p>
+<p t="1600749" d="1963">Let me check.
+Sorry.</p>
+<p t="1602712" d="4236">Is there a two?
+I wouldn't trust my memory</p>
+<p t="1606948" d="2273">anyway.
+I'd look it up.</p>
+<p t="1609221" d="2686">I did look it up,
+two, yes.</p>
+<p t="1611907" d="5683">If you had to prove that,
+you could use the sine formula</p>
+<p t="1617590" d="5658">to expand this out.
+That would be a bad way to do</p>
+<p t="1623248" d="2559">it.
+The best way is to use complex</p>
+<p t="1625807" d="2791">numbers.
+Express the sign in terms of</p>
+<p t="1628598" d="2249">complex numbers,
+exponentials,</p>
+<p t="1630847" d="2869">you know, the backwards Euler
+formula.</p>
+<p t="1633716" d="3412">Then do it here,
+and then just multiply those</p>
+<p t="1637128" d="3644">two expressions involving
+exponentials together,</p>
+<p t="1640772" d="2637">and cancel, cancel,
+cancel, cancel,</p>
+<p t="1643409" d="3489">cancel, and this is what you
+will end up with.</p>
+<p t="1646898" d="4765">You see why I did this.
+It's because this has that</p>
+<p t="1651663" d="2302">form.
+So, let's apply that formula to</p>
+<p t="1653965" d="2111">it.
+So, what's the left-hand side?</p>
+<p t="1656076" d="3902">B is omega one t, and A is 
+omega nought t.</p>
+<p t="1659978" d="2303">So, this is omega one t,</p>
+<p t="1662281" d="2495">and this is omega nought t</p>
+<p t="1664776" d="2622">All right, so what we get is</p>
+<p t="1667398" d="3966">that the cosine of omega one t
+minus the cosine of omega nought</p>
+<p t="1671364" d="3582">t, which is exactly the</p>
+<p t="1674946" d="5054">numerator of this function that
+I'm trying to get a handle on.</p>
+<p t="1680000" d="2792">Then we will divide it by its
+amplitude.</p>
+<p t="1682792" d="3079">So, that's this constant factor
+that's real.</p>
+<p t="1685871" d="4510">It's a small number because I'm
+thinking of omega one</p>
+<p t="1690381" d="3294">as being rather close to omega
+zero,</p>
+<p t="1693675" d="4153">and getting closer and closer.
+What does this tell us about</p>
+<p t="1697828" d="3436">the right-hand side?
+Well, the right-hand side is</p>
+<p t="1701264" d="3151">twice the sine of A minus B.</p>
+<p t="1704415" d="4009">Now, that's good because these
+guys sort of resemble each</p>
+<p t="1708424" d="3793">other.
+So, that's (omega nought minus</p>
+<p t="1712217" d="3030">omega one) times t.</p>
+<p t="1715247" d="4286">That's A minus B,
+and I'm supposed to divide that</p>
+<p t="1719533" d="2808">by two.
+And then, the other one will be</p>
+<p t="1722341" d="3917">the same thing with plus:
+sine omega nought plus omega</p>
+<p t="1726258" d="3769">one over two times t.</p>
+<p t="1730027" d="2587">Now, how big is this,
+approximately?</p>
+<p t="1732614" d="4138">Remember, think of omega one
+as close to omega zero.</p>
+<p t="1736752" d="3178">Then, this is approximately</p>
+<p t="1739930" d="3936">omega zero.
+So this part is approximately</p>
+<p t="1743866" d="2446">sine of omega zero t.</p>
+<p t="1746312" d="3540">This part, on the other hand,
+that's a very small thing.</p>
+<p t="1749852" d="3862">Okay, now what I want to know
+is what does this function look</p>
+<p t="1753714" d="2125">like?
+The interest in knowing what</p>
+<p t="1755839" d="3733">the function looks like it is
+because we want to be able to</p>
+<p t="1759572" d="2253">see that it's limited is that
+thing.</p>
+<p t="1761825" d="3476">You can't tell what's what its
+limit is, geometrically,</p>
+<p t="1765301" d="4699">unless you know it looks like.
+So, what does it look like?</p>
+<p t="1770000" d="5844">Well, again,
+the way to analyze it is the</p>
+<p t="1775844" d="5699">thing, that thing.
+What you think of is,</p>
+<p t="1781543" d="7744">yeah, of course you cannot
+divide one side of equality</p>
+<p t="1789287" d="6868">without dividing the equation by
+the other side.</p>
+<p t="1796155" d="5845">So, that's got to be there,
+too.</p>
+<p t="1802000" d="4503">Now, what does that look like?
+Well, the way to think of it</p>
+<p t="1806503" d="4115">is, here is something with a
+normal sort of frequency,</p>
+<p t="1810618" d="3494">omega nought.
+It's doing its thing.</p>
+<p t="1814112" d="2640">It's a sine curve.
+It's doing that.</p>
+<p t="1816752" d="2873">What's this?
+Think of all this part as</p>
+<p t="1819625" d="3572">varying amplitude.
+It's just another example of</p>
+<p t="1823197" d="3028">what I gave you before.
+Here is a basic,</p>
+<p t="1826225" d="3495">pure oscillation,
+and now, think of everything</p>
+<p t="1829720" d="5280">else that's multiplying it as
+varying its amplitude.</p>
+<p t="1835000" d="3886">All right, so what does that
+thing look like?</p>
+<p t="1838886" d="5124">Well, first what we want to do
+is plot the amplitude lines.</p>
+<p t="1844010" d="4505">Now, what will they be?
+This is sine of an extremely</p>
+<p t="1848515" d="3887">small number times t.
+The frequency is small.</p>
+<p t="1852402" d="5036">How does the sine curve look if
+its frequency is very low,</p>
+<p t="1857438" d="4863">very close to zero?
+Well, that must mean its period</p>
+<p t="1862301" d="3044">is very large.
+Here's something with a big</p>
+<p t="1865345" d="2896">frequency.
+Here's something with a very,</p>
+<p t="1868241" d="3341">very low frequency.
+Now, with a low frequency,</p>
+<p t="1871582" d="4232">it would hardly get off the
+ground and get up to one here,</p>
+<p t="1875814" d="3861">and it would do that.
+But, it's made to look a little</p>
+<p t="1879675" d="3935">more presentable because of this
+coefficient in front,</p>
+<p t="1883610" d="3786">which is rather large.
+And so, what this thing looks</p>
+<p t="1887396" d="4604">like, I won't pause to analyze
+it more exactly.</p>
+<p t="1892000" d="4461">It's something which goes up at
+a reasonable rate for quite a</p>
+<p t="1896461" d="2974">while, and let's say that's
+quite awhile.</p>
+<p t="1899435" d="2975">And then it comes down,
+and then it goes,</p>
+<p t="1902410" d="2974">and so on.
+Of course, in figuring out its</p>
+<p t="1905384" d="3941">amplitude, we have to be willing
+to draw its negative,</p>
+<p t="1909325" d="2157">too.
+And since I didn't figure</p>
+<p t="1911482" d="3420">things out right,
+I can at least make it cross,</p>
+<p t="1914902" d="818">right?
+Okay.</p>
+<p t="1915720" d="5280">So, this is a picture of this
+slowly varying amplitude.</p>
+<p t="1921000" d="4018">And in between,
+this is the function which is</p>
+<p t="1925018" d="3654">doing the oscillation,
+as well as it can.</p>
+<p t="1928672" d="3744">But, it has to stay within that
+amplitude.</p>
+<p t="1932416" d="3471">So, it's doing this.
+Now, what happens?</p>
+<p t="1935887" d="5115">As omega one approaches omega
+zero,</p>
+<p t="1941002" d="4110">this frequency gets closer and
+closer to zero,</p>
+<p t="1945112" d="5297">which means the period of that
+dotted line gets further and</p>
+<p t="1950409" d="5572">further out, goes to infinity,
+and you never do ultimately get</p>
+<p t="1955981" d="6593">a chance to come down again.
+All you can see is the initial</p>
+<p t="1962574" d="2918">part, where it's rising and
+rising.</p>
+<p t="1965492" d="3948">And, that's how this curve
+turns into that one.</p>
+<p t="1969440" d="3347">Now, of course,
+this curve is enormously</p>
+<p t="1972787" d="2918">interesting.
+You must have had this</p>
+<p t="1975705" d="3347">somewhere.
+That's the phenomenon of what</p>
+<p t="1979052" d="3948">are called beats.
+Too frequencies--</p>
+<p t="1983000" d="2845">Your book has half a page
+explaining this.</p>
+<p t="1985845" d="3818">That's the half a page where he
+gives you this identity,</p>
+<p t="1989663" d="3817">except it gives it in a wrong
+form, so that it's hard to</p>
+<p t="1993480" d="2777">figure out.
+But anyway, the beats are two</p>
+<p t="1996257" d="4095">frequencies when you combine
+them, the two frequencies being</p>
+<p t="2000352" d="4164">two combined pure oscillations
+where the frequencies are very</p>
+<p t="2004516" d="3401">close to each other.
+What you get is a curve which</p>
+<p t="2007917" d="3226">looks like that.
+And, of course,</p>
+<p t="2011143" d="3202">what you hear is the envelope
+of the curve.</p>
+<p t="2014345" d="3507">You hear the dotted lines.
+Well, you hear this.</p>
+<p t="2017852" d="1373">You hear that,
+too.</p>
+<p t="2019225" d="4422">But, what you hear is-- And,
+that's how good violinists and</p>
+<p t="2023647" d="3278">cellists, and so on,
+tune their instruments.</p>
+<p t="2026925" d="4270">They get one string right,
+and then the other strings are</p>
+<p t="2031195" d="3735">tuned by listening.
+They don't actually listen for</p>
+<p t="2034930" d="3660">the sound of the note.
+They listened just for the</p>
+<p t="2038590" d="3583">beats, wah, wah,
+wah, wah, and they turn the peg</p>
+<p t="2042173" d="2287">and it goes wah,
+wah, wah, wah,</p>
+<p t="2044460" d="3508">and then finally as soon as the
+wahs disappear,</p>
+<p t="2047968" d="5032">they know that the two strings
+are in tune.</p>
+<p t="2053000" d="3021">A piano tuner does the same
+thing.</p>
+<p t="2056021" d="3479">Of course, I,
+being a very bad cellist,</p>
+<p t="2059500" d="3295">use a tuner.
+That's another solution,</p>
+<p t="2062795" d="3205">a more modern solution.
+Okay.</p>
+<p t="2089000" d="2277">Oh well.
+Let's give it a try.</p>
+<p t="2091277" d="4230">The bad news is that problem
+six in your problem set,</p>
+<p t="2095507" d="3253">I didn't ask you about the
+undamped case.</p>
+<p t="2098760" d="4799">I thought, since you are mature
+citizens, you could be asked</p>
+<p t="2103559" d="2441">about the damped case.</p>
+<p t="2121000" d="5069">I warn you, first of all you
+have to get the notation.</p>
+<p t="2126069" d="5070">This is probably the most
+important thing I'll do with</p>
+<p t="2131139" d="10861">this.
+Your book uses this, resonance.</p>
+<p t="2162000" d="4797">I'm optimistic.
+[LAUGHTER] Let's say zero or f</p>
+<p t="2166797" d="2453">of t.
+It doesn't matter.</p>
+<p t="2169250" d="3091">In other words,
+the constants,</p>
+<p t="2172341" d="5545">the book uses two sets of
+constants to describe these</p>
+<p t="2177886" d="2878">equations.
+If it's a spring,</p>
+<p t="2180764" d="5971">and not even talking about RLC
+circuits, the spring mass,</p>
+<p t="2186735" d="6615">damping, k, spring constant.
+Then you divide out by m and</p>
+<p t="2193350" d="3273">you get this.
+You're familiar with that.</p>
+<p t="2196623" d="4700">And, it's only after you
+divided out by the m that you're</p>
+<p t="2201323" d="4700">allowed to call this the square
+of the natural frequency.</p>
+<p t="2206023" d="5204">So, omega naught is the natural
+frequency, the natural undamped</p>
+<p t="2211227" d="3190">frequency.
+If this term were not there,</p>
+<p t="2214417" d="4784">that omega nought
+would give the frequency with</p>
+<p t="2219201" d="4029">which the system,
+the little spring would like to</p>
+<p t="2223230" d="5264">vibrate by itself.
+Now, further complication is</p>
+<p t="2228494" d="3296">that the visual uses neither of
+these.</p>
+<p t="2231790" d="4365">The visual uses x double dot
+plus b times x prime,</p>
+<p t="2236155" d="4097">I think we will have to fix
+this in the future,</p>
+<p t="2240252" d="2673">but for now,
+just live with it,</p>
+<p t="2242925" d="4632">plus kx,
+and that's some function,</p>
+<p t="2247557" d="3296">again, a function.
+So, in other words,</p>
+<p t="2250853" d="6147">the problem is that b is okay,
+can't be confused with c.</p>
+<p t="2257000" d="5573">On the other hand,
+this is not the same k as that.</p>
+<p t="2262573" d="6028">What I'm trying to say is,
+don't automatically go to a</p>
+<p t="2268601" d="4778">formula one place,
+and assume it's the same</p>
+<p t="2273379" d="5232">formula in another place.
+You have to use these</p>
+<p t="2278611" d="4820">equivalences.
+You have to look and see how</p>
+<p t="2283431" d="5122">the basic equation was written,
+and then figure out what the</p>
+<p t="2288553" d="3734">constant should be.
+Now, there was something</p>
+<p t="2292287" d="5296">called, when we analyzed this
+before, and this has happened in</p>
+<p t="2297583" d="4428">recitation, there was the
+natural, damped frequency.</p>
+<p t="2302011" d="3647">I'll call it the natural,
+damped frequency.</p>
+<p t="2305658" d="4342">The book calls it the
+pseudo-frequency.</p>
+<p t="2310000" d="3873">It's called pseudo-frequency
+because the function,</p>
+<p t="2313873" d="4507">if you have zero on the right
+hand side, but have damping,</p>
+<p t="2318380" d="3004">the function isn't periodic.
+It decays.</p>
+<p t="2321384" d="1977">It does this.
+Nonetheless,</p>
+<p t="2323361" d="3794">it still crosses the t-axis at
+regular intervals,</p>
+<p t="2327155" d="3479">and therefore,
+almost everybody just casually</p>
+<p t="2330634" d="4269">refers to it as the frequency,
+and understands it's the</p>
+<p t="2334903" d="4349">natural damped frequency.
+Now, the relation between them</p>
+<p t="2339252" d="3636">is given by the little picture I
+drew you once.</p>
+<p t="2342888" d="4112">But, I didn't emphasize it
+enough.</p>
+<p t="2347000" d="2379">Here is omega nought.</p>
+<p t="2349379" d="3454">Here is the right angle.
+The side is omega one,</p>
+<p t="2352833" d="3071">and this side is the
+damping.</p>
+<p t="2355904" d="3454">So, in other words,
+this is fixed because it's</p>
+<p t="2359358" d="3914">fixed by the spring.
+That's the natural frequency of</p>
+<p t="2363272" d="3762">the spring, by itself.
+If you are damping near the</p>
+<p t="2367034" d="4759">motion, then the more you damped
+it, the bigger this side gets,</p>
+<p t="2371793" d="4759">and therefore the smaller omega
+one is, the bigger the damping,</p>
+<p t="2376552" d="4375">then the smaller the frequency
+with which the damped thing</p>
+<p t="2380927" d="3466">vibrates.
+That sort of intuitive,</p>
+<p t="2384393" d="2728">and vice versa.
+If you decrease the damping to</p>
+<p t="2387121" d="2666">almost zero, well,
+then you'll make omega one</p>
+<p t="2389787" d="2061">almost the same size as omega
+zero.</p>
+<p t="2391848" d="2485">This must be a right angle,
+and therefore,</p>
+<p t="2394333" d="3576">if there's very little damping,
+the natural damped frequency</p>
+<p t="2397909" d="2969">will be almost the same as the
+original frequency,</p>
+<p t="2400878" d="4972">the natural frequency.
+So, the relation between them</p>
+<p t="2405850" d="5602">is that omega one squared is
+equal to omega nought squared</p>
+<p t="2411452" d="4424">minus p squared,</p>
+<p t="2415876" d="5111">and this comes from the
+characteristic roots from the</p>
+<p t="2420987" d="5013">characteristic roots of the
+damped equation.</p>
+<p t="2426000" d="5348">So, we did that before.
+I'm just reminding you of it.</p>
+<p t="2431348" d="6274">Now, the third frequency which
+now enters, and that I'm asking</p>
+<p t="2437622" d="6275">you about on the problem set is
+if you've got a damped spring,</p>
+<p t="2443897" d="6068">okay, what happens when you
+impose a motion on it with yet a</p>
+<p t="2449965" d="3189">third frequency?
+In other words,</p>
+<p t="2453154" d="3806">drive the damped spring.
+I don't care.</p>
+<p t="2456960" d="5040">I switched to y,
+since I'm in y mode.</p>
+<p t="2462000" d="4150">So, our equation looks like
+this, just as it did before,</p>
+<p t="2466150" d="4604">except now going to drive that
+with an undetermined frequency,</p>
+<p t="2470754" d="2340">cosine omega t.</p>
+<p t="2473094" d="2264">And, my question,
+now, is, see,</p>
+<p t="2475358" d="4302">it's not going to be able to
+resonate in the correct-- you</p>
+<p t="2479660" d="4377">really only get true resonance
+when you don't have damping.</p>
+<p t="2484037" d="3925">That's the only time where the
+amplitude can build up</p>
+<p t="2487962" d="3752">indefinitely.
+But nonetheless,</p>
+<p t="2491714" d="6214">for all practical purposes,
+and there's always some damping</p>
+<p t="2497928" d="4714">unless you are a perfect vacuum
+or something,</p>
+<p t="2502642" d="3643">there's almost always some
+damping.</p>
+<p t="2506285" d="4179">So, p isn't zero,
+can't be exactly zero.</p>
+<p t="2510464" d="3964">So, the problem is,
+which omega gives,</p>
+<p t="2514428" d="6429">which frequency in the input,
+which input frequency gives the</p>
+<p t="2520857" d="5143">maximal amplitude for the
+response?</p>
+<p t="2540000" d="2905">We solved that problem when it
+was undamped,</p>
+<p t="2542905" d="3649">and the answer was easy.
+Omega should equal omega zero.</p>
+<p t="2546554" d="3446">But, when it's damped,
+the answer is different.</p>
+<p t="2550000" d="3565">And, I'm not asking you to do
+it in general.</p>
+<p t="2553565" d="3648">I'm giving you some numbers.
+But nonetheless,</p>
+<p t="2557213" d="3731">it still must be the case.
+So, I'm giving you,</p>
+<p t="2560944" d="4726">I give you specific values of p
+and omega zero.</p>
+<p t="2565670" d="4644">That's on the problem set.
+Of course, one of them is tied</p>
+<p t="2570314" d="3150">to your recitation.
+But, the answer is,</p>
+<p t="2573464" d="4561">I'm going to give you the
+general formula for the answer</p>
+<p t="2578025" d="4975">to make sure that you don't get
+wildly astray.</p>
+<p t="2583000" d="2721">Let's call that omega r,</p>
+<p t="2585721" d="3403">the resonant omega.
+This isn't true resonance.</p>
+<p t="2589124" d="2873">Your book calls it practical
+resonance.</p>
+<p t="2591997" d="3100">Again, most people just call it
+resonance.</p>
+<p t="2595097" d="2949">So, you know what I mean,
+type of thing.</p>
+<p t="2598046" d="2722">It is omega r is very much like
+that.</p>
+<p t="2600768" d="4385">Maybe I should have written
+this one down in the same form.</p>
+<p t="2605153" d="4461">Omega one is the square root of
+omega nought squared minus p</p>
+<p t="2609614" d="4386">squared.</p>
+<p t="2614000" d="3779">What would you expect?
+Well, what I would expect is</p>
+<p t="2617779" d="2418">that omega r should be omega
+one.</p>
+<p t="2620197" d="3099">The damped system has a natural
+frequency.</p>
+<p t="2623296" d="4233">The resonant frequency should
+be the same as that natural</p>
+<p t="2627529" d="4534">frequency with which the damped
+system wants to do its thing.</p>
+<p t="2632063" d="2646">And the answer is,
+that's not right.</p>
+<p t="2634709" d="3174">It is the square root.
+It's a little lower.</p>
+<p t="2637883" d="3477">It's a little lower.
+It is omega nought squared</p>
+<p t="2641360" d="1333">minus two p squared.</p>
+</body>
+</timedtext>

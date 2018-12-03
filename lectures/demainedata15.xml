@@ -1,0 +1,2530 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="90" d="2400">The following content is
+provided under a Creative</p>
+<p t="2490" d="1540">Commons license.</p>
+<p t="4030" d="2330">Your support will help
+MIT OpenCourseWare</p>
+<p t="6360" d="4360">continue to offer high quality
+educational resources for free.</p>
+<p t="10720" d="2600">To make a donation or
+view additional materials</p>
+<p t="13320" d="3960">from hundreds of MIT courses,
+visit MIT OpenCourseWare</p>
+<p t="17280" d="1170">at ocw.mit.edu.</p>
+<p t="21215" d="875">PROFESSOR: All right.</p>
+<p t="22090" d="2790">Today, we're going to look at
+some kind of different data</p>
+<p t="24880" d="3120">structures for static trees.</p>
+<p t="28000" d="2294">So we have-- at least in
+the second two problems--</p>
+<p t="30294" d="916">we have a static tree.</p>
+<p t="31210" d="3570">We want to preprocess it
+to answer lots of queries.</p>
+<p t="34780" d="2600">And all the queries we're
+going to support today</p>
+<p t="37380" d="2980">we'll do in constant time per
+operation, which is pretty</p>
+<p t="40360" d="1770">awesome, and linear space.</p>
+<p t="42130" d="667">That's our goal.</p>
+<p t="42797" d="1874">It's going to be hard
+to achieve these goals.</p>
+<p t="44671" d="1839">But in the end, we will
+do it for all three</p>
+<p t="46510" d="750">of these problems.</p>
+<p t="47260" d="2220">So let me tell you
+about these problems.</p>
+<p t="49480" d="7680">Range minimum queries, you're
+given an array of numbers.</p>
+<p t="67064" d="1791">And the kind of query
+you want to support--</p>
+<p t="71590" d="3081">we'll call RMQ of ij--</p>
+<p t="77420" d="4210">is to find the
+minimum in a range.</p>
+<p t="81630" d="12650">So we have Ai up to Aj and we
+want to compute the minimum</p>
+<p t="94280" d="1150">in that range.</p>
+<p t="95430" d="3410">So i and j form the query.</p>
+<p t="98840" d="1830">I think it's pretty
+clear what this means.</p>
+<p t="100670" d="4150">I give you an interval
+that I care about, ij,</p>
+<p t="104820" d="1910">and I want to know,
+in this range,</p>
+<p t="106730" d="1500">what's the smallest value.</p>
+<p t="108230" d="2520">And a little more subtle--
+this will come up later.</p>
+<p t="110750" d="2130">I don't just want to
+know the value that's</p>
+<p t="112880" d="1500">there-- like say
+this is the minimum</p>
+<p t="114380" d="1930">among that shaded region.</p>
+<p t="116310" d="4510">But I also want to know
+the index K between i</p>
+<p t="120820" d="2869">and j of that element.</p>
+<p t="123689" d="2541">Of course, if I know the index,
+I can also look up the value.</p>
+<p t="126230" d="3969">So it's more interesting
+to know that index.</p>
+<p t="130199" d="500">OK.</p>
+<p t="130699" d="3181">This is a non-tree problem,
+but it will be closely related</p>
+<p t="133880" d="3585">to tree problem, namely LCA.</p>
+<p t="142240" d="5760">So LCA problem is you
+want to preprocess a tree.</p>
+<p t="148000" d="14950">It's a rooted tree, and the
+query is LCA of two nodes.</p>
+<p t="162950" d="4260">Which I think you know, or
+I guess I call them x and y.</p>
+<p t="167210" d="3330">So it has two nodes
+x and y in the tree.</p>
+<p t="170540" d="2787">I want to find their lowest
+common ancestor, which</p>
+<p t="173327" d="1083">looks something like that.</p>
+<p t="177110" d="2100">At some point they
+have shared ancestors,</p>
+<p t="179210" d="2716">and we want to find
+that lowest one.</p>
+<p t="181926" d="1874">And then another problem
+we're going to solve</p>
+<p t="183800" d="2950">is level ancestor,
+which again, preprocess</p>
+<p t="186750" d="8202">a rooted tree and the query
+is a little different.</p>
+<p t="198050" d="4080">Given a node and an integer k--</p>
+<p t="202130" d="3090">positive integer--
+I want to find</p>
+<p t="205220" d="5520">the kth ancestor of that node.</p>
+<p t="210740" d="6300">Which you might write parent to
+the k, meaning I have a node x,</p>
+<p t="217040" d="1791">the first ancestor
+is its parent.</p>
+<p t="221780" d="3940">Eventually want to get
+to the kth ancestor.</p>
+<p t="225720" d="3800">So I want to jump
+from x to there.</p>
+<p t="229520" d="4320">So it's like teleporting to
+a target height above me.</p>
+<p t="233840" d="4607">Obviously, k cannot be larger
+than the depth of the node.</p>
+<p t="238447" d="2458">So these are the three problems
+we're going to solve today,</p>
+<p t="240905" d="5475">RMQ, LCA, and LA.</p>
+<p t="246380" d="2120">Using somewhat
+similar techniques,</p>
+<p t="248500" d="1750">we're going to use a
+nice technique called</p>
+<p t="250250" d="1891">table look-up,
+which is generally</p>
+<p t="252141" d="1499">useful for a lot
+of data structures.</p>
+<p t="253640" d="4420">We are working in the
+Word RAM throughout.</p>
+<p t="258060" d="2899">But that's not as essential as
+it has been in our past integer</p>
+<p t="260959" d="3661">data structures.</p>
+<p t="264620" d="1920">Now the fun thing
+about these problems</p>
+<p t="266540" d="3570">is while LCA and LA
+look quite similar--</p>
+<p t="270110" d="3720">I mean, they even share
+two letters out of three--</p>
+<p t="273830" d="1050">they're quite different.</p>
+<p t="274880" d="2250">As far as I know, you need
+fairly different techniques</p>
+<p t="277130" d="1981">to deal with-- or as
+far as anyone knows--</p>
+<p t="279111" d="1499">you need pretty
+different techniques</p>
+<p t="280610" d="1800">to deal with both of them.</p>
+<p t="282410" d="2610">The original paper that
+solved level ancestors kind of</p>
+<p t="285020" d="2340">lamented on this.</p>
+<p t="287360" d="1800">RMQ, on the other
+hand, turns out</p>
+<p t="289160" d="3030">to be basically
+identical to LCA.</p>
+<p t="292190" d="2560">So that's the more
+surprising thing,</p>
+<p t="294750" d="2732">and I want to start with that.</p>
+<p t="297482" d="2208">Again, our goal is to get
+constant time, linear space</p>
+<p t="299690" d="2700">for all these problems.</p>
+<p t="302390" d="3029">Constant time is easy to
+get with polynomial space.</p>
+<p t="305419" d="1541">You could just store
+all the answers.</p>
+<p t="306960" d="4250">There's only n squared different
+queries for all these problems,</p>
+<p t="311210" d="1880">so quadratic space is easy.</p>
+<p t="313090" d="2450">Linear space is the hard part.</p>
+<p t="315540" d="3590">So let me tell you
+about a nice reduction</p>
+<p t="319130" d="1680">from an array to a tree.</p>
+<p t="330830" d="1329">Very simple idea.</p>
+<p t="332159" d="1291">It's called the Cartesian tree.</p>
+<p t="333450" d="3660">It goes back to Gabow
+Bentley and Tarjan in 1984.</p>
+<p t="337110" d="2909">It's an old idea, but it
+comes up now and then,</p>
+<p t="340019" d="1791">and in particular,
+provides the equivalence</p>
+<p t="341810" d="4170">between RMQ and LCA,
+or one direction of it.</p>
+<p t="345980" d="2575">I just take a minimum element--</p>
+<p t="351170" d="1840">let's call it Ai--</p>
+<p t="353010" d="2360">of the array.</p>
+<p t="355370" d="3190">Let that be the root of my tree.</p>
+<p t="358560" d="5000">And then the left
+sub-tree of T is just</p>
+<p t="363560" d="7080">going to be a
+Cartesian tree on all</p>
+<p t="370640" d="1970">the elements to the left of i.</p>
+<p t="372610" d="6610">So A less than i, and
+then the right sub-tree</p>
+<p t="379220" d="4740">is going to be A greater than i.</p>
+<p t="383960" d="1230">So let's do little example.</p>
+<p t="392560" d="9416">Suppose we have 8,
+7, 2, 8, 6, 9, 4, 5.</p>
+<p t="405210" d="2940">So the minimum in
+this rate is 2.</p>
+<p t="408150" d="2040">So it gets promoted
+to the root, which</p>
+<p t="410190" d="5160">decomposes the problem into
+two halves, the left half</p>
+<p t="415350" d="930">and the right half.</p>
+<p t="416280" d="3780">So drawing the tree, I put 2--</p>
+<p t="420060" d="2070">maybe over here is
+actually nicer--</p>
+<p t="422130" d="1740">2 at the root.</p>
+<p t="423870" d="2570">On the left side,
+7 is the smallest.</p>
+<p t="426440" d="2110">And so it's going to get
+promoted to be the root,</p>
+<p t="428550" d="3510">and so the left side
+will look like this.</p>
+<p t="432060" d="3780">On the right side,
+the minimum is 4,</p>
+<p t="435840" d="8620">so 4 is the right root, which
+decomposes into the left half</p>
+<p t="444460" d="1460">there, the right half there.</p>
+<p t="445920" d="3480">So the right thing is just 5.</p>
+<p t="449400" d="4650">Here the minimum is 6, and
+so we get a nice binary tree</p>
+<p t="454050" d="720">on the left here.</p>
+<p t="457751" d="499">OK.</p>
+<p t="458250" d="2400">This is not a
+binary search tree.</p>
+<p t="460650" d="950">It's a min heap.</p>
+<p t="469330" d="4120">Cartesian tree is a min heap.</p>
+<p t="473450" d="2970">But Cartesian trees have a
+more interesting property,</p>
+<p t="476420" d="3330">which I've kind of alluded
+to a couple of times already,</p>
+<p t="479750" d="2390">which is that LCAs in
+this tree correspond</p>
+<p t="482140" d="2830">to RMQs in this array.</p>
+<p t="484970" d="2430">So let's do some examples.</p>
+<p t="487400" d="3740">Let's say I do LCA of 7 and 8.</p>
+<p t="491140" d="960">That's 2.</p>
+<p t="492100" d="4530">Anything from the left and the
+right sub-tree, the LCA is 2.</p>
+<p t="496630" d="3860">And indeed, if I take anything,
+any interval that spans 2,</p>
+<p t="500490" d="2194">then the RMQ is 2.</p>
+<p t="502684" d="2416">If I don't span 2, I'm either
+in the left or in the right.</p>
+<p t="505100" d="3690">Let's say I'm on the right, say
+I do an LCA between 9 and 5.</p>
+<p t="508790" d="5659">I get 4 because, yeah, the
+RMQ between 9 and 5 is 4.</p>
+<p t="514449" d="1261">Make sense?</p>
+<p t="515710" d="6150">Same problem, really, because
+it's all about which mins--</p>
+<p t="521860" d="2460">I mean in the sequence of mins--
+which mins do you contain?</p>
+<p t="524320" d="1770">If you contain
+the first min, you</p>
+<p t="526090" d="2160">contain the highest
+min you contain.</p>
+<p t="528250" d="7080">That is the answer and
+that's what LCA in this tree</p>
+<p t="535330" d="1400">gives you.</p>
+<p t="536730" d="5890">So LCA i and j in
+this tree T equals</p>
+<p t="542620" d="5470">RMQ in the original array of
+the corresponding elements.</p>
+<p t="548090" d="2990">So there is a bijection
+between these items,</p>
+<p t="551080" d="2010">and so I and J here
+represents nodes,</p>
+<p t="553090" d="5021">and here corresponding to
+the corresponding items in A.</p>
+<p t="558111" d="499">OK.</p>
+<p t="558610" d="3000">So this says if you
+wanted to solve RMQ,</p>
+<p t="561610" d="4250">you can reduce it
+to an LCA problem.</p>
+<p t="565860" d="3820">Quick note here, which is--</p>
+<p t="569680" d="690">yeah.</p>
+<p t="570370" d="2374">There's a couple of different
+versions of Cartesian trees</p>
+<p t="572744" d="3136">when you have ties, so
+here I only had one 2.</p>
+<p t="575880" d="4240">If there was another 2,
+then you could either just</p>
+<p t="580120" d="2700">break ties arbitrarily
+and you get a binary tree,</p>
+<p t="582820" d="3660">or you could make them all one
+node, which is kind of messier,</p>
+<p t="586480" d="2040">and then you get
+a non-binary tree.</p>
+<p t="588520" d="3690">I think I'll say we
+disambiguate arbitrarily.</p>
+<p t="592210" d="2810">Just pick any min, and
+then you get a binary tree.</p>
+<p t="595020" d="1890">It won't affect the answer.</p>
+<p t="596910" d="2724">But I think the original paper
+might do it a different way.</p>
+<p t="602235" d="500">OK.</p>
+<p t="606250" d="630">Let's see.</p>
+<p t="606880" d="3360">So then let me just
+mention a fun fact</p>
+<p t="610240" d="2250">about this reduction, which
+is that you can compute it</p>
+<p t="612490" d="1740">in linear time.</p>
+<p t="614230" d="2574">This is a fun fact we
+basically saw last class,</p>
+<p t="616804" d="1791">although in a completely
+different setting,</p>
+<p t="618595" d="2565">so it's not at all obvious.</p>
+<p t="621160" d="2580">But you may recall, we
+had a method last time</p>
+<p t="623740" d="3780">for building a compressed
+trie in linear time.</p>
+<p t="627520" d="2010">Basically, same
+thing works here,</p>
+<p t="629530" d="1966">although it seems
+quite different.</p>
+<p t="631496" d="1724">The idea is if you
+want to build this,</p>
+<p t="633220" d="1350">if you build a
+Cartesian tree according</p>
+<p t="634570" d="1541">to this recursive
+algorithm, you will</p>
+<p t="636111" d="3209">spend n log n time or actually,
+maybe even quadratic time,</p>
+<p t="639320" d="2870">if you're computing
+min with a linear scan.</p>
+<p t="642190" d="1890">So don't use that
+recursive algorithm.</p>
+<p t="644080" d="2610">Just walk through the array,
+left to right, one at a time.</p>
+<p t="646690" d="1560">So first you insert 8.</p>
+<p t="648250" d="1470">Then you insert
+7, and you realize</p>
+<p t="649720" d="4260">7 would have would have
+won, so you put 7 above 8.</p>
+<p t="653980" d="770">Then you insert 2.</p>
+<p t="654750" d="4840">You say that's even higher than
+7, so I have to put it up here.</p>
+<p t="659590" d="4050">Then you insert 8 so that
+you'll just go down from there,</p>
+<p t="663640" d="2610">and you put 8 as a
+right child of 2.</p>
+<p t="666250" d="870">Then you insert 6.</p>
+<p t="667120" d="5670">You say whoops, 6 actually would
+have gone in between 2 and 8.</p>
+<p t="672790" d="2421">And the way you'd see that is--</p>
+<p t="675211" d="2499">I mean, at that moment, your
+tree looks something like this.</p>
+<p t="677710" d="3657">You've got 2, 8, and there's
+other stuff to the left,</p>
+<p t="681367" d="1083">but I don't actually care.</p>
+<p t="682450" d="1520">I just care about
+the right spine.</p>
+<p t="683970" d="1720">I say I'm inserting 6.</p>
+<p t="685690" d="2700">6 would have been above
+8, but not above 2.</p>
+<p t="688390" d="2700">Therefore, it fits
+along this edge,</p>
+<p t="691090" d="7020">and so I convert this
+tree into this pattern,</p>
+<p t="698110" d="2040">and it will always
+look like this.</p>
+<p t="703090" d="2150">8 becomes a child of 7--</p>
+<p t="705240" d="2520">sorry, 6.</p>
+<p t="707760" d="1620">6.</p>
+<p t="709380" d="1626">Thanks.</p>
+<p t="711006" d="1344">Not 7.</p>
+<p t="712350" d="930">7 was on the left.</p>
+<p t="713280" d="5110">This is the guy I'm
+inserting next because here.</p>
+<p t="718390" d="5060">So I guess it's a left child
+because it's the first one.</p>
+<p t="723450" d="1720">So we insert 6 like this.</p>
+<p t="725170" d="2162">So now the new
+right spine is 2, 6,</p>
+<p t="727332" d="1458">and from then on,
+we will always be</p>
+<p t="728790" d="1290">working to the right of that.</p>
+<p t="730080" d="2950">We'll never be touching
+any of this left stuff.</p>
+<p t="733030" d="500">OK.</p>
+<p t="733530" d="1860">So how long did it
+take me to do that?</p>
+<p t="735390" d="3810">In general, I have a right
+spine of the tree, which are all</p>
+<p t="739200" d="3660">right edges, and I might
+have to walk up several steps</p>
+<p t="742860" d="5760">before I discover whoops, this
+is where the next item belongs.</p>
+<p t="748620" d="4350">And then I convert it
+into this new entry,</p>
+<p t="752970" d="2739">which has a left child,
+which is that stuff.</p>
+<p t="755709" d="1791">But this stuff becomes
+irrelevant from then</p>
+<p t="757500" d="2620">on, because now, this
+is the new right spine.</p>
+<p t="760120" d="2510">And so if this is a
+long walk, I charge that</p>
+<p t="762630" d="2520">to the decrease in the
+length of the right spine,</p>
+<p t="765150" d="2310">just like that
+algorithm last time.</p>
+<p t="767460" d="3210">Slightly different
+notion of right spine.</p>
+<p t="770670" d="2779">So same amortization,
+you get linear time,</p>
+<p t="773449" d="1541">and you can build
+the Cartesian tree.</p>
+<p t="774990" d="2041">This is actually where
+that algorithm comes from.</p>
+<p t="777031" d="1299">This one was first, I believe.</p>
+<p t="781410" d="2200">Questions?</p>
+<p t="783610" d="2209">I'm not worrying too
+much about build time,</p>
+<p t="785819" d="2041">how long it takes to build
+these data structures,</p>
+<p t="787860" d="2070">but they can all be
+built in linear time.</p>
+<p t="789930" d="2610">And this is one of
+the cooler algorithms,</p>
+<p t="792540" d="2610">and it's a nice tie
+into last lecture.</p>
+<p t="795150" d="2400">So that's a reduction
+from RMQ to LCA,</p>
+<p t="797550" d="3572">so now all of our problems are
+about trees, in some sense.</p>
+<p t="801122" d="1708">I mean, there's a
+reason I mentioned RMQ.</p>
+<p t="802830" d="2520">Not just that it's a handy
+problem to have solved,</p>
+<p t="805350" d="3900">but we're actually going
+to use RMQ to solve LCA.</p>
+<p t="809250" d="3090">So we're going to go back and
+forth between the two a lot.</p>
+<p t="814870" d="2540">Actually, we'll spend most
+of our time in the RMQ land.</p>
+<p t="817410" d="3420">So let me tell you about
+the reverse direction,</p>
+<p t="820830" d="4500">if you want to
+reduce LCA to RMQ.</p>
+<p t="825330" d="2970">That also works.</p>
+<p t="828300" d="5210">And you can kind of
+see it in this picture.</p>
+<p t="833510" d="2280">If I gave you this
+tree, how would you</p>
+<p t="835790" d="1710">reconstruct this array?</p>
+<p t="837500" d="2230">Pop quiz.</p>
+<p t="839730" d="1670">How do I go from here to here?</p>
+<p t="847820" d="1764">In-order traversal, yep.</p>
+<p t="849584" d="2166">Just doing an in-order
+traversal, write those guys--</p>
+<p t="851750" d="2051">I mean, yeah.</p>
+<p t="853801" d="499">Pretty easy.</p>
+<p t="854300" d="3720">Now, not so easy because
+in the LCA problem,</p>
+<p t="858020" d="1710">I don't have numbers
+in the nodes.</p>
+<p t="859730" d="2220">So if I do an in-order
+walk and I write stuff,</p>
+<p t="861950" d="2960">it's like, what should I
+write for each of the nodes.</p>
+<p t="864910" d="1313">Any suggestions?</p>
+<p t="885450" d="1724">AUDIENCE: [INAUDIBLE]</p>
+<p t="887174" d="916">PROFESSOR: The height?</p>
+<p t="888090" d="810">Not quite the height.</p>
+<p t="888900" d="540">The depth.</p>
+<p t="896000" d="2590">That will work.</p>
+<p t="898590" d="5666">So let's do it,
+just so it's clear.</p>
+<p t="904256" d="7990">Look at the same tree
+Is that the same tree?</p>
+<p t="912246" d="499">Yep.</p>
+<p t="912745" d="1870">So I write the depths.</p>
+<p t="914615" d="5790">0, 1, 1, 2, 2, 2, 3, 3.</p>
+<p t="920405" d="2125">It's either height or depth,
+and you try them both.</p>
+<p t="922530" d="2260">This is depth.</p>
+<p t="924790" d="3835">So I do an in-order
+walk I get 2, 1, 0--</p>
+<p t="931449" d="1041">can you read my writing--</p>
+<p t="932490" d="2984">3, 2, 3, 1, 2.</p>
+<p t="935474" d="2416">It's funny doing an in-order
+traversal on something that's</p>
+<p t="937890" d="2700">not a binary search
+tree, but there it is.</p>
+<p t="940590" d="2760">That's the order in which
+you visit the nodes.</p>
+<p t="943350" d="5280">And you stare at it long
+enough, this sequence</p>
+<p t="948630" d="3750">will behave exactly the
+same as this sequence.</p>
+<p t="952380" d="3130">Of course, not in terms of
+the actual values returned.</p>
+<p t="955510" d="3140">But if you do the
+argument version of RMQ,</p>
+<p t="958650" d="3180">you just ask for what's the
+index that gives me the min.</p>
+<p t="961830" d="3830">If you can solve RMQ
+on this structure,</p>
+<p t="965660" d="4390">then that RMQ will give
+exactly the same answers</p>
+<p t="970050" d="1980">as this structure.</p>
+<p t="972030" d="1650">Just kind of nifty.</p>
+<p t="973680" d="3580">Because here I had numbers, they
+could be all over the place.</p>
+<p t="977260" d="2680">Here I have very clean numbers.</p>
+<p t="979940" d="4730">They will go between 0 and
+the height of the tree.</p>
+<p t="984670" d="3420">So in general at
+most, 0, 2, n minus 1.</p>
+<p t="988090" d="3890">So fun consequence of
+this is you get a tool</p>
+<p t="991980" d="6144">for universe reduction in RMQ.</p>
+<p t="998124" d="1666">The tree problems
+don't have this issue,</p>
+<p t="999790" d="1458">because they don't
+involve numbers.</p>
+<p t="1001248" d="3462">They involve trees, and that's
+why this reduction does this.</p>
+<p t="1004710" d="9480">But you can start from an
+arbitrary ordered universe</p>
+<p t="1014190" d="4950">and have an RMQ problem on that,
+and you can convert it to LCA.</p>
+<p t="1019140" d="11459">And then you can convert it
+to a nice clean universe RMQ,</p>
+<p t="1030599" d="2390">just by doing the Cartesian
+tree and then doing</p>
+<p t="1032989" d="1541">the in-order traversal
+of the depths.</p>
+<p t="1037430" d="4050">This is kind of nifty because
+if you look at these algorithms,</p>
+<p t="1041480" d="2304">they only assume a
+comparison model.</p>
+<p t="1043784" d="1416">So these don't
+have to be numbers.</p>
+<p t="1045200" d="2159">They just have to be something
+from a totally ordered universe</p>
+<p t="1047359" d="1861">that you can compare
+in constant time.</p>
+<p t="1049220" d="1560">You do this
+reduction, and now we</p>
+<p t="1050780" d="3090">can assume they're integers,
+nice small integers, and that</p>
+<p t="1053870" d="2640">will let us solve things in
+constant time using the Word</p>
+<p t="1056510" d="1530">RAM.</p>
+<p t="1058040" d="4210">So you don't need to assume
+that about the original values.</p>
+<p t="1062250" d="1860">Cool.</p>
+<p t="1064110" d="2050">So, time to actually
+solve something.</p>
+<p t="1066160" d="1175">We've done reductions.</p>
+<p t="1067335" d="2415">We now know RMQ and
+LCA are equivalent.</p>
+<p t="1069750" d="990">Let's solve them both.</p>
+<p t="1081500" d="4910">Kind of like the last
+of the sorting we saw,</p>
+<p t="1086410" d="1652">there's going to
+be a lot of steps.</p>
+<p t="1088062" d="1208">They're not sequential steps.</p>
+<p t="1089270" d="2580">These are like different
+versions of a data structure</p>
+<p t="1091850" d="2190">for solving RMQ,
+and they're going</p>
+<p t="1094040" d="3500">to be getting progressively
+better and better.</p>
+<p t="1097540" d="9020">So LCA which applies RMQ.</p>
+<p t="1110450" d="3210">This is originally solved
+by Harel and Tarjan in 1984,</p>
+<p t="1113660" d="2239">but is rather complicated.</p>
+<p t="1115899" d="1541">And then what I'm
+going to talk about</p>
+<p t="1117440" d="4140">is a version from 2000 by
+Bender and Farach-Colton,</p>
+<p t="1121580" d="3250">same authors from the
+cache-oblivious B-trees.</p>
+<p t="1124830" d="3590">That's a much
+simpler presentation.</p>
+<p t="1128420" d="6210">So first step is I want to do
+this reduction again from LCA</p>
+<p t="1134630" d="3169">to RMQ, but slightly
+differently.</p>
+<p t="1137799" d="2291">And we're going to get a more
+restricted problem called</p>
+<p t="1140090" d="1440">plus or minus 1 RMQ.</p>
+<p t="1145130" d="2010">What is plus or minus 1 RMQ?</p>
+<p t="1147140" d="6030">Just means that you get an array
+where all the adjacent values</p>
+<p t="1153170" d="2958">differ by plus or minus 1.</p>
+<p t="1159170" d="2370">And if you look at the
+numbers here, a lot of them</p>
+<p t="1161540" d="2000">differ by plus or minus 1.</p>
+<p t="1163540" d="1150">These all do.</p>
+<p t="1164690" d="1560">But then there are
+some big gaps--</p>
+<p t="1166250" d="3190">like this has a gap of
+3, this has a gap of 2.</p>
+<p t="1169440" d="2270">This is plus or minus 1.</p>
+<p t="1171710" d="2610">That's almost right,
+and if you just</p>
+<p t="1174320" d="4230">stare at this idea
+of tree walk enough,</p>
+<p t="1178550" d="1680">you'll realize a
+little trick to make</p>
+<p t="1180230" d="4140">the array a little bit bigger,
+but give you plus or minus</p>
+<p t="1184370" d="990">ones.</p>
+<p t="1185360" d="1760">If you've done a lot
+of tree traversal,</p>
+<p t="1187120" d="2920">this will come quite naturally.</p>
+<p t="1190040" d="3490">This is a depth first search.</p>
+<p t="1193530" d="1930">This is how the depth
+first search order</p>
+<p t="1195460" d="2750">of visiting a tree in order.</p>
+<p t="1198210" d="2450">This is usually called
+an Eulerian tour.</p>
+<p t="1200660" d="3790">The concept we'll come
+back to in a few lectures.</p>
+<p t="1204450" d="3620">But Euler tour just means
+you visit every edge twice,</p>
+<p t="1208070" d="2592">in this case.</p>
+<p t="1210662" d="1458">If you look at the
+node visits, I'm</p>
+<p t="1212120" d="4470">visiting this node here,
+here, and here, three times.</p>
+<p t="1216590" d="2520">But it's amortized constant,
+because every edge is just</p>
+<p t="1219110" d="2160">visited twice.</p>
+<p t="1221270" d="2520">What I'd like to do is
+follow an Euler tour</p>
+<p t="1223790" d="5700">and then write down all
+the nodes that I visit,</p>
+<p t="1229490" d="2220">but with repetition.</p>
+<p t="1231710" d="9300">So in that picture I
+will get 0, 1, 2, 1.</p>
+<p t="1241010" d="7440">I go 0, 1, 2, back to 1,
+back to 0, then over to the 1</p>
+<p t="1248450" d="4290">on the right, then to
+the 2, then to the 3,</p>
+<p t="1252740" d="2520">then back up to the 2,
+then down to the other 3,</p>
+<p t="1255260" d="1860">then back up to the
+2, back up to the 1,</p>
+<p t="1257120" d="3570">back down to the last
+node on the right,</p>
+<p t="1260690" d="2350">and back up and back up.</p>
+<p t="1263040" d="500">OK.</p>
+<p t="1263540" d="2760">This is what we call Euler tour.</p>
+<p t="1266300" d="1830">So multiple visits--
+for example, here's</p>
+<p t="1268130" d="3540">all the places that
+the root is visited.</p>
+<p t="1271670" d="4380">Here's all the places
+that this node is visited,</p>
+<p t="1276050" d="4380">then this node is
+visited 3 times.</p>
+<p t="1280430" d="3460">It's going to be visited
+once per incident edge.</p>
+<p t="1283890" d="2950">I think you get the pattern.</p>
+<p t="1286840" d="1840">I'm just going to store this.</p>
+<p t="1288680" d="2231">And what else am I going to do?</p>
+<p t="1290911" d="499">Let's see.</p>
+<p t="1291410" d="10200">Each node in the tree
+stores, let's say,</p>
+<p t="1301610" d="3840">the first visit in the array.</p>
+<p t="1305450" d="1636">Pretty sure this is enough.</p>
+<p t="1307086" d="1874">You could maybe store
+the last visit as well.</p>
+<p t="1308960" d="2830">We can only store a
+constant number of things.</p>
+<p t="1311790" d="12710">And I guess each array
+item stores a pointer</p>
+<p t="1324500" d="1620">to the corresponding
+node in the tree.</p>
+<p t="1332340" d="500">OK.</p>
+<p t="1332840" d="3120">So each instance of the 0
+stores a pointer to the root,</p>
+<p t="1335960" d="2510">and so on.</p>
+<p t="1338470" d="2890">It's kind of what these
+horizontal bars are indicating,</p>
+<p t="1341360" d="2400">but those aren't
+actually stored.</p>
+<p t="1343760" d="570">OK.</p>
+<p t="1344330" d="8060">So I claim still RMQ and here
+is the same as LCA over there.</p>
+<p t="1352390" d="3160">It's maybe a little
+more subtle, but now</p>
+<p t="1355550" d="3750">if I want to compute
+the LCA of two nodes,</p>
+<p t="1359300" d="1810">I look at their
+first occurrences.</p>
+<p t="1361110" d="1580">So let's do-- I don't know--</p>
+<p t="1362690" d="2220">2 and 3.</p>
+<p t="1364910" d="1620">Here, this 2 and this 3.</p>
+<p t="1366530" d="2985">I didn't label them, but I
+happen to know where they are.</p>
+<p t="1369515" d="1845">2 is here, and it's the first 3.</p>
+<p t="1374150" d="2519">Now here, they happen to
+only occur once in the tour,</p>
+<p t="1376669" d="1041">so it's a little clearer.</p>
+<p t="1377710" d="2880">If I compute the RMQ,
+I get this 0, this 0,</p>
+<p t="1380590" d="2500">as opposed to the other 0s,
+but this 0 points to the root,</p>
+<p t="1383090" d="2310">so I get the LCA.</p>
+<p t="1385400" d="2170">Let's do ones that do not
+have unique occurrences.</p>
+<p t="1387570" d="3905">So like, this guy and this guy,
+the first 1 and the first 2</p>
+<p t="1391475" d="3336">It'd be this 1 and this 1.</p>
+<p t="1394811" d="1749">In fact, I think any
+of the 2s would work.</p>
+<p t="1396560" d="921">Doesn't really matter.</p>
+<p t="1397481" d="1249">Just have to pick one of them.</p>
+<p t="1398730" d="2420">So I picked the leftmost
+one for consistency.</p>
+<p t="1401150" d="3250">Then I take the
+RMQ, again I get 0.</p>
+<p t="1404400" d="1560">You can test that
+for all of them.</p>
+<p t="1405960" d="1650">I think the slightly
+more subtle case</p>
+<p t="1407610" d="2530">is when one node is an
+ancestor of another.</p>
+<p t="1410140" d="4920">So let's do that,
+1 here and 3 there.</p>
+<p t="1415060" d="2330">I think here you do need to
+be leftmost or rightmost,</p>
+<p t="1417390" d="1530">consistently.</p>
+<p t="1418920" d="4410">So I take the 1 and
+I take the second 3.</p>
+<p t="1423330" d="500">OK.</p>
+<p t="1423830" d="4990">I take the RMQ of that, I get 1
+which is the higher of the two.</p>
+<p t="1428820" d="500">OK.</p>
+<p t="1429320" d="1639">So it seems to work.</p>
+<p t="1430959" d="2541">Actually, I think it would work
+no matter which guy you pick.</p>
+<p t="1433500" d="2890">I just picked the first one.</p>
+<p t="1436390" d="2482">OK, no big deal.</p>
+<p t="1438872" d="2458">You're not going to see why
+this is useful for a little bit</p>
+<p t="1441330" d="3750">until step 4 or something,
+but we've slightly</p>
+<p t="1445080" d="3030">simplified our problem to
+this plus or minus 1 RMQ.</p>
+<p t="1448110" d="3190">Otherwise identical to
+this in-order traversal.</p>
+<p t="1451300" d="2640">So not a big deal, but
+we'll need it later.</p>
+<p t="1456691" d="499">OK.</p>
+<p t="1474476" d="874">That was a reduction.</p>
+<p t="1475350" d="2790">Next, we're finally going
+to actually solve something.</p>
+<p t="1478140" d="9780">I'm going to do constant
+time, n log n space, RMQ.</p>
+<p t="1487920" d="2990">This data structure will not
+require plus or minus 1 RMQ.</p>
+<p t="1490910" d="1750">It works for any RMQ.</p>
+<p t="1492660" d="1900">It's actually a
+very simple idea,</p>
+<p t="1494560" d="1230">and it's almost what we need.</p>
+<p t="1495790" d="2250">But we're going to have to
+get rid of this log factor.</p>
+<p t="1498040" d="2010">That will be step 3.</p>
+<p t="1500050" d="1190">OK, so here's the idea.</p>
+<p t="1501240" d="2760">You've got an array.</p>
+<p t="1504000" d="2670">And now someone gives
+you an arbitrary interval</p>
+<p t="1506670" d="2055">from here to here.</p>
+<p t="1511260" d="3030">Ideally, I just store the mins
+for every possible interval,</p>
+<p t="1514290" d="1665">but there's n squared intervals.</p>
+<p t="1515955" d="4875">So instead, what I'm going
+to do is store the answer</p>
+<p t="1520830" d="4050">not for all the intervals, but
+for all intervals of length</p>
+<p t="1524880" d="2406">of power of 2.</p>
+<p t="1527286" d="2184">It's a trick you've
+probably seen before.</p>
+<p t="1532500" d="1685">This is the easy thing to do.</p>
+<p t="1534185" d="1375">And then the
+interesting thing is</p>
+<p t="1535560" d="2360">how you make it actually
+get down to linear space.</p>
+<p t="1540570" d="3690">Length, power of 2.</p>
+<p t="1546540" d="500">OK.</p>
+<p t="1547040" d="3190">There are only log n
+possible powers of 2.</p>
+<p t="1550230" d="2970">There's still n different start
+points for those intervals,</p>
+<p t="1553200" d="2520">so total number of
+intervals is n log n.</p>
+<p t="1555720" d="3137">So this is n log n space,
+because I'm storing</p>
+<p t="1558857" d="1083">an index for each of them.</p>
+<p t="1562520" d="1850">OK.</p>
+<p t="1564370" d="3150">And then if I have an
+arbitrary query, the point is--</p>
+<p t="1567520" d="2760">let's call it length k--</p>
+<p t="1570280" d="4020">then I can cover
+it by two intervals</p>
+<p t="1574300" d="2490">of length a power of 2.</p>
+<p t="1576790" d="1710">They will be the same length.</p>
+<p t="1578500" d="3480">They will be length
+2 to the floor</p>
+<p t="1581980" d="4196">of log k, the next smaller
+power of 2 below k.</p>
+<p t="1586176" d="1624">Maybe k is a power
+of 2, in which case,</p>
+<p t="1587800" d="3000">it's just one interval
+or two equal intervals.</p>
+<p t="1590800" d="2700">But in general, you just take
+the next smaller power of 2.</p>
+<p t="1593500" d="4200">That will cover more than half
+of the thing, of the interval.</p>
+<p t="1597700" d="1779">And so you have one
+that's left aligned,</p>
+<p t="1599479" d="1041">one that's right aligned.</p>
+<p t="1600520" d="1800">Together, those will
+cover everything.</p>
+<p t="1602320" d="3360">And because the min operation
+has this nifty feature</p>
+<p t="1605680" d="2520">that you can take the min of
+all these, min of all these,</p>
+<p t="1608200" d="1290">take the min of the 2.</p>
+<p t="1609490" d="2040">You will get the min overall.</p>
+<p t="1611530" d="2560">It doesn't hurt to
+have duplicate entries.</p>
+<p t="1614090" d="4424">That's kind of an
+important property of min.</p>
+<p t="1618514" d="1416">It holds for other
+properties too,</p>
+<p t="1619930" d="2910">like max, but not everything.</p>
+<p t="1622840" d="2179">Then boom, we've solved RMQ.</p>
+<p t="1625019" d="791">I think it's clear.</p>
+<p t="1625810" d="2704">You do two queries, take
+the min of the two--</p>
+<p t="1628514" d="1791">actually, you have to
+restore the arg mins.</p>
+<p t="1630305" d="4355">So it's a little more
+work, but constant time.</p>
+<p t="1634660" d="760">Cool.</p>
+<p t="1635420" d="650">That was easy.</p>
+<p t="1642070" d="1120">Leave LCA up there.</p>
+<p t="1650180" d="610">OK.</p>
+<p t="1650790" d="1230">So we're almost there, right.</p>
+<p t="1652020" d="2400">Just a log factor off.</p>
+<p t="1654420" d="3810">So what technique do we have
+for shaving log factors?</p>
+<p t="1660880" d="3727">Indirection, yeah, our
+good friend indirection.</p>
+<p t="1667470" d="2670">Indirection comes to
+our rescue yet again,</p>
+<p t="1670140" d="2010">but we won't be done.</p>
+<p t="1672150" d="2130">The idea is, well, want
+to remove a log factor.</p>
+<p t="1674280" d="2569">Before we removed log
+factors from time,</p>
+<p t="1676849" d="1541">but there's no real
+time here, right.</p>
+<p t="1678390" d="1500">Everything's constant time.</p>
+<p t="1679890" d="2880">But we can use indirection to
+shave a log factor in space,</p>
+<p t="1682770" d="1020">too.</p>
+<p t="1683790" d="3330">Let's just divide.</p>
+<p t="1687120" d="4860">So this is again for RMQ.</p>
+<p t="1691980" d="6030">So I have an array, I'm going
+to divide the array into groups</p>
+<p t="1698010" d="5120">of size, I believe
+1/2 log n would</p>
+<p t="1703130" d="1810">be the right magic number.</p>
+<p t="1704940" d="2640">It's going to be theta log n,
+but I need a specific constant</p>
+<p t="1707580" d="810">for step 4.</p>
+<p t="1710910" d="2700">So what does that mean?</p>
+<p t="1713610" d="4210">I have the first 1/2 log
+n entries in the array.</p>
+<p t="1717820" d="3710">Then I have the next
+1/2 log entries,</p>
+<p t="1721530" d="5670">and then I have the
+last 1/2 log n entries.</p>
+<p t="1727200" d="3360">OK, that's easy enough.</p>
+<p t="1730560" d="2650">But now I'd like to tie all
+these structures together.</p>
+<p t="1733210" d="5210">A natural way to do that is with
+a big structure on top of size,</p>
+<p t="1738420" d="5250">n over log n, I guess
+with a factor 2 out here.</p>
+<p t="1743670" d="3540">n over 1/2 log n.</p>
+<p t="1747210" d="1030">How do I do that?</p>
+<p t="1748240" d="2600">Well, this is an RMQ problem,
+so the natural thing to do</p>
+<p t="1750840" d="2560">is just take the min
+of everything here.</p>
+<p t="1753400" d="3080">So the red here is going
+to denote taking the min,</p>
+<p t="1756480" d="2400">and take that-- the one
+item that results by taking</p>
+<p t="1758880" d="3640">the min in that group, and
+promoting it to the next level.</p>
+<p t="1762520" d="2730">This is a static thing
+we do ahead of time.</p>
+<p t="1765250" d="2870">Now if I'm given
+a query, like say,</p>
+<p t="1768120" d="3780">this interval, what
+I need to do is first</p>
+<p t="1771900" d="5400">compute the min in this range
+within a bottom structure.</p>
+<p t="1777300" d="1890">Maybe also compute the
+min within this range,</p>
+<p t="1779190" d="2400">the last bottom structure,
+and then these guys</p>
+<p t="1781590" d="1230">are all taken in entirety.</p>
+<p t="1782820" d="3510">So I can just take the
+corresponding interval up here</p>
+<p t="1786330" d="2040">and that will give me
+simultaneously the mins</p>
+<p t="1788370" d="1290">of everything below.</p>
+<p t="1789660" d="12180">So now a query is going to be
+the min of two bottoms and one</p>
+<p t="1801840" d="1710">top.</p>
+<p t="1803550" d="3000">In other words, I do one
+top RMQ query for everything</p>
+<p t="1806550" d="3210">between, strictly
+between the two ends.</p>
+<p t="1809760" d="2760">Then I do a bottom query for
+the one end, a bottom query</p>
+<p t="1812520" d="1169">for the other end.</p>
+<p t="1813689" d="2041">Take the min of all those
+values and really, it's</p>
+<p t="1815730" d="2650">the arg min, but.</p>
+<p t="1818380" d="500">Clear?</p>
+<p t="1818880" d="1650">So it would be
+constant time if I</p>
+<p t="1820530" d="1500">can do bottom in
+constant time, if I</p>
+<p t="1822030" d="2010">can do top in constant time.</p>
+<p t="1824040" d="2850">But the big win is that
+this top structure only has</p>
+<p t="1826890" d="2160">to store n over log n items.</p>
+<p t="1829050" d="3780">So I can afford an n log
+n space data structure,</p>
+<p t="1832830" d="2100">because the logs cancel.</p>
+<p t="1834930" d="3870">So I'm going to use
+structure 2 for the top.</p>
+<p t="1838800" d="3640">That will give me constant
+time up here, linear space.</p>
+<p t="1842440" d="3800">So all that's left is to solve
+the bottoms individually.</p>
+<p t="1846240" d="2070">Again, similar kind of
+structure to [INAUDIBLE]..</p>
+<p t="1848310" d="2850">We have a summary structure and
+we have the details down below.</p>
+<p t="1851160" d="1740">But the parameters
+are way out of whack.</p>
+<p t="1852900" d="1606">It's no longer root n, root n.</p>
+<p t="1854506" d="1874">Now these guys are super
+tiny because we only</p>
+<p t="1856380" d="3030">needed this to be a
+little bit smaller than n,</p>
+<p t="1859410" d="3600">and then this would work
+out to linear space.</p>
+<p t="1863010" d="930">OK.</p>
+<p t="1863940" d="4236">So step 4 is going to be how do
+we solve the bottom structures.</p>
+<p t="1880326" d="2984">So step 4.</p>
+<p t="1883310" d="10520">This is where we're going to
+use technique of lookup tables</p>
+<p t="1893830" d="1720">for bottom groups.</p>
+<p t="1897965" d="1875">This is going to be
+slightly weird to phrase,</p>
+<p t="1899840" d="1916">because on the one hand,
+I want to be thinking</p>
+<p t="1901756" d="2734">about an individual group,
+but my solution is actually</p>
+<p t="1904490" d="1770">going to solve all
+groups simultaneously,</p>
+<p t="1906260" d="1125">and it's kind of important.</p>
+<p t="1907385" d="4605">But for now, let's just
+think of one group.</p>
+<p t="1911990" d="6075">So it has size n prime
+and n prime is 1/2 log n.</p>
+<p t="1918065" d="1375">I need to remember
+how it relates</p>
+<p t="1919440" d="3480">to the original value of n so
+I know how to pay for things.</p>
+<p t="1922920" d="3710">The idea is there's really
+not many different problems</p>
+<p t="1926630" d="1609">of size 1/2 log n.</p>
+<p t="1928239" d="2291">And here's where we're going
+to use the fact that we're</p>
+<p t="1930530" d="3580">in plus or minus 1 land.</p>
+<p t="1934110" d="3860">We have this giant
+string of integers.</p>
+<p t="1937970" d="1750">Well, now we're looking
+at log n of them</p>
+<p t="1939720" d="5870">to say OK, this here, this
+is a sequence 0, 1, 2, 3.</p>
+<p t="1945590" d="2610">Over here a 0, 1, 2, 1.</p>
+<p t="1948200" d="1590">There's all these
+different things.</p>
+<p t="1949790" d="2025">Then there's other
+things like 2, 3, 2, 3.</p>
+<p t="1954350" d="2650">So there's a couple
+annoying things.</p>
+<p t="1957000" d="3800">One is it matters what
+value you start at, a b,</p>
+<p t="1960800" d="2460">and then it matters what the
+sequence of plus and minus 1s</p>
+<p t="1963260" d="2680">are after that.</p>
+<p t="1965940" d="500">OK.</p>
+<p t="1966440" d="3270">I claim it doesn't really
+matter what value you start at,</p>
+<p t="1969710" d="14400">because RMQ, this query,
+is invariant under adding</p>
+<p t="1984110" d="6610">some value x to all entries,
+all values, in the array.</p>
+<p t="1990720" d="2870">Or if I add 100 to every
+value, then the minimums</p>
+<p t="1993590" d="2100">stay the same in position.</p>
+<p t="1995690" d="2530">So again, here I'm thinking
+of RMQ as an arg min.</p>
+<p t="1998220" d="3380">So it's giving just the
+index of where it lives.</p>
+<p t="2001600" d="5430">So in particular, I'm going
+to add minus the first value</p>
+<p t="2007030" d="2340">of the array to all values.</p>
+<p t="2013210" d="1580">I should probably call this--</p>
+<p t="2014790" d="1930">well, yeah.</p>
+<p t="2016720" d="2860">Here I'm just thinking about
+a single group for now.</p>
+<p t="2019580" d="2990">So in a single group, saying
+well, it starts at some value.</p>
+<p t="2022570" d="2190">I'm just going to
+decrease all these things</p>
+<p t="2024760" d="1585">by whatever that value is.</p>
+<p t="2026345" d="1625">Now some of them
+might become negative,</p>
+<p t="2027970" d="2760">but at least now
+we start with a 0.</p>
+<p t="2030730" d="4450">So what we start
+with is irrelevant.</p>
+<p t="2035180" d="2840">What remains, the remaining
+numbers here are completely</p>
+<p t="2038020" d="3750">defined by the gaps
+between or the difs</p>
+<p t="2041770" d="2550">between consecutive
+items, and the difs</p>
+<p t="2044320" d="2235">are all plus or minus 1.</p>
+<p t="2046555" d="12914">So now the number of possible
+arrays in a group, so</p>
+<p t="2059469" d="3511">in a single group, is
+equal to the number</p>
+<p t="2062980" d="9090">of plus or minus 1 strings
+of length n prime, which is</p>
+<p t="2072070" d="540">1/2 log n.</p>
+<p t="2077120" d="2480">And the number of plus or
+minus 1 strings of length</p>
+<p t="2079600" d="3070">n prime is 2 to the n prime.</p>
+<p t="2082670" d="5480">So we get 2 to the 1/2 log n,
+also known as square root of n.</p>
+<p t="2088150" d="1380">Square root of n is small.</p>
+<p t="2089530" d="1689">We're aiming for linear space.</p>
+<p t="2091219" d="2511">This means that for every--</p>
+<p t="2093730" d="3000">not only for every group,
+there is n over log n groups--</p>
+<p t="2096730" d="2410">but actually many of the
+groups have to be the same.</p>
+<p t="2099140" d="3080">There's n over log n groups,
+but there's only root n</p>
+<p t="2102220" d="2230">different types of groups.</p>
+<p t="2104450" d="4640">So on average, like root n
+over log n occurrences of each.</p>
+<p t="2109090" d="3404">So we can kind of compress
+things down and say hey,</p>
+<p t="2112494" d="1666">I would like to just
+like store a lookup</p>
+<p t="2114160" d="2825">table for each one of these, but
+that would be quadratic space.</p>
+<p t="2116985" d="2375">But there's really only square
+root of n different types.</p>
+<p t="2119360" d="3050">So if I use a layer of
+indirection, I guess--</p>
+<p t="2122410" d="1950">different sort of
+indirection-- if I just</p>
+<p t="2124360" d="1650">have, for each of
+these groups, I just</p>
+<p t="2126010" d="3030">store a pointer to the
+type of group, which</p>
+<p t="2129040" d="2940">is what the plus or
+minus 1 string is,</p>
+<p t="2131980" d="2220">and then for that type,
+I store a lookup table</p>
+<p t="2134200" d="1530">of all possibilities.</p>
+<p t="2135730" d="1170">That will be efficient.</p>
+<p t="2136900" d="4300">Let me show that to you.</p>
+<p t="2141200" d="2190">This is a very handy idea.</p>
+<p t="2143390" d="4570">In general, if you have a lot
+of things of size roughly log n,</p>
+<p t="2147960" d="3000">lookup tables are a good idea.</p>
+<p t="2154520" d="2340">And this naturally arises
+when you're using indirection,</p>
+<p t="2156860" d="3480">because usually you just
+need to shave a log or two.</p>
+<p t="2160340" d="3270">So here we have these
+different types.</p>
+<p t="2163610" d="9900">So what we're going to do
+is store a lookup table that</p>
+<p t="2173510" d="3300">says for each group
+type, I'll just</p>
+<p t="2176810" d="7320">say a lookup table
+of all answers,</p>
+<p t="2184130" d="2640">do that for each group type.</p>
+<p t="2191012" d="1958">Group type, meaning the
+plus or minus 1 string.</p>
+<p t="2192970" d="1660">It's really what
+is in that group</p>
+<p t="2194630" d="2201">after you do this shifting.</p>
+<p t="2196831" d="499">OK.</p>
+<p t="2197330" d="1708">Now there's square
+root of n group types.</p>
+<p t="2201620" d="1770">What does it take to
+store the answers?</p>
+<p t="2203390" d="7290">Well, there is, I guess, 1/2
+log n squared different queries,</p>
+<p t="2210680" d="2477">because n prime is
+1/2 log n, and a query</p>
+<p t="2213157" d="1333">is defined by the two endpoints.</p>
+<p t="2214490" d="2160">So there's at most
+this many queries.</p>
+<p t="2216650" d="4170">Each query, to store the answer,
+is going to take order log log</p>
+<p t="2220820" d="3090">n bits-- this is
+if you're fancy--</p>
+<p t="2223910" d="3980">because the answer is an index
+into that array of size 1/2 log</p>
+<p t="2227890" d="2950">n, so you need log log n
+bits to write down that.</p>
+<p t="2230840" d="3270">So the total size
+of this lookup table</p>
+<p t="2234110" d="2610">is the product of these things.</p>
+<p t="2236720" d="2400">We have to write root
+n look up tables.</p>
+<p t="2239120" d="5670">Each stores log squared
+n different values,</p>
+<p t="2244790" d="3520">and the values require
+log log n bits.</p>
+<p t="2248310" d="2930">So total number of
+bits is this thing,</p>
+<p t="2251240" d="3150">and this thing is little o of n.</p>
+<p t="2254390" d="3090">So smaller than linear,
+so it's irrelevant.</p>
+<p t="2257480" d="2220">Can store for free.</p>
+<p t="2259700" d="3000">Now if we have a bottom group,
+the one thing we need to do</p>
+<p t="2262700" d="2310">is store a pointer
+from that bottom group</p>
+<p t="2265010" d="5370">to the corresponding section of
+the lookup table for that group</p>
+<p t="2270380" d="1596">type.</p>
+<p t="2271976" d="13164">So each group stores a
+pointer into lookup table.</p>
+<p t="2288290" d="2760">I'm of two minds whether I
+think of this as a single lookup</p>
+<p t="2291050" d="2910">table that's parameterized
+first by group type,</p>
+<p t="2293960" d="1484">and then by the query.</p>
+<p t="2295444" d="2416">So it's like a two-dimensional
+table or three-dimensional,</p>
+<p t="2297860" d="1064">depending how you count.</p>
+<p t="2298924" d="2416">Or you can think of there being
+several lookup tables, one</p>
+<p t="2301340" d="1020">for each group type,
+and then you're</p>
+<p t="2302360" d="1450">pointing to a
+single lookup table.</p>
+<p t="2303810" d="2240">However, you want to think
+about it, same thing.</p>
+<p t="2306050" d="3210">Same difference, as they say.</p>
+<p t="2309260" d="2016">This gives us linear space.</p>
+<p t="2311276" d="1374">These pointers
+take linear space.</p>
+<p t="2312650" d="2083">The top structure takes
+linear space linear number</p>
+<p t="2314733" d="3917">of words, and
+constant query time,</p>
+<p t="2318650" d="2100">because lookup
+tables are very fast.</p>
+<p t="2320750" d="1320">Just look into them.</p>
+<p t="2322070" d="1290">They give you the answer.</p>
+<p t="2323360" d="3460">So you can do a lookup table
+here, lookup table here.</p>
+<p t="2326820" d="3470">And then over here,
+you do the covering</p>
+<p t="2330290" d="2700">by 2, powers of 2 intervals.</p>
+<p t="2332990" d="2577">Again, we have a lookup
+table for those intervals,</p>
+<p t="2335567" d="1833">so it's like we're
+looking into four tables,</p>
+<p t="2337400" d="3210">take the min of them all, done.</p>
+<p t="2340610" d="3570">That is RMQ, and also LCA.</p>
+<p t="2344180" d="3510">Actually it was really LCA that
+we solved, because we solved</p>
+<p t="2347690" d="2250">plus or minus 1
+RMQ, which solved</p>
+<p t="2349940" d="5970">LCA, but by the
+Cartesian tree reduction,</p>
+<p t="2355910" d="910">that also solves RMQ.</p>
+<p t="2359570" d="3300">Now we solved 2 out
+of 3 of our problems.</p>
+<p t="2362870" d="750">Any questions?</p>
+<p t="2366750" d="4740">Level ancestors are going to
+be harder, little bit harder.</p>
+<p t="2371490" d="1860">Similar number of steps.</p>
+<p t="2373350" d="1980">I'd say they're a
+little more clever.</p>
+<p t="2375330" d="1500">This I feel is pretty easy.</p>
+<p t="2376830" d="2730">Very simple style of
+indirection, very simple style</p>
+<p t="2379560" d="1419">of enumeration here.</p>
+<p t="2380979" d="2541">It's going to be a little more
+sophisticated and a little bit</p>
+<p t="2383520" d="4590">more representative of
+the general case for level</p>
+<p t="2388110" d="650">ancestors.</p>
+<p t="2392349" d="791">Definitely fancier.</p>
+<p t="2396620" d="4800">Level ancestors is a similar
+story we solved a while ago,</p>
+<p t="2401420" d="1750">but it was kind of a
+complicated solution.</p>
+<p t="2403170" d="2510">And then Bender
+and Farach-Colton</p>
+<p t="2405680" d="3090">found it and said hey,
+we can simplify this.</p>
+<p t="2408770" d="3930">And I'm going to give you
+the simplified version.</p>
+<p t="2412700" d="2940">So this is level ancestors.</p>
+<p t="2415640" d="2220">Says originally solved
+by Berkman and Vishkin</p>
+<p t="2417860" d="3150">in 1994, OK, not so long ago.</p>
+<p t="2421010" d="4680">And then the new
+version is from 2004.</p>
+<p t="2425690" d="1110">Ready?</p>
+<p t="2426800" d="780">Level ancestors.</p>
+<p t="2427580" d="2130">What was the problem again?</p>
+<p t="2429710" d="870">Here it is.</p>
+<p t="2430580" d="3570">I gave you a rooted
+tree, give you a node,</p>
+<p t="2434150" d="5470">and a level that I want to go
+up, and then I level up by k,</p>
+<p t="2439620" d="5850">so I go to the kth ancestor,
+or parent to the k.</p>
+<p t="2445470" d="2180">This may seem
+superficially like LCA,</p>
+<p t="2447650" d="2820">but it's very different,
+because as you can see,</p>
+<p t="2450470" d="2070">RMQ was very specific to LCA.</p>
+<p t="2452540" d="3660">It's not going to let you solve
+level ancestors in any sense.</p>
+<p t="2456200" d="849">I don't think.</p>
+<p t="2457049" d="2291">Maybe you could try to do
+the Cartesian tree reduction,</p>
+<p t="2459340" d="4180">but solution we'll see
+is completely different,</p>
+<p t="2463520" d="2340">although similar in spirit.</p>
+<p t="2465860" d="3704">So step 1.</p>
+<p t="2469564" d="1666">This one's going to
+be a little bit less</p>
+<p t="2471230" d="1750">obvious that we will succeed.</p>
+<p t="2472980" d="2390">Here we started with
+n log n space which</p>
+<p t="2475370" d="1847">is shaving a log, no big deal.</p>
+<p t="2477217" d="2083">Here, I'm going to give
+you a couple of strategies</p>
+<p t="2479300" d="3390">that aren't even constant time,
+they're log time or worse.</p>
+<p t="2482690" d="3261">And yet you combine them
+and you get constant time.</p>
+<p t="2485951" d="819">It's crazy.</p>
+<p t="2491490" d="2390">Again, each of the
+pieces is going</p>
+<p t="2493880" d="8394">to be pretty intuitive,
+not super surprising,</p>
+<p t="2502274" d="1416">but it's one of
+these things where</p>
+<p t="2503690" d="2880">you take all these ingredients
+that are all kind of obvious,</p>
+<p t="2506570" d="2639">you stare at them for a while
+like, oh, I put them together</p>
+<p t="2509209" d="541">and it works.</p>
+<p t="2509750" d="1740">It's like magic.</p>
+<p t="2511490" d="3330">All right, so first goal is
+going to be n log n space,</p>
+<p t="2514820" d="1906">log n query.</p>
+<p t="2516726" d="2624">So here's a way to do it with a
+technique called jump pointers.</p>
+<p t="2527510" d="3780">In this case, nodes are going to
+have log n different pointers,</p>
+<p t="2531290" d="1500">and they're going
+to point to the 2</p>
+<p t="2532790" d="4110">to the ith ancestor for all i.</p>
+<p t="2540281" d="2589">I guess maximum possible
+i would be log n.</p>
+<p t="2542870" d="3360">You can never go up more than n.</p>
+<p t="2546230" d="2920">So I mean, ideally you'd have
+a pointer to all your ancestors</p>
+<p t="2549150" d="1434">in array, boom.</p>
+<p t="2550584" d="1916">In the quadratic space,
+you solve your problem</p>
+<p t="2552500" d="1470">in constant time.</p>
+<p t="2553970" d="1500">But it's a little
+more interesting.</p>
+<p t="2555470" d="3960">Now every node only has pointers
+to log n different places</p>
+<p t="2559430" d="4782">so it's looking like this.</p>
+<p t="2564212" d="3738">This is the ancestor path.</p>
+<p t="2567950" d="2430">So n log n space, and
+I claim with this,</p>
+<p t="2570380" d="4030">you can roughly do a binary
+search, if you wanted to.</p>
+<p t="2574410" d="2510">Now we're not actually going
+to use this query algorithm</p>
+<p t="2576920" d="3010">for anything, but I'll
+write it down just</p>
+<p t="2579930" d="2270">so it feels like we've
+accomplished something, mainly</p>
+<p t="2582200" d="1830">log n query time.</p>
+<p t="2584030" d="3360">So what do I do?</p>
+<p t="2587390" d="7710">I set x to be the 2 to the
+floor log kth ancestor of x.</p>
+<p t="2597810" d="6950">OK, remember we're given
+a node x and a value</p>
+<p t="2604760" d="1770">k that we want to rise by.</p>
+<p t="2606530" d="2900">So I take the power
+of 2 just below k--</p>
+<p t="2609430" d="1720">that's 2 the floor log k.</p>
+<p t="2611150" d="2430">I go up that much,
+and that's my new x,</p>
+<p t="2613580" d="4980">and then I set k to
+be k minus that value.</p>
+<p t="2618560" d="2740">That's how much I
+have left to go.</p>
+<p t="2621300" d="500">OK.</p>
+<p t="2621800" d="3630">This thing will be
+less than k over 2.</p>
+<p t="2625430" d="3120">Because the next previous
+power of 2 is at least,</p>
+<p t="2628550" d="2160">is bigger than
+half of the thing.</p>
+<p t="2630710" d="1980">So we got more
+than halfway there,</p>
+<p t="2632690" d="3260">and so after log n iterations,
+we'll actually get there.</p>
+<p t="2635950" d="2300">That's pretty easy.</p>
+<p t="2638250" d="5870">That's jump pointers to two
+logs that we need to get rid of,</p>
+<p t="2644120" d="1920">and yes, we will use
+indirection, but not yet.</p>
+<p t="2654590" d="2360">First, we need some
+more ingredients.</p>
+<p t="2661270" d="1650">This next ingredient
+is kind of funny,</p>
+<p t="2662920" d="2260">because it will seem useless.</p>
+<p t="2665180" d="4820">But in fact, it is useful as
+a step towards ingredient 3.</p>
+<p t="2670000" d="3450">So the next trick is called
+long path decomposition.</p>
+<p t="2680170" d="2790">In general, this class covers
+a lot of different treaty</p>
+<p t="2682960" d="2070">compositions.</p>
+<p t="2685030" d="4130">We did preferred path
+decomposition for tango trees.</p>
+<p t="2689160" d="1540">We're going to do long path now.</p>
+<p t="2690700" d="2100">We'll do another one
+called heavy path later.</p>
+<p t="2692800" d="1470">There's a lot of them out there.</p>
+<p t="2694270" d="2460">This one won't seem
+very useful at first,</p>
+<p t="2696730" d="3690">because while it will
+achieve linear space,</p>
+<p t="2700420" d="4230">it will achieve the amazing
+square root of n query, which</p>
+<p t="2704650" d="1620">I guess is new.</p>
+<p t="2706270" d="4590">I mean, we don't know how to
+do that yet with linear space.</p>
+<p t="2710860" d="1380">Not so obvious
+how to get root n.</p>
+<p t="2712240" d="4440">But anyway, don't worry
+about the query time.</p>
+<p t="2716680" d="2280">It's more the concept of
+long path that's interesting.</p>
+<p t="2718960" d="2444">It's a step in the
+right direction.</p>
+<p t="2721404" d="2416">So here's what here's how we're
+going to decompose a tree.</p>
+<p t="2723820" d="6750">First thing we do is find the
+longest route to leaf path</p>
+<p t="2730570" d="6370">in the tree, because
+if you look at a tree,</p>
+<p t="2736940" d="2750">it has some wavy bottom.</p>
+<p t="2739690" d="1710">Take the deepest node.</p>
+<p t="2741400" d="3470">Take the path the unique path
+from the root to that node.</p>
+<p t="2744870" d="760">OK.</p>
+<p t="2745630" d="3780">When I do that, I could
+imagine deleting those nodes.</p>
+<p t="2749410" d="1770">I mean, there's
+that path, and then</p>
+<p t="2751180" d="1710">there's everything
+else, which means</p>
+<p t="2752890" d="3840">there's all these triangles
+hanging off of that path, some</p>
+<p t="2756730" d="3670">on the left, some on the right.</p>
+<p t="2760400" d="4040">Actually, I haven't
+talked about this,</p>
+<p t="2764440" d="6180">but both LCA and level ancestors
+work not just for binary trees.</p>
+<p t="2770620" d="2380">They work for arbitrary trees.</p>
+<p t="2773000" d="2660">And somewhere along here--</p>
+<p t="2775660" d="2100">yeah, here.</p>
+<p t="2777760" d="2490">This reduction of
+using the Euler tour</p>
+<p t="2780250" d="2214">works for non-binary trees, too.</p>
+<p t="2782464" d="1416">That's actually
+another reason why</p>
+<p t="2783880" d="3450">this reduction is better than
+in-order traversal by itself.</p>
+<p t="2787330" d="3300">In-order traversal works
+only for binary trees.</p>
+<p t="2790630" d="1560">This thing works for any tree.</p>
+<p t="2792190" d="1710">In that case, in
+an arbitrary tree,</p>
+<p t="2793900" d="2400">you visit the node many,
+many times potentially.</p>
+<p t="2796300" d="1680">OK, but it will
+still be linear space</p>
+<p t="2797980" d="1950">and everything will still work.</p>
+<p t="2799930" d="2280">Here also, I want to
+handle non-binary trees.</p>
+<p t="2802210" d="2040">So I'm going to draw
+things hanging off,</p>
+<p t="2804250" d="2250">but in fact, there might be
+several things hanging off</p>
+<p t="2806500" d="2700">here, each their
+own little tree.</p>
+<p t="2809200" d="1710">OK, but the point is--</p>
+<p t="2810910" d="840">where's my red.</p>
+<p t="2814690" d="1610">Here.</p>
+<p t="2816300" d="3550">There was this one path in the
+beginning, the longest path,</p>
+<p t="2819850" d="1830">and then there's stuff
+hanging off of it.</p>
+<p t="2821680" d="4080">So just recurse on all the
+things hanging off of it.</p>
+<p t="2825760" d="2850">Recursively decompose
+those sub-trees.</p>
+<p t="2848032" d="1030">OK.</p>
+<p t="2849062" d="1708">Not clear what this
+is going to give you.</p>
+<p t="2850770" d="1708">In fact, it's not
+going to be so awesome,</p>
+<p t="2852478" d="2662">but it will be a starting point.</p>
+<p t="2855140" d="5300">Now you can answer a query
+with this, as follows.</p>
+<p t="2860440" d="2960">Query-- oh, sorry.</p>
+<p t="2863400" d="2940">I should say how we're
+actually storing these paths.</p>
+<p t="2866340" d="3920">Here's the cool idea
+with this path thing.</p>
+<p t="2870260" d="1870">I have this path.</p>
+<p t="2872130" d="2640">I'd like to be able to
+jump around at least--</p>
+<p t="2874770" d="1730">suppose your tree was a path.</p>
+<p t="2876500" d="1660">Suppose your tree were a path.</p>
+<p t="2878160" d="1770">Then what would you want to do?</p>
+<p t="2879930" d="3552">Store the nodes in an
+array ordered by depth,</p>
+<p t="2883482" d="1458">because then if
+you're a position i</p>
+<p t="2884940" d="2880">and you need to go to
+position i minus k, boom.</p>
+<p t="2887820" d="2170">That's just a look
+up into your array.</p>
+<p t="2889990" d="7620">So I'm going to store
+each path as an array,</p>
+<p t="2897610" d="10160">as an array of nodes or
+node pointers, I guess,</p>
+<p t="2907770" d="2310">ordered by depth.</p>
+<p t="2910080" d="5340">So if it happens, so if my query
+value x is somewhere on this</p>
+<p t="2915420" d="5010">path, and if this path
+encompasses where I need</p>
+<p t="2920430" d="3810">to go-- so if I need to go
+k up and I end up here--</p>
+<p t="2924240" d="1650">then that's instantaneous.</p>
+<p t="2925890" d="2380">The trouble would be
+is if I have a query,</p>
+<p t="2928270" d="2260">let's say, over here.</p>
+<p t="2930530" d="4660">And so there's going to be
+a path that guy lives on,</p>
+<p t="2935190" d="2350">but maybe the kth ancestor
+is not on that path.</p>
+<p t="2937540" d="2254">It could be on a higher up path.</p>
+<p t="2939794" d="1666">It could be on the
+red path, and I can't</p>
+<p t="2941460" d="2250">jump there instantaneously.</p>
+<p t="2943710" d="3460">Nonetheless, there is a
+decent query algorithm here.</p>
+<p t="2947170" d="500">All right.</p>
+<p t="2951230" d="6670">So Here's what
+we're going to do.</p>
+<p t="2957900" d="12070">If k is less than or equal
+to the index i of node</p>
+<p t="2969970" d="2330">x on its path.</p>
+<p t="2977580" d="2550">So every node belongs
+to exactly one path.</p>
+<p t="2980130" d="1710">This is a path decomposition.</p>
+<p t="2981840" d="3114">It's a partition of
+the tree into paths.</p>
+<p t="2984954" d="1416">Not all the edges
+are represented,</p>
+<p t="2986370" d="2610">but all the nodes are there.</p>
+<p t="2988980" d="4040">All the nodes
+belong to some path,</p>
+<p t="2993020" d="2980">and we're going to store,
+for every node, store</p>
+<p t="2996000" d="3780">what its index is and where
+it lives in its array.</p>
+<p t="2999780" d="2550">So look at that
+index in the array.</p>
+<p t="3002330" d="3000">If k is less than or
+equal to that index,</p>
+<p t="3005330" d="3480">then we can solve
+our problem instantly</p>
+<p t="3008810" d="6780">by looking at the path
+array at position i minus k.</p>
+<p t="3015590" d="2340">That's what I said before.</p>
+<p t="3017930" d="2280">If our kth ancestor
+is within the path,</p>
+<p t="3020210" d="1980">then that's where it
+will be, and that's</p>
+<p t="3022190" d="3070">going to work as long
+as that is non-negative.</p>
+<p t="3025260" d="3120">If I get to negative, that
+means it's another path.</p>
+<p t="3028380" d="2210">So that's the good case.</p>
+<p t="3030590" d="4380">The other case is
+we're just going to do</p>
+<p t="3034970" d="2254">some recursion, essentially.</p>
+<p t="3041100" d="2360">So we're going to go as high
+as we can with this path.</p>
+<p t="3043460" d="3960">We're going to look at
+path array at position 0.</p>
+<p t="3047420" d="1114">Go to the parent of that.</p>
+<p t="3048534" d="1916">Let's suppose every node
+has a parent pointer.</p>
+<p t="3050450" d="9490">That's easy, regular tree, and
+then decrease k by 1 plus i.</p>
+<p t="3059940" d="2630">So the array let us
+jump up i steps--</p>
+<p t="3062570" d="3560">that's this part--
+and then the parent</p>
+<p t="3066130" d="1330">stepped us up one more step.</p>
+<p t="3067460" d="3450">That's just to get to
+the next path above us.</p>
+<p t="3070910" d="2390">OK, so how much did
+this decrease k by?</p>
+<p t="3073300" d="3220">I'd like to say a factor of
+2 and get log n, but in fact,</p>
+<p t="3076520" d="2322">no, it's not very good.</p>
+<p t="3078842" d="1458">It doesn't decrease
+k by very much.</p>
+<p t="3080300" d="2730">It does decrease k,
+guaranteed by at least 1,</p>
+<p t="3083030" d="2670">so it's definitely linear time.</p>
+<p t="3085700" d="3465">And there's a bad
+tree, which is this.</p>
+<p t="3095100" d="1610">It's like a grid.</p>
+<p t="3096710" d="520">Whoa.</p>
+<p t="3097230" d="500">Sorry.</p>
+<p t="3101104" d="1576">OK, here's a tree.</p>
+<p t="3102680" d="2140">It's a binary tree.</p>
+<p t="3104820" d="2271">And if you set it up right,
+this is the longest path.</p>
+<p t="3107091" d="2249">And then when you decompose,
+this is the longest path,</p>
+<p t="3109340" d="2291">and this is the longest path,
+this is the longest path.</p>
+<p t="3111631" d="1913">If you query here,
+you'll walk up to here,</p>
+<p t="3113544" d="1916">and then walk up to here,
+and walk up to here,</p>
+<p t="3115460" d="833">and walk up to here.</p>
+<p t="3116293" d="4217">So this is a square root of n
+lower bound for this algorithm.</p>
+<p t="3120510" d="2900">So not a good algorithm
+yet, but the makings</p>
+<p t="3123410" d="1334">of a good algorithm.</p>
+<p t="3139570" d="6256">Makings of step 3, which is
+called ladder decomposition.</p>
+<p t="3152587" d="2083">Ladder decomposition is
+something I haven't really</p>
+<p t="3154670" d="1845">seen anywhere else.</p>
+<p t="3156515" d="1875">I think it comes from
+the parallel algorithms</p>
+<p t="3158390" d="1230">world in general.</p>
+<p t="3163830" d="9930">And now we're going to achieve
+linear space log n query.</p>
+<p t="3173760" d="1890">Now this is an improvement.</p>
+<p t="3175650" d="2420">So we have, at the
+moment, n log n space,</p>
+<p t="3178070" d="4035">log n query or n
+space root n query.</p>
+<p t="3182105" d="3015">We're basically taking
+the min of the two.</p>
+<p t="3185120" d="3870">And so we're getting
+linear space log n query.</p>
+<p t="3188990" d="1180">Still not perfect.</p>
+<p t="3190170" d="1640">We want constant query.</p>
+<p t="3191810" d="3330">That's when we'll use
+indirection, I think.</p>
+<p t="3195140" d="4920">Yeah, basically, a new type
+of indirection, but OK.</p>
+<p t="3200060" d="2890">So linear space log n query.</p>
+<p t="3202950" d="5090">Well, the idea is just
+to fix long paths,</p>
+<p t="3208040" d="1650">and it's a crazy idea, OK.</p>
+<p t="3209690" d="2280">Let me tell you the
+idea and then it's</p>
+<p t="3211970" d="2340">like, why would that be useful.</p>
+<p t="3214310" d="2910">But it's obvious that
+it doesn't hurt you, OK.</p>
+<p t="3217220" d="3750">When we have these paths,
+sometimes they're long.</p>
+<p t="3220970" d="2340">Sometimes they're
+not long enough.</p>
+<p t="3223310" d="1680">Just take each of
+these paths and extend</p>
+<p t="3224990" d="3910">them upwards by a factor of 2.</p>
+<p t="3228900" d="2210">That's the idea.</p>
+<p t="3231110" d="9320">So take number 2, extend
+each path upward 2 x.</p>
+<p t="3240430" d="3330">So that gives us call a ladder.</p>
+<p t="3246270" d="890">OK, what happens?</p>
+<p t="3247160" d="3650">Well, paths are
+going to overlap.</p>
+<p t="3250810" d="2190">Fine.</p>
+<p t="3253000" d="860">Ladders overlap.</p>
+<p t="3253860" d="1870">The original paths
+don't overlap.</p>
+<p t="3255730" d="780">Ladders overlap.</p>
+<p t="3256510" d="2070">I don't really care
+if they overlap.</p>
+<p t="3258580" d="2070">How much space is there?</p>
+<p t="3260650" d="2700">It's still linear space, because
+I'm just doubling everything.</p>
+<p t="3263350" d="3677">So I've most doubled space
+relative to long path</p>
+<p t="3267027" d="583">decomposition.</p>
+<p t="3267610" d="2400">I didn't mention it explicitly,
+but long path decomposition</p>
+<p t="3270010" d="666">is linear space.</p>
+<p t="3270676" d="3954">We're just partitioning up
+the tree into little pieces.</p>
+<p t="3274630" d="1440">Doesn't take much.</p>
+<p t="3276070" d="3030">We have to store those
+arrays, but every node</p>
+<p t="3279100" d="1890">appears in exactly
+one cell here.</p>
+<p t="3280990" d="1830">Now every node will
+appear in, on average,</p>
+<p t="3282820" d="2280">two cells in some weird way.</p>
+<p t="3285100" d="1470">Like what happens over here?</p>
+<p t="3286570" d="2280">I have no idea.</p>
+<p t="3288850" d="1740">So this guy's length 1.</p>
+<p t="3290590" d="1470">It's going to grow to length 2.</p>
+<p t="3292060" d="3690">This one's length 2, so
+now it'll grow to length 4.</p>
+<p t="3295750" d="875">This one's length 3--</p>
+<p t="3296625" d="1333">and it depends on how you count.</p>
+<p t="3297958" d="1212">I'm counting nodes here.</p>
+<p t="3299170" d="3840">That's going to go here,
+all the way the top.</p>
+<p t="3303010" d="1830">Interesting.</p>
+<p t="3304840" d="1630">All the others
+will go to the top.</p>
+<p t="3306470" d="2475">So if I'm here, I walk here.</p>
+<p t="3308945" d="1625">Then I can jump all
+the way to the top.</p>
+<p t="3310570" d="2640">Then I can jump all
+the way to the root.</p>
+<p t="3313210" d="3790">Not totally obvious, but it
+actually will be log n steps.</p>
+<p t="3317000" d="1215">Let's prove that.</p>
+<p t="3318215" d="1625">This is again something
+we don't really</p>
+<p t="3319840" d="1650">need to know for
+the final solution,</p>
+<p t="3321490" d="3570">but kind of nice, kind of
+comforting to know that we've</p>
+<p t="3325060" d="2130">gotten down a log n query.</p>
+<p t="3327190" d="2525">So it's at most
+double the space.</p>
+<p t="3329715" d="875">This is still linear.</p>
+<p t="3334030" d="3135">Now-- oh, there's one catch.</p>
+<p t="3340750" d="4910">Over in this world,
+we said each--</p>
+<p t="3345660" d="1990">I didn't say it.</p>
+<p t="3347650" d="1350">I mentioned it out loud.</p>
+<p t="3349000" d="3330">Every node stores what
+array it lives in.</p>
+<p t="3352330" d="3390">Now a node lives in
+multiple arrays, OK.</p>
+<p t="3355720" d="2640">So which one do I
+store a pointer to?</p>
+<p t="3358360" d="4530">Well, there's one obvious
+one to store a pointer to.</p>
+<p t="3362890" d="2490">Whatever node you take
+lives in one path.</p>
+<p t="3365380" d="2850">In that long path decomposition,
+it still lives in one path.</p>
+<p t="3368230" d="3430">Store a pointer
+into that ladder.</p>
+<p t="3371660" d="8900">So node stores a pointer you
+could say to the ladder that</p>
+<p t="3380560" d="2220">contains it in the lower half.</p>
+<p t="3387550" d="3600">That corresponds to the one
+where it was an actual path.</p>
+<p t="3391150" d="4110">And only one ladder will contain
+a node in its lower half.</p>
+<p t="3395260" d="1840">The upper half
+was the extension.</p>
+<p t="3397100" d="3460">I guess it's like those
+folding ladders you extend.</p>
+<p t="3400560" d="1700">OK.</p>
+<p t="3402260" d="500">Cool.</p>
+<p t="3402760" d="1958">So that's what we're
+going to do and also store</p>
+<p t="3404718" d="2492">its index in the array.</p>
+<p t="3407210" d="3020">Now we can do exactly this
+query algorithm again,</p>
+<p t="3410230" d="2340">except now instead of
+path, it says ladder.</p>
+<p t="3412570" d="3330">So you look at the index
+of the node in its ladder.</p>
+<p t="3415900" d="3000">If that index is
+larger than k, then</p>
+<p t="3418900" d="3300">boom, that ladder array will
+tell you exactly where to go.</p>
+<p t="3422200" d="2280">Otherwise you go to
+the top of the ladder</p>
+<p t="3424480" d="1680">and then you take
+the parent pointer,</p>
+<p t="3426160" d="1350">and you decrease by this.</p>
+<p t="3427510" d="3606">But now I claim that
+decrease will be substantial.</p>
+<p t="3431116" d="499">Why?</p>
+<p t="3440470" d="2430">If I have a node of height h--</p>
+<p t="3445570" d="2530">remember, height of a node
+is the length of the longest</p>
+<p t="3448100" d="1520">path from there downward--</p>
+<p t="3452300" d="12001">it will be on a ladder
+of height at least 2h.</p>
+<p t="3464301" d="499">Why?</p>
+<p t="3464800" d="2322">Because if you look at
+a node of height h--</p>
+<p t="3467122" d="1458">like say, I don't
+know, this node--</p>
+<p t="3471220" d="2744">the longest path from
+there is substantial.</p>
+<p t="3473964" d="2416">I mean, if it's height h, then
+the longest path from there</p>
+<p t="3476380" d="1470">is length at least h.</p>
+<p t="3477850" d="3000">So every node of height h will
+be on a path of length at least</p>
+<p t="3480850" d="3160">h, and from there down.</p>
+<p t="3484010" d="1250">And so you look at the ladder.</p>
+<p t="3485260" d="1660">Well, that's going
+to be double that.</p>
+<p t="3486920" d="2750">So the ladder will be
+height at least 2h,</p>
+<p t="3489670" d="3360">which means if your
+query starts at height h,</p>
+<p t="3493030" d="3450">after you do one step
+of this ladder search,</p>
+<p t="3496480" d="3270">you will get to height at least
+2h, and then 4h, and then 8h.</p>
+<p t="3499750" d="3270">You're increasing your height by
+a power of 2, by a factor of 2</p>
+<p t="3503020" d="1120">every time.</p>
+<p t="3504140" d="4860">So in log n steps, you will
+get to wherever you need to go.</p>
+<p t="3509000" d="2160">OK You don't have to
+worry about overshooting,</p>
+<p t="3511160" d="2370">because that's the case
+when the array tells you</p>
+<p t="3513530" d="2270">exactly where to go.</p>
+<p t="3515800" d="500">OK.</p>
+<p t="3518930" d="3150">Time for the climax.</p>
+<p t="3522080" d="1726">It won't be the end,
+but it's the climax</p>
+<p t="3523806" d="1124">in the middle of the story.</p>
+<p t="3524930" d="2970">So we have on the one
+hand, jump pointers.</p>
+<p t="3527900" d="990">Remember those?</p>
+<p t="3528890" d="6280">Jump pointers made small
+steps initially and got--</p>
+<p t="3535170" d="1670">actually, no.</p>
+<p t="3536840" d="2225">This is what it looks like
+for the data structure.</p>
+<p t="3539065" d="1375">But if you look
+at the algorithm,</p>
+<p t="3540440" d="2020">actually it makes a big
+step in the beginning.</p>
+<p t="3542460" d="500">Right?</p>
+<p t="3542960" d="1784">It gets more than halfway there.</p>
+<p t="3544744" d="1666">Then it makes smaller
+and smaller steps,</p>
+<p t="3546410" d="1480">exponentially decreasing steps.</p>
+<p t="3547890" d="5100">Finally, it arrives
+at the intended node.</p>
+<p t="3552990" d="3014">Ladder decomposition
+is doing the reverse.</p>
+<p t="3556004" d="1416">If you start at
+low height, you're</p>
+<p t="3557420" d="2070">going to make very small
+steps in the beginning.</p>
+<p t="3559490" d="1416">As your height
+gets bigger, you're</p>
+<p t="3560906" d="1884">going to be making
+bigger and bigger steps.</p>
+<p t="3562790" d="3090">And then when you jump over your
+node, you found it instantly.</p>
+<p t="3565880" d="3460">So it's kind of the
+opposite of jump pointers.</p>
+<p t="3569340" d="3290">So what we're going to
+do is take jump pointers</p>
+<p t="3572630" d="3329">and add them to
+ladder decomposition.</p>
+<p t="3592096" d="1484">Huh.</p>
+<p t="3593580" d="2590">This is, I guess, version 4.</p>
+<p t="3596170" d="12530">Combine jump pointers from
+one and ladders from three.</p>
+<p t="3608700" d="720">Forget about two.</p>
+<p t="3609420" d="2520">Two is just a warm up for three.</p>
+<p t="3611940" d="3270">Long paths, defined ladders.</p>
+<p t="3615210" d="2640">So we've got one way
+to do log n query.</p>
+<p t="3617850" d="2400">We've got another way
+to do log n query.</p>
+<p t="3620250" d="5360">I combine them, and
+I get constant query.</p>
+<p t="3625610" d="1650">Because log n plus
+log n equals 1.</p>
+<p t="3627260" d="570">I don't know.</p>
+<p t="3632820" d="1940">OK, here's the idea.</p>
+<p t="3634760" d="3270">On the one hand, jump pointers
+make a big step and then</p>
+<p t="3638030" d="2000">smaller steps, right.</p>
+<p t="3640030" d="1430">Yeah, like that.</p>
+<p t="3641460" d="4880">And on the other hand,
+ladders make small steps.</p>
+<p t="3646340" d="750">It's hard to draw.</p>
+<p t="3651400" d="7980">What I'd like to do is take
+this step and this step.</p>
+<p t="3659380" d="2730">That would be good,
+because only two of them.</p>
+<p t="3662110" d="11070">So query is going to do
+one jump, plus 1 ladder,</p>
+<p t="3673180" d="2230">in that order.</p>
+<p t="3675410" d="2242">See, the thing about
+ladders is it's</p>
+<p t="3677652" d="2458">really slow in the beginning,
+because your height is small.</p>
+<p t="3680110" d="3060">I really want to
+get large height.</p>
+<p t="3683170" d="1560">Jump pointers give
+you large height.</p>
+<p t="3684730" d="3990">The very first step, you get
+half the height you need.</p>
+<p t="3688720" d="1880">That's it.</p>
+<p t="3690600" d="8170">So when we do a jump, we do
+one step of the jump algorithm.</p>
+<p t="3698770" d="660">What do we do?</p>
+<p t="3699430" d="9610">We reach height at
+least k over 2 above x.</p>
+<p t="3709040" d="2610">All right, we get halfway there.</p>
+<p t="3711650" d="1660">So our height-- it's a little--</p>
+<p t="3713310" d="3050">let's say x has height h.</p>
+<p t="3716360" d="2600">OK, so then we get to
+height-- this is saying we</p>
+<p t="3718960" d="4410">get to height h plus k over 2.</p>
+<p t="3723370" d="810">OK, that's good.</p>
+<p t="3724180" d="2010">This is a big height.</p>
+<p t="3726190" d="5220">Halfway there, I mean, halfway
+of the remainder after h.</p>
+<p t="3731410" d="4210">Now ladders double your
+height in every step.</p>
+<p t="3735620" d="4920">So ladder step-- so
+this is the jump step.</p>
+<p t="3740540" d="4400">If you do one ladder step, you
+will reach height double that.</p>
+<p t="3744940" d="3785">So it's at least
+2 h plus k, which</p>
+<p t="3748725" d="1175">is bigger than what we need.</p>
+<p t="3749900" d="1167">We need h plus k.</p>
+<p t="3751067" d="1333">That's where we're trying to go.</p>
+<p t="3752400" d="2564">And so we're done.</p>
+<p t="3754964" d="666">Isn't that cool?</p>
+<p t="3760960" d="3790">So the annoying part is
+there's this extra part here.</p>
+<p t="3764750" d="3360">This is the h part and
+we start at some level.</p>
+<p t="3768110" d="970">We don't know where.</p>
+<p t="3769080" d="500">This is x.</p>
+<p t="3769580" d="2040">The worst case is maybe
+when it's very small,</p>
+<p t="3771620" d="4640">but whatever it is, we do this
+step and this is our target up</p>
+<p t="3776260" d="820">here.</p>
+<p t="3777080" d="3030">This is height h plus k.</p>
+<p t="3780110" d="2100">In one step, we get
+more than halfway</p>
+<p t="3782210" d="2940">there with the jump pointer.</p>
+<p t="3785150" d="2380">And then the ladder will
+carry us the rest of the way.</p>
+<p t="3787530" d="1460">Because this is the ladder.</p>
+<p t="3788990" d="4320">We basically go horizontally
+to fall on this ladder,</p>
+<p t="3793310" d="2160">and it will cover
+us beyond where</p>
+<p t="3795470" d="2030">we need to go, beyond
+our wildest imaginations.</p>
+<p t="3797500" d="2169">So this is k over 2.</p>
+<p t="3799669" d="1541">Because not only
+will it double this,</p>
+<p t="3801210" d="1458">which is what we
+need to double, it</p>
+<p t="3802668" d="3152">will also double whatever
+is down here, this h part.</p>
+<p t="3805820" d="2500">So it gets us way beyond
+where we need to go.</p>
+<p t="3808320" d="930">I mean, could be h 0.</p>
+<p t="3809250" d="1958">Then it gets us to exactly
+where we need to go.</p>
+<p t="3813472" d="1708">But then the ladder
+tells us where to go.</p>
+<p t="3815180" d="2751">So two steps constant time.</p>
+<p t="3821300" d="4140">Now one annoying thing is
+we're not done with space.</p>
+<p t="3825440" d="1980">So this is the anticlimax part.</p>
+<p t="3827420" d="1900">It's still going to
+be pretty interesting.</p>
+<p t="3829320" d="2136">We've got to shave off
+a log factor in space,</p>
+<p t="3831456" d="1124">but hey, we're experienced.</p>
+<p t="3832580" d="1541">We already did that once today.</p>
+<p t="3834121" d="499">Question?</p>
+<p t="3834620" d="500">Yeah.</p>
+<p t="3835120" d="2025">Why is it OK to go
+past your target?</p>
+<p t="3841664" d="2166">The question was why is it
+OK to go past our target?</p>
+<p t="3843830" d="1958">Jump pointers aren't
+allowed, because they only</p>
+<p t="3845788" d="932">know how to go up.</p>
+<p t="3846720" d="1020">They can't overshoot.</p>
+<p t="3847740" d="2900">That's why they went less than
+halfway, or more than halfway,</p>
+<p t="3850640" d="1380">but less than the full way.</p>
+<p t="3852020" d="4560">Ladder decomposition can go
+beyond, because as soon as--</p>
+<p t="3856580" d="3870">the point is, as soon as--
+here's you, x, and here's</p>
+<p t="3860450" d="1320">your kth ancestor.</p>
+<p t="3861770" d="1040">This is the answer.</p>
+<p t="3862810" d="1750">As soon as you're in
+a common ladder, then</p>
+<p t="3864560" d="1630">the array tells you where to go.</p>
+<p t="3866190" d="3909">So even though the top
+of the ladder overshot,</p>
+<p t="3870099" d="1541">there will be a
+ladder connecting you</p>
+<p t="3871640" d="1083">to that top of the ladder.</p>
+<p t="3872723" d="3297">So as long as it's somewhere
+in between, it's free.</p>
+<p t="3876020" d="3735">Yeah, so that's why it's OK
+this goes potentially too high.</p>
+<p t="3879755" d="1875">So it's good for ladders,
+not good for jumps,</p>
+<p t="3881630" d="4530">but that's exactly where
+we have it Other questions?</p>
+<p t="3886160" d="663">Yeah.</p>
+<p t="3886823" d="3381">AUDIENCE: [INAUDIBLE]
+jump pointers,</p>
+<p t="3890204" d="2254">wouldn't you be high
+up enough in the tree</p>
+<p t="3892458" d="2492">so that just the
+long path would work?</p>
+<p t="3894950" d="1500">PROFESSOR: Oh,
+interesting question.</p>
+<p t="3896450" d="3000">So would it be enough to do
+jump pointers plus long path?</p>
+<p t="3899450" d="2580">My guess is no.</p>
+<p t="3902030" d="2220">Jump pointers get you up to--</p>
+<p t="3904250" d="1500">so think of the
+case where h is 0.</p>
+<p t="3905750" d="2310">Initially you're at height 0.</p>
+<p t="3908060" d="1910">I think that's going
+to be a problem.</p>
+<p t="3909970" d="5500">You jump up to height k
+over 2 with a jump pointer.</p>
+<p t="3915470" d="1800">Now long path
+decomposition, you know</p>
+<p t="3917270" d="3900">that the path will have a
+length at least k over 2,</p>
+<p t="3921170" d="1570">but you need to get up to k.</p>
+<p t="3922740" d="2270">And so you may get stuck
+in this kind of situation</p>
+<p t="3925010" d="2530">where maybe you're
+trying to get to the root</p>
+<p t="3927540" d="3680">and you jumped to here,
+but then you have to walk.</p>
+<p t="3931220" d="1920">So I think the long
+path's not enough.</p>
+<p t="3933140" d="2392">You need that factor of 2,
+which the ladders give you.</p>
+<p t="3935532" d="1958">You can see where ladders
+come from now, right?</p>
+<p t="3937490" d="2901">I mean we got up
+to height k over 2.</p>
+<p t="3940391" d="1249">Now we just need to double it.</p>
+<p t="3941640" d="2360">Hey, we can afford
+to double every path,</p>
+<p t="3944000" d="1385">but I think we need to.</p>
+<p t="3945385" d="3305">Are there questions?</p>
+<p t="3948690" d="1610">OK.</p>
+<p t="3950300" d="5700">So last thing to do is to shave
+off this log factor of space.</p>
+<p t="3956000" d="2560">Now, we're going to do that
+with indirection, of course,</p>
+<p t="3958560" d="2480">constant time and log n space.</p>
+<p t="3961040" d="3410">But it's not our usual
+type of indirection.</p>
+<p t="3968750" d="1790">Use this board.</p>
+<p t="3970540" d="720">Indirections.</p>
+<p t="3971260" d="5820">So last time we did indirection,
+it was with an array.</p>
+<p t="3977080" d="2250">And actually pretty much
+every indirection we've done,</p>
+<p t="3979330" d="1830">it's been with an
+array-like thing.</p>
+<p t="3981160" d="2880">We could decompose into
+groups of size log n,</p>
+<p t="3984040" d="1970">the top thing was n over log n.</p>
+<p t="3986010" d="2170">So it was kind of clean.</p>
+<p t="3988180" d="4020">This structure is not so
+clean, because it's a tree.</p>
+<p t="3992200" d="2250">How do you decompose a
+tree into little things</p>
+<p t="3994450" d="2250">at the bottom of size
+log n and a top thing</p>
+<p t="3996700" d="1980">of size n over log n?</p>
+<p t="3998680" d="4830">Suppose, for example,
+your tree is a path.</p>
+<p t="4006840" d="2580">Bad news.</p>
+<p t="4009420" d="6540">If my tree were a path,
+well, I could trim off</p>
+<p t="4015960" d="1380">bottom thing of size log n.</p>
+<p t="4017340" d="4410">But now the rest is of size
+n minus log n, not n divided</p>
+<p t="4021750" d="510">by log n.</p>
+<p t="4022260" d="1440">That's bad.</p>
+<p t="4023700" d="2930">I need to shave a factor of
+log n, not an additive log n.</p>
+<p t="4029591" d="1749">Can you tell me a good
+thing about a path?</p>
+<p t="4034300" d="2850">I mean, obviously, when
+we can put in an array.</p>
+<p t="4037150" d="1920">But can you quantify
+the goodness,</p>
+<p t="4039070" d="2250">or the pathlikedness of a tree?</p>
+<p t="4044984" d="1266">I erase this board.</p>
+<p t="4053169" d="1041">Kind of a vague question.</p>
+<p t="4061730" d="2250">Good thing about
+a path is that it</p>
+<p t="4063980" d="2070">doesn't have very many leaves.</p>
+<p t="4066050" d="2170">That's one way to
+quantify pathedness.</p>
+<p t="4068220" d="6070">Small number of leaves, I
+claim life's not so bad.</p>
+<p t="4074290" d="5098">I actually need to do that
+before we get to indirection.</p>
+<p t="4096010" d="4980">Step 5 is let's tune
+jump pointers a bit.</p>
+<p t="4104479" d="1071">I want to make them--</p>
+<p t="4108141" d="1249">so they're the problem, right?</p>
+<p t="4109390" d="1940">That's where we
+get n log n space.</p>
+<p t="4111330" d="3040">They're the only source
+of our n log n space.</p>
+<p t="4114370" d="4800">So what I'd like to do is
+in this situation where</p>
+<p t="4119170" d="1830">the number of leaves is small--</p>
+<p t="4121000" d="1740">we'll see what small
+is in a moment--</p>
+<p t="4122740" d="4069">I would like jump pointers
+to be linear size.</p>
+<p t="4129779" d="1641">OK, here's the idea.</p>
+<p t="4136250" d="3974">First idea is let's just store
+jump pointers from leaves.</p>
+<p t="4149290" d="730">OK.</p>
+<p t="4150020" d="6509">So that would imply
+l log n space,</p>
+<p t="4156529" d="2111">I guess, plus linear overall.</p>
+<p t="4162948" d="2942">Instead of n log n, now we
+just pay for the leaves,</p>
+<p t="4165890" d="1799">except we kind of
+messed up our query.</p>
+<p t="4167689" d="3335">First thing query did was at the
+node, follow the jump pointer.</p>
+<p t="4171024" d="2846">But it's not so bad.</p>
+<p t="4173870" d="1409">Here we are at x.</p>
+<p t="4175279" d="3841">There's some leaves
+down here, and we want</p>
+<p t="4179120" d="2550">to jump up from here, from x.</p>
+<p t="4181670" d="1800">How do I jump from x?</p>
+<p t="4183470" d="2520">Well, if I could somehow
+go from x to really,</p>
+<p t="4185990" d="4260">any leaf, the ancestors
+of x that I care about</p>
+<p t="4190250" d="2760">are also ancestors of
+any leaf descendant of x.</p>
+<p t="4193010" d="4410">So all I need to do
+is store for each node</p>
+<p t="4197420" d="4510">any leaf descendant,
+single pointer--</p>
+<p t="4201930" d="7330">this'll be linear--
+from every node.</p>
+<p t="4212740" d="2770">OK so I start at x.</p>
+<p t="4215510" d="3160">I jump down to an arbitrary
+leaf, say this one.</p>
+<p t="4218670" d="4280">And now I have to do a query.</p>
+<p t="4225800" d="7740">Jump down, and let's
+say I jumped down by d.</p>
+<p t="4233540" d="7230">Then my k becomes
+k plus d, right.</p>
+<p t="4240770" d="2190">If I went down by d,
+and I want to go up</p>
+<p t="4242960" d="3480">by k from my original point,
+now I have to go up by k plus d.</p>
+<p t="4246440" d="3570">But hey, we know how to
+go up from any node that</p>
+<p t="4250010" d="1000">has jump pointers.</p>
+<p t="4251010" d="4790">So now we have a
+new node, a leaf.</p>
+<p t="4255800" d="5220">So it has a jump pointer,
+has jump pointers, upward.</p>
+<p t="4261020" d="3870">So we follow that one jump
+pointer to get us halfway there</p>
+<p t="4264890" d="1770">from our new starting point.</p>
+<p t="4266660" d="1680">We follow one
+ladder thing, and we</p>
+<p t="4268340" d="5190">can get to the level ancestor
+k plus d from the leaf,</p>
+<p t="4273530" d="2740">and that's the level
+ancestor k from x.</p>
+<p t="4276270" d="2799">OK, this is like a reduction
+to the leaf situation.</p>
+<p t="4279069" d="2541">We really don't have to support
+queries from arbitrary nodes.</p>
+<p t="4281610" d="2420">Just go down to a leaf
+and then solve the problem</p>
+<p t="4284030" d="1810">from the leaf.</p>
+<p t="4285840" d="500">OK.</p>
+<p t="4289350" d="2490">OK, so now, if the
+number leaves is small,</p>
+<p t="4291840" d="1040">my space will get small.</p>
+<p t="4292880" d="1660">How small does l have to be?</p>
+<p t="4294540" d="1770">n divided by log n.</p>
+<p t="4296310" d="2870">Interesting.</p>
+<p t="4299180" d="4080">If I could get the top structure
+to not have n over log n nodes,</p>
+<p t="4303260" d="990">that's not possible.</p>
+<p t="4304250" d="2820">I can, at best, get to
+n minus log n nodes.</p>
+<p t="4307070" d="3630">But if I could get it down
+to n over log n leaves, that</p>
+<p t="4310700" d="1800">would be enough to
+make this linear space,</p>
+<p t="4312500" d="2430">and indeed, I can.</p>
+<p t="4314930" d="4410">This is a technique called tree
+trimming, or I call it that.</p>
+<p t="4319340" d="2200">I don't know if
+anyone else does.</p>
+<p t="4321540" d="3002">But I think I've called
+it that in enough papers</p>
+<p t="4324542" d="1458">that we're allowed
+to call it that.</p>
+<p t="4333420" d="2250">Originally invented by
+[? Al ?] [? Strip ?] and others</p>
+<p t="4335670" d="2950">for a particular data structure.</p>
+<p t="4338620" d="1200">There's many versions of it.</p>
+<p t="4339820" d="2010">We will see other versions
+in future lectures,</p>
+<p t="4341830" d="7510">but here's the version
+you need for this problem.</p>
+<p t="4367920" d="2550">OK, here's the plan.</p>
+<p t="4370470" d="9350">I have a tree and
+I want to identify</p>
+<p t="4379820" d="5070">all the maximally deep nodes
+that have at least log n</p>
+<p t="4384890" d="1615">nodes below them.</p>
+<p t="4386505" d="1625">This will seem weird,
+because we really</p>
+<p t="4388130" d="1540">care about leaves, and so on.</p>
+<p t="4389670" d="5570">So there's stuff hanging
+off here, whatever.</p>
+<p t="4395240" d="2980">I guess I'm thinking of
+that as one big tree.</p>
+<p t="4398220" d="2960">No, actually I'm not.</p>
+<p t="4401180" d="1590">I do need to separate these out.</p>
+<p t="4405470" d="2760">But one of these nodes could
+have arbitrarily many children.</p>
+<p t="4408230" d="1690">We have no idea.</p>
+<p t="4409920" d="1330">It's a arbitrary tree.</p>
+<p t="4414740" d="3570">OK, and what I know is that
+each of these triangles</p>
+<p t="4418310" d="4440">has size less than 1/4 log n.</p>
+<p t="4422750" d="3270">Because otherwise, this
+node was not maximally deep.</p>
+<p t="4426020" d="7899">So if this had size greater
+or equal than 1/4 log n,</p>
+<p t="4433919" d="2541">then that would have been the
+node where I cut, not this one.</p>
+<p t="4436460" d="2460">So I'm circling the
+nodes that I cut below,</p>
+<p t="4438920" d="1320">so meaning I cut these edges.</p>
+<p t="4443050" d="2780">OK, so these things have
+size less than 1/4 log n,</p>
+<p t="4445830" d="6050">but these nodes have at least
+1/4 log n nodes below them.</p>
+<p t="4451880" d="3630">So how many of these
+circle nodes are there?</p>
+<p t="4455510" d="14610">Well, at most, 4 n over
+log n such nodes, right,</p>
+<p t="4470120" d="3180">because I can charge
+this node to at least 1/4</p>
+<p t="4473300" d="3450">log n nodes that disappear
+in the top structure.</p>
+<p t="4480010" d="3640">But these things become
+the leaves, right.</p>
+<p t="4483650" d="2280">If I cut all the edges
+going down from there,</p>
+<p t="4485930" d="1950">that makes it a leaf.</p>
+<p t="4487880" d="2840">And they're the only leaves.</p>
+<p t="4490720" d="1370">Are they the only leaves?</p>
+<p t="4492090" d="1640">Yeah.</p>
+<p t="4493730" d="3270">If you look at a leaf, then it
+has size less than 1/4 log n.</p>
+<p t="4497000" d="2050">So you will cut
+above it somewhere.</p>
+<p t="4499050" d="2490">So every old leaf
+will be down here,</p>
+<p t="4501540" d="3730">and the only new leaves
+will be the cut nodes.</p>
+<p t="4505270" d="550">OK.</p>
+<p t="4505820" d="6510">So we have order n
+over log n leaves.</p>
+<p t="4512330" d="1727">Yes, good.</p>
+<p t="4514057" d="583">So it's funny.</p>
+<p t="4514640" d="2430">We're cutting according
+to counting nodes,</p>
+<p t="4517070" d="1590">descendants, not leaves.</p>
+<p t="4518660" d="2210">Won't work if you
+cut with leaves--</p>
+<p t="4520870" d="760">cut with nodes.</p>
+<p t="4521630" d="2541">But then the thing that we care
+about is the number of leaves</p>
+<p t="4524171" d="1489">went down.</p>
+<p t="4525660" d="2870">That will be enough.</p>
+<p t="4528530" d="1350">Great.</p>
+<p t="4529880" d="8220">So up here, we can afford to
+use 5, the tuned jump pointer,</p>
+<p t="4538100" d="3630">combined with ladder structure.</p>
+<p t="4541730" d="3580">Because this only costs l log n.</p>
+<p t="4545310" d="3620">l is now n over log n,
+so the log n's cancel.</p>
+<p t="4548930" d="2790">So linear space to
+store the jump pointers</p>
+<p t="4551720" d="2190">from these circled nodes.</p>
+<p t="4553910" d="2460">So if our query is
+anywhere up here,</p>
+<p t="4556370" d="2470">then we go to a descendant
+leaf in the top structure.</p>
+<p t="4558840" d="1580">And we can go wherever
+we need to go.</p>
+<p t="4563300" d="2206">If our query is in one
+of the little trees</p>
+<p t="4565506" d="2624">at the bottom, which are small,
+they're only 1/4 quarter log n,</p>
+<p t="4568130" d="2640">so we're going to
+use a lookup table.</p>
+<p t="4570770" d="2075">Either answer is
+inside the triangle,</p>
+<p t="4572845" d="2665">in which case, we really
+need to query that structure.</p>
+<p t="4575510" d="2790">Or it's up here.</p>
+<p t="4578300" d="3390">If it's up here, we just
+need to know, basically,</p>
+<p t="4581690" d="3970">if every node down here stores
+a pointer to the dot above it.</p>
+<p t="4585660" d="2410">Then we can first go there
+and see, is that too high?</p>
+<p t="4588070" d="2140">If it's too high, then
+our answer is in here.</p>
+<p t="4590210" d="1470">If it's not too
+high, then we just</p>
+<p t="4591680" d="2650">do the corresponding
+query in structure 5.</p>
+<p t="4594330" d="2300">OK, so the last
+remaining thing is</p>
+<p t="4596630" d="3610">to solve a query that stays
+entirely within a triangle, so</p>
+<p t="4600240" d="5315">a bottom structure, and that's
+where we use lookup tables.</p>
+<p t="4616740" d="3286">Again, things are going
+to be similar to last time</p>
+<p t="4620026" d="1574">except for now, to step 7.</p>
+<p t="4624780" d="3630">But it's a little bit messier
+because instead of arrays,</p>
+<p t="4628410" d="1350">we have trees.</p>
+<p t="4629760" d="4110">And here it's like we graduate
+from baby [INAUDIBLE] which is</p>
+<p t="4633870" d="2220">how many plus or minus
+1 strings there are--</p>
+<p t="4636090" d="3960">power of 2-- to how
+many trees are there.</p>
+<p t="4640050" d="3840">Anyone know how many trees
+on n nodes there are?</p>
+<p t="4643890" d="810">One word answer.</p>
+<p t="4648220" d="1216">No.</p>
+<p t="4649436" d="1224">Nice.</p>
+<p t="4650660" d="2050">That is a correct
+one word answer.</p>
+<p t="4652710" d="1440">Very good.</p>
+<p t="4654150" d="4470">Not the one I had in
+mind, but anyone else?</p>
+<p t="4674630" d="709">Nope.</p>
+<p t="4675339" d="1291">You're thinking end to the end.</p>
+<p t="4676630" d="1380">That would be bad.</p>
+<p t="4678010" d="2190">We could not afford that,
+because log n to log n</p>
+<p t="4680200" d="1901">is super polynomial.</p>
+<p t="4682101" d="1249">Fortunately it's not that big.</p>
+<p t="4683350" d="500">Hmm?</p>
+<p t="4683850" d="742">AUDIENCE:</p>
+<p t="4684592" d="1458">PROFESSOR: It's
+roughly 4 to the n.</p>
+<p t="4686050" d="1916">The correct answer-- I
+mean the exact answer--</p>
+<p t="4687966" d="3671">is called the Catalan number,
+which didn't tell you much.</p>
+<p t="4691637" d="1583">I didn't write it
+down, but I'm pretty</p>
+<p t="4693220" d="8550">sure it is 2 n prime choose
+n prime 1 over n prime plus 1</p>
+<p t="4701770" d="2610">ish?</p>
+<p t="4704380" d="990">Don't quote me on that.</p>
+<p t="4705370" d="2010">It's roughly that.</p>
+<p t="4707380" d="990">Might be exactly that.</p>
+<p t="4708370" d="2600">Someone with internet can check.</p>
+<p t="4710970" d="2490">But it is at most
+4 to the n prime.</p>
+<p t="4713460" d="1750">The computer science
+answer is 4 to the n.</p>
+<p t="4715210" d="2250">Indeed.</p>
+<p t="4717460" d="1800">It's just some asymptotics here.</p>
+<p t="4719260" d="960">Why is it 4 to the n?</p>
+<p t="4720220" d="2220">4 to the n you could also
+write as 2 to the 2 n</p>
+<p t="4722440" d="2314">prime, which is--</p>
+<p t="4724754" d="1916">first, let's check this
+is good, and then I'll</p>
+<p t="4726670" d="3390">explain why this is true
+in a computer science way.</p>
+<p t="4730060" d="1870">So we got 1/4 log n up here.</p>
+<p t="4731930" d="3980">So the one 2 cancels
+with one 2 up here.</p>
+<p t="4735910" d="1940">So we have 2 to the 1/2 log n.</p>
+<p t="4737850" d="2245">This is our good friend root n.</p>
+<p t="4740095" d="2655">Root n is just something
+that's n to the something,</p>
+<p t="4742750" d="2950">but is n to the
+something less than 1.</p>
+<p t="4745700" d="1475">So we can afford
+some log factors.</p>
+<p t="4750370" d="3600">Why are there only 2
+to the 2 n prime trees?</p>
+<p t="4753970" d="3660">One way to see that is you can
+encode a tree using 2n bits.</p>
+<p t="4757630" d="2730">If I have an n node tree, I
+can encode it with 2n bits.</p>
+<p t="4760360" d="1350">How?</p>
+<p t="4761710" d="2010">Do an Euler tour.</p>
+<p t="4763720" d="2940">And all you really need
+to know from an Euler tour</p>
+<p t="4766660" d="2310">to reconstruct the
+tree is at each step,</p>
+<p t="4768970" d="1209">did I go down or did I go up?</p>
+<p t="4770179" d="1540">Those are the only
+things you can do.</p>
+<p t="4771719" d="1811">If you went down,
+it's to a new child.</p>
+<p t="4773530" d="2320">If you went up,
+it's to an old node.</p>
+<p t="4775850" d="2712">So if I told you
+a sequence of bits</p>
+<p t="4778562" d="1958">for every step in the
+Euler tour, did I go down</p>
+<p t="4780520" d="3430">or did I go up, you can
+reconstruct the tree.</p>
+<p t="4783950" d="1500">Now how many bits
+do I have to do?</p>
+<p t="4785450" d="2630">Well, twice the number
+of edges in the tree,</p>
+<p t="4788080" d="1530">because the length
+of an Euler tour</p>
+<p t="4789610" d="1708">is twice the number
+of edges in the tree.</p>
+<p t="4791318" d="2492">So 2 n bits are enough
+to encode any tree.</p>
+<p t="4793810" d="1980">That's the computer
+science information</p>
+<p t="4795790" d="1770">theoretic way to prove it.</p>
+<p t="4797560" d="1630">You could also do it
+from this formula,</p>
+<p t="4799190" d="2250">but then you'd have to know
+why the formula's correct,</p>
+<p t="4801440" d="2320">and that's messier.</p>
+<p t="4803760" d="2390">Cool.</p>
+<p t="4806150" d="1740">So we're almost done.</p>
+<p t="4807890" d="4590">We have root n possible
+different structures down here.</p>
+<p t="4812480" d="2130">We've got n over
+log n of them or--</p>
+<p t="4814610" d="522">maybe.</p>
+<p t="4815132" d="2208">It's a little harder to know
+exactly how many of them</p>
+<p t="4817340" d="2100">there are, but I don't care.</p>
+<p t="4819440" d="1870">There's only root
+n different types,</p>
+<p t="4821310" d="3180">and so I only need to store
+a lookup table for each type.</p>
+<p t="4824490" d="7760">The number of queries is
+order log squared n again,</p>
+<p t="4832250" d="4710">because our structures
+are of size order log n,</p>
+<p t="4836960" d="2510">and the answer to
+a query is again,</p>
+<p t="4839470" d="5150">order log log n bits,
+because there's only log</p>
+<p t="4844620" d="3110">n different nodes to point to.</p>
+<p t="4847730" d="10530">And so the total space is
+order root n log n squared,</p>
+<p t="4858260" d="3390">log log n for the lookup table.</p>
+<p t="4861650" d="4150">And then each of these
+triangles stores a pointer,</p>
+<p t="4865800" d="2210">or I guess, every node
+in here stores a pointer</p>
+<p t="4868010" d="6480">to what tree we're in, or
+what type of tree we have,</p>
+<p t="4874490" d="2760">and also what node in
+that tree we are in.</p>
+<p t="4877250" d="2090">So every guy in here--</p>
+<p t="4879340" d="1600">because that's not
+part of the query--</p>
+<p t="4880940" d="3030">has to store, not only a little
+bit more specific pointer</p>
+<p t="4883970" d="1290">into this table.</p>
+<p t="4885260" d="2610">It actually tells you
+what the query part is,</p>
+<p t="4887870" d="2520">or the first part of
+the query, the node x.</p>
+<p t="4890390" d="3390">Then the table also
+is parameterized by k,</p>
+<p t="4893780" d="3570">so one of these logs is
+which node you're querying.</p>
+<p t="4897350" d="1950">The other log is
+now the value k,</p>
+<p t="4899300" d="2376">but again, you never go
+up higher than log n.</p>
+<p t="4901676" d="1374">If you went up
+higher than log n,</p>
+<p t="4903050" d="1542">then you'd be in
+the 5 structure,</p>
+<p t="4904592" d="1458">so if you just do
+a query up there,</p>
+<p t="4906050" d="2380">you don't need a
+query in the bottom.</p>
+<p t="4908430" d="560">OK.</p>
+<p t="4908990" d="1770">So there's only
+that many queries,</p>
+<p t="4910760" d="4790">and so space for this lookup
+table is little o of n again.</p>
+<p t="4915550" d="2940">And so we're dominated by
+space for these pointers</p>
+<p t="4918490" d="2040">and for the space up
+here, which is linear.</p>
+<p t="4920530" d="3490">So linear space, constant query.</p>
+<p t="4924020" d="2378">Boom.</p>
+<p t="4926398" d="964">Any questions?</p>
+<p t="4933150" d="2040">I have an open question, maybe.</p>
+<p t="4935190" d="2270">I think it's open.</p>
+<p t="4937460" d="5440">So what if you want to do
+dynamic, 30 seconds of dynamic?</p>
+<p t="4942900" d="3690">For LCA, it's known
+how to do dynamic LCA</p>
+<p t="4946590" d="1980">constant operations.</p>
+<p t="4948570" d="2320">The operations are add a leaf--</p>
+<p t="4950890" d="1640">we can add another leaf--</p>
+<p t="4952530" d="1800">given an edge.</p>
+<p t="4954330" d="3940">Subdivide that edge into
+that, and also the reverse.</p>
+<p t="4958270" d="4580">So I can erase a guy, put
+the edge back, delete a leaf,</p>
+<p t="4962850" d="1380">those sorts of things.</p>
+<p t="4964230" d="3270">Those operations can all be
+done in constant time for LCA.</p>
+<p t="4967500" d="2010">What about level ancestor?</p>
+<p t="4969510" d="1060">I have no idea.</p>
+<p t="4970570" d="2480">Maye we'll work on it today.</p>
+<p t="4973050" d="1394">That's it.</p>
+</body>
+</timedtext>

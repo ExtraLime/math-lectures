@@ -1,0 +1,2343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="499" d="2261">The following content is
+provided under a Creative</p>
+<p t="2760" d="1520">Commons license.</p>
+<p t="4280" d="2340">Your support will help
+MIT OpenCourseWare</p>
+<p t="6620" d="4360">continue to offer high quality
+educational resources for free.</p>
+<p t="10980" d="2620">To make a donation or
+view additional materials</p>
+<p t="13600" d="3896">from hundreds of MIT courses,
+visit MIT OpenCourseWare</p>
+<p t="17496" d="625">at ocw.mit.edu.</p>
+<p t="23580" d="1340">PROFESSOR: OK let's get started.</p>
+<p t="27790" d="3690">I once taught with
+a professor who</p>
+<p t="31480" d="4620">was lamenting the fact that as
+the term progresses attendance</p>
+<p t="36100" d="1730">in lecture tends to drop off.</p>
+<p t="37830" d="2810">And gets pretty dramatic
+by the end of the term</p>
+<p t="40640" d="3120">when you're lecturing,
+and nobody's there.</p>
+<p t="43760" d="2220">And I asked him what
+he did about it.</p>
+<p t="45980" d="2200">And he thought about
+it and he said,</p>
+<p t="48180" d="2850">there's only two things that
+can get students to come</p>
+<p t="51030" d="4810">to lecture, candy and sex.</p>
+<p t="55840" d="5670">Now we've already tried
+candy, so today we're</p>
+<p t="61510" d="2900">going to talk about sex.</p>
+<p t="64410" d="3190">In fact we're going
+to use graph theory</p>
+<p t="67600" d="3030">to address a decades
+old debate concerning</p>
+<p t="70630" d="4610">the relative promiscuity
+of men versus women.</p>
+<p t="75240" d="4170">Now graphs are incredibly useful
+structures in computer science,</p>
+<p t="79410" d="2860">and we're going to be studying
+them for the next five or six</p>
+<p t="82270" d="1250">lectures.</p>
+<p t="83520" d="4280">They come up in all sorts
+of applications, scheduling,</p>
+<p t="87800" d="3270">optimization,
+communications, the design</p>
+<p t="91070" d="1640">and analysis of algorithms.</p>
+<p t="92710" d="2600">In fact next week, you're
+going to see how to Stanford</p>
+<p t="95310" d="3680">graduate students
+became gazillionaires</p>
+<p t="98990" d="4210">because they use graph
+theoretic in a clever way.</p>
+<p t="103200" d="3270">But let's talk about sex.</p>
+<p t="106470" d="2170">The issue that we're
+going to address today</p>
+<p t="108640" d="4020">is one of the most talked
+about, and most well studied,</p>
+<p t="112660" d="3240">questions in all
+of human sociology.</p>
+<p t="115900" d="4500">On average, who has more
+opposite gender partners,</p>
+<p t="120400" d="2315">men or women?</p>
+<p t="122715" d="2595">Now opposite gender is
+going to be important.</p>
+<p t="125310" d="3725">And by this I mean,
+one boy, and one girl.</p>
+<p t="129035" d="2000">All right, I'm not making
+a political statement.</p>
+<p t="131035" d="5735">It's just that the math is a lot
+easier that way, as you'll see.</p>
+<p t="136770" d="2090">Now I'd like to start
+by taking a pole here</p>
+<p t="138860" d="2410">to see what you
+think about that.</p>
+<p t="141270" d="3560">So raise your and if you
+think men, on average,</p>
+<p t="144830" d="3080">have more opposite gender
+partners than women do.</p>
+<p t="150420" d="675">Only a few.</p>
+<p t="151095" d="2306">AUDIENCE: In life or [INAUDIBLE]</p>
+<p t="153401" d="999">PROFESSOR: Um, you can--</p>
+<p t="154400" d="4640">[LAUGHTER]</p>
+<p t="159040" d="1600">PROFESSOR: One on one.</p>
+<p t="160640" d="3330">OK, so let's say over the course
+of their lives, let's say,</p>
+<p t="163970" d="4230">or over the course of
+2010, that men in America</p>
+<p t="168200" d="3260">have more opposite-gender
+partners than women in America,</p>
+<p t="171460" d="1370">say in 2010.</p>
+<p t="172830" d="2200">Raise your hand if you think
+men have more going on.</p>
+<p t="175030" d="2010">All right a bunch of you.</p>
+<p t="177040" d="1690">Raise your hand if
+you think women have</p>
+<p t="178730" d="2160">more opposite-gender partners?</p>
+<p t="180890" d="1600">This is unusual.</p>
+<p t="182490" d="2380">Maybe even more voted for
+women, but it's close.</p>
+<p t="184870" d="2874">Raise your hand if
+you think it's equal.</p>
+<p t="187744" d="1936">All right, about the same.</p>
+<p t="189680" d="2870">Raise your hand if you think
+there's no way to know,</p>
+<p t="192550" d="2660">that it's hopeless to
+really figure it out.</p>
+<p t="195210" d="2000">All right, nobody goes for that.</p>
+<p t="197210" d="1355">All right, good.</p>
+<p t="198565" d="1895">All right well now in
+the popular literature,</p>
+<p t="200460" d="3160">I think the feelings are
+different than expressed here.</p>
+<p t="203620" d="1830">Pretty much universally,
+in the literature,</p>
+<p t="205450" d="2550">it's believed that men have
+more opposite-gender partners</p>
+<p t="208000" d="1216">than women.</p>
+<p t="209216" d="1374">And in fact, you
+could even think</p>
+<p t="210590" d="2530">about that, if you
+think about literature,</p>
+<p t="213120" d="2660">the leader of the
+harem is always a man.</p>
+<p t="215780" d="1900">And he's got lots of women.</p>
+<p t="217680" d="2860">In polygamist
+cultures, it's always</p>
+<p t="220540" d="4350">the man that has multiple
+wives, not the reverse.</p>
+<p t="224890" d="2520">Now not surprisingly,
+this issue has</p>
+<p t="227410" d="2210">been studied
+"scientifically," I'll</p>
+<p t="229620" d="4900">put in quotes, extensively, in
+one of the largest studies ever</p>
+<p t="234520" d="1700">done.</p>
+<p t="236220" d="1990">Researchers from
+University of Chicago</p>
+<p t="238210" d="4990">interviewed 2,500 people, at
+random, over several years.</p>
+<p t="243200" d="2600">They brought them in,
+on many occasions,</p>
+<p t="245800" d="3120">to try to get the answer for
+the question once and for all.</p>
+<p t="248920" d="2640">And they wrote
+this 700 page book,</p>
+<p t="251560" d="3120">called The soul of Social
+Organization of Sexuality:</p>
+<p t="254680" d="3370">Sexual Practices in the US.</p>
+<p t="258050" d="1620">Actually walking
+around with this book</p>
+<p t="259670" d="3050">has proved to be a
+little embarrassing.</p>
+<p t="262720" d="3170">Last week my 11-year-old
+daughter saw it,</p>
+<p t="265890" d="3520">and she goes dad, why do
+you have this sex book.</p>
+<p t="269410" d="3290">And I grabbed it back and said,
+well that's for the course.</p>
+<p t="272700" d="2210">I'm teaching.</p>
+<p t="274910" d="2130">And I thought I'd
+gotten away with it,</p>
+<p t="277040" d="1890">and everything was fine.</p>
+<p t="278930" d="3220">And then later that day she
+texted all of our friends</p>
+<p t="282150" d="2180">about the new news
+that what do you know,</p>
+<p t="284330" d="4630">her dad teaches sex ed at MIT.</p>
+<p t="288960" d="4990">Anyway this study concludes
+that on average men</p>
+<p t="293950" d="6480">have 74% more opposite-gender
+partners than women.</p>
+<p t="300430" d="1495">There's one other
+central claims.</p>
+<p t="310389" d="916">And this is in the US.</p>
+<p t="336420" d="6930">OK now, when you think about it
+that sounds maybe reasonable,</p>
+<p t="343350" d="2040">might be OK.</p>
+<p t="345390" d="4360">But not according to ABC News.</p>
+<p t="349750" d="4565">They did a poll of 1,500
+people in the country, in 2004,</p>
+<p t="354315" d="4775">and concluded that the average
+disparity is much greater.</p>
+<p t="359090" d="2860">In particular, in
+this study, they</p>
+<p t="361950" d="3260">said that the average
+man has 20 partners--</p>
+<p t="365210" d="1890">I'm assuming over
+their lifetime--</p>
+<p t="367100" d="2950">and the average woman has six.</p>
+<p t="370050" d="2586">And this gives a disparity 233%.</p>
+<p t="381220" d="9410">So ABC News did a smaller
+survey says that it's 233% here,</p>
+<p t="390630" d="2910">much more than 74%.</p>
+<p t="393540" d="3260">Now ABC News claimed
+this is one of the most</p>
+<p t="396800" d="2260">scientific studies ever done.</p>
+<p t="399060" d="3370">And there was a 2.5%
+margin of error.</p>
+<p t="402430" d="3110">Now we'll actually talk about
+what that means mathematically</p>
+<p t="405540" d="2030">later in the term when
+we do probability, and do</p>
+<p t="407570" d="1942">study polling.</p>
+<p t="409512" d="1458">Now of course I
+should also mention</p>
+<p t="410970" d="1800">that ABC News is
+the one that said</p>
+<p t="412770" d="4950">Al Gore won the presidential
+election in 2000.</p>
+<p t="417720" d="4210">Now the study is called
+American Sex Survey,</p>
+<p t="421930" d="2810">a Peak Between the Sheets.</p>
+<p t="424740" d="1790">That doesn't sound
+so scientific.</p>
+<p t="426530" d="3460">And it was on TV, on
+Primetime Live in 2004.</p>
+<p t="429990" d="2310">The promo for this
+is really good.</p>
+<p t="432300" d="4440">It says, a groundbreaking ABC
+News Primetime Live survey</p>
+<p t="436740" d="3290">finds a range of eye popping
+sexual activities, fantasies,</p>
+<p t="440030" d="2430">and attitudes in this
+country, confirming</p>
+<p t="442460" d="3240">some conventional wisdom,
+exploding some myths,</p>
+<p t="445700" d="2860">and venturing where few
+scientific surveys have</p>
+<p t="448560" d="1412">gone before.</p>
+<p t="449972" d="1708">By the end of today,
+we're going to agree</p>
+<p t="451680" d="2710">with that last statement.</p>
+<p t="454390" d="4860">OK now who do you think's right?</p>
+<p t="459250" d="2730">University of Chicago.</p>
+<p t="461980" d="3030">Who votes for 74% as
+being pretty close?</p>
+<p t="465010" d="2180">A few of you.</p>
+<p t="467190" d="1700">I've already slammed these guys.</p>
+<p t="468890" d="2940">Who votes for ABC News
+as being more accurate?</p>
+<p t="471830" d="3150">Yeah, nobody.</p>
+<p t="474980" d="3230">Who votes for no way to tell?</p>
+<p t="478210" d="2150">I got some votes
+there, all right.</p>
+<p t="480360" d="2870">So how do you
+tackle this problem?</p>
+<p t="483230" d="3184">In theory we could do
+our own 6.042 survey.</p>
+<p t="486414" d="1666">I don't know how much
+we'd really learn,</p>
+<p t="488080" d="2350">and for sure I'd get fired.</p>
+<p t="490430" d="3600">So I don't think we're
+going to do that.</p>
+<p t="494030" d="2280">But fortunately, this
+is the kind of question</p>
+<p t="496310" d="1630">that could be
+handled, and actually</p>
+<p t="497940" d="3490">answered, by graph theory,
+even though it might</p>
+<p t="501430" d="2250">be more interesting to
+interview thousands of people,</p>
+<p t="503680" d="1960">and find out what's going on.</p>
+<p t="505640" d="3120">That's not as efficient
+as using graphs.</p>
+<p t="508760" d="4310">So let me start by
+defining what a graph is.</p>
+<p t="513070" d="4140">Informally graph is just
+a bunch of dots and lines</p>
+<p t="517210" d="3164">connecting the dots, it's
+actually very simple.</p>
+<p t="520374" d="791">So here's to graph.</p>
+<p t="526830" d="2630">These are the nodes,
+and they're connected</p>
+<p t="529460" d="1755">with these lines, called edges.</p>
+<p t="535480" d="2050">And often the nodes,
+and sometimes the edges,</p>
+<p t="537530" d="1240">are labeled.</p>
+<p t="538770" d="11553">For example, we might call this
+x1, x2, x3, x4, x5, x6, and x7.</p>
+<p t="550323" d="2767">So that's an example of a graph.</p>
+<p t="553090" d="1850">Now this being a
+math class, we got</p>
+<p t="554940" d="2807">to give a formal
+definition of a graph.</p>
+<p t="557747" d="1833">And we'll usually use
+the formal definition.</p>
+<p t="563910" d="17400">A graph G is a pair of
+sets often called V and E.</p>
+<p t="581310" d="4540">Where V is a set of elements
+called vertices or nodes.</p>
+<p t="585850" d="2480">And it has to be non-empty
+here in this class.</p>
+<p t="606140" d="2680">And we'll go back and forth
+between vertices and nodes.</p>
+<p t="608820" d="4450">Even the text we use both
+words interchangeably.</p>
+<p t="613270" d="13320">And E is a set of
+2-item subsets and V,</p>
+<p t="626590" d="1360">and they're called edges.</p>
+<p t="632970" d="4090">So for example, over
+here in this picture,</p>
+<p t="637060" d="11890">V is the set of nodes is x1, x2,
+x3, up to x7, that's the nodes.</p>
+<p t="648950" d="5480">And E, the set of
+edges, is pairs,</p>
+<p t="654430" d="4270">unordered pairs of vertices.</p>
+<p t="658700" d="5915">So for example
+x1, x2 is an edge.</p>
+<p t="664615" d="3045">And it's the same
+as the set x2, x1,</p>
+<p t="667660" d="1550">doesn't matter the order here.</p>
+<p t="669210" d="2470">Later in a week or so, we'll
+talk about directed graphs</p>
+<p t="671680" d="2920">where the order matters.</p>
+<p t="674600" d="7150">x1, x3 is also an
+edge here, and so one.</p>
+<p t="681750" d="3481">Think we've got, let's
+see, 1, 2, 3, 4, 5, 6,</p>
+<p t="685231" d="2339">7 edges in this graph.</p>
+<p t="687570" d="3680">And the last one
+would be x5, x7.</p>
+<p t="695300" d="5890">Edges are also sometimes written
+with this notation, x1 line x2,</p>
+<p t="701190" d="1687">is another notation.</p>
+<p t="702877" d="2083">And then later when you
+talk about directed edges,</p>
+<p t="704960" d="4750">we'll put a little arrowhead
+on one end of this.</p>
+<p t="709710" d="2400">Now the definition of a graph
+is really pretty simple.</p>
+<p t="712110" d="3180">Just think of it as dots
+and lines, if you want.</p>
+<p t="715290" d="4150">But there's often differences
+in how people define graphs.</p>
+<p t="719440" d="5110">For example, in this class we
+don't allow the empty graph,</p>
+<p t="724550" d="2192">i.e. the graph with no nodes.</p>
+<p t="726742" d="2208">So we're going to insist
+that every graph has to have</p>
+<p t="728950" d="1320">at least one node in it.</p>
+<p t="730270" d="1500">And that's just to
+make the theorems</p>
+<p t="731770" d="1240">we're going prove be true.</p>
+<p t="733010" d="1500">Otherwise there's
+some theorems that</p>
+<p t="734510" d="2370">are false for the special
+case of the empty graph.</p>
+<p t="736880" d="2390">But we don't require the
+graph to have any edges.</p>
+<p t="739270" d="4060">In fact, it's possible you
+have a graph with nodes,</p>
+<p t="743330" d="615">but no edges.</p>
+<p t="746500" d="2060">For example, this graph.</p>
+<p t="748560" d="750">Three-node graph.</p>
+<p t="753560" d="9170">So here G equals VE,
+V equals x1, x2, x3.</p>
+<p t="762730" d="1480">And E is just the empty set.</p>
+<p t="768110" d="4950">Now for a general graph,
+when you do have edges,</p>
+<p t="773060" d="10945">we say that two nodes,
+call them xi and xj,</p>
+<p t="784005" d="9115">are adjacent if they're
+connected by an edge, namely</p>
+<p t="793120" d="5040">if xi xj is an edge.</p>
+<p t="798160" d="6470">All right so for example,
+x5 is adjacent to x7,</p>
+<p t="804630" d="4410">but it's not adjacent to
+x4, there's no edge there.</p>
+<p t="813160" d="4650">Closely related is the
+definition of the incidence.</p>
+<p t="817810" d="10600">An edge E, which
+is xixj, is said</p>
+<p t="828410" d="7150">to be incident to its
+end points, xi and xj.</p>
+<p t="839120" d="7280">OK so, for example, if I
+labeled that edge as E, E</p>
+<p t="846400" d="5035">is the edge x1, x2, and this
+incident to x1, and incident</p>
+<p t="851435" d="500">x2.</p>
+<p t="858320" d="2280">Then we can talk about
+the degree of a node.</p>
+<p t="863410" d="14770">The number of edges
+incident to a node</p>
+<p t="878180" d="1850">is called the
+degree of the node.</p>
+<p t="891510" d="6010">So for example, what's the
+degree of x5 over here?</p>
+<p t="897520" d="7490">3, so in this case, the
+degree of x5 equals 3.</p>
+<p t="905010" d="5910">The degree of x7 is 1.</p>
+<p t="910920" d="3270">These guys all have
+degree 0, there's</p>
+<p t="914190" d="3790">no edges incident to them.</p>
+<p t="917980" d="3810">Now in this class, we're going
+to look at only simple graphs,</p>
+<p t="921790" d="1210">at lease for a while.</p>
+<p t="926570" d="14380">A graph is simple if it has
+no loops, or multiple edges.</p>
+<p t="948200" d="5550">Now a loop is an edge that only
+connects up one node, that's</p>
+<p t="953750" d="2500">a loop and we don't allow it.</p>
+<p t="956250" d="3820">A multiple edge is we've got two
+edges that are really the same,</p>
+<p t="960070" d="2910">they connect the same endpoints.</p>
+<p t="962980" d="1060">Also called a multi-edge.</p>
+<p t="968290" d="2330">And those we're not going
+to have in simple graphs.</p>
+<p t="970620" d="1355">We don't allow this.</p>
+<p t="971975" d="3225">We don't allow that.</p>
+<p t="975200" d="2720">Any questions so far
+about what a graph is?</p>
+<p t="982490" d="3900">So how are we going
+to use a graph</p>
+<p t="986390" d="6080">to model the problem of
+opposite-gender partners?</p>
+<p t="992470" d="2420">That's the question we're after.</p>
+<p t="994890" d="3162">So any thoughts about what
+the nodes of the graph</p>
+<p t="998052" d="958">are going to represent?</p>
+<p t="1001840" d="600">What is it?</p>
+<p t="1002440" d="1490">AUDIENCE: Males and females?</p>
+<p t="1003930" d="1440">PROFESSOR: People.</p>
+<p t="1005370" d="2300">Yeah, so we're going
+to have people.</p>
+<p t="1007670" d="2620">In fact, there's two
+kinds of people here.</p>
+<p t="1010290" d="2340">There's men, and women.</p>
+<p t="1015370" d="6150">All right we got nodes
+here for the men.</p>
+<p t="1021520" d="3880">And in fact in America,
+there's a lot of nodes here.</p>
+<p t="1025400" d="2350">All right, and so this
+might be oh I don't know,</p>
+<p t="1027750" d="6560">say that's Tom Cruise
+and Nicole Kidman.</p>
+<p t="1034310" d="2634">Now what's the edge
+going to represent?</p>
+<p t="1036944" d="1476">AUDIENCE: Partners.</p>
+<p t="1038420" d="1600">PROFESSOR: Partners.</p>
+<p t="1040020" d="3089">They were
+opposite-gender partners.</p>
+<p t="1043109" d="3361">And there's actually
+more edges probably here.</p>
+<p t="1046470" d="7730">We could have Penelope
+here, and Katie here.</p>
+<p t="1054200" d="3200">And well probably lots more, I
+probably don't know them all.</p>
+<p t="1057400" d="3850">And Ben's over here with Nicole.</p>
+<p t="1061250" d="6804">And Nicole got Jude and Keith.</p>
+<p t="1068054" d="1416">There's actually
+a website you can</p>
+<p t="1069470" d="4030">go to get a lot of
+these things here.</p>
+<p t="1073500" d="3330">And Katie went with Josh.</p>
+<p t="1076830" d="2949">It's called whosedatedwho.com,
+and you get big graph,</p>
+<p t="1079779" d="1541">you could start
+filling in the edges.</p>
+<p t="1081320" d="2370">I don't know how reliable it is.</p>
+<p t="1083690" d="2650">Now it's really critical
+that we're only looking edges</p>
+<p t="1086340" d="1930">from here to here.</p>
+<p t="1088270" d="2380">All right, so if there's an
+edge between Tom and Ben,</p>
+<p t="1090650" d="3090">I don't want to know about it.</p>
+<p t="1093740" d="3800">Just opposite-gender partners.</p>
+<p t="1097540" d="4550">OK now in the USA,
+the number of nodes</p>
+<p t="1102090" d="3500">here is about 300 million.</p>
+<p t="1108640" d="1580">About three million people.</p>
+<p t="1110220" d="4860">And the number of men nodes,
+male nodes, call these VM,</p>
+<p t="1115080" d="4870">and this is VW, by the way,
+I'm using cardinality notation.</p>
+<p t="1119950" d="2800">When I put bars
+around a set, that</p>
+<p t="1122750" d="3300">is the denoting how
+many are in the set.</p>
+<p t="1126050" d="7310">In the US there's about
+147.6 men out of the 300.</p>
+<p t="1133360" d="5460">And the number of women--
+oh we got a w here--</p>
+<p t="1138820" d="4420">is about 152.4 million.</p>
+<p t="1143240" d="2500">So there's a little
+bit more nodes</p>
+<p t="1145740" d="2680">on this side of the graph,
+than that side in the US.</p>
+<p t="1150960" d="1170">What about the edges?</p>
+<p t="1152130" d="1985">Any idea of how many
+edges there are here?</p>
+<p t="1157097" d="583">We don't know.</p>
+<p t="1157680" d="3390">I sure as heck don't know
+how many edges there are.</p>
+<p t="1161070" d="1340">So that we don't know.</p>
+<p t="1162410" d="3750">The cardinality of the
+edge set we don't know,</p>
+<p t="1166160" d="1780">and we're not likely
+to figure out.</p>
+<p t="1167940" d="2480">I don't even think
+these surveys, really,</p>
+<p t="1170420" d="2480">can estimate that.</p>
+<p t="1172900" d="2530">But what we're
+trying to figure out</p>
+<p t="1175430" d="5140">is the ratio of the
+average degree of the men,</p>
+<p t="1180570" d="3740">to the average
+degree of the women.</p>
+<p t="1184310" d="1970">Because the number of
+opposite-gender partners</p>
+<p t="1186280" d="2360">you have is your
+degree here, and you're</p>
+<p t="1188640" d="2130">looking for the
+average guy degree,</p>
+<p t="1190770" d="3600">compared to the average
+female degree here.</p>
+<p t="1194370" d="1020">That's what we're after.</p>
+<p t="1195390" d="2445">All right so let's
+find that quantity.</p>
+<p t="1200740" d="9280">Let's let A sub m equal
+the average number</p>
+<p t="1210020" d="11220">of opposite-gender
+partners for men.</p>
+<p t="1224830" d="3140">And we can let A W be
+the same thing for women.</p>
+<p t="1237310" d="780">All right.</p>
+<p t="1238090" d="4350">Now we're trying to figure out
+the answer to this question.</p>
+<p t="1242440" d="5920">What is A m, the
+average guy degree,</p>
+<p t="1248360" d="4190">over the average woman degree.</p>
+<p t="1252550" d="1940">And in particular, the
+University of Chicago</p>
+<p t="1254490" d="3990">says, they say it's 1.74.</p>
+<p t="1258480" d="4290">That the average guy as 74%
+more opposite-gender partners</p>
+<p t="1262770" d="1780">than the average woman.</p>
+<p t="1264550" d="6280">ABC News says it's 3.33, that
+is 233% more for the men,</p>
+<p t="1270830" d="1630">than the women.</p>
+<p t="1272460" d="4400">Now we're going to figure
+this out what this ratio is.</p>
+<p t="1276860" d="1680">Just use a little
+bit of math here,</p>
+<p t="1278540" d="2720">and a little bit
+of graph theory.</p>
+<p t="1281260" d="2390">So let's write a
+formula for A m.</p>
+<p t="1287760" d="6470">Well we're trying to figure out
+the average degree over here.</p>
+<p t="1294230" d="1430">Well, that's pretty simple.</p>
+<p t="1295660" d="3710">We just add up all the
+degrees, and divide</p>
+<p t="1299370" d="1365">by the number of nodes.</p>
+<p t="1300735" d="1625">And that'll give us
+the average degree.</p>
+<p t="1304910" d="3480">So the average degree is
+the sum of the degrees,</p>
+<p t="1308390" d="3280">over all men, x
+in the set of men,</p>
+<p t="1311670" d="4820">of the degree of x, divided
+by the number of men.</p>
+<p t="1319830" d="4790">Can somebody give me a
+simpler expression for this?</p>
+<p t="1324620" d="2834">It doesn't have that
+nasty sum in it?</p>
+<p t="1327454" d="1756">AUDIENCE: E.</p>
+<p t="1329210" d="3230">PROFESSOR: E. The
+cardinality of E.</p>
+<p t="1332440" d="4520">I'm adding all the degrees here.</p>
+<p t="1336960" d="3980">Well that's just another way
+of counting all the edges,</p>
+<p t="1340940" d="3490">because every edge shows
+up once, and only once,</p>
+<p t="1344430" d="1930">in a degree count here.</p>
+<p t="1346360" d="2630">And this is where,
+we use the fact we</p>
+<p t="1348990" d="1380">have opposite-gender partners.</p>
+<p t="1353020" d="3110">Because if I had
+some edges over here</p>
+<p t="1356130" d="4110">they wouldn't get counted
+in sum of the degrees here.</p>
+<p t="1360240" d="5015">All right so this is
+just the cardinality</p>
+<p t="1365255" d="3715">of the number of edges,
+divided by the number of men.</p>
+<p t="1368970" d="1410">Any questions about that?</p>
+<p t="1370380" d="2640">Because this is an
+important statement about</p>
+<p t="1373020" d="1910">graphs in general.</p>
+<p t="1374930" d="2454">When I have a graph
+like this-- which</p>
+<p t="1377384" d="1416">is called a bipartite
+graph, we'll</p>
+<p t="1378800" d="1449">talk about more in a little bit.</p>
+<p t="1380249" d="2041">But where the edges go
+from the left to the right</p>
+<p t="1382290" d="1697">if I sum the
+degrees on the left,</p>
+<p t="1383987" d="1583">I'm just counting
+the number of edges.</p>
+<p t="1389060" d="4780">All right, let's figure out a
+formula for the average number</p>
+<p t="1393840" d="2500">of partners for the women.</p>
+<p t="1396340" d="6900">That simple that's just
+sum x over the women.</p>
+<p t="1403240" d="4710">The degree of x, divided
+by the number of women.</p>
+<p t="1410900" d="1630">Let me rewrite that
+so it's clearer.</p>
+<p t="1416150" d="2358">What's a simpler
+expression for this?</p>
+<p t="1418508" d="875">AUDIENCE: [INAUDIBLE]</p>
+<p t="1423080" d="3230">PROFESSOR: Yeah,
+this sum, adding</p>
+<p t="1426310" d="6100">the degrees of the women,
+is just the number of edges,</p>
+<p t="1432410" d="2280">right.</p>
+<p t="1434690" d="5590">So that is cardinality of edges,
+divided by the number of women.</p>
+<p t="1440280" d="6420">All right, well now we can
+write, solve for our formula,</p>
+<p t="1446700" d="5620">average over men over
+average of the women.</p>
+<p t="1452320" d="9806">That's E over VM,
+divided by E over VW.</p>
+<p t="1462126" d="2774">Wow, this is nice.</p>
+<p t="1464900" d="5390">I don't know the number of edges
+is, but it just canceled out.</p>
+<p t="1470290" d="3010">And this is just
+the number of women,</p>
+<p t="1473300" d="1590">divided by the number of men.</p>
+<p t="1477430" d="3310">And in fact we know that.</p>
+<p t="1480740" d="1920">That's this number,
+divided by that number,</p>
+<p t="1482660" d="9430">which is about 1.0325.</p>
+<p t="1492090" d="5460">So we just proved,
+that on average, a man</p>
+<p t="1497550" d="4400">has 3%, or 3 and 1/4% more
+opposite-gender partners</p>
+<p t="1501950" d="550">than women.</p>
+<p t="1505010" d="3790">No need to do the interviews,
+or spend years doing.</p>
+<p t="1508800" d="1590">That is the answer.</p>
+<p t="1510390" d="3730">And it has nothing to do
+with the promiscuity of men,</p>
+<p t="1514120" d="2225">or women, nothing at all.</p>
+<p t="1519080" d="4220">So the Chicago study is way
+off, and the ABC New study</p>
+<p t="1523300" d="2100">is completely nuts.</p>
+<p t="1525400" d="4650">It just can't be
+right, this is a proof.</p>
+<p t="1530050" d="3690">Now what happened here?</p>
+<p t="1533740" d="4170">Well what's going on, what's
+the reason for why this is true?</p>
+<p t="1537910" d="500">Yeah?</p>
+<p t="1538410" d="3269">AUDIENCE: A male has
+a female partner then</p>
+<p t="1541679" d="2325">the female has a male partner.</p>
+<p t="1544004" d="666">PROFESSOR: Yeah.</p>
+<p t="1544670" d="2786">AUDIENCE: You're not looking
+at like how many males</p>
+<p t="1547456" d="2330">are going to one female.</p>
+<p t="1549786" d="3324">The promiscuity isn't even
+a part of the question.</p>
+<p t="1553110" d="1000">PROFESSOR: That's right.</p>
+<p t="1554110" d="2500">It takes two to tango.</p>
+<p t="1556610" d="2270">Every time you got a
+guy, you got a women.</p>
+<p t="1558880" d="3040">And you have the number
+of relationships going.</p>
+<p t="1561920" d="2610">The average for the men is that
+number, divided by the men.</p>
+<p t="1564530" d="2280">Average for the women
+is that same number,</p>
+<p t="1566810" d="889">divided by the women.</p>
+<p t="1567699" d="1541">And so if there's
+more women, they're</p>
+<p t="1569240" d="1840">going to have less
+partners on average.</p>
+<p t="1571080" d="1590">Has to be.</p>
+<p t="1572670" d="1750">So it really was
+a stupid question.</p>
+<p t="1574420" d="3550">It's very, very
+simple to answer.</p>
+<p t="1577970" d="3370">Now as it turns out there are
+endless studies like this,</p>
+<p t="1581340" d="1750">in the literature.</p>
+<p t="1583090" d="2850">In fact, a few years
+ago the Boston Globe</p>
+<p t="1585940" d="5200">ran an explosive story about
+the study habits of students</p>
+<p t="1591140" d="2390">on Boston-area campuses.</p>
+<p t="1593530" d="4790">And their surveys show that,
+on average, minority students</p>
+<p t="1598320" d="3060">tended to study with
+non-minority students</p>
+<p t="1601380" d="1305">more than the other way around.</p>
+<p t="1606350" d="2900">And they want on great
+length consulting the experts</p>
+<p t="1609250" d="1730">as to why this might be true.</p>
+<p t="1610980" d="2250">Why is it the minority
+students study</p>
+<p t="1613230" d="3640">with non-minority students
+more than the other way around.</p>
+<p t="1616870" d="2070">Now can anyone tell
+me why it is certainly</p>
+<p t="1618940" d="3265">true, and not surprising,
+why that's the case?</p>
+<p t="1622205" d="1915">AUDIENCE: Because
+they're the minority.</p>
+<p t="1624120" d="1583">PROFESSOR: Because
+they're a minority.</p>
+<p t="1625703" d="2042">There's fewer minorities
+than non-minorities.</p>
+<p t="1627745" d="4285">End of story, we don't
+need this sociology PhD</p>
+<p t="1632030" d="1750">from down the street
+to explain it to us.</p>
+<p t="1636780" d="2280">We're going to see a lot of
+other bogus studies later.</p>
+<p t="1639060" d="3210">This is not unusual, especially
+when we get the probability.</p>
+<p t="1642270" d="4140">Just every day there's a
+new one in probability.</p>
+<p t="1646410" d="2900">Any questions about
+this before we leave?</p>
+<p t="1649310" d="2850">Unfortunately that's most all
+we'll say about sex today.</p>
+<p t="1655590" d="1210">OK.</p>
+<p t="1656800" d="5310">But now, in this example,
+we used an edge in the graph</p>
+<p t="1662110" d="4420">to denote some kind of
+affinity between two nodes.</p>
+<p t="1666530" d="2064">The two nodes liked
+each other in some sense</p>
+<p t="1668594" d="1416">if they were
+connected by an edge,</p>
+<p t="1670010" d="2510">or they had a
+relationship of some kind.</p>
+<p t="1672520" d="1970">There's lots of examples
+in computer science</p>
+<p t="1674490" d="2963">where you use an edge to
+denote just the opposite.</p>
+<p t="1677453" d="2747">That the two nodes can't
+be near each other,</p>
+<p t="1680200" d="2550">or don't like each other.</p>
+<p t="1682750" d="1670">For example,
+consider the problem</p>
+<p t="1684420" d="3660">of scheduling
+final exams at MIT.</p>
+<p t="1688080" d="3230">And they do this after they
+find out all of your schedules,</p>
+<p t="1691310" d="3044">and they try to schedule
+the exams so that you don't</p>
+<p t="1694354" d="1916">have to take two at once,
+or there's as little</p>
+<p t="1696270" d="3000">of that as possible.</p>
+<p t="1699270" d="3460">For example, let's
+do an example here.</p>
+<p t="1713460" d="2300">Say we look at
+these five classes.</p>
+<p t="1724590" d="2630">Take 6041.</p>
+<p t="1727220" d="2700">And this may not be totally
+accurate, but roughly.</p>
+<p t="1737250" d="2700">So I've got five
+MIT classes, and I'm</p>
+<p t="1739950" d="3970">going to put an edge between
+pairs of classes that have</p>
+<p t="1743920" d="1480">overlapping student enrollment.</p>
+<p t="1748630" d="2860">So in this case,
+for example, we've</p>
+<p t="1751490" d="1670">assumed in the
+drawing of his graph,</p>
+<p t="1753160" d="4120">that you can't have our
+exam the same time is 6002,</p>
+<p t="1757280" d="3360">on the assumption there's
+students in both classes.</p>
+<p t="1760640" d="3920">But you could have our
+exam the same time as 6034.</p>
+<p t="1764560" d="3170">Because there's not
+an overlapping student</p>
+<p t="1767730" d="1620">in both classes,
+so the exams could</p>
+<p t="1769350" d="2160">be scheduled at the same time.</p>
+<p t="1771510" d="2210">So we've used a
+graph to represent</p>
+<p t="1773720" d="5020">which courses can't have
+their exam at the same time.</p>
+<p t="1778740" d="3360">Now let's also suppose we have
+a set of slots for the exam.</p>
+<p t="1785360" d="2310">And say they're
+all on a Wednesday.</p>
+<p t="1787670" d="3810">And the first slot is
+Wednesday from 5:00 to 7:00.</p>
+<p t="1791480" d="3950">And the next one
+is 7:00 to 9:00.</p>
+<p t="1795430" d="4640">And then, the next
+one is 9:00 to 11:00.</p>
+<p t="1800070" d="5220">And then 11:00 to 1:00 in the
+morning, and then 1:00 to 3:00,</p>
+<p t="1805290" d="2640">getting pretty late.</p>
+<p t="1807930" d="5300">And your job is to figure
+out how not to have</p>
+<p t="1813230" d="2060">to use these later exam slots.</p>
+<p t="1815290" d="1850">You'd like to use
+as few as possible</p>
+<p t="1817140" d="3040">so you're not going
+too late night,</p>
+<p t="1820180" d="2750">or come before the
+holidays, so you're not</p>
+<p t="1822930" d="2450">having exams on Christmas
+and New Year's, for example.</p>
+<p t="1828450" d="5390">So the goal is to assign
+slots to the nodes.</p>
+<p t="1833840" d="3250">Put every node in
+a slot so you don't</p>
+<p t="1837090" d="5020">have nodes hooked by an
+edge getting the same slot.</p>
+<p t="1842110" d="2290">Now this is an example
+of what's called</p>
+<p t="1844400" d="2096">a graph coloring problem.</p>
+<p t="1846496" d="874">So let's define that.</p>
+<p t="1877680" d="26340">Given a graph G, and K colors,
+assign a color to each node,</p>
+<p t="1904020" d="11950">so that adjacent nodes
+get different colors.</p>
+<p t="1923154" d="4966">All right, and then the minimum
+number of colors you need</p>
+<p t="1928120" d="3630">is called the chromatic
+number of the graph.</p>
+<p t="1931750" d="24710">So the minimum value of K, for
+which such a coloring exist,</p>
+<p t="1956460" d="12380">is the chromatic
+number OF the graph.</p>
+<p t="1968840" d="11116">And it's denoted by
+this symbol chi of G.</p>
+<p t="1979956" d="2374">Because usually you want to
+use a small number of colors.</p>
+<p t="1982330" d="4940">Now what does a color
+represent when we're</p>
+<p t="1987270" d="1950">dealing with this problem?</p>
+<p t="1989220" d="1540">What's the meaning of a color?</p>
+<p t="1990760" d="1140">AUDIENCE: Time slot.</p>
+<p t="1991900" d="2180">PROFESSOR: A time slot, OK.</p>
+<p t="1994080" d="8610">So let's call this time slot
+C1, C2, C3, C4, C5, so there's</p>
+<p t="2002690" d="1160">five possible colors.</p>
+<p t="2003850" d="2950">Now of course, we could color
+this graph with five colors,</p>
+<p t="2006800" d="2350">every node could just
+get its own color.</p>
+<p t="2009150" d="3910">But then somebody's taking
+their exam from 1:00 to 3:00 AM,</p>
+<p t="2013060" d="3820">and that's a bit of a pain.</p>
+<p t="2016880" d="4480">Let's see if we can
+do less than five.</p>
+<p t="2021360" d="4650">Let's say I give this color
+one, let's give this one color</p>
+<p t="2026010" d="4620">one, that's OK, because
+they're not connected.</p>
+<p t="2030630" d="5250">I can't give this one color one,
+so I give it color two, say.</p>
+<p t="2035880" d="2690">Now this one I can't give color
+one, because this guy got it,</p>
+<p t="2038570" d="2000">he can't get color two,
+because that guy got it.</p>
+<p t="2040570" d="2450">So it give it color three.</p>
+<p t="2043020" d="5139">And well, I can't do
+one, two, or three here,</p>
+<p t="2048159" d="2861">so I gotta go to color four.</p>
+<p t="2051020" d="6780">All right so 6042 will get
+the 11:00 PM to 1:00 AM slot,</p>
+<p t="2057800" d="1643">not so good.</p>
+<p t="2059443" d="2473">Can we do any better?</p>
+<p t="2061916" d="4223">Can we get away
+with three colors.</p>
+<p t="2066139" d="3731">Some say yes, some say no.</p>
+<p t="2069870" d="3820">How many people think you can
+do three colors on this graph?</p>
+<p t="2073690" d="1140">A bunch.</p>
+<p t="2074830" d="2572">How many think you
+can't do any better?</p>
+<p t="2077402" d="2868">All right, the vote
+is mostly for three.</p>
+<p t="2080270" d="1790">Let's see.</p>
+<p t="2082060" d="579">Any ideas?</p>
+<p t="2082639" d="1341">Anybody see how to do three?</p>
+<p t="2086775" d="500">Yeah?</p>
+<p t="2087275" d="2924">AUDIENCE: Assign C4 to 6034 .</p>
+<p t="2090199" d="2351">PROFESSOR: Assign C4 to 6043.</p>
+<p t="2092550" d="3339">AUDIENCE: Or C1 to 6042.</p>
+<p t="2095889" d="3691">PROFESSOR: C-- I can't
+do see C1 to 6042.</p>
+<p t="2099580" d="1981">It crashes, but can I do-- yeah?</p>
+<p t="2101561" d="499">Put</p>
+<p t="2102060" d="2374">AUDIENCE: C1 in 6003.</p>
+<p t="2104434" d="916">PROFESSOR: C1 in 6003.</p>
+<p t="2105350" d="4872">AUDIENCE: And get
+rid of C1 in 6034.</p>
+<p t="2110222" d="958">PROFESSOR: Get rid of--</p>
+<p t="2111180" d="1400">AUDIENCE: Make it C2.</p>
+<p t="2112580" d="2490">PROFESSOR: Make this a C2.</p>
+<p t="2115070" d="2292">Oh, yeah.</p>
+<p t="2117362" d="4158">All right, these got C1,
+they're not adjacent.</p>
+<p t="2121520" d="2220">These got C2,
+they're not adjacent.</p>
+<p t="2123740" d="2640">This can now get C3.</p>
+<p t="2126380" d="3610">So we can have our exam from
+9:00 to 11:00, which is better.</p>
+<p t="2129990" d="2385">All right, can anybody
+do it in two colors?</p>
+<p t="2140780" d="4155">Can anybody offer a reason why
+two colors may not be possible?</p>
+<p t="2147536" d="499">Yeah?</p>
+<p t="2148035" d="3540">AUDIENCE: Because let's say you
+could do it with two colors.</p>
+<p t="2151575" d="625">PROFESSOR: Yep.</p>
+<p t="2152200" d="5970">AUDIENCE: 6041 and 6002
+have to be different colors.</p>
+<p t="2158170" d="1660">PROFESSOR: Yes.</p>
+<p t="2159830" d="3670">AUDIENCE: 6042 can't be
+C1, and it can't be C2.</p>
+<p t="2163500" d="1800">PROFESSOR: Yeah, good.</p>
+<p t="2165300" d="3830">So you can't in two colors,
+because these three guys</p>
+<p t="2169130" d="1540">would violate that.</p>
+<p t="2170670" d="1320">You've got a triangle here.</p>
+<p t="2171990" d="3560">Each one of these guys has to
+be different than the other two.</p>
+<p t="2175550" d="1370">So two colors can't work.</p>
+<p t="2176920" d="2820">You've got to have at
+least three in this case.</p>
+<p t="2179740" d="1020">So three is optimal.</p>
+<p t="2180760" d="3240">We have just shown
+for this graph,</p>
+<p t="2184000" d="2836">the chromatic number is three.</p>
+<p t="2186836" d="6464">All right, now in general doing
+what we just did is very hard.</p>
+<p t="2193300" d="2380">No one knows a fast
+algorithm for determining</p>
+<p t="2195680" d="2880">the chromatic number.</p>
+<p t="2198560" d="1810">In fact, it's a weird
+kind of problem,</p>
+<p t="2200370" d="3869">because it's easy enough to
+check that a coloring is OK.</p>
+<p t="2204239" d="2291">If somebody put a coloring
+on the board, you can check,</p>
+<p t="2206530" d="1890">oh that works really simply.</p>
+<p t="2208420" d="3650">Just check every edge, and make
+sure the colors are different.</p>
+<p t="2212070" d="2520">But figuring it out,
+as best we know,</p>
+<p t="2214590" d="3250">you've got to try an exponential
+number of possibilities.</p>
+<p t="2217840" d="3122">So if I had 100 nodes
+here, my running time</p>
+<p t="2220962" d="1958">of the algorithm to check
+all the possibilities</p>
+<p t="2222920" d="1880">would be exponential
+and a hundred.</p>
+<p t="2224800" d="500">Yeah?</p>
+<p t="2225300" d="3472">AUDIENCE: Can that number
+just like the highest</p>
+<p t="2228772" d="2978">degree of each node, or nodes.</p>
+<p t="2231750" d="1265">PROFESSOR: Uh no.</p>
+<p t="2233015" d="2755">But it's no worse than
+something like that,</p>
+<p t="2235770" d="1360">as we'll see a few minutes.</p>
+<p t="2237130" d="1620">That's a great observation.</p>
+<p t="2238750" d="2460">And we're going to come back
+to that in a few minutes.</p>
+<p t="2241210" d="2970">But it's not just that.</p>
+<p t="2244180" d="5960">OK now in fact even figuring
+out for an arbitrary graph</p>
+<p t="2250140" d="3180">if three colors
+can be done, called</p>
+<p t="2253320" d="2970">the three-coloring problem,
+that's really hard.</p>
+<p t="2256290" d="3280">No one knows how to solve that
+in less than exponential time.</p>
+<p t="2259570" d="3430">In fact, one of these
+NP-complete problems</p>
+<p t="2263000" d="1340">is what it's called.</p>
+<p t="2264340" d="3530">How many people here don't
+know about NP-completeness?</p>
+<p t="2267870" d="1952">Is everybody-- all
+right so all of you</p>
+<p t="2269822" d="1208">haven't seen NP-completeness.</p>
+<p t="2271030" d="5090">OK so there is a class of
+thousands of problems--</p>
+<p t="2276120" d="4110">in fact there's books list these
+1,000 problems-- that are all</p>
+<p t="2280230" d="2770">NP-complete, somebody's proved
+they belong in the class.</p>
+<p t="2283000" d="3440">And what that means is
+that if somebody gave you</p>
+<p t="2286440" d="2860">a solution, like
+a coloring here,</p>
+<p t="2289300" d="4550">it's easy to check really
+quickly if it's valid.</p>
+<p t="2293850" d="2190">But figuring it
+out is really hard.</p>
+<p t="2296040" d="1750">And if you figured
+out how to solve</p>
+<p t="2297790" d="1971">one of those
+thousands of problems,</p>
+<p t="2299761" d="2499">like suddenly you figured out
+how to tell if any graph could</p>
+<p t="2302260" d="3350">work with three colors, you
+would solve automatically</p>
+<p t="2305610" d="2819">all other thousands in the book.</p>
+<p t="2308429" d="2041">So it's this book of
+problems you will constantly</p>
+<p t="2310470" d="3482">run into in your career
+in computer science.</p>
+<p t="2313952" d="1458">And it's bad when
+you run into one,</p>
+<p t="2315410" d="2790">because there's no good
+algorithm to solve it known.</p>
+<p t="2318200" d="1865">But if you just
+solved one of them,</p>
+<p t="2320065" d="3555">the other thousands would
+suddenly be solvable quickly.</p>
+<p t="2323620" d="2920">Even better, you win a
+million dollar prize.</p>
+<p t="2326540" d="1460">One of these
+Millennium Prizes we</p>
+<p t="2328000" d="2860">talked about the first lecture.</p>
+<p t="2330860" d="3020">Even if you show you can't
+find a fast algorithm for one</p>
+<p t="2333880" d="3120">of them, that means that known
+of them have fast algorithms,</p>
+<p t="2337000" d="2397">and you also get
+a million dollars.</p>
+<p t="2339397" d="2583">So this is the central problem
+in computer science, and theory</p>
+<p t="2341980" d="2430">computing, is whether
+or not you could solve</p>
+<p t="2344410" d="2650">these NP-complete problems.</p>
+<p t="2347060" d="2710">Now actually lots of
+people have claim to do it.</p>
+<p t="2349770" d="2530">And in fact, there was a
+lot of buzz in the community</p>
+<p t="2352300" d="2810">about a month ago when
+actually a reputable researcher</p>
+<p t="2355110" d="2260">at HP Labs said he'd done it.</p>
+<p t="2357370" d="4260">He proved that you can't
+solve NP-complete problems.</p>
+<p t="2361630" d="2470">And he got people going for
+probably at least a week,</p>
+<p t="2364100" d="2320">until they discovered
+a fatal flaw.</p>
+<p t="2366420" d="3130">And the proof was
+actually bogus.</p>
+<p t="2369550" d="2220">So no one still knows
+if you can solve</p>
+<p t="2371770" d="3000">these NP-complete
+problems quickly.</p>
+<p t="2374770" d="3850">Now the problem is, in practice,
+you run into these things</p>
+<p t="2378620" d="1810">all the time, like
+MIT really does</p>
+<p t="2380430" d="2000">have to schedule the exams.</p>
+<p t="2382430" d="1250">So you've got to do something.</p>
+<p t="2383680" d="3010">You can't just go say, hey
+it's NP-complete, so no exams</p>
+<p t="2386690" d="2180">this year, or whatever.</p>
+<p t="2388870" d="4100">That's not going to fly,
+so you got to do something.</p>
+<p t="2392970" d="2350">So now this is a
+problem-- many of you</p>
+<p t="2395320" d="3190">when you go into careers, you're
+going to be faced with this.</p>
+<p t="2398510" d="1740">You got to do something.</p>
+<p t="2400250" d="5760">Any thoughts about an algorithm
+for coloring graphs that might</p>
+<p t="2406010" d="1870">use a small number of colors?</p>
+<p t="2407880" d="2455">It doesn't have to
+always work, or you're</p>
+<p t="2410335" d="1625">going to win a lot
+of money if it does.</p>
+<p t="2411960" d="2340">But a simple
+algorithm, you can't</p>
+<p t="2414300" d="2290">take either the 100 steps.</p>
+<p t="2416590" d="3100">You got to be linear,
+probably, or quadratic time.</p>
+<p t="2419690" d="3110">That could get you a
+small number of colors.</p>
+<p t="2422800" d="3060">Any thoughts about
+what you'd do?</p>
+<p t="2425860" d="500">Yeah?</p>
+<p t="2426360" d="2410">AUDIENCE: The number
+of degrees and nodes?</p>
+<p t="2428770" d="1820">PROFESSOR: The
+number-- what about it?</p>
+<p t="2430590" d="2630">AUDIENCE: The highest
+degree and that node,</p>
+<p t="2433220" d="1579">the 6042 is [INAUDIBLE].</p>
+<p t="2434799" d="666">PROFESSOR: Yeah.</p>
+<p t="2435465" d="3235">AUDIENCE: So you could use that.</p>
+<p t="2438700" d="1510">PROFESSOR: Good, all right.</p>
+<p t="2440210" d="1990">So what do I do with
+that-- so I found</p>
+<p t="2442200" d="2930">a node with a high
+degree, there's</p>
+<p t="2445130" d="1900">three of them have
+degree three here.</p>
+<p t="2447030" d="1776">What do I do with them?</p>
+<p t="2448806" d="3518">AUDIENCE: Pick a
+different color to.</p>
+<p t="2452324" d="1416">PROFESSOR: Pick a
+different color,</p>
+<p t="2453740" d="2150">that means I've colored
+some of the others.</p>
+<p t="2455890" d="3150">If I pick a different
+color, do I start with them,</p>
+<p t="2459040" d="3990">or do I finish with
+a high degree nodes?</p>
+<p t="2463030" d="2777">Because you've got to
+assign the colors to them.</p>
+<p t="2465807" d="2083">And high degree is important
+to be thinking about.</p>
+<p t="2467890" d="2541">We're going to prove a theorem
+in just a minute about related</p>
+<p t="2470431" d="1299">to degree and coloring.</p>
+<p t="2471730" d="3070">AUDIENCE: Start with them.</p>
+<p t="2474800" d="2510">PROFESSOR: Start with
+them, and do what with it?</p>
+<p t="2477310" d="1188">Color?</p>
+<p t="2478498" d="4392">AUDIENCE: Yeah, and then assign
+the ones that aren't connected</p>
+<p t="2482890" d="3420">[INAUDIBLE] to the same slots.</p>
+<p t="2486310" d="2940">PROFESSOR: OK, so I could--
+here's a degree of theory</p>
+<p t="2489250" d="3380">now I can start with
+color one for that.</p>
+<p t="2492630" d="1560">And then what do I do next?</p>
+<p t="2494190" d="4182">I pick-- its neighbors have to
+get different colors, I guess.</p>
+<p t="2498372" d="1458">You'd start coloring
+the neighbors.</p>
+<p t="2499830" d="2475">AUDIENCE: My first
+instinct would be</p>
+<p t="2502305" d="2475">to color all the [INAUDIBLE].</p>
+<p t="2508250" d="1280">PROFESSOR: OK.</p>
+<p t="2509530" d="1790">And what color
+would use for them?</p>
+<p t="2511320" d="1382">AUDIENCE: Different ones.</p>
+<p t="2512702" d="1958">PROFESSOR: Different ones
+if they're connected,</p>
+<p t="2514660" d="3130">or if they're not connected
+you'd still use different ones?</p>
+<p t="2517790" d="2880">AUDIENCE: Only if
+they're connected.</p>
+<p t="2520670" d="2270">PROFESSOR: Only they're
+connected use different ones.</p>
+<p t="2522940" d="3961">And so if they're not connected,
+you'd use the same colors?</p>
+<p t="2526901" d="500">Yeah?</p>
+<p t="2530190" d="4430">You're going close, and it
+actually works pretty well.</p>
+<p t="2534620" d="3290">The underlying principle you're
+sort of thinking about here</p>
+<p t="2537910" d="3250">is you've got some notion
+of the order in which you're</p>
+<p t="2541160" d="1825">going to process your graph.</p>
+<p t="2542985" d="2125">And you're going to start
+with a high degree nodes,</p>
+<p t="2545110" d="1420">in your case.</p>
+<p t="2546530" d="1670">And as you go
+along, you're going</p>
+<p t="2548200" d="2750">to start coloring the nodes.</p>
+<p t="2550950" d="3040">And you're going to make
+sure you color them legally.</p>
+<p t="2553990" d="3930">And it sounds like you're going
+to color them with a low color</p>
+<p t="2557920" d="1350">as you go along.</p>
+<p t="2559270" d="5590">And that is probably the most
+basic graph coloring approach.</p>
+<p t="2564860" d="3700">And almost you could almost
+say is a generic approach.</p>
+<p t="2568560" d="3531">So let's define that, and then
+see prove some facts about it.</p>
+<p t="2576710" d="2150">Most of the graph coloring
+algorithms in practice</p>
+<p t="2578860" d="2210">are based on this approach.</p>
+<p t="2581070" d="4250">And we're going to call it the
+basic graph coloring algorithm.</p>
+<p t="2594240" d="6600">And for our graph G, with
+vertices V, and edges E.</p>
+<p t="2600840" d="10240">So the first step is going to be
+to order the nodes from 1 to n.</p>
+<p t="2614110" d="1740">Now in your case,
+you were suggesting</p>
+<p t="2615850" d="3850">an ordering where I have
+the high degree nodes first.</p>
+<p t="2619700" d="1517">All right.</p>
+<p t="2621217" d="1833">But for now we're not
+going to specify that.</p>
+<p t="2623050" d="4240">We're going to make it
+any ordering you want.</p>
+<p t="2627290" d="2790">And then we're going to
+have a notion of an order</p>
+<p t="2630080" d="1410">on the colors, as well.</p>
+<p t="2637815" d="1375">And I don't know
+how many colors,</p>
+<p t="2639190" d="3290">but they're going to be
+numbered 1, 2, and so forth.</p>
+<p t="2642480" d="6293">And then we're going to process
+the nodes one at a time,</p>
+<p t="2648773" d="5087">to N. We color the
+nodes, what is step I,</p>
+<p t="2653860" d="4570">we color the Ith node V sub i
+with the lowest legal color.</p>
+<p t="2665240" d="3250">And by the legal I mean you
+don't color at the same node</p>
+<p t="2668490" d="3150">as another node that's already
+been colored the same that it's</p>
+<p t="2671640" d="962">adjacent to.</p>
+<p t="2680790" d="2500">All right so let's try this.</p>
+<p t="2683290" d="4190">In fact, this is sort of the
+algorithm I used initially</p>
+<p t="2687480" d="3220">to color exam graph over there.</p>
+<p t="2694508" d="3722">All right, so
+let's look at that.</p>
+<p t="2698230" d="6080">So let's say we-- let me
+erase the colors here, and put</p>
+<p t="2704310" d="1155">an ordering on the nodes.</p>
+<p t="2708100" d="4130">So let's say I ordered
+them with 6034 first,</p>
+<p t="2712230" d="2830">so this would be V1.</p>
+<p t="2715060" d="3330">Then 6041 is V2.</p>
+<p t="2718390" d="4990">Then V3, V4, V5.</p>
+<p t="2726290" d="4262">If that's my ordering, what
+color would I assign to 6034?</p>
+<p t="2730552" d="1178">AUDIENCE: One.</p>
+<p t="2731730" d="3410">PROFESSOR: One, C1, I'd
+color it first to get C1.</p>
+<p t="2735140" d="3720">What color does 6041 get?</p>
+<p t="2738860" d="2560">C1, as well, it's the
+lowest possible color</p>
+<p t="2741420" d="5690">that's legal, and is not hooked
+to this guy, so C1 is legal.</p>
+<p t="2747110" d="2700">What color do I give here?</p>
+<p t="2749810" d="2670">C2.</p>
+<p t="2752480" d="6690">Then I color this one next
+C-- can't do C2, can't do C1,</p>
+<p t="2759170" d="2290">so I pick C3.</p>
+<p t="2761460" d="2040">And then I get to
+6042 last, and I</p>
+<p t="2763500" d="3720">can't do one, two, or
+three, so I do four.</p>
+<p t="2767220" d="1930">All right so algorithm,
+with that ordering,</p>
+<p t="2769150" d="1710">gave four colors.</p>
+<p t="2770860" d="4110">However we know there's a way
+to do a different ordering that</p>
+<p t="2774970" d="4250">gives us three colors.</p>
+<p t="2779220" d="1620">In particular,
+let's see if we do</p>
+<p t="2780840" d="2310">this what happens if we
+use this other ordering.</p>
+<p t="2783150" d="2900">Let me erase these.</p>
+<p t="2786050" d="7910">Say that's V1, V2, V3, V4, V5.</p>
+<p t="2793960" d="6180">Now I get C1, this
+will be C2, C1.</p>
+<p t="2803920" d="1750">What's this one get?</p>
+<p t="2805670" d="650">C2.</p>
+<p t="2806320" d="3030">Ah, much better.</p>
+<p t="2809350" d="1450">C3.</p>
+<p t="2810800" d="4080">So different orderings result
+in different numbers of colors</p>
+<p t="2814880" d="1500">here.</p>
+<p t="2816380" d="4470">So the whole art now becomes
+finding a clever ordering.</p>
+<p t="2820850" d="2360">And so many people have
+already had good ideas,</p>
+<p t="2823210" d="2640">pick the largest
+degree nodes first.</p>
+<p t="2825850" d="5890">And in fact, if you simulate
+the algorithm on lots of graphs,</p>
+<p t="2831740" d="4400">you do better on average when
+you color the larger degree</p>
+<p t="2836140" d="1680">nodes first.</p>
+<p t="2837820" d="3030">And then if you start to
+use more exotic orderings,</p>
+<p t="2840850" d="1912">you can do even better.</p>
+<p t="2842762" d="1958">If you take a lot of
+graphs that are out there,</p>
+<p t="2844720" d="1999">and run your algorithm,
+and see how well you do,</p>
+<p t="2846719" d="2821">you do better with more
+sophisticated orderings.</p>
+<p t="2849540" d="5010">In fact, this was my
+senior thesis back</p>
+<p t="2854550" d="1740">when I was
+undergraduate student.</p>
+<p t="2856290" d="3360">I was trying to figure out
+better and better orderings</p>
+<p t="2859650" d="2040">that worked for graphs.</p>
+<p t="2861690" d="3130">And at the time it caused
+a bit of a problem.</p>
+<p t="2864820" d="2650">I was a undergraduate
+at Princeton.</p>
+<p t="2867470" d="1650">And Princeton, to
+this day I think,</p>
+<p t="2869120" d="2970">still has exams after the
+holidays, the Christmas</p>
+<p t="2872090" d="1920">holidays, New Year's holidays.</p>
+<p t="2874010" d="3800">And the students wanted to have
+the exams before Christmas,</p>
+<p t="2877810" d="1960">because they hated going
+home for the holiday,</p>
+<p t="2879770" d="2020">and then you've got to
+worry about your exams</p>
+<p t="2881790" d="1480">when you come back.</p>
+<p t="2883270" d="2780">And the faculty said
+no, there's no way</p>
+<p t="2886050" d="3520">to get them all compressed
+into a small number of days.</p>
+<p t="2889570" d="2440">Now I wasn't aware of
+all that of the time.</p>
+<p t="2892010" d="2245">But my thesis was go
+figure out good ordering.</p>
+<p t="2894255" d="1625">So I tried lots of
+different orderings.</p>
+<p t="2895880" d="1970">And I tried the
+largest degree first,</p>
+<p t="2897850" d="3880">and recursive versions of that
+actually worked very well.</p>
+<p t="2901730" d="3890">And then tried it on the
+Princeton exam graph.</p>
+<p t="2905620" d="2690">And lo and behold, you could
+actually squish it down,</p>
+<p t="2908310" d="1890">so you could give all
+the exams, I think was,</p>
+<p t="2910200" d="3760">4 and 1/2 days, plenty of time
+to give them before Christmas.</p>
+<p t="2913960" d="2370">Which caused a fair of
+scandal at the time,</p>
+<p t="2916330" d="2340">because then the faculty
+had to come clean</p>
+<p t="2918670" d="2060">that they just didn't
+want to bother having</p>
+<p t="2920730" d="3450">the exams before Christmas.</p>
+<p t="2924180" d="2590">Now this algorithm is
+an example of what's</p>
+<p t="2926770" d="2010">known as a greedy algorithm.</p>
+<p t="2928780" d="4150">Now in a greedy algorithm
+it's always simple.</p>
+<p t="2932930" d="2430">You just go one
+step after the next,</p>
+<p t="2935360" d="2400">taking the best you
+can do at each stop.</p>
+<p t="2937760" d="2910">You never go back and try
+to make things better.</p>
+<p t="2940670" d="3280">You never do hill climbing, if
+you're familiar with that term.</p>
+<p t="2943950" d="3060">You just always keep it simple,
+one thing after the next,</p>
+<p t="2947010" d="1820">very fast.</p>
+<p t="2948830" d="1940">Sometimes it works
+great in practice.</p>
+<p t="2950770" d="1800">Sometimes it doesn't.</p>
+<p t="2952570" d="4290">But it's always where you start,
+some simple approach like this.</p>
+<p t="2956860" d="3910">Now this algorithm
+actually, even</p>
+<p t="2960770" d="2080">if you don't try to
+monkey with the ordering,</p>
+<p t="2962850" d="2290">even for a worst case
+ordering of the nodes,</p>
+<p t="2965140" d="3790">that actually does pretty
+good for a lot of graphs.</p>
+<p t="2968930" d="1800">And in fact, it
+does really well--</p>
+<p t="2970730" d="2310">as somebody already
+asked about--</p>
+<p t="2973040" d="2470">if all the nodes
+have low degree.</p>
+<p t="2975510" d="1550">So let's state
+that as a theorem.</p>
+<p t="2977060" d="1458">And then we're
+going to prove that.</p>
+<p t="2984329" d="10001">So if every node in a graph
+G has degree, at most,</p>
+<p t="2994330" d="4220">d-- so that's the biggest
+degree in the graph, D-- then</p>
+<p t="2998550" d="17930">this basic algorithm uses, at
+most, d plus 1 colors for G.</p>
+<p t="3016480" d="3440">No matter what the
+ordering is, you'll</p>
+<p t="3019920" d="3570">never do worse than
+d plus 1 colors.</p>
+<p t="3023490" d="5350">So what's the value of d for
+our exam graph over here?</p>
+<p t="3028840" d="1340">d is 3.</p>
+<p t="3030180" d="3060">Every node has degree,
+at most, three.</p>
+<p t="3033240" d="3880">And so it says, that no matter
+what ordering you picked here,</p>
+<p t="3037120" d="2230">you'd get at most four colors.</p>
+<p t="3039350" d="1000">Now you might do better.</p>
+<p t="3040350" d="2270">In fact, we found an
+ordering that got three.</p>
+<p t="3042620" d="3320">So it's possible to do better.</p>
+<p t="3045940" d="3100">So let's prove this fact
+because this makes a difference.</p>
+<p t="3049040" d="4220">Say you have a graph
+with hundreds of nodes.</p>
+<p t="3053260" d="2456">But every node has
+degree, at most, three.</p>
+<p t="3055716" d="2844">Well that says you only
+need four colors even,</p>
+<p t="3058560" d="3280">if the graph has 1,000 nodes,
+and that's very useful.</p>
+<p t="3061840" d="2740">So in that kind of
+situation it does very well.</p>
+<p t="3064580" d="945">So let's prove that.</p>
+<p t="3069570" d="3163">Any ideas as to what proof
+technique we're going to use?</p>
+<p t="3072733" d="1972">AUDIENCE: Invariant.</p>
+<p t="3074705" d="2415">PROFESSOR: Invariant, close.</p>
+<p t="3077120" d="2440">Not quite an
+invariant, but close.</p>
+<p t="3079560" d="2890">AUDIENCE: [INAUDIBLE]</p>
+<p t="3082450" d="954">PROFESSOR: What?</p>
+<p t="3083404" d="1416">AUDIENCE: Well
+ordering principle.</p>
+<p t="3084820" d="1600">PROFESSOR: You know well
+ordering principle, yeah,</p>
+<p t="3086420" d="2083">we're going to use the
+equivalent version of that.</p>
+<p t="3088503" d="2521">We're going to use induction.</p>
+<p t="3091024" d="2166">If you like well-- it's
+equivalent to well ordering.</p>
+<p t="3093190" d="2124">If you like well ordering
+you could do it that way.</p>
+<p t="3095314" d="3086">I think it's easier
+using induction here.</p>
+<p t="3098400" d="1365">So the proof is by induction.</p>
+<p t="3105110" d="1610">All right so the
+first thing we need</p>
+<p t="3106720" d="1125">is an induction hypothesis.</p>
+<p t="3110950" d="3500">Any thoughts about what the
+induction hypothesis should be?</p>
+<p t="3114450" d="752">Yeah?</p>
+<p t="3115202" d="6068">AUDIENCE: If you have a
+graph with n nodes then</p>
+<p t="3121270" d="4880">where the degree of any nodes
+is less than [INAUDIBLE]</p>
+<p t="3126150" d="1940">then you can do it.</p>
+<p t="3128090" d="1000">PROFESSOR: That's great.</p>
+<p t="3129090" d="2940">You're going to do really
+well on the midterm,</p>
+<p t="3132030" d="2420">because you put an
+n into this thing,</p>
+<p t="3134450" d="2120">but there's not an
+n here to start.</p>
+<p t="3136570" d="1750">What are most
+people going to do--</p>
+<p t="3138320" d="1890">we used to ask this actually.</p>
+<p t="3140210" d="2620">We asked this once on
+a test many years ago,</p>
+<p t="3142830" d="2990">and it was an utter disaster,
+because did everybody do?</p>
+<p t="3145820" d="3012">May be one student, or
+two, put an n into there.</p>
+<p t="3148832" d="2458">But what's the naturally thing
+to do to induct on here when</p>
+<p t="3151290" d="3270">you look at this statement?</p>
+<p t="3154560" d="3200">You're going to induct on d,
+because the first thing you do</p>
+<p t="3157760" d="1920">is you make this be your
+induction hypothesis.</p>
+<p t="3159680" d="2270">There's only one thing
+to use, so you're</p>
+<p t="3161950" d="2960">going to have your
+predicate be p of d,</p>
+<p t="3164910" d="2104">and it's going to be that.</p>
+<p t="3167014" d="2666">Now It didn't occur to us that's
+what everybody was going to do,</p>
+<p t="3169680" d="880">but it should have.</p>
+<p t="3170560" d="2660">They all did that and
+it was a disaster.</p>
+<p t="3173220" d="2790">Because if you do
+this, well you've</p>
+<p t="3176010" d="4270">got to take a graph with
+maximum degree d, or d plus 1</p>
+<p t="3180280" d="2920">in the inductive step,
+pull out all the nodes</p>
+<p t="3183200" d="3821">with degree d plus 1 to get
+a graph with now degree d.</p>
+<p t="3187021" d="749">And that's a mess.</p>
+<p t="3187770" d="2640">You just pulled out a lot
+of nodes, potentially.</p>
+<p t="3190410" d="4240">Color that in d plus 1 colors,
+now put all that junk back in.</p>
+<p t="3194650" d="2530">And say only used
+one more color.</p>
+<p t="3197180" d="1340">Nightmare.</p>
+<p t="3198520" d="2780">And these were MIT
+students under pressure.</p>
+<p t="3201300" d="2030">It was a nightmare.</p>
+<p t="3203330" d="1080">So that does not work.</p>
+<p t="3204410" d="3000">And in fact, we will ask
+an induction question</p>
+<p t="3207410" d="2550">on graphs on every test
+you take in this course.</p>
+<p t="3209960" d="1230">It will happen.</p>
+<p t="3211190" d="3660">And so usually,
+with induction, you</p>
+<p t="3214850" d="1730">take this as your
+induction hypothesis.</p>
+<p t="3216580" d="2070">With graphs, you
+have to be careful.</p>
+<p t="3218650" d="3180">And worst part about
+this is we tell people</p>
+<p t="3221830" d="4120">when this doesn't work, use a
+stronger induction hypothesis.</p>
+<p t="3225950" d="2330">So students tried
+to make a stronger,</p>
+<p t="3228280" d="3620">but they're still stuck on d,
+and it was still a disaster.</p>
+<p t="3231900" d="2030">With graphs, you do
+something different.</p>
+<p t="3233930" d="2310">And the first thing you
+do with a graph, usually,</p>
+<p t="3236240" d="2145">is put n in here.</p>
+<p t="3238385" d="2125">And if it doesn't work with
+n, the number of nodes,</p>
+<p t="3240510" d="2900">you put in e the
+number of edges.</p>
+<p t="3243410" d="1710">And induct on that.</p>
+<p t="3245120" d="3340">And so what you said is
+exactly the right thing to do.</p>
+<p t="3248460" d="2810">Don't do this, or least don't
+spend too much time on it.</p>
+<p t="3251270" d="2090">Pretty quickly try this.</p>
+<p t="3253360" d="4610">If every end node graph--
+if every node in an n</p>
+<p t="3257970" d="5870">node graph G has
+degree at most degree,</p>
+<p t="3263840" d="3230">then the basic algorithm uses
+at most d, plus one colors.</p>
+<p t="3267070" d="3280">And now you induct on n.</p>
+<p t="3270350" d="2750">And almost always on graphs,
+that's the first thing to try.</p>
+<p t="3273100" d="4170">Even if it's not in
+your theorem statement.</p>
+<p t="3277270" d="2630">Any questions about that?</p>
+<p t="3286940" d="2630">Well let's start
+with this, and see</p>
+<p t="3289570" d="1686">if we can make this one work.</p>
+<p t="3302230" d="1910">So what's the next
+step in our proof?</p>
+<p t="3304140" d="2420">What do we got to do?</p>
+<p t="3306560" d="820">Base case.</p>
+<p t="3311890" d="2860">And the base case will
+be, not n equals 0,</p>
+<p t="3314750" d="4550">because we can't have a zero
+node graph, but n equals 1.</p>
+<p t="3319300" d="3640">And how many edges do we have?</p>
+<p t="3322940" d="500">Zero.</p>
+<p t="3323440" d="1750">If there's one node,
+we don't allow loops,</p>
+<p t="3325190" d="7950">so it's zero edges, which means
+that the degree of our graph</p>
+<p t="3333140" d="3240">has to be zero.</p>
+<p t="3336380" d="1400">There's no edges.</p>
+<p t="3337780" d="2120">And of course there's
+only one node,</p>
+<p t="3339900" d="4240">so one color is going
+to work, and that</p>
+<p t="3344140" d="2200">happens to equal d plus 1.</p>
+<p t="3349460" d="2650">All right, so the
+base case is true.</p>
+<p t="3352110" d="3000">For one node graphs,
+you can always</p>
+<p t="3355110" d="3900">use d plus 1 colors,
+where d is the max degree.</p>
+<p t="3359010" d="2200">All right, next we have
+the inductive step.</p>
+<p t="3365500" d="8925">So here we assume P n is
+true for the induction.</p>
+<p t="3380330" d="2800">And now we look at an
+n plus 1 node graph</p>
+<p t="3383130" d="3490">to show P n plus 1 is true.</p>
+<p t="3386620" d="8620">So we let G be any
+N plus 1 node graph.</p>
+<p t="3395240" d="3912">We got to show you can
+color it in d plus 1 colors.</p>
+<p t="3401810" d="6980">And let's let d be the
+max degree, the largest</p>
+<p t="3408790" d="7230">degree in G.</p>
+<p t="3416020" d="5160">We've got to show we can
+color it in d plus 1 colors.</p>
+<p t="3421180" d="1940">Well the basic
+algorithm, let's say.</p>
+<p t="3423120" d="2560">First thing we do is
+we order the nodes</p>
+<p t="3425680" d="1274">in an arbitrary order.</p>
+<p t="3430363" d="3337">And we're going to show
+whatever order you pick is OK.</p>
+<p t="3442920" d="5265">All right so what are the nodes?</p>
+<p t="3458740" d="2460">Anyway at all.</p>
+<p t="3461200" d="4490">Now how am I going to use
+the induction hypothesis?</p>
+<p t="3465690" d="4210">I know, I can assume,
+the for any N node graph</p>
+<p t="3469900" d="4650">I can color it in the
+max degree plus 1 colors.</p>
+<p t="3474550" d="2390">How am I going to use that
+to help me color G here,</p>
+<p t="3476940" d="1320">the n plus 1 node graph?</p>
+<p t="3478260" d="2430">Any thoughts?</p>
+<p t="3480690" d="500">Yeah?</p>
+<p t="3481190" d="2670">AUDIENCE: [INAUDIBLE]</p>
+<p t="3483860" d="3060">PROFESSOR: Yeah, let's
+create an n node graph</p>
+<p t="3486920" d="2490">by looking at these
+nodes, and taking</p>
+<p t="3489410" d="2900">this one out of the time being.</p>
+<p t="3492310" d="3600">Remove the last V n plus
+1 node in the order.</p>
+<p t="3495910" d="3490">That leaves an n node graph.</p>
+<p t="3499400" d="2910">So let's write that down.</p>
+<p t="3502310" d="10810">We remove the n plus 1 from G.
+And that creates a new graph,</p>
+<p t="3513120" d="5410">call it G prime with vertices,
+V prime and edges, E prime.</p>
+<p t="3518530" d="2395">So we create a new graph
+by removing that node.</p>
+<p t="3523640" d="2600">And we remove all the
+edges tied to that node.</p>
+<p t="3526240" d="4120">So for example over
+here, the last node</p>
+<p t="3530360" d="5790">was 6042, so we take out
+6042, and all these edges.</p>
+<p t="3536150" d="2966">And this is a graph
+that we're left with.</p>
+<p t="3542370" d="3820">That graph has n nodes.</p>
+<p t="3546190" d="2447">What's the maximum
+degree in G prime?</p>
+<p t="3551910" d="6144">When I pull out a node, can
+the degree of any node go up?</p>
+<p t="3558054" d="3266">No, I'm just taking stuff out.</p>
+<p t="3561320" d="6610">So I know that G prime has
+maximum degree, at most, d.</p>
+<p t="3567930" d="2440">The degree didn't
+go up of any node.</p>
+<p t="3575080" d="3350">Might have gone down,
+but it didn't go up.</p>
+<p t="3578430" d="5615">So G prime has max degree, at
+most, d, and it has n nodes.</p>
+<p t="3587440" d="3000">So we can use the
+induction hypothesis P n.</p>
+<p t="3593360" d="7960">It says that the basic
+algorithm uses d plus 1,</p>
+<p t="3601320" d="8438">at most, d plus 1 colors
+for nodes V1 to V n.</p>
+<p t="3613104" d="1156">Any questions about that?</p>
+<p t="3617140" d="5000">So if this were the n plus first
+node, last node in the ordering</p>
+<p t="3622140" d="1950">take it out.</p>
+<p t="3624090" d="2400">The basic algorithm now,
+take the same order here,</p>
+<p t="3626490" d="7360">V1, V2, V3, V4, basic, we'll
+color that in d plus 1 colors.</p>
+<p t="3633850" d="3100">And all I have left is
+to give this guy color,</p>
+<p t="3636950" d="4410">and I'll have color G. Question?</p>
+<p t="3641360" d="2280">No.</p>
+<p t="3643640" d="1960">All right.</p>
+<p t="3645600" d="3220">So by induction I've colored
+these guys, V1 to V2,</p>
+<p t="3648820" d="2940">and d plus 1 colors, all
+that I have left to do</p>
+<p t="3651760" d="4240">is color V n plus 1.</p>
+<p t="3656000" d="3585">And hopefully we're not
+going to use color d plus 2,</p>
+<p t="3659585" d="2865">because then we sort
+of-- it wouldn't work.</p>
+<p t="3662450" d="2503">We got to use one of
+the first d plus 1.</p>
+<p t="3672330" d="2040">All right, so let's
+look at V n plus 1.</p>
+<p t="3677110" d="8670">And let's call its
+neighbors in G, U1, U2, Ud.</p>
+<p t="3685780" d="5850">It has, at most d neighbors,
+because every node in G has,</p>
+<p t="3691630" d="2690">at most, degree d.</p>
+<p t="3694320" d="1660">A neighbor's a node
+you're adjacent to.</p>
+<p t="3698840" d="7110">All right so, V n plus 1 has at
+most d neighbors, is adjacent</p>
+<p t="3705950" d="2111">to, at most, d other nodes.</p>
+<p t="3711220" d="3250">Now what does that
+mean about the color I</p>
+<p t="3714470" d="2520">can use on V n plus 1?</p>
+<p t="3719540" d="5065">What do I know about what
+color I can use for that?</p>
+<p t="3724605" d="500">Yeah?</p>
+<p t="3725105" d="4965">AUDIENCE: It can't be any of
+the colors of U1, U2, and so on.</p>
+<p t="3730070" d="2780">PROFESSOR: It can't be any
+one of these colors that</p>
+<p t="3732850" d="2010">were assigned here.</p>
+<p t="3734860" d="1250">That's true.</p>
+<p t="3736110" d="3330">So how many colors
+got ruled out?</p>
+<p t="3739440" d="3860">At most d, and how
+many am I working with?</p>
+<p t="3743300" d="2260">d Plus 1.</p>
+<p t="3745560" d="4020">So I got one left
+that I can use safely.</p>
+<p t="3749580" d="1340">OK.</p>
+<p t="3750920" d="4740">So this means there
+exists at least one color</p>
+<p t="3755660" d="2230">in my set of d plus 1 colors.</p>
+<p t="3762560" d="5015">It's not used by any neighbor.</p>
+<p t="3773660" d="2730">And we're going to give
+V n plus 1 that color.</p>
+<p t="3787150" d="500">All right.</p>
+<p t="3787650" d="4700">So now I've colored every node
+in G, the n plus 1 node graph,</p>
+<p t="3792350" d="2965">safely using a total
+of d plus 1 colors.</p>
+<p t="3798692" d="6358">So that means the
+basic algorithm uses,</p>
+<p t="3805050" d="8290">at most, d plus 1 colors,
+on G. That means P n plus 1</p>
+<p t="3813340" d="4475">is true-- whoops-- and
+the induction is complete.</p>
+<p t="3823050" d="1803">Any questions?</p>
+<p t="3824853" d="500">Yeah.</p>
+<p t="3825353" d="3928">AUDIENCE: Could you also
+start from the other way,</p>
+<p t="3829281" d="6383">and start 1, go to 2 nodes,
+3 nodes at each step keeping</p>
+<p t="3835664" d="3437">all nodes at all other nodes.</p>
+<p t="3839101" d="2979">[INAUDIBLE]</p>
+<p t="3842080" d="3228">PROFESSOR: What do you mean by
+keeping all nodes connected?</p>
+<p t="3845308" d="10956">AUDIENCE: [INAUDIBLE] each
+node has an edge connecting</p>
+<p t="3856264" d="1540">to each other one.</p>
+<p t="3857804" d="1916">PROFESSOR: OK so, then
+I get a specific graph.</p>
+<p t="3859720" d="4520">I start with this, I add a
+node and make it adjacent.</p>
+<p t="3864240" d="1440">I add a node and
+make it adjacent.</p>
+<p t="3865680" d="874">AUDIENCE: [INAUDIBLE]</p>
+<p t="3872410" d="1494">PROFESSOR: Yeah.</p>
+<p t="3873904" d="2716">So you've constructed
+a particular graph.</p>
+<p t="3876620" d="3640">This is actually called, for
+the n nodes, it's called Kn,</p>
+<p t="3880260" d="4750">is the n node complete
+graph, also called a clique,</p>
+<p t="3885010" d="4090">like a clique of friends, where
+everybody likes everybody,</p>
+<p t="3889100" d="3250">in a clique.</p>
+<p t="3892350" d="3310">And in fact for n here,
+for those n nodes,</p>
+<p t="3895660" d="3280">what's the max degree?</p>
+<p t="3898940" d="2500">Max degree is n minus 1.</p>
+<p t="3901440" d="1980">What's the chromatic
+number of this graph?</p>
+<p t="3905986" d="1499">What's the minimum
+number of colors?</p>
+<p t="3907485" d="1671">[INTERPOSING VOICES]</p>
+<p t="3909156" d="1874">PROFESSOR: And they all
+have to be different,</p>
+<p t="3911030" d="1860">which is d plus 1.</p>
+<p t="3912890" d="3530">So you have built
+a special graph</p>
+<p t="3916420" d="3140">for which the optimum of
+number colors is d plus 1.</p>
+<p t="3919560" d="4070">But that is not a proof that
+this is true for all graphs.</p>
+<p t="3923630" d="2754">Because you've looked at
+a particular graph here.</p>
+<p t="3926384" d="875">AUDIENCE: [INAUDIBLE]</p>
+<p t="3930222" d="958">PROFESSOR: What's that?</p>
+<p t="3931180" d="3580">AUDIENCE: [INAUDIBLE] It means
+that you can still use your</p>
+<p t="3934760" d="1378">less than or equal to sign.</p>
+<p t="3936138" d="2352">PROFESSOR: I see,
+so you'd add a node,</p>
+<p t="3938490" d="2692">and it's only connected
+to a few of them.</p>
+<p t="3941182" d="1833">AUDIENCE: No, it's
+connected to all of them,</p>
+<p t="3943015" d="2915">but it still implies
+that you need less than</p>
+<p t="3945930" d="1120">or equal to the colors.</p>
+<p t="3947050" d="2033">It turns out it
+happens to be equal to.</p>
+<p t="3949083" d="1749">PROFESSOR: Yes, in
+this case that's right.</p>
+<p t="3950832" d="1678">So you've made an
+argument for this case</p>
+<p t="3952510" d="1550">where it actually
+is equal, but that</p>
+<p t="3954060" d="1140">only worked for this graph.</p>
+<p t="3955200" d="4110">AUDIENCE: [INAUDIBLE]
+worse case.</p>
+<p t="3959310" d="3356">PROFESSOR: It is the worst
+case, so it meets the bound.</p>
+<p t="3962666" d="1624">It shows you cannot
+improve this bound.</p>
+<p t="3964290" d="1762">Yeah, is there a
+question up there?</p>
+<p t="3966052" d="3238">AUDIENCE: All I was going
+to say is that you've</p>
+<p t="3969290" d="1330">proved it's the worst case.</p>
+<p t="3970620" d="1749">PROFESSOR: Right, so
+what you've done here</p>
+<p t="3972369" d="3218">is you've shown that I could not
+make that theorem any stronger.</p>
+<p t="3975587" d="2944">I could not replace
+it with d here.</p>
+<p t="3978531" d="499">All right.</p>
+<p t="3979030" d="1541">Because you've given
+an example where</p>
+<p t="3980571" d="2869">I can't get d colors, where
+the maximum degree is d.</p>
+<p t="3983440" d="2440">But that doesn't-- To get
+a proof for a theorem,</p>
+<p t="3985880" d="1230">I got to go through all this.</p>
+<p t="3987110" d="3370">That wouldn't give me
+a proof of the theorem.</p>
+<p t="3990480" d="1650">They're not equivalent.</p>
+<p t="3992130" d="3530">One's an upper bound, one's
+an existence of a lower bound.</p>
+<p t="3995660" d="5280">This shows that for any graph,
+you need at most d plus 1.</p>
+<p t="4000940" d="3050">So any graph, at most.</p>
+<p t="4003990" d="6440">That shows there is a graph
+that you need at least.</p>
+<p t="4010430" d="2210">And they are not equivalent.</p>
+<p t="4012640" d="590">All right.</p>
+<p t="4013230" d="3380">One is for all, and upper bound.</p>
+<p t="4016610" d="4220">The other is there
+exists a lower bound.</p>
+<p t="4020830" d="4760">So different in two
+ways that are important.</p>
+<p t="4025590" d="3390">This kind of proof is very
+typical for what you'll</p>
+<p t="4028980" d="2410">see with induction in graphs.</p>
+<p t="4031390" d="1950">And you'll get a lot
+of practice with it.</p>
+<p t="4033340" d="4040">Are there any other
+questions on this proof?</p>
+<p t="4040200" d="1670">OK.</p>
+<p t="4041870" d="2930">All right, see we've seen
+now, by that example,</p>
+<p t="4044800" d="2530">we can't improve the theorem.</p>
+<p t="4047330" d="2870">In some cases,
+though, the theorem</p>
+<p t="4050200" d="1820">is way off, for some graphs.</p>
+<p t="4052020" d="2510">Can anybody think
+of a graph where</p>
+<p t="4054530" d="3320">the bound we get from the
+theorem, of d plus 1 colors,</p>
+<p t="4057850" d="2830">is way off from the actual
+chromatic number you need,</p>
+<p t="4060680" d="1282">the number of colors you need?</p>
+<p t="4061962" d="500">Yeah?</p>
+<p t="4062462" d="1538">AUDIENCE: [INAUDIBLE]</p>
+<p t="4064000" d="916">PROFESSOR: What is it?</p>
+<p t="4064916" d="6366">AUDIENCE: A graph [INAUDIBLE]
+two sets of [INAUDIBLE]</p>
+<p t="4075130" d="1340">PROFESSOR: Good, OK.</p>
+<p t="4076470" d="1750">Yes, so what if
+we did this graph.</p>
+<p t="4078220" d="1822">Let me draw it out.</p>
+<p t="4083310" d="6290">So you've got a bunch of nodes
+here, bunch of nodes here.</p>
+<p t="4089600" d="2700">And every node here is
+connected to every node</p>
+<p t="4092300" d="3300">over the other side.</p>
+<p t="4095600" d="2450">And if this is an n no
+graph, and I've got n over 2</p>
+<p t="4098050" d="3050">on each side, what's
+my degree here?</p>
+<p t="4105922" d="1458">What's my max degree
+of this graph?</p>
+<p t="4107380" d="1180">AUDIENCE: N over 2.</p>
+<p t="4108560" d="1759">PROFESSOR: N over 2.</p>
+<p t="4110319" d="2361">So d is n over 2.</p>
+<p t="4112680" d="1380">What's the chromatic number?</p>
+<p t="4114060" d="2460">How many colors do
+I need for this?</p>
+<p t="4116520" d="1730">Two.</p>
+<p t="4118250" d="3130">All right, so d plus
+1 is way off of two.</p>
+<p t="4121380" d="2086">There is a even worse example.</p>
+<p t="4123466" d="500">Yeah?</p>
+<p t="4123966" d="4164">AUDIENCE: That graph where you
+have one node center that's</p>
+<p t="4128130" d="2996">connected to a bunch of nodes
+regularly distributed about.</p>
+<p t="4131126" d="1438">PROFESSOR: Yeah, the star graph.</p>
+<p t="4132564" d="3736">All right, so I got one of
+the center, I got n minus 1</p>
+<p t="4136300" d="2030">outside.</p>
+<p t="4138330" d="4720">So here the maximum
+degree is n minus 1,</p>
+<p t="4143050" d="2410">just like a complete graph.</p>
+<p t="4145460" d="3189">But how many colors do I need?</p>
+<p t="4148649" d="1420">Two.</p>
+<p t="4150069" d="1431">So it's even worse here.</p>
+<p t="4154319" d="4601">All right now what about
+the basic algorithm?</p>
+<p t="4158920" d="2679">How well does the basic
+algorithm do on this graph?</p>
+<p t="4164649" d="3141">Or to the vertices some way?</p>
+<p t="4167790" d="1840">Color on one [INAUDIBLE]
+lowest color.</p>
+<p t="4169630" d="1990">How many colors is
+it going to use?</p>
+<p t="4171620" d="2220">AUDIENCE: Two.</p>
+<p t="4173840" d="1400">PROFESSOR: Two.</p>
+<p t="4175240" d="2869">It doesn't matter the vertices.</p>
+<p t="4178109" d="8510">V1, V2, V3, V4, because
+I'll color this one 1.</p>
+<p t="4186619" d="3049">What am I going
+to call that one?</p>
+<p t="4189668" d="2282">1.</p>
+<p t="4191950" d="2820">Then I get to the center,
+what am I going to color it?</p>
+<p t="4194770" d="1590">2.</p>
+<p t="4196360" d="3770">And now all the arms,
+what do they get colored?</p>
+<p t="4200130" d="1110">They all get 1.</p>
+<p t="4201240" d="3035">Whatever order you pick,
+you get two colors.</p>
+<p t="4207270" d="1622">All right so now
+there's a difference</p>
+<p t="4208892" d="2458">between the theorem just gives
+you an upper bound, it says,</p>
+<p t="4211350" d="1800">at most, d plus 1 colors.</p>
+<p t="4213150" d="2550">But in fact the algorithm
+can do a lot better</p>
+<p t="4215700" d="3350">than that, as on this example.</p>
+<p t="4219050" d="3370">So the algorithm
+might be a lot better.</p>
+<p t="4222420" d="2350">Everybody see that
+what we're doing here?</p>
+<p t="4224770" d="1750">How the algorithm is
+better than the bound</p>
+<p t="4226520" d="2124">we proved by the theorem,
+even though the bound was</p>
+<p t="4228644" d="2536">pretty good for some graphs.</p>
+<p t="4231180" d="2440">Now it turns out--
+I mean we're not</p>
+<p t="4233620" d="2490">going to win a million
+dollars for this algorithm.</p>
+<p t="4236110" d="3770">And in fact, this algorithm
+is sometimes very bad.</p>
+<p t="4239880" d="4490">And a really bad example
+it's very close to this.</p>
+<p t="4244370" d="4100">In fact actually this one, let's
+look at how well does basic</p>
+<p t="4248470" d="2840">do one this one here.</p>
+<p t="4254240" d="1920">Make some ordering.</p>
+<p t="4256160" d="3790">V1, V2, V3.</p>
+<p t="4262715" d="2805">What's the basic algorithm
+going to do on this complete--</p>
+<p t="4265520" d="3260">it's called a complete bipartite
+graph, is what's this called.</p>
+<p t="4268780" d="1520">I'll define bipartite
+in a minute--</p>
+<p t="4270300" d="1701">but what's the basic
+algorithm do here?</p>
+<p t="4275690" d="5170">Any idea-- does it take n over
+2 colors, or does it take 2?</p>
+<p t="4280860" d="2310">Any ideas?</p>
+<p t="4283170" d="1200">2.</p>
+<p t="4284370" d="5280">So take a vertex, and the first
+one, say V1s here, get C1.</p>
+<p t="4289650" d="3140">As long as I keep picking
+vertices over on this side,</p>
+<p t="4292790" d="1000">they're going to get C1.</p>
+<p t="4296430" d="3130">As soon as I get to
+a vertex over here,</p>
+<p t="4299560" d="1803">what color does it have to get?</p>
+<p t="4301363" d="767">AUDIENCE: C2.</p>
+<p t="4302130" d="1490">PROFESSOR: C2
+because it's touching</p>
+<p t="4303620" d="2676">the very first one we had here.</p>
+<p t="4306296" d="1374">So when I get
+vertices over here,</p>
+<p t="4307670" d="1125">they're all going to be C2.</p>
+<p t="4308795" d="3475">When I go back over here,
+they're going to be back to C1.</p>
+<p t="4312270" d="3640">So actually basic does good
+here too, gives you two colors.</p>
+<p t="4315910" d="500">Yeah?</p>
+<p t="4316410" d="998">AUDIENCE: [INAUDIBLE]</p>
+<p t="4326870" d="1750">PROFESSOR: Ah, those
+two aren't connected.</p>
+<p t="4328620" d="2860">But this case, if I've
+got a vertex over here</p>
+<p t="4331480" d="3060">it is, by definition, connected
+to the vertex over here.</p>
+<p t="4334540" d="3280">Because every
+possible edge is here.</p>
+<p t="4337820" d="1050">But that's a great idea.</p>
+<p t="4338870" d="3577">What if they weren't
+all connected,</p>
+<p t="4342447" d="1208">that's actually a great idea.</p>
+<p t="4345590" d="3680">In fact, the nasty example
+for the basic algorithm</p>
+<p t="4349270" d="1000">is very much like that.</p>
+<p t="4350270" d="1176">Let's draw it.</p>
+<p t="4355748" d="2452">Because so far,
+the basic algorithm</p>
+<p t="4358200" d="3880">is pretty much done
+perfectly on all the graphs</p>
+<p t="4362080" d="6790">we looked at even when
+the theorem wasn't tight.</p>
+<p t="4368870" d="1575">So here is a nasty graph.</p>
+<p t="4376140" d="2790">And it is very close to the
+graph we just look like,</p>
+<p t="4378930" d="1980">where all the edges are there.</p>
+<p t="4380910" d="2170">In this case, all
+the edges are there,</p>
+<p t="4383080" d="3960">except for the one
+straight across.</p>
+<p t="4387040" d="3940">So if this is-- the
+edge denotes likes,</p>
+<p t="4390980" d="3430">this is a world where you like
+everybody but your spouse.</p>
+<p t="4396950" d="2440">All right, so you have
+an edge to every one,</p>
+<p t="4399390" d="1850">except the one directly
+across from you.</p>
+<p t="4405190" d="4180">No edge there, and so forth.</p>
+<p t="4409370" d="3090">So it has almost every edge,
+but it's missing these edges.</p>
+<p t="4417620" d="4820">Now the basic algorithm
+might do well here.</p>
+<p t="4422440" d="3680">What would be a good
+ordering for this graph</p>
+<p t="4426120" d="1890">to label these V1 through Vn?</p>
+<p t="4428010" d="500">Yeah?</p>
+<p t="4428510" d="3120">AUDIENCE: Go through
+everything on the left side,</p>
+<p t="4431630" d="3188">and then the right side.</p>
+<p t="4434818" d="1494">PROFESSOR: Yeah, that's right.</p>
+<p t="4443800" d="8680">Because then color 1, color
+1, color 1, all the way down.</p>
+<p t="4452480" d="4980">One color for the left,
+what does this one get?</p>
+<p t="4457460" d="2080">Color 2, because it's
+hooked up against.</p>
+<p t="4459540" d="6130">And these all get color 2,
+so I've used two colors.</p>
+<p t="4465670" d="590">Really good.</p>
+<p t="4466260" d="2370">Basic algorithm's looking great.</p>
+<p t="4468630" d="2840">Now here's a harder question.</p>
+<p t="4471470" d="3330">Can you figure
+out a bad ordering</p>
+<p t="4474800" d="3195">for this graph, where I use
+a lot more than two colors.</p>
+<p t="4477995" d="875">AUDIENCE: [INAUDIBLE]</p>
+<p t="4482124" d="916">PROFESSOR: What is it?</p>
+<p t="4483040" d="4246">AUDIENCE: It starts at the
+top of the cross, and then</p>
+<p t="4487286" d="1399">the next level then across.</p>
+<p t="4488685" d="875">PROFESSOR: Very good.</p>
+<p t="4489560" d="1180">V1, V2.</p>
+<p t="4490740" d="2470">Just as natural, really,
+if think about it,</p>
+<p t="4493210" d="1280">to order it this way.</p>
+<p t="4502670" d="1190">All right.</p>
+<p t="4503860" d="2790">What color does V1 get?</p>
+<p t="4506650" d="760">C1.</p>
+<p t="4507410" d="1480">What color does V2 get?</p>
+<p t="4508890" d="1020">AUDIENCE: C1.</p>
+<p t="4509910" d="2340">PROFESSOR: C1 because
+it's not hooked up here.</p>
+<p t="4512250" d="1485">What color does V3 get?</p>
+<p t="4513735" d="652">AUDIENCE: C2.</p>
+<p t="4514387" d="583">PROFESSOR: C2.</p>
+<p t="4514970" d="1510">What about V4?</p>
+<p t="4516480" d="1407">AUDIENCE: C2.</p>
+<p t="4517887" d="583">PROFESSOR: C2.</p>
+<p t="4518470" d="1200">It's not hooked up.</p>
+<p t="4519670" d="1890">It can't get one,
+because that's up here.</p>
+<p t="4521560" d="3750">And it's not the two, so it
+gets two What color does V5 get?</p>
+<p t="4525310" d="1290">AUDIENCE: C3.</p>
+<p t="4526600" d="890">PROFESSOR: C3.</p>
+<p t="4527490" d="1960">Because it's hooked
+up to one to two.</p>
+<p t="4529450" d="1356">V6 ?</p>
+<p t="4530806" d="804">AUDIENCE: C3.</p>
+<p t="4531610" d="3290">PROFESSOR: C3, it's hooked up
+to one and two, but not three.</p>
+<p t="4534900" d="3660">And you can see
+what's happening here.</p>
+<p t="4538560" d="1670">All the way down
+here he's hooked up</p>
+<p t="4540230" d="2935">to all the n over
+2 minus 1 colors.</p>
+<p t="4543165" d="3945">So he also takes C n over 2.</p>
+<p t="4547110" d="3010">So if you pick that
+ordering, not so good.</p>
+<p t="4550120" d="2480">You use n over two colors.</p>
+<p t="4552600" d="2910">So it really matters
+the ordering.</p>
+<p t="4555510" d="2520">Now I should say graphs
+like-- actually any questions</p>
+<p t="4558030" d="1670">about what we did here?</p>
+<p t="4559700" d="2730">About this?</p>
+<p t="4562430" d="2130">All right, now I should
+say that graphs like this</p>
+<p t="4564560" d="4910">have a special name, they're
+called bipartite graphs.</p>
+<p t="4569470" d="1779">And that's important
+to remember.</p>
+<p t="4584520" d="19260">All right, so a graph G
+is said to be bipartite</p>
+<p t="4603780" d="9536">if the vertices can be split
+into two sets, or partitioned,</p>
+<p t="4613316" d="8044">and we'll call them a
+left set, and a right set,</p>
+<p t="4621360" d="15970">so that all the edges connect
+a node in the left set,</p>
+<p t="4637330" d="3860">to a node in the right set.</p>
+<p t="4643759" d="1541">So in fact, a lot
+of today we've been</p>
+<p t="4645300" d="3200">looking at bipartite graphs,
+because the nodes are here.</p>
+<p t="4648500" d="4160">Like the men, and the women, and
+the edges only go from the left</p>
+<p t="4652660" d="1240">to the right.</p>
+<p t="4653900" d="1435">And that is called bipartite.</p>
+<p t="4655335" d="1955">And it's called
+bipartite because you</p>
+<p t="4657290" d="4530">can do it with two
+colors, or in two pieces.</p>
+<p t="4661820" d="2040">So you don't win
+a million dollars</p>
+<p t="4663860" d="1770">for deciding whether
+or not a graph can</p>
+<p t="4665630" d="1970">be colored in two colors.</p>
+<p t="4667600" d="1350">That's easy.</p>
+<p t="4668950" d="2780">You'll even do it for
+homework one of these times.</p>
+<p t="4671730" d="2600">You do win the million dollars
+for deciding if a graph can</p>
+<p t="4674330" d="2370">be colored in three colors.</p>
+<p t="4676700" d="1750">That's really hard to do.</p>
+<p t="4681090" d="3710">Now coloring problems come up
+in all sorts of applications.</p>
+<p t="4684800" d="4150">You know with this company,
+Akamai, that came out of MIT,</p>
+<p t="4688950" d="1120">we've talked about.</p>
+<p t="4690070" d="4420">We run a network
+of 75,000 servers.</p>
+<p t="4694490" d="2370">And they're used to distribute
+content on the internet,</p>
+<p t="4696860" d="1420">and so forth.</p>
+<p t="4698280" d="1930">And we have to
+deploy a new version</p>
+<p t="4700210" d="1590">of our software
+on those servers,</p>
+<p t="4701800" d="1620">pretty much every week.</p>
+<p t="4703420" d="2140">We're pushing new software out.</p>
+<p t="4705560" d="5510">And you can't deploy on every
+server at the same time,</p>
+<p t="4711070" d="1880">because you've got
+to take down a server</p>
+<p t="4712950" d="1500">to deploy new software on it.</p>
+<p t="4714450" d="1600">Got to take it
+out of commission.</p>
+<p t="4716050" d="2600">And so we can't just take
+down all 75,000 servers,</p>
+<p t="4718650" d="2310">because then all the
+Facebook, and Netflix,</p>
+<p t="4720960" d="1450">and all those sites would stop.</p>
+<p t="4722410" d="2430">That would be bad.</p>
+<p t="4724840" d="3220">And we can't do them one at a
+time, because there's 75,000.</p>
+<p t="4728060" d="2720">And it takes a few
+hours for each one</p>
+<p t="4730780" d="3290">to get the traffic off,
+stop it, load new software,</p>
+<p t="4734070" d="910">and turn it back on.</p>
+<p t="4734980" d="3260">And it would take us years
+to do one software install,</p>
+<p t="4738240" d="2370">which we got to do every week.</p>
+<p t="4740610" d="2670">So we've got to figure out a
+schedule for how many servers</p>
+<p t="4743280" d="2250">you take down at a given
+time, and which ones.</p>
+<p t="4745530" d="2060">And it turns out
+pairs of servers</p>
+<p t="4747590" d="2049">have certain critical functions.</p>
+<p t="4749639" d="2291">So there's certain pairs of
+servers you can't take down</p>
+<p t="4751930" d="2820">at the same time.</p>
+<p t="4754750" d="3786">So we have a gigantic 75,000
+node coloring problem,</p>
+<p t="4758536" d="1499">where there's edges
+between servers.</p>
+<p t="4760035" d="1583">Nodes are servers,
+and there's an edge</p>
+<p t="4761618" d="4016">between if you can't install
+new software at the same time.</p>
+<p t="4765634" d="1416">And so when it
+turns out, when you</p>
+<p t="4767050" d="3360">run one of these graph
+coloring algorithms on it,</p>
+<p t="4770410" d="1710">you could do it
+with eight colors.</p>
+<p t="4772120" d="2040">It just turns out that way.</p>
+<p t="4774160" d="2910">So that means there's
+eight waves of install</p>
+<p t="4777070" d="1850">that go on to the network.</p>
+<p t="4778920" d="2530">And now eight times
+a few hours each</p>
+<p t="4781450" d="3222">means that we can do it in a
+day, and you can manage it.</p>
+<p t="4784672" d="3108">You know on a much
+smaller scale,</p>
+<p t="4787780" d="2530">the same problem exists
+for register allocation,</p>
+<p t="4790310" d="1810">for variables.</p>
+<p t="4792120" d="3366">Here you've got to assign
+every variable to register.</p>
+<p t="4795486" d="1374">But you can't have
+variables that</p>
+<p t="4796860" d="2500">are active at the
+same time associated</p>
+<p t="4799360" d="1540">with the same register.</p>
+<p t="4800900" d="2950">And you want to minimize the
+number of registers you need.</p>
+<p t="4803850" d="3260">So again, you have the
+graph coloring problem.</p>
+<p t="4807110" d="3110">The number of colors is the
+number of registers you need.</p>
+<p t="4810220" d="2700">And two variables can't get
+the same color if their active</p>
+<p t="4812920" d="2890">at the same time, so you
+put an edge between them.</p>
+<p t="4815810" d="1910">The most famous example
+of graph coloring</p>
+<p t="4817720" d="3950">is the map coloring problem,
+with the four coloring theorem.</p>
+<p t="4821670" d="4130">And so here, every
+country is a node.</p>
+<p t="4825800" d="1927">Adjacent countries have
+an edge between them,</p>
+<p t="4827727" d="2083">because you don't want to
+color adjacent countries</p>
+<p t="4829810" d="1670">the same color,
+or you can't tell</p>
+<p t="4831480" d="3250">they're different countries.</p>
+<p t="4834730" d="2260">Now the last example
+we can talk about</p>
+<p t="4836990" d="3010">is an important problem
+in communication theory,</p>
+<p t="4840000" d="3630">communication networks, where
+again coloring comes up.</p>
+<p t="4843630" d="4470">Now here you need to assign
+frequencies to radio stations,</p>
+<p t="4848100" d="935">or the cell towers.</p>
+<p t="4849035" d="5475">It comes up in mobile networks,
+or just in with radio stations.</p>
+<p t="4854510" d="4860">And if two towers have
+an overlapping area,</p>
+<p t="4859370" d="1920">they can't be given
+the same frequency,</p>
+<p t="4861290" d="4250">so you get collisions
+between the towers.</p>
+<p t="4865540" d="1570">And frequencies
+are very expensive.</p>
+<p t="4867110" d="1791">Companies pay the
+government a lot of money</p>
+<p t="4868901" d="2119">to get certain spectrum.</p>
+<p t="4871020" d="2330">So suppose you had this problem.</p>
+<p t="4873350" d="3855">Here's tower A, this is A's
+range, where it reaches.</p>
+<p t="4877205" d="3545">Here's tower B, so
+it overlaps some</p>
+<p t="4880750" d="15910">with A. Here's tower C. Here's
+tower E. And here's tower D.</p>
+<p t="4896660" d="1620">All right now the
+question would be,</p>
+<p t="4898280" d="2589">how many radio
+frequencies do you need?</p>
+<p t="4900869" d="2041">What's the minimum number
+of frequencies you need</p>
+<p t="4902910" d="3006">to enable all the towers here?</p>
+<p t="4905916" d="1564">We could make that be a graph.</p>
+<p t="4907480" d="2280">There's a node for each tower.</p>
+<p t="4909760" d="4640">And an edge between
+towers, if they overlap.</p>
+<p t="4914400" d="4250">C doesn't overlap
+with B, E does.</p>
+<p t="4918650" d="2320">E overlaps here.</p>
+<p t="4920970" d="4090">And then D overlaps here.</p>
+<p t="4925060" d="4137">So how many frequencies do
+you need for this graph?</p>
+<p t="4929197" d="1163">AUDIENCE: Four.</p>
+<p t="4930360" d="4220">PROFESSOR: Four would
+work, three is better.</p>
+<p t="4934580" d="1932">Can you do two?</p>
+<p t="4939900" d="2480">No you can't do two,
+because you got here.</p>
+<p t="4942380" d="1440">But you could do three.</p>
+<p t="4943820" d="6010">You could do one,
+two, three, two, one.</p>
+<p t="4949830" d="1011">This problem comes up--</p>
+<p t="4950841" d="874">AUDIENCE: [INAUDIBLE]</p>
+<p t="4951715" d="1295">PROFESSOR: Did I screw up?</p>
+<p t="4953010" d="1650">Ooh, no I can't do that.</p>
+<p t="4954660" d="1970">One, two, yeah much better.</p>
+<p t="4956630" d="2670">All right, this problem
+comes up all over the place.</p>
+<p t="4959300" d="2340">I'm certain you'll see it
+sometime in your career,</p>
+<p t="4961640" d="2375">you'll have some problem, or
+you're scheduling something,</p>
+<p t="4964015" d="1945">and it's really a graph
+problem in disguise.</p>
+<p t="4965960" d="2290">OK that's it for today.</p>
+</body>
+</timedtext>

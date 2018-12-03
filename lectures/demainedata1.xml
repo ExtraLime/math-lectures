@@ -1,0 +1,2801 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="90" d="2400">The following content is
+provided under a Creative</p>
+<p t="2490" d="1540">Commons license.</p>
+<p t="4030" d="2330">Your support will help
+MIT OpenCourseWare</p>
+<p t="6360" d="4360">continue to offer high quality
+educational resources for free.</p>
+<p t="10720" d="2600">To make a donation or
+view additional materials</p>
+<p t="13320" d="3960">from hundreds of MIT courses,
+visit MIT OpenCourseWare</p>
+<p t="17280" d="1170">at ocw.mit.edu.</p>
+<p t="21056" d="4224">ERIK DEMAINE: Welcome to 6.851
+Advanced Data Structures.</p>
+<p t="25280" d="1140">I am Erik Demaine.</p>
+<p t="26420" d="1750">You can call me Erik.</p>
+<p t="28170" d="3430">We have two TAs, Tom
+Morgan and Justin Zhang.</p>
+<p t="31600" d="1300">Tom's back there.</p>
+<p t="32900" d="3360">Justin is late.</p>
+<p t="36260" d="2340">And this class is
+about all kinds</p>
+<p t="38600" d="1967">of very cool data structures.</p>
+<p t="40567" d="2083">You should have already
+seen basic data structures</p>
+<p t="42650" d="2550">like balance binary
+search trees and things</p>
+<p t="45200" d="2940">like that, log n
+time to do wherever</p>
+<p t="48140" d="1920">you want in one dimension.</p>
+<p t="50060" d="2250">And here we're going to turn
+all those data structures</p>
+<p t="52310" d="1833">on their head and
+consider them in all sorts</p>
+<p t="54143" d="2787">of different models and
+additional cool problems.</p>
+<p t="56930" d="2700">Today we're going to talk about
+time travel or temporal data</p>
+<p t="59630" d="3140">structures, where
+you're manipulating time</p>
+<p t="62770" d="2740">as any good time
+traveler should.</p>
+<p t="65510" d="2430">Then we'll do geometry where
+we have higher dimensional</p>
+<p t="67940" d="1680">data, more than one dimension.</p>
+<p t="69620" d="1500">Then we'll look at
+a problem called</p>
+<p t="71120" d="3780">dynamic optimality, which is,
+is there one best binary search</p>
+<p t="74900" d="1742">tree that rules them all?</p>
+<p t="76642" d="2458">Then we'll look at something
+called memory hierarchy, which</p>
+<p t="79100" d="3480">is a way to model more realistic
+computers which have cache</p>
+<p t="82580" d="1980">and then more cache
+and then main memory</p>
+<p t="84560" d="2070">and then dish and all
+these different levels.</p>
+<p t="86630" d="1950">How do you optimize for that?</p>
+<p t="88580" d="3190">Hashing is probably the most
+famous, and most popular,</p>
+<p t="91770" d="1900">most used data structure
+in computer science.</p>
+<p t="93670" d="2290">We'll do a little bit on that.</p>
+<p t="95960" d="3090">Integers, when you know that
+your data is integers and not</p>
+<p t="99050" d="3097">just arbitrary black boxes that
+you can compare or do whatever,</p>
+<p t="102147" d="1583">you can do a lot
+better with integers.</p>
+<p t="103730" d="1410">You usually beat log n time.</p>
+<p t="105140" d="1960">Often you can get constant time.</p>
+<p t="107100" d="2030">For example, if you want
+to do priority queues,</p>
+<p t="109130" d="2670">you can do square
+root log log n time.</p>
+<p t="111800" d="3300">That's the best
+known randomized.</p>
+<p t="115100" d="2910">Dynamic graphs, you have
+a graph you want to store,</p>
+<p t="118010" d="3430">and the edges are being added
+and maybe deleted, like you're</p>
+<p t="121440" d="1250">representing a social network.</p>
+<p t="122690" d="1350">And people are friending
+and de-friending.</p>
+<p t="124040" d="2041">You want to maintain some
+interesting information</p>
+<p t="126081" d="1679">about that graph.</p>
+<p t="127760" d="2909">Strings, you have
+a piece of text,</p>
+<p t="130669" d="1886">such as the entire
+worldwide web.</p>
+<p t="132555" d="1625">And you want to search
+for a substring.</p>
+<p t="134180" d="1360">How do you do that efficiently?</p>
+<p t="135540" d="1880">It's sort of the Google problem.</p>
+<p t="137420" d="3120">Or you searching through
+DNA for patterns, whenever.</p>
+<p t="140540" d="1810">And finally succinct
+data structures,</p>
+<p t="142350" d="1820">which is all about
+taking what we normally</p>
+<p t="144170" d="2490">consider optimal
+space or n space</p>
+<p t="146660" d="3780">and reducing it down to the very
+bare minimum of bits of space.</p>
+<p t="150440" d="2305">Usually if you want
+to store something</p>
+<p t="152745" d="1625">where there's 2 to
+the n possibilities,</p>
+<p t="154370" d="2250">you want to get away
+with n bits of space,</p>
+<p t="156620" d="3410">maybe plus square root of
+n or something very tiny.</p>
+<p t="160030" d="2710">So that's the sync
+data structures.</p>
+<p t="162740" d="2050">So that's an overview
+of the entire class.</p>
+<p t="164790" d="3180">And these are sort of the
+sections we'll be following.</p>
+<p t="167970" d="2960">Let me give you a quick
+administrative overview</p>
+<p t="170930" d="3420">of what we're doing.</p>
+<p t="174350" d="1170">Requirements for the class--</p>
+<p t="175520" d="2797">I guess, first,
+attending lecture.</p>
+<p t="178317" d="1583">Obviously if you
+don't attend lecture,</p>
+<p t="179900" d="1083">there'll be videos online.</p>
+<p t="180983" d="1827">So that's resolvable.</p>
+<p t="182810" d="2190">But let me know if you're
+not going to make it.</p>
+<p t="185000" d="2410">We're going to have problems
+sets roughly every week.</p>
+<p t="187410" d="1980">If you're taking the
+class for credit,</p>
+<p t="189390" d="3110">they have a very simple rule
+of one page in, one page out.</p>
+<p t="192500" d="2790">This is more constraint on
+us to write problems that</p>
+<p t="195290" d="1429">have easy or short answers.</p>
+<p t="196719" d="1541">You probably need
+to think about them</p>
+<p t="198260" d="3150">a little bit before they're
+transparent, but then easy</p>
+<p t="201410" d="1650">to write up.</p>
+<p t="203060" d="3370">And then scribing lectures--
+so we have a scribe for today,</p>
+<p t="206430" d="1150">I hope.</p>
+<p t="207580" d="970">Here?</p>
+<p t="208550" d="1620">Yes, good.</p>
+<p t="210170" d="2040">So most of the
+lectures have already</p>
+<p t="212210" d="2370">been scribed in some
+version, and your goal</p>
+<p t="214580" d="3840">is to revise that scribe
+notes that if you don't like</p>
+<p t="218420" d="3690">handwritten notes, which
+are also online, then easier</p>
+<p t="222110" d="2210">for people to read.</p>
+<p t="224320" d="840">Let's see.</p>
+<p t="225160" d="1027">Listeners welcome.</p>
+<p t="226187" d="1833">We're going to have an
+open problem session.</p>
+<p t="228020" d="1210">I really like open problems.</p>
+<p t="229230" d="1500">I really like solving
+open problems.</p>
+<p t="230730" d="2810">So we've done this every time
+this class has been offered.</p>
+<p t="233540" d="2250">So if you're interested in
+also solving open problems,</p>
+<p t="235790" d="1120">it's optional.</p>
+<p t="236910" d="2570">I will organize-- in
+a couple of weeks,</p>
+<p t="239480" d="3630">we'll have a weekly
+open problem session</p>
+<p t="243110" d="3330">and try to solve
+all the things that</p>
+<p t="246440" d="2640">push the frontier of
+advanced data structures.</p>
+<p t="249080" d="2730">So in classes, we'll see
+the state of the art.</p>
+<p t="251810" d="3861">And then we'll change the state
+of the art in those sessions.</p>
+<p t="255671" d="749">I think that's it.</p>
+<p t="256420" d="2500">Any questions about
+the class before we</p>
+<p t="258920" d="1169">get into the fun stuff?</p>
+<p t="262980" d="920">All right.</p>
+<p t="263900" d="3242">Let's do some time traveling.</p>
+<p t="267142" d="1708">Before I get to time
+traveling, though, I</p>
+<p t="268850" d="3570">need to define our
+model of computation.</p>
+<p t="272420" d="3296">A theme in this class is that
+the model of computation you're</p>
+<p t="275716" d="874">working with matters.</p>
+<p t="276590" d="1470">Models matter.</p>
+<p t="278060" d="2370">And there's lots of different
+models of computation.</p>
+<p t="280430" d="5460">We'll see a few of the
+main ones in this class.</p>
+<p t="285890" d="2690">And the starting
+point, and the one</p>
+<p t="288580" d="4520">we'll be using throughout today,
+is called a pointer machine.</p>
+<p t="293100" d="1385">It's an old one from the '80s.</p>
+<p t="297240" d="2000">And it corresponds to
+what you might think about</p>
+<p t="299240" d="2850">if you've done a lot of
+object-oriented programming,</p>
+<p t="302090" d="2860">and before that,
+structure-oriented programming,</p>
+<p t="304950" d="810">I guess.</p>
+<p t="305760" d="2900">So you have a bunch of nodes.</p>
+<p t="308660" d="5310">They have some fields in them,
+a constant number of fields.</p>
+<p t="313970" d="2640">You can think of these
+as objects or strucs</p>
+<p t="316610" d="3660">in c It used to be records
+back in Pascal days,</p>
+<p t="320270" d="1900">so a lot of the papers
+call them records.</p>
+<p t="322170" d="2000">You could just have a
+constant number of fields.</p>
+<p t="324170" d="1130">You could think of
+those numbered, labeled.</p>
+<p t="325300" d="1875">It doesn't really matter
+because there's only</p>
+<p t="327175" d="1375">a constant number of them.</p>
+<p t="328550" d="3690">Each of the fields could be
+a pointer to another node,</p>
+<p t="332240" d="3310">could be a null pointer, or
+could have some data in it.</p>
+<p t="335550" d="2210">So I'll just assume that
+all my data is integers.</p>
+<p t="343130" d="1960">You can have a
+pointer to yourself.</p>
+<p t="345090" d="3350">You can have a pointer over
+here, whatever you want.</p>
+<p t="348440" d="4200">A pointer machine would
+look something like this.</p>
+<p t="352640" d="2400">In any moment, this is the
+state of the pointer machine.</p>
+<p t="355040" d="4260">So you think this as the memory
+of your computer storing.</p>
+<p t="359300" d="2910">And then you have
+some operations</p>
+<p t="362210" d="1450">that you're allowed to do.</p>
+<p t="363660" d="4140">That's the computation
+part of the model.</p>
+<p t="367800" d="2770">You can think of this
+as the memory model.</p>
+<p t="370570" d="2530">What you're allowed to
+do are create nodes.</p>
+<p t="373100" d="2605">You can say something
+like, x equals new node.</p>
+<p t="379910" d="5080">You can, I don't
+know, look at fields.</p>
+<p t="384990" d="3080">You can do x equals y.field.</p>
+<p t="388070" d="5490">You can set fields,
+x.field equals y.</p>
+<p t="393560" d="3840">You can compute on these
+data, so you can add 5 and 7,</p>
+<p t="397400" d="1710">do things like that.</p>
+<p t="399110" d="1880">I'm not going to worry about--</p>
+<p t="400990" d="2710">I'll just write et cetera.</p>
+<p t="403700" d="1980">This is more a model
+about how everything's</p>
+<p t="405680" d="2700">organized in memory, not so
+much about what you're allowed</p>
+<p t="408380" d="1240">to do to the data items.</p>
+<p t="409620" d="1250">In this lecture, it
+won't matter what</p>
+<p t="410870" d="1291">you're doing to the data items.</p>
+<p t="412161" d="1769">We never touch them.</p>
+<p t="413930" d="2910">We just copy them around.</p>
+<p t="416840" d="3030">So am I missing anything?</p>
+<p t="419870" d="1230">Probably.</p>
+<p t="421100" d="2850">I guess you could destroy
+nodes if you felt like it.</p>
+<p t="423950" d="2616">But we won't have
+to today, because we</p>
+<p t="426566" d="1374">don't want to
+throw anything away</p>
+<p t="427940" d="1260">when you're time traveling.</p>
+<p t="429200" d="900">It's too dangerous.</p>
+<p t="432740" d="5830">And then the one catch
+here is, what are x and y?</p>
+<p t="438570" d="2710">There's going to be one
+node in this data structure</p>
+<p t="441280" d="2904">or in your memory
+called the root node.</p>
+<p t="444184" d="2416">And you could think of that
+as that's the thing you always</p>
+<p t="446600" d="1200">have in your head.</p>
+<p t="447800" d="1590">This is like your
+cache, if you will.</p>
+<p t="449390" d="1958">It's just got a constant
+number of things, just</p>
+<p t="451348" d="1122">like any other node.</p>
+<p t="452470" d="5020">And x and y are
+fields of the root.</p>
+<p t="460520" d="2010">So that sort of
+ties things down.</p>
+<p t="462530" d="2670">You're always working
+relative to the root.</p>
+<p t="465200" d="4830">But you can look at the data,
+basically follow this pointer,</p>
+<p t="470030" d="3010">by looking at the field.</p>
+<p t="473040" d="2810">You could set one
+of these pointers--</p>
+<p t="475850" d="2310">I think I probably need
+another operation here,</p>
+<p t="478160" d="5776">like x equals y.field1,
+field2, that sort of thing,</p>
+<p t="483936" d="2864">and maybe the reverse.</p>
+<p t="486800" d="2400">But you can manipulate
+all nodes sort</p>
+<p t="489200" d="1570">of via the root is the idea.</p>
+<p t="490770" d="1940">You follow pointers,
+do whatever.</p>
+<p t="492710" d="2070">So pretty obvious,
+slightly annoying</p>
+<p t="494780" d="1470">to write down formally.</p>
+<p t="496250" d="2460">But that is pointer machine.</p>
+<p t="503460" d="2860">And what we're going to
+be talking about today</p>
+<p t="506320" d="2509">in time travel is
+suppose someone</p>
+<p t="508829" d="2291">gives me a pointer machine
+data structure, for example,</p>
+<p t="511120" d="2390">balanced binary search
+tree, linked list.</p>
+<p t="513510" d="2520">A lot of data structures,
+especially classic data</p>
+<p t="516030" d="3162">structures, follow
+pointer machine model.</p>
+<p t="519192" d="2208">What we'd like to do is
+transform that data structure</p>
+<p t="521400" d="1416">or make a new
+pointer machine data</p>
+<p t="522816" d="2304">structure that does
+extra cool things,</p>
+<p t="525120" d="2350">namely travel through time.</p>
+<p t="527470" d="5870">So that's what
+we're going to do.</p>
+<p t="533340" d="4530">There's two senses of time
+travel or temporal data</p>
+<p t="537870" d="4330">structures that we're going
+to cover in this class.</p>
+<p t="542200" d="3200">The one for today is
+called persistence,</p>
+<p t="545400" d="2910">where you don't forget
+anything, like an elephant.</p>
+<p t="548310" d="3161">And the other one
+is retroactivity.</p>
+<p t="555240" d="1560">Persistence will be today.</p>
+<p t="556800" d="2460">Retroactivity is next class.</p>
+<p t="559260" d="2410">Basically, these correspond
+to two models of time travel.</p>
+<p t="561670" d="2506">Persistence is the branching
+universe time travel model,</p>
+<p t="564176" d="1624">where if you make a
+change in the past,</p>
+<p t="565800" d="1550">you get a new universe.</p>
+<p t="567350" d="2110">You never destroy old universes.</p>
+<p t="569460" d="3795">Retroactivity is more
+like Back to the Future,</p>
+<p t="573255" d="1875">when you go back, make
+a change, and then you</p>
+<p t="575130" d="2790">can return to the present
+and see what happened.</p>
+<p t="577920" d="1790">This is a lot harder to do.</p>
+<p t="579710" d="2440">And we'll work on
+that next class.</p>
+<p t="582150" d="4210">Persistence is what
+we will do today.</p>
+<p t="586360" d="2310">So persistence.</p>
+<p t="597940" d="3870">The general idea of persistence
+is to remember everything--</p>
+<p t="601810" d="3300">the general goal, I would say.</p>
+<p t="605110" d="2250">And by everything, I
+mean different versions</p>
+<p t="607360" d="1440">of the data structure.</p>
+<p t="608800" d="2490">So you're doing data
+structures in general.</p>
+<p t="611290" d="3260">We have update operations
+and query operations.</p>
+<p t="614550" d="1837">We're mainly concerned
+about updates here.</p>
+<p t="616387" d="1833">Every time you do an
+update, you think of it</p>
+<p t="618220" d="3510">as taking a version of the data
+structure and making a new one.</p>
+<p t="621730" d="2070">And you never want to
+destroy old versions.</p>
+<p t="623800" d="2430">So even though an update
+like an insert or something</p>
+<p t="626230" d="3000">changes the data structure, we
+want to remember that past data</p>
+<p t="629230" d="1540">as well.</p>
+<p t="630770" d="3260">And then let's make
+this reasonable.</p>
+<p t="634030" d="3761">All data structure operations
+are relative to a specified</p>
+<p t="637791" d="499">version.</p>
+<p t="647200" d="10010">So an update makes and
+returns a new version.</p>
+<p t="665690" d="3060">So when you do an
+insert, you specify</p>
+<p t="668750" d="2100">a version of your data
+structure and the thing</p>
+<p t="670850" d="1110">you want to insert.</p>
+<p t="671960" d="1890">And the output is a new version.</p>
+<p t="673850" d="2700">So then you could insert into
+that new version, keep going,</p>
+<p t="676550" d="3660">or maybe go back to the
+old version, modify that.</p>
+<p t="680210" d="2240">I haven't said exactly
+what's allowed here,</p>
+<p t="682450" d="3010">but this is sort of
+the general goal.</p>
+<p t="685460" d="5490">And then there are four
+levels of persistence</p>
+<p t="690950" d="2070">that you might want to get.</p>
+<p t="693020" d="4420">First level is called
+partial persistence.</p>
+<p t="697440" d="1250">This is the easiest to obtain.</p>
+<p t="704300" d="3330">And in partial
+persistence, you're</p>
+<p t="707630" d="7830">only allowed to update
+the latest version, which</p>
+<p t="715460" d="6210">means the versions
+are linearly ordered.</p>
+<p t="721670" d="2100">This is the easiest
+to think about.</p>
+<p t="723770" d="5530">And time travel can easily get
+confusing, so start simple.</p>
+<p t="729300" d="5480">We have a timeline of
+various versions on it.</p>
+<p t="734780" d="2640">This is the latest.</p>
+<p t="737420" d="2430">And what we can do is
+update that version.</p>
+<p t="739850" d="3900">We'll get a new version, and
+then our latest is this one.</p>
+<p t="743750" d="4200">What this allows is looking back
+at the past to an old version</p>
+<p t="747950" d="1332">and querying that version.</p>
+<p t="749282" d="2208">So you can still ask questions
+about the old version,</p>
+<p t="751490" d="2340">if you want to be able to do
+a search on any of these data</p>
+<p t="753830" d="499">structures.</p>
+<p t="754329" d="1271">But you can't change them.</p>
+<p t="755600" d="2580">You can only change the
+most recent version.</p>
+<p t="758180" d="1290">So that's nice.</p>
+<p t="759470" d="5220">It's kind of like time
+machine on Mac, I guess.</p>
+<p t="764690" d="2280">If you've ever seen the
+movie Deja Vu, which is not</p>
+<p t="766970" d="1666">very common, but it's
+a good time travel</p>
+<p t="768636" d="2864">movie, in the first half of
+the movie, all they can do</p>
+<p t="771500" d="1050">is look back at the past.</p>
+<p t="772550" d="2160">Later they discover
+that actually they</p>
+<p t="774710" d="3140">have a full persistence model.</p>
+<p t="777850" d="2080">It takes a while
+for dramatic effect.</p>
+<p t="784250" d="4500">In full persistence, you can
+update anything you want--</p>
+<p t="788750" d="2265">so update any version.</p>
+<p t="798070" d="6130">and so then the
+versions form a tree.</p>
+<p t="807960" d="500">OK.</p>
+<p t="808460" d="1740">So in this model,
+maybe you initially</p>
+<p t="810200" d="2220">have a nice line of versions.</p>
+<p t="812420" d="2440">But now if I go back to
+this version and update it,</p>
+<p t="814860" d="2480">I branch, get a
+new version here.</p>
+<p t="817340" d="3060">And then I might keep modifying
+that version sometimes.</p>
+<p t="820400" d="1260">Any of these guys can branch.</p>
+<p t="824240" d="3240">So this is why I call it the
+branching universe model, when</p>
+<p t="827480" d="2205">you update your branch.</p>
+<p t="832520" d="1860">So no version ever
+gets destroyed here.</p>
+<p t="834380" d="2340">Again, you can
+query all versions.</p>
+<p t="836720" d="2640">But now you can also
+update any version.</p>
+<p t="839360" d="1350">But you just make a new version.</p>
+<p t="840710" d="1950">It's a totally new world.</p>
+<p t="842660" d="1830">When I update this
+version, this version</p>
+<p t="844490" d="1920">knows nothing about all the--</p>
+<p t="846410" d="1530">this doesn't know
+about this future.</p>
+<p t="847940" d="2950">It's created its own future.</p>
+<p t="850890" d="3420">There's no way to sort of
+merge those universes together.</p>
+<p t="854310" d="2600">It's kind of sad.</p>
+<p t="856910" d="5310">That's why we have the
+third level of persistence,</p>
+<p t="862220" d="2460">which lets us merge timelines.</p>
+<p t="864680" d="3260">It's great for lots
+of fiction out there.</p>
+<p t="875880" d="2480">If you've seen the
+old TV show Sliders,</p>
+<p t="878360" d="2300">that would be
+confluent persistence.</p>
+<p t="890830" d="10960">So confluent persistence,
+you can combine two versions</p>
+<p t="901790" d="1320">to create a new version.</p>
+<p t="909220" d="4500">And in this case, again, you
+can't destroy old versions.</p>
+<p t="913720" d="2540">In persistence, you
+never destroy versions.</p>
+<p t="916260" d="6260">So now the versions form a
+DAG, directed acyclic graph.</p>
+<p t="922520" d="1490">So now we're allowing--</p>
+<p t="924010" d="1510">OK, you make some
+changes, whatever.</p>
+<p t="925520" d="4754">You branch your universe,
+make some changes.</p>
+<p t="930274" d="2166">And now I can say, OK, take
+this version of the data</p>
+<p t="932440" d="3070">structure and this version
+and recombine them.</p>
+<p t="935510" d="3220">Get a new version, and then
+maybe make some more changes.</p>
+<p t="938730" d="1924">OK, what does combine mean?</p>
+<p t="940654" d="1666">Well, it depends on
+your data structure.</p>
+<p t="942320" d="2100">A lot of data structures
+have combine operations</p>
+<p t="944420" d="3609">like if you have linked lists,
+you have two linked lists,</p>
+<p t="948029" d="1041">you can concatenate them.</p>
+<p t="949070" d="1110">That's an easy operation.</p>
+<p t="950180" d="1541">Even if you have
+binary search trees,</p>
+<p t="951721" d="2029">you can concatenate
+them reasonably easy</p>
+<p t="953750" d="2920">and combine it into one
+big binary search tree.</p>
+<p t="956670" d="2390">So if your data structure
+has an operation that</p>
+<p t="959060" d="2790">takes as input two
+data structures,</p>
+<p t="961850" d="3300">then what we're saying is now
+it can take two versions, which</p>
+<p t="965150" d="1280">is more general.</p>
+<p t="966430" d="1810">So I could take the
+same data structure,</p>
+<p t="968240" d="2190">make some changes in
+one way, separately make</p>
+<p t="970430" d="1708">some changes in a
+different way, and then</p>
+<p t="972138" d="2522">try to concatenate them
+or do something crazy.</p>
+<p t="974660" d="1890">This is hard to
+do, and most of it</p>
+<p t="976550" d="2540">is an open problem
+whether it can be done.</p>
+<p t="979090" d="2500">But I'll tell you about it.</p>
+<p t="981590" d="3270">Then there's another level
+even more than confluent</p>
+<p t="984860" d="1690">persistence.</p>
+<p t="986550" d="4040">This is hard to interpret
+in the time travel world,</p>
+<p t="990590" d="1840">but it would be functional
+data structures.</p>
+<p t="992430" d="1700">If you've ever programmed
+in a functional programming</p>
+<p t="994130" d="2670">language, it's a little bit
+annoying from an algorithm's</p>
+<p t="996800" d="2850">perspective, because it
+constrains you to work</p>
+<p t="999650" d="3570">in a purely functional world.</p>
+<p t="1003220" d="2680">You can never modify anything.</p>
+<p t="1005900" d="500">OK.</p>
+<p t="1006400" d="2820">Now, we don't want
+to modify versions.</p>
+<p t="1009220" d="610">That's fine.</p>
+<p t="1009830" d="1458">But in a functional
+data structure,</p>
+<p t="1011288" d="2822">you're not allowed to
+modify any nodes ever.</p>
+<p t="1014110" d="1610">All you can do is
+make new notes.</p>
+<p t="1023670" d="3647">This is constraining,
+and you can't always</p>
+<p t="1027317" d="2083">get optimal running times
+in the functional world.</p>
+<p t="1029400" d="1958">But if you can get a
+functional data structure,</p>
+<p t="1031358" d="1942">you have all these
+things, because you</p>
+<p t="1033300" d="959">can't destroy anything.</p>
+<p t="1034259" d="1957">If you can't destroy
+nodes, then in particular,</p>
+<p t="1036216" d="1214">you can't destroy versions.</p>
+<p t="1037430" d="2500">And all of these things
+just work for free.</p>
+<p t="1039930" d="3027">And so a bunch of
+special cases are known,</p>
+<p t="1042957" d="1833">interesting special
+cases, like search trees</p>
+<p t="1044790" d="1680">you can do in the
+functional world.</p>
+<p t="1046470" d="2580">And that makes all
+of these things easy.</p>
+<p t="1049050" d="1740">So the rest of this
+lecture is going</p>
+<p t="1050790" d="3480">to be general techniques for
+doing partial full persistence,</p>
+<p t="1054270" d="1980">what we know about
+confluent, and what</p>
+<p t="1056250" d="4810">we know about functional,
+brief overview.</p>
+<p t="1061060" d="3620">Any questions about those
+goals, problem definitions?</p>
+<p t="1067640" d="551">Yeah.</p>
+<p t="1068191" d="2643">AUDIENCE: I'm still confused
+about functional, because--</p>
+<p t="1070834" d="1666">ERIK DEMAINE: What
+does functional mean?</p>
+<p t="1072500" d="2760">AUDIENCE: [INAUDIBLE]</p>
+<p t="1075260" d="2420">ERIK DEMAINE: Yeah, I
+guess you'll see what--</p>
+<p t="1077680" d="2520">functional looks like all
+the other things, I agree.</p>
+<p t="1080200" d="2160">You'll see in a moment
+how we actually implement</p>
+<p t="1082360" d="1020">partial and persistence.</p>
+<p t="1083380" d="4110">We're going to be
+changing nodes a lot.</p>
+<p t="1087490" d="3180">As long as we still
+represent the same data</p>
+<p t="1090670" d="2370">in the old versions, we
+don't have to represent it</p>
+<p t="1093040" d="1124">in the same way.</p>
+<p t="1094164" d="1666">That lets us do things
+more efficiently.</p>
+<p t="1095830" d="1890">Whereas in functional,
+you have to represent</p>
+<p t="1097720" d="1710">all the old versions
+in exactly the way</p>
+<p t="1099430" d="1364">you used to represent them.</p>
+<p t="1100794" d="1666">Here we can kind of
+mangle things around</p>
+<p t="1102460" d="1125">and it makes things faster.</p>
+<p t="1103585" d="1905">Yeah, good question.</p>
+<p t="1105490" d="4392">So it seems almost the same,
+but it's nodes versus versions.</p>
+<p t="1109882" d="1458">I haven't really
+defined a version.</p>
+<p t="1111340" d="3240">But it's just that all the
+queries answer the same way.</p>
+<p t="1114580" d="4000">That's what you need
+for persistence.</p>
+<p t="1118580" d="2200">Other questions?</p>
+<p t="1120780" d="2840">All right.</p>
+<p t="1123620" d="2191">Well, let's do some
+real data structures.</p>
+<p t="1129660" d="1650">We start with
+partial persistence.</p>
+<p t="1135907" d="833">This is the easiest.</p>
+<p t="1139680" d="2400">For both partial and
+full persistence,</p>
+<p t="1142080" d="4320">there is the following result.
+Any pointer machine data</p>
+<p t="1146400" d="13260">structure, one catch with a
+constant number of pointers</p>
+<p t="1159660" d="2560">to any node--</p>
+<p t="1162220" d="2090">so this is constant n degree.</p>
+<p t="1167726" d="2291">In a pointer machine, you
+always have a constant number</p>
+<p t="1170017" d="2523">of pointers out
+of a node at most.</p>
+<p t="1172540" d="2000">But for this result
+to hold, we also</p>
+<p t="1174540" d="2740">need a constant number of
+pointers into any node.</p>
+<p t="1177280" d="1526">So this is an extra constraint.</p>
+<p t="1182910" d="4410">Can be transformed into
+another data structure that</p>
+<p t="1187320" d="6450">is partially persistent and does
+all the things it used to do--</p>
+<p t="1193770" d="2592">so I'll just say, can be
+made partially persistent.</p>
+<p t="1200300" d="3250">You have to pay something, but
+you have to pay very little--</p>
+<p t="1203550" d="9000">constant amortized
+factor overhead,</p>
+<p t="1212550" d="9310">multiplicative overhead
+and constant amount</p>
+<p t="1221860" d="8430">of additive space per change
+in the data structure.</p>
+<p t="1230290" d="3370">So every time you do a
+modification in your pointer</p>
+<p t="1233660" d="2600">machine-- you set one of
+the fields to something--</p>
+<p t="1236260" d="1570">you have to store that forever.</p>
+<p t="1237830" d="2150">So, I mean, this is the
+best you could hope to do.</p>
+<p t="1239980" d="3270">You've got to store
+everything that happened.</p>
+<p t="1243250" d="2510">You pay a constant
+factor overhead, eh.</p>
+<p t="1245760" d="910">We're theoreticians.</p>
+<p t="1246670" d="1500">That doesn't matter.</p>
+<p t="1248170" d="2670">Then you get any data
+structure in this world</p>
+<p t="1250840" d="2430">can be made
+partially persistent.</p>
+<p t="1253270" d="756">That's nice.</p>
+<p t="1254026" d="624">Let's prove it.</p>
+<p t="1260330" d="1810">OK, the idea is pretty simple.</p>
+<p t="1264780" d="2010">Pointer machines are all
+about nodes and fields.</p>
+<p t="1266790" d="3030">So we just need to simulate
+whatever the data structure is</p>
+<p t="1269820" d="1890">doing to those nodes
+and fields in a way</p>
+<p t="1271710" d="1830">that we don't lose
+all the information</p>
+<p t="1273540" d="3780">and we can still
+search it very quickly.</p>
+<p t="1277320" d="3870">First idea is to
+store back pointers.</p>
+<p t="1281190" d="3682">And this is why we need the
+constant n degree constraint.</p>
+<p t="1287530" d="3545">So if we have a node--</p>
+<p t="1291075" d="1535">how do I want to
+draw a node here?</p>
+<p t="1295640" d="3060">So maybe these are the
+three fields of the node.</p>
+<p t="1298700" d="4230">I want to also store
+some back pointers.</p>
+<p t="1302930" d="5550">Whenever there is a node
+that points to this node,</p>
+<p t="1308480" d="2190">I want to have a
+back pointer that</p>
+<p t="1310670" d="3540">points back so I know where
+all the pointers came from.</p>
+<p t="1314210" d="3390">If there's only p pointers,
+then this is fine.</p>
+<p t="1317600" d="3360">There'll be p fields here.</p>
+<p t="1320960" d="2919">So still constant, still in
+the pointier machine model.</p>
+<p t="1323879" d="1791">OK, I'm going to need
+some other stuff too.</p>
+<p t="1328670" d="2640">So this is a simple thing,
+definitely want this.</p>
+<p t="1331310" d="2160">Because if my nodes
+ever move around,</p>
+<p t="1333470" d="1702">I've got to update
+the pointers to them.</p>
+<p t="1335172" d="1208">And where are those pointers?</p>
+<p t="1336380" d="3650">Well, the back pointers
+tell you where they are.</p>
+<p t="1340030" d="2380">Nodes will still
+be constant size,</p>
+<p t="1342410" d="3090">remain in pointer
+machine data structure.</p>
+<p t="1345500" d="840">OK.</p>
+<p t="1346340" d="1890">That's idea one.</p>
+<p t="1348230" d="6850">Idea two is this part.</p>
+<p t="1355080" d="4405">This is going to store
+something called mods.</p>
+<p t="1359485" d="4535">It could stand for something,
+but I'll leave it as mods.</p>
+<p t="1364020" d="12510">So these are two of the
+fields of the data structure.</p>
+<p t="1376530" d="4950">Ah, one convenience here
+is for back pointers,</p>
+<p t="1381480" d="3360">I'm only going to store it for
+the latest version of the data</p>
+<p t="1384840" d="940">structure.</p>
+<p t="1396310" d="500">Sorry.</p>
+<p t="1396810" d="2800">I forgot about that.</p>
+<p t="1399610" d="1787">We'll come back to that later.</p>
+<p t="1401397" d="2083">And then the idea is to
+store these modifications.</p>
+<p t="1403480" d="2250">How many modifications?</p>
+<p t="1405730" d="3880">Let's say up to p, twice p.</p>
+<p t="1414835" d="3805">p was the bound on the
+n degree of a node.</p>
+<p t="1418640" d="5230">So I'm going to allow 2p
+modifications over here.</p>
+<p t="1423870" d="1580">And what's a
+modification look like?</p>
+<p t="1428780" d="1990">It's going to consist
+of three things--</p>
+<p t="1430770" d="2930">get them in the right order--</p>
+<p t="1433700" d="3150">the version in which
+something was changed,</p>
+<p t="1436850" d="5980">the field that got changed,
+and the value it go changed to.</p>
+<p t="1442830" d="5090">So the idea is that these
+are the fields here.</p>
+<p t="1447920" d="1950">We're not going to touch those.</p>
+<p t="1449870" d="1914">Once they're set to something--</p>
+<p t="1451784" d="1666">or, I mean, whatever
+they are initially,</p>
+<p t="1453450" d="1920">they will stay that way.</p>
+<p t="1455370" d="3050">And so instead of actually
+changing things like the data</p>
+<p t="1458420" d="1500">structure normally
+would, we're just</p>
+<p t="1459920" d="1890">going to add modifications
+here to say, oh,</p>
+<p t="1461810" d="3600">well at this time, this field
+changed to the value of 5.</p>
+<p t="1465410" d="2310">And then later on, it
+changed to the value 7.</p>
+<p t="1467720" d="3660">And then later on, this one
+changed to the value 23,</p>
+<p t="1471380" d="940">whatever.</p>
+<p t="1472320" d="3972">So that's what
+they'll look like.</p>
+<p t="1476292" d="1208">There's a limit to how many--</p>
+<p t="1477500" d="3420">we can only store a constant
+number of mods to each node.</p>
+<p t="1480920" d="3660">And our constant will be 2p.</p>
+<p t="1484580" d="500">OK.</p>
+<p t="1485080" d="1140">Those are the
+ideas, and now it's</p>
+<p t="1486220" d="1541">just a matter of
+making this all work</p>
+<p t="1487761" d="2749">and analyzing that it's
+constant amortized overhead.</p>
+<p t="1493260" d="12970">So first thing is if you
+want to read a field,</p>
+<p t="1506230" d="1860">how would I read a field?</p>
+<p t="1508090" d="930">This is really easy.</p>
+<p t="1511720" d="4200">First you look at what the
+field is in the node itself.</p>
+<p t="1515920" d="1911">But then it might
+have been changed.</p>
+<p t="1517831" d="1749">And so remember when
+I say read the field,</p>
+<p t="1519580" d="2020">I actually mean while
+I'm given some version,</p>
+<p t="1521600" d="3055">v, I want to know what is the
+value of this field at version</p>
+<p t="1524655" d="3625">v, because I want to be able
+to look at any of the old data</p>
+<p t="1528280" d="1350">structures too.</p>
+<p t="1529630" d="7740">So this would be at
+version v. I just</p>
+<p t="1537370" d="1470">look through all
+the modifications.</p>
+<p t="1538840" d="2083">There's constantly many,
+so it takes constant time</p>
+<p t="1540923" d="2807">to just flip through them
+and say, well, what changes</p>
+<p t="1543730" d="2430">have happened up to version v?</p>
+<p t="1546160" d="10590">So I look at mods
+with version less than</p>
+<p t="1556750" d="2700">or equal to v. That will be all
+the changes that happened up</p>
+<p t="1559450" d="1320">to this point.</p>
+<p t="1560770" d="1290">I see, did this field change?</p>
+<p t="1562060" d="1650">I look at the latest one.</p>
+<p t="1563710" d="3540">That will be how I read
+the field of the node, so</p>
+<p t="1567250" d="1267">constant time.</p>
+<p t="1568517" d="2333">There's lots of ways to make
+this efficient in practice.</p>
+<p t="1570850" d="2880">But for our purposes,
+it doesn't matter.</p>
+<p t="1573730" d="2280">It's constant.</p>
+<p t="1576010" d="2880">The hard part is how
+do you change a field?</p>
+<p t="1578890" d="3537">Because there might not be
+any room in the mod structure.</p>
+<p t="1595850" d="8675">So to modify, say we want to
+set node.field equal to x.</p>
+<p t="1607240" d="5500">What we do is first
+we check, is there</p>
+<p t="1612740" d="1530">any space in the mod structure?</p>
+<p t="1614270" d="8810">If there's any blank mods,
+so if the node is not full,</p>
+<p t="1623080" d="3550">we just add a mod.</p>
+<p t="1626630" d="6476">So a mod will look
+like now field x.</p>
+<p t="1633106" d="2704">Just throw that in there.</p>
+<p t="1635810" d="1840">Because right at this moment--</p>
+<p t="1637650" d="1910">so we maintain a time
+counter, just increment</p>
+<p t="1639560" d="2370">it ever time we do a change.</p>
+<p t="1641930" d="1390">This field changed that value.</p>
+<p t="1643320" d="1220">So that's the easy case.</p>
+<p t="1644540" d="4800">The trouble, of course,
+is if the node is full--</p>
+<p t="1649340" d="1727">the moment you've
+all been waiting for.</p>
+<p t="1651067" d="2083">So what we're going to do
+here is make a new node.</p>
+<p t="1653150" d="1540">We've ran out of space.</p>
+<p t="1654690" d="1374">So we need to make a new node.</p>
+<p t="1656064" d="2666">We're not going to touch the old
+node, just going to let it sit.</p>
+<p t="1658730" d="1800">It still maintains all
+those old versions.</p>
+<p t="1660530" d="2700">Now we want a new node
+that represents the latest</p>
+<p t="1663230" d="1740">and greatest of this node.</p>
+<p t="1664970" d="520">OK.</p>
+<p t="1665490" d="2210">So make a new node.</p>
+<p t="1671420" d="5640">I'll call it node prime to
+distinguish from node, where</p>
+<p t="1677060" d="7645">with all the mods, and this
+modification in particular,</p>
+<p t="1684705" d="500">applied.</p>
+<p t="1687770" d="3390">OK, so we make a new
+version of this node.</p>
+<p t="1691160" d="4210">It's going to have some
+different fields, whatever</p>
+<p t="1695370" d="3360">was the latest version
+represented by those mods.</p>
+<p t="1698730" d="1795">It's still going to
+have back pointers,</p>
+<p t="1700525" d="4285">so we have to maintain
+all those back pointers.</p>
+<p t="1704810" d="1590">And now the mod,
+initially, is going</p>
+<p t="1706400" d="2940">to be empty, because we
+just applied them all.</p>
+<p t="1709340" d="3120">So this new node doesn't
+have any recent mods.</p>
+<p t="1712460" d="1860">Old node represents
+the old versions.</p>
+<p t="1714320" d="3615">This node is going to
+represent the new versions.</p>
+<p t="1717935" d="1485">What's wrong with this picture?</p>
+<p t="1719420" d="1350">AUDIENCE: Update pointers.</p>
+<p t="1720770" d="1350">ERIK DEMAINE: Update pointers.</p>
+<p t="1722120" d="1770">Yeah, there's pointers
+to the old version</p>
+<p t="1723890" d="3690">of the node, which are fine for
+the old versions of the data</p>
+<p t="1727580" d="679">structure.</p>
+<p t="1728259" d="2041">But for the latest version
+of the data structure,</p>
+<p t="1730300" d="3260">this node has moved
+to this new location.</p>
+<p t="1733560" d="2510">So if there are any old
+pointers to that node,</p>
+<p t="1736070" d="2370">we've got to update them
+in the current version.</p>
+<p t="1738440" d="2208">We have to update them to
+point to this node instead.</p>
+<p t="1740648" d="3412">The old versions are fine, but
+the new version is in trouble.</p>
+<p t="1744060" d="2060">Other questions or
+all the same answer?</p>
+<p t="1746120" d="671">Yeah.</p>
+<p t="1746791" d="3928">AUDIENCE: So if you wanted
+to read an old version</p>
+<p t="1750719" d="4911">but you just have the
+new version, [INAUDIBLE]?</p>
+<p t="1755630" d="925">ERIK DEMAINE: OK--</p>
+<p t="1756555" d="875">AUDIENCE: [INAUDIBLE]</p>
+<p t="1757430" d="1750">ERIK DEMAINE: The
+question is essentially,</p>
+<p t="1759180" d="2879">how do we hold on to versions?</p>
+<p t="1762059" d="2541">Essentially, you can think of
+a version of the data structure</p>
+<p t="1764600" d="1804">as where the root node is.</p>
+<p t="1766404" d="1166">That's probably the easiest.</p>
+<p t="1767570" d="1958">I mean, in general, we're
+representing versions</p>
+<p t="1769528" d="3592">by a number, v. But we
+always start at the root.</p>
+<p t="1773120" d="1957">And so you've given
+the data structure,</p>
+<p t="1775077" d="1583">which is represented
+by the root node.</p>
+<p t="1776660" d="3360">And you say, search
+for the value 5.</p>
+<p t="1780020" d="3269">Is it in this binary
+search tree or whatever?</p>
+<p t="1783289" d="2041">And then you just start
+navigating from the root,</p>
+<p t="1785330" d="4230">but you know I'm inversion
+a million or whatever.</p>
+<p t="1789560" d="1780">I know what version
+I'm looking for.</p>
+<p t="1791340" d="4700">So you start with the root,
+which never changes, let's say.</p>
+<p t="1796040" d="2280">And then you follow
+pointers that</p>
+<p t="1798320" d="1740">essentially tell
+you for that version</p>
+<p t="1800060" d="1320">where you should be going.</p>
+<p t="1801380" d="2400">I guess at the root version,
+it's a little trickier.</p>
+<p t="1803780" d="3930">You probably want a little array
+that says for this version,</p>
+<p t="1807710" d="1190">here's the root node.</p>
+<p t="1808900" d="2230">But that's a special case.</p>
+<p t="1811130" d="540">Yeah.</p>
+<p t="1811670" d="1564">Another question?</p>
+<p t="1813234" d="1988">AUDIENCE: So on the
+new node that you</p>
+<p t="1815222" d="4384">created, the fields that you
+copied, you also have to have</p>
+<p t="1819606" d="1083">a version for them, right?</p>
+<p t="1820689" d="1491">Because [INAUDIBLE]?</p>
+<p t="1826670" d="1061">ERIK DEMAINE: These--</p>
+<p t="1827731" d="2459">AUDIENCE: Or do you
+version the whole node?</p>
+<p t="1830190" d="2460">ERIK DEMAINE: Here we're
+versioning the whole node.</p>
+<p t="1832650" d="1950">The original field
+values represent</p>
+<p t="1834600" d="3340">what was originally there,
+whenever this node was created.</p>
+<p t="1837940" d="2310">Then the mods specify what
+time the fields change.</p>
+<p t="1840250" d="3950">So I don't think
+we need times here.</p>
+<p t="1844200" d="1126">All right.</p>
+<p t="1845326" d="1874">So we've got to update
+two kinds of pointers.</p>
+<p t="1847200" d="1610">There's regular
+pointers, which live</p>
+<p t="1848810" d="3330">in the fields, which are
+things pointing to the node.</p>
+<p t="1852140" d="1500">But then there's
+also back pointers.</p>
+<p t="1853640" d="2269">Because if this is
+a pointer to a node,</p>
+<p t="1855909" d="2041">then there'll be a back
+pointer back to the node.</p>
+<p t="1857950" d="2670">And all of those have to change.</p>
+<p t="1860620" d="3145">Conveniently, the back
+pointers are easy.</p>
+<p t="1871700" d="1835">So if they're back
+pointers to the node,</p>
+<p t="1873535" d="1375">we change them to
+the node prime.</p>
+<p t="1874910" d="1170">How do we find
+the back pointers?</p>
+<p t="1876080" d="1541">Well, we just follow
+all the pointers</p>
+<p t="1877621" d="3709">and then there will be
+back pointers there.</p>
+<p t="1881330" d="1710">Because I said we're
+only maintaining</p>
+<p t="1883040" d="2610">backed pointers for
+the latest version,</p>
+<p t="1885650" d="2649">I don't need to preserve
+the old versions</p>
+<p t="1888299" d="1041">of those backed pointers.</p>
+<p t="1889340" d="1685">So I just go in
+and I change them.</p>
+<p t="1891025" d="2125">It takes constant time,
+because the constant number</p>
+<p t="1893150" d="2550">of things I point to, each
+one as a back pointer.</p>
+<p t="1895700" d="1430">So this is cheap.</p>
+<p t="1897130" d="2080">There's no persistence here.</p>
+<p t="1899210" d="2730">That's an advantage of
+partial persistence.</p>
+<p t="1901940" d="2430">The hard part is
+updating the pointers</p>
+<p t="1904370" d="1314">because those live in fields.</p>
+<p t="1905684" d="2166">I need to remember the old
+versions of those fields.</p>
+<p t="1907850" d="1714">And that we do recursively.</p>
+<p t="1918746" d="1374">Because to change
+those pointers,</p>
+<p t="1920120" d="1050">that's a field update.</p>
+<p t="1921170" d="1770">That's something
+exactly of this form.</p>
+<p t="1922940" d="3030">So that's the same operation
+but on a different node.</p>
+<p t="1925970" d="1470">So I just do that.</p>
+<p t="1927440" d="1320">I claim this is good.</p>
+<p t="1928760" d="2640">That's the end of the algorithm.</p>
+<p t="1931400" d="1140">Now we need to analyze it.</p>
+<p t="1944886" d="874">How do we analyze it?</p>
+<p t="1945760" d="500">Any guesses?</p>
+<p t="1949498" d="1002">AUDIENCE: Amortize it.</p>
+<p t="1950500" d="1708">ERIK DEMAINE: Amortized
+analysis, exactly</p>
+<p t="1952208" d="1412">the answer I was looking for.</p>
+<p t="1953620" d="960">OK.</p>
+<p t="1954580" d="1710">[INAUDIBLE] amortization.</p>
+<p t="1956290" d="2040">The most powerful
+technique in amortization</p>
+<p t="1958330" d="2130">is probably the
+potential method.</p>
+<p t="1960460" d="1910">So we're going to use that.</p>
+<p t="1962370" d="1990">There's a sort of more--</p>
+<p t="1964360" d="3630">you'll see a charging
+argument in a moment.</p>
+<p t="1970914" d="2416">We want the potential function
+to represent when this data</p>
+<p t="1973330" d="1970">structure is in a bad state.</p>
+<p t="1975300" d="3507">Intuitively, it's in a bad state
+when a lot of nodes are full.</p>
+<p t="1978807" d="2083">Because then as soon as
+you make a change in them,</p>
+<p t="1980890" d="2790">they will burst, and you have
+to do all this crazy recursion</p>
+<p t="1983680" d="900">and stuff.</p>
+<p t="1984580" d="1410">This case is nice and cheap.</p>
+<p t="1985990" d="2690">We just add a modification,
+constant time.</p>
+<p t="1988680" d="1750">This case, not so nice
+because we recurse.</p>
+<p t="1990430" d="2310">And then that's going
+to cause more recursions</p>
+<p t="1992740" d="3300">and all sorts of
+chaos could happen.</p>
+<p t="1996040" d="3990">So there's probably a few
+different potential functions</p>
+<p t="2000030" d="1050">that would work here.</p>
+<p t="2001080" d="2070">And an old version
+of these nodes I said</p>
+<p t="2003150" d="1920">should be the number
+of full nodes.</p>
+<p t="2005070" d="2610">But I think we can make
+life a little bit easier</p>
+<p t="2007680" d="4710">by the following.</p>
+<p t="2012390" d="4284">Basically, the total
+number of modifications--</p>
+<p t="2016674" d="3126">not quite the total,
+almost the total.</p>
+<p t="2019800" d="9960">So I'm going to do c times
+the sum of the number of mods</p>
+<p t="2029760" d="6430">in latest version nodes.</p>
+<p t="2039160" d="1370">OK.</p>
+<p t="2040530" d="2454">So because we sort
+of really only</p>
+<p t="2042984" d="2166">care about-- we're only
+changing the latest version,</p>
+<p t="2045150" d="1920">so I really only
+care about nodes that</p>
+<p t="2047070" d="1500">live in the latest version.</p>
+<p t="2048570" d="1089">What do I mean by this?</p>
+<p t="2049659" d="2250">Well, when I made
+this new node prime,</p>
+<p t="2051909" d="2091">this becomes the new
+representation of that node.</p>
+<p t="2054000" d="1690">The old version is dead.</p>
+<p t="2055690" d="2870">We will never change it again.</p>
+<p t="2058560" d="2520">If we're modifying, we will
+never even look at it again.</p>
+<p t="2061080" d="3725">Because now everything
+points to here.</p>
+<p t="2064805" d="1624">So I don't really
+care about that node.</p>
+<p t="2066429" d="1261">It's got a ton of mods.</p>
+<p t="2067690" d="2690">But what's nice is that when
+I create this new node, now</p>
+<p t="2070380" d="1502">the mod list is empty.</p>
+<p t="2071882" d="1958">So I start from scratch,
+just like reinstalling</p>
+<p t="2073840" d="1030">your operating system.</p>
+<p t="2074870" d="3140">It's a good feeling.</p>
+<p t="2078010" d="7080">And so the potential goes down
+by, I guess, c times 2 times p.</p>
+<p t="2085090" d="4674">When I do this change, potential
+goes down by basically p.</p>
+<p t="2089764" d="2466">AUDIENCE: Is c any constant or--</p>
+<p t="2092230" d="3210">ERIK DEMAINE: c will be a
+constant to be determined.</p>
+<p t="2095440" d="1740">I mean, it could be 1.</p>
+<p t="2097180" d="1590">It depends how you
+want to define it.</p>
+<p t="2098770" d="3360">I'm going to use the CLRS
+notion of amortized cost, which</p>
+<p t="2102130" d="4647">is actual cost plus
+change in potential.</p>
+<p t="2106777" d="1833">And then I need a
+constant here, because I'm</p>
+<p t="2108610" d="4240">measuring a running time versus
+some combinatorial quantity.</p>
+<p t="2112850" d="4560">So this will be to match the
+running time that we'll get to.</p>
+<p t="2117410" d="580">OK.</p>
+<p t="2117990" d="4300">So what is amortized cost?</p>
+<p t="2122290" d="2630">There's sort of two
+cases modification.</p>
+<p t="2124920" d="3520">There's the cheap case
+and the not so cheap case.</p>
+<p t="2128440" d="2505">In general, amortized cost--</p>
+<p t="2134980" d="2940">in both cases, it's
+going to be at most--</p>
+<p t="2137920" d="1890">well, first of all, we
+do some constant work</p>
+<p t="2139810" d="4830">just to figure out all this
+stuff, make copies, whatever.</p>
+<p t="2144640" d="5040">So that's some constant time.</p>
+<p t="2149680" d="3240">That's the part that I don't
+want to try to measure.</p>
+<p t="2152920" d="2220">Then potentially,
+we add a new mod.</p>
+<p t="2155140" d="4290">If we add a mod, that
+increases the potential by c.</p>
+<p t="2159430" d="2640">Because we're just counting
+mods, multiplying by c.</p>
+<p t="2162070" d="2632">So we might get plus 1 mod.</p>
+<p t="2164702" d="1458">This is going to
+be an upper bound.</p>
+<p t="2166160" d="3560">We don't always add 1, but
+worst case, we always had 1,</p>
+<p t="2169720" d="2160">let's say.</p>
+<p t="2171880" d="2340">And then there's
+this annoying part.</p>
+<p t="2174220" d="2280">And this might happen,
+might not happen.</p>
+<p t="2176500" d="3840">So then there's a plus maybe.</p>
+<p t="2180340" d="2970">If this happens, we
+decrease the potential</p>
+<p t="2183310" d="3000">because we empty out the
+mods for that node in terms</p>
+<p t="2186310" d="1410">of the latest version.</p>
+<p t="2187720" d="6780">So then we get a negative
+2cp, change in potential.</p>
+<p t="2194500" d="7620">And then we'd have to pay
+I guess up to p recursions.</p>
+<p t="2209250" d="2270">Because we have to--</p>
+<p t="2211520" d="1840">how many pointers
+are there to me?</p>
+<p t="2213360" d="5130">Well, at most p of them, because
+there are at most p pointers</p>
+<p t="2218490" d="780">to any node.</p>
+<p t="2222750" d="600">OK.</p>
+<p t="2223350" d="1760">This is kind of a weird--</p>
+<p t="2225110" d="1400">it's not exactly algebra here.</p>
+<p t="2226510" d="3226">I have this thing, recursions.</p>
+<p t="2229736" d="1874">But if you think about
+how this would expand,</p>
+<p t="2231610" d="1550">all right, this
+is constant time.</p>
+<p t="2233160" d="860">That's good.</p>
+<p t="2234020" d="1000">And then if we do this--</p>
+<p t="2235020" d="1140">I'll put a question mark here.</p>
+<p t="2236160" d="708">It might be here.</p>
+<p t="2236868" d="1242">It might not.</p>
+<p t="2238110" d="1710">If it's not here, find constant.</p>
+<p t="2239820" d="4460">If it is here, then this gets
+expanded into this thing.</p>
+<p t="2244280" d="1850">It's a weird way to
+write a recurrence.</p>
+<p t="2246130" d="4410">But we get p times whatever
+is in this right hand side.</p>
+<p t="2250540" d="500">OK.</p>
+<p t="2251040" d="2400">But then there's this minus 2cp.</p>
+<p t="2253440" d="3120">So we're going to
+get p times 2c here.</p>
+<p t="2256560" d="1290">That's the initial cost.</p>
+<p t="2257850" d="2190">So that will cancel with this.</p>
+<p t="2260040" d="1870">And then we might get
+another recursion.</p>
+<p t="2261910" d="2000">But every time we get a
+recursion, all the terms</p>
+<p t="2263910" d="989">cancel.</p>
+<p t="2264899" d="2041">So it doesn't matter
+whether this is here or not.</p>
+<p t="2266940" d="2670">You get 0, which is great.</p>
+<p t="2269610" d="3790">And you're left with
+the original 2c.</p>
+<p t="2273400" d="2010">Constant.</p>
+<p t="2275410" d="890">OK.</p>
+<p t="2276300" d="2820">[INAUDIBLE] potential functions
+are always a little crazy.</p>
+<p t="2279120" d="4410">What's happening here is
+that, OK, maybe you add a mod.</p>
+<p t="2283530" d="1620">That's cheap.</p>
+<p t="2285150" d="3000">But when we have to do this
+work and we have to do this</p>
+<p t="2288150" d="6240">recursion-- this is up to
+2p updates or recursions--</p>
+<p t="2294390" d="2880">we are charging it to the
+emptying of this node.</p>
+<p t="2297270" d="3840">The number of mods
+went from 2p down to 0.</p>
+<p t="2301110" d="1830">And so we're just
+charging this update cost</p>
+<p t="2302940" d="1119">to that modification.</p>
+<p t="2304059" d="2541">So if you like charging schemes,
+this is much more intuitive.</p>
+<p t="2306600" d="1900">But with charging schemes,
+it's always a little careful.</p>
+<p t="2308500" d="2360">You have to make sure
+you're not double charging.</p>
+<p t="2310860" d="3930">Here it's obvious that
+you're not double charging.</p>
+<p t="2314790" d="2280">Kind of a cool and magical.</p>
+<p t="2317070" d="4940">This is a paper by
+Driscoll, Sarnak, Sleator,</p>
+<p t="2322010" d="1810">Tarjan from 1989.</p>
+<p t="2323820" d="1800">So it's very early
+days of amortization.</p>
+<p t="2325620" d="2140">But they knew how to do it.</p>
+<p t="2327760" d="761">Question?</p>
+<p t="2328521" d="1983">AUDIENCE: [INAUDIBLE]</p>
+<p t="2330504" d="2166">ERIK DEMAINE: What happens
+if you overflow the root?</p>
+<p t="2332670" d="2083">Yeah, I never thought about
+the root before today.</p>
+<p t="2334753" d="2597">But I think the way
+to fix the root is</p>
+<p t="2337350" d="5430">just you have one big table
+that says, for a given version--</p>
+<p t="2342780" d="1546">I guess a simple
+way would be to say,</p>
+<p t="2344326" d="1874">not only is a version
+a number, but it's also</p>
+<p t="2346200" d="930">a pointer to the root.</p>
+<p t="2347130" d="499">There we go.</p>
+<p t="2347629" d="1613">Pointer machine.</p>
+<p t="2349242" d="2208">So that way you're just
+always explicitly maintaining</p>
+<p t="2351450" d="3660">the root copy or the pointer.</p>
+<p t="2355110" d="3600">Because otherwise,
+you're in trouble.</p>
+<p t="2358710" d="2820">AUDIENCE: Then can you
+go back to [INAUDIBLE].</p>
+<p t="2361530" d="2780">ERIK DEMAINE: So in order
+to refer to an old version,</p>
+<p t="2364310" d="2440">you have to have the
+pointer to that root node.</p>
+<p t="2366750" d="2586">If you want to do it just
+from a version number,</p>
+<p t="2369336" d="1124">look at the data structure.</p>
+<p t="2370460" d="990">Just from a version
+number, you would</p>
+<p t="2371450" d="1799">need some kind of
+lookup table, which</p>
+<p t="2373249" d="1291">is outside the pointer machine.</p>
+<p t="2374540" d="1740">So you could do it
+in a real computer,</p>
+<p t="2376280" d="2930">but a pointer machine is
+not technically allowed.</p>
+<p t="2379210" d="1360">So it's slightly awkward.</p>
+<p t="2380570" d="1830">No arrays are allowed
+in pointer machines,</p>
+<p t="2382400" d="1083">in case that wasn't clear.</p>
+<p t="2383483" d="791">Another question?</p>
+<p t="2384274" d="4446">AUDIENCE: [INAUDIBLE] constant
+space to store for [INAUDIBLE].</p>
+<p t="2388720" d="5574">And also, what if we have
+really big numbers [INAUDIBLE]?</p>
+<p t="2394294" d="2416">ERIK DEMAINE: In this model,
+in the pointer machine model,</p>
+<p t="2396710" d="2220">we're assuming that whatever
+the data is in the items</p>
+<p t="2398930" d="2550">take constant space each.</p>
+<p t="2401480" d="2190">If you want to know about
+bigger things in here,</p>
+<p t="2403670" d="1780">then refer to future lectures.</p>
+<p t="2405450" d="1460">This is time travel, after all.</p>
+<p t="2406910" d="2290">Just go to a future
+class and then come back.</p>
+<p t="2409200" d="2720">[LAUGHS] So we'll get
+there, but right now,</p>
+<p t="2411920" d="3201">we're not thinking
+about what's in here.</p>
+<p t="2415121" d="1749">Whatever big thing
+you're trying to store,</p>
+<p t="2416870" d="2940">you reduce it down to
+constant size things.</p>
+<p t="2419810" d="3030">And then you spread them around
+nodes of a pointer machine.</p>
+<p t="2422840" d="2410">How you do that, that's
+up to the data structure.</p>
+<p t="2425250" d="2750">We're just transforming the
+data structure to be persistent.</p>
+<p t="2428000" d="2458">OK, you could ask about other
+models than pointer machines,</p>
+<p t="2430458" d="4072">but we're going to stick
+to pointer machines here.</p>
+<p t="2434530" d="1690">All right.</p>
+<p t="2436220" d="1890">That was partial persistence.</p>
+<p t="2438110" d="3430">Let's do full persistence.</p>
+<p t="2441540" d="830">That was too easy.</p>
+<p t="2446300" d="2670">Same paper does
+full persistence.</p>
+<p t="2448970" d="1457">Systems That was just a warm up.</p>
+<p t="2450427" d="2083">Full persistence is actually
+not that much harder.</p>
+<p t="2455070" d="2615">So let me tell you
+basically what changes.</p>
+<p t="2464240" d="1310">There are two issues.</p>
+<p t="2465550" d="3890">One is that everything here
+has to change and not by much.</p>
+<p t="2469440" d="1930">We're still going to
+use back pointers.</p>
+<p t="2471370" d="1490">We're still going
+to have my mods.</p>
+<p t="2472860" d="2166">The number of mods is going
+to be slightly different</p>
+<p t="2475026" d="1884">but basically the same.</p>
+<p t="2476910" d="2417">Back pointers no longer just
+refer to the latest version.</p>
+<p t="2479327" d="2083">We have to maintain back
+pointers in all versions.</p>
+<p t="2481410" d="1560">So that's annoying.</p>
+<p t="2482970" d="1304">But hey, that's life.</p>
+<p t="2484274" d="1666">The amortization, the
+potential function</p>
+<p t="2485940" d="2250">will change slightly
+but basically not much.</p>
+<p t="2490850" d="2266">Sort of the bigger issue you
+might first wonder about,</p>
+<p t="2493116" d="2124">and it's actually the most
+challenging technically,</p>
+<p t="2495240" d="2250">is versions are
+no longer numbers.</p>
+<p t="2497490" d="1650">Because it's not a line.</p>
+<p t="2499140" d="2107">Versions are nodes in a tree.</p>
+<p t="2501247" d="1583">You should probably
+call them vertices</p>
+<p t="2502830" d="2291">in a tree to distinguish them
+from nodes in the pointer</p>
+<p t="2505121" d="1459">machine.</p>
+<p t="2506580" d="1950">OK, so you've got
+this tree of versions.</p>
+<p t="2508530" d="5400">And then versions are just
+some point on that tree.</p>
+<p t="2513930" d="3090">This is annoying
+because we like lines.</p>
+<p t="2517020" d="1750">We don't like trees as much.</p>
+<p t="2518770" d="2000">So what we're going to
+do is linearize the tree.</p>
+<p t="2524320" d="1580">Like, when in doubt, cheat.</p>
+<p t="2532200" d="1680">How do we do this?</p>
+<p t="2533880" d="1430">With tree traversal.</p>
+<p t="2535310" d="2930">Imagine I'm going to draw
+a super complicated tree</p>
+<p t="2538240" d="1130">of versions.</p>
+<p t="2539370" d="2290">Say there are three versions.</p>
+<p t="2541660" d="1147">OK.</p>
+<p t="2542807" d="2083">I don't want to number
+them, because that would be</p>
+<p t="2544890" d="1440">kind of begging the question.</p>
+<p t="2546330" d="4200">So let's just call
+them x, y, and z.</p>
+<p t="2553080" d="1304">All right.</p>
+<p t="2554384" d="1666">I mean, it's a directed
+tree, because we</p>
+<p t="2556050" d="1414">have the older versions.</p>
+<p t="2557464" d="1416">This is like the
+original version.</p>
+<p t="2558880" d="874">And we made a change.</p>
+<p t="2559754" d="2936">We made a different change
+on the same version.</p>
+<p t="2562690" d="2830">What I'd like to do is a
+traversal of that tree,</p>
+<p t="2565520" d="2650">like a regular, as if you're
+going to sort those nodes.</p>
+<p t="2568170" d="5250">Actually, let me use
+color, high def here.</p>
+<p t="2573420" d="2400">So here's our
+traversal of the tree.</p>
+<p t="2579030" d="2760">And I want to look at the
+first and the last time I</p>
+<p t="2581790" d="940">visit each node.</p>
+<p t="2582730" d="2630">So here's the first
+time I visit x.</p>
+<p t="2585360" d="3890">So I'll write this is
+the beginning of x.</p>
+<p t="2589250" d="4300">Capital X. Then this is
+the first time I visit y,</p>
+<p t="2593550" d="1980">so it's beginning of y.</p>
+<p t="2595530" d="3540">And then this is the last time
+I visit y, so it's the end of y.</p>
+<p t="2599070" d="1700">And then, don't care.</p>
+<p t="2600770" d="4030">Then this is the beginning of z.</p>
+<p t="2604800" d="2430">And this is the end of z.</p>
+<p t="2607230" d="2250">And then this is the end x.</p>
+<p t="2609480" d="9350">If I write those sequentially,
+I get bxbyeybzez,</p>
+<p t="2618830" d="3570">because this is so easy, ex.</p>
+<p t="2622400" d="3130">OK, you can think of these
+as parentheses, right?</p>
+<p t="2625530" d="2930">For whatever reason I chose b
+and e for beginning and ending,</p>
+<p t="2628460" d="1900">but this is like open
+parens, close parens.</p>
+<p t="2630360" d="1950">This is easy to
+do in linear time.</p>
+<p t="2632310" d="1380">I think you all know how.</p>
+<p t="2633690" d="1376">Except it's not
+a static problem.</p>
+<p t="2635066" d="1457">Versions are changing
+all the time.</p>
+<p t="2636523" d="977">We're adding versions.</p>
+<p t="2637500" d="1958">We're never deleting
+versions, but we're always</p>
+<p t="2639458" d="964">adding stuff to here.</p>
+<p t="2640422" d="1458">It's a little
+awkward, but the idea</p>
+<p t="2641880" d="3960">is I want to
+maintain this order,</p>
+<p t="2645840" d="10170">maintain the begin and
+the end of each you</p>
+<p t="2656010" d="1305">might say subtree of versions.</p>
+<p t="2663520" d="2250">This string, from
+bx to ex, represents</p>
+<p t="2665770" d="4050">all of the stuff in x's
+subtree, in the rooted tree</p>
+<p t="2669820" d="840">starting at x.</p>
+<p t="2673890" d="1040">How do I maintain that?</p>
+<p t="2680550" d="1459">Using a data structure.</p>
+<p t="2696490" d="4340">So we're going to use something,
+a data structure we haven't yet</p>
+<p t="2700830" d="1380">seen.</p>
+<p t="2702210" d="2689">It will be in lecture 8.</p>
+<p t="2704899" d="1541">This is a time travel
+data structure,</p>
+<p t="2706440" d="3840">so I'm allowed to do that.</p>
+<p t="2710280" d="3870">So order maintenance
+data structure.</p>
+<p t="2714150" d="2820">You can think of this as
+a magical linked list.</p>
+<p t="2716970" d="2550">Let me tell you what the
+magical linked list can do.</p>
+<p t="2719520" d="3351">You can insert--</p>
+<p t="2722871" d="1749">I'm going to call it
+an item, because node</p>
+<p t="2724620" d="4020">would be kind of confusing
+given where we are right now.</p>
+<p t="2728640" d="3840">You can insert a new item in
+the list immediately before</p>
+<p t="2732480" d="2370">or after a given item.</p>
+<p t="2737410" d="500">OK.</p>
+<p t="2737910" d="3480">This is like a
+regular linked list.</p>
+<p t="2741390" d="3360">Here's a regular linked list.</p>
+<p t="2744750" d="3540">And if I'm given a particular
+item like this one,</p>
+<p t="2748290" d="2900">I can say, well, insert
+a new item right here.</p>
+<p t="2751190" d="531">You say, OK.</p>
+<p t="2751721" d="499">Fine.</p>
+<p t="2752220" d="4840">I'll just make a new node and
+relink here, relink there.</p>
+<p t="2757060" d="1130">Constant time, right?</p>
+<p t="2758190" d="1860">So in an order maintenance
+data structure,</p>
+<p t="2760050" d="1890">you can do this
+in constant time.</p>
+<p t="2761940" d="960">Wow!</p>
+<p t="2762900" d="2280">So amazing.</p>
+<p t="2765180" d="3230">OK, catch is the second
+operation you can do.</p>
+<p t="2768410" d="1000">Maybe I'll number these.</p>
+<p t="2769410" d="1560">This is the update.</p>
+<p t="2770970" d="2520">Then there's the query.</p>
+<p t="2773490" d="4500">The query is, what
+is the relative order</p>
+<p t="2777990" d="2370">of two notes, of two items?</p>
+<p t="2784700" d="2390">x and y.</p>
+<p t="2787090" d="2890">So now I give you this
+node and this node.</p>
+<p t="2789980" d="2440">And I say, which is to the left?</p>
+<p t="2792420" d="1610">Which is earlier in the order?</p>
+<p t="2794030" d="2040">I want to know, is x
+basically less than y</p>
+<p t="2796070" d="1620">in terms of the
+order in the list?</p>
+<p t="2797690" d="3446">Or is y less than x?</p>
+<p t="2801136" d="1624">And an order maintenance
+data structure</p>
+<p t="2802760" d="3150">can do this in constant time.</p>
+<p t="2805910" d="4576">Now it doesn't look like your
+mother's linked list, I guess.</p>
+<p t="2810486" d="1874">It's not the link list
+you learned in school.</p>
+<p t="2812360" d="2340">It's a magical linked
+list that can somehow</p>
+<p t="2814700" d="1110">answer these queries.</p>
+<p t="2815810" d="700">How?</p>
+<p t="2816510" d="2260">Go to lecture 7.</p>
+<p t="2818770" d="500">OK.</p>
+<p t="2819270" d="3904">Forward reference,
+lecture 8, sorry.</p>
+<p t="2823174" d="2416">For now, we're just going to
+assume that this magical data</p>
+<p t="2825590" d="1150">structure exists.</p>
+<p t="2826740" d="2600">So in constant
+time, this is great.</p>
+<p t="2829340" d="2340">Because if we're maintaining
+these b's and e's, we</p>
+<p t="2831680" d="4410">want to maintain the order
+that these things appear in.</p>
+<p t="2836090" d="1530">If we want to create
+a new version,</p>
+<p t="2837620" d="2790">like suppose we were
+just creating version z,</p>
+<p t="2840410" d="2730">well, it used to be everything
+without this bz, ez.</p>
+<p t="2843140" d="4075">And we'd just insert two
+items in here, bz and ez.</p>
+<p t="2847215" d="1375">They're right next
+to each other.</p>
+<p t="2848590" d="2230">And if we were given version
+x, we could just say,</p>
+<p t="2850820" d="3480">oh, we'll look at ex and insert
+two items right before it.</p>
+<p t="2854300" d="1769">Or you can put them
+right after bx.</p>
+<p t="2856069" d="1541">I mean, there's no
+actual order here.</p>
+<p t="2857610" d="3080">So it could have been y first
+and then z or z first and then</p>
+<p t="2860690" d="1380">y.</p>
+<p t="2862070" d="2540">So it's really easy to add a
+new version in constant time.</p>
+<p t="2864610" d="2980">You just do two of
+these insert operations.</p>
+<p t="2867590" d="3090">And now you have this magical
+order operation, which</p>
+<p t="2870680" d="3820">if I'm given two versions--</p>
+<p t="2874500" d="2300">I don't know, v and w--</p>
+<p t="2876800" d="3450">and I want to know is
+v an ancestor of w,</p>
+<p t="2880250" d="2140">now I can do it
+in constant time.</p>
+<p t="2882390" d="7310">So this lets me do a third
+operation, which is, is version</p>
+<p t="2889700" d="12150">v an ancestor of version w?</p>
+<p t="2901850" d="4500">Because that's going to
+be true if and only if bv</p>
+<p t="2906350" d="10845">is an ev nest around bw and ew.</p>
+<p t="2919710" d="580">OK.</p>
+<p t="2920290" d="1630">So that's just three tests.</p>
+<p t="2921920" d="2060">They're probably not
+all even necessary.</p>
+<p t="2923980" d="1410">This one always holds.</p>
+<p t="2925390" d="5280">But if these guys fit in between
+these guys, then you know--</p>
+<p t="2930670" d="4140">now, what this tells us,
+what we care about here,</p>
+<p t="2934810" d="3210">is reading fields.</p>
+<p t="2938020" d="2280">When we read a field,
+we said, oh, we'll</p>
+<p t="2940300" d="2370">apply all the modifications
+that apply to version</p>
+<p t="2942670" d="1840">v. Before that, that
+was a linear order.</p>
+<p t="2944510" d="2390">So it's just all versions
+less than or equal to v. Now</p>
+<p t="2946900" d="3900">it's all versions that are
+ancestors of v. Given a mod,</p>
+<p t="2950800" d="3030">we need to know, does this
+mod apply to my version?</p>
+<p t="2953830" d="2730">And now I tell you, I can
+do that in constant time</p>
+<p t="2956560" d="1050">through magic.</p>
+<p t="2957610" d="2730">I just test these
+order relations.</p>
+<p t="2960340" d="4020">If they hold, then that
+mod applies to my version.</p>
+<p t="2964360" d="3000">So w's the version
+we're testing.</p>
+<p t="2967360" d="2070">v is some version in the mod.</p>
+<p t="2969430" d="2640">And I want to know, am
+descendant of that version?</p>
+<p t="2972070" d="2030">If so, the mod applies.</p>
+<p t="2974100" d="2530">And I update what the field is.</p>
+<p t="2976630" d="2400">I can do all pairwise ancestor
+checks and figure out,</p>
+<p t="2979030" d="4170">what is the most recent
+version in my ancestor history</p>
+<p t="2983200" d="1650">that modified a given field?</p>
+<p t="2984850" d="2230">That lets me read a
+field in constant time.</p>
+<p t="2987080" d="2000">Constants are getting
+kind of big at this point,</p>
+<p t="2989080" d="960">but it can be done.</p>
+<p t="2993270" d="1280">Clear?</p>
+<p t="2994550" d="2300">A little bit of
+a black box here.</p>
+<p t="2996850" d="5070">But now we've gotten
+as far as reading.</p>
+<p t="3001920" d="2830">And we don't need
+to change much else.</p>
+<p t="3004750" d="7030">So this is good news</p>
+<p t="3011780" d="3500">Maybe I'll give you
+a bit of a diff.</p>
+<p t="3015280" d="11060">So full persistence,
+fully persistent theorem--</p>
+<p t="3026340" d="870">done.</p>
+<p t="3027210" d="500">OK.</p>
+<p t="3027710" d="2370">Same theorem just
+with full persistence.</p>
+<p t="3030080" d="1150">How do we do it?</p>
+<p t="3031230" d="4312">We store back pointers
+now for all versions.</p>
+<p t="3035542" d="1328">It's a little bit annoying.</p>
+<p t="3036870" d="3962">But how many mods do we use?</p>
+<p t="3040832" d="1708">There's lots of ways
+to get this to work,</p>
+<p t="3042540" d="2350">but I'm going to
+change this number</p>
+<p t="3044890" d="6812">to 2 times d plus p plus 1.</p>
+<p t="3051702" d="4748">Wait, what's d? d is the
+number of fields here.</p>
+<p t="3056450" d="690">OK.</p>
+<p t="3057140" d="2010">We said it was
+constant number fields.</p>
+<p t="3059150" d="4530">I never said what that constant
+is. d for out degree, I guess.</p>
+<p t="3063680" d="5609">So p is in degree, max in
+degree. d is max out degree.</p>
+<p t="3069289" d="2041">So just slightly more--
+that main reason for this</p>
+<p t="3071330" d="3120">is because back pointers now
+are treated like everyone else.</p>
+<p t="3074450" d="2984">We have to treat both the out
+pointers and the in pointers</p>
+<p t="3077434" d="916">as basically the same.</p>
+<p t="3078350" d="1530">So instead of p,
+we have d plus p.</p>
+<p t="3079880" d="3351">And there's a plus
+1 just for safety.</p>
+<p t="3083231" d="5099">It gets my amortization
+to work, hopefully.</p>
+<p t="3088330" d="990">OK.</p>
+<p t="3089320" d="3110">Not much else-- this
+page is all the same.</p>
+<p t="3092430" d="3400">Mods are still, you give
+versions, fields, values,</p>
+<p t="3095830" d="790">reading.</p>
+<p t="3096620" d="4410">OK, well, this is no longer
+less than or equal to v. But</p>
+<p t="3101030" d="6030">this is now with a version, sort
+of the nearest version, that's</p>
+<p t="3107060" d="3600">an ancestor of v.</p>
+<p t="3110660" d="2059">That's what we were
+just talking about.</p>
+<p t="3112719" d="1541">So that can be done
+in constant time.</p>
+<p t="3114260" d="3140">Check it for all of
+them, constant work.</p>
+<p t="3117400" d="730">OK.</p>
+<p t="3118130" d="2360">That was the first part.</p>
+<p t="3124710" d="2450">Now we get to the hard
+part, which is modification.</p>
+<p t="3127160" d="1250">This is going to be different.</p>
+<p t="3128410" d="2400">Maybe you I should just erase--</p>
+<p t="3130810" d="2880">yeah, I think I'll
+erase everything,</p>
+<p t="3133690" d="1240">except the first clause.</p>
+<p t="3144270" d="620">OK.</p>
+<p t="3144890" d="2020">If a node is not
+full, we'll just</p>
+<p t="3146910" d="1550">add a mod, just like before.</p>
+<p t="3148460" d="2580">What changes is
+when a node is full.</p>
+<p t="3156000" d="2220">Here we have to do something
+completely different.</p>
+<p t="3158220" d="690">Why?</p>
+<p t="3158910" d="2160">Because if we just
+make a new version</p>
+<p t="3161070" d="3980">of this node that has empty
+mods, this one's still full.</p>
+<p t="3165050" d="3760">And I can keep modifying
+the same version.</p>
+<p t="3168810" d="4020">This new node that I just erased
+represents some new version.</p>
+<p t="3172830" d="1890">But if I keep modifying
+an old version, which</p>
+<p t="3174720" d="3040">I can do in full persistence,
+this node keeps being full.</p>
+<p t="3177760" d="2259">And I keep paying
+potentially huge cost.</p>
+<p t="3180019" d="2291">If all the nodes were full,
+and when I make this change</p>
+<p t="3182310" d="2454">every node gets
+copied, and then I</p>
+<p t="3184764" d="1416">make a change to
+the same version,</p>
+<p t="3186180" d="1208">every node gets copied again.</p>
+<p t="3187388" d="2472">This is going to take
+linear time per operation.</p>
+<p t="3189860" d="2080">So I can't do the old strategy.</p>
+<p t="3191940" d="3364">I need to somehow make
+this node less full.</p>
+<p t="3195304" d="1916">This is where we're
+definitely not functional.</p>
+<p t="3197220" d="1830">None of this was
+functional, but now I'm</p>
+<p t="3199050" d="5190">going to change an old node, not
+just make a new one in a more</p>
+<p t="3204240" d="1620">drastic way.</p>
+<p t="3205860" d="1200">Before I was adding a mod.</p>
+<p t="3207060" d="1500">That's not a
+functional operation.</p>
+<p t="3208560" d="5310">Now I'm actually going to remove
+mods from a node to rebalance.</p>
+<p t="3213870" d="9180">So what I'd like to do is
+split the node into two halves.</p>
+<p t="3223050" d="500">OK.</p>
+<p t="3223550" d="2745">So I had some big
+node that was--</p>
+<p t="3226295" d="3895">I'll draw it-- completely full.</p>
+<p t="3230190" d="2700">Now I'm going to make two nodes.</p>
+<p t="3232890" d="930">Here we go.</p>
+<p t="3239020" d="2010">This one is going
+to be half full.</p>
+<p t="3241030" d="3900">This one's going to
+be half full of mods.</p>
+<p t="3244930" d="530">OK.</p>
+<p t="3245460" d="2640">The only question left is, what
+do I do with all these things?</p>
+<p t="3252150" d="2550">Basically what I'd like
+to do is have the--</p>
+<p t="3254700" d="4020">on the one hand, I want
+to have the old node.</p>
+<p t="3258720" d="1830">It's just where it used to be.</p>
+<p t="3260550" d="3270">I've just removed half of
+the mods, the second half,</p>
+<p t="3263820" d="1890">the later half.</p>
+<p t="3265710" d="1030">What does that mean?</p>
+<p t="3266740" d="680">I don't know.</p>
+<p t="3267420" d="1900">Figure it out.</p>
+<p t="3269320" d="1730">It's linearized.</p>
+<p t="3271050" d="1660">I haven't thought
+deeply about that.</p>
+<p t="3272710" d="3590">Now we're going to make a
+new node with the second half</p>
+<p t="3276300" d="580">of the mods.</p>
+<p t="3280160" d="1480">It's more painful
+than I thought.</p>
+<p t="3281640" d="3540">In reality, these mods represent
+a tree of modifications.</p>
+<p t="3285180" d="3270">And what you need to do is
+find a partition of that tree</p>
+<p t="3288450" d="2550">into two roughly equal halves.</p>
+<p t="3291000" d="1870">You can actually do a
+one third, 2/3 split.</p>
+<p t="3292870" d="4179">That's also in a future lecture,
+which whose number I forget.</p>
+<p t="3297049" d="1541">So really, you're
+splitting this tree</p>
+<p t="3298590" d="2850">into two roughly
+balanced halves.</p>
+<p t="3301440" d="2310">And so this 2 might actually
+need to change to a 3,</p>
+<p t="3303750" d="2580">but it's a constant.</p>
+<p t="3306330" d="1260">OK.</p>
+<p t="3307590" d="1740">What I want is for
+this to represent</p>
+<p t="3309330" d="1020">a subtree of versions.</p>
+<p t="3310350" d="1510">Let me draw the picture.</p>
+<p t="3311860" d="3320">So here's a tree of versions
+represented by the old mods.</p>
+<p t="3315180" d="3400">I'd like to cut out a
+subtree rooted at some node.</p>
+<p t="3318580" d="2960">So let's just assume
+for now this has exactly</p>
+<p t="3321540" d="1350">half the nodes.</p>
+<p t="3322890" d="2580">And this has half the nodes.</p>
+<p t="3325470" d="3710">In reality, I think it
+can be one third, 2/3.</p>
+<p t="3329180" d="500">OK.</p>
+<p t="3329680" d="3250">But let's keep it convenient.</p>
+<p t="3332930" d="1820">So I want the new
+node to represent</p>
+<p t="3334750" d="2880">this subtree and this node
+to represent everything else.</p>
+<p t="3337630" d="4020">This node is as if this
+stuff hasn't happened yet.</p>
+<p t="3341650" d="3064">I mean, so it represents all
+these old versions that do not,</p>
+<p t="3344714" d="1166">that are not in the subtree.</p>
+<p t="3345880" d="1920">This represents all
+the latest stuff.</p>
+<p t="3347800" d="1950">So what I'm going to
+do is like before, I</p>
+<p t="3349750" d="4340">want to apply some
+mods to these fields.</p>
+<p t="3354090" d="4230">And whatever minds were
+relevant at this point, whatever</p>
+<p t="3358320" d="4290">had been applied, I apply
+those to the fields here.</p>
+<p t="3362610" d="4290">And so that means I can
+remove all of these mods.</p>
+<p t="3366900" d="2460">I only cared about these ones.</p>
+<p t="3369360" d="1860">Update these fields accordingly.</p>
+<p t="3371220" d="2820">I still have the other mods to
+represent all the other changes</p>
+<p t="3374040" d="1990">that could be in that subtree.</p>
+<p t="3376030" d="500">OK.</p>
+<p t="3376530" d="16725">So we actually split the tree,
+and we apply mods to new nodes.</p>
+<p t="3398680" d="1370">Anything else I need to say?</p>
+<p t="3402542" d="1458">Oh, now we need to
+update pointers.</p>
+<p t="3404000" d="1124">That's always the fun part.</p>
+<p t="3409550" d="980">Let's go over here.</p>
+<p t="3425300" d="2190">So old node hasn't moved.</p>
+<p t="3427490" d="1660">But this new node has moved.</p>
+<p t="3429150" d="4730">So for all of these
+versions, I want</p>
+<p t="3433880" d="4140">to change the pointer that
+used to point to old node</p>
+<p t="3438020" d="2786">should now point to new node.</p>
+<p t="3440806" d="1124">In this version, it's fine.</p>
+<p t="3441930" d="1220">It should still
+point to old node,</p>
+<p t="3443150" d="2130">because this represents
+all those old versions.</p>
+<p t="3445280" d="2890">But for the new version,
+that version in the subtree,</p>
+<p t="3448170" d="2611">I've got to point here instead.</p>
+<p t="3450781" d="499">OK.</p>
+<p t="3451280" d="6050">So how many pointers could
+there be to this node</p>
+<p t="3457330" d="1520">that need to change.</p>
+<p t="3458850" d="2780">That's a tricky part
+in this analysis.</p>
+<p t="3461630" d="3570">Think about it for a while.</p>
+<p t="3465200" d="2000">I mean, in this
+new node, whatever</p>
+<p t="3467200" d="3022">is pointed to by either here or
+here in the new node also has</p>
+<p t="3470222" d="708">a return pointer.</p>
+<p t="3470930" d="1200">All pointers are bidirectional.</p>
+<p t="3472130" d="2208">So we don't really care
+about whether they're forward</p>
+<p t="3474338" d="588">or backward.</p>
+<p t="3474926" d="1374">How many pointers
+are there here?</p>
+<p t="3476300" d="3060">Well, there's d here
+and there's p here.</p>
+<p t="3479360" d="1920">But then there's also
+some additional pointers</p>
+<p t="3481280" d="1470">represented over here.</p>
+<p t="3482750" d="1350">How many?</p>
+<p t="3484100" d="2790">Well, if we assume this
+magical 50/50 split,</p>
+<p t="3486890" d="6030">there's right now d plus p plus
+1 mods over here, half of them.</p>
+<p t="3492920" d="3180">Each of them might be a pointer
+to some other place, which</p>
+<p t="3496100" d="2615">has a return pointer
+in that version.</p>
+<p t="3498715" d="4975">So number of back pointers
+that we need to update</p>
+<p t="3503690" d="3460">is going to be this, 2
+times d 2 times p plus 1.</p>
+<p t="3510700" d="11150">So recursively update at
+most 2 times d plus 2 times p</p>
+<p t="3521850" d="2990">plus 1 pointers to the node.</p>
+<p t="3530270" d="2280">The good news is this is
+really only half of them</p>
+<p t="3532550" d="2300">or some fraction of them.</p>
+<p t="3534850" d="2567">It used to be--</p>
+<p t="3537417" d="1583">well, there were
+more pointers before.</p>
+<p t="3539000" d="1290">We don't have to
+deal with these ones.</p>
+<p t="3540290" d="1541">That's where we're
+saving, and that's</p>
+<p t="3541831" d="1791">why this amortization works.</p>
+<p t="3543622" d="2458">Let me give you a potential
+function that makes this work--</p>
+<p t="3552950" d="10810">is minus c times sum of the
+number of empty mod slots.</p>
+<p t="3563760" d="2610">It's kind of the same
+potential but before</p>
+<p t="3566370" d="2160">we had this notion of
+dead and alive nodes.</p>
+<p t="3568530" d="1920">Now everything's alive
+because everything</p>
+<p t="3570450" d="1530">could change at any moment.</p>
+<p t="3571980" d="4050">So instead, I'm going to
+measure how much room I have</p>
+<p t="3576030" d="1104">in each node.</p>
+<p t="3577134" d="1416">Before I had no
+room in this node.</p>
+<p t="3578550" d="3210">Now I have half the
+space in both nodes.</p>
+<p t="3581760" d="2310">So that's good news.</p>
+<p t="3584070" d="4230">Whenever we have
+this recursion, we</p>
+<p t="3588300" d="8330">can charge it to a
+potential decrease.</p>
+<p t="3596630" d="4530">Fee goes down by--</p>
+<p t="3601160" d="2560">because I have a
+negative sign here--</p>
+<p t="3603720" d="10020">c times, oh man, 2 times
+d plus p plus 1, I think.</p>
+<p t="3613740" d="2040">Because there's d plus
+p plus 1 space here,</p>
+<p t="3615780" d="1450">d plus p plus 1 space here.</p>
+<p t="3617230" d="1760">I mean, we added
+one whole new node.</p>
+<p t="3618990" d="1830">And total capacity
+of a node in mods</p>
+<p t="3620820" d="2790">is 2 times d plus p plus 1.</p>
+<p t="3623610" d="2400">So we get that times c.</p>
+<p t="3626010" d="2520">And this is basically
+just enough,</p>
+<p t="3628530" d="3480">because this is 2 times
+d plus 2 times p plus 2.</p>
+<p t="3632010" d="2130">And here we have a plus 1.</p>
+<p t="3634140" d="5550">And so the recursion gets
+annihilated by 2 times d plus</p>
+<p t="3639690" d="1590">2 times p plus 1.</p>
+<p t="3641280" d="2160">And then there's one
+c left over to absorb</p>
+<p t="3643440" d="3801">whatever constant cost there
+was to do all this other work.</p>
+<p t="3647241" d="4329">So I got the constants
+just to work,</p>
+<p t="3651570" d="2770">except that I cheated and it's
+really a one third, 2/3 split.</p>
+<p t="3654340" d="2750">So probably all of these
+constants have to change,</p>
+<p t="3657090" d="1012">such is life.</p>
+<p t="3658102" d="3388">But I think you get the idea.</p>
+<p t="3661490" d="2410">Any questions about
+full persistence?</p>
+<p t="3667110" d="3090">This is fun stuff, time travel.</p>
+<p t="3670200" d="1226">Yeah?</p>
+<p t="3671426" d="3204">AUDIENCE: So in the first
+half of the thing where</p>
+<p t="3674630" d="1953">the if, there's room
+you can put it in.</p>
+<p t="3676583" d="473">ERIK DEMAINE: Right.</p>
+<p t="3677056" d="863">AUDIENCE: I have a
+question about how</p>
+<p t="3677919" d="1502">we represent the version.</p>
+<p t="3679421" d="3595">Because before when we said
+restore now [INAUDIBLE].</p>
+<p t="3683016" d="2904">It made more sense if now was
+like a timestamp or something.</p>
+<p t="3685920" d="750">ERIK DEMAINE: OK.</p>
+<p t="3686670" d="4800">Right, so how do we represent a
+version even here or anywhere?</p>
+<p t="3691470" d="2760">When we do a modification, an
+update, in the data structure,</p>
+<p t="3694230" d="2190">we want to return
+the new version.</p>
+<p t="3696420" d="3390">Basically, we're going
+to actually store</p>
+<p t="3699810" d="1232">the DAG of versions.</p>
+<p t="3701042" d="2208">And a version is going to
+be represented by a pointer</p>
+<p t="3703250" d="1150">into this DAG.</p>
+<p t="3704400" d="2940">One of the nodes in this
+DAG becomes a version.</p>
+<p t="3707340" d="3060">Every node in this DAG is
+going to store a pointer</p>
+<p t="3710400" d="3240">to the corresponding b character
+and a corresponding e character</p>
+<p t="3713640" d="2820">in this data
+structure, which then</p>
+<p t="3716460" d="1464">lets you do anything you want.</p>
+<p t="3717924" d="1666">Then you can query
+against that version,</p>
+<p t="3719590" d="2100">whether it's an ancestor
+of another version.</p>
+<p t="3721690" d="1291">So yeah, I didn't mention that.</p>
+<p t="3722981" d="1249">Versions are nodes in here.</p>
+<p t="3724230" d="2417">Nodes in here have pointers
+to the b's and e's.</p>
+<p t="3726647" d="2083">And vice versa, the b's
+and e's have pointers back</p>
+<p t="3728730" d="2001">to the corresponding
+version node.</p>
+<p t="3730731" d="1749">And then you can keep
+track of everything.</p>
+<p t="3732480" d="2310">Good question.</p>
+<p t="3734790" d="600">Yeah?</p>
+<p t="3735390" d="880">AUDIENCE: [INAUDIBLE] question.</p>
+<p t="3736270" d="880">Remind me what d is in this.</p>
+<p t="3737150" d="1958">ERIK DEMAINE: Oh, d was
+the maximum out degree.</p>
+<p t="3739108" d="7862">It's the number of fields in
+a node, as defined right here.</p>
+<p t="3746970" d="2731">Other questions?</p>
+<p t="3749701" d="499">Whew.</p>
+<p t="3750200" d="1105">OK, a little breather.</p>
+<p t="3751305" d="2145">That was partial persistence,
+full persistence.</p>
+<p t="3753450" d="3280">This is, unfortunately, the
+end of the really good results.</p>
+<p t="3756730" d="1920">As long as we have
+constant degree nodes,</p>
+<p t="3758650" d="2670">in and out degree,
+we can do all.</p>
+<p t="3761320" d="3510">We can do for
+persistence for free.</p>
+<p t="3764830" d="2250">Obviously there are practical
+constants involved here.</p>
+<p t="3767080" d="6090">But in theory, you
+can do this perfectly.</p>
+<p t="3773170" d="1660">Before we go on to
+confluence, there</p>
+<p t="3774830" d="3380">is one positive result,
+which is what if you</p>
+<p t="3778210" d="2405">don't like amortize bounds.</p>
+<p t="3780615" d="2125">There are various reasons
+amortize bounds might not</p>
+<p t="3782740" d="330">be good.</p>
+<p t="3783070" d="1791">Maybe you really care
+about every operation</p>
+<p t="3784861" d="3879">being no slower than it was
+except by a constant factor.</p>
+<p t="3788740" d="2760">We're amortizing here, so some
+operations get really slow.</p>
+<p t="3791500" d="2610">But the others are all
+fast to compensate.</p>
+<p t="3794110" d="5430">You can deamortize, it's called.</p>
+<p t="3802600" d="7680">You can get constant
+worst case slowdown</p>
+<p t="3810280" d="1590">for partial persistence.</p>
+<p t="3816770" d="7490">This is a result of Garret
+Brodle from the late '90s, '97.</p>
+<p t="3824260" d="2889">For full persistence--
+so it's an open problem.</p>
+<p t="3827149" d="1791">I don't know if people
+have worked on that.</p>
+<p t="3835801" d="499">All right.</p>
+<p t="3836300" d="3215">So some, mostly good results.</p>
+<p t="3839515" d="2125">Let's move on to confluent
+persistence where things</p>
+<p t="3841640" d="1966">get a lot more challenging.</p>
+<p t="3857511" d="2499">Lots of things go out the window
+with confluent persistence.</p>
+<p t="3860010" d="3510">In particular, your
+versions are now a DAG.</p>
+<p t="3863520" d="2130">It's a lot harder
+to linearize a DAG.</p>
+<p t="3865650" d="3330">Trees are not that
+far from pads.</p>
+<p t="3868980" d="4692">But DAGs are quite far
+from pads, unfortunately.</p>
+<p t="3873672" d="1458">But that's not all
+that goes wrong.</p>
+<p t="3884660" d="5400">Let me first tell you the
+kind of end effect as a user.</p>
+<p t="3890060" d="2000">Imagine you have
+a data structure.</p>
+<p t="3894830" d="2670">Think of it as a
+list, I guess, which</p>
+<p t="3897500" d="1830">is a list of characters
+in your document.</p>
+<p t="3899330" d="4080">You're using vi or Word,
+your favorite, whatever.</p>
+<p t="3903410" d="1650">It's a text editor.</p>
+<p t="3905060" d="1620">You've got a string of words.</p>
+<p t="3906680" d="3105">And now you like to do
+things like copy and paste.</p>
+<p t="3909785" d="1485">It's a nice operation.</p>
+<p t="3911270" d="5070">So you select an interval of
+the string and you copy it.</p>
+<p t="3916340" d="2000">And then you paste
+it somewhere else.</p>
+<p t="3918340" d="3610">So now you've got two
+copies of that string.</p>
+<p t="3921950" d="2100">This is, in some
+sense, what you might</p>
+<p t="3924050" d="3910">call a confluent
+operation, because--</p>
+<p t="3927960" d="2510">yeah, maybe a cleaner way to
+think of it is the following.</p>
+<p t="3930470" d="1440">You have your string.</p>
+<p t="3931910" d="2040">Now I have an operation,
+which is split it.</p>
+<p t="3933950" d="1890">So now I have two strings.</p>
+<p t="3935840" d="500">OK.</p>
+<p t="3936340" d="1958">And now I have an operation,
+which is split it.</p>
+<p t="3938298" d="2472">Now I have three strings.</p>
+<p t="3940770" d="500">OK.</p>
+<p t="3941270" d="3010">Now I have an operation
+which is concatenate.</p>
+<p t="3944280" d="3050">So I can, for
+example, reconstruct</p>
+<p t="3947330" d="2520">the original string-- actually,
+I have the original string.</p>
+<p t="3949850" d="2090">No biggie.</p>
+<p t="3951940" d="2530">Let's say-- because
+I have all versions.</p>
+<p t="3954470" d="1050">I never lose them.</p>
+<p t="3955520" d="3570">So now instead, I'm going to
+cut the string here, let's say.</p>
+<p t="3959090" d="4620">So now I have this and this.</p>
+<p t="3963710" d="2910">And now I can do
+things like concatenate</p>
+<p t="3966620" d="3390">from here to here to here.</p>
+<p t="3970010" d="6791">And I will get this
+plus this plus this.</p>
+<p t="3976801" d="499">OK.</p>
+<p t="3977300" d="1279">This guy moved here.</p>
+<p t="3978579" d="2291">So that's a copy/paste
+operation with a constant number</p>
+<p t="3980870" d="1230">of splits and concatenates.</p>
+<p t="3982100" d="1710">I could also do cut and paste.</p>
+<p t="3983810" d="2910">With confluence, I can
+do crazy cuts and pastes</p>
+<p t="3986720" d="2230">in all sorts of ways.</p>
+<p t="3988950" d="960">So what?</p>
+<p t="3989910" d="2210">Well, the so what
+is I can actually</p>
+<p t="3992120" d="1870">double the size of
+my data structure</p>
+<p t="3993990" d="2060">in a constant number
+of operations.</p>
+<p t="3996050" d="2220">I can take, for example,
+the entire string</p>
+<p t="3998270" d="1761">and concatenate it to itself.</p>
+<p t="4000031" d="1749">That will double the
+number of characters,</p>
+<p t="4001780" d="1960">number of elements in there.</p>
+<p t="4003740" d="2160">I can do that again
+and again and again.</p>
+<p t="4005900" d="5480">So in u updates,
+I can potentially</p>
+<p t="4011380" d="1620">get a data structure
+size 2 to the u.</p>
+<p t="4017770" d="840">Kind of nifty.</p>
+<p t="4018610" d="1740">I think this is why
+confluence is cool.</p>
+<p t="4020350" d="2350">It's also why it's hard.</p>
+<p t="4022700" d="1200">So not a big surprise.</p>
+<p t="4023900" d="4230">But, here we go.</p>
+<p t="4028130" d="5360">In that case, the version DAG,
+for reference, looks like this.</p>
+<p t="4033490" d="2690">You're taking the same
+version, combining it.</p>
+<p t="4036180" d="4280">So here I'm assuming I have
+a concatenate operation.</p>
+<p t="4040460" d="3780">And so the effect here,
+every time I do this,</p>
+<p t="4044240" d="900">I double the size.</p>
+<p t="4064210" d="607">All right.</p>
+<p t="4064817" d="2083">What do I want to say about
+confluent persistence?</p>
+<p t="4066900" d="499">All right.</p>
+<p t="4067399" d="5801">Let me start with the
+most general result, which</p>
+<p t="4073200" d="11140">is by Fiat and Kaplan in 2003.</p>
+<p t="4084340" d="4477">They define a notion called
+effective depth of a version.</p>
+<p t="4088817" d="1083">Let me just write it down.</p>
+<p t="4101180" d="3690">It's kind of like
+if you took this DAG</p>
+<p t="4104870" d="5243">and expanded it out to be a
+tree of all possible paths.</p>
+<p t="4110113" d="1416">Instead of point
+to the same node,</p>
+<p t="4111529" d="1801">you could just
+duplicate that node</p>
+<p t="4113330" d="1930">and then have pointers
+left and right.</p>
+<p t="4115260" d="500">OK.</p>
+<p t="4115760" d="2458">So if I did that, of course,
+this size grows exponentially.</p>
+<p t="4118218" d="3092">It explicitly represents the
+size of my data structure.</p>
+<p t="4121310" d="1500">At the bottom, if
+I have u things,</p>
+<p t="4122810" d="3150">I'm going to have 2 to the
+u leaves at the bottom.</p>
+<p t="4125960" d="3120">But then I can easily
+measure the number of paths</p>
+<p t="4129080" d="1420">from the root to
+the same version.</p>
+<p t="4130500" d="1750">At the bottom, I still
+label it, oh, those</p>
+<p t="4132250" d="2380">are all v. They're all the
+same version down there.</p>
+<p t="4134630" d="2034">So exponential number
+of paths, if I take log,</p>
+<p t="4136664" d="1416">I get what I call
+effective depth.</p>
+<p t="4138080" d="4170">It's like if you somehow
+could rebalance that tree,</p>
+<p t="4142250" d="3660">this is the best you
+could hope to do.</p>
+<p t="4145910" d="1360">It's not really a lower bound.</p>
+<p t="4147270" d="770">But it's a number.</p>
+<p t="4148040" d="960">It's a thing.</p>
+<p t="4149000" d="1470">OK.</p>
+<p t="4150470" d="6900">Then the result they achieve
+is that the overhead is</p>
+<p t="4157370" d="2420">log the number of
+updates plus-- this</p>
+<p t="4159790" d="2500">is a multiplicative overhead,
+so you take your running time.</p>
+<p t="4162290" d="3689">You multiply it by this.</p>
+<p t="4165979" d="2670">And this is a time
+and a space overhead.</p>
+<p t="4171529" d="2731">So maximum effective depth
+of all versions, maybe even</p>
+<p t="4174260" d="4840">sum of effective depths, but
+we'll just say max to be safe.</p>
+<p t="4179100" d="2700">Sorry-- sum over
+all the operations.</p>
+<p t="4181800" d="1329">This is per operation.</p>
+<p t="4183129" d="1541">You pay basically
+the effective depth</p>
+<p t="4184670" d="4109">of that operation as a factor.</p>
+<p t="4188779" d="2551">Now, the annoying thing is if
+you have this kind of set up</p>
+<p t="4191330" d="3390">where the size
+grew exponentially,</p>
+<p t="4194720" d="1770">then number of paths
+is exponential.</p>
+<p t="4196490" d="2730">Log of the number of
+paths is linear in u.</p>
+<p t="4199220" d="7200">And so this factor could be
+as much as u, linear slowdown.</p>
+<p t="4206420" d="2400">Now, Fiat and Kaplan argue
+linear slowdown is not</p>
+<p t="4208820" d="4620">that bad, because if you weren't
+even persistent, if you did</p>
+<p t="4213440" d="4970">this in the naive way of
+just recopying the data,</p>
+<p t="4218410" d="3169">you were actually spending
+exponential time to build</p>
+<p t="4221579" d="1041">the final data structure.</p>
+<p t="4222620" d="999">It has exponential size.</p>
+<p t="4223619" d="3181">Just to represent it explicitly
+requires exponential time,</p>
+<p t="4226800" d="3020">so losing a linear
+factor to do u operations</p>
+<p t="4229820" d="1980">and now u squared time
+instead of 2 to the u.</p>
+<p t="4231800" d="3390">So it's a big
+improvement to do this.</p>
+<p t="4235190" d="5250">The downside of this approach is
+that even if you have a version</p>
+<p t="4240440" d="2970">DAG that looks like this,
+even if the size of the data</p>
+<p t="4243410" d="2992">structure is staying
+normal, staying linear, so</p>
+<p t="4246402" d="1958">this potential, you could
+be doubling the size.</p>
+<p t="4248360" d="1560">But we don't know what
+this merge operation is.</p>
+<p t="4249920" d="1874">Maybe it just throws
+away one of the versions</p>
+<p t="4251794" d="1426">or does something--</p>
+<p t="4253220" d="2010">somehow takes half
+the nodes from one</p>
+<p t="4255230" d="1958">side, half the nodes from
+the other side maybe.</p>
+<p t="4257188" d="1642">These operations
+do preserve size.</p>
+<p t="4258830" d="3690">Then there's no great reason why
+it should be a linear slowdown,</p>
+<p t="4262520" d="1151">but it is.</p>
+<p t="4263671" d="499">OK?</p>
+<p t="4264170" d="3480">So it's all right but not great.</p>
+<p t="4270830" d="2730">And it's the best
+general result we know.</p>
+<p t="4273560" d="1980">They also prove a lower bound.</p>
+<p t="4281420" d="8925">So lower bound is some effect
+of depth, total bits of space.</p>
+<p t="4297230" d="500">OK.</p>
+<p t="4297730" d="2290">What does this mean?</p>
+<p t="4300020" d="2150">So even if this
+is not happening,</p>
+<p t="4302170" d="1980">the number of bits
+of space you need</p>
+<p t="4304150" d="1650">in the worst case--
+this does not</p>
+<p t="4305800" d="2010">apply to every data structure.</p>
+<p t="4307810" d="1980">That's one catch.</p>
+<p t="4309790" d="2280">They give a specific
+data structure</p>
+<p t="4312070" d="1560">where you need this much space.</p>
+<p t="4313630" d="3420">So it's similar to
+this kind of picture.</p>
+<p t="4317050" d="1890">We'll go into the details.</p>
+<p t="4318940" d="1920">And you need this much space.</p>
+<p t="4320860" d="1860">Now, this is kind of
+bad, because if there's</p>
+<p t="4322720" d="3720">u operations, and each of these
+is u, that's u squared space.</p>
+<p t="4326440" d="2955">So we actually need a
+factor u blow up in space.</p>
+<p t="4329395" d="1895">It looks like.</p>
+<p t="4331290" d="2860">But to be more precise,
+what this means is</p>
+<p t="4334150" d="3120">that you need omega e of
+v space, and therefore</p>
+<p t="4337270" d="10560">time overhead per update, if--</p>
+<p t="4347830" d="1740">this is not written
+in the paper--</p>
+<p t="4349570" d="990">queries are free.</p>
+<p t="4355300" d="5100">Implicit here, they just want
+to slow down and increase space</p>
+<p t="4360400" d="2910">for the updates you do,
+which is pretty natural.</p>
+<p t="4363310" d="3560">Normally you think of queries
+as not increasing space.</p>
+<p t="4366870" d="2730">But in order to construct
+this lower bound,</p>
+<p t="4369600" d="2760">they actually do
+this many queries.</p>
+<p t="4372360" d="3540">So they do e of v queries
+and then one update.</p>
+<p t="4375900" d="3510">And they say, oh well, space
+had to go up by an extra e of v.</p>
+<p t="4379410" d="3060">So if you only charge
+updates for the space,</p>
+<p t="4382470" d="1650">then yes, you have
+to lose potentially</p>
+<p t="4384120" d="3660">a linear factor, this effect
+of death, potentially u.</p>
+<p t="4387780" d="1770">But if you also
+charge the queries,</p>
+<p t="4389550" d="3720">it's still constant
+in their example.</p>
+<p t="4393270" d="4830">So open question, for
+confluent persistence,</p>
+<p t="4398100" d="3030">can you achieve
+constant everything?</p>
+<p t="4401130" d="6030">Constant time and
+space overheads,</p>
+<p t="4407160" d="6450">multiplicative
+factor per operation,</p>
+<p t="4413610" d="1815">both updates and queries.</p>
+<p t="4415425" d="1875">So if you charge the
+queries, potentially you</p>
+<p t="4417300" d="1680">could get constant everything.</p>
+<p t="4418980" d="2060">This is a relatively
+new realization.</p>
+<p t="4423890" d="3435">And no one knows
+how to do this yet.</p>
+<p t="4427325" d="625">Nice challenge.</p>
+<p t="4427950" d="2580">I think maybe we'll work on that
+in our first problem session.</p>
+<p t="4430530" d="666">I would like to.</p>
+<p t="4433600" d="1170">Questions about that result?</p>
+<p t="4434770" d="1680">I'm not going to
+prove the result.</p>
+<p t="4436450" d="3090">But it is a fancy
+rebalancing of those kinds</p>
+<p t="4439540" d="2760">of pictures to get this log.</p>
+<p t="4450266" d="2124">There are other results
+I'd like to tell you about.</p>
+<p t="4472630" d="2080">So brand new result--</p>
+<p t="4474710" d="1270">that was from 2003.</p>
+<p t="4475980" d="2320">This is from 2012--</p>
+<p t="4478300" d="4290">no, '11, '11, sorry.</p>
+<p t="4482590" d="4890">It's SOTO, which is in January,
+so it's a little confusing.</p>
+<p t="4487480" d="1770">Is it '11?</p>
+<p t="4489250" d="1017">Maybe '12.</p>
+<p t="4490267" d="1083">Actually now I'm not sure.</p>
+<p t="4491350" d="3400">It's February already, right?</p>
+<p t="4494750" d="2120">A January, either this
+year or last year.</p>
+<p t="4500310" d="2530">It's not as general
+a transformation.</p>
+<p t="4502840" d="2490">It's only going to hold in
+what's called a disjoint case.</p>
+<p t="4505330" d="2490">But it gets a very good bound--</p>
+<p t="4507820" d="2030">not quite constant,
+but logarithmic.</p>
+<p t="4509850" d="2570">OK, logarithmic
+would also be nice.</p>
+<p t="4512420" d="4655">Or log, log n, whatever n is.</p>
+<p t="4517075" d="5375">Pick your favorite n,
+number of operations, say.</p>
+<p t="4522450" d="500">OK.</p>
+<p t="4525700" d="14130">If you assume that confluent
+operations are performed only</p>
+<p t="4539830" d="6240">on two versions with
+no shared nodes--</p>
+<p t="4550360" d="3510">OK, this would be a way to
+forbid this kind of behavior</p>
+<p t="4553870" d="2790">where I concatenate the
+data structure with itself.</p>
+<p t="4556660" d="1860">All the nodes are common.</p>
+<p t="4558520" d="3320">If I guarantee that maybe I, you
+know, slice this up, slice it,</p>
+<p t="4561840" d="1750">dice it, wherever, and
+then re-emerge them</p>
+<p t="4563590" d="2640">in some other order, but
+I never use two copies</p>
+<p t="4566230" d="3900">of the same piece, that
+would be a valid confluent</p>
+<p t="4570130" d="2130">operation over here.</p>
+<p t="4572260" d="1620">This is quite a
+strong restriction</p>
+<p t="4573880" d="2700">that you're not allowed.</p>
+<p t="4576580" d="2450">If you try to, who
+knows what happens.</p>
+<p t="4579030" d="950">Behavior's undefined.</p>
+<p t="4579980" d="1850">So won't tell you,
+oh, those two versions</p>
+<p t="4581830" d="1041">have this node in common.</p>
+<p t="4582871" d="1729">You've got to make
+a second copy of it.</p>
+<p t="4584600" d="2499">So somehow you have to guarantee
+that control and operations</p>
+<p t="4587099" d="2171">never overlap.</p>
+<p t="4589270" d="1487">But they can be reordered.</p>
+<p t="4593740" d="5760">Then you can get
+order log n overhead.</p>
+<p t="4599500" d="1350">n is the number of operations.</p>
+<p t="4605390" d="1580">I have a sketch
+of a proof of this</p>
+<p t="4606970" d="1900">but not very much
+time to talk about it.</p>
+<p t="4608870" d="500">All right.</p>
+<p t="4609370" d="2200">Let me give you a quick picture.</p>
+<p t="4611570" d="4220">In general, the
+versions form a DAG.</p>
+<p t="4615790" d="5160">But if you make this assumption,
+and you look at a single node,</p>
+<p t="4620950" d="2670">and look at all the versions
+where that node appears,</p>
+<p t="4623620" d="1590">that is a tree.</p>
+<p t="4625210" d="2160">Because you're not allowed
+to remerge versions</p>
+<p t="4627370" d="1350">that have the same node.</p>
+<p t="4628720" d="2760">So while the big
+picture is a DAG,</p>
+<p t="4631480" d="3610">the small picture of a
+single guy is some tree.</p>
+<p t="4637504" d="1416">I'm drawing all
+these wiggly lines</p>
+<p t="4638920" d="1080">because there are all
+these versions where</p>
+<p t="4640000" d="1560">the node isn't changing.</p>
+<p t="4641560" d="1740">This is the entire version DAG.</p>
+<p t="4643300" d="3240">And then some of these nodes--</p>
+<p t="4646540" d="2460">some of these versions,
+I should say--</p>
+<p t="4649000" d="2925">that node that we're
+thinking about changes.</p>
+<p t="4651925" d="1935">OK, whenever it
+branches, it's probably</p>
+<p t="4653860" d="2550">because the actual
+node changed, maybe.</p>
+<p t="4656410" d="1060">I don't know.</p>
+<p t="4657470" d="2700">Anyway there are some dots
+here where the version changed,</p>
+<p t="4660170" d="1790">some of the leaves,
+maybe, that changed.</p>
+<p t="4661960" d="2460">Maybe some of them haven't yet.</p>
+<p t="4664420" d="3930">In fact, let's see.</p>
+<p t="4668350" d="2820">Here where it's change, it could
+be that we destroyed the node.</p>
+<p t="4671170" d="3390">Maybe it's gone from the
+actual data structure.</p>
+<p t="4674560" d="1982">But there still may
+be versions down here.</p>
+<p t="4676542" d="958">It's not really a tree.</p>
+<p t="4677500" d="1980">It's a whole DAG of
+stuff down there.</p>
+<p t="4679480" d="1920">So that's kind of ugly.</p>
+<p t="4681400" d="1680">Where never the
+node still exists,</p>
+<p t="4683080" d="2220">I guess that is an
+actual leaf of the DAG.</p>
+<p t="4685300" d="1350">So those are OK.</p>
+<p t="4686650" d="2220">But as soon as I maybe
+delete that node,</p>
+<p t="4688870" d="2740">then there can be a
+whole subtree down there.</p>
+<p t="4691610" d="500">OK.</p>
+<p t="4692110" d="3010">So now if you look at
+an arbitrary version,</p>
+<p t="4695120" d="2460">so what we're thinking about
+is how to implement reading,</p>
+<p t="4697580" d="500">let's say.</p>
+<p t="4698080" d="3030">Reading and writing are
+more or less the same.</p>
+<p t="4701110" d="1170">I give you a version.</p>
+<p t="4702280" d="1440">I give you a node, and
+I give you a field.</p>
+<p t="4703720" d="2460">I want to know, what is the
+value of that field, that node,</p>
+<p t="4706180" d="1630">that version?</p>
+<p t="4707810" d="2204">So now where could
+a version fall?</p>
+<p t="4710014" d="1416">Well it has to be
+in this subtree.</p>
+<p t="4711430" d="2560">Because the node has to exist.</p>
+<p t="4716950" d="1440">And then it's maybe a pointer.</p>
+<p t="4718390" d="4440">A pointer could be to
+another node, which</p>
+<p t="4722830" d="1710">also has this kind of picture.</p>
+<p t="4724540" d="1920">They could be overlapping trees.</p>
+<p t="4726460" d="1680">In general, there
+are three cases.</p>
+<p t="4728140" d="2970">Either you're lucky, and the
+version you're talking about</p>
+<p t="4731110" d="2850">is a version where
+the node was changed.</p>
+<p t="4733960" d="4510">In that case, the data is
+just stored right there.</p>
+<p t="4738470" d="655">That's easy.</p>
+<p t="4739125" d="2125">So you could just say, oh,
+how did the node change?</p>
+<p t="4741250" d="1380">Oh, that's what the field is.</p>
+<p t="4742630" d="2560">OK, follow the pointer.</p>
+<p t="4745190" d="3020">A slightly harder
+case it's a version</p>
+<p t="4748210" d="1380">in between two such changes.</p>
+<p t="4749590" d="2070">And maybe these are not updates.</p>
+<p t="4751660" d="5670">So I sort of want to know, what
+was the previous version where</p>
+<p t="4757330" d="4320">this node changed
+in constant time?</p>
+<p t="4761650" d="970">It can be done.</p>
+<p t="4762620" d="2540">Not constant time,
+actually, logarithmic time,</p>
+<p t="4765160" d="2960">using a data structure
+called link-cut trees,</p>
+<p t="4768120" d="2890">another fun black
+box for now, which</p>
+<p t="4771010" d="5161">we will cover in lecture
+19, far in the future.</p>
+<p t="4776171" d="499">OK.</p>
+<p t="4779884" d="916">Well, that's one case.</p>
+<p t="4780800" d="2390">There's also the version
+where maybe a version</p>
+<p t="4783190" d="1920">is down here in a subtree.</p>
+<p t="4785110" d="3230">I guess then the
+node didn't exist.</p>
+<p t="4788340" d="2150">Well, all these
+things can happen.</p>
+<p t="4790490" d="1310">And that's even harder.</p>
+<p t="4791800" d="1560">It's messy.</p>
+<p t="4793360" d="6360">They use another trick, which
+is called fractional cascading,</p>
+<p t="4799720" d="2520">which I'm not even going to
+try to describe what it means.</p>
+<p t="4802240" d="1950">But it's got a very cool name.</p>
+<p t="4804190" d="1890">Because we'll be
+covering it in lecture 3.</p>
+<p t="4806080" d="1204">So stay tuned for that.</p>
+<p t="4807284" d="2166">I'm not going to say how
+it applies to this setting,</p>
+<p t="4809450" d="3880">but it's a necessary
+step in here.</p>
+<p t="4813330" d="2034">In the remaining
+zero minutes, let</p>
+<p t="4815364" d="2416">me tell you a little bit about
+functional data structures.</p>
+<p t="4817780" d="2225">[LAUGHTER]</p>
+<p t="4820900" d="1010">Beauty of time travel.</p>
+<p t="4824830" d="6300">Functional-- I just
+want to give you</p>
+<p t="4831130" d="2460">some examples of things that
+can be done functionally.</p>
+<p t="4833590" d="2208">There's a whole book about
+functional data structures</p>
+<p t="4835798" d="902">by Okasaki.</p>
+<p t="4836700" d="1480">It's pretty cool.</p>
+<p t="4838180" d="4140">A simple example
+is balanced BSTs.</p>
+<p t="4842320" d="2280">So if you just want to get
+log n time for everything,</p>
+<p t="4844600" d="1290">you can do that functionally.</p>
+<p t="4845890" d="1000">It's actually really easy.</p>
+<p t="4846890" d="2030">You pick your favorite balance
+BST, like red black trees.</p>
+<p t="4848920" d="2340">You implement it top down so you
+never follow parent pointers.</p>
+<p t="4851260" d="1450">So you don't need
+parent pointers.</p>
+<p t="4852710" d="5000">So then as you make changes
+down the tree, you just copy.</p>
+<p t="4857710" d="1285">It's called path copying.</p>
+<p t="4858995" d="1625">Whenever you're about
+to make a change,</p>
+<p t="4860620" d="1450">make a copy of that node.</p>
+<p t="4862070" d="3380">So you end up copying all
+the change nodes and all</p>
+<p t="4865450" d="750">their ancestors.</p>
+<p t="4866200" d="3450">There's only log n of them,
+so it takes log n time.</p>
+<p t="4869650" d="850">Clear?</p>
+<p t="4870500" d="1000">Easy.</p>
+<p t="4871500" d="1120">It's a nice technique.</p>
+<p t="4872620" d="1980">Sometimes path copying
+is very useful.</p>
+<p t="4874600" d="1570">Like link-cut
+trees, for example,</p>
+<p t="4876170" d="1280">can be made functional.</p>
+<p t="4877450" d="2455">We don't know what they are,
+but they're basically a BST.</p>
+<p t="4879905" d="1375">And you can make
+them functional.</p>
+<p t="4881280" d="2011">We use that in a paper.</p>
+<p t="4883291" d="499">All right.</p>
+<p t="4883790" d="2180">Deques.</p>
+<p t="4885970" d="1830">These are doubly ended queues.</p>
+<p t="4887800" d="2190">So it's like a stack and
+a queue and everything.</p>
+<p t="4889990" d="2910">You can insert and delete from
+the beginning and the end.</p>
+<p t="4892900" d="1830">People start to know
+what these are now,</p>
+<p t="4894730" d="1250">because Python calls him that.</p>
+<p t="4895980" d="5110">But you can also
+do concatenation</p>
+<p t="4901090" d="2220">with deques in constant
+time per operation.</p>
+<p t="4903310" d="840">This is cool.</p>
+<p t="4904150" d="2070">Deques are not very
+hard to make functional.</p>
+<p t="4906220" d="2280">But you can do deques and
+you can concatenate them</p>
+<p t="4908500" d="3480">like we were doing in the figure
+that's right behind this board.</p>
+<p t="4911980" d="1710">Constant time split
+is a little harder.</p>
+<p t="4913690" d="3180">That's actually one
+of my open problems.</p>
+<p t="4916870" d="4710">Can you do lists with split and
+concatenate in constant time--</p>
+<p t="4921580" d="4260">functionally or confluently,
+persistently, or whatever?</p>
+<p t="4925840" d="2740">Another example-- oh, you
+can do a mix of the two.</p>
+<p t="4928580" d="3810">You can get log n search in
+constant time deque operations,</p>
+<p t="4932390" d="2480">is you can do tries.</p>
+<p t="4934870" d="3030">So a try is a tree
+with a fixed topology.</p>
+<p t="4937900" d="2110">Think of it as a directory tree.</p>
+<p t="4940010" d="1520">So maybe you're
+using Subversion.</p>
+<p t="4941530" d="1590">Subversion has time
+travel operations.</p>
+<p t="4943120" d="3120">You can copy an entire
+subtree from one version</p>
+<p t="4946240" d="4380">and stick it into a new
+version, another version.</p>
+<p t="4950620" d="2065">So you get a version DAG.</p>
+<p t="4952685" d="2165">It's a confluently
+persistent data structure--</p>
+<p t="4954850" d="2760">not implemented optimally,
+because we don't necessarily</p>
+<p t="4957610" d="630">know how.</p>
+<p t="4958240" d="1960">But there is one paper.</p>
+<p t="4960200" d="3710">This actually came from the open
+problem section of this class</p>
+<p t="4963910" d="1680">four years ago, I think.</p>
+<p t="4965590" d="3930">It's with Eric Price
+and Stefan Langerman.</p>
+<p t="4969520" d="1409">You can get very good results.</p>
+<p t="4970929" d="2041">I won't write them down
+because it takes a while.</p>
+<p t="4972970" d="3480">Basically log the degree
+of the nodes factor</p>
+<p t="4976450" d="3240">and get functional, and
+you can be even fancier</p>
+<p t="4979690" d="2790">and get slightly better
+bounds like log log the degree</p>
+<p t="4982480" d="2890">and get confluently persistent
+with various tricks,</p>
+<p t="4985370" d="2160">including using all of
+these data structures.</p>
+<p t="4987530" d="2270">So if you want to implement
+subversion optimally,</p>
+<p t="4989800" d="4590">that is known how to be done but
+hasn't actually been done yet.</p>
+<p t="4994390" d="3720">Because there are those
+pesky constant factors.</p>
+<p t="4998110" d="1560">I think that's all.</p>
+<p t="4999670" d="3360">What is known about functional
+is there's a log n separation.</p>
+<p t="5003030" d="3860">You can be log n
+away from the best.</p>
+<p t="5006890" d="3340">That's the worst
+separation known,</p>
+<p t="5010230" d="2782">between functional and just
+a regular old data structure.</p>
+<p t="5013012" d="1208">It'd be nice to improve that.</p>
+<p t="5014220" d="1125">Lots of open problems here.</p>
+<p t="5015345" d="2795">Maybe we'll work
+on them next time.</p>
+</body>
+</timedtext>

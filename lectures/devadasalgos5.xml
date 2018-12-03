@@ -1,0 +1,1577 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="50" d="1720">The following
+content is provided</p>
+<p t="1770" d="2240">under a Creative
+Commons license.</p>
+<p t="4010" d="2850">Your support will help MIT
+OpenCourseWare continue</p>
+<p t="6860" d="3860">to offer high quality
+educational resources for free.</p>
+<p t="10720" d="2600">To make a donation or
+view additional materials</p>
+<p t="13320" d="3887">from hundreds of MIT courses,
+visit MIT OpenCourseWare</p>
+<p t="17207" d="625">at ocw.mit.edu.</p>
+<p t="22130" d="3730">PROFESSOR: Today's lecture
+is about a brand new data</p>
+<p t="25860" d="3270">structure that you've
+probably seen before,</p>
+<p t="29130" d="3360">and we've mentioned
+earlier in double 06,</p>
+<p t="32490" d="2450">called a binary search tree.</p>
+<p t="34940" d="2140">We've talked about
+binary search.</p>
+<p t="37080" d="3650">It's a fundamental divide
+and conquer paradigm.</p>
+<p t="40730" d="2000">There's a data structure
+associated with it,</p>
+<p t="42730" d="3150">called the BST, a
+binary search tree.</p>
+<p t="45880" d="3430">And what I want to do is
+motivate this data structure</p>
+<p t="49310" d="2080">using a problem.</p>
+<p t="51390" d="3860">It's a bit of a toy problem,
+but certainly a problem</p>
+<p t="55250" d="5820">that you could imagine
+exists in all sorts</p>
+<p t="61070" d="3620">of scheduling problems.</p>
+<p t="64690" d="3620">It's a part of a runway
+reservation system</p>
+<p t="68310" d="1850">that you can imagine building.</p>
+<p t="70160" d="3750">And what I'll do is
+define this problem</p>
+<p t="73910" d="3870">and talk about how we could
+possibly solve it with the data</p>
+<p t="77780" d="5300">structures you've already seen--
+so lists and arrays, heaps</p>
+<p t="83080" d="2190">as well as, which
+we saw last time--</p>
+<p t="85270" d="7270">and hopefully motivate you into
+the reason behind the existence</p>
+<p t="92540" d="2475">of binary search
+trees, because they</p>
+<p t="95015" d="1835">are kind of the
+perfect data structure</p>
+<p t="96850" d="3230">for this particular problem.</p>
+<p t="100080" d="5560">So let's dive into what the
+runway reservation system looks</p>
+<p t="105640" d="500">like.</p>
+<p t="109910" d="3140">And it's your basic
+scheduling problem.</p>
+<p t="113050" d="6980">We'll assume an airport
+with a single runway.</p>
+<p t="124286" d="1894">Now Logan has six runways.</p>
+<p t="126180" d="3519">But the moment there's any sort
+of weather you're down to one.</p>
+<p t="129699" d="3481">And of course, there's lots of
+airports with a single runway.</p>
+<p t="133180" d="2670">And we can imagine that
+this runway is pretty busy.</p>
+<p t="135850" d="3820">There's obviously safety issues
+associated with landing planes,</p>
+<p t="139670" d="1830">and planes taking off.</p>
+<p t="141500" d="1730">And so there are
+constraints associated</p>
+<p t="143230" d="2610">with the system, that
+have to be obeyed.</p>
+<p t="145840" d="2690">And you have to build these
+constraints in-- and the checks</p>
+<p t="148530" d="3250">for these constraints--
+into your data structure.</p>
+<p t="151780" d="2740">That's sort of the
+summary of the context.</p>
+<p t="157170" d="6610">So reservations
+for future landings</p>
+<p t="163780" d="4460">is really what this
+system is built for.</p>
+<p t="168240" d="1960">There's a notion of time.</p>
+<p t="170200" d="2590">We'll assume that
+time is continuous.</p>
+<p t="172790" d="5650">So it could be represented
+by a real variable,</p>
+<p t="178440" d="1850">or a real quantity.</p>
+<p t="180290" d="14170">And what we'd like to do is
+reserve requests for landings.</p>
+<p t="194460" d="5880">And these are going to
+specify landing time.</p>
+<p t="200340" d="2290">Each of them is going to
+specify a landing time.</p>
+<p t="202630" d="3480">We call it t.</p>
+<p t="206110" d="7100">And in particular,
+we're going to add t</p>
+<p t="213210" d="19160">to the set R of landing times if
+no other landings are scheduled</p>
+<p t="232370" d="2225">within k minutes.</p>
+<p t="237790" d="5640">And k is a parameter
+that could vary.</p>
+<p t="243430" d="4380">I mean, it could be statically
+set to 3 minutes, or maybe 4.</p>
+<p t="247810" d="2610">You can imagine it
+varying it dynamically</p>
+<p t="250420" d="2490">depending on weather
+conditions, things like that.</p>
+<p t="256230" d="2500">For the most of the examples
+we'll talk about today,</p>
+<p t="258730" d="4400">we'll assume k is 3 minutes,
+or something like that.</p>
+<p t="263130" d="5570">So this is about adding
+to the data structure.</p>
+<p t="268700" d="2590">And so an insert
+operation, if you will,</p>
+<p t="271290" d="3180">that has a constraint associated
+with it that you need to check.</p>
+<p t="274470" d="2590">And so you wouldn't insert if
+the constraint was violated.</p>
+<p t="277060" d="3700">You would if the
+constraint was satisfied.</p>
+<p t="280760" d="4270">And time, as I
+said, is something</p>
+<p t="285030" d="2470">that is part of the system.</p>
+<p t="287500" d="1800">It needs to be modeled.</p>
+<p t="289300" d="2260">You have the current
+notion of time.</p>
+<p t="291560" d="5680">And every time you have a
+plane that's already landed,</p>
+<p t="297240" d="3130">which means that
+you can essentially</p>
+<p t="300370" d="3060">take this particular
+landing time away</p>
+<p t="303430" d="9220">from the set R. So this
+removal, or delete-- we remove</p>
+<p t="312650" d="5080">from set R, which is
+the set of landing times</p>
+<p t="317730" d="2470">after the plane lands.</p>
+<p t="323330" d="2562">So every once in awhile,
+as time increments,</p>
+<p t="325892" d="1958">you're going to be checking
+the data structure.</p>
+<p t="327850" d="3590">And you can do this, maybe,
+every minute, every 30 seconds.</p>
+<p t="331440" d="1370">That isn't really important.</p>
+<p t="332810" d="2000">But you have to be able
+to remove from this data</p>
+<p t="334810" d="1250">structure.</p>
+<p t="336060" d="2450">So fairly straightforward
+data structure.</p>
+<p t="338510" d="4680">It's a set, R. We don't quite
+know how to implement it yet.</p>
+<p t="343190" d="15960">But we'd like to do all of these
+operations in order log n time,</p>
+<p t="359150" d="3940">where n is the size of the set.</p>
+<p t="363090" d="1320">All right?</p>
+<p t="364410" d="3530">So any questions about that?</p>
+<p t="367940" d="2030">Any questions about
+the definition</p>
+<p t="369970" d="4820">of the problem
+before we move on?</p>
+<p t="374790" d="1650">Are we good on?</p>
+<p t="376440" d="1380">OK.</p>
+<p t="377820" d="7640">So let's look at a real
+straightforward example,</p>
+<p t="385460" d="7260">and put this up here so you
+get a better sense of this.</p>
+<p t="392720" d="4850">Let's say that, right
+now, we are at time 37.</p>
+<p t="397570" d="8010">And the set R has
+41.2, 49, and 53 in it.</p>
+<p t="405580" d="2540">And that's time.</p>
+<p t="408120" d="4920">Now you may get a request
+for landing time 53.</p>
+<p t="413040" d="1970">And-- I'm sorry.</p>
+<p t="415010" d="6490">I want to call this
+56.3-- 41.2, 49, and 56.3.</p>
+<p t="421500" d="3130">You may get a request
+for landing time 53.</p>
+<p t="424630" d="2110">And right now the time is 37.</p>
+<p t="426740" d="4130">It's in the future, and
+you say OK because you've</p>
+<p t="430870" d="890">done the check.</p>
+<p t="431760" d="3580">And let's assume
+that k equals 3.</p>
+<p t="435340" d="9190">And 53 is four ahead of 49, and
+3.3 before 56.3, so you're OK.</p>
+<p t="444530" d="2990">44 is not allowed.</p>
+<p t="450550" d="3060">It's too close to 41.2.</p>
+<p t="453610" d="4680">And 20, just for
+completeness, is not</p>
+<p t="458290" d="1185">allowed because it's passed.</p>
+<p t="462710" d="1245">Can't schedule in the past.</p>
+<p t="463955" d="1375">I mean, it could
+be the next day.</p>
+<p t="465330" d="1460">But then you
+wouldn't call it 20.</p>
+<p t="466790" d="3320">Let's assume that time is
+a monotonically increasing</p>
+<p t="470110" d="1720">function.</p>
+<p t="471830" d="2190">You have a 64-bit number.</p>
+<p t="474020" d="2580">It can go to the end
+of the world, or 2012,</p>
+<p t="476600" d="1790">or wherever you want.</p>
+<p t="478390" d="3000">So you can keep the
+number a bit smaller,</p>
+<p t="481390" d="4000">and do a little constant
+factor optimization, I guess.</p>
+<p t="485390" d="3040">So that's sort of the set up.</p>
+<p t="488430" d="4220">And hopefully you get a sense
+of what the requirements.</p>
+<p t="492650" d="3860">And you guys know about a bunch
+of data structures already.</p>
+<p t="496510" d="2790">And what I want to do is
+list each one of them,</p>
+<p t="499300" d="4010">and essentially shoot
+them down with respect</p>
+<p t="503310" d="8210">to not being able to make
+this efficiency requirement.</p>
+<p t="511520" d="3310">And I'd like you guys to
+help me shoot them down.</p>
+<p t="514830" d="4405">So let's talk about
+an easy one first.</p>
+<p t="522110" d="2610">Let's say you have an unsorted
+list or an array corresponding</p>
+<p t="524720" d="4950">to R. That's all you have.</p>
+<p t="529670" d="2320">What's wrong with
+this data structure</p>
+<p t="531990" d="3260">from an efficiency standpoint?</p>
+<p t="535250" d="744">Yeah.</p>
+<p t="535994" d="2666">AUDIENCE: Pretty much everything
+you want to do to it is linear.</p>
+<p t="538660" d="1333">PROFESSOR: That's exactly right.</p>
+<p t="539993" d="3237">Pretty much everything you
+want to do to it is linear.</p>
+<p t="543230" d="5060">And so you want to check
+the k minute check.</p>
+<p t="548290" d="6070">You can certainly insert
+into it, and just add to it.</p>
+<p t="554360" d="2710">So that part is not linear,
+that's constant time.</p>
+<p t="557070" d="3180">But certainly,
+anything where you</p>
+<p t="560250" d="4790">want to go check against
+other elements of the array,</p>
+<p t="565040" d="1290">it's unsorted.</p>
+<p t="566330" d="2510">You have no idea of where
+to find these elements.</p>
+<p t="568840" d="2170">You have to scan
+through the entire array</p>
+<p t="571010" d="2920">to check to see whether
+there's a landing time that's</p>
+<p t="573930" d="4990">within k of the current time
+t that you're asking for.</p>
+<p t="578920" d="3570">And that's going to
+take order n time.</p>
+<p t="582490" d="11250">So you can insert in
+order 1 without a check.</p>
+<p t="593740" d="9790">But sadly, the check
+takes order n time.</p>
+<p t="603530" d="500">All right?</p>
+<p t="609680" d="5780">Let's do something that is
+a little more plausible.</p>
+<p t="615460" d="3490">Let's talk about a sorted array.</p>
+<p t="618950" d="3770">So this is a little
+more subtle question.</p>
+<p t="622720" d="2920">Let's talk about a sorted array.</p>
+<p t="625640" d="3000">What happens with
+a sorted array?</p>
+<p t="628640" d="1586">Someone?</p>
+<p t="630226" d="3086">What can you do
+with a sorted array?</p>
+<p t="633312" d="500">Yeah.</p>
+<p t="633812" d="3318">AUDIENCE: Do a binary search
+to find the [INAUDIBLE].</p>
+<p t="637130" d="3770">PROFESSOR: Binary search
+would find a bad insert.</p>
+<p t="640900" d="800">OK, good.</p>
+<p t="641700" d="2250">So that's good.</p>
+<p t="643950" d="3580">So if you have a sorted array,
+and just for argument's sake,</p>
+<p t="647530" d="7210">it looks like 4, 20, 32, 37, 45.</p>
+<p t="654740" d="1900">And it's increasing order.</p>
+<p t="656640" d="5540">And if you get a particular time
+t, you can use binary search.</p>
+<p t="662180" d="5120">And let's say, in particular,
+the time is, for example, 34.</p>
+<p t="667300" d="2810">Then what you do is you go
+to the midpoint of the array,</p>
+<p t="670110" d="1750">and maybe you just look at that.</p>
+<p t="671860" d="6020">And you say oh, 34
+is greater than 32.</p>
+<p t="677880" d="4990">So I'm going to go
+check and figure out</p>
+<p t="682870" d="3330">if I need to move to
+the left or the right.</p>
+<p t="686200" d="2250">And since it's greater I'm
+going to move to the right.</p>
+<p t="688450" d="3430">And within logarithmic
+time, you'll</p>
+<p t="691880" d="5326">find what we call the insertion
+point of the sorted array,</p>
+<p t="697206" d="3334">where this 34 is
+supposed to sit.</p>
+<p t="700540" d="4060">And you don't necessarily
+get to insert there.</p>
+<p t="704600" d="2730">You need to look, once you've
+found the insertion point,</p>
+<p t="707330" d="3110">to your left and to your right.</p>
+<p t="710440" d="2900">And do the k minute check.</p>
+<p t="713340" d="3920">So finish up the
+answer to the question,</p>
+<p t="717260" d="5110">tell me how long it's going to
+take me to find the insertion</p>
+<p t="722370" d="3730">point, how long it's going
+to take me to do the check,</p>
+<p t="726100" d="2110">and how long it's going
+to take me to actually do</p>
+<p t="728210" d="1592">the insertion.</p>
+<p t="729802" d="2523">AUDIENCE: Log n in the search--</p>
+<p t="732325" d="2125">PROFESSOR: Log n for the
+search, to find the point.</p>
+<p t="734450" d="1934">AUDIENCE: Constant
+for the comparison?</p>
+<p t="736384" d="936">PROFESSOR: Constant
+to the comparison.</p>
+<p t="737320" d="958">And then the last step?</p>
+<p t="738278" d="1850">AUDIENCE: Do the
+research [INAUDIBLE].</p>
+<p t="740128" d="3121">PROFESSOR: Sorry, little louder.</p>
+<p t="743249" d="499">Sorry.</p>
+<p t="743748" d="1402">AUDIENCE: The
+insertion is constant.</p>
+<p t="745150" d="1374">PROFESSOR: Insertion
+is constant?</p>
+<p t="746524" d="806">Is that right?</p>
+<p t="747330" d="3994">Do you people agree with him,
+that insertion is constant?</p>
+<p t="751324" d="2405">AUDIENCE: You've got a
+maximum size up there, right?</p>
+<p t="753729" d="1443">There must be a maximum.</p>
+<p t="755172" d="1928">[INAUDIBLE]</p>
+<p t="757100" d="2800">PROFESSOR: No, the indices--
+so right now the array</p>
+<p t="759900" d="1780">has indices i.</p>
+<p t="761680" d="6150">And if you start with 1, it's
+1, 2, 3, 4, 5, et cetera.</p>
+<p t="767830" d="2080">So what do you
+mean by insertion?</p>
+<p t="769910" d="2839">Someone explain to me
+what-- yeah, go ahead.</p>
+<p t="772749" d="1625">AUDIENCE: When you
+put something in you</p>
+<p t="774374" d="1668">have to shift
+every element over.</p>
+<p t="776042" d="1333">PROFESSOR: That's exactly right.</p>
+<p t="777375" d="934">That's exactly right.</p>
+<p t="778309" d="2583">Ok, good, that's great.</p>
+<p t="780892" d="1708">I guess I should give
+you half a cushion.</p>
+<p t="782600" d="2400">But I'll do the full one, right?</p>
+<p t="785000" d="940">And you get one, too.</p>
+<p t="789010" d="2410">So the point here is
+this is pretty close.</p>
+<p t="791420" d="2110">It's almost what we want.</p>
+<p t="793530" d="2080">It's almost what we want.</p>
+<p t="795610" d="2710">There's a little bit
+of a glitch here.</p>
+<p t="798320" d="1890">We know about binary search.</p>
+<p t="800210" d="2150">The binary search is
+going to allow us,</p>
+<p t="802360" d="3590">if there's n elements
+here, to find the place--</p>
+<p t="805950" d="3970">it's going to be able
+to find-- and I'm</p>
+<p t="809920" d="10050">going to precise here-- the
+smallest i such that R of i</p>
+<p t="819970" d="4940">is greater than or equal
+to t in order log n time.</p>
+<p t="827520" d="2450">It's going to be
+able to do that.</p>
+<p t="829970" d="10440">You're going to be able to
+compare R of i and R of i</p>
+<p t="840410" d="6120">minus 1-- so the left
+and the right-- against t</p>
+<p t="846530" d="3470">in order 1 time.</p>
+<p t="850000" d="14105">But sadly, the actual insertion
+is going to require shifting.</p>
+<p t="869800" d="4090">And that could take order n
+time, because it's an array.</p>
+<p t="878160" d="2310">So that's the problem.</p>
+<p t="880470" d="6770">Now you could imagine that
+you had a sorted list.</p>
+<p t="887240" d="3370">And you could say, hey
+if I have a sorted list,</p>
+<p t="890610" d="6820">then the list looks
+like this, and it's</p>
+<p t="897430" d="2220">got a bunch of pointers in it.</p>
+<p t="899650" d="6040">And if I've found
+the insertion point,</p>
+<p t="905690" d="7680">then-- the list is nice,
+because you can insert something</p>
+<p t="913370" d="3290">by moving pointers
+in constant time</p>
+<p t="916660" d="2180">once you've found
+the insertion point.</p>
+<p t="918840" d="2780">But what's the
+problem with the list?</p>
+<p t="921620" d="500">Yeah.</p>
+<p t="922120" d="2460">AUDIENCE: You can't do
+binary search [INAUDIBLE].</p>
+<p t="924580" d="2350">PROFESSOR: Well you can't
+do binary search on a list.</p>
+<p t="926930" d="3870">There's no notion of
+going to the n by 2 index</p>
+<p t="930800" d="5680">and doing random access on
+a conventional list, right?</p>
+<p t="936480" d="3130">So the list does
+one thing right,</p>
+<p t="939610" d="1830">but doesn't do the
+other thing right.</p>
+<p t="941440" d="2160">The array does a
+couple things right,</p>
+<p t="943600" d="1840">but doesn't do the
+shifting right.</p>
+<p t="945440" d="3990">And so you see why we've
+constructed this toy problem.</p>
+<p t="949430" d="3240">It's to motivate the
+binary search tree data</p>
+<p t="952670" d="1180">structure, obviously.</p>
+<p t="953850" d="5190">But you're close,
+but not quite there.</p>
+<p t="959040" d="790">What about heaps?</p>
+<p t="963190" d="3320">We talked about heaps last time.</p>
+<p t="966510" d="5840">What's the basic problem with
+the heap for this problem?</p>
+<p t="972350" d="2160">The heaps are data
+arrays, but you</p>
+<p t="974510" d="1460">can visualize them as trees.</p>
+<p t="975970" d="3100">And obviously if we're talking
+about min heaps and max heaps.</p>
+<p t="979070" d="4360">So in particular, what goes
+wrong with a min heap or a max</p>
+<p t="983430" d="3510">heap for this problem?</p>
+<p t="986940" d="1575">What takes a long time?</p>
+<p t="988515" d="500">Yeah.</p>
+<p t="991660" d="4712">AUDIENCE: You have to scan every
+element, which [INAUDIBLE].</p>
+<p t="996372" d="1000">PROFESSOR: That's right.</p>
+<p t="997372" d="2618">I mean, sadly, you know when
+we talk about min heaps or max</p>
+<p t="999990" d="6470">heaps, they actually have
+a fairly weak invariant.</p>
+<p t="1006460" d="3050">It turns out that-- I'm
+previewing a bit here--</p>
+<p t="1009510" d="1530">binary search
+trees are obviously</p>
+<p t="1011040" d="2880">similar to heaps in the
+sense that you visualize</p>
+<p t="1013920" d="2360">an array as a tree,
+in the case of a heap.</p>
+<p t="1016280" d="2080">And binary search
+trees are trees.</p>
+<p t="1018360" d="3810">But the invariant in a
+min heap or a max heap,</p>
+<p t="1022170" d="1899">is this kind of
+a week invariant.</p>
+<p t="1024069" d="8671">It essentially says,
+look at the min element.</p>
+<p t="1032740" d="2930">And the min element
+has to be the root,</p>
+<p t="1035670" d="2520">so you can do that one
+operation pretty quickly.</p>
+<p t="1038190" d="3580">But if you want to look
+for a k minute check,</p>
+<p t="1041770" d="8990">you want to see if there's
+an element in the heap that</p>
+<p t="1050760" d="6060">is less than or equal to k,
+or greater than or equal to k</p>
+<p t="1056820" d="4700">from t, this is going
+to take order n time.</p>
+<p t="1061520" d="1731">OK?</p>
+<p t="1063251" d="499">Good.</p>
+<p t="1066390" d="2860">And finally, we haven't
+talked about dictionaries,</p>
+<p t="1069250" d="2790">but we will next week.</p>
+<p t="1072040" d="2490">Eric will talk about hash
+tables and dictionaries.</p>
+<p t="1074530" d="2270">And they have the same problem.</p>
+<p t="1076800" d="2890">So it's not like dictionaries
+are going to solve the problem,</p>
+<p t="1079690" d="2600">for those of you who know about
+hash tables and dictionaries.</p>
+<p t="1082290" d="1750">But you'll hear about
+them in some detail.</p>
+<p t="1084040" d="2340">They're very good
+at other things.</p>
+<p t="1086380" d="3980">So I don't want to say much more
+about that, because you're not</p>
+<p t="1090360" d="1980">supposed to know
+about dictionaries.</p>
+<p t="1092340" d="1458">Or at least we
+don't want to assume</p>
+<p t="1093798" d="2332">you do, though we
+have talked about them</p>
+<p t="1096130" d="3060">and alluded to
+dictionaries earlier.</p>
+<p t="1099190" d="2215">And so that's a story here.</p>
+<p t="1101405" d="1125">Yeah, back there, question.</p>
+<p t="1102530" d="2920">AUDIENCE: Yeah, can you explain
+why it's [INAUDIBLE] time?</p>
+<p t="1105450" d="2080">PROFESSOR: So what
+is a heap, right?</p>
+<p t="1107530" d="2690">A heap essentially-- a
+min heap, for example,</p>
+<p t="1110220" d="4060">or we talked about
+max heaps last time,</p>
+<p t="1114280" d="5160">has the property that
+you have an element k,</p>
+<p t="1119440" d="7980">and you're going to look
+at, let's say it's 21.</p>
+<p t="1127420" d="4630">Let's do min heaps, so this
+has to be less than what's</p>
+<p t="1132050" d="3390">here, 23, and what
+there, maybe it's</p>
+<p t="1135440" d="2105">30, and so on and so forth.</p>
+<p t="1137545" d="1500">And you have a
+recursive definition.</p>
+<p t="1144220" d="3270">And when you insert into a min
+heap, typically what happens</p>
+<p t="1147490" d="4100">is suppose you wanted to
+insert, for argument's sake,</p>
+<p t="1151590" d="4690">I want to insert 25.</p>
+<p t="1156280" d="2890">I want to insert 25 into this.</p>
+<p t="1159170" d="3840">The insertion algorithm
+for a min heap</p>
+<p t="1163010" d="2770">typically adds to the
+end of the min heap.</p>
+<p t="1165780" d="3500">So what you do is you
+would add 25 to this.</p>
+<p t="1169280" d="4220">And let's say that you
+had something out here.</p>
+<p t="1173500" d="1130">So you'd add to it.</p>
+<p t="1174630" d="3740">And you'd start flipping things.</p>
+<p t="1178370" d="4710">And you could work with
+just this part of the array</p>
+<p t="1183080" d="2060">to insert 25 in here.</p>
+<p t="1185140" d="3520">And you'd be able to satisfy
+the invariant of the min heap.</p>
+<p t="1188660" d="3090">And you'd get a
+legitimate min heap.</p>
+<p t="1191750" d="4360">But you'd never check the
+left part of it, which is 23.</p>
+<p t="1196110" d="4250">So it's quite possible--
+and this is a good example--</p>
+<p t="1200360" d="4060">that your basic insertion
+algorithm, which is essentially</p>
+<p t="1204420" d="3220">a version of max heap
+of i, or min heap of i,</p>
+<p t="1207640" d="2200">would simply insert
+at the end, and keep</p>
+<p t="1209840" d="2160">flipping until you get
+the min heap property,</p>
+<p t="1212000" d="3110">would be unable to check
+for the k minute check</p>
+<p t="1215110" d="1320">during the insertion.</p>
+<p t="1216430" d="2430">But what you'd have to do
+is to go look elsewhere.</p>
+<p t="1218860" d="1967">That min heap of i
+we'd never look at--</p>
+<p t="1220827" d="2208">or the insert algorithm we'd
+never look at-- and that</p>
+<p t="1223035" d="1865">would require order n time.</p>
+<p t="1224900" d="560">All right?</p>
+<p t="1225460" d="833">AUDIENCE: Thank you.</p>
+<p t="1228890" d="2610">PROFESSOR: So that's the
+story for the min heap.</p>
+<p t="1231500" d="1230">Thanks for the question.</p>
+<p t="1232730" d="2630">And it's similar for
+dictionaries, as I said.</p>
+<p t="1235360" d="1790">And so we're stuck.</p>
+<p t="1237150" d="5810">We have no data structure yet
+that can do all of the things</p>
+<p t="1242960" d="5950">that I put up on the board to
+the left, in order log n time.</p>
+<p t="1248910" d="3860">And as you can see, the
+sorted array got pretty close.</p>
+<p t="1252770" d="5580">And so if you could
+just solve this problem,</p>
+<p t="1258350" d="5750">if you could do fast insertion--
+and by fast I mean order log n</p>
+<p t="1264100" d="10380">time-- into a sorted
+array, we'd be in business.</p>
+<p t="1274480" d="3720">So that's what we'd like to
+do with binary search trees.</p>
+<p t="1278200" d="2140">Binary search trees
+are, as you can imagine,</p>
+<p t="1280340" d="1740">enable binary search.</p>
+<p t="1282080" d="5240">But the sorted arrays
+don't allow fast insertion,</p>
+<p t="1287320" d="1100">but BSTs do.</p>
+<p t="1290919" d="1041">So let me introduce BSTs.</p>
+<p t="1298500" d="1630">As with any data
+structure, there's</p>
+<p t="1300130" d="3690">a nice invariant
+associated with BSTs.</p>
+<p t="1303820" d="5260">The invariant is stronger
+than the heap invariant.</p>
+<p t="1309080" d="3490">And actually, that makes them
+a different data structure, not</p>
+<p t="1312570" d="1950">necessarily a better
+data structure.</p>
+<p t="1314520" d="3437">And I'll say why, but different.</p>
+<p t="1317957" d="1333">For this problem they're better.</p>
+<p t="1322130" d="2490">So one example of a binary
+search tree looks like this.</p>
+<p t="1334000" d="5600">And as a binary tree you have
+a node, and we call it x.</p>
+<p t="1339600" d="3280">Each of the nodes
+has a key of x.</p>
+<p t="1342880" d="4410">So 30 is the key for this node,
+17 for that one, et cetera.</p>
+<p t="1347290" d="2285">Unlike in a heap,
+your data structure</p>
+<p t="1349575" d="2115">is a little more complicated.</p>
+<p t="1351690" d="2180">The heap is simply
+an array, and you</p>
+<p t="1353870" d="2654">happen to visualize
+it as a tree.</p>
+<p t="1356524" d="1416">The binary search
+tree is actually</p>
+<p t="1357940" d="6100">a tree that has
+pointers, unlike a heap.</p>
+<p t="1364040" d="2770">So it's a more complicated
+data structure.</p>
+<p t="1366810" d="3430">You need a few more bytes for
+every node of the binary search</p>
+<p t="1370240" d="1930">tree, as opposed
+to the heap, which</p>
+<p t="1372170" d="3270">is simply an array element.</p>
+<p t="1375440" d="4230">And the pointers
+are parent of x.</p>
+<p t="1379670" d="4190">I haven't bothered
+showing the arrows here,</p>
+<p t="1383860" d="3290">because you could be going
+upwards or backwards.</p>
+<p t="1387150" d="1930">And you could imagine
+that you actually</p>
+<p t="1389080" d="2850">have a parent pointer
+that goes up this way,</p>
+<p t="1391930" d="2670">and you have a child
+pointer that goes this way.</p>
+<p t="1394600" d="3190">So there's really,
+potentially, three pointers</p>
+<p t="1397790" d="4430">for each node, the
+parent, the left child,</p>
+<p t="1402220" d="1800">and the right child.</p>
+<p t="1404020" d="2560">So pretty straightforward.</p>
+<p t="1406580" d="2060">That's the data
+structure in terms</p>
+<p t="1408640" d="4780">of what it needs to have
+so you can operate on it.</p>
+<p t="1413420" d="8020">And there's an
+invariant for a BST.</p>
+<p t="1421440" d="6980">What makes a BST
+is that you have</p>
+<p t="1428420" d="5280">an ordering of the
+key values that</p>
+<p t="1433700" d="11920">satisfy the invariant that
+for all nodes x if y is</p>
+<p t="1445620" d="13160">in the left subtree
+of x, we have--</p>
+<p t="1458780" d="4350">if it's in the left
+subtree then key of y</p>
+<p t="1463130" d="4820">is less than or
+equal to key of x.</p>
+<p t="1467950" d="7920">And if y is in the
+right subtree we</p>
+<p t="1475870" d="6200">have key of y is greater
+than or equal to key of x.</p>
+<p t="1482070" d="2470">So if we're talking
+about trees here,</p>
+<p t="1484540" d="2570">subtrees here,
+everything underneath--</p>
+<p t="1487110" d="4060">and that's the stronger part
+of the invariant in the BST,</p>
+<p t="1491170" d="3530">versus in the heap we were just
+talking about the children.</p>
+<p t="1494700" d="3390">And so you look at
+this BST, it is a BST</p>
+<p t="1498090" d="3340">because if I look to
+the right, from the root</p>
+<p t="1501430" d="3040">I only see values that
+are greater than 30.</p>
+<p t="1504470" d="3680">And if I look to the left,
+in the entire subtree,</p>
+<p t="1508150" d="5740">all the way down I only see
+values that are less than 30.</p>
+<p t="1513890" d="6220">And that has to be true for any
+intermediate node in the tree.</p>
+<p t="1520110" d="3830">And the only other
+nontrivial node here is 17.</p>
+<p t="1523940" d="4890">And you see that 14 is less than
+17, and 20 is greater than 17.</p>
+<p t="1528830" d="1170">OK?</p>
+<p t="1530000" d="2317">So that's the BST.</p>
+<p t="1532317" d="1083">That's the data structure.</p>
+<p t="1533400" d="1510">This is the invariant.</p>
+<p t="1534910" d="5980">So let's look at why BSTs
+are a possibility for solving</p>
+<p t="1540890" d="3980">our runway reservation problem.</p>
+<p t="1544870" d="5320">And what I'll do is
+I'll do the insert.</p>
+<p t="1554790" d="4180">So let's start with the
+nil set of elements,</p>
+<p t="1558970" d="5090">or null set of elements, R.
+And let's start inserting.</p>
+<p t="1568370" d="5200">So I insert 49.</p>
+<p t="1573570" d="6270">And all I do is make a node
+that has a key value of 49.</p>
+<p t="1579840" d="2270">This one is easy.</p>
+<p t="1582110" d="1485">Next insert, 79.</p>
+<p t="1587090" d="5510">And what happens here
+is I have to look at 49,</p>
+<p t="1592600" d="1565">and I compare 79 to 49.</p>
+<p t="1594165" d="3615">And because 79 is greater
+than 49 I go to the right</p>
+<p t="1597780" d="7400">and I attach 79 to
+the right child of 49.</p>
+<p t="1605180" d="1495">Then I want to insert 46.</p>
+<p t="1609500" d="2690">And when I want to
+insert 46 I look at this,</p>
+<p t="1612190" d="1880">I compare 49 and 46.</p>
+<p t="1614070" d="5320">46 is less, so I go to the left
+side and I put 46 in there.</p>
+<p t="1619390" d="5170">Next, let's say I
+want to insert 41.</p>
+<p t="1624560" d="4920">So far I haven't really talked
+about the k minute checks.</p>
+<p t="1629480" d="2220">And you could imagine
+that they're being done.</p>
+<p t="1631700" d="2380">I'll show you exactly, or
+talk about exactly how they're</p>
+<p t="1634080" d="1460">done in a second.</p>
+<p t="1635540" d="1870">It's not that hard.</p>
+<p t="1637410" d="3750">But let me go ahead
+and do one more.</p>
+<p t="1641160" d="4780">For 41, 41 is less
+than 49, so I go left.</p>
+<p t="1645940" d="4270">41 is less than 46, so
+I go left and attach it</p>
+<p t="1650210" d="945">to the left child.</p>
+<p t="1651155" d="635">All right?</p>
+<p t="1651790" d="1860">So that's what I have right now.</p>
+<p t="1653650" d="2860">Now let's talk about
+the k minute check.</p>
+<p t="1656510" d="2590">It's good to talk about
+the K minute check</p>
+<p t="1659100" d="2650">when there's
+actually a violation.</p>
+<p t="1661750" d="3470">And let's assume
+the k equals 3 here.</p>
+<p t="1665220" d="1890">And so, same thing here.</p>
+<p t="1667110" d="2670">You're essentially doing
+binary search here.</p>
+<p t="1669780" d="2722">And you're doing the checks as
+you're doing the binary search.</p>
+<p t="1672502" d="1458">So what you're
+going to be doing is</p>
+<p t="1673960" d="4620">you're going to check that--
+you're going to compare 42</p>
+<p t="1678580" d="3350">with 49, with the
+k minute check.</p>
+<p t="1681930" d="1850">And you realize they're 7 apart.</p>
+<p t="1683780" d="1180">So that's OK.</p>
+<p t="1684960" d="4050">And 42 is less than
+49, so you go left.</p>
+<p t="1689010" d="3360">And then you compare 42 with 46.</p>
+<p t="1692370" d="4400">And again, it's less than 46,
+but it's k away, more than 3</p>
+<p t="1696770" d="1260">away from 46.</p>
+<p t="1698030" d="920">So that's cool.</p>
+<p t="1698950" d="1630">And you go left.</p>
+<p t="1700580" d="1770">And then you get to 41.</p>
+<p t="1702350" d="2830">And you compare 42 with 41.</p>
+<p t="1705180" d="1430">In this case is greater.</p>
+<p t="1706610" d="3970">But it's not k more than it.</p>
+<p t="1710580" d="3930">And so that means that if
+you didn't have the check,</p>
+<p t="1714510" d="3420">you would be putting 42 in here.</p>
+<p t="1717930" d="2820">But because you have
+the check, you fail.</p>
+<p t="1720750" d="2830">And you say, look,
+I mean this violates</p>
+<p t="1723580" d="2905">the safety property, violates
+the check I need to do.</p>
+<p t="1726485" d="1625">And therefore I'm
+not going to insert--</p>
+<p t="1728110" d="2640">I'm not going to reserve
+a request for you.</p>
+<p t="1730750" d="770">All right?</p>
+<p t="1731520" d="3820">So what's happened here is
+it's basically a sorted array,</p>
+<p t="1735340" d="2510">except that you added
+a bunch of pointers</p>
+<p t="1737850" d="1450">associated with the tree.</p>
+<p t="1739300" d="4220">And so it's somewhere between a
+sorted list and a sorted array.</p>
+<p t="1743520" d="1980">And it does exactly
+the right thing</p>
+<p t="1745500" d="3810">with respect to
+being able to insert.</p>
+<p t="1749310" d="2050">Once you've found
+the place to insert,</p>
+<p t="1751360" d="3010">it's merely attaching
+this particular new node</p>
+<p t="1754370" d="2780">with it's appropriate
+key to the pointer.</p>
+<p t="1757150" d="2050">All right?</p>
+<p t="1759200" d="9190">So what's happened
+here is that if h</p>
+<p t="1768390" d="9580">is the height of the
+tree then insertion</p>
+<p t="1777970" d="6540">with or without the check
+is done in order h time.</p>
+<p t="1788330" d="3714">And that's what
+BSTs are good for.</p>
+<p t="1792044" d="666">People buy that?</p>
+<p t="1792710" d="2990">Any questions about how they
+k minute check proceeded?</p>
+<p t="1795700" d="741">Yeah, question.</p>
+<p t="1796441" d="1291">AUDIENCE: So, what's it called?</p>
+<p t="1797732" d="728">The what check?</p>
+<p t="1798460" d="1562">PROFESSOR: The k minute check.</p>
+<p t="1800022" d="4388">Sorry, the k was 3 minutes k.</p>
+<p t="1804410" d="3380">I had this thing over
+here, add t to the set R</p>
+<p t="1807790" d="4320">if no other landings are
+scheduled within k minutes.</p>
+<p t="1812110" d="1350">So k was just a number.</p>
+<p t="1813460" d="3690">I want it to be a
+parameter because it</p>
+<p t="1817150" d="1980">doesn't matter what k is.</p>
+<p t="1819130" d="3740">As long as you know what it is
+when you do the binary search,</p>
+<p t="1822870" d="3200">you can add that in to an
+argument to your insert,</p>
+<p t="1826070" d="1022">and do the check.</p>
+<p t="1827092" d="1608">AUDIENCE: OK.</p>
+<p t="1828700" d="4380">PROFESSOR: So in this case,
+I set k to be 3 out here.</p>
+<p t="1833080" d="2830">And I was doing a check
+to see that the invariant,</p>
+<p t="1835910" d="4920">any elements in the BST
+already, on any nodes that</p>
+<p t="1840830" d="5090">had keys that were
+within 3 minutes--</p>
+<p t="1845920" d="2980">because I fixed k to be
+3-- to the actual time</p>
+<p t="1848900" d="1690">that I was trying to insert.</p>
+<p t="1850590" d="500">All right?</p>
+<p t="1851090" d="2164">AUDIENCE: So there's
+no way [INAUDIBLE].</p>
+<p t="1853254" d="1541">PROFESSOR: I'm sorry,
+there's no way?</p>
+<p t="1854795" d="747">AUDIENCE: There's
+no way you could</p>
+<p t="1855542" d="1618">insert the 42 into
+the tree then?</p>
+<p t="1857160" d="3320">PROFESSOR: Well, if
+the basic insertion</p>
+<p t="1860480" d="3055">method into a binary search tree
+doesn't have any constraints.</p>
+<p t="1866040" d="4610">But you can certainly
+augment the insertion method</p>
+<p t="1870650" d="4070">without changing the efficiency
+of the insertion method.</p>
+<p t="1874720" d="1990">So let's say that
+all you wanted to do</p>
+<p t="1876710" d="3070">was insert into a
+binary search tree,</p>
+<p t="1879780" d="2930">and it had nothing to do
+with the runway reservation.</p>
+<p t="1882710" d="2690">Then you would just insert
+the way I described to you.</p>
+<p t="1885400" d="1680">The beauty of the
+binary search tree</p>
+<p t="1887080" d="4070">is that while you're
+finding the place to insert,</p>
+<p t="1891150" d="2337">you can do these checks--
+the k minute checks.</p>
+<p t="1893487" d="1083">Yeah, question back there.</p>
+<p t="1894570" d="2159">AUDIENCE: What about 45?</p>
+<p t="1896729" d="1041">PROFESSOR: What about 45?</p>
+<p t="1897770" d="5420">So this is after-- we
+haven't inserted 42</p>
+<p t="1903190" d="2440">because it violated the check.</p>
+<p t="1905630" d="1890">So when you do 45,
+then what happens</p>
+<p t="1907520" d="3580">is you see that
+45 is less than 49</p>
+<p t="1911100" d="4410">and you pass, because you're
+more than 3 minutes away.</p>
+<p t="1915510" d="1720">We'll stick with that example.</p>
+<p t="1917230" d="1700">And then you get
+here and then you</p>
+<p t="1918930" d="5850">see that 45 is less than 46,
+and you'd fail right here.</p>
+<p t="1924780" d="2610">You would fail right here
+if you were doing the check,</p>
+<p t="1927390" d="3830">because 45 is not
+3 away from 46.</p>
+<p t="1931220" d="2170">All right?</p>
+<p t="1933390" d="3190">So that's the story.</p>
+<p t="1936580" d="2550">And so if you have h being
+the height of the tree,</p>
+<p t="1939130" d="2540">as you can see you're
+just following a path.</p>
+<p t="1941670" d="2480">And depending on
+what the height is</p>
+<p t="1944150" d="2300">you're going to do
+that many operations,</p>
+<p t="1946450" d="1870">times some constant factor.</p>
+<p t="1948320" d="2690">And so you can say that
+this is order h time.</p>
+<p t="1951010" d="1080">All right?</p>
+<p t="1952090" d="3120">Any other questions?</p>
+<p t="1955210" d="1342">Yeah, question back there.</p>
+<p t="1956552" d="1666">AUDIENCE: In a normal
+array [INAUDIBLE].</p>
+<p t="1964550" d="1860">PROFESSOR: Well, it's up to you.</p>
+<p t="1966410" d="4270">In a conventional binary search
+tree, or the vanilla binary</p>
+<p t="1970680" d="1880">search tree, typically
+what you're doing</p>
+<p t="1972560" d="2540">is you're doing
+either find or insert.</p>
+<p t="1975100" d="1950">And so what that means
+is that you would just</p>
+<p t="1977050" d="3820">return the pointer
+associated with that element.</p>
+<p t="1980870" d="3840">So if you're looking for find
+46, for example, on the tree</p>
+<p t="1984710" d="3946">that I have out there, typically
+46 is just the key value.</p>
+<p t="1988656" d="1874">And there may be a record
+associated with it.</p>
+<p t="1990530" d="1749">And you would get a
+pointer to that record</p>
+<p t="1992279" d="1921">because it's already in there.</p>
+<p t="1994200" d="3690">At that point you can
+say I want to override.</p>
+<p t="1997890" d="3530">Or if you want, you could
+have duplicate values.</p>
+<p t="2001420" d="2470">You could have this,
+what's called a multiset.</p>
+<p t="2003890" d="2880">A multiset is a set that
+has duplicate elements.</p>
+<p t="2006770" d="2630">In that case, you would need
+a little more sophistication</p>
+<p t="2009400" d="4070">to differentiate between
+two elements that</p>
+<p t="2013470" d="2400">have the same key values.</p>
+<p t="2015870" d="2300">So you'd have to
+call it 46a and 46b.</p>
+<p t="2018170" d="3710">And you'd have to have some
+way of differentiating.</p>
+<p t="2021880" d="1540">Any other questions?</p>
+<p t="2023420" d="838">Yeah.</p>
+<p t="2024258" d="1434">AUDIENCE: Wouldn't
+it be a problem</p>
+<p t="2025692" d="1912">if the tree's not balanced?</p>
+<p t="2027604" d="3166">PROFESSOR: Ah, great question.</p>
+<p t="2030770" d="5160">Yes, stay tuned.</p>
+<p t="2035930" d="2060">So I was careful, right?</p>
+<p t="2040369" d="1541">I guess I kind of
+alluded to the fact</p>
+<p t="2041910" d="1960">that we'd solved the
+runway reservation system.</p>
+<p t="2043870" d="2670">Did I actually say that
+we'd solved the problem?</p>
+<p t="2046540" d="1540">Did I say we had
+solved the problem?</p>
+<p t="2048080" d="2530">OK, so I did not lie.</p>
+<p t="2050610" d="1540">I did not lie.</p>
+<p t="2052150" d="3580">I said that the height
+of the tree was h.</p>
+<p t="2055730" d="3230">And I said that this was
+accomplished in order h time,</p>
+<p t="2058960" d="800">right?</p>
+<p t="2059760" d="3970">Which is not quite what I want,
+which is really your question.</p>
+<p t="2063730" d="1570">So we'll get to that.</p>
+<p t="2065300" d="2780">So we're not quite done yet.</p>
+<p t="2068080" d="2639">But before we do
+that, it turns out</p>
+<p t="2070719" d="4190">that today's lecture is
+really part one of two.</p>
+<p t="2074909" d="5171">You'll get a really good
+sense of BST operations</p>
+<p t="2080080" d="1619">in today's lecture.</p>
+<p t="2081699" d="2821">But there's going to be a few
+things that-- we can't cover</p>
+<p t="2084520" d="2570">all of double 6 in
+the lecture, right?</p>
+<p t="2087090" d="3640">We'd like to, and let you
+off for the entire fall,</p>
+<p t="2090730" d="2210">but that's not the way
+it works, all right?</p>
+<p t="2092940" d="1420">So it's a great question.</p>
+<p t="2094360" d="2599">I'll answer it towards the end.</p>
+<p t="2096959" d="1541">I just wanted you
+to say a little bit</p>
+<p t="2098500" d="2900">about other operations.</p>
+<p t="2101400" d="3710">There's many operations that
+you can do on a binary search</p>
+<p t="2105110" d="5220">tree, that can be
+done in order h time,</p>
+<p t="2110330" d="2710">and some even in constant time.</p>
+<p t="2113040" d="1900">And I'll put these in the notes.</p>
+<p t="2114940" d="2030">Some of these are
+fairly straightforward.</p>
+<p t="2116970" d="5780">Find min can be done
+in heap, in a min heap.</p>
+<p t="2122750" d="2700">If you want to find the minimum
+value, it's constant time.</p>
+<p t="2125450" d="2280">You just return the root.</p>
+<p t="2127730" d="4310">In the case of a binary search
+tree, how do you find the min?</p>
+<p t="2132040" d="2094">Someone?</p>
+<p t="2134134" d="666">Worth a cushion.</p>
+<p t="2134800" d="535">Yep.</p>
+<p t="2135335" d="1375">AUDIENCE: Keep
+going to the left?</p>
+<p t="2136710" d="1000">PROFESSOR: Keep
+going to the left.</p>
+<p t="2137710" d="950">And how do you find the max?</p>
+<p t="2138660" d="785">AUDIENCE: [INAUDIBLE].</p>
+<p t="2139445" d="1458">PROFESSOR: Keep
+going to the right.</p>
+<p t="2140903" d="1737">All right great, thank you.</p>
+<p t="2142640" d="2006">And finally, what
+complexity is that?</p>
+<p t="2144646" d="2166">I sort gave it away, but I
+want to hear it from you.</p>
+<p t="2146812" d="1185">AUDIENCE: [INAUDIBLE].</p>
+<p t="2147997" d="583">PROFESSOR: Hm?</p>
+<p t="2148580" d="890">AUDIENCE: It's the height</p>
+<p t="2149470" d="1500">PROFESSOR: It's the
+height, order h.</p>
+<p t="2150970" d="1790">All right, it's
+order h complexity.</p>
+<p t="2152760" d="4850">Go to the left until
+you hit a leaf,</p>
+<p t="2157610" d="6860">and until leaf
+order h complexity.</p>
+<p t="2164470" d="1447">Same thing for max.</p>
+<p t="2165917" d="1583">And then you can do
+a bunch of things.</p>
+<p t="2167500" d="2530">I'll put these in the notes.</p>
+<p t="2170030" d="3150">You can find things
+like next larger</p>
+<p t="2173180" d="5760">x, which is the next
+largest value beyond x.</p>
+<p t="2178940" d="3590">And you look at the key for
+x and you say, for example,</p>
+<p t="2182530" d="3310">if you put 46 in there, what's
+the next thing that's larger</p>
+<p t="2185840" d="2380">and that?</p>
+<p t="2188220" d="3710">In this tree here, it's 49.</p>
+<p t="2191930" d="4340">But that's something which was
+trivially done in this example.</p>
+<p t="2196270" d="4280">But in general you can do
+this in order h time as well.</p>
+<p t="2200550" d="1730">And you can see the pseudocode.</p>
+<p t="2202280" d="3850">And we'll probably cover
+that in section tomorrow.</p>
+<p t="2206130" d="3000">What I want to do today, for the
+rest of the time I have left,</p>
+<p t="2209130" d="4590">is actually talk about augmented
+binary search trees, which</p>
+<p t="2213720" d="5150">are things that can do more
+and have more data in them</p>
+<p t="2218870" d="2810">than just these pointers.</p>
+<p t="2221680" d="2231">And that's actually
+something which</p>
+<p t="2223911" d="2499">should give you a sense of the
+richness of the binary search</p>
+<p t="2226410" d="3107">tree structure, this
+notion of augmentation.</p>
+<p t="2229517" d="2083">And those of you, again,
+who have taken double 05,</p>
+<p t="2231600" d="2160">you know about
+design amendments.</p>
+<p t="2233760" d="2780">And so specifications
+never stay the same.</p>
+<p t="2236540" d="1790">I mean, you're
+working for someone,</p>
+<p t="2238330" d="2700">and they never really
+tell you what they want.</p>
+<p t="2241030" d="3220">They might, but they
+change their mind.</p>
+<p t="2244250" d="2450">So in this case, we're
+going to change our mind.</p>
+<p t="2246700" d="2270">And so we've done
+this to the extent</p>
+<p t="2248970" d="3360">that we can cover all of
+these in order h time.</p>
+<p t="2252330" d="2780">And let's say that now
+the problem specification</p>
+<p t="2255110" d="1700">changed on us.</p>
+<p t="2256810" d="1760">There's an additional
+requirement</p>
+<p t="2258570" d="3680">that we're asked to solve.</p>
+<p t="2262250" d="4810">And so you sort of
+committed to BST structures.</p>
+<p t="2267060" d="3090">But now we have an
+additional requirement.</p>
+<p t="2270150" d="9950">And the new requirement is that
+we be able to compute rank t.</p>
+<p t="2280100" d="8330">And rank t is how
+many planes are</p>
+<p t="2288430" d="14040">scheduled to land at times
+less than or equal to t.</p>
+<p t="2302470" d="1570">So perfectly
+reasonable question.</p>
+<p t="2304040" d="2700">It wasn't part of
+the original spec.</p>
+<p t="2306740" d="3070">You now have built your
+BST data structure,</p>
+<p t="2309810" d="1670">you thought you were done.</p>
+<p t="2311480" d="1860">Sorry, you aren't.</p>
+<p t="2313340" d="2390">You've got to do
+this extra stuff.</p>
+<p t="2315730" d="3810">So that's the notion
+of augmentation,</p>
+<p t="2319540" d="3204">which we're going to use this
+is an example of how we're</p>
+<p t="2322744" d="2456">going to augment
+the BST structure.</p>
+<p t="2325200" d="1750">And oh, by the way,
+I don't want you</p>
+<p t="2326950" d="3190">to change the
+complexity from order h.</p>
+<p t="2330140" d="1940">And we eventually will
+get to order log n,</p>
+<p t="2332080" d="4550">but don't go change something
+that was logarithmic to linear.</p>
+<p t="2336630" d="750">That would be bad.</p>
+<p t="2339970" d="1720">So let's talk about
+how you do this.</p>
+<p t="2341690" d="1625">And I don't think we
+need this anymore.</p>
+<p t="2347830" d="3170">So the first thing we need to
+do is add a little bit more</p>
+<p t="2351000" d="4790">information to the
+node structure.</p>
+<p t="2360250" d="9033">And what we're going to do
+is augment the BST structure.</p>
+<p t="2374130" d="4850">And we're going to add one
+little number associated</p>
+<p t="2378980" d="6690">with each node, that looks at
+the number of nodes below it.</p>
+<p t="2385670" d="3330">So in particular,
+let's say that I</p>
+<p t="2389000" d="10500">have 49, 46, let's just
+say 49, 46 for now.</p>
+<p t="2399500" d="7200">And over here I
+have 79, 64, and 83.</p>
+<p t="2409640" d="1850">I'm going to modify--
+I'm going to have</p>
+<p t="2411490" d="4945">an extra number associated
+with each of these nodes.</p>
+<p t="2416435" d="1625">And I'm just going
+to write that number</p>
+<p t="2418060" d="2770">on the outside of the node.</p>
+<p t="2420830" d="2810">And you can just imagine
+that now the key value has</p>
+<p t="2423640" d="2240">two numbers associated
+with it-- the thing</p>
+<p t="2425880" d="4570">that I write inside the node,
+and what I write outside of it.</p>
+<p t="2430450" d="5509">So in particular, when
+I do insert or delete</p>
+<p t="2435959" d="1666">I'm going to be
+modifying these numbers.</p>
+<p t="2440480" d="3990">And these are size numbers.</p>
+<p t="2444470" d="1740">And what do I mean by that?</p>
+<p t="2446210" d="5630">Well these numbers
+correspond to subtree sizes.</p>
+<p t="2457470" d="3710">So the subtree size
+here is 1, 1, 1.</p>
+<p t="2461180" d="2920">So as I'm building
+this tree up I'm</p>
+<p t="2464100" d="2350">going to create an
+augmented BST structure,</p>
+<p t="2466450" d="1950">and I've modified
+insert and delete</p>
+<p t="2468400" d="1964">so they do some extra work.</p>
+<p t="2470364" d="1416">So let's say, for
+argument's sake,</p>
+<p t="2471780" d="6310">that I've added this in
+sort of a bottom up fashion.</p>
+<p t="2478090" d="3300">And what I have are these
+particular subtree sizes.</p>
+<p t="2481390" d="1720">All of these should make sense.</p>
+<p t="2483110" d="4130">This has just a single
+node, same thing here.</p>
+<p t="2487240" d="3940">So this subtree sizes associated
+with these nodes are all 1.</p>
+<p t="2491180" d="2560">The subtree size
+associated with 79</p>
+<p t="2493740" d="5320">is 3, because you're
+counting 79 and 64 and 83.</p>
+<p t="2499060" d="2140">And the subtree size
+associated with 49</p>
+<p t="2501200" d="3730">is 5, because you're counting
+everything underneath it.</p>
+<p t="2504930" d="1466">How did we get these numbers?</p>
+<p t="2506396" d="1374">Well you want to
+think about this</p>
+<p t="2507770" d="2350">as you started
+with an empty set,</p>
+<p t="2510120" d="1410">and you kept inserting into it.</p>
+<p t="2511530" d="3120">And you were doing a sequence
+of insert and delete operations.</p>
+<p t="2514650" d="4440">And if I explain to you how
+an insert operation modifies</p>
+<p t="2519090" d="3290">these numbers, that is
+pretty much all you need.</p>
+<p t="2522380" d="3590">And of course, analogously,
+for a delete operation.</p>
+<p t="2525970" d="5210">So what would happen for, let's
+say you wanted to insert 43?</p>
+<p t="2531180" d="3980">You would insert
+43 at this point.</p>
+<p t="2535160" d="4290">And what you'd do is you
+follow the insertion path</p>
+<p t="2539450" d="1710">just like you did before.</p>
+<p t="2541160" d="2270">But when you're
+following that path</p>
+<p t="2543430" d="5140">you're going to increment the
+nodes that you're seeing by 1.</p>
+<p t="2548570" d="3770">So you're going
+to add 43 to this.</p>
+<p t="2552340" d="8180">And you'd add 5 plus
+1, because you see 49.</p>
+<p t="2560520" d="4620">And then you would go
+down and you'd see 46.</p>
+<p t="2565140" d="2030">And so you'd add 1 to that.</p>
+<p t="2567170" d="2440">And then finally,
+you add 43 and you</p>
+<p t="2569610" d="2030">assign-- since
+it's a leaf-- you'd</p>
+<p t="2571640" d="2740">assign to value corresponding
+to the subtree size</p>
+<p t="2574380" d="3990">of this new node that you
+put in there, to be 1.</p>
+<p t="2578370" d="2830">It guess a little, teensy
+bit more complicated</p>
+<p t="2581200" d="2910">when you want to do
+the k minute check.</p>
+<p t="2584110" d="2590">But from a complexity
+standpoint,</p>
+<p t="2586700" d="2160">if you're not worried
+about constant factors,</p>
+<p t="2588860" d="1840">you can just say, you know what?</p>
+<p t="2590700" d="3620">I'm going to first run
+the regular insert,</p>
+<p t="2594320" d="2360">ignoring the subtree sizes.</p>
+<p t="2596680" d="2820">And if it fails, I'm done.</p>
+<p t="2599500" d="3370">Because I'm not going to
+modify the BST, and I'm done.</p>
+<p t="2602870" d="2400">I'm not going to have to
+modify the subtree sizes.</p>
+<p t="2605270" d="2660">If it succeeds, then
+I'm going to go in,</p>
+<p t="2607930" d="3450">and I know now that I can
+increment each of these nodes,</p>
+<p t="2611380" d="2610">because I know I'm
+going to be successful.</p>
+<p t="2613990" d="2360">So that's sort of a trivial
+way of solving this problem,</p>
+<p t="2616350" d="2500">that from an asymptotic
+complexity standpoint</p>
+<p t="2618850" d="3450">gives you your order
+h augmented insert.</p>
+<p t="2622300" d="1887">That make sense?</p>
+<p t="2624187" d="1833">Now you could do something
+better than that.</p>
+<p t="2626020" d="3530">I mean, I would urge you,
+if you had wrote something</p>
+<p t="2629550" d="2580">that-- we asked you to
+write something like this,</p>
+<p t="2632130" d="3640">to create a single procedure
+that essentially uses</p>
+<p t="2635770" d="4730">a recursion appropriately to
+do the right thing in one pass</p>
+<p t="2640500" d="1090">through the BST.</p>
+<p t="2641590" d="1840">And we'll talk about
+things like that</p>
+<p t="2643430" d="4780">as we go along in sections,
+and possibly in lectures.</p>
+<p t="2648210" d="3306">So that's the subtree
+insert delete.</p>
+<p t="2651516" d="749">Everyone buy that?</p>
+<p t="2652265" d="1428">Yeah, question back there.</p>
+<p t="2653693" d="2541">AUDIENCE: If I wanted to delete
+a number, like let's say 79--</p>
+<p t="2656234" d="625">PROFESSOR: Yep?</p>
+<p t="2656859" d="1845">AUDIENCE: --would we
+have to take it out</p>
+<p t="2658704" d="2306">and then rewrite the entire BST?</p>
+<p t="2661010" d="3020">PROFESSOR: What you'd have to
+do is a bubble up pointers.</p>
+<p t="2664030" d="6100">So you'd have to actually
+have 64 connected to-- what</p>
+<p t="2670130" d="3830">will happen is 83
+would actually come up,</p>
+<p t="2673960" d="2450">and you would essentially
+have some thing-- this</p>
+<p t="2676410" d="2370">is not quite how it works--
+but 83 would move up</p>
+<p t="2678780" d="1630">and you'd have 64 to the left.</p>
+<p t="2680410" d="2900">That's what would happened
+for delete in this case.</p>
+<p t="2683310" d="4050">So you would have to move
+pointers in the case of delete.</p>
+<p t="2687360" d="3310">And we're not done with
+binary search tree operations</p>
+<p t="2690670" d="2767">from a standpoint of
+teaching you about them.</p>
+<p t="2693437" d="2083">We'll talk about them not
+just in today's lecture,</p>
+<p t="2695520" d="3150">but later as well.</p>
+<p t="2698670" d="1710">So there's one
+thing missing here,</p>
+<p t="2700380" d="2860">though, which is I haven't
+quite figured out--</p>
+<p t="2703240" d="2450">I've told you how these
+subtree sizes work.</p>
+<p t="2705690" d="2960">But it's not
+completely clear, this</p>
+<p t="2708650" d="2690">is the last thing we have
+to do, is how are you</p>
+<p t="2711340" d="6120">going to compute rank t
+from the subtree sizes?</p>
+<p t="2717460" d="3990">So everyone understand
+subtree sizes?</p>
+<p t="2721450" d="2330">It's just the number of nodes
+that are underneath you.</p>
+<p t="2723780" d="3580">And you remember to count
+yourself, all right?</p>
+<p t="2727360" d="1240">Now what is rank t?</p>
+<p t="2728600" d="2260">Rank t is how many
+planes are scheduled</p>
+<p t="2730860" d="2810">to land at times less
+than or equal to t.</p>
+<p t="2733670" d="3790">So now I have a BST structure
+that looks like the one</p>
+<p t="2737460" d="3470">and I just ended up with.</p>
+<p t="2740930" d="2010">So I've added this 43.</p>
+<p t="2742940" d="1560">And so let me draw
+that out here,</p>
+<p t="2744500" d="3660">and see if we can
+answer this question.</p>
+<p t="2748160" d="3210">This is a subtle question.</p>
+<p t="2751370" d="4460">So I got 49, and that
+subtree size is 6.</p>
+<p t="2755830" d="3340">I got 46, subtree size is 2.</p>
+<p t="2759170" d="7840">43, 79, 64.</p>
+<p t="2767010" d="1320">and 83.</p>
+<p t="2771000" d="10640">So what I want is
+what lands before t?</p>
+<p t="2784360" d="3060">And how do I do that?</p>
+<p t="2787420" d="3240">Give me an algorithm
+that would allow</p>
+<p t="2790660" d="5040">me to compute in order h time.</p>
+<p t="2795700" d="2430">I want to do this
+in order h time.</p>
+<p t="2798130" d="1910">What lands before t?</p>
+<p t="2800040" d="2719">Someone?</p>
+<p t="2802759" d="499">Yeah.</p>
+<p t="2803258" d="1404">AUDIENCE: So first
+you would have</p>
+<p t="2804662" d="2624">to find where to insert
+it, like we did before.</p>
+<p t="2807286" d="999">PROFESSOR: Right, right.</p>
+<p t="2808285" d="4786">AUDIENCE: And then because we
+have the order of whatever it</p>
+<p t="2813071" d="1804">was before-- not
+the order, the--</p>
+<p t="2814875" d="875">PROFESSOR: The sizes?</p>
+<p t="2815750" d="530">The sizes?</p>
+<p t="2816280" d="500">Yeah.</p>
+<p t="2816780" d="2665">AUDIENCE: And then we can
+look what's more than it</p>
+<p t="2819445" d="3040">on the right, we can
+subtract it and we get--</p>
+<p t="2822485" d="1875">PROFESSOR: What is more
+than it on the right.</p>
+<p t="2824360" d="390">Do you want to say--</p>
+<p t="2824750" d="1041">AUDIENCE: Because, like--</p>
+<p t="2825791" d="599">PROFESSOR: OK.</p>
+<p t="2826390" d="670">AUDIENCE: --on the right--</p>
+<p t="2827060" d="708">PROFESSOR: Right.</p>
+<p t="2827768" d="2202">AUDIENCE: --and then we
+can take this minus this</p>
+<p t="2829970" d="1890">and we get what's left.</p>
+<p t="2831860" d="1750">PROFESSOR: That's
+great, that's excellent.</p>
+<p t="2833610" d="2137">Excellent.</p>
+<p t="2835747" d="2333">So I'm going to do it a little
+bit differently from what</p>
+<p t="2838080" d="930">you described.</p>
+<p t="2839010" d="1460">I'm going to
+actually do it in a,</p>
+<p t="2840470" d="3084">sort of, a more positive
+way, no offense intended.</p>
+<p t="2843554" d="1541">What we're going to
+do is we're going</p>
+<p t="2845095" d="3075">to add up the things
+that we want to add up.</p>
+<p t="2848170" d="2350">And what you have
+to do is walk--</p>
+<p t="2850520" d="2690">your first step was right on.</p>
+<p t="2853210" d="2050">I mean, your answer is correct.</p>
+<p t="2855260" d="3140">I'm just going to do it
+a little bit differently.</p>
+<p t="2858400" d="3780">You walk down the tree
+to find the desired time.</p>
+<p t="2862180" d="1630">This is just your search.</p>
+<p t="2863810" d="2490">We know how to do that.</p>
+<p t="2866300" d="7540">As you walk down you
+add in the nodes that</p>
+<p t="2873840" d="4301">is the subtree sizes-- you're
+just adding in the notes here.</p>
+<p t="2878141" d="1999">So if you see-- depending
+on the number of nodes</p>
+<p t="2880140" d="1740">that you see as you're
+going deeper in,</p>
+<p t="2881880" d="1610">you want to add in the nodes.</p>
+<p t="2883490" d="2130">And you're going to add
+one to that, corresponding</p>
+<p t="2885620" d="1790">to the nodes that are smaller.</p>
+<p t="2887410" d="4757">And we're going to add in the
+subtree sizes to the left,</p>
+<p t="2892167" d="1083">as opposed to subtracting.</p>
+<p t="2899136" d="1374">That may not make
+a lot of sense.</p>
+<p t="2900510" d="3210">But I guarantee you it
+will once we do an example.</p>
+<p t="2914270" d="1910">So what's going on here?</p>
+<p t="2916180" d="2250">I want to find a
+place to insert.</p>
+<p t="2918430" d="2060">I'm not actually going
+to do the insert.</p>
+<p t="2920490" d="1790">Think of it is doing a lookup.</p>
+<p t="2922280" d="3590">And along the way,
+I need to figure out</p>
+<p t="2925870" d="1640">the less than operator.</p>
+<p t="2927510" d="1600">I want to find all
+of the things that</p>
+<p t="2929110" d="2420">are less than this
+value I'm searching for.</p>
+<p t="2931530" d="3110">And so I have to do
+a bit of arithmetic.</p>
+<p t="2934640" d="5740">So let's say that I'm
+looking for what's</p>
+<p t="2940380" d="2640">less than or equal to 79.</p>
+<p t="2943020" d="4700">So t equals 79.</p>
+<p t="2947720" d="2170">So I'm going to look at 49.</p>
+<p t="2949890" d="3420">I'm going to walk down,
+I'm going to look at 49.</p>
+<p t="2953310" d="9360">And because I say I'm
+looking at 49-- and 49</p>
+<p t="2962670" d="2140">is clearly less than 79.</p>
+<p t="2964810" d="3150">So I'm going to add 1.</p>
+<p t="2967960" d="2410">And that's this check over here.</p>
+<p t="2970370" d="11460">I move on and what I need to
+do now is move to the right,</p>
+<p t="2981830" d="3680">because 79 is greater than 49.</p>
+<p t="2985510" d="1890">That's how my search would work.</p>
+<p t="2987400" d="3100">But because I've
+moved to the right,</p>
+<p t="2990500" d="5070">I'm going to add the subtree
+sizes that were to the left.</p>
+<p t="2995570" d="2670">Because I know that all
+of the things to the left</p>
+<p t="2998240" d="3400">are clearly less than 79.</p>
+<p t="3001640" d="8380">So I'm going to add 2,
+corresponding to a subtree 46.</p>
+<p t="3010020" d="2100">So I'm not actually
+looking there.</p>
+<p t="3012120" d="2300">But I'm going to add
+all of that stuff in.</p>
+<p t="3014420" d="3830">I'm going to move to the right,
+and now I'm going to see 79.</p>
+<p t="3018250" d="8640">At this point 79 is less
+than or equal to 79.</p>
+<p t="3026890" d="6400">So I'm going to see 79
+and I'm going to add 1.</p>
+<p t="3033290" d="4010">And because I've added 79,
+just like I did with 49,</p>
+<p t="3037300" d="4790">I have to add the subtree
+size to the left of 79.</p>
+<p t="3042090" d="4070">So the final addition
+is I add 1 corresponding</p>
+<p t="3046160" d="4600">to the subtree 64.</p>
+<p t="3050760" d="1630">And at this point
+I've discovered</p>
+<p t="3052390" d="3650">where I have to insert, I've
+essentially found the location,</p>
+<p t="3056040" d="1860">it matches 79.</p>
+<p t="3057900" d="3280">And there was no modification
+required in this algorithm.</p>
+<p t="3061180" d="4810">So if that was 78 you'd
+essentially do the same things.</p>
+<p t="3065990" d="4680">But you're done because you
+found the value, or the place</p>
+<p t="3070670" d="1100">that you want to insert.</p>
+<p t="3071770" d="1730">And you've done a
+bunch of additions.</p>
+<p t="3073500" d="6660">And you go look at add 1, add
+2, add 1, add 1, and you have 5.</p>
+<p t="3083539" d="1541">And that's the
+correct answer, as you</p>
+<p t="3085080" d="3360">can see from this example.</p>
+<p t="3088440" d="2590">So what's the bad news?</p>
+<p t="3091030" d="2790">The bad news was what
+this lady said up</p>
+<p t="3093820" d="3570">front, which was we haven't
+quite solved the problem.</p>
+<p t="3097390" d="3200">Because sadly, I could
+easily set things</p>
+<p t="3100590" d="9360">up such that the height h is
+order n, h could be order n.</p>
+<p t="3109950" d="4460">And if, for example, I
+gave you a sorted list,</p>
+<p t="3114410" d="2240">and I said insert into
+binary search tree</p>
+<p t="3116650" d="3760">that's originally null 43,
+and you put 43 in there.</p>
+<p t="3120410" d="1940">Then I say insert 46.</p>
+<p t="3122350" d="1740">And then I say instead of 48.</p>
+<p t="3124090" d="2780">And then I say
+insert 49, et cetera.</p>
+<p t="3126870" d="2330">And, you know, these
+could be any numbers.</p>
+<p t="3129200" d="2830">Then you see that what
+does this look like?</p>
+<p t="3132030" d="2030">Does it look like a tree?</p>
+<p t="3134060" d="2240">It looks like a list.</p>
+<p t="3136300" d="2120">That's the bad news.</p>
+<p t="3138420" d="4780">And I'll let Eric give
+you good news next week.</p>
+<p t="3143200" d="2730">We need to have this notion of
+balanced binary search trees.</p>
+<p t="3145930" d="3020">So everything I've said is true.</p>
+<p t="3148950" d="1180">I did not lie.</p>
+<p t="3150130" d="1990">But the one extra
+thing is we need</p>
+<p t="3152120" d="3650">to make sure these trees are
+balanced so h is order log n.</p>
+<p t="3155770" d="1811">And then everything
+I said works.</p>
+<p t="3157581" d="499">All right?</p>
+<p t="3158080" d="1870">See you next time.</p>
+</body>
+</timedtext>

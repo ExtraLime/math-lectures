@@ -1,0 +1,2811 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="120" d="2340">The following content is
+provided under a Creative</p>
+<p t="2460" d="1420">Commons license.</p>
+<p t="3880" d="2210">Your support will help
+MIT OpenCourseWare</p>
+<p t="6090" d="4090">continue to offer high quality
+educational resources for free.</p>
+<p t="10180" d="2540">To make a donation or to
+view additional materials</p>
+<p t="12720" d="3480">from hundreds of MIT courses,
+visit MIT OpenCourseWare</p>
+<p t="16200" d="1425">at ocw.mit.edu.</p>
+<p t="20507" d="2083">PHILIPPE RIGOLLET: --of
+our limiting distribution,</p>
+<p t="22590" d="1669">which happen to be Gaussian.</p>
+<p t="24259" d="1541">But if the central
+limit theorem told</p>
+<p t="25800" d="2760">us that the limiting
+distribution of some average</p>
+<p t="28560" d="1989">was something that
+looked like a Poisson</p>
+<p t="30549" d="1791">or an [? exponential, ?]
+then we would just</p>
+<p t="32340" d="2430">have in the same way
+taken the quintiles</p>
+<p t="34770" d="1930">of the exponential distribution.</p>
+<p t="36700" d="2740">So let's go back to what we had.</p>
+<p t="39440" d="7550">So generically if you have a
+set of observations X1 to Xn.</p>
+<p t="46990" d="5190">So remember for the kiss example
+they were denoted by R1 to Rn,</p>
+<p t="52180" d="3060">because they were turning
+the head to the right,</p>
+<p t="55240" d="1610">but let's just go back.</p>
+<p t="56850" d="2950">We say X1 to Xn,
+and in this case</p>
+<p t="59800" d="2910">I'm going to assume
+they're IID, and I'm</p>
+<p t="62710" d="2990">going to make them Bernoulli
+with [INAUDIBLE] p,</p>
+<p t="65700" d="1010">and p is unknown, right?</p>
+<p t="70150" d="1450">So what did we do from here?</p>
+<p t="71600" d="4224">Well, we said p is
+the expectation of Xi,</p>
+<p t="75824" d="2166">and actually we didn't even
+think about it too much.</p>
+<p t="77990" d="1100">We said, well, if
+I need to estimate</p>
+<p t="79090" d="2370">the proportion of people who
+turn their head to the right</p>
+<p t="81460" d="1500">when they kiss, I
+just basically I'm</p>
+<p t="82960" d="1440">going to compute the average.</p>
+<p t="84400" d="4260">So our p hat was just
+Xn bar, which was just 1</p>
+<p t="88660" d="3510">over n sum from i
+over 1 2n of the Xi.</p>
+<p t="92170" d="2820">The average of the observations
+was their estimate.</p>
+<p t="94990" d="2700">And then we wanted to build
+some confidence intervals</p>
+<p t="97690" d="530">around this.</p>
+<p t="98220" d="3140">So what we wanted to understand
+is, how much that this p hat</p>
+<p t="101360" d="1610">fluctuates.</p>
+<p t="102970" d="1090">This is a random variable.</p>
+<p t="104060" d="1040">It's an average of
+random variables.</p>
+<p t="105100" d="1470">It's a random
+variable, so we want</p>
+<p t="106570" d="1170">to know what the
+distribution is.</p>
+<p t="107740" d="1666">And if we know what
+the distribution is,</p>
+<p t="109406" d="2264">then we actually know,
+well, where it fluctuates.</p>
+<p t="111670" d="1140">What the expectation is.</p>
+<p t="112810" d="2839">Around which value it tends
+to fluctuate et cetera.</p>
+<p t="115649" d="1541">And so what the
+central limit theorem</p>
+<p t="117190" d="6120">told us was if I take square
+root of n times Xn bar minus p,</p>
+<p t="123310" d="1680">which is its average.</p>
+<p t="124990" d="2455">And then I divide it by
+the standard deviation.</p>
+<p t="130840" d="4830">Then this thing here converges
+as n goes to infinity,</p>
+<p t="135670" d="1710">and we will say
+a little bit more</p>
+<p t="137380" d="1980">about what it means
+in distribution</p>
+<p t="139360" d="3797">to some standard
+normal random variable.</p>
+<p t="143157" d="1583">So that was the
+central limit theorem.</p>
+<p t="147069" d="1541">So what it means is
+that when I think</p>
+<p t="148610" d="6800">of this as a random variable,
+when n is large enough</p>
+<p t="155410" d="2220">it's going to look like this.</p>
+<p t="157630" d="2400">And so I understand
+perfectly its fluctuations.</p>
+<p t="160030" d="3420">I know that this
+thing here has--</p>
+<p t="163450" d="2070">I know the probability
+of being in this zone.</p>
+<p t="165520" d="2370">I know that this
+number here is 0.</p>
+<p t="167890" d="1710">I know a bunch of things.</p>
+<p t="169600" d="2310">And then, in
+particular, what I was</p>
+<p t="171910" d="4080">interested in was that
+the probability, that's</p>
+<p t="175990" d="3120">the absolute value of a
+Gaussian random variable,</p>
+<p t="179110" d="6001">exceeds q alpha over
+2, q alpha over 2.</p>
+<p t="185111" d="1499">We said that this
+was equal to what?</p>
+<p t="193610" d="1917">Anybody?</p>
+<p t="195527" d="583">What was that?</p>
+<p t="196110" d="2027">AUDIENCE: [INAUDIBLE]</p>
+<p t="198137" d="1333">PHILIPPE RIGOLLET: Alpha, right?</p>
+<p t="199470" d="1740">So that's the probability.</p>
+<p t="201210" d="1850">That's my random variable.</p>
+<p t="203060" d="3990">So this is by definition q
+alpha over 2 is the number.</p>
+<p t="207050" d="2910">So that to the right
+of it is alpha over 2.</p>
+<p t="209960" d="4140">And this is a negative q
+alpha over 2 by symmetry.</p>
+<p t="214100" d="2020">And so the probability
+that i exceeds-- well,</p>
+<p t="216120" d="2030">it's not very symmetric,
+but the probability</p>
+<p t="218150" d="2870">that i exceeds this
+value, q alpha over 2,</p>
+<p t="221020" d="5230">is just the sum of
+the two gray areas.</p>
+<p t="226250" d="1110">All right?</p>
+<p t="227360" d="3245">So now I said that this thing
+was approximately equal,</p>
+<p t="230605" d="1375">due to the central
+limit theorem,</p>
+<p t="231980" d="3340">to the probability,
+that square root of n.</p>
+<p t="235320" d="3743">Xn bar minus p divided by
+square root p 1 minus p.</p>
+<p t="244970" d="5210">Well, absolute value was
+larger than q alpha over 2.</p>
+<p t="250180" d="2690">Well, then this thing by default
+is actually approximately equal</p>
+<p t="252870" d="4000">to alpha, just because of virtue
+of the central limit theorem.</p>
+<p t="256870" d="6900">And then we just said,
+well, I'll solve for p.</p>
+<p t="263770" d="4650">Has anyone attempted to solve
+the degree two equation for p</p>
+<p t="268420" d="992">in the homework?</p>
+<p t="269412" d="958">Everybody has tried it?</p>
+<p t="275400" d="2340">So essentially, this is
+going to be an equation in p.</p>
+<p t="277740" d="1500">Sometimes we don't
+want to solve it.</p>
+<p t="279240" d="2583">Some of the p's we will replace
+by their worst possible value.</p>
+<p t="281823" d="2607">For example, we said one
+of the tricks we had was</p>
+<p t="284430" d="4400">that this value here,
+square root of p 1 minus p,</p>
+<p t="288830" d="2387">was always less than one half.</p>
+<p t="291217" d="2333">Until we could actually get
+the confidence interval that</p>
+<p t="293550" d="1624">was larger than all
+possible confidence</p>
+<p t="295174" d="1996">intervals for all
+possible values of p,</p>
+<p t="297170" d="2220">but we could solve for p.</p>
+<p t="299390" d="2180">Do we all agree on the
+principle of what we did?</p>
+<p t="301570" d="2270">So that's how you build
+confidence intervals.</p>
+<p t="303840" d="1520">Now let's step
+back for a second,</p>
+<p t="305360" d="2710">and see what was important in
+the building of this confidence</p>
+<p t="308070" d="1400">interval.</p>
+<p t="309470" d="2400">The really key thing is
+that I didn't tell you</p>
+<p t="311870" d="3480">why I formed this thing, right?</p>
+<p t="315350" d="1770">We started from
+x bar, and then I</p>
+<p t="317120" d="3880">took some weird function of x
+bar that depended on p and n.</p>
+<p t="321000" d="2824">And the reason is, because
+when I take this function,</p>
+<p t="323824" d="1416">the central limit
+theorem tells me</p>
+<p t="325240" d="2769">that it converges to
+something that I know.</p>
+<p t="328009" d="2541">But this very important thing
+about the something that I know</p>
+<p t="330550" d="4480">is that it does not depend on
+anything that I don't know.</p>
+<p t="335030" d="1770">For example, if I
+forgot to divide</p>
+<p t="336800" d="3420">by square root of p 1 minus
+p, then this thing would have</p>
+<p t="340220" d="3760">had a variance, which
+is the p 1 minus p.</p>
+<p t="343980" d="3640">If I didn't remove this
+p here, the mean here</p>
+<p t="347620" d="2240">would have been affected by p.</p>
+<p t="349860" d="3181">And there's no table
+for normal p 1.</p>
+<p t="353041" d="499">Yes?</p>
+<p t="353540" d="2294">AUDIENCE: [INAUDIBLE]</p>
+<p t="355834" d="2166">PHILIPPE RIGOLLET: Oh, so
+the square root of n terms</p>
+<p t="358000" d="500">come from.</p>
+<p t="358500" d="2330">So really you should view this.</p>
+<p t="360830" d="3950">So there's a rule and sort
+of a quiet rule in math</p>
+<p t="364780" d="4210">that you don't write a
+divided by b over c, right?</p>
+<p t="368990" d="3724">You write c times a divided
+by b, because it looks nicer.</p>
+<p t="372714" d="1666">But the way you want
+to think about this</p>
+<p t="374380" d="6220">is that this is x bar minus p
+divided by the square root of p</p>
+<p t="380600" d="3239">1 minus p divided by n.</p>
+<p t="383839" d="1791">And the reason is,
+because this is actually</p>
+<p t="385630" d="1370">the standard deviation of this--</p>
+<p t="387000" d="1720">oh sorry, x bar n.</p>
+<p t="388720" d="2790">This is actually the standard
+deviation of this guy,</p>
+<p t="391510" d="5030">and the square root of n comes
+from the [INAUDIBLE] average.</p>
+<p t="396540" d="3382">So the key thing
+was that this thing,</p>
+<p t="399922" d="2208">this limiting distribution
+did not depend on anything</p>
+<p t="402130" d="1210">I don't know.</p>
+<p t="403340" d="2295">And this is actually called
+a pivotal distribution.</p>
+<p t="405635" d="2055">It's pivotal.</p>
+<p t="407690" d="1330">I don't need anything.</p>
+<p t="409020" d="2730">I don't need to know anything,
+and I can read it in a table.</p>
+<p t="411750" d="2570">Sometimes there's going
+to be complicated things,</p>
+<p t="414320" d="1110">but now we have computers.</p>
+<p t="415430" d="2416">The beauty about Gaussian is
+that people have studied them</p>
+<p t="417846" d="2203">to death, and you can
+open any stats textbook,</p>
+<p t="420049" d="2041">and you will see a table
+again that will tell you</p>
+<p t="422090" d="2050">for each value of alpha
+you're interested in,</p>
+<p t="424140" d="3080">it will tell you what
+q alpha over 2 is.</p>
+<p t="427220" d="3346">But there might be some
+crazy distributions,</p>
+<p t="430566" d="1874">but as long as they
+don't depend on anything,</p>
+<p t="432440" d="1541">we might actually
+be able to simulate</p>
+<p t="433981" d="2559">from them, and in particular
+compute what q alpha over 2</p>
+<p t="436540" d="2617">is for any possible
+value [INAUDIBLE]..</p>
+<p t="439157" d="2083">And so that's what we're
+going to be trying to do.</p>
+<p t="441240" d="1560">Finding pivotal distributions.</p>
+<p t="442800" d="3260">How do we take this Xn bar,
+which is a good estimate,</p>
+<p t="446060" d="2880">and turn it into something
+which may be exactly</p>
+<p t="448940" d="2160">or asymptotically
+does not depend</p>
+<p t="451100" d="2310">on any unknown parameter.</p>
+<p t="453410" d="2190">So here is one way
+we can actually--</p>
+<p t="455600" d="2484">so that's what we did for
+the kiss example, right?</p>
+<p t="458084" d="1416">And here I mentioned,
+for example,</p>
+<p t="459500" d="2280">in the extreme case,
+when n was equal to 3</p>
+<p t="461780" d="2460">we would get a different
+thing, but here the CLT</p>
+<p t="464240" d="1620">would not be valid.</p>
+<p t="465860" d="3660">And what that means is that
+my pivotal distribution</p>
+<p t="469520" d="3350">is actually not the
+normal distribution,</p>
+<p t="472870" d="1750">but it might be something else.</p>
+<p t="474620" d="2300">And I said we can make
+take exact computations.</p>
+<p t="476920" d="1590">Well, let's see
+what it is, right?</p>
+<p t="478510" d="8100">If I have three observations,
+so I'm going to have X1, X2, X3.</p>
+<p t="486610" d="2200">So now I take the
+average of those guys.</p>
+<p t="493260" d="2144">OK, so that's my estimate.</p>
+<p t="495404" d="1416">How many values
+can this guy take?</p>
+<p t="503125" d="1940">It's a little bit of counting.</p>
+<p t="507980" d="549">Four values.</p>
+<p t="508529" d="1291">How did you get to that number?</p>
+<p t="517590" d="4329">OK, so each of these guys
+can take value 0, 1, right?</p>
+<p t="521919" d="1750">So the number of values
+that it can take,</p>
+<p t="523669" d="2061">I mean, it's a little
+annoying, because then I</p>
+<p t="525730" d="1380">have to sum them, right?</p>
+<p t="527110" d="4510">So basically, I have to
+count the number of 1's.</p>
+<p t="531620" d="3169">So how many 1's
+can I get, right?</p>
+<p t="534789" d="2541">Sorry I have to-- yeah, so this
+is the number of 1's that I--</p>
+<p t="537330" d="1170">OK, so let's look at that.</p>
+<p t="538500" d="1682">So we get 0, 0, 0.</p>
+<p t="540182" d="1508">0, 0, 1.</p>
+<p t="541690" d="1660">And then I get
+basically three of them</p>
+<p t="543350" d="1625">that have just the
+one in there, right?</p>
+<p t="547660" d="1260">So there's three of them.</p>
+<p t="548920" d="3790">How many of them
+have exactly two 1's?</p>
+<p t="552710" d="640">2.</p>
+<p t="553350" d="1920">Sorry, 3, right?</p>
+<p t="555270" d="2960">So it's just this guy where
+I replaced the 0's and the 1.</p>
+<p t="558230" d="3160">OK, so now I get--</p>
+<p t="561390" d="2360">so here I get three
+that take the value 1,</p>
+<p t="563750" d="1930">and one that gets the value 0.</p>
+<p t="565680" d="2430">And then I get three
+that take the value 2,</p>
+<p t="568110" d="2860">and then one that
+takes the value 1.</p>
+<p t="570970" d="2130">The value [? 0 ?] 1's, right?</p>
+<p t="573100" d="2770">OK, so everybody knows what I'm
+missing here is just the ones</p>
+<p t="575870" d="2570">here where I replaced
+the 0's by 1's.</p>
+<p t="578440" d="2040">So the number of values
+that this thing can take</p>
+<p t="580480" d="2600">is 1, 2, 3, 4.</p>
+<p t="583080" d="2669">So someone is counting
+much faster than me.</p>
+<p t="585749" d="2291">And so those numbers, you've
+probably seen them before,</p>
+<p t="588040" d="499">right?</p>
+<p t="588539" d="1991">1, 3, 3, 1, remember?</p>
+<p t="590530" d="2400">And so essentially
+those guys, it</p>
+<p t="592930" d="5830">takes only three values,
+which are either 1/3, 1.</p>
+<p t="598760" d="3572">Sorry, 1/3.</p>
+<p t="602332" d="4068">Oh OK, so it's 0, sorry.</p>
+<p t="606400" d="3700">1/3, 2/3, and 1.</p>
+<p t="610100" d="2690">Those are the four possible
+values you can take.</p>
+<p t="612790" d="2080">And so now-- which is
+probably much easier</p>
+<p t="614870" d="1844">to count like that--
+and so now all</p>
+<p t="616714" d="1666">I have to tell you
+if I want to describe</p>
+<p t="618380" d="1860">the distribution
+of this probability</p>
+<p t="620240" d="2850">of this random variable,
+is just the probability</p>
+<p t="623090" d="1900">that it takes each
+of these values.</p>
+<p t="624990" d="5180">So X bar 3 takes the
+value 0 probability</p>
+<p t="630170" d="3990">that X bar 3 takes the
+value 1/3, et cetera.</p>
+<p t="634160" d="2102">If I give you each of
+these possible values,</p>
+<p t="636262" d="2458">then you will be able to know
+exactly what the distribution</p>
+<p t="638720" d="3000">is, and hopefully maybe
+to turn it into something</p>
+<p t="641720" d="971">you can compute.</p>
+<p t="642691" d="1999">Now the thing is that
+those values will actually</p>
+<p t="644690" d="2600">depend on the unknown p.</p>
+<p t="647290" d="1150">What is the unknown p here?</p>
+<p t="648440" d="1416">What is the
+probability that X bar</p>
+<p t="649856" d="2358">3 is equal to 0 for example?</p>
+<p t="652214" d="952">I'm sorry?</p>
+<p t="653166" d="1428">AUDIENCE: [INAUDIBLE]</p>
+<p t="654594" d="1166">PHILIPPE RIGOLLET: Yeah, OK.</p>
+<p t="655760" d="4170">So let's write it without
+making the computation So 1/8 is</p>
+<p t="659930" d="3936">probably not the
+right answer, right?</p>
+<p t="663866" d="5401">For example, if p is equal to
+0, what is this probability?</p>
+<p t="669267" d="1473">1.</p>
+<p t="670740" d="3240">If p is 1, what is
+this probability?</p>
+<p t="673980" d="500">0.</p>
+<p t="674480" d="1770">So it will depend on p.</p>
+<p t="676250" d="2064">So the probability that
+this thing is equal to 0,</p>
+<p t="678314" d="2166">is just the probability
+that all three of those guys</p>
+<p t="680480" d="1126">are equal to 0.</p>
+<p t="681606" d="2499">The probability that X1 is equal
+to 0, and X2 is equal to 0,</p>
+<p t="684105" d="1427">and X3 is equal to 0.</p>
+<p t="685532" d="1458">Now my things are
+independent, so I</p>
+<p t="686990" d="1350">do what I actually
+want to do, which</p>
+<p t="688340" d="1624">say the probability
+of the intersection</p>
+<p t="689964" d="2366">is the product of the
+probabilities, right?</p>
+<p t="692330" d="2610">So it's just the probability
+that each of them is equal to 0</p>
+<p t="694940" d="1375">to the power of 3.</p>
+<p t="696315" d="2375">And the probability that each
+of them, or say one of them</p>
+<p t="698690" d="2895">is equal to 0, is
+just 1 minus p.</p>
+<p t="705960" d="2940">And then for this guy I just
+get the probability-- well,</p>
+<p t="708900" d="2790">it's more complicated, because I
+have to decide which one it is.</p>
+<p t="711690" d="1890">But those things are
+just the probability</p>
+<p t="713580" d="2710">of some binomial random
+variables, right?</p>
+<p t="716290" d="4030">This is just a
+binomial, X bar 3.</p>
+<p t="720320" d="3666">So if I look at X bar 3,
+and then I multiply it by 3,</p>
+<p t="723986" d="1874">it's just this sum of
+independent Bernoulli's</p>
+<p t="725860" d="1260">with parameter p.</p>
+<p t="727120" d="4576">So this is actually a binomial
+with parameter 3 and p.</p>
+<p t="731696" d="1374">And there's tables
+for binomials,</p>
+<p t="733070" d="3497">and they tell you all this.</p>
+<p t="736567" d="2083">Now the thing is I want
+to invert this guy, right?</p>
+<p t="738650" d="1220">Somehow.</p>
+<p t="739870" d="1185">This thing depends on p.</p>
+<p t="741055" d="1935">I don't like it, so
+I'm going to have</p>
+<p t="742990" d="2884">to find ways to get this
+things depending on p,</p>
+<p t="745874" d="1916">and I could make all
+these nasty computations,</p>
+<p t="747790" d="1920">and spend hours doing this.</p>
+<p t="749710" d="1620">But there's tricks
+to go around this.</p>
+<p t="751330" d="1080">There's upper bounds.</p>
+<p t="752410" d="1980">Just like we just
+said, well, maybe I</p>
+<p t="754390" d="2450">don't want to solve the
+second degree equation in p,</p>
+<p t="756840" d="3520">because it's just going to
+capture maybe smaller order</p>
+<p t="760360" d="670">terms, right?</p>
+<p t="761030" d="2900">Things that maybe won't make
+a huge difference numerically.</p>
+<p t="763930" d="2970">You can check that in
+your problem set one.</p>
+<p t="766900" d="2010">Does it make a huge
+difference numerically</p>
+<p t="768910" d="1680">to solve the second
+degree equation,</p>
+<p t="770590" d="2370">or to just use the
+[INAUDIBLE] p 1</p>
+<p t="772960" d="3090">minus p or even to plug
+in p hat instead of p.</p>
+<p t="776050" d="1670">Those are going to
+be the-- problem</p>
+<p t="777720" d="3820">set one is to make sure that you
+see what magnitude of changes</p>
+<p t="781540" d="3810">you get by changing from
+one method to the other.</p>
+<p t="785350" d="8070">So what I wanted to
+go to is something</p>
+<p t="793420" d="2730">where we can use
+something, which is just</p>
+<p t="796150" d="1750">a little more brute force.</p>
+<p t="797900" d="1700">So the probability
+that-- so here</p>
+<p t="799600" d="1331">is this Hoeffding's inequality.</p>
+<p t="800931" d="499">We saw that.</p>
+<p t="801430" d="1890">That's what we've
+finished on last time.</p>
+<p t="803320" d="1800">So Hoeffding's
+inequality is actually</p>
+<p t="805120" d="2440">one of the most
+useful inequalities.</p>
+<p t="807560" d="2570">If any one of you is doing
+anything really to algorithms,</p>
+<p t="810130" d="1959">you've seen that
+inequality before.</p>
+<p t="812089" d="1791">It's extremely convenient
+that it tells you</p>
+<p t="813880" d="1770">something about bounded
+random variables,</p>
+<p t="815650" d="2334">and if you do algorithms
+typically with things bounded.</p>
+<p t="817984" d="2166">And that's the case of
+Bernoulli's random variables,</p>
+<p t="820150" d="499">right?</p>
+<p t="820649" d="2116">They're bounded between 0 and 1.</p>
+<p t="822765" d="1375">And so when I do
+this thing, when</p>
+<p t="824140" d="2670">I do Hoeffding's inequality,
+what this thing is telling</p>
+<p t="826810" d="6310">me is for any given epsilon
+here, for any given epsilon,</p>
+<p t="833120" d="2670">what is the probability
+that Xn bar goes away</p>
+<p t="835790" d="2580">from its expectation?</p>
+<p t="838370" d="3660">All right, then we saw that it
+decreases somewhat similarly</p>
+<p t="842030" d="2530">to the way a Gaussian
+would look like.</p>
+<p t="844560" d="3560">So essentially what Hoeffding's
+inequality is telling me, is</p>
+<p t="848120" d="10000">that I have this picture, when
+I have a Gaussian with mean u,</p>
+<p t="858120" d="2627">I know it looks
+like this, right?</p>
+<p t="860747" d="1583">What Hoeffding's
+inequality is telling</p>
+<p t="862330" d="2450">me is that if I actually
+take the average</p>
+<p t="864780" d="2960">of some bounded
+random variables,</p>
+<p t="867740" d="2754">then their probability
+distribution function or maybe</p>
+<p t="870494" d="2416">math function-- this thing
+might not even have [INAUDIBLE]</p>
+<p t="872910" d="2630">the density, but let's think
+of it as being a density just</p>
+<p t="875540" d="3090">for simplicity-- it's
+going to be something</p>
+<p t="878630" d="2265">that's going to look like this.</p>
+<p t="880895" d="1375">It's going to be
+somewhat-- well,</p>
+<p t="882270" d="1791">sometimes it's going
+to have to escape just</p>
+<p t="884061" d="2479">for the sake of
+having integral 1.</p>
+<p t="886540" d="2822">But it's essentially
+telling me that those guys</p>
+<p t="889362" d="3318">stay below those guys.</p>
+<p t="892680" d="3930">The probability that
+Xn bar exceeds mu</p>
+<p t="896610" d="2330">is bounded by
+something that decays</p>
+<p t="898940" d="1862">like to tail of Gaussian.</p>
+<p t="900802" d="2208">So really that's the picture
+you should have in mind.</p>
+<p t="903010" d="2730">When I average bounded
+random variables,</p>
+<p t="905740" d="2500">I actually have something
+that might be really rugged.</p>
+<p t="908240" d="2270">It might not be smooth
+like a Gaussian,</p>
+<p t="910510" d="2110">but I know that it's always
+bounded by a Gaussian.</p>
+<p t="912620" d="2000">And what's nice about it
+is that when I actually</p>
+<p t="914620" d="3180">start computing probability
+that exceeds some number,</p>
+<p t="917800" d="6540">say alpha over 2, then I
+know that this I can actually</p>
+<p t="924340" d="5120">get a number, which is just--</p>
+<p t="929460" d="2370">sorry, the probability
+that it exceeds, yeah.</p>
+<p t="931830" d="1750">So this number that I
+get here is actually</p>
+<p t="933580" d="1844">going to be somewhat
+smaller, right?</p>
+<p t="935424" d="2416">So that's going to be the q
+alpha over 2 for the Gaussian,</p>
+<p t="937840" d="1550">and that's going to be the--</p>
+<p t="939390" d="2208">I don't know, r alpha over
+2 for this [? Bernoulli ?]</p>
+<p t="941598" d="1952">random variable.</p>
+<p t="943550" d="2928">Like q prime or different q.</p>
+<p t="946478" d="3671">So I can actually do
+this without actually</p>
+<p t="950149" d="1041">taking any limits, right?</p>
+<p t="951190" d="2010">This is valid for any n.</p>
+<p t="953200" d="1710">I don't need to
+actually go to infinity.</p>
+<p t="954910" d="2460">Now this seems a
+bit magical, right?</p>
+<p t="957370" d="2451">I mean, I just said
+we need n to be,</p>
+<p t="959821" d="1749">we discussed that we
+wanted n to be larger</p>
+<p t="961570" d="2090">than 30 last time for
+the central limit theorem</p>
+<p t="963660" d="2290">to kick in, and this
+one seems to tell me</p>
+<p t="965950" d="1990">I can do it for any n.</p>
+<p t="967940" d="5030">Now there will be a price to pay
+is that I pick up this 2 over b</p>
+<p t="972970" d="960">minus alpha squared.</p>
+<p t="973930" d="6491">So that's the variance of the
+Gaussian that I have, right?</p>
+<p t="980421" d="499">Sort of.</p>
+<p t="980920" d="2530">That's telling me what
+the variance should be,</p>
+<p t="983450" d="1500">and this is actually
+not as nice.</p>
+<p t="984950" d="2580">I pick factor 4
+compared to the Gaussian</p>
+<p t="987530" d="1760">that I would get for that.</p>
+<p t="989290" d="2940">So let's try to solve
+it for our case.</p>
+<p t="992230" d="1570">So I just told you try it.</p>
+<p t="993800" d="1238">Did anybody try to do it?</p>
+<p t="997362" d="1708">So we started from
+this last time, right?</p>
+<p t="1001980" d="1750">And the reason was
+that we could say</p>
+<p t="1003730" d="2760">that the probability that this
+thing exceeds q alpha over 2</p>
+<p t="1006490" d="1200">is alpha.</p>
+<p t="1007690" d="4310">So that was using CLT, so let's
+just keep it here, and see</p>
+<p t="1012000" d="1484">what we would do differently.</p>
+<p t="1016230" d="2300">What Hoeffding tells me is
+that the probability that Xn</p>
+<p t="1018530" d="1540">bar minus--</p>
+<p t="1020070" d="4195">well, what is mu in this case?</p>
+<p t="1024265" d="1955">It's p, right?</p>
+<p t="1026220" d="1440">It's just notation here.</p>
+<p t="1027660" d="1620">Mu was the average,
+but we call it</p>
+<p t="1029280" d="3690">p in the case of
+Bernoulli's, exceeds--</p>
+<p t="1032970" d="4250">let's just call it
+epsilon for a second.</p>
+<p t="1037220" d="2051">So we said that this
+was bounded by what?</p>
+<p t="1039271" d="1749">So Hoeffding tells me
+that this is bounded</p>
+<p t="1041020" d="5039">by 2 times exponential minus 2.</p>
+<p t="1046059" d="3091">Now the nice thing is that
+I pick up a factor n here,</p>
+<p t="1049150" d="1000">epsilon squared.</p>
+<p t="1050150" d="2980">And what is b minus a
+squared for the Bernoulli's?</p>
+<p t="1053130" d="710">1.</p>
+<p t="1053840" d="2677">So I don't have a
+denominator here.</p>
+<p t="1056517" d="1833">And I'm going to do
+exactly what I did here.</p>
+<p t="1058350" d="2370">I'm going to set this
+guy to be equal to alpha.</p>
+<p t="1063240" d="3400">So that if I get
+alpha here, then that</p>
+<p t="1066640" d="3460">means that just
+solving for epsilon,</p>
+<p t="1070100" d="2500">I'm going to have some number,
+which will play the role of q</p>
+<p t="1072600" d="1600">alpha over 2, and
+then I'm going to be</p>
+<p t="1074200" d="4200">able to just say that p
+is between X bar and minus</p>
+<p t="1078400" d="2434">epsilon, and X bar
+n plus epsilon.</p>
+<p t="1080834" d="1434">OK, so let's do it.</p>
+<p t="1085140" d="1640">So we have to
+solve the equation.</p>
+<p t="1094572" d="6198">2 exponential minus 2n
+epsilon squared equals alpha,</p>
+<p t="1100770" d="2076">which means that--</p>
+<p t="1102846" d="3696">so here I'm going to get,
+there's a 2 right here.</p>
+<p t="1106542" d="2658">So that means that I
+get alpha over 2 here.</p>
+<p t="1109200" d="1650">Then I take the
+logs on both sides,</p>
+<p t="1110850" d="1208">and now let me just write it.</p>
+<p t="1116650" d="2780">And then I want to
+solve for epsilon.</p>
+<p t="1119430" d="3920">So that means that epsilon
+is equal to square root log</p>
+<p t="1123350" d="2510">q over alpha divided by 2n.</p>
+<p t="1130618" d="500">Yes?</p>
+<p t="1131118" d="1912">AUDIENCE: [INAUDIBLE]</p>
+<p t="1133030" d="2380">PHILIPPE RIGOLLET:
+Why is b minus a 1?</p>
+<p t="1135410" d="2430">Well, let's just look, right?</p>
+<p t="1137840" d="3020">X lives in the
+interval b minus a.</p>
+<p t="1140860" d="5250">So I can take b to be 25,
+and a to be my negative 42.</p>
+<p t="1146110" d="3024">But I'm going to try to
+be as sharp as I can.</p>
+<p t="1149134" d="1666">All right, so what
+is the smallest value</p>
+<p t="1150800" d="2540">you can think of such that
+a Bernoulli random variable</p>
+<p t="1153340" d="1950">is larger than or
+equal to this value?</p>
+<p t="1159510" d="4230">What values does a Bernoulli
+random variable take?</p>
+<p t="1163740" d="790">0 and 1.</p>
+<p t="1164530" d="4710">So it takes values
+between 0 and 1.</p>
+<p t="1169240" d="2040">It just maxes the value.</p>
+<p t="1171280" d="2580">Actually, this is the
+worst possible case</p>
+<p t="1173860" d="4270">for the Hoeffding inequality.</p>
+<p t="1178130" d="2120">So now I just get this
+one, and so now you</p>
+<p t="1180250" d="1500">tell me that I have this thing.</p>
+<p t="1181750" d="1510">So when I solve
+this guy over there.</p>
+<p t="1183260" d="2810">So combining this
+thing and this thing</p>
+<p t="1186070" d="7230">implies that the probability
+that p lives between Xn</p>
+<p t="1193300" d="8360">bar minus square root log 2
+over alpha divided by 2n and X</p>
+<p t="1201660" d="9310">bar plus the square root log
+2 over alpha divided by 2n</p>
+<p t="1210970" d="1050">is equal to?</p>
+<p t="1215170" d="1712">I mean, is at least.</p>
+<p t="1216882" d="1208">What is it at least equal to?</p>
+<p t="1222930" d="2940">Here this controls the
+probability of them outside</p>
+<p t="1225870" d="1310">of this interval, right?</p>
+<p t="1227180" d="4550">It tells me the probability
+that Xn bar is far from p</p>
+<p t="1231730" d="875">by more than epsilon.</p>
+<p t="1232605" d="1916">So there's a probability
+that they're actually</p>
+<p t="1234521" d="2119">outside of the interval
+that I just wrote.</p>
+<p t="1236640" d="3010">So it's 1 minus the probability
+of being in the interval.</p>
+<p t="1239650" d="4232">So this is at least
+1 minus alpha.</p>
+<p t="1243882" d="2458">So I just use the fact that a
+probability of the complement</p>
+<p t="1246340" d="3760">is 1 minus the
+probability of the set.</p>
+<p t="1250100" d="3360">And since I have an upper bound
+on the probability of the set,</p>
+<p t="1253460" d="5640">I have a lower bound on the
+probability of the complement.</p>
+<p t="1259100" d="4070">So now it's a bit different.</p>
+<p t="1263170" d="3470">Before, we actually wrote
+something that was--</p>
+<p t="1266640" d="1370">so let me get it back.</p>
+<p t="1268010" d="3980">So if we go back to the example
+where we took the [INAUDIBLE]</p>
+<p t="1271990" d="4850">over p, we got this guy.</p>
+<p t="1276840" d="3150">q alpha over square root of--</p>
+<p t="1279990" d="1710">over 2 square root n.</p>
+<p t="1281700" d="3266">So we had Xn bar plus minus
+q alpha over 2 square root n.</p>
+<p t="1284966" d="2374">Actually, that was q alpha
+over 2n, I'm sorry about that.</p>
+<p t="1290730" d="3810">And so now we have something
+that replaces this q alpha,</p>
+<p t="1294540" d="6340">and it's essentially square
+root of 2 log 2 over alpha.</p>
+<p t="1300880" d="2700">Because if I replace
+q alpha by square root</p>
+<p t="1303580" d="3660">of 2 log 2 over
+alpha, I actually</p>
+<p t="1307240" d="2098">get exactly this thing here.</p>
+<p t="1312030" d="3940">And so the question is,
+what would you guess?</p>
+<p t="1315970" d="5820">Is this number, this margin,
+square root of log 2 over alpha</p>
+<p t="1321790" d="4140">divided by 2n, is it smaller
+or larger than this guy?</p>
+<p t="1325930" d="2985">q alpha all over 2/3n.</p>
+<p t="1328915" d="895">Yes?</p>
+<p t="1329810" d="830">Larger.</p>
+<p t="1330640" d="1540">Everybody agrees with this?</p>
+<p t="1332180" d="2510">Just qualitatively?</p>
+<p t="1334690" d="2740">Right, because we just made a
+very conservative statement.</p>
+<p t="1337430" d="1080">We do not use anything.</p>
+<p t="1338510" d="1590">This is true always.</p>
+<p t="1340100" d="1980">So it can only be better.</p>
+<p t="1342080" d="2760">The reason in statistics where
+you use those assumptions</p>
+<p t="1344840" d="2750">that n is large enough, that you
+have this independence that you</p>
+<p t="1347590" d="2500">like so much, and so you can
+actually have the central limit</p>
+<p t="1350090" d="2200">theorem kick in,
+all these things</p>
+<p t="1352290" d="3210">are for you to have
+enough assumptions</p>
+<p t="1355500" d="2690">so that you can actually make
+sharper and sharper decisions.</p>
+<p t="1358190" d="2059">More and more
+confident statement.</p>
+<p t="1360249" d="2291">And that's why there's all
+this junk science out there,</p>
+<p t="1362540" d="3000">because people make too much
+assumptions for their own good.</p>
+<p t="1365540" d="1416">They're saying,
+well, let's assume</p>
+<p t="1366956" d="3764">that everything is the way I
+love it, so that I can for sure</p>
+<p t="1370720" d="2819">any minor change, I
+will be able to say</p>
+<p t="1373539" d="2291">that's because I made an
+important scientific discovery</p>
+<p t="1375830" d="6220">rather than, well, that
+was just [INAUDIBLE] OK?</p>
+<p t="1382050" d="2300">So now here's the fun moment.</p>
+<p t="1384350" d="4760">And actually let me tell you
+why we look at this thing.</p>
+<p t="1389110" d="2490">So there's actually--
+who has seen</p>
+<p t="1391600" d="2728">different types of convergence
+in the probability statistic</p>
+<p t="1394328" d="500">class?</p>
+<p t="1397900" d="2530">[INAUDIBLE] students.</p>
+<p t="1400430" d="1910">And so there's
+different types of--</p>
+<p t="1402340" d="3270">in the real numbers
+there's very simple.</p>
+<p t="1405610" d="1550">There's one
+convergence, Xn turns</p>
+<p t="1407160" d="2520">to X. To start thinking
+about functions,</p>
+<p t="1409680" d="2550">well, maybe you have
+uniform convergence,</p>
+<p t="1412230" d="1380">you have pointwise convergence.</p>
+<p t="1413610" d="1380">So if you've done
+some real analysis,</p>
+<p t="1414990" d="1958">you know there's different
+types of convergence</p>
+<p t="1416948" d="842">you can think of.</p>
+<p t="1417790" d="2647">And in the convergence
+of random variables,</p>
+<p t="1420437" d="2333">there's also different types,
+but for different reasons.</p>
+<p t="1422770" d="2032">It's just because the
+question is, what do you</p>
+<p t="1424802" d="958">do with the randomness?</p>
+<p t="1425760" d="2125">When you see that something
+converges to something,</p>
+<p t="1427885" d="2735">it probably means that
+you're willing to tolerate</p>
+<p t="1430620" d="3570">low probability things happening
+or where it doesn't happen,</p>
+<p t="1434190" d="2160">and on how you
+handle those, creates</p>
+<p t="1436350" d="2320">different types of convergence.</p>
+<p t="1438670" d="4670">So to be fair, in statistics the
+only convergence we care about</p>
+<p t="1443340" d="2260">is the convergence
+in distribution.</p>
+<p t="1445600" d="2257">That's this one.</p>
+<p t="1447857" d="2083">The one that comes from
+the central limit theorem.</p>
+<p t="1449940" d="2677">That's actually the weakest
+possible you could make.</p>
+<p t="1452617" d="1583">Which is good, because
+that means it's</p>
+<p t="1454200" d="1950">going to happen more often.</p>
+<p t="1456150" d="1690">And so why do we
+need this thing?</p>
+<p t="1457840" d="1560">Because the only
+thing we really need</p>
+<p t="1459400" d="2180">to do is to say that
+when I start computing</p>
+<p t="1461580" d="2274">probabilities on
+this random variable,</p>
+<p t="1463854" d="1666">they're going to look
+like probabilities</p>
+<p t="1465520" d="2320">on that random variable.</p>
+<p t="1467840" d="2160">All right, so for example,
+think of the following</p>
+<p t="1470000" d="11070">two random variables,
+x and minus x.</p>
+<p t="1481070" d="1500">So this is the same
+random variable,</p>
+<p t="1482570" d="2400">and this one is negative.</p>
+<p t="1484970" d="3080">When I look at those
+two random variables,</p>
+<p t="1488050" d="3260">think of them as a sequence,
+a constant sequence.</p>
+<p t="1491310" d="2660">These two constant sequences
+do not go to the same number,</p>
+<p t="1493970" d="500">right?</p>
+<p t="1494470" d="3440">One is plus-- one is x,
+the other one is minus x.</p>
+<p t="1497910" d="3330">So unless x is the random
+variable always equal to 0,</p>
+<p t="1501240" d="2050">those two things are different.</p>
+<p t="1503290" d="2630">However, when I compute
+probabilities on this guy,</p>
+<p t="1505920" d="3090">and when I compute probabilities
+on that guy, they're the same.</p>
+<p t="1509010" d="3240">Because x and minus x
+have the same distribution</p>
+<p t="1512250" d="3180">just by symmetry of the
+gaps in random variables.</p>
+<p t="1515430" d="1610">And so you can see
+this is very weak.</p>
+<p t="1517040" d="2110">I'm not saying anything about
+the two random variables being</p>
+<p t="1519150" d="1416">close to each other
+every time I'm</p>
+<p t="1520566" d="1534">going to flip my coin, right?</p>
+<p t="1522100" d="3585">Maybe I'm going to press my
+computer and say, what is x?</p>
+<p t="1525685" d="875">Well, it's 1.2.</p>
+<p t="1526560" d="2550">Negative x is going
+to be negative 1.2.</p>
+<p t="1529110" d="1560">Those things are
+far apart, and it</p>
+<p t="1530670" d="1560">doesn't matter, because
+in average those things</p>
+<p t="1532230" d="2100">are going to have the same
+probabilities that's happening.</p>
+<p t="1534330" d="1710">And that's all we care
+about in statistics.</p>
+<p t="1536040" d="1770">You need to realize that
+this is what's important,</p>
+<p t="1537810" d="1320">and why you need to know.</p>
+<p t="1539130" d="1470">Because you have it really good.</p>
+<p t="1540600" d="2520">If your problem is you really
+care more about convergence</p>
+<p t="1543120" d="2836">almost surely, which is probably
+the strongest you can think of.</p>
+<p t="1545956" d="2634">So what we're going to do is
+talk about different types</p>
+<p t="1548590" d="2610">of convergence not to
+just reflect on the fact</p>
+<p t="1551200" d="1920">on how our life is good.</p>
+<p t="1553120" d="3300">It's just that the problem
+is that when the convergence</p>
+<p t="1556420" d="3690">in distribution is so weak that
+it cannot do anything I want</p>
+<p t="1560110" d="630">with it.</p>
+<p t="1560740" d="3660">In particular, I cannot
+say that if X converges,</p>
+<p t="1564400" d="2830">Xn converges in distribution,
+and Yn converges</p>
+<p t="1567230" d="3560">in distribution, then Xn plus
+Yn converge in distribution</p>
+<p t="1570790" d="1290">to the sum of their limits.</p>
+<p t="1572080" d="810">I cannot do that.</p>
+<p t="1572890" d="1965">It's just too weak.</p>
+<p t="1574855" d="1875">Think of this example
+and it's preventing you</p>
+<p t="1576730" d="1166">to do quite a lot of things.</p>
+<p t="1580820" d="5210">So this is converge in
+distribution to sum n 0, 1.</p>
+<p t="1586030" d="2910">This is converge in
+distribution to sum n 0, 1.</p>
+<p t="1588940" d="2550">But their sum is 0, and
+it's certainly not--</p>
+<p t="1591490" d="2340">it doesn't look
+like the sum of two</p>
+<p t="1593830" d="2610">independent Gaussian
+random variables, right?</p>
+<p t="1596440" d="3780">And so what we need is to
+have stronger conditions here</p>
+<p t="1600220" d="2730">and there, so that we can
+actually put things together.</p>
+<p t="1602950" d="2226">And we're going to have
+more complicated formulas.</p>
+<p t="1605176" d="1374">One of the formulas,
+for example,</p>
+<p t="1606550" d="3880">is if I replace p by p
+hat in this denominator.</p>
+<p t="1610430" d="3040">We mentioned doing
+this at some point.</p>
+<p t="1613470" d="4080">So I would need that
+p hat goes to p,</p>
+<p t="1617550" d="1770">but I need stronger
+than n distributions</p>
+<p t="1619320" d="1100">so that this happens.</p>
+<p t="1620420" d="3850">I actually need this to
+happen in a stronger sense.</p>
+<p t="1624270" d="3420">So here are the first two
+strongest sense in which</p>
+<p t="1627690" d="1980">random variables can converge.</p>
+<p t="1629670" d="3470">The first one is almost surely.</p>
+<p t="1633140" d="3430">And who has already seen
+this notation little omega</p>
+<p t="1636570" d="2920">when they're talking
+about random variables?</p>
+<p t="1639490" d="1020">All right, so very few.</p>
+<p t="1640510" d="3502">So this little omega is-- so
+what is a random variable?</p>
+<p t="1644012" d="1958">A random variable is
+something that you measure</p>
+<p t="1645970" d="1655">on something that's random.</p>
+<p t="1647625" d="1375">So the example I
+like to think of</p>
+<p t="1649000" d="5910">is, if you take a ball
+of snow, and put it</p>
+<p t="1654910" d="2160">in the sun for some time.</p>
+<p t="1657070" d="1142">You come back.</p>
+<p t="1658212" d="1708">It's going to have a
+random shape, right?</p>
+<p t="1659920" d="2684">It's going to be a random
+blurb of something.</p>
+<p t="1662604" d="2416">But there's still a bunch of
+things you can measure on it.</p>
+<p t="1665020" d="1390">You can measure its volume.</p>
+<p t="1666410" d="1790">You can measure its
+inner temperature.</p>
+<p t="1668200" d="2010">You can measure
+its surface area.</p>
+<p t="1670210" d="2040">All these things are
+random variables,</p>
+<p t="1672250" d="2340">but the ball itself is omega.</p>
+<p t="1674590" d="2310">That's the thing on which
+you make your measurement.</p>
+<p t="1676900" d="3970">And so a random variable is
+just a function of those omegas.</p>
+<p t="1680870" d="2340">Now why do we make all
+these things fancy?</p>
+<p t="1683210" d="1590">Because you cannot
+take any function.</p>
+<p t="1684800" d="2041">This function has to be
+what's called measurable,</p>
+<p t="1686841" d="2229">and there's entire
+courses on measure theory,</p>
+<p t="1689070" d="1960">and not everything
+is measurable.</p>
+<p t="1691030" d="2145">And so that's why you have
+to be a little careful</p>
+<p t="1693175" d="1375">why not everything
+is measurable,</p>
+<p t="1694550" d="3040">because you need some
+sort of nice property.</p>
+<p t="1697590" d="2207">So that the measure
+of something,</p>
+<p t="1699797" d="2583">the union of two things, is less
+than the sum of the measures,</p>
+<p t="1702380" d="1450">things like that.</p>
+<p t="1703830" d="7110">And so almost surely is telling
+you that for most of the balls,</p>
+<p t="1710940" d="3600">for most of the omegas,
+that's the right-hand side.</p>
+<p t="1714540" d="2610">The probability of omega is
+such that those things converge</p>
+<p t="1717150" d="4250">to each other is
+actually equal to 1.</p>
+<p t="1721400" d="4220">So it tells me that for almost
+all omegas, all the omegas,</p>
+<p t="1725620" d="1626">if I put them together,
+I get something</p>
+<p t="1727246" d="1082">that has probability of 1.</p>
+<p t="1728328" d="2642">It might be that there are other
+ones that have probability 0,</p>
+<p t="1730970" d="1710">but what it's telling
+is that this thing</p>
+<p t="1732680" d="3161">happens for all possible
+realization of the underlying</p>
+<p t="1735841" d="499">thing.</p>
+<p t="1736340" d="1380">That's very strong.</p>
+<p t="1737720" d="2421">It essentially says
+randomness does not matter,</p>
+<p t="1740141" d="1249">because it's happening always.</p>
+<p t="1744310" d="2030">Now convergence in
+probability allows</p>
+<p t="1746340" d="2840">you to squeeze a little bit
+of probability under the rock.</p>
+<p t="1749180" d="2950">It tells you I want the
+convergence to hold,</p>
+<p t="1752130" d="4990">but I'm willing to let go
+of some little epsilon.</p>
+<p t="1757120" d="6380">So I'm willing to allow Tn
+to be less than epsilon.</p>
+<p t="1763500" d="3880">Tn minus T to be-- sorry,
+to be larger than epsilon.</p>
+<p t="1767380" d="1980">But the problem is they
+want this to go to 0</p>
+<p t="1769360" d="2070">as well as n goes to
+infinity, but for each</p>
+<p t="1771430" d="2661">n this thing does not
+have to be 0, which</p>
+<p t="1774091" d="2159">is different from here, right?</p>
+<p t="1776250" d="3890">So this probability
+here is fine.</p>
+<p t="1780140" d="4320">So it's a little weaker, but
+it's a slightly different one.</p>
+<p t="1784460" d="2400">I'm not going to ask you
+to learn and show that one</p>
+<p t="1786860" d="1650">is weaker than the other one.</p>
+<p t="1788510" d="2500">But just know that these
+are two different types.</p>
+<p t="1791010" d="2795">This one is actually much
+easier to check than this one.</p>
+<p t="1802550" d="4000">Then there's something
+called convergence in Lp.</p>
+<p t="1806550" d="2650">So this one is the fact that
+it embodies the following fact.</p>
+<p t="1809200" d="2540">If I give you a random
+variable with mean 0,</p>
+<p t="1811740" d="2370">and I tell you that its
+variance is going to 0, right?</p>
+<p t="1814110" d="2685">You have a sequence of random
+variables, their mean is 0,</p>
+<p t="1816795" d="3595">their expectation is 0, but
+their variance is going to 0.</p>
+<p t="1820390" d="3110">So think of Gaussian random
+variables with mean 0,</p>
+<p t="1823500" d="2800">and a variance
+that shrinks to 0.</p>
+<p t="1826300" d="2960">And this random variable
+converges to a spike at 0,</p>
+<p t="1829260" d="2310">so it converges to 0, right?</p>
+<p t="1831570" d="4090">And so what I mean by that is
+that to have this convergence,</p>
+<p t="1835660" d="3140">all I had to tell you was that
+the variance was going to 0.</p>
+<p t="1838800" d="2900">And so in L2 this is really
+what it's telling you.</p>
+<p t="1841700" d="3020">It's telling you, well, if
+the variance is going to 0--</p>
+<p t="1844720" d="2150">well, it's for any
+random variable T,</p>
+<p t="1846870" d="3370">so here what I describe
+was for a deterministic.</p>
+<p t="1850240" d="5100">So Tn goes to a random variable
+T. If you look at the square--</p>
+<p t="1855340" d="3075">the expectation of the square
+distance, and it goes to 0.</p>
+<p t="1858415" d="2125">But you don't have to limit
+yourself to the square.</p>
+<p t="1860540" d="1370">You can take power of three.</p>
+<p t="1861910" d="4870">You can take power
+67.6, power of 9 pi.</p>
+<p t="1866780" d="3000">You take whatever power you
+want, it can be fractional.</p>
+<p t="1869780" d="4140">It has to be lower than 1, and
+that's the convergence in Lp.</p>
+<p t="1873920" d="3600">But we mostly care
+about integer p.</p>
+<p t="1877520" d="2587">And then here's our star, the
+convergence in distribution,</p>
+<p t="1880107" d="1583">and that's just the
+one that tells you</p>
+<p t="1881690" d="5600">that when I start computing
+probabilities on the Tn,</p>
+<p t="1887290" d="4330">they're going to look very close
+to the probabilities on the T.</p>
+<p t="1891620" d="2790">So that was our Tn with
+this guy, for example,</p>
+<p t="1894410" d="2700">and T was this standard
+Gaussian distribution.</p>
+<p t="1897110" d="1850">Now here, this is
+not any probability.</p>
+<p t="1898960" d="3480">This is just the probability
+then less than or equal to x.</p>
+<p t="1902440" d="1950">But if you remember
+your probability class,</p>
+<p t="1904390" d="1440">if you can compute
+those probabilities,</p>
+<p t="1905830" d="1374">you can compute
+any probabilities</p>
+<p t="1907204" d="2830">just by subtracting and just
+building things together.</p>
+<p t="1915230" d="3420">Well, I need this for all x's,
+so I want this for each x,</p>
+<p t="1918650" d="2870">So you fix x, and then you
+make the limit go to infinity.</p>
+<p t="1921520" d="1660">You make n go to
+infinity, and I want</p>
+<p t="1923180" d="3300">this for the point x's at which
+the cumulative distribution</p>
+<p t="1926480" d="1750">function of T is continuous.</p>
+<p t="1928230" d="7120">There might be jumps, and that
+I don't actually care for those.</p>
+<p t="1935350" d="2427">All right, so here I mentioned
+it for random variables.</p>
+<p t="1937777" d="2083">If you're interested,
+there's also random vectors.</p>
+<p t="1939860" d="3570">A random vector is just a
+table of random variables.</p>
+<p t="1943430" d="1921">You can talk about
+random matrices.</p>
+<p t="1945351" d="1999">And you can talk about
+random whatever you want.</p>
+<p t="1947350" d="1570">Every time you have
+an object that's</p>
+<p t="1948920" d="2220">just collecting real
+numbers, you can just</p>
+<p t="1951140" d="2230">plug random variables in there.</p>
+<p t="1953370" d="3680">And so there's all these
+definitions that [? extend. ?]</p>
+<p t="1957050" d="2030">So where I see you
+see an absolute value,</p>
+<p t="1959080" d="1086">we'll see a norm.</p>
+<p t="1960166" d="2874">Things like this.</p>
+<p t="1963040" d="3030">So I'm sure this might
+look scary a little bit,</p>
+<p t="1966070" d="2940">but really what we are going to
+use is only the last one, which</p>
+<p t="1969010" d="1416">as you can see is
+just telling you</p>
+<p t="1970426" d="2464">that the probabilities
+converge to the probabilities.</p>
+<p t="1972890" d="2940">But I'm going to need the other
+ones every once in a while.</p>
+<p t="1975830" d="3840">And the reason is,
+well, OK, so here I'm</p>
+<p t="1979670" d="3300">actually going to the
+important characterizations</p>
+<p t="1982970" d="2370">of the convergence
+in distribution,</p>
+<p t="1985340" d="2770">which is R convergence style.</p>
+<p t="1988110" d="2090">So i converge in
+distribution if and only</p>
+<p t="1990200" d="3870">if for any function that's
+continuous and bounded,</p>
+<p t="1994070" d="2100">when I look at the
+expectation of f of Tn,</p>
+<p t="1996170" d="3700">this converges to the
+expectation of f of T. OK,</p>
+<p t="1999870" d="5257">so this is just those two
+things are actually equivalent.</p>
+<p t="2005127" d="2583">Sometimes it's easier to check
+one, easier to check the other,</p>
+<p t="2007710" d="2333">but in this class you won't
+have to prove that something</p>
+<p t="2010043" d="3337">converges in distribution
+other than just combining</p>
+<p t="2013380" d="3860">our existing
+convergence results.</p>
+<p t="2017240" d="2780">And then the last one which
+is equivalent to the above two</p>
+<p t="2020020" d="2970">is, anybody knows what the
+name of this quantity is?</p>
+<p t="2022990" d="2130">This expectation here?</p>
+<p t="2025120" d="2040">What is it called?</p>
+<p t="2027160" d="1920">The characteristic
+function, right?</p>
+<p t="2029080" d="3600">And so this i is the complex
+i, and is the complex number.</p>
+<p t="2032680" d="1440">And so it's
+essentially telling me</p>
+<p t="2034120" d="1950">that, well, rather
+than actually looking</p>
+<p t="2036070" d="2550">at all bounded and continuous
+but real functions,</p>
+<p t="2038620" d="5010">I can actually look
+at one specific family</p>
+<p t="2043630" d="4660">of complex functions, which
+are the functions that maps</p>
+<p t="2048290" d="4690">T to E to the ixT
+for x and R. That's</p>
+<p t="2052980" d="1900">a much smaller
+family of functions.</p>
+<p t="2054880" d="2400">All possible continuous
+embedded functions</p>
+<p t="2057280" d="4310">has many more elements
+than just the real element.</p>
+<p t="2061590" d="2720">And so now I can show that
+if I limit myself to do it,</p>
+<p t="2064310" d="1182">it's actually sufficient.</p>
+<p t="2068139" d="4381">So those three things are used
+all over the literature just</p>
+<p t="2072520" d="840">to show things.</p>
+<p t="2073360" d="3859">In particular, if you're
+interested in deep digging</p>
+<p t="2077219" d="2291">a little more mathematically,
+the central limit theorem</p>
+<p t="2079510" d="1000">is going to be so important.</p>
+<p t="2080510" d="1610">Maybe you want to read
+about how to prove it.</p>
+<p t="2082120" d="1829">We're not going to
+prove it in this class.</p>
+<p t="2083949" d="5851">There's probably at least five
+different ways of proving it,</p>
+<p t="2089800" d="2640">but the most canonical one, the
+one that you find in textbooks,</p>
+<p t="2092440" d="3540">is the one that actually
+uses the third element.</p>
+<p t="2095980" d="3120">So you just look at the
+characteristic function</p>
+<p t="2099100" d="5300">of the square root of
+n Xn bar minus say mu,</p>
+<p t="2104400" d="3450">and you just expand the thing,
+and this is what you get.</p>
+<p t="2107850" d="1380">And you will see
+that in the end,</p>
+<p t="2109230" d="4590">you will get the characteristic
+function of a Gaussian.</p>
+<p t="2113820" d="750">Why a Gaussian?</p>
+<p t="2114570" d="1230">Why does it kick in?</p>
+<p t="2115800" d="1620">Well, because what is the
+characteristic function</p>
+<p t="2117420" d="480">of a Gaussian?</p>
+<p t="2117900" d="1860">Does anybody remember the
+characteristic function</p>
+<p t="2119760" d="958">of a standard Gaussian?</p>
+<p t="2120718" d="1211">AUDIENCE: [INAUDIBLE]</p>
+<p t="2121929" d="1541">PHILIPPE RIGOLLET:
+Yeah, well, I mean</p>
+<p t="2123470" d="4290">there's two pi's and stuff
+that goes away, right?</p>
+<p t="2127760" d="1570">A Gaussian is a random variable.</p>
+<p t="2129330" d="1810">A characteristic
+function is a function,</p>
+<p t="2131140" d="1900">and so it's not really itself.</p>
+<p t="2133040" d="1760">It looks like itself.</p>
+<p t="2134800" d="2462">Anybody knows what
+the actual formula is?</p>
+<p t="2137262" d="499">Yeah.</p>
+<p t="2137761" d="1823">AUDIENCE: [INAUDIBLE]</p>
+<p t="2139584" d="1416">PHILIPPE RIGOLLET:
+E to the minus?</p>
+<p t="2141000" d="1230">AUDIENCE: E to the
+minus x squared over 2.</p>
+<p t="2142230" d="1125">PHILIPPE RIGOLLET: Exactly.</p>
+<p t="2143355" d="1605">E to the minus x squared over 2.</p>
+<p t="2144960" d="1710">But this x squared
+over 2 is actually</p>
+<p t="2146670" d="3031">just the second order expansion
+in the Taylor expansion.</p>
+<p t="2149701" d="1833">And that's why the
+Gaussian is so important.</p>
+<p t="2151534" d="3286">It's just the second
+order Taylor expansion.</p>
+<p t="2154820" d="1370">And so you can check it out.</p>
+<p t="2156190" d="2160">I think Terry Tao has
+some stuff on his blog,</p>
+<p t="2158350" d="2010">and there's a bunch
+of different proofs.</p>
+<p t="2160360" d="2430">But if you want to prove
+convergence in distribution,</p>
+<p t="2162790" d="5110">you very likely are going to
+use one this three right here.</p>
+<p t="2167900" d="1110">So let's move on.</p>
+<p t="2173050" d="2460">This is when I said
+that this convergence is</p>
+<p t="2175510" d="1680">weaker than that convergence.</p>
+<p t="2177190" d="1680">This is what I meant.</p>
+<p t="2178870" d="1830">If you have convergence
+in one style,</p>
+<p t="2180700" d="2500">it implies convergence
+in the other stuff.</p>
+<p t="2183200" d="3305">So the first [INAUDIBLE] is that
+if Tn converges almost surely,</p>
+<p t="2186505" d="2445">this a dot s dot
+means almost surely,</p>
+<p t="2188950" d="2250">then it also converges
+in probability</p>
+<p t="2191200" d="1700">and actually the
+two limits, which</p>
+<p t="2192900" d="4510">are this random variable
+T, are equal almost surely.</p>
+<p t="2197410" d="2340">Basically what it means is
+that whatever you measure one</p>
+<p t="2199750" d="2416">is going to be the same that
+you measure on the other one.</p>
+<p t="2202166" d="2134">So that's very strong.</p>
+<p t="2204300" d="3660">So that means that
+convergence almost surely</p>
+<p t="2207960" d="3030">is stronger than
+convergence in probability.</p>
+<p t="2210990" d="2580">If you're converge in Lp
+then you also converge</p>
+<p t="2213570" d="2820">in Lq for sum q less than p.</p>
+<p t="2216390" d="3090">So if you converge in L2,
+you'll also converge in L1.</p>
+<p t="2219480" d="3570">If you converge in L67,
+you converge in L2.</p>
+<p t="2223050" d="1870">If you're converge
+in L infinity,</p>
+<p t="2224920" d="4470">you converge in Lp for anything.</p>
+<p t="2229390" d="3000">And so, again, limits are equal.</p>
+<p t="2232390" d="2006">And then when you
+converge in distribution,</p>
+<p t="2234396" d="1374">when you converge
+in probability,</p>
+<p t="2235770" d="3090">you also converge
+in distribution.</p>
+<p t="2238860" d="3920">OK, so almost surely
+implies probability.</p>
+<p t="2242780" d="1620">Lp implies probability.</p>
+<p t="2244400" d="2120">Probability implies
+distribution.</p>
+<p t="2246520" d="2220">And here note that
+I did not write,</p>
+<p t="2248740" d="2150">and the limits are
+equal almost surely.</p>
+<p t="2250890" d="500">Why?</p>
+<p t="2255446" d="1624">Because the convergence
+in distribution</p>
+<p t="2257070" d="1860">is actually not telling you
+that your random variable</p>
+<p t="2258930" d="1920">is converging to
+another random variable.</p>
+<p t="2260850" d="1583">It's telling you
+that the distribution</p>
+<p t="2262433" d="2757">of your random variable is
+converging to a distribution.</p>
+<p t="2265190" d="1990">And think of this, guys.</p>
+<p t="2267180" d="1884">x and minus x.</p>
+<p t="2269064" d="1416">The central limit
+theorem tells me</p>
+<p t="2270480" d="2980">that I'm converging to some
+standard Gaussian distribution,</p>
+<p t="2273460" d="3874">but am I converging to x or
+am I converging to minus x?</p>
+<p t="2277334" d="1041">It's not well identified.</p>
+<p t="2278375" d="3095">It's any random variable
+that has this distribution.</p>
+<p t="2281470" d="2640">So there's no way
+the limits are equal.</p>
+<p t="2284110" d="1960">Their distributions are
+going to be the same,</p>
+<p t="2286070" d="1840">but they're not the same limit.</p>
+<p t="2287910" d="2060">Is that clear for everyone?</p>
+<p t="2289970" d="2730">So in a way, convergence
+in distribution</p>
+<p t="2292700" d="2477">is really not a convergence
+of a random variable</p>
+<p t="2295177" d="1333">towards another random variable.</p>
+<p t="2296510" d="2010">It's just telling you
+the limiting distribution</p>
+<p t="2298520" d="1870">of your random
+variable [INAUDIBLE]</p>
+<p t="2300390" d="2432">which is enough for us.</p>
+<p t="2302822" d="1708">And one thing that's
+actually really nice</p>
+<p t="2304530" d="4260">is this continuous
+mapping theorem, which</p>
+<p t="2308790" d="1557">essentially tells you that--</p>
+<p t="2310347" d="1833">so this is one of the
+theorems that we like,</p>
+<p t="2312180" d="1770">because they tell
+us you can do what</p>
+<p t="2313950" d="1710">you feel like you want to do.</p>
+<p t="2315660" d="4170">So if I have Tn that goes to
+T, f of Tn goes to f of T,</p>
+<p t="2319830" d="2970">and this is true for
+any of those convergence</p>
+<p t="2322800" d="2850">except for Lp.</p>
+<p t="2328170" d="3320">But they have to have f,
+which is continuous, otherwise</p>
+<p t="2331490" d="3460">weird stuff can happen.</p>
+<p t="2334950" d="3200">So this is going to be
+convenient, because here I</p>
+<p t="2338150" d="1862">don't have X to n minus p.</p>
+<p t="2340012" d="1208">I have a continuous function.</p>
+<p t="2341220" d="1874">It's between a linear
+function of Xn minus p,</p>
+<p t="2343094" d="2706">but I could think of like
+even crazier stuff to do,</p>
+<p t="2345800" d="2076">and it would still be true.</p>
+<p t="2347876" d="2374">If I took the square, it would
+converge to something that</p>
+<p t="2350250" d="1350">looks like its distribution.</p>
+<p t="2351600" d="1375">It's the same as
+the distribution</p>
+<p t="2352975" d="3125">of a square Gaussian.</p>
+<p t="2356100" d="2335">So this is a mouthful,
+these two slides--</p>
+<p t="2358435" d="1875">actually this particular
+slide is a mouthful.</p>
+<p t="2360310" d="4310">What I have in my head since
+I was pretty much where you're</p>
+<p t="2364620" d="3270">sitting, is this diagram.</p>
+<p t="2367890" d="4210">So what it tells me-- so it's
+actually voluntarily cropped,</p>
+<p t="2372100" d="3330">so you can start from
+any Lq you want large.</p>
+<p t="2375430" d="2600">And then as you
+decrease the index,</p>
+<p t="2378030" d="1720">you are actually
+implying, implying,</p>
+<p t="2379750" d="2940">implying until you imply
+convergence in probability.</p>
+<p t="2382690" d="2160">Convergence almost surely
+implies convergence</p>
+<p t="2384850" d="4800">in probability, and everything
+goes to the [? sync, ?]</p>
+<p t="2389650" d="2940">that is convergence
+in distribution.</p>
+<p t="2392590" d="2640">So everything implies
+convergence in distribution.</p>
+<p t="2395230" d="2570">So that's basically rather than
+remembering those formulas,</p>
+<p t="2397800" d="2040">this is really the diagram
+you want to remember.</p>
+<p t="2402690" d="3900">All right, so why do we bother
+learning about those things.</p>
+<p t="2406590" d="2790">That's because of this
+limits and operations.</p>
+<p t="2409380" d="1200">Operations and limits.</p>
+<p t="2410580" d="3130">If I have a sequence
+of real numbers,</p>
+<p t="2413710" d="4060">and I know that Xn converges
+to X and Yn converges to Y,</p>
+<p t="2417770" d="2281">then I can start doing all
+my manipulations and things</p>
+<p t="2420051" d="499">are happy.</p>
+<p t="2420550" d="1010">I can add stuff.</p>
+<p t="2421560" d="1680">I can multiply stuff.</p>
+<p t="2423240" d="4809">But it's not true always for
+convergence in distribution.</p>
+<p t="2428049" d="1541">But it is, what's
+nice, it's actually</p>
+<p t="2429590" d="2900">true for convergence
+almost surely.</p>
+<p t="2432490" d="2760">Convergence almost surely
+everything is true.</p>
+<p t="2435250" d="2860">It's just impossible
+to make it fail.</p>
+<p t="2438110" d="2970">But convergence in probability
+is not always everything,</p>
+<p t="2441080" d="2790">but at least you can actually
+add stuff and multiply stuff.</p>
+<p t="2443870" d="2730">And it will still give
+you the sum of the n,</p>
+<p t="2446600" d="2480">and the product of the n.</p>
+<p t="2449080" d="6510">You can even take the ratio
+if V is not 0 of course.</p>
+<p t="2455590" d="1500">If the limit is not
+0, then actually</p>
+<p t="2457090" d="1430">you need Vn to be not 0 as well.</p>
+<p t="2461440" d="4090">You can actually prove
+this last statement, right?</p>
+<p t="2465530" d="3090">Because it's a combination
+of the first statement</p>
+<p t="2468620" d="3120">of the second one, and the
+continuous mapping theorem.</p>
+<p t="2471740" d="3030">Because the function
+that maps x to 1</p>
+<p t="2474770" d="4410">over x on everything
+but 0, is continuous.</p>
+<p t="2479180" d="5380">And so 1 over Vn
+converges to 1 over V,</p>
+<p t="2484560" d="2260">and then I can multiply
+those two things.</p>
+<p t="2486820" d="2050">So you actually knew that one.</p>
+<p t="2488870" d="1890">But really this is
+not what matters,</p>
+<p t="2490760" d="4350">because this is something that
+you will do whatever happens.</p>
+<p t="2495110" d="2676">If I don't tell you you cannot
+do it, well, you will do it.</p>
+<p t="2497786" d="1374">But in general
+those things don't</p>
+<p t="2499160" d="1500">apply to convergence
+in distribution</p>
+<p t="2500660" d="3730">unless the pair itself is known
+to converge in distribution.</p>
+<p t="2504390" d="3830">Remember when I said that
+these things apply to vectors,</p>
+<p t="2508220" d="2930">then you need to actually
+say that the vector converges</p>
+<p t="2511150" d="2370">in distributions to
+the limiting factor.</p>
+<p t="2513520" d="1779">Now this tells
+you in particular,</p>
+<p t="2515299" d="2041">since the cumulative
+distribution function is not</p>
+<p t="2517340" d="2480">defined for vectors,
+I would have</p>
+<p t="2519820" d="2790">to actually use one of the
+other distributions, one</p>
+<p t="2522610" d="1800">of the other criteria,
+which is convergence</p>
+<p t="2524410" d="3000">of characteristic
+functions or convergence</p>
+<p t="2527410" d="3690">of a function of bounded
+continuous function</p>
+<p t="2531100" d="1370">of the random variable.</p>
+<p t="2532470" d="4684">0.2 or 0.3, but 0.1 is not
+going get you anywhere.</p>
+<p t="2537154" d="1416">But this is something
+that's going</p>
+<p t="2538570" d="2280">to be too hard for us to
+deal with, so we're actually</p>
+<p t="2540850" d="2892">going to rely on the
+fact that we have</p>
+<p t="2543742" d="1208">something that's even better.</p>
+<p t="2544950" d="1630">There's something
+that is waiting for us</p>
+<p t="2546580" d="2583">at the end of his lecture, which
+is called Slutsky's that says</p>
+<p t="2549163" d="4327">that if V, in this case,
+converges in probability</p>
+<p t="2553490" d="2550">but U converge in distribution,
+I can actually still do that.</p>
+<p t="2556040" d="1416">I actually don't
+need both of them</p>
+<p t="2557456" d="1290">to converge in probability.</p>
+<p t="2558746" d="2458">I actually need only one of
+them to converge in probability</p>
+<p t="2561204" d="958">to make this statement.</p>
+<p t="2562162" d="2908">But two sum.</p>
+<p t="2565070" d="1990">So let's go to another example.</p>
+<p t="2567060" d="2690">So I just want to make sure that
+we keep on doing statistics.</p>
+<p t="2569750" d="2203">And every time we're going
+to just do a little bit</p>
+<p t="2571953" d="2249">too much probability, I'm
+going to reset the pressure,</p>
+<p t="2574202" d="1888">and start doing
+statistics again.</p>
+<p t="2576090" d="3370">All right, so assume
+you observe the times</p>
+<p t="2579460" d="5130">the inter-arrival time
+of the T at Kendall.</p>
+<p t="2584590" d="1440">So this is not the arrival time.</p>
+<p t="2586030" d="3950">It's not like 7:56, 8:15.</p>
+<p t="2589980" d="2940">No, it's really the
+inter-arrival time, right?</p>
+<p t="2592920" d="4380">So say the next T is
+arriving in six minutes.</p>
+<p t="2597300" d="3650">So let's say [INAUDIBLE] bound.</p>
+<p t="2600950" d="2300">And so you have this
+inter-arrival time.</p>
+<p t="2603250" d="4010">So those are numbers say,
+3, 4, 5, 4, 3, et cetera.</p>
+<p t="2607260" d="2230">So I have this
+sequence of numbers.</p>
+<p t="2609490" d="1610">So I'm going to
+observe this, and I'm</p>
+<p t="2611100" d="4950">going to try to infer what
+is the rate of T's going out</p>
+<p t="2616050" d="2907">of the station from this.</p>
+<p t="2618957" d="1833">So I'm going to assume
+that these things are</p>
+<p t="2620790" d="2370">mutually independent.</p>
+<p t="2623160" d="1730">That's probably not
+completely true.</p>
+<p t="2624890" d="1960">Again, it just means
+that what it would mean</p>
+<p t="2626850" d="2250">is that two consecutive
+inter-arrival times are</p>
+<p t="2629100" d="921">independent.</p>
+<p t="2630021" d="1999">I mean, you can make it
+independent if you want,</p>
+<p t="2632020" d="1583">but again, this
+independent assumption</p>
+<p t="2633603" d="2577">is for us to be happy and safe.</p>
+<p t="2636180" d="1980">Unless someone comes
+with overwhelming proof</p>
+<p t="2638160" d="3306">that it's not independent and
+far from being independent,</p>
+<p t="2641466" d="2484">then yes, you have a problem.</p>
+<p t="2643950" d="2250">But it might be the fact
+that it's actually-- if you</p>
+<p t="2646200" d="3040">have a T that's one hour late.</p>
+<p t="2649240" d="3090">If an inter-arrival time is
+one hour, then the other T,</p>
+<p t="2652330" d="1970">either they fixed
+it, and it's going</p>
+<p t="2654300" d="2850">to be just 30 seconds behind,
+or they haven't fixed it,</p>
+<p t="2657150" d="1840">then it's going to be
+another hour behind.</p>
+<p t="2658990" d="1790">So they're not
+exactly independent,</p>
+<p t="2660780" d="3650">but they are when things
+work well and approximate.</p>
+<p t="2664430" d="3150">And so now I need to model
+a random variable that's</p>
+<p t="2667580" d="1984">positive, maybe
+not upper bounded.</p>
+<p t="2669564" d="1916">I mean, people complain
+enough that this thing</p>
+<p t="2671480" d="955">can be really large.</p>
+<p t="2672435" d="2375">And so one thing that people
+like for inter-arrival times</p>
+<p t="2674810" d="2029">is exponential distribution.</p>
+<p t="2676839" d="1541">So that's a positive
+random variable.</p>
+<p t="2678380" d="2083">Looks like an exponential
+on the right-hand slide,</p>
+<p t="2680463" d="1187">on the positive line.</p>
+<p t="2681650" d="1950">And so it decays
+very fast towards 0.</p>
+<p t="2683600" d="1800">The probability that
+you have very large</p>
+<p t="2685400" d="3680">values exponentially small, and
+there's a [INAUDIBLE] lambda</p>
+<p t="2689080" d="1820">that controls how
+exponential is defined.</p>
+<p t="2690900" d="2700">It's exponential minus
+lambda times something.</p>
+<p t="2693600" d="2670">And so we're going
+to assume that they</p>
+<p t="2696270" d="2340">have the same distribution,
+the same random variable.</p>
+<p t="2698610" d="1920">So they're IID, because
+they are independent,</p>
+<p t="2700530" d="1280">and they're identically
+distributed.</p>
+<p t="2701810" d="2208">They all have this exponential
+with parameter lambda,</p>
+<p t="2704018" d="2312">and I'm going to try to
+learn something about lambda.</p>
+<p t="2706330" d="2460">What is the estimated
+value of lambda,</p>
+<p t="2708790" d="3420">and can I build a confidence
+interval for lambda.</p>
+<p t="2712210" d="4260">So we observe n arrival times.</p>
+<p t="2716470" d="3950">So as I said, the
+mutual independence</p>
+<p t="2720420" d="3635">is plausible, but not
+completely justified.</p>
+<p t="2724055" d="1375">The fact that
+they're exponential</p>
+<p t="2725430" d="2374">is actually something that
+people like in all this what's</p>
+<p t="2727804" d="1226">called queuing theory.</p>
+<p t="2729030" d="2010">So exponentials
+arise a lot when you</p>
+<p t="2731040" d="1410">talk about inter-arrival times.</p>
+<p t="2732450" d="1560">It's not about
+the bus, but where</p>
+<p t="2734010" d="7770">it's very important is call
+centers, service, servers where</p>
+<p t="2741780" d="3480">tasks come, and people
+want to know how long it's</p>
+<p t="2745260" d="2190">going to take to serve a task.</p>
+<p t="2747450" d="2610">So when I call at
+a center, nobody</p>
+<p t="2750060" d="2650">knows how long I'm going to stay
+on the phone with this person.</p>
+<p t="2752710" d="1880">But it turns out that
+empirically exponential</p>
+<p t="2754590" d="2207">distributions have been
+very good at modeling this.</p>
+<p t="2756797" d="1833">And what it means is
+that they're actually--</p>
+<p t="2758630" d="3230">you have this
+memoryless property.</p>
+<p t="2761860" d="1710">It's kind of crazy if
+you think about it.</p>
+<p t="2763570" d="1041">What does that thing say?</p>
+<p t="2764611" d="1949">Let's parse it.</p>
+<p t="2766560" d="2350">That's the probability.</p>
+<p t="2768910" d="3710">So this is condition on the
+fact that T1 is larger than T.</p>
+<p t="2772620" d="2160">So T1 is just say the
+first arrival time.</p>
+<p t="2774780" d="2040">That means that
+conditionally on the fact</p>
+<p t="2776820" d="2880">that I've been waiting
+for the first T, well,</p>
+<p t="2779700" d="3800">the first [INAUDIBLE].</p>
+<p t="2783500" d="3940">Well, I should probably-- the
+first subway for more than T</p>
+<p t="2787440" d="2900">conditionally-- so I've been
+there T minutes already.</p>
+<p t="2790340" d="2786">Then the probability that
+I wait for s more minutes.</p>
+<p t="2793126" d="1874">So that's the probability
+that T1 is learned,</p>
+<p t="2795000" d="3439">and the time that we've
+already waited plus x.</p>
+<p t="2798439" d="1791">Given that I've been
+waiting for T minutes,</p>
+<p t="2800230" d="2110">really I wait for
+s more minutes,</p>
+<p t="2802340" d="4076">is actually the probability
+that I wait for s minutes total.</p>
+<p t="2806416" d="1124">It's completely memoryless.</p>
+<p t="2807540" d="2130">It doesn't remember how
+long have you been waiting.</p>
+<p t="2809670" d="1350">The probability does not change.</p>
+<p t="2811020" d="2430">You can have waited for
+two hours, the probability</p>
+<p t="2813450" d="1979">that it takes
+another 10 minutes is</p>
+<p t="2815429" d="1416">going to be the
+same as if you had</p>
+<p t="2816845" d="2405">been waiting for zero minutes.</p>
+<p t="2819250" d="1500">And that's something
+that's actually</p>
+<p t="2820750" d="1720">part of your problem set.</p>
+<p t="2822470" d="950">Very easy to compute.</p>
+<p t="2823420" d="2310">This is just an
+analytical property.</p>
+<p t="2825730" d="1496">And you just
+manipulate functions,</p>
+<p t="2827226" d="2125">and you see that this thing
+just happen to be true,</p>
+<p t="2829351" d="2489">and that's something
+that people like.</p>
+<p t="2831840" d="3300">Because that's also
+something that benefit.</p>
+<p t="2835140" d="2400">And also what we like is
+that this thing is positive</p>
+<p t="2837540" d="3540">almost surely, which is good
+when you model arrival times.</p>
+<p t="2841080" d="2052">To be fair, we're not
+going to be that careful.</p>
+<p t="2843132" d="1458">Because sometimes
+we are just going</p>
+<p t="2844590" d="4420">to assume that something
+follows a normal distribution.</p>
+<p t="2849010" d="1617">And in particular,
+I mean, I don't</p>
+<p t="2850627" d="1833">know if we're going to
+go into that details,</p>
+<p t="2852460" d="2370">but a good thing that you
+can model with a Gaussian</p>
+<p t="2854830" d="3600">distribution are
+heights of students.</p>
+<p t="2858430" d="2290">But technically with
+positive probability,</p>
+<p t="2860720" d="3570">you can have a negative
+Gaussian random variable, right?</p>
+<p t="2864290" d="4260">And the probability being it's
+probably 10 to the minus 25,</p>
+<p t="2868550" d="1166">but it's positive.</p>
+<p t="2869716" d="1874">But it's good enough
+for us for our modeling.</p>
+<p t="2871590" d="2652">So this thing is nice, but this
+is not going to be required.</p>
+<p t="2874242" d="1958">When you're modeling
+positive random variables,</p>
+<p t="2876200" d="2850">you don't always have to use
+positive distributions that are</p>
+<p t="2879050" d="2415">supported on positive numbers.</p>
+<p t="2881465" d="1932">You can use distributions
+like Gaussian.</p>
+<p t="2886300" d="3517">So now this exponential
+distribution of T1, Tn</p>
+<p t="2889817" d="1583">they have the same
+parameter, and that</p>
+<p t="2891400" d="3030">means that in average they have
+the same inter-arrival time.</p>
+<p t="2894430" d="2460">So this lambda is
+actually the expectation.</p>
+<p t="2896890" d="2500">And what I'm just saying
+is that they're identically</p>
+<p t="2899390" d="2210">distributed means
+that I mean some sort</p>
+<p t="2901600" d="2679">of a stationary regime,
+and it's not always true.</p>
+<p t="2904279" d="1791">I have to look at a
+shorter period of time,</p>
+<p t="2906070" d="2740">because at rush
+hour and 11:00 PM</p>
+<p t="2908810" d="2390">clearly those average
+inter-arrival times</p>
+<p t="2911200" d="2340">are going to be different
+So it means that I am really</p>
+<p t="2913540" d="1770">focusing maybe on rush hour.</p>
+<p t="2918567" d="1083">Sorry, I said it's lambda.</p>
+<p t="2919650" d="1166">It's actually 1 over lambda.</p>
+<p t="2920816" d="1644">I always mix the two.</p>
+<p t="2922460" d="1840">All right, so you have
+the density of T1.</p>
+<p t="2924300" d="2670">So f of T is this.</p>
+<p t="2926970" d="2430">So it's on the
+positive real line.</p>
+<p t="2929400" d="2990">The fact that I have strictly
+positive or larger [INAUDIBLE]</p>
+<p t="2932390" d="2152">to 0 doesn't make
+any difference.</p>
+<p t="2934542" d="958">So this is the density.</p>
+<p t="2935500" d="2720">So it's lambda E to the minus
+lambda T. The lambda in front</p>
+<p t="2938220" d="1470">just ensures that
+when I integrate</p>
+<p t="2939690" d="3810">this function between 0
+and infinity, I get 1.</p>
+<p t="2943500" d="2660">And you can see, it decays like
+exponential minus lambda T.</p>
+<p t="2946160" d="3528">So if I were to draw it, it
+would just look like this.</p>
+<p t="2953630" d="4232">So at 0, what
+value does it take?</p>
+<p t="2957862" d="1888">Lambda.</p>
+<p t="2959750" d="3410">And then I decay like
+exponential minus lambda T.</p>
+<p t="2963160" d="7680">So this is 0, and
+this is f of T.</p>
+<p t="2970840" d="2890">So very small probability
+of being very large.</p>
+<p t="2973730" d="2000">Of course, it depends on lambda.</p>
+<p t="2975730" d="2186">Now the expectation, you
+can compute the expectation</p>
+<p t="2977916" d="874">of this thing, right?</p>
+<p t="2978790" d="3091">So you integrate T
+times f of T. This</p>
+<p t="2981881" d="2249">is part of the little sheet
+that I gave you last time.</p>
+<p t="2984130" d="1499">This is one of the
+things you should</p>
+<p t="2985629" d="1531">be able to do blindfolded.</p>
+<p t="2987160" d="4116">And then you get the expectation
+of T1 is 1 over lambda.</p>
+<p t="2991276" d="1734">That's what comes out.</p>
+<p t="2993010" d="4620">So as I actually tell many of
+my students, 99% of statistics</p>
+<p t="2997630" d="2644">is replacing
+expectations by averages.</p>
+<p t="3000274" d="2666">And so what you're tempted to do
+is say, well, if in average I'm</p>
+<p t="3002940" d="2970">supposed to see 1 over lambda,
+I have 15 observations.</p>
+<p t="3005910" d="1900">I'm just going to average
+those observations,</p>
+<p t="3007810" d="2333">and I'm going to see something
+that should be close to 1</p>
+<p t="3010143" d="1567">over lambda.</p>
+<p t="3011710" d="3180">So statistics is about
+replacing averages,</p>
+<p t="3014890" d="3060">expectations with
+averages, and that's we do.</p>
+<p t="3017950" d="3580">So Tn bar here, which is
+the average of the Ti's, is</p>
+<p t="3021530" d="3530">a pretty good estimator
+for 1 over lambda.</p>
+<p t="3025060" d="2080">So if I want an
+estimate for lambda,</p>
+<p t="3027140" d="3050">then I need to
+take 1 over Tn bar.</p>
+<p t="3030190" d="2320">So here is one estimator.</p>
+<p t="3032510" d="3830">I did it without much
+principle except that I just</p>
+<p t="3036340" d="2400">want to replace
+expectations by averages,</p>
+<p t="3038740" d="2550">and then I fixed the problem
+that I was actually estimating</p>
+<p t="3041290" d="1740">1 over lambda by lambda.</p>
+<p t="3043030" d="2460">But you could come up with
+other estimators, right?</p>
+<p t="3045490" d="4240">But let's say this is my way
+of getting to that estimator.</p>
+<p t="3049730" d="2750">Just like I didn't give you
+any principled way of getting p</p>
+<p t="3052480" d="2290">hat, which is Xn bar
+in the kiss example.</p>
+<p t="3054770" d="3080">But that's the
+natural way to do it.</p>
+<p t="3057850" d="3530">Everybody is completely
+shocked by this approach?</p>
+<p t="3061380" d="1920">All right, so let's do this.</p>
+<p t="3063300" d="2960">So what can I say about the
+properties of this estimator</p>
+<p t="3066260" d="1870">lambda hat?</p>
+<p t="3068130" d="4620">Well, I know that Tn bar
+is going to 1 over lambda</p>
+<p t="3072750" d="1464">by the law of large number.</p>
+<p t="3074214" d="666">It's an average.</p>
+<p t="3074880" d="3240">It converges to the
+expectation both almost surely,</p>
+<p t="3078120" d="1065">and in probability.</p>
+<p t="3079185" d="2125">So the first one is the
+strong law of large number,</p>
+<p t="3081310" d="2216">the second one is the
+weak law of large number.</p>
+<p t="3083526" d="1124">I can apply the strong one.</p>
+<p t="3084650" d="2150">I have enough conditions.</p>
+<p t="3086800" d="4810">And hence, what do I apply
+so that 1 over Tn bar</p>
+<p t="3091610" d="3500">actually goes to lambda?</p>
+<p t="3095110" d="1140">So I said hence.</p>
+<p t="3096250" d="791">What is hence?</p>
+<p t="3097041" d="833">What is it based on?</p>
+<p t="3097874" d="5581">AUDIENCE: [INAUDIBLE]</p>
+<p t="3103455" d="2125">PHILIPPE RIGOLLET Yeah,
+continuous mapping theorem,</p>
+<p t="3105580" d="140">right?</p>
+<p t="3105720" d="1650">So I have this
+function 1 over x.</p>
+<p t="3107370" d="1810">I just apply this function.</p>
+<p t="3109180" d="2217">So if it was 1 over
+lambda squared,</p>
+<p t="3111397" d="1583">I would have the
+same thing that would</p>
+<p t="3112980" d="1708">happen just because
+the function 1 over x</p>
+<p t="3114688" d="3442">is continuous away from 0.</p>
+<p t="3118130" d="2170">And now the central
+limit theorem</p>
+<p t="3120300" d="2070">is also telling me
+something about lambda.</p>
+<p t="3122370" d="886">About Tn bar, right?</p>
+<p t="3123256" d="1874">It's telling me that if
+I look at my average,</p>
+<p t="3125130" d="3390">I remove the expectation here.</p>
+<p t="3128520" d="3000">So if I do Tn bar
+minus my expectation,</p>
+<p t="3131520" d="4300">rescale by this guy here,
+then this thing is going</p>
+<p t="3135820" d="2460">to converge to some
+Gaussian random variable,</p>
+<p t="3138280" d="2980">but here I have this
+lambda to the negative 1--</p>
+<p t="3141260" d="2270">to the negative 2
+here, and that's</p>
+<p t="3143530" d="2190">because they did not
+tell you that if you</p>
+<p t="3145720" d="3010">compute the variance--</p>
+<p t="3148730" d="1802">so from this, you
+can probably extract.</p>
+<p t="3154308" d="4972">So if I have X that follows
+some exponential distribution</p>
+<p t="3159280" d="1070">with parameter lambda.</p>
+<p t="3160350" d="2230">Well, let's call it T.</p>
+<p t="3162580" d="3960">So we know that T in
+expectation, the expectation</p>
+<p t="3166540" d="1800">of T is 1 over lambda.</p>
+<p t="3168340" d="1220">What is the variance of T?</p>
+<p t="3176690" d="3670">You should be able to read
+it from the thing here.</p>
+<p t="3189984" d="916">1 over lambda squared.</p>
+<p t="3190900" d="1916">That's what you actually
+read in the variance,</p>
+<p t="3192816" d="3714">because the central limit
+theorem is really telling you</p>
+<p t="3196530" d="3060">the distribution
+goes through this n.</p>
+<p t="3199590" d="4149">But this numbers and this
+number you can read, right?</p>
+<p t="3203739" d="2541">If you look at the expectation
+of this guy it's-- of this guy</p>
+<p t="3206280" d="550">comes out.</p>
+<p t="3206830" d="1830">This is 1 over lambda
+minus 1 over lambda.</p>
+<p t="3208660" d="1700">That's why you read the 0.</p>
+<p t="3210360" d="2190">And if you look at the
+variance of the dot,</p>
+<p t="3212550" d="3780">you get n times the
+variance of this average.</p>
+<p t="3216330" d="3180">Variance of the average is
+picking up a factor 1 over n.</p>
+<p t="3219510" d="1080">So the n cancels.</p>
+<p t="3220590" d="2291">And then I'm left with only
+one of the variances, which</p>
+<p t="3222881" d="2369">is 1 over lambda squared.</p>
+<p t="3225250" d="2880">OK, so we're not going
+to do that in details,</p>
+<p t="3228130" d="2300">because, again, this is just
+a pure calculus exercise.</p>
+<p t="3230430" d="4270">But this is if you compute
+integral of lambda e</p>
+<p t="3234700" d="3730">to the minus t lambda
+times t squared.</p>
+<p t="3238430" d="3324">Actually t minus 1
+over lambda squared</p>
+<p t="3241754" d="3426">dt between 0 and infinity.</p>
+<p t="3245180" d="2594">You will see that this thing
+is 1 over lambda squared.</p>
+<p t="3254157" d="982">How would I do this?</p>
+<p t="3260540" d="3950">Configuration by
+[INAUDIBLE] or you know it.</p>
+<p t="3264490" d="1610">All right.</p>
+<p t="3266100" d="3100">So this is what the central
+limit theorem tells me.</p>
+<p t="3269200" d="2420">So this gives me
+if I solve this,</p>
+<p t="3271620" d="3930">and I plug in so I can
+multiply by lambda and solve,</p>
+<p t="3275550" d="4550">it would give me somewhat
+a confidence interval for 1</p>
+<p t="3280100" d="2840">over lambda.</p>
+<p t="3282940" d="1430">If we just think
+of 1 over lambda</p>
+<p t="3284370" d="2220">as being the p
+that I had before,</p>
+<p t="3286590" d="2236">this would give me a
+central limit theorem for--</p>
+<p t="3291664" d="2796">sorry, a confidence
+interval for 1 over lambda.</p>
+<p t="3294460" d="1790">So I'm hiding a little
+bit under the rug</p>
+<p t="3296250" d="2290">the fact that I have
+to still define it.</p>
+<p t="3298540" d="2415">Let's just actually
+go through this.</p>
+<p t="3300955" d="1935">I see some of you are
+uncomfortable with this,</p>
+<p t="3302890" d="1994">so let's just do it.</p>
+<p t="3304884" d="1916">So what we've just proved
+by the central limit</p>
+<p t="3306800" d="2530">theorem is that the
+probability, that's</p>
+<p t="3309330" d="11850">square root of n Tn minus 1 over
+lambda exceeds q alpha over 2</p>
+<p t="3321180" d="3510">is approximately
+equal to alpha, right?</p>
+<p t="3324690" d="2490">That's just the statement of
+the central limit theorem,</p>
+<p t="3327180" d="3474">and by approximately equal I
+mean as n goes to infinity.</p>
+<p t="3334230" d="2520">Sorry I did not
+write it correctly.</p>
+<p t="3336750" d="2690">I still have to divide
+by square root of 1</p>
+<p t="3339440" d="3610">over lambda squared, which is
+the standard deviation, right?</p>
+<p t="3343050" d="1570">And we said that
+this is a bit ugly.</p>
+<p t="3344620" d="2200">So let's just do it
+the way it should be.</p>
+<p t="3346820" d="3470">So multiply all these
+things by lambda.</p>
+<p t="3350290" d="5730">So that means now that
+the absolute value, so</p>
+<p t="3356020" d="3510">with probability 1 minus
+alpha asymptotically,</p>
+<p t="3359530" d="8340">I have that square root of
+n times lambda Tn minus 1</p>
+<p t="3367870" d="3210">is less than or equal
+to q alpha over 2.</p>
+<p t="3374930" d="5090">So what it means is that, oh,
+I have negative q alpha over 2</p>
+<p t="3380020" d="2620">less than square root of n.</p>
+<p t="3382640" d="2584">Let me divide by
+square root of n here.</p>
+<p t="3385224" d="9396">lambda Tn minus
+1 q alpha over 2.</p>
+<p t="3394620" d="7271">And so now what I have is that
+I get that lambda is between--</p>
+<p t="3401891" d="8519">that's Tn bar-- is between
+1 plus q alpha over 2</p>
+<p t="3410410" d="3100">divided by root n.</p>
+<p t="3413510" d="3960">And the whole thing
+is divided by Tn bar,</p>
+<p t="3417470" d="6540">and same thing on the other side
+except I have 1 minus q alpha</p>
+<p t="3424010" d="4668">over 2 divided by root
+n divided by Tn bar.</p>
+<p t="3432980" d="3290">So it's kind of a weird
+shape, but it's still</p>
+<p t="3436270" d="3968">of the form 1 over Tn bar
+plus or minus something.</p>
+<p t="3440238" d="3592">But this something
+depends on Tn bar itself.</p>
+<p t="3443830" d="2400">And that's actually normal,
+because Tn bar is not only</p>
+<p t="3446230" d="2790">giving me information
+about the mean,</p>
+<p t="3449020" d="2340">but it's also giving me
+information about the variance.</p>
+<p t="3451360" d="6210">So it should definitely come
+in the size of my error bars.</p>
+<p t="3457570" d="4140">And that's the way it comes
+in this fairly natural way.</p>
+<p t="3461710" d="2100">Everybody agrees?</p>
+<p t="3463810" d="3070">So now I have actually
+built a confidence interval.</p>
+<p t="3466880" d="3890">But what I want to show
+you with this example is,</p>
+<p t="3470770" d="2100">can I translate this
+in a central limit</p>
+<p t="3472870" d="4650">theorem for something that
+converges to lambda, right?</p>
+<p t="3477520" d="3240">I know that Tn bar
+converges to 1 over lambda,</p>
+<p t="3480760" d="4500">but I also know that 1 over
+Tn bar converges to lambda.</p>
+<p t="3485260" d="4190">So do I have a central limit
+theorem for 1 over Tn bar?</p>
+<p t="3489450" d="2040">Technically no, right?</p>
+<p t="3491490" d="3030">Central limit theorems are about
+averages, and 1 over an average</p>
+<p t="3494520" d="1954">is not an average.</p>
+<p t="3496474" d="4046">But there's something that
+statisticians like a lot,</p>
+<p t="3500520" d="2540">and it's called
+the Delta method.</p>
+<p t="3503060" d="1740">The Delta method
+is really something</p>
+<p t="3504800" d="2400">that's telling you
+that you can actually</p>
+<p t="3507200" d="3240">take a function of
+an average, and let</p>
+<p t="3510440" d="2130">it go to the function
+of the limit,</p>
+<p t="3512570" d="2130">and you still have a
+central limit theorem.</p>
+<p t="3514700" d="2580">And the factor or the
+price to pay for this</p>
+<p t="3517280" d="6760">is something which depends on
+the derivative of the function.</p>
+<p t="3524040" d="2236">And so let's just
+go through this,</p>
+<p t="3526276" d="2374">and it's, again, just like
+the proof of the central limit</p>
+<p t="3528650" d="990">theorem.</p>
+<p t="3529640" d="3910">And actually in many of those
+asymptotic statistics results,</p>
+<p t="3533550" d="2284">this is actually just
+a Taylor expansion,</p>
+<p t="3535834" d="1666">and here it's not
+even the second order,</p>
+<p t="3537500" d="2100">it's actually the
+first order, all right?</p>
+<p t="3539600" d="2583">So I'm just going to do linear
+approximation of this function.</p>
+<p t="3544360" d="960">So let's do it.</p>
+<p t="3545320" d="7630">So I have that g of Tn bar--</p>
+<p t="3552950" d="2470">actually let's use the
+notation of this slide,</p>
+<p t="3555420" d="2170">which is Zn and theta.</p>
+<p t="3557590" d="6660">So what I know is that Zn
+minus theta square root of n</p>
+<p t="3564250" d="5204">goes to some Gaussian,
+this standard Gaussian.</p>
+<p t="3569454" d="3356">No, not standard.</p>
+<p t="3572810" d="1270">OK, so that's the assumptions.</p>
+<p t="3574080" d="6422">And what I want to show is
+some convergence of g of Zn</p>
+<p t="3580502" d="3088">to g of theta.</p>
+<p t="3583590" d="2760">So I'm not going to
+multiply by root n just yet.</p>
+<p t="3586350" d="2775">So I'm going to do a first
+order Taylor expansion.</p>
+<p t="3589125" d="7915">So what it is telling me is that
+this is equal to Zn minus theta</p>
+<p t="3597040" d="4530">times g prime of,
+let's call it theta bar</p>
+<p t="3601570" d="4630">where theta bar is
+somewhere between say</p>
+<p t="3606200" d="4948">Zn and theta, for sum.</p>
+<p t="3613980" d="3720">OK, so if theta is less than
+Zn you just permute those two.</p>
+<p t="3617700" d="3469">So that's what the
+Taylor first order Taylor</p>
+<p t="3621169" d="791">expansion tells me.</p>
+<p t="3621960" d="1958">There exists a theta bar
+that's between the two</p>
+<p t="3623918" d="2994">values at which I'm expanding
+so that those two things are</p>
+<p t="3626912" d="2380">equal.</p>
+<p t="3629292" d="1880">Is everybody shocked?</p>
+<p t="3631172" d="500">No?</p>
+<p t="3631672" d="4678">So that's standard
+Taylor expansion.</p>
+<p t="3636350" d="1704">Now I'm going to
+multiply by root n.</p>
+<p t="3644519" d="1291">And so that's going to be what?</p>
+<p t="3645810" d="4390">That's going to be
+root n Zn minus theta.</p>
+<p t="3650200" d="1770">Ah-ha, that's something I like.</p>
+<p t="3651970" d="5160">Times g prime of theta bar.</p>
+<p t="3659887" d="1583">Now the central limit
+theorem tells me</p>
+<p t="3661470" d="1434">that this goes to what?</p>
+<p t="3666250" d="6120">Well, this goes to sum n
+0 sigma squared, right?</p>
+<p t="3672370" d="3030">That was the first
+line over there.</p>
+<p t="3675400" d="5120">This guy here, well,
+it's not clear, right?</p>
+<p t="3680520" d="1020">Actually it is.</p>
+<p t="3681540" d="3300">Let's start with this guy.</p>
+<p t="3684840" d="3610">What does theta bar go to?</p>
+<p t="3688450" d="2302">Well, I know that Zn
+is going to theta.</p>
+<p t="3693660" d="4100">Just because, well, that's
+my law of large numbers.</p>
+<p t="3697760" d="3250">Zn is going to
+theta, which means</p>
+<p t="3701010" d="3510">that theta bar is sandwiched
+between two values that</p>
+<p t="3704520" d="2390">converge to theta.</p>
+<p t="3706910" d="2670">So that means that theta bar
+converges to theta itself</p>
+<p t="3709580" d="1720">as n goes to infinity.</p>
+<p t="3711300" d="3640">That's just the law
+of large numbers.</p>
+<p t="3714940" d="2510">Everybody agrees?</p>
+<p t="3717450" d="1500">Just because it's
+sandwiched, right?</p>
+<p t="3718950" d="2230">So I have Zn.</p>
+<p t="3721180" d="4471">I have theta, and theta
+bar is somewhere here.</p>
+<p t="3725651" d="1249">The picture might be reversed.</p>
+<p t="3726900" d="2080">It might be that Zn end
+is larger than theta.</p>
+<p t="3728980" d="1500">But the law of large
+number tells me</p>
+<p t="3730480" d="3570">that this guy is not moving,
+but this guy is moving that way.</p>
+<p t="3734050" d="2394">So you know when
+n is [INAUDIBLE],,</p>
+<p t="3736444" d="1916">there's very little
+wiggle room for theta bar,</p>
+<p t="3738360" d="1615">and it can only get to theta.</p>
+<p t="3743370" d="1940">And I call it the
+sandwich theorem,</p>
+<p t="3745310" d="3920">or just find your
+favorite food in there.</p>
+<p t="3749230" d="2486">So this guy goes
+to theta, and now I</p>
+<p t="3751716" d="1624">need to make an extra
+assumption, which</p>
+<p t="3753340" d="5261">is that g prime is continuous.</p>
+<p t="3758601" d="3699">And if g prime is continuous,
+then g prime of theta bar</p>
+<p t="3762300" d="2330">goes to g prime of theta.</p>
+<p t="3764630" d="4502">So this thing goes
+to g prime of theta.</p>
+<p t="3772580" d="2196">But I have an issue here.</p>
+<p t="3774776" d="1374">Is that now I have
+something that</p>
+<p t="3776150" d="1710">converges in distribution
+and something</p>
+<p t="3777860" d="3680">that converges in say--</p>
+<p t="3781540" d="2660">I mean, this converges almost
+surely or saying probability</p>
+<p t="3784200" d="2170">just to be safe.</p>
+<p t="3786370" d="3450">And this one converges
+in distribution.</p>
+<p t="3789820" d="1230">And I want to combine them.</p>
+<p t="3791050" d="1583">But I don't have a
+slide that tells me</p>
+<p t="3792633" d="3027">I'm allowed to take the product
+of something that converges</p>
+<p t="3795660" d="2800">in distribution, and something
+that converges in probability.</p>
+<p t="3798460" d="1040">This does not exist.</p>
+<p t="3799500" d="1950">Actually, if
+anything it told me,</p>
+<p t="3801450" d="4520">do not do anything with things
+that converge in distribution.</p>
+<p t="3805970" d="6800">And so that gets us to our--</p>
+<p t="3812770" d="3230">OK, so I'll come back
+to this in a second.</p>
+<p t="3816000" d="3560">And that gets us to something
+called Slutsky's theorem.</p>
+<p t="3819560" d="3380">And Slutsky's theorem tells us
+that in very specific cases,</p>
+<p t="3822940" d="1800">you can do just that.</p>
+<p t="3824740" d="4260">So you have two sequences
+of random variables, Xn bar,</p>
+<p t="3829000" d="4370">that's Xn that converges to
+X. And Yn that converges to Y,</p>
+<p t="3833370" d="2000">but Y is not anything.</p>
+<p t="3835370" d="2040">Y is not any random variable.</p>
+<p t="3837410" d="1680">So X converges in
+this distribution.</p>
+<p t="3839090" d="2125">Sorry, I forgot to mention,
+this is very important.</p>
+<p t="3841215" d="3705">Xn converges in distribution,
+Y converges in probability.</p>
+<p t="3844920" d="2650">And we know that in generality
+we cannot combine those two</p>
+<p t="3847570" d="3702">things, but Slutsky tells
+us that if the limit of Y is</p>
+<p t="3851272" d="1958">a constant, meaning it's
+not a random variable,</p>
+<p t="3853230" d="2850">but it's a
+deterministic number 2,</p>
+<p t="3856080" d="2860">just a fixed number that's
+not a random variable,</p>
+<p t="3858940" d="2450">then you can combine them.</p>
+<p t="3861390" d="3479">Then you can sum them, and
+then you can multiply them.</p>
+<p t="3868874" d="2416">I mean, actually you can do
+whatever combination you want,</p>
+<p t="3871290" d="3510">because it actually implies
+that X, the vector Xn, Yn</p>
+<p t="3874800" d="4450">converges to the vector Xc.</p>
+<p t="3879250" d="2170">OK, so here I just
+took two combinations.</p>
+<p t="3881420" d="2650">They are very convenient for
+us, the sum and the product</p>
+<p t="3884070" d="1780">so I could do other
+stuff like the ratio</p>
+<p t="3885850" d="1713">if c is not 0, things like that.</p>
+<p t="3891190" d="1820">So that's what
+Slutsky does for us.</p>
+<p t="3893010" d="3110">So what you're going to have to
+write a lot in your homework,</p>
+<p t="3896120" d="2760">in your mid-terms, by Slutsky.</p>
+<p t="3898880" d="4350">I know some people are very
+generous with their by Slutsky.</p>
+<p t="3903230" d="2710">They just do numerical
+applications,</p>
+<p t="3905940" d="2310">mu is equal to 6, and
+therefore by Slutsky</p>
+<p t="3908250" d="2010">mu square is equal to 36.</p>
+<p t="3910260" d="1430">All right, so don't do that.</p>
+<p t="3911690" d="3725">Just use, write Slutsky when
+you're actually using Slutsky.</p>
+<p t="3915415" d="2125">But this is something that's
+very important for us,</p>
+<p t="3917540" d="1320">and it turns out
+that you're going</p>
+<p t="3918860" d="2125">to feel like you can write
+by Slutsky all the time,</p>
+<p t="3920985" d="2377">because that's going to
+work for us all the time.</p>
+<p t="3923362" d="1708">Everything we're going
+to see is actually</p>
+<p t="3925070" d="2520">going to be where we're going
+to have to combine stuff.</p>
+<p t="3927590" d="2670">Since we only rely on
+convergence from distribution</p>
+<p t="3930260" d="1830">arising from the
+central limit theorem,</p>
+<p t="3932090" d="2250">we're actually going to have
+to rely on something that</p>
+<p t="3934340" d="2580">allows us to combine them,
+and the only thing we know</p>
+<p t="3936920" d="670">is Slutsky.</p>
+<p t="3937590" d="2700">So we better hope
+that this thing works.</p>
+<p t="3940290" d="1490">So why Slutsky works for us.</p>
+<p t="3941780" d="1860">Can somebody tell
+me why Slutsky works</p>
+<p t="3943640" d="3320">to combine those two guys?</p>
+<p t="3946960" d="1860">So this one is converging
+in distribution.</p>
+<p t="3948820" d="2920">This one is converging
+in probability,</p>
+<p t="3951740" d="2970">but to a deterministic number.</p>
+<p t="3954710" d="2730">g prime of theta is a
+deterministic number.</p>
+<p t="3957440" d="4760">I don't know what theta is, but
+it's certainly deterministic.</p>
+<p t="3962200" d="2180">All right, so I can combine
+them, multiply them.</p>
+<p t="3964380" d="4360">So that's just the second
+line of that in particular.</p>
+<p t="3968740" d="3350">All right, everybody is with me?</p>
+<p t="3972090" d="1250">So now I'm allowed to do this.</p>
+<p t="3973340" d="1708">You can actually--
+you will see something</p>
+<p t="3975048" d="1902">like counterexample
+questions in your problem</p>
+<p t="3976950" d="1791">set just so that you
+can convince yourself.</p>
+<p t="3978741" d="1219">It's always a good thing.</p>
+<p t="3979960" d="1190">I don't like to
+give them, because I</p>
+<p t="3981150" d="1958">think it's much better
+for you to actually come</p>
+<p t="3983108" d="1752">to the counterexample yourself.</p>
+<p t="3984860" d="10810">Like what can go wrong
+if Y is not a random--</p>
+<p t="3995670" d="2780">sorry, if Y is not a--</p>
+<p t="3998450" d="4122">sorry, if c is not the constant,
+but it's a random variable.</p>
+<p t="4002572" d="2962">You can figure that out.</p>
+<p t="4005534" d="1166">All right, so let's go back.</p>
+<p t="4006700" d="2340">So we have now this Delta
+method that tells us</p>
+<p t="4009040" d="2040">that now I have a
+central limit theorem</p>
+<p t="4011080" d="4420">for functions of averages,
+and not just for averages.</p>
+<p t="4015500" d="2422">So the only price to pay
+is this derivative there.</p>
+<p t="4020600" d="4890">So, for example, if g is
+just a linear function,</p>
+<p t="4025490" d="2370">then I'm going to have a
+constant multiplication.</p>
+<p t="4027860" d="2820">If g is a quadratic
+function, then I'm</p>
+<p t="4030680" d="3030">going to have theta squared
+that shows up there.</p>
+<p t="4033710" d="840">Things like that.</p>
+<p t="4034550" d="1750">So just think of what
+kind of applications</p>
+<p t="4036300" d="1470">you could have for this.</p>
+<p t="4037770" d="1999">Here are the functions
+that we're interested in,</p>
+<p t="4039769" d="1501">is x maps to 1 over x.</p>
+<p t="4041270" d="1779">What is the derivative
+of this guy?</p>
+<p t="4045947" d="3799">What is the derivative
+of 1 over x?</p>
+<p t="4049746" d="1374">Negative 1 over
+x squared, right?</p>
+<p t="4051120" d="2350">That's the thing we're going
+to have to put in there.</p>
+<p t="4053470" d="4160">And so this is what we get.</p>
+<p t="4057630" d="6630">So now when I'm actually
+going to write this,</p>
+<p t="4064260" d="7012">so if I want to show square root
+of n lambda hat minus lambda.</p>
+<p t="4071272" d="1208">That's my application, right?</p>
+<p t="4072480" d="6670">This is actually 1 over Tn, and
+this is 1 over 1 over lambda.</p>
+<p t="4079150" d="6360">So the function g of x
+is 1 over x in this case.</p>
+<p t="4085510" d="1080">So now I have this thing.</p>
+<p t="4086590" d="2370">So I know that by
+the Delta method--</p>
+<p t="4088960" d="2280">oh, and I knew
+that Tn, remember,</p>
+<p t="4091240" d="5550">square root of Tn
+minus 1 over lambda</p>
+<p t="4096790" d="2520">was going to sum
+normal with mean 0</p>
+<p t="4099310" d="2622">and variance 1 over
+lambda squared, right?</p>
+<p t="4101932" d="4147">So the sigma square over there
+is 1 over lambda squared.</p>
+<p t="4106079" d="1291">So now this thing goes to what?</p>
+<p t="4107370" d="1568">Sum normal.</p>
+<p t="4108938" d="3252">What is going to be the mean?</p>
+<p t="4112190" d="500">0.</p>
+<p t="4115510" d="1677">And what is the variance?</p>
+<p t="4117187" d="1083">So the variance is going--</p>
+<p t="4118270" d="1980">I'm going to pick up
+this guy, 1 over lambda</p>
+<p t="4120250" d="6680">squared, and then I'm going to
+have to take g prime of what?</p>
+<p t="4126930" d="1779">Of 1 over lambda, right?</p>
+<p t="4128709" d="918">That's my theta.</p>
+<p t="4132840" d="2229">So I have g of theta,
+which is 1 over theta.</p>
+<p t="4135069" d="3337">So I'm going to have g
+prime of 1 over lambda.</p>
+<p t="4138406" d="1888">And what is g prime
+of 1 over lambda?</p>
+<p t="4145029" d="4231">So we said that g prime is 1
+over negative 1 over x squared.</p>
+<p t="4149260" d="4625">So it's negative 1 over
+1 over lambda squared--</p>
+<p t="4157877" d="998">sorry, squared.</p>
+<p t="4161870" d="2470">Which is nice, because
+g can be decreasing.</p>
+<p t="4164340" d="2510">So that would be annoying
+to have a negative variance.</p>
+<p t="4166850" d="2400">And so g prime is
+negative 1 over, and so</p>
+<p t="4169250" d="4319">what I get eventually is
+lambda squared up here,</p>
+<p t="4173569" d="2801">but then I square it again.</p>
+<p t="4176370" d="3394">So this whole thing
+here becomes what?</p>
+<p t="4179764" d="1924">Can somebody tell me
+what the final result is?</p>
+<p t="4184274" d="875">Lambda squared right?</p>
+<p t="4185149" d="2174">So it's lambda 4
+divided by lambda 2.</p>
+<p t="4195179" d="4441">So that's what's written there.</p>
+<p t="4199620" d="4840">And now I can just do my
+good old computation for a--</p>
+<p t="4210610" d="3960">I can do a good computation
+for a confidence interval.</p>
+<p t="4214570" d="3310">All right, so let's just
+go from the second line.</p>
+<p t="4217880" d="3320">So we know that lambda
+hat minus lambda</p>
+<p t="4221200" d="2780">is less than, we've done
+that several times already.</p>
+<p t="4223980" d="1540">So it's q alpha over 2--</p>
+<p t="4225520" d="2670">sorry, I should put alpha
+over 2 over this thing, right?</p>
+<p t="4228190" d="2835">So that's really the quintile
+of what our alpha over 2 times</p>
+<p t="4231025" d="3845">lambda divided by
+square root of n.</p>
+<p t="4234870" d="4740">All right, and so that means
+that my confidence interval</p>
+<p t="4239610" d="3000">should be this, lambda hat.</p>
+<p t="4242610" d="5060">Lambda belongs to lambda
+plus or minus q alpha</p>
+<p t="4247670" d="3655">over 2 lambda divided
+by root n, right?</p>
+<p t="4251325" d="2315">So that's my
+confidence interval.</p>
+<p t="4253640" d="3317">But again, it's not
+very suitable, because--</p>
+<p t="4256957" d="2335">sorry, that's lambda hat.</p>
+<p t="4259292" d="3269">Because they don't
+know how to compute it.</p>
+<p t="4262561" d="1949">So now I'm going to
+request from the audience</p>
+<p t="4264510" d="1954">some remedies for this.</p>
+<p t="4266464" d="1476">What do you suggest we do?</p>
+<p t="4272860" d="1968">What is the laziest
+thing I can do?</p>
+<p t="4278272" d="976">Anybody?</p>
+<p t="4279248" d="500">Yeah.</p>
+<p t="4279748" d="1584">AUDIENCE: [INAUDIBLE]</p>
+<p t="4281332" d="1958">PHILIPPE RIGOLLET Replace
+lambda by lambda hat.</p>
+<p t="4283290" d="1862">What justifies
+for me to do this?</p>
+<p t="4285152" d="2450">AUDIENCE: [INAUDIBLE]</p>
+<p t="4287602" d="1458">PHILIPPE RIGOLLET
+Yeah, and Slutsky</p>
+<p t="4289060" d="3790">tells me I can actually do
+it, because Slutsky tells me,</p>
+<p t="4292850" d="2360">where does this lambda
+come from, right?</p>
+<p t="4295210" d="2070">This lambda comes from here.</p>
+<p t="4297280" d="2250">That's the one that's here.</p>
+<p t="4299530" d="2280">So actually I could
+rewrite this entire thing</p>
+<p t="4301810" d="5190">as square root of n lambda hat
+minus lambda divided by lambda</p>
+<p t="4307000" d="4420">converges to sum n 0, 1.</p>
+<p t="4311420" d="4140">Now if I replace this by
+lambda hat, what I have is</p>
+<p t="4315560" d="6040">that this is actually really
+the original one times</p>
+<p t="4321600" d="3230">lambda divided by lambda hat.</p>
+<p t="4324830" d="2680">And this converges
+to n 0, 1, right?</p>
+<p t="4327510" d="2990">And now what you're telling
+me is, well, this guy</p>
+<p t="4330500" d="4860">I know it converges to n 0, 1,
+and this guy is converging to 1</p>
+<p t="4335360" d="1290">by the law of large number.</p>
+<p t="4336650" d="3230">But this one is converging to 1,
+which happens to be a constant.</p>
+<p t="4339880" d="2980">It converges in probability,
+so by Slutsky I can actually</p>
+<p t="4342860" d="2730">take the product and still
+maintain my conversion</p>
+<p t="4345590" d="3480">to distribution to
+a standard Gaussian.</p>
+<p t="4349070" d="1290">So you can always do this.</p>
+<p t="4350360" d="3720">Every time you replace
+some p by p hat,</p>
+<p t="4354080" d="1672">as long as their
+ratio goes to 1,</p>
+<p t="4355752" d="2458">which is going to be guaranteed
+by the law of large number,</p>
+<p t="4358210" d="2171">you're actually
+going to be fine.</p>
+<p t="4360381" d="2083">And that's where we're
+going to use Slutsky a lot.</p>
+<p t="4362464" d="4176">When we do plug in, Slutsky
+is going to be our friend.</p>
+<p t="4366640" d="1250">OK, so we can do this.</p>
+<p t="4371180" d="930">And that's one way.</p>
+<p t="4372110" d="1540">And then other
+ways to just solve</p>
+<p t="4373650" d="2510">for lambda like we did before.</p>
+<p t="4376160" d="2040">So the first one we
+got is actually--</p>
+<p t="4378200" d="2640">I don't know if I still
+have it somewhere.</p>
+<p t="4380840" d="2840">Yeah, that was the one, right?</p>
+<p t="4383680" d="4560">So we had 1 over Tn q, and
+that's exactly the same</p>
+<p t="4388240" d="940">that we have here.</p>
+<p t="4389180" d="3532">So your solution is actually
+giving us exactly this guy when</p>
+<p t="4392712" d="1656">we actually solve for lambda.</p>
+<p t="4397420" d="3270">So this is what we get.</p>
+<p t="4400690" d="930">Lambda hat.</p>
+<p t="4401620" d="2520">We replace lambda by
+lambda hat, and we</p>
+<p t="4404140" d="3610">have our asymptotic
+convergence theorem.</p>
+<p t="4407750" d="2650">And that's exactly what we
+did in Slutsky's theorem.</p>
+<p t="4410400" d="2417">Now we're getting to it at
+this point is just telling us</p>
+<p t="4412817" d="3823">that we can actually do this.</p>
+<p t="4416640" d="3040">Are there any questions
+about what we did here?</p>
+<p t="4419680" d="2840">So this derivation right
+here is exactly what I</p>
+<p t="4422520" d="1670">did on the board I showed you.</p>
+<p t="4424190" d="2500">So let me just show you
+with a little more space</p>
+<p t="4426690" d="2404">just so that we all
+understand, right?</p>
+<p t="4429094" d="9476">So we know that square root of n
+lambda hat minus lambda divided</p>
+<p t="4438570" d="2190">by lambda, the
+true lambda defined</p>
+<p t="4440760" d="3340">converges to sum n 0, 1.</p>
+<p t="4444100" d="3115">So that was CLT
+plus Delta method.</p>
+<p t="4451700" d="2010">Applying those two,
+we got to here.</p>
+<p t="4453710" d="3690">And we know that
+lambda hat converges</p>
+<p t="4457400" d="4200">to lambda in probability and
+almost surely, and that's what?</p>
+<p t="4461600" d="3380">That was law of large number
+plus continued mapping theorem,</p>
+<p t="4464980" d="749">right?</p>
+<p t="4465729" d="1958">Because we only knew that
+one of our lambda hat</p>
+<p t="4467687" d="1461">converges to 1 over lambda.</p>
+<p t="4469148" d="2442">So we had to flip
+those things around.</p>
+<p t="4471590" d="2330">And now what I said is
+that I apply Slutsky,</p>
+<p t="4473920" d="4290">so I write square root of n
+lambda hat minus lambda divided</p>
+<p t="4478210" d="4050">by lambda hat, which is the
+suggestion that was made to me.</p>
+<p t="4482260" d="1900">They said, I want
+this, but I would</p>
+<p t="4484160" d="1750">want to show that it
+converges to sum n 0,</p>
+<p t="4485910" d="4060">1 so I can legitimately use
+q alpha over 2 in this one</p>
+<p t="4489970" d="775">though.</p>
+<p t="4490745" d="2375">And the way we said is like,
+well, this thing is actually</p>
+<p t="4493120" d="7617">really q divided by lambda times
+lambda divided by lambda hat.</p>
+<p t="4500737" d="1583">So this thing that
+was proposed to me,</p>
+<p t="4502320" d="1410">I can decompose
+it in the product</p>
+<p t="4503730" d="2250">of those two random variables.</p>
+<p t="4505980" d="3080">The first one here converges
+through the Gaussian</p>
+<p t="4509060" d="1540">from the central limit theorem.</p>
+<p t="4510600" d="4118">And the second one converges
+to 1 from this guy,</p>
+<p t="4514718" d="2320">but in probability this time.</p>
+<p t="4520620" d="2640">That was the ratio of two
+things in probability,</p>
+<p t="4523260" d="1770">we can actually get it.</p>
+<p t="4525030" d="1723">And so now I apply Slutsky.</p>
+<p t="4531180" d="3357">And Slutsky tells me that
+I can actually do that.</p>
+<p t="4534537" d="2333">But when I take the product
+of this thing that converges</p>
+<p t="4536870" d="3140">to some standard Gaussian,
+and this thing that converges</p>
+<p t="4540010" d="3370">in probability to 1, then
+their product actually</p>
+<p t="4543380" d="5238">converges to still this
+standard Gaussian [INAUDIBLE]</p>
+<p t="4555370" d="3510">Well, that's exactly
+what's done here,</p>
+<p t="4558880" d="3460">and I think I'm getting there.</p>
+<p t="4562340" d="5230">So in our case, OK, so just a
+remark for Slutsky's theorem.</p>
+<p t="4567570" d="1500">So that's the last line.</p>
+<p t="4569070" d="2780">So in the first example we used
+the problem dependent trick,</p>
+<p t="4571850" d="2130">which was to say,
+well, turns out</p>
+<p t="4573980" d="2400">that we knew that p
+is between 0 and 1.</p>
+<p t="4576380" d="2580">So we have this p 1 minus
+p that was annoying to us.</p>
+<p t="4578960" d="2280">We just said, let's
+just bound it by 1/4,</p>
+<p t="4581240" d="2630">because that's going to be
+true for any value of p.</p>
+<p t="4583870" d="2440">But here, lambda takes any
+value between 0 and infinity,</p>
+<p t="4586310" d="1302">so we didn't have such a trick.</p>
+<p t="4587612" d="2208">It's something like we could
+see that lambda was less</p>
+<p t="4589820" d="1150">than something.</p>
+<p t="4590970" d="3100">Maybe we know it, in which
+case we could use that.</p>
+<p t="4594070" d="2774">But then in this case,
+we could actually also</p>
+<p t="4596844" d="2166">have used Slutsky's theorem
+by doing plug in, right?</p>
+<p t="4599010" d="2880">So here this is my p 1 minus
+p that's replaced by p hat 1</p>
+<p t="4601890" d="1170">minus p hat.</p>
+<p t="4603060" d="2024">And Slutsky justify,
+so we did that</p>
+<p t="4605084" d="1416">without really
+thinking last time.</p>
+<p t="4606500" d="2200">But Slutsky actually
+justifies the fact</p>
+<p t="4608700" d="2525">that this is valid, and
+still allows me to use</p>
+<p t="4611225" d="1715">this q alpha over 2 here.</p>
+<p t="4616230" d="1950">All right, so that's
+the end of this lecture.</p>
+<p t="4618180" d="3120">Tonight I will post the next
+set of slides, chapter two.</p>
+<p t="4621300" d="2760">And, well, hopefully the video.</p>
+<p t="4624060" d="2750">I'm not sure when it's
+going to come out.</p>
+</body>
+</timedtext>

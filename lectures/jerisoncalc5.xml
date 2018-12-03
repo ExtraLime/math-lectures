@@ -1,0 +1,1260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="110" d="2210">The following content was
+created under a Creative</p>
+<p t="2320" d="1340">Commons License.</p>
+<p t="3660" d="2270">Your support will help
+MIT OpenCourseWare</p>
+<p t="5930" d="4040">continue to offer high quality
+educational resources for free.</p>
+<p t="9970" d="2590">To make a donation or to
+view additional materials</p>
+<p t="12560" d="3590">from hundreds of MIT courses,
+visit MIT OpenCourseWare</p>
+<p t="16150" d="3200">at ocw.mit.edu.</p>
+<p t="19350" d="5370">Professor: So, we're ready
+to begin the fifth lecture.</p>
+<p t="24720" d="1070">I'm glad to be back.</p>
+<p t="25790" d="7450">Thank you for entertaining
+my colleague, Haynes Miller.</p>
+<p t="33240" d="2360">So, today we're
+going to continue</p>
+<p t="35600" d="5140">where he started, namely what
+he talked about was the chain</p>
+<p t="40740" d="2950">rule, which is probably
+the most powerful technique</p>
+<p t="43690" d="2170">for extending the
+kinds of functions</p>
+<p t="45860" d="1790">that you can differentiate.</p>
+<p t="47650" d="3270">And we're going to use the
+chain rule in some rather clever</p>
+<p t="50920" d="3490">algebraic ways today.</p>
+<p t="54410" d="3010">So the topic for
+today is what's known</p>
+<p t="57420" d="13250">as implicit differentiation.</p>
+<p t="70670" d="4370">So implicit differentiation
+is a technique</p>
+<p t="75040" d="2650">that allows you to differentiate
+a lot of functions you didn't</p>
+<p t="77690" d="3280">even know how to find before.</p>
+<p t="80970" d="3970">And it's a technique -
+let's wait for a few people</p>
+<p t="84940" d="3320">to sit down here.</p>
+<p t="88260" d="950">Physics, huh?</p>
+<p t="89210" d="7209">Okay, more Physics.</p>
+<p t="96419" d="791">Let's take a break.</p>
+<p t="97210" d="3770">You can get those after class.</p>
+<p t="100980" d="5240">All right, so we're talking
+about implicit differentiation,</p>
+<p t="106220" d="7540">and I'm going to illustrate
+it by several examples.</p>
+<p t="113760" d="3850">So this is one of the most
+important and basic formulas</p>
+<p t="117610" d="2160">that we've already
+covered part way.</p>
+<p t="119770" d="7180">Namely, the derivative of
+x to a power is ax^(a-1).</p>
+<p t="126950" d="8830">Now, what we've got so far is
+the exponents, 0, plus or minus</p>
+<p t="135780" d="3230">1, plus or minus 2, etc.</p>
+<p t="139010" d="5430">You did the positive integer
+powers in the first lecture,</p>
+<p t="144440" d="6270">and then yesterday
+Professor Miller</p>
+<p t="150710" d="1760">told you about the
+negative powers.</p>
+<p t="152470" d="3000">So what we're going
+to do right now,</p>
+<p t="155470" d="4030">today, is we're
+going to consider</p>
+<p t="159500" d="4920">the exponents which are rational
+numbers, ratios of integers.</p>
+<p t="164420" d="2120">So a is m/n.</p>
+<p t="166540" d="6840">m and n are integers.</p>
+<p t="173380" d="2034">All right, so that's
+our goal for right now,</p>
+<p t="175414" d="1416">and we're going
+to use this method</p>
+<p t="176830" d="1320">of implicit differentiation.</p>
+<p t="178150" d="2860">In particular, it's important
+to realize that this</p>
+<p t="181010" d="2250">covers the case m = 1.</p>
+<p t="183260" d="1630">And those are the nth roots.</p>
+<p t="184890" d="2480">So when we take the
+one over n power,</p>
+<p t="187370" d="2310">we're going to cover
+that right now,</p>
+<p t="189680" d="3430">along with many other examples.</p>
+<p t="193110" d="3250">So this is our first example.</p>
+<p t="196360" d="1340">So how do we get started?</p>
+<p t="197700" d="2810">Well we just write down a
+formula for the function.</p>
+<p t="200510" d="4110">The function is y = x^(m/n).</p>
+<p t="204620" d="2000">That's what we're
+trying to deal with.</p>
+<p t="206620" d="3990">And now there's
+really only two steps.</p>
+<p t="210610" d="7510">The first step is to take this
+equation to the nth power,</p>
+<p t="218120" d="4780">so write it y^n = x^m.</p>
+<p t="222900" d="3270">Alright, so that's just the
+same equation re-written.</p>
+<p t="226170" d="4010">And now, what we're
+going to do is</p>
+<p t="230180" d="1990">we're going to differentiate.</p>
+<p t="232170" d="9430">So we're going to apply
+d/dx to the equation.</p>
+<p t="241600" d="4130">Now why is it that we can apply
+it to the second equation, not</p>
+<p t="245730" d="940">the first equation?</p>
+<p t="246670" d="3550">So maybe I should call these
+equation 1 and equation 2.</p>
+<p t="250220" d="2930">So, the point is, we can
+apply it to equation 2.</p>
+<p t="253150" d="4710">Now, the reason is that we
+don't know how to differentiate</p>
+<p t="257860" d="1000">x^(m/n).</p>
+<p t="258860" d="2460">That's something we
+just don't know yet.</p>
+<p t="261320" d="3310">But we do know how to
+differentiate integer powers.</p>
+<p t="264630" d="4450">Those are the things that
+we took care of before.</p>
+<p t="269080" d="3900">So now we're in shape to be
+able to do the differentiation.</p>
+<p t="272980" d="1920">So I'm going to write
+it out explicitly</p>
+<p t="274900" d="3030">over here, without
+carrying it out just yet.</p>
+<p t="277930" d="8530">That's d/dx of
+y^n = d/dx of x^m.</p>
+<p t="286460" d="5460">And now you see
+this expression here</p>
+<p t="291920" d="3100">requires us to do something we
+couldn't do before yesterday.</p>
+<p t="295020" d="3760">Namely, this y is
+a function of x.</p>
+<p t="298780" d="2830">So we have to apply
+the chain rule here.</p>
+<p t="301610" d="5100">So this is the same as - this
+is by the chain rule now -</p>
+<p t="306710" d="6622">d/dy of y^n times dy/dx.</p>
+<p t="313332" d="2458">And then, on the right hand
+side, we can just carry it out.</p>
+<p t="315790" d="1490">We know the formula.</p>
+<p t="317280" d="1140">It's mx^(m-1).</p>
+<p t="321550" d="3410">Right, now this is our scheme.</p>
+<p t="324960" d="4400">And you'll see in a minute
+why we win with this.</p>
+<p t="329360" d="3030">So, first of all, there
+are two factors here.</p>
+<p t="332390" d="1480">One of them is unknown.</p>
+<p t="333870" d="2000">In fact, it's what
+we're looking for.</p>
+<p t="335870" d="2700">But the other one is going
+to be a known quantity,</p>
+<p t="338570" d="1937">because we know how
+to differentiate y</p>
+<p t="340507" d="2000">to the n with respect to y.</p>
+<p t="342507" d="1833">That's the same formula,
+although the letter</p>
+<p t="344340" d="1990">has been changed.</p>
+<p t="346330" d="6740">And so this is the same as -
+I'll write it underneath here -</p>
+<p t="353070" d="13970">n y^(n-1) dy/dx = m x^(m-1).</p>
+<p t="367040" d="7525">Okay, now comes, if you
+like, the non-calculus part</p>
+<p t="374565" d="625">of the problem.</p>
+<p t="375190" d="1950">Remember the non-calculus
+part of the problem</p>
+<p t="377140" d="2890">is always the messier
+part of the problem.</p>
+<p t="380030" d="2180">So we want to figure
+out this formula.</p>
+<p t="382210" d="3390">This formula, the
+answer over here,</p>
+<p t="385600" d="4250">which maybe I'll
+put in a box now,</p>
+<p t="389850" d="3570">has this expressed much more
+simply, only in terms of x.</p>
+<p t="393420" d="2720">And what we have to do now
+is just solve for dy/dx</p>
+<p t="396140" d="3590">using algebra, and then solve
+all the way in terms of x.</p>
+<p t="399730" d="1970">So, first of all,
+we solve for dy/dx.</p>
+<p t="404230" d="3700">So I do that by dividing the
+factor on the left-hand side.</p>
+<p t="407930" d="5030">So I get here mx^(m-1)
+divided by ny^(n-1).</p>
+<p t="416030" d="5990">And now I'm going to plug in--
+so I'll write this as m/n.</p>
+<p t="422020" d="2520">This is x^(m-1).</p>
+<p t="424540" d="6000">Now over here I'm going to put
+in for y, x^(m/n) times n-1.</p>
+<p t="435690" d="3010">So now we're almost done,
+but unfortunately we</p>
+<p t="438700" d="3370">have this mess of exponents
+that we have to work out.</p>
+<p t="442070" d="2990">I'm going to write
+it one more time.</p>
+<p t="445060" d="3524">So I already recognize
+the factor a out front.</p>
+<p t="448584" d="1666">That's not going to
+be a problem for me,</p>
+<p t="450250" d="1730">and that's what I'm
+aiming for here.</p>
+<p t="451980" d="2720">But now I have to encode
+all of these powers,</p>
+<p t="454700" d="1690">so let's just write it.</p>
+<p t="456390" d="5400">It's m-1, and then it's
+minus the quantity (n-1) m/n.</p>
+<p t="466270" d="3980">All right, so that's the law of
+exponents applied to this ratio</p>
+<p t="470250" d="500">here.</p>
+<p t="470750" d="7660">And then we'll do the arithmetic
+over here on the next board.</p>
+<p t="478410" d="10290">So we have here m - 1
+- (n-1) m/n = m - 1.</p>
+<p t="488700" d="3760">And if I multiply n
+by this, I get -m.</p>
+<p t="492460" d="3100">And if the second factor is
+minus minus, that's a plus.</p>
+<p t="495560" d="2660">And that's +m/n.</p>
+<p t="498220" d="2860">Altogether the two m's cancel.</p>
+<p t="501080" d="2660">I have here -1 + m/n.</p>
+<p t="503740" d="3752">And lo and behold that's
+the same thing as a - 1,</p>
+<p t="507492" d="2018">just what we wanted.</p>
+<p t="509510" d="2390">All right, so this
+equals a x^(n-1).</p>
+<p t="511900" d="7660">Okay, again just a
+bunch of arithmetic.</p>
+<p t="519560" d="2970">From this point forward,
+from this substitution</p>
+<p t="522530" d="8650">on, it's just the
+arithmetic of exponents.</p>
+<p t="531180" d="6820">All right, so we've done
+our first example here.</p>
+<p t="538000" d="2590">I want to give you a
+couple more examples,</p>
+<p t="540590" d="3440">so let's just continue.</p>
+<p t="544030" d="4690">The next example I'll
+keep relatively simple.</p>
+<p t="548720" d="6870">So we have example two, which is
+going to be the function x^2 +</p>
+<p t="555590" d="2470">y^2 = 1.</p>
+<p t="558060" d="3140">Well, that's not
+really a function.</p>
+<p t="561200" d="7980">It's a way of defining y as
+a function of x implicitly.</p>
+<p t="569180" d="5520">There's the idea that I could
+solve for y if I wanted to.</p>
+<p t="574700" d="1790">And indeed let's do that.</p>
+<p t="576490" d="6000">So if you solve for y here, what
+happens is you get y^2 = 1 -</p>
+<p t="582490" d="4890">x^2, and y is equal to plus or
+minus the square root of 1 -</p>
+<p t="587380" d="5560">x^2.</p>
+<p t="592940" d="5260">So this, if you like, is
+the implicit definition.</p>
+<p t="598200" d="2710">And here is the
+explicit function y,</p>
+<p t="600910" d="3230">which is a function of x.</p>
+<p t="604140" d="2220">And now just for
+my own convenience,</p>
+<p t="606360" d="2950">I'm just going to take
+the positive branch.</p>
+<p t="609310" d="4140">This is the function.</p>
+<p t="613450" d="2450">It's just really a
+circle in disguise.</p>
+<p t="615900" d="3700">And I'm just going to take
+the top part of the circle,</p>
+<p t="619600" d="5320">so we'll take that
+top hump here.</p>
+<p t="624920" d="2980">All right, so that means
+I'm erasing this minus sign.</p>
+<p t="627900" d="7760">I'm just taking the
+positive branch, just</p>
+<p t="635660" d="810">for my convenience.</p>
+<p t="636470" d="4510">I could do it just as well
+with the negative branch.</p>
+<p t="640980" d="5020">Alright, so now I've
+taken the solution,</p>
+<p t="646000" d="3540">and I can differentiate
+with this.</p>
+<p t="649540" d="3530">So rather than using the
+dy/dx notation over here,</p>
+<p t="653070" d="2440">I'm going to switch
+notations over here,</p>
+<p t="655510" d="1110">because it's less writing.</p>
+<p t="656620" d="3050">I'm going to write y'
+and change notations.</p>
+<p t="659670" d="4780">Okay, so I want to take
+the derivative of this.</p>
+<p t="664450" d="7120">Well this is a somewhat
+complicated function here.</p>
+<p t="671570" d="4200">It's the square root of 1 -
+x^2, and the right way always</p>
+<p t="675770" d="5950">to look at functions like
+this is to rewrite them using</p>
+<p t="681720" d="4490">the fractional power notation.</p>
+<p t="686210" d="2700">That's the first
+step in computing</p>
+<p t="688910" d="3690">a derivative of a square root.</p>
+<p t="692600" d="5430">And then the second
+step here is what?</p>
+<p t="698030" d="2710">Does somebody want to tell me?</p>
+<p t="700740" d="2910">Chain rule, right.</p>
+<p t="703650" d="650">That's it.</p>
+<p t="704300" d="1020">So we have two things.</p>
+<p t="705320" d="2400">We start with one, and then
+we do something else to it.</p>
+<p t="707720" d="2370">So whenever we do two
+things to something,</p>
+<p t="710090" d="1930">we need to apply the chain rule.</p>
+<p t="712020" d="3220">So 1 - x^2, square root.</p>
+<p t="715240" d="1940">All right, so how do we do that?</p>
+<p t="717180" d="1650">Well, the first
+factor I claim is</p>
+<p t="718830" d="2390">the derivative of this thing.</p>
+<p t="721220" d="5280">So this is 1/2 blah to the -1/2.</p>
+<p t="726500" d="3260">So I'm doing this kind
+of by the advanced method</p>
+<p t="729760" d="1630">now, because we've
+already graduated.</p>
+<p t="731390" d="3060">You already did the
+chain rule last time.</p>
+<p t="734450" d="1470">So what does this mean?</p>
+<p t="735920" d="5020">This is an abbreviation for
+the derivative with respect</p>
+<p t="740940" d="6757">to blah of blah ^
+1/2, whatever it is.</p>
+<p t="747697" d="2583">All right, so that's the first
+factor that we're going to use.</p>
+<p t="750280" d="4200">Rather than actually write
+out a variable for it</p>
+<p t="754480" d="2410">and pass through
+as I did previously</p>
+<p t="756890" d="2270">with this y and x
+variable here, I'm</p>
+<p t="759160" d="2680">just going to skip
+that step and let</p>
+<p t="761840" d="3530">you imagine it as being a
+placeholder for that variable</p>
+<p t="765370" d="500">here.</p>
+<p t="765870" d="3090">So this variable
+is now parenthesis.</p>
+<p t="768960" d="3410">And then I have to multiply that
+by the rate of change of what's</p>
+<p t="772370" d="2680">inside with respect to x.</p>
+<p t="775050" d="3530">And that is going to be -2x.</p>
+<p t="778580" d="4250">The derivative of
+1 - x^2 is -2x.</p>
+<p t="782830" d="6200">And now again, we couldn't
+have done this example two</p>
+<p t="789030" d="2700">before example one,
+because we needed</p>
+<p t="791730" d="5740">to know that the power rule
+worked not just for a integer</p>
+<p t="797470" d="2220">but also for a = 1/2.</p>
+<p t="799690" d="3050">We're using the case
+a = 1/2 right here.</p>
+<p t="802740" d="6800">It's 1/2 times, and
+this -1/2 here is a-1. -</p>
+<p t="809540" d="3890">So this is the case a = 1/2.</p>
+<p t="813430" d="6360">a-1 happens to be -1/2.</p>
+<p t="819790" d="2150">Okay, so I'm putting all
+those things together.</p>
+<p t="821940" d="2440">And you know within
+a week you have</p>
+<p t="824380" d="1590">to be doing this
+very automatically.</p>
+<p t="825970" d="1930">So we're going to do
+it at this speed now.</p>
+<p t="827900" d="1880">You want to do it even
+faster, ultimately.</p>
+<p t="829780" d="500">Yes?</p>
+<p t="830280" d="3350">Student: [INAUDIBLE]</p>
+<p t="833630" d="2480">Professor: The question is
+could I have done it implicitly</p>
+<p t="836110" d="1950">without the square roots.</p>
+<p t="838060" d="1380">And the answer is yes.</p>
+<p t="839440" d="2600">That's what I'm about to do.</p>
+<p t="842040" d="2530">So this is an
+illustration of what's</p>
+<p t="844570" d="2860">called the explicit solution.</p>
+<p t="847430" d="6370">So this guy is what's
+called explicit.</p>
+<p t="853800" d="3224">And I want to contrast
+it with the method</p>
+<p t="857024" d="1416">that we're going
+to now use today.</p>
+<p t="858440" d="1970">So it involves a lot
+of complications.</p>
+<p t="860410" d="1291">It involves the chain rule.</p>
+<p t="861701" d="1999">And as we'll see it can
+get messier and messier.</p>
+<p t="863700" d="3560">And then there's
+the implicit method,</p>
+<p t="867260" d="2570">which I claim is easier.</p>
+<p t="869830" d="6340">So let's see what happens
+if you do it implicitly</p>
+<p t="876170" d="4840">The implicit method
+involves, instead of writing</p>
+<p t="881010" d="2600">the function in this
+relatively complicated way,</p>
+<p t="883610" d="3770">with the square root, it
+involves leaving it alone.</p>
+<p t="887380" d="2670">Don't do anything to it.</p>
+<p t="890050" d="2770">In this previous case, we were
+left with something which was</p>
+<p t="892820" d="4000">complicated, say x^(1/3)
+or x^(1/2) or something</p>
+<p t="896820" d="550">complicated.</p>
+<p t="897370" d="1956">We had to simplify it.</p>
+<p t="899326" d="2124">We had an equation one,
+which was more complicated.</p>
+<p t="901450" d="2520">We simplified it then
+differentiated it.</p>
+<p t="903970" d="1620">And so that was a simpler case.</p>
+<p t="905590" d="4000">Well here, the simplest
+thing us to differentiate</p>
+<p t="909590" d="3880">is the one we started with,
+because squares are practically</p>
+<p t="913470" d="3255">the easiest thing after first
+powers, or maybe zeroth powers</p>
+<p t="916725" d="2105">to differentiate.</p>
+<p t="918830" d="1110">So we're leaving it alone.</p>
+<p t="919940" d="1749">This is the simplest
+possible form for it,</p>
+<p t="921689" d="1951">and now we're going
+to differentiate.</p>
+<p t="923640" d="930">So what happens?</p>
+<p t="924570" d="2070">So again what's the method?</p>
+<p t="926640" d="1170">Let me remind you.</p>
+<p t="927810" d="2400">You're applying d/dx
+to the equation.</p>
+<p t="930210" d="3430">So you have to differentiate
+the left side of the equation,</p>
+<p t="933640" d="2170">and differentiate the
+right side of the equation.</p>
+<p t="935810" d="15290">So it's this, and what you get
+is 2x + 2yy' is equal to what?</p>
+<p t="951100" d="1660">0.</p>
+<p t="952760" d="3630">The derivative of 1 0.</p>
+<p t="956390" d="2240">So this is the chain rule again.</p>
+<p t="958630" d="1760">I did it a different way.</p>
+<p t="960390" d="2300">I'm trying to get you used
+to many different notations</p>
+<p t="962690" d="1730">at once.</p>
+<p t="964420" d="930">Well really just two.</p>
+<p t="965350" d="5250">Just the prime notation
+and the dy/dx notation.</p>
+<p t="970600" d="3770">And this is what I get.</p>
+<p t="974370" d="5300">So now all I have to
+do is solve for y'.</p>
+<p t="979670" d="4600">So that y', if I put the 2x
+on the other side, is -2x,</p>
+<p t="984270" d="3490">and then divide by
+2y, which is -x/y.</p>
+<p t="990630" d="3970">So let's compare our
+solutions, and I'll apologize,</p>
+<p t="994600" d="4480">I'm going to have to erase
+something to do that.</p>
+<p t="999080" d="5400">So let's compare
+our two solutions.</p>
+<p t="1004480" d="1980">I'm going to put this
+underneath and simplify.</p>
+<p t="1006460" d="2420">So what was our
+solution over here?</p>
+<p t="1008880" d="2620">It was 1/2(1-x^2)^(-1/2) (-2x).</p>
+<p t="1016720" d="5450">That was what we got over here.</p>
+<p t="1022170" d="4822">And that is the same thing, if I
+cancel the 2's, and I change it</p>
+<p t="1026992" d="1458">back to looking
+like a square root,</p>
+<p t="1028450" d="3086">that's the same thing as -x
+divided by square root of 1 -</p>
+<p t="1031536" d="2424">x^2.</p>
+<p t="1033960" d="4420">So this is the formula
+for the derivative</p>
+<p t="1038380" d="2960">when I do it the explicit way.</p>
+<p t="1041340" d="8210">And I'll just compare them,
+these two expressions here.</p>
+<p t="1049550" d="3080">And notice they are the same.</p>
+<p t="1052630" d="5230">They're the same, because y
+is equal to square root of 1 -</p>
+<p t="1057860" d="2370">x^2.</p>
+<p t="1060230" d="500">Yeah?</p>
+<p t="1060730" d="500">Question?</p>
+<p t="1061230" d="4910">Student: [INAUDIBLE]</p>
+<p t="1066140" d="2390">Professor: The question is
+why did the implicit method</p>
+<p t="1068530" d="2400">not give the bottom
+half of the circle?</p>
+<p t="1070930" d="2270">Very good question.</p>
+<p t="1073200" d="3800">The answer to that
+is that it did.</p>
+<p t="1077000" d="2520">I just didn't mention it.</p>
+<p t="1079520" d="1370">Wait, I'll explain.</p>
+<p t="1080890" d="4410">So suppose I stuck
+in a minus sign here.</p>
+<p t="1085300" d="2740">I would have gotten this
+with the difference, so</p>
+<p t="1088040" d="2040">with an extra minus sign.</p>
+<p t="1090080" d="2400">But then when I compared
+it to what was over there,</p>
+<p t="1092480" d="3140">I would have had to have another
+different minus sign over here.</p>
+<p t="1095620" d="3690">So actually both places would
+get an extra minus sign.</p>
+<p t="1099310" d="1320">And they would still coincide.</p>
+<p t="1100630" d="2130">So actually the implicit
+method is a little better.</p>
+<p t="1102760" d="1180">It doesn't even
+notice the difference</p>
+<p t="1103940" d="1000">between the branches.</p>
+<p t="1104940" d="3990">It does the job on both
+the top and bottom half.</p>
+<p t="1108930" d="2460">Another way of saying
+that is that you're</p>
+<p t="1111390" d="1810">calculating the slopes here.</p>
+<p t="1113200" d="1970">So let's look at this picture.</p>
+<p t="1115170" d="1570">Here's a slope.</p>
+<p t="1116740" d="2350">Let's just take a look
+at a positive value</p>
+<p t="1119090" d="3680">of x and just check the sign
+to see what's happening.</p>
+<p t="1122770" d="4212">If you take a positive value
+of x over here, x is positive.</p>
+<p t="1126982" d="1208">This denominator is positive.</p>
+<p t="1128190" d="916">The slope is negative.</p>
+<p t="1129106" d="3514">You can see that
+it's tilting down.</p>
+<p t="1132620" d="1340">So it's okay.</p>
+<p t="1133960" d="5560">Now on the bottom side,
+it's going to be tilting up.</p>
+<p t="1139520" d="2170">And similarly what's
+happening up here</p>
+<p t="1141690" d="3585">is that both x and y are
+positive, and this x and this y</p>
+<p t="1145275" d="892">are positive.</p>
+<p t="1146167" d="1083">And the slope is negative.</p>
+<p t="1147250" d="3180">On the other hand, on the bottom
+side, x is still positive,</p>
+<p t="1150430" d="1350">but y is negative.</p>
+<p t="1151780" d="3388">And it's tilting up because
+the denominator is negative.</p>
+<p t="1155168" d="1916">The numerator is positive,
+and this minus sign</p>
+<p t="1157084" d="1966">has a positive slope.</p>
+<p t="1159050" d="4280">So it matches perfectly
+in every category.</p>
+<p t="1163330" d="3590">This complicated,
+however, and it's easier</p>
+<p t="1166920" d="3080">just to keep track of
+one branch at a time,</p>
+<p t="1170000" d="2850">even in advanced math.</p>
+<p t="1172850" d="4740">Okay, so we only do it
+one branch at a time.</p>
+<p t="1177590" d="6380">Other questions?</p>
+<p t="1183970" d="3390">Okay, so now I want to
+give you a slightly more</p>
+<p t="1187360" d="1850">complicated example here.</p>
+<p t="1189210" d="3480">And indeed some
+of the-- so here's</p>
+<p t="1192690" d="1800">a little more
+complicated example.</p>
+<p t="1194490" d="2410">It's not going to be the
+most complicated example,</p>
+<p t="1196900" d="21080">but you know it'll
+be a little tricky.</p>
+<p t="1217980" d="4540">So this example, I'm going
+to give you a fourth order</p>
+<p t="1222520" d="500">equation.</p>
+<p t="1223020" d="8960">So y^4 + xy^2 - 2 = 0.</p>
+<p t="1231980" d="3340">Now it just so
+happens that there's</p>
+<p t="1235320" d="3380">a trick to solving
+this equation,</p>
+<p t="1238700" d="2720">so actually you can do
+both the explicit method</p>
+<p t="1241420" d="4790">and the non-explicit method.</p>
+<p t="1246210" d="4169">So the explicit method
+would say okay well,</p>
+<p t="1250379" d="1041">I want to solve for this.</p>
+<p t="1251420" d="4340">So I'm going to use the
+quadratic formula, but on y^2.</p>
+<p t="1255760" d="3470">This is quadratic in y^2,
+because there's a fourth power</p>
+<p t="1259230" d="3661">and a second power, and the
+first and third powers are</p>
+<p t="1262891" d="499">missing.</p>
+<p t="1263390" d="6550">So this is y^2 is equal to -x
+plus or minus the square root</p>
+<p t="1269940" d="9630">of x^2 - 4(-2) divided by 2.</p>
+<p t="1279570" d="3220">And so this x is the b.</p>
+<p t="1282790" d="6960">This -2 is the c, and a =
+1 in the quadratic formula.</p>
+<p t="1289750" d="7450">And so the formula for y is plus
+or minus the square root of -x</p>
+<p t="1297200" d="7870">plus or minus the square
+root x^2 + 8 divided by 2.</p>
+<p t="1305070" d="2810">So now you can see this
+problem of branches,</p>
+<p t="1307880" d="2660">this happens actually
+in a lot of cases,</p>
+<p t="1310540" d="2526">coming up in an elaborate way.</p>
+<p t="1313066" d="1624">You have two choices
+for the sign here.</p>
+<p t="1314690" d="1920">You have two choices
+for the sign here.</p>
+<p t="1316610" d="2800">Conceivably as many as four
+roots for this equation,</p>
+<p t="1319410" d="2621">because it's a fourth
+degree equation.</p>
+<p t="1322031" d="749">It's quite a mess.</p>
+<p t="1322780" d="3220">You should have to check
+each branch separately.</p>
+<p t="1326000" d="3180">And this really is that
+level of complexity,</p>
+<p t="1329180" d="2570">and in general
+it's very difficult</p>
+<p t="1331750" d="6090">to figure out the formulas
+for quartic equations.</p>
+<p t="1337840" d="3790">But fortunately we're
+never going to use them.</p>
+<p t="1341630" d="3200">That is, we're never going
+to need those formulas.</p>
+<p t="1344830" d="7020">So the implicit
+method is far easier.</p>
+<p t="1351850" d="3380">The implicit method
+just says okay I'll</p>
+<p t="1355230" d="3750">leave the equation
+in its simplest form.</p>
+<p t="1358980" d="1540">And now differentiate.</p>
+<p t="1360520" d="6780">So when I differentiate,
+I get 4y^3 y' plus -</p>
+<p t="1367300" d="3620">now here I have to
+apply the product rule.</p>
+<p t="1370920" d="5170">So I differentiate the x
+and the y^2 separately.</p>
+<p t="1376090" d="3630">First I differentiate with
+respect to x, so I get y^2.</p>
+<p t="1379720" d="3500">Then I differentiate with
+respect to the other factor,</p>
+<p t="1383220" d="1190">the y^2 factor.</p>
+<p t="1384410" d="4540">And I get x(2 y y').</p>
+<p t="1388950" d="1490">And then the 0 gives me 0.</p>
+<p t="1390440" d="5660">So minus 0 equals 0.</p>
+<p t="1396100" d="5870">So there's the implicit
+differentiation step.</p>
+<p t="1401970" d="4290">And now I just want
+to solve for y'.</p>
+<p t="1406260" d="6310">So I'm going to
+factor out 4y^3 + 2xy.</p>
+<p t="1412570" d="3170">That's the factor on y'.</p>
+<p t="1415740" d="4040">And I'm going to put the
+y^2 on the other side.</p>
+<p t="1419780" d="3620">-y^2 over here.</p>
+<p t="1423400" d="11710">And so the formula for y' is
+-y^2 divided by 4y^3 + 2xy.</p>
+<p t="1435110" d="6310">So that's the formula
+for the solution.</p>
+<p t="1441420" d="5527">For the slope.</p>
+<p t="1446947" d="833">You have a question?</p>
+<p t="1447780" d="8560">Student: [INAUDIBLE]</p>
+<p t="1456340" d="2010">Professor: So the question
+is for the y would</p>
+<p t="1458350" d="3790">we have to put in what solved
+for in the explicit equation.</p>
+<p t="1462140" d="1980">And the answer is
+absolutely yes.</p>
+<p t="1464120" d="1160">That's exactly the point.</p>
+<p t="1465280" d="5670">So this is not a complete
+solution to a problem.</p>
+<p t="1470950" d="1760">We started with an
+implicit equation.</p>
+<p t="1472710" d="1280">We differentiated.</p>
+<p t="1473990" d="2670">And we got in the end,
+also an implicit equation.</p>
+<p t="1476660" d="2880">It doesn't tell us what
+y is as a function of x.</p>
+<p t="1479540" d="3500">You have to go back
+to this formula</p>
+<p t="1483040" d="2480">to get the formula for x.</p>
+<p t="1485520" d="3790">So for example, let me
+give you an example here.</p>
+<p t="1489310" d="5350">So this hides a degree of
+complexity of the problem.</p>
+<p t="1494660" d="3890">But it's a degree of complexity
+that we must live with.</p>
+<p t="1498550" d="11910">So for example, at x = 1, you
+can see that y = 1 solves.</p>
+<p t="1510460" d="6290">That happens to be--
+solves y^4 + xy^2 - 2 = 0.</p>
+<p t="1516750" d="1650">That's why I picked
+the 2 actually,</p>
+<p t="1518400" d="2600">so it would be 1 + 1 - 2 = 0.</p>
+<p t="1521000" d="2060">I just wanted to have a
+convenient solution there</p>
+<p t="1523060" d="2570">to pull out of my
+hat at this point.</p>
+<p t="1525630" d="1040">So I did that.</p>
+<p t="1526670" d="3580">And so we now know
+that when x = 1, y = 1.</p>
+<p t="1530250" d="11490">So at (1, 1) along the curve,
+the slope is equal to what?</p>
+<p t="1541740" d="10460">Well, I have to plug in
+here, -1^2 / (4*1^3 + 2*1*1).</p>
+<p t="1552200" d="2090">That's just plugging in
+that formula over there,</p>
+<p t="1554290" d="4880">which turns out to be -1/6.</p>
+<p t="1559170" d="1500">So I can get it.</p>
+<p t="1560670" d="13270">On the other hand,
+at say x = 2, we're</p>
+<p t="1573940" d="18950">stuck using this formula
+star here to find y.</p>
+<p t="1592890" d="4280">Now, so let me just
+make two points</p>
+<p t="1597170" d="2850">about this, which are just
+philosophical points for you</p>
+<p t="1600020" d="2400">right now.</p>
+<p t="1602420" d="3007">The first is, when
+I promised you</p>
+<p t="1605427" d="1583">at the beginning of
+this class that we</p>
+<p t="1607010" d="1830">were going to be
+able to differentiate</p>
+<p t="1608840" d="4390">any function you know, I
+meant it very literally.</p>
+<p t="1613230" d="2791">What I meant is if
+you know the function,</p>
+<p t="1616021" d="1999">we'll be able give a
+formula for the derivative.</p>
+<p t="1618020" d="2190">If you don't know how
+to find a function,</p>
+<p t="1620210" d="2280">you'll have a lot of trouble
+finding the derivative.</p>
+<p t="1622490" d="2880">So we didn't make any
+promises that if you</p>
+<p t="1625370" d="1460">can't find the
+function you will be</p>
+<p t="1626830" d="2470">able to find the
+derivative by some magic.</p>
+<p t="1629300" d="1150">That will never happen.</p>
+<p t="1630450" d="2450">And however complex
+the function is,</p>
+<p t="1632900" d="3230">a root of a fourth
+degree polynomial</p>
+<p t="1636130" d="4170">can be pretty complicated
+function of the coefficients,</p>
+<p t="1640300" d="3690">we're stuck with this degree
+of complexity in the problem.</p>
+<p t="1643990" d="3230">But the big advantage
+of his method, notice,</p>
+<p t="1647220" d="2120">is that although we've
+had to find star,</p>
+<p t="1649340" d="1840">we had to find
+this formula star,</p>
+<p t="1651180" d="2920">and there are many other ways of
+doing these things numerically,</p>
+<p t="1654100" d="2150">by the way, which
+we'll learn later,</p>
+<p t="1656250" d="3690">so there's a good method
+for doing it numerically.</p>
+<p t="1659940" d="3250">Although we had to find star, we
+never had to differentiate it.</p>
+<p t="1663190" d="2890">We had a fast way of
+getting the slope.</p>
+<p t="1666080" d="2200">So we had to know
+what x and y were.</p>
+<p t="1668280" d="2700">But y' we got by an
+algebraic formula,</p>
+<p t="1670980" d="3470">in terms of the values here.</p>
+<p t="1674450" d="2690">So this is very fast,
+forgetting the slope,</p>
+<p t="1677140" d="5242">once you know the point. yes?</p>
+<p t="1682382" d="1458">Student: What's in
+the parentheses?</p>
+<p t="1683840" d="2950">Professor: Sorry, this is-- Well
+let's see if I can manage this.</p>
+<p t="1686790" d="9732">Is this the parentheses
+you're talking about?</p>
+<p t="1696522" d="500">Ah, "say".</p>
+<p t="1697022" d="288">That says "say".</p>
+<p t="1697310" d="1875">Well, so maybe I should
+put commas around it.</p>
+<p t="1699185" d="5375">But it was S A Y,
+comma comma, okay?</p>
+<p t="1704560" d="4340">Well here was at x = 1.</p>
+<p t="1708900" d="4200">I'm just throwing out a value.</p>
+<p t="1713100" d="1100">Any other value.</p>
+<p t="1714200" d="2160">Actually there is one
+value, my favorite value.</p>
+<p t="1716360" d="3340">Well this is easy to
+evaluate right? x = 0,</p>
+<p t="1719700" d="2910">I can do it there.</p>
+<p t="1722610" d="2790">That's maybe the only one.</p>
+<p t="1725400" d="10420">The others are a nuisance.</p>
+<p t="1735820" d="7930">All right, other questions?</p>
+<p t="1743750" d="2310">Now we have to do
+something more here.</p>
+<p t="1746060" d="4410">So I claimed to you that
+we could differentiate</p>
+<p t="1750470" d="1110">all the functions we know.</p>
+<p t="1751580" d="1640">But really we can
+learn a tremendous</p>
+<p t="1753220" d="4690">about functions which are
+really hard to get at.</p>
+<p t="1757910" d="2420">So this implicit
+differentiation method</p>
+<p t="1760330" d="10420">has one very, very
+important application</p>
+<p t="1770750" d="7260">to finding inverse functions,
+or finding derivatives</p>
+<p t="1778010" d="2640">of inverse functions.</p>
+<p t="1780650" d="11140">So let's talk about that next.</p>
+<p t="1791790" d="3910">So first, maybe we'll just
+illustrate by an example.</p>
+<p t="1795700" d="3610">If you have the function y
+is equal to square root x,</p>
+<p t="1799310" d="5290">for x positive, then
+of course this idea</p>
+<p t="1804600" d="2570">is that we should
+simplify this equation</p>
+<p t="1807170" d="3180">and we should square it so
+we get this somewhat simpler</p>
+<p t="1810350" d="1510">equation here.</p>
+<p t="1811860" d="2220">And then we have a
+notation for this.</p>
+<p t="1814080" d="7610">If we call f(x) equal to
+square root of x, and g(y) = x,</p>
+<p t="1821690" d="3650">this is the reversal of this.</p>
+<p t="1825340" d="7810">Then the formula for g(y)
+is that it should be y^2.</p>
+<p t="1833150" d="15160">And in general, if we start
+with any old y = f(x),</p>
+<p t="1848310" d="4390">and we just write down, this
+is the defining relationship</p>
+<p t="1852700" d="4350">for a function g, the property
+that we're saying is that</p>
+<p t="1857050" d="3990">g(f(x)) has got to
+bring us back to x.</p>
+<p t="1861040" d="3580">And we write that in a
+couple of different ways.</p>
+<p t="1864620" d="3640">We call g the inverse of f.</p>
+<p t="1868260" d="5140">And also we call f
+the inverse of g,</p>
+<p t="1873400" d="2560">although I'm going to be
+silent about which variable</p>
+<p t="1875960" d="3340">I want to use, because people
+mix them up a little bit,</p>
+<p t="1879300" d="12240">as we'll be doing when we
+draw some pictures of this.</p>
+<p t="1891540" d="1080">So let's see.</p>
+<p t="1892620" d="9690">Let's draw pictures of
+both f and f inverse</p>
+<p t="1902310" d="7950">on the same graph.</p>
+<p t="1910260" d="11870">So first of all, I'm going
+to draw the graph of f(x)</p>
+<p t="1922130" d="4340">= square root of x.</p>
+<p t="1926470" d="4790">That's some shape like this.</p>
+<p t="1931260" d="5130">And now, in order to
+understand what g(y) is,</p>
+<p t="1936390" d="3640">so let's do the
+analysis in general,</p>
+<p t="1940030" d="3390">but then we'll draw it
+in this particular case.</p>
+<p t="1943420" d="8360">If you have g(y)
+= x, that's really</p>
+<p t="1951780" d="2680">just the same equation right?</p>
+<p t="1954460" d="2980">This is the equation
+g(y) = x, that's y^2 = x.</p>
+<p t="1957440" d="3210">This is y = square root of x,
+those are the same equations,</p>
+<p t="1960650" d="2680">it's the same curve.</p>
+<p t="1963330" d="6477">But suppose now that we wanted
+to write down what g(x) is.</p>
+<p t="1969807" d="2083">In other words, we wanted
+to switch the variables,</p>
+<p t="1971890" d="3760">so draw them as I said on the
+same graph with the same x,</p>
+<p t="1975650" d="4150">and the same y axes.</p>
+<p t="1979800" d="4540">Then that would be, in effect,
+trading the roles of x and y.</p>
+<p t="1984340" d="3330">We have to rename every
+point on the graph which</p>
+<p t="1987670" d="4620">is the ordered pair (x, y), and
+trade it for the opposite one.</p>
+<p t="1992290" d="2960">And when you
+exchange x and y, so</p>
+<p t="1995250" d="8550">to do this, exchange
+x and y, and when</p>
+<p t="2003800" d="3230">you do that, graphically
+what that looks</p>
+<p t="2007030" d="3410">like is the following:
+suppose you have a place here,</p>
+<p t="2010440" d="3140">and this is the x
+and this is the y,</p>
+<p t="2013580" d="1450">then you want to trade them.</p>
+<p t="2015030" d="4590">So you want the y here right?</p>
+<p t="2019620" d="1740">And the x up there.</p>
+<p t="2021360" d="3040">It's sort of the opposite
+place over there.</p>
+<p t="2024400" d="6730">And that is the place which is
+directly opposite this point</p>
+<p t="2031130" d="4660">across the diagonal line x = y.</p>
+<p t="2035790" d="2620">So you reflect across this
+or you flip across that.</p>
+<p t="2038410" d="2710">You get this other shape
+that looks like that.</p>
+<p t="2041120" d="9660">Maybe I'll draw it with a
+colored piece of chalk here.</p>
+<p t="2050780" d="13310">So this guy here
+is y = f^(-1)(x).</p>
+<p t="2064090" d="2134">And indeed, if you
+look at these graphs,</p>
+<p t="2066224" d="1166">this one is the square root.</p>
+<p t="2067390" d="7397">This one happens to be y = x^2.</p>
+<p t="2074787" d="1583">If you take this
+one, and you turn it,</p>
+<p t="2076370" d="3520">you reverse the roles of
+the x axis and the y axis,</p>
+<p t="2079890" d="3730">and tilt it on its side.</p>
+<p t="2083620" d="7530">So that's the picture of what an
+inverse function is, and now I</p>
+<p t="2091150" d="4920">want to show you that the method
+of implicit differentiation</p>
+<p t="2096070" d="3820">allows us to compute
+the derivatives</p>
+<p t="2099890" d="3360">of inverse functions.</p>
+<p t="2103250" d="1850">So let me just
+say it in general,</p>
+<p t="2105100" d="2210">and then I'll carry
+it out in particular.</p>
+<p t="2107310" d="9080">So implicit
+differentiation allows</p>
+<p t="2116390" d="16490">us to find the derivative
+of any inverse function,</p>
+<p t="2132880" d="20500">provided we know the
+derivative of the function.</p>
+<p t="2153380" d="4980">So let's do that for
+what is an example, which</p>
+<p t="2158360" d="4150">is truly complicated and
+a little subtle here.</p>
+<p t="2162510" d="2260">It has a very pretty answer.</p>
+<p t="2164770" d="4930">So we'll carry out
+an example here,</p>
+<p t="2169700" d="9960">which is the function y is
+equal to the inverse tangent.</p>
+<p t="2179660" d="6240">So again, for the
+inverse tangent</p>
+<p t="2185900" d="4120">all of the things
+that we're going to do</p>
+<p t="2190020" d="2340">are going to be
+based on simplifying</p>
+<p t="2192360" d="3890">this equation by taking
+the tangent of both sides.</p>
+<p t="2196250" d="2010">So, us let me remind
+you by the way,</p>
+<p t="2198260" d="3520">the inverse tangent is what's
+also known as arctangent.</p>
+<p t="2201780" d="3430">That's just another
+notation for the same thing.</p>
+<p t="2205210" d="4560">And what we're going
+to use to describe</p>
+<p t="2209770" d="5795">this function is the
+equation tan y = x.</p>
+<p t="2215565" d="1375">That's what happens
+when you take</p>
+<p t="2216940" d="2170">the tangent of this function.</p>
+<p t="2219110" d="2580">This is how we're
+going to figure out</p>
+<p t="2221690" d="17960">what the function looks like.</p>
+<p t="2239650" d="3720">So first of all,
+I want to draw it,</p>
+<p t="2243370" d="3240">and then we'll do
+the computation.</p>
+<p t="2246610" d="5510">So let's make the diagram first.</p>
+<p t="2252120" d="1510">So I want to do
+something which is</p>
+<p t="2253630" d="2249">analogous to what I did over
+here with the square root</p>
+<p t="2255879" d="2181">function.</p>
+<p t="2258060" d="5680">So first of all, I remind
+you that the tangent function</p>
+<p t="2263740" d="9110">is defined between two values
+here, which are pi/2 and -pi/2.</p>
+<p t="2272850" d="2160">And it starts out
+at minus infinity</p>
+<p t="2275010" d="3550">and curves up like this.</p>
+<p t="2278560" d="9490">So that's the function tan x.</p>
+<p t="2288050" d="3300">And so the one that
+we have to sketch</p>
+<p t="2291350" d="3520">is this one which we
+get by reflecting this</p>
+<p t="2294870" d="6910">across the axis.</p>
+<p t="2301780" d="3370">Well not the axis, the diagonal.</p>
+<p t="2305150" d="7930">This slope by the way, should
+be less - a little lower here so</p>
+<p t="2313080" d="4500">that we can have it
+going down and up.</p>
+<p t="2317580" d="4420">So let me show you
+what it looks like.</p>
+<p t="2322000" d="2830">On the front, it's going to
+look a lot like this one.</p>
+<p t="2324830" d="5790">So this one had curved
+down, and so the reflection</p>
+<p t="2330620" d="1860">across the diagonal curved up.</p>
+<p t="2332480" d="1840">Here this is curving
+up, so the reflection</p>
+<p t="2334320" d="1750">is going to curve down.</p>
+<p t="2336070" d="2690">It's going to look like this.</p>
+<p t="2338760" d="3600">Maybe I should, sorry,
+let's use a different color,</p>
+<p t="2342360" d="2090">because it's
+reversed from before.</p>
+<p t="2344450" d="5970">I'll just call it green.</p>
+<p t="2350420" d="5210">Now, the original curve
+in the first quadrant</p>
+<p t="2355630" d="2360">eventually had an asymptote
+which was straight up.</p>
+<p t="2357990" d="6100">So this one is going to have an
+asymptote which is horizontal.</p>
+<p t="2364090" d="3170">And that level is what?</p>
+<p t="2367260" d="2690">What's the highest?</p>
+<p t="2369950" d="830">It is just pi/2.</p>
+<p t="2373470" d="2440">Now similarly, the
+other way, we're</p>
+<p t="2375910" d="4130">going to do this:
+and this bottom level</p>
+<p t="2380040" d="2900">is going to be -pi/2.</p>
+<p t="2382940" d="4540">So there's the picture
+of this function.</p>
+<p t="2387480" d="2820">It's defined for all x.</p>
+<p t="2390300" d="7230">So this green guy
+is y = arctan x.</p>
+<p t="2397530" d="2000">And it's defined all the
+way from minus infinity</p>
+<p t="2399530" d="5760">to infinity.</p>
+<p t="2405290" d="6120">And to use a notation that
+we had from limit notation</p>
+<p t="2411410" d="9880">as x goes to infinity, let's
+say, x is equal to pi/2.</p>
+<p t="2421290" d="3533">That's an example of one value
+that's of interest in addition</p>
+<p t="2424823" d="3427">to the finite values.</p>
+<p t="2428250" d="3180">Okay, so now the
+first ingredient</p>
+<p t="2431430" d="3150">that we're going
+to need, is we're</p>
+<p t="2434580" d="2610">going to need the derivative
+of the tangent function.</p>
+<p t="2437190" d="2870">So I'm going to recall
+for you, and maybe you</p>
+<p t="2440060" d="3120">haven't worked this out yet, but
+I hope that many of you have,</p>
+<p t="2443180" d="5610">that if you take the derivative
+with respect to y of tan y.</p>
+<p t="2448790" d="6710">So this you do by
+the quotient rule.</p>
+<p t="2455500" d="3650">So this is of the
+form u/v, right?</p>
+<p t="2459150" d="1480">You use the quotient rule.</p>
+<p t="2460630" d="5460">So I'm going to get this.</p>
+<p t="2466090" d="3470">But what you get in the end is
+some marvelous simplification</p>
+<p t="2469560" d="3020">that comes out to cos^2 y.</p>
+<p t="2472580" d="2160">1 over cosine squared.</p>
+<p t="2474740" d="2720">You can recognize the cosine
+squared from the fact that you</p>
+<p t="2477460" d="1780">should get v^2 in
+the denominator,</p>
+<p t="2479240" d="7390">and somehow the numerators all
+cancel and simplifies to 1.</p>
+<p t="2486630" d="5930">This is also known
+as secant squared y.</p>
+<p t="2492560" d="5450">So that something that
+if you haven't done yet,</p>
+<p t="2498010" d="10440">you're going to have to
+do this as an exercise.</p>
+<p t="2508450" d="1770">So we need that
+ingredient, and now we're</p>
+<p t="2510220" d="8960">just going to
+differentiate our equation.</p>
+<p t="2519180" d="1360">And what do we get?</p>
+<p t="2520540" d="14920">We get, again, (d/dy tan y)
+times dy/dx is equal to 1.</p>
+<p t="2535460" d="7470">Or, if you like, 1 / cos^2 y
+times, in the other notation,</p>
+<p t="2542930" d="7160">y', is equal to 1.</p>
+<p t="2550090" d="5650">So I've just used the formulas
+that I just wrote down there.</p>
+<p t="2555740" d="2120">Now all I have to
+do is solve for y'.</p>
+<p t="2557860" d="6200">It's cos^2 y.</p>
+<p t="2564060" d="2980">Unfortunately, this
+is not the form</p>
+<p t="2567040" d="2570">that we ever want to
+leave these things in.</p>
+<p t="2569610" d="2570">This is the same problem we
+had with that ugly square root</p>
+<p t="2572180" d="2320">expression, or with
+any of the others.</p>
+<p t="2574500" d="3570">We want to rewrite
+in terms of x.</p>
+<p t="2578070" d="7210">Our original question was
+what is d/dx of arctan x.</p>
+<p t="2585280" d="2980">Now so far we have the following
+answer to that question:</p>
+<p t="2588260" d="6950">it's cos^2 (arctan x).</p>
+<p t="2595210" d="16570">Now this is a correct answer,
+but way too complicated.</p>
+<p t="2611780" d="1400">Now that doesn't
+mean that if you</p>
+<p t="2613180" d="1920">took a random
+collection of functions,</p>
+<p t="2615100" d="2460">you wouldn't end up with
+something this complicated.</p>
+<p t="2617560" d="3440">But these particular functions,
+these beautiful circular</p>
+<p t="2621000" d="1900">functions involved
+with trigonometry all</p>
+<p t="2622900" d="2710">have very nice formulas
+associated with them.</p>
+<p t="2625610" d="3130">And this simplifies
+tremendously.</p>
+<p t="2628740" d="1620">So one of the
+skills that you need</p>
+<p t="2630360" d="4300">to develop when you're
+dealing with trig functions</p>
+<p t="2634660" d="2030">is to simplify this.</p>
+<p t="2636690" d="6930">And so let's see now that
+expressions like this all</p>
+<p t="2643620" d="4330">simplify.</p>
+<p t="2647950" d="2450">So here we go.</p>
+<p t="2650400" d="1864">There's only one
+formula, one ingredient</p>
+<p t="2652264" d="1916">that we need to use to
+do this, and then we're</p>
+<p t="2654180" d="1280">going to draw a diagram.</p>
+<p t="2655460" d="3070">So the ingredient again, is the
+original defining relationship</p>
+<p t="2658530" d="3620">that tan y = x.</p>
+<p t="2662150" d="5630">So tan y = x can be
+encoded in a right triangle</p>
+<p t="2667780" d="6740">in the following way: here's
+the right triangle and tan</p>
+<p t="2674520" d="4070">y means that y should be
+represented as an angle.</p>
+<p t="2678590" d="2230">And then, its
+tangent is the ratio</p>
+<p t="2680820" d="2680">of this vertical to
+this horizontal side.</p>
+<p t="2683500" d="2750">So I'm just going to pick
+two values that work,</p>
+<p t="2686250" d="2740">namely x and 1.</p>
+<p t="2688990" d="2940">Those are the simplest ones.</p>
+<p t="2691930" d="5740">So I've encoded this
+equation in this picture.</p>
+<p t="2697670" d="3890">And now all I have to do is
+figure out what the cosine of y</p>
+<p t="2701560" d="1980">is in this right triangle here.</p>
+<p t="2703540" d="2541">In order to do that, I need to
+figure out what the hypotenuse</p>
+<p t="2706081" d="7199">is, but that's just
+square root of 1 + x^2.</p>
+<p t="2713280" d="5300">And now I can read off
+what the cosine of y is.</p>
+<p t="2718580" d="4980">So the cosine of y is 1
+divided by the hypotenuse.</p>
+<p t="2723560" d="8920">So it's 1 over square root,
+whoops, yeah, 1 + x^2.</p>
+<p t="2732480" d="7420">And so cosine squared
+is just 1 / 1 + x^2.</p>
+<p t="2739900" d="3150">And so our answer over here, the
+preferred answer which is way</p>
+<p t="2743050" d="2620">simpler than what
+I wrote up there,</p>
+<p t="2745670" d="19020">is that d/dx of tan inverse
+x is equal to 1 over 1 + x^2.</p>
+<p t="2764690" d="2080">Maybe I'll stop here
+for one more question.</p>
+<p t="2766770" d="3470">I have one more calculation
+which I can do even</p>
+<p t="2770240" d="1260">in less than a minute.</p>
+<p t="2771500" d="4860">So we have a whole
+minute for questions.</p>
+<p t="2776360" d="4120">Yeah?</p>
+<p t="2780480" d="6140">Student: [INAUDIBLE]</p>
+<p t="2786620" d="7590">Professor: What happens
+to the inverse tangent?</p>
+<p t="2794210" d="7320">The inverse tangent--
+Okay, this inverse tangent</p>
+<p t="2801530" d="2500">is the same as this y here.</p>
+<p t="2804030" d="2110">Those are the same thing.</p>
+<p t="2806140" d="4340">So what I did was I skipped
+this step here entirely.</p>
+<p t="2810480" d="1590">I never wrote that down.</p>
+<p t="2812070" d="2490">But the inverse
+tangent was that y.</p>
+<p t="2814560" d="2130">The issue was what's
+a good formula</p>
+<p t="2816690" d="4390">for cos y in terms of x?</p>
+<p t="2821080" d="3430">So I am evaluating that, but
+I'm doing it using the letter y.</p>
+<p t="2824510" d="2090">So in other words, what
+happened to the inverse</p>
+<p t="2826600" d="3750">tangent is that I
+called it y, which</p>
+<p t="2830350" d="4990">is what it's been all along.</p>
+<p t="2835340" d="2110">Okay, so now I'm
+going to do the case</p>
+<p t="2837450" d="2950">of the sine, the inverse sine.</p>
+<p t="2840400" d="2490">And I'll show you
+how easy this is</p>
+<p t="2842890" d="4530">if I don't fuss with-- because
+this one has an easy trig</p>
+<p t="2847420" d="2340">identity associated with it.</p>
+<p t="2849760" d="8110">So if y = sin^(-1)
+x, and sin y = x,</p>
+<p t="2857870" d="3100">and now watch how simple it is
+when I do the differentiation.</p>
+<p t="2860970" d="1470">I just differentiate.</p>
+<p t="2862440" d="8340">I get (cos y) y' = 1.</p>
+<p t="2870780" d="9800">And then, y', so that
+implies that = 1 / cos y,</p>
+<p t="2880580" d="2500">and now to rewrite
+that in terms of x,</p>
+<p t="2883080" d="7470">I have to just recognize that
+this is the same as this,</p>
+<p t="2890550" d="4360">which is the same as 1 /
+square root of 1 - x^2.</p>
+<p t="2894910" d="4690">So all told, the derivative
+with respect to x of the arcsine</p>
+<p t="2899600" d="10820">function is 1 / square
+root of 1 - x^2.</p>
+<p t="2910420" d="2120">So these implicit
+differentiations</p>
+<p t="2912540" d="2160">are very convenient.</p>
+<p t="2914700" d="3490">However, I warn you
+that you do have</p>
+<p t="2918190" d="4480">to be careful about the range of
+applicability of these things.</p>
+<p t="2922670" d="1880">You have to draw a
+picture like this one</p>
+<p t="2924550" d="2660">to make sure you know
+where this makes sense.</p>
+<p t="2927210" d="3170">In other words, you have to pick
+a branch for the sine function</p>
+<p t="2930380" d="1670">to work that out,
+and there's something</p>
+<p t="2932050" d="1280">like that on your problem set.</p>
+<p t="2933330" d="2700">And it's also
+discussed in your text.</p>
+<p t="2936030" d="2040">So we'll stop here.</p>
+</body>
+</timedtext>

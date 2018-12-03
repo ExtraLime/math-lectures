@@ -1,0 +1,1926 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="499" d="2331">The following content is
+provided under a Creative</p>
+<p t="2830" d="1510">Commons license.</p>
+<p t="4340" d="2340">Your support will help
+MIT OpenCourseWare</p>
+<p t="6680" d="4370">continue to offer high-quality
+educational resources for free.</p>
+<p t="11050" d="2620">To make a donation or
+view additional materials</p>
+<p t="13670" d="3885">from hundreds of MIT courses,
+visit MIT OpenCourseWare</p>
+<p t="17555" d="625">at ocw.mit.edu.</p>
+<p t="22745" d="875">PROFESSOR: All right.</p>
+<p t="23620" d="2340">So last time we
+talked about methods</p>
+<p t="25960" d="2080">for solving recurrences,
+and we spent</p>
+<p t="28040" d="3584">most of our time talking about
+divide-and-conquer recurrences.</p>
+<p t="31624" d="2166">These are recurrences where
+you break the problem up</p>
+<p t="33790" d="3420">into much smaller sub-problems,
+like half the size</p>
+<p t="37210" d="2360">or 2/3 the size.</p>
+<p t="39570" d="2120">And they come up quite a
+bit in computer science</p>
+<p t="41690" d="3460">when you're doing algorithm
+design and algorithm analysis.</p>
+<p t="45150" d="1570">Today, we're going
+to spend our time</p>
+<p t="46720" d="2160">talking about a different
+kind of recurrence that's</p>
+<p t="48880" d="1890">called a linear recurrence.</p>
+<p t="50770" d="1840">They also come up
+in computer science</p>
+<p t="52610" d="2750">and a lot of other fields.</p>
+<p t="55360" d="2030">Now, I'm going to give
+you the formal definition</p>
+<p t="57390" d="2260">of a linear recurrence later.</p>
+<p t="59650" d="3340">First I want to start
+with an example,</p>
+<p t="62990" d="2490">and this is an example of a
+linear recurrence that comes up</p>
+<p t="65480" d="1320">in population modeling.</p>
+<p t="66800" d="3460">In fact, it comes up
+in a lot of places.</p>
+<p t="70260" d="3200">And to start it off, we're going
+to analyze a particular problem</p>
+<p t="73460" d="3300">that we call the
+graduate student job</p>
+<p t="76760" d="5050">problem or the graduate
+student job nightmare.</p>
+<p t="81810" d="4340">And the question here
+is, will your TAs</p>
+<p t="86150" d="2200">be able to get a job as
+a professor somewhere</p>
+<p t="88350" d="1075">when they get their PhD?</p>
+<p t="96100" d="2940">So this is a problem
+they worry about a lot.</p>
+<p t="99040" d="4240">And the idea in this problem is
+that there's some discipline,</p>
+<p t="103280" d="1990">say computer science.</p>
+<p t="105270" d="3040">And if you look in all the
+universities in the world,</p>
+<p t="108310" d="3330">there's M faculty lines.</p>
+<p t="111640" d="11150">So the total number of jobs is
+M, and that's a fixed value.</p>
+<p t="122790" d="1900">Because of budgetary
+constraints,</p>
+<p t="124690" d="2640">universities aren't
+growing, and so they're not</p>
+<p t="127330" d="3350">going to create more computer
+science faculty positions.</p>
+<p t="130680" d="2000">It's going to stay
+fixed over time.</p>
+<p t="139900" d="3090">So it's a constant.</p>
+<p t="142990" d="6620">And every year, professors
+generate more graduates</p>
+<p t="149610" d="2070">who become professors.</p>
+<p t="151680" d="4150">And in particular, we're going
+to assume that in this field</p>
+<p t="155830" d="3300">every professor
+graduates 1 student who</p>
+<p t="159130" d="4520">goes on to become a professor,
+or tries to if there's jobs.</p>
+<p t="163650" d="11260">So each professor
+generates 1 graduate</p>
+<p t="174910" d="5830">who becomes a new professor, as
+long as there's jobs, per year.</p>
+<p t="183460" d="3820">With one exception, and
+that's first-year professors</p>
+<p t="187280" d="2480">because they're too busy
+learning how to teach,</p>
+<p t="189760" d="2780">getting grants, doing
+administrative stuff,</p>
+<p t="192540" d="2142">just figuring out
+how it all works.</p>
+<p t="194682" d="2208">So they don't have time to
+produce any grad students.</p>
+<p t="203510" d="4320">So first year or new professors
+don't produce anything.</p>
+<p t="213340" d="3765">Except first-year profs--
+oops, let me correct that.</p>
+<p t="223280" d="1470">So first-year profs have 0.</p>
+<p t="233340" d="2790">Now, matters are made
+worse by the fact</p>
+<p t="236130" d="3150">that Congress passed a
+law, and this is true,</p>
+<p t="239280" d="5450">that more or less bars mandatory
+retirements in colleges.</p>
+<p t="244730" d="5050">And so that means there are no
+retirements in this problem,</p>
+<p t="249780" d="4370">and we're going to assume
+the faculty live forever.</p>
+<p t="254150" d="2720">And so once you fill a
+position, it's filled forever.</p>
+<p t="256870" d="1290">It doesn't exist anymore.</p>
+<p t="258160" d="2989">In fact, if you walk
+around the math department,</p>
+<p t="261149" d="2001">you can see the impact of this.</p>
+<p t="263150" d="500">[LAUGHTER]</p>
+<p t="263650" d="5697">I think the median age
+is now well into the 70s.</p>
+<p t="269347" d="2333">And there will be actually a
+phenomenon over the next 10</p>
+<p t="271680" d="3470">years as the math faculty
+progress into their 80s</p>
+<p t="275150" d="2894">where they actually, in reality,
+probably do start to retire.</p>
+<p t="278044" d="1416">And there will be
+a whole new wave</p>
+<p t="279460" d="3000">of people hired in mathematics,
+just as happened back</p>
+<p t="282460" d="3260">in the '50s and '60s after
+the Sputnik crisis where</p>
+<p t="285720" d="2090">a lot of mathematicians
+were hired.</p>
+<p t="287810" d="2890">And then they stayed in those
+positions, for our purposes,</p>
+<p t="290700" d="1830">forever.</p>
+<p t="292530" d="3850">Now, the question is, when
+do all the jobs get filled?</p>
+<p t="304640" d="4490">So when are all M jobs
+filled by this process?</p>
+<p t="312830" d="1770">Now, to be able to
+answer this question,</p>
+<p t="314600" d="4190">we need one more
+piece of information.</p>
+<p t="318790" d="2506">Can anybody think
+about one more fact</p>
+<p t="321296" d="2374">here that we need before we
+start going off and answering</p>
+<p t="323670" d="2710">this question, analyzing it?</p>
+<p t="326380" d="500">Yeah?</p>
+<p t="326880" d="1700">AUDIENCE: How many
+professors do we start with?</p>
+<p t="328580" d="2000">PROFESSOR: How many
+professors do we start with?</p>
+<p t="330580" d="1740">What's the boundary condition?</p>
+<p t="332320" d="2980">What's the base case if we
+were doing an induction?</p>
+<p t="335300" d="500">All right.</p>
+<p t="335800" d="9480">So let's say the
+boundary condition,</p>
+<p t="345280" d="2890">and this always is
+important with recurrences,</p>
+<p t="348170" d="5176">is that the first professor
+is hired in year 1,</p>
+<p t="353346" d="1624">and there were none
+before that person.</p>
+<p t="359190" d="500">All right?</p>
+<p t="359690" d="1649">So in year 1
+there's 1 professor,</p>
+<p t="361339" d="1041">and that professor's new.</p>
+<p t="364680" d="500">OK.</p>
+<p t="365180" d="1470">So now we have all
+the information</p>
+<p t="366650" d="2340">necessary to solve the problem.</p>
+<p t="368990" d="2035">So let's do that and
+set up a recurrence.</p>
+<p t="376290" d="9480">We're going to define f of n
+to be the number of professors</p>
+<p t="385770" d="800">during year n.</p>
+<p t="391880" d="3820">And we know from our boundary
+condition that in year 0</p>
+<p t="395700" d="7630">there were none, and in year
+1 there was 1, a new one.</p>
+<p t="403330" d="3900">What is f of 2?</p>
+<p t="407230" d="3130">How many professors
+are there in year 2?</p>
+<p t="410360" d="967">AUDIENCE: 1.</p>
+<p t="411327" d="1833">PROFESSOR: 1, because
+the one that was there</p>
+<p t="413160" d="1208">was too young to do anything.</p>
+<p t="414368" d="5172">So he or she is the only one
+left, all right, in year 2.</p>
+<p t="419540" d="1830">What is f of 3?</p>
+<p t="421370" d="3630">How many profs are
+there in year 3?</p>
+<p t="425000" d="3870">2-- the one you had, and by that
+point that one is old enough</p>
+<p t="428870" d="3175">to produce a new one.</p>
+<p t="432045" d="545">All right.</p>
+<p t="432590" d="1320">What's f of 4?</p>
+<p t="436542" d="1818">AUDIENCE: 3.</p>
+<p t="438360" d="2530">PROFESSOR: 3, the 2
+you had, and there</p>
+<p t="440890" d="2630">was one who's been there 2
+years to produce a new one.</p>
+<p t="447901" d="499">All right.</p>
+<p t="448400" d="4608">And let's do one more, f of 5?</p>
+<p t="453008" d="499">AUDIENCE: 5.</p>
+<p t="453507" d="1543">PROFESSOR: 5.</p>
+<p t="455050" d="6070">These guys produced 1 each,
+and you had 3 existing.</p>
+<p t="461120" d="650">All right.</p>
+<p t="461770" d="2910">So we can actually write
+down the recurrence now</p>
+<p t="464680" d="5160">by sort of the process
+we just went through.</p>
+<p t="469840" d="6010">For years 2 and beyond, the
+number of professors in year n</p>
+<p t="475850" d="3390">is the number that we
+had last year-- that's</p>
+<p t="479240" d="5950">the previous ones-- plus the
+number that were generated,</p>
+<p t="485190" d="3710">new professors, the graduate
+students that graduated.</p>
+<p t="488900" d="2350">In terms of f, how many
+new ones are there?</p>
+<p t="491250" d="1580">AUDIENCE: f of n minus 2.</p>
+<p t="492830" d="1750">PROFESSOR: f of n
+minus 2, because that's</p>
+<p t="494580" d="2500">the number of professors that
+were there a couple years ago,</p>
+<p t="497080" d="2070">and they are now
+generating them.</p>
+<p t="499150" d="4050">So that's the new ones there.</p>
+<p t="503200" d="3520">Do people recognize
+that recurrence?</p>
+<p t="506720" d="1670">Yeah, it's pretty famous.</p>
+<p t="508390" d="1420">How many people have not seen?</p>
+<p t="509810" d="1715">This is called the
+Fibonacci recurrence.</p>
+<p t="511525" d="2195">It produces the
+Fibonacci numbers.</p>
+<p t="513720" d="2760">How many people
+have not seen it?</p>
+<p t="516480" d="1160">Yeah, very famous.</p>
+<p t="517640" d="3140">Yeah, pretty much
+everybody has seen that.</p>
+<p t="520780" d="2500">Actually, this is
+the first recurrence</p>
+<p t="523280" d="3740">that was known to be
+studied of all recurrences.</p>
+<p t="527020" d="4240">It was published by
+Leonardo Fibonacci of Pisa</p>
+<p t="531260" d="4360">in 1202, all right,
+so over 800 years ago,</p>
+<p t="535620" d="3500">and he studied it for
+modeling the population</p>
+<p t="539120" d="1560">growth of rabbits.</p>
+<p t="540680" d="3770">And the idea is that you
+have a pair of rabbits,</p>
+<p t="544450" d="2430">and in every month
+after their first year</p>
+<p t="546880" d="2030">of life-- sorry,
+first month of life--</p>
+<p t="548910" d="2311">they produce two new rabbits.</p>
+<p t="551221" d="499">All right?</p>
+<p t="551720" d="1333">So it's the same notion as here.</p>
+<p t="553053" d="2577">The first pair you do
+nothing, but after that you're</p>
+<p t="555630" d="2820">reproducing one for one.</p>
+<p t="558450" d="2030">And that's an
+abstraction, but it</p>
+<p t="560480" d="3690">produces the same recurrence.</p>
+<p t="564170" d="3270">Now, Fibonacci is credited
+with discovering it.</p>
+<p t="567440" d="2570">Really that means he's the
+one that told the Europeans</p>
+<p t="570010" d="1670">about it back then.</p>
+<p t="571680" d="4120">And in fact, it's now been
+traced back in to about 200 BC.</p>
+<p t="575800" d="2100">The Indian
+mathematicians knew all</p>
+<p t="577900" d="3050">about Fibonacci's
+recurrence, and they</p>
+<p t="580950" d="3460">were using it to study certain
+properties of grammar and music</p>
+<p t="584410" d="2780">way back at 200 BC.</p>
+<p t="587190" d="2960">This recurrence comes up in
+all sorts of applications.</p>
+<p t="590150" d="2560">Kepler used it in
+the 16th century</p>
+<p t="592710" d="3190">while studying how
+the leaves of a flower</p>
+<p t="595900" d="2560">are arranged around the
+stem-- how many leaves</p>
+<p t="598460" d="3810">you have in sort of each level
+coming out around a stem.</p>
+<p t="602270" d="3550">The first solution was
+discovered by de Moivre</p>
+<p t="605820" d="834">in the 18th century.</p>
+<p t="606654" d="2499">And we're going to talk about
+how to solve this in a minute.</p>
+<p t="609153" d="2347">But he was the first one
+to figure out a closed form</p>
+<p t="611500" d="2340">expression for f of n.</p>
+<p t="613840" d="2430">Lame used it in the
+19th century when</p>
+<p t="616270" d="2900">he was studying the
+Euclidean GCD algorithm.</p>
+<p t="619170" d="2820">You know that pulverizer
+thing and doing GCDs?</p>
+<p t="621990" d="3700">It turns out that if you want
+to analyze the running time,</p>
+<p t="625690" d="2230">well, you get a Fibonacci
+recurrence comes</p>
+<p t="627920" d="3800">into play there, and that was
+discovered in the 19th century.</p>
+<p t="631720" d="3260">In the 20th century, it was
+used in the study of optics,</p>
+<p t="634980" d="3490">economics, and algorithms, and
+it was named for Fibonacci.</p>
+<p t="638470" d="3070">It got a name in
+the 19th century.</p>
+<p t="641540" d="2030">In fact, this is
+so popular and used</p>
+<p t="643570" d="3630">in so many places there is a
+journal in mathematics called</p>
+<p t="647200" d="2360">the Fibonacci Quarterly
+Journal where they</p>
+<p t="649560" d="3527">study these kinds of things.</p>
+<p t="653087" d="2333">So today what we're going to
+do is solve this recurrence</p>
+<p t="655420" d="2640">and actually solve a much
+broader family of recurrences</p>
+<p t="658060" d="3310">called linear recurrences.</p>
+<p t="661370" d="1610">And we're going to
+get a closed form.</p>
+<p t="662980" d="2041">I mean, you can produce
+the Fibonacci numbers one</p>
+<p t="665021" d="2859">after another, but we're
+going to derive a formula</p>
+<p t="667880" d="3161">for the n-th Fibonacci number.</p>
+<p t="671041" d="1499">And when we're going
+to do it, we're</p>
+<p t="672540" d="4170">going to do it more broadly for
+a class of linear recurrences.</p>
+<p t="676710" d="1445">So let me define what that is.</p>
+<p t="683950" d="8790">So a recurrence is
+said to be linear</p>
+<p t="692740" d="14760">if it is of the form f of n
+equals a constant a1 times</p>
+<p t="707500" d="8070">f of n minus 1 plus a2 times
+f of n minus 2 plus dot dot</p>
+<p t="715570" d="7230">dot d'th constant ad
+times f of n minus d.</p>
+<p t="722800" d="3640">And we could simplify
+that as the sum</p>
+<p t="726440" d="8150">i equals 1 to d of a sub
+i times f of n minus i.</p>
+<p t="734590" d="4600">And the constants
+are fixed here,</p>
+<p t="739190" d="6090">so for fixed a sub i and d.</p>
+<p t="745280" d="2140">So the number of terms
+has to be a constant,</p>
+<p t="747420" d="3090">and each coefficient
+has to be a constant.</p>
+<p t="750510" d="1520">Can't vary.</p>
+<p t="752030" d="4840">And we define d to be the
+order of the recurrence.</p>
+<p t="756870" d="3430">So d is the order
+of the recurrence.</p>
+<p t="762820" d="1970">OK?</p>
+<p t="764790" d="2305">And you can see, of course,
+that Fibonacci's recurrence</p>
+<p t="767095" d="1565">is linear.</p>
+<p t="768660" d="2420">What's its order?</p>
+<p t="771080" d="1110">2.</p>
+<p t="772190" d="2690">And the coefficients,
+the a's, are just 1.</p>
+<p t="774880" d="3530">So it's a simple
+linear recurrence.</p>
+<p t="778410" d="500">All right.</p>
+<p t="778910" d="1880">So let's see how to solve it.</p>
+<p t="780790" d="1540">Well, actually,
+before we do that,</p>
+<p t="782330" d="3060">can you see the difference
+between this recurrence,</p>
+<p t="785390" d="2750">linear, and divide-and-conquer
+recurrences?</p>
+<p t="791180" d="1870">Right?</p>
+<p t="793050" d="3070">What do I have here inside for
+a divide-and-conquer recurrence?</p>
+<p t="799400" d="2240">I get a fraction of n, right?</p>
+<p t="801640" d="1990">And here, I'm
+subtracting a constant</p>
+<p t="803630" d="3100">from n, usually like 1,
+2, 3, an integer from n.</p>
+<p t="806730" d="4210">So linear is when inside you
+have n minus 1, n minus 2.</p>
+<p t="810940" d="3005">Divide and conquer,
+you got n/2 or 3/4 n.</p>
+<p t="813945" d="4047">And it makes a huge
+difference in the solution.</p>
+<p t="817992" d="788">All right.</p>
+<p t="818780" d="2749">So what I'm going to do is
+give you a closed-form solution</p>
+<p t="821529" d="1291">for these kinds of recurrences.</p>
+<p t="822820" d="4870">And it won't be completely
+easy because it took Europeans</p>
+<p t="827690" d="3811">six centuries to find
+the solution to this.</p>
+<p t="831501" d="499">Right?</p>
+<p t="832000" d="1720">Fibonacci discovers
+the thing in 1200</p>
+<p t="833720" d="1490">and tells everybody about it.</p>
+<p t="835210" d="3095">And it wasn't until
+600 years later</p>
+<p t="838305" d="2315">that they figured out
+a closed-form solution.</p>
+<p t="843824" d="1096">So let's do that.</p>
+<p t="848040" d="3440">Now, what we're going to
+do to do it this first time</p>
+<p t="851480" d="2130">ourselves, and we
+don't have the formula,</p>
+<p t="853610" d="2140">is to use guess and verify.</p>
+<p t="855750" d="1870">So we're going to
+guess a solution</p>
+<p t="857620" d="2130">and check that it works.</p>
+<p t="859750" d="3280">And we're going to guess,
+really, a class of solutions.</p>
+<p t="863030" d="6936">We're going to try f of n is
+an exponential in n, alpha</p>
+<p t="869966" d="2214">to the n for some
+constant alpha.</p>
+<p t="878310" d="2280">Now, we're going
+to figure out what</p>
+<p t="880590" d="4540">alpha is as we go along during
+the verification process.</p>
+<p t="885130" d="500">All right?</p>
+<p t="885630" d="5200">So let's try to verify
+this guess and plug it in.</p>
+<p t="890830" d="5765">We know that f of n is f of n
+minus 1 plus f of n minus 2.</p>
+<p t="896595" d="3525">Well, let's plug that
+in and see what we get.</p>
+<p t="900120" d="3190">That gives us alpha to the
+n equals alpha to the n</p>
+<p t="903310" d="5570">minus 1 plus alpha
+to the n minus 2.</p>
+<p t="908880" d="830">All right?</p>
+<p t="909710" d="5590">Now, that means I can divide
+by alpha to the n minus 2,</p>
+<p t="915300" d="5620">and I get alpha squared
+equals alpha plus 1.</p>
+<p t="920920" d="4300">And now I can use the quadratic
+formula to solve for alpha.</p>
+<p t="925220" d="500">All right?</p>
+<p t="925720" d="4830">That means that alpha
+squared minus alpha minus 1</p>
+<p t="930550" d="8210">equals 0, which means that
+alpha equals-- minus minus 1</p>
+<p t="938760" d="3920">is 1 plus or minus the square
+root of-- minus 1 squared</p>
+<p t="942680" d="7281">is 1 minus 4ac plus 4 over 2.</p>
+<p t="949961" d="499">OK?</p>
+<p t="950460" d="4530">So there's two possible
+solutions here.</p>
+<p t="954990" d="2920">This is 1 plus or minus the
+square root of 5 over 2.</p>
+<p t="960670" d="5000">So it works if f of n
+equals either-- well, we'll</p>
+<p t="965670" d="2780">call the roots here
+alpha 1 and alpha 2.</p>
+<p t="974870" d="3500">Alpha 1 will be the
+positive case, 1</p>
+<p t="978370" d="2806">plus square root of 5 over 2.</p>
+<p t="981176" d="2654">And alpha 2 will be
+the negative case, 1</p>
+<p t="983830" d="4750">minus square root of 5 over 2.</p>
+<p t="988580" d="500">All right?</p>
+<p t="989080" d="6620">So guess and verify works so
+far if we have an exponential</p>
+<p t="995700" d="3560">with either one of those bases.</p>
+<p t="999260" d="2310">All right?</p>
+<p t="1001570" d="4335">By the way, does anybody
+recognize that number?</p>
+<p t="1009220" d="1522">It's a famous number.</p>
+<p t="1010742" d="958">AUDIENCE: Golden ratio.</p>
+<p t="1011700" d="1660">PROFESSOR: The
+golden ratio, which</p>
+<p t="1013360" d="2870">is supposed to have all these
+magical mystical properties.</p>
+<p t="1016230" d="1770">That when you look
+at a building,</p>
+<p t="1018000" d="4060">if its aspect ratio is that,
+it's perfect to the human eye.</p>
+<p t="1022060" d="870">I don't know.</p>
+<p t="1022930" d="2250">But there's a lot of stuff
+about the golden ratio that</p>
+<p t="1025180" d="2055">happens to come up here.</p>
+<p t="1027235" d="500">OK?</p>
+<p t="1030240" d="4550">Now in fact, there's more
+than just these two solutions.</p>
+<p t="1034790" d="4029">It turns out that whenever
+you have a linear recurrence</p>
+<p t="1038819" d="2991">and you've got two or
+more solutions like that,</p>
+<p t="1041810" d="3620">any linear combination
+is also a solution.</p>
+<p t="1045430" d="500">All right?</p>
+<p t="1045930" d="3230">So we're just going to
+state that as a fact.</p>
+<p t="1049160" d="2470">It's not too hard to prove,
+but we won't prove it in class.</p>
+<p t="1055110" d="4310">So if f of n equals
+alpha 1 to the n--</p>
+<p t="1059420" d="5170">and this is true for any alpha
+1 and alpha 2-- and f of n</p>
+<p t="1064590" d="8610">equals alpha 2 to
+the n are solutions</p>
+<p t="1073200" d="10830">to a linear recurrence--
+and here I mean</p>
+<p t="1084030" d="2650">without yet applying
+the boundary conditions.</p>
+<p t="1086680" d="2180">So far, we've ignored
+the boundary conditions,</p>
+<p t="1088860" d="2720">and we'll just do that
+for a little longer.</p>
+<p t="1091580" d="2080">So if there are solutions
+without worrying</p>
+<p t="1093660" d="11050">about the boundary
+conditions, then f of n</p>
+<p t="1104710" d="6550">equals c1 times alpha 1 to
+the n plus c2 alpha 2 to the n</p>
+<p t="1111260" d="3290">is also a solution for
+any constants c1 and c2.</p>
+<p t="1136130" d="500">All right?</p>
+<p t="1136630" d="4690">So any linear combination
+of our solutions also works.</p>
+<p t="1141320" d="4260">If you plugged it in to do
+verify, it would be fine.</p>
+<p t="1145580" d="8800">So that means that f
+of n equals c1 times</p>
+<p t="1154380" d="3730">1 plus square root
+of 5 over 2 to the n</p>
+<p t="1158110" d="6980">plus c2 1 minus square
+root of 5 over 2 to the n</p>
+<p t="1165090" d="8410">is a solution-- oops--
+to Fibonacci's recurrence</p>
+<p t="1173500" d="1820">without boundary
+conditions again.</p>
+<p t="1181410" d="500">All right?</p>
+<p t="1181910" d="4840">So I could plug this
+expression into the recurrence,</p>
+<p t="1186750" d="3135">and it would satisfy it.</p>
+<p t="1189885" d="1025">I won't do that.</p>
+<p t="1194180" d="3610">But we haven't dealt with
+the boundary conditions yet.</p>
+<p t="1197790" d="2180">And in fact, dealing with
+the boundary conditions</p>
+<p t="1199970" d="4300">is what determines the
+values of these constants.</p>
+<p t="1204270" d="4740">I could have Fibonacci's
+recurrence where f of 0 was 10</p>
+<p t="1209010" d="3030">and f of 1 was 20
+if I wanted to,</p>
+<p t="1212040" d="3820">and then the recurrence
+would be the same afterwards.</p>
+<p t="1215860" d="3820">And it will turn out I get
+different constants here.</p>
+<p t="1219680" d="500">All right?</p>
+<p t="1220180" d="2700">But otherwise, the form is
+going to look like this.</p>
+<p t="1222880" d="1460">So let's see how
+to make that work.</p>
+<p t="1224340" d="2000">Let's see how to determine
+the constant factors.</p>
+<p t="1248770" d="620">OK.</p>
+<p t="1249390" d="15970">So to determine the
+constant factors,</p>
+<p t="1265360" d="2820">we plug in the
+boundary conditions.</p>
+<p t="1268180" d="6410">So we have f of 0 equals 0
+from the boundary condition.</p>
+<p t="1274590" d="2600">And now we plug that into
+our formula over there.</p>
+<p t="1280050" d="6690">That's c1 times alpha 1 to the
+0 plus c2 alpha 2 to the 0.</p>
+<p t="1286740" d="2860">Of course, anything
+to the 0 is just 1.</p>
+<p t="1292480" d="5991">And that means that
+c2 equals minus c1.</p>
+<p t="1298471" d="1431">All right?</p>
+<p t="1299902" d="2378">And now I'll use the
+next boundary condition</p>
+<p t="1302280" d="1900">to nail them down.</p>
+<p t="1310750" d="500">All right?</p>
+<p t="1311250" d="5100">So I know also that
+f(1) is 1, and that</p>
+<p t="1316350" d="6030">equals c1 1 plus square root
+of 5 over 2 to the first power</p>
+<p t="1322380" d="7670">plus c2 1 minus the square root
+of 5 over 2 to the first power.</p>
+<p t="1330050" d="3670">I plug in c2 as minus c1.</p>
+<p t="1333720" d="5760">So I get c1 1 plus square
+root of 5 over 2 minus c1 1</p>
+<p t="1339480" d="4310">minus square root of 5 over 2.</p>
+<p t="1343790" d="3460">And now that I can
+factor out the c1,</p>
+<p t="1347250" d="6640">I get 1 minus 1 square root of
+5 minus minus square root of 5,</p>
+<p t="1353890" d="6480">which gives me c1 2
+square root of 5 over 2.</p>
+<p t="1360370" d="2420">These cancel.</p>
+<p t="1362790" d="4690">This was all equal to 1, so
+that means that c1 equals 1</p>
+<p t="1367480" d="2890">over the square root of 5.</p>
+<p t="1370370" d="3470">And of course, c2 is minus that.</p>
+<p t="1373840" d="3800">c2 is minus 1 over
+the square root of 5.</p>
+<p t="1380560" d="2255">Any questions so far?</p>
+<p t="1385585" d="978">All right.</p>
+<p t="1392930" d="2730">Now I could write
+out the formula</p>
+<p t="1395660" d="1090">for the Fibonacci numbers.</p>
+<p t="1402630" d="500">All right?</p>
+<p t="1403130" d="9250">So the solution is f
+of n equals c1, which</p>
+<p t="1412380" d="4430">is 1 over square root of
+5, times the n-th power</p>
+<p t="1416810" d="5990">of the first root plus
+c2, which is minus 1</p>
+<p t="1422800" d="3380">over square root of 5, times the
+n-th power of the second root.</p>
+<p t="1431030" d="3870">And that is the formula for
+the n-th Fibonacci number.</p>
+<p t="1437580" d="3010">You wouldn't have guessed
+that to start with obviously.</p>
+<p t="1440590" d="2310">That would require pretty
+divine inspiration.</p>
+<p t="1442900" d="3240">And you can sort of see why it
+took them 600 years in Europe</p>
+<p t="1446140" d="1520">to figure out the answer.</p>
+<p t="1447660" d="500">All right?</p>
+<p t="1448160" d="1450">It's not the first
+thing you'd think about.</p>
+<p t="1449610" d="2630">In fact, if somebody told you
+the answer and said this is it,</p>
+<p t="1452240" d="1990">you'd go, oh, give me a break.</p>
+<p t="1454230" d="500">All right?</p>
+<p t="1454730" d="2720">It does not look like-- I
+mean, what are the chances that</p>
+<p t="1457450" d="2900">evaluates to an integer?</p>
+<p t="1460350" d="500">All right?</p>
+<p t="1460850" d="4230">It's got square root of
+5's all over the place.</p>
+<p t="1465080" d="1060">Right?</p>
+<p t="1466140" d="4330">And here I'm telling
+you that f of 6,</p>
+<p t="1470470" d="3770">the sixth Fibonacci number,
+which is 8, 3 plus 5,</p>
+<p t="1474240" d="3830">I'm telling you that is equal
+to 1 over square root of 5 1</p>
+<p t="1478070" d="4180">plus the square root of 5 over
+2 to the sixth power minus 1</p>
+<p t="1482250" d="4040">over square root of 5 1 minus
+the square root of 5 over 2</p>
+<p t="1486290" d="2060">to the sixth power.</p>
+<p t="1488350" d="3000">I mean, would you believe
+me if I told you that?</p>
+<p t="1491350" d="1620">Probably not.</p>
+<p t="1492970" d="1590">What are the
+chances that's true?</p>
+<p t="1494560" d="3890">Somehow, magically, all those
+square root of 5's all go away,</p>
+<p t="1498450" d="4440">and you're just left
+with 8, a simple integer.</p>
+<p t="1502890" d="500">OK?</p>
+<p t="1506130" d="2050">All right.</p>
+<p t="1508180" d="5715">Yeah, there's sort of some more
+interesting things about this.</p>
+<p t="1513895" d="3995">What happens to this value
+here as n gets large?</p>
+<p t="1520450" d="2488">What does it do as n gets large?</p>
+<p t="1522938" d="3322">AUDIENCE: Gets small.</p>
+<p t="1526260" d="3950">PROFESSOR: It gets small Because
+1 minus the square root of 5</p>
+<p t="1530210" d="4270">over 2 is about 0.6.</p>
+<p t="1534480" d="4640">This is about, here, this is
+about 0.618 something or other.</p>
+<p t="1539120" d="2930">And if I take a fraction less
+than 1 to the n-th power,</p>
+<p t="1542050" d="2390">it goes to 0.</p>
+<p t="1544440" d="1990">It goes away.</p>
+<p t="1546430" d="3710">So in fact, as n
+gets large, this</p>
+<p t="1550140" d="3910">is what the n-th Fibonacci
+number starts to look like.</p>
+<p t="1554050" d="4200">In particular, f of n equals
+just that first one-- 1</p>
+<p t="1558250" d="7280">over square root of 5 times the
+golden ratio to the n-th power</p>
+<p t="1565530" d="3730">plus some error term, delta n.</p>
+<p t="1569260" d="8510">And delta n is less than a
+1/10 for n greater than 4.</p>
+<p t="1580300" d="7030">And it is little l of 1
+in general going to 0.</p>
+<p t="1587330" d="1740">So in fact, the n-th
+Fibonacci number</p>
+<p t="1589070" d="2650">is about the n-th power of
+the golden ratio divided</p>
+<p t="1591720" d="3300">by square root of 5.</p>
+<p t="1595020" d="902">Yeah?</p>
+<p t="1595922" d="2142">AUDIENCE: [INAUDIBLE]
+top of the right board--</p>
+<p t="1598064" d="666">PROFESSOR: Yeah?</p>
+<p t="1598730" d="4428">AUDIENCE: --you say that you can
+pick sort of any constants that</p>
+<p t="1603158" d="851">satisfy it?</p>
+<p t="1604009" d="625">PROFESSOR: Yep.</p>
+<p t="1604634" d="1968">AUDIENCE: Does that
+shift the sequence</p>
+<p t="1606602" d="1968">over, or what does that do?</p>
+<p t="1608570" d="1476">I guess I don't understand.</p>
+<p t="1610046" d="1764">PROFESSOR: OK.</p>
+<p t="1611810" d="3799">You're asking, what are
+these things doing here?</p>
+<p t="1615609" d="625">AUDIENCE: Yeah.</p>
+<p t="1616234" d="2336">And why [? isn't there-- ?]
+why are they also solutions?</p>
+<p t="1618570" d="1555">Because this is the right ones?</p>
+<p t="1620125" d="1041">PROFESSOR: The right one.</p>
+<p t="1621166" d="594">OK.</p>
+<p t="1621760" d="3360">So there's two parts
+to a recurrence.</p>
+<p t="1625120" d="6000">There's this part,
+OK, and there's</p>
+<p t="1631120" d="6130">the boundary conditions-- f(0)
+equals 0 and f(1) equals 1.</p>
+<p t="1637250" d="2200">There are really
+two parts to it.</p>
+<p t="1639450" d="2160">If you change the
+boundary conditions,</p>
+<p t="1641610" d="4630">you would change the
+rest of the terms, right?</p>
+<p t="1646240" d="2220">If I started with
+10 and 20, f of 2</p>
+<p t="1648460" d="6050">would be 30, OK, if I'm using
+this recurrence form for n</p>
+<p t="1654510" d="2012">bigger than or equal to 2.</p>
+<p t="1656522" d="3678">Now, so when I'm computing a
+solution, first I'm saying,</p>
+<p t="1660200" d="1660">let's ignore the
+boundary conditions</p>
+<p t="1661860" d="3910">and look at all the recurrences
+that share this part.</p>
+<p t="1665770" d="4190">And that family of
+recurrences, I'm claiming,</p>
+<p t="1669960" d="1620">have these solutions.</p>
+<p t="1671580" d="2550">This is the solution
+space if I just</p>
+<p t="1674130" d="5330">worry about this part and
+not the boundary conditions.</p>
+<p t="1679460" d="3700">Now, once I plug the
+boundary conditions in,</p>
+<p t="1683160" d="5060">that determines which
+values of c1 and c2 I get.</p>
+<p t="1688220" d="3520">And so if I take the version
+of the recurrence where f(0)</p>
+<p t="1691740" d="4660">is 0 and f(1) is 1, then c1
+is going to be 1 over root 5,</p>
+<p t="1696400" d="3320">and c2 is going to be
+negative 1 over root 5.</p>
+<p t="1699720" d="3940">If I use this
+recurrence with f(0)</p>
+<p t="1703660" d="4770">equals 10 and f(1) equals 20,
+I get different constants,</p>
+<p t="1708430" d="2932">but these powers stay the same.</p>
+<p t="1711362" d="1958">In fact, maybe we'll make
+an exercise like that</p>
+<p t="1713320" d="1749">from the problem set
+to figure out what it</p>
+<p t="1715069" d="2381">is if I started with 10 and 20.</p>
+<p t="1717450" d="570">OK?</p>
+<p t="1718020" d="2220">So that's what
+the constants have</p>
+<p t="1720240" d="2920">to do-- they come from the
+boundary condition, which</p>
+<p t="1723160" d="2431">is sort of a cool fact.</p>
+<p t="1725591" d="1689">Does that make sense?</p>
+<p t="1727280" d="780">AUDIENCE: Yeah.</p>
+<p t="1728060" d="3510">PROFESSOR: Any other questions
+about what I was doing?</p>
+<p t="1731570" d="5020">So we used guess and verify, but
+I sort of guessed a form first.</p>
+<p t="1736590" d="4800">And as I verified, I sort of
+revised my guess along the way.</p>
+<p t="1741390" d="500">All right?</p>
+<p t="1741890" d="1270">So I started guessing this.</p>
+<p t="1743160" d="2130">And then I said,
+well, let's refine</p>
+<p t="1745290" d="6017">that guess so that really
+it's one of these two guys.</p>
+<p t="1751307" d="1583">And then I said-- I
+used a fact that I</p>
+<p t="1752890" d="1791">didn't prove-- that
+said I could use really</p>
+<p t="1754681" d="2889">any linear combination,
+plugged it into the base cases,</p>
+<p t="1757570" d="2731">and got my constants.</p>
+<p t="1760301" d="499">All right?</p>
+<p t="1760800" d="2469">Now, this will lead up to
+a formula or an approach</p>
+<p t="1763269" d="2041">so you don't have to go
+through this on your own.</p>
+<p t="1765310" d="2400">You just plug in the
+formula in general.</p>
+<p t="1770300" d="500">OK.</p>
+<p t="1773402" d="1958">Let's get back to the
+original question of when</p>
+<p t="1775360" d="2300">all the jobs are filled.</p>
+<p t="1777660" d="5431">For what value of n is
+f of n bigger than M?</p>
+<p t="1783091" d="499">All right?</p>
+<p t="1788790" d="630">Let's do that.</p>
+<p t="1803940" d="510">OK.</p>
+<p t="1804450" d="15680">To see when all the jobs
+are filled, all M jobs,</p>
+<p t="1820130" d="4746">for the n when f of n is
+bigger and equal to M,</p>
+<p t="1824876" d="3424">when we got a Fibonacci
+number that's bigger than M.</p>
+<p t="1828300" d="3470">And we just showed
+that basically f of n,</p>
+<p t="1831770" d="3320">well, it equals this
+where that's a tiny thing.</p>
+<p t="1835090" d="500">All right?</p>
+<p t="1835590" d="4430">So we need to figure out when
+is 1 over square root of 5 times</p>
+<p t="1840020" d="4060">the golden ratio to
+the n-th power-- plus</p>
+<p t="1844080" d="3350">I have this tiny little
+thing that doesn't matter--</p>
+<p t="1847430" d="2770">is bigger than or equal to M?</p>
+<p t="1850200" d="4590">So I can solve for n now by
+subtracting the delta term,</p>
+<p t="1854790" d="2510">multiplying by square root of 5.</p>
+<p t="1857300" d="4960">That gives me the golden
+ratio to the n-th power</p>
+<p t="1862260" d="3980">bigger than or equal
+to square root 5 times</p>
+<p t="1866240" d="1810">M minus the tiny thing.</p>
+<p t="1870800" d="3240">Now I take logs.</p>
+<p t="1874040" d="7410">And I'm in trouble when n is
+bigger than or equal to log</p>
+<p t="1881450" d="9375">of this over log of the base.</p>
+<p t="1898710" d="2360">In other words, this is theta.</p>
+<p t="1901070" d="1480">What's this theta of here?</p>
+<p t="1905830" d="2670">That goes away.</p>
+<p t="1908500" d="1934">I can skip all the
+constant factors.</p>
+<p t="1910434" d="1791">What's this theta of
+here, this expression,</p>
+<p t="1912225" d="3999">in terms of theta of something
+to do with some function of M?</p>
+<p t="1916224" d="996">AUDIENCE: Log of M?</p>
+<p t="1917220" d="5690">PROFESSOR: Log of M. So the jobs
+get filled in log of M years.</p>
+<p t="1922910" d="2340">And in fact, if I
+plugged in, for example,</p>
+<p t="1925250" d="2560">M equals 10,000 into
+this expression,</p>
+<p t="1927810" d="1480">I would find that
+all the jobs are</p>
+<p t="1929290" d="3250">filled in 20 years, which
+is more or less what</p>
+<p t="1932540" d="2240">happened in computer science.</p>
+<p t="1934780" d="3441">Ballpark, those numbers
+are roughly correct.</p>
+<p t="1938221" d="499">All right?</p>
+<p t="1938720" d="2810">But you can solve it exactly now
+by just plugging in whatever M</p>
+<p t="1941530" d="960">you want.</p>
+<p t="1942490" d="1380">That's a fraction
+less than 1/10.</p>
+<p t="1943870" d="1416">And you can solve
+to find out when</p>
+<p t="1945286" d="1687">your population gets that big.</p>
+<p t="1949851" d="499">OK.</p>
+<p t="1950350" d="583">Any questions?</p>
+<p t="1956410" d="500">OK.</p>
+<p t="1956910" d="2340">So now what I want
+to do is show you</p>
+<p t="1959250" d="4245">how to use this same idea to
+solve any linear recurrence,</p>
+<p t="1963495" d="2125">and this is the process
+you'll go through to do it.</p>
+<p t="1981625" d="685">All right.</p>
+<p t="1982310" d="4110">So we're going to solve a
+general linear recurrence.</p>
+<p t="2000040" d="7400">So in this case, we've got
+f of n is the sum from i</p>
+<p t="2007440" d="3150">equals 1 to d, for an
+order d recurrence,</p>
+<p t="2010590" d="3940">a sub i f of n minus i.</p>
+<p t="2014530" d="3750">And we've got to have
+boundary conditions.</p>
+<p t="2018280" d="8290">So we'll have f of 0
+is b0, f of 1 is b1.</p>
+<p t="2026570" d="1530">And how many boundary
+conditions do</p>
+<p t="2028100" d="1499">you think I'm going
+to need to have?</p>
+<p t="2029599" d="2191">Any guesses?</p>
+<p t="2031790" d="2452">I had two for Fibonacci.</p>
+<p t="2034242" d="2078">In this case, I've got d terms.</p>
+<p t="2036320" d="739">AUDIENCE: d.</p>
+<p t="2037059" d="541">PROFESSOR: d.</p>
+<p t="2037600" d="1666">I'm going to need d
+boundary conditions.</p>
+<p t="2039266" d="4384">So we'll go all the
+way to f of d minus 1</p>
+<p t="2043650" d="1720">equal to b of d minus 1.</p>
+<p t="2047992" d="788">All right?</p>
+<p t="2048780" d="8059">And now I'm going to try
+f of n is alpha to the n.</p>
+<p t="2056839" d="4150">We're going to plug it
+into this expression.</p>
+<p t="2060989" d="4101">And then when we do,
+we get alpha to the n</p>
+<p t="2065090" d="6390">equals a1 alpha to
+the n minus 1 plus</p>
+<p t="2071480" d="5880">a2 alpha to the n minus 2
+all the way down to a sub</p>
+<p t="2077360" d="6950">d alpha to the n minus d.</p>
+<p t="2084310" d="500">All right?</p>
+<p t="2084810" d="2470">Just plugging into there.</p>
+<p t="2087280" d="3510">I can divide everything
+by alpha to the n minus d,</p>
+<p t="2090790" d="3500">and that gives me
+alpha to the d equals</p>
+<p t="2094290" d="10030">a1 alpha to the d minus 1 a2
+alpha to the d minus 2 ad times</p>
+<p t="2104320" d="4440">alpha to the 0, which is just 1.</p>
+<p t="2108760" d="4045">And I can rewrite this as
+a polynomial equal to 0.</p>
+<p t="2122800" d="3455">So that means that
+alpha to the d minus</p>
+<p t="2126255" d="8165">a1 alpha to the d minus 1
+minus a2 alpha to the d minus 2</p>
+<p t="2134420" d="4180">minus ad is 0.</p>
+<p t="2138600" d="2860">This is called the
+characteristic equation</p>
+<p t="2141460" d="750">of the recurrence.</p>
+<p t="2156770" d="1720">OK?</p>
+<p t="2158490" d="5100">Now, what you need to do is
+compute the roots of this,</p>
+<p t="2163590" d="5020">and we'll use the roots to get
+the solution to the recurrence.</p>
+<p t="2168610" d="2170">Now, the simple case
+is when all the roots</p>
+<p t="2170780" d="4340">are different-- so let's
+do that first-- like there</p>
+<p t="2175120" d="1410">was in the Fibonacci example.</p>
+<p t="2181440" d="8840">All d roots are
+different, and let's call</p>
+<p t="2190280" d="3160">them alpha 1 to alpha d.</p>
+<p t="2199610" d="4460">In that case, the solution
+is all linear combinations</p>
+<p t="2204070" d="5420">of their n-th
+powers, just like it</p>
+<p t="2209490" d="6690">was with Fibonacci without
+the boundary conditions.</p>
+<p t="2216180" d="3860">c1 alpha 1 to the
+n plus c2 alpha 2</p>
+<p t="2220040" d="8540">to the n plus cd
+alpha d to the n.</p>
+<p t="2228580" d="500">All right?</p>
+<p t="2229080" d="2260">Same thing happens that
+happened in Fibonacci,</p>
+<p t="2231340" d="3440">that this becomes the
+solution before the boundary</p>
+<p t="2234780" d="1910">conditions are applied.</p>
+<p t="2236690" d="500">All right?</p>
+<p t="2250500" d="3230">And by the way, if your
+characteristic equation has</p>
+<p t="2253730" d="3200">imaginary roots, that's fine.</p>
+<p t="2256930" d="2550">It doesn't matter
+because the imaginary i</p>
+<p t="2259480" d="2420">term will disappear just
+like the square root of 5</p>
+<p t="2261900" d="1450">disappeared.</p>
+<p t="2263350" d="5780">Has to because we know f of n,
+in this case, is a real number.</p>
+<p t="2269130" d="1980">All right?</p>
+<p t="2271110" d="500">OK.</p>
+<p t="2271610" d="2990">Now, to find out the values
+of the coefficients, what</p>
+<p t="2274600" d="3110">are we going to do?</p>
+<p t="2277710" d="1000">What is it?</p>
+<p t="2278710" d="1250">AUDIENCE: Boundary conditions.</p>
+<p t="2279960" d="1530">PROFESSOR: Boundary
+conditions, yep.</p>
+<p t="2281490" d="12380">So now we solve for c1, c2, cd
+from the boundary conditions.</p>
+<p t="2293870" d="6400">That is, f of i is b
+of i for i from 0 to d.</p>
+<p t="2303030" d="5930">So for example, we
+know that f of 0</p>
+<p t="2308960" d="6690">is c1 times alpha 1 to the
+0, which is 1, c2 alpha 2</p>
+<p t="2315650" d="4830">to the 0 plus cd.</p>
+<p t="2320480" d="5470">And that's going to be
+equal to b0 and so forth.</p>
+<p t="2325950" d="2650">So you get a system of
+equations, d equations</p>
+<p t="2328600" d="5220">in d variables, that you solve
+to find the coefficients.</p>
+<p t="2333820" d="3350">And that will give the
+unique and correct solution</p>
+<p t="2337170" d="3190">to the recurrence.</p>
+<p t="2340360" d="500">All right?</p>
+<p t="2340860" d="4760">Now, turns out this system of
+equations is never degenerate.</p>
+<p t="2345620" d="1930">It always has a solution.</p>
+<p t="2347550" d="4310">And you can prove that,
+but we won't do that.</p>
+<p t="2351860" d="5900">Any questions about
+how to do that?</p>
+<p t="2357760" d="660">All right.</p>
+<p t="2358420" d="789">Yeah?</p>
+<p t="2359209" d="1874">AUDIENCE: Sorry, I just
+had a quick question.</p>
+<p t="2361083" d="4617">But what exactly was the
+distance there between n and d?</p>
+<p t="2365700" d="4010">d is like the degree of--
+which the terms you go back to.</p>
+<p t="2369710" d="5550">PROFESSOR: Yes, Yeah. d is
+how far back you're going.</p>
+<p t="2375260" d="4079">You go as far back
+as f of n minus d.</p>
+<p t="2379339" d="541">AUDIENCE: OK.</p>
+<p t="2379880" d="460">Cool.</p>
+<p t="2380340" d="1625">PROFESSOR: And that
+becomes the degree,</p>
+<p t="2381965" d="3212">and that is a
+constant-- 2, 3, 4.</p>
+<p t="2385177" d="2333">Well, I don't think we'll
+ever ask you anything beyond 4</p>
+<p t="2387510" d="2150">because it gets to
+be a pain to do.</p>
+<p t="2389660" d="3790">Typically, it's 2 or 3,
+sometimes even just 1.</p>
+<p t="2393450" d="2000">And then that
+becomes the power of</p>
+<p t="2395450" d="2560">your characteristic equation.</p>
+<p t="2398010" d="3787">It's the order of the
+characteristic equation.</p>
+<p t="2401797" d="833">Any other questions?</p>
+<p t="2405240" d="500">All right.</p>
+<p t="2405740" d="2810">That was the nice case
+where all the roots</p>
+<p t="2408550" d="3110">of your characteristic
+equation were different.</p>
+<p t="2411660" d="2965">If they're not all different,
+it's a little more complicated.</p>
+<p t="2433380" d="8630">So the tricky case
+is repeated roots.</p>
+<p t="2449320" d="5230">Now, the theorem, which we won't
+prove but tells you what to do,</p>
+<p t="2454550" d="15910">is that if alpha is a root of
+the characteristic equation</p>
+<p t="2470460" d="6070">and it is repeated r times-- so
+x minus alpha to the r-th power</p>
+<p t="2476530" d="23046">is a factor-- then alpha to
+the n, n times alpha to the n,</p>
+<p t="2499576" d="3774">n squared times alpha
+to the n, all the way up</p>
+<p t="2503350" d="4440">to n to the r minus 1
+times alpha to the n</p>
+<p t="2507790" d="1780">are all solutions
+to the recurrence.</p>
+<p t="2524460" d="500">All right?</p>
+<p t="2524960" d="2130">And then you would
+treat them just</p>
+<p t="2527090" d="1330">as you would the other roots.</p>
+<p t="2528420" d="1960">You take linear
+combinations, just</p>
+<p t="2530380" d="3180">like you did with the other
+roots to put it all together.</p>
+<p t="2537470" d="4550">By the way, is anybody starting
+to recognize a similarity</p>
+<p t="2542020" d="2595">with something else that
+you've studied in the past?</p>
+<p t="2544615" d="1375">AUDIENCE: Differential
+equations.</p>
+<p t="2545990" d="1920">PROFESSOR:
+Differential equations.</p>
+<p t="2547910" d="4640">This is the discrete analog
+of differential equations.</p>
+<p t="2552550" d="500">All right?</p>
+<p t="2553050" d="2340">Recurrences is the same thing.</p>
+<p t="2555390" d="2060">All the math we're
+going to do henceforth</p>
+<p t="2557450" d="2390">is going to look just
+like what you did</p>
+<p t="2559840" d="2569">with differential equations.</p>
+<p t="2562409" d="2541">So that's sort of good news and,
+I guess, bad news, depending</p>
+<p t="2564950" d="870">on whether you like that stuff.</p>
+<p t="2565820" d="792">AUDIENCE: Bad news.</p>
+<p t="2566612" d="833">PROFESSOR: Bad news.</p>
+<p t="2567445" d="575">Yeah, OK.</p>
+<p t="2571810" d="2710">All right, let's do an
+example that uses maybe</p>
+<p t="2574520" d="2960">the repeated roots case.</p>
+<p t="2577480" d="2660">Suppose there's a
+plant out there,</p>
+<p t="2580140" d="4370">and this plant lives
+forever but only reproduces</p>
+<p t="2584510" d="3560">in the first year of life
+and then never again.</p>
+<p t="2588070" d="2930">And it reproduces one for one.</p>
+<p t="2591000" d="500">All right?</p>
+<p t="2591500" d="2030">Let's see what
+happens in that case.</p>
+<p t="2599890" d="2420">Actually, there's a plant
+sort of like this in Hawaii.</p>
+<p t="2602310" d="5207">I think it's called the
+century plant, and it's rare.</p>
+<p t="2607517" d="1708">We'll see why when we
+solve this problem.</p>
+<p t="2611990" d="14300">So it reproduces one for one
+during the first year of life,</p>
+<p t="2626290" d="10535">then never again, and
+the plant lives forever.</p>
+<p t="2645500" d="5451">So our question is, how fast
+does the plant population grow?</p>
+<p t="2650951" d="499">All right?</p>
+<p t="2651450" d="3560">In year n, how many
+plants there are.</p>
+<p t="2655010" d="3025">So to figure that out, we're
+going to set up a recurrence.</p>
+<p t="2661200" d="5130">We're going to let f of n be
+the number of plants in year n.</p>
+<p t="2673150" d="3460">And we're going to say that the
+first plant miraculously comes</p>
+<p t="2676610" d="2480">into existence in year 1.</p>
+<p t="2679090" d="3970">So that in year 0 there's
+none of them, and in year 1</p>
+<p t="2683060" d="2452">there's 1.</p>
+<p t="2685512" d="2208">And now we want to know how
+many there are in year n.</p>
+<p t="2705540" d="530">OK.</p>
+<p t="2706070" d="1291">So let's set up the recurrence.</p>
+<p t="2710190" d="5010">f of n equals-- well,
+the previous year,</p>
+<p t="2715200" d="4955">how many plants were
+there in terms of f?</p>
+<p t="2720155" d="875">AUDIENCE: [INAUDIBLE]</p>
+<p t="2721030" d="2270">PROFESSOR: f of n minus 1.</p>
+<p t="2723300" d="500">All right?</p>
+<p t="2723800" d="1541">That's how many
+there were last year,</p>
+<p t="2725341" d="1779">and they're all
+still alive, plus</p>
+<p t="2727120" d="4240">we've got to add the
+number of new plants.</p>
+<p t="2731360" d="3450">Well, that would
+be-- yeah, well,</p>
+<p t="2734810" d="1520">how many new plants are there?</p>
+<p t="2736330" d="4230">It's all the plants that
+were one-year-old last year.</p>
+<p t="2740560" d="4090">So that's all the
+ones that were alive</p>
+<p t="2744650" d="2720">last year minus the ones that
+were alive the year before.</p>
+<p t="2750450" d="2400">That's how many new plants
+there were last year,</p>
+<p t="2752850" d="3336">and they each produce
+1 new one this year.</p>
+<p t="2756186" d="729">Is that OK?</p>
+<p t="2756915" d="791">Everybody buy that?</p>
+<p t="2760265" d="500">OK.</p>
+<p t="2763500" d="6520">So that equals 2 f of n
+minus 1 minus f of n minus 2.</p>
+<p t="2774840" d="1440">OK.</p>
+<p t="2776280" d="2868">What's my characteristic
+equation for this recurrence?</p>
+<p t="2784140" d="540">Yeah?</p>
+<p t="2784680" d="4760">AUDIENCE: Alpha squared
+minus 2 alpha plus 1.</p>
+<p t="2789440" d="1904">PROFESSOR: Yes.</p>
+<p t="2791344" d="836">OK?</p>
+<p t="2792180" d="7751">alpha squared minus
+2 alpha plus 1.</p>
+<p t="2799931" d="499">All right?</p>
+<p t="2800430" d="1300">We jumped to that answer.</p>
+<p t="2801730" d="4133">I could have written down alpha
+to the n minus 2 times alpha</p>
+<p t="2805863" d="3276">to the n minus 1 plus
+alpha to the n minus 2</p>
+<p t="2809139" d="1791">and then divided by
+alpha to the n minus 2.</p>
+<p t="2810930" d="3640">But pretty quickly, you want
+to start just reading it off.</p>
+<p t="2814570" d="1850">That's the
+characteristic equation.</p>
+<p t="2816420" d="2340">I get alpha squared, and
+then bringing this over,</p>
+<p t="2818760" d="4240">a minus 2 alpha, bring
+this over, plus 1 equals 0.</p>
+<p t="2825680" d="4320">Any questions on that?</p>
+<p t="2830000" d="1790">This is the process
+now you will always</p>
+<p t="2831790" d="1630">use that we're going through.</p>
+<p t="2833420" d="500">All right.</p>
+<p t="2833920" d="1374">What are the roots
+to this thing?</p>
+<p t="2838117" d="2083">What are the roots to the
+characteristic equation?</p>
+<p t="2840200" d="3984">AUDIENCE: Alpha
+minus 1 [INAUDIBLE].</p>
+<p t="2844184" d="666">PROFESSOR: Yeah.</p>
+<p t="2844850" d="2000">Alpha minus 1
+times alpha minus 1</p>
+<p t="2846850" d="2450">is 0, which means alpha equals?</p>
+<p t="2849300" d="500">AUDIENCE: 1.</p>
+<p t="2849800" d="1030">PROFESSOR: 1.</p>
+<p t="2850830" d="6760">So the roots are alpha equals
+1, and it's a double root.</p>
+<p t="2857590" d="1480">OK?</p>
+<p t="2859070" d="970">It's a double root.</p>
+<p t="2860040" d="8070">It occurs twice because this
+is alpha minus 1 squared.</p>
+<p t="2868110" d="1440">OK.</p>
+<p t="2869550" d="5040">So what solutions am I going
+to use to my recurrence?</p>
+<p t="2880330" d="4020">What's f of n going
+to be now before I</p>
+<p t="2884350" d="3116">put in the boundary conditions?</p>
+<p t="2887466" d="6050">Well, it's going to be
+c1 times what to the n?</p>
+<p t="2893516" d="932">AUDIENCE: 1.</p>
+<p t="2894448" d="692">PROFESSOR: 1.</p>
+<p t="2895140" d="1820">That's the first root.</p>
+<p t="2896960" d="640">What's here?</p>
+<p t="2897600" d="4180">What's the next thing
+I'm going to put here?</p>
+<p t="2901780" d="960">AUDIENCE: [INAUDIBLE].</p>
+<p t="2902740" d="1815">PROFESSOR: n times 1 to the n.</p>
+<p t="2904555" d="2985">All right?</p>
+<p t="2907540" d="2610">Because I've got a root
+that's repeated twice,</p>
+<p t="2910150" d="4640">r equals 2, so I have alpha
+to the n and n alpha to the n.</p>
+<p t="2914790" d="2645">Just happens alpha's 1,
+which makes it really easy.</p>
+<p t="2919770" d="500">All right?</p>
+<p t="2920270" d="2730">So this is now my solution
+before the boundary conditions.</p>
+<p t="2926270" d="2360">In fact, that gets even simpler.</p>
+<p t="2928630" d="500">That's 1.</p>
+<p t="2929130" d="2178">That's c1 plus c2 times n.</p>
+<p t="2934520" d="1505">And now all that's
+left is to plug</p>
+<p t="2936025" d="1125">in the boundary conditions.</p>
+<p t="2950680" d="3460">So let's do that.</p>
+<p t="2954140" d="3085">Well, f of 0 equals 0.</p>
+<p t="2961330" d="2184">If I plug it into here,
+what happens for f of 0?</p>
+<p t="2963514" d="916">What does that become?</p>
+<p t="2964430" d="1370">AUDIENCE: [INAUDIBLE].</p>
+<p t="2965800" d="1630">PROFESSOR: C1.</p>
+<p t="2967430" d="1260">So c1 equals 0.</p>
+<p t="2968690" d="1300">That's good.</p>
+<p t="2969990" d="3000">f of 1 equals 1.</p>
+<p t="2972990" d="4070">And now that's going
+to be c1 plus c2.</p>
+<p t="2977060" d="3510">c1 is 0, so it
+means c2 equals 1.</p>
+<p t="2983031" d="499">All right.</p>
+<p t="2983530" d="1860">So this is really easy.</p>
+<p t="2985390" d="3040">What's f of n equal?</p>
+<p t="2988430" d="2090">n.</p>
+<p t="2990520" d="3073">So we went through a lot of work
+to get an answer that probably</p>
+<p t="2993593" d="2347">we could have guessed
+pretty easily by just</p>
+<p t="2995940" d="2167">plugging in a few examples.</p>
+<p t="2998107" d="2083">But the nice thing is this
+works for all the cases</p>
+<p t="3000190" d="5700">when it's not so easy to guess
+by plugging in the examples.</p>
+<p t="3005890" d="3960">Yeah, now you can see why this
+is a relatively rare plant.</p>
+<p t="3009850" d="2230">Its population is
+growing very slowly.</p>
+<p t="3014990" d="550">OK.</p>
+<p t="3015540" d="1600">Any questions about that?</p>
+<p t="3017140" d="1000">That had repeated roots.</p>
+<p t="3021790" d="730">All right.</p>
+<p t="3022520" d="500">Yeah?</p>
+<p t="3023020" d="1680">AUDIENCE: So we just
+guessed that f of n</p>
+<p t="3024700" d="2190">is equal to alpha
+to the n, and we</p>
+<p t="3026890" d="2790">don't know if that works for
+like different [INAUDIBLE].</p>
+<p t="3029680" d="2490">But how do you know that it
+works until you plug it in?</p>
+<p t="3032170" d="3000">If you tried it out [INAUDIBLE]?</p>
+<p t="3035170" d="2124">PROFESSOR: Yeah.</p>
+<p t="3037294" d="1416">We didn't go through
+and prove it.</p>
+<p t="3038710" d="4040">We used some facts along the
+way that we didn't prove,</p>
+<p t="3042750" d="840">which you can do.</p>
+<p t="3043590" d="3510">Like, in particular, the fact we
+didn't prove that theorem there</p>
+<p t="3047100" d="1700">that those will be the roots.</p>
+<p t="3048800" d="2140">And we didn't prove that
+any linear combination</p>
+<p t="3050940" d="1841">would be a solution.</p>
+<p t="3052781" d="2499">But those are facts you could
+take from-- you could actually</p>
+<p t="3055280" d="499">prove them.</p>
+<p t="3055779" d="1711">They're not too hard to prove.</p>
+<p t="3057490" d="2270">But otherwise, I think we
+went through every step</p>
+<p t="3059760" d="1271">and narrowed it in.</p>
+<p t="3061031" d="1499">If we wanted to be
+really sure, we'd</p>
+<p t="3062530" d="1460">go back and prove
+it by induction</p>
+<p t="3063990" d="2030">against the original recurrence.</p>
+<p t="3066020" d="4010">And we'd say this would be
+the induction hypothesis.</p>
+<p t="3070030" d="2900">We'd cover the base
+cases-- f of 0 and f of 1.</p>
+<p t="3072930" d="3680">And then we'd plug this into
+the recurrence up there,</p>
+<p t="3076610" d="5440">which is, does n equal twice
+n minus 1 minus n minus 2,</p>
+<p t="3082050" d="1050">is what we would do.</p>
+<p t="3083100" d="1690">And you see that it's true.</p>
+<p t="3084790" d="4210">So you could really
+prove it by induction</p>
+<p t="3089000" d="1720">for any of the
+solutions we ever get.</p>
+<p t="3090720" d="3020">And if you worked this
+way to get the solution,</p>
+<p t="3093740" d="1650">it will always work.</p>
+<p t="3095390" d="2782">This method never fails,
+gives you the wrong answer.</p>
+<p t="3098172" d="1458">In fact, that's an
+important point.</p>
+<p t="3099630" d="2333">When we tell you to solve a
+recurrence using this method</p>
+<p t="3101963" d="3487">on an exam or for
+homework, you don't</p>
+<p t="3105450" d="2010">have to verify it by
+induction unless we</p>
+<p t="3107460" d="2090">say verify by induction.</p>
+<p t="3109550" d="1580">Because we're
+giving you a method</p>
+<p t="3111130" d="1410">that is guaranteed to work.</p>
+<p t="3112540" d="2680">And if you do the method
+right, you're fine.</p>
+<p t="3115220" d="2740">There's no guessing here so far.</p>
+<p t="3117960" d="2480">In a minute, we're going
+to do a little guessing,</p>
+<p t="3120440" d="3133">but not so far.</p>
+<p t="3123573" d="833">Any other questions?</p>
+<p t="3127670" d="2430">OK.</p>
+<p t="3130100" d="7201">This works for all homogeneous
+linear recurrences.</p>
+<p t="3137301" d="499">All right?</p>
+<p t="3137800" d="1815">Remember homogeneous
+and inhomogeneous</p>
+<p t="3139615" d="2835">from differential equations?</p>
+<p t="3142450" d="1490">It's the same
+thing happens here.</p>
+<p t="3151600" d="2437">And now we're going to talk
+about the inhomogeneous case.</p>
+<p t="3161950" d="500">All right.</p>
+<p t="3162450" d="5650">So we've been looking at
+linear recurrences, which</p>
+<p t="3168100" d="6350">means you have something like
+f of n minus a1 f of n minus 1</p>
+<p t="3174450" d="7442">minus ad f of n
+minus d equals 0,</p>
+<p t="3181892" d="1333">and that means it's homogeneous.</p>
+<p t="3189170" d="2760">Now, instead of 0, I might
+have had something else</p>
+<p t="3191930" d="3000">here, might have
+been equal to 1,</p>
+<p t="3194930" d="6110">maybe n squared, or some
+general function g of n.</p>
+<p t="3201040" d="1913">These cases are
+all inhomogeneous.</p>
+<p t="3210430" d="1370">OK?</p>
+<p t="3211800" d="3770">Now, solving inhomogeneous
+linear equations</p>
+<p t="3215570" d="2680">is just one step harder
+than homogeneous.</p>
+<p t="3218250" d="500">Yeah?</p>
+<p t="3218750" d="833">AUDIENCE: All right.</p>
+<p t="3219583" d="1994">Could you define homogeneous
+and inhomogeneous</p>
+<p t="3221577" d="2083">for people who didn't take
+differential equations?</p>
+<p t="3223660" d="666">PROFESSOR: Yeah.</p>
+<p t="3224326" d="4844">Homogeneous means
+you have the 0 here.</p>
+<p t="3229170" d="3550">You got all these f
+terms here, right,</p>
+<p t="3232720" d="1660">and there's nothing else.</p>
+<p t="3234380" d="3560">f of n minus a1 f n
+minus 1 dot dot dot</p>
+<p t="3237940" d="3650">minus ad f n minus d equals 0.</p>
+<p t="3241590" d="4020">Like with Fibonacci
+numbers-- f of n minus f n</p>
+<p t="3245610" d="4030">minus 1 minus f n minus 2 is 0.</p>
+<p t="3249640" d="1610">OK?</p>
+<p t="3251250" d="3460">I could consider
+other recurrences</p>
+<p t="3254710" d="3060">where there's something else
+out here that it equals.</p>
+<p t="3257770" d="1780">Like I could have a
+Fibonacci recurrence</p>
+<p t="3259550" d="3750">where I have f(n) equals f of
+n minus 1 plus f(n) minus 2</p>
+<p t="3263300" d="3480">plus g of n, like n cubed.</p>
+<p t="3266780" d="3040">That would give me a
+Fibonacci-like recurrence.</p>
+<p t="3269820" d="2860">And as soon as you put
+a non-zero out here,</p>
+<p t="3272680" d="2095">then it's inhomogeneous.</p>
+<p t="3274775" d="1375">And now I'm going
+to tell you how</p>
+<p t="3276150" d="1810">to solve that kind
+of recurrence,</p>
+<p t="3277960" d="3500">which is more general.</p>
+<p t="3281460" d="500">OK?</p>
+<p t="3284642" d="500">OK.</p>
+<p t="3288905" d="2458">So let me outline the method,
+and then we'll do an example.</p>
+<p t="3302220" d="620">All right.</p>
+<p t="3302840" d="20490">So the general inhomogeneous
+recurrence is exactly this.</p>
+<p t="3323330" d="8950">It's f of n minus a1 f of n
+minus 1 minus a sub d f of n</p>
+<p t="3332280" d="5990">minus d equals g of n, where
+that's some fixed function</p>
+<p t="3338270" d="1500">of n, nothing to do with f.</p>
+<p t="3342550" d="3690">And we solve it according to
+the following three-step method.</p>
+<p t="3349200" d="10080">In step 1, we
+replace g of n by 0,</p>
+<p t="3359280" d="4184">thereby creating the situation
+we already know how to solve.</p>
+<p t="3366330" d="5120">And we solve the
+homogeneous recurrence--</p>
+<p t="3371450" d="13770">because you got a 0 there now--
+but we don't go all the way.</p>
+<p t="3385220" d="2500">We ignore the boundary
+conditions for now.</p>
+<p t="3395321" d="1999">So you don't get all the
+way to the final answer</p>
+<p t="3397320" d="2100">where you plugged in
+the boundary conditions</p>
+<p t="3399420" d="2090">to get the constant
+coefficients.</p>
+<p t="3401510" d="4000">Leave the constant
+coefficients undecided.</p>
+<p t="3405510" d="9910">Then in step 2, we
+put back in g of n,</p>
+<p t="3415420" d="10460">and we find any what's called
+particular solution, again</p>
+<p t="3425880" d="2246">ignoring boundary conditions.</p>
+<p t="3428126" d="2266">So you'll have the
+constant factors there too.</p>
+<p t="3440141" d="499">All right?</p>
+<p t="3440640" d="4350">And then step 3 is going to be
+to put the whole thing together</p>
+<p t="3444990" d="2381">and plug in the boundary
+conditions and solve it.</p>
+<p t="3455330" d="6345">So we add the homogeneous
+and particular--</p>
+<p t="3461675" d="12745">and I'll show you how to
+do step 2 in a minute--</p>
+<p t="3474420" d="11510">so we add the homogeneous and
+particular solutions together</p>
+<p t="3485930" d="2640">and then use the boundary
+conditions to get the answer.</p>
+<p t="3510560" d="500">OK.</p>
+<p t="3511060" d="1050">So let's do an example.</p>
+<p t="3515750" d="2620">Let's go down here and do an
+example of the three steps.</p>
+<p t="3537480" d="3300">So let's say that
+our recurrence is</p>
+<p t="3540780" d="8410">this nasty-looking thing-- f
+of n equals 4 f of n minus 1</p>
+<p t="3549190" d="3660">plus 3 to the n.</p>
+<p t="3552850" d="6390">And the boundary condition
+is that f of 1 is 1.</p>
+<p t="3559240" d="5560">So step 1 says, ignore
+this 3 to the n thing</p>
+<p t="3564800" d="3330">and get back to just the
+homogeneous form, which</p>
+<p t="3568130" d="4360">is f of n minus 4 f
+of n minus 1 is 0.</p>
+<p t="3572490" d="1230">So let's solve that.</p>
+<p t="3573720" d="3000">What's the
+characteristic equation</p>
+<p t="3576720" d="4342">for the homogeneous part?</p>
+<p t="3581062" d="1458">What's the
+characteristic equation?</p>
+<p t="3585789" d="934">What is it?</p>
+<p t="3586723" d="2289">AUDIENCE: Alpha [INAUDIBLE].</p>
+<p t="3589012" d="708">PROFESSOR: Close.</p>
+<p t="3589720" d="3153">It's-- you could either say
+alpha to the n minus 4 alpha</p>
+<p t="3592873" d="1907">to the n minus 1.</p>
+<p t="3594780" d="4300">But better to simplify it
+into an order 1 polynomial.</p>
+<p t="3599080" d="5390">So it would be alpha minus 4,
+really simple in this case.</p>
+<p t="3604470" d="2480">So the characteristic
+equation is alpha minus 4,</p>
+<p t="3606950" d="5900">alpha minus 4, all
+right, equals 0.</p>
+<p t="3612850" d="3750">And it's really easy to
+find the root of this thing.</p>
+<p t="3616600" d="4240">It's just alpha equals
+4 is your only root.</p>
+<p t="3620840" d="6200">And that means the
+homogeneous solution</p>
+<p t="3627040" d="5094">is f of n equals a
+constant times 4 to the n.</p>
+<p t="3634761" d="499">All right?</p>
+<p t="3635260" d="890">So that's step 1.</p>
+<p t="3643670" d="690">OK.</p>
+<p t="3644360" d="3795">Let's do step 2, which
+we've not tried before.</p>
+<p t="3651910" d="4920">We need to find a
+particular solution,</p>
+<p t="3656830" d="7690">and this just means
+any old solution</p>
+<p t="3664520" d="9070">to f of n minus 4 f of n
+minus 1 equals 3 to the n,</p>
+<p t="3673590" d="2380">without worrying about
+boundary conditions.</p>
+<p t="3675970" d="5425">Now, there's basic rules
+to use to figure out</p>
+<p t="3681395" d="2295">what to guess here.</p>
+<p t="3683690" d="6520">And basically, the idea is that
+you guess something for f of n</p>
+<p t="3690210" d="4590">that looks a whole lot
+like this g term out here.</p>
+<p t="3694800" d="3270">And in particular, if
+this g term is 3 to the n,</p>
+<p t="3698070" d="3200">you guess a constant
+times 3 to the n.</p>
+<p t="3701270" d="3410">If it's 5 to the n, you guess
+a constant times 5 to the n.</p>
+<p t="3704680" d="4740">If it's n squared, you guess a
+polynomial that's of degree 2</p>
+<p t="3709420" d="2170">and so forth.</p>
+<p t="3711590" d="500">OK?</p>
+<p t="3712090" d="6830">So let's guess a
+constant times 3 to the n</p>
+<p t="3718920" d="2640">and see if we can
+make it work, not</p>
+<p t="3721560" d="1892">worrying about the
+boundary conditions.</p>
+<p t="3733890" d="2456">All right.</p>
+<p t="3736346" d="3874">And this is just like
+differential equations, right?</p>
+<p t="3740220" d="2180">Same guessing
+strategy exactly you</p>
+<p t="3742400" d="3850">use in differential equations,
+those of you who've had that.</p>
+<p t="3746250" d="5590">So we guess f of n equals a
+constant times 3 to the n,</p>
+<p t="3751840" d="2480">and let's plug it in.</p>
+<p t="3754320" d="3320">So we plug that in up there.</p>
+<p t="3757640" d="6660">We get c3 to the n minus
+c3 to the n minus 1</p>
+<p t="3764300" d="3301">equals 3 to the n.</p>
+<p t="3767601" d="499">All right?</p>
+<p t="3768100" d="2140">So let's divide by
+3 to the n here.</p>
+<p t="3770240" d="6470">We get 3c minus c equals 3.</p>
+<p t="3776710" d="1860">Did I do that right?</p>
+<p t="3778570" d="3245">No, I left off my 4 here,
+right, left off that.</p>
+<p t="3781815" d="1015">So there's a 4 here.</p>
+<p t="3786150" d="4750">And that means
+that c is minus 3.</p>
+<p t="3790900" d="500">OK?</p>
+<p t="3791400" d="4200">So I got minus c equals
+3, so c is minus 3.</p>
+<p t="3795600" d="500">All right.</p>
+<p t="3796100" d="11760">That means that the particular
+solution is just f of n</p>
+<p t="3807860" d="8200">equals-- c is minus 3--
+minus 3 to the n plus 1.</p>
+<p t="3816060" d="500">All right?</p>
+<p t="3816560" d="4810">So now I found a solution where
+there's no constants involved.</p>
+<p t="3821370" d="2410">This time, the
+constant went away just</p>
+<p t="3823780" d="3050">plugging into the
+recurrence formula.</p>
+<p t="3826830" d="2300">I didn't use base cases yet.</p>
+<p t="3829130" d="1920">I just found a
+particular case that</p>
+<p t="3831050" d="5930">works for the recurrence--
+minus 3 to the n plus 1.</p>
+<p t="3836980" d="2512">OK?</p>
+<p t="3839492" d="1938">All right.</p>
+<p t="3841430" d="1116">Now we go to step 3.</p>
+<p t="3859300" d="500">All right.</p>
+<p t="3859800" d="10870">Step 3, we find the
+general solution</p>
+<p t="3870670" d="2850">by adding the homogeneous
+and the particular solution.</p>
+<p t="3877850" d="5960">So we take f of
+n equals c1 times</p>
+<p t="3883810" d="6980">4 to the n plus negative
+3 to the n plus 1.</p>
+<p t="3895350" d="3310">And all I've got to
+do is determine c1,</p>
+<p t="3898660" d="3234">and I do that from the
+boundary conditions.</p>
+<p t="3901894" d="666">Yeah, let's see.</p>
+<p t="3902560" d="3240">Where was my boundary
+condition here?</p>
+<p t="3905800" d="3780">Ah, up there-- f of 1 is 1.</p>
+<p t="3909580" d="3110">So f of 1 equals 1.</p>
+<p t="3912690" d="3070">Plugging in 1 here,
+I get c1 times 4</p>
+<p t="3915760" d="5670">to the 1 minus 3 squared.</p>
+<p t="3921430" d="500">All right?</p>
+<p t="3921930" d="3190">So I have 4c1 minus 9.</p>
+<p t="3925120" d="4980">Put the 9 over here,
+I get 10 equals 4c1.</p>
+<p t="3930100" d="2805">And that means that c1 is 5/2.</p>
+<p t="3937570" d="2300">And now I know the
+final solution for f(n).</p>
+<p t="3944170" d="5675">It's 5/2 4 to the n
+minus 3 to the n plus 1.</p>
+<p t="3956650" d="1594">Now, when you're
+all done with this,</p>
+<p t="3958244" d="1416">you don't have--
+we won't make you</p>
+<p t="3959660" d="3919">do an inductive proof, which you
+could do to verify it's right.</p>
+<p t="3963579" d="1791">If you wanted to be
+really, really careful,</p>
+<p t="3965370" d="1580">you should do that.</p>
+<p t="3966950" d="4002">But it is a good idea just
+to check a couple values of n</p>
+<p t="3970952" d="2583">to make sure you didn't make a
+mistake because you might have.</p>
+<p t="3973535" d="2905">With all these calculations,
+you might have made a mistake.</p>
+<p t="3976440" d="3760">So let's check, for
+example, f of 2.</p>
+<p t="3983000" d="7300">So by the recurrence,
+f of 2 is 4 times</p>
+<p t="3990300" d="9660">f of 1-- it's 4 times 1-- plus
+3 squared, which is 9, is 13.</p>
+<p t="3999960" d="3830">And let's just check
+when we plug in 2 here.</p>
+<p t="4003790" d="8800">f of 2 is 5/2 times 16 minus 27.</p>
+<p t="4012590" d="4620">5 times 8 is 40, minus 27 is 13.</p>
+<p t="4017210" d="1710">Just as a sanity check.</p>
+<p t="4018920" d="2250">Because there's a decent
+chance if you made a mistake,</p>
+<p t="4021170" d="3070">it'll catch it pretty
+quick with n equals 2 or 3.</p>
+<p t="4024240" d="500">All right?</p>
+<p t="4024740" d="3140">Just to make sure
+you got it right.</p>
+<p t="4027880" d="6400">Any questions about that?</p>
+<p t="4034280" d="2350">So the tricky part
+here is guessing</p>
+<p t="4036630" d="2100">the particular solution.</p>
+<p t="4038730" d="5520">So let me give you the rules
+for that, just write those down,</p>
+<p t="4044250" d="1850">and maybe I'll do
+one last example.</p>
+<p t="4060320" d="500">All right.</p>
+<p t="4060820" d="3130">So we're guessing a
+particular solution.</p>
+<p t="4076740" d="6830">So if g-- that's saying
+the non-homogeneous part--</p>
+<p t="4083570" d="11090">is exponential, you should
+try guessing an exponential</p>
+<p t="4094660" d="1220">of the same type.</p>
+<p t="4100740" d="10310">So for example, say that g is
+2 to the n plus 3 to the n.</p>
+<p t="4111050" d="6000">What you should do is guess
+some constant a times 2 to the n</p>
+<p t="4117050" d="3229">plus some constant
+b times 3 to the n.</p>
+<p t="4120279" d="3061">Plug it in-- not to the
+boundary conditions.</p>
+<p t="4123340" d="4180">Plug it into the recurrence
+equation and solve for a and b.</p>
+<p t="4127520" d="3419">And it generally will work.</p>
+<p t="4130939" d="9511">If g is polynomial, you
+should guess a polynomial</p>
+<p t="4140450" d="970">of the same degree.</p>
+<p t="4147840" d="13269">So for example, say g of
+n is n squared minus 1.</p>
+<p t="4161109" d="11941">You should guess-- let's
+see-- guess an squared</p>
+<p t="4173050" d="3179">plus bn plus c.</p>
+<p t="4176229" d="2722">Plug that in for f of n.</p>
+<p t="4178951" d="499">All right?</p>
+<p t="4179450" d="4736">So when we're doing these
+guesses, we're guessing f of n.</p>
+<p t="4184186" d="1482">Same thing up here.</p>
+<p t="4207930" d="2870">Now, say you mixed two together.</p>
+<p t="4210800" d="4330">Suppose you have an
+example where g of n</p>
+<p t="4215130" d="3580">equals 2 to the n plus n.</p>
+<p t="4218710" d="3649">What do you suppose
+you do in that case?</p>
+<p t="4222359" d="1831">AUDIENCE: [INAUDIBLE]
+to guess [INAUDIBLE].</p>
+<p t="4224190" d="3470">PROFESSOR: Yeah, guess each one
+separately, add them together.</p>
+<p t="4227660" d="5890">So you're going to guess
+f of n equals a times 2</p>
+<p t="4233550" d="3980">to the n plus bn plus c.</p>
+<p t="4237530" d="580">All right?</p>
+<p t="4238110" d="2500">Because you take the guess for
+that plus the guess for that.</p>
+<p t="4244050" d="510">All right.</p>
+<p t="4244560" d="3980">Now, there's one last thing
+that can go wrong here.</p>
+<p t="4248540" d="5301">And that is you can try your
+guess, and it doesn't work.</p>
+<p t="4253841" d="499">All right?</p>
+<p t="4254340" d="1600">So there's rules for that too.</p>
+<p t="4258460" d="7680">For example, if, say,
+g(n) is 2 to the n</p>
+<p t="4266140" d="7300">and your guess of a times 2 to
+the n, where a is a constant,</p>
+<p t="4273440" d="1135">fails.</p>
+<p t="4274575" d="3225">And we'll do an example in
+a minute where it fails.</p>
+<p t="4277800" d="5100">What you do then is you guess
+a polynomial times 2 to the n.</p>
+<p t="4282900" d="5730">So you'd guess an plus
+b times 2 to the n.</p>
+<p t="4288630" d="3740">And if that fails,
+your next guess</p>
+<p t="4292370" d="6760">would be an squared plus
+bn plus c times 2 to the n.</p>
+<p t="4299130" d="2540">And it won't happen,
+but if that failed,</p>
+<p t="4301670" d="2150">you'd guess a cubic
+times 2 to the n.</p>
+<p t="4303820" d="3660">You keep pounding it with
+another factor of n in front</p>
+<p t="4307480" d="2550">if the guess fails.</p>
+<p t="4310030" d="2230">And that's true
+for anything at all</p>
+<p t="4312260" d="2907">you would be doing like
+this, and that'll work.</p>
+<p t="4315167" d="2333">And I don't think I've ever
+encountered an example where</p>
+<p t="4317500" d="3260">you have to go very
+far to make that fly.</p>
+<p t="4324180" d="2080">Same thing we had
+for repeated roots</p>
+<p t="4326260" d="3050">in the characteristic equation.</p>
+<p t="4329310" d="2300">Multiply those factors
+of n in front of it</p>
+<p t="4331610" d="2201">to get to the answer.</p>
+<p t="4333811" d="499">All right.</p>
+<p t="4334310" d="2900">Let's do one more
+example where it fails,</p>
+<p t="4337210" d="1622">so we get to see what happens.</p>
+<p t="4359970" d="8500">Let's try this recurrence--
+f of n is 2 f of n minus 1</p>
+<p t="4368470" d="2930">plus 2 to the n.</p>
+<p t="4371400" d="5470">And the boundary
+condition is f of 0 is 1.</p>
+<p t="4376870" d="5220">What's the first
+thing I do for this?</p>
+<p t="4382090" d="2360">AUDIENCE: Set it equal to 0.</p>
+<p t="4384450" d="2065">PROFESSOR: Set it equal
+to 0 and solve it.</p>
+<p t="4386515" d="1447">Get the homogeneous solution.</p>
+<p t="4393240" d="580">OK.</p>
+<p t="4393820" d="2920">So what's the
+characteristic polynomial?</p>
+<p t="4400290" d="4230">Alpha minus 2 is 0.</p>
+<p t="4404520" d="2021">What's my root?</p>
+<p t="4406541" d="499">2.</p>
+<p t="4409790" d="3760">And therefore, my
+homogeneous solution</p>
+<p t="4413550" d="2910">is c1 times 2 to the n.</p>
+<p t="4416460" d="2440">Well, that's pretty simple.</p>
+<p t="4418900" d="992">What's the next step?</p>
+<p t="4423860" d="2123">What do I have to find next?</p>
+<p t="4425983" d="875">AUDIENCE: Particular.</p>
+<p t="4426858" d="1476">PROFESSOR: Particular solution.</p>
+<p t="4432762" d="508">All right.</p>
+<p t="4433270" d="2012">So what am I going to guess?</p>
+<p t="4440210" d="1480">a times 2 to the n.</p>
+<p t="4444260" d="1080">All right?</p>
+<p t="4445340" d="2770">So let's plug that in,
+a times 2 to the n.</p>
+<p t="4448110" d="2610">I'm going to plug it in to here.</p>
+<p t="4450720" d="7380">So I get a 2 to the n
+equals 2 times a times 2</p>
+<p t="4458100" d="5100">to the n minus 1
+plus 2 to the n.</p>
+<p t="4463200" d="1560">Did I do that right?</p>
+<p t="4464760" d="2430">Think so.</p>
+<p t="4467190" d="2772">So I get 2 to the n, 2
+to the n, 2 to the n.</p>
+<p t="4469962" d="6078">I get a equals a plus 1.</p>
+<p t="4476040" d="2470">Not so good.</p>
+<p t="4478510" d="1140">All right?</p>
+<p t="4479650" d="2936">There's no solution for a.</p>
+<p t="4482586" d="1595">Well, that's bad.</p>
+<p t="4484181" d="499">All right.</p>
+<p t="4484680" d="1280">So what do I do?</p>
+<p t="4492701" d="1875">Any thoughts about what
+I'm going to do next?</p>
+<p t="4497414" d="946">AUDIENCE: [INAUDIBLE].</p>
+<p t="4498360" d="580">PROFESSOR: What is it?</p>
+<p t="4498940" d="1300">AUDIENCE: Change your guess.</p>
+<p t="4500240" d="960">PROFESSOR: Change the guess.</p>
+<p t="4501200" d="1416">What's the next
+guess going to be?</p>
+<p t="4506780" d="800">Yeah, all right.</p>
+<p t="4507580" d="11050">So now I'm going to guess f
+of n is an plus b 2 to the n.</p>
+<p t="4518630" d="1210">We'll hope for better luck.</p>
+<p t="4519840" d="3180">So let's plug that in.</p>
+<p t="4523020" d="9080">an plus b 2 to the n into--
+where am I, up there--</p>
+<p t="4532100" d="9913">equals 2 a n minus 1 plus b
+times 2 to the n minus 1 plus 2</p>
+<p t="4542013" d="2422">to the n.</p>
+<p t="4544435" d="695">All right.</p>
+<p t="4545130" d="3195">Now, I can divide out the 2 to
+the n's here like I did before.</p>
+<p t="4551000" d="13510">And I get an plus b equals
+an minus a plus b plus 1.</p>
+<p t="4564510" d="4730">That cancels here, b cancels.</p>
+<p t="4569240" d="4271">So I got a solution--
+a equals 1.</p>
+<p t="4573511" d="1989">And I don't care what b is.</p>
+<p t="4575500" d="2410">I didn't need to
+set it to anything.</p>
+<p t="4577910" d="2970">So I'll make it 0 just
+to get it out of the way</p>
+<p t="4580880" d="2080">because it didn't matter.</p>
+<p t="4582960" d="8415">So my particular solution
+then is f of n-- a is 1.</p>
+<p t="4591375" d="2995">b I can just make 0 because
+it didn't matter what I used,</p>
+<p t="4594370" d="1420">so I'll make it simpler.</p>
+<p t="4595790" d="2844">So I get n 2 to the n.</p>
+<p t="4598634" d="1250">That's my particular solution.</p>
+<p t="4602810" d="3380">And I've got my general
+solution up there as c1 times 2</p>
+<p t="4606190" d="2640">to the n-- sorry, the
+homogeneous solution.</p>
+<p t="4611530" d="1809">What's the next step?</p>
+<p t="4619207" d="1093">What's step 3?</p>
+<p t="4624570" d="3385">What do I do with these
+guys, this solution</p>
+<p t="4627955" d="1432">and that solution?</p>
+<p t="4629387" d="1145">[? AUDIENCE: Add them. ?]</p>
+<p t="4630532" d="1208">PROFESSOR: Add them together.</p>
+<p t="4631740" d="500">Good.</p>
+<p t="4632240" d="11140">So the general solution is I
+have f of n is the sum of c1 2</p>
+<p t="4643380" d="4320">to the n plus the particular
+solutions n 2 to the n.</p>
+<p t="4647700" d="3489">How do I figure out what c1 is?</p>
+<p t="4651189" d="1541">AUDIENCE: Plugging
+in to [INAUDIBLE].</p>
+<p t="4652730" d="4320">PROFESSOR: Plugging in the
+boundary condition-- f(0)</p>
+<p t="4657050" d="1225">equals 1.</p>
+<p t="4658275" d="2125">f(0) equals 1.</p>
+<p t="4660400" d="6840">Plug in 0, I get c1
+2 to the 0 plus 0.</p>
+<p t="4667240" d="4150">Well, that's pretty
+easy. c1 equals 1.</p>
+<p t="4671390" d="2840">So I now have the final answer.</p>
+<p t="4674230" d="5710">f of n equals 2 to the
+n plus n 2 to the n.</p>
+<p t="4679940" d="837">All right?</p>
+<p t="4680777" d="583">Any questions?</p>
+<p t="4685730" d="500">OK.</p>
+<p t="4686230" d="3510">So it's a little
+tedious to do this.</p>
+<p t="4689740" d="2820">But the really nice thing
+is any linear recurrence</p>
+<p t="4692560" d="4830">you ever see, this method
+always works, which is handy.</p>
+<p t="4697390" d="500">OK.</p>
+<p t="4697890" d="2150">That's it for today.</p>
+</body>
+</timedtext>

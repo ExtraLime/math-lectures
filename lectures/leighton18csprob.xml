@@ -1,0 +1,2563 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="499" d="2331">The following content is
+provided under a Creative</p>
+<p t="2830" d="1510">Commons license.</p>
+<p t="4340" d="2340">Your support will help
+MIT OpenCourseWare</p>
+<p t="6680" d="4370">continue to offer high quality
+educational resources for free.</p>
+<p t="11050" d="2620">To make a donation or
+view additional materials</p>
+<p t="13670" d="3872">from hundreds of MIT courses,
+visit MIT OpenCourseWare</p>
+<p t="17542" d="625">at ocw.mit.edu.</p>
+<p t="23170" d="1920">PROFESSOR: Let's get started.</p>
+<p t="25090" d="1450">Drop date is coming up.</p>
+<p t="26540" d="1959">So that you didn't do
+very well on the midterm,</p>
+<p t="28499" d="1707">and you haven't been
+doing your homework,</p>
+<p t="30206" d="1864">and you haven't been
+going to recitation,</p>
+<p t="32070" d="3510">I would strongly
+consider drop date.</p>
+<p t="35580" d="2240">And you can see your
+TAs to get some idea</p>
+<p t="37820" d="2220">of what your grades
+are, and what you're</p>
+<p t="40040" d="3370">likely to do if you keep on
+giving the same performance</p>
+<p t="43410" d="2990">you've had so far.</p>
+<p t="46400" d="3340">Now, today, we're going to
+switch gears again and cover</p>
+<p t="49740" d="1837">the last topic for the course.</p>
+<p t="51577" d="1583">For the remainder
+of the course, we're</p>
+<p t="53160" d="2640">going to talk about probability.</p>
+<p t="55800" d="3080">It's one of the most
+important subjects in all</p>
+<p t="58880" d="1660">of math or computer science.</p>
+<p t="60540" d="2480">In fact, I was at a frat
+last night for dinner,</p>
+<p t="63020" d="2530">and they asked me what my
+favorite algorithm was.</p>
+<p t="65550" d="2790">And I couldn't really think
+about my favorite algorithm</p>
+<p t="68340" d="3030">was, but in terms of one of the
+most important subjects for you</p>
+<p t="71370" d="4360">to know about, after induction,
+it's probably probability.</p>
+<p t="75730" d="3120">It's really important across
+math and computer science.</p>
+<p t="78850" d="2962">Most of the upper level courses
+you take in computer science</p>
+<p t="81812" d="1208">are going to use probability.</p>
+<p t="83020" d="2640">They're going to expect
+you to know the basics.</p>
+<p t="85660" d="3450">For example, when you're
+designing algorithms in 006</p>
+<p t="89110" d="4250">or 6046, you're going to
+be designing in some cases</p>
+<p t="93360" d="3630">probabilistic algorithms--
+algorithms that flip coins</p>
+<p t="96990" d="2920">or generate random
+numbers to get the result.</p>
+<p t="99910" d="3500">And by using randomness,
+they run faster.</p>
+<p t="103410" d="2390">If you're doing software
+engineering later,</p>
+<p t="105800" d="1500">you're going to use
+probability when</p>
+<p t="107300" d="4650">you analyze system performance
+or build hash tables.</p>
+<p t="111950" d="2240">Probability is used
+in information theory,</p>
+<p t="114190" d="3400">in coding theory,
+in cryptography.</p>
+<p t="117590" d="3560">In fact, our nation's
+codes, their security</p>
+<p t="121150" d="3000">depends on
+probabilistic analysis.</p>
+<p t="124150" d="2430">Because the bad guys
+are using probabilistic</p>
+<p t="126580" d="2619">algorithms to break
+the crypto-system.</p>
+<p t="129199" d="3721">And we'll give an example of
+that in another week or so.</p>
+<p t="132920" d="1900">Probability is
+obviously important</p>
+<p t="134820" d="3420">if you're doing game theory
+or if you like to gamble,</p>
+<p t="138240" d="1240">really critical in gambling.</p>
+<p t="139480" d="2620">In fact, we're going to analyze
+a lot of different gambling</p>
+<p t="142100" d="1250">games over the next few weeks.</p>
+<p t="143350" d="2360">And for fun, we'll
+play some in class.</p>
+<p t="145710" d="2460">In fact, we'll play
+one later today.</p>
+<p t="148170" d="3840">And it's amazing how often
+the intuition is wrong.</p>
+<p t="152010" d="1430">You think the
+answer goes one way,</p>
+<p t="153440" d="2560">and then it's
+actually the other.</p>
+<p t="156000" d="3160">Probability is important in
+the study of fault tolerance.</p>
+<p t="159160" d="1930">For example, how
+do you figure out</p>
+<p t="161090" d="2640">the probability there's going
+to be some critical failure that</p>
+<p t="163730" d="2390">causes the space
+shuttle to crash?</p>
+<p t="166120" d="2870">Or a critical failure that
+causes a nuclear plant</p>
+<p t="168990" d="1360">to meltdown?</p>
+<p t="170350" d="1900">That's done through
+probabilistic analysis.</p>
+<p t="172250" d="2530">And we'll do some
+examples of that.</p>
+<p t="174780" d="2590">Probability comes
+up in everyday life.</p>
+<p t="177370" d="1742">We just had an election.</p>
+<p t="179112" d="1458">And running up to
+the election, you</p>
+<p t="180570" d="3210">get all these polls that
+say that's so-and-so</p>
+<p t="183780" d="4280">is ahead of so-and-so by three
+points with a margin of error</p>
+<p t="188060" d="1720">of five points.</p>
+<p t="189780" d="2870">So it's a statistical dead
+heat, is what they say.</p>
+<p t="192650" d="2280">Well, what the heck
+does that mean?</p>
+<p t="194930" d="2060">In fact, usually they've
+got it screwed up.</p>
+<p t="196990" d="2166">And we're going to spend
+the recitation where you're</p>
+<p t="199156" d="3724">going to do a margin of
+error analysis for a poll,</p>
+<p t="202880" d="2620">and see how many people
+do you need to poll to get</p>
+<p t="205500" d="2990">a pretty accurate result?</p>
+<p t="208490" d="2900">Comes up in the medical studies.</p>
+<p t="211390" d="3010">Does cholesterol
+cause heart disease?</p>
+<p t="214400" d="2690">Does smoking cause lung cancer?</p>
+<p t="217090" d="2320">How effective is a certain drug?</p>
+<p t="219410" d="4370">Say you get tested for a disease
+and it comes back positive.</p>
+<p t="223780" d="2170">Well, there's false positives
+and false negatives.</p>
+<p t="225950" d="3020">What are the chances you
+really have the disease?</p>
+<p t="228970" d="2972">So the list goes on and on.</p>
+<p t="231942" d="1958">In fact, we're going to
+see all these examples.</p>
+<p t="233900" d="2010">We've got eight lectures
+and eight recitations.</p>
+<p t="235910" d="2110">And there's just no end
+of interesting examples</p>
+<p t="238020" d="2750">where probability
+comes into play.</p>
+<p t="240770" d="4150">The bad news is,
+probability is probably</p>
+<p t="244920" d="4480">the most misunderstood
+subject in all of mathematics</p>
+<p t="249400" d="1970">and the sciences.</p>
+<p t="251370" d="4380">In fact, Mark Twain
+once said, there's</p>
+<p t="255750" d="7550">three kinds of lies-- lies,
+damned lies, and statistics,</p>
+<p t="263300" d="1910">meaning probability.</p>
+<p t="265210" d="4680">Because it's so easy
+to lie with statistics.</p>
+<p t="269890" d="3860">And we're going to see lots
+and lots of examples of that.</p>
+<p t="273750" d="3040">In fact, newspaper
+articles, you know,</p>
+<p t="276790" d="3210">have all sorts of things that
+are just horribly fallacious</p>
+<p t="280000" d="1032">based on statistics.</p>
+<p t="281032" d="958">And we'll see examples.</p>
+<p t="281990" d="4700">In fact, we're going to even
+debunk a very famous article--</p>
+<p t="286690" d="2230">published research paper--
+by some famous computer</p>
+<p t="288920" d="1800">scientists at Berkeley.</p>
+<p t="290720" d="2890">Where they got to a conclusion
+using a very standard method</p>
+<p t="293610" d="3040">you see all the time--
+completely fallacious.</p>
+<p t="296650" d="1470">And we'll see that.</p>
+<p t="298120" d="2160">So you can think of that
+as, I'm going to teach you</p>
+<p t="300280" d="2800">how to lie with statistics.</p>
+<p t="303080" d="5300">Even better, how not to be taken
+in by incorrect arguments using</p>
+<p t="308380" d="2480">probability theory.</p>
+<p t="310860" d="4530">Now, at MIT, it's
+probably the subject</p>
+<p t="315390" d="2520">that most often
+trips up students</p>
+<p t="317910" d="2850">in their PhD qualifying exams.</p>
+<p t="320760" d="2690">You know, there's no
+better way to strike</p>
+<p t="323450" d="3659">terror in the heart of a
+student then to be sitting there</p>
+<p t="327109" d="1541">and ask them a
+question while they're</p>
+<p t="328650" d="3830">at the board, what's the
+probability that foo happens?</p>
+<p t="332480" d="2280">It's like panic sets
+in when they've got</p>
+<p t="334760" d="1300">to do a probabilistic analysis.</p>
+<p t="336060" d="3270">And now, MIT PhD
+students are good.</p>
+<p t="339330" d="2930">You know, they can crank out
+the most horrendous calculation,</p>
+<p t="342260" d="3620">no problem, come up with really
+clever ideas to solve problems.</p>
+<p t="345880" d="3290">But you get into probability,
+it gets into trouble.</p>
+<p t="349170" d="1900">In fact, even the other
+faculty sitting there</p>
+<p t="351070" d="3980">start squirming around when
+this question's being posed.</p>
+<p t="355050" d="2844">You know, and probability
+questions are--</p>
+<p t="357894" d="1916">and we'll see some
+examples today-- are always</p>
+<p t="359810" d="2170">the best at faculty
+parties, just</p>
+<p t="361980" d="1470">can ruin people's whole night.</p>
+<p t="363450" d="1916">You know, what's the
+probability this happens?</p>
+<p t="365366" d="1214">And it's some weird answer.</p>
+<p t="369180" d="1950">Now, the strange thing
+about this-- well,</p>
+<p t="371130" d="2690">first strange thing is that our
+human intuition is terrible.</p>
+<p t="373820" d="1560">And you will see that.</p>
+<p t="375380" d="2580">Your intuition will
+be wrong, just the way</p>
+<p t="377960" d="3880">our brains are
+created genetically.</p>
+<p t="381840" d="4040">But the good news is that
+probability can be very simple.</p>
+<p t="385880" d="4000">If you force yourself to just go
+to the basic principles-- which</p>
+<p t="389880" d="3040">we're going to cover-- and
+go through the basic template</p>
+<p t="392920" d="2710">of how to solve a problem--
+which we're going to cover--</p>
+<p t="395630" d="3740">it is easy, and
+you can't go wrong.</p>
+<p t="399370" d="4290">The key is forcing yourself
+to just actually write it</p>
+<p t="403660" d="2190">down, follow the
+basic principles,</p>
+<p t="405850" d="1260">and get to the answer.</p>
+<p t="407110" d="4859">As opposed to saying, oh, the
+answer's that and here's why.</p>
+<p t="411969" d="2041">Because it's amazing how
+often you'll be wrong if</p>
+<p t="414010" d="3610">you just try to rely
+on your intuition.</p>
+<p t="417620" d="3110">Now, we're going to start
+today our study of probability</p>
+<p t="420730" d="4030">with a famous, simple game.</p>
+<p t="424760" d="3510">And the game is known as
+the Monty Hall problem.</p>
+<p t="428270" d="3230">Now, do you all know
+who Monty Hall was?</p>
+<p t="431500" d="1090">You're probably too young.</p>
+<p t="432590" d="2260">Yeah, OK, not many people
+know who Monte Hall was.</p>
+<p t="434850" d="4680">But back in the 1970s, there
+was a very popular daytime TV</p>
+<p t="439530" d="5320">show-- a game show--
+called Let's Make a Deal.</p>
+<p t="444850" d="1240">And it was a great show.</p>
+<p t="446090" d="1780">It was the precursor
+of Wheel of Fortune--</p>
+<p t="447870" d="2370">if you're old enough to
+have seen that-- and then</p>
+<p t="450240" d="1660">Deal or No Deal after that.</p>
+<p t="451900" d="2600">There's always some game
+show that's really popular.</p>
+<p t="454500" d="3160">Anyway, back in the '70s,
+it was Let's Make a Deal,</p>
+<p t="457660" d="2472">and Monty Hall was the host.</p>
+<p t="460132" d="2208">How many people have ever
+heard of Let's Make a Deal?</p>
+<p t="462340" d="1874">Raise your hand if you've
+ever heard of that.</p>
+<p t="464214" d="1416">OK, so it still has some fame.</p>
+<p t="465630" d="830">Good.</p>
+<p t="466460" d="1230">All right.</p>
+<p t="467690" d="3280">Now, Monty Hall, of
+course, was the precursor</p>
+<p t="470970" d="3770">of Pat Sajak of Wheel of
+Fortune and Howie Mandel,</p>
+<p t="474740" d="1670">you know, from Deal or No Deal.</p>
+<p t="476410" d="2660">And his assistant
+was Carol Merrill.</p>
+<p t="479070" d="3550">She was also famous as
+the beautiful assistant.</p>
+<p t="482620" d="2810">Now, in Let's Make a
+Deal, they TV audience</p>
+<p t="485430" d="3460">would come dressed
+up in wild costumes.</p>
+<p t="488890" d="3800">And Monty would go
+into the audience</p>
+<p t="492690" d="2550">and pick out a contestant
+from the audience based</p>
+<p t="495240" d="2380">on how wild their
+costume was-- you know,</p>
+<p t="497620" d="2290">somebody that would
+look interesting for TV.</p>
+<p t="499910" d="2530">And what he would do is he'd
+buy a piece of the costume--</p>
+<p t="502440" d="2850">maybe their hat or
+shirt or something--</p>
+<p t="505290" d="2670">and give them $100 for a
+piece of their costume.</p>
+<p t="507960" d="3410">And then he would say,
+hey look, you know,</p>
+<p t="511370" d="2970">if you give me back the
+$100 I just gave you,</p>
+<p t="514340" d="2890">I'm going to let you have
+your choice of what's</p>
+<p t="517230" d="2439">behind door number one,
+door number two, or door</p>
+<p t="519669" d="1061">number three.</p>
+<p t="520730" d="2590">Or sometimes it would be box
+number one, box number two,</p>
+<p t="523320" d="1940">and box number three.</p>
+<p t="525260" d="3300">Now, because people have
+seen the game show before,</p>
+<p t="528560" d="2060">they knew that behind
+one of the doors</p>
+<p t="530620" d="3760">was a brand new car or
+underneath one of the boxes</p>
+<p t="534380" d="2140">was a diamond ring.</p>
+<p t="536520" d="4000">And behind the other doors
+were goats or donkeys</p>
+<p t="540520" d="1440">or something totally useless.</p>
+<p t="541960" d="2050">So one of the three
+doors has a big prize,</p>
+<p t="544010" d="3920">the other two got nothing.</p>
+<p t="547930" d="3860">But because anybody would pay
+$100 for a one-in-three chance</p>
+<p t="551790" d="1200">at the car, they played.</p>
+<p t="552990" d="1830">And they're on national TV.</p>
+<p t="554820" d="4110">So they give the $100 back to
+Monty, and they pick a door,</p>
+<p t="558930" d="2900">say door number one.</p>
+<p t="561830" d="2860">Monty wouldn't open door
+number one right away.</p>
+<p t="564690" d="3420">What he would do is say, OK,
+you're sure you like that?</p>
+<p t="568110" d="1682">All right.</p>
+<p t="569792" d="1458">Carol, can you
+please reveal what's</p>
+<p t="571250" d="2240">behind door number three?</p>
+<p t="573490" d="1780">So Carol opens up
+door number three,</p>
+<p t="575270" d="1880">and there's one of the
+donkeys sitting there</p>
+<p t="577150" d="1770">or a goat sitting there.</p>
+<p t="578920" d="1730">Well, now there's
+only two doors left.</p>
+<p t="580650" d="1850">One of them has the car.</p>
+<p t="582500" d="3570">So he'd ask the contestant,
+well, you've seen the goat.</p>
+<p t="586070" d="2440">There's a car behind
+one of the two doors.</p>
+<p t="588510" d="2110">Do you want to stick
+with door number one?</p>
+<p t="590620" d="3640">Or do you want to switch
+and get door number two?</p>
+<p t="594260" d="2700">And then the audience is
+screaming, you know, switch,</p>
+<p t="596960" d="2610">stick, you know, door
+number one, door number two.</p>
+<p t="599570" d="1750">You know, the guy's
+wife's there screaming</p>
+<p t="601320" d="1520">at him and everything.</p>
+<p t="602840" d="4460">You know, he's got to
+pick, so he picks one.</p>
+<p t="607300" d="5320">And you know, if he picks the
+car, well, his wife's thrilled.</p>
+<p t="612620" d="1140">They live happily ever.</p>
+<p t="613760" d="1799">He's a hero on national TV.</p>
+<p t="615559" d="2541">And if he picks the goat, you
+know, he's looking at a divorce</p>
+<p t="618100" d="2460">and his career's ruined.</p>
+<p t="620560" d="3690">So it's pretty important that
+he gets the right strategy here.</p>
+<p t="624250" d="3130">Now, the question we're
+going to look at today</p>
+<p t="627380" d="2290">is whether or not
+the contestant should</p>
+<p t="629670" d="3380">switch, playing this game.</p>
+<p t="633050" d="2670">Now, before we do
+the analysis, we're</p>
+<p t="635720" d="2820">going to actually play
+the game in class.</p>
+<p t="638540" d="2874">I've got three boxes here.</p>
+<p t="641414" d="1916">The game we're going to
+play is the same idea.</p>
+<p t="643330" d="1970">The prizes are a
+little different.</p>
+<p t="645300" d="2170">Instead of a diamond
+ring or a brand new car,</p>
+<p t="647470" d="4230">we've got $10 Toski's
+gift certificates.</p>
+<p t="651700" d="3670">You know, your tuition
+only goes so far here.</p>
+<p t="655370" d="1420">Instead of donkeys
+or goats, we've</p>
+<p t="656790" d="3081">got something much better, the
+ever-popular nerd pride pocket</p>
+<p t="659871" d="499">protector.</p>
+<p t="663470" d="2760">And just to be
+clear, this is not</p>
+<p t="666230" d="2360">the prize, the gift
+certificate here--</p>
+<p t="668590" d="1969">this is much, much better.</p>
+<p t="670559" d="791">[AUDIENCE LAUGHTER]</p>
+<p t="671350" d="4540">Now, in terms of Monty
+Hall, we don't have him,</p>
+<p t="675890" d="1790">but you have me.</p>
+<p t="677680" d="2900">But I am very happy to report
+that we're bringing Carol</p>
+<p t="680580" d="1950">Merrill out of retirement.</p>
+<p t="682530" d="3100">She's coming and making a
+special appearance today,</p>
+<p t="685630" d="3050">I hope, at 6042.</p>
+<p t="688680" d="2202">Do we have Carol?</p>
+<p t="690882" d="958">GUEST SPEAKER: Hi, Tom.</p>
+<p t="691840" d="2300">PROFESSOR: Oh,
+yes, we have Carol.</p>
+<p t="694140" d="2046">That's scary.</p>
+<p t="696186" d="1344">[AUDIENCE LAUGHTER]</p>
+<p t="697530" d="555">Oh, Jesus.</p>
+<p t="701160" d="1030">OK.</p>
+<p t="702190" d="3150">[APPLAUSE]</p>
+<p t="705340" d="3950">As you can see, the years
+have not been kind to Carol.</p>
+<p t="709290" d="3430">And your tuition only
+does goes so far.</p>
+<p t="712720" d="3120">Now, we need three volunteers.</p>
+<p t="715840" d="1920">We're going to play
+the game three times.</p>
+<p t="717760" d="1840">All right, got a couple there.</p>
+<p t="719600" d="1090">Why don't you come down?</p>
+<p t="720690" d="2490">We've got three volunteers here.</p>
+<p t="723180" d="5310">All right, we'll get
+the boxes set up.</p>
+<p t="728490" d="1600">And Carol, why don't
+you set those up</p>
+<p t="730090" d="4570">and load them up with-- these
+are the gift certificates.</p>
+<p t="734660" d="1985">That's the pocket
+protector there.</p>
+<p t="736645" d="1125">All right, now, don't look.</p>
+<p t="737770" d="1820">You've got to get back over
+there so you can't see--</p>
+<p t="739590" d="960">[AUDIENCE LAUGHTER]</p>
+<p t="740550" d="3180">And no, no, no, now, you've
+got the film going, you know,</p>
+<p t="743730" d="1340">here we go.</p>
+<p t="745070" d="1840">All right.</p>
+<p t="746910" d="3900">So Carol is going to put the
+prize in one of the boxes</p>
+<p t="750810" d="4400">and the pocket
+protectors in the other.</p>
+<p t="755210" d="2350">Now, I want you all to
+be thinking, you know,</p>
+<p t="757560" d="1710">what's the right strategy here?</p>
+<p t="759270" d="1750">Is it better to switch?</p>
+<p t="761020" d="2010">Does it matter?</p>
+<p t="763030" d="1930">What are the chances of winning?</p>
+<p t="764960" d="880">One in three?</p>
+<p t="765840" d="1730">One in two?</p>
+<p t="767570" d="4360">All right, so who's our
+first volunteer here?</p>
+<p t="771930" d="1020">All right, come on over.</p>
+<p t="772950" d="1791">We're going to write
+your name on the board</p>
+<p t="774741" d="2849">because we're going to keep
+track of what happens here.</p>
+<p t="777590" d="1289">What's your name?</p>
+<p t="778879" d="791">TERRANCE: Terrance.</p>
+<p t="779670" d="833">PROFESSOR: Terrance.</p>
+<p t="782570" d="960">All right.</p>
+<p t="783530" d="2430">Now, first thing
+you've got to do,</p>
+<p t="785960" d="6020">Terrance, is pick a box as
+your basic choice to start.</p>
+<p t="791980" d="630">TERRANCE: Two.</p>
+<p t="792610" d="3650">PROFESSOR: Number two, OK.</p>
+<p t="796260" d="3846">All right, you
+picked number two.</p>
+<p t="800106" d="2964">Hm, interesting choice.</p>
+<p t="803070" d="3625">Now, Carol, can you show
+him one of the other boxes?</p>
+<p t="814344" d="1916">All right, which on was
+that you showed there?</p>
+<p t="816260" d="1560">You revealed number three.</p>
+<p t="820990" d="2842">And what was under number three?</p>
+<p t="823832" d="1443">AUDIENCE: Pocket protector.</p>
+<p t="825275" d="1443">PROFESSOR: Pocket protector.</p>
+<p t="826718" d="3467">Oh, God, you may never
+live this down, Carol.</p>
+<p t="830185" d="500">OK.</p>
+<p t="833820" d="2920">Now, Terrance, as you
+know, one of these</p>
+<p t="836740" d="2540">has the gift certificate.</p>
+<p t="839280" d="3020">One of them has another
+pocket protector.</p>
+<p t="842300" d="2560">And now, you've got
+to decide, are you</p>
+<p t="844860" d="3610">going to stick with number two,
+or are you going to switch?</p>
+<p t="848470" d="1769">In fact, class,
+you know, Terrance</p>
+<p t="850239" d="1791">may need some help
+here, figuring this out,</p>
+<p t="852030" d="1390">so what do you recommend?</p>
+<p t="853420" d="5760">[AUDIENCE  CHATTER]</p>
+<p t="859180" d="1450">TERRANCE: I'll switch.</p>
+<p t="860630" d="2330">PROFESSOR: He is
+going to switch.</p>
+<p t="862960" d="2905">All right, and Carol,
+can you reveal his prize?</p>
+<p t="869670" d="1040">What did you get?</p>
+<p t="870710" d="2290">Ah, he gets the prize.</p>
+<p t="873000" d="2320">So he wins.</p>
+<p t="875320" d="1330">Very nice, OK.</p>
+<p t="876650" d="1550">So you get $10 at Tosci's.</p>
+<p t="878200" d="1370">Well done.</p>
+<p t="879570" d="1390">Who's next?</p>
+<p t="880960" d="945">What's your name?</p>
+<p t="881905" d="625">CHINUA: Chinua.</p>
+<p t="882530" d="750">PROFESSOR: Chinua.</p>
+<p t="883280" d="1298">How do I spell that?</p>
+<p t="884578" d="1797">CHINUA: Chin-U-A.</p>
+<p t="886375" d="1125">PROFESSOR: All right, easy.</p>
+<p t="887500" d="960">OK.</p>
+<p t="888460" d="3200">Now, Chinua, which-- have we
+got new prizes loaded in there?</p>
+<p t="891660" d="1030">All right.</p>
+<p t="892690" d="2540">Now, it may not be
+the same as last time.</p>
+<p t="895230" d="500">OK.</p>
+<p t="895730" d="1100">What box do you like?</p>
+<p t="896830" d="1230">CHINUA: Number three.</p>
+<p t="898060" d="1277">PROFESSOR: Number three.</p>
+<p t="899337" d="1083">Which one is number three?</p>
+<p t="900420" d="1200">Is that the one close to me?</p>
+<p t="901620" d="620">Yeah, that is.</p>
+<p t="902240" d="500">OK.</p>
+<p t="902740" d="1004">Number three.</p>
+<p t="903744" d="2416">All right, Carol, can you show
+him one of the other boxes,</p>
+<p t="906160" d="500">please?</p>
+<p t="913550" d="3270">Carol shows you number two.</p>
+<p t="916820" d="2290">All right, Chinua,
+what do you think?</p>
+<p t="919110" d="3670">Do you want to stick or switch?</p>
+<p t="922780" d="2460">Do you want to stick with
+three or switch to one?</p>
+<p t="925240" d="2963">One had it last time, right?</p>
+<p t="928203" d="4192">[AUDIENCE CHATTER]</p>
+<p t="932395" d="625">CHINUA: Switch.</p>
+<p t="933020" d="2226">PROFESSOR: He's going to switch.</p>
+<p t="935246" d="3454">OK, so that means you
+are picking number one.</p>
+<p t="938700" d="3430">Carol, can you show
+him what he's won?</p>
+<p t="942130" d="3286">Another gift certificate.</p>
+<p t="945416" d="2503">All right, now, Carol it is
+OK to use a different box</p>
+<p t="947919" d="1041">for the gift certificate.</p>
+<p t="948960" d="840">[LAUGHTER]</p>
+<p t="949800" d="2370">We can move them around.</p>
+<p t="952170" d="1800">All right, who's
+our last contestant?</p>
+<p t="953970" d="1130">What's your name?</p>
+<p t="955100" d="500">TY: Ty.</p>
+<p t="955600" d="1136">PROFESSOR: T-Y, OK.</p>
+<p t="956736" d="2484">That's good.</p>
+<p t="959220" d="1750">Oh, yeah, yeah, turn around.</p>
+<p t="960970" d="800">No peeking here.</p>
+<p t="966600" d="650">OK.</p>
+<p t="967250" d="3100">Ty, what's your first choice?</p>
+<p t="970350" d="500">TY: One.</p>
+<p t="970850" d="1095">PROFESSOR: Box number one.</p>
+<p t="971945" d="3555">Yeah, that's been the one with
+the gift certificate, for sure.</p>
+<p t="975500" d="5000">Carol, can you show
+him another box?</p>
+<p t="980500" d="2360">Way too many cameras
+in this room.</p>
+<p t="982860" d="2122">This is not good for Carol.</p>
+<p t="984982" d="1688">[LAUGHTER]</p>
+<p t="986670" d="4160">OK, Carol has revealed
+box number two.</p>
+<p t="990830" d="800">[AUDIENCE CHATTER]</p>
+<p t="991630" d="2192">Switch has worked
+twice in a row.</p>
+<p t="993822" d="1208">AUDIENCE: Now you gotta stay.</p>
+<p t="995030" d="1787">AUDIENCE: Take them both.</p>
+<p t="996817" d="833">PROFESSOR: Just one.</p>
+<p t="1001355" d="2333">AUDIENCE: Well, if you switch,
+there's two-thirds chance</p>
+<p t="1003688" d="2600">of winning, and they
+already won so--</p>
+<p t="1006288" d="1432">[LAUGHTER]</p>
+<p t="1007720" d="2940">PROFESSOR: Oh, getting
+some theory here now.</p>
+<p t="1010660" d="2550">What do you think, Ty?</p>
+<p t="1013210" d="1310">Switch.</p>
+<p t="1014520" d="592">All right.</p>
+<p t="1015112" d="583">What happened?</p>
+<p t="1018360" d="1782">What do you know?</p>
+<p t="1020142" d="1458">All right, now,
+gentlemen, I'd like</p>
+<p t="1021600" d="4915">you to explain why-- each
+in turn, why did you switch?</p>
+<p t="1026515" d="2475">TERRANCE: I switched-- it
+seemed like the majority vote.</p>
+<p t="1028990" d="1375">PROFESSOR: The
+majority knew what</p>
+<p t="1030365" d="3575">they were talking about, OK.</p>
+<p t="1033940" d="1485">You have faith in
+these guys, huh?</p>
+<p t="1035425" d="1485">All right.</p>
+<p t="1036910" d="2066">How about you, Chinua,
+why did you switch?</p>
+<p t="1038976" d="1864">CHINUA: Um, I was
+told that it's more</p>
+<p t="1040840" d="1820">likely to be if you switch.</p>
+<p t="1042660" d="1916">PROFESSOR: And you believe
+what you hear, huh?</p>
+<p t="1044576" d="1431">[LAUGHTER]</p>
+<p t="1048392" d="2862">TY: I don't know who said
+it, but it sounded good.</p>
+<p t="1051254" d="1281">PROFESSOR: Sounded good
+Yeah, that two-thirds thing.</p>
+<p t="1052535" d="1625">Well, as you can see,
+you're guaranteed</p>
+<p t="1054160" d="1627">to win if you switch, right?</p>
+<p t="1055787" d="499">[LAUGHTER]</p>
+<p t="1056286" d="1544">All right, Thank you very much.</p>
+<p t="1057830" d="2030">Enjoy the ice cream.</p>
+<p t="1059860" d="600">OK.</p>
+<p t="1060460" d="4880">So how many people think
+it helps to switch?</p>
+<p t="1065340" d="2350">Raise your hand if you
+think it helps to switch.</p>
+<p t="1067690" d="2710">How many people think it
+does not help to switch?</p>
+<p t="1070400" d="1560">Raise your hand.</p>
+<p t="1071960" d="570">Anybody?</p>
+<p t="1072530" d="3330">Oh, everybody likes
+the switch thing here.</p>
+<p t="1075860" d="3590">Does this data help you decide?</p>
+<p t="1079450" d="510">No.</p>
+<p t="1079960" d="1958">Anything could have
+happened with three trials.</p>
+<p t="1081918" d="1977">In fact, we'll talk about
+statistical inference</p>
+<p t="1083895" d="1715">and statistical sampling later.</p>
+<p t="1088130" d="2653">If you switch, what do you
+think the odds of winning are?</p>
+<p t="1090783" d="867">AUDIENCE: 100%</p>
+<p t="1091650" d="840">PROFESSOR: 100%?</p>
+<p t="1092490" d="2140">OK, who likes 100%?</p>
+<p t="1094630" d="1180">Raise your hand.</p>
+<p t="1095810" d="1600">Well, we've got a couple.</p>
+<p t="1097410" d="3530">How many people think
+it's 50-50 if you switch?</p>
+<p t="1100940" d="870">Yeah, a lot.</p>
+<p t="1101810" d="4440">How many people think it's
+worse than 50-50 if you switch?</p>
+<p t="1106250" d="740">Not many.</p>
+<p t="1106990" d="2436">How many people think
+it's better than 50-50?</p>
+<p t="1109426" d="3824">Ah, that's I think most of
+you there, pretty close.</p>
+<p t="1113250" d="2840">All right, now, the
+answers to these questions</p>
+<p t="1116090" d="2230">are very easy to work out--
+and we're going to do it.</p>
+<p t="1118320" d="2380">We're going to figure out
+the probability exactly--</p>
+<p t="1120700" d="2260">if you use mathematics.</p>
+<p t="1122960" d="1540">But it's really
+tricky if you try</p>
+<p t="1124500" d="3990">to use intuition or
+hand waving arguments.</p>
+<p t="1128490" d="3120">Now, for example,
+this game-- Carol</p>
+<p t="1131610" d="2610">wants to leave-- yeah, Carol,
+let's give Carol a hand here.</p>
+<p t="1134220" d="2570">She did a wonderful job.</p>
+<p t="1136790" d="736">Well done.</p>
+<p t="1137526" d="1278">[APPLAUSE]</p>
+<p t="1140020" d="2229">Yikes.</p>
+<p t="1142249" d="1791">I'm going to get in
+trouble here, too, now.</p>
+<p t="1144040" d="1550">You know?</p>
+<p t="1145590" d="2180">OK.</p>
+<p t="1147770" d="3940">For example, this game, and
+this particular version of it,</p>
+<p t="1151710" d="4340">was the subject of a series of
+articles in Parade Magazine.</p>
+<p t="1156050" d="3450">This is an old version
+of Parade Magazine.</p>
+<p t="1159500" d="2760">And what I'm going to do is
+hand out the series of articles.</p>
+<p t="1162260" d="3870">And the TAs are going to
+help me hand these out.</p>
+<p t="1166130" d="2450">There was three of them with
+a lot of write-ins here.</p>
+<p t="1168580" d="4144">I'm going to give
+you a bundle here.</p>
+<p t="1172724" d="2135">There you go.</p>
+<p t="1174859" d="541">There you go.</p>
+<p t="1175400" d="1307">I'll give the rest to Oscar.</p>
+<p t="1179960" d="500">Great.</p>
+<p t="1194100" d="4930">Now, Marilyn has a column
+every week in Parade.</p>
+<p t="1199030" d="2170">And people write in
+questions, usually</p>
+<p t="1201200" d="3500">about their love life
+and weird things.</p>
+<p t="1204700" d="1650">And she answers them.</p>
+<p t="1206350" d="1860">And she's well
+qualified to do this</p>
+<p t="1208210" d="2680">because she's listed in the
+Guinness Book of World Records</p>
+<p t="1210890" d="5460">as having the highest IQ of
+a human being ever, at 228.</p>
+<p t="1216350" d="1750">And so, you know
+she's in some sense</p>
+<p t="1218100" d="3500">qualified to answer any
+question that is written in.</p>
+<p t="1221600" d="4790">Now, in September of 1990-- and
+we're passing out the articles</p>
+<p t="1226390" d="6490">now and it shows
+the first article--</p>
+<p t="1232880" d="3820">this guy named Craig
+Whitaker writes in and asks</p>
+<p t="1236700" d="3769">Marilyn if you should
+switch in this game.</p>
+<p t="1240469" d="1041">So you can all read that.</p>
+<p t="1241510" d="2320">It says, suppose you're on
+a game show and you're given</p>
+<p t="1243830" d="1670">the choice of three doors.</p>
+<p t="1245500" d="1620">Behind one door is a car.</p>
+<p t="1247120" d="2060">Behind the others, goats.</p>
+<p t="1249180" d="3290">You pick a door, say
+number one, and the host,</p>
+<p t="1252470" d="1650">who knows what's
+behind the doors,</p>
+<p t="1254120" d="4790">opens another one, say door
+three, which has a goat.</p>
+<p t="1258910" d="3570">He says to you, do you want
+to pick door number two?</p>
+<p t="1262480" d="2575">Is it to your
+advantage to switch?</p>
+<p t="1267720" d="2950">Now, Marilyn writes back
+saying, very plainly,</p>
+<p t="1270670" d="1400">yes, you should switch.</p>
+<p t="1272070" d="2810">The first door had a
+one-in-three chance of winning.</p>
+<p t="1274880" d="3650">The second door has a
+two-in-three chance.</p>
+<p t="1278530" d="2790">Here's a good way to
+visualize what's going on.</p>
+<p t="1281320" d="3220">Suppose there are
+a million doors.</p>
+<p t="1284540" d="2240">You pick door number one.</p>
+<p t="1286780" d="2700">Then the host, who knows
+what's behind the doors,</p>
+<p t="1289480" d="7230">reveals every other door
+but one and 777,777.</p>
+<p t="1296710" d="3190">Well, it would sort
+of look like 777,777</p>
+<p t="1299900" d="3305">is the one with the car, and
+you'd switch pretty fast.</p>
+<p t="1303205" d="1415">All right that's her argument.</p>
+<p t="1304620" d="3370">That is not exactly a
+proof, OK, that the answer</p>
+<p t="1307990" d="4460">is you should switch or
+that the probability is 2/3.</p>
+<p t="1312450" d="820">All right?</p>
+<p t="1313270" d="1870">Now, because she's
+giving another problem</p>
+<p t="1315140" d="2930">with a million doors, but you've
+got a problem with three doors.</p>
+<p t="1318070" d="3460">And as we'll see in recitation
+tomorrow, the number of doors</p>
+<p t="1321530" d="2450">actually matters in terms
+of some strategies here.</p>
+<p t="1326540" d="3220">So people weren't
+convinced by this.</p>
+<p t="1329760" d="1750">And so, if you look
+to the next page,</p>
+<p t="1331510" d="1420">you see people writing in.</p>
+<p t="1332930" d="2410">And there's a lot a write-ins.</p>
+<p t="1335340" d="3490">The first one's by Robert
+Sachs, who's actually--</p>
+<p t="1338830" d="2530">I looked him up on
+Google, and he's</p>
+<p t="1341360" d="4090">on the faculty at
+George Mason University.</p>
+<p t="1345450" d="1940">I also noticed that
+in his history,</p>
+<p t="1347390" d="2010">he got his BA from Harvard.</p>
+<p t="1349400" d="2730">So that should tell you
+something about the quality</p>
+<p t="1352130" d="2270">of his response here.</p>
+<p t="1354400" d="3930">He says, since you seem to enjoy
+coming straight to the point,</p>
+<p t="1358330" d="1230">I'll do the same.</p>
+<p t="1359560" d="1330">You blew it.</p>
+<p t="1360890" d="1280">Let me explain.</p>
+<p t="1362170" d="1950">If one door is
+shown to be a loser,</p>
+<p t="1364120" d="3000">that information
+changes the probability</p>
+<p t="1367120" d="2820">of either remaining
+choice, neither of which</p>
+<p t="1369940" d="3270">has any reason to
+be more likely.</p>
+<p t="1373210" d="3130">And so, the answer is one
+half of having the car.</p>
+<p t="1376340" d="2490">Then he says, as a
+professional mathematician,</p>
+<p t="1378830" d="2000">I'm very concerned with
+the general public's</p>
+<p t="1380830" d="1930">lack of mathematical skills.</p>
+<p t="1382760" d="1785">Please help by
+confessing your error.</p>
+<p t="1384545" d="2545">And in the future,
+be more careful.</p>
+<p t="1387090" d="3720">Just a little gratuitous
+extra statement there.</p>
+<p t="1390810" d="3460">Next we've got a PhD from
+Florida, Scott Smith, who says,</p>
+<p t="1394270" d="2330">you blew it, and
+you blew it big.</p>
+<p t="1396600" d="1610">Since you seem to
+have difficulty</p>
+<p t="1398210" d="4140">grasping the basic principles
+at work here, I'll explain.</p>
+<p t="1402350" d="2090">After the host reveals
+a goat, you now</p>
+<p t="1404440" d="2450">have a one-in-two
+chance of being correct.</p>
+<p t="1406890" d="2640">Whether you change
+your selection or not,</p>
+<p t="1409530" d="1620">the odds are the same.</p>
+<p t="1411150" d="2990">There is enough mathematical
+illiteracy in this country,</p>
+<p t="1414140" d="3420">and we don't need the world's
+highest IQ propagating more.</p>
+<p t="1417560" d="1639">Shame.</p>
+<p t="1419199" d="2041">Well, now, this guy is
+right about that one point</p>
+<p t="1421240" d="3130">about mathematical
+illiteracy in the country.</p>
+<p t="1424370" d="2920">The next guy, Barry
+Pasternack, you know,</p>
+<p t="1427290" d="3070">he lists himself as California
+Faculty Association.</p>
+<p t="1430360" d="4690">He actually was president of the
+California Faculty Association.</p>
+<p t="1435050" d="2820">He says, your answer to
+the question is an error,</p>
+<p t="1437870" d="3250">but if it's any constellation,
+many of my academic colleagues</p>
+<p t="1441120" d="2960">have also been stumped
+by this problem.</p>
+<p t="1444080" d="500">OK.</p>
+<p t="1444580" d="2780">So next page,
+Marilyn writes back.</p>
+<p t="1447360" d="2150">And she says, you
+know, good heavens,</p>
+<p t="1449510" d="2062">with so much learned
+opposition, I'll</p>
+<p t="1451572" d="2458">bet this is going to keep math
+classes all over the country</p>
+<p t="1454030" d="930">busy on Monday.</p>
+<p t="1454960" d="800">And it did.</p>
+<p t="1455760" d="3150">It was a huge uproar
+at the time about this.</p>
+<p t="1458910" d="3320">So now she tries
+to explain it some</p>
+<p t="1462230" d="4200">more with shells and stuff
+under the shells and so forth,</p>
+<p t="1466430" d="2610">trying to argue it.</p>
+<p t="1469040" d="3710">And then she says, just try
+the experiment six times</p>
+<p t="1472750" d="2366">or something, and you'll see.</p>
+<p t="1475116" d="3184">You know, but, it's
+not really convincing.</p>
+<p t="1478300" d="1340">It's not a proof.</p>
+<p t="1479640" d="2700">She's sort of waving hands at
+it to give you some idea of why</p>
+<p t="1482340" d="1346">she thinks she's right.</p>
+<p t="1483686" d="1624">But when I look at
+the hand waving here</p>
+<p t="1485310" d="2770">versus the hand waving
+on those faculty,</p>
+<p t="1488080" d="2380">well, it's all hand waving.</p>
+<p t="1490460" d="500">All right.</p>
+<p t="1490960" d="2780">So you go to the next
+page, and now the letters</p>
+<p t="1493740" d="2170">are getting a little nastier.</p>
+<p t="1495910" d="2760">We got another University
+of Florida guy.</p>
+<p t="1498670" d="2780">He says, may I suggest
+you obtain and refer</p>
+<p t="1501450" d="2410">to a standard textbook
+on probability</p>
+<p t="1503860" d="3860">before you try to answer a
+question of this type again.</p>
+<p t="1507720" d="2660">Then Robert Smith,
+Georgia State,</p>
+<p t="1510380" d="1900">I am sure you will
+receive many letters</p>
+<p t="1512280" d="3500">on this topic from high
+school and college students.</p>
+<p t="1515780" d="2190">Perhaps you should keep
+a few addresses for help</p>
+<p t="1517970" d="2410">with future columns.</p>
+<p t="1520380" d="1810">These are great.</p>
+<p t="1522190" d="4335">Now this next guy, Ray
+Bobo, now, he's a real guy.</p>
+<p t="1526525" d="875">I looked him up, too.</p>
+<p t="1527400" d="750">It's not fake.</p>
+<p t="1528150" d="1670">That's his real name.</p>
+<p t="1529820" d="2370">And I've got to say,
+if my name was Bobo,</p>
+<p t="1532190" d="3440">I'd think twice before
+writing into Parade Magazine,</p>
+<p t="1535630" d="3440">you know, especially
+if I'm wrong.</p>
+<p t="1539070" d="2010">Anyway, here's Bobo.</p>
+<p t="1541080" d="3180">You are utterly incorrect
+about the game show question.</p>
+<p t="1544260" d="2910">And I hope this controversy
+will call some public attention</p>
+<p t="1547170" d="3245">to the serious national crisis
+in mathematical education.</p>
+<p t="1550415" d="1979">Well, that's fair.</p>
+<p t="1552394" d="1416">If you could admit
+your error, you</p>
+<p t="1553810" d="1500">will have contributed
+constructively</p>
+<p t="1555310" d="2781">towards a solution of
+a deplorable situation.</p>
+<p t="1558091" d="999">Now, here's [INAUDIBLE].</p>
+<p t="1559090" d="2850">How many irate
+mathematicians are needed</p>
+<p t="1561940" d="2440">to get you to change your mind?</p>
+<p t="1564380" d="3414">Well that's proof by
+intimidation, right?</p>
+<p t="1567794" d="806">[LAUGHTER]</p>
+<p t="1568600" d="2820">You know, it's not,
+here's the reason why.</p>
+<p t="1571420" d="2070">It's just, so many irate
+mathematicians said</p>
+<p t="1573490" d="3020">it, they must, must be right.</p>
+<p t="1576510" d="1040">Now the next guy.</p>
+<p t="1577550" d="1790">I am in shock that
+after being corrected</p>
+<p t="1579340" d="1770">by at least three
+mathematicians,</p>
+<p t="1581110" d="2190">you still did not
+see your mistake.</p>
+<p t="1583300" d="1580">As if three
+mathematicians, that's</p>
+<p t="1584880" d="3460">sort of the criteria
+for correctness.</p>
+<p t="1588340" d="2850">Oh, this guy is bad.</p>
+<p t="1591190" d="3780">Maybe women look at math
+problems differently than men.</p>
+<p t="1594970" d="1580">Ooh.</p>
+<p t="1596550" d="2670">Well, maybe it's a good
+thing in this case.</p>
+<p t="1599220" d="2520">I don't know.</p>
+<p t="1601740" d="4950">Oh, then we have Glen
+Calkins, you are the goat.</p>
+<p t="1606690" d="3500">Finally, this guy, US
+Army Research Institute,</p>
+<p t="1610190" d="1360">a little scary.</p>
+<p t="1611550" d="2680">you made a mistake, but
+look at the positive side.</p>
+<p t="1614230" d="2610">If all those PhD's
+were wrong, the country</p>
+<p t="1616840" d="1780">would be in some
+very serious trouble.</p>
+<p t="1621481" d="499">All right.</p>
+<p t="1621980" d="3640">Now Marilyn writes an
+even longer response</p>
+<p t="1625620" d="3350">because she's getting zillions
+of letters, 90% voting</p>
+<p t="1628970" d="2690">against her, that she's wrong.</p>
+<p t="1631660" d="3470">She begins now, suggests
+a nationwide experiment,</p>
+<p t="1635130" d="3360">so that, nationwide, you'd
+do the sample a million times</p>
+<p t="1638490" d="2924">and get the answer, which
+really wouldn't prove it either.</p>
+<p t="1641414" d="1166">Then we go to the last page.</p>
+<p t="1642580" d="1050">There's one last letter.</p>
+<p t="1643630" d="3790">And this is what finished
+the controversy in the press.</p>
+<p t="1647420" d="1930">Comes from MIT.</p>
+<p t="1649350" d="1240">You are indeed correct.</p>
+<p t="1650590" d="2520">My colleagues at work had
+a ball with this problem,</p>
+<p t="1653110" d="3170">and I dare say that most of
+them, including me at first,</p>
+<p t="1656280" d="2200">thought you were wrong.</p>
+<p t="1658480" d="3390">So maybe that $50,000 a year
+somebody's paying for education</p>
+<p t="1661870" d="5390">is worth something, because MIT
+came in and agreed with her.</p>
+<p t="1667260" d="1230">OK.</p>
+<p t="1668490" d="4160">It turns out that Marilyn
+was correct in her statement</p>
+<p t="1672650" d="1530">that you should switch.</p>
+<p t="1674180" d="3450">And if you switch, you have
+a 2/3 chance of winning.</p>
+<p t="1677630" d="3420">So if you don't switch, you've
+got a 1/3 chance of winning,</p>
+<p t="1681050" d="2700">provided that
+Monty is guaranteed</p>
+<p t="1683750" d="1535">to open a door with goat.</p>
+<p t="1685285" d="2495">You know and that's
+the assumption here.</p>
+<p t="1687780" d="2940">And the proof is simple.</p>
+<p t="1690720" d="3550">Although Marilyn's reasoning
+wasn't so convincing,</p>
+<p t="1694270" d="1320">I didn't think.</p>
+<p t="1695590" d="2910">And all those PhDs that wrote
+in with those stupid letters,</p>
+<p t="1698500" d="1720">they're probably
+intelligent people.</p>
+<p t="1700220" d="2260">After all, they got advanced
+degrees in mathematics,</p>
+<p t="1702480" d="2790">and most of them were
+faculty teaching mathematics.</p>
+<p t="1705270" d="1610">A little scary.</p>
+<p t="1706880" d="3760">But they just weren't
+following the basic principles.</p>
+<p t="1710640" d="1960">They were following
+their intuition.</p>
+<p t="1712600" d="1620">They didn't go through
+the basic steps</p>
+<p t="1714220" d="2826">to figure out the probability.</p>
+<p t="1717046" d="1374">So that's what
+we're going to do.</p>
+<p t="1718420" d="1182">We're going to go
+through the basic steps</p>
+<p t="1719602" d="1538">now and see how to solve it.</p>
+<p t="1721140" d="2070">And we will use these
+steps to solve pretty much</p>
+<p t="1723210" d="2110">every problem in probability.</p>
+<p t="1725320" d="1520">OK?</p>
+<p t="1726840" d="6020">So the key, the first step,
+is to look at the sample</p>
+<p t="1732860" d="3652">space of possible outcomes.</p>
+<p t="1736512" d="2198">Let me define sample
+space and outcome.</p>
+<p t="1743080" d="10470">The sample space for an
+experiment, or a probability</p>
+<p t="1753550" d="8450">game-- you can treat this Monty
+Hall game as an experiment--</p>
+<p t="1762000" d="6990">is simply the set of
+all possible outcomes,</p>
+<p t="1768990" d="1800">things that could happen.</p>
+<p t="1773750" d="2910">In fact, let me
+define an outcome,</p>
+<p t="1776660" d="3380">also known as an atomic
+event or a sample point.</p>
+<p t="1783580" d="7210">An outcome, also
+known as a sample</p>
+<p t="1790790" d="8680">point-- we'll use those
+terms interchangeably--</p>
+<p t="1799470" d="21850">consists of all the information
+about the experiment,</p>
+<p t="1821320" d="2840">including-- and
+that's after it's</p>
+<p t="1824160" d="18780">been performed-- including the
+values of all random choices.</p>
+<p t="1855780" d="6550">For example, say we want to
+know the probability of winning</p>
+<p t="1862330" d="3156">in Monty Hall if you switch.</p>
+<p t="1865486" d="2294">All right, let's
+figure that out.</p>
+<p t="1867780" d="5450">So in that case, we're going to
+define an outcome of the Monty</p>
+<p t="1873230" d="17510">Hall game or a sample point--
+and I'm assuming in this case,</p>
+<p t="1890740" d="16694">we know you're going to switch
+and the contestant switches--</p>
+<p t="1907434" d="1041">consists of three things.</p>
+<p t="1912710" d="8070">First, the box with the prize,
+where did Carroll put it?</p>
+<p t="1920780" d="2955">Second, the box chosen
+by the contestant.</p>
+<p t="1930420" d="2540">And third, the box
+that was revealed.</p>
+<p t="1938160" d="1560">Once you know
+those three things,</p>
+<p t="1939720" d="3430">you know everything
+about what happened.</p>
+<p t="1943150" d="1730">All right?</p>
+<p t="1944880" d="2570">For example, let's look
+at a typical sample point.</p>
+<p t="1950330" d="10000">Say I took sample point,
+or outcome, 2,1,3.</p>
+<p t="1960330" d="13160">This is the outcome where
+the prize is the box 2.</p>
+<p t="1978290" d="10840">The player picks first box 1.</p>
+<p t="1989130" d="7020">And Carol reveals box 3.</p>
+<p t="1999600" d="2540">OK, now in this case,
+in this outcome,</p>
+<p t="2002140" d="1065">did the contestant win?</p>
+<p t="2008570" d="2130">Yes, because we're
+assuming-- for henceforth,</p>
+<p t="2010700" d="850">for most of the rest
+of the day, we're</p>
+<p t="2011550" d="1680">assuming the switch
+case, because we're</p>
+<p t="2013230" d="1130">going to analyze that.</p>
+<p t="2014360" d="1500">So that's fixed, they switch.</p>
+<p t="2015860" d="2610">They come in knowing
+they're going to switch.</p>
+<p t="2018470" d="2430">So the prize is in 2, all right?</p>
+<p t="2020900" d="750">The prize is here.</p>
+<p t="2024590" d="1970">The player started here.</p>
+<p t="2026560" d="2210">Carol revealed 3.</p>
+<p t="2028770" d="3600">And when they switched,
+they got the prize.</p>
+<p t="2032370" d="3940">So in this outcome,
+the player won.</p>
+<p t="2036310" d="1640">OK.</p>
+<p t="2037950" d="4620">Now, does every 3-tuple here
+correspond to a sample point,</p>
+<p t="2042570" d="3031">to our possible outcome?</p>
+<p t="2045601" d="499">No.</p>
+<p t="2046100" d="2809">What's an example of a sample
+point with numbers 1, 2,</p>
+<p t="2048909" d="1071">and 3 that's not.</p>
+<p t="2052489" d="500">Yeah?</p>
+<p t="2056239" d="960">Very good.</p>
+<p t="2057199" d="9811">Yeah, so for example, 1,
+2, 1 is not a sample point,</p>
+<p t="2067010" d="4490">is not in the set,
+the sample space,</p>
+<p t="2071500" d="5810">because we can't reveal
+the box with the prize.</p>
+<p t="2077310" d="4750">Similarly, 2, 1, 1 is
+not a sample point,</p>
+<p t="2082060" d="4750">because we can't reveal the
+box that the player picked.</p>
+<p t="2086810" d="541">Yeah?</p>
+<p t="2087351" d="2625">AUDIENCE : I think the first two
+pieces of data actually define</p>
+<p t="2089976" d="4756">the third one, because
+once, or-- actually, no,</p>
+<p t="2094732" d="2478">if they're the same.</p>
+<p t="2097210" d="2280">PROFESSOR: Right,
+so if the player</p>
+<p t="2099490" d="2831">picked the box with
+the prize, which</p>
+<p t="2102321" d="1789">never happened in our case.</p>
+<p t="2104110" d="8350">For example, 1, 1 2 and
+1, 1, 3 are both possible</p>
+<p t="2112460" d="3770">because you could put the prize
+here, the player could pick it,</p>
+<p t="2116230" d="3730">now Carol has a choice
+of revealing 2 or 3.</p>
+<p t="2119960" d="2040">OK?</p>
+<p t="2122000" d="790">So these are OK.</p>
+<p t="2128810" d="5220">All right, so let's figure out
+a nice way of characterizing</p>
+<p t="2134030" d="3370">all outcomes in
+the sample space.</p>
+<p t="2137400" d="3520">Now, to do this, we're
+going to set up a tree.</p>
+<p t="2140920" d="2060">And we're going to use
+a thing called the tree</p>
+<p t="2142980" d="11699">method to construct
+the sample space,</p>
+<p t="2154679" d="1041">getting all the outcomes.</p>
+<p t="2167860" d="500">All right.</p>
+<p t="2168360" d="3940">So the first thing we do is
+figure out where the prize is.</p>
+<p t="2177060" d="2920">And we'll represent that as
+sort of like a decision tree.</p>
+<p t="2179980" d="2080">There's three choices.</p>
+<p t="2182060" d="4260">It's in box 1, box 2, or box 3.</p>
+<p t="2186320" d="3651">Then the next thing is the
+box that the player picked.</p>
+<p t="2194210" d="2430">And we'll continue our
+decision tree here.</p>
+<p t="2196640" d="2560">Each of these now
+has three branches.</p>
+<p t="2203910" d="1868">And they're labeled 1, 2, or 3.</p>
+<p t="2210520" d="4510">And then, the last step
+is which box is revealed.</p>
+<p t="2220190" d="3430">Now, in this case, if
+the prize is in one</p>
+<p t="2223620" d="5060">and the player chose one,
+there's two possibilities.</p>
+<p t="2228680" d="3410">We could reveal 2 or reveal 3.</p>
+<p t="2232090" d="6740">So we get 1, 2, 3
+here and 1, 2, 3 here.</p>
+<p t="2238830" d="2050">What about here?</p>
+<p t="2240880" d="5610">Prize is in box 1, box
+2 is revealed-- sorry,</p>
+<p t="2246490" d="1240">player picked box 2.</p>
+<p t="2247730" d="4120">Prize is in 1, player picks
+2, how many choices for which</p>
+<p t="2251850" d="3090">box is revealed?</p>
+<p t="2254940" d="720">One.</p>
+<p t="2255660" d="3730">And which box is
+going to be revealed?</p>
+<p t="2259390" d="2480">3.</p>
+<p t="2261870" d="3030">All right, this is
+sample point 1, 2, 3.</p>
+<p t="2264900" d="5220">And here we've got 1,
+3, 2 is the only choice.</p>
+<p t="2273150" d="1510">All right.</p>
+<p t="2274660" d="1965">And let's do--
+maybe I'll, we ought</p>
+<p t="2276625" d="1515">to fill the whole
+thing out here.</p>
+<p t="2278140" d="9920">2, 1, 3-- I'm going to run out
+of space, but-- 2, 2, now this</p>
+<p t="2288060" d="5050">splits into 1 and 3.</p>
+<p t="2293110" d="680">All right?</p>
+<p t="2293790" d="9330">So we have here
+2, 2, 1, 2, 2, 3.</p>
+<p t="2303120" d="3300">Now let me do the last
+one, 2, 3, 1 here.</p>
+<p t="2309390" d="3680">And now I'll bring
+these up over here.</p>
+<p t="2313070" d="3065">I've got 3, 1, 2.</p>
+<p t="2321880" d="2890">Then I've got 3, 2, 1.</p>
+<p t="2328210" d="5570">And finally, I've got 3, 3
+with two choices, 1 and 2.</p>
+<p t="2339650" d="500">All right?</p>
+<p t="2340150" d="4520">That is now the construction
+of the entire sample space,</p>
+<p t="2344670" d="2430">all the possible outcomes.</p>
+<p t="2347100" d="1750">How many sample
+points are there here?</p>
+<p t="2348850" d="1180">How many possible outcomes?</p>
+<p t="2354000" d="690">AUDIENCE : 12</p>
+<p t="2354690" d="1500">PROFESSOR: 12.</p>
+<p t="2356190" d="5910">1, 2, 3, 4, 5, 6, 7,
+8, 9, 10, 11, 12, OK.</p>
+<p t="2362100" d="4470">Let's see which ones correspond
+to victory for the player.</p>
+<p t="2366570" d="2170">Let's label each one
+as a win for the player</p>
+<p t="2368740" d="2410">or a loss for the player.</p>
+<p t="2371150" d="3000">What's this one?</p>
+<p t="2374150" d="500">Yeah.</p>
+<p t="2374650" d="2390">Prize is in 1,
+the player chose 1</p>
+<p t="2377040" d="3650">where the prize was, and
+then switched away from it.</p>
+<p t="2380690" d="610">Loss.</p>
+<p t="2381300" d="2350">What about this one?</p>
+<p t="2383650" d="1490">Loss, same reason.</p>
+<p t="2385140" d="3040">What about this one?</p>
+<p t="2388180" d="580">That's a win.</p>
+<p t="2388760" d="2800">The prize is here, the player
+went there and switched,</p>
+<p t="2391560" d="1960">so they wound up there.</p>
+<p t="2393520" d="1870">Win.</p>
+<p t="2395390" d="2660">And these are all wins
+for the same reason.</p>
+<p t="2398050" d="3230">Whoop, not this one.</p>
+<p t="2401280" d="2800">2, 1, 1, the player got
+it right to start with,</p>
+<p t="2404080" d="1090">and then switched away.</p>
+<p t="2405170" d="1660">That's a loss.</p>
+<p t="2406830" d="1640">Loss.</p>
+<p t="2408470" d="3850">Win, win, win.</p>
+<p t="2412320" d="2635">And here the player got it
+right, they switched away,</p>
+<p t="2414955" d="1395">it's a lose.</p>
+<p t="2416350" d="2330">All right, so we've
+labeled every outcome</p>
+<p t="2418680" d="4740">as to whether the player
+who's switching wins or loses.</p>
+<p t="2423420" d="4520">How many sample points
+lead to victory?</p>
+<p t="2427940" d="1840">6.</p>
+<p t="2429780" d="4810">1, 2, 3, 4, 5, 6 out of 12.</p>
+<p t="2434590" d="1830">Uh-oh.</p>
+<p t="2436420" d="870">Was Marilyn wrong?</p>
+<p t="2437290" d="1300">Is it really Bobo was right?</p>
+<p t="2438590" d="2300">It's 50-50?</p>
+<p t="2440890" d="3924">Half the sample points
+lead to victory.</p>
+<p t="2444814" d="2096">Hm, what's missing here?</p>
+<p t="2446910" d="1022">Yeah?</p>
+<p t="2447932" d="2428">AUDIENCE : The first
+two are identical,</p>
+<p t="2450360" d="2000">the box with the prize
+and the box chosen first.</p>
+<p t="2452360" d="3444">Each of those two sample
+points coming from that</p>
+<p t="2455804" d="4072">are half as likely as
+the single sample points.</p>
+<p t="2459876" d="1000">PROFESSOR: That's right.</p>
+<p t="2460876" d="3184">What we're missing
+here is the likelihood</p>
+<p t="2464060" d="4100">of an outcome, the probability
+that this is what happens.</p>
+<p t="2468160" d="1686">We're missing one more thing.</p>
+<p t="2469846" d="1624">And this is really
+critical when you're</p>
+<p t="2471470" d="2160">making your sample spaces.</p>
+<p t="2473630" d="2920">You need to make sure you get
+the probabilities assigned</p>
+<p t="2476550" d="630">to each event.</p>
+<p t="2477180" d="4470">They're not necessarily
+equally likely.</p>
+<p t="2481650" d="3410">In fact, what we need to do is
+to construct the probability</p>
+<p t="2485060" d="1340">space.</p>
+<p t="2486400" d="1040">So lets define that.</p>
+<p t="2493870" d="10430">Your probability space consists
+of a sample space-- which</p>
+<p t="2504300" d="2370">we've already talked about.</p>
+<p t="2506670" d="15470">That's just all these outcomes--
+and a probability function</p>
+<p t="2522140" d="4320">that maps-- and we call
+this function, usually, PR.</p>
+<p t="2526460" d="5040">We'll have, sometimes it'll
+be f or something like that--</p>
+<p t="2531500" d="9825">but PR maps the sample
+space, S, to the real numbers</p>
+<p t="2541325" d="8895">such that first, for every
+outcome in the sample space,</p>
+<p t="2550220" d="7370">the probability is between
+0 and 1 of that outcome.</p>
+<p t="2557590" d="2980">And 2, if you sum
+up the probabilities</p>
+<p t="2560570" d="2300">of all the outcomes, you get 1.</p>
+<p t="2562870" d="7230">So the sum over all outcomes of
+the probability of the outcome</p>
+<p t="2570100" d="2441">is 1.</p>
+<p t="2572541" d="499">All right?</p>
+<p t="2573040" d="2710">So the sample space
+is all the outcomes.</p>
+<p t="2575750" d="3100">The probability space adds
+in-- has this extra thing--</p>
+<p t="2578850" d="2560">the probability of each outcome.</p>
+<p t="2581410" d="1470">And really, it
+could be anything,</p>
+<p t="2582880" d="2410">as long is the probability
+of every outcome</p>
+<p t="2585290" d="3850">is between 0 and 1 and
+they all add up to 1.</p>
+<p t="2589140" d="570">That's it.</p>
+<p t="2592190" d="500">All right.</p>
+<p t="2592690" d="2860">Now, there's a
+natural interpretation</p>
+<p t="2595550" d="2540">of what the probability
+function is.</p>
+<p t="2598090" d="2722">And that is the probability
+of a sample point,</p>
+<p t="2600812" d="1958">well, should be the
+probability of its outcome.</p>
+<p t="2608967" d="2333">And this is sort of where you
+get the to Marilyn saying,</p>
+<p t="2611300" d="2700">hey, try it a million times
+and you'll see 2/3 of the time,</p>
+<p t="2614000" d="4600">roughly, you get the
+right, that you win.</p>
+<p t="2618600" d="4390">So for every outcome,
+the probability</p>
+<p t="2622990" d="3030">of that outcome,
+that real number,</p>
+<p t="2626020" d="7980">should be the probability that
+when you run the experiment,</p>
+<p t="2634000" d="1045">w is what happens.</p>
+<p t="2639270" d="1310">w will be the outcome.</p>
+<p t="2647090" d="1600">In other words, if
+probability of w</p>
+<p t="2648690" d="3930">were a half, what
+that means is you</p>
+<p t="2652620" d="3050">should get that half the
+time, roughly speaking.</p>
+<p t="2655670" d="2245">We'll get into really
+details of that later.</p>
+<p t="2657915" d="2895">In other words, you toss
+a fair coin, you flip it.</p>
+<p t="2660810" d="2450">Well, you might say, a
+probability half of a heads.</p>
+<p t="2663260" d="500">All right?</p>
+<p t="2663760" d="4860">And so, this function, then,
+the probability of heads is 1/2.</p>
+<p t="2668620" d="3920">Now, assigning the right
+probabilities to the outcomes</p>
+<p t="2672540" d="3489">is 95% of the work.</p>
+<p t="2676029" d="1541">In fact, if you
+screw that up, you're</p>
+<p t="2677570" d="2947">doomed because you can't
+get the right answer.</p>
+<p t="2680517" d="2083">So for example, if we just
+said, OK, each of these</p>
+<p t="2682600" d="3971">is probability 1/12,
+we'd get Bobo's answer</p>
+<p t="2686571" d="1249">as the probability of winning.</p>
+<p t="2687820" d="3189">So that's not too good.</p>
+<p t="2691009" d="2041">Now, to get the right
+probabilities for the Monty</p>
+<p t="2693050" d="2950">Hall problem, we have to
+make some assumptions.</p>
+<p t="2698690" d="1564">So let's write those down.</p>
+<p t="2724140" d="2570">So the first assumption
+we're going to make</p>
+<p t="2726710" d="3460">is that Carol put the
+prize in a random box.</p>
+<p t="2730170" d="3570">They're all equally likely.</p>
+<p t="2733740" d="10730">So the prize is in each
+box with probability 1/3.</p>
+<p t="2747040" d="2340">The next assumption
+we're going to make</p>
+<p t="2749380" d="4820">is that the player didn't
+see which box has the prize.</p>
+<p t="2754200" d="500">OK?</p>
+<p t="2754700" d="3410">In other words, and
+more specifically,</p>
+<p t="2758110" d="10240">no matter where the
+prize is, the player</p>
+<p t="2768350" d="3030">picks each box with
+probability of 1/3.</p>
+<p t="2771380" d="2355">So the player's making,
+effectively, a random choice.</p>
+<p t="2787449" d="3033">All right, and there's one more
+assumption we're going to make.</p>
+<p t="2790482" d="1458">Anybody have any
+ideas about what's</p>
+<p t="2791940" d="2846">left to make as an
+assumption here?</p>
+<p t="2794786" d="500">Yeah?</p>
+<p t="2797724" d="2166">AUDIENCE : I guess, if
+Carol's the one who's opening</p>
+<p t="2799890" d="2400">the boxes, she knows
+where all the prizes are.</p>
+<p t="2802290" d="820">PROFESSOR: Yeah.</p>
+<p t="2803110" d="630">OK.</p>
+<p t="2803740" d="2500">So what assumption
+should I make?</p>
+<p t="2810980" d="4097">Yeah, that she picks a box at
+random if she has a choice.</p>
+<p t="2815077" d="2083">All right, so we're going
+to make that assumption.</p>
+<p t="2817160" d="7060">So that no matter
+where the prize</p>
+<p t="2824220" d="15520">is, if Carol has a
+choice, she picks</p>
+<p t="2839740" d="1874">each box with probability 1/2.</p>
+<p t="2855960" d="2470">Now, why is this
+third one important?</p>
+<p t="2858430" d="2685">Why might that really matter?</p>
+<p t="2861115" d="2375">Can anybody think of a reason
+why that could be relevant?</p>
+<p t="2866358" d="3824">What if Carol had
+some strategy in mind</p>
+<p t="2870182" d="2390">that the contestant knew about?</p>
+<p t="2872572" d="2324">Can you think of why
+that might be useful.</p>
+<p t="2874896" d="2898">AUDIENCE : If the contestant
+were able to produce</p>
+<p t="2877794" d="3059">information based off of that,
+then there's a higher chance</p>
+<p t="2880853" d="2254">a contestant could figure
+out which one to choose.</p>
+<p t="2883107" d="966">PROFESSOR: Yeah.</p>
+<p t="2884073" d="4937">In fact, several years
+ago, when I was lecturing,</p>
+<p t="2889010" d="2760">I said, in fact it
+could make a difference.</p>
+<p t="2891770" d="2450">That there is a way that
+Carol can convey information</p>
+<p t="2894220" d="3710">to the player by of two she's
+choosing, which one to pick.</p>
+<p t="2897930" d="2220">Like, if she has a
+choice of 2 or 3,</p>
+<p t="2900150" d="2640">say she always
+picks bigger one, 3.</p>
+<p t="2902790" d="2130">Well, that might tell
+you information about,</p>
+<p t="2904920" d="2450">she didn't pick 2, so
+maybe it has to have,</p>
+<p t="2907370" d="3090">or she-- well, I don't know.</p>
+<p t="2910460" d="2510">In fact, that's
+wrong, and it doesn't</p>
+<p t="2912970" d="2269">matter in the case of 2
+boxes, this assumption.</p>
+<p t="2915239" d="1791">We're going to make
+it, because we're going</p>
+<p t="2917030" d="1870">to do the analysis with it.</p>
+<p t="2918900" d="2740">But for three boxes, you can
+show that it really doesn't</p>
+<p t="2921640" d="2010">matter for this assumption.</p>
+<p t="2923650" d="2170">But if you go to
+four boxes, it does.</p>
+<p t="2925820" d="1690">And so in recitation
+tomorrow, you're</p>
+<p t="2927510" d="2740">going to consider the four
+box version of this game.</p>
+<p t="2930250" d="3560">And if Carol has a strategy
+that the player knows about,</p>
+<p t="2933810" d="3670">you could improve the
+player's chances of winning.</p>
+<p t="2937480" d="2250">But not for three, it turns out.</p>
+<p t="2939730" d="2960">In any case, when you're
+setting up a problem,</p>
+<p t="2942690" d="2250">you've got to set
+up your assumptions.</p>
+<p t="2944940" d="2590">Otherwise, you
+don't get anywhere.</p>
+<p t="2947530" d="3370">These are sort of like
+axioms, same kind of thing.</p>
+<p t="2950900" d="1250">It's fine to make assumptions.</p>
+<p t="2952150" d="3154">Just state what they are.</p>
+<p t="2955304" d="2166">Now, of course, you also
+want them to be reasonable.</p>
+<p t="2963300" d="500">All right.</p>
+<p t="2963800" d="3730">So maybe we're going to
+go back now and figure out</p>
+<p t="2967530" d="3570">how to get the
+probabilities of the sample</p>
+<p t="2971100" d="3590">points, or the outcomes,
+for Monty Hall.</p>
+<p t="2974690" d="2072">Let's go do that.</p>
+<p t="2976762" d="2124">And maybe I'll draw them
+in a different color here.</p>
+<p t="2983280" d="2510">What I'm going to do
+is label every edge</p>
+<p t="2985790" d="5200">with a probability associated
+with taking that step.</p>
+<p t="2990990" d="4270">So if the prize is placed in
+each box with a probability</p>
+<p t="2995260" d="5140">of 1/3, that says this happens
+with probability 1/3, that's</p>
+<p t="3000400" d="1970">1/3, and that's 1/3.</p>
+<p t="3005000" d="1570">Same thing here.</p>
+<p t="3006570" d="2840">Assumption two says
+that no matter where</p>
+<p t="3009410" d="5410">the prize is, say it's in box
+1, the player chooses each box</p>
+<p t="3014820" d="1860">with a probably of 1/3.</p>
+<p t="3016680" d="2430">So given that the
+prize is in box 1,</p>
+<p t="3019110" d="5220">the player chooses 1 with
+1/3, 2 with 1/3, 3 with 1/3.</p>
+<p t="3024330" d="2790">Same if the prize is in box 2.</p>
+<p t="3027120" d="2000">So I label every edge
+here with the probability.</p>
+<p t="3031780" d="3020">All right.</p>
+<p t="3034800" d="2050">Now I go to this level.</p>
+<p t="3036850" d="3398">And I'm, at this node, I'm
+in the state where prize</p>
+<p t="3040248" d="3712">is in box 1, player
+selected box 1,</p>
+<p t="3043960" d="4460">so Carol has a choice
+of 2 or 3 to reveal.</p>
+<p t="3048420" d="4690">And she's going to reveal
+each one with probability 1/2.</p>
+<p t="3053110" d="2140">So I label 1/2 on each
+of these, because that's</p>
+<p t="3055250" d="2730">what we've assumed.</p>
+<p t="3057980" d="2390">What probability do I
+put on this edge here?</p>
+<p t="3063280" d="2290">Probability 1, because
+there's no choice.</p>
+<p t="3065570" d="1450">Carol has to do it.</p>
+<p t="3067020" d="1410">The same here.</p>
+<p t="3068430" d="9090">And I get 1/2, 1/2,
+1, 1, 1, 1/2, 1/2.</p>
+<p t="3077520" d="4150">All right, so I've labeled
+every edge with its probability.</p>
+<p t="3081670" d="2710">Pretty simple, because
+it was all assumed.</p>
+<p t="3084380" d="2816">Now I've got to get a
+probability for each outcome.</p>
+<p t="3087196" d="1624">And we do that with
+the following rule.</p>
+<p t="3096480" d="13200">The probability
+of a sample point</p>
+<p t="3109680" d="18530">is the product of
+the probabilities</p>
+<p t="3128210" d="2040">on the path leading
+to the outcome,</p>
+<p t="3130250" d="14425">the path in the tree leading
+to the outcome or the sample</p>
+<p t="3144675" d="500">point.</p>
+<p t="3152360" d="610">OK.</p>
+<p t="3152970" d="5110">So what this says is just
+really, really simple.</p>
+<p t="3158080" d="5330">The probability of this sample
+point is 1/3 times 1/3 times</p>
+<p t="3163410" d="3210">1/2, 1/18.</p>
+<p t="3166620" d="5850">The probability of this sample
+point is 1/3 times 1/3 times</p>
+<p t="3172470" d="3019">1/2, 1/18.</p>
+<p t="3175489" d="2541">What's the probability of this
+sample point going to be here?</p>
+<p t="3180570" d="560">1/9.</p>
+<p t="3181130" d="5070">I've got 1/3 times 1/3 times,
+well, this g was 1, is 1/9.</p>
+<p t="3190030" d="6600">The next one here is 1/3
+times 1/3 times 1, 1/9.</p>
+<p t="3196630" d="1680">Same thing here.</p>
+<p t="3198310" d="4410">1/3 times 1/3 times 1 is 1/9.</p>
+<p t="3202720" d="5200">Then I get 1/3 times
+1/3 times 1/2 for 1/18.</p>
+<p t="3207920" d="3020">And I can keep on going.</p>
+<p t="3210940" d="2030">This would be 1/9.</p>
+<p t="3212970" d="2430">This one has a 1, so it's a 1/9.</p>
+<p t="3218380" d="3736">An 1/18 and 1/18.</p>
+<p t="3225100" d="560">OK.</p>
+<p t="3225660" d="1180">Now, that's the rule.</p>
+<p t="3226840" d="2060">And you'll always do this.</p>
+<p t="3228900" d="2780">You can sort of
+see why it works.</p>
+<p t="3231680" d="2490">You'll understand
+after another week why,</p>
+<p t="3234170" d="1570">for sure, why it works.</p>
+<p t="3235740" d="4340">But intuitively, you know,
+to get to this outcome,</p>
+<p t="3240080" d="2090">these are the choices
+we had to make.</p>
+<p t="3242170" d="2650">First, the box
+had to be-- sorry,</p>
+<p t="3244820" d="1940">the prize had to be in box 1.</p>
+<p t="3246760" d="2460">There's a one-in-three
+chance of that happening.</p>
+<p t="3249220" d="3970">Now, in those
+one-out-of-three chances,</p>
+<p t="3253190" d="3060">the chance the player
+also picked box 1,</p>
+<p t="3256250" d="3740">1/3 of the time of 1/3
+of the time that happens.</p>
+<p t="3259990" d="960">All right?</p>
+<p t="3260950" d="1410">1/3 of the time, you're here.</p>
+<p t="3262360" d="3840">And of that, 1/3 of those
+times, you get to here.</p>
+<p t="3266200" d="1894">That's 1/3 times 1/3, or 1/9.</p>
+<p t="3268094" d="4496">And then, 1/2 of those times,
+Carol happen to reveal box 2.</p>
+<p t="3272590" d="2670">That's 1/18.</p>
+<p t="3275260" d="2500">So do you see why
+that might make sense,</p>
+<p t="3277760" d="1820">why you're multiplying these?</p>
+<p t="3279580" d="2820">Because at every step, you
+have a chance to diverge.</p>
+<p t="3282400" d="2750">And the probability
+you take the step</p>
+<p t="3285150" d="2700">that we're following
+here-- say, in this case,</p>
+<p t="3287850" d="3820">it was 1/2-- that cuts down
+the chance you land here</p>
+<p t="3291670" d="3650">by that probability, 1/2.</p>
+<p t="3295320" d="3450">Any questions about that?</p>
+<p t="3298770" d="500">All right.</p>
+<p t="3299270" d="1416">For now, you can
+take it on faith.</p>
+<p t="3300686" d="3473">We'll see why after we
+do a few more of these</p>
+<p t="3304159" d="1041">over the next week or so.</p>
+<p t="3307760" d="1520">Any questions there?</p>
+<p t="3309280" d="2820">Is that OK?</p>
+<p t="3312100" d="500">OK.</p>
+<p t="3312600" d="1887">Oh, yeah, all right?</p>
+<p t="3314487" d="938">AUDIENCE : [INAUDIBLE]</p>
+<p t="3319180" d="1700">PROFESSOR: On this one?</p>
+<p t="3320880" d="1280">Only one choice.</p>
+<p t="3322160" d="1901">So it happens with
+probability 1.</p>
+<p t="3327067" d="833">Any other questions?</p>
+<p t="3331459" d="1401">OK.</p>
+<p t="3332860" d="1110">All right.</p>
+<p t="3333970" d="4810">So now we can figure out
+the probability of winning.</p>
+<p t="3338780" d="4010">Well, the probability of
+winning is we have 1/9, 1/9,</p>
+<p t="3342790" d="4011">there's 3 of them,
+4 of them, 5, 6.</p>
+<p t="3346801" d="499">All right?</p>
+<p t="3347300" d="4831">So the probability of
+winning here is 6 times 1/9.</p>
+<p t="3376190" d="2540">Because you just sum up the
+probabilities of the winning</p>
+<p t="3378730" d="1510">sample points.</p>
+<p t="3380240" d="1070">There's six of winning.</p>
+<p t="3381310" d="1920">They're each 1/9.</p>
+<p t="3383230" d="3020">And that's 2/3.</p>
+<p t="3386250" d="500">OK?</p>
+<p t="3386750" d="2360">So Marilyn was right.</p>
+<p t="3389110" d="2550">There's a 2/3 chance of
+winning if you switch.</p>
+<p t="3391660" d="2240">And now, this is
+a formal argument</p>
+<p t="3393900" d="1730">that gives you that answer.</p>
+<p t="3395630" d="2350">The nice thing is it works
+for pretty much every problem</p>
+<p t="3397980" d="1900">you ever think about.</p>
+<p t="3399880" d="1550">Now, in general,
+if you want to know</p>
+<p t="3401430" d="2620">the probability
+of any event, you</p>
+<p t="3404050" d="1490">can follow this same method.</p>
+<p t="3405540" d="1640">Let me define what an event is.</p>
+<p t="3413085" d="5795">An event is simply a
+subset of outcomes,</p>
+<p t="3418880" d="1256">a subset of the sample space.</p>
+<p t="3430040" d="4490">For example, we could
+define the event of losing.</p>
+<p t="3434530" d="6310">Let's call EL, E sub-L, to be
+the event that player loses,</p>
+<p t="3440840" d="6110">the player loses, with
+the switch strategy.</p>
+<p t="3455390" d="500">All right?</p>
+<p t="3455890" d="2220">Now, to compute the
+probability of an event,</p>
+<p t="3458110" d="6000">we just add the probabilities
+of the outcomes in that set.</p>
+<p t="3464110" d="3335">So let's get that down.</p>
+<p t="3485840" d="13737">All right, so formally,
+the probability</p>
+<p t="3499577" d="17228">that an event occurs is simply
+the sum, we'll call an event,</p>
+<p t="3516805" d="2785">e, let's say, event, e.</p>
+<p t="3519590" d="1790">It's a subset of
+the sample space.</p>
+<p t="3521380" d="3330">The probability that
+e occurs is the sum</p>
+<p t="3524710" d="5210">over the sample points in e of
+the probability of those sample</p>
+<p t="3529920" d="1730">points.</p>
+<p t="3531650" d="4630">So for example, the
+probability of the event, EL,</p>
+<p t="3536280" d="4570">where the player
+loses, well, there's</p>
+<p t="3540850" d="2279">six sample points
+where the player loses,</p>
+<p t="3543129" d="1291">each with the probability 1/18.</p>
+<p t="3547760" d="4280">So it's 1/3 is the probability
+the player loses on the switch</p>
+<p t="3552040" d="1100">strategy.</p>
+<p t="3553140" d="3110">And that's not surprising
+because you either win</p>
+<p t="3556250" d="630">or you lose.</p>
+<p t="3556880" d="2090">The probabilities
+have to add to 1.</p>
+<p t="3558970" d="3850">So if won with probability 2/3,
+you lose with probability 1/3.</p>
+<p t="3565570" d="2120">OK?</p>
+<p t="3567690" d="500">All right.</p>
+<p t="3568190" d="3670">So Marilyn was right,
+much better to switch.</p>
+<p t="3571860" d="2950">We'll do a bunch more examples
+with Monty Hall tomorrow.</p>
+<p t="3574810" d="4820">Are there any other questions
+on Monty Hall before I change</p>
+<p t="3579630" d="960">gears?</p>
+<p t="3580590" d="1982">Yeah?</p>
+<p t="3582572" d="1908">AUDIENCE: So you showed
+that when you switch,</p>
+<p t="3584480" d="3225">you are more likely
+to win than to lose.</p>
+<p t="3587705" d="1875">But you didn't show that
+that's not also true</p>
+<p t="3589580" d="1440">when you don't switch.</p>
+<p t="3591020" d="1389">PROFESSOR: Ah good question.</p>
+<p t="3592409" d="2041">What happens if you're
+playing the stay strategy.</p>
+<p t="3598900" d="4160">Right, maybe you win 2/3
+of the time when you stay.</p>
+<p t="3603060" d="1130">Maybe.</p>
+<p t="3604190" d="1400">Maybe not.</p>
+<p t="3605590" d="500">Right?</p>
+<p t="3606090" d="6904">Because if I win
+when I switch, what</p>
+<p t="3612994" d="1416">would have happened
+if I'd stayed?</p>
+<p t="3617680" d="1890">I'd have lost.</p>
+<p t="3619570" d="1510">Because if I win
+when I switch, it</p>
+<p t="3621080" d="1300">means the prize is over there.</p>
+<p t="3622380" d="2610">So if I stay, I'm going to lose.</p>
+<p t="3624990" d="2690">Which means that if I
+do the stay strategy,</p>
+<p t="3627680" d="1540">I'm going to lose
+2/3 of the time.</p>
+<p t="3631744" d="666">So you're right.</p>
+<p t="3632410" d="1340">I didn't cover that.</p>
+<p t="3633750" d="670">But we can.</p>
+<p t="3634420" d="3740">It's not too hard in this
+case because the probability</p>
+<p t="3638160" d="3380">of winning on a switch
+equals the probability</p>
+<p t="3641540" d="950">of losing on a stick.</p>
+<p t="3645760" d="6520">So the probability that
+you win with switch</p>
+<p t="3652280" d="6440">equals the probability you
+lose with a stick strategy.</p>
+<p t="3662560" d="520">All right?</p>
+<p t="3663080" d="3000">And they're both 2/3,
+because they're the same</p>
+<p t="3666080" d="1870">and this is 2/3.</p>
+<p t="3667950" d="1580">So in fact, what's,
+then, the chance</p>
+<p t="3669530" d="1250">you win with a stick strategy?</p>
+<p t="3673350" d="1602">1/3.</p>
+<p t="3674952" d="2458">And that's sort of you know,
+where Marilyn was coming from.</p>
+<p t="3677410" d="2267">Because she said, well,
+if you pick the box right</p>
+<p t="3679677" d="1583">the first time, which
+is what you need</p>
+<p t="3681260" d="2610">to get to win with
+a stick strategy,</p>
+<p t="3683870" d="2940">the chance you pick the
+right box is one-in-three.</p>
+<p t="3686810" d="2250">And showing, you know, a
+goat over here didn't matter.</p>
+<p t="3689060" d="3140">It's still one-in-three.</p>
+<p t="3692200" d="2130">Now that's gets a--
+that's intuition,</p>
+<p t="3694330" d="3930">but it can get you
+trouble, because say</p>
+<p t="3698260" d="3190">you picked this box and Carol
+showed you both of these boxes,</p>
+<p t="3701450" d="2069">and they had pocket protectors.</p>
+<p t="3703519" d="1791">Then what do you know
+about the probability</p>
+<p t="3705310" d="2440">you won with a stick?</p>
+<p t="3707750" d="960">It's 1.</p>
+<p t="3708710" d="2190">Ooh, so things did change there.</p>
+<p t="3710900" d="500">All right?</p>
+<p t="3711400" d="2975">So you have to be a little
+careful about how you reason,</p>
+<p t="3714375" d="1365">OK?</p>
+<p t="3715740" d="2560">You've got to do this.</p>
+<p t="3718300" d="5330">Stay with that and you'll always
+be fine for your strategy.</p>
+<p t="3723630" d="3530">So really the key is to
+resist the temptation</p>
+<p t="3727160" d="5064">to just sort of use your
+intuition to think about it.</p>
+<p t="3732224" d="666">All right.</p>
+<p t="3732890" d="1990">Now, this is a pretty
+simple example.</p>
+<p t="3737530" d="1740">So now I'm going
+to do one that's</p>
+<p t="3739270" d="4930">a little more interesting and a
+little more devious in a sense.</p>
+<p t="3744200" d="1340">So I need a volunteer.</p>
+<p t="3745540" d="2070">We're going to do
+a gambling game.</p>
+<p t="3747610" d="2090">So I need a volunteer.</p>
+<p t="3749700" d="870">All right.</p>
+<p t="3750570" d="1760">Now, he's raised his
+hands before I even</p>
+<p t="3752330" d="2360">said what the criteria are.</p>
+<p t="3754690" d="2375">First, you gotta be confident
+you understand probability.</p>
+<p t="3760554" d="916">Well, you can fake it.</p>
+<p t="3761470" d="1700">But second, and more
+importantly, you've</p>
+<p t="3763170" d="3030">got to have some money in
+your product or you've got</p>
+<p t="3766200" d="2360">to borrow some on the way down.</p>
+<p t="3768560" d="1625">You got a few bucks there?</p>
+<p t="3770185" d="584">AUDIENCE: Yes.</p>
+<p t="3770769" d="1457">PROFESSOR: All
+right, come on down.</p>
+<p t="3772226" d="1889">That's really all that
+matters, you know.</p>
+<p t="3783735" d="4635">OK, now, in this game,
+there's three dice.</p>
+<p t="3788370" d="2330">Well, that's 'cause
+you're smart.</p>
+<p t="3790700" d="2910">OK, so let me show you
+the dice in this game.</p>
+<p t="3800980" d="1955">And these, of course,
+are not normal dice.</p>
+<p t="3818071" d="499">All right?</p>
+<p t="3818570" d="5410">So dice A has a 2, a
+6, and a 7, and they're</p>
+<p t="3823980" d="1410">the same on the reverse side.</p>
+<p t="3825390" d="2240">So it's a six-sided
+die, and it's fair.</p>
+<p t="3827630" d="2360">When you roll it,
+the probability A</p>
+<p t="3829990" d="1980">comes up 2 is going to be 1/3.</p>
+<p t="3831970" d="520">All right?</p>
+<p t="3832490" d="3150">Same for 6 and for 7.</p>
+<p t="3835640" d="3210">Ah, we're just getting started.</p>
+<p t="3838850" d="8702">Dice B has a 1, 5, and a 9 and
+dice C has a 3, 4, and an 8.</p>
+<p t="3847552" d="1708">So I got-- they're
+all different numbers,</p>
+<p t="3849260" d="2500">the numbers from 1 to 9.</p>
+<p t="3851760" d="3430">So just so we're really
+clear, the probability</p>
+<p t="3855190" d="4910">that A comes up 3 is 1/3.</p>
+<p t="3860100" d="8294">The same for the probability
+A comes up 6 is 1/3 and so on.</p>
+<p t="3868394" d="2011">Ah, yes I do mean 2.</p>
+<p t="3870405" d="705">Good.</p>
+<p t="3871110" d="845">All right, good, you're
+paying attention.</p>
+<p t="3871955" d="525">That's good.</p>
+<p t="3872480" d="2541">There's some hope.</p>
+<p t="3875021" d="499">All right?</p>
+<p t="3875520" d="1470">Now, here's the game.</p>
+<p t="3876990" d="1620">We're each going to pick a die.</p>
+<p t="3878610" d="2150">And we're going to roll our die.</p>
+<p t="3880760" d="1130">And the higher die wins.</p>
+<p t="3881890" d="1250">We're going to roll them once.</p>
+<p t="3883140" d="1460">The higher one wins.</p>
+<p t="3884600" d="2820">And the loser pays
+the winner $1.</p>
+<p t="3887420" d="3140">And no tears, OK?</p>
+<p t="3890560" d="690">You got that?</p>
+<p t="3891250" d="500">That's good.</p>
+<p t="3891750" d="2166">He's already trying to
+figure out which one to pick.</p>
+<p t="3893916" d="3374">So let's put your
+dollar on the table.</p>
+<p t="3897290" d="1774">Here we go.</p>
+<p t="3899064" d="916">AUDIENCE: I have a $5.</p>
+<p t="3899980" d="1280">Do you have change?</p>
+<p t="3901260" d="2200">PROFESSOR: I might have change.</p>
+<p t="3903460" d="690">All right.</p>
+<p t="3904150" d="2480">Let's see here.</p>
+<p t="3906630" d="1120">Yes, I do have change.</p>
+<p t="3907750" d="400">AUDIENCE: Oh, I
+do have a dollar.</p>
+<p t="3908150" d="1208">PROFESSOR: You have a dollar.</p>
+<p t="3909358" d="604">All right.</p>
+<p t="3909962" d="1058">Well, for now anyway.</p>
+<p t="3911020" d="3687">Let's put the dollar
+there on the table.</p>
+<p t="3914707" d="1583">AUDIENCE: It's going
+to be a $20 next.</p>
+<p t="3916290" d="1875">PROFESSOR: We're just
+getting warmed up here.</p>
+<p t="3918165" d="2042">OK, now, there is-- what's
+your name, by the way?</p>
+<p t="3920207" d="624">AUDIENCE: Will.</p>
+<p t="3920831" d="829">PROFESSOR: Will.</p>
+<p t="3921660" d="2230">OK, nice to meet you, Will.</p>
+<p t="3923890" d="900">There we go.</p>
+<p t="3924790" d="500">All right.</p>
+<p t="3925290" d="2540">Now, there is one problem here.</p>
+<p t="3927830" d="2765">I don't really have those dice.</p>
+<p t="3930595" d="2125">So we're going to have to
+do a mathematical version</p>
+<p t="3932720" d="809">of this bet.</p>
+<p t="3933529" d="1791">AUDIENCE: You're always
+going to win, then.</p>
+<p t="3935320" d="2270">PROFESSOR: So what
+we're going to do</p>
+<p t="3937590" d="3120">is pretend that we did
+a roll, head-to-head,</p>
+<p t="3940710" d="3060">and whichever one is
+more likely to win,</p>
+<p t="3943770" d="3690">we're going to assume the roll
+came out that way, all right?</p>
+<p t="3947460" d="3870">Now, I know you've been
+studying those three guys there,</p>
+<p t="3951330" d="1740">those three dice.</p>
+<p t="3953070" d="3550">I'm going to be fair and let you
+pick first which one you like.</p>
+<p t="3956620" d="4290">Now, as you look at
+this, you know, you guys</p>
+<p t="3960910" d="3230">can help him out here if you
+can figure out which one's best.</p>
+<p t="3964140" d="2400">This has got a couple
+good sized numbers.</p>
+<p t="3966540" d="2070">You know, two of
+these beat these.</p>
+<p t="3968610" d="2990">This has the biggest number,
+but it also has the smallest.</p>
+<p t="3971600" d="3360">This has two small guys in it.</p>
+<p t="3974960" d="2467">You now and you want to pick
+the one that's likely to--</p>
+<p t="3977427" d="1833">AUDIENCE: They all add
+up to the same thing.</p>
+<p t="3979260" d="2660">PROFESSOR: They do all add up
+to the same thing, that's true.</p>
+<p t="3981920" d="500">Yeah.</p>
+<p t="3985054" d="916">Which one do you want?</p>
+<p t="3998606" d="1464">Which one do you want here Will?</p>
+<p t="4002529" d="1125">What's your best one there?</p>
+<p t="4007610" d="1808">A does look pretty good.</p>
+<p t="4009418" d="2868">You've got two
+solid numbers there.</p>
+<p t="4012286" d="956">It does.</p>
+<p t="4013242" d="4318">A looks like it beats
+up on C pretty good.</p>
+<p t="4017560" d="1500">AUDIENCE: I don't know.</p>
+<p t="4019060" d="1494">I think I'm going
+to lose a dollar.</p>
+<p t="4020554" d="1491">PROFESSOR: That's probably true.</p>
+<p t="4022045" d="1488">[LAUGHTER]</p>
+<p t="4024033" d="1491">[AUDIENCE CHATTER]</p>
+<p t="4034967" d="542">I don't know.</p>
+<p t="4035509" d="1082">A looks pretty good to us.</p>
+<p t="4036591" d="1182">Which one do you like here?</p>
+<p t="4037773" d="1419">We'll try them out.</p>
+<p t="4039192" d="2368">We'll play more games here.</p>
+<p t="4041560" d="7574">A. All right, Will
+likes A. All right.</p>
+<p t="4049134" d="3035">And I'm going to
+pick-- I'm going</p>
+<p t="4052169" d="2541">to go with C. I'm going to give
+you a fighting chance, right?</p>
+<p t="4054710" d="2480">Because we figured A
+beat C for sure, right?</p>
+<p t="4057190" d="2260">Because you've got a couple
+of 6 and 7 beat up 3 and 4</p>
+<p t="4059450" d="1600">pretty good.</p>
+<p t="4061050" d="3547">Yeah, I'm going to
+pick C. All right.</p>
+<p t="4064597" d="1833">And now we're going to
+do-- figure out which</p>
+<p t="4066430" d="2620">one's more likely to win.</p>
+<p t="4069050" d="2361">And we're going to
+make the tree diagram.</p>
+<p t="4071411" d="499">All right?</p>
+<p t="4071910" d="6355">So here's A. You've got 2,
+6, and 7 are your choices.</p>
+<p t="4078265" d="875">And they're each 1/3.</p>
+<p t="4081930" d="3381">And then, for mine,
+I've got 3, 4, and 8.</p>
+<p t="4090720" d="2870">3, 4, and 8.</p>
+<p t="4093590" d="1540">3, 4, and 8.</p>
+<p t="4095130" d="1345">And they're all 1/3 chance.</p>
+<p t="4099925" d="3505">All right, so I
+make my tree here.</p>
+<p t="4103430" d="5065">I got squished at the
+bottom, but they're all 1/3.</p>
+<p t="4108495" d="2444">All right, now we're
+going to see who wins,</p>
+<p t="4110939" d="3701">C or A. There's nine outcomes.</p>
+<p t="4114640" d="3394">Who wins this outcome?</p>
+<p t="4118034" d="706">Oh, I do.</p>
+<p t="4118740" d="1844">Yeah, I get all these.</p>
+<p t="4120584" d="796">That's good.</p>
+<p t="4121380" d="1220">You're in trouble already.</p>
+<p t="4122600" d="1357">What happens here, though?</p>
+<p t="4123957" d="583">Who wins that?</p>
+<p t="4128279" d="1731">Your 6 beats 3, 6 beats 4.</p>
+<p t="4130010" d="1230">You win those.</p>
+<p t="4131240" d="2369">I got you here.</p>
+<p t="4133609" d="2601">Then you win 7 beats 3.</p>
+<p t="4136210" d="1140">A wins.</p>
+<p t="4137350" d="1799">7 beats 4, A wins.</p>
+<p t="4139149" d="2221">It's tied, but, oh,
+my 8 beat your 7.</p>
+<p t="4143950" d="659">All right.</p>
+<p t="4144609" d="3330">So let's see here.</p>
+<p t="4147939" d="6061">There's one, two, three, four,
+five for me, each at 1/9.</p>
+<p t="4154000" d="4583">All right, so I'm going to win.</p>
+<p t="4158583" d="1597">All right?</p>
+<p t="4160180" d="4330">Now, in this case, the
+sample space is uniform.</p>
+<p t="4164510" d="2630">Every probability is the
+same for the outcomes.</p>
+<p t="4167140" d="1810">They're all 1/9.</p>
+<p t="4168950" d="750">1/3 times 1/3.</p>
+<p t="4169700" d="1540">1/3 times 1/3.</p>
+<p t="4171240" d="500">All right?</p>
+<p t="4171740" d="4350">So that's the case where we say
+the sample space is uniform.</p>
+<p t="4176090" d="870">Don't go anywhere.</p>
+<p t="4176960" d="2200">We're going to do
+some more here.</p>
+<p t="4182180" d="11509">The sample space is uniform
+if every sample point</p>
+<p t="4193689" d="1041">has the same probability.</p>
+<p t="4201880" d="3470">In which case, the probability
+of the sample points</p>
+<p t="4205350" d="3410">would be 1 in the cardinality
+of the sample space.</p>
+<p t="4208760" d="1560">In this case,
+there's nine points.</p>
+<p t="4210320" d="2950">They each have probability 1/9.</p>
+<p t="4213270" d="7920">And in this case, C beats
+A with probability of 5/9.</p>
+<p t="4223970" d="3100">That means I win the dollar.</p>
+<p t="4227070" d="1988">All right.</p>
+<p t="4229058" d="3216">So do you have some
+more money in there?</p>
+<p t="4232274" d="1026">In that wallet?</p>
+<p t="4233300" d="1870">I'll make change for you.</p>
+<p t="4235170" d="3050">So, what we're going
+to do is play again.</p>
+<p t="4238220" d="2690">And you've learned something
+now, that C beats A.</p>
+<p t="4240910" d="1840">So we play again,
+you're probably</p>
+<p t="4242750" d="3320">not going to want
+to pick A. In fact,</p>
+<p t="4246070" d="2980">C is surprisingly good there.</p>
+<p t="4249050" d="1500">Now, I'll let you
+wager more, if you</p>
+<p t="4250550" d="1250">want, to win your dollar back.</p>
+<p t="4251800" d="2045">Do you want to do
+double or nothing?</p>
+<p t="4253845" d="1900">[LAUGHTER]</p>
+<p t="4259335" d="2849">AUDIENCE: So you always
+get to pick second, though?</p>
+<p t="4262184" d="666">PROFESSOR: Yeah.</p>
+<p t="4262850" d="1242">I've got to be fair here.</p>
+<p t="4264092" d="1333">I'm going to let you pick first.</p>
+<p t="4265425" d="2045">[LAUGHTER]</p>
+<p t="4267470" d="2396">All right, you got
+a couple bucks?</p>
+<p t="4269866" d="1124">We'll do double or nothing.</p>
+<p t="4270990" d="666">What do you say?</p>
+<p t="4271656" d="1614">I'll make change for you.</p>
+<p t="4273270" d="1420">There you go.</p>
+<p t="4274690" d="875">Here's $5.</p>
+<p t="4275565" d="1655">I'll change your $5.</p>
+<p t="4277220" d="1050">And then we'll bet $2.</p>
+<p t="4278270" d="1120">How's that?</p>
+<p t="4279390" d="3776">I've actually got
+a $2 bill here.</p>
+<p t="4283166" d="614">There we go.</p>
+<p t="4283780" d="660">You've got $2.</p>
+<p t="4284440" d="1200">There we go.</p>
+<p t="4285640" d="2920">All right, double or nothing.</p>
+<p t="4288560" d="1364">Will, what do you like?</p>
+<p t="4289924" d="1416">You're obviously
+not going to pick</p>
+<p t="4291340" d="2905">A. That just got beat by C.
+What do you like, B or C?</p>
+<p t="4302724" d="2077">Well, one of them's
+got to be best.</p>
+<p t="4304801" d="1416">One of them's got
+to be best here.</p>
+<p t="4306217" d="2495">You've just got to figure
+out which one it is.</p>
+<p t="4308712" d="3258">AUDIENCE: I feel like everyone's
+going to have [INAUDIBLE].</p>
+<p t="4311970" d="2530">If I choose C, let me see.</p>
+<p t="4314500" d="4110">That would be
+[INAUDIBLE] so I guess.</p>
+<p t="4318610" d="1994">PROFESSOR: I won't pick
+A, that's for sure.</p>
+<p t="4320604" d="1750">AUDIENCE: If you pick
+B, I get one from 4,</p>
+<p t="4322354" d="1500">I get two from the
+8, which is four.</p>
+<p t="4323854" d="1464">And you get the other five.</p>
+<p t="4325318" d="3952">If I pick C and you pick A,
+that means I get one from the 3,</p>
+<p t="4329270" d="1976">I get one from the 4.</p>
+<p t="4331246" d="3458">If I get two from the
+8, you still get 5.</p>
+<p t="4334704" d="1482">PROFESSOR: That's good.</p>
+<p t="4336186" d="3458">You've figured out
+you're screwed here.</p>
+<p t="4339644" d="1006">That's very good.</p>
+<p t="4340650" d="1330">All right.</p>
+<p t="4341980" d="2140">So, yeah, so he's sort
+of-- he's doing great.</p>
+<p t="4344120" d="2125">He's figured out, because
+he went through this sort</p>
+<p t="4346245" d="2555">of like this method, what all
+the possible outcomes were.</p>
+<p t="4348800" d="2880">And he's discovered that,
+no matter what he picks,</p>
+<p t="4351680" d="2150">I'm going to beat him.</p>
+<p t="4353830" d="1510">So let's see why
+that's the case.</p>
+<p t="4355340" d="1100">So let's see.</p>
+<p t="4356440" d="2690">So because you figured it
+out, I won't take your money</p>
+<p t="4359130" d="860">this time.</p>
+<p t="4359990" d="1780">But we'll do some
+more in a minute.</p>
+<p t="4361770" d="5130">So say Will picked--
+say he picked C.</p>
+<p t="4366900" d="5100">And say that then I
+will pick B. All right,</p>
+<p t="4372000" d="3220">so on C, there's three choices.</p>
+<p t="4375220" d="610">3.</p>
+<p t="4375830" d="1650">4, and 8.</p>
+<p t="4377480" d="4295">And then, on my choice of
+B, there's 1, 5, and 9.</p>
+<p t="4386160" d="2960">All right, so I get 1, 5, and 9.</p>
+<p t="4389120" d="2950">And now we can
+see who wins here.</p>
+<p t="4392070" d="5740">Well, C wins there,
+loses here, loses there.</p>
+<p t="4397810" d="4560">C wins here, and B
+wins the next two.</p>
+<p t="4402370" d="1630">And C wins these.</p>
+<p t="4404000" d="2650">And B wins the tiebreaker.</p>
+<p t="4406650" d="3630">So B beats C with
+probability 5/9.</p>
+<p t="4418420" d="500">All right.</p>
+<p t="4418920" d="4730">So you don't want to pick
+A, you don't want to pick C,</p>
+<p t="4423650" d="1444">you want to try a bet with B?</p>
+<p t="4428363" d="4477">I mean, look, you've got B
+beats C. We just showed that.</p>
+<p t="4432840" d="5007">C beats A. I mean, that's a
+sure bet if I ever saw one.</p>
+<p t="4437847" d="1437">[LAUGHTER]</p>
+<p t="4439284" d="1916">PROFESSOR: What do you think?</p>
+<p t="4441200" d="5068">AUDIENCE: So if I pick B and you
+pick C, that means [INAUDIBLE]</p>
+<p t="4449220" d="2952">[AUDIENCE CHATTER]</p>
+<p t="4452172" d="9840">But if he picks A, then
+I get [INAUDIBLE] Yeah,</p>
+<p t="4462012" d="1998">I'd still get 4, so--</p>
+<p t="4464010" d="2742">PROFESSOR: So if you pick
+B, what am I going to do?</p>
+<p t="4466752" d="1747">AUDIENCE: Oh, you're
+going to pick A.</p>
+<p t="4468499" d="2541">PROFESSOR: I'm going to pick A.
+Let's see how that works out.</p>
+<p t="4471040" d="5810">All right, so B has 1, 5, and 9.</p>
+<p t="4476850" d="3835">A is, yeah, 2, 6, and 7.</p>
+<p t="4486780" d="3890">OK, so you're going to
+lose all three there.</p>
+<p t="4490670" d="2650">A wins those.</p>
+<p t="4493320" d="3630">A wins-- no, you win.</p>
+<p t="4496950" d="4017">B wins there, but A
+wins the next couple.</p>
+<p t="4500967" d="1374">And then, you win
+the last three.</p>
+<p t="4505500" d="7590">So A wins, again,
+5/9 of the time.</p>
+<p t="4513090" d="2790">So how is this possible?</p>
+<p t="4515880" d="10160">We've got A beats B,
+beats C, beats A. All 5/9.</p>
+<p t="4526040" d="1845">How is that possible?</p>
+<p t="4527885" d="1365">Did we make a mistake?</p>
+<p t="4532440" d="3170">Well, why isn't it possible?</p>
+<p t="4535610" d="4440">Whoever said probabilities
+were transitive?</p>
+<p t="4540050" d="862">Right?</p>
+<p t="4540912" d="1458">I mean, you'd sort
+of think there's</p>
+<p t="4542370" d="1890">a best of the three die.</p>
+<p t="4544260" d="1960">But for any one that
+you pick, that he picks,</p>
+<p t="4546220" d="1208">I can find one that's better.</p>
+<p t="4547428" d="2202">And it goes in a cycle.</p>
+<p t="4549630" d="500">All right?</p>
+<p t="4550130" d="2690">So you'd think picking
+first, you've got a shot</p>
+<p t="4552820" d="960">to pick the best one.</p>
+<p t="4553780" d="3110">But picking second
+always wins this game,</p>
+<p t="4556890" d="2521">if you pick the right one.</p>
+<p t="4559411" d="499">All right.</p>
+<p t="4559910" d="2370">You know, since you did
+good and figured that out,</p>
+<p t="4562280" d="3570">I'm going to give you a
+special opportunity here.</p>
+<p t="4565850" d="500">All right?</p>
+<p t="4566350" d="5190">Now, I'm going to
+let you go second.</p>
+<p t="4571540" d="1490">All right?</p>
+<p t="4573030" d="2710">So I'm going to
+pick one, and I'm</p>
+<p t="4575740" d="1620">going to let you pick after me.</p>
+<p t="4577360" d="2120">And then we're going to bet.</p>
+<p t="4579480" d="3332">There's going to be
+a little twist to it.</p>
+<p t="4582812" d="1458">But you want to
+pick second, right?</p>
+<p t="4588235" d="2250">All right, well, let me tell
+you what I'm going to do.</p>
+<p t="4590485" d="1545">Just to make it-- I want
+to do a different analysis.</p>
+<p t="4592030" d="2125">We already did these three,
+so what I'm going to do</p>
+<p t="4594155" d="3134">is an analysis where
+we roll them twice.</p>
+<p t="4597289" d="1541">Otherwise, it's the
+same basic thing,</p>
+<p t="4598830" d="2680">but I want to do an analysis
+with more outcomes here.</p>
+<p t="4601510" d="1800">We've sort of beat
+this one to death.</p>
+<p t="4603310" d="1900">So I'm going to go first.</p>
+<p t="4605210" d="7650">And let's see, what
+do I want to pick?</p>
+<p t="4612860" d="1660">Hm.</p>
+<p t="4614520" d="2200">Well, what should I pick,
+if I'm going to do this?</p>
+<p t="4616720" d="4610">I guess I'll pick B, all right?</p>
+<p t="4621330" d="1860">So I'm going to pick B here.</p>
+<p t="4626940" d="500">All right.</p>
+<p t="4627440" d="530">How much do you
+want to bet here?</p>
+<p t="4627970" d="1708">I'm going to let you
+win your money back.</p>
+<p t="4629678" d="1952">I'll let you bet up to $10.</p>
+<p t="4631630" d="615">Your choice.</p>
+<p t="4635179" d="1791">What do you-- what do
+you want to bet here?</p>
+<p t="4636970" d="1310">We've got to put some
+money on the table,</p>
+<p t="4638280" d="1208">make it a little interesting.</p>
+<p t="4642190" d="1124">Yeah, you pick--</p>
+<p t="4643314" d="1916">AUDIENCE: Do you roll a
+different die or what?</p>
+<p t="4645230" d="1208">PROFESSOR: No, the same ones.</p>
+<p t="4646438" d="1242">The die don't change.</p>
+<p t="4647680" d="3540">I'm picking B. And I'm going
+to roll it a couple times.</p>
+<p t="4651220" d="1480">And I'm going to
+add up my score.</p>
+<p t="4652700" d="2000">And then, you get to pick
+whatever die you want.</p>
+<p t="4654700" d="1083">I'm going to let you pick.</p>
+<p t="4655783" d="3987">I mean, I'm going to let you
+pick the one that beats it.</p>
+<p t="4659770" d="1850">You roll yours a couple times.</p>
+<p t="4661620" d="1690">And now we see which
+one has the higher</p>
+<p t="4663310" d="2083">sum, who's more likely to win.</p>
+<p t="4665393" d="2333">AUDIENCE: So it's the sum
+total, like you roll a 9 and 9</p>
+<p t="4667726" d="1051">and I roll a 7 and 7.</p>
+<p t="4668777" d="2333">PROFESSOR: Yeah, then I'm
+going to win, because I get 18</p>
+<p t="4671110" d="980">and you got 14.</p>
+<p t="4672090" d="2180">If I roll a 9 and
+a 1, I get a 10.</p>
+<p t="4674270" d="2614">You roll a 6 and a
+7, you beat me at 13.</p>
+<p t="4676884" d="1476">All right?</p>
+<p t="4678360" d="4130">So which one do
+you want to pick?</p>
+<p t="4682490" d="3250">You could pick C. But you've got
+to put the money on the table</p>
+<p t="4685740" d="2999">here, whatever you want to bet.</p>
+<p t="4688739" d="2541">You know, I want to give you a
+chance to win your money back.</p>
+<p t="4694830" d="3202">What's the probability
+he's going to lose?</p>
+<p t="4698032" d="1482">[LAUGHTER]</p>
+<p t="4699514" d="935">You got a T-Card?</p>
+<p t="4700449" d="1041">What've you got in there?</p>
+<p t="4701490" d="2022">Ah, I'll take the
+[INAUDIBLE] card.</p>
+<p t="4703512" d="1473">What's that worth?</p>
+<p t="4704985" d="2946">Ah, it's worth a few bucks here.</p>
+<p t="4707931" d="5459">All right, so I'm picking
+B. Which are you picking?</p>
+<p t="4717110" d="3194">I've really got his
+head messed up now.</p>
+<p t="4720304" d="1416">AUDIENCE: There's
+$4 on the table.</p>
+<p t="4721720" d="1970">Take that and run.</p>
+<p t="4723690" d="1000">PROFESSOR: Yeah, really.</p>
+<p t="4724690" d="1880">We already saw-- I'll
+give you a hint here.</p>
+<p t="4726570" d="4290">A beats B. 5/9 of the time,
+A comes up higher than B.</p>
+<p t="4730860" d="3170">So if we roll them
+twice, your odds</p>
+<p t="4734030" d="5390">got even better that
+A beats B. All right,</p>
+<p t="4739420" d="4430">so Will goes with A. Will,
+that was a big mistake.</p>
+<p t="4743850" d="1170">All right.</p>
+<p t="4745020" d="1000">How can it be a mistake?</p>
+<p t="4746020" d="3200">A beats B 5/9 of the time.</p>
+<p t="4749220" d="3000">Now what we're going to do
+is make the decision tree.</p>
+<p t="4752220" d="3131">If we roll B twice,
+if we roll A twice.</p>
+<p t="4755351" d="499">All right.</p>
+<p t="4755850" d="1680">Let's see what happens.</p>
+<p t="4757530" d="1560">This is a nasty
+one to write down.</p>
+<p t="4759090" d="1750">In fact, you'll start
+seeing this when you</p>
+<p t="4760840" d="1260">do these tree method things.</p>
+<p t="4762100" d="1625">Sometimes the trees
+get a little hairy,</p>
+<p t="4763725" d="3795">so we've got to sort of
+approximate it a little bit.</p>
+<p t="4767520" d="2620">So here's B, right?</p>
+<p t="4770140" d="3810">I got 1, 5, and 9
+for my first roll.</p>
+<p t="4773950" d="2480">And then I got 1, 5, and
+9 for my second roll.</p>
+<p t="4782100" d="2490">And I add these up.</p>
+<p t="4784590" d="3400">See, if you read the notes
+ahead, sometimes that helps.</p>
+<p t="4787990" d="1505">6-- here are my outcomes.</p>
+<p t="4789495" d="1625">These are the numbers
+I'm going to get.</p>
+<p t="4794300" d="2700">These are my nine values.</p>
+<p t="4797000" d="4360">Your nine values,
+you got 2, 6, and 7.</p>
+<p t="4801360" d="3810">Then each 2, 6, and 7 again.</p>
+<p t="4805170" d="9995">So we add those up, you got 4,
+8, 9, 8, 12, 13, 9, 13, and 14.</p>
+<p t="4815165" d="2125">And now, we have
+each one of these</p>
+<p t="4817290" d="1840">against each one of these.</p>
+<p t="4819130" d="1700">Because there's 81 outcomes.</p>
+<p t="4820830" d="1400">I got four levels to the tree.</p>
+<p t="4822230" d="3140">And rather than draw four
+levels of this [INAUDIBLE] tree</p>
+<p t="4825370" d="1880">to get 81 outcomes,
+you're going to say</p>
+<p t="4827250" d="3030">that each one of
+these corresponds</p>
+<p t="4830280" d="4050">to this tree, all right,
+that has nine leaves.</p>
+<p t="4834330" d="5875">And now we can just count
+up how many times I win.</p>
+<p t="4840205" d="1425">Well, 2 got nothing.</p>
+<p t="4841630" d="2640">That's a 0.</p>
+<p t="4844270" d="1850">Let's see how many times 6 wins.</p>
+<p t="4846120" d="3944">One-- one time.</p>
+<p t="4850064" d="3146">10-- one, two,
+three, four, five.</p>
+<p t="4855890" d="1160">All right, we've got that.</p>
+<p t="4857050" d="4210">6 wins, we already
+decided, once.</p>
+<p t="4861260" d="5370">10, we decided already,
+wins five times.</p>
+<p t="4866630" d="2982">14 wins one, two, three,
+four, five, six, seven,</p>
+<p t="4869612" d="2678">eight, and ties once.</p>
+<p t="4872290" d="3100">Tie-- one.</p>
+<p t="4875390" d="3160">10, we already got was five.</p>
+<p t="4878550" d="4710">14, we already got,
+was eight and a tie.</p>
+<p t="4883260" d="4740">And finally, I get
+18 wins every time.</p>
+<p t="4888000" d="780">Let's add this up.</p>
+<p t="4888780" d="7430">I got 17, 22, 30,
+35, 36, 41, 42 times</p>
+<p t="4896210" d="6160">plus half the ties out of 81.</p>
+<p t="4902370" d="1750">How much money's on
+this [INAUDIBLE] card?</p>
+<p t="4909224" d="1216">Ah, smart guy.</p>
+<p t="4913919" d="1491">How did this happen?</p>
+<p t="4915410" d="3140">A is more likely to
+beat B, higher than B.</p>
+<p t="4918550" d="1610">But you roll them
+twice, and it's</p>
+<p t="4920160" d="3610">less likely to be
+as large on the sum?</p>
+<p t="4923770" d="1250">Well, why not?</p>
+<p t="4925020" d="2740">It's just our intuition's
+all screwed up.</p>
+<p t="4927760" d="2400">But the math is straightforward.</p>
+<p t="4930160" d="2250">In fact, an amazing
+thing happens.</p>
+<p t="4932410" d="5300">If you roll them twice,
+they reverse completely.</p>
+<p t="4937710" d="4880">A is worse than B, is worse
+than C, is worse than A</p>
+<p t="4942590" d="1560">if you roll them twice.</p>
+<p t="4944150" d="3420">If you roll them three times,
+something else happens.</p>
+<p t="4947570" d="1970">In fact, it was known
+for a long time,</p>
+<p t="4949540" d="2125">this phenomenon
+happens with one roll.</p>
+<p t="4951665" d="2405">And when I was making lecture
+notes a few years ago,</p>
+<p t="4954070" d="1799">I noticed they reverse
+with two rolls.</p>
+<p t="4955869" d="1791">And then we did a class
+project to discover</p>
+<p t="4957660" d="2170">what happens with k rolls.</p>
+<p t="4959830" d="4204">And it turns out that you can
+get every possible combination.</p>
+<p t="4964034" d="1416">You know, on some
+number of rolls,</p>
+<p t="4965450" d="4780">A beats both B and C and B
+beats C. Other number of rolls,</p>
+<p t="4970230" d="2780">A beats them both and C beats B.</p>
+<p t="4973010" d="2590">And then, motivated by
+that, some researchers</p>
+<p t="4975600" d="3730">out in San Diego showed
+that there's arbitrarily</p>
+<p t="4979330" d="4270">strange dice, now, not
+with just three sides,</p>
+<p t="4983600" d="2230">but with more sides.</p>
+<p t="4985830" d="3195">Such that, for any tournaments--
+remember a tournament</p>
+<p t="4989025" d="2385">from graph theory,
+where everybody beats,</p>
+<p t="4991410" d="3170">you know, between a pair of
+players, one player wins.</p>
+<p t="4994580" d="3550">You can make the relation
+for any tournament</p>
+<p t="4998130" d="1980">show up for a
+particular set of dice</p>
+<p t="5000110" d="2379">by rolling a certain
+number of times.</p>
+<p t="5002489" d="1791">All right, which is
+just really fascinating</p>
+<p t="5004280" d="1000">that you can prove that.</p>
+<p t="5005280" d="2380">So these dice can
+get arbitrarily weird</p>
+<p t="5007660" d="3240">in terms of which die is
+likely to come up and be</p>
+<p t="5010900" d="2089">better than another die.</p>
+<p t="5012989" d="1291">All right, that's it for today.</p>
+<p t="5014280" d="1150">Let me give you your
+money back here.</p>
+<p t="5015430" d="1625">And I've got a gift
+certificate you can</p>
+<p t="5017055" d="3115">have for being a good sport.</p>
+<p t="5020170" d="500">Here you go.</p>
+<p t="5020670" d="1490">How much money did I take here?</p>
+<p t="5022160" d="1537">AUDIENCE: I think only like $2.</p>
+<p t="5023697" d="583">PROFESSOR: $2?</p>
+<p t="5024280" d="1340">All right, there you go.</p>
+<p t="5025620" d="650">Very good.</p>
+<p t="5026270" d="500">Thanks.</p>
+<p t="5029480" d="3660">So we'll do a lot more examples
+over the next week or two.</p>
+</body>
+</timedtext>

@@ -1,0 +1,1425 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="499" d="2455">The following content is
+provided under a Creative</p>
+<p t="2954" d="666">Commons license.</p>
+<p t="3620" d="2150">Your support will help
+MIT OpenCourseWare</p>
+<p t="5770" d="4670">continue to offer high quality
+educational resources for free.</p>
+<p t="10440" d="2150">To make a donation, or to
+view additional materials</p>
+<p t="12590" d="3030">from hundreds of MIT courses
+visit MIT OpenCourseWare</p>
+<p t="15620" d="3740">at ocw.mit.edu.</p>
+<p t="19360" d="4890">PROFESSOR STRANG:
+Okay, so this is I</p>
+<p t="24250" d="3060">could say delta function day.</p>
+<p t="27310" d="3250">Break from linear
+algebra mostly.</p>
+<p t="30560" d="3690">So we're looking on another
+type of right-hand side.</p>
+<p t="34250" d="2470">Before in the
+differential equation</p>
+<p t="36720" d="3000">and in the difference equation.</p>
+<p t="39720" d="5030">So the right-hand sides up
+to now, the one we looked at</p>
+<p t="44750" d="6830">was a uniform constant load
+second derivative equal one.</p>
+<p t="51580" d="3740">Now a point load.</p>
+<p t="55320" d="2980">Well in a way, we're now solving
+a whole bunch of problems</p>
+<p t="58300" d="4170">because the point load can
+be in different places.</p>
+<p t="62470" d="3310">So instead of solving
+one problem with one</p>
+<p t="65780" d="5010">on the right-hand side, we're
+solving with a delta function.</p>
+<p t="70790" d="4220">Now a delta function is, you
+probably have seen and heard</p>
+<p t="75010" d="4210">the words and seen the symbol,
+but maybe not done much</p>
+<p t="79220" d="2870">with a delta function.</p>
+<p t="82090" d="3530">It takes a little practice
+but it's really worth it.</p>
+<p t="85620" d="5870">It's a great model of maybe what
+can't quite happen physically,</p>
+<p t="91490" d="4980">to have a load acting exactly
+at a point and nowhere else.</p>
+<p t="96470" d="3570">So the delta function
+is, I drew it's picture,</p>
+<p t="100040" d="6840">the delta function is zero, this
+is delta of x is zero except</p>
+<p t="106880" d="3720">at that one point,
+the origin, x=0,</p>
+<p t="110600" d="3310">and then all along
+back to zero again.</p>
+<p t="113910" d="6390">So nothing's happening, no
+load except at that one point.</p>
+<p t="120300" d="5210">And let me just, so
+there's no hesitation</p>
+<p t="125510" d="8330">in when I change from x to x-a,
+what does that do to a graph?</p>
+<p t="133840" d="7600">If I have a function of x and
+I instead shift the function</p>
+<p t="141440" d="6160">to f(x-a), I shift x to
+x-a, well in this case,</p>
+<p t="147600" d="3100">and in all cases, it will
+just shift the graph.</p>
+<p t="150700" d="6450">So if I drew a picture
+of delta, of x-a,</p>
+<p t="157150" d="4210">the load now would
+happen when this is zero,</p>
+<p t="161360" d="4300">because it's delta at
+zero is the impulse,</p>
+<p t="165660" d="2830">and now this is zero at x=a.</p>
+<p t="168490" d="3950">In other words, the load
+moved to the point a.</p>
+<p t="172440" d="6640">So there is the shifting
+load, but the load</p>
+<p t="179080" d="5950">could fall anywhere
+between zero and one.</p>
+<p t="185030" d="2910">So delta of x, the load
+actually falls at zero.</p>
+<p t="187940" d="2810">Well we don't quite want
+that load at the boundary.</p>
+<p t="190750" d="4150">So let's think of the point
+a, the load point as somewhere</p>
+<p t="194900" d="2510">between zero and one.</p>
+<p t="197410" d="5200">Can I just take a little
+time to recall the main fact</p>
+<p t="202610" d="1970">about delta functions?</p>
+<p t="204580" d="5380">When I say recall, it could
+very well be new to you.</p>
+<p t="209960" d="3030">So that's what the
+delta function--</p>
+<p t="212990" d="3120">that's my best graph
+of the delta function.</p>
+<p t="216110" d="3010">But of course I'm, in
+using the word function,</p>
+<p t="219120" d="4350">I'm kind of breaking the rules
+because no function-- I mean</p>
+<p t="223470" d="2730">the function is, functions
+can be zero there,</p>
+<p t="226200" d="1860">can be zero there,
+but they're not</p>
+<p t="228060" d="4750">supposed to be infinite at
+a single point in between,</p>
+<p t="232810" d="1490">but this one is.</p>
+<p t="234300" d="5870">Let me go back to delta of
+x to match these figures.</p>
+<p t="240170" d="4280">Of course, they would also
+just shift along by a.</p>
+<p t="244450" d="5040">Maybe no harm in that.</p>
+<p t="249490" d="6670">Sorry, I'll stay there and
+now I want to integrate.</p>
+<p t="256160" d="6100">And that's when a delta
+function comes into its own.</p>
+<p t="262260" d="4070">Its value of infinity is
+a little bit uncertain.</p>
+<p t="266330" d="1340">What does that mean?</p>
+<p t="267670" d="3600">But when we integrate
+it, what's the key fact</p>
+<p t="271270" d="1520">about delta function?</p>
+<p t="272790" d="4540">That the integral of
+a delta function from,</p>
+<p t="277330" d="2140">let's say, let's
+integrate the whole thing,</p>
+<p t="279470" d="2840">we can safely start
+way at the far left</p>
+<p t="282310" d="2030">and go away to the far
+right because it's zero</p>
+<p t="284340" d="4960">all the time there except
+at one point, and you know.</p>
+<p t="289300" d="3730">So what's the area
+under that spike?</p>
+<p t="293030" d="1909">It is one.</p>
+<p t="294939" d="541">That's right.</p>
+<p t="295480" d="2900">So that's the fact, the
+sort of central fact</p>
+<p t="298380" d="1810">about a delta function.</p>
+<p t="300190" d="1840">That the area is one.</p>
+<p t="302030" d="2680">Oh well, let me, while
+I'm really writing down</p>
+<p t="304710" d="9300">the central fact, let me write
+it more specifically, more</p>
+<p t="314010" d="820">generally.</p>
+<p t="314830" d="5210">Suppose I integrate, and this
+is delta functions now really</p>
+<p t="320040" d="4600">showing up, if I integrate a
+delta function against some,</p>
+<p t="324640" d="3560">times some nice function.</p>
+<p t="328200" d="3430">Now have you ever
+thought about that?</p>
+<p t="331630" d="4360">What would be the answer if I
+integrate the delta function</p>
+<p t="335990" d="2550">against some nice function?</p>
+<p t="338540" d="5440">So I'm still getting zero from
+this term all the way along</p>
+<p t="343980" d="3530">until I hit the spike and
+then after it goes back</p>
+<p t="347510" d="1170">to zero again.</p>
+<p t="348680" d="5350">So, whatever, it's gotta
+be at the spike, at x=0,</p>
+<p t="354030" d="3760">because I put the spike
+here at zero, the impulse.</p>
+<p t="357790" d="5190">So what do you think's
+the answer for that one?</p>
+<p t="362980" d="1810">Yeah, It's the function.</p>
+<p t="364790" d="5210">So, yes, tell me again
+and I'll write it down. g,</p>
+<p t="370000" d="2240">it's a value of this function g.</p>
+<p t="372240" d="4020">We don't care what it is to the
+left and to the right at zero</p>
+<p t="376260" d="4130">because it's really at zero
+that this thing turns on</p>
+<p t="380390" d="4300">and its value at
+that point is just--</p>
+<p t="384690" d="6570">gives us the amplitude of
+the impulse, which is g(0).</p>
+<p t="391260" d="3140">And of course if g is the
+constant function one,</p>
+<p t="394400" d="1910">I'm back to that formula.</p>
+<p t="396310" d="3540">But this is maybe the
+thing to watch for.</p>
+<p t="399850" d="3250">Actually there's a lot built
+into that little thing.</p>
+<p t="403100" d="3480">We'll come back to that.</p>
+<p t="406580" d="5000">So that's delta
+functions integrated</p>
+<p t="411580" d="2010">and now here are some pictures.</p>
+<p t="413590" d="4050">These are the good pictures.</p>
+<p t="417640" d="5900">So here's one integral
+of the delta function.</p>
+<p t="423540" d="2680">It's a step function.</p>
+<p t="426220" d="2540">And the step of course
+will occur at the point</p>
+<p t="428760" d="5530">a if the integral of the
+delta function at a point a</p>
+<p t="434290" d="2930">will be the step function.</p>
+<p t="437220" d="2840">Where the action happens.</p>
+<p t="440060" d="3560">The jump happens, I could
+call it a jump function.</p>
+<p t="443620" d="2260">At that point a.</p>
+<p t="445880" d="2960">Because, just for
+the reason we said.</p>
+<p t="448840" d="3640">That if we integrate,
+the integral is zero.</p>
+<p t="452480" d="3460">And then as soon as our
+integral passes this point,</p>
+<p t="455940" d="4470">so this is integral of the,
+this is-- I integrated.</p>
+<p t="460410" d="4190">I integrate to get
+to this picture.</p>
+<p t="464600" d="4330">I start with that delta function
+and I integrate and it suddenly</p>
+<p t="468930" d="3260">jumps to one as soon
+as the integral goes</p>
+<p t="472190" d="3840">past the spike, the impulse.</p>
+<p t="476030" d="1360">So a step function.</p>
+<p t="477390" d="2320">Very handy function,
+step function.</p>
+<p t="479710" d="2900">Sometimes called a
+Heaviside function</p>
+<p t="482610" d="4300">named after the guy who--
+the electrical engineer</p>
+<p t="486910" d="6280">I think who first sort of work
+out the rules for using these.</p>
+<p t="493190" d="5190">Let's integrate one more time
+because we have second order</p>
+<p t="498380" d="4430">equations, second derivatives,
+so we better integrate twice</p>
+<p t="502810" d="3350">to see what sort
+of answer we get.</p>
+<p t="506160" d="2040">Now integrate the step function.</p>
+<p t="508200" d="2900">So again, the integral is
+zero all the way to the left,</p>
+<p t="511100" d="3770">so I'm still getting zero,
+but now beyond this point</p>
+<p t="514870" d="1940">I'm integrating one.</p>
+<p t="516810" d="4000">And the integral of one is x.</p>
+<p t="520810" d="3600">So now that I would
+call a ramp function.</p>
+<p t="524410" d="4350">That's a nice short word
+for this valuable function.</p>
+<p t="528760" d="7300">A ramp function is the function
+that's zero and then x.</p>
+<p t="536060" d="4540">So tell me about
+that ramp function.</p>
+<p t="540600" d="2060">Just think about it.</p>
+<p t="542660" d="5410">What happens to its
+derivative at the point a?</p>
+<p t="548070" d="3630">As I run along and I
+hit this key point,</p>
+<p t="551700" d="6530">what happens to the
+derivative of the ramp?</p>
+<p t="558230" d="2640">What does the derivative do?</p>
+<p t="560870" d="1950">Focus on that ramp now.</p>
+<p t="562820" d="4480">What does the derivative
+do at that point?</p>
+<p t="567300" d="1320">It jumps.</p>
+<p t="568620" d="1180">The derivative jumps.</p>
+<p t="569800" d="3450">The slope is the derivative,
+the slope jumps from zero</p>
+<p t="573250" d="1340">and here the slope is one.</p>
+<p t="574590" d="2030">And of course that's
+what that's telling us.</p>
+<p t="576620" d="1660">Here's the picture
+of the derivative.</p>
+<p t="578280" d="3380">What does the second
+derivative do?</p>
+<p t="581660" d="4940">Well, since I
+integrated twice I guess</p>
+<p t="586600" d="2500">going back two
+steps I'll find out</p>
+<p t="589100" d="2100">what the second derivative is.</p>
+<p t="591200" d="4760">So the first derivative
+takes a jump.</p>
+<p t="595960" d="4030">The second derivative is
+the derivative of that jump,</p>
+<p t="599990" d="1670">so it's got the impulse.</p>
+<p t="601660" d="3060">So the second derivative,
+it's a straight line here,</p>
+<p t="604720" d="2060">second derivative
+a straight line.</p>
+<p t="606780" d="2600">This is straight line
+here, second derivative</p>
+<p t="609380" d="3750">of a straight line
+is a straight line.</p>
+<p t="613130" d="4480">But at that point the
+first derivative jumps,</p>
+<p t="617610" d="3400">the second derivative
+has that delta function.</p>
+<p t="621010" d="3520">In other words,
+that's that stuff.</p>
+<p t="624530" d="5830">If I keep integrating -- and
+I don't need higher integrals</p>
+<p t="630360" d="4890">in today's lecture -- another
+integral would be what?</p>
+<p t="635250" d="2350">If I integrate this
+function, then it's</p>
+<p t="637600" d="1280">running along the zero.</p>
+<p t="638880" d="2500">What's the integral of this?</p>
+<p t="641380" d="3300">Doesn't quite turn that steeply.</p>
+<p t="644680" d="3390">What's that curve there?</p>
+<p t="648070" d="1855">If I've integrated the ramp.</p>
+<p t="649925" d="875">Here is the integral.</p>
+<p t="650800" d="4540">First, the next step up, the
+integral of the ramp would be?</p>
+<p t="655340" d="4290">It'll be x squared, yeah,
+it'll be a parabola.</p>
+<p t="659630" d="2850">x squared over two,
+the integral of that.</p>
+<p t="662480" d="2990">And now what do I get
+when I integrate this one?</p>
+<p t="665470" d="2480">I get something very important.</p>
+<p t="667950" d="5250">Not important today, but
+important in a few weeks.</p>
+<p t="673200" d="2720">And very useful in computing.</p>
+<p t="675920" d="3180">These have turned out to
+be just the right thing.</p>
+<p t="679100" d="2040">So again, I'm integrating that.</p>
+<p t="681140" d="3560">Everybody can tell
+me, what is that?</p>
+<p t="684700" d="2760">What's that curve now?</p>
+<p t="687460" d="1950">It's the next
+integral of course.</p>
+<p t="689410" d="5840">The area under that will
+be x cubed over six.</p>
+<p t="695250" d="1810">So now that is a function.</p>
+<p t="697060" d="2120">Yeah, it's worth maybe
+just for practice.</p>
+<p t="699180" d="2930">What's the deal
+with that function?</p>
+<p t="702110" d="2760">That's pretty smooth function.</p>
+<p t="704870" d="5500">Because it certainly passes--
+right, it meets at that point.</p>
+<p t="710370" d="4190">The first derivative
+meets at that point.</p>
+<p t="714560" d="3380">The second derivative
+meets at that point.</p>
+<p t="717940" d="2540">The third derivative does what?</p>
+<p t="720480" d="1670">Of this line.</p>
+<p t="722150" d="2870">The third derivative, take
+three steps back down the line</p>
+<p t="725020" d="3461">and you see that the
+third derivative jumps.</p>
+<p t="728481" d="499">Right?</p>
+<p t="728980" d="3140">The third derivative of that
+is the third derivative,</p>
+<p t="732120" d="5450">would be, shall I-- for C,
+for cubic spline or something,</p>
+<p t="737570" d="3710">the third derivative
+will be zero there.</p>
+<p t="741280" d="3420">And the third derivative
+of that is exactly</p>
+<p t="744700" d="5160">like back to that, back to
+that, back to one is one.</p>
+<p t="749860" d="4890">So the third derivative. so
+the cubic spline's so smooth</p>
+<p t="754750" d="3890">your eye doesn't see that.</p>
+<p t="758640" d="3750">They're very useful for
+drawing many, many purposes.</p>
+<p t="762390" d="3160">CAD programs would use
+such things constantly</p>
+<p t="765550" d="4910">because they're convenient,
+they have nice pieces</p>
+<p t="770460" d="2610">that you can fit together
+and they fit together</p>
+<p t="773070" d="2110">very smoothly.</p>
+<p t="775180" d="4750">But they really are
+two separate functions.</p>
+<p t="779930" d="2340">So that's up to cubic spline.</p>
+<p t="782270" d="2500">But our focus is--</p>
+<p t="784770" d="4780">These would solve, what
+equations would those solve?</p>
+<p t="789550" d="3740">Well, that takes how many
+derivatives to get to a delta?</p>
+<p t="793290" d="4530">So what would be the equation?</p>
+<p t="797820" d="4810">What would be the
+right-hand side?</p>
+<p t="802630" d="2890">Let me take the
+fourth derivative.</p>
+<p t="805520" d="2010">I'll just ask the
+question that way.</p>
+<p t="807530" d="1740">What would be the
+fourth derivative</p>
+<p t="809270" d="2550">of that cubic spline?</p>
+<p t="811820" d="980">A delta, right?</p>
+<p t="812800" d="1940">Four steps back.</p>
+<p t="814740" d="5880">So what is, physically,
+what are we seeing here?</p>
+<p t="820620" d="3480">Do you recognize what
+kind-- If I ask now</p>
+<p t="824100" d="3130">people in mechanics,
+When will we</p>
+<p t="827230" d="2470">meet a fourth order equation?</p>
+<p t="829700" d="3860">Fourth derivative equals a load.</p>
+<p t="833560" d="4550">Anybody know the
+physical situation</p>
+<p t="838110" d="4300">where fourth derivative?</p>
+<p t="842410" d="1180">Beams, yeah.</p>
+<p t="843590" d="2200">It's the equation for a beam.</p>
+<p t="845790" d="4920">A beam has-- The
+bending of a beam.</p>
+<p t="850710" d="820">So it's a beam.</p>
+<p t="851530" d="3730">This eraser isn't too
+very much like a beam,</p>
+<p t="855260" d="5120">but anyway I put the chalk
+on it, well nothing happened.</p>
+<p t="860380" d="2300">Sit on it, whatever.</p>
+<p t="862680" d="5750">It'll bend and that bending will
+be given by a beam equation.</p>
+<p t="868430" d="2620">So later we'll meet
+the beam equation.</p>
+<p t="871050" d="9100">So most equations of physics,
+mechanics, biology, everything</p>
+<p t="880150" d="5630">are second order, Newton's
+Laws often the reason.</p>
+<p t="885780" d="3950">But we get up to
+fourth order sometimes.</p>
+<p t="889730" d="2530">And very seldom get higher.</p>
+<p t="892260" d="1120">Hopefully.</p>
+<p t="893380" d="5120">Beams or plates, that
+table would be a plate</p>
+<p t="898500" d="7030">and it would have a
+fourth order equation.</p>
+<p t="905530" d="2320">Let's start solving
+this problem.</p>
+<p t="907850" d="3770">What's the solution,
+what's the general solution</p>
+<p t="911620" d="1580">to that equation?</p>
+<p t="913200" d="2630">Minus the second derivative,
+so notice the minus</p>
+<p t="915830" d="4010">that I like, and the load
+has now moved to the point a.</p>
+<p t="919840" d="6080">So the solution u(x), let's
+write down all solutions.</p>
+<p t="925920" d="1470">Tell me one solution, first.</p>
+<p t="927390" d="1890">One particular solution.</p>
+<p t="929280" d="3130">What is one function
+for which minus</p>
+<p t="932410" d="4070">the second derivative
+would be the delta?</p>
+<p t="936480" d="1550">That's what we've
+got over there.</p>
+<p t="938030" d="4080">So just bring that
+blackboard over here.</p>
+<p t="942110" d="3010">Change its sign
+because that minus,</p>
+<p t="945120" d="1630">and what are you
+going to tell me?</p>
+<p t="946750" d="4500">Minus a ramp.</p>
+<p t="951250" d="1920">Minus a ramp.</p>
+<p t="953170" d="4660">And the ramp, of course,
+will ramp up at the point</p>
+<p t="957830" d="6990">a so that it's the second
+derivative of that,</p>
+<p t="964820" d="2830">the second derivative
+of R will be delta.</p>
+<p t="967650" d="4620">The minus is correct and
+the point is correct.</p>
+<p t="972270" d="5320">Now does that solve our problem?</p>
+<p t="977590" d="3020">No.</p>
+<p t="980610" d="1630">The ramp is going upwards.</p>
+<p t="982240" d="1330">It's not zero.</p>
+<p t="983570" d="2080">What am I forgetting?</p>
+<p t="985650" d="1530">What do I not yet have?</p>
+<p t="987180" d="3340">There's more to this solution.</p>
+<p t="990520" d="3840">Just as there was
+for a uniform load.</p>
+<p t="994360" d="2490">What was the more?</p>
+<p t="996850" d="10550">Constant and-- and I want
+two homogeneous solutions,</p>
+<p t="1007400" d="4870">null solutions, two solutions
+with second derivative equal</p>
+<p t="1012270" d="760">zero.</p>
+<p t="1013030" d="4310">One of them is C and
+the other one is Dx.</p>
+<p t="1017340" d="2100">That's the whole solution.</p>
+<p t="1019440" d="5010">So what I want to-- I
+mean we need that C+Dx.</p>
+<p t="1024450" d="1580">We've got two
+boundary conditions</p>
+<p t="1026030" d="2310">to satisfy, just as before.</p>
+<p t="1028340" d="2480">So I need two constants,
+that'll do it perfectly</p>
+<p t="1030820" d="2610">and I'll get an exact answer.</p>
+<p t="1033430" d="4740">And so this is a ramp.</p>
+<p t="1038170" d="1180">Oh yeah.</p>
+<p t="1039350" d="4410">Before I go further, how
+would I think about this?</p>
+<p t="1043760" d="3400">This is a ramp that
+turns which way?</p>
+<p t="1047160" d="1110">Down.</p>
+<p t="1048270" d="1570">Right?</p>
+<p t="1049840" d="5490">With that minus sign, that ramp
+turns down at the point x=a.</p>
+<p t="1055330" d="2300">Right?</p>
+<p t="1057630" d="6210">It's derivative goes
+from zero to minus one.</p>
+<p t="1063840" d="5950">The slope of this guy drops by
+one because of the minus sign.</p>
+<p t="1069790" d="10550">Sorry the slope of the ramp
+function, of minus the ramp.</p>
+<p t="1080340" d="3290">It goes at zero, drops by one.</p>
+<p t="1083630" d="3440">And what this is going
+to do is take that ramp</p>
+<p t="1087070" d="4630">and adjust it to go
+through the fixed ends.</p>
+<p t="1091700" d="1300">Oh, let's just do it.</p>
+<p t="1093000" d="780">Let's just do it.</p>
+<p t="1093780" d="1750">What are C and D?</p>
+<p t="1095530" d="950">What are C and D?</p>
+<p t="1096480" d="2180">My point a-- let
+me draw a graph,</p>
+<p t="1098660" d="2450">that's always the best thing.</p>
+<p t="1101110" d="5040">Always draw a graph
+of these solutions.</p>
+<p t="1106150" d="3580">So let me put in the point a.</p>
+<p t="1109730" d="5100">So I'm drawing now a picture of
+the solution from zero to one.</p>
+<p t="1114830" d="5640">I'll graph it.</p>
+<p t="1120470" d="1790">What do I have here?</p>
+<p t="1122260" d="4900">Shall we just plug in
+the boundary conditions</p>
+<p t="1127160" d="1100">and find C and D?</p>
+<p t="1128260" d="1800">That's the direct way.</p>
+<p t="1130060" d="2820">What is C?</p>
+<p t="1132880" d="2150">C I'm going to plug in.</p>
+<p t="1135030" d="2730">Hopefully I might find it
+from just the first boundary</p>
+<p t="1137760" d="1330">condition.</p>
+<p t="1139090" d="3600">If I'm starting from zero,
+well this guy certainly</p>
+<p t="1142690" d="2080">starts at zero, right?</p>
+<p t="1144770" d="4240">The ramp hasn't done
+anything until it gets to a.</p>
+<p t="1149010" d="1810">And this guy is certainly zero.</p>
+<p t="1150820" d="2060">So what is C?</p>
+<p t="1152880" d="2880">Gone, right.</p>
+<p t="1155760" d="3440">Now what is D?</p>
+<p t="1159200" d="3610">Well alright, what's D?</p>
+<p t="1162810" d="500">Let's see.</p>
+<p t="1163310" d="6710">Let me draw the-- So there's
+a Dx, and D won't be zero.</p>
+<p t="1170020" d="4460">I want that thing to
+be zero at point one.</p>
+<p t="1174480" d="4910">So I want to determine
+D. Let me determine D.</p>
+<p t="1179390" d="5790">So what is minus
+the ramp at x=1?</p>
+<p t="1185180" d="1457">I'm plugging in x=1.</p>
+<p t="1186637" d="583">Is that right?</p>
+<p t="1187220" d="2140">I'm going straight forward here.</p>
+<p t="1189360" d="3300">Plugging in x=1 into
+this boundary condition,</p>
+<p t="1192660" d="2120">ready for this guy.</p>
+<p t="1194780" d="1290">What's the ramp?</p>
+<p t="1196070" d="6910">So it's minus and
+the ramp is, well</p>
+<p t="1202980" d="4330">if the ramp is shifted over
+then that's shifted over.</p>
+<p t="1207310" d="4910">So at x=1, what's the ramp?</p>
+<p t="1212220" d="3180">How high has that ramp gone?</p>
+<p t="1215400" d="1940">1-a.</p>
+<p t="1217340" d="500">Right?</p>
+<p t="1217840" d="1190">The ramp is x-a.</p>
+<p t="1221930" d="3930">At the point x=1 it will be 1-a.</p>
+<p t="1225860" d="4030">So I think I get one,
+-(1-a) out of that.</p>
+<p t="1229890" d="5610">Minus the ramp
+plus D times what?</p>
+<p t="1235500" d="2380">One, I'm plugging in x=1.</p>
+<p t="1237880" d="2730">And that's supposed to equal?</p>
+<p t="1240610" d="2700">Zero, good.</p>
+<p t="1243310" d="6060">So I'm doing this sort of the
+systematic way of writing down</p>
+<p t="1249370" d="1860">the general solution.</p>
+<p t="1251230" d="3830">Discovering that D,
+what do I discover D is?</p>
+<p t="1255060" d="1620">Put it on the other side.</p>
+<p t="1256680" d="3840">D is 1-a.</p>
+<p t="1260520" d="7900">And of course, don't forget
+that it's multiplying the x.</p>
+<p t="1268420" d="4590">Let me just draw the picture.</p>
+<p t="1273010" d="2570">Here's how I think about it.</p>
+<p t="1275580" d="5110">The solution is, away from x=a,
+what does the solution look</p>
+<p t="1280690" d="2040">like?</p>
+<p t="1282730" d="5270">To the left of x=a what's
+my graph going to be?</p>
+<p t="1288000" d="3630">It's going to be?</p>
+<p t="1291630" d="2060">A straight line, right?</p>
+<p t="1293690" d="4710">To the left of here
+there is no load.</p>
+<p t="1298400" d="4970">The equation is second
+derivative equals zero.</p>
+<p t="1303370" d="2360">The solution to that
+is a straight line.</p>
+<p t="1305730" d="3400">In other words, until I get to
+a, this thing hasn't started.</p>
+<p t="1309130" d="2230">It's only this straight line.</p>
+<p t="1311360" d="2470">The solution does
+something like that.</p>
+<p t="1313830" d="1820">It's a straight line.</p>
+<p t="1315650" d="3530">And I guess, actually,
+that's what it is.</p>
+<p t="1319180" d="3530">Because the C isn't here and
+that's all we've got left.</p>
+<p t="1322710" d="4120">So that's that straight line.</p>
+<p t="1326830" d="3990">What is it for the second half?</p>
+<p t="1330820" d="3840">Tell me what the solution
+looks like in the second half.</p>
+<p t="1334660" d="2600">In between a and one.</p>
+<p t="1337260" d="2340">It's going downhill.</p>
+<p t="1339600" d="2430">Why?</p>
+<p t="1342030" d="2740">Because it gotta
+get back to zero.</p>
+<p t="1344770" d="3920">And how's it going downhill?</p>
+<p t="1348690" d="2340">It has to be linear.</p>
+<p t="1351030" d="3250">In this region,
+has to be linear.</p>
+<p t="1354280" d="2920">Why?</p>
+<p t="1357200" d="1600">How do I know it's linear here?</p>
+<p t="1358800" d="4240">Because one way is to say
+the equation in that region</p>
+<p t="1363040" d="3340">is second derivative equal zero.</p>
+<p t="1366380" d="2870">Second derivative equal
+zero, straight line.</p>
+<p t="1369250" d="1580">This is my solution.</p>
+<p t="1370830" d="4990">It's (1-a)x here and it's
+whatever it is to get back</p>
+<p t="1375820" d="2500">to zero.</p>
+<p t="1378320" d="3780">What will it take
+to get back to zero?</p>
+<p t="1382100" d="1440">Let's see.</p>
+<p t="1383540" d="3550">Well we could plug in, we've
+got one expression here.</p>
+<p t="1387090" d="2260">Or I could just look at that.</p>
+<p t="1389350" d="3520">I could say, okay what's the
+equation for the straight line</p>
+<p t="1392870" d="4640">that's at this point, what
+is the, yeah, it's (1-a)x.</p>
+<p t="1403230" d="3130">I want it to be linear.</p>
+<p t="1406360" d="5160">I want it to get to zero.</p>
+<p t="1411520" d="870">Let's see.</p>
+<p t="1412390" d="4070">If I want that, it would
+be great to have 1-x times</p>
+<p t="1416460" d="1000">something.</p>
+<p t="1417460" d="2450">I have to figure out what.</p>
+<p t="1419910" d="4250">Because with the 1-x at
+x=1, that'll drop off.</p>
+<p t="1424160" d="1300">That's linear.</p>
+<p t="1425460" d="4500">What number, what's
+the key here?</p>
+<p t="1429960" d="8270">That slope, I want to
+match them up there.</p>
+<p t="1438230" d="3520">And that's the point x=a.</p>
+<p t="1441750" d="2890">This is supposed to
+match that at x=a.</p>
+<p t="1444640" d="4740">Do you have an idea
+for what I should take?</p>
+<p t="1449380" d="6360">What do I put right there? a.</p>
+<p t="1455740" d="6380">Look at the symmetry in those
+two sides. (1-a)x going up.</p>
+<p t="1462120" d="2580">(1-x)a going down.</p>
+<p t="1464700" d="4290">At x=a it hits
+that point, right.</p>
+<p t="1468990" d="1760">So we've solved it.</p>
+<p t="1470750" d="3380">We could think about
+this different ways.</p>
+<p t="1474130" d="5080">I could have got
+that 1-x, let's see,</p>
+<p t="1479210" d="3080">I could have got it
+from the formula.</p>
+<p t="1482290" d="4750">In a way I like to get it from
+the picture, I see it, sort of,</p>
+<p t="1487040" d="1960">I see the point.</p>
+<p t="1489000" d="2410">What happened at that point?</p>
+<p t="1491410" d="2750">What are the jump conditions?</p>
+<p t="1494160" d="2230">This is another
+way to ask, to see</p>
+<p t="1496390" d="2020">how the delta function works.</p>
+<p t="1498410" d="2330">What are they jump conditions?</p>
+<p t="1500740" d="2790">I want to know, when I
+ask about jump conditions,</p>
+<p t="1503530" d="3040">I want to know what are
+the conditions on u(x),</p>
+<p t="1506570" d="1460">the displacement?</p>
+<p t="1508030" d="4820">What are the conditions
+on the slope, u'(x)?</p>
+<p t="1512850" d="6940">That'll be the strain when
+we're speaking about elasticity.</p>
+<p t="1519790" d="3230">Just for u(x),
+what's the statement</p>
+<p t="1523020" d="2460">about u(x) from the
+left and from the right</p>
+<p t="1525480" d="7280">at that critical point,
+the point of the load.</p>
+<p t="1532760" d="5260">From the left and from
+the right u(x) is?</p>
+<p t="1538020" d="3980">The same. u(x) matches
+up. u(x) from the left</p>
+<p t="1542000" d="2500">is that height. u(x)
+from the right is that.</p>
+<p t="1544500" d="4360">I want to write down
+those jump conditions.</p>
+<p t="1548860" d="4190">Because that's another
+way to see this. u(x),</p>
+<p t="1553050" d="9150">u(a) from the left
+should equal u--</p>
+<p t="1562200" d="2300">do you want me to
+say u is continuous?</p>
+<p t="1564500" d="8150">I'll just say it in
+words. u(x) is continuous,</p>
+<p t="1572650" d="2550">that just means it
+doesn't jump, at x=a.</p>
+<p t="1578050" d="4720">So that's, you could say
+that's a non-jump condition.</p>
+<p t="1582770" d="1620">The function itself
+doesn't jump.</p>
+<p t="1584390" d="630">Why not?</p>
+<p t="1585020" d="3170">Because we're talking about
+some elastic bar on which</p>
+<p t="1588190" d="1970">we put a point load.</p>
+<p t="1590160" d="2440">The thing isn't going to break.</p>
+<p t="1592600" d="3910">The displacement is
+going to be continuous.</p>
+<p t="1596510" d="5640">But what's the condition
+on u'(x), the derivative,</p>
+<p t="1602150" d="1410">the slope?</p>
+<p t="1603560" d="2830">So that's the function
+and now tell me</p>
+<p t="1606390" d="2010">what's the deal on the slope?</p>
+<p t="1608400" d="2950">What's the comparison
+between the-- I</p>
+<p t="1611350" d="3070">have a slope of whatever
+it is going along here</p>
+<p t="1614420" d="2560">and I have a slope
+of-- a new slope.</p>
+<p t="1616980" d="6150">So u'(x), the
+slope jumps, right?</p>
+<p t="1623130" d="3580">And how much does it jump?</p>
+<p t="1626710" d="1410">Minus one.</p>
+<p t="1628120" d="1740">It drops by one.</p>
+<p t="1629860" d="3560">The slope, because of my minus.</p>
+<p t="1633420" d="4429">So this tells me that--
+Yeah, let me write that down.</p>
+<p t="1637849" d="791">u'(x) drops by one.</p>
+<p t="1646430" d="6120">This is another way to say
+what the equation is asking.</p>
+<p t="1652550" d="3990">The equation is looking for
+two pieces of straight lines</p>
+<p t="1656540" d="4720">that meet at a but their
+slope drops by one.</p>
+<p t="1661260" d="1540">By the way, what
+were the slopes?</p>
+<p t="1662800" d="3080">It's good to graph
+the slopes, too.</p>
+<p t="1665880" d="6730">Let me graph the slopes.</p>
+<p t="1672610" d="5980">The slope u', the
+derivative du/dx.</p>
+<p t="1678590" d="2200">What's the slope here?</p>
+<p t="1680790" d="2490">Slope is 1-a at
+this point, right?</p>
+<p t="1683280" d="3070">The derivative is
+1-a along here.</p>
+<p t="1686350" d="3440">So slope is 1-a.</p>
+<p t="1689790" d="4890">And now at x=a the slope
+changes to this one.</p>
+<p t="1694680" d="3050">And what's the slope
+of that second part?</p>
+<p t="1697730" d="1040">Minus a.</p>
+<p t="1698770" d="890">Look.</p>
+<p t="1699660" d="1530">It did it right.</p>
+<p t="1701190" d="3240">Minus a is the slope along here.</p>
+<p t="1704430" d="3900">Do you see 1-a?</p>
+<p t="1708330" d="1190">It dropped by one.</p>
+<p t="1709520" d="7090">The one disappeared to
+leave a slope of minus a.</p>
+<p t="1716610" d="5360">I guess if I just imagine a bar.</p>
+<p t="1721970" d="3140">I'm fixing it at both ends.</p>
+<p t="1725110" d="5760">There's a bar.</p>
+<p t="1730870" d="2580">I'm just thinking
+for people who like</p>
+<p t="1733450" d="4060">to see a physical picture
+of what's happening,</p>
+<p t="1737510" d="5980">that's what this is, we'll do
+it properly very, very soon.</p>
+<p t="1743490" d="2010">I've got a bar.</p>
+<p t="1745500" d="3200">It's a very light bar.</p>
+<p t="1748700" d="3620">Its weight is not
+a problem here.</p>
+<p t="1752320" d="2140">But it's got a
+load at the point.</p>
+<p t="1754460" d="1880">So I'll measure x
+going downwards.</p>
+<p t="1756340" d="6560">And at the point x=a I'm
+hanging a heavy load.</p>
+<p t="1762900" d="1740">A load.</p>
+<p t="1764640" d="6300">How do I draw a load?</p>
+<p t="1770940" d="9170">Maybe I'll make a big
+weight or something.</p>
+<p t="1780110" d="9070">What's going to happen to
+this dumb bar when I do that?</p>
+<p t="1789180" d="1292">Just tell me physically.</p>
+<p t="1790472" d="958">What's going to happen?</p>
+<p t="1791430" d="3380">What's going to
+happen above the load?</p>
+<p t="1794810" d="5490">It's going to stretch,
+right, tension.</p>
+<p t="1800300" d="2440">The load is going to
+pull the bar down,</p>
+<p t="1802740" d="2610">it's going to stretch this part.</p>
+<p t="1805350" d="1990">And because nothing
+special is happening,</p>
+<p t="1807340" d="2440">it's going to
+stretch it linearly.</p>
+<p t="1809780" d="3400">And then what's going to
+happen below the load?</p>
+<p t="1813180" d="2630">Compression.</p>
+<p t="1815810" d="3580">So the slope will go negative.</p>
+<p t="1819390" d="4340">And nothing special happened
+so the slope will be negative</p>
+<p t="1823730" d="1510">but it'll be constant.</p>
+<p t="1825240" d="2360">The slope will drop
+from this to this.</p>
+<p t="1827600" d="7050">The displacement, that point
+will go down a little bit.</p>
+<p t="1834650" d="4037">That little bit it goes down
+is actually the height of this,</p>
+<p t="1838687" d="1333">because that's the displacement.</p>
+<p t="1840020" d="1920">It'll go down a little bit.</p>
+<p t="1841940" d="3050">It'll stretch above,
+it'll compress below,</p>
+<p t="1844990" d="7710">and we see that in that
+picture of the displacement.</p>
+<p t="1852700" d="2370">The displacement's all down.</p>
+<p t="1855070" d="930">Right?</p>
+<p t="1856000" d="5320">Displacement-- You know, nature
+is still going to-- All the bar</p>
+<p t="1861320" d="1020">is going to move down.</p>
+<p t="1862340" d="4970">That's why this function
+doesn't, this function,</p>
+<p t="1867310" d="2030">the displacement
+function is positive.</p>
+<p t="1869340" d="1540">It goes all down.</p>
+<p t="1870880" d="4620">But the slope function
+is positive here,</p>
+<p t="1875500" d="4280">so tension is positive
+slope, stretch.</p>
+<p t="1879780" d="4960">And compression is negative.</p>
+<p t="1884740" d="6620">Well all that to
+solve this equation.</p>
+<p t="1891360" d="7090">Maybe while we're on a roll,
+let's solve the free-fixed guy.</p>
+<p t="1898450" d="2990">So this is our-- might
+as well be systematic.</p>
+<p t="1901440" d="1720">This is the fixed-fixed problem.</p>
+<p t="1903160" d="3610">Let me below it solve
+the free-fixed problem.</p>
+<p t="1906770" d="3720">So it'll be minus u'',
+that's the second derivative,</p>
+<p t="1910490" d="3350">equals delta at x-a.</p>
+<p t="1913840" d="1840">Same setup.</p>
+<p t="1915680" d="6050">But now the top end is,
+so it's free at the top.</p>
+<p t="1921730" d="2560">What does that mean?</p>
+<p t="1924290" d="7820">Slope is zero at the top but
+it's still fixed at the bottom.</p>
+<p t="1932110" d="9380">So this will be now free-fixed.</p>
+<p t="1941490" d="2550">Let me go straight
+to the picture.</p>
+<p t="1944040" d="3660">Let me go straight to
+the picture of u(x).</p>
+<p t="1947700" d="5070">So there is x=0, there's
+x=1, here's the load at a.</p>
+<p t="1952770" d="4280">What's up?</p>
+<p t="1957050" d="1890">And while you're
+thinking about that,</p>
+<p t="1958940" d="4360">let me draw a picture
+to match this picture.</p>
+<p t="1963300" d="9340">A bar fixed at the bottom
+but not at the top.</p>
+<p t="1972640" d="6480">And it's got its load
+here hanging down.</p>
+<p t="1979120" d="9120">But let's do it math first, and
+then check with the picture.</p>
+<p t="1988240" d="1650">What have we got,
+two or three ways now</p>
+<p t="1989890" d="1600">to try to get the answer?</p>
+<p t="1991490" d="3100">The systematic way
+would be to write down</p>
+<p t="1994590" d="8120">this solution and plug in
+the two boundary conditions.</p>
+<p t="2002710" d="2070">That'd be a straightforward way.</p>
+<p t="2004780" d="2570">Yeah, we could
+even start by that.</p>
+<p t="2007350" d="5820">So u(x) is the
+particular solution,</p>
+<p t="2013170" d="13180">the ramp plus any Cx+D. And just
+plug in x=0 that'll be easy.</p>
+<p t="2026350" d="5200">If I plug in x=0 in
+the free condition,</p>
+<p t="2031550" d="1690">what does that tell me?</p>
+<p t="2033240" d="5580">At x=0, this corner, this ramp
+hasn't started so the slope is</p>
+<p t="2038820" d="1220">zero.</p>
+<p t="2040040" d="1690">The slope of the
+constant is zero.</p>
+<p t="2041730" d="3550">What do I learn from this
+boundary condition? u'(0)=0.</p>
+<p t="2048650" d="1650">That C is zero.</p>
+<p t="2050300" d="2440">Before I learned that
+D was zero, but now</p>
+<p t="2052740" d="5800">from that condition I'm
+going to learn C is zero.</p>
+<p t="2058540" d="2620">Do the picture for me.</p>
+<p t="2061160" d="2930">Do the picture for me.</p>
+<p t="2064090" d="3680">What's the graph of--
+this is a graph of u(x).</p>
+<p t="2070990" d="5010">Remember now it
+starts from zero slope</p>
+<p t="2076000" d="2330">because it's free at the top.</p>
+<p t="2078330" d="6550">What does the graph look
+like in the first part?</p>
+<p t="2084880" d="4490">It's a straight line, has to be
+a straight line because there's</p>
+<p t="2089370" d="1680">no force.</p>
+<p t="2091050" d="3210">And what kind of a line?</p>
+<p t="2094260" d="3660">It's going to be horizontal
+because it starts off</p>
+<p t="2097920" d="1370">horizontal.</p>
+<p t="2099290" d="5790">The slope has to be zero at zero
+and nothing changes until a.</p>
+<p t="2105080" d="3880">So it comes along there.</p>
+<p t="2108960" d="2260">Right?</p>
+<p t="2111220" d="2890">Now I've started out
+with the right, left,</p>
+<p t="2114110" d="4840">the correct boundary condition
+at zero, which was no slope.</p>
+<p t="2118950" d="3380">And now what's it going
+to do the other half?</p>
+<p t="2122330" d="2870">From a to one.</p>
+<p t="2125200" d="5890">It's going to be again, it'll
+be a straight line, right?</p>
+<p t="2131090" d="2290">Because there's no force there.</p>
+<p t="2133380" d="4300">And what happens at--
+all the action of course</p>
+<p t="2137680" d="4220">is at this point a,
+and what action is it?</p>
+<p t="2141900" d="3100">Tell me what sort of a line.</p>
+<p t="2145000" d="4940">How do I finish the picture?</p>
+<p t="2149940" d="2430">What do I do?</p>
+<p t="2152370" d="1400">I start here, right?</p>
+<p t="2153770" d="7300">Because the bar's not falling
+apart. u is continuous.</p>
+<p t="2161070" d="2710">I don't get a gap suddenly.</p>
+<p t="2163780" d="3610">And now what do I do from there?</p>
+<p t="2167390" d="3740">Only thing I can possibly do,
+because I have to end up here</p>
+<p t="2171130" d="5812">and it has to be a
+straight line, that's it.</p>
+<p t="2176942" d="1958">That's what the picture
+will have to look like.</p>
+<p t="2178900" d="11210">What does that correspond to
+in the picture for the bar?</p>
+<p t="2190110" d="3190">Well what happens with this bar?</p>
+<p t="2193300" d="5440">Above the weight, what
+happens to this top part</p>
+<p t="2198740" d="3890">of the bar in that picture?</p>
+<p t="2202630" d="2390">And what happens to the
+lower part of the bar?</p>
+<p t="2205020" d="6280">So this was at the point x=a,
+this is x=0, this is x=1.</p>
+<p t="2211300" d="6590">What happens above the
+bar, above the weight?</p>
+<p t="2217890" d="3890">It just-- A rigid
+motion, just goes down.</p>
+<p t="2221780" d="2840">Because what happens
+below the weight?</p>
+<p t="2224620" d="2890">The same compression or
+compression still happening.</p>
+<p t="2227510" d="1440">This is still squeezed.</p>
+<p t="2228950" d="3190">Shall I try to draw it?</p>
+<p t="2232140" d="2690">So this is after the weight.</p>
+<p t="2234830" d="6470">This got squeezed but this
+part did not get squeezed.</p>
+<p t="2241300" d="4670">And that's what
+we're seeing here.</p>
+<p t="2245970" d="2150">A fixed displacement.</p>
+<p t="2248120" d="2850">So this means,
+that picture means</p>
+<p t="2250970" d="5630">that all the pieces
+of the bar here</p>
+<p t="2256600" d="2770">got moved down by the same
+amount, whatever this,</p>
+<p t="2259370" d="2490">we don't know that number yet.</p>
+<p t="2261860" d="7380">And then below it
+they got compressed.</p>
+<p t="2269240" d="7190">Well we're almost there but we
+don't yet have that solution.</p>
+<p t="2276430" d="5700">Come back to this picture.
+u(x) is continuous, got it.</p>
+<p t="2282130" d="2560">And what's the real
+condition that's</p>
+<p t="2284690" d="5290">going to determine where
+we are, what those heights</p>
+<p t="2289980" d="2410">are, the numbers in there.</p>
+<p t="2292390" d="3670">It's gotta look like
+that, but we get more than</p>
+<p t="2296060" d="3910">that, we gotta know what are
+the actual, what is that height.</p>
+<p t="2299970" d="980">What is this?</p>
+<p t="2300950" d="1100">What's the slope?</p>
+<p t="2302050" d="5200">Here the slope is zero.</p>
+<p t="2307250" d="6980">Here the slope is what?</p>
+<p t="2314230" d="1940">What's the slope
+in the second part?</p>
+<p t="2316170" d="910">That's the key.</p>
+<p t="2317080" d="3530">And you know what it
+has to be because what</p>
+<p t="2320610" d="2130">happens to the slope?</p>
+<p t="2322740" d="4170">If I have the second
+derivative as a delta function</p>
+<p t="2326910" d="9510">with that minus sign,
+the slope drops by one.</p>
+<p t="2336420" d="6270">And the slope here is zero, so
+the slope here is minus one.</p>
+<p t="2342690" d="4930">And now it has to get through
+there, so what is the function?</p>
+<p t="2347620" d="4370">What's the function that
+has a slope of minus one</p>
+<p t="2351990" d="10040">and comes down to zero?</p>
+<p t="2362030" d="2450">It's gotta have a minus
+x in it and what's</p>
+<p t="2364480" d="6320">the constant to make
+it come out right?</p>
+<p t="2370800" d="3710">What do I write
+now here for u(x)?</p>
+<p t="2374510" d="500">1-x.</p>
+<p t="2377830" d="3400">That has a slope of minus one,
+the derivative is minus one,</p>
+<p t="2381230" d="2910">at x=1 it comes to
+zero, that's it.</p>
+<p t="2384140" d="4540">And what do I write,
+what's u(x) up here?</p>
+<p t="2388680" d="5870">And therefore, right there?</p>
+<p t="2394550" d="4520">What's the displacement
+there, of all this bit that</p>
+<p t="2399070" d="4130">moves down, how much
+does it move down?</p>
+<p t="2403200" d="1160">1-a.</p>
+<p t="2404360" d="1320">Why 1-a?</p>
+<p t="2405680" d="1100">That's the right answer.</p>
+<p t="2406780" d="499">1-a.</p>
+<p t="2409750" d="2680">Why's that?</p>
+<p t="2412430" d="3170">Because it had to
+match up at x=a.</p>
+<p t="2415600" d="3630">At x=a, this and that match up.</p>
+<p t="2419230" d="4360">At x=a, that slope, that
+function and that function</p>
+<p t="2423590" d="780">match up.</p>
+<p t="2424370" d="7200">So the slope picture is
+zero and-- Oh, I'm sorry,</p>
+<p t="2431570" d="4930">can't draw it because I'm
+at the bottom of the board.</p>
+<p t="2436500" d="2620">The slope picture, maybe
+I can draw it here,</p>
+<p t="2439120" d="3620">the slope picture
+is zero along here</p>
+<p t="2442740" d="2560">and then it drops by one to 1-a.</p>
+<p t="2445300" d="2300">So that's a picture of u'.</p>
+<p t="2447600" d="3870">Zero and minus one.</p>
+<p t="2451470" d="8460">This is the thing to look at.</p>
+<p t="2459930" d="3220">That's hard work, when
+you're seeing delta functions</p>
+<p t="2463150" d="640">the first time.</p>
+<p t="2463790" d="2800">But of course the functions
+did not get complicated.</p>
+<p t="2466590" d="4630">We kept a clean example.</p>
+<p t="2471220" d="7020">And which we matched up with a
+figure and we've got the answer</p>
+<p t="2478240" d="2200">and we've got a couple
+of ways to do it.</p>
+<p t="2480440" d="5070">One is this standard,
+systematic, plug-in boundary</p>
+<p t="2485510" d="1140">condition way.</p>
+<p t="2486650" d="5050">The other way is this.
+u(x) does something here,</p>
+<p t="2491700" d="2760">then the slope has
+to drop by one.</p>
+<p t="2494460" d="5660">And that's the key to everything
+with a boundary condition.</p>
+<p t="2500120" d="3290">So in a way, we have a piece
+to the left and a piece</p>
+<p t="2503410" d="1250">to the right.</p>
+<p t="2504660" d="2480">Two constants here,
+two constants here,</p>
+<p t="2507140" d="3610">and somewhere there are
+four conditions that</p>
+<p t="2510750" d="2190">settle those four constants.</p>
+<p t="2512940" d="2510">You know, we could have
+a straight line here,</p>
+<p t="2515450" d="2540">a straight line here,
+that's two and two.</p>
+<p t="2517990" d="2290">But what are the
+four conditions that</p>
+<p t="2520280" d="1410">settle those four constants?</p>
+<p t="2521690" d="3770">Well we have a boundary
+condition here, that's one.</p>
+<p t="2525460" d="2430">Boundary condition here is two.</p>
+<p t="2527890" d="4080">We need two more
+conditions to settle</p>
+<p t="2531970" d="7440">the two pairs of constants,
+and there they are.</p>
+<p t="2539410" d="8130">Two conditions at the
+jump, at the discontinuity.</p>
+<p t="2547540" d="8730">Now I've got to do
+the discrete case.</p>
+<p t="2556270" d="2900">Are you up for
+the discrete case?</p>
+<p t="2559170" d="8150">The case where we're doing--
+We have a difference equation,</p>
+<p t="2567320" d="5160">so we're doing Ku equal
+a column of the identity.</p>
+<p t="2572480" d="10980">Column of I. Let me
+take a specific column.</p>
+<p t="2583460" d="2960">Say [0, 1, 0, 0, 0].</p>
+<p t="2586420" d="6130">Let's suppose we have five--
+I'm going to draw a picture now.</p>
+<p t="2592550" d="3130">We have five, because
+I made it five by five.</p>
+<p t="2595680" d="5580">One, two, three, four, five,
+here is zero and here is six.</p>
+<p t="2601260" d="4460">So h is 1/(5+1), 1/6,
+that's the delta x.</p>
+<p t="2605720" d="10930">And my equation says-- So
+what does my equation say?</p>
+<p t="2616650" d="9480">Remember what K is. u is then
+u_1, u_2, u_3, u_4, and u_5,</p>
+<p t="2626130" d="1950">the unknowns.</p>
+<p t="2628080" d="16050">K is our old friend with twos
+and minus ones and minus ones.</p>
+<p t="2644130" d="3010">I'm going to find the solution.</p>
+<p t="2647140" d="8140">And this'll be the solution
+that has a load at this point.</p>
+<p t="2655280" d="2960">This is like my point a, right?</p>
+<p t="2658240" d="3160">Here in the continuous
+case, a could run anywhere</p>
+<p t="2661400" d="1650">between zero and one.</p>
+<p t="2663050" d="4370">In the discrete case, I've
+got five possible load points</p>
+<p t="2667420" d="1700">and I've picked the second one.</p>
+<p t="2669120" d="2710">Five columns of the
+identity matrix, five</p>
+<p t="2671830" d="4220">places to put that
+one, I put it there.</p>
+<p t="2676050" d="6610">Now can I draw the picture here?</p>
+<p t="2682660" d="2340">Which should we do first?</p>
+<p t="2685000" d="1950">Should we do free-fixed?</p>
+<p t="2686950" d="5330">Because that came out even
+easier than fixed-fixed.</p>
+<p t="2692280" d="3640">Notice the solution
+here had two parts.</p>
+<p t="2695920" d="3740">This is the way I would
+write that answer.</p>
+<p t="2699660" d="1890">Because you could
+draw a picture,</p>
+<p t="2701550" d="5010">but if you want to write the
+formula, what would I do?</p>
+<p t="2706560" d="3850">I would break it
+into two pieces.</p>
+<p t="2710410" d="5800">1-a up to the point
+a because that's</p>
+<p t="2716210" d="1910">what it was running along here.</p>
+<p t="2718120" d="5360">And then down here it
+was 1-x, x &amp;gt;=a.</p>
+<p t="2731580" d="2250">That's important to mention.</p>
+<p t="2733830" d="4990">You have to have some guidance
+on how to write the answer.</p>
+<p t="2738820" d="3390">And when the answer
+has two parts,</p>
+<p t="2742210" d="2280">this is a good way to
+write it, in two parts.</p>
+<p t="2744490" d="2280">It's a little too--
+you're compressing</p>
+<p t="2746770" d="3810">it too much to write, to
+use that ramp function.</p>
+<p t="2750580" d="5730">Better to split it apart
+into before a and after a.</p>
+<p t="2756310" d="3350">What's going to
+happen over here?</p>
+<p t="2759660" d="5200">Oh yeah, can we take a
+shot at this problem?</p>
+<p t="2764860" d="7020">And let me mention again,
+in the review that'll</p>
+<p t="2771880" d="5250">be in here this afternoon and
+every Wednesday afternoon I'll</p>
+<p t="2777130" d="1750">just be ready for questions.</p>
+<p t="2778880" d="3160">Please bring questions.</p>
+<p t="2782040" d="3320">They can be questions
+on the homework.</p>
+<p t="2785360" d="2840">Even better if they're
+questions on other problems,</p>
+<p t="2788200" d="4860">questions on the lecture.</p>
+<p t="2793060" d="8940">Questions are essential to
+make that help session helpful.</p>
+<p t="2802000" d="4470">What do you think's
+cooking here?</p>
+<p t="2806470" d="7590">At a typical-- Somewhere
+in the middle here,</p>
+<p t="2814060" d="3710">I'm going to draw the u's.</p>
+<p t="2817770" d="2790">Shall I just draw them?</p>
+<p t="2820560" d="2080">And now what's my condition?</p>
+<p t="2822640" d="2070">I gotta put the
+boundary conditions on.</p>
+<p t="2824710" d="3090">Oh, I have put the
+boundary conditions on it.</p>
+<p t="2827800" d="3550">By putting that two
+there, I'm up to here.</p>
+<p t="2831350" d="3930">Okay, let's do that one.</p>
+<p t="2835280" d="5500">When I chose K and
+put a two in there</p>
+<p t="2840780" d="3840">I was picking the fixed-fixed
+boundary condition.</p>
+<p t="2844620" d="4390">So can I just say it's
+going to be beautiful.</p>
+<p t="2849010" d="3520">The solution over there is
+going to look like this.</p>
+<p t="2852530" d="5190">The solution over here is
+going to be up, up, up.</p>
+<p t="2857720" d="5240">It's going to be a straight
+line but only points in a line</p>
+<p t="2862960" d="3700">and it'll be straight line down.</p>
+<p t="2866660" d="3620">That value, that
+value, that value.</p>
+<p t="2870280" d="3480">Those will be u_1,
+u_2, u_3, u_4, and u_5.</p>
+<p t="2878470" d="7220">And once more, this is
+going to drop by one again.</p>
+<p t="2885690" d="2930">Actually I didn't have
+to redraw the picture.</p>
+<p t="2888620" d="2520">It falls right on.</p>
+<p t="2891140" d="11400">In case x is 2/6 so that
+it fits that picture,</p>
+<p t="2902540" d="5710">I'm claiming we have another
+extremely lucky case.</p>
+<p t="2908250" d="6130">If we can use the
+word lucky for math.</p>
+<p t="2914380" d="3180">I'm claiming that the
+way the-- You remember</p>
+<p t="2917560" d="3620">for the uniform load
+with a one, when</p>
+<p t="2921180" d="3660">we had second derivative
+equal one, the solution</p>
+<p t="2924840" d="4320">was a perfect parabola
+and the discrete solution,</p>
+<p t="2929160" d="3410">the difference equation
+was right on the parabola</p>
+<p t="2932570" d="2130">for this fixed-fixed case.</p>
+<p t="2934700" d="2840">It's going to happen again.</p>
+<p t="2937540" d="2040">It won't always happen.</p>
+<p t="2939580" d="4750">Those are the only two important
+right-hand sides I know.</p>
+<p t="2944330" d="3110">They're the two most important
+right-hand sides and those</p>
+<p t="2947440" d="2460">are the two lucky ones.</p>
+<p t="2949900" d="3670">If we have a constant that
+lies right on a parabola,</p>
+<p t="2953570" d="8090">if we have a delta function,
+it lies right on a ramp.</p>
+<p t="2961660" d="1640">And there it is.</p>
+<p t="2963300" d="3330">So that's what the
+solution looks like.</p>
+<p t="2966630" d="5090">Now, I have to figure out what
+these numbers are, I guess.</p>
+<p t="2971720" d="2150">Yes, what are those numbers?</p>
+<p t="2973870" d="1190">Oh, well.</p>
+<p t="2975060" d="5840">Actually, if it falls right
+on, I know the numbers.</p>
+<p t="2980900" d="5990">So a is 2/6.</p>
+<p t="2986890" d="2650">So let me keep 2/6.</p>
+<p t="2989540" d="2010">So a is 2/6.</p>
+<p t="2991550" d="1590">That's that value.</p>
+<p t="2993140" d="5730">So let me say what I think u is.</p>
+<p t="2998870" d="1720">So this was a picture of u.</p>
+<p t="3000590" d="4400">That's u_1, 2, 3,
+4, and 5 and now</p>
+<p t="3004990" d="1790">I think it lies right on that.</p>
+<p t="3006780" d="12380">So it's going to be (1-2/6)x
+going up and (1-x)2/6 going</p>
+<p t="3019160" d="2220">down.</p>
+<p t="3021380" d="7400">My point is that I'll be able
+to figure out what that-- this</p>
+<p t="3028780" d="4640">is u, this is the u.</p>
+<p t="3033420" d="4720">You're going to say, why?</p>
+<p t="3038140" d="2390">Let me pause before
+putting in numbers</p>
+<p t="3040530" d="5770">and say why is it, how do
+I know that the solution is</p>
+<p t="3046300" d="6850">right on the function,
+the continuous solution.</p>
+<p t="3053150" d="6000">Well, can I draw
+a set of pictures</p>
+<p t="3059150" d="4270">just like those
+guys for discrete?</p>
+<p t="3063420" d="4280">Yeah, let me just draw
+those for discrete here.</p>
+<p t="3067700" d="5190">That shows you the magic.</p>
+<p t="3072890" d="11740">So there is a-- I'm going
+to draw a vector now.</p>
+<p t="3084630" d="2590">I'm going to have to lift the
+chalk, it won't be a function</p>
+<p t="3087220" d="2070">and it'll be the delta vector.</p>
+<p t="3089290" d="3310">So it'll be the
+delta vector, delta</p>
+<p t="3092600" d="5130">with-- So there is point one,
+zero, one, two, up to six.</p>
+<p t="3097730" d="3520">It'll be the delta vector.</p>
+<p t="3101250" d="4380">Well if I just draw
+the delta vector,</p>
+<p t="3105630" d="3370">the delta vector
+has a one there.</p>
+<p t="3109000" d="2360">So this is the delta vector.</p>
+<p t="3111360" d="1450">Do I need?</p>
+<p t="3112810" d="4800">Well you can see that
+the delta vector is now</p>
+<p t="3117610" d="3530">going to be the
+vector of all zeroes</p>
+<p t="3121140" d="4970">and it's got a one at the key--
+at the impulse and then zero.</p>
+<p t="3126110" d="1830">So it's a discrete impulse.</p>
+<p t="3127940" d="1670">That would be a better word.</p>
+<p t="3129610" d="1260">Discrete impulse.</p>
+<p t="3130870" d="2650">Impulse at zero.</p>
+<p t="3133520" d="3180">So let's stay with
+an impulse at zero.</p>
+<p t="3136700" d="4260">Alright.</p>
+<p t="3140960" d="4750">What's my next picture?</p>
+<p t="3145710" d="3070">Again let me put in zero.</p>
+<p t="3148780" d="2610">One, two, three, onwards.</p>
+<p t="3151390" d="4060">Minus one, so on.</p>
+<p t="3155450" d="1120">What do I want to do now?</p>
+<p t="3156570" d="1890">What do I draw second?</p>
+<p t="3158460" d="2430">I always look over here.</p>
+<p t="3160890" d="3190">What did I draw
+second over here?</p>
+<p t="3164080" d="2370">The step.</p>
+<p t="3166450" d="5170">Now why did I draw
+a step function?</p>
+<p t="3171620" d="2890">How did I get from here to here?</p>
+<p t="3174510" d="1750">I integrate.</p>
+<p t="3176260" d="1630">I took the integral.</p>
+<p t="3177890" d="4640">So how will I get from
+here to this picture?</p>
+<p t="3182530" d="4770">I don't integrate, I add, sum.</p>
+<p t="3187300" d="4810">So coming along from the left,
+all these all along here,</p>
+<p t="3192110" d="2450">this sum is all zero
+because it was always zero.</p>
+<p t="3194560" d="4510">So it's zero, zero, zero, zero.</p>
+<p t="3199070" d="2590">And then, whoops, wait a minute.</p>
+<p t="3201660" d="2820">It says it a one there?</p>
+<p t="3204480" d="2150">Yeah, I think it must be.</p>
+<p t="3206630" d="3470">So here it wasn't a zero, wrong.</p>
+<p t="3210100" d="1780">Here it's a one.</p>
+<p t="3211880" d="1190">And what is it next?</p>
+<p t="3213070" d="1550">What's next to it?</p>
+<p t="3214620" d="3100">One, because I'm adding
+more and more zeroes</p>
+<p t="3217720" d="2160">but I have that one now, okay.</p>
+<p t="3219880" d="3180">A discrete step.</p>
+<p t="3223060" d="3320">It's a discrete step,
+zeroes and then ones.</p>
+<p t="3226380" d="1850">Now comes the second.</p>
+<p t="3228230" d="4630">So what am I going to call that?</p>
+<p t="3232860" d="1810">A step, right?</p>
+<p t="3234670" d="6950">It'll be a step
+function, step vector.</p>
+<p t="3241620" d="5790">If the sums of the delta
+vector gave me the step vector,</p>
+<p t="3247410" d="4120">how do I go the other way?</p>
+<p t="3251530" d="2460">What do I do to the
+step vector to get back</p>
+<p t="3253990" d="4740">to the delta vector?</p>
+<p t="3258730" d="1450">Differences, right?</p>
+<p t="3260180" d="3320">Sums in one direction,
+differences in the other.</p>
+<p t="3263500" d="7510">So the differences of the step
+vector are the delta vector.</p>
+<p t="3271010" d="2770">The step is the
+sum of the deltas</p>
+<p t="3273780" d="3820">and the delta is the
+differences of the step.</p>
+<p t="3277600" d="2270">Now for the crucial next guy.</p>
+<p t="3279870" d="2580">What's it going to be?</p>
+<p t="3282450" d="2400">I add.</p>
+<p t="3284850" d="1240">Wait a minute.</p>
+<p t="3286090" d="3590">What's up?</p>
+<p t="3289680" d="6000">I'm looking for that picture.</p>
+<p t="3295680" d="2870">Do I get it?</p>
+<p t="3298550" d="3900">Yeah, I hope so.</p>
+<p t="3302450" d="1330">Oh, look, we ran out of time.</p>
+<p t="3303780" d="2160">I don't have to do
+this, but I will.</p>
+<p t="3305940" d="6780">So as I add I get zeroes
+and then it's one,</p>
+<p t="3312720" d="2480">and then I add on one more one.</p>
+<p t="3315200" d="1680">Look.</p>
+<p t="3316880" d="1540">You see what's happening.</p>
+<p t="3318420" d="2670">I run along at
+zero but I'm going</p>
+<p t="3321090" d="5240">to look at the book to see
+whether that jump should</p>
+<p t="3326330" d="1860">come here or here.</p>
+<p t="3328190" d="3880">So I've got a little bit
+of this to finish next time</p>
+<p t="3332070" d="3900">and I'm open for any
+questions this afternoon.</p>
+<p t="3335970" d="2840">Okay, thanks and sorry
+to keep you late.</p>
+</body>
+</timedtext>

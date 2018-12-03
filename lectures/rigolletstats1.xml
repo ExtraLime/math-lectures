@@ -1,0 +1,3053 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="1610" d="2370">The following content is
+provided under a Creative</p>
+<p t="3980" d="1390">Commons license.</p>
+<p t="5370" d="2210">Your support will help
+MIT OpenCourseWare</p>
+<p t="7580" d="4090">continue to offer high-quality
+educational resources for free.</p>
+<p t="11670" d="2540">To make a donation or to
+view additional materials</p>
+<p t="14210" d="3960">from hundreds of MIT courses,
+visit MIT OpenCourseWare</p>
+<p t="18170" d="1200">at ocw.mit.edu.</p>
+<p t="23309" d="2541">PHILIPPE RIGOLLET: OK, so the
+course you're currently sitting</p>
+<p t="25850" d="1820">in is 18.650.</p>
+<p t="27670" d="1900">And it's called
+Fundamentals of Statistics.</p>
+<p t="29570" d="3630">And until last spring, it
+was still called Statistics</p>
+<p t="33200" d="1050">for Applications.</p>
+<p t="34250" d="2910">It turned out that really, based
+on the content, "Fundamentals</p>
+<p t="37160" d="5239">of Statistics" was a
+more appropriate title.</p>
+<p t="42399" d="1541">I'll tell you a
+little bit about what</p>
+<p t="43940" d="2291">we're going to be covering
+in class, what this class is</p>
+<p t="46231" d="2239">about, what it's not about.</p>
+<p t="48470" d="2110">I realize there's
+several offerings</p>
+<p t="50580" d="1910">in statistics on campus.</p>
+<p t="52490" d="3759">So I want to make sure that
+you've chosen the right one.</p>
+<p t="56249" d="1791">And I also understand
+that for some of you,</p>
+<p t="58040" d="3150">it's a matter of scheduling.</p>
+<p t="61190" d="2030">I need to actually
+throw out a disclaimer.</p>
+<p t="63220" d="2720">I tend to speak too fast.</p>
+<p t="65940" d="1760">I'm aware that.</p>
+<p t="67700" d="2880">Someone in the back, just
+do like that when you</p>
+<p t="70580" d="1980">have no idea what I'm saying.</p>
+<p t="72560" d="1960">Hopefully, I will repeat
+myself many times.</p>
+<p t="74520" d="1459">So if you average
+over time, you'll</p>
+<p t="75979" d="1374">see that statistics
+will tell you</p>
+<p t="77353" d="2347">that you will get the right
+message that I was actually</p>
+<p t="79700" d="3060">trying to stick to send.</p>
+<p t="82760" d="3300">All right, so what are
+the goals of this class?</p>
+<p t="86060" d="2450">The first one is basically
+to give you an introduction.</p>
+<p t="88510" d="3400">No one here is expected to
+have seen statistics before,</p>
+<p t="91910" d="1560">but as you will see,
+you are expected</p>
+<p t="93470" d="1300">to have seen probability.</p>
+<p t="94770" d="2060">And usually, you do
+see some statistics</p>
+<p t="96830" d="1440">in a probability course.</p>
+<p t="98270" d="1720">So I'm sure some of
+you have some ideas,</p>
+<p t="99990" d="2100">but I won't expect anything.</p>
+<p t="102090" d="2030">And we'll be using mathematics.</p>
+<p t="104120" d="3990">Math class, so there's going
+to be a bunch of equations--</p>
+<p t="108110" d="4422">not so much real data
+and statistical thinking.</p>
+<p t="112532" d="2208">We're going to try to provide
+theoretical guarantees.</p>
+<p t="114740" d="3390">We have two estimators
+that are available for me--</p>
+<p t="118130" d="3450">how theory guides me to choose
+between the best of them,</p>
+<p t="121580" d="4740">how certain can I be of my
+guarantees or prediction?</p>
+<p t="126320" d="2229">It's one thing to
+just bid out a number.</p>
+<p t="128549" d="2041">It's another thing to put
+some error bars around.</p>
+<p t="130590" d="3920">And we'll see how to build
+error bars, for example.</p>
+<p t="134510" d="2020">You will have your
+own applications.</p>
+<p t="136530" d="2630">I'm happy to answer questions
+about specific applications.</p>
+<p t="139160" d="2820">But rather than trying
+to tailor applications</p>
+<p t="141980" d="2670">to an entire institute,
+I think we're</p>
+<p t="144650" d="3390">going to work with pretty
+standard applications,</p>
+<p t="148040" d="4470">mostly not very serious ones.</p>
+<p t="152510" d="3960">And hopefully, you'll be able
+to take the main principles back</p>
+<p t="156470" d="2820">with you and apply them to
+your particular problem.</p>
+<p t="159290" d="3960">What I'm hoping that you will
+get out of this class is that</p>
+<p t="163250" d="2880">when you have a real-life
+situation-- and by "real life",</p>
+<p t="166130" d="2760">I mean mostly at MIT, so some
+people probably would not call</p>
+<p t="168890" d="1350">that real life--</p>
+<p t="170240" d="2130">their goal is to formulate
+a statistical problem</p>
+<p t="172370" d="1580">in mathematical terms.</p>
+<p t="173950" d="2980">If I want to say,
+is a drug effective,</p>
+<p t="176930" d="1690">that's not in
+mathematical terms,</p>
+<p t="178620" d="1950">I have to find out
+which measure I want</p>
+<p t="180570" d="2900">to have to call it effective.</p>
+<p t="183470" d="3310">Maybe it's over a
+certain period of time.</p>
+<p t="186780" d="2210">So there's a lot of things
+that you actually need.</p>
+<p t="188990" d="1499">And I'm not really
+going to tell you</p>
+<p t="190489" d="2972">how to go from the application
+to the point you need to be.</p>
+<p t="193461" d="1499">But I will certainly
+describe to you</p>
+<p t="194960" d="4200">what point you need to be at
+if you want to start applying</p>
+<p t="199160" d="2160">statistical methodology.</p>
+<p t="201320" d="2430">Then once you understand
+what kind of question</p>
+<p t="203750" d="964">you want to answer--</p>
+<p t="204714" d="1916">do I want a yes/no answer,
+do I want a number,</p>
+<p t="206630" d="2670">do I want error bars, do
+I want to make predictions</p>
+<p t="209300" d="3030">five years into future, do
+I have side information,</p>
+<p t="212330" d="2454">or do I not have side
+information, all those things--</p>
+<p t="214784" d="1416">based on that,
+hopefully, you will</p>
+<p t="216200" d="2280">have a catalog of
+statistical methods</p>
+<p t="218480" d="6090">that you're going to be able to
+use and apply it in the wild.</p>
+<p t="224570" d="4800">And also, no statistical
+method is perfect.</p>
+<p t="229370" d="3100">Some of the math people have
+agreed upon over the years,</p>
+<p t="232470" d="2510">and people understand
+that this is the standard.</p>
+<p t="234980" d="2070">But I want you to be
+able to understand</p>
+<p t="237050" d="2310">what the limitations are,
+and when you make conclusions</p>
+<p t="239360" d="3660">based on data, that those
+conclusions might be erroneous,</p>
+<p t="243020" d="870">for example.</p>
+<p t="243890" d="5330">All right, more practically, my
+goal here is to have you ready.</p>
+<p t="249220" d="3696">So who has taken, for example,
+a machine-learning class here?</p>
+<p t="252916" d="2904">All right, so many of you,
+actually-- maybe a third</p>
+<p t="255820" d="3410">have taken a
+machine-learning class.</p>
+<p t="259230" d="2370">So statistics has somewhat
+evolved into machine</p>
+<p t="261600" d="1240">learning in recent years.</p>
+<p t="262840" d="1689">And my goal is to
+take you there.</p>
+<p t="264529" d="2291">So machine learning has a
+strong algorithmic component.</p>
+<p t="266820" d="2490">So maybe some of you have
+taken a machine-learning class</p>
+<p t="269310" d="2580">that displays mostly the
+algorithmic component.</p>
+<p t="271890" d="2040">But there's also a
+statistical component.</p>
+<p t="273930" d="3210">The machine learns from data.</p>
+<p t="277140" d="1950">So this is a statistical track.</p>
+<p t="279090" d="4680">And there are some statistical
+machine-learning classes</p>
+<p t="283770" d="1030">that you can take here.</p>
+<p t="284800" d="2450">They're offered at the
+graduate level, I believe.</p>
+<p t="287250" d="4180">But I want you to be ready to
+be able to take those classes,</p>
+<p t="291430" d="2090">having the statistical
+fundamentals to understand</p>
+<p t="293520" d="750">what you're doing.</p>
+<p t="294270" d="3960">And then you're going to be able
+to expand to broader and more</p>
+<p t="298230" d="2550">sophisticated methods.</p>
+<p t="300780" d="4470">Lectures are here from 11:00 to
+12:30 on Tuesday and Thursday.</p>
+<p t="305250" d="2020">Victor-Emmanuel will also be--</p>
+<p t="307270" d="1990">and you can call him Victor--</p>
+<p t="309260" d="2990">will also be holding
+mandatory recitation.</p>
+<p t="312250" d="2780">So please go on Stellar
+and pick your recitation.</p>
+<p t="315030" d="4740">It's either 3:00 to 4:00 or
+4:00 to 5:00 on Wednesdays.</p>
+<p t="319770" d="3120">And it's going to be mostly
+focused on problem-solving.</p>
+<p t="322890" d="5620">They're mandatory in the sense
+that we're allowed to do this,</p>
+<p t="328510" d="4330">but they're not going to
+cover entirely new material.</p>
+<p t="332840" d="2920">But they might cover
+some techniques</p>
+<p t="335760" d="3420">that might save you some time
+when it comes to the exam.</p>
+<p t="339180" d="2280">So you might get by.</p>
+<p t="341460" d="2790">Attendance is not going to be
+taken or anything like this.</p>
+<p t="344250" d="3510">But I highly
+recommend that you go,</p>
+<p t="347760" d="1660">because, well,
+they're mandatory.</p>
+<p t="349420" d="3410">So you cannot really complain
+that something was taught only</p>
+<p t="352830" d="1560">in recitation.</p>
+<p t="354390" d="2370">So please register
+on Stellar for which</p>
+<p t="356760" d="2760">of the two recitations
+you would like to be in.</p>
+<p t="359520" d="3710">They're capped at 40, so
+first come, first served.</p>
+<p t="363230" d="2370">Homework will be due weekly.</p>
+<p t="365600" d="2430">There's a total of
+11 problem sets.</p>
+<p t="368030" d="1060">I realize this is a lot.</p>
+<p t="369090" d="2000">Hopefully, we'll
+keep them light.</p>
+<p t="371090" d="4260">I just want you to
+not rush too much.</p>
+<p t="375350" d="2040">The 10 best will
+be kept, and this</p>
+<p t="377390" d="3250">will count for a total of
+30% of the final grade.</p>
+<p t="380640" d="4640">There are due Mondays
+at 8:00 PM on Stellar.</p>
+<p t="385280" d="3390">And this is a new thing.</p>
+<p t="388670" d="2920">We're not going to use the boxes
+outside of the math department.</p>
+<p t="391590" d="2930">We're going to use
+only PDF files.</p>
+<p t="394520" d="3270">Well, you're always welcome
+to type them and practice</p>
+<p t="397790" d="2640">your LaTeX or Word typing.</p>
+<p t="400430" d="2400">I also understand that this
+can be a bit of a strain,</p>
+<p t="402830" d="2970">so just write them down
+on a piece of paper,</p>
+<p t="405800" d="3000">use your iPhone, and
+take a picture of it.</p>
+<p t="408800" d="2010">Dropbox has a nice, new--</p>
+<p t="410810" d="2339">so try to find something
+that puts a lot of contrast,</p>
+<p t="413149" d="2041">especially if you use
+pencil, because we're going</p>
+<p t="415190" d="1650">to check if they're readable.</p>
+<p t="416840" d="4320">And this is your responsibility
+to have a readable file.</p>
+<p t="421160" d="1290">I've had over the years--</p>
+<p t="422450" d="1470">not at MIT, I must
+admit-- but I've</p>
+<p t="423920" d="2250">had students who actually
+write the doc file</p>
+<p t="426170" d="2010">and think that
+converting it to a PDF</p>
+<p t="428180" d="3180">consists in erasing
+the extension doc</p>
+<p t="431360" d="1320">and replacing it by PDF.</p>
+<p t="432680" d="1170">This is not how it works.</p>
+<p t="437450" d="2340">So I'm sure you
+will figure it out.</p>
+<p t="439790" d="1830">Please try to keep
+them letter-sized.</p>
+<p t="441620" d="1860">This is not a
+strict requirement,</p>
+<p t="443480" d="2850">but I don't want to
+see thumbnails, either.</p>
+<p t="446330" d="2040">You are allowed to have
+two late homeworks.</p>
+<p t="448370" d="3060">And by late, I
+mean 24 hours late.</p>
+<p t="451430" d="1080">No questions asked.</p>
+<p t="452510" d="2120">You submit them,
+this will be counted.</p>
+<p t="454630" d="1750">You don't have to send
+an email to warn us</p>
+<p t="456380" d="2970">or anything like this.</p>
+<p t="459350" d="3150">Beyond that, even that
+you have one slack</p>
+<p t="462500" d="3990">for one 0 grade and slack
+for two late homeworks,</p>
+<p t="466490" d="3330">you're going to have to come
+up with a very good explanation</p>
+<p t="469820" d="2490">why you need actually more
+extensions than that, if you</p>
+<p t="472310" d="750">ever do.</p>
+<p t="473060" d="1583">And particularly,
+you're going to have</p>
+<p t="474643" d="3577">to keep track about why you've
+used your three options before.</p>
+<p t="478220" d="2610">There's going to
+be two midterms.</p>
+<p t="480830" d="2910">One is October 3, and
+one is November 7.</p>
+<p t="483740" d="2100">They're both going to be
+in class for the duration</p>
+<p t="485840" d="1020">of the lecture.</p>
+<p t="486860" d="2510">When I say they last for
+an hour and 20 minutes,</p>
+<p t="489370" d="2020">it does not mean that
+if you arrive 10 minutes</p>
+<p t="491390" d="1499">before the end of
+lecture, you still</p>
+<p t="492889" d="1321">get an hour and 20 minutes.</p>
+<p t="494210" d="3570">It will end at the
+end of lecture time.</p>
+<p t="497780" d="1800">For this as well, no pressure.</p>
+<p t="499580" d="2430">Only the best of the
+two will be kept.</p>
+<p t="502010" d="4110">And this grade will count
+for 30% of the grade.</p>
+<p t="506120" d="3000">This will be closed-books
+and closed-notes.</p>
+<p t="509120" d="1821">The purpose is for you to-- yes?</p>
+<p t="510941" d="2167">AUDIENCE: How many midterms
+did you say there are?</p>
+<p t="513108" d="958">PHILIPPE RIGOLLET: Two.</p>
+<p t="514066" d="1944">AUDIENCE: You said the best
+of the two will be kept?</p>
+<p t="516010" d="1875">PHILIPPE RIGOLLET: I
+said the best of the two</p>
+<p t="517885" d="1333">will be kept, yes.</p>
+<p t="519218" d="3678">AUDIENCE: So both the
+midterms will be kept?</p>
+<p t="522896" d="2374">PHILIPPE RIGOLLET: The best
+of the two, not the best two.</p>
+<p t="525270" d="541">AUDIENCE: Oh.</p>
+<p t="530757" d="2583">PHILIPPE RIGOLLET: We will add
+them, multiply the number by 9,</p>
+<p t="533340" d="958">and that will be grade.</p>
+<p t="534298" d="1112">No.</p>
+<p t="535410" d="4260">I am trying to be nice, there's
+just a limit to what I can do.</p>
+<p t="539670" d="2670">All right, so the goal is
+for you to learn things</p>
+<p t="542340" d="1680">and to be familiar with them.</p>
+<p t="544020" d="1680">In the final, you
+will be allowed</p>
+<p t="545700" d="1470">to have your notes with you.</p>
+<p t="547170" d="2130">But the midterms are
+also a way for you</p>
+<p t="549300" d="2460">to develop some mechanism so
+that you don't actually waste</p>
+<p t="551760" d="2400">too much time on things that
+you should be able to do</p>
+<p t="554160" d="1932">without thinking too much.</p>
+<p t="556092" d="1458">You will be allowed
+to cheat sheet,</p>
+<p t="557550" d="3390">because, well, you can
+always forget something.</p>
+<p t="560940" d="2850">And it will be
+two-sided letters sheet,</p>
+<p t="563790" d="4000">and you can practice yourself
+as writing as small as you want.</p>
+<p t="567790" d="2720">And you can put whatever you
+want on this cheat sheet.</p>
+<p t="570510" d="2527">All right, the final will
+be decided by the register.</p>
+<p t="573037" d="1583">It's going to be
+three hours, and it's</p>
+<p t="574620" d="1212">going to count for 40%.</p>
+<p t="575832" d="2208">You cannot bring books, but
+you can bring your notes.</p>
+<p t="578040" d="516">Yes.</p>
+<p t="578556" d="1750">AUDIENCE: I noticed
+that the midterm dates</p>
+<p t="580306" d="1398">aren't dated in the syllabus.</p>
+<p t="581704" d="1416">So I wanted to
+make sure you know.</p>
+<p t="583120" d="1333">PHILIPPE RIGOLLET: They are not?</p>
+<p t="584453" d="1017">AUDIENCE: Yeah--</p>
+<p t="585470" d="420">PHILIPPE RIGOLLET:
+Oh, yeah, there's</p>
+<p t="585890" d="2083">a "1" that's missing on
+both of them, isn't there?</p>
+<p t="599030" d="4150">Yeah, let's figure that out.</p>
+<p t="603180" d="2330">The syllabus is the true one.</p>
+<p t="605510" d="1912">The slides are so
+that we can discuss,</p>
+<p t="607422" d="1458">but the ones that's
+on the syllabus</p>
+<p t="608880" d="999">are the ones that count.</p>
+<p t="609879" d="3171">And I think they're also posted
+on the calendar on Stellar</p>
+<p t="613050" d="1859">as well.</p>
+<p t="614909" d="791">Any other question?</p>
+<p t="620890" d="2490">OK, so the pre-reqs here--</p>
+<p t="623380" d="4720">and who has looked at the
+first problem set already?</p>
+<p t="628100" d="2840">OK, so those hands
+that are raised</p>
+<p t="630940" d="3220">realize that there is a true
+prerequisite of probability</p>
+<p t="634160" d="2140">for this class.</p>
+<p t="636300" d="4540">It can be at the level
+of 18.600 or 604.1.</p>
+<p t="640840" d="1220">I should say "B" now.</p>
+<p t="642060" d="2720">It's two classes.</p>
+<p t="644780" d="3450">I will require you
+to know some calculus</p>
+<p t="648230" d="2940">and have some notions
+of linear algebra,</p>
+<p t="651170" d="2340">such as, what is a matrix,
+what is a vector, how</p>
+<p t="653510" d="2220">do you multiply those
+things together,</p>
+<p t="655730" d="2670">some notion of what
+orthonormal vectors are.</p>
+<p t="661280" d="2070">We'll talk about
+eigenvectors and eigenvalues,</p>
+<p t="663350" d="1660">but I remind you all of that.</p>
+<p t="665010" d="2540">So this is not this
+strict pre-req.</p>
+<p t="667550" d="2360">But if you've taken
+it, for example,</p>
+<p t="669910" d="2170">it doesn't hurt to
+go back to your notes</p>
+<p t="672080" d="1860">when we get closer
+to this chapter</p>
+<p t="673940" d="2010">on principle-component analysis.</p>
+<p t="675950" d="3570">The chapters, as they're listed
+in the syllabus, are in order,</p>
+<p t="679520" d="2910">so you will see when
+it actually comes.</p>
+<p t="682430" d="2400">There's no required textbook.</p>
+<p t="684830" d="4676">And I know you tend
+to not like that.</p>
+<p t="689506" d="2374">You like to have your textbook
+to know where you're going</p>
+<p t="691880" d="930">and what we're doing.</p>
+<p t="692810" d="1860">I'm sorry, it's just this class.</p>
+<p t="694670" d="2280">Either I would have to go
+to a mathematical statistics</p>
+<p t="696950" d="2020">textbook, which
+is just too much,</p>
+<p t="698970" d="4040">or to go to a more
+engineering-type statistics</p>
+<p t="703010" d="2370">class, which is just too little.</p>
+<p t="705380" d="3780">So hopefully, the
+problems will be enough</p>
+<p t="709160" d="1530">for you to practice
+the recitations.</p>
+<p t="710690" d="2250">We'll have some problems
+to solve as well.</p>
+<p t="712940" d="2580">And the material will
+be posted on the slides.</p>
+<p t="715520" d="1800">So you should have
+everything you need.</p>
+<p t="717320" d="1479">There's plenty of
+resources online</p>
+<p t="718799" d="1791">if you want to expand
+on a particular topic</p>
+<p t="720590" d="2490">or read it as said
+by somebody else.</p>
+<p t="723080" d="4610">The book that I
+recommend in the syllabus</p>
+<p t="727690" d="3820">is this book called All of
+Statistics by Wasserman.</p>
+<p t="731510" d="2070">Mainly because of the
+title, I'm guessing</p>
+<p t="733580" d="3120">it has all of it in it.</p>
+<p t="736700" d="1830">It's pretty broad.</p>
+<p t="738530" d="1500">There's actually not that many.</p>
+<p t="740030" d="2880">It's more of an
+intro-grad level.</p>
+<p t="742910" d="4980">But it's not very deep, but
+you see a lot of the overview.</p>
+<p t="747890" d="1590">Certainly, what
+we're going to cover</p>
+<p t="749480" d="1499">will be a subset
+of what's in there.</p>
+<p t="754190" d="1500">The slides will be
+posted on Stellar</p>
+<p t="755690" d="2730">before lectures before
+we start a new chapter</p>
+<p t="758420" d="3540">and after we're done with the
+chapter, with the annotations,</p>
+<p t="761960" d="4824">and also, with the typos
+corrected, like for the exam.</p>
+<p t="766784" d="1416">There will be some
+video lectures.</p>
+<p t="768200" d="4350">Again, the first one will be
+posted on OCW from last year.</p>
+<p t="772550" d="2400">But all of them will be
+available on Stellar--</p>
+<p t="774950" d="2820">of course, module
+technical problems.</p>
+<p t="777770" d="2547">But this is an automated system.</p>
+<p t="780317" d="1833">And hopefully, it will
+work out well for us.</p>
+<p t="782150" d="2340">So if you somehow have
+to miss a lecture,</p>
+<p t="784490" d="3780">you can always catch
+it up by watching it.</p>
+<p t="788270" d="2490">You can also play
+at that speed 0.75</p>
+<p t="790760" d="1770">in case I end up
+speaking too fast,</p>
+<p t="792530" d="2940">but I think I've
+managed myself so far--</p>
+<p t="795470" d="4220">so just last warning.</p>
+<p t="799690" d="3220">All right, why should
+you study statistics?</p>
+<p t="802910" d="4452">Well, if you read the news, you
+will see a lot of statistics.</p>
+<p t="807362" d="1208">I mentioned machine learning.</p>
+<p t="808570" d="3699">It's built on a
+lot of statistics.</p>
+<p t="812269" d="1791">If I were to teach this
+class 10 years ago,</p>
+<p t="814060" d="3420">I would have to explain to you
+that data collection and making</p>
+<p t="817480" d="3030">decisions based on data was
+something that made sense.</p>
+<p t="820510" d="2670">But now, it's
+almost in our life.</p>
+<p t="823180" d="4290">We're used to this idea that
+data helps in making decisions.</p>
+<p t="827470" d="4210">And people use data
+to conduct studies.</p>
+<p t="831680" d="3664">So here, I found a bunch
+of press titles that--</p>
+<p t="835344" d="2416">I think the key word I was
+looking for was "study finds"--</p>
+<p t="837760" d="875">if I want to do this.</p>
+<p t="838635" d="3005">So I actually did not bother
+doing it again this year.</p>
+<p t="841640" d="2900">This is all 2016, 2016, 2016.</p>
+<p t="844540" d="2490">But the key word that I look
+for is usually "study find"--</p>
+<p t="847030" d="1320">so a new study find--</p>
+<p t="848350" d="2360">traffic is bad for your health.</p>
+<p t="850710" d="3030">So we had to wait for 2016
+for data to tell us that.</p>
+<p t="853740" d="4750">And there's a bunch of other
+slightly more interesting ones.</p>
+<p t="858490" d="2040">For example, one that you
+might find interesting</p>
+<p t="860530" d="3750">is that this study finds that
+students benefit from waiting</p>
+<p t="864280" d="1720">to declare a major.</p>
+<p t="866000" d="2300">Now, there's a bunch
+of press titles.</p>
+<p t="868300" d="5085">There one in the MIT News
+that finds brain connections,</p>
+<p t="873385" d="1485">key to reading.</p>
+<p t="874870" d="2880">And so here, we have an
+idea of what happened there.</p>
+<p t="877750" d="1740">Some data was collected.</p>
+<p t="879490" d="3090">Some scientific
+hypothesis was formulated.</p>
+<p t="882580" d="5340">And then the data was here
+to try to prove or disprove</p>
+<p t="887920" d="1440">this scientific hypothesis.</p>
+<p t="889360" d="2240">That's the usual
+scientific process.</p>
+<p t="891600" d="3700">And we need to understand how
+the scientific process goes,</p>
+<p t="895300" d="2730">because some of those things
+might be actually questionable.</p>
+<p t="898030" d="4110">Who is 100% sure that
+study finds that students--</p>
+<p t="902140" d="2460">do you think that you
+benefit from waiting</p>
+<p t="904600" d="1110">to declare a major?</p>
+<p t="905710" d="3660">Right I would be
+skeptical about this.</p>
+<p t="909370" d="3990">I would be like, I don't want
+to wait to declare a major.</p>
+<p t="913360" d="1770">So what kind of
+thing can we bring?</p>
+<p t="915130" d="2040">Well maybe this
+study studied people</p>
+<p t="917170" d="1200">that were different from me.</p>
+<p t="918370" d="2756">Or maybe the study
+finds that this</p>
+<p t="921126" d="1624">is beneficial for a
+majority of people.</p>
+<p t="922750" d="1140">I'm not a majority.</p>
+<p t="923890" d="834">I'm just one person.</p>
+<p t="924724" d="1374">There's a bunch
+of things that we</p>
+<p t="926098" d="2442">need to understand what
+those things actually mean.</p>
+<p t="928540" d="1708">And we'll see that
+those are actually not</p>
+<p t="930248" d="1263">statements about individuals.</p>
+<p t="931511" d="2249">They're not even statements
+about the cohort of people</p>
+<p t="933760" d="1290">they've actually looked at.</p>
+<p t="935050" d="2220">They're statements
+about a parameter</p>
+<p t="937270" d="3590">of a distribution
+that was used to model</p>
+<p t="940860" d="2860">the benefit of waiting.</p>
+<p t="943720" d="1320">So there's a lot of questions.</p>
+<p t="945040" d="1800">And there are a lot of
+layers that come into this.</p>
+<p t="946840" d="2291">And we're going to want to
+understand what was going on</p>
+<p t="949131" d="3861">in there and try to peel it off
+and understand what assumptions</p>
+<p t="952992" d="958">have been put in there.</p>
+<p t="953950" d="5700">Even though it looks like
+a totally legit study, out</p>
+<p t="959650" d="2109">of those studies,
+statistically, I</p>
+<p t="961759" d="2291">think there's going to be
+one that's going to be wrong.</p>
+<p t="964050" d="1090">Well, maybe not one.</p>
+<p t="965140" d="2790">But if I put a
+long list of those,</p>
+<p t="967930" d="2220">there would be a few that
+would actually be wrong.</p>
+<p t="970150" d="2690">If I put 20, there would
+definitely be one that's wrong.</p>
+<p t="972840" d="1000">So you have to see that.</p>
+<p t="973840" d="2760">Every time you see 20 studies,
+one is probably wrong.</p>
+<p t="976600" d="2400">When there are studies
+about drug effects,</p>
+<p t="979000" d="2260">out of a list of 100,
+one would be wrong.</p>
+<p t="981260" d="2330">So we'll see what that means
+and what I mean by that.</p>
+<p t="986840" d="4140">Of course, not only studies
+that make discoveries</p>
+<p t="990980" d="1950">are actually making
+the press titles.</p>
+<p t="992930" d="3960">There's also the press
+that talks about things</p>
+<p t="996890" d="1590">that make no sense.</p>
+<p t="998480" d="3120">I love this first experiment--
+the salmon experiment.</p>
+<p t="1001600" d="2640">Actually, it was
+a grad student who</p>
+<p t="1004240" d="3480">came to a neuroscience
+poster session,</p>
+<p t="1007720" d="3060">pulled out this
+poster, and explained</p>
+<p t="1010780" d="2430">the scientific experiment
+that he was conducting,</p>
+<p t="1013210" d="6300">which consisted in taking a
+previously frozen and thawed</p>
+<p t="1019510" d="2550">salmon, putting it
+in an MRI, showing it</p>
+<p t="1022060" d="5700">pictures of violent images, and
+recording its brain activity.</p>
+<p t="1027760" d="4020">And he was able to discover a
+few voxels that were activated</p>
+<p t="1031780" d="2400">by those violent images.</p>
+<p t="1034180" d="2159">And can somebody tell
+me what happened here?</p>
+<p t="1039200" d="4330">Was the salmon responding
+to the violent activity?</p>
+<p t="1043530" d="2490">Basically, this is just
+a statistical fluke.</p>
+<p t="1046020" d="1710">That's just randomness at play.</p>
+<p t="1047730" d="2206">There's so many voxels
+that are recorded,</p>
+<p t="1049936" d="1374">and there's so
+many fluctuations.</p>
+<p t="1051310" d="1320">There's always a
+little bit of noise</p>
+<p t="1052630" d="1958">when you're in those
+things, that some of them,</p>
+<p t="1054588" d="1884">just by chance, got lit up.</p>
+<p t="1056472" d="2208">And so we need to understand
+how to correct for that.</p>
+<p t="1058680" d="1530">In this particular
+instance, we need</p>
+<p t="1060210" d="3390">to have tools that tell us that,
+well, finding three voxels that</p>
+<p t="1063600" d="3420">are activated for
+that many voxels</p>
+<p t="1067020" d="3180">that you can find in
+the salmon's brain</p>
+<p t="1070200" d="2830">is just too small of a number.</p>
+<p t="1073030" d="3020">Maybe we need to find a clump
+of 20 of them, for example.</p>
+<p t="1076050" d="1620">All right, so
+we're going to have</p>
+<p t="1077670" d="5040">mathematical tools that help us
+find those particular numbers.</p>
+<p t="1082710" d="5070">I don't know if you ever
+saw this one by John Oliver</p>
+<p t="1087780" d="3450">about phacking.</p>
+<p t="1091230" d="2880">Or actually, it said p-hacking.</p>
+<p t="1094110" d="3600">Basically, what John
+Oliver is saying</p>
+<p t="1097710" d="2700">is actually a full-length-- like
+there's long segments on this.</p>
+<p t="1100410" d="3810">And he was explaining how
+there's a sociology question</p>
+<p t="1104220" d="4710">here about how there's a
+huge incentive for scientists</p>
+<p t="1108930" d="1075">to publish results.</p>
+<p t="1110005" d="1625">You're not going to
+say, you know what?</p>
+<p t="1111630" d="1770">This year, I found nothing.</p>
+<p t="1113400" d="1877">And so people are
+trying to find things.</p>
+<p t="1115277" d="1583">And just by searching,
+it's as if they</p>
+<p t="1116860" d="2210">were searching for all
+the voxels in a brain</p>
+<p t="1119070" d="2850">until they find one that
+was just lit up by chance.</p>
+<p t="1121920" d="1770">And so they just run
+all these studies.</p>
+<p t="1123690" d="3270">And at some point, one will
+be right just out of chance.</p>
+<p t="1126960" d="2670">And so we have to be very
+careful about doing this.</p>
+<p t="1129630" d="2805">There's much more complicated
+problems associated</p>
+<p t="1132435" d="1485">to what's called
+p-hacking, which</p>
+<p t="1133920" d="4050">consists of violating the basic
+assumptions, in particular,</p>
+<p t="1137970" d="2160">looking at the data,
+and then formulating</p>
+<p t="1140130" d="2130">your scientific
+assumption based on data,</p>
+<p t="1142260" d="1140">and then going back to it.</p>
+<p t="1143400" d="958">Your idea doesn't work.</p>
+<p t="1144358" d="1452">Let's just formulate
+another one.</p>
+<p t="1145810" d="1860">And if you are doing
+this, all bets are off.</p>
+<p t="1150127" d="1583">The theory that we're
+going to develop</p>
+<p t="1151710" d="2460">is actually for a very
+clean use of data, which</p>
+<p t="1154170" d="2280">might be a little unpleasant.</p>
+<p t="1156450" d="3480">If you've had an army of
+graduate students collecting</p>
+<p t="1159930" d="1800">genomic data for a
+year, for example,</p>
+<p t="1161730" d="2190">maybe you don't
+want to say, well,</p>
+<p t="1163920" d="1890">I had one hypothesis
+that didn't work.</p>
+<p t="1165810" d="2130">Let's throw all the
+data into the trash.</p>
+<p t="1167940" d="2710">And so we need to find
+ways to be able to do this.</p>
+<p t="1170650" d="4100">And there's actually a
+course been taught at BU.</p>
+<p t="1174750" d="2430">It's still in its early
+stages, but something</p>
+<p t="1177180" d="2025">called "adaptive data
+analysis" that will allow</p>
+<p t="1179205" d="3410">you to do these kind of things.</p>
+<p t="1182615" d="954">Questions?</p>
+<p t="1186910" d="2960">OK, so of course,
+statistics is not</p>
+<p t="1189870" d="2610">just for you to be
+able to read the press.</p>
+<p t="1192480" d="3870">Statistics will probably
+be used in whatever career</p>
+<p t="1196350" d="2220">path you choose for yourself.</p>
+<p t="1198570" d="4500">It started in the 10th century
+in Netherlands for hydrology.</p>
+<p t="1203070" d="3340">Netherlands is basically
+under water, under sea level.</p>
+<p t="1206410" d="1827">And so they wanted
+to build some dikes.</p>
+<p t="1208237" d="1583">But once you're going
+to build a dike,</p>
+<p t="1209820" d="2070">you want to make sure
+that it's going to sustain</p>
+<p t="1211890" d="1985">some tides and some floods.</p>
+<p t="1213875" d="1375">And so in particular,
+they wanted</p>
+<p t="1215250" d="4549">to build dikes that were high
+enough, but not too high.</p>
+<p t="1219799" d="1541">You could always
+say, well, I'm going</p>
+<p t="1221340" d="4410">to build a 500-meter dike,
+and then I'm going to be safe.</p>
+<p t="1225750" d="1830">You want something
+that's based on data.</p>
+<p t="1227580" d="930">You want to make sure.</p>
+<p t="1228510" d="1890">And so in particular,
+what did they do?</p>
+<p t="1230400" d="3300">Well, they collected
+data for previous floods.</p>
+<p t="1233700" d="2520">And then they just
+found a dike that</p>
+<p t="1236220" d="1500">was going to cover
+all these things.</p>
+<p t="1237720" d="2340">Now, if you look at the
+data they probably had,</p>
+<p t="1240060" d="1530">maybe it was scarce.</p>
+<p t="1241590" d="1894">Maybe they had 10 data points.</p>
+<p t="1243484" d="1416">And so for those
+data points, then</p>
+<p t="1244900" d="2722">maybe they wanted to
+sort of interpolate</p>
+<p t="1247622" d="2458">between those points, maybe
+extrapolate for the larger one.</p>
+<p t="1250080" d="1730">Based on what they've
+seen, maybe they</p>
+<p t="1251810" d="1930">have chances of
+seeing something which</p>
+<p t="1253740" d="2790">is even larger than everything
+they've seen before.</p>
+<p t="1256530" d="4180">And that's exactly the goal
+of statistical modeling--</p>
+<p t="1260710" d="3320">being able to extrapolate
+beyond the data that you have,</p>
+<p t="1264030" d="4020">guessing what you have
+not seen yet might happen.</p>
+<p t="1268050" d="2340">When you buy insurance
+for your car,</p>
+<p t="1270390" d="3660">or your apartment,
+or your phone,</p>
+<p t="1274050" d="2190">there is a premium
+that you have to pay.</p>
+<p t="1276240" d="1560">And this premium
+has been determined</p>
+<p t="1277800" d="3570">based on how much you
+are, in expectation, going</p>
+<p t="1281370" d="1490">to cost the insurance.</p>
+<p t="1282860" d="3010">It says, OK, this person
+has, day a 10% chance</p>
+<p t="1285870" d="2330">of breaking their iPhone.</p>
+<p t="1288200" d="1847">An iPhone costs
+that much to repair,</p>
+<p t="1290047" d="1583">so I'm going to
+charge them that much.</p>
+<p t="1291630" d="3060">And then I'm going to add
+an extra dollar for my time.</p>
+<p t="1294690" d="2160">That's basically how those
+things are determined.</p>
+<p t="1296850" d="2370">And so this is using statistics.</p>
+<p t="1299220" d="3690">This is basically where
+statistics is probably</p>
+<p t="1302910" d="720">mostly used.</p>
+<p t="1303630" d="1980">I was personally
+trained as an actuary.</p>
+<p t="1305610" d="2550">And that's me being a
+statistician at an insurance</p>
+<p t="1308160" d="2110">company.</p>
+<p t="1310270" d="5190">Clinical trials-- this is also
+one of the earliest success</p>
+<p t="1315460" d="2580">stories of statistics.</p>
+<p t="1318040" d="1530">It's actually now widespread.</p>
+<p t="1319570" d="4860">Every time a new drug is
+approved for market by the FDA,</p>
+<p t="1324430" d="4140">it requires a very strict
+regimen of testing with data,</p>
+<p t="1328570" d="1837">and control group,
+and treatment group,</p>
+<p t="1330407" d="1583">and how many people
+you need in there,</p>
+<p t="1331990" d="5400">and what kind of significance
+you need for those things.</p>
+<p t="1337390" d="2015">In particular, those
+things look like this,</p>
+<p t="1339405" d="2102">so now it's 5,000 patients.</p>
+<p t="1341507" d="1583">It depends on what
+kind of drug it is,</p>
+<p t="1343090" d="3540">but for, say, 100
+patients, 56 were cured,</p>
+<p t="1346630" d="2520">and 44 showed no improvement.</p>
+<p t="1349150" d="2160">Does the FDA consider that
+this is a good number?</p>
+<p t="1351310" d="6660">Do they have a table for how
+many patients were cured?</p>
+<p t="1357970" d="1410">Is there a placebo effect?</p>
+<p t="1359380" d="1680">Do I need a control
+group of people that</p>
+<p t="1361060" d="1620">are actually getting a placebo?</p>
+<p t="1362680" d="1450">It's not clear,
+all these things.</p>
+<p t="1364130" d="2332">And so there's a lot of
+things to put into place.</p>
+<p t="1366462" d="1708">And there's a lot of
+floating parameters.</p>
+<p t="1368170" d="1930">So hopefully, we're
+going to be able to use</p>
+<p t="1370100" d="1940">statistical modeling
+to shrink it down</p>
+<p t="1372040" d="3150">to a small number of
+parameters to be able to ask</p>
+<p t="1375190" d="1290">very simple questions.</p>
+<p t="1376480" d="3150">"Is a drug effective" is
+not a mathematical equation.</p>
+<p t="1379630" d="2790">But "Is p larger than 0.5?"</p>
+<p t="1382420" d="1991">is a mathematical
+question And that's</p>
+<p t="1384411" d="1499">essentially we're
+going to be doing.</p>
+<p t="1385910" d="2800">We're going to take this, is a
+drug effective, to reducing to,</p>
+<p t="1388710" d="3750">is a variable larger than 0.5?</p>
+<p t="1392460" d="2580">Now, of course genetics
+are using that.</p>
+<p t="1395040" d="4080">That's typically actually
+the same size of data</p>
+<p t="1399120" d="1980">that you would
+see for FMRI data.</p>
+<p t="1401100" d="4380">So this is actually
+a study that I found.</p>
+<p t="1405480" d="4410">You have about 4,000 cases of
+Alzheimer's and 8,000 control.</p>
+<p t="1409890" d="2810">So people without Alzheimer's--
+that's what's called a control.</p>
+<p t="1412700" d="1780">That's something
+just to make sure</p>
+<p t="1414480" d="4290">that you can see the
+difference with people</p>
+<p t="1418770" d="3840">that are not affected by
+either a drug or a disease.</p>
+<p t="1422610" d="4244">Is the gene APOE associated
+with Alzheimer's disease?</p>
+<p t="1426854" d="2416">Everybody can see why this
+would be an important question.</p>
+<p t="1429270" d="958">We now have it crisper.</p>
+<p t="1430228" d="2342">It's targeted to
+very specific genes.</p>
+<p t="1432570" d="2984">If we could edit it, or
+knock it down, or knock it</p>
+<p t="1435554" d="1666">up, or boost it, maybe
+we could actually</p>
+<p t="1437220" d="958">have an impact on that.</p>
+<p t="1438178" d="1933">So those are very
+important questions,</p>
+<p t="1440111" d="2249">because we have the technology
+to target those things.</p>
+<p t="1442360" d="2270">But we need the answers
+about what those things are.</p>
+<p t="1444630" d="2927">And there's a bunch
+of other questions.</p>
+<p t="1447557" d="2333">The minute you're going to
+talk to biologists about say,</p>
+<p t="1449890" d="410">I can do that.</p>
+<p t="1450300" d="1090">They're going to
+say, OK, are there</p>
+<p t="1451390" d="1490">any other genes
+within the genes,</p>
+<p t="1452880" d="2166">or any particular snips
+that I can actually look at?</p>
+<p t="1455046" d="2038">And they're looking at
+very different questions.</p>
+<p t="1457084" d="1916">And when you start asking
+all these questions,</p>
+<p t="1459000" d="3040">you have to be careful, because
+you're reusing your data again.</p>
+<p t="1462040" d="4880">And it might lead you
+to wrong conclusions.</p>
+<p t="1466920" d="2610">And those are all over
+the place, those things.</p>
+<p t="1469530" d="2640">And that's why they go all
+the way to John Oliver talking</p>
+<p t="1472170" d="1397">about them.</p>
+<p t="1473567" d="1458">Any questions about
+those examples?</p>
+<p t="1477609" d="1291">So this is really a motivation.</p>
+<p t="1478900" d="1458">Again, we're not
+going to just take</p>
+<p t="1480358" d="5992">this data set of those cases
+and look at them in detail.</p>
+<p t="1486350" d="3020">So what is common to
+all these examples?</p>
+<p t="1489370" d="1590">Like, why do we have
+to use statistics</p>
+<p t="1490960" d="2160">for all those things?</p>
+<p t="1493120" d="2530">Well, there's the
+randomness of the data.</p>
+<p t="1495650" d="3650">There's some effect that
+we just don't understand--</p>
+<p t="1499300" d="3450">for example, the randomness
+associated with the lining up</p>
+<p t="1502750" d="1260">of some voxels.</p>
+<p t="1504010" d="2640">Or the fact that as
+far as the insurance</p>
+<p t="1506650" d="2400">is concerned whether you're
+going to break your iPhone</p>
+<p t="1509050" d="1740">or not is essentially
+a coin toss.</p>
+<p t="1510790" d="1020">Fully, it's biased.</p>
+<p t="1511810" d="2970">But it's a coin toss.</p>
+<p t="1514780" d="1990">From the perspective
+of the statistician,</p>
+<p t="1516770" d="1820">those things are
+actually random events.</p>
+<p t="1518590" d="1960">And we need to tame
+this randomness,</p>
+<p t="1520550" d="1250">to understand this randomness.</p>
+<p t="1521800" d="1922">Is this going to be
+a lot of randomness?</p>
+<p t="1523722" d="1708">Or is it going to be
+a little randomness?</p>
+<p t="1525430" d="1416">Is it going to be
+something that's</p>
+<p t="1526846" d="2869">like, out of their people--</p>
+<p t="1532990" d="2050">let's see, for example,
+for the floods.</p>
+<p t="1535040" d="2960">Were the floods that I
+saw consistently almost</p>
+<p t="1538000" d="2790">the same size?</p>
+<p t="1540790" d="2520">It was almost a rounding
+error, or they're just</p>
+<p t="1543310" d="1056">really widespread.</p>
+<p t="1544366" d="1624">All these things, we
+need to understand</p>
+<p t="1545990" d="2330">so we can understand
+how to build those dikes</p>
+<p t="1548320" d="6070">or how to make decisions
+based on those data.</p>
+<p t="1554390" d="3740">And we need to understand
+this randomness.</p>
+<p t="1558130" d="3420">OK, so the associated
+questions to randomness</p>
+<p t="1561550" d="1560">were actually
+hidden in the text.</p>
+<p t="1563110" d="2570">So we talked about
+the notion of average.</p>
+<p t="1565680" d="2992">Right, so as far as the
+insurance is concerned,</p>
+<p t="1568672" d="2208">they want to know in average
+with the probability is.</p>
+<p t="1570880" d="3090">Like, what is your chance of
+actually breaking your iPhone?</p>
+<p t="1573970" d="4360">And that's what came in
+this notion of fair premium.</p>
+<p t="1578330" d="3142">There's this notion
+of quantifying chance.</p>
+<p t="1581472" d="1958">We don't want to talk
+maybe only about average,</p>
+<p t="1583430" d="2850">maybe you want to cover say
+99% percent of the floods.</p>
+<p t="1586280" d="5640">So we need to know what is
+the height of a flood that's</p>
+<p t="1591920" d="2430">higher than 99% of the floods.</p>
+<p t="1594350" d="2610">But maybe there's 1%
+of them, you know.</p>
+<p t="1596960" d="1830">When doomsday comes,
+doomsday comes.</p>
+<p t="1598790" d="1680">Right, we're not
+going to pay for it.</p>
+<p t="1600470" d="2717">All right, so that's
+most of the floods.</p>
+<p t="1603187" d="2083">And then there's questions
+of significance, right?</p>
+<p t="1605270" d="2610">So you know I give this
+example, a second ago</p>
+<p t="1607880" d="2190">about clinical trials.</p>
+<p t="1610070" d="1110">I give you some numbers.</p>
+<p t="1611180" d="4170">Clearly the drug cured more
+people than it did not.</p>
+<p t="1615350" d="2670">But does it mean that
+it's significantly good,</p>
+<p t="1618020" d="1200">or was this just by chance.</p>
+<p t="1619220" d="2730">Maybe it's just that these
+people just recovered.</p>
+<p t="1621950" d="2760">It's like you know
+curing a common cold.</p>
+<p t="1624710" d="2130">And you feel like,
+oh I got cured.</p>
+<p t="1626840" d="2700">But it's really you waited five
+days and then you got cured.</p>
+<p t="1629540" d="2370">All right, so there's this
+notion of significance,</p>
+<p t="1631910" d="870">of variability.</p>
+<p t="1632780" d="2370">All these things
+are actually notions</p>
+<p t="1635150" d="3120">that describe randomness
+and quantify randomness</p>
+<p t="1638270" d="1290">into simple things.</p>
+<p t="1639560" d="2070">Randomness is a very
+complicated beast.</p>
+<p t="1641630" d="2760">But we can summarize it into
+things that we understand.</p>
+<p t="1644390" d="3240">Just like I am a
+complicated object.</p>
+<p t="1647630" d="1980">I'm made of molecules,
+and made of genes,</p>
+<p t="1649610" d="1680">and made of very
+complicated things.</p>
+<p t="1651290" d="3600">But I can be summarized as
+my name, my email address,</p>
+<p t="1654890" d="2380">my height and my weight,
+and maybe for most of you,</p>
+<p t="1657270" d="1830">this is basically enough.</p>
+<p t="1659100" d="2120">You will recognize
+me without having</p>
+<p t="1661220" d="4020">to do a biopsy on me
+every time you see me.</p>
+<p t="1665240" d="3780">All right, so, to
+understand randomness</p>
+<p t="1669020" d="2430">you have to go
+through probability.</p>
+<p t="1671450" d="1920">Probability is the
+study of randomness.</p>
+<p t="1673370" d="760">That's what it is.</p>
+<p t="1674130" d="3620">That's what the first sentence
+that a lecturer in probability</p>
+<p t="1677750" d="1140">will say.</p>
+<p t="1678890" d="3150">And so that's why I need the
+pre-requisite, because this</p>
+<p t="1682040" d="2790">is what we're going to use
+to describe the randomness.</p>
+<p t="1684830" d="3000">We'll see in a second how it
+interacts with statistics.</p>
+<p t="1687830" d="2760">So sometimes, and actually
+probably most of the time</p>
+<p t="1690590" d="2870">throughout your
+semester on probability,</p>
+<p t="1693460" d="2350">randomness was very
+well understood.</p>
+<p t="1695810" d="2610">When you saw a
+probability problem, here</p>
+<p t="1698420" d="1440">was the chance of
+this happening,</p>
+<p t="1699860" d="1860">here was the chance
+of that happening.</p>
+<p t="1701720" d="2100">Maybe you had more
+complicated questions</p>
+<p t="1703820" d="2900">that you had some basic
+elements to answer.</p>
+<p t="1706720" d="5407">For example, the probability
+that I have HBO is this much.</p>
+<p t="1712127" d="2583">And the probability that I watch
+Game of Thrones is that much.</p>
+<p t="1714710" d="3450">And given that I play basketball
+what is the probability--</p>
+<p t="1718160" d="1710">you had all these
+crazy questions,</p>
+<p t="1719870" d="2490">but you were able to build them.</p>
+<p t="1722360" d="2980">But all the basic numbers
+were given to you.</p>
+<p t="1725340" d="2900">Statistics will be about
+finding those basic numbers.</p>
+<p t="1728240" d="3700">All right so some examples
+that you've probably seen</p>
+<p t="1731940" d="4010">were dice, cards,
+roulette, flipping coins.</p>
+<p t="1735950" d="1750">All of these things
+are things that you've</p>
+<p t="1737700" d="1360">seen in a probability class.</p>
+<p t="1739060" d="1666">And the reason is
+because it's very easy</p>
+<p t="1740726" d="1954">to describe the probability
+of each outcome.</p>
+<p t="1742680" d="2940">For a die we know that
+each face is going</p>
+<p t="1745620" d="1530">to come with probably 1/6.</p>
+<p t="1747150" d="2760">Now I'm not going to go into
+a debate of whether this</p>
+<p t="1749910" d="2250">is pure randomness or
+this is determinism.</p>
+<p t="1752160" d="2780">I think as a model
+for actual randomness</p>
+<p t="1754940" d="3280">a die is a pretty good
+number, flipping a coin</p>
+<p t="1758220" d="1950">is a pretty good model.</p>
+<p t="1760170" d="2430">So those are actually
+a good thing.</p>
+<p t="1762600" d="2050">So the questions that you
+would see, for example,</p>
+<p t="1764650" d="1670">in probabilities
+are the following.</p>
+<p t="1766320" d="1320">I roll one die.</p>
+<p t="1767640" d="3660">Alice gets $1 if the number
+of dots is less than three.</p>
+<p t="1771300" d="3930">Bob gets $2 if the number
+of dots is less than two.</p>
+<p t="1775230" d="2280">Do you want to be Alice or
+Bob given that your role is</p>
+<p t="1777510" d="3455">actually to make money.</p>
+<p t="1780965" d="2945">Yeah, you want to be Bob, right?</p>
+<p t="1783910" d="1500">So let's see why.</p>
+<p t="1785410" d="1890">So if you look at the
+expectation of what</p>
+<p t="1787300" d="1200">Alice makes.</p>
+<p t="1788500" d="2640">So let's call it a.</p>
+<p t="1791140" d="4940">This is $1, with
+probability 1/2.</p>
+<p t="1796080" d="3550">So 3/6, that's 1/2.</p>
+<p t="1799630" d="3190">And the expectation
+of what Bob makes,</p>
+<p t="1802820" d="8550">this is $2 with probably
+2/6 and that's 2/3.</p>
+<p t="1811370" d="1860">Which is definitely
+larger than 1/2.</p>
+<p t="1813230" d="3879">So Bob's expectations
+actually a bit higher.</p>
+<p t="1817109" d="1791">So those are the kind
+of questions that you</p>
+<p t="1818900" d="1041">may ask with probability.</p>
+<p t="1819941" d="1989">I described to you
+exactly, you use the fact</p>
+<p t="1821930" d="3407">that the die would get
+less than three dots,</p>
+<p t="1825337" d="1083">with probability one half.</p>
+<p t="1826420" d="670">We knew that.</p>
+<p t="1827090" d="2790">And I didn't have to describe
+to you what was going on there.</p>
+<p t="1829880" d="2580">You didn't have to
+collect data about a die.</p>
+<p t="1832460" d="2160">Same thing, you roll two dice.</p>
+<p t="1834620" d="1560">You choose a number
+between 2 and 12</p>
+<p t="1836180" d="5920">and you win $100 if you choose
+the sum of the two dice.</p>
+<p t="1842100" d="2952">Which number do you pick?</p>
+<p t="1845052" d="1760">What?</p>
+<p t="1846812" d="500">AUDIENCE: 7.</p>
+<p t="1847312" d="874">PHILIPPE RIGOLLET: 7.</p>
+<p t="1848186" d="614">Why 7?</p>
+<p t="1848800" d="1630">AUDIENCE: It's the most likely.</p>
+<p t="1850430" d="2208">PHILIPPE RIGOLLET: That's
+the most likely one, right?</p>
+<p t="1852638" d="4162">So your gain here will be
+$100 times the probability</p>
+<p t="1856800" d="3420">that the sum of the two
+dice, let's say x plus y,</p>
+<p t="1860220" d="3210">is equal to your little
+z where a little z is</p>
+<p t="1863430" d="1048">the number you pick.</p>
+<p t="1867830" d="2520">So 7 is the most
+likely to happen</p>
+<p t="1870350" d="4230">and that's the one that
+maximizes this function of z.</p>
+<p t="1874580" d="2532">And for this you need to study
+a more complicated function.</p>
+<p t="1877112" d="1708">But it's a function
+that enables two die.</p>
+<p t="1878820" d="2900">But you can compute the
+probability that x plus y</p>
+<p t="1881720" d="4770">is equal to z, for every
+z between 2 and 12.</p>
+<p t="1886490" d="2520">So you know exactly what
+the probabilities are</p>
+<p t="1889010" d="1920">and that's how you
+start probability.</p>
+<p t="1895450" d="3210">So here that's
+exactly what I said.</p>
+<p t="1898660" d="4890">You have a very simple process
+that describes basic events.</p>
+<p t="1903550" d="1524">Probability 1/6
+for each of them.</p>
+<p t="1905074" d="1416">And then you can
+build up on that,</p>
+<p t="1906490" d="2630">and understand probably of
+more complicated events.</p>
+<p t="1909120" d="1630">You can throw some
+money in there.</p>
+<p t="1910750" d="2030">You can be build functions.</p>
+<p t="1912780" d="4180">You can do very complicated
+things building on that.</p>
+<p t="1916960" d="2820">Now if I was a
+statistician, a statistician</p>
+<p t="1919780" d="1860">would be the guy who
+just arrived on earth,</p>
+<p t="1921640" d="1833">had never seen a die
+and needs to understand</p>
+<p t="1923473" d="2367">that a die come up with
+probably 1/6 on each side.</p>
+<p t="1925840" d="2190">And the way he would do
+it is just to roll the die</p>
+<p t="1928030" d="4410">until he get some counts
+and tries to estimate those.</p>
+<p t="1932440" d="1620">And maybe that guy
+would come and say,</p>
+<p t="1934060" d="2380">well, you know,
+actually, the probability</p>
+<p t="1936440" d="7060">that I get a 1 is 1/6 plus
+0.001 and the probability</p>
+<p t="1943500" d="4150">that I get a 2 is
+1/6 minus 0.005.</p>
+<p t="1947650" d="2260">And there would be some
+fluctuations around this.</p>
+<p t="1949910" d="1958">And it's going to be his
+role as a statistician</p>
+<p t="1951868" d="1632">to say, listen, this
+is too complicated</p>
+<p t="1953500" d="1380">of a model for this thing.</p>
+<p t="1954880" d="1814">And these should all
+be the same numbers.</p>
+<p t="1956694" d="2416">Just looking at data, they
+should be all the same numbers.</p>
+<p t="1959110" d="1040">And that's part of the modeling.</p>
+<p t="1960150" d="1780">You make some
+simplifying assumptions</p>
+<p t="1961930" d="4660">that essentially make your
+questions more accurate.</p>
+<p t="1966590" d="1640">Now, of course, if
+your model is wrong,</p>
+<p t="1968230" d="1890">if it's not true that
+all the faces arrive</p>
+<p t="1970120" d="4290">with the same probability, then
+you have a model error here.</p>
+<p t="1974410" d="1736">So we will be
+making model errors.</p>
+<p t="1976146" d="1624">But that's going to
+be the price to pay</p>
+<p t="1977770" d="1875">to be able to extract
+anything from our data.</p>
+<p t="1982860" d="4439">So for more
+complicated processes,</p>
+<p t="1987299" d="2541">so of course nobody's going to
+waste their time rolling dice.</p>
+<p t="1989840" d="1530">I mean, I'm sure
+you might have done</p>
+<p t="1991370" d="2490">this in AP stat or something.</p>
+<p t="1993860" d="4210">But the need is to estimate
+parameters from data.</p>
+<p t="1998070" d="1760">All right, so for more
+complicated things</p>
+<p t="1999830" d="7520">you might want to estimate
+some density parameter</p>
+<p t="2007350" d="2050">on a particular set of material.</p>
+<p t="2009400" d="2220">And for this maybe you need
+to beam something to it,</p>
+<p t="2011620" d="1829">and measure how fast
+it's coming back.</p>
+<p t="2013449" d="2041">And you're going to have
+some measurement errors.</p>
+<p t="2015490" d="1791">And maybe you need to
+do that several times</p>
+<p t="2017281" d="2469">and you have a model for
+the physical process that's</p>
+<p t="2019750" d="1210">actually going on.</p>
+<p t="2020960" d="1790">And physics is usually
+a very good way</p>
+<p t="2022750" d="3810">to get models for
+engineering perspective.</p>
+<p t="2026560" d="2760">But there's models
+for sociology where we</p>
+<p t="2029320" d="2940">have no physical system, right.</p>
+<p t="2032260" d="1410">God knows how people interact.</p>
+<p t="2033670" d="1980">And maybe I'm going
+to say that the way</p>
+<p t="2035650" d="4220">I make friends is by first
+flipping a coin in my pocket.</p>
+<p t="2039870" d="1690">And with probability
+2/3, I'm going</p>
+<p t="2041560" d="1170">to make my friend at work.</p>
+<p t="2042730" d="1680">And with probability
+1/3 I'm going</p>
+<p t="2044410" d="1440">to make my friend at soccer.</p>
+<p t="2045850" d="2000">And once I make my
+friends at soccer--</p>
+<p t="2047850" d="1900">I decide to make
+my friend soccer.</p>
+<p t="2049750" d="1650">Then I will face
+someone who's flipping</p>
+<p t="2051400" d="3380">the same coin with maybe be
+slightly different parameters.</p>
+<p t="2054780" d="1450">But those things actually exist.</p>
+<p t="2056230" d="2520">There's models about how
+friendships are formed.</p>
+<p t="2058750" d="3270">And the one I
+described is called</p>
+<p t="2062020" d="1157">the mixed-membership model.</p>
+<p t="2063177" d="2083">So those are models that
+are sort of hypothesized.</p>
+<p t="2065260" d="3990">And they're more reasonable
+than taking into account</p>
+<p t="2069250" d="2400">all the things that made
+you meet that person</p>
+<p t="2071650" d="2759">at that particular time.</p>
+<p t="2074409" d="4171">So the goal here--
+so based on data now,</p>
+<p t="2078580" d="2790">once we have the model is going
+to be reduced to maybe two,</p>
+<p t="2081370" d="1619">three, four
+parameters, depending</p>
+<p t="2082989" d="1511">on how complex the model is.</p>
+<p t="2084500" d="3560">And then your goal will be
+to estimate those parameters.</p>
+<p t="2088060" d="3550">So sometimes the randomness
+we have here is real.</p>
+<p t="2091610" d="5330">So there's some true
+randomness in some surveys.</p>
+<p t="2096940" d="1800">If I pick a random
+student, as long</p>
+<p t="2098740" d="2130">as I believe that my random
+number generator that</p>
+<p t="2100870" d="3330">will pick your random
+ID is actually random,</p>
+<p t="2104200" d="1980">there is something
+random about you.</p>
+<p t="2106180" d="1770">The student that
+I pick at random</p>
+<p t="2107950" d="1440">will be a random student.</p>
+<p t="2109390" d="4150">The person that I call on
+the phone is a random person.</p>
+<p t="2113540" d="2840">So there's some randomness
+that I can build into my system</p>
+<p t="2116380" d="3930">by drawing something from
+a random number generator.</p>
+<p t="2120310" d="2202">A biased coin is a random thing.</p>
+<p t="2122512" d="1708">It's not a very
+interesting random thing.</p>
+<p t="2124220" d="1880">But it is a random thing.</p>
+<p t="2126100" d="2940">Again, if I wash out the
+fact that it actually</p>
+<p t="2129040" d="1470">is a deterministic mechanism.</p>
+<p t="2130510" d="2720">But at a certain accuracy,
+a certain granularity,</p>
+<p t="2133230" d="2860">this can be thought of as
+a truly random experiment.</p>
+<p t="2136090" d="3090">Measurement error for example,
+if you by some measurement</p>
+<p t="2139180" d="670">device.</p>
+<p t="2139850" d="2910">or some optics
+device, for example.</p>
+<p t="2142760" d="2260">You will have like standard
+deviation and things that</p>
+<p t="2145020" d="1060">come on the side of the box.</p>
+<p t="2146080" d="2541">And it tells you, this will be
+making some measurement error.</p>
+<p t="2148621" d="2859">And it's usually thermal noise
+maybe, or things like this.</p>
+<p t="2151480" d="3090">And those are very
+accurately described</p>
+<p t="2154570" d="1860">by some random phenomenon.</p>
+<p t="2156430" d="4830">But sometimes, and I'd say most
+times, there's no randomness.</p>
+<p t="2161260" d="1260">There's no randomness.</p>
+<p t="2162520" d="4290">It's not like you breaking
+your iPhone is a random event.</p>
+<p t="2166810" d="2580">This is just something
+that we sweep--</p>
+<p t="2169390" d="2550">randomness is a big rug
+under which we sweep</p>
+<p t="2171940" d="1710">everything we don't understand.</p>
+<p t="2173650" d="2250">And we just hope
+that in average we've</p>
+<p t="2175900" d="3011">captured, the average
+effect of what's going on.</p>
+<p t="2178911" d="1999">And the rest of it might
+fluctuate to the right,</p>
+<p t="2180910" d="1560">might fluctuate to the left.</p>
+<p t="2182470" d="3540">But what remains is
+just sort of randomness</p>
+<p t="2186010" d="1650">that can be averaged out.</p>
+<p t="2187660" d="3510">So, of course, this is
+where the leap of faith is.</p>
+<p t="2191170" d="2310">We do not know whether we
+were correct of doing this.</p>
+<p t="2193480" d="2477">Maybe we make some
+huge systematic biases</p>
+<p t="2195957" d="583">by doing this.</p>
+<p t="2196540" d="2790">Maybe we forget a very
+important component.</p>
+<p t="2199330" d="3120">Right, for example, if I have--</p>
+<p t="2202450" d="3366">I don't know, let's
+think of something--</p>
+<p t="2209220" d="1860">a drug for breast cancer.</p>
+<p t="2211080" d="1800">All right, and I
+throw out the fact</p>
+<p t="2212880" d="2760">that my patient is
+either a man or woman.</p>
+<p t="2215640" d="1890">I'm going to have some
+serious model biases.</p>
+<p t="2217530" d="500">Right.</p>
+<p t="2218030" d="2615">So if I say I'm going to
+collect a random and patient.</p>
+<p t="2220645" d="1625">And said I'm going
+to start doing this.</p>
+<p t="2222270" d="2520">There's some information
+that I really need, clearly,</p>
+<p t="2224790" d="2090">to build into my model.</p>
+<p t="2226880" d="3850">And so the model should be
+complicated enough, but not too</p>
+<p t="2230730" d="690">complicated.</p>
+<p t="2231420" d="1800">Right so it should take
+into account things</p>
+<p t="2233220" d="4155">there will systematically
+be important.</p>
+<p t="2237375" d="2325">So, in particular, the
+simple rule of thumb</p>
+<p t="2239700" d="4920">is, when you have a
+complicated process,</p>
+<p t="2244620" d="2160">you can think of it as
+being a simple process</p>
+<p t="2246780" d="1425">and some random noise.</p>
+<p t="2248205" d="2115">Now, again, the random
+noise is everything</p>
+<p t="2250320" d="3000">you don't understand about
+the complicated process.</p>
+<p t="2253320" d="4490">And the simple process is
+everything you actually do.</p>
+<p t="2257810" d="2790">So good modeling,
+and this is not</p>
+<p t="2260600" d="3320">where we'll be
+seeing in this class,</p>
+<p t="2263920" d="2970">consistent choosing
+plausible simple models.</p>
+<p t="2266890" d="3351">And this requires a tremendous
+amount of domain knowledge.</p>
+<p t="2270241" d="1999">And that's why we're not
+doing it in this class.</p>
+<p t="2272240" d="2000">This is not something where I
+can make a blanket statement</p>
+<p t="2274240" d="1380">about making good modeling.</p>
+<p t="2275620" d="2400">You need to know, if I
+were a statistician working</p>
+<p t="2278020" d="2970">on a study, I would have to
+grill the person in front</p>
+<p t="2280990" d="3850">of me, the expert, for two hours
+to know, but how about this?</p>
+<p t="2284840" d="1130">How about that?</p>
+<p t="2285970" d="1020">How does this work?</p>
+<p t="2286990" d="1950">So it requires to
+understand a lot of things.</p>
+<p t="2288940" d="5130">There's this famous statistician
+to whom this sentence is</p>
+<p t="2294070" d="2570">attributed, and it's
+probably not his then,</p>
+<p t="2296640" d="4551">but Tukey said that he
+loves being a statistician,</p>
+<p t="2301191" d="1999">because you get to play
+in everybody's backyard.</p>
+<p t="2303190" d="2250">Right, so you get to
+go and see people.</p>
+<p t="2305440" d="2820">And you get to understand, at
+least to a certain extent, what</p>
+<p t="2308260" d="1170">their problems are.</p>
+<p t="2309430" d="1680">Enough that you
+can actually build</p>
+<p t="2311110" d="2290">a reasonable model for what
+they're actually doing.</p>
+<p t="2313400" d="1340">So you get to do some sociology.</p>
+<p t="2314740" d="1125">You get to do some biology.</p>
+<p t="2315865" d="1302">You get to do some engineering.</p>
+<p t="2317167" d="1833">And you get to do a lot
+of different things.</p>
+<p t="2319000" d="1625">Right, so he was
+actually at some point</p>
+<p t="2320625" d="5555">predicting the
+presidential election.</p>
+<p t="2326180" d="2540">So, you see, you get to do
+a lot of different things.</p>
+<p t="2328720" d="2130">But it requires a lot
+of time to understand</p>
+<p t="2330850" d="1380">what problem you're working on.</p>
+<p t="2332230" d="2250">And if you have a particular
+application in mind</p>
+<p t="2334480" d="2164">you're the best person to
+actually understand this.</p>
+<p t="2336644" d="1916">So I'm just going to
+give you the basic tools.</p>
+<p t="2347660" d="4045">So this is the circle of trust.</p>
+<p t="2351705" d="2305">No, this is really
+just a simple graphic</p>
+<p t="2354010" d="1830">that tells you what's going on.</p>
+<p t="2355840" d="3330">When you do probability,
+you're given the truth.</p>
+<p t="2359170" d="5160">Somebody tells you what
+die God is rolling.</p>
+<p t="2364330" d="3160">So you know exactly what the
+parameters of the problems are.</p>
+<p t="2367490" d="2000">And what you're trying
+to do is to describe what</p>
+<p t="2369490" d="1920">the outcomes are going to be.</p>
+<p t="2371410" d="2850">You can say, if you're
+rolling a fair die,</p>
+<p t="2374260" d="2220">you're going to have 1/6
+of the time in your data</p>
+<p t="2376480" d="1219">you're going to have one.</p>
+<p t="2377699" d="2041">1/6 of the time you're
+going to have to have two.</p>
+<p t="2379740" d="2416">And so you can describe-- if
+I told you what the truth is,</p>
+<p t="2382156" d="2184">you could actually
+go into a computer,</p>
+<p t="2384340" d="1740">either generate some data.</p>
+<p t="2386080" d="4950">Or you could describe to me
+some more macro properties</p>
+<p t="2391030" d="1320">of what the data would be like.</p>
+<p t="2392350" d="2250">Oh, I would see a
+bunch of numbers</p>
+<p t="2394600" d="2550">that would be centered
+around 35, if I</p>
+<p t="2397150" d="3032">drew from a Gaussian
+distribution centered at 35.</p>
+<p t="2400182" d="1708">Right, you would know
+this kind of thing.</p>
+<p t="2401890" d="5510">I would know that it's very
+unlikely that if my Gaussian</p>
+<p t="2407400" d="1540">has standard deviation--</p>
+<p t="2408940" d="4890">is centered on 0, say,
+with standard deviation 3.</p>
+<p t="2413830" d="3550">It's very unlikely that I will
+see numbers below minus 10</p>
+<p t="2417380" d="1370">in above 10, right?</p>
+<p t="2418750" d="2310">You know this, that you
+basically will not see them.</p>
+<p t="2421060" d="4250">So you know from the truth,
+from the distribution</p>
+<p t="2425310" d="2500">of a random variable that does
+not have mu or sigmas, really</p>
+<p t="2427810" d="1050">numbers there.</p>
+<p t="2428860" d="3120">You know what data,
+you're going to be having.</p>
+<p t="2431980" d="1915">Statistics is about
+going backwards.</p>
+<p t="2433895" d="3695">It's saying, if I have
+some data, what was</p>
+<p t="2437590" d="1830">the truth that generated it.</p>
+<p t="2439420" d="2370">And since there are so
+many possible truths,</p>
+<p t="2441790" d="2250">Modeling says you
+have to pick one</p>
+<p t="2444040" d="3150">of the simpler possible truths,
+so that you can average out.</p>
+<p t="2447190" d="2530">Statistics basically
+means averaging.</p>
+<p t="2449720" d="1820">You're averaging when
+you do statistics.</p>
+<p t="2451540" d="2610">And averaging
+means that if I say</p>
+<p t="2454150" d="2640">that I received--
+so if I collect</p>
+<p t="2456790" d="1440">all your GPAs, for example.</p>
+<p t="2458230" d="3630">And my model is that
+the possible GPAs</p>
+<p t="2461860" d="1590">are any possible numbers.</p>
+<p t="2463450" d="1847">And anybody can have
+any possible GPA.</p>
+<p t="2465297" d="1583">This is going to be
+a serious problem.</p>
+<p t="2466880" d="2540">But if I can summarize
+those GPAs into two numbers,</p>
+<p t="2469420" d="1680">say, mean and
+standard deviation,</p>
+<p t="2471100" d="1920">than I have a pretty
+good description of what</p>
+<p t="2473020" d="2340">is going on, rather
+than having to have</p>
+<p t="2475360" d="1370">to predict the full list.</p>
+<p t="2476730" d="2150">Right, if I learn a full
+list of GPAs and I say,</p>
+<p t="2478880" d="1402">well this was the distribution.</p>
+<p t="2480282" d="2458">Then it's not going to be of
+any use for me to predict what</p>
+<p t="2482740" d="2492">the GPA would be, or some
+random student walking in,</p>
+<p t="2485232" d="958">or something like this.</p>
+<p t="2490210" d="4470">So just to finish my rant about
+probability versus statistics,</p>
+<p t="2494680" d="2550">this is a question you would
+see in a probability-- this</p>
+<p t="2497230" d="2850">is a probabilistic question, and
+this is a statistical question.</p>
+<p t="2500080" d="2610">The probabilistic question
+is, previous studies</p>
+<p t="2502690" d="2460">showed that the drug
+was 80% effective.</p>
+<p t="2505150" d="1080">So you know that.</p>
+<p t="2506230" d="2110">This is the effectiveness
+of the drug.</p>
+<p t="2508340" d="1140">It's given to you.</p>
+<p t="2509480" d="2000">This is how your problem starts.</p>
+<p t="2511480" d="3450">Then we can anticipate that,
+for a study on 100 patients,</p>
+<p t="2514930" d="2100">in average, 80 be cured.</p>
+<p t="2517030" d="3630">And at least 65 will be
+cured with 99% chances.</p>
+<p t="2520660" d="2480">So again these are not--</p>
+<p t="2523140" d="2854">I'm not predicting on 100
+patients exactly the number</p>
+<p t="2525994" d="1416">of them they're
+going to be cured.</p>
+<p t="2527410" d="1560">And the number of
+them that are not.</p>
+<p t="2528970" d="2190">But I'm actually
+sort of predicting</p>
+<p t="2531160" d="1980">what things are going
+to look like on average,</p>
+<p t="2533140" d="4470">or some macro properties of what
+my data sets will look like.</p>
+<p t="2537610" d="1980">So with 99 percent
+chances, that means</p>
+<p t="2539590" d="3960">that in 99.99% of the
+data sets you will</p>
+<p t="2543550" d="2220">draw from this particular draw.</p>
+<p t="2545770" d="5100">99.99% of the cohort of 100
+patients to whom you administer</p>
+<p t="2550870" d="3780">this drug, I will be able
+to conclude that at least 65</p>
+<p t="2554650" d="6360">of them will be cured, on 99.99%
+percent of those data sets.</p>
+<p t="2561010" d="1620">So that's a pretty
+accurate prediction</p>
+<p t="2562630" d="2430">of what's going to happen.</p>
+<p t="2565060" d="1200">Statistics is the opposite.</p>
+<p t="2566260" d="3360">It says, well, I just know
+that 78 out of 100 were cured.</p>
+<p t="2569620" d="1270">I have only one data set.</p>
+<p t="2570890" d="2450">I cannot make predictions
+for all data sets.</p>
+<p t="2573340" d="3859">But I can go back
+to the probability,</p>
+<p t="2577199" d="2291">make some inference about
+what my probability will look</p>
+<p t="2579490" d="3870">like, and then say, OK, then
+I can make those predictions</p>
+<p t="2583360" d="790">later on.</p>
+<p t="2584150" d="4430">So when I start with
+78/100 then maybe</p>
+<p t="2588580" d="2520">I'm actually, in this
+case, I just don't know.</p>
+<p t="2591100" d="5310">My best guess here is
+that I'm confident I</p>
+<p t="2596410" d="3390">have to add the extra error that
+I bet you making by predicting</p>
+<p t="2599800" d="5850">that here, the drug is not 80%
+effective but 78% effective.</p>
+<p t="2605650" d="1920">And they need some
+error bars around this,</p>
+<p t="2607570" d="3390">that will hopefully contain 80%,
+and then based on those error</p>
+<p t="2610960" d="3500">bars I'm going to make slightly
+less precise predictions</p>
+<p t="2614460" d="996">for the future.</p>
+<p t="2619440" d="5070">So, to conclude, so this
+was, why statistics?</p>
+<p t="2624510" d="2020">So what is this course about?</p>
+<p t="2626530" d="1700">It's about understanding
+the mathematics</p>
+<p t="2628230" d="2000">behind statistical methods.</p>
+<p t="2630230" d="1360">It's more of a tool.</p>
+<p t="2631590" d="3090">We're not going to have fun and
+talk about algebraic geometry</p>
+<p t="2634680" d="2760">just for fun in
+the middle of it.</p>
+<p t="2637440" d="4170">So it justifies quantitative
+statements given some modeling</p>
+<p t="2641610" d="1890">assumptions, that we
+will, in this class,</p>
+<p t="2643500" d="3230">mostly admit that the modeling
+assumptions are correct.</p>
+<p t="2646730" d="1750">| the first part--
+in this introduction,</p>
+<p t="2648480" d="1962">we will go through
+them because it's</p>
+<p t="2650442" d="2208">very easy to forget what
+the assumptions are actually</p>
+<p t="2652650" d="660">making.</p>
+<p t="2653310" d="2340">But this will be a
+pretty standard thing.</p>
+<p t="2655650" d="3030">The words you will
+hear a lot are IID--</p>
+<p t="2658680" d="1950">independent and
+identically distributed--</p>
+<p t="2660630" d="2490">that means that your data
+is basically all the sams.</p>
+<p t="2663120" d="4950">And one data point is not
+impacting another data point.</p>
+<p t="2668070" d="2250">Hopefully we can describe
+some interesting mathematics</p>
+<p t="2670320" d="1080">arising in statistics.</p>
+<p t="2671400" d="2100">You know, if you've
+taken linear algebra,</p>
+<p t="2673500" d="3090">maybe we can explain to you why.</p>
+<p t="2676590" d="2040">If you've done some
+calculus, maybe we</p>
+<p t="2678630" d="1410">can do some
+interesting calculus.</p>
+<p t="2680040" d="2940">We'll see how in the
+spirit of applied math</p>
+<p t="2682980" d="2650">those things answer
+interesting questions.</p>
+<p t="2685630" d="3920">And basically we'll try to
+carve out a math toolbox that's</p>
+<p t="2689550" d="2750">useful for us statistics.</p>
+<p t="2692300" d="2980">And maybe you can extend it
+to more sophisticated methods</p>
+<p t="2695280" d="1800">that we did not
+cover in this class.</p>
+<p t="2697080" d="2100">In particular in the
+immersion learning class,</p>
+<p t="2699180" d="2940">hopefully you'll be able to
+have some statistical intuition</p>
+<p t="2702120" d="2470">about what is going on.</p>
+<p t="2704590" d="2090">So what this course
+is not about,</p>
+<p t="2706680" d="3270">it's not about spending a lot
+of time looking at data sets,</p>
+<p t="2709950" d="3360">and trying to understand
+some statistical thinking</p>
+<p t="2713310" d="1020">kind of questions.</p>
+<p t="2714330" d="2220">So this is more of an applied
+statistical perspective</p>
+<p t="2716550" d="3210">on things, or more modeling.</p>
+<p t="2719760" d="2390">So I'm going to typically
+give you the model.</p>
+<p t="2722150" d="1360">And say this is a model.</p>
+<p t="2723510" d="2970">And this is how we're
+going to build an estimator</p>
+<p t="2726480" d="1960">in the framework of this model.</p>
+<p t="2728440" d="2380">So for example, 18.075,
+to a certain extent,</p>
+<p t="2730820" d="2125">is called "Statistical
+Thinking and Data Analysis."</p>
+<p t="2732945" d="3555">So I'm hoping there is some
+statistical thinking in there.</p>
+<p t="2736500" d="2340">We will not talk about
+software implementation.</p>
+<p t="2738840" d="3430">Unfortunately, there's just
+too little time in a semester.</p>
+<p t="2742270" d="3570">There's other courses that
+are giving you some overview.</p>
+<p t="2745840" d="3515">So the main software
+these days are R</p>
+<p t="2749355" d="5475">is the leading software I'd say
+in statistics, both in academia</p>
+<p t="2754830" d="3270">and industry, lots of
+packages, one every day</p>
+<p t="2758100" d="2040">that's probably coming out.</p>
+<p t="2760140" d="3270">But there's other things,
+right, so now Python is probably</p>
+<p t="2763410" d="5700">catching up with all these
+scikit-learn packages that</p>
+<p t="2769110" d="1020">are coming up.</p>
+<p t="2770130" d="4170">Julia has some
+statistics in there,</p>
+<p t="2774300" d="3567">but it really if you were to
+learn a statistical software,</p>
+<p t="2777867" d="1458">let's say you love
+doing this, this</p>
+<p t="2779325" d="2265">would be the one that would
+prove most useful for you</p>
+<p t="2781590" d="600">in the future.</p>
+<p t="2782190" d="4510">It does not scale super well
+to high dimensional data.</p>
+<p t="2786700" d="1850">So there is a class
+an IDSS that actually</p>
+<p t="2788550" d="2530">uses R. It's called
+IDS 0.12, I think</p>
+<p t="2791080" d="5440">it's called "Statistics,
+Computation, and Applications,"</p>
+<p t="2796520" d="1330">or something like this.</p>
+<p t="2797850" d="2280">I'm also preparing,
+with Peter Kempthorne,</p>
+<p t="2800130" d="2408">a course called
+"Computational Statistics."</p>
+<p t="2807380" d="3450">It's going to be offered this
+Spring as a special topics.</p>
+<p t="2810830" d="5050">And so Peter Kempthorne
+will be teaching it.</p>
+<p t="2815880" d="2740">And this class
+will actually focus</p>
+<p t="2818620" d="2187">on using R. And
+even beyond that,</p>
+<p t="2820807" d="1583">it's not just going
+to be about using.</p>
+<p t="2822390" d="1895">It's going to be
+about understanding--</p>
+<p t="2824285" d="1625">just the same way we
+we're going to see</p>
+<p t="2825910" d="2070">how math helps
+you do statistics,</p>
+<p t="2827980" d="1890">it's going to help
+see how math helps you</p>
+<p t="2829870" d="2661">do algorithims for statistics.</p>
+<p t="2832531" d="2499">All right, so we'll talk about
+maximum likelihood estimator.</p>
+<p t="2835030" d="1880">Will need to maximize
+some function.</p>
+<p t="2836910" d="2210">There's an optimization
+toolbox to do that.</p>
+<p t="2839120" d="1850">And we'll see how we
+can have specialized</p>
+<p t="2840970" d="1830">for statistics
+for that, and what</p>
+<p t="2842800" d="2540">are the principles behind it.</p>
+<p t="2845340" d="1650">And you know, of
+course, if you've</p>
+<p t="2846990" d="2240">taken AP stats you
+probably think that stats</p>
+<p t="2849230" d="2020">is boring to death
+because it was just</p>
+<p t="2851250" d="3060">a long laundry-list that
+spent a lot of time on t-test.</p>
+<p t="2854310" d="2700">I'm pretty sure we're not going
+to talk about t-test, well,</p>
+<p t="2857010" d="1470">maybe once.</p>
+<p t="2858480" d="3720">But this is not a matter of
+saying you're going to do this.</p>
+<p t="2862200" d="1470">And this is a slight
+variant of it.</p>
+<p t="2863670" d="2490">We're going to really try to
+understand what's going on.</p>
+<p t="2866160" d="3660">So, admittedly, you have
+not chosen the simplest way</p>
+<p t="2869820" d="2760">to get an A in
+statistics on campus.</p>
+<p t="2872580" d="1890">All right, this is
+not the easiest class.</p>
+<p t="2874470" d="1530">It might be
+challenging at times,</p>
+<p t="2876000" d="3674">but I can promise you that
+you will maybe suffer.</p>
+<p t="2879674" d="1666">But you will learn
+something by the time</p>
+<p t="2881340" d="1041">you're out of this class.</p>
+<p t="2882381" d="2169">This will not be a
+waste of your time.</p>
+<p t="2884550" d="2010">And you will be
+able to understand,</p>
+<p t="2886560" d="2670">and not having to remember by
+heart how those things actually</p>
+<p t="2889230" d="1450">work.</p>
+<p t="2890680" d="3070">Are there any questions?</p>
+<p t="2893750" d="3160">Anybody want to go to other
+stats class on campus?</p>
+<p t="2896910" d="1950">Maybe it's not too late.</p>
+<p t="2898860" d="2500">OK.</p>
+<p t="2901360" d="3920">So let's do some statistics.</p>
+<p t="2905280" d="4320">So I see the time
+now and it's 11:56,</p>
+<p t="2909600" d="2200">so we have another 30 minutes.</p>
+<p t="2911800" d="4080">I will typically
+give you a three,</p>
+<p t="2915880" d="1940">four minute break if
+you want to stretch,</p>
+<p t="2917820" d="1458">if you want to run
+to the bathroom,</p>
+<p t="2919278" d="5942">if you want to check
+your texts or Instagram.</p>
+<p t="2925220" d="2290">There was very little
+content in this class,</p>
+<p t="2927510" d="1500">hopefully it was
+entertaining enough</p>
+<p t="2929010" d="2160">that you don't need the break.</p>
+<p t="2931170" d="4340">But just in the future, so you
+know you will have a break.</p>
+<p t="2935510" d="6160">So statistics, this is how it
+starts, I'm French, what can</p>
+<p t="2941670" d="4080">I say I need to put
+some French words.</p>
+<p t="2945750" d="2700">So this is not how office
+hours are going to go down.</p>
+<p t="2952410" d="3960">Anybody know this sculpture
+by a Rodin, The Kiss.</p>
+<p t="2956370" d="2150">Maybe probably The
+Thinker is more famous.</p>
+<p t="2958520" d="1720">But this is actually
+a pretty famous one.</p>
+<p t="2960240" d="3590">But is it really this
+one, or is it this one.</p>
+<p t="2963830" d="2674">Anybody knows which one it is?</p>
+<p t="2966504" d="1406">This one?</p>
+<p t="2967910" d="540">Or this one?</p>
+<p t="2968450" d="2178">AUDIENCE: The previous.</p>
+<p t="2970628" d="1904">PHILIPPE RIGOLLET: What's that?</p>
+<p t="2972532" d="958">AUDIENCE: This one.</p>
+<p t="2973490" d="500">PHILIPPE RIGOLLET:
+It's this one.</p>
+<p t="2973990" d="1350">AUDIENCE: Final answer.</p>
+<p t="2975340" d="3900">PHILIPPE RIGOLLET: Yeah,
+who votes for this one.</p>
+<p t="2979240" d="1140">OK.</p>
+<p t="2980380" d="2071">Who votes for that one?</p>
+<p t="2982451" d="499">Thank you.</p>
+<p t="2982950" d="2820">I love that you do not want to
+pronounce yourself with no data</p>
+<p t="2985770" d="1390">actually to make any decision.</p>
+<p t="2987160" d="2480">This is a total coin toss right.</p>
+<p t="2989640" d="1700">Turns out that there
+is data, and there</p>
+<p t="2991340" d="2590">is in the very serious
+journal Nature,</p>
+<p t="2993930" d="2280">someone published a
+very serious paper which</p>
+<p t="2996210" d="2025">actually looks pretty serious.</p>
+<p t="2998235" d="1875">If you look at it, it's
+like "Human Behavior:</p>
+<p t="3000110" d="2400">Adult persistence of
+head-turning symmetry,"</p>
+<p t="3002510" d="2420">is a lot of fancy
+words in there.</p>
+<p t="3004930" d="2380">And this, I'm not
+kidding you, this study</p>
+<p t="3007310" d="2520">is about collecting
+data of people kissing,</p>
+<p t="3009830" d="2250">and knowing if they bend
+their head to the right</p>
+<p t="3012080" d="2050">or if they bend they
+head to the left.</p>
+<p t="3014130" d="1500">And that's all it is.</p>
+<p t="3015630" d="5930">And so a neonatal
+right-side preference</p>
+<p t="3021560" d="3950">makes a surprising romantic
+reappearance in later life.</p>
+<p t="3025510" d="2320">There's an explanation for it.</p>
+<p t="3027830" d="4990">All right, so if we follow this
+Nature which one is the one.</p>
+<p t="3032820" d="720">This one?</p>
+<p t="3033540" d="1380">Or this one?</p>
+<p t="3034920" d="1060">This one, right?</p>
+<p t="3035980" d="2920">Head to the right.</p>
+<p t="3038900" d="2350">And to be fair, for
+this class I was like,</p>
+<p t="3041250" d="4880">oh, I'm going to go and show
+them what Google Images does.</p>
+<p t="3046130" d="3270">When you Google
+kissing couple, it's</p>
+<p t="3049400" d="2340">inappropriate after
+maybe the first picture.</p>
+<p t="3051740" d="1800">And so I cannot show you this.</p>
+<p t="3053540" d="1830">But you know you can
+check for yourself.</p>
+<p t="3055370" d="1770">Though I would
+argue, so this person</p>
+<p t="3057140" d="3750">here actually went
+out in airports</p>
+<p t="3060890" d="5850">and took pictures of strangers
+kissing and collecting data.</p>
+<p t="3066740" d="4230">And can somebody guess why
+did he just not stay home</p>
+<p t="3070970" d="1905">and collect data
+from Google Images</p>
+<p t="3072875" d="4425">by just googling
+kissing couples.</p>
+<p t="3077300" d="2550">What's wrong with this data?</p>
+<p t="3079850" d="2904">I didn't know actually before I
+actually went on Google Images.</p>
+<p t="3082754" d="1166">AUDIENCE: It can be altered?</p>
+<p t="3083920" d="620">PHILIPPE RIGOLLET:
+What was that?</p>
+<p t="3084540" d="1190">AUDIENCE: It can be altered.</p>
+<p t="3085730" d="870">PHILIPPE RIGOLLET:
+It can be altered.</p>
+<p t="3086600" d="1620">But, you know, who
+would want to do this?</p>
+<p t="3088220" d="1200">I mean there's no
+particular reason why</p>
+<p t="3089420" d="2500">you would want to flip an image
+before putting it out there.</p>
+<p t="3091920" d="2690">I mean, you might, but
+you know maybe they</p>
+<p t="3094610" d="4248">want to hide the brand of
+your Gap shirt or something.</p>
+<p t="3098858" d="3402">AUDIENCE: I guess the people
+who post pictures of themselves</p>
+<p t="3102260" d="2327">kissing on Google Images
+are not representative</p>
+<p t="3104587" d="1083">of the general population.</p>
+<p t="3105670" d="1956">PHILIPPE RIGOLLET:
+Yeah, that's very true.</p>
+<p t="3107626" d="1624">And actually it's
+even worse than that.</p>
+<p t="3109250" d="1987">The people who post
+pictures of themselves,</p>
+<p t="3111237" d="1583">are not posting
+pictures of themselves</p>
+<p t="3112820" d="1470">or putting pictures
+of the people</p>
+<p t="3114290" d="1470">that they took a picture of.</p>
+<p t="3115760" d="3607">And there usually is a
+stock watermark on this.</p>
+<p t="3119367" d="1333">And it's basically stock images.</p>
+<p t="3120700" d="2740">Those are actors, and so
+they've been directed to kiss</p>
+<p t="3123440" d="2620">and this is not a
+natural thing to do.</p>
+<p t="3126060" d="2000">And actually, if you go
+to Google Images-- and I</p>
+<p t="3128060" d="2542">encourage you to
+do this, unless you</p>
+<p t="3130602" d="1708">don't want to see
+inappropriate pictures,</p>
+<p t="3132310" d="2110">and they're mightily
+inappropriate.</p>
+<p t="3134420" d="5100">And basically you will see
+that this study is actually not</p>
+<p t="3139520" d="790">working at all.</p>
+<p t="3140310" d="1160">I mean, I looked briefly.</p>
+<p t="3141470" d="1450">I didn't actually
+collect numbers.</p>
+<p t="3142920" d="3540">But I didn't find a particular
+tendency to bend right.</p>
+<p t="3146460" d="2310">If anything, it was actually
+probably the opposite.</p>
+<p t="3148770" d="2610">And it's because those people
+were directed to do it.</p>
+<p t="3151380" d="3595">They just don't actually
+think about doing it.</p>
+<p t="3154975" d="1375">And also because
+I think you need</p>
+<p t="3156350" d="2520">to justify writing in
+your paper more than,</p>
+<p t="3158870" d="2850">I sat in front of my computer.</p>
+<p t="3161720" d="5100">So again, this
+first sentence here,</p>
+<p t="3166820" d="2600">a neonatal right-side
+preference--</p>
+<p t="3169420" d="2210">"is there a right
+side preference?"</p>
+<p t="3171630" d="2140">is not a mathematical question.</p>
+<p t="3173770" d="3990">But we can start saying, let's
+blah, and put some variables,</p>
+<p t="3177760" d="2230">and ask questions
+about those variables.</p>
+<p t="3179990" d="2550">So you know x is actually
+not a variable that's</p>
+<p t="3182540" d="2330">used very much in
+statistics for parameters.</p>
+<p t="3184870" d="2259">But p is one, for parameter.</p>
+<p t="3187129" d="2291">And so you're going to take
+your parameter of interest,</p>
+<p t="3189420" d="2680">p, As here is going to be
+the proportion of couples.</p>
+<p t="3192100" d="1830">And that's among all couples.</p>
+<p t="3193930" d="3600">So here, if you talk about
+statistical thinking,</p>
+<p t="3197530" d="3030">there would be a question about
+what population this would</p>
+<p t="3200560" d="1520">actually be representative of.</p>
+<p t="3202080" d="2110">| usually this is
+a call to your--</p>
+<p t="3206890" d="3390">sorry, I should not forget this
+word it's important for you.</p>
+<p t="3213290" d="1430">OK, I forget this word.</p>
+<p t="3214720" d="3450">So this is--</p>
+<p t="3218170" d="4924">OK,</p>
+<p t="3223094" d="1416">So if you look at
+this proportion,</p>
+<p t="3224510" d="2150">maybe these couples
+that are in the study</p>
+<p t="3226660" d="2550">might be representative
+only of couples in airports.</p>
+<p t="3229210" d="2490">Maybe they actually put on a
+show for the other passengers.</p>
+<p t="3231700" d="540">Who knows?</p>
+<p t="3232240" d="2102">You know, like, oh,
+let's just do it as well.</p>
+<p t="3234342" d="1708">And just like the
+people in Google Images</p>
+<p t="3236050" d="1125">they are actually doing it.</p>
+<p t="3237175" d="1755">So maybe you want
+to just restrict it.</p>
+<p t="3238930" d="2190">But of course clearly if
+it's appearing in Nature,</p>
+<p t="3241120" d="3300">it should not be only
+about couples in airports.</p>
+<p t="3244420" d="3390">It's supposedly representative
+of all couples in the world.</p>
+<p t="3247810" d="2400">And so here let's
+just keep it vague,</p>
+<p t="3250210" d="2400">but you need to keep
+in mind what population</p>
+<p t="3252610" d="2100">this is actually making
+a statement about.</p>
+<p t="3254710" d="5410">So you have this full population
+of people in the world.</p>
+<p t="3260120" d="3010">Right, so those are
+all the couples.</p>
+<p t="3263130" d="4250">And this person went
+ahead and collected data</p>
+<p t="3267380" d="2287">about a bunch of them.</p>
+<p t="3269667" d="2083">And we know that, in this
+thing, there's basically</p>
+<p t="3271750" d="1771">a proportion of
+them, that's like p,</p>
+<p t="3273521" d="1999">and that's the proportion
+of them that's bending</p>
+<p t="3275520" d="1050">their head to the right.</p>
+<p t="3276570" d="3480">And so everybody on this side
+is bending their heads right.</p>
+<p t="3280050" d="1500">And hopefully we
+can actually sample</p>
+<p t="3281550" d="1166">this thing you're informing.</p>
+<p t="3282716" d="1924">That's basically the
+process that's going on.</p>
+<p t="3284640" d="2610">So this is the
+statistical experiment.</p>
+<p t="3287250" d="2339">We're going to observe
+n kissing couples.</p>
+<p t="3289589" d="2291">So here we're going to put
+as many variables as we can.</p>
+<p t="3291880" d="1625">So we don't have to
+stick with numbers.</p>
+<p t="3293505" d="2125">And then we'll just
+plug in the numbers.</p>
+<p t="3295630" d="2820">n kissing couples, and n
+is also, in statistics,</p>
+<p t="3298450" d="5870">by the way, n is the size of
+your sample 99.9% of the time.</p>
+<p t="3304320" d="2400">And collect the value
+of each outcome.</p>
+<p t="3306720" d="810">So we want numbers.</p>
+<p t="3307530" d="1166">We don't want right or left.</p>
+<p t="3308696" d="3604">So we're going to code them
+by 0 and 1, pretty naturally.</p>
+<p t="3312300" d="4590">And then we're going to
+estimate p which is unknown.</p>
+<p t="3316890" d="1339">So p is this area.</p>
+<p t="3318229" d="1541">And we're going to
+estimate it simply</p>
+<p t="3319770" d="4800">by the proportion of right
+So the proportion of crosses</p>
+<p t="3324570" d="2460">that actually fell
+in the right side.</p>
+<p t="3329660" d="3680">So in this study
+what you will find</p>
+<p t="3333340" d="3120">is that the numbers
+that were collected</p>
+<p t="3336460" d="7230">were 124 couples, and that,
+out of those 124, 80 of them</p>
+<p t="3343690" d="2880">turned their head to the right.</p>
+<p t="3346570" d="2670">So, p hat is a proportion.</p>
+<p t="3349240" d="780">How do we do it?</p>
+<p t="3350020" d="1860">Well, you don't need
+statistics for that.</p>
+<p t="3351880" d="2910">You're going to see
+80 divided by 124.</p>
+<p t="3354790" d="2790">And you will find that
+in this particular study</p>
+<p t="3357580" d="2559">64.5% of the
+couples were bending</p>
+<p t="3360139" d="1041">their heads to the right.</p>
+<p t="3361180" d="1860">That's a pretty
+large number, right?</p>
+<p t="3363040" d="4140">The question is if I picked
+another 124 couples, maybe</p>
+<p t="3367180" d="3060">at different airports, different
+times, would I see same number?</p>
+<p t="3370240" d="1680">Would this number be
+all over the place?</p>
+<p t="3371920" d="2730">Would it be sometimes very
+close to 120, or sometimes</p>
+<p t="3374650" d="1200">for close to 10?</p>
+<p t="3375850" d="4170">Or would it be-- is this number
+actually fluctuating a lot.</p>
+<p t="3380020" d="6850">And so, hopefully not too much,
+64.5 percent is definitely</p>
+<p t="3386870" d="1800">much larger than 50%.</p>
+<p t="3388670" d="2982">And so there seems to
+be this preference.</p>
+<p t="3391652" d="1458">Now we're going to
+have to quantify</p>
+<p t="3393110" d="1166">how much of this preference.</p>
+<p t="3394276" d="3964">Is this number significantly
+larger than 50%?</p>
+<p t="3398240" d="2850">So if our data, for example,
+was just three couples.</p>
+<p t="3401090" d="2280">I'm just going there,
+I'm going to Logan.</p>
+<p t="3403370" d="2070">I call it, I do
+right, left right.</p>
+<p t="3405440" d="2130">And then I see--</p>
+<p t="3407570" d="5490">see what's the name of
+the fish place there?</p>
+<p t="3413060" d="3339">I go to I go to Wahlburgers
+at Logan and I'm like,</p>
+<p t="3416399" d="1041">OK, I'm done for the day.</p>
+<p t="3417440" d="1170">I collect this data.</p>
+<p t="3418610" d="3510">I go home, and I'm like,
+wow, 66.7% to the right.</p>
+<p t="3422120" d="1260">That's a pretty big number.</p>
+<p t="3423380" d="3270">It's even farther from
+50% than this other guy.</p>
+<p t="3426650" d="1665">So I'm doing even better.</p>
+<p t="3428315" d="1875">But of course you know
+that this is not true.</p>
+<p t="3430190" d="2047">Three people is definitely
+not representative.</p>
+<p t="3432237" d="1583">If I stopped at the
+first one, I would</p>
+<p t="3433820" d="4540">have actually-- at the first
+two, I would have even 100%.</p>
+<p t="3438360" d="2930">So the question that statistics
+is going to help us answer is,</p>
+<p t="3441290" d="2224">how large should the sample be?</p>
+<p t="3443514" d="2291">For some reason, I don't know
+if you guys receive this,</p>
+<p t="3445805" d="1749">I'm an affiliate with
+the Broad Institute,</p>
+<p t="3447554" d="2496">and since then I receive
+one email per day</p>
+<p t="3450050" d="2190">that says, sample
+size determination--</p>
+<p t="3452240" d="1710">how large should your sample be?</p>
+<p t="3453950" d="2090">Like, I know how large
+should with my sample be.</p>
+<p t="3456040" d="3490">I've taken 18.650
+multiple times.</p>
+<p t="3459530" d="3710">And so I know, but the
+question is-- is 124</p>
+<p t="3463240" d="2030">a large enough number or not?</p>
+<p t="3465270" d="2270">Well, the answer is actually,
+as usual, it depends.</p>
+<p t="3467540" d="3770">It will depend on the
+true unknown value of p.</p>
+<p t="3471310" d="5280">But from those particular
+values that we got, so 120 and--</p>
+<p t="3476590" d="1280">how many couples was there?</p>
+<p t="3477870" d="880">80?</p>
+<p t="3478750" d="3490">We actually can
+make some question.</p>
+<p t="3482240" d="5510">So here we said that
+80 was larger than 50--</p>
+<p t="3487750" d="4560">was allowing us to
+conclude at 64.5%.</p>
+<p t="3492310" d="5210">So it could be one reason to
+say that it was larger than 50%.</p>
+<p t="3497520" d="5710">50% of 124 is 62.</p>
+<p t="3503230" d="1680">So the question is,
+would I be would I</p>
+<p t="3504910" d="3840">be willing to make
+this conclusion at 63?</p>
+<p t="3508750" d="1880">Is that a number that
+would convince you?</p>
+<p t="3510630" d="3400">Who would be convinced by 63?</p>
+<p t="3514030" d="1435">who would be convinced by 72?</p>
+<p t="3518410" d="1994">Who would be convinced by 75?</p>
+<p t="3520404" d="2416">Hopefully the number of hands
+that are raised should grow.</p>
+<p t="3526120" d="2700">Who would be convinced by 80?</p>
+<p t="3528820" d="2370">All right, so basically
+those numbers actually</p>
+<p t="3531190" d="1530">don't come from anywhere.</p>
+<p t="3532720" d="4020">This 72 would be the number that
+you would need for a study--</p>
+<p t="3536740" d="1922">most statistical studies
+would be the number</p>
+<p t="3538662" d="958">that they would retain.</p>
+<p t="3539620" d="2250">That's not for 124.</p>
+<p t="3541870" d="2490">You would need to see
+72 that turn their head</p>
+<p t="3544360" d="3030">right to actually
+make this conclusion.</p>
+<p t="3547390" d="1587">And then 75--</p>
+<p t="3548977" d="2583">So we'll see that there's many
+ways to come to this conclusion</p>
+<p t="3551560" d="1374">because, as you
+can see, this was</p>
+<p t="3552934" d="2316">published in Nature with 80.</p>
+<p t="3555250" d="670">So that was OK.</p>
+<p t="3555920" d="1583">So 80 is actually a
+very large number.</p>
+<p t="3557503" d="2613">This is 99 point--</p>
+<p t="3560116" d="4134">this 99% -- no, so
+this is 95% confidence.</p>
+<p t="3564250" d="2040">This is 99% confidence.</p>
+<p t="3566290" d="3040">And this is 99.9%
+percent confidence.</p>
+<p t="3569330" d="4880">So if you said 80 you're a
+very conservative person.</p>
+<p t="3574210" d="2720">Starting at 72, you can
+start making this conclusion.</p>
+<p t="3579820" d="1440">To understand
+this, we need to do</p>
+<p t="3581260" d="4620">our little mathematical
+kitchen here,</p>
+<p t="3585880" d="3930">and we need to do some modeling.</p>
+<p t="3589810" d="1650">So we need to
+understand by modeling--</p>
+<p t="3591460" d="3540">we need understand what
+random process we think</p>
+<p t="3595000" d="2190">this data is generating from.</p>
+<p t="3597190" d="1990">So it's going to have
+some unknown parameters,</p>
+<p t="3599180" d="1010">unlike in probability.</p>
+<p t="3600190" d="2610">But we need to have just
+basically everything written</p>
+<p t="3602800" d="2100">except for the values
+of the parameters.</p>
+<p t="3604900" d="3630">When I said a die is coming
+uniformly with probably 1/6</p>
+<p t="3608530" d="3690">then I need to have, say
+maybe with probability-- maybe</p>
+<p t="3612220" d="2040">I should say here
+are six numbers,</p>
+<p t="3614260" d="4290">and I need to just
+fill those numbers.</p>
+<p t="3618550" d="4590">So for i equal 1 to
+n, I'm going to define</p>
+<p t="3623140" d="4000">Ri to be the indicator.</p>
+<p t="3627140" d="2810">An indicator is just something
+that takes value 1 if something</p>
+<p t="3629950" d="1380">is true, and 0 if not.</p>
+<p t="3631330" d="3120">So it's an indicator
+that i-th couple</p>
+<p t="3634450" d="2370">turns the head to the right.</p>
+<p t="3636820" d="2760">So, Ri, so it's indexed by i.</p>
+<p t="3639580" d="2710">And it's one if the i-th couple
+turns their head to the right,</p>
+<p t="3642290" d="3530">and 0 if it's--</p>
+<p t="3645820" d="2820">well actually, I guess they can
+probably kiss straight, right?</p>
+<p t="3648640" d="2860">So that would be weird, but
+they might be able to do this.</p>
+<p t="3651500" d="2780">So let's say not right.</p>
+<p t="3654280" d="2430">Then the estimator of
+p, we said, was p hat.</p>
+<p t="3656710" d="1650">It was just the
+ratio of two numbers.</p>
+<p t="3658360" d="4050">But really what it is is
+I count, I sum those Ri's.</p>
+<p t="3662410" d="4950">Since I only add those that
+take value 1, what this is is--</p>
+<p t="3667360" d="2970">this sum here is actually just
+counting the number of 1's.</p>
+<p t="3670330" d="3480">Which is another way to say it's
+counting the number of couples</p>
+<p t="3673810" d="1810">that are kissing to the right.</p>
+<p t="3675620" d="2900">And here I don't even
+have to tell you anything</p>
+<p t="3678520" d="1710">about the numbers or anything.</p>
+<p t="3680230" d="1710">I can only keep track of--</p>
+<p t="3681940" d="2300">first couple is a 0
+second couple is a 1,</p>
+<p t="3684240" d="1011">third couple is 0.</p>
+<p t="3685251" d="1999">The data set-- you can
+actually find it online--</p>
+<p t="3687250" d="2396">is actually a sequence
+of 0's and 1's.</p>
+<p t="3689646" d="1624">Now clearly for the
+question that we're</p>
+<p t="3691270" d="1680">asking about this
+proportion, I don't</p>
+<p t="3692950" d="2030">need to keep track of
+all this information.</p>
+<p t="3694980" d="2170">All I need to keep
+track of is the number</p>
+<p t="3697150" d="1980">of 0's and the number of 1's.</p>
+<p t="3699130" d="3210">Those are completely
+interchangeable.</p>
+<p t="3702340" d="2100">There's no time effect in this.</p>
+<p t="3704440" d="3930">The first couple is no
+different than the 15th couple.</p>
+<p t="3708370" d="2010">So we call this Rn bar.</p>
+<p t="3710380" d="2580">That's going to be a very
+standard notation that we use.</p>
+<p t="3712960" d="2820">R might be replaced by
+other letters like x--</p>
+<p t="3715780" d="2370">so xn bar, yn bar.</p>
+<p t="3718150" d="2550">And this thing
+essentially means that I</p>
+<p t="3720700" d="3930">average the R's, or the
+Ri's over n of them.</p>
+<p t="3724630" d="1470">And the bar means the average.</p>
+<p t="3726100" d="3360">So I divide by n the
+total number of 1's.</p>
+<p t="3729460" d="4170">So here this sum was equal
+to 80 in our example and n</p>
+<p t="3733630" d="3190">was equal to 124.</p>
+<p t="3736820" d="1550">Now this is an estimator.</p>
+<p t="3738370" d="2010">So an estimator is
+different from an estimate.</p>
+<p t="3740380" d="1200">An estimate is a number.</p>
+<p t="3741580" d="2100">My estimate was 64.5.</p>
+<p t="3743680" d="5822">My estimator is this thing where
+I keep all the variables free.</p>
+<p t="3749502" d="1708">And in particular, I
+keep those variables</p>
+<p t="3751210" d="3510">to be random because I'm going
+to think of a random couple</p>
+<p t="3754720" d="2640">kissing left to right as the
+outcome of a random process,</p>
+<p t="3757360" d="3960">just like flipping a coin
+be getting heads or tails.</p>
+<p t="3761320" d="2306">And so this thing here
+is a random variable, Ri.</p>
+<p t="3763626" d="2624">And this average is, of course,
+an average of random variables.</p>
+<p t="3766250" d="1250">It's itself a random variable.</p>
+<p t="3767500" d="1830">So an estimator is
+a random variable.</p>
+<p t="3769330" d="2642">An estimate is the realization
+of a random variable,</p>
+<p t="3771972" d="1708">or, in other words,
+is the value that you</p>
+<p t="3773680" d="2460">get for this random variable
+once you plug in the numbers</p>
+<p t="3776140" d="2820">that you've collected.</p>
+<p t="3778960" d="2070">So I can talk about the
+accuracy of an estimator.</p>
+<p t="3781030" d="1440">Accuracy means what?</p>
+<p t="3782470" d="2480">Well, what would we
+want for an estimator?</p>
+<p t="3784950" d="1942">Maybe we won't want it
+to fluctuate too much.</p>
+<p t="3786892" d="958">It's a random variable.</p>
+<p t="3787850" d="3200">So I'm talking about the
+accuracy of a random variable.</p>
+<p t="3791050" d="2690">So maybe I don't want
+it to be too volatile.</p>
+<p t="3793740" d="2700">I could have one
+estimator which would be--</p>
+<p t="3796440" d="3570">just throw out 182
+couples, keep only 2</p>
+<p t="3800010" d="1410">and average those two numbers.</p>
+<p t="3801420" d="1620">That's definitely
+a worse estimator</p>
+<p t="3803040" d="2100">than keeping all of the 124.</p>
+<p t="3805140" d="1501">So I need to find
+a way to say that.</p>
+<p t="3806641" d="1499">And what I'm going
+to be able to say</p>
+<p t="3808140" d="1920">is that the number is
+going to be fluctuating.</p>
+<p t="3810060" d="1609">If I take another
+two couples, I'm</p>
+<p t="3811669" d="1541">going to be I'm
+probably going to get</p>
+<p t="3813210" d="1380">a completely different number.</p>
+<p t="3814590" d="3810">But if I take another 124
+couples two days later,</p>
+<p t="3818400" d="1860">maybe I'm going to have
+a very number that's</p>
+<p t="3820260" d="2880">very close to 64.5%.</p>
+<p t="3823140" d="829">So that's one way.</p>
+<p t="3823969" d="2291">The other thing we would like
+about this estimator it's</p>
+<p t="3826260" d="1507">actually--</p>
+<p t="3827767" d="1583">maybe it's not too
+volatile-- but also</p>
+<p t="3829350" d="4950">we want it to be close to the
+number that we're looking for.</p>
+<p t="3834300" d="1110">Here is an estimator.</p>
+<p t="3835410" d="1740">It's a beautiful variable.</p>
+<p t="3837150" d="3180">72%, that's an estimator.</p>
+<p t="3840330" d="2190">Go out there just do
+your favorite study</p>
+<p t="3842520" d="3790">about drug performance.</p>
+<p t="3846310" d="4130">And then they're going to
+call you, MIT student taking</p>
+<p t="3850440" d="1571">statistics, they
+say, so how are you</p>
+<p t="3852011" d="1249">going to build your estimator?</p>
+<p t="3853260" d="2190">We've collected those 5,000
+or something like that.</p>
+<p t="3855450" d="1710">I'm just going to spit out 72%.</p>
+<p t="3857160" d="2040">Whatever the data says,
+that's an estimator.</p>
+<p t="3859200" d="2310">It's a stupid estimator
+but it is an estimator.</p>
+<p t="3861510" d="1850">But this is estimator
+is very not volatile.</p>
+<p t="3863360" d="2030">Every time you're going
+to have a new study,</p>
+<p t="3865390" d="2250">even if you change fields,
+it's still going to be 72%.</p>
+<p t="3867640" d="1550">This is beautiful.</p>
+<p t="3869190" d="2400">And the problem is
+that's probably not</p>
+<p t="3871590" d="2574">very close to the value you're
+actually trying to estimate.</p>
+<p t="3874164" d="916">So we need two things.</p>
+<p t="3875080" d="1916">We need are estimated
+to be a random variable.</p>
+<p t="3876996" d="2244">So think in terms of densities.</p>
+<p t="3879240" d="3500">We want the density
+to be pretty narrow.</p>
+<p t="3882740" d="3500">We want this thing
+to have very little--</p>
+<p t="3886240" d="6330">so this is definitely
+better than this.</p>
+<p t="3892570" d="3260">But also, we want the number
+that we're interested in, p,</p>
+<p t="3895830" d="1645">to be very close to this--</p>
+<p t="3897475" d="2785">to be close to the values that
+this thing is likely to take.</p>
+<p t="3900260" d="3760">If p is here, this is
+not very good for us.</p>
+<p t="3904020" d="2852">So that's basically the things
+we're going to be looking at.</p>
+<p t="3906872" d="1708">The first one is
+referred to as variance.</p>
+<p t="3908580" d="1583">The second one is
+referred to as bias.</p>
+<p t="3910163" d="4217">Those things come all
+over in statistics.</p>
+<p t="3914380" d="2430">So we need to
+understand a model.</p>
+<p t="3916810" d="4097">So here's the model that we have
+for this particular problem.</p>
+<p t="3920907" d="2083">So we need to make assumptions
+on the observations</p>
+<p t="3922990" d="660">that we see.</p>
+<p t="3923650" d="1970">So we said we're going to assume
+that the random variable--</p>
+<p t="3925620" d="1540">that's not too much
+of a leap of faith.</p>
+<p t="3927160" d="2083">We're just sweeping under
+the rug everything thing</p>
+<p t="3929243" d="1937">we don't understand
+about those couples.</p>
+<p t="3931180" d="1950">And the assumption
+that we make is</p>
+<p t="3933130" d="2870">that Ri is a random variable.</p>
+<p t="3936000" d="2120">This one you will
+forget very soon.</p>
+<p t="3938120" d="3830">The second one is that
+each of the Ri's is--</p>
+<p t="3941950" d="3360">so it's a random variable
+that takes value 0 or 1.</p>
+<p t="3945310" d="1714">Anybody can suggest
+the distribution</p>
+<p t="3947024" d="1041">for this random variable?</p>
+<p t="3948065" d="1298">AUDIENCE: Bernoulli.</p>
+<p t="3949363" d="1000">PHILIPPE RIGOLLET: What?</p>
+<p t="3950363" d="1137">AUDIENCE: Bernoulli.</p>
+<p t="3951500" d="480">PHILIPPE RIGOLLET:
+Bernoulli, right?</p>
+<p t="3951980" d="1230">And it's actually beautiful.</p>
+<p t="3953210" d="3560">This is where you have to do
+the least statistical modeling.</p>
+<p t="3956770" d="2394">A random variable that
+takes value 0 or 1</p>
+<p t="3959164" d="916">is always a Bernoulli.</p>
+<p t="3960080" d="2501">That's the simplest variable
+you can ever think of.</p>
+<p t="3962581" d="1999">Any variable that takes
+only two possible values</p>
+<p t="3964580" d="1575">can be reduced to a Bernoulli.</p>
+<p t="3966155" d="4266">OK, so this is a Bernoulli.</p>
+<p t="3970421" d="1999">And here we make the
+assumption that it actually</p>
+<p t="3972420" d="3720">takes parameter p.</p>
+<p t="3976140" d="1710">And there's an assumption here.</p>
+<p t="3977850" d="3577">Anybody can tell me
+what the assumption is?</p>
+<p t="3981427" d="1353">AUDIENCE: It's the same.</p>
+<p t="3982780" d="1750">PHILIPPE RIGOLLET:
+Yeah, it's same, right?</p>
+<p t="3984530" d="1664">I could have said
+p i, but it's p.</p>
+<p t="3986194" d="1916">And that's where I'm
+going to be able to start</p>
+<p t="3988110" d="1250">getting to do some statistics.</p>
+<p t="3989360" d="2570">It's that I'm going to start
+to be able to pull information</p>
+<p t="3991930" d="966">across all my guys.</p>
+<p t="3992896" d="1374">If I assume that
+they're all pi's</p>
+<p t="3994270" d="2070">completely uncoupled
+with each other.</p>
+<p t="3996340" d="1140">Then I'm in trouble.</p>
+<p t="3997480" d="2261">There's nothing I
+can actually get.</p>
+<p t="3999741" d="1999">And then I'm going to
+assume that those guys are</p>
+<p t="4001740" d="1200">mutually independent.</p>
+<p t="4002940" d="2590">And most of the time they
+will just say independent.</p>
+<p t="4005530" d="3230">Meaning that, it's not like all
+these guys called each other</p>
+<p t="4008760" d="1350">and it's actually a flash mob.</p>
+<p t="4010110" d="3090">And they were like, let's all
+turn our left side to the left.</p>
+<p t="4013200" d="1590">And then this is
+definitely not going</p>
+<p t="4014790" d="5120">to give you a valid conclusion.</p>
+<p t="4019910" d="2490">So, again. randomness is
+a way of modeling lack</p>
+<p t="4022400" d="810">of information.</p>
+<p t="4023210" d="2199">Here there is a way
+to figure it out.</p>
+<p t="4025409" d="1791">Maybe I could have
+followed all those guys,</p>
+<p t="4027200" d="1840">and knew exactly what
+they were-- maybe</p>
+<p t="4029040" d="2630">I could have looked at
+pictures of them in the womb</p>
+<p t="4031670" d="2684">and guess how they were
+turning-- by the way that's</p>
+<p t="4034354" d="1666">one of the conclusions,
+they're guessing</p>
+<p t="4036020" d="1416">that we turn our
+head to the right</p>
+<p t="4037436" d="3744">because our head is turned
+to the right in the womb.</p>
+<p t="4041180" d="3660">So we don't know what goes
+on in the kissers minds.</p>
+<p t="4044840" d="1890">And there's, you know,
+physics, sociology.</p>
+<p t="4046730" d="1791">There's a lot of things
+that could help us,</p>
+<p t="4048521" d="2699">but it's just too
+complicated to keep track of,</p>
+<p t="4051220" d="3330">or too expensive
+for many instances</p>
+<p t="4054550" d="2760">Now again, the nicest
+part of this modeling</p>
+<p t="4057310" d="2250">was the fact that Ri's
+take only two values, which</p>
+<p t="4059560" d="2340">mean that this conclusion
+that they were Bernoulli</p>
+<p t="4061900" d="1320">was totally free for us.</p>
+<p t="4063220" d="2310">Once we know it's a random
+variable, it's a Bernoulli.</p>
+<p t="4065530" d="2190">Now they could have
+been, as we said,</p>
+<p t="4067720" d="4190">they could have been a
+Bernoulli with parameter p i.</p>
+<p t="4071910" d="3510">For each i, I could have
+put a different parameter,</p>
+<p t="4075420" d="2252">but I just don't have
+enough information.</p>
+<p t="4077672" d="958">What would I have said?</p>
+<p t="4078630" d="2291">I would say, well the first
+couple turned to the right.</p>
+<p t="4080921" d="3679">p1 has to be one,
+that's my best guess.</p>
+<p t="4084600" d="2310">The second couple
+kiss to the left,</p>
+<p t="4086910" d="3780">well, p2 should be 0,
+that's my best guess.</p>
+<p t="4090690" d="4020">And so basically I
+need to have to be</p>
+<p t="4094710" d="1530">able to average my information.</p>
+<p t="4096240" d="3409">And the way I do it is by
+coupling all these guys,</p>
+<p t="4099649" d="2841">pi's to be the same p for all i.</p>
+<p t="4102490" d="1350">OK, does it make sense?</p>
+<p t="4103840" d="5144">Here what I am assuming is that
+my population is homogeneous.</p>
+<p t="4108984" d="625">Maybe it's not.</p>
+<p t="4109609" d="1875">Maybe I could actually
+look at a finer grain,</p>
+<p t="4111484" d="4045">but I'm basically making a
+statement about a population.</p>
+<p t="4115529" d="6141">And so maybe you kiss to the
+left, and then you're not--</p>
+<p t="4121670" d="2340">I'm not making a statement
+about a person individually,</p>
+<p t="4124010" d="3692">I'm making a statement about
+the overall population.</p>
+<p t="4127702" d="1958">Now independence is
+probably reasonable, right?</p>
+<p t="4129660" d="3420">This person just went
+and know can seriously</p>
+<p t="4133080" d="3029">hope that these couples did not
+communicate with each other.</p>
+<p t="4136109" d="3721">Or that you know Tanya did
+not text that we should all</p>
+<p t="4139830" d="1980">turn our head to the left now.</p>
+<p t="4141810" d="3240">And there's no external
+stimulus that forces people</p>
+<p t="4145050" d="3019">to do something different.</p>
+<p t="4148069" d="7741">OK, so-- sorry about that.</p>
+<p t="4155810" d="4089">Since we have about
+less than 10 minutes.</p>
+<p t="4159899" d="2361">Let's do a little bit of
+exercises, is that OK with you?</p>
+<p t="4162260" d="2690">So I just have some
+exercises so we can see what</p>
+<p t="4164950" d="1630">an exercise going to look like.</p>
+<p t="4166580" d="3510">This is sort of similar to the
+exercises you will see with me.</p>
+<p t="4170090" d="1584">We should do it together, OK?</p>
+<p t="4171674" d="1166">So now we're going to have--</p>
+<p t="4172840" d="639">I have a test.</p>
+<p t="4176630" d="6320">So that's an exam
+in probability.</p>
+<p t="4182950" d="1340">OK.</p>
+<p t="4184290" d="6609">And I'm going to have 15
+students in this test.</p>
+<p t="4190899" d="2651">And hopefully, this
+should be 15 grades</p>
+<p t="4193550" d="3660">that are representative of the
+grades of all a large class.</p>
+<p t="4197210" d="3450">Right, so if you go you know
+18.600, it's a large class,</p>
+<p t="4200660" d="1770">there's definitely
+more than 15 students.</p>
+<p t="4202430" d="2320">And maybe, just by sampling
+15 students at random,</p>
+<p t="4204750" d="3260">I want to have an idea of what
+my grade distribution will</p>
+<p t="4208010" d="1080">look like.</p>
+<p t="4209090" d="4140">I'm grading them, I want
+to make an educated guess.</p>
+<p t="4213230" d="2250">So I'm going to make
+some modeling assumptions</p>
+<p t="4215480" d="1200">for those guys.</p>
+<p t="4216680" d="6150">So here, 15 students and
+the grades are x1 to x15.</p>
+<p t="4222830" d="3220">Just like we had R1,
+R2, all the way to R124.</p>
+<p t="4226050" d="1740">Those were my Ri's.</p>
+<p t="4227790" d="1820">And so now I have my xi's.</p>
+<p t="4229610" d="3660">And I'm going to
+assume that xi follows</p>
+<p t="4233270" d="5790">a Gaussian or normal
+distribution with min mu</p>
+<p t="4239060" d="1660">and variance sigma squared.</p>
+<p t="4240720" d="2990">Now this is modeling, right?</p>
+<p t="4243710" d="2010">Nobody told me there's
+no physical process that</p>
+<p t="4245720" d="751">makes this happen.</p>
+<p t="4246471" d="2290">We know that there's something
+called the central limit</p>
+<p t="4248761" d="1959">theorem in the background
+that says that things</p>
+<p t="4250720" d="2665">tend to be Gaussian, but this is
+really a matter of convenience.</p>
+<p t="4253385" d="1705">Actually this is, if
+you think about it,</p>
+<p t="4255090" d="2291">this is terrible because this
+puts non-zero probability</p>
+<p t="4257381" d="879">on negative scores.</p>
+<p t="4258260" d="2451">I'm definitely not going
+to get a negative score.</p>
+<p t="4260711" d="1749">But you know it's good
+enough because they</p>
+<p t="4262460" d="2850">know the probabilities
+non-zero but it's probably 10</p>
+<p t="4265310" d="930">to the minus 12.</p>
+<p t="4266240" d="4240">So I would be very unlucky
+to see a negative score.</p>
+<p t="4270480" d="14260">So here's the list of grades, so
+I have 65, 41, 70, 90, 58, 82,</p>
+<p t="4284740" d="4120">76, 78--</p>
+<p t="4288860" d="6800">maybe I should have done
+it with 8 --59, 59--</p>
+<p t="4295660" d="11700">sitting next to each other
+--84, 89, 134, 51, and 72.</p>
+<p t="4307360" d="4080">So those are the
+scores that I got.</p>
+<p t="4311440" d="2490">There were clearly some
+bonus points over there.</p>
+<p t="4313930" d="11204">And the question is,
+find estimator for mu.</p>
+<p t="4325134" d="1166">What is my estimator for mu?</p>
+<p t="4329120" d="1950">Well, an estimator,
+again, is something that</p>
+<p t="4331070" d="1440">depends on the random variable.</p>
+<p t="4332510" d="2670">All right, so mu is
+the expectation, right?</p>
+<p t="4335180" d="7330">So a good estimator is
+definitely the average score,</p>
+<p t="4342510" d="1950">just like we had the
+average of the Ri's.</p>
+<p t="4344460" d="3750">Now the xi's no longer need
+to be 0's and 1's, so it's not</p>
+<p t="4348210" d="2850">going to boil down to being
+a number of ones divided</p>
+<p t="4351060" d="1820">by the total numbers.</p>
+<p t="4352880" d="8190">Now if I'm looking
+for an estimate,</p>
+<p t="4361070" d="2610">well, I need to actually
+sum those numbers</p>
+<p t="4363680" d="1950">and divide them by 15.</p>
+<p t="4365630" d="1842">So my estimate is
+going to be 1/15.</p>
+<p t="4367472" d="1958">Then I'm going to start
+summing those numbers--</p>
+<p t="4369430" d="2000">65 plus 72.</p>
+<p t="4374320" d="12020">OK, and I can do
+it, and it's 67.5.</p>
+<p t="4386340" d="2470">This is my estimate.</p>
+<p t="4388810" d="5000">Now if I want to compute
+a standard deviation--</p>
+<p t="4393810" d="4880">so let's say estimate for sigma.</p>
+<p t="4401889" d="1291">You've seen that before, right?</p>
+<p t="4403180" d="1510">An estimate for sigma is what?</p>
+<p t="4404690" d="2460">An estimate for sigma, we'll
+see methods to do this,</p>
+<p t="4407150" d="4210">but sigma squared
+is the variance,</p>
+<p t="4411360" d="4581">or is the expectation, of x
+minus expectation of x squared.</p>
+<p t="4418980" d="1500">And the problem is
+that I don't know</p>
+<p t="4420480" d="1650">what those expectations are.</p>
+<p t="4422130" d="5130">And so I'm going to do what
+99.9% percent of statistics is.</p>
+<p t="4427260" d="2450">And what is statistics about?</p>
+<p t="4429710" d="1640">What's my motto?</p>
+<p t="4431350" d="3240">Statistics is about replacing
+expectations with averages.</p>
+<p t="4434590" d="2430">That's what all of
+statistics is about.</p>
+<p t="4437020" d="3720">There's 300 pages in a purple
+book called All of Statistics</p>
+<p t="4440740" d="1200">that tells you this.</p>
+<p t="4441940" d="1800">All right, and then
+you do something fancy.</p>
+<p t="4443740" d="1830">Maybe you minimize
+something after you</p>
+<p t="4445570" d="1530">replace the expectation.</p>
+<p t="4447100" d="1680">Maybe you need to
+plug in other stuff.</p>
+<p t="4448780" d="1916">But really, every time
+you see an expectation,</p>
+<p t="4450696" d="1414">you replace it by an average.</p>
+<p t="4452110" d="1360">OK let's do this.</p>
+<p t="4453470" d="3080">So sigma squared
+hat will be what?</p>
+<p t="4456550" d="3870">It's going to be 1 over n,
+sum from i equals 1 to n</p>
+<p t="4460420" d="2370">of xi minus--</p>
+<p t="4462790" d="2790">well, here I need to replace
+my expectation by an average,</p>
+<p t="4465580" d="1650">which is really this average.</p>
+<p t="4467230" d="4370">I'm going to call
+it mu hat squared.</p>
+<p t="4471600" d="2710">There, you have replaced my
+expectation with average.</p>
+<p t="4474310" d="3840">OK so the golden thing
+is, take your expectation</p>
+<p t="4478150" d="1310">and replace it with this.</p>
+<p t="4485580" d="3660">Frame it, get a tattoo, I don't
+care but that's what it is.</p>
+<p t="4489240" d="4360">If you remember one thing from
+this class, that's what it is.</p>
+<p t="4493600" d="3090">Now you can be fancy, if
+you look at your calculator,</p>
+<p t="4496690" d="2970">it's going to put an n
+minus 1 here because it</p>
+<p t="4499660" d="875">wants to be unbiased.</p>
+<p t="4500535" d="1875">And those are things we
+are going to come to.</p>
+<p t="4502410" d="1990">But let's say right
+now we stick to this.</p>
+<p t="4504400" d="2040">And then when I
+plug in my numbers.</p>
+<p t="4506440" d="7600">I'm going to get an
+estimate for sigma,</p>
+<p t="4514040" d="3170">which is the square
+root of the estimator</p>
+<p t="4517210" d="1600">once I plug in the numbers.</p>
+<p t="4518810" d="2812">And you can check that the
+number, you get will be 18.</p>
+<p t="4527410" d="3650">So those are basic things and
+if you've taken any AP stats</p>
+<p t="4531060" d="1750">this should be completely
+standard to you.</p>
+<p t="4535800" d="3550">Now I have another list, and
+I don't have time to see it.</p>
+<p t="4542029" d="1041">It doesn't really matter.</p>
+<p t="4549264" d="1166">OK, we'll do that next time.</p>
+<p t="4550430" d="770">This is fine.</p>
+<p t="4551200" d="4041">We'll see another list
+of numbers and see--</p>
+<p t="4555241" d="1999">we're going to think about
+modeling assumptions.</p>
+<p t="4557240" d="2370">The goal of this exercise is
+not to compute those things,</p>
+<p t="4559610" d="2000">it's really to think about
+modeling assumptions.</p>
+<p t="4561610" d="2392">Is it reasonable to think
+that things are IID?</p>
+<p t="4564002" d="1458">Is it reasonable
+to think that they</p>
+<p t="4565460" d="2291">have all the same parameters,
+that they're independent,</p>
+<p t="4567751" d="1129">et cetera,</p>
+<p t="4568880" d="7970">OK so one thing that I wanted
+to add is, probably by tonight,</p>
+<p t="4576850" d="1960">so I will try to use--</p>
+<p t="4578810" d="1815">in the spirit of--</p>
+<p t="4580625" d="1625">I don't know what's
+starting to happen.</p>
+<p t="4582250" d="3940">In the spirit of using
+my iPad and fancy things,</p>
+<p t="4586190" d="3060">I will try to post some
+videos of-- for in particular,</p>
+<p t="4589250" d="4590">who has never used a
+statistical table to read, say,</p>
+<p t="4593840" d="4020">the quantiles of a
+Gaussian distribution?</p>
+<p t="4597860" d="1620">OK, so there's several of you.</p>
+<p t="4599480" d="3120">This is a simple
+but boring exercise.</p>
+<p t="4602600" d="2250">I will just post a
+video on how to do this,</p>
+<p t="4604850" d="1935">and you will be able
+to find it on Stellar.</p>
+<p t="4606785" d="1875">It's going to take five
+minutes, and then you</p>
+<p t="4608660" d="2110">will know everything there
+is to know about those things</p>
+<p t="4610770" d="2384">but that's something you need
+for the first problem set.</p>
+<p t="4613154" d="1416">By the way, so the
+problem set has</p>
+<p t="4614570" d="2610">30 exercises in probability.</p>
+<p t="4617180" d="2330">You need to do 15.</p>
+<p t="4619510" d="1960">And you only need to turn in 15.</p>
+<p t="4621470" d="2290">You can turn in all
+of 30 if you want.</p>
+<p t="4623760" d="3470">But you need to know, by the
+time we hit those things,</p>
+<p t="4627230" d="1530">you need to know--</p>
+<p t="4628760" d="2610">well actually, by next week you
+need to know what's in there.</p>
+<p t="4631370" d="2600">So if you don't have time
+to do all the homework,</p>
+<p t="4633970" d="1750">and then go back to
+your probability class</p>
+<p t="4635720" d="3530">to figure out how to do it,
+just do 15 easy that you can do.</p>
+<p t="4639250" d="1000">And return those things.</p>
+<p t="4640250" d="1577">But go back to your
+probability class</p>
+<p t="4641827" d="2083">and make sure that you
+know how to do all of them.</p>
+<p t="4643910" d="1740">Those are pretty
+basic questions,</p>
+<p t="4645650" d="2640">and those are things that I'm
+not going to slow down on.</p>
+<p t="4648290" d="2610">So you need to remember that
+the expectation of the product</p>
+<p t="4650900" d="1416">of independent
+random variables is</p>
+<p t="4652316" d="2244">a product of the expectations.</p>
+<p t="4654560" d="2250">Expectation of the sum, is
+the sum of the expectation.</p>
+<p t="4656810" d="1965">This kind of thing,
+which is a little silly,</p>
+<p t="4658775" d="1915">but it just requires
+you practice.</p>
+<p t="4660690" d="1460">So, just have fun.</p>
+<p t="4662150" d="1290">Those are simple exercises.</p>
+<p t="4663440" d="3180">You will have fun remembering
+your probability class.</p>
+<p t="4666620" d="3000">All right, so I'll
+see you on Tuesday--</p>
+<p t="4669620" d="1790">or Monday.</p>
+</body>
+</timedtext>

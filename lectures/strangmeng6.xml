@@ -1,0 +1,1326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="257" d="2083">The following content is
+provided under a Creative</p>
+<p t="2340" d="1280">Commons license.</p>
+<p t="3620" d="2150">Your support will help
+MIT OpenCourseWare</p>
+<p t="5770" d="4280">continue to offer high quality
+educational resources for free.</p>
+<p t="10050" d="3390">To make a donation, or to
+view additional materials</p>
+<p t="13440" d="2710">from hundreds of MIT courses,
+visit MIT OpenCourseWare</p>
+<p t="16150" d="4260">at ocw.mit.edu.</p>
+<p t="20410" d="1790">PROFESSOR STRANG:
+Actually, two things</p>
+<p t="22200" d="1560">to say about eigenvalues.</p>
+<p t="23760" d="4700">One is about matrices
+in general and then</p>
+<p t="28460" d="2480">the second is to focus
+on our favorites,</p>
+<p t="30940" d="6670">those second derivatives
+and second differences.</p>
+<p t="37610" d="2260">There's a lot to say
+about eigenvalues</p>
+<p t="39870" d="2940">but then we'll have
+the main ideas.</p>
+<p t="42810" d="4100">So the central idea
+of course is to find</p>
+<p t="46910" d="5060">these special directions and
+we expect to find n directions,</p>
+<p t="51970" d="4910">n eigenvectors y where
+this n by n matrix</p>
+<p t="56880" d="6440">is acting like a number in
+each of those directions.</p>
+<p t="63320" d="3320">So we have this for n
+different y's and each one</p>
+<p t="66640" d="2730">has its own eigenvalue lambda.</p>
+<p t="69370" d="3120">And of course the
+eig command in MATLAB</p>
+<p t="72490" d="3380">will find the y's
+and the lambdas.</p>
+<p t="75870" d="5450">So it finds the y's and
+the lambdas in a matrix.</p>
+<p t="81320" d="3030">So that's what I'm going
+to do now, straightforward.</p>
+<p t="84350" d="3810">Any time I have n vectors, so
+I have n of these y's, I've</p>
+<p t="88160" d="3840">n y's and n lambdas.</p>
+<p t="92000" d="3150">Well, if you give
+me n vectors, I</p>
+<p t="95150" d="2030">put them into the
+columns of a matrix,</p>
+<p t="97180" d="1630">almost without thinking.</p>
+<p t="98810" d="2530">So can I just do that?</p>
+<p t="101340" d="2750">So there is y_1, the
+first eigenvector.</p>
+<p t="104090" d="3150">That's y_2 to y_n.</p>
+<p t="107240" d="3090">Okay, that's my
+eigenvector matrix.</p>
+<p t="110330" d="4130">Often I call it S. So
+I'll stick with that.</p>
+<p t="114460" d="5320">S will be the
+eigenvector matrix.</p>
+<p t="119780" d="1695">Since these are
+eigenvectors I'm going</p>
+<p t="121475" d="4095">to multiply that
+matrix by A. That</p>
+<p t="125570" d="2000">should bring out the key point.</p>
+<p t="127570" d="8140">I'm just going to repeat
+this, which is one at a time,</p>
+<p t="135710" d="3090">by doing them all that once.</p>
+<p t="138800" d="4550">So what happens if I multiply
+a matrix by a bunch of columns?</p>
+<p t="143350" d="1870">Matrix multiplication
+is wonderful.</p>
+<p t="145220" d="1660">It does the right thing.</p>
+<p t="146880" d="3660">It multiplies A times
+the first column.</p>
+<p t="150540" d="1280">So let's put that there.</p>
+<p t="151820" d="5410">A times the first column along
+to A times the last column.</p>
+<p t="157230" d="2150">Just column by column.</p>
+<p t="159380" d="2010">But now we recognize these.</p>
+<p t="161390" d="2200">They're special y's.</p>
+<p t="163590" d="1900">They're special because
+they're eigenvectors.</p>
+<p t="165490" d="7950">So this is lambda_1*y_1 along
+to that column is lambda_n*y_n.</p>
+<p t="173440" d="3120">Right?</p>
+<p t="176560" d="2720">Now I've used the fact that
+they were eigenvectors.</p>
+<p t="179280" d="4390">And now, one final neat step
+of matrix multiplication</p>
+<p t="183670" d="6340">is to factor out this same
+eigenvector matrix again</p>
+<p t="190010" d="2960">and realize, and
+I'll look at it,</p>
+<p t="192970" d="4490">that it's being multiplied
+by this diagonal, that's</p>
+<p t="197460" d="5770">now a diagonal matrix
+of eigenvalues.</p>
+<p t="203230" d="3380">So let's just look at
+that very last step here.</p>
+<p t="206610" d="2510">Here I had the first
+column was lambda_1*y_1.</p>
+<p t="211880" d="4000">I just want to see,
+did I get that right?</p>
+<p t="215880" d="2380">If I'm looking at
+the first column</p>
+<p t="218260" d="3910">where that lambda_1 is sitting,
+it's going to multiply y_1</p>
+<p t="222170" d="3440">and it'll be all zeroes
+below so I'll have</p>
+<p t="225610" d="2250">none of the other eigenvectors.</p>
+<p t="227860" d="3900">So I'll have lambda_1*y_1,
+just what I want.</p>
+<p t="231760" d="4250">Got a little squeezed near
+the end there, but so let</p>
+<p t="236010" d="1800">me write above.</p>
+<p t="237810" d="5730">The result is just A times
+this eigenvector matrix</p>
+<p t="243540" d="6500">that I'm going to
+call S equals what?</p>
+<p t="250040" d="5180">This is Ay=lambda*y
+for all n at once.</p>
+<p t="255220" d="3070">A times S is, what
+have I got here?</p>
+<p t="258290" d="1400">What's this?</p>
+<p t="259690" d="3290">That's S. And what's
+the other guy?</p>
+<p t="262980" d="2670">That's the eigenvalue matrix.</p>
+<p t="265650" d="1740">So it's just got n numbers.</p>
+<p t="267390" d="2490">They automatically
+go on the diagonal</p>
+<p t="269880" d="2980">and it gets called
+capital Lambda.</p>
+<p t="272860" d="4480">Capital Lambda for the matrix,
+little lambda for the numbers.</p>
+<p t="277340" d="5290">So this is n, this
+is all n at once.</p>
+<p t="282630" d="4000">Straightforward.</p>
+<p t="286630" d="1820">Now I'm going to
+assume that I've</p>
+<p t="288450" d="3940">got these n eigenvectors,
+that I've been able to find</p>
+<p t="292390" d="2740">n independent directions.</p>
+<p t="295130" d="2390">And almost always, you can.</p>
+<p t="297520" d="3860">For every symmetric matrix
+you automatically can.</p>
+<p t="301380" d="4670">So these y's are
+independent directions.</p>
+<p t="306050" d="3480">If those are the
+columns of a matrix,</p>
+<p t="309530" d="3370">yeah, here's a key
+question about matrices.</p>
+<p t="312900" d="2940">What can I say
+about this matrix S</p>
+<p t="315840" d="3370">if its n columns
+are independent?</p>
+<p t="319210" d="1580">Whatever that, you
+know, we haven't</p>
+<p t="320790" d="3040">focused in careful detail,
+but we have an idea.</p>
+<p t="323830" d="4620">That means sort of none of them
+are combinations of the others.</p>
+<p t="328450" d="2440">We really have n
+separate directions.</p>
+<p t="330890" d="2510">Then that matrix is?</p>
+<p t="333400" d="2540">Invertible.</p>
+<p t="335940" d="3340">A matrix that's got n
+columns, independent,</p>
+<p t="339280" d="1730">that's what we're hoping for.</p>
+<p t="341010" d="1900">That matrix has an inverse.</p>
+<p t="342910" d="4170">We can produce, well all the
+good facts about matrices.</p>
+<p t="347080" d="1530">This is a square matrix.</p>
+<p t="348610" d="2340">So I can invert it if you like.</p>
+<p t="350950" d="2970">And I can write A as S lambda.</p>
+<p t="353920" d="3030">I'm multiplying on the
+right by this S inverse.</p>
+<p t="356950" d="6670">And there I have the
+diagonalization of a matrix.</p>
+<p t="363620" d="2450">The matrix has
+been diagonalized.</p>
+<p t="366070" d="1340">And what does that mean?</p>
+<p t="367410" d="5690">Well this is, of course the
+diagonal that we're headed for.</p>
+<p t="373100" d="3340">And what it means is that
+if I look at my matrix</p>
+<p t="376440" d="6710">and I separate out the different
+eigendirections, I could say,</p>
+<p t="383150" d="2950">that the matrix in
+those directions</p>
+<p t="386100" d="2650">is just this diagonal matrix.</p>
+<p t="388750" d="7650">So that's a short
+way of saying it.</p>
+<p t="396400" d="4410">Let me just carry
+one step further.</p>
+<p t="400810" d="3840">What would A squared be?</p>
+<p t="404650" d="5970">Well now that I have it in this
+cool form, S*lambda*S inverse,</p>
+<p t="410620" d="3250">I would multiply two of those
+together and what would I</p>
+<p t="413870" d="1780">learn?</p>
+<p t="415650" d="3790">If I do that multiplication
+what comes out?</p>
+<p t="419440" d="2890">First an S from here.</p>
+<p t="422330" d="2090">And then what?</p>
+<p t="424420" d="1070">Lambda squared.</p>
+<p t="425490" d="2290">Why lambda squared?</p>
+<p t="427780" d="2930">Because in the middle is
+the S S inverse that's</p>
+<p t="430710" d="3540">giving the identity matrix.</p>
+<p t="434250" d="2710">So then the lambda
+multiplies the lambda</p>
+<p t="436960" d="2030">and now here is S inverse.</p>
+<p t="438990" d="3870">Well A squared is S*lambda
+squared*S inverse.</p>
+<p t="442860" d="2510">What does that tell me in words?</p>
+<p t="445370" d="6550">That tells me that the
+eigenvectors of A squared are?</p>
+<p t="451920" d="1380">The same.</p>
+<p t="453300" d="4500">As for A. And it tells me that
+the eigenvalues of A squared</p>
+<p t="457800" d="1320">are?</p>
+<p t="459120" d="2280">The squares.</p>
+<p t="461400" d="2250">So I could do this.</p>
+<p t="463650" d="1950">Maybe I did it
+before, one at a time.</p>
+<p t="465600" d="8160">Ay=lambda*y, multiply again by
+A. A squared*y is lambda*Ay,</p>
+<p t="473760" d="5960">but Ay is lambda*y so I'm
+up to lambda squared*y.</p>
+<p t="479720" d="2320">You should just see
+that when you've</p>
+<p t="482040" d="4420">got these directions then
+your matrix is really simple.</p>
+<p t="486460" d="2420">Effectively it's
+a diagonal matrix</p>
+<p t="488880" d="2650">in these good directions.</p>
+<p t="491530" d="5750">So that just shows one way
+of seeing-- And of course</p>
+<p t="497280" d="1120">what about A inverse?</p>
+<p t="498400" d="2560">We might as well
+mention A inverse.</p>
+<p t="500960" d="3580">Suppose A is invertible.</p>
+<p t="504540" d="4170">Then what do I learn
+about A inverse?</p>
+<p t="508710" d="3670">Can I just invert that?</p>
+<p t="512380" d="1620">I'm just playing
+with that formula,</p>
+<p t="514000" d="5800">so you'll kind of,
+like, get handy with it.</p>
+<p t="519800" d="2970">What would the inverse
+be if I have three things</p>
+<p t="522770" d="2560">in a row multiplied together?</p>
+<p t="525330" d="3150">What's the inverse?</p>
+<p t="528480" d="3000">So I'm going to take the
+inverses in the opposite order,</p>
+<p t="531480" d="1260">right?</p>
+<p t="532740" d="3410">So the inverse of
+that will come first.</p>
+<p t="536150" d="2490">So what's that?</p>
+<p t="538640" d="3750">Just S. The lambda
+in the middle gets</p>
+<p t="542390" d="3730">inverted and then
+the S at the left,</p>
+<p t="546120" d="3490">its inverse comes at the right.</p>
+<p t="549610" d="3580">Well what do I learn from that?</p>
+<p t="553190" d="6630">I learn that the eigenvector
+matrix for A inverse is?</p>
+<p t="559820" d="1540">Same thing, again.</p>
+<p t="561360" d="820">Same.</p>
+<p t="562180" d="2200">Let me put just "Same".</p>
+<p t="564380" d="7480">What's the eigenvalue
+matrix for A inverse?</p>
+<p t="571860" d="5210">It's the inverse of this guy,
+so what does it look like?</p>
+<p t="577070" d="2830">It's got one over lambdas.</p>
+<p t="579900" d="2820">That's all it says.</p>
+<p t="582720" d="3260">The eigenvalues for
+A inverse are just</p>
+<p t="585980" d="3480">one over the eigenvalues for A.</p>
+<p t="589460" d="4750">If that is so, and it can't
+be difficult, we could again,</p>
+<p t="594210" d="7170">we could prove it sort
+of like, one at a time.</p>
+<p t="601380" d="1900">This is my starting
+point, always.</p>
+<p t="603280" d="4330">How would I get to A inverse
+now and recover this fact</p>
+<p t="607610" d="5900">that the eigenvalues for the
+inverse, just turn them up.</p>
+<p t="613510" d="3440">If A has an eigenvalue
+seven, A inverse</p>
+<p t="616950" d="3750">will have an eigenvalue 1/7.</p>
+<p t="620700" d="2870">What do I do?</p>
+<p t="623570" d="3130">Usually multiply both sides
+by something sensible.</p>
+<p t="626700" d="1930">Right?</p>
+<p t="628630" d="2400">What shall I multiply
+both sides by?</p>
+<p t="631030" d="3960">A inverse sounds like
+a good idea, right.</p>
+<p t="634990" d="1940">So I'm multiplying both
+sides by A inverse,</p>
+<p t="636930" d="3440">so that just leaves y and
+here is that number, here</p>
+<p t="640370" d="3930">is A inverse times y.</p>
+<p t="644300" d="2230">Well, maybe I should
+do one more thing.</p>
+<p t="646530" d="2380">What else shall I do?</p>
+<p t="648910" d="3220">Divide by lambda.</p>
+<p t="652130" d="3810">Take that number lambda and
+put it over here as one lambda.</p>
+<p t="655940" d="4090">Well, just exactly
+what we're looking for.</p>
+<p t="660030" d="4783">The same y has A
+inverse, the same y</p>
+<p t="664813" d="3397">as an eigenvector of A
+inverse and the eigenvalue</p>
+<p t="668210" d="2020">is one over lambda.</p>
+<p t="670230" d="3430">Oh, and of course,
+I should have said</p>
+<p t="673660" d="2850">before I inverted
+anything, what should I</p>
+<p t="676510" d="3410">have said about the lambdas?</p>
+<p t="679920" d="1680">Not zero.</p>
+<p t="681600" d="1040">Right?</p>
+<p t="682640" d="6230">A zero eigenvalue is a signal
+the matrix isn't invertible.</p>
+<p t="688870" d="3470">So that's perfect test.</p>
+<p t="692340" d="5120">If the matrix is invertible, all
+its eigenvalues are not zero.</p>
+<p t="697460" d="3150">If it's singular, it's
+got a zero eigenvalue.</p>
+<p t="700610" d="6450">If a matrix is singular,
+then Ay would be 0y for some,</p>
+<p t="707060" d="2610">there'd be a vector
+that that matrix kills.</p>
+<p t="709670" d="2900">If A is not invertible,
+there's a reason for it.</p>
+<p t="712570" d="3160">It's because it takes
+some vector to zero,</p>
+<p t="715730" d="5850">and of course, you can't
+bring it back to life.</p>
+<p t="721580" d="1740">So shall I just
+put that up here?</p>
+<p t="723320" d="4970">Lambda=0 would tell me I
+have a singular matrix.</p>
+<p t="728290" d="3830">All lambda not equal
+zero would tell me</p>
+<p t="732120" d="5390">I have an invertible matrix.</p>
+<p t="737510" d="2480">These are straightforward facts.</p>
+<p t="739990" d="5320">It's taken down in this row
+and it's just really handy</p>
+<p t="745310" d="5380">to have up here.</p>
+<p t="750690" d="3420">Well now I'm ready to move
+toward the specific matrices,</p>
+<p t="754110" d="1490">our favorites.</p>
+<p t="755600" d="2590">Now, those are symmetric.</p>
+<p t="758190" d="3590">So maybe before I
+leave this picture,</p>
+<p t="761780" d="4720">we better recall what is special
+when the matrix is symmetric.</p>
+<p t="766500" d="2980">So that's going to
+be the next thing.</p>
+<p t="769480" d="3720">So if A is symmetric I get
+some extra good things.</p>
+<p t="773200" d="5510">So let me take instead
+of A, I'll use K.</p>
+<p t="778710" d="4040">So that'll be my letter
+for the best matrices.</p>
+<p t="782750" d="4710">So symmetric.</p>
+<p t="787460" d="3200">So now what's the deal
+with symmetric matrices?</p>
+<p t="790660" d="2270">The eigenvalues, the lambdas.</p>
+<p t="792930" d="3100">I'll just call them the
+lambdas and the y's.</p>
+<p t="796030" d="4910">The lambdas are, do you
+remember from last time?</p>
+<p t="800940" d="5020">If I have a symmetric matrix,
+the eigenvalues are all?</p>
+<p t="805960" d="940">Anybody remember?</p>
+<p t="806900" d="2000">They're all real numbers.</p>
+<p t="808900" d="3310">You can never run into
+complex eigenvalues</p>
+<p t="812210" d="2360">if you start with
+a symmetric matrix.</p>
+<p t="814570" d="4680">We didn't prove that but it's
+just a few steps like those.</p>
+<p t="819250" d="3620">And what about, most
+important, what about the y's?</p>
+<p t="822870" d="1240">The eigenvectors.</p>
+<p t="824110" d="4830">They are, or can be chosen
+to be, or whatever, anybody</p>
+<p t="828940" d="1260">remember that fact?</p>
+<p t="830200" d="2830">These are, like,
+the golden facts.</p>
+<p t="833030" d="7950">Every sort of bunch of
+matrices reveals itself</p>
+<p t="840980" d="2580">through what its
+eigenvalues are like</p>
+<p t="843560" d="1860">and what its
+eigenvectors are like.</p>
+<p t="845420" d="3170">And the most important class
+is symmetric and that reveals</p>
+<p t="848590" d="4140">itself through real
+eigenvalues and...?</p>
+<p t="852730" d="1260">Orthogonal, good.</p>
+<p t="853990" d="4770">Orthogonal eigenvectors,
+orthogonal.</p>
+<p t="858760" d="4820">And in fact, since
+I'm an eigenvector,</p>
+<p t="863580" d="3450">I can adjust its
+length as I like.</p>
+<p t="867030" d="2350">Right?</p>
+<p t="869380" d="3020">If y is an eigenvector,
+11y is an eigenvector</p>
+<p t="872400" d="3260">because I would just
+multiply both sides by 11.</p>
+<p t="875660" d="5200">That whole line of eigenvectors
+is getting stretched by lambda.</p>
+<p t="880860" d="5110">So what I want to do is
+make them unit vectors.</p>
+<p t="885970" d="3780">MATLAB will
+automatically produce,</p>
+<p t="889750" d="3350">eig would automatically
+give you vectors that</p>
+<p t="893100" d="7640">have been normalized to unit.</p>
+<p t="900740" d="2890">Here's something good.</p>
+<p t="903630" d="2190">So what does orthogonal mean?</p>
+<p t="905820" d="4420">That means that one of them,
+the dot product of one of them</p>
+<p t="910240" d="3980">with another one is?</p>
+<p t="914220" d="2960">Now that's not, I didn't
+do the dot product yet.</p>
+<p t="917180" d="4520">What symbol do I have to
+write on left-hand side?</p>
+<p t="921700" d="1740">Well you could say,
+just put a dot.</p>
+<p t="923440" d="1710">Of course.</p>
+<p t="925150" d="9170">But dots are not cool, right?</p>
+<p t="934320" d="2620">So maybe I should say
+inner product, that's</p>
+<p t="936940" d="5050">the more upper-class word.</p>
+<p t="941990" d="2210">But I want to use transpose.</p>
+<p t="944200" d="1520">So it's the transpose.</p>
+<p t="945720" d="1410">That's the dot product.</p>
+<p t="947130" d="2880">And that's the test
+for perpendicular.</p>
+<p t="950010" d="1440">So what's the answer then?</p>
+<p t="951450" d="3850">I get a zero if i
+is different from j.</p>
+<p t="955300" d="2920">If I'm taking two
+different eigenvectors</p>
+<p t="958220" d="3300">and I take their dot product,
+that's what you told me,</p>
+<p t="961520" d="1440">they're orthogonal.</p>
+<p t="962960" d="2820">And now what if i equals j?</p>
+<p t="965780" d="3620">If I'm taking the dot
+product with itself,</p>
+<p t="969400" d="2560">each eigenvector with itself.</p>
+<p t="971960" d="4960">So what does the dot product
+of a vector with itself give?</p>
+<p t="976920" d="2110">It'll be one because I'm normal.</p>
+<p t="979030" d="2390">Exactly.</p>
+<p t="981420" d="2100">What it always gives,
+the dot product</p>
+<p t="983520" d="2180">of a vector with
+itself, you just</p>
+<p t="985700" d="3180">realize that that'll be
+y_1 squared, y_2 squared,</p>
+<p t="988880" d="3080">it'll be the length squared.</p>
+<p t="991960" d="4860">And here we're making
+the length to be one.</p>
+<p t="996820" d="2900">Well once again, if
+I write something</p>
+<p t="999720" d="3390">down like this which
+is straightforward</p>
+<p t="1003110" d="3690">I want to express it
+as a matrix statement.</p>
+<p t="1006800" d="7290">So I want to multiply, it'll
+involve my good eigenvector</p>
+<p t="1014090" d="1580">matrix.</p>
+<p t="1015670" d="4580">And this will be what?</p>
+<p t="1020250" d="3490">I want to take all these
+dots products at once.</p>
+<p t="1023740" d="3700">I want to take the dot product
+of every y with every other y.</p>
+<p t="1027440" d="1350">Well here you go.</p>
+<p t="1028790" d="5690">Just put these guys in the rows,
+now that we see that it really</p>
+<p t="1034480" d="5020">was the transpose
+multiplying y, do you</p>
+<p t="1039500" d="2170">see that that's just done it?</p>
+<p t="1041670" d="2710">In fact, you'll tell me
+what the answer is here.</p>
+<p t="1044380" d="4420">Don't shout it out, but let's
+take it two or three entries</p>
+<p t="1048800" d="2880">and then you can shout it out.</p>
+<p t="1051680" d="5340">So what's the (1,
+1) entry here of I</p>
+<p t="1057020" d="2670">guess that's what
+we called S. And now</p>
+<p t="1059690" d="1990">this would be its transpose.</p>
+<p t="1061680" d="3270">And what I'm saying is if I
+take-- Yeah, this is important</p>
+<p t="1064950" d="2580">because throughout
+this course we're</p>
+<p t="1067530" d="5720">going to be taking A
+transpose A, S transpose S,</p>
+<p t="1073250" d="2850">Q transpose Q,
+often, often, often.</p>
+<p t="1076100" d="2240">So here we got the
+first time at it.</p>
+<p t="1078340" d="4030">So why did I put a zero
+there, because it's not it.</p>
+<p t="1082370" d="1510">What is it?</p>
+<p t="1083880" d="2790">What is that first entry?</p>
+<p t="1086670" d="1070">One.</p>
+<p t="1087740" d="3270">Because that's the row times
+the column, that's a one.</p>
+<p t="1091010" d="2770">And what's the entry next to it?</p>
+<p t="1093780" d="540">Zero.</p>
+<p t="1094320" d="5560">Right? y_1 dot product with
+y_2 is, we're saying, zero.</p>
+<p t="1099880" d="3560">So what matrix have I got here?</p>
+<p t="1103440" d="930">I've got the identity.</p>
+<p t="1104370" d="4320">Because y_2 with y_2 will
+put a one there and all</p>
+<p t="1108690" d="1650">zeroes elsewhere.</p>
+<p t="1110340" d="1170">Zero, zero.</p>
+<p t="1111510" d="3250">And y_3 times y_3
+will be the one.</p>
+<p t="1114760" d="5420">I get the identity.</p>
+<p t="1120180" d="8190">So this is for
+symmetric matrices.</p>
+<p t="1128370" d="5150">In general, we can't expect the
+eigenvectors to be orthogonal.</p>
+<p t="1133520" d="3640">It's these special
+ones that are.</p>
+<p t="1137160" d="5480">But they're so important
+that we notice.</p>
+<p t="1142640" d="2780">Now so this is the
+eigenvector matrix</p>
+<p t="1145420" d="4260">S and this is its transpose.</p>
+<p t="1149680" d="2870">So I'm saying that for
+a symmetric matrix,</p>
+<p t="1152550" d="6950">S transpose times S is I.
+Well that's pretty important.</p>
+<p t="1159500" d="3420">In fact, that's
+important enough that I'm</p>
+<p t="1162920" d="4610">going to give an
+extra name to S,</p>
+<p t="1167530" d="6910">the eigenvector matrix when it
+comes from a symmetric matrix,</p>
+<p t="1174440" d="4020">when it has a matrix with S
+transpose times S equaling</p>
+<p t="1178460" d="6160">the identity is really
+a good matrix to know.</p>
+<p t="1184620" d="5440">So let's just focus
+on those guys.</p>
+<p t="1190060" d="2570">I can put that up here.</p>
+<p t="1192630" d="4710">So here's a matrix.</p>
+<p t="1197340" d="3070">Can I introduce a
+different letter than S?</p>
+<p t="1200410" d="5130">It just helps you to remember
+that this remarkable property</p>
+<p t="1205540" d="1170">is in force.</p>
+<p t="1206710" d="3380">That we've got it.</p>
+<p t="1210090" d="5220">So I'm going to call it--
+When K is a symmetric matrix,</p>
+<p t="1215310" d="9060">I'll just repeat that,
+then its eigenvector matrix</p>
+<p t="1224370" d="5150">has this S transpose
+times S-- I'm</p>
+<p t="1229520" d="6070">going to call it Q. I'm going
+to call the eigenvectors,</p>
+<p t="1235590" d="9330">so for this special
+situation, A times--</p>
+<p t="1244920" d="3450">So I'm going to call the
+eigenvector matrix Q.</p>
+<p t="1248370" d="5740">It's the S but it's worth
+giving it this special notation</p>
+<p t="1254110" d="8600">to remind us that this is, so
+Q is, an orthogonal matrix.</p>
+<p t="1262710" d="4240">There's a name for matrices
+with this important property.</p>
+<p t="1266950" d="2890">And there's a letter
+Q that everybody uses.</p>
+<p t="1269840" d="2850">An orthogonal matrix.</p>
+<p t="1272690" d="1480">And what does that mean?</p>
+<p t="1274170" d="4360">Means just what we said,
+Q transpose times Q</p>
+<p t="1278530" d="9440">is I. What I've done here
+is just giving a special,</p>
+<p t="1287970" d="3890">introducing a special
+letter Q, a special name,</p>
+<p t="1291860" d="4830">orthogonal matrix for
+what we found in the good,</p>
+<p t="1296690" d="4020">in this-- for eigenvectors
+of a symmetric matrix.</p>
+<p t="1300710" d="3580">And this tells me
+one thing more.</p>
+<p t="1304290" d="1920">Look what's happening here.</p>
+<p t="1306210" d="4950">Q transpose times Q is
+giving the identity.</p>
+<p t="1311160" d="3440">What does that tell me
+about the inverse of Q?</p>
+<p t="1314600" d="6110">That tells me here some matrix
+is multiplying Q and giving I.</p>
+<p t="1320710" d="1340">So what is this matrix?</p>
+<p t="1322050" d="4550">What's another name
+for this Q transpose?</p>
+<p t="1326600" d="3140">Is also Q inverse.</p>
+<p t="1329740" d="2450">Because that's what
+defines the inverse matrix,</p>
+<p t="1332190" d="11390">that times Q should give I.
+So Q transpose is Q inverse.</p>
+<p t="1343580" d="2560">I'm moving along here.</p>
+<p t="1346140" d="7030">Yes, please.</p>
+<p t="1353170" d="4820">The question was, shouldn't I
+call it an orthonormal matrix?</p>
+<p t="1357990" d="2100">The answer is yes, I should.</p>
+<p t="1360090" d="1930">But nobody does.</p>
+<p t="1362020" d="520">Dammit!</p>
+<p t="1362540" d="2800">So I'm stuck with that name.</p>
+<p t="1365340" d="2460">But orthonormal is
+the proper name.</p>
+<p t="1367800" d="2370">If you call it an
+orthonormal matrix,</p>
+<p t="1370170" d="2980">I'm happy because that's
+really the right name</p>
+<p t="1373150" d="1720">for that matrix, orthonormal.</p>
+<p t="1374870" d="3910">Because orthogonal would just
+mean orthogonal columns but</p>
+<p t="1378780" d="2600">we've taken this
+extra little step</p>
+<p t="1381380" d="2120">to make all the lengths one.</p>
+<p t="1383500" d="3720">And then that gives us
+this great property.</p>
+<p t="1387220" d="2040">Q transpose is Q inverse.</p>
+<p t="1389260" d="5520">Orthogonal matrices
+are like rotations.</p>
+<p t="1394780" d="4490">I better give an example
+of an orthogonal matrix.</p>
+<p t="1399270" d="1360">I'll do it right under here.</p>
+<p t="1400630" d="2340">Here is an orthogonal matrix.</p>
+<p t="1402970" d="2500">So what's the point?</p>
+<p t="1405470" d="2700">It's supposed to be a unit
+vector in the first column</p>
+<p t="1408170" d="3770">so I'll put
+cos(theta), sin(theta).</p>
+<p t="1411940" d="2450">And now what can go
+in the second column</p>
+<p t="1414390" d="2600">of this orthogonal matrix?</p>
+<p t="1416990" d="3950">It's gotta be a unit vector
+again because we've normalized</p>
+<p t="1420940" d="5560">and it's gotta be, what's the
+connection to the first column?</p>
+<p t="1426500" d="2470">Orthogonal, gotta be orthogonal.</p>
+<p t="1428970" d="2430">So I just wanted to
+put something here</p>
+<p t="1431400" d="2580">that sum of squares
+is one, so I'll</p>
+<p t="1433980" d="2720">think cos(theta) and
+sin(theta) again.</p>
+<p t="1436700" d="2730">But then I've got to
+flip them a little</p>
+<p t="1439430" d="1630">to make it orthogonal to this.</p>
+<p t="1441060" d="6980">So if I put minus sin(theta)
+there and plus cos(theta) there</p>
+<p t="1448040" d="2560">that certainly has
+length one, good.</p>
+<p t="1450600" d="3980">And the dot product, can you do
+the dot product of that column</p>
+<p t="1454580" d="1110">with that column?</p>
+<p t="1455690" d="4840">It's minus sine cosine,
+plus sine cosine, zero.</p>
+<p t="1460530" d="2970">So there is a two
+by two, actually</p>
+<p t="1463500" d="3240">that's a fantastic
+building block out of which</p>
+<p t="1466740" d="5740">you could build many orthogonal
+matrices of all sizes.</p>
+<p t="1472480" d="5910">That's a rotation by theta.</p>
+<p t="1478390" d="3010">That's a useful matrix to know.</p>
+<p t="1481400" d="5100">It takes every vector, swings
+it around by an angle theta.</p>
+<p t="1486500" d="830">What do I mean?</p>
+<p t="1487330" d="6650">I mean that Qx, Q times a
+vector x, rotates x by theta.</p>
+<p t="1493980" d="1860">Let me put it.</p>
+<p t="1495840" d="5810">Qx rotates whatever vector x
+you give it, you multiply by Q,</p>
+<p t="1501650" d="5720">it rotates it around by theta,
+it doesn't change the length.</p>
+<p t="1507370" d="8876">So that would be an eigenvector
+matrix of a pretty typical two</p>
+<p t="1516246" d="3414">by two.</p>
+<p t="1519660" d="2560">I see as I talk
+about eigenvectors,</p>
+<p t="1522220" d="2430">eigenvalues there's
+so much to say.</p>
+<p t="1524650" d="4500">Because everything you know
+about a matrix shows up somehow</p>
+<p t="1529150" d="2300">in its eigenvectors
+and eigenvalues</p>
+<p t="1531450" d="6580">and we're focusing
+on symmetric guys.</p>
+<p t="1538030" d="3982">What happens to this
+A=S*lambda*S inverse?</p>
+<p t="1542012" d="958">Let's write that again.</p>
+<p t="1542970" d="7710">Now we've got K. It's
+S*lambda*S inverse like any good</p>
+<p t="1550680" d="6950">diagonalization but now
+I'm giving S a new name,</p>
+<p t="1557630" d="1590">which is what?</p>
+<p t="1559220" d="5570">Q. because when I give K,
+when I use that letter K</p>
+<p t="1564790" d="4570">I'm thinking symmetric so
+I'm in this special situation</p>
+<p t="1569360" d="1020">of symmetric.</p>
+<p t="1570380" d="2480">I have the lambda,
+the eigenvalue matrix,</p>
+<p t="1572860" d="4130">and here I have Q inverse.</p>
+<p t="1576990" d="3310">But there's another
+little way to write it</p>
+<p t="1580300" d="4670">and it's terrifically important
+in mechanics and dynamics,</p>
+<p t="1584970" d="1630">everywhere.</p>
+<p t="1586600" d="1380">It's simple now.</p>
+<p t="1587980" d="1220">We know everything.</p>
+<p t="1589200" d="2680">Q lambda what?</p>
+<p t="1591880" d="5780">Q transpose.</p>
+<p t="1597660" d="2980">Do you see the
+beauty of that form?</p>
+<p t="1600640" d="7550">That's called the principal
+axis theorem in mechanics.</p>
+<p t="1608190" d="2490">It's called the spectral
+theorem in mathematics.</p>
+<p t="1610680" d="4490">It's diagonalization, it's
+quantum mechanics, everything.</p>
+<p t="1615170" d="3130">Any time you have
+a symmetric matrix</p>
+<p t="1618300" d="5700">there's the wonderful
+statement of how it breaks up</p>
+<p t="1624000" d="3440">when you look at its
+orthonormal eigenvectors</p>
+<p t="1627440" d="2720">and its real eigenvalues.</p>
+<p t="1630160" d="6870">Do you see that once again
+the symmetry has reappeared</p>
+<p t="1637030" d="2530">in the three factors?</p>
+<p t="1639560" d="2170">The symmetry has
+reappeared in the fact</p>
+<p t="1641730" d="4010">that this vector is the
+transpose of this one.</p>
+<p t="1645740" d="8580">We saw that for elimination
+when these were triangular.</p>
+<p t="1654320" d="6440">That makes me remember what
+we had in a different context,</p>
+<p t="1660760" d="5640">in the elimination when things
+were triangular we had K=L*D*L</p>
+<p t="1666400" d="2140">transpose.</p>
+<p t="1668540" d="6890">I just squeezed that in to ask
+you to sort of think of the two</p>
+<p t="1675430" d="3300">as two wonderful pieces
+of linear algebra</p>
+<p t="1678730" d="5610">in such a perfect
+shorthand, perfect notation.</p>
+<p t="1684340" d="3110">This was triangular
+times the pivot matrix</p>
+<p t="1687450" d="2570">times the upper triangular.</p>
+<p t="1690020" d="3530">This is orthogonal times
+the eigenvalue matrix</p>
+<p t="1693550" d="3470">times its transpose.</p>
+<p t="1697020" d="3110">And the key point
+here was triangular</p>
+<p t="1700130" d="7890">and the key point
+here is orthogonal.</p>
+<p t="1708020" d="3460">That took some time,
+but it had to be done.</p>
+<p t="1711480" d="1960">This is the right
+way to understand.</p>
+<p t="1713440" d="4470">That the central theme, it's a
+highlight of a linear algebra</p>
+<p t="1717910" d="4230">course and we just
+went straight to it.</p>
+<p t="1722140" d="8750">And now what I wanted to do
+was look now at the special K.</p>
+<p t="1730890" d="6090">Oh, that's an awful pun.</p>
+<p t="1736980" d="6870">The special matrices that we
+have, so those are n by n.</p>
+<p t="1743850" d="3080">And as I said last
+time, usually it's</p>
+<p t="1746930" d="3250">not very likely that we
+find all the eigenvalues</p>
+<p t="1750180" d="6600">and eigenvectors of this family
+of bigger and bigger matrices.</p>
+<p t="1756780" d="2976">So now I'm going to
+specialize to my n</p>
+<p t="1759756" d="5224">by n matrix K equals
+twos down the diagonal,</p>
+<p t="1764980" d="5340">minus ones above and
+minus ones below.</p>
+<p t="1770320" d="2240">What are the eigenvalues
+of that matrix</p>
+<p t="1772560" d="3810">and what are the eigenvectors?</p>
+<p t="1776370" d="2960">How to tackle that?</p>
+<p t="1779330" d="5420">The best way is the way
+we've done with the inverse</p>
+<p t="1784750" d="3030">and other ways of
+understanding K,</p>
+<p t="1787780" d="4490">was to compare it with
+the continuous problem.</p>
+<p t="1792270" d="4680">So this is a big matrix
+which is a second difference</p>
+<p t="1796950" d="2870">matrix, fixed-fixed.</p>
+<p t="1799820" d="4240">Everybody remembers that the
+boundary conditions associated</p>
+<p t="1804060" d="1730">with this are fixed-fixed.</p>
+<p t="1805790" d="6550">I want to ask you to look at
+the corresponding differential</p>
+<p t="1812340" d="1210">equation.</p>
+<p t="1813550" d="3980">So you may not have
+thought about eigenvectors</p>
+<p t="1817530" d="1960">of differential equations.</p>
+<p t="1819490" d="2280">And maybe I have to
+call them eigenfunctions</p>
+<p t="1821770" d="2440">but the idea doesn't
+change one bit.</p>
+<p t="1824210" d="5080">So what shall I look at?</p>
+<p t="1829290" d="2940">K corresponds to what?</p>
+<p t="1832230" d="4540">Continuous
+differential business,</p>
+<p t="1836770" d="3430">what derivative, what?</p>
+<p t="1840200" d="2550">So I would like to
+look at Ky=lambda*y.</p>
+<p t="1846550" d="1840">I'm looking for
+the y's and lambdas</p>
+<p t="1848390" d="6120">and the way I'm going to
+get them is to look at,</p>
+<p t="1854510" d="2340">what did you say it was?</p>
+<p t="1856850" d="4100">K, now I'm going to write down
+a differential equation that's</p>
+<p t="1860950" d="4960">like this but we'll
+solve it quickly.</p>
+<p t="1865910" d="1660">So what will it be?</p>
+<p t="1867570" d="3920">K is like, tell me again.</p>
+<p t="1871490" d="6000">Second derivative of y
+with respect to x squared.</p>
+<p t="1877490" d="3160">And there's one more thing
+you have to remember.</p>
+<p t="1880650" d="1960">Minus.</p>
+<p t="1882610" d="3210">And here we have lambda*y(x).</p>
+<p t="1892240" d="4620">That's an eigenvalue
+and an eigenfunction</p>
+<p t="1896860" d="3800">that we're looking at for
+this differential equation.</p>
+<p t="1900660" d="3520">Now there's another thing
+you have to remember.</p>
+<p t="1904180" d="4020">And you'll know what it
+is and you'll tell me.</p>
+<p t="1908200" d="2930">I could look for
+all the solutions.</p>
+<p t="1911130" d="2640">Well, let me
+momentarily do that.</p>
+<p t="1913770" d="6880">What functions have minus
+the second derivative is</p>
+<p t="1920650" d="1930">a multiple of the function?</p>
+<p t="1922580" d="2800">Can you just tell me a few?</p>
+<p t="1925380" d="1870">Sine and cosine.</p>
+<p t="1927250" d="3100">I mean this is a fantastic
+eigenvalue problem</p>
+<p t="1930350" d="7860">because its solutions
+are sines and cosines.</p>
+<p t="1938210" d="4360">And of course we could combine
+them into exponentials.</p>
+<p t="1942570" d="7240">We could have sine(omega*x)
+or cos(omega*x) or we could</p>
+<p t="1949810" d="3670">combine those into
+e^(i*omega*x),</p>
+<p t="1953480" d="3310">would be a combination of
+those, or e^(-i*omega*x).</p>
+<p t="1959310" d="6090">Those are combinations of
+these, so those are not new.</p>
+<p t="1965400" d="2350">We've gotten lots
+of eigenfunctions.</p>
+<p t="1967750" d="3850">Oh, for every frequency omega
+this solves the equation.</p>
+<p t="1971600" d="2500">What's the eigenvalue?</p>
+<p t="1974100" d="3610">If you guess the eigenfunction
+you've got the eigenvalue just</p>
+<p t="1977710" d="2140">by seeing what happens.</p>
+<p t="1979850" d="5190">So what would the eigenvalue be?</p>
+<p t="1985040" d="1430">Tell me again.</p>
+<p t="1986470" d="1110">Omega squared.</p>
+<p t="1987580" d="3460">Because I take the second
+derivative of the sine, that'll</p>
+<p t="1991040" d="3480">give me the cosine back to the
+sine, omega squared comes out,</p>
+<p t="1994520" d="2640">omega comes out twice.</p>
+<p t="1997160" d="2280">Comes out with a minus
+sign from the cosine</p>
+<p t="1999440" d="6040">and that minus sign is
+just right to make it plus.</p>
+<p t="2005480" d="2220">Lambda is omega squared.</p>
+<p t="2007700" d="1770">So omega squared.</p>
+<p t="2009470" d="2210">All the way of course.</p>
+<p t="2011680" d="6400">Those are the eigenvalues.</p>
+<p t="2018080" d="3800">All our differential examples
+had something more than just</p>
+<p t="2021880" d="1650">the differential equation.</p>
+<p t="2023530" d="4710">What's the additional thing that
+a differential equation comes</p>
+<p t="2028240" d="1450">with?</p>
+<p t="2029690" d="2300">Boundary conditions.</p>
+<p t="2031990" d="1540">With boundary conditions.</p>
+<p t="2033530" d="1830">Otherwise we got too many.</p>
+<p t="2035360" d="3160">I mean we don't want
+all of these guys.</p>
+<p t="2038520" d="2060">What boundary conditions?</p>
+<p t="2040580" d="3010">If we're thinking about
+K, our boundary conditions</p>
+<p t="2043590" d="5940">should be fixed and fixed.</p>
+<p t="2049530" d="2400">So that's the full problem.</p>
+<p t="2051930" d="5130">This is part of the problem
+not just an afterthought.</p>
+<p t="2057060" d="4650">Now these conditions,
+that will be perfect.</p>
+<p t="2061710" d="3710">Instead of having all
+these sines and cosines</p>
+<p t="2065420" d="8320">we're going to narrow down
+to a family that satisfies</p>
+<p t="2073740" d="2590">the boundary conditions.</p>
+<p t="2076330" d="4150">First boundary condition is
+it has to be zero at x=0.</p>
+<p t="2080480" d="2550">What does that eliminate now?</p>
+<p t="2083030" d="2740">Cosines are gone,
+keeps the sines.</p>
+<p t="2085770" d="3660">Cosines are gone by that
+first boundary condition.</p>
+<p t="2089430" d="2960">These are guys that are left.</p>
+<p t="2092390" d="6910">I won't deal with these at this
+point because I'm down to sines</p>
+<p t="2099300" d="2310">already from one
+boundary condition.</p>
+<p t="2101610" d="5210">And now, the other
+boundary condition.</p>
+<p t="2106820" d="5800">The other boundary
+condition has to at x=1,</p>
+<p t="2112620" d="3990">if it's going to work
+sin(omega*x) has to be?</p>
+<p t="2116610" d="5860">Nope, what do I put now?
+sin(omega), right? x is one.</p>
+<p t="2122470" d="1350">I'm plugging in here.</p>
+<p t="2123820" d="2870">I'm just plugging
+in x=1 to satisfy.</p>
+<p t="2126690" d="3570">And it has to equal zero.</p>
+<p t="2130260" d="7330">So that means, that
+pins down omega.</p>
+<p t="2137590" d="1840">Doesn't give me just
+one omega, well tell me</p>
+<p t="2139430" d="3850">one omega that's okay then.</p>
+<p t="2143280" d="2640">The first omega that
+occurs to you is?</p>
+<p t="2145920" d="1150">Pi.</p>
+<p t="2147070" d="1460">The sine comes back to pi.</p>
+<p t="2148530" d="1810">So we've got one. y_1.</p>
+<p t="2150340" d="4150">Our first guy is with
+omega=pi is sin(pi*x).</p>
+<p t="2160540" d="2690">That's our fundamental mode.</p>
+<p t="2163230" d="5580">That's the number
+one eigenfunction.</p>
+<p t="2168810" d="3240">And it is an eigenfunction,
+it satisfies the boundary</p>
+<p t="2172050" d="1670">condition.</p>
+<p t="2173720" d="1780">Everybody would know
+its picture, just</p>
+<p t="2175500" d="2210">one arch of the sine function.</p>
+<p t="2177710" d="3050">And the lambda that
+goes with it, lambda_1,</p>
+<p t="2180760" d="2470">so this is the first
+eigenfunction, what's</p>
+<p t="2183230" d="2730">the first eigenvalue?</p>
+<p t="2185960" d="1550">Pi squared, right.</p>
+<p t="2187510" d="2280">Because omega, we took to be pi.</p>
+<p t="2189790" d="3670">So lambda_1 is pi squared.</p>
+<p t="2193460" d="3050">We've got one.</p>
+<p t="2196510" d="3450">We were able to do it
+because we could solve</p>
+<p t="2199960" d="5090">this equation in an easy way.</p>
+<p t="2205050" d="2400">Ready for a second one?</p>
+<p t="2207450" d="2130">What will the next one be?</p>
+<p t="2209580" d="5270">The next eigenfunction it's got
+to, whatever its frequency is,</p>
+<p t="2214850" d="2790">omega, it's got to
+have sin(omega)=0.</p>
+<p t="2217640" d="2620">What's your choice?</p>
+<p t="2220260" d="1270">2pi.</p>
+<p t="2221530" d="5420">So the next one is
+going to be sin(2pi*x).</p>
+<p t="2226950" d="4010">And what will be the eigenvalue
+that goes with that guy?</p>
+<p t="2230960" d="3940">lambda_2 will be
+omega squared, which</p>
+<p t="2234900" d="5570">is 2pi squared, 2pi all squared,
+so that's four pi squared.</p>
+<p t="2240470" d="4080">You see the whole list.</p>
+<p t="2244550" d="4050">The sines with these
+correct frequencies</p>
+<p t="2248600" d="4920">are the eigenfunctions
+of the second derivative</p>
+<p t="2253520" d="3380">with fixed-fixed
+boundary conditions.</p>
+<p t="2256900" d="2990">And this is entirely typical.</p>
+<p t="2259890" d="3980">We don't have just n of them.</p>
+<p t="2263870" d="1900">The list goes on forever, right?</p>
+<p t="2265770" d="2910">The list goes on forever
+because we're talking here</p>
+<p t="2268680" d="2210">about a differential equation.</p>
+<p t="2270890" d="1530">A differential
+equation's somehow</p>
+<p t="2272420" d="3570">like a matrix of infinite size.</p>
+<p t="2275990" d="8380">And somehow these sines are the
+columns of the infinite size</p>
+<p t="2284370" d="1770">eigenvector matrix.</p>
+<p t="2286140" d="3090">And these numbers, pi
+squared, four pi squared,</p>
+<p t="2289230" d="3810">nine pi squared, 16pi
+squared are the eigenvalues</p>
+<p t="2293040" d="9300">of the infinite
+eigenvalue matrix.</p>
+<p t="2302340" d="1800">We got those answers quickly.</p>
+<p t="2304140" d="6570">And let's just mention that
+if I changed to free-fixed</p>
+<p t="2310710" d="5530">or to free-free I could repeat.</p>
+<p t="2316240" d="2050">I'd get different y's.</p>
+<p t="2318290" d="3330">If I have different boundary
+conditions I expect to get</p>
+<p t="2321620" d="1700">different y's.</p>
+<p t="2323320" d="7570">In fact, what would it look like
+if that was y'=0 as the left</p>
+<p t="2330890" d="4520">end?</p>
+<p t="2335410" d="4360">What would you expect the
+eigenfunctions to look like?</p>
+<p t="2339770" d="1530">They'd be cosines.</p>
+<p t="2341300" d="1350">They'd be cosines.</p>
+<p t="2342650" d="3390">And then we would have to
+adjust the omegas to make</p>
+<p t="2346040" d="5370">them come out right
+at the right-hand end.</p>
+<p t="2351410" d="6160">So this y(0)=0, the
+fixed ones gave us sines,</p>
+<p t="2357570" d="7140">the free ones give us cosines,
+the periodic ones if I had</p>
+<p t="2364710" d="5090">y(0)=y(1) so that I'm
+just circling around,</p>
+<p t="2369800" d="6360">then I would expect these
+e^(ikx)'s -- the textbook will,</p>
+<p t="2376160" d="2730">so I'm in the eigenvalue
+section of course,</p>
+<p t="2378890" d="3740">and the textbook lists
+the answers for the other</p>
+<p t="2382630" d="1410">possibilities.</p>
+<p t="2384040" d="2290">Let's go with this one.</p>
+<p t="2386330" d="6980">Because this is the one
+that corresponds to K.</p>
+<p t="2393310" d="11390">We're now ready for
+the final moment.</p>
+<p t="2404700" d="9330">And it is can we guess the
+eigenvectors for the matrix?</p>
+<p t="2414030" d="4770">Now I'm going back to
+the matrix question.</p>
+<p t="2418800" d="3680">And as I say, normally
+the answer's no.</p>
+<p t="2422480" d="1690">Who could guess?</p>
+<p t="2424170" d="1640">But you can always hope.</p>
+<p t="2425810" d="3170">You can try.</p>
+<p t="2428980" d="4220">So what will I try?</p>
+<p t="2433200" d="5440">Here, let me draw
+sin(x), sin(pi*x).</p>
+<p t="2438640" d="3510">And let me remember
+that my matrix K was</p>
+<p t="2442150" d="2980">a finite difference matrix.</p>
+<p t="2445130" d="2230">Let's make it four by four.</p>
+<p t="2447360" d="10090">One, two, three, four let's say.</p>
+<p t="2457450" d="1730">What would be the
+best I could hope for,</p>
+<p t="2459180" d="3790">for the eigenvector,
+the first eigenvector?</p>
+<p t="2462970" d="4550">I'm hoping that the first
+eigenvector of K is very,</p>
+<p t="2467520" d="2520">very like the
+first eigenfunction</p>
+<p t="2470040" d="5910">in the differential equation,
+which was this sin(pi*x),</p>
+<p t="2475950" d="1480">so that's sin(pi*x).</p>
+<p t="2477430" d="2920">Well, what do you hope for?</p>
+<p t="2480350" d="3290">What shall I hope
+for as the components</p>
+<p t="2483640" d="6310">of y_1, the first eigenvector?</p>
+<p t="2489950" d="2220">It's almost too good.</p>
+<p t="2492170" d="2540">And as far as I know,
+basically it only</p>
+<p t="2494710" d="3320">happens with these sines
+and cosines example.</p>
+<p t="2498030" d="3800">These heights, I just
+picked these, what I might</p>
+<p t="2501830" d="4880">call samples, of the thing.</p>
+<p t="2506710" d="5020">Those four values and of course
+zero at that end and zero</p>
+<p t="2511730" d="4340">at that end, so
+because K, the matrix K</p>
+<p t="2516070" d="5680">is building in the fixed-fixed.</p>
+<p t="2521750" d="4900">These four heights, these four
+numbers, those four sines--</p>
+<p t="2526650" d="5710">In other words, what I hope
+is that for Ky=lambda*y,</p>
+<p t="2532360" d="4370">I hope that y_1, the
+first eigenvector,</p>
+<p t="2536730" d="3430">it'll be sin(pi*x),
+but now what is x?</p>
+<p t="2540160" d="3940">So this is x here
+from zero to one.</p>
+<p t="2544100" d="3550">So what's x there,
+there, there and there?</p>
+<p t="2547650" d="3520">Instead of sin(pi*x),
+the whole curve,</p>
+<p t="2551170" d="2600">I'm picking out
+those four samples.</p>
+<p t="2553770" d="5650">So it'll be the sine
+of, what'll it be here?</p>
+<p t="2559420" d="2660">Pi.</p>
+<p t="2562080" d="4800">Pi divided by n+1.</p>
+<p t="2566880" d="1920">Which in my picture
+would be, we'll</p>
+<p t="2568800" d="2990">make it completely explicit.</p>
+<p t="2571790" d="1770">Five.</p>
+<p t="2573560" d="4070">It's 1/5 away along.</p>
+<p t="2577630" d="3020">Maybe I should make these
+y's into column vectors</p>
+<p t="2580650" d="2890">since we're thinking
+of them as columns.</p>
+<p t="2583540" d="1514">So here's y_1.</p>
+<p t="2585054" d="1916">sin(pi/5), sin(2pi/5),
+sin(3pi/5), sin(4pi/5).</p>
+<p t="2596710" d="4710">That's the first eigenvector.</p>
+<p t="2601420" d="1570">And it works.</p>
+<p t="2602990" d="4810">And you could guess
+now the general one.</p>
+<p t="2607800" d="8340">Well when I say it works, I
+haven't checked that it works.</p>
+<p t="2616140" d="1490">I better do that.</p>
+<p t="2617630" d="6300">But the essential
+point is that it works.</p>
+<p t="2623930" d="2690">I may not even do it today.</p>
+<p t="2626620" d="4210">So, in fact, tell me
+the second eigenvector.</p>
+<p t="2630830" d="5010">Or tell me the second
+eigenfunction over here.</p>
+<p t="2635840" d="1700">What's the second eigenfunction?</p>
+<p t="2637540" d="5290">Let me draw it with
+this green chalk.</p>
+<p t="2642830" d="3610">So I'm going to draw y_2.</p>
+<p t="2646440" d="3280">Now what does y_2
+look like? sin(2pi*x).</p>
+<p t="2649720" d="3510">What's the new picture here?</p>
+<p t="2653230" d="3680">It goes up.</p>
+<p t="2656910" d="2040">What does it do?</p>
+<p t="2658950" d="5670">By here it's got
+back, oh no, damn.</p>
+<p t="2664620" d="3050">I would've been better with
+three points in the middle,</p>
+<p t="2667670" d="3190">but it's correct.</p>
+<p t="2670860" d="2000">It comes down here.</p>
+<p t="2672860" d="1000">Right?</p>
+<p t="2673860" d="3390">That's sin(2pi*x).</p>
+<p t="2677250" d="9060">That's halfway along.</p>
+<p t="2686310" d="1910">I'll finish this guy.</p>
+<p t="2688220" d="7960">This'll be sin(2pi/5),
+sin(4pi/5).</p>
+<p t="2696180" d="2360">See I'm sampling
+this same thing.</p>
+<p t="2698540" d="3080">I'm sampling 2pi*x
+at those same points.</p>
+<p t="2701620" d="3680">sin(6pi/5) and sin(8pi/5).</p>
+<p t="2712410" d="3310">Maybe let's accept
+this as correct.</p>
+<p t="2715720" d="1550">It really works.</p>
+<p t="2717270" d="1980">It's the next eigenvector.</p>
+<p t="2719250" d="3950">And then there's a third one
+and then there's a fourth one.</p>
+<p t="2723200" d="4920">And how many are
+there? n usually.</p>
+<p t="2728120" d="4750">And in my case, what is n in
+the picture I've drawn? n here</p>
+<p t="2732870" d="2240">is four.</p>
+<p t="2735110" d="4440">One, two, three, four. n is four
+in that picture and that means</p>
+<p t="2739550" d="1700">that I'm dividing by n+1.</p>
+<p t="2745730" d="3560">That's really sin(pi*h).</p>
+<p t="2749290" d="4120">You remember I used
+h as the step size.</p>
+<p t="2753410" d="5220">So h is 1/5, 1/(n+1), 1/5.</p>
+<p t="2758630" d="5180">So it's sin(pi*h), sin(2pi*h),
+4pi*h-- 3pi*h, 4pi*h.</p>
+<p t="2763810" d="4170">Here's 2, sin(2pi*h),
+sin(4pi*h), sin(6pi*h),</p>
+<p t="2767980" d="500">sin(8pi*h).</p>
+<p t="2775670" d="3120">So I have two things to do.</p>
+<p t="2778790" d="4100">One is to remember what is the
+remarkable property of these</p>
+<p t="2782890" d="500">y's.</p>
+<p t="2783390" d="2990">So there's a y
+that we've guessed.</p>
+<p t="2786380" d="1670">Right now you're
+taking my word for it</p>
+<p t="2788050" d="4450">that it is the eigenvector
+and this is the next one.</p>
+<p t="2792500" d="2350">I copied them out
+of those functions.</p>
+<p t="2794850" d="3260">And just remind me, what
+is it that I'm claiming</p>
+<p t="2798110" d="4080">to be true about y_1 and y_2.</p>
+<p t="2802190" d="4930">They are orthogonal,
+there are orthogonal.</p>
+<p t="2807120" d="5210">Well to check that I'd
+have to do some trig stuff.</p>
+<p t="2812330" d="3940">But what I was going to
+do was come over here</p>
+<p t="2816270" d="7270">and say this was a symmetric
+differential equation.</p>
+<p t="2823540" d="4070">We found its eigenfunctions.</p>
+<p t="2827610" d="3480">What do you think's
+up with those?</p>
+<p t="2831090" d="2210">Those are orthogonal too.</p>
+<p t="2833300" d="5190">So this would be a
+key fact in any sort</p>
+<p t="2838490" d="6040">of advanced applied math is
+that the sine function is</p>
+<p t="2844530" d="3550">orthogonal to the sin(2x).</p>
+<p t="2848080" d="2310">That function as
+orthogonal to this one.</p>
+<p t="2850390" d="3290">And actually that's what
+makes the whole world</p>
+<p t="2853680" d="2640">of Fourier series work.</p>
+<p t="2856320" d="4290">So that was really
+a wonderful fact.</p>
+<p t="2860610" d="2200">That this is orthogonal to this.</p>
+<p t="2862810" d="4930">Now you may, quite reasonably,
+ask what do I mean by that?</p>
+<p t="2867740" d="4375">What does it mean for two
+functions to be orthogonal?</p>
+<p t="2872115" d="1875">As long as we're getting
+all these parallels,</p>
+<p t="2873990" d="1810">let's get that one too.</p>
+<p t="2875800" d="2090">I claim that this
+function, which is this,</p>
+<p t="2877890" d="4460">is orthogonal to this function.</p>
+<p t="2882350" d="2850">What does that mean?</p>
+<p t="2885200" d="3000">What should these
+functions-- Could I write</p>
+<p t="2888200" d="3770">dot or transpose or something?</p>
+<p t="2891970" d="3700">But now I'm doing
+it for functions.</p>
+<p t="2895670" d="6030">I just want you to see
+the complete analogy.</p>
+<p t="2901700" d="4800">So for vectors, what did I do?</p>
+<p t="2906500" d="3300">If I take a dot product I
+multiply the first component</p>
+<p t="2909800" d="2250">times the first component,
+second component times</p>
+<p t="2912050" d="1580">the second, so on, so on.</p>
+<p t="2913630" d="2497">Now what'll I do for functions?</p>
+<p t="2916127" d="1833">I multiply sin(pi*x) *
+sin(2pi*x) at each x.</p>
+<p t="2922300" d="2100">Of course I've got a
+whole range of x's.</p>
+<p t="2924400" d="2220">And then what do I do?</p>
+<p t="2926620" d="1720">I integrate.</p>
+<p t="2928340" d="1460">I can't add.</p>
+<p t="2929800" d="2970">I integrate instead.</p>
+<p t="2932770" d="5560">So I integrate one function
+sin(pi*x) against the other</p>
+<p t="2938330" d="7730">function, sin(2pi*x), dx, and
+I integrate from zero to one</p>
+<p t="2946060" d="2290">and the answer comes out zero.</p>
+<p t="2948350" d="1470">The answer comes out zero.</p>
+<p t="2949820" d="3490">The sine functions
+are orthogonal.</p>
+<p t="2953310" d="2560">The sines are
+orthogonal functions.</p>
+<p t="2955870" d="3740">The sine vectors are
+orthogonal vectors.</p>
+<p t="2959610" d="6810">I normalize to length one and
+they go right into my Q. So</p>
+<p t="2966420" d="2980">if I multiply, if I did that
+times that, that dot product</p>
+<p t="2969400" d="1910">would turn out to be zero.</p>
+<p t="2971310" d="3890">If I had been a
+little less ambitious</p>
+<p t="2975200" d="4670">and taken n to be two
+or three or something</p>
+<p t="2979870" d="1520">we would have seen
+it completely.</p>
+<p t="2981390" d="7530">But maybe doing
+with four is okay.</p>
+<p t="2988920" d="6730">So great lecture
+except for that.</p>
+<p t="2995650" d="2960">Didn't get there.</p>
+<p t="2998610" d="4520">So Wednesday's lecture is
+sort of the bringing all</p>
+<p t="3003130" d="4480">these pieces together, positive
+eigenvalues, positive pivots,</p>
+<p t="3007610" d="1510">positive definite.</p>
+<p t="3009120" d="2580">So come on Wednesday please.</p>
+<p t="3011700" d="2020">Come Wednesday.</p>
+<p t="3013720" d="2000">And Wednesday
+afternoon I'll have</p>
+<p t="3015720" d="2440">the review session as usual.</p>
+</body>
+</timedtext>

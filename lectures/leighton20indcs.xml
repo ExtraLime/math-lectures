@@ -1,0 +1,2297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="499" d="2331">The following content is
+provided under a Creative</p>
+<p t="2830" d="1510">Commons license.</p>
+<p t="4340" d="2340">Your support will help
+MIT OpenCourseWare</p>
+<p t="6680" d="4370">continue to offer high quality
+educational resources for free.</p>
+<p t="11050" d="2610">To make a donation or
+view additional materials</p>
+<p t="13660" d="3903">from hundreds of MIT courses,
+visit MIT OpenCourseWare</p>
+<p t="17563" d="625">at ocw.mit.edu.</p>
+<p t="23224" d="1806">TOM LEIGHTON: Today
+we're going to talk</p>
+<p t="25030" d="4530">about the concept
+of independence.</p>
+<p t="29560" d="12200">In probability, we
+say that an event A</p>
+<p t="41760" d="18450">is independent of an event B
+if one of two conditions hold.</p>
+<p t="60210" d="4700">First, if the
+probability of A given B</p>
+<p t="64910" d="4000">is just the same as
+the probability of A</p>
+<p t="68910" d="7560">or if B can't happen, namely
+the probability of B is 0.</p>
+<p t="76470" d="5980">In other words, A is independent
+of B if knowing that B happened</p>
+<p t="82450" d="3610">doesn't change the probability
+that A is going to happen.</p>
+<p t="86060" d="3660">So knowing that
+this event occurs</p>
+<p t="89720" d="2740">doesn't influence the
+probability that A occurs.</p>
+<p t="92460" d="3240">And there's a special case where
+they're independent because you</p>
+<p t="95700" d="2120">know that B can't happen.</p>
+<p t="97820" d="3200">If the probability
+of B happening is 0,</p>
+<p t="101020" d="3251">then everything is
+independent of B.</p>
+<p t="104271" d="2989">Now, the typical
+example that gets used</p>
+<p t="107260" d="1255">is when you flip two coins.</p>
+<p t="113970" d="5555">So say we flip two
+fair, independent coins.</p>
+<p t="128020" d="13070">And let's let B be the event
+that the first coin is heads</p>
+<p t="141090" d="4840">and that means that the
+probability of B happening</p>
+<p t="145930" d="4110">is 1/2, because we've
+assumed it's a fair coin,</p>
+<p t="150040" d="6070">and we'll let A be the event
+that the second coin comes out</p>
+<p t="156110" d="2010">heads.</p>
+<p t="158120" d="3025">So we know the probability of
+A is 1/2 because it's fair.</p>
+<p t="165180" d="5120">And because they're
+independent, we</p>
+<p t="170300" d="5160">can conclude that the
+probability of A given B</p>
+<p t="175460" d="6320">is 1/2, which is the probability
+of A. In other words,</p>
+<p t="181780" d="2050">seeing the result
+of the second coin</p>
+<p t="183830" d="5360">doesn't tell you anything about
+the result of the first coin.</p>
+<p t="189190" d="4110">Now actually, when
+you flip two coins,</p>
+<p t="193300" d="4220">it's not just always the
+case if they're independent.</p>
+<p t="197520" d="1720">Can anybody think
+of an example where</p>
+<p t="199240" d="4310">you can flip a pair of coins
+and they are dependent somehow,</p>
+<p t="203550" d="2221">they're not independent?</p>
+<p t="205771" d="499">Yeah.</p>
+<p t="206270" d="3370">AUDIENCE: Well, if you have to
+get two heads and two tails?</p>
+<p t="209640" d="3860">TOM LEIGHTON: If you have to
+get two heads or two tails.</p>
+<p t="213500" d="1700">Well, how would you have to get?</p>
+<p t="215200" d="4226">AUDIENCE: The probability
+of getting two heads</p>
+<p t="219426" d="2666">should be 1/4 [INAUDIBLE].</p>
+<p t="222092" d="1458">TOM LEIGHTON: Well,
+then they would</p>
+<p t="223550" d="1465">be independent in that case.</p>
+<p t="225015" d="500">Yeah.</p>
+<p t="225515" d="1708">AUDIENCE: If you glue
+the coins together.</p>
+<p t="227223" d="927">TOM LEIGHTON: Yeah.</p>
+<p t="228150" d="5010">I mean, this is a silly example,
+but I got two fair coins here.</p>
+<p t="233160" d="4706">I could clip them together
+and now I flip them</p>
+<p t="237866" d="2624">and odds are pretty good they're
+both going to be heads or both</p>
+<p t="240490" d="1500">be tails.</p>
+<p t="241990" d="2240">If you know what happened
+to the right coin,</p>
+<p t="244230" d="2810">it will tell you what
+happened to the left coin.</p>
+<p t="247040" d="3560">Now, that's a pretty
+contrived example,</p>
+<p t="250600" d="3400">but it is illustrative of
+what happens in practice.</p>
+<p t="254000" d="3610">In practice, we
+assume independence</p>
+<p t="257610" d="2719">even though there can
+be subtle dependencies</p>
+<p t="260329" d="1291">and this could lead to trouble.</p>
+<p t="261620" d="2030">In fact, we're going to
+give a lot of examples</p>
+<p t="263650" d="2440">where it leads to
+trouble today and also</p>
+<p t="266090" d="1470">for the rest of the course.</p>
+<p t="267560" d="2830">Because we're always going to
+want to assume independence</p>
+<p t="270390" d="3010">and when we do, we're going
+to get very nice results,</p>
+<p t="273400" d="2420">but things aren't always
+independent in practice</p>
+<p t="275820" d="4040">and establishing independence
+is a hard thing to do.</p>
+<p t="279860" d="2070">For that matter, while
+we're on the subject,</p>
+<p t="281930" d="1520">we always talk about fair coins.</p>
+<p t="283450" d="2200">You flip a coin and it's fair.</p>
+<p t="285650" d="1800">You know, that's not
+always to either.</p>
+<p t="287450" d="2680">There's actually a
+famous mathematician</p>
+<p t="290130" d="4970">named Persi Diaconis who used
+to down the street at Harvard</p>
+<p t="295100" d="2970">and he came and
+gave a talk one day</p>
+<p t="298070" d="2470">at MIT in the math department
+and he's a probabalist.</p>
+<p t="300540" d="3290">He does probability theory
+and is a very cool guy.</p>
+<p t="303830" d="4060">And so he flipped a coin,
+got a quarter from somebody</p>
+<p t="307890" d="2510">in the audience and
+flipped it and he</p>
+<p t="310400" d="2960">flip that I think 10 or
+20 straight times all</p>
+<p t="313360" d="3540">the way to the roof,
+caught it, turned it over.</p>
+<p t="316900" d="1912">Every time it was heads.</p>
+<p t="318812" d="3378">And he goes, now what's the
+probability of that happening?</p>
+<p t="322190" d="2610">Well, you know, it's 1/2
+to the 20th or whatever,</p>
+<p t="324800" d="1330">not very likely.</p>
+<p t="326130" d="2600">How could he always
+make it come out heads?</p>
+<p t="328730" d="3050">Well, Persi was an unusual
+guy and in fact, he'd</p>
+<p t="331780" d="5700">spent months in the strobe
+lab over at Harvard practicing</p>
+<p t="337480" d="4314">to make it always rotate seven
+times, three of them on the way</p>
+<p t="341794" d="1666">up, one at the top,
+and then three down.</p>
+<p t="343460" d="2820">And he could actually
+see how many rotations it</p>
+<p t="346280" d="2140">had done to make
+sure it was seven,</p>
+<p t="348420" d="2530">so it always came out heads.</p>
+<p t="350950" d="1610">Now, he is an unusual fellow.</p>
+<p t="352560" d="3800">He was 1 of 10 people
+in the world that</p>
+<p t="356360" d="4122">could do a perfect shuffle
+reliably on a deck of cards</p>
+<p t="360482" d="1458">and that's a very
+hard thing to do.</p>
+<p t="361940" d="4390">He said he had to practice 8
+hours a day for over six months</p>
+<p t="366330" d="1392">to be able to do it every time.</p>
+<p t="367722" d="2208">In fact, he gave another
+talk at MIT where he came in</p>
+<p t="369930" d="3590">and he made magic tricks,
+actually based on mathematics.</p>
+<p t="373520" d="3920">And you would cut a deck,
+he would feel it like this</p>
+<p t="377440" d="2060">and tell you where you
+cut, how many cards</p>
+<p t="379500" d="2890">were in the part you picked
+up and then do his eight</p>
+<p t="382390" d="1825">perfect shuffles, which
+is enough to return</p>
+<p t="384215" d="4505">a normal 52-card deck back
+to its original order.</p>
+<p t="388720" d="2450">And then using this,
+he could play the game</p>
+<p t="391170" d="3190">where pick any card,
+you stick it in,</p>
+<p t="394360" d="3359">he feels where the card went,
+and then using mathematics,</p>
+<p t="397719" d="1541">he could shuffle
+the deck eight times</p>
+<p t="399260" d="3410">and make the card come out
+anywhere he wanted in the deck.</p>
+<p t="402670" d="3330">So he had a lot going
+on upstairs too.</p>
+<p t="406000" d="1910">He had an interesting
+life history.</p>
+<p t="407910" d="2970">He ran away from
+home as a young child</p>
+<p t="410880" d="3270">and joined the traveling circus.</p>
+<p t="414150" d="3430">And then somehow from there, he
+joined the faculty at Harvard.</p>
+<p t="417580" d="3610">You know, there's
+an amazing story.</p>
+<p t="421190" d="1707">And actually your
+story about Persi</p>
+<p t="422897" d="3293">is he was the first
+guy to get kicked out</p>
+<p t="426190" d="1870">of casinos for card counting.</p>
+<p t="428060" d="4910">He figured that out way before
+the MIT team and the movie 21.</p>
+<p t="432970" d="1750">Down in Puerto Rico,
+he used to play</p>
+<p t="434720" d="4750">and then they finally figured
+him out and he got booted.</p>
+<p t="439470" d="6760">So back to independence, let's
+do another picture example.</p>
+<p t="446230" d="3490">Say that my sample
+space looks like this</p>
+<p t="449720" d="4930">and I've got two events, A
+and B and they look like this,</p>
+<p t="454650" d="1806">so they're dis-joined.</p>
+<p t="456456" d="3884">Are A and B independent?</p>
+<p t="460340" d="1070">No.</p>
+<p t="461410" d="6370">In fact what is the probability
+of A given B as I've drawn it?</p>
+<p t="467780" d="780">AUDIENCE: 0.</p>
+<p t="468560" d="1380">TOM LEIGHTON: 0.</p>
+<p t="469940" d="4431">Because if B occurs,
+you're outside of A.</p>
+<p t="474371" d="2804">And so this does not
+equal the probability of A</p>
+<p t="477175" d="2685">as long as it's not 0.</p>
+<p t="479860" d="5140">So disjoint events don't imply
+that they're independent.</p>
+<p t="492730" d="3110">Now, what's the picture
+look like for them</p>
+<p t="495840" d="790">to be independent?</p>
+<p t="496630" d="3296">What is the right
+picture to draw here?</p>
+<p t="499926" d="2954">So I got my sample
+space and say I</p>
+<p t="502880" d="5190">make this half the sample
+space be A. Well, then B</p>
+<p t="508070" d="3040">to be independent,
+would look something--</p>
+<p t="511110" d="1065">I didn't quite draw it.</p>
+<p t="512175" d="3134">I actually have it be 50-50.</p>
+<p t="515309" d="6551">So if a is 50% of S,
+like this half, then</p>
+<p t="521860" d="5500">for A to be independent of
+B, A intersect B, this part,</p>
+<p t="527360" d="6560">has to be 50% of B. Because
+the probability of A given B</p>
+<p t="533920" d="4161">must equal the probability
+of A to be independent.</p>
+<p t="538081" d="2249">So this would be a picture
+where they are independent.</p>
+<p t="543534" d="1416">Now, independent
+events are really</p>
+<p t="544950" d="2540">nice to work with and
+in part because they</p>
+<p t="547490" d="2680">have a very simple
+rule for computing</p>
+<p t="550170" d="4900">the probability of an
+intersection of events</p>
+<p t="555070" d="3945">and it's called the product
+rule for independent events.</p>
+<p t="574150" d="10470">And that says that if
+A is independent of B,</p>
+<p t="584620" d="6380">then the probability of
+A and B or A intersect B</p>
+<p t="591000" d="3680">is just the product
+of their probabilities</p>
+<p t="594680" d="4610">separately, the probability of
+A times the probability of B.</p>
+<p t="599290" d="1240">So let's prove this.</p>
+<p t="605630" d="3760">And there's two cases, depending
+on whether or not B can happen,</p>
+<p t="609390" d="3100">if the probability
+of B is 0 or not.</p>
+<p t="612490" d="6390">So case 1 is B can't happen.</p>
+<p t="618880" d="3340">The probability of B is 0.</p>
+<p t="622220" d="4760">In this case, what's the
+probability of A and B?</p>
+<p t="630680" d="1650">B can't happen.</p>
+<p t="632330" d="840">0.</p>
+<p t="633170" d="3450">If B can't happen,
+then they both can't.</p>
+<p t="636620" d="2180">You can't have both
+of them happening</p>
+<p t="638800" d="8280">and that equals the probability
+of A times the probability of B</p>
+<p t="647080" d="1590">because the
+probability of B is 0.</p>
+<p t="648670" d="1060">So that case works.</p>
+<p t="653170" d="4840">Case 2 is the probability
+of B is bigger than 0.</p>
+<p t="661720" d="3770">In that case, we have
+the probability of A</p>
+<p t="665490" d="5490">and B, A intersect B,
+well, from the definition,</p>
+<p t="670980" d="4410">is the probability of B times
+the probability of A given</p>
+<p t="675390" d="3880">B. We did that last time.</p>
+<p t="679270" d="5100">And by independence, this
+is just the probability of A</p>
+<p t="684370" d="2900">because A is independent
+of B, so we're done.</p>
+<p t="693280" d="5140">In fact, many texts
+will define independence</p>
+<p t="698420" d="2040">by this product rule.</p>
+<p t="700460" d="2530">Many texts will say
+that A and B are</p>
+<p t="702990" d="3330">independent if this is true.</p>
+<p t="706320" d="1750">And it's equivalent,
+it turns out.</p>
+<p t="708070" d="3740">We won't prove that here, but if
+you use this as the definition,</p>
+<p t="711810" d="2274">then you can derive our
+definition as a result.</p>
+<p t="714084" d="2166">So this is an equivalent
+definition of independence.</p>
+<p t="719960" d="3610">Another nice fact about
+independent events</p>
+<p t="723570" d="3125">is that it's a
+symmetric relationship.</p>
+<p t="732210" d="1715">It's called the symmetry
+of independence.</p>
+<p t="746330" d="8210">That says that if they
+A is independent of B,</p>
+<p t="754540" d="1900">then the reverse is true.</p>
+<p t="756440" d="9800">B is independent of A.
+Now, we won't prove that.</p>
+<p t="766240" d="2350">It's actually easier
+to see that it's true</p>
+<p t="768590" d="3790">if this were the
+definition of independence</p>
+<p t="772380" d="2430">because A intersect
+B is the same</p>
+<p t="774810" d="4940">as B intersect A and
+multiplication is commutative.</p>
+<p t="779750" d="4230">So it's easier to see it if
+we had used that definition.</p>
+<p t="783980" d="3170">So because of this
+we often just say</p>
+<p t="787150" d="2610">A and B are independent
+because it doesn't matter which</p>
+<p t="789760" d="3690">order you're taking them in.</p>
+<p t="793450" d="5721">All right, any questions
+about the definition so far?</p>
+<p t="799171" d="799">All right.</p>
+<p t="799970" d="1550">Let's do some examples.</p>
+<p t="814590" d="2790">Let's say I have two
+independent fair coins.</p>
+<p t="827730" d="5240">And I'm going to
+have the event A be</p>
+<p t="832970" d="4550">the situation when the coins
+match, both heads, both tails.</p>
+<p t="841700" d="4490">And B is going to be the event
+that the first coin is heads.</p>
+<p t="852420" d="2930">And I want to know, are
+A and B independent?</p>
+<p t="858300" d="1596">Are those independent events?</p>
+<p t="862995" d="4655">Well, what's the
+first answer to this?</p>
+<p t="867650" d="3640">I mean, A is event
+the coins match.</p>
+<p t="871290" d="2380">B tells me what
+the first coin was.</p>
+<p t="873670" d="1980">So the first inclination
+here is that these</p>
+<p t="875650" d="4310">are dependent events
+because I know something</p>
+<p t="879960" d="1800">about the first coin,
+so that might tell me</p>
+<p t="881760" d="2750">something about the
+probability they match.</p>
+<p t="884510" d="2570">There could be some
+dependence here.</p>
+<p t="887080" d="3030">Now, in fact, because it's
+set up, they're independent</p>
+<p t="890110" d="3280">and we can check that by
+just doing the calculation,</p>
+<p t="893390" d="5830">computing the probability of A
+given B. Maybe I can do that.</p>
+<p t="899220" d="1690">I'll do that here.</p>
+<p t="900910" d="8410">The probability of
+A given B is, well,</p>
+<p t="909320" d="2870">the condition that they're
+going to match given</p>
+<p t="912190" d="2180">that the first
+point is heads means</p>
+<p t="914370" d="3910">it's the same as the
+second coin being heads.</p>
+<p t="918280" d="7350">This is the probability the
+second coin is heads and that's</p>
+<p t="925630" d="5102">just 1/2 because it's a
+fair coin and independent</p>
+<p t="930732" d="708">of the first one.</p>
+<p t="931440" d="6930">Now, the probability of A, by
+itself, the events the coins</p>
+<p t="938370" d="1490">match, what's that?</p>
+<p t="939860" d="810">How much is that?</p>
+<p t="948230" d="1625">What's the probability
+the coins match?</p>
+<p t="952640" d="1305">AUDIENCE: [INAUDIBLE].</p>
+<p t="953945" d="1735">TOM LEIGHTON: 1/4 plus 1/4.</p>
+<p t="955680" d="2340">I've got 1/4 chance
+of heads, heads</p>
+<p t="958020" d="5650">1/4 chance of tails, tails,
+so it's 1/2, so it works out.</p>
+<p t="963670" d="4670">The probability of A given B
+equals the probability of A.</p>
+<p t="968340" d="1860">They're both 1/2.</p>
+<p t="970200" d="4570">So A and B are
+independent events</p>
+<p t="974770" d="1630">because that's
+just the definition</p>
+<p t="976400" d="2666">even though it looked like there
+might have been some dependence</p>
+<p t="979066" d="2104">lurking around here.</p>
+<p t="981170" d="3460">Now, this example that I just
+did is a little misleading.</p>
+<p t="984630" d="3320">The intuition they
+probably are dependent</p>
+<p t="987950" d="3020">actually is good
+intuition in this case</p>
+<p t="990970" d="6381">because if I don't have fair
+coins, they are dependent.</p>
+<p t="997351" d="499">All right.</p>
+<p t="997850" d="1850">So in particular,
+let's look at what</p>
+<p t="999700" d="5520">happens if the probability
+of a heads is p</p>
+<p t="1005220" d="4340">and the probability of tails
+is 1 minus p for both coins.</p>
+<p t="1012070" d="3660">So let's compute the
+probability of A given</p>
+<p t="1015730" d="4340">B. What is it in this case?</p>
+<p t="1022214" d="2166">Well, it's the probability
+the second coin is heads.</p>
+<p t="1024380" d="560">What's that?</p>
+<p t="1028319" d="4381">p because both of them are
+heads with probability, p.</p>
+<p t="1032700" d="1409">They're independent still.</p>
+<p t="1034109" d="2021">The two coins are independent.</p>
+<p t="1036130" d="2239">And now let's look
+at the probability</p>
+<p t="1038369" d="2490">that the coins match.</p>
+<p t="1040859" d="1671">Well, it's a probability
+of heads, heads</p>
+<p t="1042530" d="1990">and the probability
+of tails, tails.</p>
+<p t="1044520" d="3660">Heads, heads is p times p.</p>
+<p t="1048180" d="2610">Tails, tails is 1
+minus p squared.</p>
+<p t="1054050" d="3790">So to independent, I
+need this to equal that</p>
+<p t="1057840" d="4490">or to have the
+probability of B be 0.</p>
+<p t="1062330" d="8400">So A and B are
+independent if and only</p>
+<p t="1070730" d="4150">if-- the first
+case is probability</p>
+<p t="1074880" d="8090">B is 0, which means
+that p equals 0,</p>
+<p t="1082970" d="2540">or that has to equal this.</p>
+<p t="1088470" d="7300">So p would have to equal 1
+minus 2p plus 2p squared,</p>
+<p t="1095770" d="3650">just square that out there.</p>
+<p t="1099420" d="1330">So let's solve this.</p>
+<p t="1100750" d="5840">That happens if and only
+if 0 equals 1 minus 3p</p>
+<p t="1106590" d="3040">plus 2p squared.</p>
+<p t="1109630" d="4460">That's true if and only if
+0 equals-- I factor this--</p>
+<p t="1114090" d="6080">it's 1 minus 2p times 1 minus
+p and that's if and only</p>
+<p t="1120170" d="8340">if p is 1/2 or p
+is 1, two roots.</p>
+<p t="1128510" d="2650">So if the coins are always
+heads, they're independent.</p>
+<p t="1131160" d="2880">If they're always tails,
+the events are independent</p>
+<p t="1134040" d="4260">or if they're fair coins, these
+two events are independent.</p>
+<p t="1138300" d="5980">But anything else, they're
+not independent anymore.</p>
+<p t="1144280" d="2040">Any questions?</p>
+<p t="1146320" d="3650">And now you can sort
+of see if the coins are</p>
+<p t="1149970" d="2320">likely to be tails
+and the first one</p>
+<p t="1152290" d="3060">comes up heads, that should
+influence the probability</p>
+<p t="1155350" d="2011">the coins match.</p>
+<p t="1157361" d="884">It should change.</p>
+<p t="1161220" d="1070">Questions?</p>
+<p t="1162290" d="500">All right.</p>
+<p t="1162790" d="2000">So there's a nice application
+of this to getting</p>
+<p t="1164790" d="3070">an edge in ultimate Frisbee.</p>
+<p t="1167860" d="2540">Now, when you're
+playing ultimate,</p>
+<p t="1170400" d="3340">you've got to decide who
+gets the Frisbee first.</p>
+<p t="1173740" d="3850">And sometimes you don't have
+a coin to flip, call heads</p>
+<p t="1177590" d="3270">or tails, but you
+do have the Frisbee.</p>
+<p t="1180860" d="4090">Now, you could flip the Frisbee
+and call right side up or not,</p>
+<p t="1184950" d="3740">but the problem is the Frisbee
+is known not to be a fair coin.</p>
+<p t="1188690" d="1500">When you toss it
+up in the air, it's</p>
+<p t="1190190" d="3790">likely to wind up on, I
+guess, the curved edge down.</p>
+<p t="1193980" d="3710">So that wouldn't be fair
+to call heads or tails.</p>
+<p t="1197690" d="2550">So the standard solution
+is to flip the two</p>
+<p t="1200240" d="3280">Frisbees at the same
+time or one Frisbee twice</p>
+<p t="1203520" d="4050">and somebody calls
+same or different,</p>
+<p t="1207570" d="3870">that the two Frisbees both
+come up on the same way</p>
+<p t="1211440" d="2600">or they come up
+different ways and then</p>
+<p t="1214040" d="2960">if you called it right, you
+get to start with a Frisbee.</p>
+<p t="1217000" d="5700">And the idea behind this is
+that that simulates a fair coin,</p>
+<p t="1222700" d="4940">that the probability that
+they're the same is 50-50.</p>
+<p t="1227640" d="750">What do you think.</p>
+<p t="1228390" d="3670">Is that a fair way to
+decide who starts first?</p>
+<p t="1232060" d="500">Yeah.</p>
+<p t="1232560" d="892">AUDIENCE: No.</p>
+<p t="1233452" d="1058">TOM LEIGHTON: No.</p>
+<p t="1234510" d="990">Yeah, that's right.</p>
+<p t="1235500" d="2240">It's not.</p>
+<p t="1237740" d="5850">Now, it is in the case
+when the coin was fair,</p>
+<p t="1243590" d="2020">but we know the
+Frisbee is not fair.</p>
+<p t="1245610" d="4430">And in fact, you can see
+this from this probability.</p>
+<p t="1250040" d="5550">This is the probability
+of a match, which</p>
+<p t="1255590" d="5600">is fine at p equal
+1/2, but in fact,</p>
+<p t="1261190" d="2000">if you analyze
+this equation, you</p>
+<p t="1263190" d="4760">find out its minimum
+value is at p equals 1/2</p>
+<p t="1267950" d="3910">and as p starts moving away
+from 1/2 towards 0 or to 1,</p>
+<p t="1271860" d="2660">it gets bigger.</p>
+<p t="1274520" d="3090">And we know that for
+Frisbees, p is not 1/2.</p>
+<p t="1277610" d="5952">This means that the probability
+of a match is better than 50%.</p>
+<p t="1283562" d="1458">So if you're ever
+playing ultimate,</p>
+<p t="1285020" d="2323">always call same
+because you're going</p>
+<p t="1287343" d="1917">to have a better than
+50-50 chance of getting</p>
+<p t="1289260" d="1460">to start with the Frisbee.</p>
+<p t="1290720" d="1890">It's not a fair example.</p>
+<p t="1295390" d="2610">There is another example
+of how to make a fair coin</p>
+<p t="1298000" d="4230">from a biased coin to an
+unbiased coin in homework, ways</p>
+<p t="1302230" d="2530">of doing this that are fair.</p>
+<p t="1304760" d="2890">Because often you have
+biased random numbers</p>
+<p t="1307650" d="3177">and you want to get unbiased
+or maybe you got a fair coin</p>
+<p t="1310827" d="1833">and you want to make
+something that comes up</p>
+<p t="1312660" d="1910">heads with probability 1/3.</p>
+<p t="1314570" d="3150">How do you actually do
+that in a way that works?</p>
+<p t="1317720" d="2160">Any questions on that?</p>
+<p t="1324210" d="4980">The next example is from
+the first OJ Simpson trial.</p>
+<p t="1329190" d="3740">How many people here
+know who OJ Simpson is?</p>
+<p t="1332930" d="2680">OK, so he's still pretty famous.</p>
+<p t="1335610" d="1730">Now, as you probably
+know then he</p>
+<p t="1337340" d="1700">was a famous football player.</p>
+<p t="1339040" d="4460">Back when I was a kid, he
+was a famous college player,</p>
+<p t="1343500" d="3350">then he was a famous
+pro player and then he</p>
+<p t="1346850" d="2250">was an actor, famous actor.</p>
+<p t="1349100" d="5330">And then he was accused of
+murdering his wife in a gory</p>
+<p t="1354430" d="3140">knifing and a friend
+of his wife's.</p>
+<p t="1357570" d="3490">And ultimately, the jury
+found him not guilty,</p>
+<p t="1361060" d="2760">but pretty much everybody in
+the country thought he did it.</p>
+<p t="1363820" d="2230">He looked really guilty.</p>
+<p t="1366050" d="3820">And it was a big media event,
+one of the first big trial</p>
+<p t="1369870" d="1410">events on TV.</p>
+<p t="1371280" d="2790">And so all the proceedings
+were on TV and everybody</p>
+<p t="1374070" d="860">watched them.</p>
+<p t="1374930" d="2650">We'd all go home to
+watch the OJ hearing.</p>
+<p t="1377580" d="2350">It was amazing.</p>
+<p t="1379930" d="3340">Now, during the
+indictment proceedings,</p>
+<p t="1383270" d="2650">there was a huge dispute
+over what independence</p>
+<p t="1385920" d="3730">was and does it matter.</p>
+<p t="1389650" d="4160">The issue arose when the
+prosecution witness claimed</p>
+<p t="1393810" d="5090">that only 1 in 200 Americans
+had a certain blood type that</p>
+<p t="1398900" d="3180">matched the blood type found at
+the scene of the crime, which</p>
+<p t="1402080" d="2370">was alleged to be OJ's blood.</p>
+<p t="1404450" d="1580">And this was during
+the indictment</p>
+<p t="1406030" d="2690">and back then DNA
+tests took a long time</p>
+<p t="1408720" d="1870">and they weren't ready yet.</p>
+<p t="1410590" d="3790">And the witness presented
+the following facts and this</p>
+<p t="1414380" d="3940">was the crime lab
+guy, the police guy.</p>
+<p t="1432500" d="6855">He said that 1 in 10 people,
+roughly, matched type O blood.</p>
+<p t="1444000" d="6355">And that 1 in 5 people matched
+the Rh factor positive.</p>
+<p t="1453910" d="6492">And that 1 in 4 people match a
+certain kind of marker, which</p>
+<p t="1460402" d="1208">I don't remember what it was.</p>
+<p t="1461610" d="5310">We'll just call it marker XYZ,
+some other factor of the blood.</p>
+<p t="1466920" d="6450">And then this conclusion was
+that this means that 1 in 200</p>
+<p t="1473370" d="7350">match all three factors.</p>
+<p t="1480720" d="3250">And this seems reasonable
+because there's</p>
+<p t="1483970" d="5950">1/10 of the people have O, if 15
+of them have positive Rh factor</p>
+<p t="1489920" d="2480">and then 1/4 of
+all of those have</p>
+<p t="1492400" d="5030">this marker, that's 1 in 200.</p>
+<p t="1497430" d="3380">Now, it's important
+because OJ's blood</p>
+<p t="1500810" d="6500">and the blood at the crime
+scene both matched all three.</p>
+<p t="1507310" d="1410">So the implication,
+of course, is</p>
+<p t="1508720" d="2900">that OJ is looking like
+the guy who did it.</p>
+<p t="1511620" d="5050">And the question was, well,
+is the 1 in 200 really true?</p>
+<p t="1516670" d="2390">We can sample these
+three in the populations</p>
+<p t="1519060" d="4790">and see they're true, but
+is 1 in 200 really true?</p>
+<p t="1523850" d="3810">Now, it would be if,
+in fact, we verified</p>
+<p t="1527660" d="2040">that 1/5 of the
+type O people have</p>
+<p t="1529700" d="3780">positive and 1/4 of
+the O positive people</p>
+<p t="1533480" d="3020">have the XYZ marker.</p>
+<p t="1536500" d="3730">But well, we don't necessarily
+know that unless we</p>
+<p t="1540230" d="2590">go figure that out.</p>
+<p t="1542820" d="2210">If you assume
+they're independent,</p>
+<p t="1545030" d="1162">then it would be true.</p>
+<p t="1546192" d="1708">The product rule will
+tell us that if you</p>
+<p t="1547900" d="2380">assume they're independent.</p>
+<p t="1550280" d="5010">So during the trial, a special
+math defense counsel showed up,</p>
+<p t="1555290" d="1500">not part of the
+normal defense team,</p>
+<p t="1556790" d="3690">but he was brought in as
+a mathematician and lawyer</p>
+<p t="1560480" d="4090">and he crosses the
+police guy on the stand.</p>
+<p t="1564570" d="2910">And he asked the
+police guy, the lab guy</p>
+<p t="1567480" d="5870">if it is known that these
+three factors are independent.</p>
+<p t="1573350" d="1812">Well, the poor
+police lab guy never</p>
+<p t="1575162" d="1708">heard the word
+independent before, didn't</p>
+<p t="1576870" d="3510">know what it meant and the
+defense counsel proceeded</p>
+<p t="1580380" d="1930">to crucify him on the stand.</p>
+<p t="1582310" d="2000">And then in the end, all
+he could say was, look,</p>
+<p t="1584310" d="1916">we just get these things
+and we multiply them.</p>
+<p t="1586226" d="3274">That's what we're
+supposed to do.</p>
+<p t="1589500" d="1450">It was a little scary.</p>
+<p t="1590950" d="2170">The actual transcript--
+you can still get it--</p>
+<p t="1593120" d="1500">is a little scary.</p>
+<p t="1594620" d="3370">The same problem arises
+today with DNA testing.</p>
+<p t="1597990" d="3890">Only there, you've got
+lots of these things</p>
+<p t="1601880" d="1840">and you multiply
+them all together</p>
+<p t="1603720" d="1490">and you get
+probabilities like one</p>
+<p t="1605210" d="5050">in many billion
+probability of a match.</p>
+<p t="1610260" d="3150">Now, there's probably a higher
+level of science going on</p>
+<p t="1613410" d="2960">with DNA testing,
+but it's even harder</p>
+<p t="1616370" d="3070">to really establish
+independence.</p>
+<p t="1619440" d="2120">If you assume it, fine.</p>
+<p t="1621560" d="1130">The math works out great.</p>
+<p t="1622690" d="1590">You just multiply them together.</p>
+<p t="1624280" d="2560">But how do you know
+it's really true?</p>
+<p t="1626840" d="3490">How do you know that maybe a lot
+of people that have those four</p>
+<p t="1630330" d="3790">markers and DNA don't happen
+to just have the fifth also,</p>
+<p t="1634120" d="3040">but it really is
+totally unrelated.</p>
+<p t="1637160" d="2050">And to know that
+for sure, you got</p>
+<p t="1639210" d="3850">to test hundreds of millions of
+people, which we really haven't</p>
+<p t="1643060" d="3260">done yet, and not just
+a few guys in Detroit</p>
+<p t="1646320" d="2960">to be able to conclude
+independence of 1</p>
+<p t="1649280" d="2520">in a billion probabilities.</p>
+<p t="1651800" d="1360">So for us, this is a lot easier.</p>
+<p t="1653160" d="1666">In the classroom, we
+assume independence</p>
+<p t="1654826" d="2724">and we'll keep doing
+that left and right,</p>
+<p t="1657550" d="3070">but it doesn't mean
+it's true in reality.</p>
+<p t="1660620" d="2760">In fact, in the
+last week of class.</p>
+<p t="1663380" d="3340">We'll talk about how false
+assumption of independence</p>
+<p t="1666720" d="3770">on mortgage failures led to
+the subprime mortgage disaster</p>
+<p t="1670490" d="1290">in the recession.</p>
+<p t="1671780" d="2382">It was all because of
+some mathematics mistakes</p>
+<p t="1674162" d="708">that people made.</p>
+<p t="1677530" d="2380">Now, this example
+raises the question of,</p>
+<p t="1679910" d="4409">what does independence mean when
+you have more than two events?</p>
+<p t="1684319" d="2041">We defined independence
+when there is two events,</p>
+<p t="1686360" d="1920">but here there's three.</p>
+<p t="1688280" d="3170">And so to be careful, we
+got to actually define</p>
+<p t="1691450" d="4560">dependence among more than
+two events and in this case,</p>
+<p t="1696010" d="4980">we talk about the events as
+being mutually independent.</p>
+<p t="1700990" d="1100">So let me define that.</p>
+<p t="1716770" d="7560">So if I've got events
+A1, A2, up to An,</p>
+<p t="1724330" d="11790">we say they are
+mutually independent if,</p>
+<p t="1736120" d="6370">and this is a little complicated
+notation, but for all i</p>
+<p t="1742490" d="8250">and for all sets j that
+are subsets of the events,</p>
+<p t="1750740" d="8640">but not including i,
+then the probability</p>
+<p t="1759380" d="4510">that the i-th event occurs
+given that all the events</p>
+<p t="1763890" d="5120">in the subset
+occurred, is the same</p>
+<p t="1769010" d="4270">as the probability of the i-th
+event occurring by itself.</p>
+<p t="1773280" d="2290">Or there's a special
+case where the chance</p>
+<p t="1775570" d="1530">the other events occur is 0.</p>
+<p t="1786710" d="2030">In other words, a
+collection of events</p>
+<p t="1788740" d="3480">is mutually independent
+if any knowledge</p>
+<p t="1792220" d="3740">about any of the rest of the
+events, happening or not,</p>
+<p t="1795960" d="2510">does not influence the
+event you're looking</p>
+<p t="1798470" d="2500">at for each of those events.</p>
+<p t="1800970" d="2110">So no information about
+any of the other markers</p>
+<p t="1803080" d="3900">the blood influences the
+i-th marker for any i.</p>
+<p t="1806980" d="2790">The probabilities are unchanged.</p>
+<p t="1809770" d="1940">Now, there's an equivalent
+definitions based</p>
+<p t="1811710" d="2981">and the product rule.</p>
+<p t="1814691" d="2169">Let me show you that version
+because that's easier</p>
+<p t="1816860" d="874">to work with usually.</p>
+<p t="1832850" d="11030">This is the product
+rule form and it</p>
+<p t="1843880" d="6670">says that A1, A2, up
+to An are mutually</p>
+<p t="1850550" d="17010">independent if for any
+subset of the events</p>
+<p t="1867560" d="4320">the probability of each of those
+events in the subset happening,</p>
+<p t="1871880" d="6484">all them happening,
+is simply the product</p>
+<p t="1878364" d="1416">of their individual
+probabilities.</p>
+<p t="1886810" d="4100">So independence
+means that if you</p>
+<p t="1890910" d="2520">want the probability of a
+bunch of events occurring,</p>
+<p t="1893430" d="2566">just multiply them
+out individually.</p>
+<p t="1895996" d="1374">And that follows
+for independence</p>
+<p t="1897370" d="2230">or it could be the
+definition of independence,</p>
+<p t="1899600" d="1480">depending on how
+you want to do it.</p>
+<p t="1901080" d="1416">So either of these
+are good enough</p>
+<p t="1902496" d="4704">for you to use as a definition
+or a result for independence.</p>
+<p t="1907200" d="2830">And so the blood guy, of course,
+is just multiplying them out</p>
+<p t="1910030" d="2360">because they're assumed
+to be independent,</p>
+<p t="1912390" d="2790">so it's OK that way.</p>
+<p t="1915180" d="945">Let's do an example.</p>
+<p t="1928920" d="1980">So for example, say
+we have three events.</p>
+<p t="1935160" d="10270">A1, A2, and A3 are
+mutually independent</p>
+<p t="1945430" d="3020">if, these are the things
+you have to check,</p>
+<p t="1948450" d="6694">probability A1 and A2
+is just the probability</p>
+<p t="1955144" d="1416">of A1 times the
+probability of A2.</p>
+<p t="1959160" d="5740">Then you'd check that the
+probability of A1 and A3</p>
+<p t="1964900" d="3490">is the product of their
+probabilities, A1 and A3.</p>
+<p t="1974170" d="3080">And you'd check the
+probability of A2</p>
+<p t="1977250" d="3210">and A3 is the product
+of their probabilities.</p>
+<p t="1986050" d="1500">And there's one
+more thing to check.</p>
+<p t="1987550" d="2740">What's that?</p>
+<p t="1990290" d="1830">All of them.</p>
+<p t="1992120" d="10970">The probability of all of them
+is the product of each of them</p>
+<p t="2003090" d="755">together here.</p>
+<p t="2007940" d="1930">So if you want to show
+the three events are</p>
+<p t="2009870" d="3540">mutually independent, these
+are the four things you check.</p>
+<p t="2013410" d="4188">That's one way to do it, which
+is the case of the blood typing</p>
+<p t="2017598" d="708">in the situation.</p>
+<p t="2020816" d="714">All right.</p>
+<p t="2021530" d="2100">Let's do an example.</p>
+<p t="2029470" d="4040">Well, for example, if
+I flip three unbiased,</p>
+<p t="2033510" d="1780">mutually independent coins.</p>
+<p t="2035290" d="2880">The probability of two of
+them being heads is 1/4.</p>
+<p t="2038170" d="3590">The probability of three being
+heads is 1/8 and so forth.</p>
+<p t="2045010" d="2740">Let's do a trickier example.</p>
+<p t="2047750" d="4250">This is a question that was on
+the final exam a few years ago</p>
+<p t="2052000" d="3340">and a lot of the
+class missed it.</p>
+<p t="2055340" d="1290">So now we'll do it here.</p>
+<p t="2061610" d="15109">Say I flip three fair, mutually
+independent coins and my events</p>
+<p t="2076719" d="8661">are going to be A1 is the
+event coin 1 matches coin 2.</p>
+<p t="2091449" d="3281">The second event,
+A2, is the event</p>
+<p t="2094730" d="4690">that coin 2 matches coin 3.</p>
+<p t="2099420" d="4330">And the third event,
+A3, is the event</p>
+<p t="2103750" d="3115">that coin 3 matches coin 1.</p>
+<p t="2109980" d="5200">And the question was,
+are these three events</p>
+<p t="2115180" d="2860">mutually independent?</p>
+<p t="2118040" d="3000">Prove your answer.</p>
+<p t="2121040" d="1305">Let's try to figure that out.</p>
+<p t="2131852" d="1958">The coins, of course,
+are mutually independent,</p>
+<p t="2133810" d="2340">but what about these events?</p>
+<p t="2136150" d="1490">So let's start doing it.</p>
+<p t="2137640" d="3730">What's the probability one
+of the events occurring?</p>
+<p t="2144510" d="5319">Well, you got to get the
+two coins at hand to match,</p>
+<p t="2149829" d="1541">so that's the
+probability of a heads,</p>
+<p t="2151370" d="5340">heads plus the probability
+of a tails, tails.</p>
+<p t="2156710" d="3870">That's 1/4 plus 1/4 equals 1/2.</p>
+<p t="2165920" d="7360">Now, the probability of Ai
+and Aj, i and j are 1 to 3,</p>
+<p t="2173280" d="3460">they're different,
+but what is a way</p>
+<p t="2176740" d="3380">of characterizing that case?</p>
+<p t="2180120" d="2400">Say event 1 occurred
+and event 2 occurred,</p>
+<p t="2182520" d="1250">how would I characterize that?</p>
+<p t="2188111" d="499">Yeah.</p>
+<p t="2188610" d="1172">AUDIENCE: All the same.</p>
+<p t="2189782" d="1131">TOM LEIGHTON: All of them.</p>
+<p t="2190913" d="499">Yeah.</p>
+<p t="2191412" d="2998">All of the coins are the same
+because if A1 and A2 occur,</p>
+<p t="2194410" d="2880">I know 1 matches
+2 a 2 matches 3.</p>
+<p t="2197290" d="3620">If A1 and A3 happen, 1
+matches 2 and 1 matches 3,</p>
+<p t="2200910" d="2920">so they're all the same
+and the same for A2 and A3.</p>
+<p t="2203830" d="2800">If 2 matches 3 and 3 matches
+1, they're all the same.</p>
+<p t="2206630" d="3800">So this is the same as saying
+all three coins are the same.</p>
+<p t="2213890" d="3270">It could all be heads
+or all be tails.</p>
+<p t="2217160" d="5130">And that's an 8
+plus 8, which is 1/4</p>
+<p t="2222290" d="5610">and that means equals
+the probability of Ai</p>
+<p t="2227900" d="3880">times the probability
+of Aj, which is</p>
+<p t="2231780" d="4070">what I need for independence.</p>
+<p t="2235850" d="3220">And then they said they're done.</p>
+<p t="2239070" d="4450">They are independent,
+the three events.</p>
+<p t="2243520" d="2120">You like that answer?</p>
+<p t="2245640" d="2620">What's missing?</p>
+<p t="2248260" d="1150">The last case.</p>
+<p t="2249410" d="2479">They didn't check
+the last case and we</p>
+<p t="2251889" d="1791">got to do that to have
+mutual independence.</p>
+<p t="2253680" d="2001">So let's look at that.</p>
+<p t="2255681" d="6379">The last case is probability
+A1 intersect A2 intersect A3.</p>
+<p t="2262060" d="3120">What is the probability
+that all three events occur?</p>
+<p t="2269950" d="5610">Well, the coins all
+have to match, right?</p>
+<p t="2275560" d="4256">If all the coins match, all
+three events occur, right?</p>
+<p t="2279816" d="1874">And what's the probability
+all 3 coins match?</p>
+<p t="2284260" d="3510">1/4, just the same
+as this, is 1/4.</p>
+<p t="2287770" d="4320">Does that equal probability
+of A1 times the probability</p>
+<p t="2292090" d="3430">of A2 times the
+probability of A3?</p>
+<p t="2300090" d="2030">What's that?</p>
+<p t="2302120" d="1560">1/8.</p>
+<p t="2303680" d="1940">This is 1/8.</p>
+<p t="2305620" d="970">They are not equal.</p>
+<p t="2309270" d="3509">They are not mutually
+independent events.</p>
+<p t="2312779" d="946">All right?</p>
+<p t="2317520" d="2182">Any questions about that?</p>
+<p t="2319702" d="3108">It might well be something like
+this on the final this year,</p>
+<p t="2322810" d="2150">a good, decent chance.</p>
+<p t="2324960" d="2650">So if you start going along,
+looks like they're independent,</p>
+<p t="2327610" d="2125">but you forget to check
+that last case, which shows</p>
+<p t="2329735" d="2845">they're not mutual independent.</p>
+<p t="2332580" d="3560">So you've got to check for all
+pairs and all subsets of events</p>
+<p t="2336140" d="1000">for mutual independence.</p>
+<p t="2340040" d="1920">Any questions about that?</p>
+<p t="2346370" d="3590">Now, this is actually
+an interesting example</p>
+<p t="2349960" d="4730">because in this case, all
+pairs were independent</p>
+<p t="2354690" d="4110">and when that happens, we give
+that a special name and it's</p>
+<p t="2358800" d="3615">called pairwise independence,
+not too surprising.</p>
+<p t="2362415" d="3765">And that can be
+useful because there's</p>
+<p t="2366180" d="2160">many times where you do
+get pairwise independence,</p>
+<p t="2368340" d="2162">but not mutual independence.</p>
+<p t="2370502" d="1458">So let me give you
+that definition.</p>
+<p t="2378760" d="5700">So a collection of
+events A1 through An</p>
+<p t="2384460" d="11150">are said to be
+pairwise independent</p>
+<p t="2395610" d="9370">if for all i and j,
+where i doesn't equal j,</p>
+<p t="2404980" d="3350">Ai and Aj are independent.</p>
+<p t="2414230" d="3390">Now, as we saw in this
+example, in this example,</p>
+<p t="2417620" d="4040">it was pairwise independence
+because the probability</p>
+<p t="2421660" d="3830">of Ai and Aj equaled the
+probability of Ai times</p>
+<p t="2425490" d="970">the probably of Aj.</p>
+<p t="2426460" d="2670">For any pair, it was true.</p>
+<p t="2429130" d="3000">But it doesn't imply
+mutual independence.</p>
+<p t="2432130" d="4030">So pairwise does
+not imply mutual.</p>
+<p t="2438870" d="2370">Mutual would imply
+pairwise because it's</p>
+<p t="2441240" d="2275">true for every subset of events.</p>
+<p t="2446550" d="500">All right.</p>
+<p t="2447050" d="6620">So let's go back for OJ and
+see what would have happened.</p>
+<p t="2453670" d="2320">What can you say about
+the probability of a blood</p>
+<p t="2455990" d="3430">match for a random
+person if you only</p>
+<p t="2459420" d="2810">knew that these factors
+were pairwise independent?</p>
+<p t="2464910" d="1272">Say you only knew that.</p>
+<p t="2466182" d="1958">You didn't know they were
+mutually independent,</p>
+<p t="2468140" d="2583">but you knew they were pairwise
+independent in the population.</p>
+<p t="2474959" d="2041">What's the best you can
+say about the probability</p>
+<p t="2477000" d="4130">a random person matches that
+blood profile, an upper bound</p>
+<p t="2481130" d="2185">on the probability?</p>
+<p t="2483315" d="500">Yeah.</p>
+<p t="2483815" d="961">AUDIENCE: 1 in 50.</p>
+<p t="2484776" d="1324">TOM LEIGHTON: 1 in 50.</p>
+<p t="2486100" d="950">Yeah.</p>
+<p t="2487050" d="3760">So what you can say is 1
+in 50, but nothing better.</p>
+<p t="2490810" d="1975">So let's see why 1 in 50 works.</p>
+<p t="2498490" d="4880">So let's let M1 be the
+event you match here,</p>
+<p t="2503370" d="2120">M2 be the event you
+match their, and M3</p>
+<p t="2505490" d="2810">be the event you match that.</p>
+<p t="2508300" d="6700">The probability you
+match all three is</p>
+<p t="2515000" d="1600">upper bounded by
+the probability you</p>
+<p t="2516600" d="6760">match the first two
+because matching all three</p>
+<p t="2523360" d="1870">is a subset of this.</p>
+<p t="2528220" d="3170">Pairwise independence
+means that this is true.</p>
+<p t="2531390" d="2300">This equals the
+probability of matching</p>
+<p t="2533690" d="3029">the first times the probability
+of matching the second.</p>
+<p t="2536719" d="1541">The probability of
+matching the first</p>
+<p t="2538260" d="4430">is 1/10, probably of
+matching the second is 1/5,</p>
+<p t="2542690" d="775">so this is 1/50.</p>
+<p t="2546700" d="3180">And you picked the best two.</p>
+<p t="2549880" d="4930">You could have picked these two
+and said it was at most 1/20</p>
+<p t="2554810" d="3260">or those two and said
+it's at most 1/40.</p>
+<p t="2558070" d="3690">But you were clever and said,
+OK, I'm going to take these two</p>
+<p t="2561760" d="2830">and use that as my upper
+bound, which is 1/50.</p>
+<p t="2564590" d="6860">And it might well be that 1
+in 50 people match all three.</p>
+<p t="2571450" d="2560">That can well be.</p>
+<p t="2574010" d="3900">Because maybe whenever you're O
+positive, you have marker XYZ.</p>
+<p t="2577910" d="3815">That's possible, potentially,
+unless we find out otherwise.</p>
+<p t="2585830" d="4319">What if I tell you can't
+assume any independence at all?</p>
+<p t="2590149" d="2291">What can you say about the
+probability of a blood match</p>
+<p t="2592440" d="1960">here for a random person?</p>
+<p t="2594400" d="500">Yeah.</p>
+<p t="2594900" d="625">AUDIENCE: 1/10.</p>
+<p t="2595525" d="1041">TOM LEIGHTON: What is it?</p>
+<p t="2596566" d="704">AUDIENCE: 1/10.</p>
+<p t="2597270" d="2230">TOM LEIGHTON: 1/10.</p>
+<p t="2599500" d="1730">Because if they
+match all three, they</p>
+<p t="2601230" d="5240">match this and that probability
+is 1/10, so it's at most 1/10.</p>
+<p t="2606470" d="1500">And it could be
+that everybody who's</p>
+<p t="2607970" d="3840">O is O positive and has XYZ.</p>
+<p t="2611810" d="2894">So unless you have
+more information,</p>
+<p t="2614704" d="1166">that's the best you can say.</p>
+<p t="2615870" d="2952">It might well be
+that's the answer.</p>
+<p t="2621720" d="4400">Any questions about that?</p>
+<p t="2626120" d="1480">So the assumptions
+really matter.</p>
+<p t="2627600" d="2600">The more independence
+you assume,</p>
+<p t="2630200" d="3170">the better bounds and the
+probability you get of a match.</p>
+<p t="2637106" d="1554">It's a little bit
+unrelated to this,</p>
+<p t="2638660" d="2330">but there was another
+mathematics dispute</p>
+<p t="2640990" d="2390">at the OJ trial.</p>
+<p t="2643380" d="2370">It turned out the that
+OJ had been beating up</p>
+<p t="2645750" d="2729">Nicole on a fairly regular basis
+and there were police records</p>
+<p t="2648479" d="1541">because after he'd
+beat her up, she'd</p>
+<p t="2650020" d="3230">go in and complain
+to the police.</p>
+<p t="2653250" d="5160">And the prosecution wanted this
+evidence admitted at the trial</p>
+<p t="2658410" d="4000">because if the guy
+is a wife beater,</p>
+<p t="2662410" d="2620">it makes you think that
+maybe he killed her.</p>
+<p t="2665030" d="3780">And the defense lawyers argued
+against admitting that evidence</p>
+<p t="2668810" d="4260">because it wasn't tied to the
+actual murder scene in any way</p>
+<p t="2673070" d="2830">and they argued it would
+be prejudicial to the jury</p>
+<p t="2675900" d="3480">because, of course, if the jury
+hears that OJ was beating her,</p>
+<p t="2679380" d="2270">they might be more likely
+to include to convict him</p>
+<p t="2681650" d="2040">for murdering her.</p>
+<p t="2683690" d="2930">Now, they got the
+math council again</p>
+<p t="2686620" d="3800">to argue that the reason
+you shouldn't admit this</p>
+<p t="2690420" d="3740">is because the
+probability that you</p>
+<p t="2694160" d="8190">kill your wife, that's K, given
+that you batter your wife,</p>
+<p t="2702350" d="5272">that's B, is 1 in 2,000.</p>
+<p t="2707622" d="1458">I would have guessed
+it was higher,</p>
+<p t="2709080" d="2600">but the evidence did show that.</p>
+<p t="2711680" d="3570">And so they said, look, there's
+only a 1 in 2,000 chance</p>
+<p t="2715250" d="4390">that this evidence of
+wife beating is relevant</p>
+<p t="2719640" d="3550">and therefore, it should not
+be admitted because there's</p>
+<p t="2723190" d="1980">a pretty decent chance
+if the jury hears this,</p>
+<p t="2725170" d="2170">they're going to convict him.</p>
+<p t="2727340" d="1362">That's a pretty good argument.</p>
+<p t="2728702" d="1958">And usually that kind of
+thing, you exclude it.</p>
+<p t="2730660" d="430">Yeah.</p>
+<p t="2731090" d="1365">AUDIENCE: Where did
+that number come from?</p>
+<p t="2732455" d="2425">TOM LEIGHTON: They got
+some study and some experts</p>
+<p t="2734880" d="4052">to come in and say that for
+every 2,000 wife beaters,</p>
+<p t="2738932" d="1708">only one of them
+actually kills his wife.</p>
+<p t="2744340" d="3839">Now, what do you suppose
+the prosecution argued back?</p>
+<p t="2748179" d="1791">They actually argued
+back very effectively,</p>
+<p t="2749970" d="3061">because that's a tough
+argument to get by.</p>
+<p t="2753031" d="499">Yeah.</p>
+<p t="2753530" d="2575">AUDIENCE: What's the probability
+that you kill your wife</p>
+<p t="2756105" d="4440">in the first place, that could
+be 100 times larger than usual.</p>
+<p t="2760545" d="2355">TOM LEIGHTON: Well,
+that's a good point.</p>
+<p t="2762900" d="2310">So maybe the probability
+of killing your wife</p>
+<p t="2765210" d="6160">not knowing B, I hope is
+pretty small, probably</p>
+<p t="2771370" d="4164">that's very small,
+but I don't know.</p>
+<p t="2775534" d="1916">But in any case, this
+thing you're going from,</p>
+<p t="2777450" d="3200">say it's 1 in 1 million
+to 1 in 2,000, 1 in 2,000</p>
+<p t="2780650" d="4434">is still too small to be used
+as evidence that OJ did it.</p>
+<p t="2785084" d="2053">AUDIENCE: Frequency he did it.</p>
+<p t="2787137" d="2083">TOM LEIGHTON: Frequency,
+they didn't get into that</p>
+<p t="2789220" d="2620">because I guess he'd done it a
+bunch, but that's a good point.</p>
+<p t="2791840" d="2880">It could be there's
+multiple beatings is higher.</p>
+<p t="2794720" d="2565">Maybe that's 1 in 200 then.</p>
+<p t="2797285" d="1875">In fact, that may be
+the case because I think</p>
+<p t="2799160" d="2166">there's probably they say
+because if you do it once,</p>
+<p t="2801326" d="1544">you do it multiple times.</p>
+<p t="2802870" d="2070">So there's not much more
+to be gaining there.</p>
+<p t="2804940" d="1820">There's a critical
+piece of information</p>
+<p t="2806760" d="3516">we've left out of our
+conditional probabilities here.</p>
+<p t="2810276" d="4021">In fact, the most glaring
+piece of all of evidence.</p>
+<p t="2814297" d="833">What's missing here?</p>
+<p t="2815130" d="1310">What haven't we factored in?</p>
+<p t="2816440" d="500">Yeah.</p>
+<p t="2816940" d="1900">AUDIENCE: The probability of B.</p>
+<p t="2818840" d="4650">TOM LEIGHTON: The probability
+of B, that's the battering.</p>
+<p t="2823490" d="4060">Battering, I don't know what
+it is, probably a large number.</p>
+<p t="2827550" d="1900">Defense would argue
+it's large, I guess,</p>
+<p t="2829450" d="4214">but it shouldn't
+matter that much.</p>
+<p t="2833664" d="3346">AUDIENCE: The probability
+that he actually beat her,</p>
+<p t="2837010" d="1745">given that she threatened him?</p>
+<p t="2838755" d="1375">TOM LEIGHTON:
+Well, there's that,</p>
+<p t="2840130" d="1819">but they have police--
+well, that's true.</p>
+<p t="2841949" d="1791">They didn't see him
+doing it, but let's say</p>
+<p t="2843740" d="2080">that they had good
+evidence that he did it</p>
+<p t="2845820" d="4930">and defense wasn't arguing
+that he didn't really beat her.</p>
+<p t="2850750" d="5020">The key thing we're missing
+here is Nicole wound up dead.</p>
+<p t="2855770" d="2010">She was dead.</p>
+<p t="2857780" d="3010">And there's another stat here
+that the prosecution argued.</p>
+<p t="2872040" d="1690">So they argued this fact.</p>
+<p t="2873730" d="2840">The probability the
+husband kills his wife,</p>
+<p t="2876570" d="4410">given that he batters her
+and she wound up dead,</p>
+<p t="2880980" d="4120">that somebody murder
+her is bigger than 1/2.</p>
+<p t="2885100" d="3850">So here M is somebody
+murdered the wife.</p>
+<p t="2888950" d="2080">Here, the husband beats her.</p>
+<p t="2891030" d="2080">Now, the conditional
+probability that he</p>
+<p t="2893110" d="3430">killed her is bigger than
+1/2 and that's a whopper.</p>
+<p t="2896540" d="1964">Now, it's very relevant.</p>
+<p t="2898504" d="1416">The probability
+he killed her just</p>
+<p t="2899920" d="2370">given that he beat her
+is only 1 in 2,000,</p>
+<p t="2902290" d="2940">but if you add the fact, which
+is very relevant in this case,</p>
+<p t="2905230" d="4855">that the wife was murdered,
+this is now very compelling.</p>
+<p t="2910085" d="1875">Now, in fact, they should
+have really compare</p>
+<p t="2911960" d="7880">this to probability he kills
+her given that she's dead.</p>
+<p t="2919840" d="3590">And so that would determine now
+the relevance of the battering,</p>
+<p t="2923430" d="1788">the wife beating.</p>
+<p t="2925218" d="2124">That's what they should
+have done, but they didn't.</p>
+<p t="2927342" d="2503">They got this far and they
+had that and the judge said,</p>
+<p t="2929845" d="1765">I'm letting it in.</p>
+<p t="2931610" d="1840">So it came in at that point.</p>
+<p t="2933450" d="2150">But this would be the
+right comparison, I think.</p>
+<p t="2935600" d="1458">Because you look
+at the probability</p>
+<p t="2937058" d="3229">that you killed her
+given that she's dead,</p>
+<p t="2940287" d="1833">but now the additional
+information, the wife</p>
+<p t="2942120" d="2107">battering, how does that
+change the probability?</p>
+<p t="2944227" d="1583">And it probably
+changes it materially.</p>
+<p t="2948480" d="1970">So it's all a little
+gory, but it's</p>
+<p t="2950450" d="3174">interesting to see how
+mathematics played out</p>
+<p t="2953624" d="1166">in this kind of environment.</p>
+<p t="2954790" d="499">Yeah.</p>
+<p t="2955289" d="2166">AUDIENCE: Are we supposed
+to assume that he did</p>
+<p t="2957455" d="1359">kill his wife?</p>
+<p t="2958814" d="1886">TOM LEIGHTON: Yes,
+and they assumed that,</p>
+<p t="2960700" d="3470">but when you decide whether
+or not to admit evidence,</p>
+<p t="2964170" d="3680">if it's prejudicial, you've got
+to have a really good grounds</p>
+<p t="2967850" d="560">to get it in.</p>
+<p t="2968410" d="3300">Like if the evidence is going to
+make the jury think he did it,</p>
+<p t="2971710" d="3770">then you really got to argue the
+evidence is relevant somehow.</p>
+<p t="2975480" d="2169">There's material
+information and that's</p>
+<p t="2977649" d="1041">what the fight was about.</p>
+<p t="2978690" d="3050">A 1 in 2,000 relevance
+isn't going to cut it.</p>
+<p t="2981740" d="3829">1 in 2, that's probably
+pretty relevant.</p>
+<p t="2985569" d="1541">And that will be
+the grounds on which</p>
+<p t="2987110" d="2239">the judge makes his decision.</p>
+<p t="2989349" d="1541">But yeah, you assume
+he didn't do it.</p>
+<p t="2996256" d="604">All right.</p>
+<p t="2996860" d="970">Back to independence.</p>
+<p t="2997830" d="5580">So the last example today is
+derived from a famous paradox</p>
+<p t="3003410" d="2060">and has several actually
+important applications</p>
+<p t="3005470" d="1410">in computer science.</p>
+<p t="3006880" d="2460">And this problem is known
+as the birthday problem</p>
+<p t="3009340" d="1000">or the birthday paradox.</p>
+<p t="3013170" d="2870">It's a paradox because it sort
+of has a surprising answer.</p>
+<p t="3020091" d="1499">Probably a lot of
+you have seen this</p>
+<p t="3021590" d="1728">before in some form or another.</p>
+<p t="3037860" d="7320">In the birthday problem,
+there are N birthdays</p>
+<p t="3045180" d="1500">and typically
+we're going to look</p>
+<p t="3046680" d="6610">at the case where N is
+365, the days of the year,</p>
+<p t="3053290" d="1060">and there is M people.</p>
+<p t="3059330" d="3240">And for example, know maybe
+there's 100 people here.</p>
+<p t="3067070" d="8410">And what we want to know
+is, what is the probability</p>
+<p t="3075480" d="6290">that two or more people
+have the same birthday.</p>
+<p t="3092760" d="1500">For example, how
+many people think</p>
+<p t="3094260" d="3190">there's at least a 50%
+chance that a pair of you</p>
+<p t="3097450" d="4010">in the audience here
+have the same birthday?</p>
+<p t="3101460" d="1410">That's good.</p>
+<p t="3102870" d="5160">How many people think there's
+a better than 90% chance?</p>
+<p t="3108030" d="1352">A few of you.</p>
+<p t="3109382" d="548">All right.</p>
+<p t="3109930" d="3480">How many people think there's
+a better than a 99% chance</p>
+<p t="3113410" d="2290">that there's a pair
+of matching birthdays?</p>
+<p t="3115700" d="1250">A couple left.</p>
+<p t="3116950" d="4110">How many think it's better
+than a 99.9% chance?</p>
+<p t="3121060" d="914">We've got one, two.</p>
+<p t="3121974" d="1416">You guys are going
+to be stubborn.</p>
+<p t="3123390" d="600">Another one.</p>
+<p t="3123990" d="510">All right.</p>
+<p t="3124500" d="7270">How many people think it's
+more than 99.999% chance?</p>
+<p t="3131770" d="1570">Actually it's six 9's.</p>
+<p t="3133340" d="2100">It's incredible.</p>
+<p t="3135440" d="2680">It is a virtual certainty.</p>
+<p t="3138120" d="1080">So let's see.</p>
+<p t="3139200" d="3970">In fact, the chance that
+you're all different is about 1</p>
+<p t="3143170" d="4120">in 3 million chance that
+you're all different.</p>
+<p t="3147290" d="3520">And we're going to see
+why that's true here.</p>
+<p t="3150810" d="2600">But to do that, we're
+going to need to make</p>
+<p t="3153410" d="3310">two important assumptions.</p>
+<p t="3156720" d="3130">Any ideas about what assumptions
+you're going to need?</p>
+<p t="3159850" d="500">Yeah.</p>
+<p t="3160350" d="1820">AUDIENCE: Birthdays are
+uniformly distributed.</p>
+<p t="3162170" d="1415">TOM LEIGHTON: Birthdays
+are uniformly distributed.</p>
+<p t="3163585" d="1133">Any other ideas?</p>
+<p t="3164718" d="500">Yes.</p>
+<p t="3165218" d="1278">AUDIENCE: He stole my answer.</p>
+<p t="3166496" d="1374">TOM LEIGHTON: Oh,
+he stole yours.</p>
+<p t="3167870" d="2854">What else are you going
+to need to assume?</p>
+<p t="3170724" d="976">Yeah.</p>
+<p t="3171700" d="2619">AUDIENCE: All birthdays are
+independent of each other.</p>
+<p t="3174319" d="791">TOM LEIGHTON: Yeah.</p>
+<p t="3175110" d="1300">Mutually independent.</p>
+<p t="3176410" d="1970">We're going to
+need that as well.</p>
+<p t="3178380" d="4640">Now, in actuality, neither
+is true in reality.</p>
+<p t="3183020" d="1850">It's well known
+that birthdays tend</p>
+<p t="3184870" d="2830">to follow seasonal
+patterns and they're</p>
+<p t="3187700" d="2370">related to major events.</p>
+<p t="3190070" d="3520">Now, do you all remember the big
+blackout that hit the Northeast</p>
+<p t="3193590" d="1240">several years ago?</p>
+<p t="3194830" d="1880">Do you remember that?</p>
+<p t="3196710" d="1950">Well, it turns out,
+this is a true fact,</p>
+<p t="3198660" d="3190">there were a lot of babies
+born nine months later.</p>
+<p t="3201850" d="1170">In fact, they had a name.</p>
+<p t="3203020" d="1710">They're called blackout babies.</p>
+<p t="3204730" d="3220">If you were born in that period
+in the Northeast and there's</p>
+<p t="3207950" d="3820">all these news stories about
+the life of the blackout babies.</p>
+<p t="3211770" d="2600">And the same thing happens
+after cold snaps in the winter</p>
+<p t="3214370" d="2490">and you get a blizzard
+or this kind of a thing.</p>
+<p t="3216860" d="2290">Nine months later,
+you get babies.</p>
+<p t="3219150" d="4890">In fact, I had a personal
+experience with this.</p>
+<p t="3224040" d="7050">Well, my son was born
+on October 18, 1996.</p>
+<p t="3231090" d="3010">And on the day he was born,
+we're going to the hospital</p>
+<p t="3234100" d="1620">and it was a zoo.</p>
+<p t="3235720" d="2470">The maternity ward
+was totally full.</p>
+<p t="3238190" d="2860">We had to go at some other
+wing of the hospital.</p>
+<p t="3241050" d="4250">And babies were popping
+out all over the place.</p>
+<p t="3245300" d="1740">And I asked, what is going on?</p>
+<p t="3247040" d="3480">Why don't you have enough
+room for all the mothers here?</p>
+<p t="3250520" d="2000">And they said, oh, it's
+all the blizzard babies.</p>
+<p t="3252520" d="1270">And I go, what?</p>
+<p t="3253790" d="2310">And they go, well, remember
+the blizzard of '96?</p>
+<p t="3256100" d="2462">It's like, oh yeah.</p>
+<p t="3258562" d="966">I remember.</p>
+<p t="3259528" d="1452">Yeah.</p>
+<p t="3260980" d="2950">It was nine months prior
+is the big blizzard</p>
+<p t="3263930" d="4070">and so it's all the
+blizzard babies coming.</p>
+<p t="3268000" d="2122">So they're not uniform.</p>
+<p t="3270122" d="1708">They're all different
+probabilities here,</p>
+<p t="3271830" d="2135">but we're going to assume
+they're equally likely.</p>
+<p t="3276570" d="5350">Now, independence is also
+not true, in general.</p>
+<p t="3281920" d="5290">What's one way that birthdays
+might not be independent?</p>
+<p t="3287210" d="725">What is it?</p>
+<p t="3287935" d="666">AUDIENCE: Twins.</p>
+<p t="3288601" d="939">TOM LEIGHTON: Twins.</p>
+<p t="3289540" d="2960">So if they're twins, they
+have the same birthday.</p>
+<p t="3292500" d="1000">Now, there's other ways.</p>
+<p t="3293500" d="3490">In fact, my only
+sibling, my brother,</p>
+<p t="3296990" d="3890">has the same birthday I do,
+but I'm two years older,</p>
+<p t="3300880" d="1800">so we weren't twins.</p>
+<p t="3302680" d="3100">Now, you say, what
+are the odds of that?</p>
+<p t="3305780" d="4420">Well, 1 in 365, you think.</p>
+<p t="3310200" d="1600">Well, one day I'm
+in middle school,</p>
+<p t="3311800" d="2240">about the age you start
+thinking about these things,</p>
+<p t="3314040" d="2020">and you get the idea to
+count back nine months</p>
+<p t="3316060" d="1100">from your birthday.</p>
+<p t="3317160" d="1780">Probably some of
+you have done that.</p>
+<p t="3318940" d="5550">And I did that and
+that's my dad's birthday.</p>
+<p t="3324490" d="1424">I was like, oh.</p>
+<p t="3328520" d="3580">May is not 1 in 365.</p>
+<p t="3332100" d="3710">It's like, Happy Birthday.</p>
+<p t="3335810" d="1050">I don't know.</p>
+<p t="3336860" d="2300">Anyway, I almost needed to
+go into therapy after that,</p>
+<p t="3339160" d="1640">you know.</p>
+<p t="3340800" d="5010">So now you all got to count back
+nine months from your birthday.</p>
+<p t="3345810" d="3290">Anybody whose birthday is on
+September 30 or October 1,</p>
+<p t="3349100" d="2260">nine months back
+is New Year's Eve.</p>
+<p t="3351360" d="1740">That's dangerous.</p>
+<p t="3353100" d="4000">So in reality, birthdays
+are not independent</p>
+<p t="3357100" d="2510">and they are not
+randomly distributed,</p>
+<p t="3359610" d="2670">but we're going to
+assume that because we're</p>
+<p t="3362280" d="3230">going to use this same analysis
+for computer science problems</p>
+<p t="3365510" d="4321">where things are, hopefully,
+more independent and random.</p>
+<p t="3369831" d="1499">Now, we're going
+to do an experiment</p>
+<p t="3371330" d="3172">to see how many people
+it takes us to get</p>
+<p t="3374502" d="1208">a pair of matching birthdays.</p>
+<p t="3375710" d="2510">So I'm going to run through
+people in order in the rows</p>
+<p t="3378220" d="2220">here, get your birthday
+and we're going to record</p>
+<p t="3380440" d="2240">and we're going to see how
+far we go until there's</p>
+<p t="3382680" d="2200">a match in that group.</p>
+<p t="3384880" d="1490">So I will write up
+the months here.</p>
+<p t="3411230" d="4720">And we'll start with my
+birthday is October 28.</p>
+<p t="3415950" d="1230">So let's go right across.</p>
+<p t="3417180" d="650">What yours?</p>
+<p t="3417830" d="1290">AUDIENCE: April 1.</p>
+<p t="3419120" d="1110">TOM LEIGHTON: April 1.</p>
+<p t="3426610" d="650">OK.</p>
+<p t="3427260" d="1550">We won't embarrass you here.</p>
+<p t="3428810" d="2120">OK, who's next?</p>
+<p t="3430930" d="1353">What's your birthday?</p>
+<p t="3432283" d="1389">AUDIENCE: I'm sorry.</p>
+<p t="3433672" d="928">September 2.</p>
+<p t="3434600" d="1310">TOM LEIGHTON: September 2.</p>
+<p t="3435910" d="2110">All right.</p>
+<p t="3438020" d="887">Yours.</p>
+<p t="3438907" d="708">AUDIENCE: June 1.</p>
+<p t="3439615" d="2765">TOM LEIGHTON: June 1.</p>
+<p t="3442380" d="500">OK.</p>
+<p t="3442880" d="680">We'll come back.</p>
+<p t="3443560" d="750">AUDIENCE: April 8.</p>
+<p t="3444310" d="630">TOM LEIGHTON: What is it?</p>
+<p t="3444940" d="940">AUDIENCE: April 8.</p>
+<p t="3445880" d="1601">TOM LEIGHTON: April 8.</p>
+<p t="3447481" d="1473">All right.</p>
+<p t="3448954" d="1473">AUDIENCE: November 20.</p>
+<p t="3450427" d="2565">TOM LEIGHTON: November 20.</p>
+<p t="3452992" d="1804">AUDIENCE: June 12.</p>
+<p t="3454796" d="2940">TOM LEIGHTON: June 12.</p>
+<p t="3457736" d="1904">AUDIENCE: December 29.</p>
+<p t="3459640" d="2312">TOM LEIGHTON: December 29.</p>
+<p t="3461952" d="2210">AUDIENCE: [INAUDIBLE].</p>
+<p t="3464162" d="1098">TOM LEIGHTON: What is it?</p>
+<p t="3465260" d="749">AUDIENCE: June 14.</p>
+<p t="3466009" d="1471">TOM LEIGHTON: June 14.</p>
+<p t="3467480" d="1340">Ooh, I almost got one there.</p>
+<p t="3468820" d="1225">That one's close.</p>
+<p t="3470045" d="1184">All right.</p>
+<p t="3471229" d="541">What's yours?</p>
+<p t="3471770" d="1490">AUDIENCE: March 6.</p>
+<p t="3473260" d="1740">TOM LEIGHTON: March 6.</p>
+<p t="3475000" d="1344">AUDIENCE: May 2.</p>
+<p t="3476344" d="2306">TOM LEIGHTON: May 2.</p>
+<p t="3478650" d="1847">AUDIENCE: 17th of November.</p>
+<p t="3480497" d="1083">TOM LEIGHTON: November 17.</p>
+<p t="3481580" d="950">Close again.</p>
+<p t="3482530" d="2165">AUDIENCE: August 4.</p>
+<p t="3484695" d="2333">TOM LEIGHTON: August 4.</p>
+<p t="3487028" d="1952">AUDIENCE: July 25.</p>
+<p t="3488980" d="1805">TOM LEIGHTON: July 25.</p>
+<p t="3490785" d="3385">I don't think we'll get
+to 100 here, hopefully.</p>
+<p t="3494170" d="1005">Yeah, what's yours?</p>
+<p t="3495175" d="875">AUDIENCE: October 30.</p>
+<p t="3496050" d="745">TOM LEIGHTON: What is it?</p>
+<p t="3496795" d="915">AUDIENCE: October 30.</p>
+<p t="3497710" d="1041">TOM LEIGHTON: October 30.</p>
+<p t="3498751" d="1965">Got close.</p>
+<p t="3500716" d="1296">AUDIENCE: July 6.</p>
+<p t="3502012" d="1308">TOM LEIGHTON: July 6.</p>
+<p t="3503320" d="1406">All right.</p>
+<p t="3504726" d="1488">AUDIENCE: February 25.</p>
+<p t="3506214" d="1226">TOM LEIGHTON: February 25.</p>
+<p t="3510580" d="1648">AUDIENCE: May 21.</p>
+<p t="3512228" d="1702">TOM LEIGHTON: May what?</p>
+<p t="3513930" d="3700">21st of May.</p>
+<p t="3517630" d="1276">AUDIENCE: May 30.</p>
+<p t="3518906" d="2914">TOM LEIGHTON: May 30.</p>
+<p t="3521820" d="1810">You guys fooled me.</p>
+<p t="3523630" d="1030">What have you got?</p>
+<p t="3524660" d="1155">AUDIENCE: January 12.</p>
+<p t="3525815" d="2075">TOM LEIGHTON: January 12.</p>
+<p t="3527890" d="962">All right.</p>
+<p t="3528852" d="1844">AUDIENCE: July 14.</p>
+<p t="3530696" d="1584">TOM LEIGHTON: July 14.</p>
+<p t="3534955" d="500">OK.</p>
+<p t="3535455" d="1700">AUDIENCE: April 30.</p>
+<p t="3537155" d="3148">TOM LEIGHTON: April 30.</p>
+<p t="3540303" d="1764">AUDIENCE: March 13.</p>
+<p t="3542067" d="3293">TOM LEIGHTON: March 13.</p>
+<p t="3545360" d="640">All right.</p>
+<p t="3546000" d="610">Did I get--</p>
+<p t="3546610" d="1095">AUDIENCE: October 7.</p>
+<p t="3547705" d="2339">TOM LEIGHTON: October 7.</p>
+<p t="3550044" d="1416">AUDIENCE: October 8.</p>
+<p t="3551460" d="1710">TOM LEIGHTON: Ah, you guys.</p>
+<p t="3556376" d="1374">OK.</p>
+<p t="3557750" d="720">Did I get you?</p>
+<p t="3558470" d="1270">AUDIENCE: September 15.</p>
+<p t="3559740" d="2841">TOM LEIGHTON: September 15.</p>
+<p t="3562581" d="2335">AUDIENCE: November 9.</p>
+<p t="3564916" d="1548">TOM LEIGHTON: November 9.</p>
+<p t="3566464" d="516">All right.</p>
+<p t="3566980" d="750">AUDIENCE: July 15.</p>
+<p t="3567730" d="4460">TOM LEIGHTON: July 15.</p>
+<p t="3572190" d="1116">Close.</p>
+<p t="3573306" d="1308">AUDIENCE: September 3.</p>
+<p t="3574614" d="1666">TOM LEIGHTON: September 3.</p>
+<p t="3576280" d="2400">You guys are killing me here.</p>
+<p t="3578680" d="1476">AUDIENCE: February 6.</p>
+<p t="3580156" d="1814">TOM LEIGHTON: February 6.</p>
+<p t="3581970" d="2784">AUDIENCE: October 26.</p>
+<p t="3584754" d="1760">TOM LEIGHTON: OK.</p>
+<p t="3586514" d="2320">AUDIENCE: November 2.</p>
+<p t="3588834" d="2329">TOM LEIGHTON: November 2.</p>
+<p t="3591163" d="2958">AUDIENCE: January 23.</p>
+<p t="3594121" d="2457">TOM LEIGHTON: January 23.</p>
+<p t="3596578" d="2856">AUDIENCE: September 27.</p>
+<p t="3599434" d="2796">TOM LEIGHTON: You guys are going
+to set a record for sure here.</p>
+<p t="3602230" d="1660">This isn't the way
+it's supposed to go.</p>
+<p t="3603890" d="1402">AUDIENCE: December 30.</p>
+<p t="3605292" d="1238">TOM LEIGHTON: December 30.</p>
+<p t="3609290" d="1390">AUDIENCE: December 28.</p>
+<p t="3610680" d="2295">TOM LEIGHTON: Ah, come on, guys.</p>
+<p t="3615730" d="2680">What is the probability
+of going this long here?</p>
+<p t="3618410" d="712">Yeah.</p>
+<p t="3619122" d="1298">AUDIENCE: September 22.</p>
+<p t="3620420" d="2710">TOM LEIGHTON: September 22.</p>
+<p t="3623130" d="3269">AUDIENCE: July 30.</p>
+<p t="3626399" d="2997">TOM LEIGHTON: July 30.</p>
+<p t="3629396" d="2934">AUDIENCE: The 24th of August.</p>
+<p t="3632330" d="1410">TOM LEIGHTON: 24th August.</p>
+<p t="3633740" d="2124">I'm going to have to ask
+the same person to tell me</p>
+<p t="3635864" d="1246">twice here to get a match.</p>
+<p t="3637110" d="1040">We got over there now?</p>
+<p t="3638150" d="1310">AUDIENCE: April 6.</p>
+<p t="3639460" d="2681">TOM LEIGHTON: April 6.</p>
+<p t="3642141" d="2255">AUDIENCE: October 16.</p>
+<p t="3644396" d="1192">TOM LEIGHTON: October 16.</p>
+<p t="3645588" d="1912">AUDIENCE: Did ask how many--</p>
+<p t="3647500" d="952">AUDIENCE: September 3.</p>
+<p t="3648452" d="2008">TOM LEIGHTON: September 3.</p>
+<p t="3650460" d="2085">All right.</p>
+<p t="3652545" d="2730">Very good.</p>
+<p t="3655275" d="915">All right.</p>
+<p t="3656190" d="4040">Let's count and see
+how many we got here.</p>
+<p t="3660230" d="2682">1, 2, 3, 4, 5, 6, 7, 8.</p>
+<p t="3662912" d="6048">9, 10, 11, 12, 13, 14,
+15, 16, 17, 18, 19, 20</p>
+<p t="3668960" d="10100">21, 22, 23, 24, 25, 26, 27, 28,
+29, 30, 31, 32, 33, 34, 35, 36,</p>
+<p t="3679060" d="3570">37, 38, 39, 40, 41, 42.</p>
+<p t="3682630" d="1730">That is a record.</p>
+<p t="3684360" d="4870">So it took 42 people
+to get a match.</p>
+<p t="3689230" d="3520">Now it turns out that
+for N equals 365,</p>
+<p t="3692750" d="4090">the magic number for N
+is 23, that by 23 people,</p>
+<p t="3696840" d="2340">we got a 50-50 chance.</p>
+<p t="3699180" d="5080">In fact, the probability of a
+match on 23 people is 0.506.</p>
+<p t="3704260" d="3277">It's a little bit better
+than 50-50 chance at 23.</p>
+<p t="3707537" d="1333">Now, maybe we should figure out.</p>
+<p t="3708870" d="1666">It's too late for
+homework to figure out</p>
+<p t="3710536" d="2804">what the chances are of going
+this long without a match.</p>
+<p t="3713340" d="2570">That maybe worth
+figuring that out.</p>
+<p t="3715910" d="2920">Now, it may seem
+surprising at first</p>
+<p t="3718830" d="2700">that 23 people is
+enough to have a 50/50</p>
+<p t="3721530" d="4470">chance because the chance of
+any pair matching is 1 in 365,</p>
+<p t="3726000" d="1770">by our assumption.</p>
+<p t="3727770" d="4560">And that's small, but there's
+lots of pairs of people</p>
+<p t="3732330" d="3620">and every pair of people
+have a chance to match</p>
+<p t="3735950" d="4470">and that's why 23 turns out
+to be enough to get to 50-50.</p>
+<p t="3740420" d="3370">Now, we're going to do the
+analysis for general M and N</p>
+<p t="3743790" d="2700">to the figure out the
+probability of a match</p>
+<p t="3746490" d="4740">if there's M people
+and N birthdays.</p>
+<p t="3751230" d="1760">There's lots of ways to do it.</p>
+<p t="3756140" d="5080">The easiest is to sort of well,
+we'll draw the sample space.</p>
+<p t="3761220" d="1890">It will be too big to
+draw the whole thing,</p>
+<p t="3763110" d="2970">but we can sort of
+model the sample space</p>
+<p t="3766080" d="1458">and then look at
+the sample points.</p>
+<p t="3781580" d="7130">So you've got the first person
+and there's N birthdays here,</p>
+<p t="3788710" d="5920">so it could be anywhere from
+January 1 out to December 31</p>
+<p t="3794630" d="3850">and in general this
+will be N. And then you</p>
+<p t="3798480" d="10800">have the second person and
+they have N possibilities</p>
+<p t="3809280" d="2230">for their birthday.</p>
+<p t="3811510" d="6890">And you take the tree down M
+levels to the very last person</p>
+<p t="3818400" d="500">here.</p>
+<p t="3825920" d="4610">So each node has degree N and
+there's M levels on this tree.</p>
+<p t="3830530" d="13030">So the sample space is the set
+of all n-tuples b1, b2, to bm,</p>
+<p t="3843560" d="7320">these are the birthdays
+where every value of bi</p>
+<p t="3850880" d="6390">is between 1 and N. So a sample
+point is all the birthdays</p>
+<p t="3857270" d="1655">of the M people.</p>
+<p t="3862180" d="1915">How many sample
+points are there here?</p>
+<p t="3868460" d="4150">Remember how to
+count these things?</p>
+<p t="3872610" d="3129">Number of leaves on an
+N-ary tree of depth M or you</p>
+<p t="3875739" d="1041">can think of it this way.</p>
+<p t="3876780" d="5170">I've got N choices for each
+bi and there's M of them.</p>
+<p t="3881950" d="934">AUDIENCE: [INAUDIBLE].</p>
+<p t="3882884" d="2166">TOM LEIGHTON: So what's the
+number of sample points?</p>
+<p t="3885050" d="1970">AUDIENCE: N to the M.</p>
+<p t="3887020" d="7700">TOM LEIGHTON: N to the M.
+Because N choices here,</p>
+<p t="3894720" d="3100">N choices here, N
+choices there, so you</p>
+<p t="3897820" d="4400">have N times N times N M times.</p>
+<p t="3902220" d="4940">And what's the probability
+of each outcome?</p>
+<p t="3907160" d="2485">For a set of possible birthdays,
+what's its probability?</p>
+<p t="3913460" d="5700">What's the probability
+of b1, b2, bM?</p>
+<p t="3927409" d="1541">So the probability
+of a sample point.</p>
+<p t="3928950" d="2541">What's the probability that the
+first person has birthday b1,</p>
+<p t="3931491" d="5319">the second has b2,
+and the N-th has bM?</p>
+<p t="3936810" d="736">Remember that?</p>
+<p t="3937546" d="500">Yeah.</p>
+<p t="3938046" d="1284">AUDIENCE: 1 over N to the M.</p>
+<p t="3939330" d="3080">TOM LEIGHTON: 1 over N to
+the M because each edge</p>
+<p t="3942410" d="3899">is probability of 1
+over N and the paths</p>
+<p t="3946309" d="2291">are length M, so you've got
+1 over N to the M-th power.</p>
+<p t="3952770" d="2730">Probability of the first
+birthday matching is 1 in N</p>
+<p t="3955500" d="5920">times 1 in N times 1 in N.
+And this actually makes sense</p>
+<p t="3961420" d="3470">because I've got N to
+the M sample points,</p>
+<p t="3964890" d="3110">each a probability
+1 over N to the M.</p>
+<p t="3968000" d="3920">So they all add up
+to 1, which is good.</p>
+<p t="3971920" d="1630">What kind of sample
+space is this</p>
+<p t="3973550" d="1980">where this happens where all
+the probabilities are the same?</p>
+<p t="3975530" d="772">AUDIENCE: Uniform.</p>
+<p t="3976302" d="1278">TOM LEIGHTON: Uniform.</p>
+<p t="3977580" d="1500">Makes it very easy to work with.</p>
+<p t="3979080" d="2160">All we got to do
+now is just count</p>
+<p t="3981240" d="1700">the number of
+sample points where</p>
+<p t="3982940" d="4190">there's a matching birthday and
+then we multiply by that one</p>
+<p t="3987130" d="3700">probability 1 over N to the M.</p>
+<p t="3990830" d="2950">Now, it turns out that
+rather than counting</p>
+<p t="3993780" d="1720">the number of sample
+points where there's</p>
+<p t="3995500" d="3420">a matching birthday,
+it's easier to count</p>
+<p t="3998920" d="2510">the number of sample points
+for all the birthdays are</p>
+<p t="4001430" d="1665">different.</p>
+<p t="4003095" d="2355">And this is often the case
+when you're doing a counting</p>
+<p t="4005450" d="4290">problem, it's easier
+to count the opposite</p>
+<p t="4009740" d="2360">of what you're after.</p>
+<p t="4012100" d="2320">That can be the case
+and it is the case here.</p>
+<p t="4014420" d="1840">So we're going to do that.</p>
+<p t="4019680" d="6920">So let's count how many
+sample points are all</p>
+<p t="4026600" d="5530">different birthdays, so no
+pair of bi's is the same.</p>
+<p t="4032130" d="1050">Let's do that.</p>
+<p t="4033180" d="2544">How many choices
+are there for b1?</p>
+<p t="4035724" d="4756">365 or N. Let's do
+this in terms of N</p>
+<p t="4040480" d="1920">because we're going to
+use this for general N.</p>
+<p t="4042400" d="3070">How many choices for b2?</p>
+<p t="4045470" d="890">N minus 1.</p>
+<p t="4046360" d="2590">Given you are the first
+one, you can't match it.</p>
+<p t="4048950" d="4620">And then N minus 2 all the
+way over to the last one</p>
+<p t="4053570" d="3790">is N minus M plus 1.</p>
+<p t="4057360" d="3690">And this is a formula
+you should all remember.</p>
+<p t="4061050" d="5380">That's just N factorial
+over N minus M factorial.</p>
+<p t="4066430" d="2870">You did this sort of stuff a
+couple weeks ago with counting</p>
+<p t="4069300" d="4950">sets and probability is really--
+a lot of it's about counting.</p>
+<p t="4074250" d="2030">So now we can compute
+the probability</p>
+<p t="4076280" d="1710">that all the birthdays
+are different.</p>
+<p t="4084630" d="4030">It's just adding up all the
+sample points of which there's</p>
+<p t="4088660" d="5420">n factorial over N minus
+M factorial and multiply</p>
+<p t="4094080" d="2550">by the probability
+of each one, which is</p>
+<p t="4096630" d="5800">1 over N to the M. All right.</p>
+<p t="4102430" d="2200">So we've actually now
+answered the question.</p>
+<p t="4104630" d="4040">This is the probability that
+all the birthdays are different.</p>
+<p t="4108670" d="3890">The only problem is,
+it's not so clear</p>
+<p t="4112560" d="2160">what the answer is to
+actually compute this</p>
+<p t="4114720" d="2530">or how fast it grows.</p>
+<p t="4117250" d="3160">So if I wanted to get
+a closed form for this</p>
+<p t="4120410" d="2569">without the factorials,
+what do I do?</p>
+<p t="4122979" d="2221">What do I use?</p>
+<p t="4125200" d="3110">Stirling's formula.</p>
+<p t="4128310" d="1150">So let's remember that.</p>
+<p t="4137630" d="4240">It says that N factorial
+is asymptotically equal</p>
+<p t="4141870" d="7960">to square root 2 pi N
+times N over e to the N.</p>
+<p t="4149830" d="5699">And that is accurate within
+0.1% when N is at least 100.</p>
+<p t="4155529" d="2711">So not only is it
+asymptotically equal,</p>
+<p t="4158240" d="6780">it's right on track for
+a reasonable size N.</p>
+<p t="4165020" d="2879">Now, I won't drag you
+through all the calculations.</p>
+<p t="4167899" d="2951">I used to actually try
+plugging that formula</p>
+<p t="4170850" d="2174">in for here and
+here and then going</p>
+<p t="4173024" d="2416">through all the calculations,
+but we won't do it in class.</p>
+<p t="4175440" d="1860">It's in the text.</p>
+<p t="4177300" d="2802">But I will tell you
+where that winds up.</p>
+<p t="4180102" d="2208">It's not hard, you've just
+got to do the calculation.</p>
+<p t="4188160" d="3270">So this is means the probability
+that all birthdays are</p>
+<p t="4191430" d="13400">different turns out to be
+asymptotically equal to e</p>
+<p t="4204830" d="10700">to the N minus M plus 1/2 times
+the natural log of N over N</p>
+<p t="4215530" d="8140">minus M minus M. And that's
+accurate to within 0.2%,</p>
+<p t="4223670" d="2280">if N and N minus M are
+large, larger than 100.</p>
+<p t="4225950" d="3880">So in fact, it's almost equal.</p>
+<p t="4229830" d="6820">And now you could plug in N
+equals 365 and M equals 100.</p>
+<p t="4236650" d="5300">So if you do that, in fact,
+if somebody has a calculator,</p>
+<p t="4241950" d="4000">we should plug in,
+what do we have, 42.</p>
+<p t="4245950" d="2070">You should plug in
+M equals 42 and see</p>
+<p t="4248020" d="2280">what the probability is.</p>
+<p t="4250300" d="6030">But if M is 100, the chance
+that we're all different,</p>
+<p t="4256330" d="8820">this equals 3.07 dot, dot,
+dot times 10 to the minus 7.</p>
+<p t="4265150" d="2570">And we should check
+for M equals 42.</p>
+<p t="4267720" d="2360">My guess is it's pretty
+small, but I don't know.</p>
+<p t="4270080" d="1271">We'll have to check that.</p>
+<p t="4271351" d="3297">AUDIENCE: 0.0859.</p>
+<p t="4274648" d="892">TOM LEIGHTON: Great.</p>
+<p t="4275540" d="6650">So a 9% chance of having 42
+people all miss is a 9% chance.</p>
+<p t="4282190" d="1290">So we were little unlucky.</p>
+<p t="4283480" d="2290">That won't happen very often.</p>
+<p t="4285770" d="3950">But when you go from 42 to
+100, it gets really small.</p>
+<p t="4289720" d="1300">1 in 3 million or so.</p>
+<p t="4293870" d="5970">Now, if N is 365 and M
+is 23, the probability</p>
+<p t="4299840" d="4350">comes out to be about
+0.49, so about 50-50,</p>
+<p t="4304190" d="1904">they're all different.</p>
+<p t="4310540" d="500">Now.</p>
+<p t="4311040" d="3170">For general M and
+N, we'd like to know</p>
+<p t="4314210" d="2430">when do you get to
+the 50-50 point?</p>
+<p t="4316640" d="3910">We'd like to derive an
+equation for M in terms of N</p>
+<p t="4320550" d="3800">where the probability of being
+all different is about 1/2.</p>
+<p t="4324350" d="500">All right.</p>
+<p t="4324850" d="708">So let's do that.</p>
+<p t="4336270" d="5220">So as long as we assume--
+and this will turn out</p>
+<p t="4341490" d="3340">to be true-- that M is a
+little o of N to the 2/3</p>
+<p t="4344830" d="5360">and remember little o means it
+grows slower than N to the 2/3.</p>
+<p t="4350190" d="2040">Then we can simplify
+that expression</p>
+<p t="4352230" d="3010">in asymptotic notation.</p>
+<p t="4355240" d="5165">And when you do it, I won't
+drag it through on the board.</p>
+<p t="4360405" d="4625">It's also in the text, it
+turns out to be much simpler.</p>
+<p t="4365030" d="4870">It's just e to the
+minus M squared over 2N.</p>
+<p t="4369900" d="1920">So I take that
+thing up there and I</p>
+<p t="4371820" d="5580">assume that M is growing less
+fast than the 2/3 power of N</p>
+<p t="4377400" d="2100">and that whole upper
+expression reduces down</p>
+<p t="4379500" d="1610">to M squared over 2N.</p>
+<p t="4381110" d="3200">Everything else goes
+to 0 in the exponent.</p>
+<p t="4384310" d="1950">Doesn't matter.</p>
+<p t="4386260" d="5710">Now, if I set this
+to be 1/2, I can</p>
+<p t="4391970" d="5640">solve this to find out what M
+has to be to make that be 1/2.</p>
+<p t="4397610" d="500">All right.</p>
+<p t="4398110" d="6600">So this will be true if and
+only if minus M squared over 2N</p>
+<p t="4404710" d="1560">is equal to the
+natural log of 1/2.</p>
+<p t="4409610" d="1430">And that's true.</p>
+<p t="4411040" d="3780">Take the minus sign, put it
+inside to make a log of 2,</p>
+<p t="4414820" d="1760">multiply by 2N.</p>
+<p t="4416580" d="7010">That's true if M squared
+equals 2N natural log of 2.</p>
+<p t="4423590" d="3210">And now I can solve
+for M really easily.</p>
+<p t="4426800" d="6290">That's true if and
+only if M equals</p>
+<p t="4433090" d="5270">the square root of 2
+natural log of 2N, which</p>
+<p t="4438360" d="10200">is about 1.177 square root
+of N. So for general N,</p>
+<p t="4448560" d="5460">you get a 50% probability of
+having a matching birthday when</p>
+<p t="4454020" d="7900">M is in this range, pretty
+close to 1.2 square root of N.</p>
+<p t="4461920" d="3104">Now, this square root N
+phenomenon, this thing here,</p>
+<p t="4465024" d="1916">that's what's known as
+the birthday principle.</p>
+<p t="4469630" d="3620">It says if you've got roughly
+square root of N randomly</p>
+<p t="4473250" d="6330">allocated items into N
+boxes or bins or birthdays,</p>
+<p t="4479580" d="2360">there's a decent
+chance two of the items</p>
+<p t="4481940" d="5180">will go into the same bin
+if the randomly allocated.</p>
+<p t="4487120" d="2010">In this case, the bins
+are the possible days</p>
+<p t="4489130" d="4020">of the year that we put each
+person into for their birthday.</p>
+<p t="4493150" d="2375">Any questions about that?</p>
+<p t="4498860" d="500">Yeah.</p>
+<p t="4499360" d="1968">AUDIENCE: M and N
+are like numbers</p>
+<p t="4501328" d="2132">like they're defined up
+there or does it mean</p>
+<p t="4503460" d="2296">to say M equals [INAUDIBLE]?</p>
+<p t="4505756" d="1224">TOM LEIGHTON: Yeah.</p>
+<p t="4506980" d="3390">So here I looked at a
+special case where N was 365,</p>
+<p t="4510370" d="2990">M was 100, but we
+can imagine them</p>
+<p t="4513360" d="3990">as arbitrary numbers that
+could be getting large.</p>
+<p t="4517350" d="5130">And so over here and I say M
+is little o of N to the 2/3,</p>
+<p t="4522480" d="3770">I mean, well, M equals square
+root of N would qualify.</p>
+<p t="4526250" d="3700">Square root of N is
+little o of N to the 2/3.</p>
+<p t="4529950" d="3370">So as long as M is
+not growing too fast,</p>
+<p t="4533320" d="3630">I can simplify that expression
+up there, which is what I did.</p>
+<p t="4536950" d="3940">And then we go back
+and we find, in fact,</p>
+<p t="4540890" d="2090">the square root of
+N the right answer</p>
+<p t="4542980" d="2670">and that is little
+o of N to the 2/3.</p>
+<p t="4545650" d="2750">And I have to use a
+different argument</p>
+<p t="4548400" d="3350">if I assumed M was
+bigger, which I didn't do.</p>
+<p t="4551750" d="1390">I didn't drag it for that.</p>
+<p t="4553140" d="3200">But I would have to
+go check that case.</p>
+<p t="4556340" d="1980">So we can think of general
+is M and N as being</p>
+<p t="4558320" d="2410">arbitrary variables and
+potentially growing.</p>
+<p t="4560730" d="2980">M can be a function
+of N. And in fact,</p>
+<p t="4563710" d="2460">when M is the square
+root function of N, then</p>
+<p t="4566170" d="1660">we got a 50% chance of a match.</p>
+<p t="4571080" d="4340">Now, the birthday
+principle comes up all</p>
+<p t="4575420" d="3280">over the place in
+computer science</p>
+<p t="4578700" d="1515">and it's worth remembering.</p>
+<p t="4583140" d="3146">For example, the
+generic form for this</p>
+<p t="4586286" d="1374">is when you have
+a hash function.</p>
+<p t="4590510" d="3530">Let's say I have a
+hash function, h,</p>
+<p t="4594040" d="5240">from a large set of items
+into a small set of items.</p>
+<p t="4599280" d="3920">For example, say I'm
+computing digital signatures.</p>
+<p t="4603200" d="2440">This is the space
+of all messages,</p>
+<p t="4605640" d="3390">this is the space of all
+1,000-bit digital signatures,</p>
+<p t="4609030" d="2720">and h is a digital
+signature outcome.</p>
+<p t="4611750" d="1970">Say I'm doing
+memory allocations.</p>
+<p t="4613720" d="3470">So all the things I might
+be sticking into a register,</p>
+<p t="4617190" d="1450">here's all the
+places it could go.</p>
+<p t="4618640" d="1720">Here's all the registers.</p>
+<p t="4620360" d="1400">Error checking.</p>
+<p t="4621760" d="2730">This is all the garbled
+messages in the world.</p>
+<p t="4624490" d="2870">This is the set of
+messages that make sense,</p>
+<p t="4627360" d="5410">all handled by functions,
+random kind of functions often.</p>
+<p t="4632770" d="5060">Now, what you worry about when
+you're hashing is collisions.</p>
+<p t="4637830" d="2410">Let me define that.</p>
+<p t="4640240" d="9600">We say that x collides
+with y if the hash of x</p>
+<p t="4649840" d="3870">equals the hash of y, but
+x and y are different.</p>
+<p t="4656650" d="3280">For example, say you're
+looking at digital signatures.</p>
+<p t="4659930" d="3975">You would not want the
+signature for a $100 check</p>
+<p t="4663905" d="5787">to your mom to match your
+signature for $100,000 check</p>
+<p t="4669692" d="738">to Boris.</p>
+<p t="4672717" d="1833">Because that would be
+bad because then Boris</p>
+<p t="4674550" d="4040">could come in and take that
+check to your mom for $100,</p>
+<p t="4678590" d="3370">converted to a
+$100,000 check to him</p>
+<p t="4681960" d="2410">and the signature is
+authentic if there's</p>
+<p t="4684370" d="1670">a collision in the signatures.</p>
+<p t="4686040" d="2160">So very important when
+you're doing hash functions</p>
+<p t="4688200" d="3650">and in many applications,
+you don't want collisions</p>
+<p t="4691850" d="2310">because all the whole
+thing start breaking.</p>
+<p t="4694160" d="860">Memory allocation.</p>
+<p t="4695020" d="2750">You don't want to assign two
+things in the same place.</p>
+<p t="4697770" d="1110">Error correction.</p>
+<p t="4698880" d="4220">There's only one answer you
+want to get out at the end.</p>
+<p t="4703100" d="1710">Now, from the pigeon
+hole principle,</p>
+<p t="4704810" d="2715">you know if this set is
+bigger than that set,</p>
+<p t="4707525" d="1375">there is going to
+be a collision.</p>
+<p t="4708900" d="1820">That's what the pigeon
+hole principle says.</p>
+<p t="4710720" d="2770">Two guys will get mapped
+to the same thing.</p>
+<p t="4713490" d="4780">However, often in practice what
+we care about is a subset L</p>
+<p t="4718270" d="5060">prime of L that's pretty small
+because the set of messages we</p>
+<p t="4723330" d="3040">really assign is pretty small
+compared to all 1,000-bit</p>
+<p t="4726370" d="2000">signatures that are possible.</p>
+<p t="4728370" d="3210">And what you'd like is that for
+this smaller set of messages,</p>
+<p t="4731580" d="4630">you might want to assign, they
+all get mapped one to one.</p>
+<p t="4736210" d="5350">And the birthday principle
+says life is not so nice.</p>
+<p t="4741560" d="2831">So let me write that
+down then we'll be done.</p>
+<p t="4750592" d="968">All right.</p>
+<p t="4751560" d="18310">So the birthday principle says
+that if S is at least 100,</p>
+<p t="4769870" d="6720">L prime is a subset of L that is
+at least the square root of S.</p>
+<p t="4776590" d="3150">So the cardinality of the
+things you want to hash</p>
+<p t="4779740" d="6060">is bigger than 1.2 square
+root the cardinality of S.</p>
+<p t="4785800" d="11490">And if the values of the
+function h on L prime</p>
+<p t="4797290" d="16970">are randomly chosen, uniform,
+and mutually independent,</p>
+<p t="4814260" d="2370">then there's at least
+a 50% chance, so</p>
+<p t="4816630" d="7680">with probability at least
+1/2, there's a collision.</p>
+<p t="4824310" d="5030">There exists an x and a y
+such that x does not equal y--</p>
+<p t="4829340" d="8281">and these are in L prime--
+but h of x equals h of y.</p>
+<p t="4837621" d="499">All right.</p>
+<p t="4838120" d="3790">The proof is not hard, it's
+just we more or less did it.</p>
+<p t="4841910" d="2970">You just plug in the
+cardinality of L prime for M</p>
+<p t="4844880" d="3800">and the cardinality of S
+for N. And it's bad news</p>
+<p t="4848680" d="3770">because it means it doesn't
+take very many messages,</p>
+<p t="4852450" d="5490">just square root the number of
+signatures to get a collision.</p>
+<p t="4857940" d="3482">You'd hope you could get that
+you could have L prime be</p>
+<p t="4861422" d="1458">as big as S and
+that somehow they'd</p>
+<p t="4862880" d="2757">all go one to one, that
+everybody in this room</p>
+<p t="4865637" d="1333">would have a different birthday.</p>
+<p t="4866970" d="2410">That is not how it works
+if things are random,</p>
+<p t="4869380" d="2370">which is the case you
+usually like to have.</p>
+<p t="4871750" d="4250">Now, this technique is used to
+crack cryptographic protocols</p>
+<p t="4876000" d="2720">and it's called the birthday
+attack based on the birthday</p>
+<p t="4878720" d="754">principle.</p>
+<p t="4879474" d="1416">So what you do is,
+you get a bunch</p>
+<p t="4880890" d="4300">of messages that are
+encrypted and pretty soon you</p>
+<p t="4885190" d="3160">find two that get maybe
+encrypted the same way.</p>
+<p t="4888350" d="2350">And once you have that,
+now you can go back</p>
+<p t="4890700" d="2940">and crack the crypto system.</p>
+<p t="4893640" d="4040">For example, you break schemes
+like RSA with a birthday attack</p>
+<p t="4897680" d="2950">if this space is not
+big enough and that's</p>
+<p t="4900630" d="5680">one reason why now RSA, the
+keys have thousands of digits</p>
+<p t="4906310" d="2410">because otherwise you
+can use attacks like this</p>
+<p t="4908720" d="3730">and crack them more easily.</p>
+<p t="4912450" d="3160">Any questions about that?</p>
+<p t="4915610" d="500">OK.</p>
+<p t="4916110" d="500">Very good.</p>
+<p t="4916610" d="2100">We're done for today.</p>
+</body>
+</timedtext>

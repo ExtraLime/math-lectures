@@ -1,0 +1,2031 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="499" d="2331">The following content is
+provided under a Creative</p>
+<p t="2830" d="1510">Commons license.</p>
+<p t="4340" d="2340">Your support will help
+MIT OpenCourseWare</p>
+<p t="6680" d="4370">continue to offer high-quality
+educational resources for free.</p>
+<p t="11050" d="2610">To make a donation, or
+view additional materials</p>
+<p t="13660" d="3887">from hundreds of MIT courses,
+visit MIT OpenCourseWare</p>
+<p t="17547" d="625">at ocw.mit.edu.</p>
+<p t="22895" d="1375">PROFESSOR: Now
+today, we're going</p>
+<p t="24270" d="2470">to talk about random walks.</p>
+<p t="26740" d="3200">And in particular, we're going
+to look at a classic phenomenon</p>
+<p t="29940" d="2810">known as Gamblers Ruin.</p>
+<p t="32750" d="2010">It's a great way
+to end the term,</p>
+<p t="34760" d="3290">because the solution requires
+several of the techniques</p>
+<p t="38050" d="2690">that we've developed
+since the midterm.</p>
+<p t="40740" d="1760">So it's actually a good review.</p>
+<p t="42500" d="1230">We'll review recurrences.</p>
+<p t="43730" d="2390">We'll review a lot
+of probability laws.</p>
+<p t="46120" d="2930">And it's actually a
+nice problem to look at.</p>
+<p t="49050" d="3040">It's another example where you
+get a non-intuitive solution</p>
+<p t="52090" d="1650">using probability.</p>
+<p t="53740" d="2820">And if you like to
+gamble, it's really good</p>
+<p t="56560" d="2770">that you look at this problem
+before you go to Vegas or down</p>
+<p t="59330" d="1720">to Foxwoods.</p>
+<p t="61050" d="6115">Now the Gambler's Ruin problem,
+you start with n dollars.</p>
+<p t="79330" d="3060">And we're going to do a
+simplified version, where</p>
+<p t="82390" d="4690">in each bet, you win
+$1 or you lose $1.</p>
+<p t="87080" d="2600">Now, these days, there are not
+many bets in a casino for $1.</p>
+<p t="89680" d="1470">It's more like $10.</p>
+<p t="91150" d="3100">But just to make it
+simple for counting,</p>
+<p t="94250" d="3730">we're going to
+assume that each bet</p>
+<p t="97980" d="8740">you win $1 with
+probability p, and you lose</p>
+<p t="106720" d="7180">$1 with probability 1 minus p.</p>
+<p t="113900" d="3220">And in this version,
+we're going to assume</p>
+<p t="117120" d="3490">you keep playing until
+one of two things</p>
+<p t="120610" d="3770">happens-- you get
+ahead by m dollars,</p>
+<p t="124380" d="6150">or you lose all the money you
+came with-- all n dollars.</p>
+<p t="130530" d="9320">So you play until you
+win m more-- net m plus--</p>
+<p t="139850" d="3930">or you lose n.</p>
+<p t="143780" d="1250">And that's where you go broke.</p>
+<p t="145030" d="874">You run out of money.</p>
+<p t="148335" d="2125">And we're going to assume
+you don't borrow anything</p>
+<p t="150460" d="625">from the house.</p>
+<p t="153750" d="2860">All right, and we're going
+to look at the probability</p>
+<p t="156610" d="3260">that you come out a winner
+versus going home broke--</p>
+<p t="159870" d="2820">that you made m dollars.</p>
+<p t="162690" d="3820">Now, the game we're going
+to analyze is roulette,</p>
+<p t="166510" d="1820">but the technique
+works for any of them.</p>
+<p t="174160" d="1550">How many people
+have played roulette</p>
+<p t="175710" d="2140">before in some form or another?</p>
+<p t="177850" d="2350">OK, so this is a
+game where there's</p>
+<p t="180200" d="3110">the ball that goes around the
+dish, and you spin the wheel.</p>
+<p t="183310" d="3860">And there's 36
+numbers from 1 to 36.</p>
+<p t="187170" d="2090">Half of them are
+red, half are black.</p>
+<p t="189260" d="3467">And then there's the zero and
+the double zero that are green.</p>
+<p t="192727" d="1583">And we're going to
+look at the version</p>
+<p t="194310" d="2690">where you just bet
+on red or black.</p>
+<p t="197000" d="2710">And you win if the ball
+lands on a slot that's red.</p>
+<p t="199710" d="1620">And there's 18 of those.</p>
+<p t="201330" d="2360">And you lose otherwise.</p>
+<p t="203690" d="4840">So in this case, the
+probability of winning, p,</p>
+<p t="208530" d="2990">is there's 18 chances to win.</p>
+<p t="211520" d="2240">And it's not 36 total.</p>
+<p t="213760" d="4440">It's 38 total because of the
+zero and the double zero.</p>
+<p t="218200" d="4480">All right so this is
+9/19 chance of winning</p>
+<p t="222680" d="3280">and a 10/19 chance of losing.</p>
+<p t="225960" d="5440">And so this is a game that has a
+chance of winning of about 47%,</p>
+<p t="231400" d="1970">so it's almost a fair game.</p>
+<p t="233370" d="1499">It's not 50-50.</p>
+<p t="234869" d="2291">And that's because the casino's
+got to make some money.</p>
+<p t="237160" d="2240">I mean, they have
+the big facility.</p>
+<p t="239400" d="2610">They're giving you free
+drinks, and all the rest.</p>
+<p t="242010" d="1870">So they got to
+make money somehow.</p>
+<p t="243880" d="3560">And they make money on
+this bet because they're</p>
+<p t="247440" d="4990">going to make $0.03
+on the dollar here.</p>
+<p t="252430" d="1350">You're going to wager.</p>
+<p t="253780" d="4450">And then you're going
+to come back with 47%.</p>
+<p t="258230" d="2109">And people generally
+are fine with that.</p>
+<p t="260339" d="2561">They don't expect to have
+the odds in their favor</p>
+<p t="262900" d="3110">when you're gambling
+in a casino.</p>
+<p t="266010" d="4170">Now, in an effort to sort
+of come home a winner,</p>
+<p t="270180" d="2600">the way people do that--
+knowing that the odds are</p>
+<p t="272780" d="3200">a little against
+them-- is they might</p>
+<p t="275980" d="2600">put more money in
+their pocket coming in</p>
+<p t="278580" d="1470">than they expect to win.</p>
+<p t="280050" d="3710">So often, you'll see
+people come into the casino</p>
+<p t="283760" d="5069">with the goal of winning 100,
+but they start with 1,000</p>
+<p t="288829" d="666">in their pocket.</p>
+<p t="292730" d="2710">So they're willing
+to risk $1,000,</p>
+<p t="295440" d="4350">but they're going to quit
+happy if they get up 100.</p>
+<p t="299790" d="3660">OK so you either go
+home with $1,100,</p>
+<p t="303450" d="2100">or you're going home
+with $0, in this case.</p>
+<p t="305550" d="2210">And you came with $1,000.</p>
+<p t="307760" d="2540">And this means that you're--
+at least the thinking goes--</p>
+<p t="310300" d="3590">this means you're more
+likely to go home happy.</p>
+<p t="313890" d="2220">If you quit when
+you get up by 100,</p>
+<p t="316110" d="1470">you're more likely
+to land there,</p>
+<p t="317580" d="4070">because it's almost a fair game,
+than you are to lose all 1,000.</p>
+<p t="321650" d="1920">That's the thinking anyway.</p>
+<p t="323570" d="3520">In fact, my mother-in-law
+plays roulette, red and black,</p>
+<p t="327090" d="2950">and she follows the strategy.</p>
+<p t="330040" d="2530">And she claims that she
+does this for that reason--</p>
+<p t="332570" d="2940">that she almost always wins.</p>
+<p t="335510" d="2310">She goes home happy
+almost always.</p>
+<p t="337820" d="2470">And that's the
+important thing here.</p>
+<p t="340290" d="2210">And it does reasonable,
+because after all, roulette</p>
+<p t="342500" d="3480">is almost a fair game.</p>
+<p t="345980" d="1490">So what do you think?</p>
+<p t="347470" d="1630">How many people
+think she's right</p>
+<p t="349100" d="3550">that she almost always wins?</p>
+<p t="352650" d="1050">Anybody?</p>
+<p t="353700" d="1200">I have sort of set it up.</p>
+<p t="354900" d="1875">It's my mother-in-law,
+after all,</p>
+<p t="356775" d="1605">so probably she's
+going to be wrong.</p>
+<p t="361740" d="4740">Well, how many people think
+it's better than a 50% chance</p>
+<p t="366480" d="5130">you win $100 before
+you lose $1,000?</p>
+<p t="371610" d="3420">That's probably
+more-- how many people</p>
+<p t="375030" d="4320">think you're more likely to
+lose $1,000 before you win $100?</p>
+<p t="379350" d="2610">Wow, OK, so you've been
+to 6.04 too long now.</p>
+<p t="381960" d="2460">OK, what about this-- how
+many people think you're</p>
+<p t="384420" d="6085">more likely to lose
+$10,000 than to win $100?</p>
+<p t="390505" d="1625">All right, how many
+people think you're</p>
+<p t="392130" d="1370">more likely to lose $1 million?</p>
+<p t="396697" d="1333">A bunch of you still think that.</p>
+<p t="398030" d="2340">OK, well, you're right.</p>
+<p t="400370" d="5460">In fact, it is almost
+certain you will go broke,</p>
+<p t="405830" d="5900">no matter how much money you
+bring, before you win $100.</p>
+<p t="411730" d="3560">In fact, we're
+going to prove today</p>
+<p t="415290" d="6790">that the probability that
+you win $100 before losing</p>
+<p t="422080" d="2790">$100 million if you
+stayed long enough-- that</p>
+<p t="424870" d="5060">takes a while-- the chance you
+go home a winner is less than 1</p>
+<p t="429930" d="4540">in 37,648.</p>
+<p t="434470" d="3856">You have no chance
+to go home happy.</p>
+<p t="438326" d="2624">So my mother-in-law's telling me
+the story about how she always</p>
+<p t="440950" d="790">goes home happy.</p>
+<p t="441740" d="3220">And I'm saying, no, no,
+wait a minute, you can't.</p>
+<p t="444960" d="1270">You never went home happy.</p>
+<p t="446230" d="1810">Let's be honest.</p>
+<p t="448040" d="1017">It can't be.</p>
+<p t="449057" d="1333">She goes, no, no, no, it's true.</p>
+<p t="450390" d="2515">I go, no, look, there's
+a mathematical proof.</p>
+<p t="452905" d="625">I have a proof.</p>
+<p t="453530" d="4610">I can show you my proof-- very
+unlikely you go home a winner.</p>
+<p t="458140" d="2010">So somehow, she's
+not very impressed</p>
+<p t="460150" d="2150">with the mathematical proof.</p>
+<p t="462300" d="1020">And she keeps insisting.</p>
+<p t="463320" d="2080">And I keep trying to
+show her the proof.</p>
+<p t="465400" d="2770">And anyway, I hope I'll have
+more luck with you guys today</p>
+<p t="468170" d="3350">in showing you the proof that
+the chance you go home happy</p>
+<p t="471520" d="3080">here is very, very small.</p>
+<p t="474600" d="1640">Now, in the end, I
+didn't convince her,</p>
+<p t="476240" d="3440">but we'll see how
+we do here today.</p>
+<p t="479680" d="3260">Now, in order to see why this
+probability is so stunningly</p>
+<p t="482940" d="3750">small-- you would just
+never guess it's that low--</p>
+<p t="486690" d="2820">we've got to learn
+about random walks.</p>
+<p t="489510" d="2500">And they come up in all
+sorts of applications.</p>
+<p t="492010" d="4320">In fact, page rank--
+that got Google started--</p>
+<p t="496330" d="3060">it's all based on a random
+walk through the Web</p>
+<p t="499390" d="5210">or through the links on
+web pages on that graph.</p>
+<p t="504600" d="1780">Now, for the gambling
+problem, we're</p>
+<p t="506380" d="1800">going to look at a
+very special case--</p>
+<p t="508180" d="2030">probably the simplest
+case of a random walk--</p>
+<p t="510210" d="3180">and that's a
+one-dimensional random walk.</p>
+<p t="513390" d="1659">In a one-dimensional
+random walk,</p>
+<p t="515049" d="2760">there's some value-- say
+the number of dollars</p>
+<p t="517809" d="2431">you've got in your pocket.</p>
+<p t="520240" d="3069">And this value can
+go up, or go down,</p>
+<p t="523309" d="4001">or stay the same each time you
+do something like make a bet.</p>
+<p t="527310" d="4450">And each of this happens
+with a certain probability.</p>
+<p t="531760" d="3600">Now in this case, you
+either go up by one,</p>
+<p t="535360" d="2650">or you go down by one, and
+you can't stay the same.</p>
+<p t="538010" d="2090">Every bet you win
+$1 or you lose $1.</p>
+<p t="540100" d="2390">So it's really a special case.</p>
+<p t="542490" d="3210">And we can diagram
+it as follows.</p>
+<p t="545700" d="4000">We can put time, or the
+number of bets, on this axis.</p>
+<p t="552900" d="3465">And we can put the number
+of dollars on this axis.</p>
+<p t="560120" d="4890">Now in this case, we
+start with n dollars.</p>
+<p t="565010" d="3980">And we might win the first
+bet, so we go to n plus 1.</p>
+<p t="568990" d="6250">We might lose a bet, might lose
+again, could win the next one,</p>
+<p t="575240" d="4530">lose, win, lose, lose.</p>
+<p t="579770" d="5440">So this corresponds to a
+string-- win, lose, lose, lose,</p>
+<p t="585210" d="8080">lose, win, lose, win,
+lose, lose, lose.</p>
+<p t="593290" d="3890">And when we win, we go up $1.</p>
+<p t="597180" d="4080">When we lose, we go down $1.</p>
+<p t="601260" d="2000">And it's called
+one-dimensional, because there's</p>
+<p t="603260" d="1790">just one thing that's changing.</p>
+<p t="605050" d="2460">You're going up and down there.</p>
+<p t="607510" d="3910">Now, the probability
+of going up is p.</p>
+<p t="611420" d="2570">And that's no matter
+what happened before.</p>
+<p t="613990" d="3390">It's a memoryless
+independent system.</p>
+<p t="617380" d="3570">The probability you win your
+i-th bet has nothing to do--</p>
+<p t="620950" d="2430">is totally independent,
+mutually independent-- of all</p>
+<p t="623380" d="3520">the other bets that
+took place before.</p>
+<p t="626900" d="1870">So let's write that down.</p>
+<p t="632410" d="7630">So the probability
+of an up move is p.</p>
+<p t="640040" d="6170">The probability of a
+down move is 1 minus p.</p>
+<p t="646210" d="6510">And these are mutually
+independent of past moves.</p>
+<p t="656840" d="2240">Now, when you have
+a random walk where</p>
+<p t="659080" d="1980">the moves are
+mutually independent,</p>
+<p t="661060" d="1679">it has a special name.</p>
+<p t="662739" d="1041">It's called a martingale.</p>
+<p t="670120" d="1950">All random walks
+don't have to have</p>
+<p t="672070" d="1469">mutually independent steps.</p>
+<p t="673539" d="1791">Say you're looking
+about winning and losing</p>
+<p t="675330" d="2092">a baseball game in a series.</p>
+<p t="677422" d="2208">We looked at a scenario
+where, if you lost yesterday,</p>
+<p t="679630" d="2680">you're feeling lousy,
+more likely to lose today.</p>
+<p t="682310" d="1830">Not true in the
+gambling case here.</p>
+<p t="684140" d="1121">It's mutually independent.</p>
+<p t="685261" d="1499">And that's the only
+case we're going</p>
+<p t="686760" d="2530">to study for random walks.</p>
+<p t="689290" d="7295">Now, if p is not 1/2, the random
+walk is said to be biased.</p>
+<p t="703720" d="1710">And that's what
+happens in the casino.</p>
+<p t="705430" d="3610">It's biased in
+favor of the house.</p>
+<p t="709040" d="4420">If p equals 1/2, then the
+random walk is unbiased.</p>
+<p t="720440" d="2920">Now, in this particular
+case that we're looking at,</p>
+<p t="723360" d="3710">we have boundaries
+on the random walk.</p>
+<p t="727070" d="2930">There's a boundary
+at 0, because you</p>
+<p t="730000" d="2220">go home broke if
+you lost everything.</p>
+<p t="732220" d="3550">If the random walk ever
+hit $0, you're done.</p>
+<p t="735770" d="7330">And we're also going to
+put a boundary at n plus m.</p>
+<p t="746220" d="4470">So I'm going to have
+a boundary here.</p>
+<p t="750690" d="6490">So that if I win m dollars here,
+I stop and I go home happy.</p>
+<p t="757180" d="4610">If the random walk ever
+goes here, then I stop.</p>
+<p t="761790" d="4180">Those are called boundary
+conditions for the walk.</p>
+<p t="765970" d="3830">And what we want to do is
+analyze the probability</p>
+<p t="769800" d="3140">that we hit that top
+boundary before we</p>
+<p t="772940" d="2690">hit the bottom boundary.</p>
+<p t="775630" d="2370">So we're going to define
+that event to be W star.</p>
+<p t="780580" d="9830">W star is the event that the
+random walk hits T, which</p>
+<p t="790410" d="7270">is n plus m, before it hits 0.</p>
+<p t="801240" d="4840">In other words, you go home
+happy without going broke.</p>
+<p t="806080" d="5940">Let's also define D to be the
+number of dollars at the start.</p>
+<p t="812020" d="2910">And this is just going
+to be n in our case.</p>
+<p t="820960" d="7340">We're interested in, call it
+X sub n is the probability</p>
+<p t="828300" d="5450">that we go home happy given
+we started with n dollars.</p>
+<p t="836330" d="1410">And that's a function of n.</p>
+<p t="837740" d="2910">So we'll make a
+variable called X n.</p>
+<p t="840650" d="2060">And we want to know what
+that probability is.</p>
+<p t="842710" d="1583">And of course, the
+more you come with,</p>
+<p t="844293" d="3482">you'd think it's a
+higher chance of winning</p>
+<p t="847775" d="1375">the more you have
+in your pocket,</p>
+<p t="849150" d="2100">because you can play for more.</p>
+<p t="851250" d="3320">So the goal is to
+figure this out.</p>
+<p t="854570" d="3480">Now to do this, we could
+use the tree method.</p>
+<p t="858050" d="4060">But it gets pretty complicated,
+because the sample space</p>
+<p t="862110" d="4280">is the sample space of
+all one-loss sequences.</p>
+<p t="866390" d="1740">And how big is
+that sample space?</p>
+<p t="872106" d="994">AUDIENCE: Infinite.</p>
+<p t="873100" d="1950">PROFESSOR: Infinite.</p>
+<p t="875050" d="1927">I could play forever.</p>
+<p t="876977" d="2583">All right, now it turns out the
+probability of playing forever</p>
+<p t="879560" d="520">is 0.</p>
+<p t="880080" d="3270">And we won't prove that, but
+there are an infinite number</p>
+<p t="883350" d="800">of sample points.</p>
+<p t="884150" d="2000">So doing the tree method
+is a little complicated</p>
+<p t="886150" d="2910">when it's infinite.</p>
+<p t="889060" d="3220">So what we're going
+to do is use some</p>
+<p t="892280" d="2670">of the theorems we've proved
+over the last few weeks</p>
+<p t="894950" d="2885">and set up a recurrence
+to find this probability.</p>
+<p t="901100" d="3540">Now, I'm going to tell you
+what the recurrence is,</p>
+<p t="904640" d="5090">and then prove
+that that's right.</p>
+<p t="909730" d="7850">So I claim that X
+n is 0 probability</p>
+<p t="917580" d="3740">if we start with $0.</p>
+<p t="921320" d="4410">It's 1 if we start
+with T dollars.</p>
+<p t="925730" d="10850">And it's p times X n minus
+1 plus 1 minus p X n plus 1</p>
+<p t="936580" d="6520">if we start with between
+$0 and T dollars.</p>
+<p t="947110" d="2340">All right, so that's
+what I claim X n is.</p>
+<p t="949450" d="2510">And it's, of course, a
+recursion that I've set up here.</p>
+<p t="951960" d="1690">So let's see why
+that's the case.</p>
+<p t="958230" d="2700">OK, so let's check the 0 case.</p>
+<p t="960930" d="6600">X 0 is the probability
+we go home a winner given</p>
+<p t="967530" d="1680">we started with $0.</p>
+<p t="972510" d="965">Why is that 0?</p>
+<p t="976974" d="916">AUDIENCE: [INAUDIBLE].</p>
+<p t="977890" d="1496">PROFESSOR: What's that?</p>
+<p t="979386" d="1794">AUDIENCE: [INAUDIBLE].</p>
+<p t="981180" d="2100">PROFESSOR: Yeah,
+you started broke.</p>
+<p t="983280" d="2240">You never get off the
+ground, because you</p>
+<p t="985520" d="2210">quit as soon as you have $0.</p>
+<p t="987730" d="7290">So you have no chance to win,
+because you're broke to start.</p>
+<p t="995020" d="6650">Let's check the next case,
+X T-- case n equals T--</p>
+<p t="1001670" d="3900">is the probability you
+go home a winner given</p>
+<p t="1005570" d="3740">you started with T dollars.</p>
+<p t="1009310" d="2440">Why is that 1?</p>
+<p t="1011750" d="3397">Why is that certain, sort
+of from the definition?</p>
+<p t="1015147" d="1433">AUDIENCE: [INAUDIBLE].</p>
+<p t="1016580" d="1650">PROFESSOR: You already
+have your money.</p>
+<p t="1018230" d="1330">You already hit
+the top boundary,</p>
+<p t="1019560" d="1083">because you started there.</p>
+<p t="1020643" d="1797">Remember, you quit
+and you're happy.</p>
+<p t="1022440" d="3460">Go home happy if
+you hit T dollars.</p>
+<p t="1025900" d="2797">All right, so you're
+guaranteed to go home happy,</p>
+<p t="1028697" d="1333">because you never make any bets.</p>
+<p t="1030030" d="3500">You started with all the money
+you needed to go home happy.</p>
+<p t="1033530" d="4960">Then we have the
+interesting case,</p>
+<p t="1038490" d="2359">where you start with
+between 0 and T dollars.</p>
+<p t="1040849" d="3141">And now you're going
+to make some bets.</p>
+<p t="1043990" d="2320">And then X n is the
+probability-- just</p>
+<p t="1046310" d="4280">the definition-- of going
+home happy-- i.e. winning</p>
+<p t="1050590" d="4090">and having T dollars,
+if you start with n.</p>
+<p t="1054680" d="4030">Now, there's two cases to
+analyze this, based on what</p>
+<p t="1058710" d="1670">happens in the first bet.</p>
+<p t="1060380" d="3220">You could win it, or
+you could lose it.</p>
+<p t="1063600" d="2640">And then we're going to recurse.</p>
+<p t="1066240" d="8600">So we're going to define
+E to be the event that you</p>
+<p t="1074840" d="2500">win the first bet.</p>
+<p t="1080570" d="6950">And E bar is the event that
+you lose the first bet.</p>
+<p t="1092080" d="2260">Now, by the theory of
+total probability, which</p>
+<p t="1094340" d="3780">we did in recitation
+maybe a couple weeks ago,</p>
+<p t="1098120" d="3850">we can rewrite this depending
+on whether E happened</p>
+<p t="1101970" d="3110">or the complement of E happened.</p>
+<p t="1105080" d="3290">And you get that the
+probability is simply</p>
+<p t="1108370" d="3620">the probability of
+going home happy</p>
+<p t="1111990" d="2854">and winning the
+first bet times--</p>
+<p t="1114844" d="1666">and I've got to put
+the conditioning in.</p>
+<p t="1116510" d="1070">That doesn't go away.</p>
+<p t="1124080" d="1430">So I'm breaking into two cases.</p>
+<p t="1125510" d="5840">The first one is you win the
+first bet given D equals n,</p>
+<p t="1131350" d="8120">And the case where you lose the
+first bet, given D equals n.</p>
+<p t="1142070" d="2531">Any questions here?</p>
+<p t="1144601" d="1929">The probability of
+going home happy</p>
+<p t="1146530" d="3130">given you start with n
+dollars is the probability</p>
+<p t="1149660" d="7390">of going home happy and winning
+the first bet given D equals</p>
+<p t="1157050" d="2415">n plus the probability
+of going home happy</p>
+<p t="1159465" d="3335">and losing the first
+bet given D equals n--</p>
+<p t="1162800" d="2830">just those are the two cases.</p>
+<p t="1165630" d="3660">Now I can use the definition
+of conditional probability</p>
+<p t="1169290" d="1966">to rewrite these.</p>
+<p t="1171256" d="3094">This is the probability--
+you've got two events--</p>
+<p t="1174350" d="5170">that the first one
+happens given D equals n</p>
+<p t="1179520" d="3920">times the probability
+the second one happens</p>
+<p t="1183440" d="5740">given that the first one
+happened and D equals n.</p>
+<p t="1189180" d="2380">This is just the definition
+of conditional probability,</p>
+<p t="1191560" d="2620">when I've got an
+intersection of events here.</p>
+<p t="1194180" d="1690">The probability
+of both happening</p>
+<p t="1195870" d="1890">is the probability of
+the first happening</p>
+<p t="1197760" d="2124">times the probability of
+the second happening given</p>
+<p t="1199884" d="1076">that the first happened.</p>
+<p t="1200960" d="4610">And of course, everything is
+in this universe of D equals n.</p>
+<p t="1205570" d="2100">So I've used it in a
+little different twist</p>
+<p t="1207670" d="1820">than we had it before.</p>
+<p t="1209490" d="1750">The same thing over
+here-- this now</p>
+<p t="1211240" d="5900">is the probability of E
+prime given D equals n</p>
+<p t="1217140" d="3250">times the probability of
+W star-- winning, going</p>
+<p t="1220390" d="9030">home happy-- given that you lost
+the first bet and D equals n.</p>
+<p t="1229420" d="2950">That's D equals n there.</p>
+<p t="1232370" d="2170">So it looks like it's
+got more complicated,</p>
+<p t="1234540" d="1465">but now we can
+start simplifying.</p>
+<p t="1238650" d="1960">What's the
+probability of winning</p>
+<p t="1240610" d="3412">the first bet given that
+you started with n dollars?</p>
+<p t="1244022" d="1368">AUDIENCE: p.</p>
+<p t="1245390" d="2175">PROFESSOR: p-- in
+fact, does this</p>
+<p t="1247565" d="2125">have anything to do with
+the probability of winning</p>
+<p t="1249690" d="2040">the first bet?</p>
+<p t="1251730" d="2140">No, this is just p.</p>
+<p t="1259610" d="3680">Now, what about this thing?</p>
+<p t="1263290" d="10330">I am conditioning on
+winning the first bet given</p>
+<p t="1273620" d="1735">and I start with n dollars.</p>
+<p t="1279750" d="3180">What's another way of
+expressing I won the first bet</p>
+<p t="1282930" d="2380">and I started with n dollars?</p>
+<p t="1285310" d="777">Yeah?</p>
+<p t="1286087" d="1433">AUDIENCE: You have n plus $1.</p>
+<p t="1287520" d="4340">PROFESSOR: I now have n
+plus $1 going forward.</p>
+<p t="1291860" d="3040">And because I have a
+martingale, and everything</p>
+<p t="1294900" d="2440">is mutually independent,
+it's like the world</p>
+<p t="1297340" d="1360">starts all over again.</p>
+<p t="1298700" d="2740">I'm now in a state
+with n plus $1,</p>
+<p t="1301440" d="2670">and I want to know
+the probability</p>
+<p t="1304110" d="1265">that I go home happy.</p>
+<p t="1305375" d="3625">It doesn't matter how
+I got the n plus $1.</p>
+<p t="1309000" d="3000">It's just going forward-- I
+got n plus $1 in my pocket,</p>
+<p t="1312000" d="2270">I want to know the probability
+of going home happy.</p>
+<p t="1314270" d="2770">So I reset to D equals n plus 1.</p>
+<p t="1319740" d="4152">So I replace this with that,
+because however long it</p>
+<p t="1323892" d="1958">took me to get there and
+all that stuff doesn't</p>
+<p t="1325850" d="1810">matter for this analysis.</p>
+<p t="1327660" d="1330">It's all mutually dependent.</p>
+<p t="1333110" d="3250">Probability of losing the
+first bet given that I started</p>
+<p t="1336360" d="4130">with n dollars-- 1 minus p.</p>
+<p t="1340490" d="2800">Doesn't matter how
+much I started with.</p>
+<p t="1343290" d="5830">And here, I want to know the
+probability of going home happy</p>
+<p t="1349120" d="2830">given-- well, if I
+lost the first bet</p>
+<p t="1351950" d="4130">and I started with
+n, what have I got?</p>
+<p t="1356080" d="1007">n minus 1.</p>
+<p t="1360530" d="4216">It doesn't matter how
+I got to n minus 1.</p>
+<p t="1364746" d="1624">Now this is going to
+get really simple.</p>
+<p t="1369250" d="3470">What's another name
+for that expression?</p>
+<p t="1372720" d="1110">X n plus 1.</p>
+<p t="1377560" d="3240">And another name
+for this expression?</p>
+<p t="1380800" d="1203">X n minus 1.</p>
+<p t="1385680" d="6040">So we proved that X n equals
+p X n plus 1 plus 1 minus</p>
+<p t="1391720" d="1050">p X n minus 1.</p>
+<p t="1392770" d="2330">And that's what I
+claimed is true.</p>
+<p t="1395100" d="3280">So we finished the proof.</p>
+<p t="1398380" d="1834">Any questions?</p>
+<p t="1400214" d="916">AUDIENCE: [INAUDIBLE].</p>
+<p t="1401130" d="1226">PROFESSOR: Did i screw it up?</p>
+<p t="1402356" d="916">AUDIENCE: [INAUDIBLE].</p>
+<p t="1403272" d="6668">PROFESSOR: I claim probability
+of winning-- so let's</p>
+<p t="1409940" d="1650">see if I have a wrong in here.</p>
+<p t="1411590" d="1360">I might have screwed it up.</p>
+<p t="1412950" d="5490">I think I proved
+it's n plus 1, right?</p>
+<p t="1418440" d="2790">Yep, sure enough, I
+think this is a plus 1.</p>
+<p t="1421230" d="1980">That's a minus 1.</p>
+<p t="1423210" d="2482">Now, it's always good to
+check to you proved what you</p>
+<p t="1425692" d="1208">said you were going to prove.</p>
+<p t="1426900" d="3106">So I needed to change this.</p>
+<p t="1430006" d="874">That's what I proved.</p>
+<p t="1437290" d="949">Any other questions?</p>
+<p t="1438239" d="1541">That was a pretty
+important question.</p>
+<p t="1442370" d="5250">All right, so we have
+a recurrence for X n.</p>
+<p t="1447620" d="2810">Now, it's a little
+funny looking at first,</p>
+<p t="1450430" d="2000">because normally
+with a recurrence,</p>
+<p t="1452430" d="3340">X n would depend on X
+sub i that are smaller--</p>
+<p t="1455770" d="2270">the i's are smaller than n.</p>
+<p t="1458040" d="2170">So it looks a little wacky.</p>
+<p t="1460210" d="1260">But is that a problem?</p>
+<p t="1464320" d="2230">I can just solve
+for X n plus 1--</p>
+<p t="1466550" d="3000">just subtract this
+and put it over there.</p>
+<p t="1469550" d="990">So let's do that.</p>
+<p t="1487740" d="6080">OK, so if I solve for X n plus 1
+up there, I'll put p X n plus 1</p>
+<p t="1493820" d="9390">on its own side, I get p X
+n plus 1 minus X n plus 1</p>
+<p t="1503210" d="5480">minus p X n minus 1 equals 0.</p>
+<p t="1508690" d="2570">And I know that X 0 is 0.</p>
+<p t="1511260" d="2185">And I know that X T equals 1.</p>
+<p t="1517314" d="1541">Now, what type of
+recurrence is this?</p>
+<p t="1521860" d="910">AUDIENCE: Linear.</p>
+<p t="1522770" d="3360">PROFESSOR: Linear, good, so
+it's a linear recurrence.</p>
+<p t="1526130" d="2723">And what type of linear
+recurrence is it?</p>
+<p t="1528853" d="947">AUDIENCE: Homogeneous.</p>
+<p t="1529800" d="3400">PROFESSOR: Homogeneous-- that's
+the best case, simple case,</p>
+<p t="1533200" d="839">that's good.</p>
+<p t="1534039" d="1791">The boundary conditions
+are a little weird,</p>
+<p t="1535830" d="2990">because the recurrences
+we all saw before,</p>
+<p t="1538820" d="1500">if we had two
+boundary conditions it</p>
+<p t="1540320" d="1550">would be X0 and X1.</p>
+<p t="1541870" d="1390">Here it's X0 and X T.</p>
+<p t="1543260" d="1891">But all's you need are two.</p>
+<p t="1545151" d="1249">Doesn't matter where they are.</p>
+<p t="1548960" d="1260">So how do I solve that thing?</p>
+<p t="1550220" d="3850">What's the next thing I do?</p>
+<p t="1554070" d="971">What is it?</p>
+<p t="1555041" d="1499">AUDIENCE: Characterize
+the equation.</p>
+<p t="1556540" d="1020">PROFESSOR: Characterize
+the equation.</p>
+<p t="1557560" d="1734">And what do you do
+it that equation?</p>
+<p t="1559294" d="916">AUDIENCE: [INAUDIBLE].</p>
+<p t="1560210" d="1458">PROFESSOR: Solve
+it, get the roots.</p>
+<p t="1561668" d="2152">This'll be good
+practice for the final,</p>
+<p t="1563820" d="2977">because you'll probably have
+to do something like this.</p>
+<p t="1566797" d="1583">So that's the
+characteristic equation.</p>
+<p t="1572800" d="3140">And what's the order of
+this equation-- the degree?</p>
+<p t="1580340" d="6390">That's going to be 2, right?</p>
+<p t="1586730" d="6870">I'm going to have pr squared
+minus r plus 1 minus p is 0.</p>
+<p t="1593600" d="3577">That's my
+characteristic equation.</p>
+<p t="1597177" d="583">Remember that?</p>
+<p t="1597760" d="2880">So I make this be
+the constant term.</p>
+<p t="1600640" d="1780">Then I have the
+first-order term, then</p>
+<p t="1602420" d="2790">the second-order term.</p>
+<p t="1605210" d="3360">All right, now I solve it.</p>
+<p t="1608570" d="3510">And that's easy for a
+second-order equation.</p>
+<p t="1612080" d="7460">1 plus or minus the square
+root of 1 minus 4p 1</p>
+<p t="1619540" d="4360">minus p over 2 p.</p>
+<p t="1627140" d="890">Let's do that.</p>
+<p t="1630810" d="4570">OK, so this is 1 plus
+or minus the square root</p>
+<p t="1635380" d="5080">of 1 minus 4p plus
+4p squared over 2p.</p>
+<p t="1648689" d="2041">Just using the quadratic
+formula and simplifying.</p>
+<p t="1655780" d="3150">And it works out really
+nicely, because that</p>
+<p t="1658930" d="3480">is the square root of-- this
+is just 1 minus 2p squared.</p>
+<p t="1668990" d="6750">So that's 1 plus or
+minus 1 minus 2p over 2p.</p>
+<p t="1675740" d="10670">And that is 2 minus 2p over
+2p or 1 minus 1 cancels,</p>
+<p t="1686410" d="6610">then minus 2p is 2p over 2p.</p>
+<p t="1693020" d="4570">So the answers, the roots
+are divide by 2 on this one.</p>
+<p t="1697590" d="5357">I get 1 minus p over p and 1.</p>
+<p t="1702947" d="833">Those are the roots.</p>
+<p t="1707582" d="1083">Are these roots different?</p>
+<p t="1710960" d="1500">Do I have the case
+of a double root?</p>
+<p t="1712460" d="3947">Are the roots always different?</p>
+<p t="1716407" d="1083">They're usually different.</p>
+<p t="1717490" d="2390">What's the case where
+these roots are the same?</p>
+<p t="1719880" d="990">AUDIENCE: 0.5.</p>
+<p t="1720870" d="2890">PROFESSOR: 0.5, which is
+sort of an interesting case</p>
+<p t="1723760" d="2230">in this game.</p>
+<p t="1725990" d="3120">Because if p equals 1/2, we
+have an unbiased random walk.</p>
+<p t="1729110" d="2140">You got a fair game.</p>
+<p t="1731250" d="2480">And so it says right away,
+well, maybe the result</p>
+<p t="1733730" d="3077">is going to be different for
+a fair game than the game</p>
+<p t="1736807" d="1958">we're playing in the
+casino, where it's biased.</p>
+<p t="1741300" d="3132">So let's look at the casino
+game where p is not 1/2.</p>
+<p t="1744432" d="1208">Then the roots are different.</p>
+<p t="1748280" d="1720">Later, we'll go back
+and analyze the case</p>
+<p t="1750000" d="3053">when the roots of the
+same for the fair game.</p>
+<p t="1760310" d="9940">So if p is not 1/2, then
+we can solve for X n.</p>
+<p t="1770250" d="7710">X n is some constant times the
+first root to the nth power</p>
+<p t="1777960" d="4220">plus a constant times the
+second root to the nth power.</p>
+<p t="1782180" d="3335">Remember, that's how it works
+for any linear homogeneous</p>
+<p t="1785515" d="500">recurrence.</p>
+<p t="1789300" d="4600">And that's easy, because
+the second root was 1.</p>
+<p t="1793900" d="3300">This is just plus
+B. 1 to the n is 1.</p>
+<p t="1799960" d="3090">How do I figure out
+what A and B are?</p>
+<p t="1803050" d="1250">AUDIENCE: Boundary conditions.</p>
+<p t="1804300" d="2790">PROFESSOR: Boundary
+conditions, very good.</p>
+<p t="1807090" d="1765">So let's look at the
+boundary conditions.</p>
+<p t="1830250" d="5850">OK, so the first boundary
+condition is at 0.</p>
+<p t="1836100" d="4310">So we have 0 equals X 0.</p>
+<p t="1840410" d="4160">Plugging in there-- oops
+I forgot the n up here.</p>
+<p t="1844570" d="3570">Plugging in n equals 0--
+well, this to the 0 is just 1.</p>
+<p t="1848140" d="8914">That is A plus B. That
+means that B equals minus A.</p>
+<p t="1857054" d="1416">Then the second
+boundary condition</p>
+<p t="1858470" d="7410">is 1 equals X sub T.
+And that is A 1 minus</p>
+<p t="1865880" d="7562">p over p to the T plus
+B, but B was minus A.</p>
+<p t="1873442" d="3418">And now I can solve for A.</p>
+<p t="1876860" d="11990">So that means that A equals
+1 over 1 minus p over p</p>
+<p t="1888850" d="3350">to the T minus 1.</p>
+<p t="1892200" d="6410">And B is negative A--
+minus 1 over 1 minus p,</p>
+<p t="1898610" d="2200">over p to the T minus 1.</p>
+<p t="1903540" d="7600">And then I plug those back
+in to the formula for X n.</p>
+<p t="1911140" d="3180">So here's my constant A.
+I multiply that times 1</p>
+<p t="1914320" d="4700">minus p over p to the
+n, plus I add this in.</p>
+<p t="1919020" d="3600">So this means that the
+probability of going home</p>
+<p t="1922620" d="7880">a winner is 1 minus p over p to
+the n over that thing-- 1 minus</p>
+<p t="1930500" d="4330">p over p to the T
+minus 1, plus the B</p>
+<p t="1934830" d="8080">term, which really is a minus
+term here, is just minus 1.</p>
+<p t="1942910" d="970">Put that on top here.</p>
+<p t="1946620" d="3730">That sort of looks
+messy, but there's</p>
+<p t="1950350" d="4430">a simplification to get an
+upper bound that's very close.</p>
+<p t="1954780" d="4090">In particular, if you have
+a biased game against you--</p>
+<p t="1958870" d="5090">so if p is less than 1/2,
+as it is in roulette,</p>
+<p t="1963960" d="3760">then this is a
+number bigger than 1.</p>
+<p t="1967720" d="5385">That means that 1 minus p
+over p is bigger than 1.</p>
+<p t="1976340" d="1650">So this is bigger than 1.</p>
+<p t="1977990" d="1000">This is bigger than 1.</p>
+<p t="1978990" d="2630">T is the upper limit.</p>
+<p t="1981620" d="1790">It's n plus m.</p>
+<p t="1983410" d="2560">So I've got a bigger number
+down here than I do here.</p>
+<p t="1985970" d="2780">So overall, it's a
+fraction less than 1.</p>
+<p t="1988750" d="2110">And when you have a
+fraction less than 1,</p>
+<p t="1990860" d="3470">if you add 1 to the
+numerator and denominator,</p>
+<p t="1994330" d="1150">it gets closer to 1.</p>
+<p t="1995480" d="2190">It gets bigger.</p>
+<p t="1997670" d="5790">So this is upper-bounded by
+just adding 1 to each of these.</p>
+<p t="2003460" d="4980">Its upper-bounded by this
+over that, which is 1 minus p</p>
+<p t="2008440" d="8420">over p to the n minus T.
+And T is just n plus m.</p>
+<p t="2016860" d="4070">So this equals-- why don't
+I turn it upside down?</p>
+<p t="2020930" d="3790">Make it p over 1 minus p to get
+a fraction that's less than 1.</p>
+<p t="2024720" d="6230">T minus n, and that equals
+p over 1 minus p to the m.</p>
+<p t="2034240" d="2747">And this is how much you're
+trying to get ahead-- $100</p>
+<p t="2036987" d="1333">in the case of my mother-in-law.</p>
+<p t="2041230" d="2664">So what we've
+proved-- let me state</p>
+<p t="2043894" d="1166">what we proved as a theorem.</p>
+<p t="2064929" d="6901">So we proved that if
+p is less than 1/2--</p>
+<p t="2071830" d="2059">if you're more
+likely to lose a bet</p>
+<p t="2073889" d="6531">than win it-- then
+the probability</p>
+<p t="2080420" d="10730">that you win m dollars before
+you lose n dollars is at most p</p>
+<p t="2091150" d="4360">over 1 minus p to the m.</p>
+<p t="2095510" d="3080">That's what we just proved.</p>
+<p t="2098590" d="2069">And so now you can plug
+in values-- for example,</p>
+<p t="2100659" d="541">for roulette.</p>
+<p t="2105260" d="6700">p equals 9/19, which
+means that p over 1</p>
+<p t="2111960" d="7790">minus p-- that's going
+to be 9/19 over 10/19,</p>
+<p t="2119750" d="1260">which is just 9/10.</p>
+<p t="2124740" d="5270">And if m-- the amount you
+want to win-- is $100,</p>
+<p t="2130010" d="3155">and n is $1,000-- that's
+what you start with</p>
+<p t="2133165" d="3255">and you're willing
+to lose-- well,</p>
+<p t="2136420" d="6220">the probability you win--
+you go home happy-- W</p>
+<p t="2142640" d="7670">star you win $100-- is
+less than or equal to 9/10</p>
+<p t="2150310" d="3490">raised to the m, which is 100.</p>
+<p t="2153800" d="3810">So it's 9/10 of 100, and that
+turns out to be less than 1</p>
+<p t="2157610" d="8670">in 37,648, which is where
+that answer came from.</p>
+<p t="2166280" d="1520">Now you can see why
+my mother-in-law</p>
+<p t="2167800" d="3840">may have got lost somewhere
+here now in the calculations.</p>
+<p t="2171640" d="1920">But this is a proof
+that the chance</p>
+<p t="2173560" d="5290">you win $100 before you lose
+$1,000 is very, very small.</p>
+<p t="2178850" d="3960">Now, do you see why the answer
+is no better than if you came</p>
+<p t="2182810" d="3500">with $1 million in your pocket?</p>
+<p t="2186310" d="4080">Say you came with n
+equals $1 million.</p>
+<p t="2190390" d="2000">Why is the answer not changing?</p>
+<p t="2195690" d="1330">Yeah.</p>
+<p t="2197020" d="2910">AUDIENCE: Once you
+lose, say, $1,000,</p>
+<p t="2199930" d="2720">you're already in
+a really deep hole.</p>
+<p t="2202650" d="1480">PROFESSOR: That's the intuition.</p>
+<p t="2204130" d="541">That's right.</p>
+<p t="2204671" d="1889">We're going to get
+to that in a minute.</p>
+<p t="2206560" d="3030">I want to know from
+the formula, why</p>
+<p t="2209590" d="4690">is it no difference if I come
+with $1,000 versus $1 million?</p>
+<p t="2214280" d="771">Yeah.</p>
+<p t="2215051" d="1541">AUDIENCE: The formula
+doesn't have n.</p>
+<p t="2216592" d="3588">PROFESSOR: Yeah, the formula
+has nothing to do with n.</p>
+<p t="2220180" d="3950">You could come with $100
+trillion in your wallet,</p>
+<p t="2224130" d="2580">and it doesn't
+improve this bound.</p>
+<p t="2226710" d="3550">This bound only depends on
+what you're trying to win,</p>
+<p t="2230260" d="1270">not on how much you came with.</p>
+<p t="2231530" d="2360">So no matter how
+much you come with,</p>
+<p t="2233890" d="3360">the chance you win $100
+before you lose everything</p>
+<p t="2237250" d="3610">is at most 1 in 37,000.</p>
+<p t="2240860" d="1790">Now, we can plug in
+some other values</p>
+<p t="2242650" d="4431">just for fun--
+different values of m.</p>
+<p t="2252380" d="3970">If you thought 1 in
+37,000 was unlikely,</p>
+<p t="2256350" d="8030">the chance of winning
+$1,000, or 1,000 bets worth</p>
+<p t="2264380" d="6490">before you're broke-- that's
+less than 9/10 to the 1,000.</p>
+<p t="2270870" d="6220">That's less than 2 times
+10 to the minus 46--</p>
+<p t="2277090" d="2670">really, really, really unlikely.</p>
+<p t="2279760" d="6640">Even winning $10 is not likely.</p>
+<p t="2286400" d="1250">Just plug in the numbers.</p>
+<p t="2287650" d="6140">The probability you win
+$10 betting $1 at a time</p>
+<p t="2293790" d="4680">is less than 9/10
+to the 10th power.</p>
+<p t="2298470" d="5680">That's less than 0.35.</p>
+<p t="2304150" d="6560">You can come to the casino with
+$10 million, bet $1 at a time,</p>
+<p t="2310710" d="3680">and you quit if you just
+get up 10 bets-- get up $10.</p>
+<p t="2314390" d="4350">The chance you get up $10 before
+you lose $10 million is about 1</p>
+<p t="2318740" d="3360">in 3 you're twice as
+likely to lose $10 million</p>
+<p t="2322100" d="2300">as you are to win 10.</p>
+<p t="2324400" d="2380">That just seems weird, right?</p>
+<p t="2326780" d="2470">Because it's almost a fair game.</p>
+<p t="2329250" d="2140">It's almost 50-50.</p>
+<p t="2331390" d="1430">Any questions
+about the analysis?</p>
+<p t="2335860" d="3850">Yes, I find that shocking.</p>
+<p t="2339710" d="2870">Just the intuition would
+seem say otherwise.</p>
+<p t="2342580" d="1410">So I guess there's a moral here.</p>
+<p t="2343990" d="1890">If you're going to
+gamble, learn how</p>
+<p t="2345880" d="3170">to count cards in blackjack,
+or some game where</p>
+<p t="2349050" d="1672">you can make it even.</p>
+<p t="2350722" d="1958">Because even in a game
+where it's pretty close,</p>
+<p t="2352680" d="1900">you're doomed.</p>
+<p t="2354580" d="4130">You're just never
+going to go home happy.</p>
+<p t="2358710" d="3190">Now, if you could
+have a fair game,</p>
+<p t="2361900" d="2880">the world changes-- much
+better circumstance.</p>
+<p t="2364780" d="4020">So actually, let's do the
+same analysis for a fair game,</p>
+<p t="2368800" d="2880">because that's where our
+intuition really comes from.</p>
+<p t="2371680" d="2870">Because we're thinking of
+this game as almost fair.</p>
+<p t="2374550" d="4150">And in a fair game, the answer's
+going to be very different.</p>
+<p t="2378700" d="2620">And it all goes back to the
+recurrence and the roots</p>
+<p t="2381320" d="2170">of the characteristic equation.</p>
+<p t="2383490" d="5890">Because in a fair
+game, p is 1/2.</p>
+<p t="2393490" d="2800">And then you have a double root.</p>
+<p t="2396290" d="8680">1 minus 1/2 over 1/2 equals 1,
+and that means a double root</p>
+<p t="2404970" d="2600">at 1.</p>
+<p t="2407570" d="2820">And that changes everything.</p>
+<p t="2410390" d="5730">So let's go through now
+and do all this analysis</p>
+<p t="2416120" d="1320">in the case of a fair game.</p>
+<p t="2420140" d="2040">And this will give us
+practice with double roots</p>
+<p t="2422180" d="1450">and recurrences.</p>
+<p t="2423630" d="2309">Because as you see
+now, it does happen.</p>
+<p t="2430930" d="2936">Let's figure out the chance
+that we go home a winner.</p>
+<p t="2438490" d="1870">OK, so let's see.</p>
+<p t="2440360" d="4406">In this case, we know the roots.</p>
+<p t="2444766" d="1814">Can anybody tell me
+what formula we're</p>
+<p t="2446580" d="3290">going to use for the solution?</p>
+<p t="2449870" d="2360">Got a double root at 1.</p>
+<p t="2452230" d="1940">So there's going to
+be a 1 to the n here.</p>
+<p t="2456750" d="1840">I don't just put a
+constant A in front.</p>
+<p t="2458590" d="2154">What do I do with a double root?</p>
+<p t="2460744" d="916">AUDIENCE: [INAUDIBLE].</p>
+<p t="2461660" d="600">AUDIENCE: A n.</p>
+<p t="2462260" d="1170">PROFESSOR: What is it?</p>
+<p t="2463430" d="800">AUDIENCE: A n.</p>
+<p t="2464230" d="2330">PROFESSOR: A n-- not quite A n.</p>
+<p t="2466560" d="1640">You got an A n here.</p>
+<p t="2468200" d="880">AUDIENCE: Plus B.</p>
+<p t="2469080" d="4200">PROFESSOR: Plus B-- that's
+what you do for a double root,</p>
+<p t="2473280" d="4060">because you make a first
+degree polynomial in n here.</p>
+<p t="2477340" d="1442">So we plug that in.</p>
+<p t="2478782" d="1458">The root's at 1,
+so it's real easy.</p>
+<p t="2480240" d="1670">The solution's really easy now.</p>
+<p t="2481910" d="1430">No messy powers or anything.</p>
+<p t="2483340" d="5147">It's just A n plus B. And
+I can figure out A and B</p>
+<p t="2488487" d="1208">from the boundary conditions.</p>
+<p t="2496550" d="4040">All right, X0 is 0.</p>
+<p t="2500590" d="5690">X 0 is just B, because
+it's A times 0 goes away.</p>
+<p t="2506280" d="1840">And that means that B equals 0.</p>
+<p t="2508120" d="2840">This is getting really simple.</p>
+<p t="2510960" d="5890">1 is X T. And that's
+A plus B, but B was 0.</p>
+<p t="2516850" d="6770">So that's A times 1
+plus B. That's just A.</p>
+<p t="2523620" d="7980">It means A equals A n.</p>
+<p t="2531600" d="1670">Good, n's not 1.</p>
+<p t="2533270" d="2140">N's T. So it's A T plus B.</p>
+<p t="2535410" d="2140">This is A T here.</p>
+<p t="2537550" d="1730">So A T equals 1.</p>
+<p t="2539280" d="4500">That means A is 1 over T.</p>
+<p t="2543780" d="9074">All right, that means that
+X n is n over T. And T</p>
+<p t="2552854" d="966">is the total.</p>
+<p t="2553820" d="2320">The top limit is n plus
+m, because you quit</p>
+<p t="2556140" d="1950">if you get ahead m dollars.</p>
+<p t="2558090" d="5940">This is just now
+n over n plus m.</p>
+<p t="2564030" d="3850">All right, so let's
+write that down.</p>
+<p t="2567880" d="635">It's a theorem.</p>
+<p t="2573450" d="5470">If p is 1/2, i.e., you
+have a fair game, then</p>
+<p t="2578920" d="5660">the probability
+you win m dollars</p>
+<p t="2584580" d="10690">before you lose n dollars
+is just n over n plus m.</p>
+<p t="2595270" d="2320">And this might fit
+the intuition better.</p>
+<p t="2600700" d="8110">So for the mother-in-law
+strategy, if m is 100,</p>
+<p t="2608810" d="5770">and n is 1,000, what's
+the probability you</p>
+<p t="2614580" d="1880">win-- you go home a winner?</p>
+<p t="2622230" d="6674">Yeah, 1,000 over 1,000 plus 100.</p>
+<p t="2628904" d="5586">1,000 over 1,000 is 10 over 11.</p>
+<p t="2634490" d="3360">So she does go home happy most
+of the time-- 10 out of 11</p>
+<p t="2637850" d="2560">nights-- if she's
+playing a fair game.</p>
+<p t="2642970" d="3950">Any questions about that?</p>
+<p t="2646920" d="6710">So the trouble we get into
+here is that the fair game</p>
+<p t="2653630" d="3260">results match our intuition.</p>
+<p t="2656890" d="3630">You know if you have 10 times
+as much money in a fair game,</p>
+<p t="2660520" d="3140">you'd expect to go home
+happy 10 out of 11 nights.</p>
+<p t="2663660" d="1130">That makes a lot of sense.</p>
+<p t="2664790" d="3870">You go home happy 10, and
+then you lose the 11th.</p>
+<p t="2668660" d="2130">That's a 10 to 1 ratio,
+which is the money</p>
+<p t="2670790" d="2211">you brought into the game.</p>
+<p t="2673001" d="3159">The trouble we get
+into is, the fair game</p>
+<p t="2676160" d="2630">is very close to the real game.</p>
+<p t="2678790" d="3330">Instead of 50-50, it's 47-53.</p>
+<p t="2682120" d="2190">And so our intuition
+says the results--</p>
+<p t="2684310" d="2470">the probability of going
+home happy in a fair game--</p>
+<p t="2686780" d="2420">should be close to the
+probability of going</p>
+<p t="2689200" d="1980">home happy in the real game.</p>
+<p t="2691180" d="1160">And that's not true.</p>
+<p t="2692340" d="3650">There's a discontinuity here
+because of the double root.</p>
+<p t="2695990" d="2360">And the character
+completely changes.</p>
+<p t="2698350" d="3030">So instead of being
+close to 10 out of 11,</p>
+<p t="2701380" d="2760">you're down there
+at 1 in 37,000--</p>
+<p t="2704140" d="3500">completely different behavior.</p>
+<p t="2707640" d="4940">OK, any questions?</p>
+<p t="2712580" d="1818">All right, so let me
+give you an-- yeah.</p>
+<p t="2714398" d="3142">AUDIENCE: So what
+happens if you make n 1,</p>
+<p t="2717540" d="2980">and then you do that repeatedly?</p>
+<p t="2720520" d="2760">PROFESSOR: Now, if
+I did n equals 1,</p>
+<p t="2723280" d="1470">I could use that
+as an upper bound,</p>
+<p t="2724750" d="3330">and it's not so
+interesting as, say, 90%.</p>
+<p t="2728080" d="2810">But I would actually go
+plug it back in here.</p>
+<p t="2730890" d="2410">So this would be n plus
+1, and it would depend</p>
+<p t="2733300" d="1590">how much money I brought.</p>
+<p t="2734890" d="4750">But there is a pretty good
+chance I go home a winner for m</p>
+<p t="2739640" d="1590">equals 1.</p>
+<p t="2741230" d="2710">Because I've got a pretty
+good chance that I either--</p>
+<p t="2743940" d="2150">47% chance I win the first time.</p>
+<p t="2746090" d="1662">Then I go home happy.</p>
+<p t="2747752" d="3038">If I lost the first time, now
+I've just got to win twice.</p>
+<p t="2750790" d="1930">And I might win twice in a row.</p>
+<p t="2752720" d="2610">That'll happen about
+20% of the time.</p>
+<p t="2755330" d="3610">If I lose that, now I've
+got to win three in a row.</p>
+<p t="2758940" d="3210">That'll happen around
+10% of the time.</p>
+<p t="2762150" d="3390">So I've got 10 plus
+20 plus almost 50.</p>
+<p t="2765540" d="2470">Most of the time, I'm going
+to go home happy if I just</p>
+<p t="2768010" d="2450">have to get ahead by $1.</p>
+<p t="2770460" d="2000">But it doesn't take
+much more than one</p>
+<p t="2772460" d="2200">before you're not
+likely to go home happy.</p>
+<p t="2774660" d="4390">Getting ahead 10 is not
+going to happen, very likely.</p>
+<p t="2779050" d="2880">Now, you want to
+recurse on that?</p>
+<p t="2781930" d="3560">I'm pretty likely
+to get ahead by one.</p>
+<p t="2785490" d="1500">Well, OK, get ahead by one.</p>
+<p t="2786990" d="2649">I'm pretty likely
+to do it again.</p>
+<p t="2789639" d="791">And I did it again.</p>
+<p t="2790430" d="1890">Now I'm pretty likely
+to do it again.</p>
+<p t="2792320" d="1625">And there's this
+thing called induction</p>
+<p t="2793945" d="1325">that we worried a lot about.</p>
+<p t="2795270" d="2860">So by induction, are we likely
+to go home happy with 10?</p>
+<p t="2798130" d="5330">No, because every time you
+don't get there, you're dead.</p>
+<p t="2803460" d="2260">You had a little chance of
+dying and not reaching one,</p>
+<p t="2805720" d="2531">and a little chance of dying
+and not going from one to two.</p>
+<p t="2808251" d="1749">And you add up all
+those chances of dying,</p>
+<p t="2810000" d="2440">and you're toast, because
+that'll be adding up</p>
+<p t="2812440" d="3877">to everything, pretty much.</p>
+<p t="2816317" d="1083">So that's a good question.</p>
+<p t="2817400" d="2010">If you're likely
+to get up by one,</p>
+<p t="2819410" d="2429">why aren't you likely
+to get up by 10?</p>
+<p t="2821839" d="1041">It doesn't work that way.</p>
+<p t="2822880" d="2420">That's a great question.</p>
+<p t="2825300" d="6830">Let me show you the phenomenon
+that's going on here, as</p>
+<p t="2832130" d="3170">to why it works out this way.</p>
+<p t="2835300" d="1344">We had the math.</p>
+<p t="2836644" d="1166">So we looked at it that way.</p>
+<p t="2837810" d="3000">We notice that one case is a
+double root and the other case</p>
+<p t="2840810" d="1390">isn't.</p>
+<p t="2842200" d="1440">And that exponential,
+in the case</p>
+<p t="2843640" d="2030">where you didn't have
+that second root at 1</p>
+<p t="2845670" d="2920">makes an enormous difference.</p>
+<p t="2848590" d="4210">Qualitatively, we can
+draw the two cases.</p>
+<p t="2852800" d="10210">So in the case of an
+unbiased or fair game,</p>
+<p t="2863010" d="4630">if we track what's
+going on over time,</p>
+<p t="2867640" d="6625">and we start with n dollars,
+sort of this is our baseline.</p>
+<p t="2877350" d="4840">And here's our
+target-- T is n plus m.</p>
+<p t="2882190" d="2040">And so we quit if
+we ever get here.</p>
+<p t="2884230" d="2300">And we quit if we
+ever hit the bottom.</p>
+<p t="2886530" d="2390">And we've got a random walk.</p>
+<p t="2888920" d="6280">It's going around, just
+doing this kind of stuff.</p>
+<p t="2895200" d="3950">And eventually, it's going to
+hit one of these boundaries.</p>
+<p t="2899150" d="4430">And if m is small
+compared to n, we're</p>
+<p t="2903580" d="2590">more likely to
+hit this boundary.</p>
+<p t="2906170" d="2980">And in fact, the chance
+we hit this boundary first</p>
+<p t="2909150" d="1970">is the ratio of these sizes.</p>
+<p t="2911120" d="3110">It's n over the total.</p>
+<p t="2914230" d="4070">It's the chance that
+we hit that one first.</p>
+<p t="2918300" d="4000">Now in the biased case, the
+picture looks different.</p>
+<p t="2935060" d="7282">So in the biased case--
+so this is now biased.</p>
+<p t="2942342" d="1958">And we're going to assume
+it's downward biased.</p>
+<p t="2944300" d="1125">You're more likely to lose.</p>
+<p t="2949960" d="3810">So you start at n, you've
+got your boundary up here</p>
+<p t="2953770" d="3970">at T equals n plus m.</p>
+<p t="2957740" d="3450">Time is going this way.</p>
+<p t="2961190" d="7620">The problem is, you've got
+a downward sort of baseline,</p>
+<p t="2968810" d="4270">because you expect to lose
+a little bit each time.</p>
+<p t="2973080" d="2705">And so you're taking
+this random walk.</p>
+<p t="2978360" d="3610">And you collide here.</p>
+<p t="2981970" d="5080">And these things are
+known as the swings.</p>
+<p t="2987050" d="1745">This is known as the drift.</p>
+<p t="2992390" d="3540">And the drift downward
+is 1 minus 2p.</p>
+<p t="2995930" d="2580">That's what you expect to
+lose if you get the expected</p>
+<p t="2998510" d="3180">loss on each bet-- 1 minus 2p.</p>
+<p t="3001690" d="3110">Because you're going
+to not be a fair game.</p>
+<p t="3004800" d="2010">This one has zero
+drift up there.</p>
+<p t="3006810" d="1780">It stays steady.</p>
+<p t="3008590" d="8605">And in random walks, drift
+outweighs the swings.</p>
+<p t="3019900" d="1520">These are the swings here.</p>
+<p t="3021420" d="1890">And they're random.</p>
+<p t="3023310" d="1670">The drift is deterministic.</p>
+<p t="3024980" d="1970">It's steadily going down.</p>
+<p t="3026950" d="1940">And so almost always
+in a random walk,</p>
+<p t="3028890" d="3630">the drift totally
+takes over the swings.</p>
+<p t="3032520" d="1880">The swings are small
+compared to what you're</p>
+<p t="3034400" d="3330">losing on a steady basis.</p>
+<p t="3037730" d="3530">And that's why you're so
+much more likely to lose when</p>
+<p t="3041260" d="2850">you have the drift downward.</p>
+<p t="3046670" d="2780">Just as an example, maybe
+putting some numbers</p>
+<p t="3049450" d="500">around that.</p>
+<p t="3053680" d="2020">The swings are the
+same in both cases,</p>
+<p t="3055700" d="3480">So that gives you some
+qualification for how big</p>
+<p t="3059180" d="1128">the swings tend to be.</p>
+<p t="3063660" d="2705">We can sort of do that with
+standard deviation notation.</p>
+<p t="3069380" d="8130">After X bets or X steps,
+the amount you've drifted,</p>
+<p t="3077510" d="4020">or the expected
+losses, 1 minus 2p</p>
+<p t="3081530" d="4410">X. Maybe we should
+just understand</p>
+<p t="3085940" d="1360">why this is the case.</p>
+<p t="3087300" d="10660">The expected return on a
+bet is 1 with probability p,</p>
+<p t="3097960" d="3690">and minus 1 with
+probability 1 minus p.</p>
+<p t="3101650" d="4396">And so that is-- did
+I get that right?</p>
+<p t="3106046" d="3684">I think that's right.</p>
+<p t="3109730" d="2470">Oh, expected loss--
+[INAUDIBLE] drifts down.</p>
+<p t="3112200" d="2369">Instead of expected
+return, let's do the loss,</p>
+<p t="3114569" d="1041">because that's the drift.</p>
+<p t="3115610" d="1660">It's a downward thing.</p>
+<p t="3117270" d="4640">So the expected loss-- now
+you lose $1 with 1 minus p.</p>
+<p t="3124610" d="3060">And you gain $1, which
+is negative loss,</p>
+<p t="3127670" d="2380">with probability p.</p>
+<p t="3130050" d="4520">And so you get 1 minus
+p minus p is 1 minus 2p.</p>
+<p t="3134570" d="1800">So that's your expected loss.</p>
+<p t="3136370" d="4930">Your expected winnings
+are the negative of that.</p>
+<p t="3141300" d="4400">So after x steps, you
+expect to lose-- well,</p>
+<p t="3145700" d="2000">I just add up the
+linearity of expectation.</p>
+<p t="3147700" d="3250">You expect to lose
+this much x times.</p>
+<p t="3150950" d="1530">So that's your expected drift.</p>
+<p t="3152480" d="3960">You're expected
+to lose that much.</p>
+<p t="3156440" d="2510">Now, the swing--
+and we won't prove</p>
+<p t="3158950" d="5720">this-- the swing is expected
+to be square root of x</p>
+<p t="3164670" d="810">times a constant.</p>
+<p t="3165480" d="2190">So I've used the
+theta notation here.</p>
+<p t="3167670" d="2560">And the constant is small.</p>
+<p t="3170230" d="3860">If I take x consecutive
+bets for $1,</p>
+<p t="3174090" d="3520">I'm very likely to be
+about square root of x</p>
+<p t="3177610" d="3900">off of the expected drift.</p>
+<p t="3181510" d="3530">And you can see that
+this is square root.</p>
+<p t="3185040" d="1510">That is linear.</p>
+<p t="3186550" d="3700">So this totally dominates that.</p>
+<p t="3190250" d="3860">So the swings are generally
+not enough to save you.</p>
+<p t="3194110" d="3190">And so you're just going to
+cruise downward and crash,</p>
+<p t="3197300" d="836">almost surely.</p>
+<p t="3201330" d="3830">OK, any questions about that?</p>
+<p t="3211360" d="3070">All right, so we figured out
+the probability of winning m</p>
+<p t="3214430" d="1990">dollars before going broke.</p>
+<p t="3216420" d="3810">That's done with.</p>
+<p t="3220230" d="2830">Now, this means it's
+logical to conclude</p>
+<p t="3223060" d="4250">you're likely go home
+broke in an unfair game.</p>
+<p t="3227310" d="3510">Actually, before we do
+that, there's one other case</p>
+<p t="3230820" d="1940">we've got to rule out.</p>
+<p t="3232760" d="3752">We've proved you're likely
+not to go home a winner.</p>
+<p t="3236512" d="2208">Does that necessarily mean
+you're likely to go broke?</p>
+<p t="3238720" d="2125">I've been saying that, but
+there's some other thing</p>
+<p t="3240845" d="2395">we should check.</p>
+<p t="3243240" d="4244">What's one way you
+might not go home broke?</p>
+<p t="3247484" d="916">AUDIENCE: [INAUDIBLE].</p>
+<p t="3248400" d="985">PROFESSOR: What is it?</p>
+<p t="3249385" d="395">AUDIENCE: You don't go home.</p>
+<p t="3249780" d="1440">PROFESSOR: You don't go home.</p>
+<p t="3251220" d="2300">And why would you not go home?</p>
+<p t="3253520" d="500">Yeah?</p>
+<p t="3254020" d="1375">AUDIENCE: You're
+playing forever.</p>
+<p t="3255395" d="1595">PROFESSOR: You're
+playing forever-- we</p>
+<p t="3256990" d="2850">didn't rule out that case--
+you're playing forever.</p>
+<p t="3259840" d="2950">But it turns out, if you
+did the same analysis,</p>
+<p t="3262790" d="2410">you can analyze the probability
+of going home broke.</p>
+<p t="3265200" d="2166">And when you add it to the
+probability of going home</p>
+<p t="3267366" d="2954">a winner, it adds to 1,
+which means the probability</p>
+<p t="3270320" d="3160">playing forever is 0.</p>
+<p t="3273480" d="2277">Now, there are sample points
+where you play forever.</p>
+<p t="3275757" d="1833">But when you add up all
+those sample points,</p>
+<p t="3277590" d="3620">if their probability
+is 0, we ignore them.</p>
+<p t="3281210" d="1740">And we say it can't happen.</p>
+<p t="3282950" d="3429">Now, we're bordering
+on philosophy here,</p>
+<p t="3286379" d="1541">because there is a
+sample point here.</p>
+<p t="3287920" d="2720">You could win, lose, win,
+lose, win, lose forever.</p>
+<p t="3290640" d="3665">But because you add them
+all up at 0, measure theory</p>
+<p t="3294305" d="2125">and some math we're not
+going to get into tells you</p>
+<p t="3296430" d="1580">it doesn't happen.</p>
+<p t="3298010" d="2420">It's probability 1 you're
+a winner or a loser.</p>
+<p t="3307430" d="2330">All right, so I'm
+not going to prove</p>
+<p t="3309760" d="3590">that the probability
+you play forever is 0.</p>
+<p t="3324250" d="3410">But let's look at
+how long you play.</p>
+<p t="3327660" d="4570">How long does it take you to
+go home one way or another-- go</p>
+<p t="3332230" d="1520">broke?</p>
+<p t="3333750" d="2690">And to do this, we're going
+to set up another recurrence.</p>
+<p t="3339440" d="2720">So we know eventually
+we hit a boundary.</p>
+<p t="3342160" d="2000">I want to know how
+many bets does it</p>
+<p t="3344160" d="3940">take to hit the boundary?</p>
+<p t="3348100" d="2430">How long do we get to play
+before we go home unhappy?</p>
+<p t="3353270" d="5880">So S will be the number of
+steps until we hit a boundary.</p>
+<p t="3364320" d="2500">And I want to know the
+expected number-- I'll call it</p>
+<p t="3366820" d="3644">E sub n here-- is the
+expected value of S given</p>
+<p t="3370464" d="1166">that I start with n dollars.</p>
+<p t="3374884" d="1416">I mean, the reason
+you could think</p>
+<p t="3376300" d="2250">about this is, we know
+we're going to go home</p>
+<p t="3378550" d="1860">broke-- pretty likely.</p>
+<p t="3380410" d="2400">Do we at least have some
+fun in the meantime?</p>
+<p t="3382810" d="2830">Do we get a lot gambling in
+and free drinks, or whatever,</p>
+<p t="3385640" d="3060">before we're killed here?</p>
+<p t="3391590" d="1620">Now, this also has a recurrence.</p>
+<p t="3393210" d="1820">And I'm going to show
+you what it is, then</p>
+<p t="3395030" d="2910">prove that that's correct.</p>
+<p t="3397940" d="4670">So I claim that
+the expected number</p>
+<p t="3402610" d="1990">of steps given we
+start with n dollars</p>
+<p t="3404600" d="6900">is 0 if we start with no money,
+because we are already broke.</p>
+<p t="3411500" d="5870">It's 0 if we start
+with T dollars,</p>
+<p t="3417370" d="1740">because then we
+just go home happy.</p>
+<p t="3419110" d="4180">There's no bets, because we've
+already hit the upper boundary.</p>
+<p t="3423290" d="6200">And the interesting case will be
+it's 1 plus p times E n minus 1</p>
+<p t="3429490" d="8490">plus 1 minus p-- oops, n plus
+1-- 1 minus p E n minus 1,</p>
+<p t="3437980" d="3443">if we start with
+between 0 and T dollars.</p>
+<p t="3446980" d="3670">OK, so let's prove that.</p>
+<p t="3453400" d="5260">Actually, the proof is exactly
+the same as the last one.</p>
+<p t="3458660" d="1534">So I don't think
+I need to do it.</p>
+<p t="3464300" d="4070">The proof is pretty simple,
+because we look at two cases.</p>
+<p t="3468370" d="3780">You win the first bet--
+happens with probability p.</p>
+<p t="3472150" d="3100">And then you're starting
+with n plus $1 over again.</p>
+<p t="3475250" d="2800">Or you lose the
+first bet-- happens</p>
+<p t="3478050" d="2310">with probability 1 minus p.</p>
+<p t="3480360" d="3530">And you're starting
+over with n minus $1</p>
+<p t="3483890" d="1815">now-- same as last time.</p>
+<p t="3485705" d="1375">In fact, this
+whole recurrence is</p>
+<p t="3487080" d="4610">identical to last time
+except for one thing.</p>
+<p t="3491690" d="2224">What's the one thing
+that's different now?</p>
+<p t="3493914" d="956">AUDIENCE: [INAUDIBLE].</p>
+<p t="3494870" d="1124">PROFESSOR: What is it?</p>
+<p t="3495994" d="2786">AUDIENCE: You have [INAUDIBLE].</p>
+<p t="3498780" d="1958">PROFESSOR: You have--</p>
+<p t="3500738" d="2470">AUDIENCE: So it's not
+[INAUDIBLE] any more.</p>
+<p t="3503208" d="1482">PROFESSOR: That's different.</p>
+<p t="3504690" d="2230">There's another difference.</p>
+<p t="3506920" d="3180">That's one difference that's
+going to make it inhomogeneous.</p>
+<p t="3510100" d="1309">That's sort of a pain.</p>
+<p t="3511409" d="1791">What's the other
+difference from last time?</p>
+<p t="3513200" d="1825">This part's the same otherwise.</p>
+<p t="3515025" d="875">AUDIENCE: Boundaries.</p>
+<p t="3515900" d="500">PROFESSOR: What is it?</p>
+<p t="3516400" d="1250">AUDIENCE: Boundary conditions.</p>
+<p t="3517650" d="2470">PROFESSOR: Boundary conditions--
+that was a 1 before.</p>
+<p t="3520120" d="2170">Now it's a 0.</p>
+<p t="3522290" d="4130">OK, so a little change
+here, and I added a 1 here.</p>
+<p t="3526420" d="3621">But that's going to make it
+a pretty different answer.</p>
+<p t="3530041" d="1499">So let's see what
+the recurrence is.</p>
+<p t="3531540" d="5770">I'll rearrange terms here
+to put it into recurrence.</p>
+<p t="3537310" d="10340">I get p E sub n plus 1 minus
+E n plus 1 minus p E n minus 1</p>
+<p t="3547650" d="3060">equals minus 1, not 0.</p>
+<p t="3550710" d="4860">And the boundary conditions
+are E 0 is 0 and E T is 0.</p>
+<p t="3558210" d="3340">OK, what's the
+first thing you do</p>
+<p t="3561550" d="4470">when you have an inhomogeneous
+linear recurrence?</p>
+<p t="3566020" d="2900">Solve the homogeneous one.</p>
+<p t="3568920" d="3130">And the answer there-- well,
+it's the same as before.</p>
+<p t="3572050" d="1940">This is the part we analyzed.</p>
+<p t="3573990" d="2660">And we'll do it for
+the case when p is not</p>
+<p t="3576650" d="3120">1/2-- so the unfair game.</p>
+<p t="3579770" d="7500">So the homogeneous
+solution is E n</p>
+<p t="3587270" d="4600">just from before-- same
+thing-- 1 minus p over p</p>
+<p t="3591870" d="3850">to the n plus B. And this
+is the case with two roots.</p>
+<p t="3595720" d="1122">p does not equal 1/2.</p>
+<p t="3600620" d="7014">What's the next thing you do
+for inhomogeneous recurrence?</p>
+<p t="3607634" d="3986">Are we plugging in
+boundary conditions yet?</p>
+<p t="3611620" d="500">No.</p>
+<p t="3612120" d="2720">So what do I do next?</p>
+<p t="3614840" d="1020">Particular solution.</p>
+<p t="3621160" d="4500">And what's my first guess?</p>
+<p t="3625660" d="6120">We have the recurrence
+like this here.</p>
+<p t="3634590" d="3370">What do I guess for E n?</p>
+<p t="3637960" d="4650">I'm trying to guess something
+that looks like that.</p>
+<p t="3642610" d="2770">So what do I guess?</p>
+<p t="3645380" d="2360">Constant, yeah.</p>
+<p t="3647740" d="680">That's a scalar.</p>
+<p t="3648420" d="2700">I just guess a constant.</p>
+<p t="3651120" d="6300">And if I plug a constant a
+into here, it's going to fail.</p>
+<p t="3657420" d="4310">Because I'll just
+pull the a out.</p>
+<p t="3661730" d="4010">I'll get p minus 1
+plus 1 minus p is 0,</p>
+<p t="3665740" d="1900">and 0 doesn't equal minus 1.</p>
+<p t="3667640" d="580">So it fails.</p>
+<p t="3672240" d="1050">So I guess again.</p>
+<p t="3673290" d="3090">What do I guess next time?</p>
+<p t="3676380" d="3610">a n plus b.</p>
+<p t="3679990" d="2590">All right, and I
+don't think I'll</p>
+<p t="3682580" d="5850">drag you through all the
+algebra for that, but it works.</p>
+<p t="3688430" d="6880">And when you do it, you
+find that a is minus 1</p>
+<p t="3695310" d="2790">over 2p minus 1.</p>
+<p t="3698100" d="1370">And b could be anything.</p>
+<p t="3699470" d="4610">So let me just rewrite
+this as 1 over 1 minus 2p.</p>
+<p t="3704080" d="2090">And b can be anything, so
+we'll set b equal to 0.</p>
+<p t="3709490" d="3420">So we've got our
+particular solution.</p>
+<p t="3712910" d="1610">It's not hard to
+go compute that.</p>
+<p t="3714520" d="2882">You just plug it
+back in and solve.</p>
+<p t="3724642" d="2208">Now we add them together to
+get the general solution.</p>
+<p t="3738830" d="6610">This is A n plus B. B was 0, and
+here's A as 1 over 1 minus 2p.</p>
+<p t="3745440" d="3830">And now what do we do to finish?</p>
+<p t="3749270" d="4430">I've got my general
+solution here</p>
+<p t="3753700" d="3837">by adding up the homogeneous
+and the particular solution.</p>
+<p t="3757537" d="1333">Plug in the boundary conditions.</p>
+<p t="3765680" d="4109">All right, I'm not going to drag
+you through solving this case,</p>
+<p t="3769789" d="1541">but I'm going to
+show you the answer.</p>
+<p t="3775430" d="8050">E n equals n over 1 minus 2p
+minus T, the upper boundary,</p>
+<p t="3783480" d="9920">over 1 minus 2p times 1 minus p
+over p to the n minus 1 over 1</p>
+<p t="3793400" d="4530">minus p over p to the T minus 1.</p>
+<p t="3797930" d="2740">So actually, this looks a little
+familiar from the last time</p>
+<p t="3800670" d="3072">when we did this recurrence,
+figuring out the probability we</p>
+<p t="3803742" d="708">go home a winner.</p>
+<p t="3804450" d="3180">Here this is the
+expected number of steps</p>
+<p t="3807630" d="3270">to hit a boundary, to go home.</p>
+<p t="3810900" d="2230">If we plug in the values,
+it's a little hairy,</p>
+<p t="3813130" d="2720">but you can compute it.</p>
+<p t="3815850" d="7010">So for example, if m
+is 100, n is 1,000,</p>
+<p t="3822860" d="4300">T would be 1,100 in that case.</p>
+<p t="3827160" d="5050">p is 9/19 playing roulette.</p>
+<p t="3832210" d="7370">Then the expected number of
+bets before you have to go home</p>
+<p t="3839580" d="13900">is 1,900 from this part,
+minus 0.56 from that part.</p>
+<p t="3853480" d="4090">So actually 19,000, sorry.</p>
+<p t="3857570" d="7010">So it's very close to 19,000
+bets you've got to make.</p>
+<p t="3864580" d="3650">So it takes a long
+time to lose $1,000.</p>
+<p t="3868230" d="4180">And it sort of comes
+very close to the answer</p>
+<p t="3872410" d="2450">you would have guessed
+without thinking and solving</p>
+<p t="3874860" d="1260">the recurrence.</p>
+<p t="3876120" d="5230">If you expect to lose
+1 minus 2p every bet,</p>
+<p t="3881350" d="2810">and you want to know how long
+the expected time to lose</p>
+<p t="3884160" d="2730">n dollars, you might
+well have said,</p>
+<p t="3886890" d="4320">I think it's going to be n over
+the amount I lose every time.</p>
+<p t="3891210" d="3250">That would be
+wrong, technically,</p>
+<p t="3894460" d="2940">because you'd have left
+off this nasty thing.</p>
+<p t="3897400" d="3380">But this nasty thing doesn't
+make much of a real difference,</p>
+<p t="3900780" d="3465">because it goes to 0 really
+fast for any numbers like 100</p>
+<p t="3904245" d="2325">and 1,000-- makes no
+difference at all.</p>
+<p t="3906570" d="1810">So the intuition in
+that case comes out</p>
+<p t="3908380" d="3050">to be pretty close, even
+though technically, it's</p>
+<p t="3911430" d="4110">not exactly right.</p>
+<p t="3915540" d="5920">Now, to see why this goes to
+0, if T equals n plus m here--</p>
+<p t="3921460" d="3890">this is n plus m--
+and your upper limits,</p>
+<p t="3925350" d="5690">say m goes to infinity--
+it's 100 in this case-- then</p>
+<p t="3931040" d="3730">that just zooms to 0, and
+you're only left with that.</p>
+<p t="3934770" d="4740">Which means that we can use
+asymptotic notation here</p>
+<p t="3939510" d="3272">to sort of characterize the
+expected number of bets.</p>
+<p t="3948020" d="2980">And it's totally
+dominated by the drift.</p>
+<p t="3951000" d="7120">So as m goes to infinity, the
+expected time to live here</p>
+<p t="3958120" d="3940">is tilde n over 1 minus 2p.</p>
+<p t="3962060" d="5270">If you've got n dollars,
+losing 1 minus 2p every time,</p>
+<p t="3967330" d="4320">then you last for n
+over 1 minus 2p steps.</p>
+<p t="3971650" d="5530">OK, now, actually,
+what situation in words</p>
+<p t="3977180" d="2720">does m going to infinity mean?</p>
+<p t="3979900" d="3300">Say I set m to be infinity?</p>
+<p t="3983200" d="3610">What is that kind of
+game if m is infinity?</p>
+<p t="3986810" d="1310">How long am I playing now?</p>
+<p t="3988120" d="609">Yeah.</p>
+<p t="3988729" d="1791">AUDIENCE: Now you're
+playing for as long as</p>
+<p t="3990520" d="2240">it takes you to lose
+all of your money.</p>
+<p t="3992760" d="3440">PROFESSOR: Yes, because there is
+no stopping condition up here--</p>
+<p t="3996200" d="1180">going home happy.</p>
+<p t="3997380" d="5680">I'm going to play forever
+or until I lose everything.</p>
+<p t="4003060" d="4400">And this says how long
+you expect to play.</p>
+<p t="4007460" d="3760">It's a little less
+than n over 1 minus 2p.</p>
+<p t="4011220" d="2680">So if you play
+until you go broke,</p>
+<p t="4013900" d="1610">that's how long
+you expect to play.</p>
+<p t="4019950" d="3250">So that sort of makes
+sense in that scenario.</p>
+<p t="4023200" d="3370">That's not one where it
+surprises you by intuition.</p>
+<p t="4026570" d="2334">It is interesting to consider
+the case of a fair game.</p>
+<p t="4028904" d="1916">Because there's something
+that's non-intuitive</p>
+<p t="4030820" d="1750">that happens there.</p>
+<p t="4032570" d="1720">So in a fair game, p is 1/2.</p>
+<p t="4037350" d="6930">Now, if I plug in 1/2
+here, well, I divide by 0.</p>
+<p t="4044280" d="3450">I expect to play forever.</p>
+<p t="4047730" d="1770">That's not a good way
+to do the analysis,</p>
+<p t="4049500" d="1450">that you get to a divide by 0.</p>
+<p t="4050950" d="2630">Let's actually go
+back and look at this</p>
+<p t="4053580" d="1520">for the case when p is 1/2.</p>
+<p t="4057769" d="1541">And see what happens
+in a fair game--</p>
+<p t="4059310" d="3940">how long you expect to
+play in a fair game.</p>
+<p t="4063250" d="5250">Then the homogeneous
+solution is the simple case.</p>
+<p t="4068500" d="5770">E is A n plus B. You
+have a double root at 1,</p>
+<p t="4074270" d="3070">which we don't have to
+worry about 1 to the n.</p>
+<p t="4077340" d="6210">When you do your
+particular solution,</p>
+<p t="4083550" d="5070">you'll try a single
+scalar, and it fails.</p>
+<p t="4088620" d="3110">I'll use lowercase a-- fails.</p>
+<p t="4091730" d="6730">You will then try a degree one
+polynomial, and that will fail.</p>
+<p t="4098460" d="2550">What are you going to try next?</p>
+<p t="4101010" d="7200">Second-degree polynomial,
+and that will work.</p>
+<p t="4108210" d="5890">OK, and the answer
+you get when you</p>
+<p t="4114100" d="7860">do that is that-- I'll
+put the answer here.</p>
+<p t="4121960" d="5490">It turns out that a is minus
+1 and b and c can be 0.</p>
+<p t="4127450" d="2020">So it's just going
+to be minus n squared</p>
+<p t="4129470" d="2190">for the particular solution.</p>
+<p t="4131660" d="8271">That means your general solution
+is A n plus B minus n squared.</p>
+<p t="4139931" d="1458">Now you do your
+boundary condition.</p>
+<p t="4146660" d="3520">You have E 0 is 0.</p>
+<p t="4150180" d="1179">Plug in 0 for n.</p>
+<p t="4151359" d="2361">That's equal to B. So B is 0.</p>
+<p t="4153720" d="1900">That's nice.</p>
+<p t="4155620" d="3560">E T is 0.</p>
+<p t="4159180" d="5849">And I plug in T here, I get
+AT, B is 0 minus T squared.</p>
+<p t="4165029" d="3131">So I solve for A here.</p>
+<p t="4168160" d="7390">That means that A equals T. AT
+squared minus T squared is 0.</p>
+<p t="4175550" d="2889">A has to be T.</p>
+<p t="4178439" d="11521">So that means that E n
+is Tn minus n squared.</p>
+<p t="4189960" d="2130">Now, T is the upper bound.</p>
+<p t="4192090" d="1050">It's just n plus m.</p>
+<p t="4196800" d="4080">n plus m times n
+minus n squared--</p>
+<p t="4200880" d="1045">this gets really simple.</p>
+<p t="4201925" d="1265">The m squared cancels.</p>
+<p t="4203190" d="3280">I just get n out.</p>
+<p t="4206470" d="2350">That says if you're playing
+a fair game, until you</p>
+<p t="4208820" d="5580">win m or lose n, you expect
+to play for nm steps, which</p>
+<p t="4214400" d="1280">is really nice.</p>
+<p t="4215680" d="5420">This is p is 1/2-- very clean.</p>
+<p t="4221100" d="4840">Now, if you let m
+equal to infinity,</p>
+<p t="4225940" d="3740">you're going to expect
+to play forever.</p>
+<p t="4229680" d="4000">So with a fair game, if you
+play until you're broke,</p>
+<p t="4233680" d="3540">the expected number
+of bets is infinite.</p>
+<p t="4237220" d="2290">That's nice.</p>
+<p t="4239510" d="2480">You can play forever
+is the expectation.</p>
+<p t="4246160" d="4270">Now, here's the weird thing.</p>
+<p t="4250430" d="2990">If you expect to play
+forever, does that</p>
+<p t="4253420" d="2305">mean you're not likely
+to go home broke?</p>
+<p t="4258580" d="3830">You expect to play forever.</p>
+<p t="4262410" d="3566">And as long as you're playing,
+you're not going home broke.</p>
+<p t="4265976" d="1874">Now, there's some chance
+of going home broke,</p>
+<p t="4267850" d="2480">because you might just lose
+every bet-- not likely.</p>
+<p t="4275930" d="2650">Here's the weird
+thing-- the probability</p>
+<p t="4278580" d="5880">you go home broke if you
+play until you go broke is 1.</p>
+<p t="4284460" d="2510">You will go home broke.</p>
+<p t="4286970" d="3170">It's just that it
+takes you expected</p>
+<p t="4290140" d="2790">infinite amount
+of time to do it--</p>
+<p t="4292930" d="3420">sort of one of these weird
+things in a fair game.</p>
+<p t="4296350" d="3980">So here we proved the
+expected number bets is nm.</p>
+<p t="4300330" d="4090">If m is infinite, that becomes
+an infinite number of bets.</p>
+<p t="4304420" d="3675">One more theorem here-- this
+one's a little surprising.</p>
+<p t="4312172" d="1958">This theorem is called
+Quit While You're Ahead.</p>
+<p t="4326570" d="12130">If you start with n dollars,
+and it's a fair game,</p>
+<p t="4338700" d="15000">and you play until
+you go broke, then</p>
+<p t="4353700" d="4840">the probability that
+you do go broke,</p>
+<p t="4358540" d="3190">as opposed to playing
+forever, is 1.</p>
+<p t="4361730" d="1700">It's a certainty.</p>
+<p t="4363430" d="3710">You'll go broke, even
+though you expect it to take</p>
+<p t="4367140" d="2430">an infinite amount of time.</p>
+<p t="4369570" d="1504">All right, so let's prove that.</p>
+<p t="4386561" d="1416">OK, the proof is
+by contradiction.</p>
+<p t="4395330" d="3270">Assume it's not true.</p>
+<p t="4398600" d="4620">And that means that
+you're assuming</p>
+<p t="4403220" d="2860">that there exists
+some number of dollars</p>
+<p t="4406080" d="6800">that you can start with, and
+some epsilon bigger than 0,</p>
+<p t="4412880" d="8310">such that the probability
+that you lose the n</p>
+<p t="4421190" d="2710">dollars-- in which
+case you're going home</p>
+<p t="4423900" d="12410">broke-- let me write the
+probability you go broke--</p>
+<p t="4436310" d="3699">is at most 1 minus epsilon.</p>
+<p t="4440009" d="1791">In other words, if the
+theorem is not true,</p>
+<p t="4441800" d="3060">there's some amount of money
+you can start with such</p>
+<p t="4444860" d="4140">that the chance you go broke
+is less than 1-- less than 1</p>
+<p t="4449000" d="3150">minus epsilon.</p>
+<p t="4452150" d="5440">OK, now that means that for
+all m, where you might possibly</p>
+<p t="4457590" d="3090">stop but you're not
+going to, the probability</p>
+<p t="4460680" d="10685">you lose n before you win m
+is at most 1 minus epsilon.</p>
+<p t="4475700" d="1540">Because we're saying
+the probability</p>
+<p t="4477240" d="2120">you lose n no matter
+what is at most that.</p>
+<p t="4479360" d="2460">So it's certainly less
+than 1 minus epsilon</p>
+<p t="4481820" d="4850">that you lose n before
+you win m dollars.</p>
+<p t="4486670" d="2210">And we know what
+that probability is.</p>
+<p t="4488880" d="2890">This probability is
+just m over n plus m.</p>
+<p t="4491770" d="2930">We proved that earlier.</p>
+<p t="4494700" d="4660">So that has to be less than
+1 minus epsilon for all m.</p>
+<p t="4499360" d="5790">And now I just multiply
+through for all m.</p>
+<p t="4505150" d="2420">That means that m is
+less than or equal to 1</p>
+<p t="4507570" d="2046">minus epsilon n plus m.</p>
+<p t="4512930" d="4162">And then we'll solve that.</p>
+<p t="4525960" d="3670">OK, so just multiply this out.</p>
+<p t="4529630" d="9630">So for all m less than or
+equal to n plus m minus epsilon</p>
+<p t="4539260" d="6100">n minus epsilon m, and now
+pull the m terms out here,</p>
+<p t="4545360" d="4280">I get for all m,
+epsilon m is less than</p>
+<p t="4549640" d="3380">or equal to 1 minus epsilon n.</p>
+<p t="4553020" d="2820">That means for all
+m, m is smaller</p>
+<p t="4555840" d="5330">than 1 minus epsilon
+over epsilon times n.</p>
+<p t="4561170" d="1890">And that can't be true.</p>
+<p t="4563060" d="3210">It's not true the for all
+m, this is less than that,</p>
+<p t="4566270" d="2760">because these are fixed values.</p>
+<p t="4569030" d="2760">That's a contradiction.</p>
+<p t="4571790" d="3530">All right, so we
+proved that if you</p>
+<p t="4575320" d="2210">keep playing until
+you're broke, you will go</p>
+<p t="4577530" d="2500">broke with probability 1.</p>
+<p t="4580030" d="5030">So even if you're playing a fair
+game, quit while you're ahead.</p>
+<p t="4585060" d="3910">Because if you don't,
+you're going to go broke.</p>
+<p t="4588970" d="2530">The swings will eventually
+catch up with you.</p>
+<p t="4591500" d="3659">So if we draw the graph here,
+we'll see why that's true.</p>
+<p t="4611810" d="3850">All right, if I have
+time going this way,</p>
+<p t="4615660" d="6090">and I start with n dollars,
+my baseline is here.</p>
+<p t="4621750" d="2134">The drift is 0.</p>
+<p t="4623884" d="1041">I'm going to have swings.</p>
+<p t="4627480" d="2030">I might have some
+really big, high swings,</p>
+<p t="4629510" d="3190">but it doesn't matter,
+because eventually I'm</p>
+<p t="4632700" d="3330">going to get a really bad swing,
+and I'm going to go broke.</p>
+<p t="4639450" d="1740">Now, if you ever
+play a game where</p>
+<p t="4641190" d="4770">you're likely to be winning each
+time, and the drift goes up,</p>
+<p t="4645960" d="1675">that's a good game
+to play, obviously.</p>
+<p t="4647635" d="1894">It just keeps getting better.</p>
+<p t="4649529" d="1541">And that's a whole
+math change there.</p>
+<p t="4654410" d="1970">So that's it.</p>
+<p t="4656380" d="2650">Remember, we have the ice
+cream study session Monday.</p>
+<p t="4659030" d="2760">So come to that if you'd like.</p>
+<p t="4661790" d="3680">And definitely come to
+the final on Tuesday.</p>
+<p t="4665470" d="1970">And thanks for your
+hard work, and being</p>
+<p t="4667440" d="1730">such a great class this year.</p>
+<p t="4669170" d="3650">[APPLAUSE]</p>
+</body>
+</timedtext>

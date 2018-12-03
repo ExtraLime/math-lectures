@@ -1,0 +1,2211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="0" d="4842">[MUSIC]</p>
+<p t="4842" d="2461">Stanford University.</p>
+<p t="7303" d="4048">&gt;&gt; Network, there's actually a whole
+class, I think next quarter,</p>
+<p t="11351" d="3239">on just networks for computer vision.</p>
+<p t="14590" d="2520">Where they've really
+changed the entire field.</p>
+<p t="17110" d="2200">In NLP, they've had some impact but
+not as much,</p>
+<p t="19310" d="3300">which is why we don't have
+the entire lecture on just CNNs.</p>
+<p t="22610" d="1890">But they are an interesting model family.</p>
+<p t="24500" d="6170">They are paralyzable, they're very good
+on GPUs, and so we'll sort of look into</p>
+<p t="30670" d="4170">them in detail today, understand hopefully
+by the end why they're so useful.</p>
+<p t="34840" d="5330">And fast to implement on GPUs but really
+also give you at least some intuition,</p>
+<p t="40170" d="4000">to be honest there's much less intuition
+behind some of these very advanced CNN</p>
+<p t="44170" d="5610">architectures compared to even some of the
+recurrent networks and LSTMs that we had.</p>
+<p t="49780" d="4420">So we'll actually start today with
+a mini tutorial of Azure and GPUs,</p>
+<p t="54200" d="6190">we wanna encourage you all to really get
+started on that as soon as possible.</p>
+<p t="60390" d="5226">Also, thanks everybody for filling out
+the survey I think this one is one</p>
+<p t="65616" d="6098">of the important take away messages, which
+is overall what do you think of the pace.</p>
+<p t="71714" d="4526">We're very happy to see that the majority
+are quite happy with the pace.</p>
+<p t="76240" d="4590">It's kind of impossible with such
+a large class to not be too fast and</p>
+<p t="80830" d="5590">not too slow for 100% of everybody, since
+people have vastly different backgrounds.</p>
+<p t="86420" d="4360">Very sorry for
+the little less than a third I think, for</p>
+<p t="90780" d="4510">whom it's too fast,
+I hope today will be, not quite as fast.</p>
+<p t="96480" d="5040">And hopefully, in office hours and so
+on we can make up for some of that.</p>
+<p t="101520" d="3710">So we'll talk about a couple
+of different CNN variants.</p>
+<p t="105230" d="5310">We'll have a fun research highlight on
+character-aware neural language models.</p>
+<p t="110540" d="2780">And then, we'll actually also look
+a little bit into tips and tricks that</p>
+<p t="113320" d="5700">are slightly more practical, and you'll
+observe that these practical details and</p>
+<p t="119020" d="4720">tricks actually making this particular CNN
+architecture work are super important and</p>
+<p t="123740" d="5010">without it you really lose 10% or
+so of accuracy.</p>
+<p t="128750" d="2010">Look at it a little critically.</p>
+<p t="130760" d="3627">At some of the evaluations that
+are going on in the field, and</p>
+<p t="134387" d="4057">then I will compare a couple of
+different models which will lead us to</p>
+<p t="138444" d="4412">a very new model called the
+quasi-recurrent neural network for treaty,</p>
+<p t="142856" d="2584">which just came out
+a couple of months ago.</p>
+<p t="145440" d="3500">With that, I’ll do one organization
+slide before we go onto Azure.</p>
+<p t="148940" d="4600">So project advice office hours, I would
+really encourage everybody who’s doing</p>
+<p t="153540" d="3950">a project to now come to project
+advice office hours every week.</p>
+<p t="157490" d="3330">I’ve asked groups that I’m
+mentoring personally to also</p>
+<p t="160820" d="1540">As a server requirement.</p>
+<p t="162360" d="2920">Not all the groups were
+able to come every week.</p>
+<p t="165280" d="1650">I encourage you all to come.</p>
+<p t="166930" d="4744">I am keeping track of
+whether you're there.</p>
+<p t="171674" d="4945">So also for everybody who basically is
+still undecided whether they should</p>
+<p t="176619" d="4889">move on with their project, you'll
+see kind of where PA4 folks should be</p>
+<p t="181508" d="4605">at in the next week or so, where you
+have to have run some baselines on</p>
+<p t="186113" d="3788">your data set by now if you're
+doing your final project.</p>
+<p t="189901" d="4365">If you don't even have your dataset
+ready yet, you can't even run a simple,</p>
+<p t="194266" d="4970">let's say, bag of vectors, kinda baseline,
+it's starting to be really worrisome,</p>
+<p t="199236" d="3664">so definitely make sure you
+start running your experiments.</p>
+<p t="202900" d="3510">Some simple things, baselines, could be
+just any, just could be your regressions.</p>
+<p t="206410" d="1718">You download some code somewhere, but</p>
+<p t="208128" d="2195">you need to make sure you
+have your data set ready.</p>
+<p t="210323" d="3017">Otherwise, it'll be too late.</p>
+<p t="213340" d="2973">And for
+PA4 folks we actually enforce that with</p>
+<p t="216313" d="4250">a little additional deadline just
+to make sure you're really all.</p>
+<p t="220563" d="3828">Going to be able to run it cuz this is
+not one of those things that you can</p>
+<p t="224391" d="3696">cram really hard and you work 10x and
+so you make 10x to progress</p>
+<p t="228087" d="4443">because your experiments will take a day
+to run and so you run for one day.</p>
+<p t="232530" d="1850">Turns out at the end you had a bug and</p>
+<p t="234380" d="2610">then the deadline was there and
+you have nothing.</p>
+<p t="236990" d="1840">So it happens every year.</p>
+<p t="238830" d="3090">And we really want to make sure
+it doesn't happen this year even</p>
+<p t="241920" d="1030">though we're a bigger class.</p>
+<p t="242950" d="2830">So we'll talk about that soon.</p>
+<p t="245780" d="4509">Also, in terms of positive motivation,
+there's actually going to be a really</p>
+<p t="250289" d="3166">awesome poster session that
+we're putting together,</p>
+<p t="253455" d="3163">we have corporate sponsors
+that give us some money, and</p>
+<p t="256618" d="3942">they will allow us to basically give
+out price, have prices for you.</p>
+<p t="260560" d="3834">We'll make it public, so
+hopefully a lot of folks will show up and</p>
+<p t="264394" d="1546">check out your research.</p>
+<p t="265940" d="4573">It's a lot of excitement both from various
+companies, VCs, if you have a really</p>
+<p t="270513" d="4591">awesome poster, who knows, at the end you
+may have some funding for your start up.</p>
+<p t="275104" d="5082">And we'll have food also, very nice
+catering, so should be really fun poster</p>
+<p t="280186" d="5014">session, so hopefully you can be very
+excited about that and your projects.</p>
+<p t="285200" d="500">Yeah?</p>
+<p t="287450" d="1315">Will there be enough food for everybody?</p>
+<p t="288765" d="2665">&gt;&gt; [LAUGH]
+&gt;&gt; It’s a good question.</p>
+<p t="291430" d="1320">We’ll spend thousands and</p>
+<p t="292750" d="3650">thousands of dollars on food we hope
+there will be enough food for everybody.</p>
+<p t="296400" d="1950">Schein is organizing it she's nodding.</p>
+<p t="298350" d="500">Yes.</p>
+<p t="303737" d="3753">Any other organizational questions
+around the Poster Areas Project.</p>
+<p t="310214" d="3829">All right,
+then take it away on the GPU side.</p>
+<p t="314043" d="1592">&gt;&gt; [INAUDIBLE].</p>
+<p t="315635" d="2315">&gt;&gt; Nope, you're good.</p>
+<p t="317950" d="890">&gt;&gt; All right, everyone.</p>
+<p t="318840" d="2550">This is just intended to be a short
+public service announcement basically</p>
+<p t="321390" d="3920">about how to get started with Azure and
+why you should get started with Azure.</p>
+<p t="326520" d="4042">By now, every team should have received
+an email to at least one of your team</p>
+<p t="330562" d="4877">members, probably to your Stanford, one of
+your Stanford emails, and you'll have this</p>
+<p t="335439" d="4446">message which is basically an invitation
+to join our CS224N subscription.</p>
+<p t="339885" d="3986">And using following the instructions
+of this email you should sign up for</p>
+<p t="343871" d="1317">basically GPU access.</p>
+<p t="345188" d="5268">So far only 161 people have signed up or
+teams have signed up out of the 311,</p>
+<p t="350456" d="4261">and essentially we want this number
+to increase because everyone</p>
+<p t="354717" d="4823">should be using GPUs for
+reasons that we'll cover very shortly.</p>
+<p t="359540" d="2510">And if you have any issues signing up,</p>
+<p t="362050" d="5110">then please report the problems
+that you have to Piazza post 1830,</p>
+<p t="367160" d="5310">which has the form, also screenshotted
+there and we'll help you, essentially,</p>
+<p t="372470" d="4110">through any of the problems that you
+have with their subscriptions, cool.</p>
+<p t="376580" d="2540">So then, more important question that
+we're gonna go over is why should you</p>
+<p t="379120" d="1580">really care about the GPUs.</p>
+<p t="380700" d="4290">Well, first, yesterday we actually
+announced the milestone for</p>
+<p t="384990" d="2170">the final project and the homework.</p>
+<p t="387160" d="2070">It's intended to be something
+very quick and easy,</p>
+<p t="389230" d="1650">just a paragraph of what you've done.</p>
+<p t="390880" d="4370">But we expect you to have used I always
+experimented with running some code on</p>
+<p t="395250" d="1560">a GPU like that and</p>
+<p t="396810" d="5080">this will be worth essentially 2% of your
+final grade just if you do it or not.</p>
+<p t="401890" d="4050">But really down there the better reason
+of why you should be using GPU's</p>
+<p t="405940" d="4960">is GPU's will train your models much, much
+faster over a much, much larger data set.</p>
+<p t="412180" d="2720">And specifically,
+Microsoft has offered us,</p>
+<p t="414900" d="4010">I think 311 MB6 instances
+on their 0 cloud.</p>
+<p t="418910" d="4047">These use Tesla GPU's, M60,
+if you're interested in the model.</p>
+<p t="422957" d="3618">The specifications are,
+they have a huge number of CUDA cores,</p>
+<p t="426575" d="5025">a huge amount of graphics memory, and
+they cost a huge amount of money each.</p>
+<p t="431600" d="1090">You also get a nice CPU,</p>
+<p t="432690" d="3950">as well as a lot of system memory,
+to go along with your Instance.</p>
+<p t="436640" d="3290">And the key takeaway here
+is that these ar not your</p>
+<p t="439930" d="2360">average hardware that you
+have in your local machine.</p>
+<p t="443420" d="2970">There's gonna be way more power, in terms
+of the CPU, in terms of the GPU, and</p>
+<p t="446390" d="6030">in terms of well, even for the gaming
+whatever hardware you have at home.</p>
+<p t="452420" d="2910">And the speed-ups will be 10 to 20,
+maybe even 100,</p>
+<p t="455330" d="1519">depending on the libraries
+that you're running.</p>
+<p t="458170" d="4457">So in conclusion, please do get started
+on Azure as soon as possible, fill out</p>
+<p t="462627" d="3915">the form if you run into subscription
+issues, come to office hours or</p>
+<p t="466542" d="5289">file support tickets if you have technical
+problems such as not being able to etc.</p>
+<p t="471831" d="5188">And then, also see our step-by-step guide
+to just get started with the process.</p>
+<p t="477019" d="2241">For Homework 4,</p>
+<p t="479260" d="3470">The full assignment handout will go
+over essentially all the details.</p>
+<p t="482730" d="2998">But decent models will
+take a long time to train.</p>
+<p t="485728" d="4122">They'll take one hour plus per epoch,
+even on a strong GPU,</p>
+<p t="489850" d="2200">such as the previously described ones.</p>
+<p t="492050" d="2930">If you don't deal with a GPU,
+you'll be spending a week, basically,</p>
+<p t="494980" d="1540">just to train a baseline model.</p>
+<p t="497970" d="5980">And for the final project, if your project
+is sufficiently challenging that needs,</p>
+<p t="503950" d="4160">well, you have enough data or your problem
+is sufficiently challenging, you really do</p>
+<p t="508110" d="3810">want to use a GPU if you want to
+receive a good score in this class.</p>
+<p t="511920" d="1490">And that would be all.</p>
+<p t="513410" d="3888">&gt;&gt; Cool.
+Thanks, James.</p>
+<p t="517298" d="3525">And by decent model he also means
+decent implementations, so if your</p>
+<p t="520823" d="4037">implementations isn't super well-optimized
+it will take you even longer.</p>
+<p t="524860" d="4320">So again, not something you can cram on
+in the last couple of days of the class.</p>
+<p t="530510" d="3385">All right, any questions about Azure or
+[INAUDIBLE]?</p>
+<p t="539672" d="3208">What if we're not in the same group
+between homework three and four?</p>
+<p t="561310" d="4637">So recurrent neural networks were
+pretty awesome and are pretty awesome</p>
+<p t="565947" d="4726">actually and a lot of times the default
+model, but they have some issues.</p>
+<p t="570673" d="5477">Namely, they can't really
+capture phrases in isolation.</p>
+<p t="576150" d="5380">They can really only capture a phrase
+given it's left side context.</p>
+<p t="581530" d="1100">So what do we mean by this?</p>
+<p t="583690" d="5350">If I want to have just a representation
+of my birth, in this whole sentence,</p>
+<p t="589040" d="3850">well recurrent network will
+always go from left to right.</p>
+<p t="594080" d="4370">And so, that phrase vector up there
+isn't going to just capture my birth,</p>
+<p t="598450" d="1500">it will also capture the country of.</p>
+<p t="600980" d="2800">And so, sometimes when you have
+simple classification problems</p>
+<p t="603780" d="3260">you might actually just want to
+identify that there's a certain word or</p>
+<p t="607040" d="3790">phrase in that over all document and
+just try to give</p>
+<p t="610830" d="4500">the fact that that phrase exist in your
+overall document to somewhere higher up in</p>
+<p t="615330" d="2890">the final classifier that
+actually needs to classify this.</p>
+<p t="618220" d="2700">But here,
+you will always go from left to right or</p>
+<p t="620920" d="3450">even if you have a bidirectional one,
+you go from right to left.</p>
+<p t="624370" d="2850">But then you have the same problem,
+but on the other side.</p>
+<p t="627220" d="2120">Namely, the intermediate,</p>
+<p t="629340" d="3320">the words in the center of
+a longer document might get lost.</p>
+<p t="632660" d="3380">You really have to keep track
+of them through every iteration.</p>
+<p t="636040" d="2870">And, of course, if you're using
+LSTMs are better at doing that,</p>
+<p t="638910" d="4300">they're better able to say,
+don't turn on the forget gate,</p>
+<p t="643210" d="3180">keep some things around, keep certain
+units on when you see something.</p>
+<p t="646390" d="2990">But it requires a lot of the model
+to be able to do that perfectly.</p>
+<p t="651480" d="4410">And so, in many of the cases you will see
+your classifiers only at the very end,</p>
+<p t="655890" d="4450">once it has read the whole sentence and
+that is not the issue cuz now,</p>
+<p t="660340" d="2340">again, the grading has
+to flow through this.</p>
+<p t="662680" d="4190">And despite all the [INAUDIBLE] and LSTM,
+it's even hard for them to keep very</p>
+<p t="666870" d="5150">complex kinds of relationships alive
+over many, many different time steps.</p>
+<p t="673700" d="6540">So that's one issue with RNNs
+that CNNs are trying to resolve.</p>
+<p t="680240" d="5050">Now, the main idea here is instead of
+computing a single representation of</p>
+<p t="685290" d="5051">vector at every time step that captures
+basically the context on the left so</p>
+<p t="690341" d="3446">far what if we could just
+compute a phrase vector for</p>
+<p t="693787" d="3471">every single phrase that
+we have in this sentence.</p>
+<p t="697258" d="4383">So if we have here the phrase a country
+of my birth, we might compute</p>
+<p t="701641" d="4933">in the very first step of this kinds
+of convolutional networks if vector for</p>
+<p t="706574" d="3646">the country just this
+two words in isolation.</p>
+<p t="710220" d="6320">Just country of my birth so
+basically compute a vector for</p>
+<p t="716540" d="3240">all the by grams in the sentence and
+then another one maybe for</p>
+<p t="719780" d="4670">all the trigrams,
+country of my birth, the country.</p>
+<p t="724450" d="3235">And then, for all the fourgrams,
+the country of my birth.</p>
+<p t="728780" d="2303">So hoping that if this was, for instance,</p>
+<p t="731083" d="4217">sentiment classification, that one of
+these said, not very good, for instance.</p>
+<p t="735300" d="5110">And then, if we captured that vector and
+we kind of will try to eventually.</p>
+<p t="740410" d="3850">Handle and push that vector all
+the way to a softmax through some</p>
+<p t="744260" d="1970">other forms that I'll describe soon.</p>
+<p t="746230" d="2880">But that is basically the idea
+of the very first layer</p>
+<p t="749110" d="2000">of a convolutional network for NLP.</p>
+<p t="752160" d="3180">And this will basically compute</p>
+<p t="755340" d="3240">these phrase vectors regardless of
+whether that is a grammatical phrase.</p>
+<p t="758580" d="5060">So we know from parsing, for instance,
+certain phrases like a country</p>
+<p t="763640" d="4972">of is not really a proper noun phrase,
+it's sort of an odd,</p>
+<p t="768612" d="5718">ungrammatical chunk but this motto
+really doesn't care linguistic or</p>
+<p t="774330" d="3450">cognitive possibility in any
+kind of way for language.</p>
+<p t="777780" d="4930">And so, people don't read sentences
+that way, but you might be</p>
+<p t="782710" d="4190">able to eventually compute several of
+these representations in parallel.</p>
+<p t="786900" d="1980">And that's going to be a big advantage.</p>
+<p t="789970" d="3032">So once we compute all these vectors,</p>
+<p t="793002" d="4847">we'll group them after, but
+we'll get to that in a second.</p>
+<p t="797849" d="2989">So you might ask,
+what is convolution, anyway?</p>
+<p t="800838" d="6042">And so, here is a very simple definition
+for any convolutional operator.</p>
+<p t="806880" d="3925">So let's look at the simplest
+case of a 1d discrete convolution</p>
+<p t="811835" d="5960">of a filter over another function,
+at a specific point in time.</p>
+<p t="817795" d="3450">You'll basically have a filter size,
+here M, and</p>
+<p t="821245" d="5790">you'll basically multiply just a filter
+at different locations of this input.</p>
+<p t="827035" d="5367">And so, in computer vision, that will
+help us to extract very meaningful</p>
+<p t="832402" d="5557">features such as edges from an image and
+eventually more complex features.</p>
+<p t="837959" d="4765">And for 2d example, which you'll observe
+a lot in computer vision, we have this</p>
+<p t="842724" d="4697">really great animation here from the
+Stanford Unsupervised Feature Learning and</p>
+<p t="847421" d="2259">Deep Learning wiki page.</p>
+<p t="849680" d="2846">So imagine you had an image
+that you see here in green.</p>
+<p t="852526" d="2664">And that image, let's say, is only binary.</p>
+<p t="855190" d="5265">The first row of this image is 1, 1,
+1, 0, 0 and the second row of pixels</p>
+<p t="860455" d="5272">of this binary image is 0, 1, 1, 1,
+0 and so on, and you have a filter.</p>
+<p t="865727" d="5808">And this filter here has number that
+you'll see in the small red font here, and</p>
+<p t="871535" d="5640">I’ll turn the animation off for a second
+so we can look at it without moving.</p>
+<p t="877175" d="6951">Now, the filter here is basically 1,
+0, 1, 0, 1, 0, 1, 0, 1.</p>
+<p t="884126" d="3999">And now every time step
+of the convolution,</p>
+<p t="888125" d="7473">we’re going to multiply the numbers of
+the filter with the numbers off the image.</p>
+<p t="895598" d="4495">We multiply, again,
+the red numbers from the filter with the,</p>
+<p t="900093" d="3747">images, with the image values and
+that will result,</p>
+<p t="903840" d="3595">basically multiply all of
+them then we sum them up.</p>
+<p t="907435" d="4868">So very simple in our product if we were
+to vectorize these three by three blocks</p>
+<p t="912303" d="4574">into, and nine dimensional vector and
+we just have a simple inner product</p>
+<p t="916877" d="5033">between those two vectors or we just
+multiply them here and then sum them up.</p>
+<p t="921910" d="5471">So one times one plus one times zero plus
+one times one and so on will sum to four.</p>
+<p t="927381" d="4283">And we'll basically move
+this filter one time step,</p>
+<p t="931664" d="2956">one pixel at a time across the image.</p>
+<p t="937640" d="4400">So let's look again, this looks like
+basically multiply all the numbers and</p>
+<p t="942040" d="1080">then sum them up.</p>
+<p t="943120" d="4280">And then, we'll move one down, and
+again move from left to right.</p>
+<p t="949320" d="630">Any questions, yeah?</p>
+<p t="956106" d="1104">That's a great question.</p>
+<p t="957210" d="2720">What would be the equivalent
+of a pixel in LP and</p>
+<p t="959930" d="3240">yes, you're exactly right,
+it will be a word vector.</p>
+<p t="963170" d="905">Before I jump there,</p>
+<p t="964075" d="3532">are there any more questions about the
+general definition of convolution, yeah?</p>
+<p t="970423" d="2152">How do we decide on the convolution?</p>
+<p t="973767" d="2723">So how do we decide what matrix it is?</p>
+<p t="976490" d="2670">The matrix of the convolution
+of filter here,</p>
+<p t="979160" d="2070">these red numbers are actually
+going to be learned.</p>
+<p t="981230" d="4040">So you have an input and then you do
+back propagation through a network,</p>
+<p t="985270" d="3050">we'll get to eventually it'll have
+the same kind of cross entropy error,</p>
+<p t="988320" d="1480">that we have for all the other ones.</p>
+<p t="989800" d="1300">It'll have a softmax and</p>
+<p t="991100" d="3540">we're going to basically back propagate
+through this entire architecture, and</p>
+<p t="994640" d="4240">then we'll actually update the weights
+here in this particular example in red.</p>
+<p t="998880" d="2050">After they started with
+some random initialization.</p>
+<p t="1000930" d="1610">And then we'll update them and
+they'll change.</p>
+<p t="1002540" d="2110">And what's kind of interesting
+in computer vision,</p>
+<p t="1004650" d="3860">which I won't go into too many details in
+this class, but in computer vision they</p>
+<p t="1008510" d="3830">learn eventually to detect
+certain edges in the first layer.</p>
+<p t="1012340" d="3990">In the second layer they'll learn to
+detect certain combinations of edges like</p>
+<p t="1016330" d="4910">corners, and the third layer they
+will learn to basically detect and</p>
+<p t="1021240" d="3540">have a very high activation,
+these guys here.</p>
+<p t="1024780" d="4440">A very high activation when you see</p>
+<p t="1029220" d="2450">more complex patterns like stripes and
+things like that.</p>
+<p t="1031670" d="3010">And as you go higher up through
+convolution networks and computer vision,</p>
+<p t="1034680" d="3170">you can actually very nicely
+visualize what's going on, and</p>
+<p t="1037850" d="3960">you identify, like the fifth layer
+some neurons actually fire when,</p>
+<p t="1041810" d="3430">they see a combination of eyes and
+a nose and a mouth.</p>
+<p t="1045240" d="1960">Sadly, for NLP we don't have any of that.</p>
+<p t="1047200" d="2250">It's one of the reason's they're
+not quite as popular in NLP.</p>
+<p t="1050590" d="500">Yep.</p>
+<p t="1053660" d="1982">Sure, so you have here m, you filter.</p>
+<p t="1055642" d="4168">So in the 1d case, that'll just be, f and</p>
+<p t="1059810" d="4700">g are just a single number, and
+now you're going to move over f.</p>
+<p t="1064510" d="2730">So imagine this was just one dimension.</p>
+<p t="1067240" d="4822">And so you move from minus M to M,
+as in for the nth time step,</p>
+<p t="1072062" d="4344">you're going to multiply the filter,
+g[m] here,</p>
+<p t="1076406" d="5212">over this function input, and
+basically go one times step, and</p>
+<p t="1081618" d="5337">you sum up this product between
+the two numbers at each time step.</p>
+<p t="1086955" d="1515">Does that make sense?</p>
+<p t="1088470" d="4010">So you go from minus m,
+which if this is minus and</p>
+<p t="1092480" d="5112">this is minus, so you start head of n,
+n time steps away, and</p>
+<p t="1097592" d="5968">then you keep multiplying the numbers
+until you have the whole sum.</p>
+<p t="1103560" d="2695">And then you have your convolution
+at that discrete time step n.</p>
+<p t="1106255" d="4451">&gt;&gt; [INAUDIBLE]
+&gt;&gt; That's right, m is your window size.</p>
+<p t="1113356" d="3484">And we'll go over the exact examples for
+NLP in much more detail.</p>
+<p t="1116840" d="500">Yeah.</p>
+<p t="1119276" d="2654">How do we figure out the window size?</p>
+<p t="1121930" d="3050">We'll actually have a bunch of window
+sizes, so maybe this is a good side way</p>
+<p t="1124980" d="2160">to talk about the actual
+model that we'll use for NLP.</p>
+<p t="1128170" d="2133">So this is going to be the first and</p>
+<p t="1130303" d="3672">most simple variant of
+a convolutional network for NLP.</p>
+<p t="1133975" d="2817">You can [INAUDIBLE] go to town and
+towards the end they'll,</p>
+<p t="1136792" d="4208">show you some examples of how we can
+embellish this architecture a lot more.</p>
+<p t="1141000" d="4660">This one is based on a really seminal
+paper by Collobert and Weston from 2011.</p>
+<p t="1145660" d="4523">And then the very particular model
+in its various queuing details,</p>
+<p t="1150183" d="2707">came from Kim from just three years ago.</p>
+<p t="1153950" d="2940">Basically the paper title is,
+a Convolutional Neural Network for</p>
+<p t="1156890" d="1550">Sentence Classification.</p>
+<p t="1158440" d="3250">All right, so as with every model out
+there, whenever you wanna write down your</p>
+<p t="1161690" d="4080">equations, no worries, we're not gonna
+go into a lot more derivatives today.</p>
+<p t="1165770" d="1305">Actually no derivatives,</p>
+<p t="1167075" d="3755">cuz all the math is really similar
+to math we've done before.</p>
+<p t="1170830" d="4040">But it's really still important to
+identify very clearly your notation.</p>
+<p t="1174870" d="1340">So let's start.</p>
+<p t="1176210" d="3480">As the question was correctly asked,
+we'll actually start with word vectors.</p>
+<p t="1179690" d="5030">So we'll have at every time step,
+I will have a word vector Xi.</p>
+<p t="1184720" d="3490">And that will be here for
+us now a k dimensional vector.</p>
+<p t="1189700" d="4350">And then we'll represent the entire
+sentence through a concatenation.</p>
+<p t="1194050" d="4150">So we'll use this plus and</p>
+<p t="1198200" d="5180">circle symbol, for concatenating
+the vectors of all the words.</p>
+<p t="1203380" d="4986">And so we'll describe the entire sentence,
+which we'll have for</p>
+<p t="1208366" d="4285">our definition here,
+n-many words to be X from one to n.</p>
+<p t="1212651" d="4759">And that will be the concatenation
+of the first to the nth word vector.</p>
+<p t="1217410" d="503">Yeah.</p>
+<p t="1221136" d="2304">Great question,
+are word vectors concatenated length-wise?</p>
+<p t="1223440" d="580">Yes.</p>
+<p t="1224020" d="3550">For now we'll assume they're
+all concatenated as a long row.</p>
+<p t="1234058" d="4189">All right now we'll introduce
+this additional notation here, so</p>
+<p t="1238247" d="4858">we don't just go from one to n, but
+we might actually want to extract specific</p>
+<p t="1243105" d="3584">words in the range,
+from time step i to time step i plus j,</p>
+<p t="1246689" d="3361">or in general some other
+number of time steps.</p>
+<p t="1250050" d="4930">So if I have, for instance x two to four,
+then I'll take the second, the third,</p>
+<p t="1254980" d="1560">and the fourth word vector, and</p>
+<p t="1256540" d="4720">I just have a long vector with just those
+three word vectors concatenated together.</p>
+<p t="1264476" d="2573">I'll let that sink in,
+cuz it's all very simple but</p>
+<p t="1267049" d="2701">we just need to make sure we
+keep track of the notation.</p>
+<p t="1271180" d="4901">So in general, our convolutional
+filter here will be a vector w</p>
+<p t="1276081" d="4716">of parameters, that we're going
+to learn with our standard</p>
+<p t="1280797" d="4824">stochastic gradient descent-type
+optimization methods.</p>
+<p t="1285621" d="3741">And we'll define this
+convolutional filter here,</p>
+<p t="1289362" d="4608">in terms of its window size and
+of course the word vector size.</p>
+<p t="1293970" d="3300">So h times k, so this is just a vector,
+it's not a matrix.</p>
+<p t="1297270" d="1820">There's no times in between the two.</p>
+<p t="1299090" d="3030">But let's say we want to have
+a convolutional filter that at</p>
+<p t="1302120" d="4490">each time step, looks at three different
+word vectors and tries to combine</p>
+<p t="1306610" d="3830">them into a single number, or
+some kind of feature representation.</p>
+<p t="1310440" d="4930">What we'll then do is,
+basically have a three</p>
+<p t="1315370" d="3770">times number of dimensions
+of each word vector filter.</p>
+<p t="1320940" d="3520">So I have a very simple example here.</p>
+<p t="1324460" d="3130">Let's say we have two dimensional
+word vectors, of course just for</p>
+<p t="1327590" d="2430">illustration they'll usually
+be 50 dimensional or so.</p>
+<p t="1330020" d="2280">Let's say we have two
+dimensional word vectors, and</p>
+<p t="1332300" d="5610">we look at three different words in
+concatenation at each time step,</p>
+<p t="1337910" d="2490">we'll basically have
+a six dimensional w here.</p>
+<p t="1347024" d="3362">All right.</p>
+<p t="1350386" d="6254">So now how do we actually compute
+anything and why is it a neural network?</p>
+<p t="1356640" d="2675">We'll have some non-linearity
+here eventually.</p>
+<p t="1359315" d="3895">Okay but before we get there,
+let's look at again,</p>
+<p t="1363210" d="5555">we have our convolutional filter,
+goes looks at h words at each time step.</p>
+<p t="1368765" d="4270">And again note that w here is
+just a single vector; just as</p>
+<p t="1373035" d="3610">our word vectors are also
+concatenated into a single vector.</p>
+<p t="1376645" d="5060">And now in order to compute
+a feature at one time step for this,</p>
+<p t="1381705" d="4360">what we're going to do is basically just
+have an inner product of this w vector of</p>
+<p t="1386065" d="6255">parameters, times the i-th time
+step plus our window size.</p>
+<p t="1392320" d="4582">So in this case here,
+we're going to in the c one for</p>
+<p t="1396902" d="5125">instance, we'll have W times x one two,
+one two three.</p>
+<p t="1402027" d="1919">So we have here three, so
+one plus three minus one goes to three.</p>
+<p t="1403946" d="4931">So we basically just have
+the concatenation of those word</p>
+<p t="1408877" d="2351">vectors in our product.</p>
+<p t="1411228" d="5425">Simple sort of multiplication and
+sum of all the element wise.</p>
+<p t="1419220" d="1774">Elements of these vectors.</p>
+<p t="1420994" d="3198">Then usually,
+we'll have our standard bias term and</p>
+<p t="1424192" d="2425">we'll add a non-linearity at the end.</p>
+<p t="1432108" d="1922">Any questions about.</p>
+<p t="1451340" d="670">That's a great question.</p>
+<p t="1452010" d="5050">So, as you do this, the question is don't
+the words in the middle appear more often.</p>
+<p t="1457060" d="4560">So here, actually show this example,
+and I have actually an animation, so</p>
+<p t="1461620" d="1020">you are jumping a little bit ahead.</p>
+<p t="1462640" d="3610">So what happens for instance,
+at the very end here, and</p>
+<p t="1466250" d="5740">the answer will just come
+have zeros there for the end.</p>
+<p t="1471990" d="5190">We'll actually call this
+a narrow convolution and</p>
+<p t="1477180" d="2710">where you can actually have wide
+convolutions which we'll get to later,</p>
+<p t="1479890" d="4240">but yes, you're right the center
+words will appear more often,</p>
+<p t="1484130" d="4730">but really the filters can
+adapt to that because you learn</p>
+<p t="1488860" d="4450">sort of how much you want to care about
+any particular input in the filter.</p>
+<p t="1499182" d="2516">Okay, so
+let's define this more carefully so</p>
+<p t="1501698" d="2592">we can think through the whole process,
+yeah?</p>
+<p t="1522796" d="1099">So the question is,</p>
+<p t="1523895" d="5020">rephrase it a little bit, what happens
+when we have different length sentences?</p>
+<p t="1528915" d="4020">And there will actually be in two
+slides a very clever answer to that.</p>
+<p t="1532935" d="3260">Which is at some point we'll
+add a pooling operator,</p>
+<p t="1536195" d="3220">which will just look at the maximum
+value across everything.</p>
+<p t="1539415" d="1130">We'll get to that in a second.</p>
+<p t="1540545" d="2520">And it turns out the length</p>
+<p t="1543065" d="3725">of the sentence doesn't matter that
+much once we do some clever pooling.</p>
+<p t="1551310" d="2750">How's the size of the filtering
+affecting the learning?</p>
+<p t="1554060" d="1920">Actually quite significantly.</p>
+<p t="1555980" d="4640">One, the longer your filter is the more
+computation you have to do and</p>
+<p t="1560620" d="1730">the longer context you can capture.</p>
+<p t="1562350" d="3360">So for instance if you just had a one
+d filter it would just multiply and</p>
+<p t="1565710" d="2260">matrix with every word vector and
+it actually would,</p>
+<p t="1567970" d="4150">you wouldn't gain much, because it would
+just transform all the word vectors, and</p>
+<p t="1572120" d="5390">you may as well store
+transformed word vectors.</p>
+<p t="1580160" d="4620">As you go to longer filters, you'll
+actually be able to capture more phrases,</p>
+<p t="1584780" d="3700">but now you'll also more
+likely to over-fit your model.</p>
+<p t="1588480" d="4550">So that will actually be, the size of
+your filter will be hyperparameter, and</p>
+<p t="1593030" d="840">there are some tricks.</p>
+<p t="1593870" d="1920">Namely, you have multiple filters for
+multiple lengths,</p>
+<p t="1595790" d="3600">which we'll get to in a second, too,
+that will allow you to get rid of that.</p>
+<p t="1602737" d="4694">Alright, so, let's say again here,
+we have our sentence,</p>
+<p t="1607431" d="3883">now we have all these possible windows or
+length h,</p>
+<p t="1611314" d="5586">starting at the first word vector,
+going to this, and so on.</p>
+<p t="1616900" d="5140">And now what the means is, since we do
+this computation here at every time step,</p>
+<p t="1622040" d="4950">we'll have basically what
+we call a feature map.</p>
+<p t="1626990" d="3140">And we will capitalize this
+here as having a vector</p>
+<p t="1630130" d="2160">of lots of these different c values.</p>
+<p t="1632290" d="4300">And again, each c value was
+just taking that same w and</p>
+<p t="1636590" d="3467">having inter-products with a bunch of
+the different windows at each time stamp.</p>
+<p t="1641780" d="4440">Now, this c vector is going to be
+a pretty long, n-h+1 dimensional vector.</p>
+<p t="1646220" d="6010">And it's actually going to
+be of different length,</p>
+<p t="1652230" d="3440">depending on how many words we have.</p>
+<p t="1655670" d="2815">Which is a little odd, right?</p>
+<p t="1658485" d="3905">Because in the end, if we want to
+plug it into a softmise classifier,</p>
+<p t="1662390" d="2990">we would want to have
+a fixed dimensional vector.</p>
+<p t="1667250" d="5740">But, intuitively here, we'll just, again,
+multiply each of these numbers and</p>
+<p t="1672990" d="3490">our w here with the concatenation,
+and remove along.</p>
+<p t="1676480" d="930">Turns out we'll zero pad.</p>
+<p t="1678430" d="3605">And if you now think carefully, you'll
+actually realize, well, I kind of cheated</p>
+<p t="1682035" d="2525">because really that's what we really
+should've done also on the left side.</p>
+<p t="1684560" d="3940">So on the left side we will actually
+also zero pad the sentence.</p>
+<p t="1688500" d="4840">So we do exactly the same in
+the beginning at the end of the sentence.</p>
+<p t="1696040" d="5077">All right, now, because we have a variable
+length vector at this point, and we want</p>
+<p t="1701117" d="4937">to have eventually a fixed dimensional
+feature vector that represents that whole</p>
+<p t="1706054" d="5222">sentence, what we'll now do is introduce a
+new type of building block that we haven't</p>
+<p t="1711276" d="5764">really looked at that much before, namely,
+a pooling operator or pooling layer.</p>
+<p t="1717040" d="5000">And in particular, what we'll use
+here is a so-called max-over-time or</p>
+<p t="1722040" d="2070">max pooling layer.</p>
+<p t="1724110" d="1590">And it's a very simple idea,</p>
+<p t="1725700" d="3370">namely that we're going to capture
+the most important activation.</p>
+<p t="1729070" d="5630">So as you have different elements
+figured computed for every window,</p>
+<p t="1734700" d="4010">you have the hope that the inner
+product would be particularly large for</p>
+<p t="1738710" d="4640">that filter, if it sees a certain
+kind of phrase, all right?</p>
+<p t="1743350" d="4980">So, namely, if you have, let's say your
+word vectors are relatively normalized,</p>
+<p t="1748330" d="4840">if you do an inner product,
+you would want to have a very large cosine</p>
+<p t="1753170" d="3700">similarity between the filter and the
+certain pattern that you're looking for.</p>
+<p t="1756870" d="3210">And that one filter would only be
+good at picking up that pattern.</p>
+<p t="1760080" d="3160">So for instance,
+you might hope all your positive words</p>
+<p t="1763240" d="3930">are in one part of the vector space and
+now you have a two dimensional,</p>
+<p t="1768560" d="4740">sorry a two word vector, sorry.</p>
+<p t="1773300" d="3950">A filter size of length two
+that looks at bigrams, and</p>
+<p t="1777250" d="3110">you want to ideally have
+that filter be very good and</p>
+<p t="1780360" d="3380">have a very large inner product with
+all the words that are positive.</p>
+<p t="1784790" d="5200">And that would then be captured by having
+one of these numbers be very large.</p>
+<p t="1789990" d="5070">And so what this intuitively allows
+you to do is, as you move over it and</p>
+<p t="1795060" d="4340">you then in the end max pool,
+if you just have one word pair,</p>
+<p t="1799400" d="4860">one biagram that it has a very large
+activation for that particular filter w,</p>
+<p t="1804260" d="4250">you will basically get
+that to your c hat here.</p>
+<p t="1809830" d="3120">And it can ignore all
+the rest of the sentence.</p>
+<p t="1812950" d="4170">It's just going to be able to pick
+out one particular bigram very,</p>
+<p t="1817120" d="2180">very accurately, or a type of bigram.</p>
+<p t="1819300" d="2950">And because word vectors cluster and</p>
+<p t="1822250" d="3160">where similar kinds of words
+have similar kinds of meaning,</p>
+<p t="1825410" d="4670">you might hope that all the positive words
+will activate a similar kind of filter.</p>
+<p t="1831230" d="3470">Now the problem with this is, of course,
+that that is just a single number, right?</p>
+<p t="1834700" d="5240">C hat is just a maximum number here
+of all the elements in this vector.</p>
+<p t="1839940" d="2450">So I would just be five.</p>
+<p t="1842390" d="2143">So that could be one activation.</p>
+<p t="1844533" d="4977">If we use a relu nonlinearity here,
+this will just be a single number.</p>
+<p t="1849510" d="4806">So c hat is just that.</p>
+<p t="1854316" d="4862">Now of course, we want to be able to do
+more than just find one particular type of</p>
+<p t="1859178" d="5282">bigram or trigram, we want to have many
+more features that we can extract.</p>
+<p t="1864460" d="2560">And that's why we're going
+to have multiple filters w.</p>
+<p t="1867020" d="2710">So instead of just convolving
+a single feature w,</p>
+<p t="1869730" d="2930">we'll convolve multiple of them.</p>
+<p t="1872660" d="1580">And as we train this model,</p>
+<p t="1874240" d="5940">eventually we hope that some of the w
+filters will fire and be very active and</p>
+<p t="1880180" d="5193">have very large inter-products with
+particular types of bigrams or</p>
+<p t="1885373" d="6852">trigrams, or even four grams.</p>
+<p t="1892225" d="4111">So it's also very useful to have some
+filters that only pick out bigrams and</p>
+<p t="1896336" d="2354">you can actually get quite far with that.</p>
+<p t="1898690" d="4430">But then maybe you have someone,
+some examples where you say for</p>
+<p t="1903120" d="5180">sentiment again very simply example
+it's not very good or risk missing</p>
+<p t="1908300" d="5230">a much originality and
+now you want to have diagrams in filters</p>
+<p t="1913530" d="4907">of length K times 3.</p>
+<p t="1918437" d="4505">And so, we can have multiple different
+window sizes and at the end, each time we</p>
+<p t="1922942" d="4185">convolve that filter and we do all
+these inner products at each time step.</p>
+<p t="1927127" d="5429">We'll basically max pool to get a single
+number for that filter for that sentence.</p>
+<p t="1942941" d="2147">If we have different filters
+of different lengths,</p>
+<p t="1945088" d="2462">how do we make sure they
+learn different feature?</p>
+<p t="1947550" d="2280">Of same length or different lengths, yeah.</p>
+<p t="1949830" d="3620">Of same length, how do we make sure
+they learn different features?</p>
+<p t="1953450" d="4310">Well, they all start at different
+random initializations, so</p>
+<p t="1957760" d="1550">that helps to break up some symmetry.</p>
+<p t="1959310" d="2960">And then actually we don't have
+to do anything in particular</p>
+<p t="1962270" d="3200">to make sure that happens,
+it actually just happens.</p>
+<p t="1965470" d="2752">So as we do SGD,
+from the random initializations,</p>
+<p t="1968222" d="4096">different filters will move and start
+to pick up different patterns in order</p>
+<p t="1972318" d="2500">to maximize our overall
+objective function.</p>
+<p t="1974818" d="2083">Which we'll get to,
+it'll just be logistic regression.</p>
+<p t="1981584" d="2083">They would probably still
+learn different values, yeah.</p>
+<p t="1983667" d="5044">You update so in the beginning,
+well, if they're exactly the same,</p>
+<p t="1988711" d="4445">basically, as you pool, right,
+you will eventually pick,</p>
+<p t="1993156" d="4184">during backpropagation,
+the max value here.</p>
+<p t="1997340" d="3477">The max value will come,
+eventually, from a specific filter.</p>
+<p t="2000817" d="3750">And if they have the exact same,
+one, you would never do it.</p>
+<p t="2004567" d="3043">But two, if you did,
+they would have the exact same value.</p>
+<p t="2007610" d="5128">And then your computer will have to
+choose, randomly, one to be the max.</p>
+<p t="2012738" d="2802">And if they're just the same,
+whatever, it'll pick one and</p>
+<p t="2015540" d="2540">then it'll backpropagate
+through that particular filter.</p>
+<p t="2018080" d="590">And then,</p>
+<p t="2018670" d="4798">they're also going to be different in the
+iteration of your optimization algorithm.</p>
+<p t="2023468" d="1979">Yeah?</p>
+<p t="2025447" d="1514">&gt;&gt; Is there a reason why
+we do the max [INAUDIBLE]?</p>
+<p t="2029890" d="1740">&gt;&gt; Is there a reason why we do the max?</p>
+<p t="2031630" d="3880">So in theory nothing would
+prevent us from using min too.</p>
+<p t="2035510" d="5560">Though we in many cases use rectified
+linear units which will be max 0x.</p>
+<p t="2041070" d="5678">And so max pooling makes a lot more
+sense cuz min will often just be 0.</p>
+<p t="2046748" d="1893">And so, we've rallies together,</p>
+<p t="2048641" d="3035">it makes the most sense to use
+the max pooling layer also.</p>
+<p t="2056703" d="1377">Could we use average pooling?</p>
+<p t="2058080" d="4555">It's actually not totally crazy,
+there are different papers that explore</p>
+<p t="2062635" d="4912">different pooling schemes and there's no
+sort of beautiful mathematical reason</p>
+<p t="2067547" d="4482">of why one should work better but
+intuitively what you're trying to do here</p>
+<p t="2072029" d="4080">is you try to really just fire when
+you see a specific type of engram.</p>
+<p t="2076109" d="2586">And when you see that
+particular type of engram,</p>
+<p t="2078695" d="4181">cuz that filter fired very strongly for
+it, then you wanna say this happened.</p>
+<p t="2082876" d="5034">And you want to give that signal
+to the next higher layer.</p>
+<p t="2087910" d="4430">And so that is particularly easy if you
+choose a specific single value versus</p>
+<p t="2092340" d="3040">averaging, where you kind of
+conglomerate everything again.</p>
+<p t="2095380" d="3708">And the strong signal that you may get
+from one particular unigram, or bigram, or</p>
+<p t="2099088" d="2165">trigram, might get washed
+out in the average.</p>
+<p t="2115296" d="4667">Great question, so once we have a bunch of
+different c hats from each of the filters,</p>
+<p t="2119963" d="1337">how do we combine them?</p>
+<p t="2121300" d="2680">And the answer will be,
+we'll just concatenate all them.</p>
+<p t="2123980" d="1169">We'll get to that in a second.</p>
+<p t="2132925" d="4319">Yeah, so the main idea is once you do
+max pooling one of the values will</p>
+<p t="2137244" d="4990">be the maximum and then all of the other
+ones will basically have 0 gradients cuz</p>
+<p t="2142234" d="4617">they don't change the layer above,
+and then you just flow your gradients</p>
+<p t="2146851" d="3524">through the maximum value
+that triggered that filter.</p>
+<p t="2177990" d="3381">So the question is, doesn't that make
+our initialization very important, and</p>
+<p t="2181371" d="1603">lead to lots of downstream problems?</p>
+<p t="2182974" d="2718">And the answer is yes,
+so likewise if you, for</p>
+<p t="2185692" d="4119">instance, initialize all your filter
+weights such as your rectified</p>
+<p t="2189811" d="4629">linear units all return zero then,
+you're not gonna learn anything.</p>
+<p t="2194440" d="3734">So you have to initialize your
+weights such that in the beginning,</p>
+<p t="2198174" d="3743">most of your units are active and
+something will actually happen.</p>
+<p t="2201917" d="5352">And then the main trick to, or the way,
+the reason why it doesn’t hurt</p>
+<p t="2207269" d="5472">a ton to have these different
+randomizations, you have lots filters.</p>
+<p t="2212741" d="3477">And each filter can start to pick up
+different kinds of signals during</p>
+<p t="2216218" d="1762">the optimization.</p>
+<p t="2217980" d="3030">But, in general, yes,
+these models are highly non-convex and</p>
+<p t="2221010" d="3110">if you initialize them incorrectly,
+they won’t learn anything.</p>
+<p t="2224120" d="2587">But we have relatively
+stable initialization</p>
+<p t="2226707" d="2860">schemes at this point that
+just work in most cases.</p>
+<p t="2232823" d="2107">Great questions, all right I like it.</p>
+<p t="2236250" d="7326">All right, so we basically now have,
+we're almost at the final model.</p>
+<p t="2243576" d="2473">But there's another idea here And</p>
+<p t="2246049" d="6341">that combines what we've learned about
+word vectors, but extends it a little bit.</p>
+<p t="2252390" d="5620">And namely, instead of representing the
+sentence only as a single concatenation</p>
+<p t="2258010" d="3300">of all the word vectors, we'll actually
+start with two copies of that.</p>
+<p t="2261310" d="3815">And then we're going to backpropagate into</p>
+<p t="2265125" d="4236">one of these two channels and
+not into the other.</p>
+<p t="2269361" d="2059">So why do we do this?</p>
+<p t="2271420" d="3534">Remember we had this lecture where
+I talked about the television and</p>
+<p t="2274954" d="3100">the telly, and
+as you back-propagate into word vectors,</p>
+<p t="2278054" d="3729">they start to move away from their
+Glove or word2vec initialization.</p>
+<p t="2281783" d="3667">So again, just quick recap,
+word vectors are really great.</p>
+<p t="2285450" d="2477">We can train them on a very
+large unsupervised scope so</p>
+<p t="2287927" d="1855">they capture semantic similarities.</p>
+<p t="2289782" d="4808">Now if you start backpropagating your
+specific task into the word vectors,</p>
+<p t="2294590" d="1680">they will start to move around.</p>
+<p t="2296270" d="4846">When you see that word vector in your
+supervised classification problem in that</p>
+<p t="2301116" d="662">dataset.</p>
+<p t="2301778" d="3401">Now what that means is as you
+push certain vectors that you see</p>
+<p t="2305179" d="2468">in your training data sets somewhere else,</p>
+<p t="2307647" d="4402">the vectors that you don't see in your
+training data set stay where they are and</p>
+<p t="2312049" d="3613">now might get misclassified if
+they only appear in the test set.</p>
+<p t="2315662" d="4474">So by having these two channels We'll
+basically try to have some of the goodness</p>
+<p t="2320136" d="1269">of really trainings,</p>
+<p t="2321405" d="3995">the first copy of the word vectors
+to be really good on that task.</p>
+<p t="2325400" d="4171">But the second set of word vectors to
+stay where they are, have the good, nice,</p>
+<p t="2329571" d="4299">general semantic similarities in vector
+space goodness that we have from unlarge</p>
+<p t="2333870" d="1639">and supervised word vectors.</p>
+<p t="2339504" d="4171">And in this case here, both of these
+channels are actually going to be added to</p>
+<p t="2343675" d="4379">each of the CIs before we max-pool, so
+we will pool over both of those channels.</p>
+<p t="2348054" d="5974">Now, the final model, and this is the
+simplest, one I'll get to you in a second.</p>
+<p t="2354028" d="4314">Is basic just concatenating
+all this c hats,</p>
+<p t="2358342" d="4769">so remember each c hats
+was one max pool filter.</p>
+<p t="2364620" d="4440">And we have this case here
+that say m many filters.</p>
+<p t="2369060" d="2300">And so our final feature vector for</p>
+<p t="2371360" d="5310">that sentence,
+has just an r n-dimensional vector,</p>
+<p t="2376670" d="4240">where we have m many different filters
+that we convolved over the sentence.</p>
+<p t="2381910" d="3840">And then we'll just plug that
+z directly into softmax, and</p>
+<p t="2385750" d="3460">train this with our standard logistic
+regression cross entropy error.</p>
+<p t="2390780" d="780">All right, we had a question?</p>
+<p t="2399467" d="4623">By having two copies of the work vectors,
+are we essentially doubling the size?</p>
+<p t="2404090" d="4730">Well, we're certainly doubling
+the memory requirements of that model.</p>
+<p t="2408820" d="3724">And we just kinda assume, you could
+think of it as doubling the size of</p>
+<p t="2412544" d="4113">the word vectors, and then the important
+part is that only the second half of</p>
+<p t="2416657" d="3745">the word vectors you're going to
+back propagate into for that task.</p>
+<p t="2428610" d="2880">That's right, we can use the same
+convolutional weights, or</p>
+<p t="2431490" d="3370">you can also use different convolutional
+weights, and then filter, and</p>
+<p t="2434860" d="3285">you can have multiple, and this model
+will have many of them actually.</p>
+<p t="2438145" d="6131">It could have 100 bigram filters,
+100 trigram filters,</p>
+<p t="2444276" d="5934">maybe 24 filters, and
+maybe even some unigram filters.</p>
+<p t="2450210" d="3270">So you can have a lot of different hyper
+parameters on these kinds of models.</p>
+<p t="2453480" d="1447">So quickly.</p>
+<p t="2471412" d="4153">For a given sentence does
+the convolutional matrix stay the same?</p>
+<p t="2475565" d="3450">So this matrix is the only
+matrix that we have.</p>
+<p t="2479015" d="2960">This is just our standard soft matrix and</p>
+<p t="2481975" d="4950">then before we had these w filters,
+these vectors.</p>
+<p t="2486925" d="5779">And yes each w is the same as you convolve
+it over all the windows of one sentence.</p>
+<p t="2498600" d="4972">So lots of inner products for
+a bunch of concatenated word vectors,</p>
+<p t="2503572" d="5098">and then you max pool, find the largest
+value from all the n-grams.</p>
+<p t="2508670" d="5396">And that's a CNN layer and</p>
+<p t="2514066" d="3682">a pooling layer.</p>
+<p t="2517748" d="3742">Now, here's graphical description of that.</p>
+<p t="2522830" d="7100">Here, instead of concatenating them,
+this just kind of simplified this, so</p>
+<p t="2529930" d="5110">imagine here you have n same notation.</p>
+<p t="2535040" d="5040">We have n many words in that sentence,
+and each word has</p>
+<p t="2540080" d="5800">k as a k dimensional feature vector,
+or word vector associated with it.</p>
+<p t="2545880" d="5205">So these could be our glove or
+other word to vector initializations, and</p>
+<p t="2551085" d="5632">now this particular model here shows us
+two applications of a bigram filter and</p>
+<p t="2556717" d="2513">one of a trigram filter.</p>
+<p t="2559230" d="7339">So here this bigram filter looks at
+the concatenation of these two vectors and</p>
+<p t="2566569" d="4541">then max pool them into a single number.</p>
+<p t="2573330" d="2544">And as you go through this,</p>
+<p t="2575874" d="5319">you'll basically get lots
+of different applications.</p>
+<p t="2581193" d="4329">And you basically, for
+each of the features,</p>
+<p t="2585522" d="3885">you'll get one long set of features, and</p>
+<p t="2589407" d="5439">then you'll get a single number
+after max pooling over all</p>
+<p t="2594846" d="5010">these activations from
+[INAUDIBLE] grand positions.</p>
+<p t="2602473" d="5608">So you see here for instance so
+the bigram filter is this channel and</p>
+<p t="2608081" d="3341">then we'll basically max pool.</p>
+<p t="2611422" d="4918">Over that, again, notice how here they use
+indeed the same filter on the second word</p>
+<p t="2616340" d="3271">vector channel,
+the one we might back propagate into.</p>
+<p t="2619611" d="3139">But they will all
+basically end up in here.</p>
+<p t="2622750" d="4580">So just, again, inner products
+plus bias and non linearity and</p>
+<p t="2627330" d="4050">then we'll max pool all those numbers
+into a single number up there.</p>
+<p t="2631380" d="3780">And now,
+a different namely this guy up there.</p>
+<p t="2635160" d="4994">The trigram also convolves over that
+sentence and basically combines a bunch of</p>
+<p t="2640154" d="4783">different numbers here and then gets
+max pooled over a single number there.</p>
+<p t="2665007" d="823">Great question.</p>
+<p t="2665830" d="4840">So do we always max
+pool over particularly,</p>
+<p t="2670670" d="4720">just a set of features that are all
+coming from the same filter.</p>
+<p t="2675390" d="2110">And the answer is in this model we do, and</p>
+<p t="2677500" d="2670">it's the simplest model that
+actually works surprisingly well.</p>
+<p t="2680170" d="4765">But there are going to be,
+right after our quick research highlight,</p>
+<p t="2684935" d="3415">a lot of modifications and
+tweaks that we'll do.</p>
+<p t="2688350" d="4879">There are no more questions,
+let's do the research highlight and</p>
+<p t="2693229" d="3941">then we'll get to how to tune
+that model should be on.</p>
+<p t="2697170" d="665">&gt;&gt; Hello?
+&gt;&gt; Yeah.</p>
+<p t="2697835" d="707">It's cool.</p>
+<p t="2701659" d="2799">&gt;&gt; So hi, everyone, my name's Amani and
+today I thought I would share with you</p>
+<p t="2704458" d="3777">a very interesting paper called
+Character-Aware Neural Language Models.</p>
+<p t="2708235" d="3090">So on a high level as the title implies
+the main goal of this paper is to come up</p>
+<p t="2711325" d="930">with a powerful and</p>
+<p t="2712255" d="3655">robust language model that effectively
+utilizes subword information.</p>
+<p t="2715910" d="1370">So to frame this in a broader context,</p>
+<p t="2717280" d="4350">most prior neural language models do not
+really include the notion that words that</p>
+<p t="2721630" d="4040">are structurally very similar should have
+very similar representations in our model.</p>
+<p t="2725670" d="3115">Additionally, many prior neural language
+models suffered from a rare-word problem.</p>
+<p t="2728785" d="3136">Where the issue is that if we don't really
+see a word that often or at all in our</p>
+<p t="2731921" d="3284">dataset then it becomes very hard to come
+up with an accurate representation for</p>
+<p t="2735205" d="1455">that word.</p>
+<p t="2736660" d="2650">And this can be very problematic
+in languages that have long tail</p>
+<p t="2739310" d="3170">frequency distributions or in domains
+where vocabulary is constantly changing.</p>
+<p t="2743620" d="2800">So to address some of these problems,
+the authors propose the following model,</p>
+<p t="2746420" d="3070">where essentially we will read in
+our inputs at the character level,</p>
+<p t="2749490" d="3080">but then we will make our
+predictions still at the word level.</p>
+<p t="2752570" d="1390">So let's dive a little bit
+deeper into the model and</p>
+<p t="2753960" d="1180">see exactly what's happening here.</p>
+<p t="2756190" d="1590">So the first thing we do
+is that we take our input,</p>
+<p t="2757780" d="2350">and we break it apart
+into a set of characters.</p>
+<p t="2760130" d="1144">Where for each character,</p>
+<p t="2761274" d="2852">we associate it with an embedding
+that we learned during training.</p>
+<p t="2764126" d="2724">We then take the convolutional network and
+take its filters and</p>
+<p t="2766850" d="2880">convolve them over them the embeddings
+to produce a feature map.</p>
+<p t="2769730" d="3740">And finally, we apply max pooling over
+time, which intuitively is selecting out</p>
+<p t="2773470" d="2870">the dominant n-grams or substrings
+that were detected by the filters.</p>
+<p t="2777930" d="2561">We then take the output of
+the convolutional network, and</p>
+<p t="2780491" d="1419">pipe it into a highway network.</p>
+<p t="2781910" d="3374">Which we're going to use to essentially
+model the interactions between various</p>
+<p t="2785284" d="526">n-grams.</p>
+<p t="2785810" d="3440">And you can think of this layer as being
+very similar to an LSTM memory cell,</p>
+<p t="2789250" d="2630">where the idea is that we want to
+transform part of our input, but</p>
+<p t="2791880" d="2590">also keep around and
+memorize some of the original information.</p>
+<p t="2796520" d="3754">We then take the output of the highway
+network and pipe it into a single timeset</p>
+<p t="2800274" d="4305">of LSTM, which is being trained to produce
+sequence given the current inputs.</p>
+<p t="2804579" d="3834">And the only thing different to note here
+is that we're using hierarchical softmax</p>
+<p t="2808413" d="3627">to make predictions due to
+the very large output vocabulary.</p>
+<p t="2812040" d="1630">So let's analyze some of the results.</p>
+<p t="2813670" d="1760">So as we can see here from
+the table on the right,</p>
+<p t="2815430" d="3470">the model is able to obtain comparable
+performance with state of the art</p>
+<p t="2818900" d="4271">methods on the data set while utilizing
+fewer parameters in the process.</p>
+<p t="2823171" d="3669">What's also really remarkable is I was
+able to outperform its word level and</p>
+<p t="2826840" d="3060">working level counterparts across
+a variety of other rich languages,</p>
+<p t="2829900" d="3980">such as Arabic, Russian,
+Chinese, and French.</p>
+<p t="2833880" d="3220">While using, again, fewer parameters
+in the process because now</p>
+<p t="2837100" d="3320">we don't have to have an embedding for
+every single word in our vocabulary but</p>
+<p t="2840420" d="1940">now only for
+every single character that we use.</p>
+<p t="2844010" d="2510">We can also look at some of
+the qualitative results to see what is it</p>
+<p t="2846520" d="1540">the results is exactly learning.</p>
+<p t="2848060" d="2770">So in this table we have done,
+is that we have extracted the intermediate</p>
+<p t="2850830" d="3120">representations of words at
+various levels of the network and</p>
+<p t="2853950" d="2050">then computed their nearest neighbors.</p>
+<p t="2856000" d="3950">And what we find is that, after applying
+the CNN, we are grouping together words</p>
+<p t="2859950" d="3340">with strong sub-word similarity and
+that after applying the highway network,</p>
+<p t="2863290" d="3380">we are also now grouping together words
+that have strong semantic similarities.</p>
+<p t="2866670" d="3610">So now the word Richard is
+close to no other first names.</p>
+<p t="2872380" d="2620">We can also look and
+see how it handles noisy words.</p>
+<p t="2875000" d="4070">So in this case, the model is able
+to effectively handle the word look</p>
+<p t="2879070" d="2550">with a lot of O's in between,
+which it has never seen before.</p>
+<p t="2881620" d="3835">But it is now able to assign it
+to reasonable nearest neighbors.</p>
+<p t="2885455" d="3546">And on the plot on the right, what we
+see is that if we take the in-grammar</p>
+<p t="2889001" d="2923">presentations learned by the model and
+plot them with PCA.</p>
+<p t="2891924" d="3068">We see that it is able to isolate
+the ideas of suffixes, prefixes, and</p>
+<p t="2894992" d="1088">hyphenated words.</p>
+<p t="2896080" d="2640">Which shows that, at its core, the model
+really is learning something intuitive.</p>
+<p t="2900330" d="3170">So in conclusion, I wanna sort of
+highlight a few key takeaway points.</p>
+<p t="2903500" d="3730">The first is that this paper shows that
+it is possible to use inputs other than</p>
+<p t="2907230" d="2970">word embeddings to obtain superlative
+performance on language modeling.</p>
+<p t="2910200" d="2580">While using fewer
+parameters in the process.</p>
+<p t="2912780" d="978">Second it shows that,</p>
+<p t="2913758" d="3455">it demonstrates the effectiveness of
+CNNs in the domain to language modeling.</p>
+<p t="2917213" d="1872">And shows that, in this case, the CNNs and</p>
+<p t="2919085" d="2756">Highway Network are able to extract
+which types of semantic and</p>
+<p t="2921841" d="2709">orthographic information from
+the character level inputs.</p>
+<p t="2925630" d="3793">And finally, what's most important is
+that this paper is combining the ideas of</p>
+<p t="2929423" d="1395">language modelings, CNNs,</p>
+<p t="2930818" d="2255">LTMs, hierarchical softmax,
+embeddings all into one model.</p>
+<p t="2933073" d="3230">Which shows that basically we can treat
+the concepts that we've learned over</p>
+<p t="2936303" d="1947">the course of the quarter
+as building blocks.</p>
+<p t="2938250" d="3170">And learn to compose them in
+very interesting ways to produce</p>
+<p t="2941420" d="2059">more powerful or more nuanced models.</p>
+<p t="2943479" d="3566">And that is a very useful insight to have
+as you approach some of your own projects,</p>
+<p t="2947045" d="1765">not only in the class, but also beyond.</p>
+<p t="2949850" d="2288">And with that, I would like to conclude
+and thank you for your attention.</p>
+<p t="2952138" d="6992">&gt;&gt; [APPLAUSE]
+&gt;&gt; Character models are awesome.</p>
+<p t="2959130" d="3350">Usually when you have a larger downstream
+task, like question answering or</p>
+<p t="2962480" d="4990">machine translation, they can give
+you 2 to 5% boost in accuracy.</p>
+<p t="2967470" d="3580">Sadly, when you run any kind
+of model over characters,</p>
+<p t="2971050" d="3930">you think you have a sentence or
+document with 500 words.</p>
+<p t="2974980" d="5120">Well, now you have a sequence
+of 500 times maybe 5 or</p>
+<p t="2980100" d="5820">10 characters, so now you have
+a 5,000 dimensional time sequence.</p>
+<p t="2985920" d="4380">And so when you train your
+model with character levels,</p>
+<p t="2990300" d="4200">think extra hard about how long it
+will take you to run your experiments.</p>
+<p t="2994500" d="2300">So it's kind of a very clear,</p>
+<p t="2996800" d="4710">sort of accuracy versus time
+tradeoff in many cases.</p>
+<p t="3003742" d="3918">All right, so I mentioned the super
+simple model where we really just</p>
+<p t="3007660" d="2880">do a couple of inner products,
+over a bunch of these filters,</p>
+<p t="3010540" d="3560">find the max, and
+then pipe all of that into the softmax.</p>
+<p t="3014100" d="5396">Now that by itself doesn't work to get
+you into state-of-the-art performance so</p>
+<p t="3019496" d="4186">there are a bunch of tricks that
+were employed by Kim In 2014.</p>
+<p t="3023682" d="4328">And I'm going to go through a couple
+of them since they apply to a lot of</p>
+<p t="3028010" d="4290">different kinds of models that
+you might wanna try as well.</p>
+<p t="3032300" d="3688">The first one is one that I think
+we've already covered, dropout, but</p>
+<p t="3035988" d="1342">we did right?</p>
+<p t="3037330" d="4732">But it's a really neat trick and you can
+apply it lots of different contexts.</p>
+<p t="3042062" d="3835">And its actually differently applied for
+convolutional networks and</p>
+<p t="3045897" d="1626">recurrent neural networks.</p>
+<p t="3047523" d="3093">So it's good to look at
+another application here for</p>
+<p t="3050616" d="2824">this particular convolution
+neural network.</p>
+<p t="3053440" d="4750">So just to recap, the idea was to
+essentially randomly mask or dropout or</p>
+<p t="3058190" d="5090">set to 0 some of the feature weights that
+you have in your final feature vector.</p>
+<p t="3063280" d="1580">And in our case that was z,</p>
+<p t="3064860" d="4520">remember z was just a concatenation
+of the max built filters.</p>
+<p t="3069380" d="5310">And another way of saying that is that
+we're going to create a mask vector r.</p>
+<p t="3074690" d="4681">Of basically, random Bernoulli
+distributed variables with</p>
+<p t="3079371" d="3789">probability that I would
+probability p set to 1.</p>
+<p t="3084600" d="2310">And probably 1 minus p set to 0.</p>
+<p t="3087990" d="3440">And so what this ends up doing
+is to essentially delete</p>
+<p t="3091430" d="2430">certain features at training time.</p>
+<p t="3093860" d="3705">So as you go through all your filters,
+and you actually had a great biagram.</p>
+<p t="3097565" d="3256">And another good biagram,
+it might accidentally or</p>
+<p t="3100821" d="2619">randomly delete one of the two biagrams.</p>
+<p t="3103440" d="2740">And what that essentially helps us to do</p>
+<p t="3106180" d="4770">is to have the final classifier not
+overfit to say, it's only positive for</p>
+<p t="3110950" d="2610">instance if I see these
+exact two biagrams together.</p>
+<p t="3113560" d="2565">Maybe it's also positive if I
+see just one of the biagrams.</p>
+<p t="3118550" d="4540">So another way of saying that is
+that it will prevent co-adaptation</p>
+<p t="3123090" d="2130">of these different kinds of features.</p>
+<p t="3125220" d="1688">And it's a very, very useful thing.</p>
+<p t="3126908" d="4980">Basically every state-of-the-art
+model out there that you'll observe,</p>
+<p t="3131888" d="4829">hopefully somewhere in its experimental
+section it will tell you how much it</p>
+<p t="3136717" d="4240">dropped out of weights and
+what exactly the scheme of dropout was.</p>
+<p t="3140957" d="3324">Cuz you can dropout, for instance,
+through recurrent neural network,</p>
+<p t="3144281" d="2679">you can dropout the same set of
+features at every time step or</p>
+<p t="3146960" d="2160">different sets of features
+at every time step.</p>
+<p t="3149120" d="2650">And it all makes a big
+difference actually.</p>
+<p t="3151770" d="7432">So this is a great paper by Geoff Hinton
+and a bunch of collaborators from 2012.</p>
+<p t="3159202" d="4624">Now, if you carefully think through what
+happens here, well, at training time,</p>
+<p t="3163826" d="4047">we're basically, let's say it's 0.5,
+probability p is 0.5.</p>
+<p t="3167873" d="3762">So half of all the features are randomly
+getting deleted at training time.</p>
+<p t="3171635" d="5300">Well then, the model is going to
+get used to seeing a much smaller</p>
+<p t="3176935" d="4918">in norm feature vector z or
+had a more product here or time z.</p>
+<p t="3181853" d="3699">And so, basically at test time,
+when there's no dropout,</p>
+<p t="3185552" d="3858">of course at test time,
+we don't want to delete any features.</p>
+<p t="3189410" d="3330">We want to use all the information
+that we have from the sentence,</p>
+<p t="3192740" d="3150">our feature vector z
+are going to be too large.</p>
+<p t="3195890" d="1980">And so what we'll do is,
+in this care here,</p>
+<p t="3197870" d="4330">we'll actually scale the final vector
+by the Bernoulli probability p.</p>
+<p t="3202200" d="2387">So, our Ws here, the softmax weights,</p>
+<p t="3204587" d="3525">are just going to be multiplied,
+and essentially halved.</p>
+<p t="3208112" d="987">And that way,</p>
+<p t="3209099" d="4861">we'll end up in the same order of
+magnitude as we did at training time.</p>
+<p t="3216093" d="4193">Any questions about dropout?</p>
+<p t="3229543" d="857">What's the intuition?</p>
+<p t="3230400" d="3180">So some people liken dropout
+to assembling models.</p>
+<p t="3233580" d="3976">And intuitively here you could have,
+let's say,</p>
+<p t="3237556" d="6020">deterministically you were dropping out
+the first half of all your filters.</p>
+<p t="3243576" d="3095">And you only train one model on
+the first half of the filters, and</p>
+<p t="3246671" d="3299">you train the second model on
+the second half of the filters.</p>
+<p t="3249970" d="2750">And then in the end you average the two.</p>
+<p t="3252720" d="1430">That's kind of similar, but</p>
+<p t="3254150" d="3459">in a very noisy variant of what
+you end up doing with dropout.</p>
+<p t="3259750" d="4460">And so, in many cases this can give
+you like 2%-4% improved accuracy.</p>
+<p t="3264210" d="4367">And when we look a the numbers, you'll
+notice that it's those 2%-4% that gets you</p>
+<p t="3268577" d="2847">that paper published and
+people looking at your method.</p>
+<p t="3271424" d="3873">Whereas if it's 4% below,
+it's getting closer and</p>
+<p t="3275297" d="4894">closer to a very simple back or
+forwards model with discrete counts.</p>
+<p t="3286047" d="2963">Is it possible to dropout
+the link instead of the node?</p>
+<p t="3290240" d="4430">So you could actually dropout some
+of the weight features as well.</p>
+<p t="3294670" d="3570">And yes, there is actually
+another variant of dropout.</p>
+<p t="3298240" d="4240">There's the filter weight dropout and
+there is the activation dropout.</p>
+<p t="3303530" d="3380">So in this case here we
+have activation dropout.</p>
+<p t="3306910" d="2760">And they have different advantages and
+disadvantages.</p>
+<p t="3309670" d="3476">I think it's fair to say that,
+especially for NLP,</p>
+<p t="3313146" d="3720">the jury is still out on which
+one should you always use.</p>
+<p t="3316866" d="4982">I think the default, you just filter
+out and the original dropout is just</p>
+<p t="3321848" d="4342">to set to 0 randomly the activations and
+not the filter reads.</p>
+<p t="3327307" d="7263">All right, now, one last question.</p>
+<p t="3339756" d="3544">So basically,
+this will have a certain norm.</p>
+<p t="3343300" d="5561">And at training time, the norm of this
+is essentially, say halved if you have</p>
+<p t="3348861" d="6369">a probability of p To multiply
+the features with zero.</p>
+<p t="3356330" d="5940">And so what that means is that, overall,
+this matrix vector product will have</p>
+<p t="3362270" d="3820">a certain size and a certain certainty
+also, once you apply the softmax.</p>
+<p t="3367320" d="3610">And if you don't wanna basically
+be overly confident in anything,</p>
+<p t="3370930" d="5110">you wanna scale your W because at test
+time you will not drop out anything.</p>
+<p t="3376040" d="4560">You will have the full z vector, not
+half of all the values of the z vector.</p>
+<p t="3380600" d="3746">And so at test time you wanna use as
+much information you can get from z.</p>
+<p t="3384346" d="4594">And because of that,
+you now have a larger norm for z.</p>
+<p t="3388940" d="2290">And hence,
+you're going to scale back W, so</p>
+<p t="3391230" d="2970">that the multiplication of the two
+ends up in roughly the same place.</p>
+<p t="3403066" d="2124">Very good question, so
+what's the softmax here?</p>
+<p t="3405190" d="4790">So, basically z was our vector for
+some kind of sentence.</p>
+<p t="3409980" d="3460">And I use the example sentiment because
+that is one of the many tasks that</p>
+<p t="3413440" d="920">you could do with this.</p>
+<p t="3414360" d="5065">So, generally sentence classification,
+or document classification,</p>
+<p t="3419425" d="3745">are the sort of most common task
+that you would use this model for.</p>
+<p t="3423170" d="7149">We'll go over a bunch of examples in three
+slides or so and a bunch of data sets.</p>
+<p t="3431566" d="617">Awesome, so</p>
+<p t="3432183" d="3998">now there's one last regularization trick
+that this paper by Kim used in 2014.</p>
+<p t="3436181" d="3569">It's actually not one that
+I've seen anywhere else.</p>
+<p t="3439750" d="2980">And so I don't think we'll have to
+spend too much time on it but they</p>
+<p t="3442730" d="4440">essentially also constrain the l2 norm of
+the wave vectors of each of the classes.</p>
+<p t="3447170" d="4820">So we have here, remember this is
+our softmax weight matrix W and</p>
+<p t="3451990" d="4640">c dot was the row for the cth class.</p>
+<p t="3456630" d="4560">And they basically have this additional
+scheme here where whenever the norm</p>
+<p t="3461190" d="3855">of one of the rows for one of these
+classes is above a certain threshold, S.</p>
+<p t="3465045" d="2375">Which is another
+hyperparameter they'll select,</p>
+<p t="3467420" d="1648">it will rescale it to be exactly S.</p>
+<p t="3469068" d="3348">So basically they'll force the model
+to never be too certain and</p>
+<p t="3472416" d="2669">have very large weights for
+any particular class.</p>
+<p t="3475085" d="4663">Now it's a little weird cuz in general
+we have l2 regularization on all</p>
+<p t="3479748" d="1642">the parameters anyway.</p>
+<p t="3482455" d="1840">But they saw a minor improvement.</p>
+<p t="3484295" d="3926">It's actually the only paper that I can
+remember in recent years that does that,</p>
+<p t="3488221" d="2321">so I wouldn't overfit
+too much on trying that.</p>
+<p t="3490542" d="5531">Now, it's important to set back and
+think carefully.</p>
+<p t="3496073" d="4915">I described this model and I described it
+very carefully but when you think about</p>
+<p t="3500988" d="4566">it, you now have a lot of different
+kinds of tweaks and hyperparameters.</p>
+<p t="3505554" d="3983">And you have to be very conscious in all
+your projects and every application in</p>
+<p t="3509537" d="4643">industry and research and everywhere of
+what your hyperparameters really are.</p>
+<p t="3514180" d="4710">And which ones actually matter to your
+final performance, how much they matter.</p>
+<p t="3518890" d="1514">And in an ideal world,</p>
+<p t="3520404" d="5284">you'll actually run an ablation where
+maybe you have these two word vectors.</p>
+<p t="3525688" d="2162">The ones you back propagate into and then
+the ones you don't back propagate into.</p>
+<p t="3527850" d="2030">How much does that actually help?</p>
+<p t="3529880" d="5300">Sadly, in very few examples,
+people actually properly ablate,</p>
+<p t="3535180" d="2800">and properly show you all
+the experiments they ran.</p>
+<p t="3537980" d="6761">And so let's go over the options and the
+final hyperparameters that Kim chose for</p>
+<p t="3544741" d="4684">this particular convolutional
+neural network model.</p>
+<p t="3549425" d="3420">The one amazing thing is they actually
+had the same set of hyperparameters for</p>
+<p t="3552845" d="1690">a lot of the different experiments.</p>
+<p t="3554535" d="2629">A lot of these are sentiment analysis,</p>
+<p t="3557164" d="4473">subjectivity classification,
+as most of the experiments here.</p>
+<p t="3561637" d="3398">But they had the same set of
+hyperparameters, which is not very common.</p>
+<p t="3565035" d="3695">Sometimes you also say, all right,
+here are all my options.</p>
+<p t="3568730" d="1900">And now, for every one of my datasets,</p>
+<p t="3570630" d="4210">I will run cross-validation over
+all the potential hyperparameters.</p>
+<p t="3574840" d="4520">Which, if you think about it,
+is exponential, so it would be too many.</p>
+<p t="3579360" d="4180">So then, the right thing to often do
+is actually to set boundaries for</p>
+<p t="3583540" d="990">all your hyperparameters.</p>
+<p t="3584530" d="3570">And then, randomly just sample
+in between those boundaries.</p>
+<p t="3588100" d="4780">So for instance, let's say you might
+have 100 potential feature maps for</p>
+<p t="3592880" d="3560">each filter, for each window size.</p>
+<p t="3596440" d="2926">Now you say, all right,
+maybe I'll have between 20 and 200.</p>
+<p t="3599366" d="3755">And you just say, for
+each of my cross-validation experiments,</p>
+<p t="3603121" d="3429">I will randomly sub sample
+a number between 20 and 200.</p>
+<p t="3606550" d="3060">Then, I'll run experiments
+with this number of filters</p>
+<p t="3609610" d="2740">on my developments split and
+I'll see how well I do.</p>
+<p t="3612350" d="3610">And you say I have maybe 100
+experiments of this kind.</p>
+<p t="3615960" d="3475">You'll quickly notice that, again,
+why you need to start your project early.</p>
+<p t="3619435" d="3975">Cuz your performance will also depend
+highly on your hyperparameters.</p>
+<p t="3623410" d="2030">And if you don't have
+time to cross-validate,</p>
+<p t="3625440" d="2340">you may lose out on some of the accuracy.</p>
+<p t="3627780" d="3750">And especially as you get closer to
+potentially state-of-the-art results,</p>
+<p t="3631530" d="2360">which I think some of the groups will.</p>
+<p t="3633890" d="4420">That last couple percent that you can
+tweak and squeeze out of your model with</p>
+<p t="3638310" d="4160">proper hyperparameter search can
+make the difference between having</p>
+<p t="3642470" d="4140">a paper submission or having a lot of
+people be very excited about your model.</p>
+<p t="3646610" d="2170">Or ignoring it, sadly.</p>
+<p t="3648780" d="500">Yep.</p>
+<p t="3653762" d="1708">Great question.</p>
+<p t="3655470" d="2890">Do you do that sampling for
+one hyperparameter at a time or not?</p>
+<p t="3658360" d="4930">In the end, in the limit,
+it doesn't matter which scheme you use.</p>
+<p t="3663290" d="3200">But in practice, you set the ranges for
+all your hyperparameters and</p>
+<p t="3666490" d="1950">then you sample all of them for
+each of your runs.</p>
+<p t="3669820" d="840">And it's very,</p>
+<p t="3670660" d="4020">very counterintuitive that that would
+work better than even a grid search.</p>
+<p t="3674680" d="3970">Where you say, all right,
+instead of having 100 feature maps and</p>
+<p t="3678650" d="1930">randomly sample between 20 and 200.</p>
+<p t="3680580" d="4422">I'm gonna say, I'm gonna try it for
+20, 50, 75, 100, 150, or</p>
+<p t="3685002" d="1915">200, or something like that.</p>
+<p t="3686917" d="2595">And then I just multiply all these six or
+so</p>
+<p t="3689512" d="3528">options with all the other
+options that I have.</p>
+<p t="3693040" d="3720">It quickly blows up to a very,
+very large number.</p>
+<p t="3696760" d="4210">Let's say each of these you
+try five different options,</p>
+<p t="3700970" d="4640">that's five to the number of many
+hyperparameters that you have.</p>
+<p t="3705610" d="2690">Which if you have ten parameters or
+so that's 5 to the 10,</p>
+<p t="3708300" d="5320">that's impossible to run a proper grid
+search on all these hyperparameters.</p>
+<p t="3713620" d="3870">It turns out computationally and through
+a variety of different experiments,</p>
+<p t="3717490" d="3820">I think the papers by Yoshua Bengio and
+some of his students a couple years ago.</p>
+<p t="3721310" d="3169">That random hyperparameter search,
+works surprisingly well, and</p>
+<p t="3724479" d="2742">sometimes even better than
+a relatively fine grid search.</p>
+<p t="3733474" d="3826">Until you run out of money on your GPU.</p>
+<p t="3737300" d="2070">Or until the paper
+deadline comes around or</p>
+<p t="3739370" d="2050">the class project deadline comes around,
+yeah.</p>
+<p t="3741420" d="1540">In the perfect setting,</p>
+<p t="3742960" d="5760">you have the final model that you think
+has all the ingredients that you'd want.</p>
+<p t="3748720" d="3610">And then you can let it run
+until you run out of resources.</p>
+<p t="3752330" d="2040">Either or time, or money, or GPU time,</p>
+<p t="3754370" d="5042">or you annoy all your co-PhD students,
+such as I did a couple years ago.</p>
+<p t="3759412" d="4241">[LAUGH] Fortunately, we learned at
+some point to have, what is it,</p>
+<p t="3763653" d="4191">preemptable jobs, so that I could run,
+use the entire cluster.</p>
+<p t="3767844" d="3297">But then when somebody else
+wants to use the machine,</p>
+<p t="3771141" d="4760">it'll just put my job into the cache,
+onto memory, or even save it to disk and</p>
+<p t="3775901" d="2499">anybody else can kinda sort of come in.</p>
+<p t="3778400" d="3390">But yeah, ideally you’ll run with all
+the computational resources you have.</p>
+<p t="3781790" d="850">And, of course,</p>
+<p t="3782640" d="4010">this is depending on how much you
+care about that last bit of accuracy.</p>
+<p t="3786650" d="1910">For some of the papers it
+can really matter, for</p>
+<p t="3788560" d="1960">some applications if
+your work in medicine.</p>
+<p t="3791520" d="3380">You try to classify breast cancer or
+something really serious, of course,</p>
+<p t="3794900" d="3230">you want to squeeze out as much
+performance as you possibly can.</p>
+<p t="3798130" d="3605">And use as many computational
+resources to run more hyperparameters.</p>
+<p t="3806748" d="4200">So there are actually some
+people who tried various</p>
+<p t="3810948" d="4983">interesting Bayesian models of
+Gaussian processes to try to</p>
+<p t="3815931" d="5009">identify the overall function
+into hyperparameter space.</p>
+<p t="3820940" d="2660">So you basically run a meta optimization.</p>
+<p t="3823600" d="4820">Where instead of optimizing over
+the actual parameters w of your model,</p>
+<p t="3828420" d="4620">you've run an optimization over
+the hyperparameters of those models.</p>
+<p t="3833040" d="4639">Can do that,
+it turns out The jury is sort of out, but</p>
+<p t="3837679" d="3874">a lot of people now say just do
+a random hyperparameter search.</p>
+<p t="3841553" d="2606">It's very surprising,
+but that is, I think,</p>
+<p t="3844159" d="3793">what the current type of hypothesis is for
+being the best way to do it.</p>
+<p t="3854682" d="828">You can't.</p>
+<p t="3855510" d="2800">So the question is how do we make
+sure the same set of hyper parameters</p>
+<p t="3858310" d="1050">end up with the same results?</p>
+<p t="3859360" d="4810">They never do, and some people, this gets,</p>
+<p t="3864170" d="1570">we could talk a lot about this,
+this is kind of fun.</p>
+<p t="3865740" d="4350">This is like the secret sauce in some ways
+of the learning, but some people also say,</p>
+<p t="3870090" d="4470">I'm going to run the same model with
+the same hyper parameters five times, and</p>
+<p t="3874560" d="3950">then I'm going to average and ensemble
+those five models, because they're all end</p>
+<p t="3878510" d="3670">up in a different local optimum and
+that assembling can also often help.</p>
+<p t="3882180" d="4280">So at the end of every project that you're
+in, if you have 100 models that you've</p>
+<p t="3886460" d="6120">trained, you could always take the top 5
+models that you've had over the course of</p>
+<p t="3892580" d="2730">your project, and ensemble that, and you'd
+probably squeeze out another 1 or 2%.</p>
+<p t="3895310" d="4600">But again, probably don't have to go
+that far for your class projects.</p>
+<p t="3899910" d="3220">It's only if it really matters and
+you're down some application,</p>
+<p t="3903130" d="3170">medical applications or
+whatever, to need to do that.</p>
+<p t="3906300" d="4820">And in many cases what you'll observe
+is in papers in competitions,</p>
+<p t="3911120" d="4230">people write this is my best single model
+and this is my best ensemble model.</p>
+<p t="3915350" d="2780">And then in the best ensemble model
+you can claim state of the art and</p>
+<p t="3918130" d="2960">the best single model might be sometimes
+also the best single model, but</p>
+<p t="3921090" d="2250">sometimes you also have
+a more diverse setup model,</p>
+<p t="3923340" d="4075">so all right last question about
+assembling and crazy model header.</p>
+<p t="3927415" d="4765">[BLANK</p>
+<p t="3932180" d="6090">AUDIO] Great question.</p>
+<p t="3938270" d="1890">Why does ensembling still work?</p>
+<p t="3940160" d="2570">And shouldn't we just have
+a better single model?</p>
+<p t="3942730" d="1230">You're totally right.</p>
+<p t="3943960" d="3390">There are various ML researchers who say,
+I don't like ensembling at all.</p>
+<p t="3947350" d="2540">We should just work harder
+on better single models.</p>
+<p t="3949890" d="5850">And dropout is actually one such idea that
+you can do there, other optimization,</p>
+<p t="3955740" d="5130">ideas that try to incorporate that,
+yeah you're right.</p>
+<p t="3960870" d="3710">In some ways, what that means is we still
+don't have the perfect optimization</p>
+<p t="3964580" d="5789">algorithms that properly explore the
+energy landscape of our various models.</p>
+<p t="3971400" d="3960">All right, so let's go over the extra
+hyperparameters that they used here.</p>
+<p t="3975360" d="5720">So basically we want to find all
+these hyperparameters on the dev set.</p>
+<p t="3981080" d="820">Super important,</p>
+<p t="3981900" d="4860">you get minus 10% if I see you run on
+the final test set all your hyperparameter</p>
+<p t="3986760" d="5010">optimization, because that means you're
+now overfitting to your final test set.</p>
+<p t="3991770" d="2180">One of the number one 101
+machine learning rules.</p>
+<p t="3993950" d="4300">Never run all your hyperparameter across
+validation on your final test set.</p>
+<p t="3998250" d="4120">That's the one thing you want to run maybe
+once or twice, it can ruin your entire</p>
+<p t="4002370" d="3820">career if you do that and
+you publish it, it's never worth it.</p>
+<p t="4006190" d="1050">Don't do it.</p>
+<p t="4007240" d="5060">All right, so on the development set,
+on your development test set, your, or</p>
+<p t="4012300" d="5790">sometimes called dev set, we or Kim here
+tried various different nonlinearities and</p>
+<p t="4018090" d="2050">in the end chose the rectify linear unit.</p>
+<p t="4020140" d="1280">So that's actually very common,</p>
+<p t="4021420" d="3410">and nowadays you almost don't
+have to run and try that.</p>
+<p t="4024830" d="2200">You just use rally as the default.</p>
+<p t="4027030" d="5860">He had try grams, four grams and
+five grams for the various filter sizes.</p>
+<p t="4032890" d="3300">Somewhat surprising,
+note by grams, that surprised me.</p>
+<p t="4036190" d="4380">He had 100 different feature maps for
+each of these sizes.</p>
+<p t="4040570" d="2610">So 100 tri-gram filters, 100 4-gram
+filters, and 100 5-gram filters.</p>
+<p t="4044890" d="1020">So the more you have,</p>
+<p t="4045910" d="3940">the more likely each of them can
+capture different kinds of things.</p>
+<p t="4049850" d="3720">So if you have, for instance, just
+a simple sentiment classifier, you can</p>
+<p t="4053570" d="4520">have 100 shots at trying to capture
+various types of negation, for instance.</p>
+<p t="4059370" d="4320">Then drop out just simple in
+the middle half of the time</p>
+<p t="4063690" d="1670">all the features are set to zero.</p>
+<p t="4066400" d="4839">He chose for this funky
+regularization trick, s equals three.</p>
+<p t="4072490" d="3120">Somewhat surprising your mini
+batch size will often also change</p>
+<p t="4075610" d="2440">your performance significantly.</p>
+<p t="4078050" d="3830">So, you don't usually want to have
+gigantic mini batch sizes for</p>
+<p t="4081880" d="2010">most NLP models.</p>
+<p t="4083890" d="2950">So here you had a mini batch size of 50.</p>
+<p t="4086840" d="4745">During mini batch SGD training and
+to use the word vectors</p>
+<p t="4091585" d="4515">pre-trained on a large corpus and
+you had 300 dimensional word vectors.</p>
+<p t="4096100" d="4571">So that was a lot of hyper parameter
+search you can think that was going on in</p>
+<p t="4100671" d="1862">the background here, yeah.</p>
+<p t="4110179" d="2739">Wouldn't a higher mini batch size
+guarantee that we have less noise</p>
+<p t="4112918" d="731">while training?</p>
+<p t="4113649" d="4309">The answer is yes, but
+you actually want the noise.</p>
+<p t="4117958" d="3112">You have a very nonconvex
+objective function here.</p>
+<p t="4121070" d="5240">And, what dropout does in SGD is
+to actually introduce noise so</p>
+<p t="4126310" d="3510">that you're more likely to explore the
+energy landscape, instead of just being</p>
+<p t="4129820" d="3560">very certain about being stuck in one
+of the many local optimi that you have.</p>
+<p t="4133380" d="3280">So, a lot of optimization tricks and</p>
+<p t="4136660" d="3730">training tricks of neural networks
+in the last couple years can</p>
+<p t="4140390" d="2920">be described as adding noise
+into the optimization process.</p>
+<p t="4144830" d="2140">And now, this one here's also
+super important during training,</p>
+<p t="4146970" d="1370">how do you select your best model?</p>
+<p t="4148340" d="5890">So one option is you just let it run, and
+at the very end you take that last output.</p>
+<p t="4154230" d="4286">But what you'll often observe
+is a pattern like this.</p>
+<p t="4158516" d="3054">Let's say you start training.</p>
+<p t="4161570" d="5400">So these are your iterations, and this
+might be your accuracy or your f1 score,</p>
+<p t="4166970" d="3530">your wu score, your blue score,
+whatever you're using for your model.</p>
+<p t="4170500" d="8670">And now, you'll often observe something
+like this, as you train over time.</p>
+<p t="4179170" d="4640">And now, if you take just
+the very last one, maybe here.</p>
+<p t="4183810" d="4567">Maybe that wasn't as good as this
+random spot that as it did stochastic</p>
+<p t="4188377" d="3823">gradient descent, it found just a randomly
+really good spot on your dev set, and</p>
+<p t="4192200" d="3030">so what Kim does and
+what actually a lot of people do</p>
+<p t="4195230" d="2910">is during training you keep
+checking the performance here.</p>
+<p t="4198140" d="4770">Again this is your
+development accuracy and</p>
+<p t="4202910" d="2400">then you pick the one with
+the highest accuracy and</p>
+<p t="4205310" d="3380">you set those weights to be the weights
+for that particular experiment.</p>
+<p t="4211484" d="3297">And another side trick, just because
+they're fun, you can also sample multiple</p>
+<p t="4214781" d="2749">times, and then ensemble those weights or
+average those weights.</p>
+<p t="4217530" d="2260">And that sometimes also works better,
+all right.</p>
+<p t="4219790" d="840">Still some black magic.</p>
+<p t="4222110" d="5787">All right, so that was a lot of good
+details for how you tune Junior models.</p>
+<p t="4227897" d="4469">So here now some of the results, so here
+we basically have only sadly in this whole</p>
+<p t="4232366" d="4011">paper four implementations, and four of
+the options that are really carefully</p>
+<p t="4236377" d="4668">outlined and all the other hyperparameters
+we don't know how important they were or</p>
+<p t="4241045" d="1355">the variance of them.</p>
+<p t="4242400" d="500">Yeah?</p>
+<p t="4248749" d="1401">You can do both.</p>
+<p t="4250150" d="3200">So you can average the weights,
+which is very counter-intuitive,</p>
+<p t="4253350" d="2120">but also often works.</p>
+<p t="4255470" d="3150">If you average the predictions,
+now you have to keep around and</p>
+<p t="4258620" d="1750">say you have an ensemble
+of the four top models,</p>
+<p t="4260370" d="4130">you have to keep around your model size
+times four, which is very slow and</p>
+<p t="4264500" d="3080">not that great, so it's less commonly
+done, especially not in practice.</p>
+<p t="4270743" d="2467">Sorry, can I define appellation?</p>
+<p t="4273210" d="3830">So an appellation study is essentially
+a study where you start with</p>
+<p t="4277040" d="3510">your fancy new model that you
+described in all its details.</p>
+<p t="4280550" d="5300">And then you say how much did each of
+the components actually matter to my final</p>
+<p t="4285850" d="2680">accuracy that I describe in my abstract.</p>
+<p t="4288530" d="4830">So let's say we have a cool deep learning
+model with five-layer LSTMs, and</p>
+<p t="4293360" d="3900">some attention mechanisms,
+and some other clever ways of</p>
+<p t="4297260" d="4310">reversing the input in machine
+translation, for instance, and so on.</p>
+<p t="4301570" d="5960">And now you say, all right, overall
+this model got me a roster of 30 or 25.</p>
+<p t="4307530" d="5730">Now [BLANK AUDIO] as a practitioner,
+I, when I read that paper and</p>
+<p t="4313260" d="3820">even as a researcher, I want to know well,
+you mentioned five tricks,</p>
+<p t="4317080" d="4140">which of the five were actually
+the ones that got you to 25?</p>
+<p t="4321220" d="1230">Was it?
+Yeah?</p>
+<p t="4322450" d="2967">You want to know because you might
+not want to use that entire model but</p>
+<p t="4325417" d="1783">you want to use that one trick.</p>
+<p t="4327200" d="3100">So in this case here for instance,
+he has this regularization trick.</p>
+<p t="4330300" d="1110">And he has the dropout.</p>
+<p t="4332430" d="3710">How much did the dropout actually help,
+versus this trick?</p>
+<p t="4336140" d="2170">Which one should I now use
+in my downstream task.</p>
+<p t="4339420" d="2490">In this paper here, and
+I don't want to single him out,</p>
+<p t="4341910" d="2950">this is really, sadly,
+very common in the field.</p>
+<p t="4346260" d="4725">Nobody give you a nice plot for
+every single hyper parameter that says for</p>
+<p t="4350985" d="4184">this hyper parameter let's say
+dropout p between zero and one,</p>
+<p t="4355169" d="1489">this was my accuracy.</p>
+<p t="4359750" d="6390">Yeah, so the appellation would say I will
+take out one particular modeling decision.</p>
+<p t="4366140" d="2260">So let's say in his case, for instance.</p>
+<p t="4368400" d="4170">The application here is do we need
+to multichannel two word vectors.</p>
+<p t="4372570" d="4990">One you back probe into one you don't, or
+do we only have a static channel as in</p>
+<p t="4377560" d="3850">we keep he called static here just keeping
+the word vectors fixed in the beginning</p>
+<p t="4381410" d="4140">versus having only a single channel where
+we back propagate into the word vectors</p>
+<p t="4385550" d="4050">versus having both of
+the word vector sets.</p>
+<p t="4389600" d="2580">And this is the ablation he does here.</p>
+<p t="4392180" d="4270">The ablation over should we have
+two sets of work vectors or not?</p>
+<p t="4396450" d="4075">And as you can see here, well,
+it actually, sometimes it buys you 0.7 and</p>
+<p t="4400525" d="4795">here 0.9 or so, but
+sometimes it also hurts.</p>
+<p t="4405320" d="4020">So here having the two
+channels actually hurt by 0.4.</p>
+<p t="4409340" d="2480">These are relatively small data sets,
+all of them, so</p>
+<p t="4411820" d="1580">the variance is actually relatively high.</p>
+<p t="4414800" d="2120">And the first, the simplest one,</p>
+<p t="4416920" d="4580">is you actually just have random word
+vectors, and you back-propagate into them,</p>
+<p t="4421500" d="3010">and you just learn the word
+vectors as part of your task.</p>
+<p t="4424510" d="2600">So no pre-training of
+word vectors whatsoever.</p>
+<p t="4427110" d="2980">That's actually fine,
+if you have a gigantic training dataset.</p>
+<p t="4430090" d="3960">So if you do machine translation
+on five gigabytes of,</p>
+<p t="4434050" d="1080">don't do it for your project.</p>
+<p t="4435130" d="2560">I hope we discouraged
+everybody from trying that.</p>
+<p t="4437690" d="2300">But if you do machine
+translation on a very,</p>
+<p t="4439990" d="2980">very large corpus, it turns out you
+can just have random word vectors.</p>
+<p t="4442970" d="4077">And you have so much data on that task,
+that as you back propagate into them and</p>
+<p t="4447047" d="3095">update them with SGD,
+they will become very good as well.</p>
+<p t="4464067" d="856">That's totally right.</p>
+<p t="4464923" d="2348">So, Arun correctly points out and</p>
+<p t="4467271" d="4796">mention this like this is actually very
+small datasets and so, there's very</p>
+<p t="4472067" d="4461">little statistical significance
+between most of these results here.</p>
+<p t="4476528" d="1822">Maybe SST, 0.9.</p>
+<p t="4478350" d="3610">I forgot all the various thresholds
+of statistics, assuming against, for</p>
+<p t="4481960" d="770">the various papers.</p>
+<p t="4482730" d="2680">I think this one might be significant.</p>
+<p t="4485410" d="3020">But certainly, MPQA for instance,
+is a very small data set.</p>
+<p t="4488430" d="3625">So this 0.1 difference is not
+statistically significant</p>
+<p t="4509749" d="4826">Great question, so
+the question is, as you do this,</p>
+<p t="4514575" d="3450">let's say you had your full data set.</p>
+<p t="4518025" d="2410">You say, this is my training data.</p>
+<p t="4521600" d="3440">This is my development split and
+this is my final test split, and</p>
+<p t="4525040" d="4500">we had properly randomized
+them in some way.</p>
+<p t="4529540" d="6660">Now, if I choose based on my development
+split and this development accuracy here,</p>
+<p t="4536200" d="5160">then this model is only trained on this.</p>
+<p t="4541360" d="4550">And only in sort of some meta kind of way,
+used that dev split.</p>
+<p t="4545910" d="2910">Now, what you could also do and
+what you should always do if you have and</p>
+<p t="4548820" d="5070">actual convex problem, which, sadly,
+we don't have in this class very much,</p>
+<p t="4553890" d="3310">what you would do is you find your
+best hyper parameter setting and</p>
+<p t="4557200" d="4130">then you'll actually retrain with that
+whole thing all the way until convergence.</p>
+<p t="4561330" d="1770">Which if you have a convex problem,
+it's great.</p>
+<p t="4563100" d="2710">You know you have a global optimum, and
+you probably have a better global optimal</p>
+<p t="4565810" d="2400">because you used you
+entire trained data set.</p>
+<p t="4568210" d="5010">Now, it turns out in many cases,
+because there can be a lot of variance,</p>
+<p t="4573220" d="4210">In your training for these very
+non-convex neural network models.</p>
+<p t="4577430" d="4580">It helps a little bit to
+just ignore that final,</p>
+<p t="4582010" d="6550">that deaf part of your data set, and just
+use it to only choose the highest point.</p>
+<p t="4588560" d="2820">But yeah, it's largely because it's
+a non-convex problem, great question.</p>
+<p t="4596140" d="3600">All right, we have four more minutes.</p>
+<p t="4599740" d="4370">So, one of the problems with this
+comparison here, was actually that</p>
+<p t="4604110" d="4770">the dropout for instance gave it two
+to four percent accuracy improvement.</p>
+<p t="4608880" d="3680">And overall, and you'll see this
+in a lot of deep learning papers,</p>
+<p t="4612560" d="1969">they make claims about,
+this is the better model.</p>
+<p t="4615740" d="4640">Sadly, when you look at it there are some
+models here that they're comparing to</p>
+<p t="4620380" d="4180">that came out after or
+before dropout was invented.</p>
+<p t="4624560" d="7550">So we can be very certain that some
+models from pre-2014 didn't use any of</p>
+<p t="4632110" d="6060">the kinds of tricks like dropout and hence
+the comparisons actually kind of flop.</p>
+<p t="4638170" d="2740">And sadly,
+you'll observe this in most papers.</p>
+<p t="4640910" d="6480">Almost very, very few people in the
+community will go re-run with the newest</p>
+<p t="4647390" d="5070">and fanciest optimization tricks like
+Dropout or add in better optimizers and</p>
+<p t="4652460" d="4700">so on and reimplement all the baseline
+models of previous authors, and</p>
+<p t="4657160" d="4110">then have a proper comparison run
+the same amount of cross validation on</p>
+<p t="4661270" d="3420">the second best model and
+other people's models, and</p>
+<p t="4664690" d="4630">then have a really proper scientific study
+to say this is the actual better model</p>
+<p t="4669320" d="4640">versus this model came out later, had the
+benefit of a lot of optimization tricks.</p>
+<p t="4673960" d="1600">And hence came out on top.</p>
+<p t="4675560" d="1540">So you'll see that a lot,</p>
+<p t="4677100" d="5050">and it's in some ways understandable
+because it takes a long time to reproduce</p>
+<p t="4682150" d="3140">ten other people's results and
+then start tuning them.</p>
+<p t="4685290" d="3035">But you have to take a lot of
+these with a grain of salt,</p>
+<p t="4688325" d="4450">because the optimization,
+as we see here, makes a big difference.</p>
+<p t="4692775" d="4814">So two to four percent, when you look
+at even some of my old papers, four</p>
+<p t="4697589" d="5325">precent is the difference between whether
+this model is the better one or not.</p>
+<p t="4705187" d="4963">Still, it is kind of a very cool
+architecture, this convolutional network.</p>
+<p t="4710150" d="2540">The fact that it can do so well overall.</p>
+<p t="4712690" d="2290">Something that is quite remarkable.</p>
+<p t="4714980" d="3760">It's relatively simple, and
+the nice thing is, with these filters,</p>
+<p t="4718740" d="2120">each of the filters is
+essentially independent, right?</p>
+<p t="4720860" d="3890">We run max pooling over each
+of the filters independently,</p>
+<p t="4724750" d="3900">so each filter can be run
+on one core of your GPU.</p>
+<p t="4728650" d="5010">And so
+despite having 300 different filters,</p>
+<p t="4733660" d="2930">you can run all of those 300 in parallel,
+maximum peril.</p>
+<p t="4736590" d="3800">And then you have very quickly it can
+compute that one feature back there and</p>
+<p t="4740390" d="1520">pipe it into the softmax.</p>
+<p t="4741910" d="3605">So that is actually a huge
+advantage of these kinds of models.</p>
+<p t="4746645" d="3790">Now, we don't have that much time left, so
+I'm not going to go into too many details,</p>
+<p t="4750435" d="3780">but you can really go to town and
+put together</p>
+<p t="4754215" d="3494">lots of convolutions on top of pooling
+layers in a variety of different ways.</p>
+<p t="4759030" d="3910">We spend a lot of time trying to
+gain intuitions of why this LSTM</p>
+<p t="4762940" d="1950">node gate has this effect.</p>
+<p t="4764890" d="4000">I don't think we have a good chance of
+going here in the third CNN layer and</p>
+<p t="4768890" d="3930">having some intuition of why it's
+this kind of layer versus another.</p>
+<p t="4772820" d="2500">They're really,
+they really get quite unwieldy.</p>
+<p t="4775320" d="2610">You can have various kinds of convolution,
+so</p>
+<p t="4777930" d="2288">those are in some sense hyper parameters.</p>
+<p t="4780218" d="5982">You can ignore basically
+zero pad the outside or</p>
+<p t="4786200" d="4640">you can just not run anything that would
+require an outside multiplication and</p>
+<p t="4790840" d="3420">only run convolutions when you have for
+the insides.</p>
+<p t="4794260" d="2590">Basically this is the narrow
+versus the white convolution.</p>
+<p t="4797860" d="4460">You can eventually run the convolution
+also, not over the times steps, but</p>
+<p t="4802320" d="2020">in later layers over the feature maps.</p>
+<p t="4804340" d="2250">So they're a lot of different options.</p>
+<p t="4806590" d="3012">And at some point there's
+no more intuition of,</p>
+<p t="4809602" d="3681">why should you do this in the third
+layer of these texts CNN?</p>
+<p t="4816081" d="4234">One of the most exciting applications
+was actually to take such a CNN,</p>
+<p t="4820315" d="3086">have various pooling operations,
+and in the end,</p>
+<p t="4823401" d="5039">take that as input to a recurrent
+neural network for machine translation.</p>
+<p t="4828440" d="4820">So this was one of the first deep learning
+machine translation models from 2013 that</p>
+<p t="4833260" d="4365">actually combined these
+fast parallelizable CNNs,</p>
+<p t="4837625" d="3855">with a recurrent neural network to do
+the machine translation that we've seen.</p>
+<p t="4841480" d="4254">So, we've essentially described just
+model entirely in a lecture before,</p>
+<p t="4845734" d="2536">but now we're replacing the encoder part,</p>
+<p t="4848270" d="2870">instead of having an LSTM
+here we have a CNN here, and</p>
+<p t="4851140" d="6900">we give that as an input to all the time
+steps at the decoder part of the model.</p>
+<p t="4858040" d="1940">Very cool model.</p>
+<p t="4859980" d="4520">Now, probably I'll end on this slide and
+we'll maybe talk about</p>
+<p t="4864500" d="3690">this quasi recurring neural networks that
+combines the best of both recurrent and</p>
+<p t="4868190" d="1490">convolutional models.</p>
+<p t="4869680" d="4600">For another lecture, but basically you
+now know some of the most important and</p>
+<p t="4874280" d="2930">most widely used models for
+deep learning for NLP.</p>
+<p t="4877210" d="1880">We have the bag of vectors,</p>
+<p t="4879090" d="4940">surprisingly works quite well when you
+combine it with a couple of relu layers.</p>
+<p t="4884030" d="3490">And can actually even in some benchmarks
+beat this convolutional network</p>
+<p t="4887520" d="1290">that we just described.</p>
+<p t="4888810" d="2000">So very good base line to run for</p>
+<p t="4890810" d="3070">a variety of different projects
+that we're discussing.</p>
+<p t="4893880" d="3630">We've discussed the window model
+already where we have basically</p>
+<p t="4897510" d="4620">a very clean model to classify
+words in their context.</p>
+<p t="4902130" d="2710">Now we know
+the Convolutional Neural Networks and</p>
+<p t="4904840" d="3360">we had a lot of variants of
+Recurrent Neural Networks.</p>
+<p t="4908200" d="2586">So, hopefully,
+you have most of the tools on Thursday.</p>
+<p t="4910786" d="2408">Chris will talk about
+Recursive Neural Networks or</p>
+<p t="4913194" d="3978">tree structured Recursive Neural Networks
+that will be much more grammatically and</p>
+<p t="4917172" d="2872">linguistically plausible, but
+also have some downsides.</p>
+<p t="4920044" d="4006">All right, thank you.</p>
+</body>
+</timedtext>

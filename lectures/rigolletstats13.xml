@@ -1,0 +1,2387 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="120" d="2340">The following content is
+provided under a Creative</p>
+<p t="2460" d="1420">Commons license.</p>
+<p t="3880" d="2210">Your support will help
+MIT OpenCourseWare</p>
+<p t="6090" d="4090">continue to offer high quality
+educational resources for free.</p>
+<p t="10180" d="2540">To make a donation or to
+view additional materials</p>
+<p t="12720" d="2490">from hundreds of
+MIT courses, visit</p>
+<p t="15210" d="2150">MITOpenCourseWare@OCW.MIT.edu.</p>
+<p t="20292" d="2498">PHILIPPE RIGOLLET: It's
+because if I was not,</p>
+<p t="22790" d="2850">this would be basically the
+last topic we would ever see.</p>
+<p t="25640" d="3561">And this is arguably, probably
+the most important topic</p>
+<p t="29201" d="1749">in statistics, or at
+least that's probably</p>
+<p t="30950" d="2520">the reason why most of
+you are taking this class.</p>
+<p t="33470" d="3510">Because regression
+implies prediction,</p>
+<p t="36980" d="2280">and prediction is what people
+are after to now, right?</p>
+<p t="39260" d="1080">You don't need to
+understand what</p>
+<p t="40340" d="1620">the model for the
+financial market</p>
+<p t="41960" d="1500">is if you actually
+have a formula</p>
+<p t="43460" d="3970">to predict what the stock
+prices are going to be tomorrow.</p>
+<p t="47430" d="2275">And regression, in a way,
+allows us to do that.</p>
+<p t="49705" d="2375">And we'll start with a very
+simple version of regression,</p>
+<p t="52080" d="3050">which is linear regression,
+which is the most standard one.</p>
+<p t="55130" d="2940">And then we'll move on to
+slightly more advanced notions</p>
+<p t="58070" d="1490">such as nonparametric
+regression.</p>
+<p t="59560" d="3400">At least, we're going to see
+the principles behind it.</p>
+<p t="62960" d="3610">And I'll touch upon a little bit
+of high dimensional regression,</p>
+<p t="66570" d="2880">which is what people
+are doing today.</p>
+<p t="69450" d="2840">So the goal of
+regression is to try</p>
+<p t="72290" d="3930">to predict one variable
+based on another variable.</p>
+<p t="76220" d="3070">All right, so here the
+notation is very important.</p>
+<p t="79290" d="2930">It's extremely standard.</p>
+<p t="82220" d="3380">It goes everywhere essentially,
+and essentially you're</p>
+<p t="85600" d="4240">trying to explain why
+as a function of x,</p>
+<p t="89840" d="3480">which is the usual y
+equals f of x question--</p>
+<p t="93320" d="2770">except that, you know, if
+you look at a calculus class,</p>
+<p t="96090" d="3840">people tell you y equals
+f of x, and they give you</p>
+<p t="99930" d="2212">a specific form for f,
+and then you do something.</p>
+<p t="102142" d="1708">Here, we're just going
+to try to estimate</p>
+<p t="103850" d="2190">what this length function is.</p>
+<p t="106040" d="3750">And this is why we often
+call y the explained variable</p>
+<p t="109790" d="3010">and x the explanatory variable.</p>
+<p t="112800" d="3160">All right, so we're
+statisticians,</p>
+<p t="115960" d="965">so we start with data.</p>
+<p t="116925" d="1875">All right, then what
+does our data look like?</p>
+<p t="118800" d="3020">Well, it looks like a
+bunch of input, output</p>
+<p t="121820" d="1290">to this relationship.</p>
+<p t="123110" d="2760">All right, so we have
+a bunch of xi, yi.</p>
+<p t="125870" d="3410">Those are pairs, and I can do
+a scatterplot of those guys.</p>
+<p t="129280" d="5110">So each point here has a
+x-coordinate, which is xi,</p>
+<p t="134390" d="2160">and a y-coordinate,
+which is yi, and here, I</p>
+<p t="136550" d="1260">have a bunch of endpoints.</p>
+<p t="137810" d="2020">And I just draw them like that.</p>
+<p t="139830" d="3870">Now, the functions we're
+going to be interested in</p>
+<p t="143700" d="6470">are often function of the form
+y equals a plus b times x, OK.</p>
+<p t="150170" d="2700">And that means that this
+function looks like this.</p>
+<p t="156310" d="1890">So if I do x and
+y, this function</p>
+<p t="158200" d="3330">looks exactly like a line,
+and clearly those points</p>
+<p t="161530" d="1450">are not on the line.</p>
+<p t="162980" d="1597">And it will basically
+never happen</p>
+<p t="164577" d="1333">that those points are on a line.</p>
+<p t="165910" d="2550">There's a famous
+T-shirt from, I think,</p>
+<p t="168460" d="1860">U.C. Berkeley's
+staff department,</p>
+<p t="170320" d="2416">that shows this picture
+and put a line between them</p>
+<p t="172736" d="1124">like we're going to see it.</p>
+<p t="173860" d="3030">And it says, oh,
+statisticians, so many points,</p>
+<p t="176890" d="2700">and you still managed
+to miss all of them.</p>
+<p t="179590" d="4560">And so essentially, we don't
+believe that this relationship</p>
+<p t="184150" d="4762">y is equal to a plus bx is true,
+but maybe up to some noise.</p>
+<p t="188912" d="2458">And that's where the statistics
+is going to come into play.</p>
+<p t="191370" d="2625">There's going to be some random
+noise that's going to play out,</p>
+<p t="193995" d="3475">and hopefully the noise is
+going to be spread out evenly,</p>
+<p t="197470" d="3480">so that we can average it
+if we have enough points.</p>
+<p t="200950" d="1880">Average it out, OK.</p>
+<p t="202830" d="4080">And so this epsilon here is not
+necessarily due to randomness.</p>
+<p t="206910" d="2477">But again, just like we did
+modeling in the first place,</p>
+<p t="209387" d="1583">it essentially
+accounts for everything</p>
+<p t="210970" d="2550">we don't understand
+about this relationship.</p>
+<p t="213520" d="2680">All right, so for example--</p>
+<p t="216200" d="1430">so here, I'm not going to be--</p>
+<p t="217630" d="4330">give me one second, so we'll
+see an example in a second.</p>
+<p t="221960" d="2090">But the idea here is
+that if you have data,</p>
+<p t="224050" d="1800">and if you believe
+that it's of the form,</p>
+<p t="225850" d="1890">a plus b x plus
+some noise, you're</p>
+<p t="227740" d="2670">trying to find the line
+that will explain your data</p>
+<p t="230410" d="1230">the best, right?</p>
+<p t="231640" d="3010">In the terminology
+we've been using before,</p>
+<p t="234650" d="3410">this would be the most likely
+line that explains the data.</p>
+<p t="238060" d="1620">So we can see that
+it's slightly--</p>
+<p t="239680" d="1465">we've just added
+another dimension</p>
+<p t="241145" d="1125">to our statistical problem.</p>
+<p t="242270" d="2083">We don't have just x's,
+but we have y's, and we're</p>
+<p t="244353" d="3097">trying to find the most likely
+explanation of the relationship</p>
+<p t="247450" d="1770">between y and x.</p>
+<p t="249220" d="3159">All right, and so
+in practice, the way</p>
+<p t="252379" d="2541">it's going to look like is that
+we're going to have basically</p>
+<p t="254920" d="2550">two parameters to
+find the slope b</p>
+<p t="257470" d="2770">and the intercept
+a, and given data,</p>
+<p t="260240" d="2880">the goal is going to be to try
+to find the best possible line.</p>
+<p t="263120" d="1394">All right?</p>
+<p t="264514" d="1416">So what we're going
+to find is not</p>
+<p t="265930" d="3380">exactly a and b, the ones that
+actually generate the data,</p>
+<p t="269310" d="4480">but some estimators of those
+parameters, a hat and b hat</p>
+<p t="273790" d="1890">constructed from the data.</p>
+<p t="275680" d="2580">All right, so we'll see
+that more generally,</p>
+<p t="278260" d="2730">but we're not going to go too
+much in the details of this.</p>
+<p t="280990" d="1200">There's actually
+quite a bit that you</p>
+<p t="282190" d="1583">can understand if
+you do what's called</p>
+<p t="283773" d="3487">univariate regression
+when x is actually</p>
+<p t="287260" d="2680">a real valued random variable.</p>
+<p t="289940" d="2780">So when this happens, this is
+called univariate regression.</p>
+<p t="299640" d="5910">And when x is in rp for p
+larger than or equal to 2,</p>
+<p t="305550" d="2260">this is called
+multivariate regression.</p>
+<p t="316640" d="3700">OK, and so here we're
+just trying to explain y</p>
+<p t="320340" d="3600">is a plus bx plus epsilon.</p>
+<p t="323940" d="2680">And here we're going to have
+something more complicated.</p>
+<p t="326620" d="6890">We're going to have y, which is
+equal to a plus b1, x1 plus b2,</p>
+<p t="333510" d="6270">x2 plus bp, xp plus epsilon--</p>
+<p t="339780" d="2370">where x is equal to--</p>
+<p t="342150" d="4560">the coordinates of x are
+given by x1, 2xp, rp.</p>
+<p t="346710" d="2490">OK, so it's still linear.</p>
+<p t="349200" d="1830">Right, they still add
+all the coordinates</p>
+<p t="351030" d="2340">of x with a coefficient
+in front of them,</p>
+<p t="353370" d="2990">but it's a bit more complicated
+than just one coefficient</p>
+<p t="356360" d="2410">for one coordinate of x, OK?</p>
+<p t="358770" d="4650">So we'll come back to
+multivariate regression.</p>
+<p t="363420" d="4860">Of course, you can write
+this as x transpose b, right?</p>
+<p t="368280" d="6520">So this entire thing here,
+this linear combination</p>
+<p t="374800" d="2910">is of the form x
+transpose b, where</p>
+<p t="377710" d="5600">b is the vector that has
+coordinates b1 to bp.</p>
+<p t="383310" d="2390">OK?</p>
+<p t="385700" d="5400">Sorry, here, it's in [? rd, ?]
+p is the natural notation.</p>
+<p t="391100" d="4560">All right, so our goal
+here, in the univariate one,</p>
+<p t="395660" d="2700">is to try to write
+the model, make sense</p>
+<p t="398360" d="2550">of this little twiddle here--</p>
+<p t="400910" d="3140">essentially, from a
+statistical modeling question,</p>
+<p t="404050" d="3430">the question is going to be,
+what distributional assumptions</p>
+<p t="407480" d="1250">do you want to put on epsilon?</p>
+<p t="408730" d="1583">Are you going to say
+they're Gaussian?</p>
+<p t="410313" d="2407">Are you going to say
+they're binomial?</p>
+<p t="420160" d="3290">OK, are you going to
+say they're binomial?</p>
+<p t="423450" d="2082">Are you going to say
+they're Bernoulli?</p>
+<p t="425532" d="2458">So that's going to be what we
+we're going to make sense of,</p>
+<p t="427990" d="2240">and then we're going
+to try to find a method</p>
+<p t="430230" d="1470">to estimate a and b.</p>
+<p t="431700" d="1980">And then maybe we're
+going to try to do</p>
+<p t="433680" d="1350">some inference about a and b--</p>
+<p t="435030" d="3360">maybe test if a and b take
+certain values, if they're</p>
+<p t="438390" d="2460">less than something,
+maybe find some confidence</p>
+<p t="440850" d="3440">regions for a and b, all right?</p>
+<p t="444290" d="1700">So why would you
+want to do this?</p>
+<p t="445990" d="3820">Well, I'm sure all of you have
+an application, if I give you</p>
+<p t="449810" d="2450">some x, you're trying
+to predict what y is.</p>
+<p t="452260" d="2470">Machine learning is all
+about doing this, right?</p>
+<p t="454730" d="2264">Without maybe trying
+to even understand</p>
+<p t="456994" d="1666">the physics behind
+this, they're saying,</p>
+<p t="458660" d="1930">well, you give me
+a bag of words,</p>
+<p t="460590" d="2930">I want to understand whether
+it's going to be a spam or not.</p>
+<p t="463520" d="3850">You give me a bunch of
+economic indicators,</p>
+<p t="467370" d="4160">I want you to tell me how much
+I should be selling my car for.</p>
+<p t="471530" d="4244">You give me a bunch of
+measurements on some patient,</p>
+<p t="475774" d="1666">I want you to predict
+how this person is</p>
+<p t="477440" d="2670">going to respond to my
+drug-- and things like this.</p>
+<p t="480110" d="4720">All right, and often we actually
+don't have much modeling</p>
+<p t="484830" d="2550">intuition about what the
+relationship between x and y</p>
+<p t="487380" d="2970">is, and this linear thing is
+basically the simplest function</p>
+<p t="490350" d="1180">we can think of.</p>
+<p t="491530" d="3705">Arguably, linear functions
+are the simplest functions</p>
+<p t="495235" d="875">that are not trivial.</p>
+<p t="496110" d="3000">Otherwise, we would just say,
+well, let's just predict x of y</p>
+<p t="499110" d="2335">to be a constant, meaning
+it does not depend on x.</p>
+<p t="501445" d="1625">But if you want it
+to depend on x, then</p>
+<p t="503070" d="2640">your functions are basically
+as simple as it gets.</p>
+<p t="505710" d="5130">It turns out, amazingly, this
+does the trick quite often.</p>
+<p t="510840" d="2910">So for example, if
+you look at economics,</p>
+<p t="513750" d="2159">you might want to assume
+that the demand is</p>
+<p t="515909" d="2130">a linear function of the price.</p>
+<p t="518039" d="2161">So if your price
+is zero, there's</p>
+<p t="520200" d="1440">going to be a certain demand.</p>
+<p t="521640" d="3397">And as the price increases,
+the demand is going to move.</p>
+<p t="525037" d="2333">Do you think b is going to
+be positive or negative here?</p>
+<p t="531000" d="1069">What?</p>
+<p t="532069" d="1541">Typically, it's
+negative unless we're</p>
+<p t="533610" d="2682">talking about
+maybe luxury goods,</p>
+<p t="536292" d="1458">where you know,
+the more expensive,</p>
+<p t="537750" d="2380">the more people
+actually want it.</p>
+<p t="540130" d="2250">I mean, if we're talking
+about actual economic demand,</p>
+<p t="542380" d="3650">that's probably
+definitely negative.</p>
+<p t="546030" d="5330">It doesn't have to be,
+you know, clearly linear,</p>
+<p t="551360" d="2364">so that you can actually
+make it linear, transform it</p>
+<p t="553724" d="916">into something linear.</p>
+<p t="554640" d="2880">So for example, you have
+this like multiplicative</p>
+<p t="557520" d="6810">relationship, PV equals nRT,
+which is the Ideal gas law.</p>
+<p t="564330" d="2340">If you want to actually
+write this relationship,</p>
+<p t="566670" d="2010">if you want to predict
+what the pressure is</p>
+<p t="568680" d="5010">going to be as a function of
+the volume and the temperature--</p>
+<p t="573690" d="4120">and well, let's assume that
+n is the Avogadro constant,</p>
+<p t="577810" d="4250">and let's assume that the
+radius is actually fixed.</p>
+<p t="582060" d="5780">Then you take the log on each
+side, so you get PV equals nRT.</p>
+<p t="603610" d="4080">So what that means is that
+log PV is equal to log nRT.</p>
+<p t="610600" d="12580">So that means log P plus log V
+is equal to the log nR plus log</p>
+<p t="623180" d="5557">T. So we said that R is
+constant, so this is actually</p>
+<p t="628737" d="583">your constant.</p>
+<p t="629320" d="2080">I'm going to call it a.</p>
+<p t="631400" d="4010">And then that
+means that log P is</p>
+<p t="635410" d="14020">equal to minus log V. That
+log P is equal to a minus log</p>
+<p t="649430" d="5640">V plus log T. OK?</p>
+<p t="655070" d="6580">And so in particular, if I
+write b equal to negative 1</p>
+<p t="661650" d="3150">and c equal to plus 1,
+this gives me the formula</p>
+<p t="664800" d="1410">that I have here.</p>
+<p t="666210" d="4460">Now again, it might be the case
+that this is the ideal gas law.</p>
+<p t="670670" d="2290">So in practice, if I
+start recording pressure,</p>
+<p t="672960" d="3870">and temperature, and volume, I
+might make measurement errors,</p>
+<p t="676830" d="2120">there might be slightly
+different conditions</p>
+<p t="678950" d="2396">in such a way that I'm not
+going to get exactly those.</p>
+<p t="681346" d="1874">And I'm just going to
+put this little twiddle</p>
+<p t="683220" d="2130">to account for the fact
+that the points that I'm</p>
+<p t="685350" d="2820">going to be recording
+for log pressure,</p>
+<p t="688170" d="2010">log volume, and log
+temperature are not going</p>
+<p t="690180" d="2410">to be exactly on one line.</p>
+<p t="692590" d="1250">OK, they're going to be close.</p>
+<p t="693840" d="2310">Actually, in those
+physics experiments,</p>
+<p t="696150" d="3450">usually, they're very close
+because the conditions</p>
+<p t="699600" d="2140">are controlled under
+lab experiments.</p>
+<p t="701740" d="2930">So it means that the
+noise is very small.</p>
+<p t="704670" d="2490">But for other cases,
+like demand and prices,</p>
+<p t="707160" d="3660">it's not a law of physics,
+and so this must change.</p>
+<p t="710820" d="2360">Even the linear structure is
+probably not clear, right.</p>
+<p t="713180" d="1583">At some points,
+there's probably going</p>
+<p t="714763" d="2787">to be some weird
+curvature happening.</p>
+<p t="717550" d="3360">All right, so this slide is
+just to tell you maybe you</p>
+<p t="720910" d="2161">don't have, obviously,
+a linear relationship,</p>
+<p t="723071" d="1499">but maybe you do
+if you start taking</p>
+<p t="724570" d="3810">logs exponentials, squares.</p>
+<p t="728380" d="2440">You can sometimes take the
+product of two variables,</p>
+<p t="730820" d="1220">things like this, right.</p>
+<p t="732040" d="1530">So this is variable
+transformation,</p>
+<p t="733570" d="2040">and it's mostly
+domain-specific, so we're not</p>
+<p t="735610" d="2466">going to go into
+more details of this.</p>
+<p t="738076" d="1404">Any questions?</p>
+<p t="742290" d="4810">All right, so now I'm
+going to be giving--</p>
+<p t="747100" d="2000">so if we start thinking
+a little more about what</p>
+<p t="749100" d="3000">these coefficients
+should be, well,</p>
+<p t="752100" d="2340">remember-- so
+everybody's clear why</p>
+<p t="754440" d="1840">I don't put the little i here?</p>
+<p t="761971" d="1999">Right, I don't put the
+little i because I'm just</p>
+<p t="763970" d="3150">talking about a generic
+x and a generic y,</p>
+<p t="767120" d="2750">but the observations
+are x1, y1, right.</p>
+<p t="769870" d="3580">So typically, on
+the blackboard I'm</p>
+<p t="773450" d="9530">often going to write only xy,
+but the data really is x1,</p>
+<p t="782980" d="4200">y1, all the way to xn, yn.</p>
+<p t="787180" d="3630">So those are those points in
+this two dimensional plot.</p>
+<p t="790810" d="11020">But I think of those as being
+independent copies of the pair</p>
+<p t="801830" d="2670">xy.</p>
+<p t="804500" d="1620">They have to have--</p>
+<p t="806120" d="1300">to contain their relationship.</p>
+<p t="807420" d="2210">And so when I talk
+about distribution</p>
+<p t="809630" d="2790">of those random variables, I
+talk about the distribution</p>
+<p t="812420" d="1820">of xy, and that's the same.</p>
+<p t="814240" d="2710">All right, so the first
+thing you might want to ask</p>
+<p t="816950" d="4840">is, well, if I have an
+infinite amount of data,</p>
+<p t="821790" d="2600">what can I hope to
+get for a and b?</p>
+<p t="824390" d="1960">If my simple size
+goes to infinity,</p>
+<p t="826350" d="1760">then I should actually
+know exactly what</p>
+<p t="828110" d="1930">the distribution of xy is.</p>
+<p t="830040" d="2630">And so there should
+be an a and a b</p>
+<p t="832670" d="4635">that captures this linear
+relationship between y and x.</p>
+<p t="837305" d="1875">And so in particular,
+we're going</p>
+<p t="839180" d="3529">to try to ask the population,
+or theoretic, values of a and b,</p>
+<p t="842709" d="1541">and you can see that
+you can actually</p>
+<p t="844250" d="1710">compute them explicitly.</p>
+<p t="845960" d="2550">So let's just try to find how.</p>
+<p t="848510" d="2130">So as I said, we have
+a bunch of points</p>
+<p t="850640" d="5820">on this line close
+to a line, and I'm</p>
+<p t="856460" d="4060">trying to find the best fit.</p>
+<p t="860520" d="2810">All right, so this
+guy is not a good fit.</p>
+<p t="863330" d="1630">This guy is not a good fit.</p>
+<p t="864960" d="2910">And we know that this guy
+is a good fit somehow.</p>
+<p t="867870" d="2810">So we need to mathematically
+formulate the fact</p>
+<p t="870680" d="4470">that this line here is
+better than this line here</p>
+<p t="875150" d="2310">or better than this line here.</p>
+<p t="877460" d="3570">So what we're trying to do
+is to create a function that</p>
+<p t="881030" d="2550">has values that are
+smaller for this curve</p>
+<p t="883580" d="2010">and larger for these two curves.</p>
+<p t="885590" d="2040">And the way we do it is
+by measuring the fit,</p>
+<p t="887630" d="4110">and the fit is essentially
+the aggregate distance</p>
+<p t="891740" d="3570">of all the points to the curve.</p>
+<p t="895310" d="1620">And there's many
+ways I can measure</p>
+<p t="896930" d="1620">the distance to a curve.</p>
+<p t="898550" d="3180">So if I want to find so--
+let's just open a parenthesis.</p>
+<p t="901730" d="1560">If I have a point
+here-- so we're</p>
+<p t="903290" d="1960">going to do it for
+one point at a time.</p>
+<p t="905250" d="1870">So if I have a point,
+there's many ways</p>
+<p t="907120" d="2410">I can measure its distance
+to the curve, right?</p>
+<p t="909530" d="3270">I can measure it like that.</p>
+<p t="912800" d="1890">That is one distance
+to the curve.</p>
+<p t="914690" d="4590">I can measure it like that by
+having a right angle here that</p>
+<p t="919280" d="1560">is one distance to the curve.</p>
+<p t="920840" d="2590">Or I can measure it like that.</p>
+<p t="923430" d="4060">That is another distance
+to the curve, right.</p>
+<p t="927490" d="2160">There's many ways
+I can go for it.</p>
+<p t="929650" d="1380">It turns out that
+one is actually</p>
+<p t="931030" d="2010">going to be fairly
+convenient for us,</p>
+<p t="933040" d="3870">and that's the one that says,
+let's look at the square</p>
+<p t="936910" d="1810">of the value of x on the curve.</p>
+<p t="938720" d="4970">So if this is the curve,
+y is equal to a plus bx.</p>
+<p t="951260" d="2880">Now, I'm going to think of
+this point as a random point,</p>
+<p t="954140" d="2910">capital X, capital
+Y, so that means</p>
+<p t="957050" d="5160">that it's going to be x1,
+y1 or x2, y2, et cetera.</p>
+<p t="962210" d="2040">Now, I want to
+measure the distance.</p>
+<p t="964250" d="2140">Can somebody tell me
+which of the three--</p>
+<p t="966390" d="2480">the first one, the second
+one, or the third one--</p>
+<p t="968870" d="4740">this formula, expectation of y
+minus a minus bx squared is--</p>
+<p t="973610" d="4968">which of the three
+is it representing?</p>
+<p t="978578" d="1442">AUDIENCE: The second one.</p>
+<p t="980020" d="1375">PHILIPPE RIGOLLET:
+The second one</p>
+<p t="981395" d="1345">where I have the right angle?</p>
+<p t="982740" d="3970">OK, everybody agrees with this?</p>
+<p t="986710" d="2020">Anybody wants to vote
+for something else?</p>
+<p t="988730" d="590">Yeah?</p>
+<p t="989320" d="1000">AUDIENCE: The third one?</p>
+<p t="990320" d="1375">PHILIPPE RIGOLLET:
+The third one?</p>
+<p t="991695" d="2825">Everybody agrees
+with the third one?</p>
+<p t="994520" d="4455">So by default, everybody's
+on the first one?</p>
+<p t="998975" d="3035">Yeah, it is the vertical
+distance actually.</p>
+<p t="1002010" d="2545">And the reason is if it was the
+one with the straight angle,</p>
+<p t="1004555" d="1625">with the right angle,
+it would actually</p>
+<p t="1006180" d="2250">be a very complicated
+mathematical formula,</p>
+<p t="1008430" d="2810">so let's just see y, right?</p>
+<p t="1011240" d="2230">And by y, I mean y.</p>
+<p t="1013470" d="5990">OK, so this means that this
+is my x, and this is my y.</p>
+<p t="1022500" d="3329">All right, so that means
+that this point is xy.</p>
+<p t="1025829" d="2071">So what I'm measuring
+is the difference</p>
+<p t="1027900" d="8065">between y minus
+a plus b times x.</p>
+<p t="1035965" d="2374">This is the thing I'm going
+to take the expectation off--</p>
+<p t="1038339" d="1951">the square and then
+the expectation-- so a</p>
+<p t="1040290" d="3850">plus b times x, if this is
+this line, this is this point.</p>
+<p t="1044140" d="3170">So that's this value here.</p>
+<p t="1047310" d="5944">This value here is
+a plus bx, right?</p>
+<p t="1053254" d="1916">So what I'm really
+measuring is the difference</p>
+<p t="1055170" d="3570">between y and N plus bx,
+which is this distance here.</p>
+<p t="1062400" d="3446">And since I like things
+like Pythagoras theorem,</p>
+<p t="1065846" d="1624">I'm actually going
+to put a square here</p>
+<p t="1067470" d="4030">before I take the expectation.</p>
+<p t="1071500" d="1590">So now this is a
+random variable.</p>
+<p t="1073090" d="2120">This is this random variable.</p>
+<p t="1075210" d="3210">And so I want a number,
+so I'm going to turn it</p>
+<p t="1078420" d="1600">into a deterministic number.</p>
+<p t="1080020" d="3380">And the way I do this is
+by taking expectation.</p>
+<p t="1083400" d="3930">And if you think expectations
+should be close to average,</p>
+<p t="1087330" d="1980">this is the same
+thing as saying,</p>
+<p t="1089310" d="2700">I want that in
+average, the y's are</p>
+<p t="1092010" d="2430">close to the a plus bx, right?</p>
+<p t="1094440" d="2130">So we're doing it
+in expectation,</p>
+<p t="1096570" d="1800">but that's going to
+translate into doing it</p>
+<p t="1098370" d="2280">in average for all the points.</p>
+<p t="1100650" d="2200">All right, so this is the
+thing I want to measure.</p>
+<p t="1102850" d="1650">So that's this
+vertical distance.</p>
+<p t="1104500" d="1821">Yeah?</p>
+<p t="1106321" d="499">OK.</p>
+<p t="1112750" d="3542">This is my fault actually.</p>
+<p t="1116292" d="1598">Maybe we should
+close those shades.</p>
+<p t="1130230" d="3050">OK, I cannot do just
+one at a time, sorry.</p>
+<p t="1151910" d="3730">All right, so now that I do
+those vertical distances,</p>
+<p t="1155640" d="2700">I can ask-- well, now,
+I have this function,</p>
+<p t="1158340" d="3680">right-- to have a function that
+takes two parameters a and b,</p>
+<p t="1162020" d="8200">maps it to the expectation
+of y minus a plus bx squared.</p>
+<p t="1170220" d="1950">Sorry, the square is here.</p>
+<p t="1172170" d="2910">And I could ask, well,
+this is a function that</p>
+<p t="1175080" d="3240">measures the fit of the
+parameters a and b, right?</p>
+<p t="1178320" d="1890">This function should be small.</p>
+<p t="1180210" d="5490">The value of this
+function here, function</p>
+<p t="1185700" d="21670">of a and b that measures
+how close the point xy is</p>
+<p t="1207370" d="6840">to the line a plus
+b times x while y</p>
+<p t="1214210" d="4659">is equal to a plus b
+times x in expectation.</p>
+<p t="1223760" d="640">OK, agreed?</p>
+<p t="1224400" d="2630">This is what we just said.</p>
+<p t="1227030" d="2450">Again, if you're not
+comfortable with the reason why</p>
+<p t="1229480" d="2810">you get expectations, just
+think about having data points</p>
+<p t="1232290" d="2120">and taking the average
+value for this guy.</p>
+<p t="1234410" d="1950">So it's basically an
+aggregate distance</p>
+<p t="1236360" d="4710">of the points to their line.</p>
+<p t="1241070" d="3320">OK, everybody agrees this
+is a legitimate measure?</p>
+<p t="1244390" d="3760">If all my points were on the
+line-- if my distribution--</p>
+<p t="1248150" d="3570">if y was actually equal
+to a plus bx for some a</p>
+<p t="1251720" d="3060">and b then this function
+would be equal to 0</p>
+<p t="1254780" d="3126">for the correct a and b, right?</p>
+<p t="1257906" d="1604">If they are far--
+well, it's going</p>
+<p t="1259510" d="1950">to depend on how much
+noise I'm getting,</p>
+<p t="1261460" d="2730">but it's still going to be
+minimized for the best one.</p>
+<p t="1264190" d="2610">So let's minimize this thing.</p>
+<p t="1266800" d="4200">So here, I don't make any--</p>
+<p t="1271000" d="1350">again, sorry.</p>
+<p t="1272350" d="9450">I don't make an assumption on
+the distribution of x or y.</p>
+<p t="1281800" d="5490">Here, I assume, somehow,
+that the variance of x</p>
+<p t="1287290" d="999">is not equal to 0.</p>
+<p t="1288289" d="1041">Can somebody tell me why?</p>
+<p t="1289330" d="980">Yeah?</p>
+<p t="1290310" d="2940">AUDIENCE: Not really a
+question-- the slides,</p>
+<p t="1293250" d="4900">you have y minus a minus bx
+quantity squared expectation</p>
+<p t="1298150" d="3054">of that, and here you've written
+square of the expectation.</p>
+<p t="1301204" d="1666">PHILIPPE RIGOLLET:
+No, here I'm actually</p>
+<p t="1302870" d="4020">in the expectation
+of the square.</p>
+<p t="1306890" d="2310">If I wanted to write the
+square of the expectation,</p>
+<p t="1309200" d="3150">I would just do this.</p>
+<p t="1312350" d="1330">So let's just make it clear.</p>
+<p t="1320970" d="605">Right?</p>
+<p t="1321575" d="2245">Do you want me to put an
+extra set of parenthesis?</p>
+<p t="1323820" d="2870">That's what you want me to do?</p>
+<p t="1326690" d="4344">AUDIENCE: Yeah, it's just
+confusing with the [INAUDIBLE]</p>
+<p t="1331034" d="2416">PHILIPPE RIGOLLET: OK, that's
+the one that makes sense, so</p>
+<p t="1333450" d="1250">the square of the expectation?</p>
+<p t="1334700" d="980">AUDIENCE: Yeah.</p>
+<p t="1335680" d="1500">PHILIPPE RIGOLLET: Oh, the
+expectation of the square,</p>
+<p t="1337180" d="500">sorry.</p>
+<p t="1340310" d="1820">Yeah, dyslexia.</p>
+<p t="1342130" d="2970">All right, any question?</p>
+<p t="1345100" d="500">Yeah?</p>
+<p t="1345600" d="2800">AUDIENCE: Does this assume
+that the error is Gaussian?</p>
+<p t="1348400" d="916">PHILIPPE RIGOLLET: No.</p>
+<p t="1352290" d="1843">AUDIENCE: I mean, in
+the sense that like,</p>
+<p t="1354133" d="2847">if we knew that the
+error was, like,</p>
+<p t="1356980" d="3082">even the minus followed
+like-- so even the minus x</p>
+<p t="1360062" d="4880">to the fourth distribution,
+would we want to minimise</p>
+<p t="1364942" d="3416">the expectation of what
+the fourth power of y minus</p>
+<p t="1368358" d="3922">a equals bx in order to get
+[? what the ?] [? best is? ?]</p>
+<p t="1372280" d="958">PHILIPPE RIGOLLET: Why?</p>
+<p t="1377372" d="1708">So you know the answers
+to your question,</p>
+<p t="1379080" d="2680">so I just want you to
+use the words that--</p>
+<p t="1381760" d="2996">right, so why would you want
+to use the fourth power?</p>
+<p t="1384756" d="1673">AUDIENCE: Well,
+because, like, we</p>
+<p t="1386429" d="1708">want to more strongly
+penalize deviations</p>
+<p t="1388137" d="3381">because we'd expect very
+large deviations to be</p>
+<p t="1391518" d="4352">very rare, or more
+rare, than it would</p>
+<p t="1395870" d="2300">with the Gaussian
+[INAUDIBLE] power.</p>
+<p t="1398170" d="1190">PHILIPPE RIGOLLET: Yeah so,
+that would be the maximum likely</p>
+<p t="1399360" d="1930">estimator that you're
+describing to me, right?</p>
+<p t="1401290" d="1560">I can actually
+write the likelihood</p>
+<p t="1402850" d="2490">of a pair of numbers ab.</p>
+<p t="1405340" d="1507">And if I know this,
+that's actually</p>
+<p t="1406847" d="1583">what's going to come
+into it because I</p>
+<p t="1408430" d="3180">know that the density is
+going to come into play when</p>
+<p t="1411610" d="1130">I talk about there.</p>
+<p t="1412740" d="1840">But here, I'm just
+talking about--</p>
+<p t="1414580" d="1770">this is a mechanical tool.</p>
+<p t="1416350" d="3290">I'm just saying, let's minimize
+the distance to the curve.</p>
+<p t="1419640" d="2680">Another thing I could have
+done is take the absolute value</p>
+<p t="1422320" d="1430">of this thing, for example.</p>
+<p t="1423750" d="2440">I just decided to take the
+square root before I did it.</p>
+<p t="1426190" d="2440">OK, so regardless
+of what I'm doing,</p>
+<p t="1428630" d="1970">I'm just taking the
+squares because that's just</p>
+<p t="1430600" d="3000">going to be convenient for me
+to do my computations for now.</p>
+<p t="1433600" d="1800">But we don't have
+any statistical model</p>
+<p t="1435400" d="1540">at this point.</p>
+<p t="1436940" d="2100">I didn't say anything--
+that y follows this.</p>
+<p t="1439040" d="1280">X follows this.</p>
+<p t="1440320" d="1440">I'm just doing
+minimal assumptions</p>
+<p t="1441760" d="2490">as we go, all right?</p>
+<p t="1444250" d="1890">So the variance of
+x is not equal to 0?</p>
+<p t="1446140" d="1130">Could somebody tell me why?</p>
+<p t="1451330" d="3160">What would my cloud point
+look like if the variance of x</p>
+<p t="1454490" d="1640">was equal to 0?</p>
+<p t="1456130" d="1992">Yeah, they would all
+be at the same point.</p>
+<p t="1458122" d="2458">So it's going to be hard for
+me to start fitting in a line,</p>
+<p t="1460580" d="600">right?</p>
+<p t="1461180" d="2920">I mean, best case
+scenario, I have this x.</p>
+<p t="1464100" d="2600">It has variance, zero, so
+this is the expectation of x.</p>
+<p t="1466700" d="4320">And all my points have
+the same expectation,</p>
+<p t="1471020" d="2760">and so, yes, I could
+probably fit that line.</p>
+<p t="1473780" d="4560">But that wouldn't help
+very much for other x's.</p>
+<p t="1478340" d="3060">So I need a bit of variance
+so that things spread out</p>
+<p t="1481400" d="610">a little bit.</p>
+<p t="1487440" d="3690">OK, I'm going to
+have to do this.</p>
+<p t="1491130" d="1240">I think it's just my--</p>
+<p t="1510200" d="3260">All right, so I'm going to
+put a little bit of variance.</p>
+<p t="1513460" d="2500">And the other thing is here,
+I don't want to do much more,</p>
+<p t="1515960" d="6480">but I'm actually going to think
+of x as having means zero.</p>
+<p t="1522440" d="1990">And the way I do
+this is as follows.</p>
+<p t="1524430" d="6140">Let's define x tilde, which is
+x minus the expectation of x.</p>
+<p t="1530570" d="3350">OK, so definitely the
+expectation of x tilde is what?</p>
+<p t="1536620" d="1490">Zero, OK.</p>
+<p t="1538110" d="5240">And so now I want to
+minimize in ab, expectation</p>
+<p t="1543350" d="10570">of y minus a plus b, x squared.</p>
+<p t="1553920" d="9890">And the way I'm going to do this
+is by turning x into x tilde</p>
+<p t="1563810" d="3250">and stuffing the extra--</p>
+<p t="1567060" d="5700">and putting the extra
+expectation of x into the a.</p>
+<p t="1572760" d="7080">So I'm going to write this as
+an expectation of y minus a plus</p>
+<p t="1579840" d="5340">b expectation of x--</p>
+<p t="1585180" d="2350">which I'm going to a tilde--</p>
+<p t="1587530" d="2770">and plus b x tilde.</p>
+<p t="1593930" d="1700">OK?</p>
+<p t="1595630" d="3290">And everybody agrees with this?</p>
+<p t="1598920" d="2570">So now I have two
+parameters, a tilde and b,</p>
+<p t="1601490" d="2860">and I'm going to pretend
+that now x tilde--</p>
+<p t="1604350" d="6480">so now the role of x is played
+by x tilde, which is now</p>
+<p t="1610830" d="2190">a centered random variable.</p>
+<p t="1613020" d="2640">OK, so I'm going to
+call this guy a tilde,</p>
+<p t="1615660" d="3199">but for my computations
+I'm going to call it a.</p>
+<p t="1618859" d="1791">So how do I find the
+minimum of this thing?</p>
+<p t="1625114" d="1506">Derivative equal to zero, right?</p>
+<p t="1626620" d="1615">So here it's a quadratic thing.</p>
+<p t="1628235" d="1125">It's going to be like that.</p>
+<p t="1629360" d="1520">I take the derivative,
+set it to zero.</p>
+<p t="1630880" d="2250">So I'm first going to take
+the derivative with respect</p>
+<p t="1633130" d="3240">to a and set it equal to zero,
+so that's equivalent to saying</p>
+<p t="1636370" d="1950">that the expectation of--</p>
+<p t="1638320" d="2995">well, here, I'm going
+to pick up a 2--</p>
+<p t="1641315" d="12405">y minus a plus bx
+tilde is equal to zero.</p>
+<p t="1653720" d="2860">And then I also have that the
+derivative with respect to b is</p>
+<p t="1656580" d="3680">equal to zero, which is
+equivalent to the expectation</p>
+<p t="1660260" d="1840">of-- well, I have a
+negative sign somewhere,</p>
+<p t="1662100" d="1310">so let me put it here--</p>
+<p t="1663410" d="7540">minus 2x tilde, y
+minus a plus bx tilde.</p>
+<p t="1675644" d="3266">OK, see that's why I don't want
+to put too many parenthesis.</p>
+<p t="1683140" d="2601">OK.</p>
+<p t="1685741" d="1749">So I just took the
+derivative with respect</p>
+<p t="1687490" d="2430">to a, which is just
+basically the square,</p>
+<p t="1689920" d="2649">and then I have a negative 1
+that comes out from inside.</p>
+<p t="1692569" d="1791">And then I take the
+derivative with respect</p>
+<p t="1694360" d="2650">to b, and since b has x tilde.</p>
+<p t="1697010" d="2330">In [? factor, ?] it
+comes out as well.</p>
+<p t="1699340" d="5080">All right, so the minus 2's
+really won't matter for me.</p>
+<p t="1704420" d="2286">And so now I have two equations.</p>
+<p t="1706706" d="1874">The first equation,
+while it's pretty simple,</p>
+<p t="1708580" d="3375">it's just telling me that
+the expectation of y minus a</p>
+<p t="1711955" d="1755">is equal to zero.</p>
+<p t="1713710" d="8160">So what I know is that a is
+equal to the expectation of y.</p>
+<p t="1721870" d="2190">And really that
+was a tilde, which</p>
+<p t="1724060" d="3810">implies that the a
+I want is actually</p>
+<p t="1727870" d="12820">equal to the
+expectation of y minus b</p>
+<p t="1740690" d="4340">times the expectation of x.</p>
+<p t="1745030" d="500">OK?</p>
+<p t="1750240" d="3210">Just because a tilde is a plus
+b times the expectation of x.</p>
+<p t="1756830" d="2530">So that's for my a.</p>
+<p t="1759360" d="2820">And then for my b, I
+use the second one.</p>
+<p t="1762180" d="5810">So the second one tells me that
+the expectation of x tilde of y</p>
+<p t="1767990" d="4440">is equal to a plus b times
+the expectation of x tilde</p>
+<p t="1772430" d="1090">which is zero, right?</p>
+<p t="1778640" d="820">OK?</p>
+<p t="1779460" d="2170">But this a is actually
+a tilde in this problem,</p>
+<p t="1781630" d="5580">so it's actually a plus
+b expectation of x.</p>
+<p t="1791900" d="1990">Now, this is the
+expectation of the product</p>
+<p t="1793890" d="3590">of two random variables, but
+x tilde is centered, right?</p>
+<p t="1797480" d="3190">It's x minus expectation of
+x, so this thing is actually</p>
+<p t="1800670" d="2970">equal to the covariance
+between x and y</p>
+<p t="1803640" d="1500">by definition of covariance.</p>
+<p t="1809130" d="2710">So now I have everything
+I need, right.</p>
+<p t="1811840" d="2270">How do I just--</p>
+<p t="1814110" d="2410">I'm sorry about that.</p>
+<p t="1816520" d="1810">So I have everything I need.</p>
+<p t="1818330" d="4230">Now, I now have two
+equations with two unknowns,</p>
+<p t="1822560" d="2550">and all I have to do is
+to basically plug it in.</p>
+<p t="1825110" d="4350">So it's essentially telling
+me that the covariance of xy--</p>
+<p t="1829460" d="2520">so the first equation tells
+me that the covariance of xy</p>
+<p t="1831980" d="4770">is equal to a plus b expectation
+of x, but a is expectation of y</p>
+<p t="1836750" d="2890">minus b expectation of x.</p>
+<p t="1839640" d="5473">So it's-- well, actually,
+maybe I should start with b.</p>
+<p t="1854780" d="1230">Oh, sorry.</p>
+<p t="1856010" d="3570">OK, I forgot one thing.</p>
+<p t="1859580" d="1170">This is not true, right.</p>
+<p t="1860750" d="1766">I forgot this term.</p>
+<p t="1862516" d="3334">x tilde multiplies x
+tilde here, so what</p>
+<p t="1865850" d="1830">I'm left with is x tilde--</p>
+<p t="1867680" d="3640">it's minus b times the
+expectation of x tilde squared.</p>
+<p t="1871320" d="3480">So that's actually minus
+b times the variance of x</p>
+<p t="1874800" d="3170">tilde because x tilde
+is already centered,</p>
+<p t="1877970" d="1790">which is actually
+the variance of x.</p>
+<p t="1883850" d="5940">So now I have that this thing
+is actually a plus b expectation</p>
+<p t="1889790" d="6780">of x minus b variance of x.</p>
+<p t="1896570" d="5610">And I also have that a
+is equal to expectation</p>
+<p t="1902180" d="3780">of y minus b expectation of x.</p>
+<p t="1913720" d="4380">So if I sum the two, those
+guys are going to cancel.</p>
+<p t="1918100" d="2640">Those guys are going to cancel.</p>
+<p t="1920740" d="4890">And so what I'm going to be
+left with is covariance of xy</p>
+<p t="1925630" d="4940">is equal to expectation
+of x, expectation of y,</p>
+<p t="1930570" d="2040">and then I'm left with
+this term here, minus</p>
+<p t="1932610" d="1440">b times the variance of x.</p>
+<p t="1937070" d="3101">And so that tells me that b--</p>
+<p t="1940171" d="1625">why do I still have
+the variance there?</p>
+<p t="1954692" d="2976">AUDIENCE: So is the
+covariance really</p>
+<p t="1957668" d="5456">the expectation of x tilde
+times y minus expectation of y?</p>
+<p t="1963124" d="2968">Because y is not
+centered, correct?</p>
+<p t="1966092" d="1000">PHILIPPE RIGOLLET: Yeah.</p>
+<p t="1967092" d="1722">AUDIENCE: OK, but x
+is still the center.</p>
+<p t="1968814" d="2166">PHILIPPE RIGOLLET: But x
+is still the center, right.</p>
+<p t="1970980" d="1720">So you just need
+to have one that's</p>
+<p t="1972700" d="1130">centered for this to work.</p>
+<p t="1977187" d="1333">Right, I mean, you can check it.</p>
+<p t="1978520" d="1624">But basically when
+you're going to have</p>
+<p t="1980144" d="2733">the product of the expectations,
+you only need one of the two</p>
+<p t="1982877" d="1083">in the product to be zero.</p>
+<p t="1983960" d="960">So the product is zero.</p>
+<p t="1989090" d="1930">OK, why do I keep my--</p>
+<p t="1991020" d="3522">so I get a, a, and
+then the b expectation.</p>
+<p t="1994542" d="2208">OK, so that's probably
+earlier that I made a mistake.</p>
+<p t="2005620" d="3520">So I get-- so this was a tilde.</p>
+<p t="2009140" d="1408">Let's just be clear about the--</p>
+<p t="2020508" d="2842">So that tells me that a tilde--</p>
+<p t="2023350" d="2220">maybe it's not super
+fair of me to--</p>
+<p t="2028310" d="2116">yeah, OK, I think I know
+where I made a mistake.</p>
+<p t="2030426" d="1124">I should not have centered.</p>
+<p t="2031550" d="3210">I wanted to make my life
+easier, and I should not</p>
+<p t="2034760" d="1200">have done that.</p>
+<p t="2035960" d="3180">And the reason is a
+tilde depends on b,</p>
+<p t="2039140" d="2640">so when I take the
+derivative with respect</p>
+<p t="2041780" d="3060">to b, what I'm left with here--</p>
+<p t="2044840" d="2040">since a tilde
+depends on b, when I</p>
+<p t="2046880" d="2490">take the derivative of
+this guy, I actually</p>
+<p t="2049370" d="3180">don't get a tilde here,
+but I really get--</p>
+<p t="2057570" d="3326">so again, this was not--</p>
+<p t="2060896" d="1064">so that's the first one.</p>
+<p t="2070389" d="3411">This is actually x here--</p>
+<p t="2073800" d="4250">because when I take the
+derivative with respect to b.</p>
+<p t="2078050" d="2879">And so now, what I'm left with
+is that the expectation-- so</p>
+<p t="2080929" d="3000">yeah, I'm basically left
+with nothing that helps.</p>
+<p t="2083929" d="2371">So I'm sorry about.</p>
+<p t="2086300" d="3629">Let's start from the
+beginning because this is not</p>
+<p t="2089929" d="3161">getting us anywhere, and a
+fix is not going to help.</p>
+<p t="2093090" d="2280">So let's just do it again.</p>
+<p t="2095370" d="950">Sorry about that.</p>
+<p t="2096320" d="2910">So let's not center anything
+and just do brute force</p>
+<p t="2099230" d="1890">because we're going to--</p>
+<p t="2101120" d="3700">b x squared.</p>
+<p t="2104820" d="2450">All right.</p>
+<p t="2107270" d="2250">Partial, with respect
+to a, is giving</p>
+<p t="2109520" d="2400">equal zero is
+equivalent, so my minus 2</p>
+<p t="2111920" d="1140">is going to cancel, right.</p>
+<p t="2113060" d="1791">So I'm going to actually
+forget about this.</p>
+<p t="2114851" d="3129">So it's actually telling
+me that the expectation</p>
+<p t="2117980" d="7680">of y minus a plus bx
+is equal to zero, which</p>
+<p t="2125660" d="5430">is equivalent to a plus
+b expectation of x, is</p>
+<p t="2131090" d="2685">equal to the expectation of y.</p>
+<p t="2133775" d="1875">Now, if I take the
+derivative with respect to</p>
+<p t="2135650" d="3180">b and set it equal to
+zero, this is telling me</p>
+<p t="2138830" d="2826">that the expectation of--</p>
+<p t="2141656" d="2124">well, it's the same thing
+except that this time I'm</p>
+<p t="2143780" d="1500">going to pull out an x.</p>
+<p t="2152470" d="1840">This guy is equal to zero--</p>
+<p t="2154310" d="2350">this guy is not here--</p>
+<p t="2156660" d="6990">and so that implies that
+the expectation of xy</p>
+<p t="2163650" d="5910">is equal to a times
+the expectation of x,</p>
+<p t="2169560" d="7166">plus b times the
+expectation of x square.</p>
+<p t="2176726" d="500">OK?</p>
+<p t="2181540" d="5180">All right, so the first one is
+actually not giving me much,</p>
+<p t="2186720" d="2980">so I need to actually work
+with the two of those guys.</p>
+<p t="2189700" d="1770">So I'm going to take the first--</p>
+<p t="2191470" d="2220">so let me rewrite those two
+inequalities that I have.</p>
+<p t="2193690" d="7140">I have a plus b, e of
+x is equal to e of y.</p>
+<p t="2200830" d="2262">And then I have e of xy.</p>
+<p t="2210970" d="10190">OK, and now what I do is
+that I multiply this guy.</p>
+<p t="2221160" d="2070">So I want to cancel one
+of those things, right?</p>
+<p t="2223230" d="1225">So what I'm going to--</p>
+<p t="2232197" d="1583">so I'm going to take
+this guy, and I'm</p>
+<p t="2233780" d="5250">going to multiply it by e of
+x and take the difference.</p>
+<p t="2239030" d="7300">So I do times e of x, and then
+I take the sum of those two,</p>
+<p t="2246330" d="2510">and then those two terms
+are going to cancel.</p>
+<p t="2248840" d="4710">So then that tells
+me that b times e</p>
+<p t="2253550" d="11630">of x squared, plus the
+expectation of xy is equal to--</p>
+<p t="2265180" d="3243">so this guy is the
+one that cancelled.</p>
+<p t="2273850" d="2720">Then I get this guy
+here, expectation</p>
+<p t="2276570" d="5880">of x times the expectation
+of y, plus the guy that</p>
+<p t="2282450" d="1620">remains here--</p>
+<p t="2284070" d="4682">which is b times the
+expectation of x square.</p>
+<p t="2291920" d="4300">So here I have b expectation
+of x, the whole thing squared.</p>
+<p t="2296220" d="2180">And here I have b
+expectation of x square.</p>
+<p t="2298400" d="4040">So if I pull this guy
+here, what do I get?</p>
+<p t="2302440" d="3700">b times the variance of x, OK?</p>
+<p t="2306140" d="2040">So I'm going to move here.</p>
+<p t="2308180" d="2980">And this guy here, when
+I move this guy here,</p>
+<p t="2311160" d="1820">I get the expectation
+of x times y,</p>
+<p t="2312980" d="2610">minus the expectation of x
+times the expectation of y.</p>
+<p t="2315590" d="4950">So this is actually telling me
+that the covariance of x and y</p>
+<p t="2320540" d="4910">is equal to b times
+the variance of x.</p>
+<p t="2325450" d="3390">And so then that
+tells me that b is</p>
+<p t="2328840" d="6679">equal to covariance of xy
+divided by the variance of x.</p>
+<p t="2335519" d="1791">And that's why I actually
+need the variance</p>
+<p t="2337310" d="4380">of x to be non-zero because
+I couldn't do that otherwise.</p>
+<p t="2341690" d="1500">And because if it
+was, it would mean</p>
+<p t="2343190" d="1700">that b should be
+plus infinity, which</p>
+<p t="2344890" d="3330">is what the limit of this
+guy is when the variance goes</p>
+<p t="2348220" d="2980">to zero or negative infinity.</p>
+<p t="2351200" d="3210">I can not sort them out.</p>
+<p t="2354410" d="1720">All right, so I'm
+sorry about the mess,</p>
+<p t="2356130" d="2940">but that should be more clear.</p>
+<p t="2359070" d="2340">Then a, of course,
+you can write it</p>
+<p t="2361410" d="1830">by plugging in the
+value of b, so you</p>
+<p t="2363240" d="3790">know it's only a function
+of your distribution, right?</p>
+<p t="2367030" d="2210">So what are the characteristics
+of the distribution--</p>
+<p t="2369240" d="1791">so distribution can
+have a bunch of things.</p>
+<p t="2371031" d="3299">It can have movements
+of order 4, of order 26.</p>
+<p t="2374330" d="2260">It can have heavy
+tails or light tails.</p>
+<p t="2376590" d="2730">But when you compute
+least squares,</p>
+<p t="2379320" d="2580">the only thing that
+matters are the variance</p>
+<p t="2381900" d="3420">of x, the expectation
+of the individual ones--</p>
+<p t="2385320" d="4980">and really what captures how
+y changes when you change x,</p>
+<p t="2390300" d="1290">is captured in the covariance.</p>
+<p t="2391590" d="2920">The rest is really
+just normalization.</p>
+<p t="2394510" d="4040">It's just telling you, I want
+things to cross the y-axis</p>
+<p t="2398550" d="810">at the right place.</p>
+<p t="2399360" d="2970">I want things to cross the
+x-axis at the right place.</p>
+<p t="2402330" d="3390">But the slope is really captured
+by how much more covariance</p>
+<p t="2405720" d="2610">you have relative to
+the variance of x.</p>
+<p t="2408330" d="4020">So this is essentially setting
+the scale for the x-axis,</p>
+<p t="2412350" d="3060">and this is telling
+you for a unit scale,</p>
+<p t="2415410" d="5050">this is the unit of y
+that you're changing.</p>
+<p t="2420460" d="3140">OK, so we have explicit forms.</p>
+<p t="2423600" d="2700">And what I could do, if I
+wanted to estimate those things,</p>
+<p t="2426300" d="6210">is just say, well again, we
+have expectations, right?</p>
+<p t="2432510" d="3540">The expectation of xy minus the
+product of the expectations,</p>
+<p t="2436050" d="2460">I could replace
+expectations by averages</p>
+<p t="2438510" d="1800">and get an empirical
+covariance just</p>
+<p t="2440310" d="2400">like we can replace the
+expectations for the variance</p>
+<p t="2442710" d="2010">and get a sample covariance.</p>
+<p t="2444720" d="2580">And this is basically what
+we're going to be doing.</p>
+<p t="2447300" d="2170">All right, this is
+essentially what you want.</p>
+<p t="2449470" d="2480">The problem is that if
+you view it that way,</p>
+<p t="2451950" d="2910">you sort of prevent yourself
+from being able to solve</p>
+<p t="2454860" d="1650">the multivariate problem.</p>
+<p t="2456510" d="1920">Because it's only in
+the univariate problem</p>
+<p t="2458430" d="2500">that you have closed form
+solutions for your problem.</p>
+<p t="2460930" d="2150">But if you actually
+go to multivariate,</p>
+<p t="2463080" d="2430">this is not where you want
+to replace expectations</p>
+<p t="2465510" d="720">by averages.</p>
+<p t="2466230" d="2890">You actually want to replace
+expectation by averages here.</p>
+<p t="2472520" d="2430">And once you do
+it here, then you</p>
+<p t="2474950" d="2970">can actually just solve
+the minimisation problem.</p>
+<p t="2483240" d="6600">OK, so one thing that
+arises from this guy</p>
+<p t="2489840" d="5955">is that this is an
+interesting formula.</p>
+<p t="2500640" d="3100">All right, think about it.</p>
+<p t="2503740" d="16450">If I have that y is a
+plus bx plus some noise.</p>
+<p t="2520190" d="2490">Things are no
+longer on something.</p>
+<p t="2522680" d="5790">I have that y is equal to
+a bx plus some noise, which</p>
+<p t="2528470" d="2740">is usually denoted by epsilon.</p>
+<p t="2531210" d="1700">So that's the
+distribution, right?</p>
+<p t="2532910" d="2850">If I tell you the
+distribution of x, and I</p>
+<p t="2535760" d="1710">say y is a plus b epsilon--</p>
+<p t="2537470" d="1470">I tell you the
+distribution of y,</p>
+<p t="2538940" d="2250">and if [? they mean ?] that
+those two are independent,</p>
+<p t="2541190" d="2670">you have a distribution on y.</p>
+<p t="2543860" d="3504">So what happens is that I can
+actually always say-- well, you</p>
+<p t="2547364" d="1416">know, this is
+equivalent to saying</p>
+<p t="2548780" d="6780">that epsilon is equal to
+y minus a plus bx, right?</p>
+<p t="2555560" d="1980">I can always write
+this as just--</p>
+<p t="2557540" d="2780">I mean, as tautology.</p>
+<p t="2560320" d="1749">But here, for those guys--</p>
+<p t="2562069" d="1291">this is not for any guy, right.</p>
+<p t="2563360" d="2410">This is really for
+the best fit, a</p>
+<p t="2565770" d="4400">and b, those ones that
+satisfy this gradient is</p>
+<p t="2570170" d="1440">equal to zero thing.</p>
+<p t="2571610" d="3720">Then what we had is that
+the expectation of epsilon</p>
+<p t="2575330" d="4050">was equal to expectation
+of y minus a plus</p>
+<p t="2579380" d="4050">b expectation of x by linearity
+of the expectation, which</p>
+<p t="2583430" d="2130">was equal to zero.</p>
+<p t="2585560" d="4620">So for this best
+fit we have zero.</p>
+<p t="2590180" d="3450">Now, the covariance
+between x and y--</p>
+<p t="2597190" d="3340">Between, sorry, x
+and epsilon, is what?</p>
+<p t="2600530" d="2890">Well, it's the
+covariance between x--</p>
+<p t="2603420" d="4120">and well, epsilon was
+y minus a plus bx.</p>
+<p t="2610100" d="3140">Now, the covariance is
+bilinear, so what I have</p>
+<p t="2613240" d="2400">is that the
+covariance of this is</p>
+<p t="2615640" d="3120">the covariance of xn times y--</p>
+<p t="2618760" d="3030">sorry, of x and y, minus
+the variance-- well,</p>
+<p t="2621790" d="8430">minus a plus b,
+covariance of x and x,</p>
+<p t="2630220" d="4500">which is the variance of x?</p>
+<p t="2639050" d="4460">Covariance of xy minus
+a plus b variance of x.</p>
+<p t="2652384" d="916">OK, I didn't write it.</p>
+<p t="2653300" d="2780">So here I have
+covariance of xy is</p>
+<p t="2656080" d="1830">equal to b variance of x, right?</p>
+<p t="2674070" d="1200">Covariance of xy.</p>
+<p t="2675270" d="2787">Yeah, that's because they cannot
+do that with the covariance.</p>
+<p t="2684030" d="2490">Yeah, I have those
+averages again.</p>
+<p t="2686520" d="1800">No, because this
+is centered, right?</p>
+<p t="2688320" d="2680">Sorry, this is centered,
+so this is actually</p>
+<p t="2691000" d="5760">equal to the expectation of
+x times y minus a plus bx.</p>
+<p t="2701527" d="1583">The covariance is
+equal to the product</p>
+<p t="2703110" d="2640">just because this insight
+is actually centered.</p>
+<p t="2705750" d="4230">So this is the
+expectation of x times y</p>
+<p t="2709980" d="10120">minus the expectation of a times
+the expectation of x, plus b</p>
+<p t="2720100" d="2913">minus b times the
+expectation of x squared.</p>
+<p t="2732200" d="2520">Well, actually maybe I
+should not really go too far.</p>
+<p t="2738894" d="1666">So this is actually
+the one that I need.</p>
+<p t="2740560" d="6740">But if I stop here, this is
+actually equal to zero, right.</p>
+<p t="2747300" d="1795">Those are the same equations.</p>
+<p t="2752065" d="985">OK?</p>
+<p t="2753050" d="500">Yeah?</p>
+<p t="2753550" d="1966">AUDIENCE: What are
+we doing right now?</p>
+<p t="2755516" d="1624">PHILIPPE RIGOLLET:
+So we're just saying</p>
+<p t="2757140" d="3930">that if I actually believe that
+this best fit was the one that</p>
+<p t="2761070" d="1920">gave me the right
+parameters, what would</p>
+<p t="2762990" d="2814">that imply on the noise
+itself, on this epsilon?</p>
+<p t="2765804" d="1416">So here we're
+actually just trying</p>
+<p t="2767220" d="2850">to find some necessary condition
+for the noise to hold--</p>
+<p t="2770070" d="960">for the noise.</p>
+<p t="2771030" d="3510">And so those conditions are,
+that first, the expectation</p>
+<p t="2774540" d="750">is zero.</p>
+<p t="2775290" d="1800">That's what we've got here.</p>
+<p t="2777090" d="3390">And then, that the covariance
+between the noise and x</p>
+<p t="2780480" d="2420">has to be zero as well.</p>
+<p t="2782900" d="1870">OK, so those are
+actually conditions</p>
+<p t="2784770" d="1590">that the noise must satisfy.</p>
+<p t="2786360" d="3090">But the noise was just not
+really defined as noise itself.</p>
+<p t="2789450" d="2100">We were just
+saying, OK, if we're</p>
+<p t="2791550" d="3680">going to put some assumptions
+on the epsilon, what</p>
+<p t="2795230" d="880">do we better have?</p>
+<p t="2796110" d="2250">So the first one is that
+it's centered, which is good,</p>
+<p t="2798360" d="2790">because otherwise, the noise
+would shift everything.</p>
+<p t="2801150" d="4470">So now when you look at a
+linear regression model--</p>
+<p t="2805620" d="2970">typically, if you open a book,
+it doesn't start by saying,</p>
+<p t="2808590" d="2330">let the noise be the
+difference between y</p>
+<p t="2810920" d="2020">and what I actually
+want y to be.</p>
+<p t="2812940" d="4270">It says let y be a
+plus bx plus epsilon.</p>
+<p t="2817210" d="4910">So conversely, if we assume that
+this is the model that we have,</p>
+<p t="2822120" d="2220">then we're going to have
+to assume that epsilon--</p>
+<p t="2824340" d="1958">we're going to assume
+that epsilon is centered,</p>
+<p t="2826298" d="4542">and that the covariance
+between x and epsilon is zero.</p>
+<p t="2830840" d="2920">Actually, often, we're
+going to assume much more.</p>
+<p t="2833760" d="3840">And one way to ensure that
+those two things are satisfied</p>
+<p t="2837600" d="2340">is to assume that x is
+independent of epsilon,</p>
+<p t="2839940" d="1350">for example.</p>
+<p t="2841290" d="2650">If you assume that x is
+independent of epsilon,</p>
+<p t="2843940" d="4392">of course the covariance
+is going to be zero.</p>
+<p t="2848332" d="2388">Or we might assume that
+the conditional expectation</p>
+<p t="2850720" d="4730">of epsilon, given x, is equal
+to zero, then that implies that.</p>
+<p t="2855450" d="3260">OK, now the fact that it's
+centered is one thing.</p>
+<p t="2858710" d="4790">So if we make this assumption,
+the only thing it's telling us</p>
+<p t="2863500" d="4200">is that those ab's that come--
+right, we started from there.</p>
+<p t="2867700" d="3540">y is equal to a plus bx plus
+some epsilon for some a,</p>
+<p t="2871240" d="720">for some b.</p>
+<p t="2871960" d="3930">What it turns out is that
+those a's and b's are actually</p>
+<p t="2875890" d="2790">the ones that you would get
+by solving this expectation</p>
+<p t="2878680" d="2010">of square thing.</p>
+<p t="2880690" d="1920">All right, so when you asked--</p>
+<p t="2882610" d="1920">back when you were following--</p>
+<p t="2884530" d="2640">so when you asked,
+you know, why don't we</p>
+<p t="2887170" d="3120">take the square, for
+example, or the power</p>
+<p t="2890290" d="1920">4, or something like this--</p>
+<p t="2892210" d="3780">then here, I'm saying, well, if
+I have y is equal to a plus bx,</p>
+<p t="2895990" d="3240">I don't actually need to put
+too much assumptions on epsilon.</p>
+<p t="2899230" d="3090">If epsilon is actually
+satisfying those two things,</p>
+<p t="2902320" d="3300">expectation is equal to
+zero and the covariance</p>
+<p t="2905620" d="3292">with x is equal to zero,
+then the right a and b</p>
+<p t="2908912" d="1958">that I'm looking for are
+actually the ones that</p>
+<p t="2910870" d="1250">come with the square--</p>
+<p t="2912120" d="4630">not with power 4 or power 25.</p>
+<p t="2916750" d="2550">So those are actually
+pretty weak assumptions.</p>
+<p t="2919300" d="2210">If we want to do
+inference, we're</p>
+<p t="2921510" d="1840">going to have to
+assume slightly more.</p>
+<p t="2923350" d="2340">If we want to use
+T-distributions at some point,</p>
+<p t="2925690" d="1830">for example, and we
+will, we're going</p>
+<p t="2927520" d="3280">to have to assume that epsilon
+has a Gaussian distribution.</p>
+<p t="2930800" d="2900">So if you want to start doing
+more statistics beyond just</p>
+<p t="2933700" d="2850">like doing this least square
+thing, which is minimizing</p>
+<p t="2936550" d="1800">the square of criterion,
+you're actually</p>
+<p t="2938350" d="1583">going to have to put
+more assumptions.</p>
+<p t="2939933" d="1777">But right now, we
+did not need them.</p>
+<p t="2941710" d="2500">We only need that epsilon
+as mean zero and covariant</p>
+<p t="2944210" d="788">zero with x.</p>
+<p t="2948750" d="4290">OK, so that was basically
+probabilistic, right.</p>
+<p t="2953040" d="1410">If I were to do
+probability and I</p>
+<p t="2954450" d="2640">were trying to model the
+relationship between two</p>
+<p t="2957090" d="3240">random variables, x
+and y, in the form</p>
+<p t="2960330" d="3990">y is a plus bx plus some noise,
+this is what would come out.</p>
+<p t="2964320" d="1320">Everything was expectations.</p>
+<p t="2965640" d="1650">There was no data involved.</p>
+<p t="2967290" d="6330">So now let's go to the
+data problem, which is now,</p>
+<p t="2973620" d="1920">I do not know what
+those expectations are.</p>
+<p t="2975540" d="2700">In particular, I don't know what
+the covariance of x and y is,</p>
+<p t="2978240" d="2370">and I don't know with
+the expectation of x</p>
+<p t="2980610" d="2340">and the expectation of y r.</p>
+<p t="2982950" d="1620">So I have data to do that.</p>
+<p t="2984570" d="1310">So how am I going to do this?</p>
+<p t="2989244" d="1416">Well, I'm just
+going to say, well,</p>
+<p t="2990660" d="6910">if I want x1, y1,
+xn, yn, and I'm going</p>
+<p t="2997570" d="2211">to assume that
+they're [? iid. ?]</p>
+<p t="2999781" d="1749">And I'm actually going
+to assume that they</p>
+<p t="3001530" d="1290">have some model, right.</p>
+<p t="3002820" d="3750">So I'm going to assume
+that I have that a--</p>
+<p t="3006570" d="2580">so that Yi follows
+the same model.</p>
+<p t="3014620" d="2380">So epsilon i
+[? rad, ?] and I won't</p>
+<p t="3017000" d="6610">say that expectation of epsilon
+i is zero and covariance of xi,</p>
+<p t="3023610" d="2020">epsilon i is equal to zero.</p>
+<p t="3025630" d="3250">So I'm going to put the
+same model on all the data.</p>
+<p t="3028880" d="2540">So you can see that a is
+not ai, and b is not bi.</p>
+<p t="3031420" d="960">It's the same.</p>
+<p t="3032380" d="1710">So as my data
+increases, I should</p>
+<p t="3034090" d="2760">be able to recover
+the correct things--</p>
+<p t="3036850" d="2580">as the size of my
+data increases.</p>
+<p t="3039430" d="3600">OK, so this is what the
+statistical problem look like.</p>
+<p t="3043030" d="2220">You're given the points.</p>
+<p t="3045250" d="2100">There is a true line
+from which this point</p>
+<p t="3047350" d="1207">was generated, right.</p>
+<p t="3048557" d="833">There was this line.</p>
+<p t="3049390" d="4860">There was a true ab that
+I use to draw this plot,</p>
+<p t="3054250" d="940">and that was the line.</p>
+<p t="3055190" d="4130">So first I picked an
+x, say uniformly at</p>
+<p t="3059320" d="2790">on this intervals, 0 to 2.</p>
+<p t="3062110" d="1500">I said that was this one.</p>
+<p t="3063610" d="3190">Then I said well, I
+want y to be a plus bx,</p>
+<p t="3066800" d="1700">so it should be
+here, but then I'm</p>
+<p t="3068500" d="2340">going to add some noise
+epsilon to go away again</p>
+<p t="3070840" d="2430">back from this line.</p>
+<p t="3073270" d="3700">And that's actually me, here, we
+actually got two points correct</p>
+<p t="3076970" d="1100">on this line.</p>
+<p t="3078070" d="2100">So there's basically
+two epsilons</p>
+<p t="3080170" d="2160">that were small enough
+that the dots actually</p>
+<p t="3082330" d="2390">look like they're on the line.</p>
+<p t="3084720" d="2340">Everybody's clear
+about what I'm drawing?</p>
+<p t="3087060" d="1750">So now of course if
+you're a statistician,</p>
+<p t="3088810" d="810">you don't see this.</p>
+<p t="3089620" d="1190">You only see this.</p>
+<p t="3090810" d="1800">And you have to
+recover this guy,</p>
+<p t="3092610" d="1650">and it's going to
+look like this.</p>
+<p t="3094260" d="2290">You're going to have an
+estimated line, which</p>
+<p t="3096550" d="1230">is the red one.</p>
+<p t="3097780" d="4830">And the blue line, which is
+the true one, the one that</p>
+<p t="3102610" d="1620">actually generated the data.</p>
+<p t="3104230" d="2580">And your question is,
+while this line corresponds</p>
+<p t="3106810" d="2157">to some parameters
+a hat and b hat,</p>
+<p t="3108967" d="2583">how could I make sure that those
+two lines-- how far those two</p>
+<p t="3111550" d="510">lines are?</p>
+<p t="3112060" d="1560">And one to address
+this question is</p>
+<p t="3113620" d="4300">to say how far is a from a hat,
+and how far is b from b hat?</p>
+<p t="3117920" d="865">OK?</p>
+<p t="3118785" d="1875">Another question, of
+course, that you may ask</p>
+<p t="3120660" d="3810">is, how do you find
+a hat and b hat?</p>
+<p t="3124470" d="3060">And as you can see, it's
+basically the same thing.</p>
+<p t="3127530" d="7680">Remember, what was a-- so b
+was the covariance between x</p>
+<p t="3135210" d="6030">and y divided by the
+variance of x, right?</p>
+<p t="3141240" d="1170">We check and rewrite this.</p>
+<p t="3142410" d="4020">The expectation of
+xy minus expectation</p>
+<p t="3146430" d="3630">of x times the
+expectation of y, divided</p>
+<p t="3150060" d="5520">by expectation of x squared
+minus expectation of x.</p>
+<p t="3155580" d="1960">The whole thing's--</p>
+<p t="3157540" d="1500">OK?</p>
+<p t="3159040" d="3870">If you look at the
+expression for b hat,</p>
+<p t="3162910" d="4760">I basically replaced all
+the expectations by bars.</p>
+<p t="3167670" d="2130">So I said, well,
+this guy I'm going</p>
+<p t="3169800" d="3680">to estimate by an average.</p>
+<p t="3173480" d="6490">So that's the xy
+bar, and is 1 over n,</p>
+<p t="3179970" d="3055">[? sum ?] from [? i co ?]
+1, to n of Xi, times Yi.</p>
+<p t="3185555" d="2825">x bar, of course, is just
+the one that we're used to.</p>
+<p t="3192690" d="2280">And same for y bar.</p>
+<p t="3194970" d="5610">X squared bar, the
+one that's here,</p>
+<p t="3200580" d="1710">is the average of the squares.</p>
+<p t="3202290" d="2136">And x bar square is the
+square of the average.</p>
+<p t="3219510" d="4560">OK, so you just basically
+replace this guy by x bar,</p>
+<p t="3224070" d="3750">this guy by y bar, this
+guy by x square bar,</p>
+<p t="3227820" d="4530">and this guy by x
+bar and no square.</p>
+<p t="3232350" d="2460">OK, so that's basically
+one way to do it.</p>
+<p t="3234810" d="1530">Everywhere you see
+an expectation,</p>
+<p t="3236340" d="2400">you replace it by an average.</p>
+<p t="3238740" d="3330">That's the usual
+statistical hammer.</p>
+<p t="3242070" d="2650">You can actually be slightly
+more subtle about this.</p>
+<p t="3249980" d="2440">And as an exercise,
+I invite you--</p>
+<p t="3252420" d="2520">just to make sure that you know
+how to do this competition,</p>
+<p t="3254940" d="2460">it's going to be exactly the
+same kind of competitions</p>
+<p t="3257400" d="1440">that we've done.</p>
+<p t="3258840" d="1830">But as an exercise,
+you can check</p>
+<p t="3260670" d="2641">that if you actually
+look at say, well,</p>
+<p t="3263311" d="2499">what I wanted to minimize here,
+I had an expectation, right?</p>
+<p t="3272720" d="2940">And I said, let's
+minimize this thing.</p>
+<p t="3275660" d="6140">Well, let's replace this
+by an average first.</p>
+<p t="3291630" d="2640">And now minimize.</p>
+<p t="3294270" d="2830">OK, so if I do
+this, it turns out</p>
+<p t="3297100" d="3060">I'm going to actually
+get the same result.</p>
+<p t="3300160" d="3780">The minimum of the
+average is basically--</p>
+<p t="3303940" d="2220">when I replace the
+average by-- sorry,</p>
+<p t="3306160" d="2880">when I replace the
+expectation by the average</p>
+<p t="3309040" d="2777">and then minimize,
+it's the same thing</p>
+<p t="3311817" d="2083">as first minimizing and
+then replacing expectation</p>
+<p t="3313900" d="3610">by averages in this case.</p>
+<p t="3317510" d="4254">Again, this is a much
+more general principle</p>
+<p t="3321764" d="1416">because if you
+don't have a closed</p>
+<p t="3323180" d="4350">form for the minimum like for
+some, say, likelihood problems,</p>
+<p t="3327530" d="3049">well, you might not
+actually have a possibility</p>
+<p t="3330579" d="2291">to just look at what the
+formula looks like-- see where</p>
+<p t="3332870" d="2610">the expectations show up-- and
+then just plug in the averages</p>
+<p t="3335480" d="900">instead.</p>
+<p t="3336380" d="2790">So this is the one you
+want to keep in mind.</p>
+<p t="3339170" d="1830">And again, as an exercise.</p>
+<p t="3347000" d="1870">OK, so here, and then
+you do expectation</p>
+<p t="3348870" d="4110">replaced by averages.</p>
+<p t="3352980" d="4820">And then that's the same
+answer, and I encourage</p>
+<p t="3357800" d="2280">you to solve the exercise.</p>
+<p t="3360080" d="3690">OK, everybody's clear that this
+is actually the same expression</p>
+<p t="3363770" d="3370">for a hat and b hat that we had
+before that we had for a and b</p>
+<p t="3367140" d="5320">when we replaced the
+expectations by averages?</p>
+<p t="3372460" d="4500">Here, by the way, I minimize
+the sum rather than the average.</p>
+<p t="3376960" d="2748">It's clear to everyone that
+this is the same thing, right?</p>
+<p t="3382680" d="500">Yep?</p>
+<p t="3383180" d="3968">AUDIENCE: [INAUDIBLE] sum
+replacing it [INAUDIBLE]</p>
+<p t="3387148" d="2480">minimize the
+expectation, I'm assuming</p>
+<p t="3389628" d="1984">it's switched with
+the derivative</p>
+<p t="3391612" d="1984">on the expectation [INAUDIBLE].</p>
+<p t="3397592" d="1458">PHILIPPE RIGOLLET:
+So we did switch</p>
+<p t="3399050" d="4590">the derivative and the
+expectation before you came,</p>
+<p t="3403640" d="500">I think.</p>
+<p t="3407890" d="1920">All right, so
+indeed, the picture</p>
+<p t="3409810" d="2340">was the one that we
+said, so visually, this</p>
+<p t="3412150" d="1230">is what we're doing.</p>
+<p t="3413380" d="2400">We're looking among
+all the lines.</p>
+<p t="3415780" d="3042">For each line, we
+compute this distance.</p>
+<p t="3418822" d="1458">So if I give you
+another line there</p>
+<p t="3420280" d="1479">would be another set of arrows.</p>
+<p t="3421759" d="1041">You look at their length.</p>
+<p t="3422800" d="810">You square it.</p>
+<p t="3423610" d="1910">And then you sum it
+all, and you find</p>
+<p t="3425520" d="2560">the line that has the minimum
+sum of squared lengths</p>
+<p t="3428080" d="1284">of the arrows.</p>
+<p t="3429364" d="2416">All right, and those are the
+arrows that we're looking at.</p>
+<p t="3431780" d="2930">But again, you could actually
+think of other distances,</p>
+<p t="3434710" d="2597">and you would actually
+get different--</p>
+<p t="3437307" d="2083">you could actually get
+different solutions, right.</p>
+<p t="3439390" d="3254">So there's something called,
+mean absolute deviation,</p>
+<p t="3442644" d="1666">which rather than
+minimizing this thing,</p>
+<p t="3444310" d="3180">is actually minimizing the
+sum from i to co 1 to n</p>
+<p t="3447490" d="6480">of the absolute value
+of y minus a plus bXi.</p>
+<p t="3453970" d="2190">And that's not
+something for which</p>
+<p t="3456160" d="3030">you're going to have a closed
+form, as you can imagine.</p>
+<p t="3459190" d="2820">You might have something
+that's sort of implicit,</p>
+<p t="3462010" d="2637">but you can actually still
+solve it numerically.</p>
+<p t="3464647" d="1583">And this is something
+that people also</p>
+<p t="3466230" d="4248">like to use but way, way less
+than the least squares one.</p>
+<p t="3470478" d="1696">AUDIENCE: [INAUDIBLE]</p>
+<p t="3472174" d="1666">PHILIPPE RIGOLLET:
+What did I just what?</p>
+<p t="3473840" d="2760">AUDIENCE: [INAUDIBLE]</p>
+<p t="3476600" d="5630">The sum of the absolute
+values of Yi minus a plus bXi.</p>
+<p t="3482230" d="2202">So it's the same except
+I don't square here.</p>
+<p t="3487820" d="500">OK?</p>
+<p t="3491250" d="7080">So arguably, you know,
+predicting a demand</p>
+<p t="3498330" d="3450">based on price is a
+fairly naive problem.</p>
+<p t="3501780" d="2007">Typically, what we
+have is a bunch of data</p>
+<p t="3503787" d="1833">that we've collected,
+and we're hoping that,</p>
+<p t="3505620" d="3840">together, they can help
+us do a better prediction.</p>
+<p t="3509460" d="2430">All right, so maybe I
+don't have only the price,</p>
+<p t="3511890" d="3780">but maybe I have a bunch
+of other social indicators.</p>
+<p t="3515670" d="4814">Maybe I know the competition,
+the price of the competition.</p>
+<p t="3520484" d="1666">And maybe I know a
+bunch of other things</p>
+<p t="3522150" d="1830">that are actually relevant.</p>
+<p t="3523980" d="4050">And so I'm trying to find a way
+to combine a bunch of points,</p>
+<p t="3528030" d="2850">a bunch of measures.</p>
+<p t="3530880" d="1660">There's a nice
+example that I like,</p>
+<p t="3532540" d="3830">which is people were
+trying to measure something</p>
+<p t="3536370" d="4380">related to your body
+mass index, so basically</p>
+<p t="3540750" d="4070">the volume of your-- the
+density of your body.</p>
+<p t="3544820" d="2560">And the way you can do
+this is by just, really,</p>
+<p t="3547380" d="2790">weighing someone and
+also putting them</p>
+<p t="3550170" d="3750">in some cubic meter of water
+and see how much overflows.</p>
+<p t="3553920" d="1830">And then you have
+both the volume</p>
+<p t="3555750" d="5100">and the mass of
+this person, and you</p>
+<p t="3560850" d="2520">can start computing density.</p>
+<p t="3563370" d="2490">But as you can
+imagine, you know,</p>
+<p t="3565860" d="1824">I would not personally
+like to go to a gym</p>
+<p t="3567684" d="1916">when the first thing
+they ask me is to just go</p>
+<p t="3569600" d="3640">in a bucket of
+water, and so people</p>
+<p t="3573240" d="3600">try to find ways to measure this
+based on other indicators that</p>
+<p t="3576840" d="1270">are much easier to measure.</p>
+<p t="3578110" d="2930">For example, I don't know,
+the length of my forearm,</p>
+<p t="3581040" d="4050">and the circumference of
+my head, and maybe my belly</p>
+<p t="3585090" d="1780">would probably be
+more appropriate here.</p>
+<p t="3586870" d="2000">And so you know, they
+just try to find something</p>
+<p t="3588870" d="1470">that actually makes sense.</p>
+<p t="3590340" d="1754">And so there's
+actually a nice example</p>
+<p t="3592094" d="1666">where you can show
+that if you measure--</p>
+<p t="3593760" d="1290">I think one of the
+most significant</p>
+<p t="3595050" d="1810">was with the circumference
+of your wrist.</p>
+<p t="3596860" d="5210">This is actually a very good
+indicator of your body density.</p>
+<p t="3602070" d="4710">And it turns out that if you
+stuff all the bunch of things</p>
+<p t="3606780" d="2460">together, you might actually
+get a very good formula that</p>
+<p t="3609240" d="1600">explains things.</p>
+<p t="3610840" d="1550">All right, so what
+we're going to do</p>
+<p t="3612390" d="2016">is rather than saying
+we have only one x</p>
+<p t="3614406" d="1374">to explain y's,
+let's say we have</p>
+<p t="3615780" d="3730">20 x's that we're trying
+to combine to explain y.</p>
+<p t="3619510" d="2900">And again, just like assuming
+something of the form,</p>
+<p t="3622410" d="3697">y is a plus b times x was the
+simplest thing we could do,</p>
+<p t="3626107" d="2333">here we're just going to
+assume that we have y is a plus</p>
+<p t="3628440" d="3210">b1, x1 plus b2, x2, plus b3, x3.</p>
+<p t="3631650" d="2040">And we can write
+it in a vector form</p>
+<p t="3633690" d="5520">by writing that Yi is
+Xi transposed b, which</p>
+<p t="3639210" d="3560">is now a vector plus epsilon i.</p>
+<p t="3642770" d="1750">OK, and here, on
+the board, I'm going</p>
+<p t="3644520" d="2460">to have a hard time
+doing boldface,</p>
+<p t="3646980" d="5380">but all these things are
+vectors except for y,</p>
+<p t="3652360" d="1160">which is a number.</p>
+<p t="3653520" d="930">Yi is a number.</p>
+<p t="3654450" d="3330">It's always the
+value of my y-axis.</p>
+<p t="3657780" d="2150">So even if my x-axis lives on--</p>
+<p t="3659930" d="4420">this is x1, and this is x2, y
+is really just the real valued</p>
+<p t="3664350" d="899">function.</p>
+<p t="3665249" d="2041">And so I'm going to get
+a bunch of points, x1,y1,</p>
+<p t="3667290" d="3090">and I'm going to see
+how much they respond.</p>
+<p t="3670380" d="3180">So for example, my
+body density is y,</p>
+<p t="3673560" d="3002">and then all the x's are
+a bunch of other things.</p>
+<p t="3676562" d="708">Agreed with that?</p>
+<p t="3677270" d="3600">So this is an equation that
+holds on the real line,</p>
+<p t="3680870" d="6520">but this guy here is an r
+p, and this guy's an rp.</p>
+<p t="3690080" d="3470">It's actually common to
+talk to call b, beta,</p>
+<p t="3693550" d="5100">when it's a vector, and that's
+the usual linear regression</p>
+<p t="3698650" d="720">notation.</p>
+<p t="3699370" d="3100">Y is x beta plus epsilon.</p>
+<p t="3702470" d="3310">So x's are called
+explanatory variables.</p>
+<p t="3705780" d="4820">y is called explained variable,
+or dependent variable,</p>
+<p t="3710600" d="1400">or response variable.</p>
+<p t="3712000" d="1050">It has a bunch of names.</p>
+<p t="3713050" d="2827">You can use whatever you
+feel more comfortable with.</p>
+<p t="3715877" d="1583">It should actually
+be explicit, right,</p>
+<p t="3717460" d="1208">so that's all you care about.</p>
+<p t="3721100" d="4740">Now, what we typically do
+is that rather-- so you</p>
+<p t="3725840" d="2000">notice here, that there's
+actually no intercept.</p>
+<p t="3727840" d="3000">If I actually fold that
+back down to one dimension,</p>
+<p t="3730840" d="2370">there's actually a is
+equal to zero, right?</p>
+<p t="3733210" d="5140">If I go back to p
+is equal to 1, that</p>
+<p t="3738350" d="4080">would imply that Yi is,
+well, say, beta times</p>
+<p t="3742430" d="2549">x plus epsilon i.</p>
+<p t="3744979" d="2041">And that's not good, I
+want to have an intercept.</p>
+<p t="3747020" d="2460">And the way I do this,
+rather than writing</p>
+<p t="3749480" d="2430">a plus this, and
+you know, just have</p>
+<p t="3751910" d="3510">like an overload of notation,
+what I am actually doing</p>
+<p t="3755420" d="2250">is that I fold back.</p>
+<p t="3757670" d="3080">I fold my intercept
+back into my x.</p>
+<p t="3763460" d="2730">And so if I measure
+20 variables,</p>
+<p t="3766190" d="1890">I'm going to create a
+21st variable, which</p>
+<p t="3768080" d="1620">is always equal to 1.</p>
+<p t="3769700" d="2950">OK, so you should need
+to think of x as being 1.</p>
+<p t="3772650" d="5470">And then x1 xp.</p>
+<p t="3778120" d="2670">And sorry, xp minus 1, I guess.</p>
+<p t="3780790" d="1503">OK, and now this is an rp.</p>
+<p t="3785590" d="2310">I'm always going to assume
+that the first one is 1.</p>
+<p t="3787900" d="1350">I can always do that.</p>
+<p t="3789250" d="2070">If I have a table of data--</p>
+<p t="3791320" d="4620">if my data is given to me
+in an Excel spreadsheet--</p>
+<p t="3795940" d="4050">and here I have the density
+that I measured on my data,</p>
+<p t="3799990" d="2950">and then maybe here
+I have the height,</p>
+<p t="3802940" d="2604">and here I have the
+wrist circumference.</p>
+<p t="3805544" d="1166">And I have all these things.</p>
+<p t="3806710" d="4390">All I have to do is to create
+another column here of ones,</p>
+<p t="3811100" d="3080">and I just put 1-1-1-1-1.</p>
+<p t="3814180" d="2910">OK, that's all I have to
+do to create this guy.</p>
+<p t="3817090" d="2100">Agreed?</p>
+<p t="3819190" d="4750">And now my x is going to
+be just one of those rows.</p>
+<p t="3823940" d="2250">So that's this is
+Xi, this entire row.</p>
+<p t="3826190" d="1432">And this entry here is Yi.</p>
+<p t="3834430" d="2490">So now, for my
+noise coefficients,</p>
+<p t="3836920" d="2380">I'm still going to
+ask for the same thing</p>
+<p t="3839300" d="4790">except that here, the
+covariance is not between x--</p>
+<p t="3844090" d="3120">between one random variable
+and another random variable.</p>
+<p t="3847210" d="3720">It's between a random vector
+and a random variable.</p>
+<p t="3850930" d="2200">OK, how do I measure the
+covariance between a vector</p>
+<p t="3853130" d="1464">and a random variable?</p>
+<p t="3863866" d="1974">AUDIENCE: [INAUDIBLE]</p>
+<p t="3865840" d="3162">PHILIPPE RIGOLLET:
+Yeah, so basically--</p>
+<p t="3869002" d="2378">AUDIENCE: [INAUDIBLE]</p>
+<p t="3871380" d="2250">PHILIPPE RIGOLLET: Yeah, I
+mean, the covariance vector</p>
+<p t="3873630" d="2541">is equal to 0 is the same thing
+as [INAUDIBLE] equal to zero,</p>
+<p t="3876171" d="3099">but yeah, this is basically
+thought of entry-wise.</p>
+<p t="3879270" d="2550">For each coordinate of x,
+I want that the covariance</p>
+<p t="3881820" d="5610">between epsilon and this
+coordinate of x is equal to 0.</p>
+<p t="3887430" d="2940">So I'm just asking this
+for all coordinates.</p>
+<p t="3890370" d="1650">Again, in most
+instances, we're going</p>
+<p t="3892020" d="1500">to think that epsilon
+is independent</p>
+<p t="3893520" d="2790">of x, and that's something we
+can understand without thinking</p>
+<p t="3896310" d="2712">about coordinates.</p>
+<p t="3899022" d="1449">Yep?</p>
+<p t="3900471" d="3381">AUDIENCE: [INAUDIBLE] like
+what if beta equals alpha</p>
+<p t="3903852" d="966">[INAUDIBLE]?</p>
+<p t="3906774" d="2416">PHILIPPE RIGOLLET: I'm sorry,
+can you repeat the question?</p>
+<p t="3909190" d="583">I didn't hear.</p>
+<p t="3909773" d="2367">AUDIENCE: Is this the
+parameter of beta, a parameter?</p>
+<p t="3912140" d="960">PHILIPPE RIGOLLET: Yeah,
+beta is the parameter</p>
+<p t="3913100" d="1041">we're looking for, right.</p>
+<p t="3914141" d="4344">Just like it was the pair ab has
+become the whole vector of beta</p>
+<p t="3918485" d="909">now.</p>
+<p t="3919394" d="1416">AUDIENCE: And
+what's [INAUDIBLE]??</p>
+<p t="3922720" d="2499">PHILIPPE RIGOLLET: Well, can
+you think of an intercept</p>
+<p t="3925219" d="1041">of a function that take--</p>
+<p t="3926260" d="2370">I mean, there is one actually.</p>
+<p t="3928630" d="1740">There's the one
+for which betas--</p>
+<p t="3930370" d="1470">all the betas that
+don't correspond</p>
+<p t="3931840" d="3360">to the vector of all
+ones, so the intercept</p>
+<p t="3935200" d="3269">is really the weight
+that I put on this guy.</p>
+<p t="3938469" d="2041">That's the beta that's
+going to come to this guy,</p>
+<p t="3940510" d="3800">but we don't really
+talk about intercept.</p>
+<p t="3944310" d="4900">So if x lives in two
+dimensions, the way</p>
+<p t="3949210" d="1740">you want to think
+about this is you</p>
+<p t="3950950" d="3470">take a sheet of paper
+like that, so now I</p>
+<p t="3954420" d="2660">have points that live
+in three dimensions.</p>
+<p t="3957080" d="2240">So let's say one
+direction here is x1.</p>
+<p t="3959320" d="3390">This direction is x2,
+and this direction is y.</p>
+<p t="3962710" d="2250">And so what's going
+to happen is that I'm</p>
+<p t="3964960" d="2160">going to have my points
+that live in this three</p>
+<p t="3967120" d="1590">dimensional space.</p>
+<p t="3968710" d="1470">And what I'm trying
+to do when I'm</p>
+<p t="3970180" d="2400">trying to do a linear
+model for those guys--</p>
+<p t="3972580" d="1410">when I assume a linear model.</p>
+<p t="3973990" d="3390">What I assume is that there's
+a plane in those three</p>
+<p t="3977380" d="570">dimensions.</p>
+<p t="3977950" d="2220">So think of this guy
+as going everywhere,</p>
+<p t="3980170" d="3750">and there's a plane close to
+which all my points should be.</p>
+<p t="3983920" d="2400">That's what's happening
+in two dimensional.</p>
+<p t="3986320" d="3610">If you see higher dimensions
+then congratulations to you,</p>
+<p t="3989930" d="1045">but I can't.</p>
+<p t="3993530" d="2940">But you know, you can definitely
+formalize that fairly easily</p>
+<p t="3996470" d="1935">mathematically and just
+talk about vectors.</p>
+<p t="4000940" d="3260">So now here, if I talk about the
+least square error estimator,</p>
+<p t="4004200" d="3270">or just the least squares
+estimator of beta,</p>
+<p t="4007470" d="2520">it's simply the same
+thing as before.</p>
+<p t="4009990" d="2470">Just like we said--</p>
+<p t="4012460" d="4290">so remember, you
+should think of as beta</p>
+<p t="4016750" d="3180">as being both the
+pair a b generalized.</p>
+<p t="4019930" d="5130">So we said, oh, we wanted to
+minimize the expectation of y</p>
+<p t="4025060" d="8580">minus a plus bx squared, right?</p>
+<p t="4033640" d="3270">Now, so that's in--
+for p is equal to 1.</p>
+<p t="4036910" d="2600">Now for p lower
+than or equal to 2,</p>
+<p t="4039510" d="9250">we're just going to write it
+as y minus x transpose beta</p>
+<p t="4048760" d="500">squared.</p>
+<p t="4054210" d="3690">OK, so I'm just trying to
+minimize this quantity.</p>
+<p t="4057900" d="2957">Of course, I don't
+have access to this,</p>
+<p t="4060857" d="2083">so what I'm going to do
+with them going to replace</p>
+<p t="4062940" d="1941">my expectation by an average.</p>
+<p t="4071010" d="3880">So here I'm using the notation
+t because beta is the true one,</p>
+<p t="4074890" d="2070">and I don't want you to just--</p>
+<p t="4076960" d="3000">so here, I have a variable
+t that's just moving around.</p>
+<p t="4079960" d="2430">And so now I'm going to take
+the square of this thing.</p>
+<p t="4082390" d="6060">And when I minimize this over
+all t in rp, the arc min,</p>
+<p t="4088450" d="11134">the minimum is attained at beta
+hat, which is my estimator.</p>
+<p t="4099584" d="500">OK?</p>
+<p t="4105359" d="3978">So if I want to
+actually compute--</p>
+<p t="4109337" d="500">yeah?</p>
+<p t="4109837" d="1583">AUDIENCE: I'm sorry,
+on the last slide</p>
+<p t="4111420" d="5002">did we require the expectation
+of [INAUDIBLE] to be zero?</p>
+<p t="4116422" d="1958">PHILIPPE RIGOLLET: You
+mean the previous slide?</p>
+<p t="4118380" d="583">AUDIENCE: Yes.</p>
+<p t="4118963" d="1299">[INAUDIBLE]</p>
+<p t="4120262" d="2458">PHILIPPE RIGOLLET: So again,
+I'm just defining an estimator</p>
+<p t="4122720" d="2333">just like I would tell you,
+just take the estimator that</p>
+<p t="4125053" d="1486">has coordinates for everywhere.</p>
+<p t="4126539" d="2445">AUDIENCE: So I'm saying like
+[? in that sign, ?] we'll say</p>
+<p t="4128984" d="2934">the noise [? terms ?] we want to
+satisfy the covariance of that</p>
+<p t="4131918" d="3912">[? side. ?] We also want them
+to satisfy expectation of each</p>
+<p t="4135830" d="978">[? noise turn ?] zero?</p>
+<p t="4147827" d="1833">PHILIPPE RIGOLLET: And
+so the answer is yes.</p>
+<p t="4149660" d="3390">I was just trying to think
+if this was captured.</p>
+<p t="4153050" d="2130">So it is not
+captured in this guy</p>
+<p t="4155180" d="2520">because this is just telling
+me that the expectation</p>
+<p t="4157700" d="6050">of epsilon i minus expectation
+of some i is equal to zero.</p>
+<p t="4163750" d="3630">OK, so yes I need to have
+that epsilon has mean zero--</p>
+<p t="4167380" d="1750">let's assume that
+expectation of epsilon</p>
+<p t="4169130" d="2415">is zero for this problem.</p>
+<p t="4183640" d="1734">And we're going
+to need something</p>
+<p t="4185374" d="2166">about some sort of question
+about the variance being</p>
+<p t="4187540" d="3520">not equal to zero, right, but
+this is going to come up later.</p>
+<p t="4191060" d="3650">So let's think for one second
+about doing the same approach</p>
+<p t="4194710" d="780">as we did before.</p>
+<p t="4195490" d="1830">Take the partial
+derivative with respect</p>
+<p t="4197320" d="1959">to the first coordinate
+of t, with respect</p>
+<p t="4199279" d="1791">to the second coordinate
+of t, with respect</p>
+<p t="4201070" d="2250">to the third coordinate
+of t, et cetera.</p>
+<p t="4203320" d="1290">So that's what we did before.</p>
+<p t="4204610" d="2850">We had two equations,
+and we reconciled them</p>
+<p t="4207460" d="2730">because it was fairly
+easy to solve, right?</p>
+<p t="4210190" d="1636">But in general,
+what's going to happen</p>
+<p t="4211826" d="1874">is we're going to have
+a system of equations.</p>
+<p t="4213700" d="3450">We're going to have a system
+of p equations, one for each</p>
+<p t="4217150" d="2190">of the coordinates of t.</p>
+<p t="4219340" d="4620">And we're going to have p
+unknowns, each coordinate of t.</p>
+<p t="4223960" d="2599">And so we're going to
+have the system to solve--</p>
+<p t="4226559" d="2291">actually, i turns out it's
+going to be a linear system.</p>
+<p t="4228850" d="1110">But it's not going
+to be something</p>
+<p t="4229960" d="2583">that we're going to be able to
+solve coordinate by coordinate.</p>
+<p t="4232543" d="1477">It's going to be
+annoying to solve.</p>
+<p t="4234020" d="2800">You know, you can guess that
+what's going to happen, right.</p>
+<p t="4236820" d="3880">Here, it involved the covariance
+between x and epsilon, right.</p>
+<p t="4240700" d="3210">That's what it involved
+to understand--</p>
+<p t="4243910" d="3630">sorry, the correlation
+between x and y</p>
+<p t="4247540" d="3120">to understand how the
+solution of this problem was.</p>
+<p t="4250660" d="1410">In this case,
+there's going to be</p>
+<p t="4252070" d="5860">only the covariance between
+x1 and y, x2 and y, x3, et</p>
+<p t="4257930" d="1580">cetera, all the way to xp and y.</p>
+<p t="4259510" d="3450">There's also going to be all
+the cross covariances between xj</p>
+<p t="4262960" d="1117">and xk.</p>
+<p t="4264077" d="1583">And so this is going
+to be a nightmare</p>
+<p t="4265660" d="2550">to solve, like, in this system.</p>
+<p t="4268210" d="3890">And what we do is that we go
+on to using a matrix notation,</p>
+<p t="4272100" d="2500">so that when we
+take derivatives,</p>
+<p t="4274600" d="1740">we talk about
+gradients, and then we</p>
+<p t="4276340" d="4050">can invert matrices and solve
+linear systems in a somewhat</p>
+<p t="4280390" d="2940">formal manner by just saying
+that, if I want to solve</p>
+<p t="4283330" d="3900">the system ax equals b--</p>
+<p t="4287230" d="1530">rather than actually
+solving this</p>
+<p t="4288760" d="1680">for each coordinate
+of x individually,</p>
+<p t="4290440" d="3330">I just say that x is
+equal to a inverse times.</p>
+<p t="4293770" d="3720">So that's really why we're
+going to the equation one,</p>
+<p t="4297490" d="3240">because we have a
+formalism to write that x</p>
+<p t="4300730" d="1530">is the solution of the system.</p>
+<p t="4302260" d="1583">I'm not telling you
+that this is going</p>
+<p t="4303843" d="4267">to be easy to solve numerically,
+but at least I can write it.</p>
+<p t="4308110" d="3197">And so here's how it goes.</p>
+<p t="4311307" d="1083">I have a bunch of vectors.</p>
+<p t="4315540" d="1250">So what are my vectors, right?</p>
+<p t="4316790" d="1085">So I have x1--</p>
+<p t="4317875" d="1375">oh, by the way,
+I didn't actually</p>
+<p t="4319250" d="2070">mention that when I
+put the lowercase, when</p>
+<p t="4321320" d="2340">I put the subscript, I'm
+talking about the observation.</p>
+<p t="4323660" d="1458">And when I put the
+superscript, I'm</p>
+<p t="4325118" d="1992">talking about the
+coordinates, right?</p>
+<p t="4327110" d="6180">So I have x1, which is
+equal to x1, x1 [? 1, ?]</p>
+<p t="4333290" d="6675">x 1p, x2, which is 1.</p>
+<p t="4339965" d="12415">x2, 1, x2 p, all the way to
+xn, which is 1, xn 1, x np.</p>
+<p t="4352380" d="2830">All right, so those are n
+observed x's, and then I</p>
+<p t="4355210" d="5660">have another y1, y2, yn, that
+comes paired with those guys.</p>
+<p t="4360870" d="1640">OK?</p>
+<p t="4362510" d="2130">So the first thing
+is that I'm going</p>
+<p t="4364640" d="1650">to stack those guys
+into some vector</p>
+<p t="4366290" d="1230">that I'm going to call y.</p>
+<p t="4367520" d="2190">So maybe I should put
+an arrow for the purpose</p>
+<p t="4369710" d="3600">of the blackboard, and
+it's just y1 to yn.</p>
+<p t="4373310" d="3410">OK, so this is a vector in rn.</p>
+<p t="4376720" d="2430">Now, if I want to stack
+those guys together,</p>
+<p t="4379150" d="4299">I can either create a long
+vector of size n times p,</p>
+<p t="4383449" d="2541">but the problem is that I lose
+the role of who's a coordinate</p>
+<p t="4385990" d="2825">and who's an observation.</p>
+<p t="4388815" d="1375">And so it's actually
+nicer for me</p>
+<p t="4390190" d="2650">to just put those guys
+next to each other</p>
+<p t="4392840" d="2480">and create one new variable.</p>
+<p t="4395320" d="2700">And so the way I'm going to do
+this is-- rather than actually</p>
+<p t="4398020" d="4200">stacking those guys like that,
+I'm getting their transpose</p>
+<p t="4402220" d="2310">and stack them as
+rows of a matrix.</p>
+<p t="4404530" d="2340">OK, so I'm going to
+create a matrix, which</p>
+<p t="4406870" d="1830">here is denoted typically by--</p>
+<p t="4408700" d="2595">I'm going to write x double bar.</p>
+<p t="4411295" d="2125">And here, I'm going to
+actually just-- so since I'm</p>
+<p t="4413420" d="2520">taking those guys like
+this, the first column</p>
+<p t="4415940" d="1070">is going to be only ones.</p>
+<p t="4420510" d="1440">And then I'm going to have--</p>
+<p t="4421950" d="5180">well, x1, 1, [? 1, ?] x1, p.</p>
+<p t="4427130" d="5760">And here, I'm going
+to have x n1, x np.</p>
+<p t="4432890" d="4800">OK, so here the number of rows
+is n, and the number of columns</p>
+<p t="4437690" d="1110">is p.</p>
+<p t="4438800" d="3552">One row per observation,
+one column per coordinate.</p>
+<p t="4445010" d="5700">And again, I make your life
+miserable because this really</p>
+<p t="4450710" d="2670">should be p minus 1
+because I already used</p>
+<p t="4453380" d="2470">the first one for this guy.</p>
+<p t="4455850" d="970">I'm sorry about that.</p>
+<p t="4456820" d="1580">It's a bit painful.</p>
+<p t="4458400" d="2090">So usually we don't even
+write what's in there.</p>
+<p t="4460490" d="1458">So we don't have
+to think about it.</p>
+<p t="4461948" d="2022">Those are just
+vectors of size p.</p>
+<p t="4463970" d="1410">OK?</p>
+<p t="4465380" d="2360">So now that I
+created this thing,</p>
+<p t="4467740" d="3600">I can actually just basically
+stack up all my models.</p>
+<p t="4471340" d="7930">So Yi equals Xi transpose
+beta plus epsilon i for all i</p>
+<p t="4479270" d="2160">equal 1 to n.</p>
+<p t="4481430" d="2580">This transforms into-- this
+is equivalent to saying</p>
+<p t="4484010" d="3600">that the vector y is
+equal to the matrix x</p>
+<p t="4487610" d="3540">times beta plus a matrix,
+plus a vector epsilon,</p>
+<p t="4491150" d="6790">where epsilon is just epsilon
+1 to epsilon n, right.</p>
+<p t="4497940" d="1890">So I have just
+this system, which</p>
+<p t="4499830" d="2170">I write as a matrix,
+which really just consists</p>
+<p t="4502000" d="2900">in stacking up all these
+equations next to each other.</p>
+<p t="4510195" d="2625">So now that I have this model--
+this is the usual least squares</p>
+<p t="4512820" d="510">model.</p>
+<p t="4513330" d="2820">And here, when I want to write
+my least squares criterion</p>
+<p t="4516150" d="1350">in terms of matrices, right?</p>
+<p t="4517500" d="1541">My least squares
+criterion, remember,</p>
+<p t="4519041" d="7969">was sum from i equal 1 to n
+of Yi minus Xi transposed beta</p>
+<p t="4527010" d="1200">squared.</p>
+<p t="4528210" d="2850">Well, here it's
+really just the sum</p>
+<p t="4531060" d="4200">of the square of the
+coefficients of the vector</p>
+<p t="4535260" d="2280">y minus x beta.</p>
+<p t="4537540" d="2840">So this is actually
+equal to the norm squared</p>
+<p t="4540380" d="2710">of y minus x beta square.</p>
+<p t="4546382" d="958">That's just the square.</p>
+<p t="4547340" d="2130">Norm is, by definition,
+the sum of the square</p>
+<p t="4549470" d="2250">of the coordinates.</p>
+<p t="4551720" d="2165">And so now I can actually
+talk about minimizing</p>
+<p t="4553885" d="2205">a norm squared,
+and here it's going</p>
+<p t="4556090" d="2070">to be easier for me
+to take derivatives.</p>
+<p t="4558160" d="3140">All right, so we'll
+do that next time.</p>
+</body>
+</timedtext>

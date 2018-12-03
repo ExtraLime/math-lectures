@@ -1,0 +1,1428 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="60" d="1710">The following
+content is provided</p>
+<p t="1770" d="2240">under a Creative
+Commons license.</p>
+<p t="4010" d="2850">Your support will help MIT
+OpenCourseWare continue</p>
+<p t="6860" d="3860">to offer high quality
+educational resources for free.</p>
+<p t="10720" d="2600">To make a donation or
+view additional materials</p>
+<p t="13320" d="3887">from hundreds of MIT courses,
+visit MIT OpenCourseWare</p>
+<p t="17207" d="625">at ocw.mit.edu.</p>
+<p t="21896" d="2624">PROFESSOR: Good
+morning everyone.</p>
+<p t="24520" d="1950">Morning.</p>
+<p t="26470" d="2440">Let's get started.</p>
+<p t="28910" d="4510">So the second of two
+lectures on numerics.</p>
+<p t="33420" d="3790">Last time we had this
+motivating question</p>
+<p t="37210" d="4070">of finding the millionth
+digit of the square root of 2,</p>
+<p t="41280" d="3250">or the square root
+of quantities that</p>
+<p t="44530" d="2980">end up becoming irrational.</p>
+<p t="47510" d="3550">And we talked about
+high-precision arithmetic,</p>
+<p t="51060" d="4900">and we use Newton's method
+to compute the square roots.</p>
+<p t="55960" d="3050">You saw a demo of
+computing square roots,</p>
+<p t="59010" d="3090">but there's a few
+things missing.</p>
+<p t="62100" d="3740">We don't quite know how
+to do division, which</p>
+<p t="65840" d="2200">is required for the
+Newton's method,</p>
+<p t="68040" d="5640">and we didn't really talk at
+all about algorithmic complexity</p>
+<p t="73680" d="3840">beyond talking about the
+complexity of multiplication.</p>
+<p t="77520" d="2850">So multiplication is a
+primitive that at this point</p>
+<p t="80370" d="3810">we know how to do in a
+couple of different ways,</p>
+<p t="84180" d="1870">including the naive
+order n squared</p>
+<p t="86050" d="1880">algorithm and the
+Karatsuba algorithm,</p>
+<p t="87930" d="3440">which is something
+like n raised to 1.58.</p>
+<p t="91370" d="2670">But how many times
+is multiplication</p>
+<p t="94040" d="3460">called when you
+compute square roots?</p>
+<p t="97500" d="2810">In fact, multiplication
+is called</p>
+<p t="100310" d="2831">when you call the
+division operator</p>
+<p t="103141" d="1249">when you compute square roots.</p>
+<p t="104390" d="4120">So there's really two levels
+off a computation going on here</p>
+<p t="108510" d="3340">and we need to open this
+up, and look at in detail,</p>
+<p t="111850" d="3650">and figure out what our overall
+algorithmic complexity is.</p>
+<p t="115500" d="5300">So that's really the
+meat of today's lecture.</p>
+<p t="120800" d="3220">Getting to the
+point where we know</p>
+<p t="124020" d="3560">what we have with respect
+to asymptotic complexity</p>
+<p t="127580" d="3399">of computing the square
+root of a number.</p>
+<p t="130979" d="4821">So let me start with a review
+of what we covered last time.</p>
+<p t="138460" d="5770">We decided that we wanted
+the millionth digit</p>
+<p t="144230" d="2120">of square root of 2.</p>
+<p t="146350" d="1520">And the way we're
+going to do this</p>
+<p t="147870" d="7410">is by working with integers
+and computing the floor,</p>
+<p t="155280" d="6530">since we needed to be an
+integer, of 2 times 10 raised</p>
+<p t="161810" d="4305">to 2d, where d is the number
+of digits of precision.</p>
+<p t="173940" d="2630">N over there.</p>
+<p t="176570" d="4510">So we'll take a look
+at an example or two</p>
+<p t="181080" d="3430">here as to how this
+works with integers.</p>
+<p t="184510" d="7670">But what we do is compute
+essentially the floor</p>
+<p t="192180" d="3750">of some quantity a, the square
+root of some quantity a,</p>
+<p t="195930" d="1340">via Newton's method.</p>
+<p t="207170" d="2050">And the way Newton's
+method works</p>
+<p t="209220" d="3060">is you go through an iteration.</p>
+<p t="212280" d="7180">You start with x0 being one,
+which is your initial guess,</p>
+<p t="219460" d="11489">and compute xi plus 1 equals
+xi plus a divided by xi over 2.</p>
+<p t="230949" d="1791">And as you can see,
+this requires division,</p>
+<p t="232740" d="2390">because we're computing
+a divided by xi.</p>
+<p t="235130" d="3250">That's the outer
+Newton iteration.</p>
+<p t="238380" d="7490">And I said a couple
+of things that's said</p>
+<p t="245870" d="5390">you are going to have a
+quadratic rate of convergence.</p>
+<p t="251260" d="5740">The precision with respect
+to the number of digits</p>
+<p t="257000" d="5680">is going to increase by a
+factor of 2 every iteration.</p>
+<p t="262680" d="2280">And so if you started out
+with one digit of precision,</p>
+<p t="264960" d="3360">you go to two, then
+four, eight, et cetera.</p>
+<p t="268320" d="1970">And so that's a
+geometric progression.</p>
+<p t="270290" d="4960">And that means that
+we're going to have</p>
+<p t="275250" d="4300">a logarithmic number of
+iterations, which is nice.</p>
+<p t="279550" d="5790">And we were all happy about
+that, and you believed me.</p>
+<p t="285340" d="2400">I gave you an example and
+it looked pretty good,</p>
+<p t="287740" d="5150">but didn't really prove anything
+about the rate of convergence.</p>
+<p t="292890" d="6590">What I'd like to do now is
+take a look at this particular</p>
+<p t="299480" d="2970">iterative computation, where
+we're computing xi plus 1 given</p>
+<p t="302450" d="3540">xi , and argue
+that this, in fact,</p>
+<p t="305990" d="1505">has a quadratic
+rate of convergence.</p>
+<p t="310060" d="3050">So you can think
+of this as doing</p>
+<p t="313110" d="5680">an error analysis
+of Newton's method.</p>
+<p t="326310" d="8650">And let's say that xn equals
+square root of a 1 plus epsilon</p>
+<p t="334960" d="7410">n, where epsilon may be
+positive or negative.</p>
+<p t="342370" d="5710">So we have an error
+associated with xn</p>
+<p t="348080" d="2630">in the n-th iteration with
+respect to what we want,</p>
+<p t="350710" d="2090">which is the square root of a.</p>
+<p t="352800" d="1770">And it's off by something.</p>
+<p t="354570" d="2150">It may be a large
+quantity in the beginning.</p>
+<p t="356720" d="2020">We want to show
+convergence, so obviously we</p>
+<p t="358740" d="5470">want epsilon n, as n
+becomes large, do tend to 0.</p>
+<p t="364210" d="2410">How fast does this approach 0?</p>
+<p t="366620" d="2280">That's the question.</p>
+<p t="368900" d="5230">And so if you take this equation
+and plug this into that,</p>
+<p t="374130" d="3280">and say, what is xn plus 1?</p>
+<p t="377410" d="11630">xn plus 1 would be square root
+of a times 1 plus epsilon n</p>
+<p t="389040" d="4720">plus a divided by square
+root of a 1 plus epsilon</p>
+<p t="393760" d="6230">n divided by 2.</p>
+<p t="399990" d="3140">Just plugging it
+in, the value of xn.</p>
+<p t="403130" d="4860">And then some a couple of steps
+of algebraic simplification,</p>
+<p t="407990" d="2840">you can pull out the
+square root of a here,</p>
+<p t="410830" d="5460">then you have 1
+plus epsilon n, 1</p>
+<p t="416290" d="4880">divided by 1 plus
+epsilon n over here.</p>
+<p t="421170" d="3480">The whole thing divided by 2.</p>
+<p t="424650" d="8080">And if you keep going-- there's
+one step that I'm skipping here</p>
+<p t="432730" d="4020">in terms of
+simplification, but let</p>
+<p t="436750" d="2590">me write this last result out.</p>
+<p t="444590" d="7970">Which is xn plus 1 is
+square root of a times 1</p>
+<p t="452560" d="7200">plus epsilon n squared
+divided by 2 times 1</p>
+<p t="459760" d="3610">plus epsilon n
+down at the bottom.</p>
+<p t="463370" d="8620">So what do we have here in
+terms of the overall observation</p>
+<p t="471990" d="3990">for epsilon n plus 1,
+which is the error in the n</p>
+<p t="475980" d="3720">plus 1-th iteration given
+that you have an epsilon n</p>
+<p t="479700" d="2400">error in the n-th iteration?</p>
+<p t="482100" d="7820">You have a relationship like
+so where epsilon n plus 1</p>
+<p t="489920" d="3710">is related to epsilon
+n whole square.</p>
+<p t="493630" d="4290">And this part here,
+as n becomes large,</p>
+<p t="497920" d="3800">epsilon n is going
+to go to 0 assuming</p>
+<p t="501720" d="2420">a decent initial guess.</p>
+<p t="504140" d="2880">And so you can say that
+this is essentially</p>
+<p t="507020" d="5769">1, which means you have this
+quadratic rate of convergence</p>
+<p t="512789" d="4551">where the error, which
+is a small quantity,</p>
+<p t="517340" d="2819">is getting squared
+at every iteration.</p>
+<p t="520159" d="3371">And so if you have
+something like a 0.01 error</p>
+<p t="523530" d="3110">at the beginning for
+epsilon n, epsilon n squared</p>
+<p t="526640" d="8400">is going to be 0.0001.</p>
+<p t="535040" d="3800">So that's where you get the
+quadratic rate of convergence.</p>
+<p t="538840" d="3720">So it really comes from this
+relationship, the relationship</p>
+<p t="542560" d="3889">epsilon n squared
+to epsilon n plus 1,</p>
+<p t="546449" d="1041">Any questions about this?</p>
+<p t="552010" d="770">Great.</p>
+<p t="552780" d="4380">So if you have the quadratic
+rate of convergence,</p>
+<p t="557160" d="10450">if you want to go to d digits
+of precision like I have here,</p>
+<p t="567610" d="4195">you can argue that you
+need to log d iterations.</p>
+<p t="575612" d="2208">So that's kind of nice, you
+have a logarithmic number</p>
+<p t="577820" d="830">of iterations.</p>
+<p t="578650" d="1890">I'm going to get back to that.</p>
+<p t="580540" d="4490">There's one little
+subtlety that is associated</p>
+<p t="585030" d="3580">with asymptotic analysis
+that goes beyond simply</p>
+<p t="588610" d="2900">the number of
+iterations that you have</p>
+<p t="591510" d="1790">and the digits of precision.</p>
+<p t="593300" d="2070">But so far so good.</p>
+<p t="595370" d="2360">We're happy with this
+logarithmic number</p>
+<p t="597730" d="760">of iterations.</p>
+<p t="598490" d="9530">And if we can now compute the
+complexity of the division,</p>
+<p t="608020" d="2910">then obviously we need
+an algorithm for that.</p>
+<p t="610930" d="2200">But if you have an
+algorithm and we figure out</p>
+<p t="613130" d="2860">what the complexity of
+the division algorithm is,</p>
+<p t="615990" d="4530">then we have complexity
+for the square root of 2</p>
+<p t="620520" d="2280">or square root of a
+using Newton's method.</p>
+<p t="625540" d="4910">So just justified what I
+said last time with respect</p>
+<p t="630450" d="2550">to quadratic rate
+of convergence.</p>
+<p t="633000" d="3140">And then we talked about
+multiplication last time.</p>
+<p t="636140" d="3320">I want to revisit that.</p>
+<p t="639460" d="10630">You have multiplication
+algorithms,</p>
+<p t="650090" d="5115">and we want to be able to
+multiply d digit numbers.</p>
+<p t="659090" d="2470">And the naive algorithm.</p>
+<p t="661560" d="4310">And you could imagine
+doing divide and conquer.</p>
+<p t="670690" d="7180">So you take x1,
+x0; y1, y0 where x1</p>
+<p t="677870" d="3300">is the most
+significant half of x.</p>
+<p t="681170" d="1885">You're trying to
+multiply x times y.</p>
+<p t="687880" d="3090">And same thing for y1 and y0.</p>
+<p t="690970" d="5130">So each of these will have
+d by 2, digits of precision.</p>
+<p t="696100" d="4770">And if you implement
+the naive algorithm that</p>
+<p t="700870" d="7860">looks like tn equals 4
+tn by 2 plus theta n,</p>
+<p t="708730" d="4210">you end up with theta n
+squared complexity out</p>
+<p t="712940" d="2750">so you have to do four
+multiplications corresponding</p>
+<p t="715690" d="4270">to x1 times Y1 x1
+times y0, et cetera.</p>
+<p t="719960" d="2830">And at each level in
+the recursive tree,</p>
+<p t="722790" d="4080">you're breaking things down
+by a factor of 2 respect</p>
+<p t="726870" d="1980">to the digits of
+precision that you</p>
+<p t="728850" d="3290">need to multiply on as
+you're going down the tree.</p>
+<p t="732140" d="2060">And this is the four
+multiplications.</p>
+<p t="734200" d="2540">You get your theta n
+squared complexity.</p>
+<p t="736740" d="3020">This gentleman by
+the name of Karatsuba</p>
+<p t="739760" d="5310">recognized that you could play
+a few mathematical tricks, which</p>
+<p t="745070" d="4660">I won't go over
+again, but reduce</p>
+<p t="749730" d="2610">to three multiplications.</p>
+<p t="752340" d="5170">And you do a few more
+additions, but given</p>
+<p t="757510" d="3310">that the additions have
+theta n complexity,</p>
+<p t="760820" d="8790">the recurrence relationship
+turns into tn equals 3t of n</p>
+<p t="769610" d="3310">over 2 plus theta n.</p>
+<p t="772920" d="10110">And this ends up having
+1.58 dot dot dot complexity.</p>
+<p t="783030" d="6440">No reason to stop with breaking
+things up into two parts.</p>
+<p t="789470" d="3490">You could imagine
+generalizing Karatsuba</p>
+<p t="792960" d="1275">and people have done this.</p>
+<p t="798200" d="4660">Two different researchers,
+Toom and Cook,</p>
+<p t="802860" d="3370">generalized Karatsuba
+for the case</p>
+<p t="806230" d="3050">where k is greater than
+or equal to 2, where</p>
+<p t="809280" d="2740">you're breaking it into k parts.</p>
+<p t="812020" d="4780">So the Toom-Cook 2 algorithm
+is basically Karatsuba,</p>
+<p t="816800" d="2920">but you have Toom 3,
+Toom 4, and so on.</p>
+<p t="819720" d="4800">And I'm not going to give
+you a lot of details on this.</p>
+<p t="824520" d="5670">We don't expect you to work
+on this, at least in 6006.</p>
+<p t="830190" d="5310">But just to give you a
+sense of what happens,</p>
+<p t="835500" d="5250">the Toom 3 method, or
+the Toom-Cook 3 method,</p>
+<p t="840750" d="3440">breaks and number
+up into three parts.</p>
+<p t="844190" d="6100">So each of these would have
+d by 3 digits of precision.</p>
+<p t="850290" d="1940">So this is what you're
+starting out with.</p>
+<p t="852230" d="1750">You're starting out
+with a d digit number.</p>
+<p t="853980" d="2090">But the very first level
+of recursion, you're</p>
+<p t="856070" d="4740">going to break things up
+into three xi numbers that</p>
+<p t="860810" d="1560">are d by 3 digits long.</p>
+<p t="862370" d="1610">Same thing for y.</p>
+<p t="863980" d="3840">And if you did a naive
+multiplication of this,</p>
+<p t="867820" d="3350">how many multiplications
+do I need?</p>
+<p t="871170" d="2830">If I just forget about
+any mathematical tricks,</p>
+<p t="874000" d="4740">if I just tried to
+multiply these things out,</p>
+<p t="878740" d="4940">how many d by 3 by d by 3
+multiplications do I need?</p>
+<p t="883680" d="1060">AUDIENCE: Nine.</p>
+<p t="884740" d="1780">PROFESSOR: Nine.</p>
+<p t="886520" d="3870">So if you can beat nine
+using mathematical tricks,</p>
+<p t="890390" d="4340">you have a better divide
+and conquer algorithm.</p>
+<p t="894730" d="8240">And it turns out that Toom 3
+plays some arithmetic games</p>
+<p t="902970" d="10810">and ends up with a
+recurrence relationship that</p>
+<p t="913780" d="2010">looks like this.</p>
+<p t="915790" d="5230">Where you reduce the nine
+multiplications down to five.</p>
+<p t="921020" d="3090">So that's a win.</p>
+<p t="924110" d="8960">And that ends up being
+theta of n raised to what?</p>
+<p t="933070" d="1960">Someone?</p>
+<p t="935030" d="2610">Someone loudly.</p>
+<p t="937640" d="1020">Log--</p>
+<p t="938660" d="2120">AUDIENCE: Base 3.</p>
+<p t="940780" d="2770">PROFESSOR: Log
+with a base 3 of 5.</p>
+<p t="943550" d="2890">Another irrational number.</p>
+<p t="946440" d="5500">And this ends up being
+n raised to 1.465.</p>
+<p t="951940" d="1460">So you won.</p>
+<p t="953400" d="3450">If you use Toom 3, assuming
+the constants worked out--</p>
+<p t="956850" d="2140">and Victor can say
+a little bit more</p>
+<p t="958990" d="5300">about that, because we're having
+a little trouble justifying</p>
+<p t="964290" d="1520">this particular
+problem set question</p>
+<p t="965810" d="3860">that we want to give you, given
+the constant factors involved.</p>
+<p t="969670" d="4730">So the issue really
+here is this is correct.</p>
+<p t="974400" d="2150">It's n raised to 1.46.</p>
+<p t="976550" d="2090">That's n raised to 1.5.</p>
+<p t="978640" d="2340">And then the naive
+algorithm is n square.</p>
+<p t="980980" d="3490">But how big does n
+have to be in order</p>
+<p t="984470" d="2970">for the n raised
+to 1.58 algorithm</p>
+<p t="987440" d="3410">to beat the n square
+algorithm, and for the n raised</p>
+<p t="990850" d="2280">to 1.46 algorithm
+to beat the n raised</p>
+<p t="993130" d="2320">to 1.58 algorithm, et cetera.</p>
+<p t="995450" d="2560">And it turns out n needs
+to be really, really large</p>
+<p t="998010" d="1970">if you implement
+these in Python.</p>
+<p t="999980" d="2980">So if you're having a
+little trouble here,</p>
+<p t="1002960" d="2940">giving you this
+pristine problem set</p>
+<p t="1005900" d="4650">that you can go off and
+learn about multiplication,</p>
+<p t="1010550" d="2235">and also appreciate
+asymptotic complexity.</p>
+<p t="1015310" d="2700">So that's a bit of a catch-22.</p>
+<p t="1018010" d="4590">Anyway, for the purposes
+of theory, this is great.</p>
+<p t="1022600" d="2380">It turns people have
+done even better.</p>
+<p t="1024980" d="5379">Multiplication is just this
+obviously incredibly important</p>
+<p t="1030359" d="3861">primitive that you
+would need for doing</p>
+<p t="1034220" d="2020">any reasonable computation.</p>
+<p t="1036240" d="6379">And so people have worked on
+using things like fast Fourier</p>
+<p t="1042619" d="4281">transforms and other
+techniques improve</p>
+<p t="1046900" d="2110">the complexity of
+multiplication.</p>
+<p t="1049010" d="8470">And best scheme
+until a few years</p>
+<p t="1057480" d="4940">ago was this scheme called
+Schonhage-Strassen scheme,</p>
+<p t="1062420" d="2500">which is almost
+linear in complexity.</p>
+<p t="1064920" d="8560">It's n log n log log n time.</p>
+<p t="1073480" d="5460">And this uses the fast
+Fourier transform, FFT.</p>
+<p t="1078940" d="1750">And you can play with
+all of these things.</p>
+<p t="1080690" d="5520">You can play with Karatsuba
+the naive algorithm, Toom 3,</p>
+<p t="1086210" d="7010">et cetera in the gmpy
+package in Python.</p>
+<p t="1093220" d="4321">And you can see as to
+what the value of n</p>
+<p t="1097541" d="1999">needs to be in order for
+one of these algorithms</p>
+<p t="1099540" d="1970">to beat the other.</p>
+<p t="1101510" d="1497">This is not
+something that you're</p>
+<p t="1103007" d="1833">going to do specifically
+in the problem set,</p>
+<p t="1104840" d="2000">but I say that as an aside.</p>
+<p t="1106840" d="1390">These algorithms
+are implemented,</p>
+<p t="1108230" d="2070">and they're used in real life.</p>
+<p t="1110300" d="500">Eric?</p>
+<p t="1110800" d="2125">ERIC: It may be worth
+mentioning that Python itself</p>
+<p t="1112925" d="2735">for long integers
+uses Karatsuba.</p>
+<p t="1115660" d="4410">PROFESSOR: Yeah, so Python
+uses-- beyond a certain n,</p>
+<p t="1120070" d="2410">you are going to
+have decisions that</p>
+<p t="1122480" d="2310">are made within the package.</p>
+<p t="1124790" d="5420">And Python shifts to Karatsuba
+after n becomes large.</p>
+<p t="1130210" d="2160">But if n is small,
+then it's going</p>
+<p t="1132370" d="1300">to run the naive algorithm.</p>
+<p t="1133670" d="1708">Now if you write your
+own multiplication,</p>
+<p t="1135378" d="1222">you can do whatever you want.</p>
+<p t="1136600" d="2310">You can have your own
+adaptive scheme, assuming you</p>
+<p t="1138910" d="2470">have many of these
+algorithms implemented,</p>
+<p t="1141380" d="2685">or you're calling them
+using the gmpy package.</p>
+<p t="1146600" d="4000">So lastly, this looked
+pretty good for a while.</p>
+<p t="1150600" d="4060">And from a
+theoretical standpoint</p>
+<p t="1154660" d="2442">there was a breakthrough.</p>
+<p t="1157102" d="7518">Guy by the name of Furer came
+up with this algorithm that</p>
+<p t="1164620" d="7520">is n log n-- and let me write
+this carefully-- 2 raised</p>
+<p t="1172140" d="9480">big O-- that's an upper
+bound-- of log star n.</p>
+<p t="1181620" d="1110">That makes sense?</p>
+<p t="1182730" d="833">No.</p>
+<p t="1183563" d="2127">I'll have to explain it.</p>
+<p t="1185690" d="1620">OK, so what does this mean?</p>
+<p t="1187310" d="1480">This part is clear.</p>
+<p t="1188790" d="1470">This is like sorting.</p>
+<p t="1190260" d="3020">It doesn't need to really use
+sorting, but that's n log n.</p>
+<p t="1193280" d="3660">And then you have this 2
+raised to big O log star n.</p>
+<p t="1196940" d="1990">I need to define
+what log star n is.</p>
+<p t="1198930" d="7530">And log star n is what's called
+the iterative algorithm--</p>
+<p t="1206460" d="770">logarithm, rather.</p>
+<p t="1210080" d="1660">I guess it's an
+iterative algorithm,</p>
+<p t="1211740" d="2320">but it computes logs.</p>
+<p t="1214060" d="3580">And the iterative
+logarithm is the number</p>
+<p t="1217640" d="19780">of times log needs to be
+applied to get a result that</p>
+<p t="1237420" d="3750">is less than or equal to 1.</p>
+<p t="1241170" d="5620">So this thing really cuts
+you down to size really fast.</p>
+<p t="1246790" d="1320">So it doesn't matter.</p>
+<p t="1248110" d="4410">You could be a 10 raised
+to 24, or 2 raised to 50,</p>
+<p t="1252520" d="3480">let's say, if you were
+doing binary logs.</p>
+<p t="1256000" d="3690">And in the very first iteration
+you go down to 50, right?</p>
+<p t="1259690" d="3955">And then you take a log of
+50 and you go down to about 7</p>
+<p t="1263645" d="1345">or something.</p>
+<p t="1264990" d="2220">And then you take the log of 7.</p>
+<p t="1267210" d="4260">And if you're talking
+about base 2, like we were,</p>
+<p t="1271470" d="2640">you're down to less than 3.</p>
+<p t="1274110" d="3050">And so four or five
+iterations, you're</p>
+<p t="1277160" d="3210">down to less than or equal to 1.</p>
+<p t="1280370" d="3910">And that's what log
+star n computes.</p>
+<p t="1284280" d="4440">It's not the logarithm as
+much as the number of times</p>
+<p t="1288720" d="3570">so you have to apply log to
+get the result that's less than</p>
+<p t="1292290" d="1400">or equal to 1.</p>
+<p t="1293690" d="3020">So you have these giant numbers,
+and it's only like five,</p>
+<p t="1296710" d="4600">six, eight times do you apply
+log and you're down to one.</p>
+<p t="1301310" d="2750">So for all practical
+purposes, you can think of--</p>
+<p t="1304060" d="2620">and this is upper bound--
+you can think of this,</p>
+<p t="1306680" d="1870">even though this is 2
+raised to something,</p>
+<p t="1308550" d="2770">it's 2 raised to a
+pretty small number.</p>
+<p t="1311320" d="2150">2 raised to 10,
+that would be 1,000.</p>
+<p t="1313470" d="2920">And so from an asymptotic
+complexity standpoint,</p>
+<p t="1316390" d="1950">this is the winner.</p>
+<p t="1318340" d="4150">From a practical standpoint,
+Schonhage-Strassen</p>
+<p t="1322490" d="2990">is really what you
+probably want to use</p>
+<p t="1325480" d="2740">when n becomes very
+large, to the billions</p>
+<p t="1328220" d="1560">and so on and so forth.</p>
+<p t="1329780" d="3240">And as of now, to the
+best of my knowledge</p>
+<p t="1333020" d="3290">this hasn't been implemented
+in the gmpy package.</p>
+<p t="1336310" d="6800">So if you actually want to use
+gmpy, this is where you stop.</p>
+<p t="1343110" d="1710">So that's multiplication.</p>
+<p t="1344820" d="1660">So we have a bunch
+of different ways</p>
+<p t="1346480" d="2520">that you could do
+multiplication.</p>
+<p t="1349000" d="5860">What I'd like to do is give
+you a sense of assuming a given</p>
+<p t="1354860" d="5410">complexity of multiplication,
+how long would division take?</p>
+<p t="1360270" d="6880">So we are 1 and 1/2 lectures
+in, and I haven't really</p>
+<p t="1367150" d="2870">told you how we're going
+to do division, which</p>
+<p t="1370020" d="5120">is what we have to do when we
+compute a divided by xi, which</p>
+<p t="1375140" d="3096">is the basic integration
+in the Newton method.</p>
+<p t="1378236" d="874">So let's get to that.</p>
+<p t="1399430" d="5895">So finally
+high-precision division.</p>
+<p t="1410630" d="11970">So we want a high-precision
+rep off a divided by b.</p>
+<p t="1422600" d="4900">And we're going to compute
+a high-precision rep</p>
+<p t="1427500" d="4930">off 1 divided by b first.</p>
+<p t="1432430" d="7010">And what we mean by
+that is that we'll</p>
+<p t="1439440" d="11200">compute r divided
+by b floor where</p>
+<p t="1450640" d="4005">r is a really large value.</p>
+<p t="1458030" d="10220">And more importantly,
+it's easy to divide</p>
+<p t="1468250" d="3060">by r in a particular base.</p>
+<p t="1471310" d="3510">So for example, r
+equals 2 raised to k,</p>
+<p t="1474820" d="3830">when we use base
+2, you can easily</p>
+<p t="1478650" d="2590">divide through a shift operator.</p>
+<p t="1481240" d="2820">So if I give you r divided
+by b and I give you</p>
+<p t="1484060" d="5170">this long computer word that's
+in base 2, which typically</p>
+<p t="1489230" d="3880">could have millions of
+digits in its representation,</p>
+<p t="1493110" d="2997">I can shift that by
+the appropriate amount</p>
+<p t="1496107" d="2793">to a given r divided by b.</p>
+<p t="1498900" d="3540">I can get 1 over b by
+shifting that quantity.</p>
+<p t="1502440" d="1530">So it feels like,
+hey wait a minute.</p>
+<p t="1503970" d="1830">Why are we dividing by r?</p>
+<p t="1505800" d="2940">Well remember that
+you want 1 over b.</p>
+<p t="1508740" d="3240">And if you're computing
+r divided by b floor,</p>
+<p t="1511980" d="3420">and you actually want 1
+over b, which then you</p>
+<p t="1515400" d="3340">could use to multiply by a
+so you can run your Newton</p>
+<p t="1518740" d="3630">iteration, then you
+want to divide by r.</p>
+<p t="1522370" d="2380">And that division
+is essentially going</p>
+<p t="1524750" d="3990">to be something that
+shifts things to the right.</p>
+<p t="1528740" d="2660">So the most significant
+bits move to the right,</p>
+<p t="1531400" d="2550">and you get a smaller number.</p>
+<p t="1533950" d="1860">That make sense?</p>
+<p t="1535810" d="2870">So we all know how
+to divide by using</p>
+<p t="1538680" d="3050">shifting assuming the
+bases work out right.</p>
+<p t="1541730" d="2660">And if you had a representation
+that was decimal,</p>
+<p t="1544390" d="4440">suddenly you could certainly
+divide by 10 raised to k.</p>
+<p t="1548830" d="1500">That's easy.</p>
+<p t="1550330" d="1440">You've done this many times.</p>
+<p t="1551770" d="1890">But you just changed
+the decimal point</p>
+<p t="1553660" d="1833">when you're working
+with decimal arithmetic.</p>
+<p t="1555493" d="4247">When you divide 72 by
+100 and you get 0.72.</p>
+<p t="1559740" d="2810">And that's a very
+similar notion here.</p>
+<p t="1562550" d="3760">It doesn't really matter what
+base you're talking about.</p>
+<p t="1566310" d="1960">So that's the setup.</p>
+<p t="1568270" d="2020">That's how are we
+going to try and tackle</p>
+<p t="1570290" d="2060">this division problem.</p>
+<p t="1572350" d="6110">But we still have this problem
+of computing r divided by b.</p>
+<p t="1578460" d="3240">So how are we going to
+compute r divided by b?</p>
+<p t="1585430" d="4310">And we want this to be a large
+number of digits of precision.</p>
+<p t="1589740" d="2330">So we're going to use
+Newton's method again.</p>
+<p t="1596160" d="6690">You've got some non-linearity
+here with respect to 1 over x.</p>
+<p t="1602850" d="3530">And we're gonna use
+Newton's method again.</p>
+<p t="1606380" d="2450">And we'll have to hope
+that this works out,</p>
+<p t="1608830" d="5000">that we can get Newton's
+method, it'll converge,</p>
+<p t="1613830" d="6000">and it'll require operations
+that we know how to do.</p>
+<p t="1619830" d="2590">And all of this is going
+to work out really well.</p>
+<p t="1622420" d="2040">I'm going to set
+up a function, f</p>
+<p t="1624460" d="10090">of x equals 1 divided by
+x minus b divided by r.</p>
+<p t="1634550" d="2680">So what this means is
+that this function has</p>
+<p t="1637230" d="6560">a 0 at x equals r divided by b.</p>
+<p t="1643790" d="4680">So if I try and find
+the 0 of this function,</p>
+<p t="1648470" d="2760">and I start out with a
+decent initial guess,</p>
+<p t="1651230" d="1870">I'm going to end up
+with r divided by b.</p>
+<p t="1653100" d="1900">And if I'm working
+with integers,</p>
+<p t="1655000" d="3710">effectively that's the floor
+that I have for r divided by b.</p>
+<p t="1658710" d="5090">And then I do my shift and
+I end up with 1 over b.</p>
+<p t="1663800" d="6012">So someone who remembers
+differentiation,</p>
+<p t="1669812" d="2448">if you're gonna apply
+Newton's method,</p>
+<p t="1672260" d="4370">tell me what the
+derivative of f of x is.</p>
+<p t="1679454" d="1416">Somebody's stretching
+at the back,</p>
+<p t="1680870" d="2850">but I don't think
+that was an answer.</p>
+<p t="1683720" d="3150">Someone at the back?</p>
+<p t="1686870" d="1710">Too easy a question?</p>
+<p t="1688580" d="1866">For the cushion.</p>
+<p t="1690446" d="1499">AUDIENCE: 1 over
+negative x squared.</p>
+<p t="1691945" d="1541">PROFESSOR: 1 over
+negative x squared.</p>
+<p t="1693486" d="1224">Who's that?</p>
+<p t="1694710" d="660">All right.</p>
+<p t="1695370" d="2280">You can come pick this up.</p>
+<p t="1697650" d="1614">Whatever.</p>
+<p t="1699264" d="916">Cut the monotony here.</p>
+<p t="1702570" d="1000">Just veered to the left.</p>
+<p t="1703570" d="2966">I think next time I'm going
+to weight them or something.</p>
+<p t="1706536" d="1374">Let's just do
+frisbees next time.</p>
+<p t="1707910" d="2320">Let's just do
+frisbees next time.</p>
+<p t="1710230" d="1140">It makes it easy.</p>
+<p t="1711370" d="2080">Forget cushions.</p>
+<p t="1713450" d="1420">No?</p>
+<p t="1714870" d="2180">Frisbees or cushions?</p>
+<p t="1717050" d="2250">How many want frisbees?</p>
+<p t="1719300" d="2230">How many want cushions?</p>
+<p t="1721530" d="2940">Frisbees win.</p>
+<p t="1724470" d="5400">So you got derivative of x is
+minus 1 divided by x squared.</p>
+<p t="1729870" d="4610">And then if you go off and
+apply Newton's method--</p>
+<p t="1734480" d="3920">and I'm not going to go through
+the symbolic equations here</p>
+<p t="1738400" d="1550">associated with
+Newton's method--</p>
+<p t="1739950" d="2830">but that's basically the
+same as we did before.</p>
+<p t="1742780" d="6600">You are computing a tangent,
+and the new value of xi plus 1</p>
+<p t="1749380" d="3480">given the value of xi
+is the x-intercept.</p>
+<p t="1752860" d="3880">And we needed the
+derivative to compute that.</p>
+<p t="1756740" d="4850">But bottom line, you
+have xi plus 1 equals</p>
+<p t="1761590" d="9240">xi minus f of xi divided
+by f prime of xi.</p>
+<p t="1770830" d="3170">So that's the Newton iteration.</p>
+<p t="1774000" d="8130">And it's worth plugging in
+the various values here.</p>
+<p t="1782130" d="3610">1 divided by xi
+minus b divided by r.</p>
+<p t="1785740" d="7070">That's f of x on top divided by
+minus 1 divided by xi square.</p>
+<p t="1792810" d="1800">So that's the
+derivative over here.</p>
+<p t="1794610" d="1650">So all I'm doing is
+plugging things in.</p>
+<p t="1796260" d="3880">But you want to visualize
+this because this is really</p>
+<p t="1800140" d="1480">what we need to compute.</p>
+<p t="1801620" d="9200">And we have xi plus 1 equals
+xi plus xi square times</p>
+<p t="1810820" d="5230">1 over xi minus b divided by r.</p>
+<p t="1816050" d="8750">And finally I get 2xi minus
+b xi square divided by r.</p>
+<p t="1824800" d="2000">That is key.</p>
+<p t="1826800" d="2890">This is pretty important.</p>
+<p t="1829690" d="2690">So let's us look all the
+way to the left, which</p>
+<p t="1832380" d="5240">is xi plus 1, all the way
+to the right, 2 times xi.</p>
+<p t="1837620" d="2990">That doesn't scare
+us, 2 times something.</p>
+<p t="1840610" d="2460">Especially base 2, pretty easy.</p>
+<p t="1843070" d="770">That's a multiply.</p>
+<p t="1843840" d="1500">Multiplies don't
+scare us because we</p>
+<p t="1845340" d="1750">know how to do
+multiplies anyway.</p>
+<p t="1847090" d="2720">This is a simple multiply.</p>
+<p t="1849810" d="2251">And then I got a square here.</p>
+<p t="1852061" d="499">Square.</p>
+<p t="1852560" d="1570">Not a square root.</p>
+<p t="1854130" d="3110">Squares don't scare us
+because that's a multiply,</p>
+<p t="1857240" d="2460">just multiplying the
+same number to itself.</p>
+<p t="1859700" d="1530">And this doesn't
+scare us because we</p>
+<p t="1861230" d="5390">know that we've chosen r
+to be an easy division.</p>
+<p t="1866620" d="5520">So all of the operations
+here are either easy,</p>
+<p t="1872140" d="3580">or they require a multiply.</p>
+<p t="1875720" d="3570">So remember I'm going to put a
+picture up towards the end here</p>
+<p t="1879290" d="3990">that tells you the overall
+structure for computing</p>
+<p t="1883280" d="2120">square root of a or
+square root of 2.</p>
+<p t="1885400" d="3610">But we've just sort of sold
+out to Newton, if you will.</p>
+<p t="1889010" d="3350">Because we said that we're
+going to use Newton's method</p>
+<p t="1892360" d="7600">to compute essentially,
+iteratively, square root of a.</p>
+<p t="1899960" d="3390">And within the Newton
+method, the first iteration,</p>
+<p t="1903350" d="1540">if you will, of
+the Newton method,</p>
+<p t="1904890" d="2860">we had to compute a reciprocal.</p>
+<p t="1907750" d="1980">We had to compute 1 over xi.</p>
+<p t="1909730" d="2340">And in order to
+compute 1 over xi,</p>
+<p t="1912070" d="4250">we're going to apply Newton's
+method again like I showed over</p>
+<p t="1916320" d="1950">here and over there.</p>
+<p t="1918270" d="5650">And so that division is
+going to require iteration.</p>
+<p t="1923920" d="5230">But the iteration at the second
+level is one of multiplication.</p>
+<p t="1929150" d="2030">You're gonna repeatedly
+apply multiplication</p>
+<p t="1931180" d="2300">because you're going
+to go xi plus 1</p>
+<p t="1933480" d="4410">based on xi using multiplication
+and some easy operations.</p>
+<p t="1937890" d="4180">And then you go xi plus 2, xi
+plus 3, and so on and so forth.</p>
+<p t="1942070" d="1992">That make sense?</p>
+<p t="1944062" d="3528">I'll try and put this up to
+give you the complete picture</p>
+<p t="1947590" d="4660">once we're done talking
+about the division</p>
+<p t="1952250" d="3486">algorithm and its complexity.</p>
+<p t="1955736" d="1374">But before I do
+that, I just want</p>
+<p t="1957110" d="4330">to give you a sense of the
+convergence of this scheme.</p>
+<p t="1961440" d="2380">Again, I want to give
+you an example first,</p>
+<p t="1963820" d="2180">and then I'll argue
+about the convergence.</p>
+<p t="1970330" d="1900">You have to run
+this iteratively.</p>
+<p t="1972230" d="2590">You've got to make i
+to get to the point</p>
+<p t="1974820" d="4410">where it's large enough that you
+have your digits of precision.</p>
+<p t="1979230" d="2110">And just as an
+example, let's say</p>
+<p t="1981340" d="7047">we want r divided by b equals
+2 raised to 16 divided by 5.</p>
+<p t="1988387" d="1833">So this is a fairly
+straightforward example.</p>
+<p t="1990220" d="4440">But when you get up to integers,
+it turns out it's evocative.</p>
+<p t="1994660" d="7100">So r was selected to be 2 raised
+to k to make for easy division.</p>
+<p t="2001760" d="5020">And what I really want is that.</p>
+<p t="2006780" d="4760">And I want to see how I get
+to that using Newton's method.</p>
+<p t="2011540" d="10640">And our initial
+guess, let's say we</p>
+<p t="2022180" d="2930">try 2 raised to 16
+divided by 4, because we</p>
+<p t="2025110" d="3900">know how to divide
+by a power of two.</p>
+<p t="2029010" d="1590">And so that's 2 raised to 14.</p>
+<p t="2030600" d="1290">And that's our initial guess.</p>
+<p t="2031890" d="4510">So think of that as being x0.</p>
+<p t="2036400" d="1760">That is x0.</p>
+<p t="2038160" d="4674">And that 16384.</p>
+<p t="2042834" d="7845">x1 is going to be 2 times
+16384, which is exactly that,</p>
+<p t="2050679" d="6171">minus 5 times
+16384 whole square.</p>
+<p t="2056850" d="2760">So now you're starting to
+square a fairly big number.</p>
+<p t="2059610" d="2549">And obviously if you'd
+started with an even bigger r,</p>
+<p t="2062159" d="1661">this would be a large number.</p>
+<p t="2066920" d="8741">You go 65536 equals--
+and this is 12288.</p>
+<p t="2075661" d="3328">So you really have one
+digit of precision there.</p>
+<p t="2078989" d="7451">But the next time around,
+you get 2 times 12288 minus 5</p>
+<p t="2086440" d="6719">times 12288 square
+divided by 65536.</p>
+<p t="2093159" d="2080">And this division is easy.</p>
+<p t="2095239" d="541">It's a shift.</p>
+<p t="2095780" d="4030">You get to 13056.</p>
+<p t="2099810" d="1830">And I won't write
+this whole thing out,</p>
+<p t="2101640" d="5440">but if you take that, the next
+thing you'll get is 13107.</p>
+<p t="2107080" d="4630">So as you can see, there's
+rapid convergence here.</p>
+<p t="2111710" d="4950">And you can actually do a very
+similar analysis to the epsilon</p>
+<p t="2116660" d="1960">analysis-- and I'll
+put it in the notes,</p>
+<p t="2118620" d="3600">but I won't do it here-- that
+I did for the square root</p>
+<p t="2122220" d="2640">iteration to show that you
+have a quadratic the rate</p>
+<p t="2124860" d="6940">of convergence when you apply
+Newton's method to division as</p>
+<p t="2131800" d="1900">well.</p>
+<p t="2133700" d="4490">So you can prove that using
+the symbolic analysis than we</p>
+<p t="2138190" d="3230">did very similar to the
+epsilon n relationship</p>
+<p t="2141420" d="1529">to epsilon n plus 1.</p>
+<p t="2142949" d="1791">I'd suggest that it's
+a difference equation</p>
+<p t="2144740" d="3490">here so that analysis
+is not exactly the same.</p>
+<p t="2148230" d="2100">But you can run
+through that, and you</p>
+<p t="2150330" d="2870">can read that in the notes.</p>
+<p t="2153200" d="1500">So we're in business.</p>
+<p t="2154700" d="2550">Finally things are
+looking up with respect</p>
+<p t="2157250" d="3600">to being able to actually
+implement this in practice.</p>
+<p t="2160850" d="2000">I want to talk about complexity.</p>
+<p t="2162850" d="2870">And I promise that there
+was a subtlety associated</p>
+<p t="2165720" d="5680">with the complexity of division
+in relation to multiplication,</p>
+<p t="2171400" d="5090">but let me just go over and
+write down what I just told you</p>
+<p t="2176490" d="2730">with respect to the
+number of iterations</p>
+<p t="2179220" d="3930">that division requires.</p>
+<p t="2183150" d="7730">So division,
+quadratic convergence.</p>
+<p t="2195020" d="8450">So number of digits
+doubles at each step.</p>
+<p t="2203470" d="1260">Good news.</p>
+<p t="2204730" d="12040">So d digits of precision,
+log d iterations.</p>
+<p t="2220130" d="5190">Now let's say that we have
+a particular algorithm</p>
+<p t="2225320" d="3500">for multiplication that
+I'm just going to say,</p>
+<p t="2228820" d="4510">since we have so many
+different algorithms,</p>
+<p t="2233330" d="5330">I'm going to say multiplication
+in theta n raised</p>
+<p t="2238660" d="5630">to alpha time, where alpha is
+greater than or equal to 1.</p>
+<p t="2244290" d="2460">I just want to be
+general about it.</p>
+<p t="2246750" d="5890">And so assuming that I have a
+multiplication algorithm, that</p>
+<p t="2252640" d="2510">can run in theta
+n raised to alpha,</p>
+<p t="2255150" d="5800">where clearly you know alpha can
+be 1.46 for Toom 3, et cetera.</p>
+<p t="2260950" d="4410">And it's not quite that
+for Schonhage-Strassen,</p>
+<p t="2265360" d="5090">but I just want to be working
+with one particular complexity.</p>
+<p t="2270450" d="1890">So I'll parameterize
+it in this fashion.</p>
+<p t="2272340" d="4280">And everything I say is going to
+be true for Schonhage-Strassen</p>
+<p t="2276620" d="1470">and Furer as well.</p>
+<p t="2278090" d="2800">But first, easy question.</p>
+<p t="2280890" d="3000">What is the
+complexity of division</p>
+<p t="2283890" d="5720">using the analysis that I've
+put on the board so far?</p>
+<p t="2289610" d="4454">n digit numbers
+it's going to be?</p>
+<p t="2294064" d="916">I wanna hear from you.</p>
+<p t="2297630" d="4010">How many hard
+multipliers do I have?</p>
+<p t="2304520" d="956">Log of?</p>
+<p t="2305476" d="794">AUDIENCE: n.</p>
+<p t="2306270" d="1260">PROFESSOR: Log of n, right?</p>
+<p t="2307530" d="2870">It wasn't a hard question.</p>
+<p t="2310400" d="6840">So division would be theta
+log n times n raised to alpha.</p>
+<p t="2320059" d="791">Everybody buy that?</p>
+<p t="2324651" d="499">No?</p>
+<p t="2330144" d="1416">Ask a question if
+you're confused.</p>
+<p t="2335610" d="5010">Maybe I should say
+everybody buy that?</p>
+<p t="2344797" d="1333">How many people agree with that?</p>
+<p t="2346130" d="1607">Big O?</p>
+<p t="2347737" d="1333">How many people agree with that?</p>
+<p t="2352099" d="791">Yeah, that's right.</p>
+<p t="2352890" d="3280">Big O. I'm hedging my bets here.</p>
+<p t="2356170" d="3510">I'm just saying big O. I
+could say big O of n cubed</p>
+<p t="2359680" d="1690">and you should
+all agree with me.</p>
+<p t="2361370" d="1410">Or big O of whatever.</p>
+<p t="2362780" d="1036">You had a question?</p>
+<p t="2363816" d="1666">AUDIENCE: What's the
+longest [INAUDIBLE]</p>
+<p t="2365482" d="2083">number of [INAUDIBLE]
+we need to get</p>
+<p t="2367565" d="1745">a certain level of [INAUDIBLE]?</p>
+<p t="2369310" d="1000">PROFESSOR: That's right.</p>
+<p t="2370310" d="5680">So if you want d
+digits of precision,</p>
+<p t="2375990" d="5012">then according to this
+argument-- and I think you</p>
+<p t="2381002" d="1708">guys are a little
+doubtful here because I</p>
+<p t="2382710" d="2280">kept talking about subtleties,
+and in fact there's</p>
+<p t="2384990" d="3920">a subtlety here, which I want
+to get to-- but this big O</p>
+<p t="2388910" d="1350">thing is perfectly correct.</p>
+<p t="2390260" d="1750">But to answer your
+question, yes.</p>
+<p t="2392010" d="1970">Let's assume that it's
+n digits of precision.</p>
+<p t="2393980" d="2550">That's what we assume
+whether it's n or d.</p>
+<p t="2396530" d="1990">You can plug in the
+appropriate symbol here.</p>
+<p t="2398520" d="3610">And we're saying that, look,
+every iteration is bounded</p>
+<p t="2402130" d="4920">by n raised to alpha
+complexity for the multiply.</p>
+<p t="2407050" d="1810">And I'm going to do
+a logarithmic number</p>
+<p t="2408860" d="910">of iterations.</p>
+<p t="2409770" d="3380">So I end up getting log n
+times n raised to alpha.</p>
+<p t="2413150" d="2070">So that is correct, in fact.</p>
+<p t="2415220" d="1230">Big O is correct.</p>
+<p t="2416450" d="3360">So now it comes to the
+interesting question,</p>
+<p t="2419810" d="3240">which is can you do
+a better analysis?</p>
+<p t="2423050" d="3200">So this sort of hearkens
+back to three weeks</p>
+<p t="2426250" d="1500">ago, maybe you've forgotten.</p>
+<p t="2427750" d="1810">Maybe you've blanked
+it out of your memory,</p>
+<p t="2429560" d="5110">but I thought I described
+to you build max-heap.</p>
+<p t="2434670" d="1870">And we had this
+straightforward analysis</p>
+<p t="2436540" d="2839">of build max-heap that
+was n log n complexity.</p>
+<p t="2439379" d="2041">And then we looked at it
+a little more carefully,</p>
+<p t="2441420" d="2740">and we started adding things
+up much more carefully.</p>
+<p t="2444160" d="1780">We turned into bank accountants.</p>
+<p t="2445940" d="3430">And then we decided that
+it was theta n complexity.</p>
+<p t="2449370" d="1220">People remember that?</p>
+<p t="2450590" d="500">Right?</p>
+<p t="2451090" d="1791">So I want you to turn
+into bank accountants</p>
+<p t="2452881" d="5039">again, and then tell me first,
+there's a nice observation</p>
+<p t="2457920" d="4190">that you can make here
+that we haven't made yet</p>
+<p t="2462110" d="3432">with respect to the
+size of these numbers.</p>
+<p t="2465542" d="1458">We know what we
+want to eventually,</p>
+<p t="2467000" d="2416">but there's a nice observation
+we can make it with respect</p>
+<p t="2469416" d="1514">to the size of these numbers.</p>
+<p t="2470930" d="3360">And then we want to
+exploit that observation</p>
+<p t="2474290" d="5540">to do a better analysis of the
+theta complexity of division.</p>
+<p t="2479830" d="3132">So who wants to tell me
+what the observation is.</p>
+<p t="2482962" d="2298">This is definitely
+worth a cushion.</p>
+<p t="2485260" d="1420">What's the observation?</p>
+<p t="2486680" d="2590">I want to end up with
+d digits of precision.</p>
+<p t="2492930" d="2510">If I give you another hint,
+I'm gonna give it away.</p>
+<p t="2495440" d="3250">Someone tell me.</p>
+<p t="2498690" d="3940">This is a dynamic process, OK?</p>
+<p t="2502630" d="3530">So what do I start with?</p>
+<p t="2506160" d="3070">What do I start with?</p>
+<p t="2509230" d="1924">If I want to compute
+something and you</p>
+<p t="2511154" d="2166">want to use Newton's method,
+what do you start with?</p>
+<p t="2513320" d="922">Yeah?</p>
+<p t="2514242" d="1507">AUDIENCE: [INAUDIBLE]</p>
+<p t="2515749" d="2041">PROFESSOR: You start with
+one digit of precision.</p>
+<p t="2517790" d="1717">That's fantastic.</p>
+<p t="2519507" d="2083">I don't know if you already
+have a cushion or not,</p>
+<p t="2521590" d="1550">but here's the second one.</p>
+<p t="2523140" d="4690">So you start with a small
+number of digits of precision.</p>
+<p t="2527830" d="4720">And then you end up with a
+large million, whatever, number,</p>
+<p t="2532550" d="2550">which is your d.</p>
+<p t="2535100" d="2240">So what does that mean?</p>
+<p t="2537340" d="2440">So now somebody take
+that and run with it.</p>
+<p t="2539780" d="2990">Somebody take that
+and run with it.</p>
+<p t="2542770" d="1610">You already have a cushion.</p>
+<p t="2544380" d="670">Like many?</p>
+<p t="2548510" d="3210">You guys, usual suspects.</p>
+<p t="2551720" d="1900">So someone take that
+and run with it.</p>
+<p t="2553620" d="994">What can I do now?</p>
+<p t="2554614" d="2416">What does it mean if I start
+with a small number of digits</p>
+<p t="2557030" d="1490">of precision?</p>
+<p t="2558520" d="1710">My initial guess was one, right?</p>
+<p t="2560230" d="2040">I mean, that had one
+digit of precision.</p>
+<p t="2562270" d="4060">And then the number of digits
+doubles with each step.</p>
+<p t="2566330" d="3940">So is there any
+reason why I'm doing,</p>
+<p t="2570270" d="2180">if I had d digits of
+precision, eventually</p>
+<p t="2572450" d="8100">that I'll have to do d digit
+multiplies in each iteration?</p>
+<p t="2580550" d="1190">Any reason why?</p>
+<p t="2581740" d="786">Yeah.</p>
+<p t="2582526" d="2458">AUDIENCE: You don't have to,
+because [INAUDIBLE] multiplies</p>
+<p t="2584984" d="484">are going to be trivial.</p>
+<p t="2585468" d="2057">And [INAUDIBLE] then you're
+going to eventually approach</p>
+<p t="2587525" d="1331">the d to the alpha iteration.</p>
+<p t="2588856" d="1054">PROFESSOR: That's exactly right.</p>
+<p t="2589910" d="710">Exactly right.</p>
+<p t="2590620" d="1780">That's worth a cushion.</p>
+<p t="2592400" d="3090">But now I want you
+or someone else,</p>
+<p t="2595490" d="4050">tell me what the
+iteration looks like.</p>
+<p t="2599540" d="1710">So this is the key observation.</p>
+<p t="2601250" d="19140">The key observation is that if
+I want d digits of precision,</p>
+<p t="2620390" d="2570">I'm going to start with
+maybe one digit of precision.</p>
+<p t="2622960" d="6160">So this is d of p, or dig
+of p, not to be confused.</p>
+<p t="2629120" d="3690">I start with 1, 2, 4,
+and I end up with d.</p>
+<p t="2632810" d="4650">And our claim was that this
+was log d iterations, right?</p>
+<p t="2637460" d="8000">So the initial
+multiplies are easy.</p>
+<p t="2645460" d="2120">Initially you're
+doing constant work</p>
+<p t="2647580" d="2950">if you have really
+small numbers associated</p>
+<p t="2650530" d="1310">with these multiplies.</p>
+<p t="2651840" d="2100">It's only towards the
+end that you end up</p>
+<p t="2653940" d="2780">doing a lot more work, right?</p>
+<p t="2656720" d="7790">So someone tell me if I
+have n raised to alpha,</p>
+<p t="2664510" d="5930">and if I say I want
+to write an equation.</p>
+<p t="2670440" d="2401">And I don't want
+to use theta here.</p>
+<p t="2672841" d="1499">I'm going to use
+constants because I</p>
+<p t="2674340" d="3860">want to add up constants,
+and it's a little iffy then</p>
+<p t="2678200" d="2200">you add up thetas.</p>
+<p t="2680400" d="3230">You need to be
+looking at constants.</p>
+<p t="2683630" d="8700">Now I can imagine that for this
+iteration, the very first one,</p>
+<p t="2692330" d="3520">that I have something like
+c times 1 raised to alpha,</p>
+<p t="2695850" d="2220">because it's just a
+single digit of precision.</p>
+<p t="2698070" d="4140">OK And the next one, I'm
+using the same algorithm.</p>
+<p t="2702210" d="3436">This is c times 2 raised
+to alpha, c times 4</p>
+<p t="2705646" d="684">raised to alpha.</p>
+<p t="2709910" d="2980">And then out here
+I'm going to have</p>
+<p t="2712890" d="6110">c times d by 4 raised to
+alpha plus c times d by 2</p>
+<p t="2719000" d="5120">raised to alpha plus finally
+c times d raised to alpha.</p>
+<p t="2724120" d="4902">And someone give me a bound.</p>
+<p t="2729022" d="1733">Who wants to give
+me a bound on this?</p>
+<p t="2733882" d="3488">Who wants to give
+me a bound on this?</p>
+<p t="2737370" d="2950">Less than or equal to.</p>
+<p t="2740320" d="1810">Let's just make it less than.</p>
+<p t="2742130" d="900">What?</p>
+<p t="2743030" d="500">Someone?</p>
+<p t="2747500" d="2150">Just plug in a value of alpha.</p>
+<p t="2749650" d="4370">And remember your convergent
+geometric series and things</p>
+<p t="2754020" d="1064">like that.</p>
+<p t="2755084" d="541">What is that?</p>
+<p t="2758300" d="1590">Someone?</p>
+<p t="2759890" d="660">Yeah.</p>
+<p t="2760550" d="2455">AUDIENCE: Just some constant
+times d to the alpha?</p>
+<p t="2763005" d="1333">PROFESSOR: That's exactly right.</p>
+<p t="2764338" d="3372">Just some constant
+times d to the alpha.</p>
+<p t="2767710" d="4610">And in fact, you can say,
+it's 2c d to the alpha.</p>
+<p t="2776100" d="1740">Keep a question for you aside.</p>
+<p t="2777840" d="660">So that' sit.</p>
+<p t="2778500" d="3780">That's the little careful
+analysis that we had to do,</p>
+<p t="2782280" d="4330">which basically without
+changing your code, really,</p>
+<p t="2786610" d="2200">suddenly gave you a
+better complexity.</p>
+<p t="2788810" d="1190">Isn't that fun?</p>
+<p t="2790000" d="1270">That's always fun.</p>
+<p t="2791270" d="3490">You had this neat
+algorithm to begin with.</p>
+<p t="2794760" d="3080">And bottom line is you're
+just computing things</p>
+<p t="2797840" d="3290">a little more accurately,
+than essentially saying</p>
+<p t="2801130" d="3410">that you had to do
+all of this work</p>
+<p t="2804540" d="3820">with large number of digits of
+precision at every iteration.</p>
+<p t="2808360" d="2890">The number of digits
+actually increases.</p>
+<p t="2811250" d="1590">So what does this mean?</p>
+<p t="2812840" d="3160">I guess ultimately, the
+complexity of division</p>
+<p t="2816000" d="1930">is now what?</p>
+<p t="2817930" d="5720">It's the same as the complexity
+of multiplication, right?</p>
+<p t="2823650" d="4920">So regardless of whether we
+did a Newton iteration or not,</p>
+<p t="2828570" d="4335">the complexity of division.</p>
+<p t="2844940" d="2330">You are doing a logarithmic
+number of iterations,</p>
+<p t="2847270" d="2600">but since eventually
+all of the work</p>
+<p t="2849870" d="2896">is going to get done
+at the end here.</p>
+<p t="2852766" d="1999">Most of the work is getting
+done at the end when</p>
+<p t="2854765" d="1975">you have these long numbers.</p>
+<p t="2856740" d="3510">That's basically the
+essence of the argument.</p>
+<p t="2860250" d="4180">So let me finish up and
+talk about the complexity</p>
+<p t="2864430" d="1355">of computing square roots.</p>
+<p t="2871000" d="5030">And as you can imagine,
+even though you</p>
+<p t="2876030" d="2800">have two nested Newton
+iterations here,</p>
+<p t="2878830" d="3020">you can make basically
+the same argument.</p>
+<p t="2881850" d="2840">So let's recall what
+we're doing in terms</p>
+<p t="2884690" d="1710">of computing square roots.</p>
+<p t="2886400" d="2920">We want to compute
+square root of a.</p>
+<p t="2889320" d="2950">And we said, well we don't
+quite know how to do this.</p>
+<p t="2892270" d="6100">We're going to end up doing
+10 raised to 2d times a,</p>
+<p t="2898370" d="2340">and we're going to run
+Newton's method on it.</p>
+<p t="2900710" d="3290">So you've got one level
+of Newton's method.</p>
+<p t="2906590" d="3140">And the iteration here with
+respect to Newton's method</p>
+<p t="2909730" d="10370">is something like xi plus 1
+equals xi plus a divided by xi.</p>
+<p t="2920100" d="4870">Now every time you do
+that for a particular xi,</p>
+<p t="2924970" d="4350">you're going to end up
+having to call a division.</p>
+<p t="2929320" d="3620">So you're going to
+call a division here,</p>
+<p t="2932940" d="3110">and then you're going
+to call a division here.</p>
+<p t="2936050" d="2380">For each iteration you
+have to call a division.</p>
+<p t="2938430" d="1870">And what we're
+saying is, well we're</p>
+<p t="2940300" d="3447">going to end up having to call
+for each of these division</p>
+<p t="2943747" d="1833">methods we're going to
+call Newton's method.</p>
+<p t="2949260" d="7570">And what that is
+something like 2xi</p>
+<p t="2956830" d="5690">minus b xi square divided by r.</p>
+<p t="2962520" d="3455">And that's going to be a
+bunch of multiplications.</p>
+<p t="2968600" d="2370">And what we argued up
+until this point was</p>
+<p t="2970970" d="2490">that the complexity
+of the division,</p>
+<p t="2973460" d="2180">even though we had a
+bunch of iterations here,</p>
+<p t="2975640" d="2280">a logarithmic number of
+iterations, the complexity</p>
+<p t="2977920" d="2080">of the division was the
+same as the complexity</p>
+<p t="2980000" d="2240">of the multiplication
+because the numbers</p>
+<p t="2982240" d="2450">started out small and grew big.</p>
+<p t="2984690" d="510">All right?</p>
+<p t="2985200" d="1760">Everybody buy that?</p>
+<p t="2986960" d="2290">I'm going to use exactly
+the same argument</p>
+<p t="2989250" d="3250">for this level of
+iteration as well.</p>
+<p t="2992500" d="4510">And again, when you start out
+with the digits of precision</p>
+<p t="2997010" d="2170">corresponding to
+square root of 2,</p>
+<p t="2999180" d="2450">you're going to start
+out guessing 1.5,</p>
+<p t="3001630" d="2805">which is your initial guess
+for the square root of 2,</p>
+<p t="3004435" d="2835">and it's going to be a small
+number of digits of precision.</p>
+<p t="3007270" d="2290">And eventually you'll
+get to a million digits.</p>
+<p t="3009560" d="5280">So using essentially the
+same equation summing,</p>
+<p t="3014840" d="2770">you can argue that the
+complexity of computing</p>
+<p t="3017610" d="7450">square roots is the complexity
+of division, which of course is</p>
+<p t="3025060" d="3140">the complexity of
+multiplication.</p>
+<p t="3032500" d="2380">And that's the story.</p>
+<p t="3034880" d="3110">So obviously the code would
+be a little more complicated</p>
+<p t="3037990" d="1900">than a multiplication
+code, because you</p>
+<p t="3039890" d="2470">have all this control
+structure outside of it.</p>
+<p t="3042360" d="2560">It's really two nested loops.</p>
+<p t="3044920" d="2400">The multiply is getting
+called a bunch of times</p>
+<p t="3047320" d="1780">to do the divide,
+and the divide is</p>
+<p t="3049100" d="2740">getting called a bunch of times
+to compute the square root.</p>
+<p t="3051840" d="2600">But ultimately, because
+the numbers are growing</p>
+<p t="3054440" d="2250">and you start out with small
+numbers, most of the work</p>
+<p t="3056690" d="2130">is done when you get to
+the millions of digits</p>
+<p t="3058820" d="940">of precision.</p>
+<p t="3059760" d="4000">And you basically
+have theta n raised</p>
+<p t="3063760" d="3180">to alpha complexity for
+computing square roots.</p>
+<p t="3066940" d="3000">If you have n raised
+to alpha multiply,</p>
+<p t="3069940" d="3120">and you want n
+digits of precision.</p>
+<p t="3073060" d="930">All right?</p>
+<p t="3073990" d="980">See you next time.</p>
+<p t="3074970" d="2010">Stick around for questions.</p>
+</body>
+</timedtext>

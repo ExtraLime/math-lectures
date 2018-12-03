@@ -1,0 +1,1311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="9840" d="4770">OK, this is linear
+algebra lecture nine.</p>
+<p t="14610" d="6520">And this is a key lecture, this
+is where we get these ideas</p>
+<p t="21130" d="6350">of linear independence,
+when a bunch of vectors are</p>
+<p t="27480" d="2120">independent --</p>
+<p t="29600" d="4290">or dependent,
+that's the opposite.</p>
+<p t="33890" d="2790">The space they span.</p>
+<p t="36680" d="3870">A basis for a subspace
+or a basis for a vector</p>
+<p t="40550" d="2180">space, that's a central idea.</p>
+<p t="42730" d="4330">And then the dimension
+of that subspace.</p>
+<p t="47060" d="3180">So this is the day
+that those words</p>
+<p t="50240" d="2720">get assigned clear meanings.</p>
+<p t="52960" d="5420">And emphasize that we talk
+about a bunch of vectors</p>
+<p t="58380" d="1170">being independent.</p>
+<p t="59550" d="3230">Wouldn't talk about a
+matrix being independent.</p>
+<p t="62780" d="2370">A bunch of vectors
+being independent.</p>
+<p t="65150" d="2690">A bunch of vectors
+spanning a space.</p>
+<p t="67840" d="3640">A bunch of vectors
+being a basis.</p>
+<p t="71480" d="3590">And the dimension
+is some number.</p>
+<p t="75070" d="2410">OK, so what are the definitions?</p>
+<p t="77480" d="4360">Can I begin with a fact,
+a highly important fact,</p>
+<p t="81840" d="6400">that, I didn't call directly
+attention to earlier.</p>
+<p t="88240" d="7660">Suppose I have a matrix and
+I look at Ax equals zero.</p>
+<p t="95900" d="3630">Suppose the matrix
+has a lot of columns,</p>
+<p t="99530" d="3810">so that n is bigger than m.</p>
+<p t="103340" d="2980">So I'm looking at n equations --</p>
+<p t="106320" d="2600">I mean, sorry, m
+equations, a small number</p>
+<p t="108920" d="3730">of equations m,
+and more unknowns.</p>
+<p t="112650" d="3310">I have more unknowns
+than equations.</p>
+<p t="115960" d="1080">Let me write that down.</p>
+<p t="117040" d="2810">More unknowns than equations.</p>
+<p t="119850" d="3320">More unknown x-s than equations.</p>
+<p t="123170" d="12270">Then the conclusion
+is that there's</p>
+<p t="135440" d="3890">something in the null
+space of A, other</p>
+<p t="139330" d="2020">than just the zero vector.</p>
+<p t="141350" d="4970">The conclusion is there
+are some non-zero x-s</p>
+<p t="146320" d="1900">such that Ax is zero.</p>
+<p t="148220" d="1810">There are some
+special solutions.</p>
+<p t="150030" d="1030">And why?</p>
+<p t="151060" d="2530">We know why.</p>
+<p t="153590" d="4530">I mean, it sort of like seems
+like a reasonable thing, more</p>
+<p t="158120" d="4030">unknowns than equations,
+then it seems reasonable</p>
+<p t="162150" d="1390">that we can solve them.</p>
+<p t="163540" d="5670">But we have a, a clear algorithm
+which starts with a system</p>
+<p t="169210" d="6230">and does elimination, gets
+the thing into an echelon</p>
+<p t="175440" d="6190">form with some pivots
+and pivot columns,</p>
+<p t="181630" d="4420">and possibly some free columns
+that don't have pivots.</p>
+<p t="186050" d="3240">And the point is here there
+will be some free columns.</p>
+<p t="189290" d="5650">The reason, so the
+reason is there must --</p>
+<p t="194940" d="5140">there will be free
+variables, at least one.</p>
+<p t="205010" d="2570">That's the reason.</p>
+<p t="207580" d="2550">That we now have this --</p>
+<p t="210130" d="6070">a complete, algorithm, a
+complete systematic way to say,</p>
+<p t="216200" d="2660">OK, we take the
+system Ax equals zero,</p>
+<p t="218860" d="3510">we row reduce, we identify
+the free variables,</p>
+<p t="222370" d="6320">and, since there are n
+variables and at most m pivots,</p>
+<p t="228690" d="3150">there will be some free
+variables, at least one,</p>
+<p t="231840" d="3250">at least n-m in fact, left over.</p>
+<p t="235090" d="5390">And those variables I can
+assign non-zero values to.</p>
+<p t="240480" d="1630">I don't have to
+set those to zero.</p>
+<p t="242110" d="2470">I can take them to be
+one or whatever I like,</p>
+<p t="244580" d="3390">and then I can solve
+for the pivot variables.</p>
+<p t="247970" d="3900">So then it gives me a
+solution to Ax equals zero.</p>
+<p t="251870" d="3950">And it's a solution
+that isn't all zeros.</p>
+<p t="255820" d="5949">So, that's an important
+point that we'll</p>
+<p t="261769" d="4581">use now in this lecture.</p>
+<p t="266350" d="3760">So now I want to say what does
+it mean for a bunch of vectors</p>
+<p t="270110" d="1360">to be independent.</p>
+<p t="271470" d="900">OK.</p>
+<p t="272370" d="3906">So this is like the
+background that we know.</p>
+<p t="276276" d="1624">Now I want to speak
+about independence.</p>
+<p t="281500" d="500">OK.</p>
+<p t="286110" d="2630">Let's see.</p>
+<p t="288740" d="6690">I can give you the abstract
+definition, and I will,</p>
+<p t="295430" d="4895">but I would also like to
+give you the direct meaning.</p>
+<p t="303700" d="9000">So the question is, when
+vectors x1, x2 up to --</p>
+<p t="312700" d="7160">Suppose I have n vectors
+are independent if.</p>
+<p t="319860" d="2490">Now I have to give you --</p>
+<p t="322350" d="3210">or linearly independent --</p>
+<p t="325560" d="4910">I'll often just say and
+write independent for short.</p>
+<p t="330470" d="830">OK.</p>
+<p t="331300" d="2280">I'll give you the
+full definition.</p>
+<p t="333580" d="3340">These are just vectors
+in some vector space.</p>
+<p t="336920" d="2440">I can take combinations of them.</p>
+<p t="339360" d="5710">The question is, do any
+combinations give zero?</p>
+<p t="345070" d="2140">If some combination
+of those vectors</p>
+<p t="347210" d="3820">gives the zero vector,
+other than the combination</p>
+<p t="351030" d="4490">of all zeros, then
+they're dependent.</p>
+<p t="355520" d="10580">They're independent if no
+combination gives the zero</p>
+<p t="366100" d="2450">vector --</p>
+<p t="368550" d="8520">and then I have, I'll have
+to put in an except the zero</p>
+<p t="377070" d="1770">combination.</p>
+<p t="378840" d="2320">So what do I mean by that?</p>
+<p t="381160" d="2560">No combination gives
+the zero vector.</p>
+<p t="383720" d="6230">Any combination
+c1 x1+c2 x2 plus,</p>
+<p t="389950" d="9310">plus cn xn is not zero except
+for the zero combination.</p>
+<p t="399260" d="6350">This is when all the c-s,
+all the c-s are zero.</p>
+<p t="405610" d="705">Then of course.</p>
+<p t="409290" d="2810">That combination --
+I know I'll get zero.</p>
+<p t="412100" d="3850">But the question is, does any
+other combination give zero?</p>
+<p t="415950" d="4020">If not, then the
+vectors are independent.</p>
+<p t="419970" d="2660">If some other combination
+does give zero,</p>
+<p t="422630" d="2250">the vectors are dependent.</p>
+<p t="424880" d="630">OK.</p>
+<p t="425510" d="2910">Let's just take examples.</p>
+<p t="428420" d="6090">Suppose I'm in, say, in
+two dimensional space.</p>
+<p t="434510" d="1080">OK.</p>
+<p t="435590" d="1350">I give you --</p>
+<p t="436940" d="2960">I'd like to first
+take an example --</p>
+<p t="439900" d="4580">let me take an example where
+I have a vector and twice that</p>
+<p t="444480" d="1810">vector.</p>
+<p t="446290" d="3430">So that's two vectors, V and 2V.</p>
+<p t="449720" d="4110">Are those dependent
+or independent?</p>
+<p t="453830" d="1990">Those are dependent
+for sure, right,</p>
+<p t="455820" d="4560">because there's one
+vector is twice the other.</p>
+<p t="460380" d="1870">One vector is twice
+as long as the other,</p>
+<p t="462250" d="2530">so if the word dependent
+means anything,</p>
+<p t="464780" d="1890">these should be dependent.</p>
+<p t="466670" d="1240">And they are.</p>
+<p t="467910" d="3950">And in fact, I would
+take two of the first --</p>
+<p t="471860" d="4890">so here's, here is a vector V
+and the other guy is a vector</p>
+<p t="476750" d="2600">2V, that's my --</p>
+<p t="479350" d="5380">so there's a vector V1 and
+my next vector V2 is 2V1.</p>
+<p t="484730" d="3900">Of course those are
+dependent, because two</p>
+<p t="488630" d="5490">of these first vectors minus
+the second vector is zero.</p>
+<p t="494120" d="3500">That's a combination of these
+two vectors that gives the zero</p>
+<p t="497620" d="500">vector.</p>
+<p t="498120" d="1940">OK, that was clear.</p>
+<p t="500060" d="4370">Suppose, suppose
+I have a vector --</p>
+<p t="504430" d="630">here's another</p>
+<p t="505060" d="740">example.</p>
+<p t="505800" d="1150">It's easy example.</p>
+<p t="506950" d="4060">Suppose I have a vector and the
+other guy is the zero vector.</p>
+<p t="511010" d="5810">Suppose I have a vector V1
+and V2 is the zero vector.</p>
+<p t="516820" d="6489">Then are those vectors
+dependent or independent?</p>
+<p t="523309" d="2921">They're dependent again.</p>
+<p t="526230" d="4250">You could say, well, this
+guy is zero times that one.</p>
+<p t="530480" d="2490">This one is some
+combination of those.</p>
+<p t="532970" d="1930">But let me write
+it the other way.</p>
+<p t="534900" d="6210">Let me say -- what combination,
+how many V1s and how many V2s</p>
+<p t="541110" d="1561">shall I take to get the zero</p>
+<p t="542671" d="499">vector?</p>
+<p t="545810" d="5680">If, if V1 is like the vector two
+one and V2 is the zero vector,</p>
+<p t="551490" d="4250">zero zero, then I
+would like to show</p>
+<p t="555740" d="2900">that some combination of
+those gives the zero vector.</p>
+<p t="558640" d="1180">What shall I take?</p>
+<p t="559820" d="2840">How many V1s shall I take?</p>
+<p t="562660" d="880">Zero of them.</p>
+<p t="563540" d="1770">Yeah, no, take no V1s.</p>
+<p t="565310" d="2980">But how many V2s?</p>
+<p t="568290" d="680">Six.</p>
+<p t="568970" d="2730">OK.</p>
+<p t="571700" d="3090">Or five.</p>
+<p t="574790" d="3800">Then -- in other words,
+the point is if the zero</p>
+<p t="578590" d="2750">vector's in there,
+if the zero --</p>
+<p t="581340" d="3420">if one of these vectors
+is the zero vector,</p>
+<p t="584760" d="2730">independence is dead, right?</p>
+<p t="587490" d="2950">If one of those vectors is the
+zero vector then I could always</p>
+<p t="590440" d="1530">take --</p>
+<p t="591970" d="2150">include that one and
+none of the others,</p>
+<p t="594120" d="5250">and I would get the zero answer,
+and I would show dependence.</p>
+<p t="599370" d="860">OK.</p>
+<p t="600230" d="4660">Now, let me, let me
+finally draw an example</p>
+<p t="604890" d="1970">where they will be independent.</p>
+<p t="606860" d="4040">Suppose that's V1 and that's V2.</p>
+<p t="610900" d="3920">Those are surely
+independent, right?</p>
+<p t="614820" d="4580">Any combination of
+V1 and V2, will not</p>
+<p t="619400" d="3380">be zero except, the
+zero combination.</p>
+<p t="622780" d="1610">So those would be independent.</p>
+<p t="624390" d="3650">But now let me, let me
+stick in a third vector, V3.</p>
+<p t="631100" d="3100">Independent or dependent
+now, those three vectors?</p>
+<p t="634200" d="3190">So now n is three here.</p>
+<p t="637390" d="4760">I'm in two dimensional space,
+whatever, I'm in the plane.</p>
+<p t="642150" d="5240">I have three vectors that
+I didn't draw so carefully.</p>
+<p t="647390" d="3130">I didn't even tell you
+what exactly they were.</p>
+<p t="650520" d="5300">But what's this answer on
+dependent or independent?</p>
+<p t="655820" d="1380">Dependent.</p>
+<p t="657200" d="3370">How do I know those
+are dependent?</p>
+<p t="660570" d="5000">How do I know that some
+combination of V1, V2, and V3</p>
+<p t="665570" d="3440">gives me the zero vector?</p>
+<p t="669010" d="3120">I know because of that.</p>
+<p t="672130" d="8030">That's the key
+fact that tells me</p>
+<p t="680160" d="3830">that three vectors in the
+plane have to be dependent.</p>
+<p t="683990" d="1130">Why's that?</p>
+<p t="685120" d="3530">What's the connection between
+the dependence of these three</p>
+<p t="688650" d="1970">vectors and that fact?</p>
+<p t="690620" d="520">OK.</p>
+<p t="691140" d="2210">So here's the connection.</p>
+<p t="693350" d="8910">I take the matrix A that has
+V1 in its first column, V2</p>
+<p t="702260" d="4300">in its second column,
+V3 in its third column.</p>
+<p t="706560" d="2000">So it's got three columns.</p>
+<p t="708560" d="1040">And V1 --</p>
+<p t="709600" d="2350">I don't know, that
+looks like about two one</p>
+<p t="711950" d="930">to me.</p>
+<p t="712880" d="3550">V2 looks like it
+might be one two.</p>
+<p t="716430" d="5560">V3 looks like it might be maybe
+two, maybe two and a half,</p>
+<p t="721990" d="1580">minus one.</p>
+<p t="727520" d="710">OK.</p>
+<p t="728230" d="5670">Those are my three vectors, and
+I put them in the columns of A.</p>
+<p t="733900" d="4630">Now that matrix A
+is two by three.</p>
+<p t="738530" d="4430">It fits this pattern, that
+where we know we've got extra</p>
+<p t="742960" d="2940">variables, we know we
+have some free variables,</p>
+<p t="745900" d="2740">we know that there's
+some combination --</p>
+<p t="748640" d="6010">and let me instead of x-s, let
+me call them c1, c2, and c3 --</p>
+<p t="754650" d="4730">that gives the zero vector.</p>
+<p t="759380" d="2450">Sorry that my little bit
+of art got in the way.</p>
+<p t="761830" d="2640">Do you see the point?</p>
+<p t="764470" d="4130">When I have a matrix,
+I'm interested</p>
+<p t="768600" d="5110">in whether its columns are
+dependent or independent.</p>
+<p t="773710" d="2760">The columns are
+dependent if there</p>
+<p t="776470" d="2010">is something in the null space.</p>
+<p t="778480" d="2380">The columns are
+dependent because this,</p>
+<p t="780860" d="2230">this thing in the
+null space says</p>
+<p t="783090" d="6100">that c1 of that plus c2 of
+that plus c3 of this is zero.</p>
+<p t="789190" d="4480">So in other words, I can go
+out some V1, out some more V2,</p>
+<p t="793670" d="2590">back on V3, and end up zero.</p>
+<p t="799010" d="840">OK.</p>
+<p t="799850" d="5440">So let -- here I've give the
+general, abstract definition,</p>
+<p t="805290" d="3070">but let me repeat
+that definition --</p>
+<p t="808360" d="3480">this is like repeat --</p>
+<p t="811840" d="7430">let me call them Vs now.</p>
+<p t="819270" d="8180">V1 up to Vn are the
+columns of a matrix A.</p>
+<p t="827450" d="2670">In other words,
+this is telling me</p>
+<p t="830120" d="7390">that if I'm in m
+dimensional space,</p>
+<p t="837510" d="3120">like two dimensional
+space in the example,</p>
+<p t="840630" d="3310">I can answer the
+dependence-independence</p>
+<p t="843940" d="6240">question directly by
+putting those vectors</p>
+<p t="850180" d="1400">in the columns of a matrix.</p>
+<p t="854330" d="16050">They are independent if the
+null space of A, of A, is what?</p>
+<p t="873230" d="3140">If I have a bunch of
+columns in a matrix,</p>
+<p t="876370" d="2500">I'm looking at
+their combinations,</p>
+<p t="878870" d="5980">but that's just A times
+the vector of c-s.</p>
+<p t="884850" d="3170">And these columns
+will be independent</p>
+<p t="888020" d="8370">if the null space of
+A is the zero vector.</p>
+<p t="901270" d="10690">They are dependent if there's
+something else in there.</p>
+<p t="911960" d="5420">If there's something else in
+the null space, if A times c</p>
+<p t="917380" d="7860">gives the zero vector
+for some non-zero vector</p>
+<p t="925240" d="1335">c in the null space.</p>
+<p t="929160" d="1610">Then they're dependent,
+because that's</p>
+<p t="930770" d="3610">telling me a combination of the
+columns gives the zero column.</p>
+<p t="934380" d="3660">I think you're with
+be, because we've seen,</p>
+<p t="938040" d="2300">like, lecture after
+lecture, we're</p>
+<p t="940340" d="3160">looking at the combinations
+of the columns and asking,</p>
+<p t="943500" d="2050">do we get zero or don't we?</p>
+<p t="945550" d="3480">And now we're giving
+the official name,</p>
+<p t="949030" d="4980">dependent if we do,
+independent if we don't.</p>
+<p t="954010" d="3880">So I could express this
+in other words now.</p>
+<p t="957890" d="3530">I could say the rank -- what's
+the rank in this independent</p>
+<p t="961420" d="1030">case?</p>
+<p t="962450" d="2570">The rank r of the,
+of the matrix,</p>
+<p t="965020" d="3215">in the case of
+independent columns, is?</p>
+<p t="971570" d="3170">So the columns are independent.</p>
+<p t="974740" d="3820">So how many pivot
+columns have I got.</p>
+<p t="978560" d="1290">All n.</p>
+<p t="979850" d="3460">All the columns would
+be pivot columns,</p>
+<p t="983310" d="2670">because free columns
+are telling me</p>
+<p t="985980" d="3840">that they're a combination
+of earlier columns.</p>
+<p t="989820" d="3260">So this would be the
+case where the rank is n.</p>
+<p t="993080" d="3830">This would be the case where
+the rank is smaller than n.</p>
+<p t="999650" d="5120">So in this case the rank is
+n and the null space of A</p>
+<p t="1004770" d="3980">is only the zero vector.</p>
+<p t="1008750" d="2050">And no free variables.</p>
+<p t="1010800" d="1600">No free variables.</p>
+<p t="1016520" d="2455">And this is the case
+yes free variables.</p>
+<p t="1024300" d="5289">If you'll allow me to stretch
+the English language that far.</p>
+<p t="1029589" d="6701">That's the case where
+we have, a combination</p>
+<p t="1036290" d="2750">that gives the zero column.</p>
+<p t="1039040" d="4049">I'm often interested in the
+case when my vectors are</p>
+<p t="1043089" d="2471">popped into a matrix.</p>
+<p t="1045560" d="2789">So the, the definition
+over there of independence</p>
+<p t="1048349" d="2921">didn't talk about any matrix.</p>
+<p t="1051270" d="4860">The vectors didn't have to be
+vectors in N dimensional space.</p>
+<p t="1056130" d="2400">And I want to give
+you some examples</p>
+<p t="1058530" d="3180">of vectors that
+aren't what you think</p>
+<p t="1061710" d="2260">of immediately as vectors.</p>
+<p t="1063970" d="5450">But most of the time, this is
+-- the vectors we think of are</p>
+<p t="1069420" d="1780">columns.</p>
+<p t="1071200" d="3370">And we can put them in a matrix.</p>
+<p t="1074570" d="2760">And then independence
+or dependence</p>
+<p t="1077330" d="4320">comes back to the null space.</p>
+<p t="1081650" d="512">OK.</p>
+<p t="1082162" d="1458">So that's the idea
+of independence.</p>
+<p t="1086410" d="7360">Can I just, yeah, let
+me go on to spanning a</p>
+<p t="1093770" d="5710">What does it mean for a bunch
+of vectors to span a space?</p>
+<p t="1099480" d="1100">space.</p>
+<p t="1100580" d="3220">Well, actually, we've
+seen it already.</p>
+<p t="1103800" d="4240">You remember, if we had
+a columns in a matrix,</p>
+<p t="1108040" d="5090">we took all their
+combinations and that gave us</p>
+<p t="1113130" d="3510">the column space.</p>
+<p t="1116640" d="4610">Those vectors that we started
+with span that column space.</p>
+<p t="1121250" d="3240">So spanning a space means --</p>
+<p t="1124490" d="3950">so let me move that
+important stuff right up.</p>
+<p t="1133130" d="920">OK.</p>
+<p t="1134050" d="8350">So vectors -- let me call
+them, say, V1 up to --</p>
+<p t="1142400" d="3960">call you some different
+letter, say Vl --</p>
+<p t="1146360" d="9320">span a space, a subspace,
+or just a vector space</p>
+<p t="1155680" d="9110">I could say, span a
+space means, means</p>
+<p t="1164790" d="15480">the space consists of all
+combinations of those vectors.</p>
+<p t="1186464" d="2041">That's exactly what we
+did with the column space.</p>
+<p t="1191040" d="3700">So now I could say in shorthand
+the columns of a matrix</p>
+<p t="1194740" d="2350">span the column space.</p>
+<p t="1197090" d="3660">So you remember it's a bunch of
+vectors that have this property</p>
+<p t="1200750" d="4700">that they span a space, and
+actually if I give you a bunch</p>
+<p t="1205450" d="1030">of vectors and say --</p>
+<p t="1206480" d="4240">OK, let S be the
+space that they span,</p>
+<p t="1210720" d="4150">in other words let S contain
+all their combinations,</p>
+<p t="1214870" d="2880">that space S will
+be the smallest</p>
+<p t="1217750" d="4080">space with those
+vectors in it, right?</p>
+<p t="1221830" d="2470">Because any space with
+those vectors in it</p>
+<p t="1224300" d="4430">must have all the combinations
+of those vectors in it.</p>
+<p t="1228730" d="5810">And if I stop there, then
+I've got the smallest space,</p>
+<p t="1234540" d="2760">and that's the space
+that they span.</p>
+<p t="1237300" d="500">OK.</p>
+<p t="1237800" d="1350">So I'm just --</p>
+<p t="1239150" d="5000">rather than, needing to say,
+take all linear combinations</p>
+<p t="1244150" d="4800">and put them in a space,
+I'm compressing that</p>
+<p t="1248950" d="1790">into the word span.</p>
+<p t="1253169" d="666">Straightforward.</p>
+<p t="1257520" d="2495">So if I think of a, of
+the column space of a</p>
+<p t="1260015" d="500">OK. matrix.</p>
+<p t="1263890" d="3490">I've got their -- so I
+start with the columns.</p>
+<p t="1267380" d="1550">I take all their combinations.</p>
+<p t="1268930" d="1830">That gives me the columns space.</p>
+<p t="1270760" d="2680">They span the column space.</p>
+<p t="1273440" d="2790">Now are they independent?</p>
+<p t="1276230" d="3390">Maybe yes, maybe no.</p>
+<p t="1279620" d="3440">It depends on the particular
+columns that went into that</p>
+<p t="1283060" d="1410">matrix.</p>
+<p t="1284470" d="5230">But obviously I'm highly
+interested in a set</p>
+<p t="1289700" d="7170">of vectors that spans a
+space and is independent.</p>
+<p t="1296870" d="4760">That's, that means like I've
+got the right number of vectors.</p>
+<p t="1301630" d="5950">If I didn't have all of them,
+I wouldn't have my whole space.</p>
+<p t="1307580" d="2710">If I had more than that,
+they probably wouldn't --</p>
+<p t="1310290" d="2160">they wouldn't be independent.</p>
+<p t="1312450" d="4410">So, like, basis -- and that's
+the word that's coming --</p>
+<p t="1316860" d="1740">is just right.</p>
+<p t="1318600" d="2710">So here let me put
+what that word means.</p>
+<p t="1321310" d="12960">A basis for a vector space is,
+is a, is a sequence of vectors</p>
+<p t="1334270" d="500">--</p>
+<p t="1340050" d="6990">shall I call them V1, V2,
+up to let me say Vd now,</p>
+<p t="1347040" d="6560">I'll stop with that letters
+-- that has two properties.</p>
+<p t="1353600" d="2630">I've got enough vectors
+and not too many.</p>
+<p t="1356230" d="3110">It's a natural idea of a basis.</p>
+<p t="1359340" d="3230">So a basis is a bunch
+of vectors in the space</p>
+<p t="1362570" d="4630">and it's a so it's a sequence
+of vectors with two properties,</p>
+<p t="1367200" d="2850">with two properties.</p>
+<p t="1374760" d="2915">One, they are independent.</p>
+<p t="1385020" d="2970">And two -- you
+know what's coming?</p>
+<p t="1387990" d="2050">-- they span the space.</p>
+<p t="1400560" d="1320">OK.</p>
+<p t="1401880" d="3170">Let me take --</p>
+<p t="1405050" d="3460">so time for examples, of course.</p>
+<p t="1408510" d="3810">So I'm asking you now
+to put definition one,</p>
+<p t="1412320" d="5710">the definition of independence,
+together with definition two,</p>
+<p t="1418030" d="3770">and let's look at examples,
+because this is --</p>
+<p t="1421800" d="3040">this combination
+means the set I've --</p>
+<p t="1424840" d="2850">of vectors I have is
+just right, and the --</p>
+<p t="1427690" d="3520">so that this idea of a
+basis will be central.</p>
+<p t="1431210" d="3270">I'll always be asking
+you now for a basis.</p>
+<p t="1434480" d="4280">Whenever I look at a
+subspace, if I ask you for --</p>
+<p t="1438760" d="2000">if you give me a basis
+for that subspace,</p>
+<p t="1440760" d="2160">you've told me what it is.</p>
+<p t="1442920" d="4510">You've told me everything I need
+to know about that subspace.</p>
+<p t="1447430" d="3090">Those -- I take their
+combinations and I know that I</p>
+<p t="1450520" d="1940">need all the combinations.</p>
+<p t="1452460" d="750">OK.</p>
+<p t="1453210" d="580">Examples.</p>
+<p t="1453790" d="2850">OK, so examples of a basis.</p>
+<p t="1456640" d="3420">Let me start with two
+dimensional space.</p>
+<p t="1460060" d="2290">Suppose the space
+-- say example.</p>
+<p t="1466520" d="4630">The space is, oh,
+let's make it R^3.</p>
+<p t="1471150" d="4830">Real three dimensional space.</p>
+<p t="1475980" d="1350">Give me one basis.</p>
+<p t="1477330" d="1375">One basis is?</p>
+<p t="1483970" d="5040">So I want some vectors, because
+if I ask you for a basis,</p>
+<p t="1489010" d="4380">I'm asking you for vectors,
+a little list of vectors.</p>
+<p t="1493390" d="4220">And it should be just right.</p>
+<p t="1497610" d="5270">So what would be a basis
+for three dimensional space?</p>
+<p t="1502880" d="2660">Well, the first basis that
+comes to mind, why don't we</p>
+<p t="1505540" d="1700">write that down.</p>
+<p t="1507240" d="1980">The first basis
+that comes to mind</p>
+<p t="1509220" d="9630">is this vector, this
+vector, and this vector.</p>
+<p t="1518850" d="940">OK.</p>
+<p t="1519790" d="3750">That's one basis.</p>
+<p t="1523540" d="3650">Not the only basis, that's
+going to be my point.</p>
+<p t="1527190" d="3740">But let's just see --
+yes, that's a basis.</p>
+<p t="1530930" d="2570">Are, are those
+vectors independent?</p>
+<p t="1536110" d="4010">So that's the like the x, y,
+z axes, so if those are not</p>
+<p t="1540120" d="1660">independent, we're in trouble.</p>
+<p t="1541780" d="1800">Certainly, they are.</p>
+<p t="1543580" d="5050">Take a combination c1 of this
+vector plus c2 of this vector</p>
+<p t="1548630" d="2710">plus c3 of that
+vector and try to make</p>
+<p t="1551340" d="3950">it give the zero vector.</p>
+<p t="1555290" d="1820">What are the c-s?</p>
+<p t="1557110" d="5970">If c1 of that plus c2 of that
+plus c3 of that gives me 0 0 0,</p>
+<p t="1563080" d="2520">then the c-s are all --</p>
+<p t="1565600" d="1320">0, right.</p>
+<p t="1566920" d="3060">So that's the test
+for independence.</p>
+<p t="1569980" d="6230">In the language of matrices,
+which was under that board,</p>
+<p t="1576210" d="3490">I could make those the
+columns of a matrix.</p>
+<p t="1579700" d="3180">Well, it would be
+the identity matrix.</p>
+<p t="1582880" d="2710">Then I would ask, what's the
+null space of the identity</p>
+<p t="1585590" d="1170">matrix?</p>
+<p t="1586760" d="3800">And you would say it's
+only the zero vector.</p>
+<p t="1590560" d="4180">And I would say, fine, then
+the columns are independent.</p>
+<p t="1594740" d="3630">The only thing -- the identity
+times a vector giving zero,</p>
+<p t="1598370" d="2440">the only vector that
+does that is zero.</p>
+<p t="1600810" d="1170">OK.</p>
+<p t="1601980" d="3730">Now that's not the only basis.</p>
+<p t="1605710" d="950">Far from it.</p>
+<p t="1606660" d="4020">Tell me another basis, a
+second basis, another basis.</p>
+<p t="1617560" d="5470">So, give me -- well,
+I'll just start it out.</p>
+<p t="1623030" d="1060">One one two.</p>
+<p t="1626950" d="3830">Two two five.</p>
+<p t="1630780" d="3640">Suppose I stopped there.</p>
+<p t="1634420" d="6560">Has that little bunch of
+vectors got the properties that</p>
+<p t="1640980" d="3370">I'm asking for in
+a basis for R^3?</p>
+<p t="1644350" d="2530">We're looking for
+a basis for R^3.</p>
+<p t="1646880" d="3550">Are they independent,
+those two column vectors?</p>
+<p t="1650430" d="900">Yes.</p>
+<p t="1651330" d="2280">Do they span R^3?</p>
+<p t="1653610" d="730">No.</p>
+<p t="1654340" d="2100">Our feeling is no.</p>
+<p t="1656440" d="1110">Our feeling is no.</p>
+<p t="1657550" d="4090">Our feeling is that there're
+some vectors in R3 that</p>
+<p t="1661640" d="2480">are not combinations of those.</p>
+<p t="1664120" d="810">OK.</p>
+<p t="1664930" d="2900">So suppose I add in --</p>
+<p t="1667830" d="2560">I need another vector
+then, because these two</p>
+<p t="1670390" d="1631">don't span the space.</p>
+<p t="1672021" d="499">OK.</p>
+<p t="1672520" d="3840">Now it would be foolish for me
+to put in three three seven,</p>
+<p t="1676360" d="2450">right, as the third vector.</p>
+<p t="1678810" d="1140">That would be a goof.</p>
+<p t="1679950" d="3430">Because that, if I put
+in three three seven,</p>
+<p t="1683380" d="4300">those vectors would
+be dependent, right?</p>
+<p t="1687680" d="1760">If I put in three
+three seven, it</p>
+<p t="1689440" d="2730">would be the sum
+of those two, it</p>
+<p t="1692170" d="2850">would lie in the
+same plane as those.</p>
+<p t="1695020" d="3570">It wouldn't be independent.</p>
+<p t="1698590" d="3340">My attempt to create
+a basis would be dead.</p>
+<p t="1701930" d="4490">But if I take -- so
+what vector can I take?</p>
+<p t="1706420" d="3920">I can take any vector
+that's not in that plane.</p>
+<p t="1710340" d="1090">Let me try --</p>
+<p t="1711430" d="2160">I hope that 3 3 8 would do it.</p>
+<p t="1717340" d="3130">At least it's not the
+sum of those two vectors.</p>
+<p t="1720470" d="3690">But I believe that's a basis.</p>
+<p t="1724160" d="5150">And what's the test then,
+for that to be a basis?</p>
+<p t="1729310" d="3850">Because I just picked those
+numbers, and if I had picked,</p>
+<p t="1733160" d="9140">5 7 -14 how would we know do
+we have a basis or don't we?</p>
+<p t="1742300" d="3130">You would put them in
+the columns of a matrix,</p>
+<p t="1745430" d="3850">and you would do
+elimination, row reduction --</p>
+<p t="1749280" d="6060">and you would see do you
+get any free variables</p>
+<p t="1755340" d="3160">or are all the
+columns pivot columns.</p>
+<p t="1758500" d="2090">Well now actually
+we have a square --</p>
+<p t="1760590" d="2170">the matrix would
+be three by three.</p>
+<p t="1762760" d="3500">So, what's the test
+on the matrix then?</p>
+<p t="1769280" d="5510">The matrix -- so in this case,
+when my space is R^3 and I have</p>
+<p t="1774790" d="9950">three vectors, my matrix is
+square and what I asking about</p>
+<p t="1784740" d="5040">that matrix in order for
+those columns to be a basis?</p>
+<p t="1789780" d="1410">So in this --</p>
+<p t="1791190" d="15190">for R^n, if I have -- n vectors
+give a basis if the n by n</p>
+<p t="1806380" d="13470">matrix with those columns,
+with those columns, is what?</p>
+<p t="1819850" d="4220">What's the requirement
+on that matrix?</p>
+<p t="1824070" d="2940">Invertible, right, right.</p>
+<p t="1827010" d="1580">The matrix should be invertible.</p>
+<p t="1828590" d="4597">For a square matrix, that's
+the, that's the perfect answer.</p>
+<p t="1833187" d="583">Is invertible.</p>
+<p t="1838260" d="5120">So that's when, that's when the
+space is the whole space R^n.</p>
+<p t="1846140" d="4220">Let me, let me be sure
+you're with me here.</p>
+<p t="1850360" d="3180">Let me remove that.</p>
+<p t="1853540" d="8040">Are those two vectors a
+basis for any space at all?</p>
+<p t="1861580" d="2440">Is there a vector
+space that those really</p>
+<p t="1864020" d="4520">are a basis for, those, that
+pair of vectors, this guy</p>
+<p t="1868540" d="3040">and this 1, 1 1 2 and 2 2 5?</p>
+<p t="1871580" d="3780">Is there a space for
+which that's a basis?</p>
+<p t="1875360" d="860">Sure.</p>
+<p t="1876220" d="5750">They're independent, so they
+satisfy the first requirement,</p>
+<p t="1881970" d="2770">so what space shall I take
+for them to be a basis</p>
+<p t="1884740" d="500">of?</p>
+<p t="1885240" d="3840">What spaces will
+they be a basis for?</p>
+<p t="1889080" d="2100">The one they span.</p>
+<p t="1891180" d="1170">Their combinations.</p>
+<p t="1892350" d="1570">It's a plane, right?</p>
+<p t="1893920" d="2420">It'll be a plane inside R^3.</p>
+<p t="1896340" d="4590">So if I take this vector
+1 1 2, say it goes there,</p>
+<p t="1900930" d="3310">and this vector 2 2
+5, say it goes there,</p>
+<p t="1904240" d="6557">those are a basis for --
+because they span a plane.</p>
+<p t="1910797" d="2083">And they're a basis for
+the plane, because they're</p>
+<p t="1912880" d="670">independent.</p>
+<p t="1913550" d="3250">If I stick in some
+third guy, like 3 3 7,</p>
+<p t="1916800" d="4250">which is in the plane -- suppose
+I put in, try to put in 3 3 7,</p>
+<p t="1921050" d="4690">then the three vectors
+would still span the plane,</p>
+<p t="1925740" d="3440">but they wouldn't be a basis
+anymore because they're not</p>
+<p t="1929180" d="3080">independent anymore.</p>
+<p t="1932260" d="7160">So, we're looking at
+the question of --</p>
+<p t="1939420" d="1940">again,</p>
+<p t="1941360" d="4030">OK. the case with
+independent columns</p>
+<p t="1945390" d="6700">is the case where the column
+vectors span the column space.</p>
+<p t="1952090" d="3740">They're independent, so they're
+a basis for the column space.</p>
+<p t="1955830" d="690">OK.</p>
+<p t="1956520" d="5970">So now there's one
+bit of intuition.</p>
+<p t="1962490" d="3930">Let me go back to all of R^n.</p>
+<p t="1966420" d="1730">So I -- where I put 3 3 8.</p>
+<p t="1971110" d="630">OK.</p>
+<p t="1971740" d="4770">The first message is that the
+basis is not unique, right.</p>
+<p t="1976510" d="1580">There's zillions of bases.</p>
+<p t="1978090" d="4700">I take any invertible
+three by three matrix,</p>
+<p t="1982790" d="5010">its columns are a basis for R^3.</p>
+<p t="1987800" d="3400">The column space is
+R^3, and if those,</p>
+<p t="1991200" d="3980">if that matrix is invertible,
+those columns are independent,</p>
+<p t="1995180" d="1920">I've got a basis for R^3.</p>
+<p t="1997100" d="2760">So there're many, many bases.</p>
+<p t="1999860" d="7870">But there is something in
+common for all those bases.</p>
+<p t="2007730" d="5080">There's something that this
+basis shares with that basis</p>
+<p t="2012810" d="3070">and every other basis for R^3.</p>
+<p t="2015880" d="1635">And what's that?</p>
+<p t="2020040" d="7370">Well, you saw it coming, because
+when I stopped here and asked</p>
+<p t="2027410" d="3770">if that was a basis
+for R^3, you said no.</p>
+<p t="2031180" d="3550">And I know that you said
+no because you knew there</p>
+<p t="2034730" d="2680">weren't enough vectors there.</p>
+<p t="2037410" d="6260">And the great fact is that
+there're many, many bases,</p>
+<p t="2043670" d="8469">but -- let me put in somebody
+else, just for variety.</p>
+<p t="2052139" d="2711">There are many, many
+bases, but they all</p>
+<p t="2054850" d="3789">have the same number of vectors.</p>
+<p t="2058639" d="2711">If we're talking
+about the space R^3,</p>
+<p t="2061350" d="3690">then that number of
+vectors is three.</p>
+<p t="2065040" d="2610">If we're talking
+about the space R^n,</p>
+<p t="2067650" d="3670">then that number
+of vectors is n.</p>
+<p t="2071320" d="5069">If we're talking about
+some other space,</p>
+<p t="2076389" d="5181">the column space of some matrix,
+or the null space of some</p>
+<p t="2081570" d="3850">matrix, or some other space
+that we haven't even thought</p>
+<p t="2085420" d="7400">of, then that still is
+true that every basis --</p>
+<p t="2092820" d="4450">that there're lots of bases but
+every basis has the same number</p>
+<p t="2097270" d="680">of vectors.</p>
+<p t="2097950" d="4050">Let me write that
+great fact down.</p>
+<p t="2102000" d="5940">Every basis --
+we're given a space.</p>
+<p t="2107940" d="2740">Given a space.</p>
+<p t="2113950" d="4890">R^3 or R^n or some other column
+space of a matrix or the null</p>
+<p t="2118840" d="2950">space of a matrix or
+some other vector space.</p>
+<p t="2121790" d="3410">Then the great fact
+is that every basis</p>
+<p t="2125200" d="15165">for this, for the space has
+the same number of vectors.</p>
+<p t="2147750" d="3020">If one basis has six vectors,
+then every other basis</p>
+<p t="2150770" d="2000">has six vectors.</p>
+<p t="2152770" d="3280">So that number six
+is telling me like</p>
+<p t="2156050" d="3200">it's telling me how
+big is the space.</p>
+<p t="2159250" d="2390">It's telling me
+how many vectors do</p>
+<p t="2161640" d="3010">I have to have to have a basis.</p>
+<p t="2164650" d="3790">And of course we're
+seeing it this way.</p>
+<p t="2168440" d="2460">That number six, if
+we had seven vectors,</p>
+<p t="2170900" d="2250">then we've got too many.</p>
+<p t="2173150" d="3920">If we have five vectors
+we haven't got enough.</p>
+<p t="2177070" d="4790">Sixes are like just right
+for whatever space that is.</p>
+<p t="2181860" d="2740">And what do we call that number?</p>
+<p t="2184600" d="4950">That number is -- now I'm ready
+for the last definition today.</p>
+<p t="2189550" d="4100">It's the dimension
+of that space.</p>
+<p t="2193650" d="3760">So every basis for a space has
+the same number of vectors in</p>
+<p t="2197410" d="500">it.</p>
+<p t="2197910" d="3950">Not the same vectors,
+all sorts of bases --</p>
+<p t="2201860" d="2990">but the same number of
+vectors is always the same,</p>
+<p t="2204850" d="2160">and that number
+is the dimension.</p>
+<p t="2207010" d="890">This is definitional.</p>
+<p t="2210780" d="7465">This number is the
+dimension of the space.</p>
+<p t="2223390" d="500">OK.</p>
+<p t="2226670" d="1747">OK.</p>
+<p t="2228417" d="958">Let's do some examples.</p>
+<p t="2232930" d="1480">Because now we've
+got definitions.</p>
+<p t="2234410" d="3140">Let me repeat the four
+things, the four words that</p>
+<p t="2237550" d="1720">have now got defined.</p>
+<p t="2239270" d="4050">Independence, that looks
+at combinations not</p>
+<p t="2243320" d="1240">being zero.</p>
+<p t="2244560" d="3140">Spanning, that looks at
+all the combinations.</p>
+<p t="2247700" d="2880">Basis, that's the
+one that combines</p>
+<p t="2250580" d="1780">independence and spanning.</p>
+<p t="2252360" d="4100">And now we've got the idea
+of the dimension of a space.</p>
+<p t="2256460" d="4010">It's the number of
+vectors in any basis,</p>
+<p t="2260470" d="2690">because all bases
+have the same number.</p>
+<p t="2263160" d="1420">OK.</p>
+<p t="2264580" d="3170">Let's take examples.</p>
+<p t="2267750" d="6040">Suppose I take, my space
+is -- examples now --</p>
+<p t="2273790" d="4380">space is the, say, the
+column space of this matrix.</p>
+<p t="2278170" d="2070">Let me write down a matrix.</p>
+<p t="2280240" d="6130">1 1 1, 2 1 2, and I'll
+-- just to make it clear,</p>
+<p t="2286370" d="6060">I'll take the sum there, 3 2 3,
+and let me take the sum of all</p>
+<p t="2292430" d="2620">-- oh, let me put
+in one -- yeah,</p>
+<p t="2295050" d="3480">I'll put in one one one again.</p>
+<p t="2298530" d="1770">OK.</p>
+<p t="2300300" d="960">So that's four vectors.</p>
+<p t="2304710" d="4600">OK, do they span the column
+space of that matrix?</p>
+<p t="2309310" d="5980">Let me repeat, do they span the
+column space of that matrix?</p>
+<p t="2315290" d="2410">By definition, that's
+what the column space --</p>
+<p t="2317700" d="1580">Yes. where it comes from.</p>
+<p t="2319280" d="2190">Are they a basis for
+the column space?</p>
+<p t="2321470" d="2450">Are they independent?</p>
+<p t="2323920" d="1940">No, they're not independent.</p>
+<p t="2325860" d="3600">There's something
+in that null space.</p>
+<p t="2329460" d="5680">Maybe we can -- so let's look
+at the null space of the matrix.</p>
+<p t="2335140" d="3350">Tell me a vector that's in
+the null space of that matrix.</p>
+<p t="2341090" d="4230">So I'm looking for some vector
+that combines those columns</p>
+<p t="2345320" d="3030">and produces the zero column.</p>
+<p t="2348350" d="2330">Or in other words, I'm
+looking for solutions</p>
+<p t="2350680" d="1600">to A X equals zero.</p>
+<p t="2352280" d="4650">So tell me a vector
+in the null space.</p>
+<p t="2356930" d="4140">Maybe -- well, this was, this
+column was that one plus that</p>
+<p t="2361070" d="3960">one, so maybe if I have one of
+those and minus one of those</p>
+<p t="2365030" d="1530">that would be a
+vector in the null</p>
+<p t="2366560" d="500">space.</p>
+<p t="2369450" d="3990">So, you've already told me now,
+are those vectors independent,</p>
+<p t="2373440" d="4700">the answer is -- those column
+vectors, the answer is --</p>
+<p t="2378140" d="530">no.</p>
+<p t="2378670" d="500">Right?</p>
+<p t="2379170" d="1600">They're not independent.</p>
+<p t="2380770" d="3290">Because -- you knew they
+weren't independent.</p>
+<p t="2384060" d="3000">Anyway, minus one
+of this minus one</p>
+<p t="2387060" d="3470">of this plus one of this zero
+of that is the zero vector.</p>
+<p t="2394120" d="1540">OK, so they're not independent.</p>
+<p t="2395660" d="60">OK.</p>
+<p t="2395720" d="1780">They span, but they're
+not independent.</p>
+<p t="2397500" d="7060">Tell me a basis for
+that column space.</p>
+<p t="2404560" d="1740">What's a basis for
+the column space?</p>
+<p t="2406300" d="2920">These are all the questions that
+the homework asks, the quizzes</p>
+<p t="2409220" d="2580">ask, the final exam will ask.</p>
+<p t="2411800" d="5910">Find a basis for the column
+space of this matrix.</p>
+<p t="2417710" d="2570">OK.</p>
+<p t="2420280" d="2220">Now there's many
+answers, but give me</p>
+<p t="2422500" d="3090">the most natural answer.</p>
+<p t="2425590" d="4080">Columns one and two.</p>
+<p t="2429670" d="1500">Columns one and two.</p>
+<p t="2431170" d="1240">That's the natural answer.</p>
+<p t="2432410" d="2910">Those are the pivot
+columns, because, I mean,</p>
+<p t="2435320" d="1820">we s- we begin systematically.</p>
+<p t="2437140" d="2160">We look at the first
+column, it's OK.</p>
+<p t="2439300" d="2030">We can put that in the basis.</p>
+<p t="2441330" d="2220">We look at the second
+column, it's OK.</p>
+<p t="2443550" d="2750">We can put that in the basis.</p>
+<p t="2446300" d="2660">The third column we
+can't put in the basis.</p>
+<p t="2448960" d="5110">The fourth column
+we can't, again.</p>
+<p t="2454070" d="3500">So the rank of the matrix is --</p>
+<p t="2457570" d="2280">what's the rank of our matrix?</p>
+<p t="2459850" d="1360">Two.</p>
+<p t="2461210" d="790">Two.</p>
+<p t="2462000" d="4610">And, and now that rank is also
+-- we also have another word.</p>
+<p t="2466610" d="2100">We, we have a
+great theorem here.</p>
+<p t="2468710" d="14350">The rank of A, that rank r,
+is the number of pivot columns</p>
+<p t="2483060" d="2280">and it's also --</p>
+<p t="2485340" d="2550">well, so now please
+use my new word.</p>
+<p t="2492640" d="2060">This, it's the number
+two, of course,</p>
+<p t="2494700" d="7090">two is the rank
+of my matrix, it's</p>
+<p t="2501790" d="2650">the number of pivot columns,
+those pivot columns form</p>
+<p t="2504440" d="4664">a basis, of course,
+so what's two?</p>
+<p t="2509104" d="791">It's the dimension.</p>
+<p t="2512820" d="2760">The rank of A, the
+number of pivot columns,</p>
+<p t="2515580" d="6975">is the dimension of
+the column space.</p>
+<p t="2527450" d="1390">Of course, you say.</p>
+<p t="2528840" d="1830">It had to be.</p>
+<p t="2530670" d="1330">Right.</p>
+<p t="2532000" d="5440">But just watch, look
+for one moment at the,</p>
+<p t="2537440" d="2800">the language, the
+way the English words</p>
+<p t="2540240" d="1570">get involved here.</p>
+<p t="2541810" d="6800">I take the rank of a matrix,
+the rank of a matrix.</p>
+<p t="2548610" d="5970">It's a number of columns
+and it's the dimension of --</p>
+<p t="2554580" d="3230">not the dimension of the matrix,
+that's what I want to say.</p>
+<p t="2557810" d="6080">It's the dimension of a space,
+a subspace, the column space.</p>
+<p t="2563890" d="2910">Do you see, I don't
+take the dimension of A.</p>
+<p t="2566800" d="2800">That's not what I want.</p>
+<p t="2569600" d="3590">I'm looking for the dimension
+of the column space of A.</p>
+<p t="2573190" d="2860">If you use those words right,
+it shows you've got the idea</p>
+<p t="2576050" d="1350">right.</p>
+<p t="2577400" d="1770">Similarly here.</p>
+<p t="2579170" d="4260">I don't talk about the
+rank of a subspace.</p>
+<p t="2583430" d="2010">It's a matrix that has a rank.</p>
+<p t="2585440" d="2600">I talk about the
+rank of a matrix.</p>
+<p t="2588040" d="3710">And the beauty is that
+these definitions just</p>
+<p t="2591750" d="2410">merge so that the
+rank of a matrix</p>
+<p t="2594160" d="2010">is the dimension of
+its column space.</p>
+<p t="2596170" d="2670">And in this example it's two.</p>
+<p t="2598840" d="3730">And then the further
+question is, what's a basis?</p>
+<p t="2602570" d="2880">And the first two
+columns are a basis.</p>
+<p t="2605450" d="2050">Tell me another basis.</p>
+<p t="2607500" d="2210">Another basis for
+the columns space.</p>
+<p t="2609710" d="1680">You see I just keep
+hammering away.</p>
+<p t="2611390" d="3750">I apologize, but it's,
+I have to be sure you</p>
+<p t="2615140" d="1520">have the idea of basis.</p>
+<p t="2616660" d="4280">Tell me another basis
+for the column space.</p>
+<p t="2620940" d="6470">Well, you could take
+columns one and three.</p>
+<p t="2627410" d="2520">That would be a basis
+for the column space.</p>
+<p t="2629930" d="3290">Or columns two and
+three would be a basis.</p>
+<p t="2633220" d="2440">Or columns two and four.</p>
+<p t="2635660" d="3211">Or tell me another basis that's
+not made out of those columns</p>
+<p t="2638871" d="499">at all?</p>
+<p t="2643290" d="3890">So -- I guess I'm giving you
+infinitely many possibilities,</p>
+<p t="2647180" d="3970">so I can't expect a
+unanimous answer here.</p>
+<p t="2651150" d="3620">I'll tell you -- but let's
+look at another basis, though.</p>
+<p t="2654770" d="3066">I'll just -- because it's
+only one out of zillions,</p>
+<p t="2657836" d="2124">I'm going to put it down
+and I'm going to erase it.</p>
+<p t="2659960" d="6720">Another basis for the
+column space would be --</p>
+<p t="2666680" d="1199">let's see.</p>
+<p t="2667879" d="1791">I'll put in some things
+that are not there.</p>
+<p t="2669670" d="4160">Say, oh well, just to make
+it -- my life easy, 2 2 2.</p>
+<p t="2673830" d="3210">That's in the column space.</p>
+<p t="2677040" d="3340">And, that was sort of obvious.</p>
+<p t="2680380" d="3078">Let me take the sum
+of those, say 6 4 6.</p>
+<p t="2686810" d="5230">Or the sum of all of the
+columns, 7 5 7, why not.</p>
+<p t="2692040" d="2870">That's in the column space.</p>
+<p t="2694910" d="4630">Those are independent and
+I've got the number right,</p>
+<p t="2699540" d="1750">I've got two.</p>
+<p t="2701290" d="1650">Actually, this is a key point.</p>
+<p t="2705890" d="3280">If you know the dimension of
+the space you're working with,</p>
+<p t="2709170" d="5310">and we know that this column
+-- we know that the dimension,</p>
+<p t="2714480" d="4950">DIM, the dimension of
+the column space is two.</p>
+<p t="2723730" d="6390">If you know the
+dimension, then --</p>
+<p t="2730120" d="3550">and we have a couple of
+vectors that are independent,</p>
+<p t="2733670" d="2040">they'll automatically be a</p>
+<p t="2735710" d="840">basis.</p>
+<p t="2736550" d="2340">If we've got the number
+of vectors right,</p>
+<p t="2738890" d="4870">two vectors in this case,
+then if they're independent,</p>
+<p t="2743760" d="3277">they can't help
+but span the space.</p>
+<p t="2747037" d="1583">Because if they
+didn't span the space,</p>
+<p t="2748620" d="3510">there'd be a third guy
+to help span the space,</p>
+<p t="2752130" d="2030">but it couldn't be independent.</p>
+<p t="2754160" d="4030">So, it just has
+to be independent</p>
+<p t="2758190" d="3450">if we've got the numbers right.</p>
+<p t="2761640" d="950">And they span.</p>
+<p t="2762590" d="690">OK.</p>
+<p t="2763280" d="820">Very good.</p>
+<p t="2764100" d="1960">So you got the
+dimension of a space.</p>
+<p t="2766060" d="2810">So this was another basis
+that I just invented.</p>
+<p t="2768870" d="600">OK.</p>
+<p t="2769470" d="6800">Now, now I get to ask
+about the null space.</p>
+<p t="2776270" d="2050">What's the dimension
+of the null space?</p>
+<p t="2778320" d="2380">So we, we got a
+great fact there,</p>
+<p t="2780700" d="7860">the dimension of the
+column space is the rank.</p>
+<p t="2788560" d="2200">Now I want to ask you
+about the null space.</p>
+<p t="2790760" d="3430">That's the other
+part of the lecture,</p>
+<p t="2794190" d="4130">and it'll go on to
+the next lecture.</p>
+<p t="2798320" d="2000">OK.</p>
+<p t="2800320" d="3910">So we know the dimension of the
+column space is two, the rank.</p>
+<p t="2804230" d="2050">What about the null space?</p>
+<p t="2806280" d="1590">This is a vector
+in the null space.</p>
+<p t="2807870" d="1900">Are there other vectors
+in the null space?</p>
+<p t="2812280" d="1250">Yes or no?</p>
+<p t="2813530" d="1340">Yes.</p>
+<p t="2814870" d="3950">So this isn't a basis because
+it's doesn't span, right?</p>
+<p t="2818820" d="3150">There's more in the null
+space than we've got so far.</p>
+<p t="2821970" d="2600">I need another vector at least.</p>
+<p t="2824570" d="4220">So tell me another
+vector in the null space.</p>
+<p t="2828790" d="3500">Well, the natural choice, the
+choice you naturally think of</p>
+<p t="2832290" d="3850">is I'm going on to
+the fourth column,</p>
+<p t="2836140" d="4070">I'm letting that free
+variable be a one,</p>
+<p t="2840210" d="3540">and that free variable
+be a zero, and I'm asking</p>
+<p t="2843750" d="2380">is that fourth
+column a combination</p>
+<p t="2846130" d="1280">of my pivot columns?</p>
+<p t="2847410" d="1260">Yes, it is.</p>
+<p t="2848670" d="2980">And it's -- that will do.</p>
+<p t="2855730" d="2090">So what I've written
+there are actually the two</p>
+<p t="2857820" d="2040">special solutions, right?</p>
+<p t="2859860" d="4660">I took the two free
+variables, free and free.</p>
+<p t="2864520" d="5890">I gave them the values 1 0
+or 0 I figured out the rest.</p>
+<p t="2870410" d="3230">So do you see, let me
+just say it in words.</p>
+<p t="2873640" d="4360">This vector, these vectors in
+the null space are telling me,</p>
+<p t="2878000" d="2190">they're telling me
+the combinations</p>
+<p t="2880190" d="2420">of the columns that give zero.</p>
+<p t="2882610" d="6160">They're telling me in what way
+the, the columns are dependent.</p>
+<p t="2888770" d="2000">That's what the
+null space is doing.</p>
+<p t="2890770" d="3120">Have I got enough now?</p>
+<p t="2893890" d="1890">And what's the null space now?</p>
+<p t="2895780" d="2760">We have to think
+about the null space.</p>
+<p t="2898540" d="2200">These are two vectors
+in the null space.</p>
+<p t="2900740" d="1050">They're independent.</p>
+<p t="2901790" d="2830">Are they a basis
+for the null space?</p>
+<p t="2904620" d="3030">What's the dimension
+of the null space?</p>
+<p t="2907650" d="2450">You see that those questions
+just keep coming up all the</p>
+<p t="2910100" d="1020">time.</p>
+<p t="2911120" d="3380">Are they a basis
+for the null space?</p>
+<p t="2914500" d="2440">You can tell me the answer
+even though we haven't</p>
+<p t="2916940" d="2520">written out a proof of that.</p>
+<p t="2919460" d="730">Can you?</p>
+<p t="2920190" d="860">Yes or no?</p>
+<p t="2921050" d="3460">Do these two special
+solutions form</p>
+<p t="2924510" d="1890">a basis for the null space?</p>
+<p t="2926400" d="2390">In other words,
+does the null space</p>
+<p t="2928790" d="3600">consist of all combinations
+of those two guys?</p>
+<p t="2932390" d="1720">Yes or no?</p>
+<p t="2934110" d="1070">Yes.</p>
+<p t="2935180" d="1700">Yes.</p>
+<p t="2936880" d="2090">The null space is
+two dimensional.</p>
+<p t="2938970" d="2530">The null space, the
+dimension of the null space,</p>
+<p t="2941500" d="2030">is the number of free variables.</p>
+<p t="2943530" d="5800">So the dimension
+of the null space</p>
+<p t="2949330" d="2735">is the number of free variables.</p>
+<p t="2957260" d="4160">And at the last second,
+give me the formula.</p>
+<p t="2961420" d="3070">This is then the key
+formula that we know.</p>
+<p t="2964490" d="5250">How many free variables are
+there in terms of R, the rank,</p>
+<p t="2969740" d="5280">m -- the number of rows,
+n, the number of columns?</p>
+<p t="2975020" d="1720">What do we get?</p>
+<p t="2976740" d="5620">We have n columns, r of
+them are pivot columns,</p>
+<p t="2982360" d="5840">so n-r is the number of free
+columns, free variables.</p>
+<p t="2988200" d="3750">And now it's the dimension
+of the null space.</p>
+<p t="2991950" d="1050">OK.</p>
+<p t="2993000" d="950">That's great.</p>
+<p t="2993950" d="3330">That's the key spaces, their
+bases, and their dimensions.</p>
+<p t="2997280" d="1550">Thanks.</p>
+</body>
+</timedtext>

@@ -1,0 +1,1379 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="500" d="3110">The following is provided under
+a Creative Commons License.</p>
+<p t="3610" d="2110">Your support will help
+MIT OpenCourseWare</p>
+<p t="5720" d="4230">continue to offer high quality
+educational resources for free.</p>
+<p t="9950" d="2610">To make a donation or to
+view additional materials</p>
+<p t="12560" d="3350">from hundreds of MIT courses,
+visit MIT OpenCourseWare</p>
+<p t="15910" d="3440">at ocw.mit.edu.</p>
+<p t="19350" d="5800">Professor: In today's
+lecture I want</p>
+<p t="25150" d="2565">to develop several
+more formulas that</p>
+<p t="27715" d="4695">will allow us to reach our goal
+of differentiating everything.</p>
+<p t="32410" d="9390">So these are
+derivative formulas,</p>
+<p t="41800" d="3760">and they come in two flavors.</p>
+<p t="45560" d="6510">The first kind is
+specific, so some specific</p>
+<p t="52070" d="3390">function we're giving
+the derivative of.</p>
+<p t="55460" d="5280">And that would be, for
+example, x^n or (1/x) .</p>
+<p t="60740" d="4480">Those are the ones that we
+did a couple of lectures ago.</p>
+<p t="65220" d="5290">And then there are
+general formulas,</p>
+<p t="70510" d="1890">and the general
+ones don't actually</p>
+<p t="72400" d="2420">give you a formula for
+a specific function</p>
+<p t="74820" d="3930">but tell you something like,
+if you take two functions</p>
+<p t="78750" d="2090">and add them together,
+their derivative</p>
+<p t="80840" d="2630">is the sum of the derivatives.</p>
+<p t="83470" d="3750">Or if you multiply by a
+constant, for example,</p>
+<p t="87220" d="4270">so c times u, the
+derivative of that</p>
+<p t="91490" d="7500">is c times u' where
+c is constant.</p>
+<p t="98990" d="2640">All right, so these
+kinds of formulas</p>
+<p t="101630" d="4440">are very useful, both the
+specific and the general kind.</p>
+<p t="106070" d="17560">For example, we need both
+kinds for polynomials.</p>
+<p t="123630" d="2125">And more generally, pretty
+much any set of formulas</p>
+<p t="125755" d="1958">that we give you, will
+give you a few functions</p>
+<p t="127713" d="1467">to start out with
+and then you'll</p>
+<p t="129180" d="7300">be able to generate lots more
+by these general formulas.</p>
+<p t="136480" d="4520">So today, we wanna concentrate
+on the trig functions,</p>
+<p t="141000" d="6570">and so we'll start out with
+some specific formulas.</p>
+<p t="147570" d="2010">And they're going
+to be the formulas</p>
+<p t="149580" d="3420">for the derivative
+of the sine function</p>
+<p t="153000" d="4910">and the cosine function.</p>
+<p t="157910" d="3330">So that's what we'll spend the
+first part of the lecture on,</p>
+<p t="161240" d="5270">and at the same time I hope to
+get you very used to dealing</p>
+<p t="166510" d="2620">with trig functions,
+although that's something</p>
+<p t="169130" d="6500">that you should think
+of as a gradual process.</p>
+<p t="175630" d="2680">Alright, so in order
+to calculate these,</p>
+<p t="178310" d="5410">I'm gonna start over here and
+just start the calculation.</p>
+<p t="183720" d="1550">So here we go.</p>
+<p t="185270" d="2840">Let's check what happens
+with the sine function.</p>
+<p t="188110" d="7480">So, I take sin (x + delta
+x), I subtract sin x</p>
+<p t="195590" d="6500">and I divide by delta x.</p>
+<p t="202090" d="2180">Right, so this is the
+difference quotient</p>
+<p t="204270" d="2580">and eventually I'm gonna have
+to take the limit as delta</p>
+<p t="206850" d="2470">x goes to 0.</p>
+<p t="209320" d="2530">And there's really
+only one thing</p>
+<p t="211850" d="4980">we can do with this to
+simplify or change it,</p>
+<p t="216830" d="5610">and that is to use the sum
+formula for the sine function.</p>
+<p t="222440" d="1120">So, that's this.</p>
+<p t="223560" d="5120">That's sin x cos delta x plus--</p>
+<p t="234490" d="1580">Oh, that's not what it is?</p>
+<p t="236070" d="4970">OK, so what is it?
+sin x sin delta x.</p>
+<p t="241040" d="1900">OK, good.</p>
+<p t="242940" d="4560">Plus cosine.</p>
+<p t="247500" d="1790">No?</p>
+<p t="249290" d="1270">Oh, OK.</p>
+<p t="250560" d="3910">So which is it?</p>
+<p t="254470" d="1706">OK.</p>
+<p t="256176" d="1124">Alright, let's take a vote.</p>
+<p t="257300" d="2720">Is it sine, sine, or
+is it sine, cosine?</p>
+<p t="260020" d="2560">Audience: [INAUDIBLE]</p>
+<p t="262580" d="8520">Professor: OK, so is this
+going to be... cosine.</p>
+<p t="271100" d="3350">All right, you better remember
+these formulas, alright?</p>
+<p t="274450" d="2841">OK, turns out that
+it's sine, cosine.</p>
+<p t="277291" d="499">All right.</p>
+<p t="277790" d="1850">Cosine, sine.</p>
+<p t="279640" d="7670">So here we go, no gotta
+do x here, sin (delta x).</p>
+<p t="287310" d="3790">Alright, so now there's lots
+of places to get confused here,</p>
+<p t="291100" d="4060">and you're gonna need to
+make sure you get it right.</p>
+<p t="295160" d="4070">Alright, so we're gonna put
+those in parentheses here.</p>
+<p t="299230" d="11080">sin (a + b) is sin a
+cos b plus cos a sin b.</p>
+<p t="310310" d="2430">All right, now that's
+what I did over here,</p>
+<p t="312740" d="8690">except the letter x was a,
+and the letter b was delta x.</p>
+<p t="321430" d="2130">Now that's just the first part.</p>
+<p t="323560" d="3420">That's just this part
+of the expression.</p>
+<p t="326980" d="2154">I still have to remember
+the minus sin x.</p>
+<p t="329134" d="916">That comes at the end.</p>
+<p t="330050" d="2070">Minus sin x.</p>
+<p t="332120" d="5780">And then, I have to remember the
+denominator, which is delta x.</p>
+<p t="337900" d="5140">OK?</p>
+<p t="343040" d="4210">Alright, so now...</p>
+<p t="347250" d="2460">The next thing we're
+gonna do is we're</p>
+<p t="349710" d="2570">gonna try to group the terms.</p>
+<p t="352280" d="5870">And the difficulty with all such
+arguments is the following one:</p>
+<p t="358150" d="3910">any tricky limit is
+basically 0 / 0 when</p>
+<p t="362060" d="1140">you set delta x equal to 0.</p>
+<p t="363200" d="3280">If I set delta x equal to
+0, this is sin x - sin x.</p>
+<p t="366480" d="2040">So it's a 0 / 0 term.</p>
+<p t="368520" d="1520">Here we have
+various things which</p>
+<p t="370040" d="2130">are 0 and various things
+which are non-zero.</p>
+<p t="372170" d="5551">We must group the terms so
+that a 0 stays over a 0.</p>
+<p t="377721" d="1499">Otherwise, we're
+gonna have no hope.</p>
+<p t="379220" d="2770">If we get some 1 / 0
+term, we'll get something</p>
+<p t="381990" d="2170">meaningless in the limit.</p>
+<p t="384160" d="3630">So I claim that the right
+thing to do here is to notice,</p>
+<p t="387790" d="3840">and I'll just point
+out this one thing.</p>
+<p t="391630" d="3950">When delta x goes to 0,
+this cosine of 0 is 1.</p>
+<p t="395580" d="4050">So it doesn't cancel unless we
+throw in this extra sine term</p>
+<p t="399630" d="500">here.</p>
+<p t="400130" d="3490">So I'm going to use
+this common factor,</p>
+<p t="403620" d="1050">and combine those terms.</p>
+<p t="404670" d="1810">So this is really
+the only thing you're</p>
+<p t="406480" d="2320">gonna have to check in this
+particular calculation.</p>
+<p t="408800" d="1960">So we have the
+common factor of sin</p>
+<p t="410760" d="3780">x, and that multiplies
+something that will cancel,</p>
+<p t="414540" d="4630">which is (cos delta
+x - 1) / delta x.</p>
+<p t="419170" d="4130">That's the first term,
+and now what's left,</p>
+<p t="423300" d="3170">well there's a cos
+x that factors out,</p>
+<p t="426470" d="7570">and then the other factor is
+(sin delta x) / (delta x).</p>
+<p t="434040" d="6810">OK, now does anyone
+remember from last time what</p>
+<p t="440850" d="4150">this thing goes to?</p>
+<p t="445000" d="2580">How many people say 1?</p>
+<p t="447580" d="1760">How many people say 0?</p>
+<p t="449340" d="1840">All right, it's 0.</p>
+<p t="451180" d="2360">That's my favorite
+number, alright?</p>
+<p t="453540" d="500">0.</p>
+<p t="454040" d="2140">It's the easiest
+number to deal with.</p>
+<p t="456180" d="3020">So this goes to
+0, and that's what</p>
+<p t="459200" d="6780">happens as delta x tends to 0.</p>
+<p t="465980" d="1170">How about this one?</p>
+<p t="467150" d="4600">This one goes to 1, my second
+favorite number, almost as</p>
+<p t="471750" d="2600">easy to deal with as 0.</p>
+<p t="474350" d="1930">And these things are
+picked for a reason.</p>
+<p t="476280" d="1750">They're the simplest
+numbers to deal with.</p>
+<p t="478030" d="8790">So altogether, this thing as
+delta x goes to 0 goes to what?</p>
+<p t="486820" d="2620">I want a single person to
+answer, a brave volunteer.</p>
+<p t="489440" d="890">Alright, back there.</p>
+<p t="490330" d="1740">Student: Cosine</p>
+<p t="492070" d="2580">Professor: Cosine,
+because this factor is 0.</p>
+<p t="494650" d="2910">It cancels and this factor
+has a 1, so it's cosine.</p>
+<p t="497560" d="2670">So it's cos x.</p>
+<p t="500230" d="5610">So our conclusion over here
+- and I'll put it in orange -</p>
+<p t="505840" d="9080">is that the derivative of
+the sine is the cosine.</p>
+<p t="514920" d="3250">OK, now I still wanna label
+these very important limit</p>
+<p t="518170" d="1050">facts here.</p>
+<p t="519220" d="2430">This one we'll call
+A, and this one we're</p>
+<p t="521650" d="2690">going to call B, because we
+haven't checked them yet.</p>
+<p t="524340" d="2000">I promised you I would
+do that, and I'll</p>
+<p t="526340" d="2120">have to do that this time.</p>
+<p t="528460" d="4030">So we're relying on
+those things being true.</p>
+<p t="532490" d="3650">Now I'm gonna do the same
+thing with the cosine function,</p>
+<p t="536140" d="2590">except in order to do it I'm
+gonna have to remember the sum</p>
+<p t="538730" d="2200">rule for cosine.</p>
+<p t="540930" d="2544">So we're gonna do almost
+the same calculation here.</p>
+<p t="543474" d="1666">We're gonna see that
+that will work out,</p>
+<p t="545140" d="7250">but now you have to remember
+that cos (a + b) = cos cos,</p>
+<p t="552390" d="2960">no it's not cosine^2, because
+there are two different</p>
+<p t="555350" d="1410">quantities here.</p>
+<p t="556760" d="6890">It's cos a cos b - sin a sin b.</p>
+<p t="563650" d="7630">All right, so you'll have
+to be willing to call those</p>
+<p t="571280" d="3520">forth at will right now.</p>
+<p t="574800" d="1660">So let's do the cosine now.</p>
+<p t="576460" d="9040">So that's cos (x + delta x)
+- cos x divided by delta x.</p>
+<p t="585500" d="2330">OK, there's the
+difference quotient</p>
+<p t="587830" d="1488">for the cosine function.</p>
+<p t="589318" d="2458">And now I'm gonna do the same
+thing I did before except I'm</p>
+<p t="591776" d="1924">going to apply the
+second rule, that</p>
+<p t="593700" d="2070">is the sum rule for cosine.</p>
+<p t="595770" d="7631">And that's gonna give me cos x
+cos delta x - sin x sin delta</p>
+<p t="603401" d="499">x.</p>
+<p t="603900" d="5400">And I have to remember again
+to subtract the cosine divided</p>
+<p t="609300" d="2290">by this delta x.</p>
+<p t="611590" d="4780">And now I'm going to regroup
+just the way I did before,</p>
+<p t="616370" d="5680">and I get the common factor of
+cosine multiplying (cos delta x</p>
+<p t="622050" d="3130">- 1) / delta x.</p>
+<p t="625180" d="5730">And here I get the sin x
+but actually it's -sin x.</p>
+<p t="630910" d="5410">And then I have (sin
+delta x) / delta x.</p>
+<p t="636320" d="580">All right?</p>
+<p t="636900" d="1670">The only difference
+is this minus sign</p>
+<p t="638570" d="4170">which I stuck inside there.</p>
+<p t="642740" d="1500">Well that's not the
+only difference,</p>
+<p t="644240" d="4200">but it's a crucial difference.</p>
+<p t="648440" d="6260">OK, again by A we get that this
+is 0 as delta x tends to 0.</p>
+<p t="654700" d="1670">And this is 1.</p>
+<p t="656370" d="3220">Those are the properties
+I called A and B.</p>
+<p t="659590" d="5250">And so the result here
+as delta x tends to 0</p>
+<p t="664840" d="3630">is that we get negative sin x.</p>
+<p t="668470" d="3330">That's the factor.</p>
+<p t="671800" d="7080">So this guy is negative sin x.</p>
+<p t="678880" d="5680">I'll put a little
+box around that too.</p>
+<p t="684560" d="4480">Alright, now these
+formulas take a little bit</p>
+<p t="689040" d="5180">of getting used
+to, but before I do</p>
+<p t="694220" d="4260">that I'm gonna explain to
+you the proofs of A and B.</p>
+<p t="698480" d="5990">So we'll get ourselves
+started by mentioning that.</p>
+<p t="704470" d="3100">Maybe before I do
+that though, I want</p>
+<p t="707570" d="4140">to show you how A and B fit into
+the proofs of these theorems.</p>
+<p t="711710" d="14320">So, let me just make
+some remarks here.</p>
+<p t="726030" d="2990">So this is just
+a remark but it's</p>
+<p t="729020" d="6580">meant to help you to frame
+how these proofs worked.</p>
+<p t="735600" d="2050">So, first of all,
+I want to point out</p>
+<p t="737650" d="2100">that if you take
+the rate of change</p>
+<p t="739750" d="8700">of sin x, no let's
+start with cosine</p>
+<p t="748450" d="2000">because a little
+bit less obvious.</p>
+<p t="750450" d="3370">If I take the rate of change
+of cos x, so in other words</p>
+<p t="753820" d="7360">this derivative at x =
+0, then by definition</p>
+<p t="761180" d="4120">this is a certain limit
+as delta x goes to 0.</p>
+<p t="765300" d="1560">So which one is it?</p>
+<p t="766860" d="4310">Well I have to evaluate
+cosine at 0 + delta</p>
+<p t="771170" d="2220">x, but that's just delta x.</p>
+<p t="773390" d="2850">And I have to
+subtract cosine at 0.</p>
+<p t="776240" d="3800">That's the base point,
+but that's just 1.</p>
+<p t="780040" d="3010">And then I have to
+divide by delta x.</p>
+<p t="783050" d="3800">And lo and behold you can see
+that this is exactly the limit</p>
+<p t="786850" d="1370">that we had over there.</p>
+<p t="788220" d="7660">This is the one that we know is
+0 by what we call property A.</p>
+<p t="795880" d="7270">And similarly, if I take the
+derivative of sin x at x=0,</p>
+<p t="803150" d="3850">then that's going to be the
+limit as delta x goes to 0</p>
+<p t="807000" d="3700">of sin delta x / delta x.</p>
+<p t="810700" d="4430">And that's because I should
+be subtracting sine of 0</p>
+<p t="815130" d="2741">but sine of 0 is 0.</p>
+<p t="817871" d="499">Right?</p>
+<p t="818370" d="10140">So this is going to be 1 by our
+property B. And so the remark</p>
+<p t="828510" d="2520">that I want to make,
+in addition to this,</p>
+<p t="831030" d="4170">is something about the
+structure of these two proofs.</p>
+<p t="835200" d="17790">Which is the derivatives
+of sine and cosine at x = 0</p>
+<p t="852990" d="12510">give all values of
+d/dx sin x, d/dx cos x.</p>
+<p t="865500" d="2130">So that's really what this
+argument is showing us,</p>
+<p t="867630" d="3790">is that we just need one
+rate of change at one place</p>
+<p t="871420" d="7350">and then we work out
+all the rest of them.</p>
+<p t="878770" d="2220">So that's really the
+substance of this proof.</p>
+<p t="880990" d="2580">That of course really then
+shows that it boils down</p>
+<p t="883570" d="4450">to showing what this rate of
+change is in these two cases.</p>
+<p t="888020" d="2710">So now there's enough
+suspense that we</p>
+<p t="890730" d="17280">want to make sure that we know
+that those answers are correct.</p>
+<p t="908010" d="4170">OK, so let's demonstrate
+both of them.</p>
+<p t="912180" d="6360">I'll start with B. I need to
+figure out property B. Now,</p>
+<p t="918540" d="3930">we only have one alternative
+as to a type of proof</p>
+<p t="922470" d="2240">that we can give of
+this kind of result,</p>
+<p t="924710" d="4360">and that's because we only
+have one way of describing</p>
+<p t="929070" d="3470">sine and cosine functions,
+that is geometrically.</p>
+<p t="932540" d="10080">So we have to give
+a geometric proof.</p>
+<p t="942620" d="2570">And to write down
+a geometric proof</p>
+<p t="945190" d="1960">we are going to have
+to draw a picture.</p>
+<p t="947150" d="2400">And the first step
+in the proof, really,</p>
+<p t="949550" d="2200">is to replace this
+variable delta</p>
+<p t="951750" d="4050">x which is going to 0
+with another name which</p>
+<p t="955800" d="2570">is suggestive of what we're
+gonna do which is the letter</p>
+<p t="958370" d="2580">theta for an angle.</p>
+<p t="960950" d="2610">OK, so let's draw
+a picture of what</p>
+<p t="963560" d="2390">it is that we're going to do.</p>
+<p t="965950" d="2030">Here is the circle.</p>
+<p t="967980" d="2760">And here is the origin.</p>
+<p t="970740" d="3160">And here's some little
+angle, well I'll</p>
+<p t="973900" d="2210">draw it a little
+larger so it's visible.</p>
+<p t="976110" d="3320">Here's theta, alright?</p>
+<p t="979430" d="1580">And this is the unit circle.</p>
+<p t="981010" d="4900">I won't write that down on here
+but that's the unit circle.</p>
+<p t="985910" d="3870">And now sin theta is this
+vertical distance here.</p>
+<p t="989780" d="2960">Maybe, I'll draw it
+in a different color</p>
+<p t="992740" d="2010">so that we can see it all.</p>
+<p t="994750" d="3650">OK so here's this distance.</p>
+<p t="998400" d="7420">This distance is sin theta.</p>
+<p t="1005820" d="2540">OK?</p>
+<p t="1008360" d="3080">Now almost the
+only other thing we</p>
+<p t="1011440" d="3330">have to write down in this
+picture to have it work out</p>
+<p t="1014770" d="3730">is that we have to recognize
+that when theta is the angle,</p>
+<p t="1018500" d="4779">that's also the arc length
+of this piece of the circle</p>
+<p t="1023279" d="1041">when measured in radians.</p>
+<p t="1024320" d="9376">So this length here is
+also arc length theta.</p>
+<p t="1033696" d="1124">That little piece in there.</p>
+<p t="1034820" d="3760">So maybe I'll use a different
+color for that to indicate it.</p>
+<p t="1038580" d="6980">So that's orange and that's
+this little chunk there.</p>
+<p t="1045560" d="1310">So those are the two pieces.</p>
+<p t="1046870" d="9380">Now in order to persuade
+you now that the limit is</p>
+<p t="1056250" d="1714">what it's supposed
+to be, I'm going</p>
+<p t="1057964" d="1666">to extend the picture
+just a little bit.</p>
+<p t="1059630" d="2800">I'm going to double it, just
+for my own linguistic sake</p>
+<p t="1062430" d="1810">and so that I can
+tell you a story.</p>
+<p t="1064240" d="2450">Alright, so that
+you'll remember this.</p>
+<p t="1066690" d="2950">So I'm going to take
+a theta angle below</p>
+<p t="1069640" d="4030">and I'll have another copy
+of sin theta down here.</p>
+<p t="1073670" d="7120">And now the total
+picture is really</p>
+<p t="1080790" d="3931">like a bow and its
+bow string there.</p>
+<p t="1084721" d="499">Alright?</p>
+<p t="1085220" d="5830">So what we have here is
+a length of 2 sin theta.</p>
+<p t="1091050" d="2580">So maybe I'll write it
+this way, 2 sin theta.</p>
+<p t="1093630" d="1490">I just doubled it.</p>
+<p t="1095120" d="10520">And here I have underneath,
+whoops, I got it backwards.</p>
+<p t="1105640" d="1400">Sorry about that.</p>
+<p t="1107040" d="2104">Trying to be fancy
+with the colored chalk</p>
+<p t="1109144" d="1166">and I have it reversed here.</p>
+<p t="1110310" d="1870">So this is not 2 sin theta.</p>
+<p t="1112180" d="1360">2 sin theta is the vertical.</p>
+<p t="1113540" d="1370">That's the green.</p>
+<p t="1114910" d="2260">So let's try that again.</p>
+<p t="1117170" d="4020">This is 2 sin theta, alright?</p>
+<p t="1121190" d="3260">And then in the denominator
+I have the arc length</p>
+<p t="1124450" d="6230">which is theta is the first half
+and so double it is 2 theta.</p>
+<p t="1130680" d="630">Alright?</p>
+<p t="1131310" d="5320">So if you like, this is
+the bow and up here we</p>
+<p t="1136630" d="7660">have the bow string.</p>
+<p t="1144290" d="3450">And of course we
+can cancel the 2's.</p>
+<p t="1147740" d="3510">That's equal to
+sin theta / theta.</p>
+<p t="1151250" d="6650">And so now why does this
+tend to 1 as theta goes to 0?</p>
+<p t="1157900" d="5770">Well, it's because as the
+angle theta gets very small,</p>
+<p t="1163670" d="5210">this curved piece looks more
+and more like a straight one.</p>
+<p t="1168880" d="760">Alright?</p>
+<p t="1169640" d="2990">And if you get very, very
+close here the green segment</p>
+<p t="1172630" d="1980">and the orange segment
+would just merge.</p>
+<p t="1174610" d="2240">They would be practically
+on top of each other.</p>
+<p t="1176850" d="5510">And they have closer and closer
+and closer to the same length.</p>
+<p t="1182360" d="9430">So that's why this is true.</p>
+<p t="1191790" d="11410">I guess I'll articulate that
+by saying that short curves are</p>
+<p t="1203200" d="3350">nearly straight.</p>
+<p t="1206550" d="3450">Alright, so that's the
+principle that we're using.</p>
+<p t="1210000" d="8970">Or short pieces of curves, if
+you like, are nearly straight.</p>
+<p t="1218970" d="4670">So if you like, this
+is the principle.</p>
+<p t="1223640" d="7210">So short pieces of curves.</p>
+<p t="1230850" d="690">Alright?</p>
+<p t="1231540" d="7850">So now I also need to
+give you a proof of A.</p>
+<p t="1239390" d="4600">And that has to do with
+this cosine function here.</p>
+<p t="1243990" d="7915">This is the property
+A. So I'm going</p>
+<p t="1251905" d="1582">to do this by
+flipping it around,</p>
+<p t="1253487" d="2583">because it turns out that this
+numerator is a negative number.</p>
+<p t="1256070" d="1990">If I want to interpret
+it as a length,</p>
+<p t="1258060" d="2280">I'm gonna want a
+positive quantity.</p>
+<p t="1260340" d="3840">So I'm gonna write
+down 1 - cos theta here</p>
+<p t="1264180" d="4140">and then I'm gonna
+divide by theta there.</p>
+<p t="1268320" d="2400">Again I'm gonna make some
+kind of interpretation.</p>
+<p t="1270720" d="4410">Now this time I'm going to draw
+the same sort of bow and arrow</p>
+<p t="1275130" d="3840">arrangement, but maybe I'll
+exaggerate it a little bit.</p>
+<p t="1278970" d="4220">So here's the vertex
+of the sector,</p>
+<p t="1283190" d="8590">but we'll maybe make
+it a little longer.</p>
+<p t="1291780" d="3810">Alright, so here it is, and
+here was that middle line</p>
+<p t="1295590" d="2720">which was the unit-- Whoops.</p>
+<p t="1298310" d="2570">OK, I think I'm going
+to have to tilt it up.</p>
+<p t="1300880" d="6120">OK, let's try from here.</p>
+<p t="1307000" d="4570">Alright, well you know
+on your pencil and paper</p>
+<p t="1311570" d="2240">it will look better than
+it does on my blackboard.</p>
+<p t="1313810" d="1380">OK, so here we are.</p>
+<p t="1315190" d="1580">Here's this shape.</p>
+<p t="1316770" d="4660">Now this angle is
+supposed to be theta</p>
+<p t="1321430" d="1920">and this angle is another theta.</p>
+<p t="1323350" d="2545">So here we have a length
+which is again theta</p>
+<p t="1325895" d="2015">and another length which
+is theta over here.</p>
+<p t="1327910" d="1760">That's the same as
+in the other picture,</p>
+<p t="1329670" d="3620">except we've
+exaggerated a bit here.</p>
+<p t="1333290" d="1720">And now we have
+this vertical line,</p>
+<p t="1335010" d="3230">which again I'm gonna draw
+in green, the bow string.</p>
+<p t="1338240" d="6580">But notice that as the vertex
+gets farther and farther away,</p>
+<p t="1344820" d="2199">the curved line gets
+closer and closer</p>
+<p t="1347019" d="1041">to being a vertical line.</p>
+<p t="1348060" d="2610">That's sort of the flip
+side, by expansion,</p>
+<p t="1350670" d="2440">of the zoom in principle.</p>
+<p t="1353110" d="2020">The principle that
+curves are nearly</p>
+<p t="1355130" d="1820">straight when you zoom in.</p>
+<p t="1356950" d="2420">If you zoom out that would
+mean sending this vertex way,</p>
+<p t="1359370" d="2830">way out somewhere.</p>
+<p t="1362200" d="2170">The curved line, the
+piece of the circle,</p>
+<p t="1364370" d="4200">gets more and more straight.</p>
+<p t="1368570" d="5060">And now let me show you
+where this numerator 1 - cos</p>
+<p t="1373630" d="3990">theta is on this picture.</p>
+<p t="1377620" d="3420">So where is it?</p>
+<p t="1381040" d="2640">Well, this whole distance is 1.</p>
+<p t="1383680" d="3930">But the distance from
+the vertex to the green</p>
+<p t="1387610" d="2260">is cosine of theta.</p>
+<p t="1389870" d="2560">Right, because this is
+theta, so dropping down</p>
+<p t="1392430" d="4400">the perpendicular this
+distance back to the origin</p>
+<p t="1396830" d="800">is cos theta.</p>
+<p t="1397630" d="3260">So this little
+tiny, bitty segment</p>
+<p t="1400890" d="5650">here is basically the
+gap between the curve</p>
+<p t="1406540" d="2280">and the vertical segment.</p>
+<p t="1408820" d="7000">So the gap is equal
+to 1 - cos theta.</p>
+<p t="1415820" d="4820">So now you can see that as
+this point gets farther away,</p>
+<p t="1420640" d="3030">if this got sent off
+to the Stata Center,</p>
+<p t="1423670" d="2170">you would hardly be able
+to tell the difference.</p>
+<p t="1425840" d="2280">The bow string would
+coincide with the bow</p>
+<p t="1428120" d="2360">and this little gap
+between the bow string</p>
+<p t="1430480" d="1950">and the bow would
+be tending to 0.</p>
+<p t="1432430" d="1852">And that's the
+statement that this</p>
+<p t="1434282" d="4258">tends to 0 as theta tends to 0.</p>
+<p t="1438540" d="1590">The scaled version of that.</p>
+<p t="1440130" d="1120">Yeah, question down here.</p>
+<p t="1441250" d="3550">Student: Doesn't the denominator
+also tend to 0 though?</p>
+<p t="1444800" d="5390">Professor: Ah, the question is
+"doesn't the denominator also</p>
+<p t="1450190" d="1480">tend to 0?"</p>
+<p t="1451670" d="2840">And the answer is yes.</p>
+<p t="1454510" d="4150">In my strange analogy with
+zooming in, what I did</p>
+<p t="1458660" d="1730">was I zoomed out the picture.</p>
+<p t="1460390" d="5060">So in other words, if you
+imagine you're taking this</p>
+<p t="1465450" d="2759">and you're putting it under
+a microscope over here</p>
+<p t="1468209" d="1541">and you're looking
+at something where</p>
+<p t="1469750" d="2160">theta is getting smaller
+and smaller and smaller</p>
+<p t="1471910" d="1430">and smaller.</p>
+<p t="1473340" d="1030">Alright?</p>
+<p t="1474370" d="5130">But now because I want my
+picture, I expanded my picture.</p>
+<p t="1479500" d="3460">So the ratio is the
+thing that's preserved.</p>
+<p t="1482960" d="7510">So if I make it so that
+this gap is tiny...</p>
+<p t="1490470" d="1940">Let me say this one more time.</p>
+<p t="1492410" d="4620">I'm afraid I've made life
+complicated for myself.</p>
+<p t="1497030" d="4010">If I simply let this
+theta tend in to 0,</p>
+<p t="1501040" d="3004">that would be the same
+effect as making this</p>
+<p t="1504044" d="2416">closer and closer in and then
+the vertical would approach.</p>
+<p t="1506460" d="2580">But I want to keep on
+blowing up the picture</p>
+<p t="1509040" d="2900">so that I can see the
+difference between the vertical</p>
+<p t="1511940" d="1320">and the curve.</p>
+<p t="1513260" d="3220">So that's very much like if
+you are on a video screen</p>
+<p t="1516480" d="2260">and you zoom in, zoom
+in, zoom in, and zoom in.</p>
+<p t="1518740" d="1875">So the question is what
+would that look like?</p>
+<p t="1520615" d="2735">That has the same effect
+as sending this point out</p>
+<p t="1523350" d="4490">farther and farther in that
+direction, to the left.</p>
+<p t="1527840" d="1590">And so I'm just
+trying to visualize it</p>
+<p t="1529430" d="2980">for you by leaving the
+theta at this scale,</p>
+<p t="1532410" d="1680">but actually the
+scale of the picture</p>
+<p t="1534090" d="2200">is then changing when I do that.</p>
+<p t="1536290" d="3090">So theta is going
+to 0, but I I'm</p>
+<p t="1539380" d="3410">rescaling so that it's of a
+size that we can look at it,</p>
+<p t="1542790" d="3502">And then imagine
+what's happening to it.</p>
+<p t="1546292" d="1458">OK, does that answer
+your question?</p>
+<p t="1547750" d="2842">Student: My question
+then is that seems</p>
+<p t="1550592" d="3658">to prove that that
+limit is equal to 0/0.</p>
+<p t="1554250" d="7260">Professor: It proves more
+than it is equal to 0/0.</p>
+<p t="1561510" d="3415">It's the ratio of this little
+short thing to this longer</p>
+<p t="1564925" d="1165">thing.</p>
+<p t="1566090" d="2830">And this is getting much, much
+shorter than this total length.</p>
+<p t="1568920" d="1070">You're absolutely
+right that we're</p>
+<p t="1569990" d="2583">comparing two quantities which
+are going to 0, but one of them</p>
+<p t="1572573" d="1784">is much smaller than the other.</p>
+<p t="1574357" d="1833">In the other case we
+compared two quantities</p>
+<p t="1576190" d="1958">which were both going to
+0 and they both end up</p>
+<p t="1578148" d="1692">being about equal in length.</p>
+<p t="1579840" d="3220">Here the previous one
+was this green one.</p>
+<p t="1583060" d="1940">Here it's this
+little tiny bit here</p>
+<p t="1585000" d="7840">and it's way shorter than
+the 2 theta distance.</p>
+<p t="1592840" d="1060">Yeah, another question.</p>
+<p t="1593900" d="845">Student: cos theta - 1 over
+cos theta is the same as 1-</p>
+<p t="1594745" d="875">cos theta over theta?</p>
+<p t="1595620" d="10120">Professor: cos theta - 1 over...</p>
+<p t="1605740" d="4040">Student: [INAUDIBLE]</p>
+<p t="1609780" d="6910">Professor: So here, what I
+wrote is (cos delta x - 1)</p>
+<p t="1616690" d="4930">/ delta x, OK, and I
+claimed that it goes to 0.</p>
+<p t="1621620" d="10750">Here, I wrote minus that, that
+is I replaced delta x by theta.</p>
+<p t="1632370" d="10350">But then I wrote this thing.</p>
+<p t="1642720" d="3830">So (cos theta - 1) minus
+1 is the negative of this.</p>
+<p t="1646550" d="1520">Alright?</p>
+<p t="1648070" d="1440">And if I show that
+this goes to 0,</p>
+<p t="1649510" d="3652">it's the same as showing
+the other one goes to 0.</p>
+<p t="1653162" d="708">Another question?</p>
+<p t="1653870" d="5180">Student: [INAUDIBLE]</p>
+<p t="1659050" d="3590">Professor: So the question
+is, what about this business</p>
+<p t="1662640" d="1580">about arc length.</p>
+<p t="1664220" d="4390">So the word arc length,
+that orange shape is an arc.</p>
+<p t="1668610" d="2740">And we're just talking about
+the length of that arc,</p>
+<p t="1671350" d="1487">and so we're calling
+it arc length.</p>
+<p t="1672837" d="1583">That's what the word
+arc length means,</p>
+<p t="1674420" d="1500">it just means the
+length of the arc.</p>
+<p t="1675920" d="7700">Student: [INAUDIBLE]</p>
+<p t="1683620" d="2410">Professor: Why is
+this length theta?</p>
+<p t="1686030" d="2350">Ah, OK so this is a
+very important point,</p>
+<p t="1688380" d="3100">and in fact it's the very next
+point that I wanted to make.</p>
+<p t="1691480" d="3650">Namely, notice that
+in this calculation</p>
+<p t="1695130" d="4570">it was very important
+that we used length.</p>
+<p t="1699700" d="4440">And that means that the way
+that we're measuring theta,</p>
+<p t="1704140" d="8190">is in what are known as radians.</p>
+<p t="1712330" d="4540">Right, so that applies to both B
+and A, it's a scale change in A</p>
+<p t="1716870" d="2600">and doesn't really matter
+but in B it's very important.</p>
+<p t="1719470" d="3510">The only way that
+this orange length</p>
+<p t="1722980" d="3160">is comparable to
+this green length,</p>
+<p t="1726140" d="2460">the vertical is
+comparable to the arc,</p>
+<p t="1728600" d="4920">is if we measure them in terms
+of the same notion of length.</p>
+<p t="1733520" d="2840">If we measure them in
+degrees, for example,</p>
+<p t="1736360" d="2530">it would be completely wrong.</p>
+<p t="1738890" d="3830">We divide up the angles
+into 360 degrees,</p>
+<p t="1742720" d="1600">and that's the wrong
+unit of measure.</p>
+<p t="1744320" d="3670">The correct measure is the
+length along the unit circle,</p>
+<p t="1747990" d="1600">which is what radians are.</p>
+<p t="1749590" d="11900">And so this is only
+true if we use radians.</p>
+<p t="1761490" d="12160">So again, a little warning
+here, that this is in radians.</p>
+<p t="1773650" d="7410">Now here x is in radians.</p>
+<p t="1781060" d="4630">The formulas are just wrong
+if you use other units.</p>
+<p t="1785690" d="560">Ah yeah?</p>
+<p t="1786250" d="9230">Student: [INAUDIBLE].</p>
+<p t="1795480" d="1810">Professor: OK so the
+second question is why</p>
+<p t="1797290" d="3340">is this crazy length here 1.</p>
+<p t="1800630" d="7370">And the reason is
+that the relationship</p>
+<p t="1808000" d="3780">between this picture up here
+and this picture down here,</p>
+<p t="1811780" d="4370">is that I'm drawing
+a different shape.</p>
+<p t="1816150" d="2650">Namely, what I'm
+really imagining here</p>
+<p t="1818800" d="2660">is a much, much smaller theta.</p>
+<p t="1821460" d="880">OK?</p>
+<p t="1822340" d="3090">And then I'm blowing
+that up in scale.</p>
+<p t="1825430" d="2450">So this scale of this
+picture down here</p>
+<p t="1827880" d="3550">is very different from the
+scale of the picture up there.</p>
+<p t="1831430" d="3420">And if the angle is
+very, very, very small</p>
+<p t="1834850" d="2985">then one has to be
+very, very long in order</p>
+<p t="1837835" d="1595">for me to finish the circle.</p>
+<p t="1839430" d="2390">So, in other words,
+this length is 1</p>
+<p t="1841820" d="2870">because that's what
+I'm insisting on.</p>
+<p t="1844690" d="3220">So, I'm claiming that that's
+how I define this circle,</p>
+<p t="1847910" d="4580">to be of unit radius.</p>
+<p t="1852490" d="710">Another question?</p>
+<p t="1853200" d="11994">Student: [INAUDIBLE]
+the ratio between 1 -</p>
+<p t="1865194" d="2166">cos theta and theta will
+get closer and closer to 1.</p>
+<p t="1867360" d="1291">I don't understand [INAUDIBLE].</p>
+<p t="1868651" d="12899">Professor: OK, so
+the question is it's</p>
+<p t="1881550" d="4260">hard to visualize
+this fact here.</p>
+<p t="1885810" d="5019">So let me, let me take you
+through a couple of steps,</p>
+<p t="1890829" d="2541">because I think probably other
+people are also having trouble</p>
+<p t="1893370" d="1560">with this visualization.</p>
+<p t="1894930" d="1900">The first part of
+the visualization I'm</p>
+<p t="1896830" d="2740">gonna try to demonstrate
+on this picture up here.</p>
+<p t="1899570" d="1870">The first part of
+the visualization</p>
+<p t="1901440" d="3910">is that I should think
+of a beak of a bird</p>
+<p t="1905350" d="2530">closing down, getting
+narrower and narrower.</p>
+<p t="1907880" d="2550">So in other words,
+the angle theta</p>
+<p t="1910430" d="3620">has to be getting smaller
+and smaller and smaller.</p>
+<p t="1914050" d="1730">OK, that's the first step.</p>
+<p t="1915780" d="2870">So that's the process
+that we're talking about.</p>
+<p t="1918650" d="5230">Now, in order to draw that, once
+theta gets incredibly narrow,</p>
+<p t="1923880" d="2570">in order to depict that I have
+to blow the whole picture back</p>
+<p t="1926450" d="1250">up in order be able to see it.</p>
+<p t="1927700" d="1730">Otherwise it just
+disappears on me.</p>
+<p t="1929430" d="2660">In fact in the limit theta
+= 0, it's meaningless.</p>
+<p t="1932090" d="990">It's just a flat line.</p>
+<p t="1933080" d="2420">That's the whole problem
+with these tricky limits.</p>
+<p t="1935500" d="2600">They're meaningless right
+at the zero-zero level.</p>
+<p t="1938100" d="3910">It's only just a little away
+that they're actually useful,</p>
+<p t="1942010" d="3880">that you get useful geometric
+information out of them.</p>
+<p t="1945890" d="1410">So we're just a little away.</p>
+<p t="1947300" d="3860">So that's what this picture down
+below in part A is meant to be.</p>
+<p t="1951160" d="2975">It's supposed to be that theta
+is open a tiny crack, just</p>
+<p t="1954135" d="1026">a little bit.</p>
+<p t="1955161" d="2124">And the smallest I can draw
+it on the board for you</p>
+<p t="1957285" d="2875">to visualize it is using the
+whole length of the blackboard</p>
+<p t="1960160" d="1230">here for that.</p>
+<p t="1961390" d="2000">So I've opened a little
+tiny bit and by the time</p>
+<p t="1963390" d="1749">we get to the other
+end of the blackboard,</p>
+<p t="1965139" d="1371">of course it's fairly wide.</p>
+<p t="1966510" d="3781">But this angle theta
+is a very small angle.</p>
+<p t="1970291" d="499">Alright?</p>
+<p t="1970790" d="5880">So I'm trying to imagine what
+happens as this collapses.</p>
+<p t="1976670" d="3000">Now, when I imagine
+that I have to imagine</p>
+<p t="1979670" d="2520">a geometric interpretation
+of both the numerator</p>
+<p t="1982190" d="3830">and the denominator
+of this quantity here.</p>
+<p t="1986020" d="2280">And just see what happens.</p>
+<p t="1988300" d="5720">Now I claimed the numerator is
+this little tiny bit over here</p>
+<p t="1994020" d="4984">and the denominator is actually
+half of this whole length here.</p>
+<p t="1999004" d="1416">But the factor of
+2 doesn't matter</p>
+<p t="2000420" d="3830">when you're seeing whether
+something tends to 0 or not.</p>
+<p t="2004250" d="740">Alright?</p>
+<p t="2004990" d="1666">And I claimed that
+if you stare at this,</p>
+<p t="2006656" d="1804">it's clear that
+this is much shorter</p>
+<p t="2008460" d="4290">than that vertical curve there.</p>
+<p t="2012750" d="2390">And I'm claiming, so this
+is what you have to imagine,</p>
+<p t="2015140" d="3680">is this as it gets smaller
+and smaller and smaller still</p>
+<p t="2018820" d="2770">that has the same effect of
+this thing going way, way way,</p>
+<p t="2021590" d="3920">farther away and this vertical
+curve getting closer and closer</p>
+<p t="2025510" d="1650">and closer to the green.</p>
+<p t="2027160" d="5370">And so that the gap between
+them gets tiny and goes to 0.</p>
+<p t="2032530" d="910">Alright?</p>
+<p t="2033440" d="3140">So not only does it go to
+0, that's not enough for us,</p>
+<p t="2036580" d="4960">but it also goes to 0 faster
+than this theta goes to 0.</p>
+<p t="2041540" d="3740">And I hope the evidence
+is pretty strong here</p>
+<p t="2045280" d="4940">because it's so tiny
+already at this stage.</p>
+<p t="2050220" d="2130">Alright.</p>
+<p t="2052350" d="3790">We are going to move
+forward and you'll</p>
+<p t="2056140" d="2280">have to ponder these
+things some other time.</p>
+<p t="2058420" d="2220">So I'm gonna give you
+an even harder thing</p>
+<p t="2060640" d="5960">to visualize now so be prepared.</p>
+<p t="2066600" d="9710">OK, so now, the next
+thing that I'd like to do</p>
+<p t="2076310" d="1390">is to give you a second proof.</p>
+<p t="2077700" d="1730">Because it really
+is important, I</p>
+<p t="2079430" d="8220">think, to understand this
+particular fact more thoroughly</p>
+<p t="2087650" d="1660">and also to get
+a lot of practice</p>
+<p t="2089310" d="2140">with sines and cosines.</p>
+<p t="2091450" d="4480">So I'm gonna give
+you a geometric proof</p>
+<p t="2095930" d="15080">of the formula for sine here,
+for the derivative of sine.</p>
+<p t="2111010" d="2410">So here we go.</p>
+<p t="2113420" d="12860">This is a geometric
+proof of this fact.</p>
+<p t="2126280" d="3120">This is for all theta.</p>
+<p t="2129400" d="3700">So far we only did
+it for theta = 0</p>
+<p t="2133100" d="3260">and now we're going to
+do it for all theta.</p>
+<p t="2136360" d="2570">So this is a different
+proof, but it uses</p>
+<p t="2138930" d="3490">exactly the same principles.</p>
+<p t="2142420" d="2970">Right?</p>
+<p t="2145390" d="5960">So, I want do this by
+drawing another picture,</p>
+<p t="2151350" d="3440">and the picture is
+going to describe</p>
+<p t="2154790" d="4580">y, which is sin
+theta, which is if you</p>
+<p t="2159370" d="22790">like the vertical position
+of some circular motion.</p>
+<p t="2182160" d="5010">So I'm imagining that something
+is going around in a circle.</p>
+<p t="2187170" d="3450">Some particle is going
+around in a circle.</p>
+<p t="2190620" d="5757">And so here's the
+circle, here the origin.</p>
+<p t="2196377" d="1083">This is the unit distance.</p>
+<p t="2197460" d="6180">And right now it happens to
+be at this location P. Maybe</p>
+<p t="2203640" d="2520">we'll put P a little over here.</p>
+<p t="2206160" d="4100">And here's the angle theta.</p>
+<p t="2210260" d="1300">And now we're going to move it.</p>
+<p t="2211560" d="2930">We're going to vary
+theta and we're</p>
+<p t="2214490" d="2430">interested in the
+rate of change of y.</p>
+<p t="2216920" d="3370">So y is the height
+of P but we're</p>
+<p t="2220290" d="1580">gonna move it to
+another location.</p>
+<p t="2221870" d="5530">We'll move it along
+the circle to Q. Right?</p>
+<p t="2227400" d="1800">So here it is.</p>
+<p t="2229200" d="3160">Here's the thing.</p>
+<p t="2232360" d="2090">So how far did we move it?</p>
+<p t="2234450" d="4120">Well we moved it by
+an angle delta theta.</p>
+<p t="2238570" d="1970">So we started theta,
+theta is going</p>
+<p t="2240540" d="1773">to be fixed in this
+argument, and we're</p>
+<p t="2242313" d="1677">going to move a little
+bit delta theta.</p>
+<p t="2243990" d="2190">And now we're just
+gonna try to figure out</p>
+<p t="2246180" d="2330">how far the thing moved.</p>
+<p t="2248510" d="1930">Well, in order to
+do that we've got</p>
+<p t="2250440" d="4150">to keep track of the height,
+the vertical displacement here.</p>
+<p t="2254590" d="3744">So we're going to draw
+this right angle here, this</p>
+<p t="2258334" d="4106">is the position R. And
+then this distance here</p>
+<p t="2262440" d="3060">is the change in y.</p>
+<p t="2265500" d="500">Alright?</p>
+<p t="2266000" d="4190">So the picture is
+we have something</p>
+<p t="2270190" d="1920">moving around a unit circle.</p>
+<p t="2272110" d="1570">A point moving
+around a unit circle.</p>
+<p t="2273680" d="3955">It starts at P, it moves to
+Q. It moves from angle theta</p>
+<p t="2277635" d="1955">to angle theta plus delta theta.</p>
+<p t="2279590" d="6180">And the issue is how
+much does y move?</p>
+<p t="2285770" d="1570">And the formula
+for y is sin theta.</p>
+<p t="2287340" d="22370">So that's telling us the
+rate of change of sin theta.</p>
+<p t="2309710" d="4790">Alright, well so let's just
+try to think a little bit</p>
+<p t="2314500" d="1480">about what this is.</p>
+<p t="2315980" d="1756">So, first of all,
+I've already said this</p>
+<p t="2317736" d="1564">and I'm going to repeat it here.</p>
+<p t="2319300" d="2350">Delta y is PR.</p>
+<p t="2321650" d="2840">It's going from P and
+going straight up to R.</p>
+<p t="2324490" d="2590">That's how far y moves.</p>
+<p t="2327080" d="2560">That's the change in y
+That's what I said up</p>
+<p t="2329640" d="3270">in the right hand corner there.</p>
+<p t="2332910" d="560">Oops.</p>
+<p t="2333470" d="2960">I said PR but I wrote PQ.</p>
+<p t="2336430" d="2700">Alright, that's not a good idea.</p>
+<p t="2339130" d="500">Alright.</p>
+<p t="2339630" d="3460">So delta Y is PR.</p>
+<p t="2343090" d="4070">And now I want to draw the
+diagram again one time.</p>
+<p t="2347160" d="8870">So here's Q, here's R,
+and here's P, and here's</p>
+<p t="2356030" d="1270">my triangle.</p>
+<p t="2357300" d="7000">And now what I'd like to
+do is draw this curve here</p>
+<p t="2364300" d="2670">which is a piece of
+the arc of the circle.</p>
+<p t="2366970" d="2590">But really what I
+want to keep in mind</p>
+<p t="2369560" d="3740">is something that I did also
+in all these other arguments.</p>
+<p t="2373300" d="2030">Which is, maybe I
+should have called</p>
+<p t="2375330" d="2681">this orange, that I'm gonna
+think of the straight line</p>
+<p t="2378011" d="499">between.</p>
+<p t="2378510" d="2655">So it's the straight line
+approximation to the curve</p>
+<p t="2381165" d="3844">that we're always interested in.</p>
+<p t="2385009" d="1541">So the straight line
+is much simpler,</p>
+<p t="2386550" d="2060">because then we just
+have a triangle here.</p>
+<p t="2388610" d="3407">And in fact it's
+a right triangle.</p>
+<p t="2392017" d="2333">Right, so we have the geometry
+of a right triangle which</p>
+<p t="2394350" d="4860">is going to now let us do
+all of our calculations.</p>
+<p t="2399210" d="4430">OK, so now the key step
+is this same principle</p>
+<p t="2403640" d="3920">that we already used which is
+that short pieces of curves</p>
+<p t="2407560" d="1480">are nearly straight.</p>
+<p t="2409040" d="2960">So that means that this piece
+of the circular arc here from P</p>
+<p t="2412000" d="5323">to Q is practically the same
+as the straight segment from P</p>
+<p t="2417323" d="6967">to Q. So, that's this
+principle that - well,</p>
+<p t="2424290" d="3290">let's put it over
+here - Is that PQ</p>
+<p t="2427580" d="5610">is practically the same as the
+straight segment from P to Q.</p>
+<p t="2433190" d="2630">So how are we going to use that?</p>
+<p t="2435820" d="1930">We want to use
+that quantitatively</p>
+<p t="2437750" d="1330">in the following way.</p>
+<p t="2439080" d="3270">What we want to notice is
+that the distance from P to Q</p>
+<p t="2442350" d="3770">is approximately delta theta.</p>
+<p t="2446120" d="500">Right?</p>
+<p t="2446620" d="2436">Because the arc length
+along that curve,</p>
+<p t="2449056" d="1624">the length of the
+curve is delta theta.</p>
+<p t="2450680" d="4370">So the length of the green which
+is PQ is almost delta theta.</p>
+<p t="2455050" d="6640">So this is essentially delta
+theta, this distance here.</p>
+<p t="2461690" d="3670">Now the second step, which
+is a little trickier,</p>
+<p t="2465360" d="3620">is that we have to work
+out what this angle is.</p>
+<p t="2468980" d="2660">So our goal, and I'm gonna put
+it one step below because I'm</p>
+<p t="2471640" d="2640">gonna put the geometric
+reasoning in between,</p>
+<p t="2474280" d="6700">is I need to figure out
+what the angle QPR is.</p>
+<p t="2480980" d="2360">If I can figure out
+what this angle is,</p>
+<p t="2483340" d="3290">then I'll be able to figure out
+what this vertical distance is</p>
+<p t="2486630" d="2210">because I'll know the
+hypotenuse and I'll</p>
+<p t="2488840" d="2060">know the angle so I'll be
+able to figure out what</p>
+<p t="2490900" d="5710">the side of the triangle is.</p>
+<p t="2496610" d="3610">So now let me show you
+why that's possible to do.</p>
+<p t="2500220" d="3180">So in order to do that first of
+all I'm gonna trade the boards</p>
+<p t="2503400" d="7200">and show you where
+the line PQ is.</p>
+<p t="2510600" d="3770">So the line PQ is here.</p>
+<p t="2514370" d="2100">That's the whole thing.</p>
+<p t="2516470" d="3720">And the key point about this
+line that I need you to realize</p>
+<p t="2520190" d="4040">is that it's practically
+perpendicular,</p>
+<p t="2524230" d="4680">it's almost perpendicular,
+to this ray here.</p>
+<p t="2528910" d="640">Alright?</p>
+<p t="2529550" d="2990">It's not quite because the
+distance between P to Q</p>
+<p t="2532540" d="722">is non-zero.</p>
+<p t="2533262" d="1458">So it isn't quite,
+but in the limit</p>
+<p t="2534720" d="2350">it's going to be perpendicular.</p>
+<p t="2537070" d="1030">Exactly perpendicular.</p>
+<p t="2538100" d="2880">The tangent line to the circle.</p>
+<p t="2540980" d="5840">So the key thing
+that I'm going to use</p>
+<p t="2546820" d="8311">is that PQ is almost
+perpendicular to OP.</p>
+<p t="2555131" d="499">Alright?</p>
+<p t="2555630" d="2080">The ray from the
+origin is basically</p>
+<p t="2557710" d="2190">perpendicular to
+that green line.</p>
+<p t="2559900" d="2640">And then the second
+thing I'm going to use</p>
+<p t="2562540" d="10581">is something that's obvious
+which is that PR is vertical.</p>
+<p t="2573121" d="499">OK?</p>
+<p t="2573620" d="4460">So those are the two pieces of
+geometry that I need to see.</p>
+<p t="2578080" d="4600">And now notice what's happening
+upstairs on the picture here</p>
+<p t="2582680" d="2370">in the upper right.</p>
+<p t="2585050" d="4500">What I have is the
+angle theta is the angle</p>
+<p t="2589550" d="3360">between the horizontal and OP.</p>
+<p t="2592910" d="1440">That's angle theta.</p>
+<p t="2594350" d="3640">If I rotate it by ninety
+degree, the horizontal</p>
+<p t="2597990" d="890">becomes vertical.</p>
+<p t="2598880" d="2850">It becomes PR and
+the other thing</p>
+<p t="2601730" d="3080">rotated by 90 degrees
+becomes the green line.</p>
+<p t="2604810" d="5270">So the angle that I'm talking
+about I get by taking this guy</p>
+<p t="2610080" d="2390">and rotating it by 90 degrees.</p>
+<p t="2612470" d="1330">It's the same angle.</p>
+<p t="2613800" d="4430">So that means that this angle
+here is essentially theta.</p>
+<p t="2618230" d="1650">That's what this angle is.</p>
+<p t="2619880" d="1960">Let me repeat that
+one more time.</p>
+<p t="2621840" d="1450">We started out
+with an angle that</p>
+<p t="2623290" d="3250">looks like this, which is
+the horizontal-- that's</p>
+<p t="2626540" d="2060">the origin straight
+out horizontally.</p>
+<p t="2628600" d="1960">That's the thing labeled 1.</p>
+<p t="2630560" d="4245">That distance there.</p>
+<p t="2634805" d="1625">That's my right arm
+which is down here.</p>
+<p t="2636430" d="4750">My left arm is pointing up
+and it's going from the origin</p>
+<p t="2641180" d="5250">to the point P. So
+here's the horizontal</p>
+<p t="2646430" d="2940">and the angle between
+them is theta.</p>
+<p t="2649370" d="4560">And now, what I claim is that
+if I rotate by 90 degrees up,</p>
+<p t="2653930" d="2910">like this, without
+changing anything -</p>
+<p t="2656840" d="2020">so that was what I
+did - the horizontal</p>
+<p t="2658860" d="2300">will become a vertical.</p>
+<p t="2661160" d="1830">That's PR.</p>
+<p t="2662990" d="2040">That's going up, PR.</p>
+<p t="2665030" d="7050">And if I rotate OP 90
+degrees, that's exactly PQ.</p>
+<p t="2672080" d="1460">OK?</p>
+<p t="2673540" d="9020">So let me draw it
+on there one time.</p>
+<p t="2682560" d="2660">Let's do it with
+some arrows here.</p>
+<p t="2685220" d="4400">So I started out with
+this and then, we'll</p>
+<p t="2689620" d="6850">label this as orange,
+OK so red to orange,</p>
+<p t="2696470" d="5370">and then I rotate by
+90 degrees and the red</p>
+<p t="2701840" d="5220">becomes this starting from P
+and the orange rotates around 90</p>
+<p t="2707060" d="4310">degrees and becomes
+this thing here.</p>
+<p t="2711370" d="820">Alright?</p>
+<p t="2712190" d="4062">So this angle here is
+the same as the other one</p>
+<p t="2716252" d="2208">which I've just drawn.</p>
+<p t="2718460" d="8570">Different vertices
+for the angles.</p>
+<p t="2727030" d="1180">OK?</p>
+<p t="2728210" d="2890">Well I didn't say
+that all arguments</p>
+<p t="2731100" d="5350">were supposed to be easy.</p>
+<p t="2736450" d="1730">Alright, so I claim
+that the conclusion</p>
+<p t="2738180" d="5020">is that this angle is
+approximately theta.</p>
+<p t="2743200" d="2470">And now we can finish
+our calculation,</p>
+<p t="2745670" d="2630">because we have something with
+the hypotenuse being delta</p>
+<p t="2748300" d="5040">theta and the angle being theta
+and so this segment here PR is</p>
+<p t="2753340" d="3490">approximately the
+hypotenuse length</p>
+<p t="2756830" d="5600">times the cosine of the angle.</p>
+<p t="2762430" d="3310">And that is exactly
+what we wanted.</p>
+<p t="2765740" d="5090">If we divide, we divide by
+delta theta, we get (delta y)</p>
+<p t="2770830" d="6200">/ (delta theta) is
+approximately cos theta.</p>
+<p t="2777030" d="3670">And that's the same thing as...</p>
+<p t="2780700" d="1670">So what we want in
+the limit is exactly</p>
+<p t="2782370" d="2530">the delta theta going to 0
+of (delta y) / (delta theta)</p>
+<p t="2784900" d="3120">is equal to cos theta.</p>
+<p t="2788020" d="4250">So we get an approximation on
+a scale that we can visualize</p>
+<p t="2792270" d="7320">and in the limit the
+formula is exact.</p>
+<p t="2799590" d="4470">OK, so that is a geometric
+argument for the same result.</p>
+<p t="2804060" d="3880">Namely that the derivative
+of sine is cosine.</p>
+<p t="2807940" d="500">Yeah?</p>
+<p t="2808440" d="3150">Student: [INAUDIBLE].</p>
+<p t="2811590" d="2830">Professor: You will have to do
+some kind of geometric proofs</p>
+<p t="2814420" d="1420">sometimes.</p>
+<p t="2815840" d="3890">When you'll really need
+this is probably in 18.02.</p>
+<p t="2819730" d="3290">So you'll need to make
+reasoning like this.</p>
+<p t="2823020" d="2710">This is, for example, the
+way that you actually develop</p>
+<p t="2825730" d="2470">the theory of arc length.</p>
+<p t="2828200" d="5050">Dealing with delta x's and
+delta y's is a common tool.</p>
+<p t="2833250" d="4560">Alright, I have one
+more thing that I</p>
+<p t="2837810" d="7260">want to talk about today,
+which is some general rules.</p>
+<p t="2845070" d="3160">We took a little bit more time
+than I expected with this.</p>
+<p t="2848230" d="3550">So what I'm gonna do is
+just tell you the rules</p>
+<p t="2851780" d="4550">and we'll discuss
+them in a few days.</p>
+<p t="2856330" d="13850">So let me tell you
+the general rules.</p>
+<p t="2870180" d="9990">So these were the specific ones
+and here are some general ones.</p>
+<p t="2880170" d="8320">So the first one is
+called the product rule.</p>
+<p t="2888490" d="2520">And what it says is that if
+you take the product of two</p>
+<p t="2891010" d="2620">functions and
+differentiate them,</p>
+<p t="2893630" d="4550">you get the derivative of
+one times the other plus</p>
+<p t="2898180" d="3880">the other times the
+derivative of the one.</p>
+<p t="2902060" d="2290">Now the way that you
+should remember this,</p>
+<p t="2904350" d="3620">and the way that I'll
+carry out the proof,</p>
+<p t="2907970" d="12040">is that you should think of it
+is you change one at a time.</p>
+<p t="2920010" d="4070">And this is a very useful way of
+thinking about differentiation</p>
+<p t="2924080" d="2450">when you have
+things which depend</p>
+<p t="2926530" d="3130">on more than one function.</p>
+<p t="2929660" d="4090">So this is a general procedure.</p>
+<p t="2933750" d="5300">The second formula that
+I wanted to mention</p>
+<p t="2939050" d="8420">is called the quotient rule
+and that says the following.</p>
+<p t="2947470" d="5750">That (u / v) prime
+has a formula as well.</p>
+<p t="2953220" d="8060">And the formula is
+(u'v - uv' ) / v^2.</p>
+<p t="2961280" d="1960">So this is our second formula.</p>
+<p t="2963240" d="8120">Let me just mention, both of
+them are extremely valuable</p>
+<p t="2971360" d="1810">and you'll use
+them all the time.</p>
+<p t="2973170" d="10430">This one of course only
+works when v is not 0.</p>
+<p t="2983600" d="3326">Alright, so because
+we're out of time</p>
+<p t="2986926" d="1374">we're not gonna
+prove these today</p>
+<p t="2988300" d="2208">but we'll prove these next
+time and you're definitely</p>
+<p t="2990508" d="3252">going to be responsible
+for these kinds of proofs.</p>
+</body>
+</timedtext>

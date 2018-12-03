@@ -1,0 +1,2034 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="0" d="4658">[MUSIC]</p>
+<p t="4658" d="4353">Stanford University.</p>
+<p t="9011" d="4694">&gt;&gt; All right, hello everybody and welcome
+to what I personally think is one of</p>
+<p t="13705" d="4394">the most fun lectures now we can
+really just assume we have all these</p>
+<p t="18099" d="3450">basic lego blocks and
+we can build some awesome stuff.</p>
+<p t="21549" d="3921">Namely, dynamic neural networks for
+question answering.</p>
+<p t="25470" d="3560">In terms of organization,
+there's not too much going on today.</p>
+<p t="29030" d="5540">Except, hopefully, all of you are working
+hard on PA4 and on your projects.</p>
+<p t="34570" d="3320">I'll have my project advice office
+hour today right after class.</p>
+<p t="37890" d="1230">QueueStatus 90.</p>
+<p t="39120" d="2250">I'll be on hangout and everything.</p>
+<p t="43050" d="1560">Any questions around the projects?</p>
+<p t="46370" d="4464">Where you want to be?</p>
+<p t="53770" d="4210">Nope?
+All right, so let's get started.</p>
+<p t="57980" d="6870">Now why is PA4 so open ended and why do we
+think it's so exciting as a problem set?</p>
+<p t="64850" d="4365">Basically, the question
+that I wanna ask today, and</p>
+<p t="69215" d="4559">maybe you can also ask yourself
+during your projects and</p>
+<p t="73774" d="4559">your problem sets is whether
+we may be able to cast all NLP</p>
+<p t="78333" d="4087">tasks actually as a question
+answering problem.</p>
+<p t="83430" d="5355">And this question is what led us to
+invent the dynamic memory network,</p>
+<p t="88785" d="2465">which we'll talk about today.</p>
+<p t="91250" d="2800">So what do I mean by this?</p>
+<p t="94050" d="5230">Let's go through a couple of examples of
+what question answering might look like.</p>
+<p t="99280" d="4641">The first one here is sort of the standard
+question answering type of problem,</p>
+<p t="103921" d="3021">where we have some inputs,
+we have a question, and</p>
+<p t="106942" d="4648">we need to do some logical reasoning
+maybe to answer that question.</p>
+<p t="111590" d="2990">So for instance, here the inputs
+are Mary walked to the bathroom,</p>
+<p t="114580" d="2738">Sandra went to the garden,
+Daniel went back to the garden.</p>
+<p t="117318" d="3840">Sandra took the milk there and
+now we ask where is the milk.</p>
+<p t="121158" d="4485">Now, in order to do this, we'd have to
+actually do a little bit of reasoning</p>
+<p t="125643" d="2943">because if you just try to
+retrieve the sentence or</p>
+<p t="128586" d="2332">the last sentence that mentions milk.</p>
+<p t="130918" d="3533">Well then, it will tell you
+sender talked milk "there" and</p>
+<p t="134451" d="3999">you don't know where Sandra is and
+hence what "there" refers to.</p>
+<p t="138450" d="2590">So now I have to do
+some effort resolution.</p>
+<p t="142630" d="5897">If we were to try to build sort of a hand
+tuned old school machine learning NLP</p>
+<p t="148527" d="6019">system where we put our human knowledge
+into the task to answer that question.</p>
+<p t="154546" d="4688">And if we were to do that then we'd
+realize, all right let's try to find out</p>
+<p t="159234" d="4298">where Sandra is and then we look at
+this sentence and see that she is</p>
+<p t="163532" d="4484">in the garden last and then we could
+answer the question correctly.</p>
+<p t="168016" d="4224">Now, by the end of this class, you will
+know a model that you don't have to give</p>
+<p t="172240" d="1930">any of that kind of information to.</p>
+<p t="174170" d="5860">It will actually just learn all of
+this from examples of this kind.</p>
+<p t="181560" d="2337">Now that's a standard Q&amp;A problem, but</p>
+<p t="183897" d="3625">you can also look at sentiment
+where we might have an input here.</p>
+<p t="187522" d="1398">Everybody is happy.</p>
+<p t="188920" d="2040">And again we have the question
+with the sentiment at the end, so</p>
+<p t="190960" d="2920">it's just the label.</p>
+<p t="193880" d="3034">Essentially the word pertaining
+to that label, namely positive.</p>
+<p t="199878" d="2012">Now we can go further.</p>
+<p t="201890" d="4801">We had the task of sequence tagging,
+nicknamed entity recognition and</p>
+<p t="206691" d="1687">part of speech tagging.</p>
+<p t="208378" d="4873">And we can also ask what are the named
+entities and then we might want to</p>
+<p t="213251" d="5869">obtain either a list that could include
+a lot of Os for not the named entity.</p>
+<p t="219120" d="3336">Or just a list of the actual
+words that are named entities.</p>
+<p t="222456" d="4381">And again, input question-answer,
+triplet, that we would need for</p>
+<p t="226837" d="1903">training, that kinda model.</p>
+<p t="230140" d="2170">Same with what are the part
+of speech tags.</p>
+<p t="232310" d="2360">Every word has a part of speech tag, so,</p>
+<p t="234670" d="4770">that's a sequence of the same
+length as the input.</p>
+<p t="239440" d="2010">And we can even go as far as and</p>
+<p t="241450" d="4770">this is starting to be question
+of how useful it is but</p>
+<p t="246220" d="4500">where we can cast also machine translation
+as a question answering problem, right?</p>
+<p t="250720" d="4408">In the end most every NLP problem
+has some input, some questions and</p>
+<p t="255128" d="3029">answer about it and
+some output some answers.</p>
+<p t="258157" d="4876">So now with that in mind,
+wouldn't it be amazing if we were able</p>
+<p t="263033" d="4599">to build a single joint model for
+general question answering.</p>
+<p t="268650" d="4160">Can basically learn from any input
+question answer triplet dataset.</p>
+<p t="275514" d="2442">Now towards a single joint model for</p>
+<p t="277956" d="4274">discompetence of QA there're
+two major obstacles.</p>
+<p t="282230" d="2170">So lets talk about what they are.</p>
+<p t="284400" d="5006">The first one is that we don't even have a
+single architecture, or up until last year</p>
+<p t="289406" d="4796">when we published a paper that solves all
+these, there was no single architecture</p>
+<p t="294202" d="4180">that consistently got state-of-the-art
+across these different tasks.</p>
+<p t="298382" d="4128">So for question answering we have
+strongly supervised memory networks.</p>
+<p t="302510" d="970">Sentiment analysis.</p>
+<p t="303480" d="2584">We actually used tree structured LSTM so</p>
+<p t="306064" d="5398">similar to the recursive neural networks
+that Chris talked about two lectures ago.</p>
+<p t="311462" d="5670">But using the ideas of having various
+gates as you combine words and</p>
+<p t="317132" d="4838">phrases into phrase
+vectors of longer length.</p>
+<p t="321970" d="5200">And for part of speech tagging it used to
+be a bidirectional LSTM conditional random</p>
+<p t="327170" d="4720">field, another type model family that we
+didn't go into any details in this class.</p>
+<p t="331890" d="3012">And sort of in the graphical models world.</p>
+<p t="334902" d="4571">What you do notice is that all the state
+of the art models have some kind of neural</p>
+<p t="339473" d="2477">network in them somewhere these days.</p>
+<p t="341950" d="3610">That's one of the reasons we
+merged from 224D into 224N.</p>
+<p t="345560" d="4650">Felt like you really need to know
+these basic building blocks.</p>
+<p t="350210" d="2740">But there are still different kinds
+of models that make different kinds</p>
+<p t="352950" d="520">of assumptions.</p>
+<p t="353470" d="2990">And we would call these different
+kinds of architectures all right.</p>
+<p t="356460" d="3068">Like so the architectures
+that we've talked about so</p>
+<p t="359528" d="2972">far are sort of bag of words,
+window-based.</p>
+<p t="362500" d="4312">Convolutional neural network, recurrent
+neural networks, LSTMs and so on.</p>
+<p t="366812" d="2118">So that's the first major obstacle.</p>
+<p t="368930" d="1610">Now the second one,</p>
+<p t="370540" d="4410">is that fully joined multitask
+learning is actually incredibly hard.</p>
+<p t="376020" d="4780">And what I mean by saying that, is that
+we don't just wanna share some parts</p>
+<p t="380800" d="4580">of the model like word vectors, which
+we're already pretty good at sharing.</p>
+<p t="385380" d="3320">But we wanna have the exact
+same decoder or classifier.</p>
+<p t="388700" d="4377">And we don't wanna just transfer between
+a single source and one target task but</p>
+<p t="393077" d="2495">we wanna ideally train
+both of them jointly.</p>
+<p t="395572" d="5164">So in computer vision I'll encourage you
+all to take 231 next quarter I think</p>
+<p t="400736" d="5216">when it's getting offered on convolutional
+neural networks for computer vision.</p>
+<p t="405952" d="3930">Computer vision's actually
+better at able to share more of</p>
+<p t="409882" d="2212">the layers as you go up the stack.</p>
+<p t="412094" d="5914">Whereas an NLP, so far, when you try to
+do multitask learning and share weights,</p>
+<p t="418008" d="4992">what we've been mostly able to do so
+far is to share the word vectors.</p>
+<p t="423000" d="1370">And then we train the word vectors and</p>
+<p t="424370" d="4230">then we initialize some other model
+with those pre-trained word vectors.</p>
+<p t="428600" d="5470">Nobody yet consistently got improvements,
+though it's an active area of research,</p>
+<p t="434070" d="3495">to share deeper layers of the LSTM,
+for instance.</p>
+<p t="437565" d="2495">So we trained the system
+on machine translation, and</p>
+<p t="440060" d="4158">then just changed the last layer of the
+soft max email send machine can analysis,</p>
+<p t="444218" d="1173">or something like that.</p>
+<p t="445391" d="6081">It hasn't been any paper yet
+on showing improvements for that.</p>
+<p t="451472" d="4072">And even worse,
+it's hard to publish negative results and</p>
+<p t="455544" d="3422">you'll only ever read
+about successful transfer</p>
+<p t="458966" d="4814">learning cases because the unsuccessful
+ones don't get published.</p>
+<p t="463780" d="4420">But when you actually do research in
+this area you'll notice that as soon as</p>
+<p t="468200" d="3250">the tasks are not directly related,
+they actually tend to hurt each other.</p>
+<p t="471450" d="3540">So if you're trying to train two
+tasks together in one model,</p>
+<p t="474990" d="5030">say you just have two soft maxes on
+the same Hidden state of your LSTMs.</p>
+<p t="480020" d="3980">It turns to actually get
+worse in many cases, too.</p>
+<p t="484000" d="4460">So those are some of
+the two major obstacles.</p>
+<p t="488460" d="3180">Now, the dynamic memory networks
+that I'll talk to you today about</p>
+<p t="491640" d="2040">only tackle the first obstacle.</p>
+<p t="493680" d="3910">As in their an architecture which
+still has hyper parameters.</p>
+<p t="497590" d="2650">That might differ for different tasks, but</p>
+<p t="500240" d="4190">it's at least the same general modules
+that you have in that architecture.</p>
+<p t="506163" d="5262">And basically it can tackle all these
+different tasks that I described to you,</p>
+<p t="511425" d="1845">at least in some capacity.</p>
+<p t="513270" d="3050">And several of them actually
+at the state of the art level</p>
+<p t="516320" d="1050">at the time of publication.</p>
+<p t="519680" d="3652">Any questions around these obstacles and
+sharing and</p>
+<p t="523332" d="2278">the idea of multitask learning?</p>
+<p t="527852" d="4951">So basically, we're thinking of
+multitask learning through the lens</p>
+<p t="532803" d="4737">of seeing everything as a question
+over some kind of input.</p>
+<p t="537540" d="990">That has some kind of answer.</p>
+<p t="546351" d="2418">So let's look at the high level idea for</p>
+<p t="548769" d="3791">answering these tougher
+kinds of questions.</p>
+<p t="552560" d="4945">So imagine you had this story each of
+the facts is relatively simple and</p>
+<p t="557505" d="895">straightforward.</p>
+<p t="558400" d="2220">John went to the hallway and
+things like that.</p>
+<p t="560620" d="5544">But imagine I now asked you,
+after you read it, where's Sandra?</p>
+<p t="566164" d="7069">And you might have to actually try to
+retrieve the episode in which that fact,</p>
+<p t="573233" d="6117">or the answer to that question
+was actually mentioned.</p>
+<p t="579350" d="4720">And so, in some cases, as we saw with
+the football, you may actually have to go</p>
+<p t="584070" d="6640">multiple times over the input to
+answer that question correctly.</p>
+<p t="590710" d="5240">This is kind of what led us to this
+idea of Dynamic Memory Network.</p>
+<p t="595950" d="3540">This is the kind of architecture you
+would see a lot in papers, and so</p>
+<p t="599490" d="2670">we're going to walk through it
+first on a high level intuitively,</p>
+<p t="602160" d="5530">and then we'll zoom into the different
+areas to gain a better understanding.</p>
+<p t="607690" d="3540">Now, the first thing you will notice is,
+we have different modules.</p>
+<p t="611230" d="3040">This is what I call sort
+of model components.</p>
+<p t="614270" d="5670">And the reason we're basically
+separating them out is that, I think,</p>
+<p t="619940" d="5440">eventually, you have to do deep learning
+research and also general engineering.</p>
+<p t="626400" d="4570">Through, or with the help of good
+software engineering practices.</p>
+<p t="630970" d="3460">Where you have different modules,
+they define interfaces and</p>
+<p t="634430" d="4860">you might be able to switch out one module
+with another one, but that doesn't mean</p>
+<p t="639290" d="3730">you have to change all the other
+modules in your larger architecture.</p>
+<p t="643020" d="5730">So that's generally a good
+sort of modeling framework.</p>
+<p t="648750" d="3790">Now, what does this
+dynamic memory network do?</p>
+<p t="652540" d="4470">So it starts with having simple word
+vectors like glove or word2vec.</p>
+<p t="657010" d="4873">And basically we'll have a recurring
+neural sequence model such as</p>
+<p t="661883" d="2221">GRU that goes over the input and</p>
+<p t="664104" d="4886">just computes the hidden state at
+every word and at every sentence.</p>
+<p t="670770" d="4580">So a standard GRU that we have
+defined very carefully before.</p>
+<p t="676460" d="2950">Now, that's just independent
+of the question.</p>
+<p t="679410" d="4890">It will just basically compute
+a hidden state for every word.</p>
+<p t="684300" d="4860">Now, it will have also a GRU for
+the question in the question module.</p>
+<p t="689160" d="5320">In fact, sometimes, you can share also
+the waits between the question and</p>
+<p t="694480" d="3140">the input, here, these GRUs.</p>
+<p t="697620" d="3140">And we'll basically use a GRU
+to compute a question vector.</p>
+<p t="700760" d="4080">That question vector Q is just
+going to be the last hidden state</p>
+<p t="704840" d="2970">of the GRU after it went for
+every word of the question.</p>
+<p t="709731" d="4209">Now, and this is where
+the interesting stuff starts.</p>
+<p t="713940" d="2170">We'll use these attention mechanisms,</p>
+<p t="716110" d="2562">that you've learned about
+before in a very specific way.</p>
+<p t="718672" d="3178">We will define it soon, but we'll
+have this attention mechanism that is</p>
+<p t="721850" d="4750">essentially triggered by
+the question to go over the inputs.</p>
+<p t="726600" d="2700">So here the question is,
+where's the football?</p>
+<p t="729300" d="4870">And now basically we would assume that
+the fact that football was mentioned</p>
+<p t="734170" d="5830">in this question is stored somewhere
+inside the hidden state of.</p>
+<p t="740000" d="3894">That last time step GRU and
+we call that Q.</p>
+<p t="743894" d="4658">And we use Q to essentially trigger an
+attention mechanism over all the potential</p>
+<p t="748552" d="1168">inputs.</p>
+<p t="749720" d="5317">And whenever there is a strong attention
+being paid to a specific sentence,</p>
+<p t="755037" d="4415">we're going to give that sentence
+as input to yet another GRU.</p>
+<p t="759452" d="2658">And that is in the episodic memory module.</p>
+<p t="762110" d="2810">Now, whenever we have
+a line like this here,</p>
+<p t="764920" d="4880">we basically assume that is a some kind of
+recurrent neural network sequence model.</p>
+<p t="769800" d="3490">So basically, a question triggers
+an attention mechanism that</p>
+<p t="773290" d="3300">goes over all the hidden
+states of all my inputs, and</p>
+<p t="776590" d="5930">now basically says this fact seems
+relevant for this question at hand.</p>
+<p t="782520" d="1930">So for instance, where is the football?</p>
+<p t="784450" d="3970">Well, the last sentence that
+mentions football seems relevant.</p>
+<p t="788420" d="3010">And the hidden state of
+this GRU captures that</p>
+<p t="791430" d="1790">there is something mentioned
+about a football and</p>
+<p t="793220" d="3590">the hidden state of this GRU captures
+that there's something about football.</p>
+<p t="796810" d="3810">So we restore this and
+now this GRU agglomerates</p>
+<p t="800620" d="3530">only the facts that are pertinent or
+relevant to the question at hand.</p>
+<p t="805720" d="3250">So it's essentially a filtering</p>
+<p t="808970" d="4910">GRU that tries to only keep track of
+what's relevant for the current question.</p>
+<p t="813880" d="4690">And now, we'll define this memory state
+here as the last hidden state of that GRU.</p>
+<p t="821330" d="4010">Now, for the next iteration, because
+again here, John put down the football.</p>
+<p t="825340" d="5460">We don't know where John is, so
+we now have stored in this vector m,</p>
+<p t="830800" d="2890">that in order to answer the current
+question it seems pertinent, and</p>
+<p t="833690" d="2280">again the model learns all of
+these things of course by itself.</p>
+<p t="835970" d="4524">We don't manually tell it these are
+objects, these are people, or colors, or</p>
+<p t="840494" d="4320">anything like that, but we basically now
+store in this vector M that John and</p>
+<p t="844814" d="4749">football seem relevant to the question
+at hand, namely, where's the football?</p>
+<p t="849563" d="3665">And so, as we go over the input again,
+we'll take M and</p>
+<p t="853228" d="3987">Q into consideration in order
+to answer this question, and</p>
+<p t="857215" d="6735">basically pay attention to now every fact
+that mentions both John, or the football.</p>
+<p t="863950" d="4010">And so, in this case here and
+these are realistic numbers</p>
+<p t="867960" d="3270">you basically pay a lot of attention
+to John move to the bedroom and</p>
+<p t="871230" d="5250">John went to the hallway and that is
+the last sentence that seems relevant.</p>
+<p t="876480" d="2230">And so, the attention scores for</p>
+<p t="878710" d="3710">a subsequent and
+previous sentences here are very low.</p>
+<p t="882420" d="4428">Restore this, and
+now M is giving us input, and so</p>
+<p t="886848" d="5167">the zero time step to give to another G or
+U that then just has</p>
+<p t="892015" d="6867">our standard soft max classifier at
+every hidden state to produce an answer.</p>
+<p t="898882" d="5508">So that was a lot to digest,
+it was probably the most complex model.</p>
+<p t="904390" d="4290">We've looked at so far, but
+all the components of this model</p>
+<p t="908680" d="3790">we've already discussed, but this is
+kind of where our research is right now.</p>
+<p t="912470" d="6210">There are lot of folks who are trying
+to find new kinds of architectures for</p>
+<p t="918680" d="1430">different kinds of problems.</p>
+<p t="920110" d="3810">In this particular case, we're trying to
+find a general architecture that should be</p>
+<p t="923920" d="6010">possible or should be usable across
+a whole host of different kinds of tasks.</p>
+<p t="929930" d="4070">So we'll zoom in in a second into
+these different modules, but are there</p>
+<p t="934000" d="4486">any questions about the general idea
+of the model, the general architecture?</p>
+<p t="945986" d="1594">Great.
+So what are the two different tracks of</p>
+<p t="947580" d="1050">the episodic memory module?</p>
+<p t="948630" d="6160">Essentially, these tracks are mirrored
+perfectly with the input.</p>
+<p t="954790" d="3630">So there are always as many time steps in
+the episodic memory module here as there</p>
+<p t="958420" d="1250">are time steps in the input.</p>
+<p t="961270" d="4230">But the model either can
+decide with a classifier or</p>
+<p t="965500" d="2670">just goes over the input
+of fix number of times.</p>
+<p t="968170" d="1790">Somewhere between two to five.</p>
+<p t="969960" d="4336">And every time it goes over it,
+it tries to basically pay</p>
+<p t="974296" d="4442">attention to different kinds
+of sentences in the input.</p>
+<p t="978738" d="4455">Depending on what the question is and what
+it has so far agglomerated in terms of</p>
+<p t="983193" d="5177">relevant facts from the previous time
+step, or previous episode in this case.</p>
+<p t="988370" d="3830">So here, again, we go over it,
+the input, the first time.</p>
+<p t="992200" d="3610">Store things and
+facts about John and the football.</p>
+<p t="995810" d="5667">And then, the second time, we'll now
+pay attention to John facts, too.</p>
+<p t="1001477" d="5883">And so, intuitively again, the first pass,
+I ask where's the football?</p>
+<p t="1007360" d="3300">And at this state here, John moves to
+the bedroom just doesn't seem relevant</p>
+<p t="1010660" d="1490">to ask the question,
+to answer the question.</p>
+<p t="1013390" d="2750">Cuz John moving to the bedroom has
+nothing to do with the football.</p>
+<p t="1017170" d="4900">So you have to, in order to do
+transitive reasoning, as in A to B,</p>
+<p t="1022070" d="1793">as in B to C, and C and D.</p>
+<p t="1023863" d="6045">Now, if you wanna go from A to D, you need
+to understand that steps to get there.</p>
+<p t="1029908" d="3322">So this kinda transitive
+reasoning capability,</p>
+<p t="1033230" d="4280">you can only get if you have
+multiple passes over your info.</p>
+<p t="1053246" d="4217">So the question is, if we had some
+adverbs or temporal expressions and</p>
+<p t="1057463" d="4289">asked sort of different kinds of
+questions like was John there before or</p>
+<p t="1061752" d="3223">various other kinds of questions,
+like that.</p>
+<p t="1064975" d="3960">And the answer is, there's
+surprisingly many things it can learn,</p>
+<p t="1068935" d="2218">if it has seen them in the training data.</p>
+<p t="1071153" d="4652">So this kinda model will not be able
+to come out of completely new kinds of</p>
+<p t="1075805" d="4325">reasoning and types of reasoning, but if
+you show it a lot of temporal reasoning,</p>
+<p t="1080130" d="4110">it will be able to answer
+those kinds of questions.</p>
+<p t="1084240" d="4321">So I don't see why it couldn't,
+for some theoretical reason,</p>
+<p t="1088561" d="4810">answer the questions of where was he
+before that, or things like that.</p>
+<p t="1104602" d="643">That's right.</p>
+<p t="1105245" d="2810">So m1, so it's m superscript 1,
+that's right.</p>
+<p t="1108055" d="4090">So the question is, in the first
+pass we mostly use the question.</p>
+<p t="1112145" d="4110">It turns out we'll actually copy
+the question twice and in the second pass</p>
+<p t="1116255" d="3910">we'll replace the second copy of
+q with m1 but sort of a detail.</p>
+<p t="1120165" d="5145">But in general, yes, we'll only use
+the information of Q for the first pass.</p>
+<p t="1125310" d="4170">Once we have the second pass, we'll use
+m1, and Q, to understand the attention.</p>
+<p t="1129480" d="3490">And again, that way we hope that
+m is agglomerating the facts</p>
+<p t="1132970" d="1470">that are relevant to answer the question.</p>
+<p t="1141542" d="718">Great question.</p>
+<p t="1142260" d="3598">So now,
+let's zoom into the model in detail.</p>
+<p t="1145858" d="2822">In some cases, it's pretty easy.</p>
+<p t="1148680" d="1930">We basically just have a standard GRU, but</p>
+<p t="1150610" d="3000">maybe, before I define these
+sort of different modules,</p>
+<p t="1153610" d="3290">in the end here we have, again, this
+softmax, and so whenever you see softmax,</p>
+<p t="1156900" d="4080">you can think of cross-entropy
+error as your training objective.</p>
+<p t="1160980" d="2660">And now because of how
+we define the modules,</p>
+<p t="1163640" d="2970">we constrained this entire
+architecture end-to-end.</p>
+<p t="1166610" d="5310">You just have to give it an input
+sequence, a question, and an answer.</p>
+<p t="1171920" d="4020">And now from this answer here we basically
+will make errors in the beginning and</p>
+<p t="1175940" d="2220">then we'll have high cross entropy error.</p>
+<p t="1178160" d="3950">And then, we basically backpropagate
+through all these vectors here,</p>
+<p t="1182110" d="2210">through everything all the way
+into the word vectors, and</p>
+<p t="1184320" d="2110">we can train this whole system end to end.</p>
+<p t="1186430" d="2931">And that's really where
+the power of deep learning and</p>
+<p t="1189361" d="2111">these kind of architectures comes in.</p>
+<p t="1212679" d="4808">So the question is, should we have some
+attention from the answer module also sort</p>
+<p t="1217487" d="5648">of skipping the episodic memory module's
+attention and going directly to the input?</p>
+<p t="1223135" d="6715">And the answer is, yes, for the tasks
+that we had, we did not even try that,</p>
+<p t="1229850" d="4510">cuz we solved them to the state of
+the art level and slightly above.</p>
+<p t="1234360" d="4785">But what we actually have found is
+that it makes sense in the second</p>
+<p t="1239145" d="2995">iteration on the harder data set and
+namely those Stanford question answering</p>
+<p t="1242140" d="5545">data sets that you are all gonna work on,
+to actually have a co-attention mechanism</p>
+<p t="1247685" d="5210">where you want to re-interpret
+the question also in terms of the input.</p>
+<p t="1252895" d="4940">So for instance, intuitively,
+if you have a question, may I cut you?</p>
+<p t="1257835" d="3280">Then, the interpretation is very different
+if the person asking the question</p>
+<p t="1261115" d="3972">is holding a knife, or if somebody is
+standing in line in a supermarket.</p>
+<p t="1266588" d="4002">And so, sometimes the interpretation
+of your question is actually different</p>
+<p t="1270590" d="1290">depending on the input.</p>
+<p t="1271880" d="2510">And so,
+you want to have co-attention mechanisms.</p>
+<p t="1276420" d="3300">Essentially, attention is kind of
+a fun concept right now to do.</p>
+<p t="1279720" d="3187">A lot of people are sprinkling
+into a lot of different places and</p>
+<p t="1282907" d="1817">a lot of different kinds of models.</p>
+<p t="1284724" d="5386">And I think this would be a very fine
+way to do it, or a place to do it.</p>
+<p t="1292030" d="3429">So we train everything end-to-end,
+cross entropy errors, standard stuff.</p>
+<p t="1295459" d="3027">Now, the input module is a standard GRU.</p>
+<p t="1298486" d="4160">And again, in this particular case here
+where we have very simple sentences and</p>
+<p t="1302646" d="4223">facts about each sentences, we'll actually
+make that last hidden state of each</p>
+<p t="1306869" d="4261">sentence explicitly accessible
+when we answer the question.</p>
+<p t="1311130" d="3110">Now, one improvement that we've
+made on the second iteration is</p>
+<p t="1314240" d="4680">instead of just having
+a unidirectional GRU we actually have</p>
+<p t="1318920" d="4890">a bi-directional GRU on top here and
+then each sentence is represented</p>
+<p t="1325180" d="4910">via the concatenation of both the left
+to right and right to left direction.</p>
+<p t="1332190" d="4270">Now, the question also
+just a standard GRU.</p>
+<p t="1336460" d="3270">We have here,
+word vectors we call them v_t here.</p>
+<p t="1339730" d="3102">And basically we just get q_t and</p>
+<p t="1342832" d="5966">then we'll drop the subscript t for
+the last hidden state,</p>
+<p t="1348798" d="5148">just to simplify notation and
+subsequent slides.</p>
+<p t="1353946" d="4807">Now where it gets interesting is that
+episodic memory part, and we've already</p>
+<p t="1358753" d="4897">seen some attention mechanisms, and
+this one is slightly different.</p>
+<p t="1363650" d="2890">Basically, we'll have
+the attention mechanism here,</p>
+<p t="1367610" d="3330">which I'll define in the next slide, of G.</p>
+<p t="1370940" d="2100">G is just a single scalar number.</p>
+<p t="1373040" d="2690">Should I pay attention to this sentence?</p>
+<p t="1375730" d="1610">At the ith time step or not.</p>
+<p t="1378730" d="4420">Now, the superscript here
+refers to the iteration, or</p>
+<p t="1383150" d="4840">the episode, the tth time that
+we went over the entire input.</p>
+<p t="1387990" d="4040">So we start here with t equals 1,
+and then we go up to t equals 2.</p>
+<p t="1392030" d="3479">And if we go over the input five times,
+which, of course,</p>
+<p t="1395509" d="3522">is also kinda slow,
+we'd have here "h superscript 5." But</p>
+<p t="1399031" d="6109">the main idea is essentially that we have
+a global gate on top of a standard GRU.</p>
+<p t="1405140" d="4080">So this global gate will basically say
+this entire sentence does not matter or</p>
+<p t="1409220" d="1520">does matter a lot.</p>
+<p t="1410740" d="4420">And instead of having every single
+hidden state have its own gate</p>
+<p t="1415160" d="3618">we just turn off the entire GRU
+if a fact doesn't seem relevant.</p>
+<p t="1418778" d="5754">So if g_i, at the ith sentence,
+and the tth episode and</p>
+<p t="1424532" d="5144">pass over the entire input is 0,
+what we'll do is</p>
+<p t="1429676" d="5524">basically just entirely
+copy that h vector forward.</p>
+<p t="1435200" d="4570">No computation really necessary,
+no updates to any of the units whatsoever.</p>
+<p t="1441680" d="1960">So intuitively, that makes a lot of sense.</p>
+<p t="1443640" d="3475">If we have sentences like Sandra
+went back to the kitchen and</p>
+<p t="1447115" d="2294">we're asking about the football, and</p>
+<p t="1449409" d="5091">maybe eventually we'll figure out
+something about John, and so on.</p>
+<p t="1454500" d="5337">It's completely irrelevant to
+have facts about other people</p>
+<p t="1459837" d="7301">going to other places and that's really
+easy to capture with this single scalar.</p>
+<p t="1467138" d="5190">Now the last remaining question is well,
+how do we compute that g and</p>
+<p t="1472328" d="5232">the main idea here is actually
+fairly simple and straightforward.</p>
+<p t="1477560" d="4969">We essentially compute this vector
+z here with a bunch of simple</p>
+<p t="1482529" d="3574">similarities between the sentence sector.</p>
+<p t="1486103" d="4227">That's again, the hidden state
+of at the end of each sentence.</p>
+<p t="1490330" d="4374">The question back there and our memory
+stayed from the previous iteration and</p>
+<p t="1494704" d="3104">m0 here would just be
+initialized to be the question.</p>
+<p t="1497808" d="3662">So the very first iterations
+just have these two twice.</p>
+<p t="1501470" d="4378">But that way, we can use the exact
+same mechanism in the first,</p>
+<p t="1505848" d="2815">second and third iteration and higher.</p>
+<p t="1508663" d="2671">Now, what kinds of similarities
+are we measuring here?</p>
+<p t="1511334" d="3495">These are all element-wise and
+these are just how to mark products,</p>
+<p t="1514829" d="2955">so multiplicative interactions
+between the sentence and</p>
+<p t="1517784" d="2916">question and
+each sentence at the memory state.</p>
+<p t="1520700" d="3567">And then here, we just have elementwise
+subtraction and absolute value.</p>
+<p t="1524267" d="4451">So just basically,
+two very simple similarity</p>
+<p t="1528718" d="4577">metrics between the three
+vectors that we have.</p>
+<p t="1533295" d="500">Yeah.</p>
+<p t="1537525" d="2881">Is there a reason why we don't use
+the inner product for similarity?</p>
+<p t="1540406" d="1341">We actually tried it.</p>
+<p t="1541747" d="4528">And in the first version of the paper,
+we even had things like question</p>
+<p t="1546275" d="4527">transpose times W times a sentence for
+instance so this way we have a and</p>
+<p t="1550802" d="4302">even more powerful similarity
+matrix that's multiplicative but</p>
+<p t="1555104" d="3926">can weigh different elements
+of the vectors and so on.</p>
+<p t="1559030" d="3845">It turned out after we've done some
+replacement studies, again, something</p>
+<p t="1562875" d="4665">you should all do for you projects too, if
+we remove that, we had the same accuracy.</p>
+<p t="1567540" d="4971">And whenever you can remove
+something from your model</p>
+<p t="1572511" d="4097">you should, so
+we just got to take that out.</p>
+<p t="1576608" d="4777">Now once we have this feature vector here,
+this essentially it's a vector that</p>
+<p t="1581385" d="3795">has all the similarities between
+these different sentences.</p>
+<p t="1585180" d="3234">We just plugged that into a standard
+true layer neural network.</p>
+<p t="1588414" d="4484">Standard tanh hidden units were very
+familiar at this point with these</p>
+<p t="1592898" d="1202">equations.</p>
+<p t="1594100" d="4869">We have a linear, they're here and then we
+basically put a softmax on top of that,</p>
+<p t="1598969" d="2272">so all the attention scores sum to 1.</p>
+<p t="1601241" d="3319">In some ways,
+this could actually be a limiting factor.</p>
+<p t="1604560" d="3743">Cuz that means that I can
+only pay attention to so</p>
+<p t="1608303" d="5239">many things very, very strongly each
+time I go over the data set and</p>
+<p t="1613542" d="2829">we might not always want to do that.</p>
+<p t="1616371" d="5319">Maybe we want to pay 100%
+attention to five different facts.</p>
+<p t="1621690" d="2866">Turns out to work reasonably well for
+some data sets but</p>
+<p t="1624556" d="4237">sometimes you might also instead of having
+a single softmax have just sigmoids,</p>
+<p t="1628793" d="3325">so you can pay a lot more attention
+to a lot of different things.</p>
+<p t="1635810" d="5376">And then at the very end here,
+these two lines turn out to also be a GRU,</p>
+<p t="1641186" d="3573">but one that won't have
+very many time steps.</p>
+<p t="1644759" d="4770">It's basically a GRU that goes from each
+of the memory states to the next memory</p>
+<p t="1649529" d="4781">state and agglomerates the facts that
+have been agglomerated over time here.</p>
+<p t="1656690" d="3481">Turns out that is actually
+not an important parameter,</p>
+<p t="1660171" d="3112">eventually replaced that
+GRU standard rectified</p>
+<p t="1663283" d="4592">linear unit type of two layer neural
+network and that worked well too, but</p>
+<p t="1667875" d="4470">first iteration of the model had a GRU
+between these two states as well.</p>
+<p t="1676240" d="3742">Any questions about
+the episodic memory module and</p>
+<p t="1679982" d="4273">how we agglomerate facts,
+how we compute the attention?</p>
+<p t="1691440" d="647">Cool.</p>
+<p t="1692087" d="2847">Could you raise your hand if you
+feel like all these modules and</p>
+<p t="1694934" d="1986">how we put them together
+make sense to you?</p>
+<p t="1699290" d="3780">To the people who haven't raised their
+hand, can you formulate any kind of</p>
+<p t="1703070" d="3426">question around, why it doesn't
+make sense or what confuses you?</p>
+<p t="1709830" d="500">Yeah.</p>
+<p t="1726604" d="891">That's exactly right.</p>
+<p t="1727495" d="5845">So the question is on a very high-level,
+we're going over the input multiple times.</p>
+<p t="1733340" d="2319">Because every time we go over the input,</p>
+<p t="1735659" d="3629">we can learn to pay attention
+to different kinds of sentences.</p>
+<p t="1756366" d="3180">That's right.
+So basically, intuitively here,</p>
+<p t="1759546" d="5262">I'll just rephrase your question
+in the answer which is basically,</p>
+<p t="1764808" d="3899">when I go over the inputs
+the sentences here, s_i for</p>
+<p t="1768707" d="3208">the first time maybe s_i here captures.</p>
+<p t="1771915" d="3903">Facts about John, but
+my question here is about football.</p>
+<p t="1775818" d="1912">So in the very first iteration and</p>
+<p t="1777730" d="4082">m^{t-1} (m_0) is just initialized to
+the question too, so it's essentially not</p>
+<p t="1781812" d="4983">adding anything either cuz we haven't
+gone over the inputs an entire time yet.</p>
+<p t="1786795" d="1757">So, we really have these two factors.</p>
+<p t="1788552" d="3643">The sentence which basically
+in your hidden state,</p>
+<p t="1792195" d="4469">we hope capture some fact about
+John having move to the hallway or</p>
+<p t="1796664" d="5156">somewhere, but the question is
+just asking where the football is.</p>
+<p t="1801820" d="5238">So the similarity between this vector and
+this vector is not going to be very</p>
+<p t="1807058" d="5906">high and then we plug this long feature
+vector into this two-layer neural network,</p>
+<p t="1812964" d="4924">but no matter what, the two sentences
+just don't seem very related.</p>
+<p t="1817888" d="4048">And so, this two layer neural
+network will not learn or</p>
+<p t="1821936" d="5294">be able to identify that the sentence
+seems relevant for the question.</p>
+<p t="1827230" d="5588">And so this gate g here will just be very
+small, but then in the second iteration</p>
+<p t="1832818" d="4924">with basically edit one sentence
+that connect the John and hallway.</p>
+<p t="1837742" d="6309">So now in our hidden state m that
+had gone through this GRU here, so</p>
+<p t="1844051" d="6655">that last hidden state, we define
+here as m now captured from the very</p>
+<p t="1850706" d="6339">first iteration that John put
+down the football seems relevant.</p>
+<p t="1857045" d="5825">So now m has, in its hidden state, some
+facts about both John and the football.</p>
+<p t="1864010" d="5130">And now, those similarities can be
+picked up by this attention mechanism.</p>
+<p t="1870250" d="4353">And basically now, in the next iteration
+as we move over the sentence again</p>
+<p t="1874603" d="3956">give a higher attention score to
+that sentence that mentions John.</p>
+<p t="1882420" d="4735">That's right, a sentence is just a GRU or
+some averaging.</p>
+<p t="1902825" d="3194">That's a great question.</p>
+<p t="1906019" d="4201">So there are a bunch of different ,I will
+get to this in a second, don't worry.</p>
+<p t="1910220" d="4606">There are a bunch of different kinds
+of things that people have tried and</p>
+<p t="1914826" d="4470">checked if this works and
+one of them is actually Basic Coreference.</p>
+<p t="1919296" d="5844">So being able like requiring to
+answer a question that it is he And</p>
+<p t="1925140" d="3890">then asking, who does he refer to,
+then finding the right person.</p>
+<p t="1929030" d="4370">And so, the model can actually do this
+very accurately as long as it sees that.</p>
+<p t="1933400" d="4430">And so, the way it would do that is
+just basically noticing how inside</p>
+<p t="1938930" d="5210">here, you mention John, or you mention he,
+and then it learns to just go back and</p>
+<p t="1944140" d="5290">find the next previous
+kind of sentence that</p>
+<p t="1949430" d="3120">mentions any kind of name, for instance.</p>
+<p t="1952550" d="3030">And it could learn more complex
+patterns than that too.</p>
+<p t="1955580" d="3664">But, again, it would have to
+have these multiple passes to be</p>
+<p t="1959244" d="2537">able to now go back to
+something that only it</p>
+<p t="1961781" d="4875">didn't make sense in the first time you
+went from left to right reading it, yeah.</p>
+<p t="1980832" d="4742">But you would hope that the sentence
+vectors capture what is in the sentence.</p>
+<p t="2001956" d="2873">That's right, so
+sorry to rephrase what you said,</p>
+<p t="2004829" d="2231">I guess it wasn't quite a question but.</p>
+<p t="2008260" d="4360">What important here, yeah, as the line
+goes through, the last hidden state</p>
+<p t="2012620" d="4520">of s_2 of that second
+sentence is the input and</p>
+<p t="2017140" d="6150">the h_0 of the next sentence,
+so it's one continuous GRU.</p>
+<p t="2023290" d="2620">And you would hope that</p>
+<p t="2025910" d="2920">as it mentions John it keeps track
+of that in one of its hidden states.</p>
+<p t="2028830" d="3297">Something happened about John,
+and then as it reads in "he" and</p>
+<p t="2032127" d="4333">updates our hidden states we would hope
+that it captures something about the two</p>
+<p t="2036460" d="1243">being connected now.</p>
+<p t="2055630" d="4917">That's right, so the question is has there
+been a study of using this exact model</p>
+<p t="2060547" d="3368">on coreference resolution and
+the answer is yes.</p>
+<p t="2063915" d="1810">We actually played around with it.</p>
+<p t="2065725" d="3220">And there are some data sets where
+we actually did really well on, but</p>
+<p t="2068945" d="2730">we also had to modify the model slightly.</p>
+<p t="2071675" d="1290">There's some various tips and</p>
+<p t="2072965" d="3040">tricks that will be a little bit
+outside the scope of this lecture.</p>
+<p t="2076005" d="5585">So, there's nothing in theory of why this
+couldn't work at all for coreference.</p>
+<p t="2081590" d="4670">The main problem is that there's a lot
+of different kinds of patterns and</p>
+<p t="2086260" d="3770">you need a lot of trained
+data to show the model.</p>
+<p t="2090030" d="3530">What kind of patterns you might
+wanna capture for co-reference?</p>
+<p t="2093560" d="4720">And then, the main problem in co-reference
+is that you might want to have an answer</p>
+<p t="2098280" d="2170">for every pair of words.</p>
+<p t="2100450" d="3282">In saying could these two words
+quote "refer to each other or not".</p>
+<p t="2103732" d="2431">And [INAUDIBLE] so
+there is some issues but</p>
+<p t="2106163" d="4014">there is no reason of why this
+model in general couldn't do coref.</p>
+<p t="2110177" d="4745">The main tricky bit in that why you needed
+extra modifications is to squeeze coref</p>
+<p t="2114922" d="4138">into a question and answering problem,
+which is not very intuitive.</p>
+<p t="2119060" d="2630">The question would then be so
+for instance,</p>
+<p t="2121690" d="2610">let's say you have this whole sentence and
+they're a bunch of couple of he's and</p>
+<p t="2124300" d="1940">she's in there, and
+now you ask what does he refer to.</p>
+<p t="2126240" d="3880">And you wouldn't know which he
+even mean from the question.</p>
+<p t="2130120" d="2100">So then, you have to say,
+what does he refer to?</p>
+<p t="2132220" d="3630">And then we'd have to give
+sort of a indicator function</p>
+<p t="2135850" d="3160">to which he were actually
+caring about in the input.</p>
+<p t="2139010" d="3321">So, those are the kinds of changes
+you may have to make to the model to</p>
+<p t="2142331" d="768">do coreference</p>
+<p t="2170408" d="1847">So, that one seems very easy.</p>
+<p t="2172255" d="3350">So the question is, what if the input
+was John moves to the bedroom, and</p>
+<p t="2175605" d="2805">the question is where did John move to?</p>
+<p t="2178410" d="3610">And yeah, in this case, it just needs to
+pay attention to that one sentence and</p>
+<p t="2182020" d="2440">can immediately agglomerate that.</p>
+<p t="2184460" d="3180">And then, you just wanna make sure it
+doesn't ignore it in the next couple of</p>
+<p t="2187640" d="3620">iterations if you have a fixed number
+of passes that you have over the input.</p>
+<p t="2191260" d="2110">And then,
+you can just output that bedroom.</p>
+<p t="2194730" d="2795">But maybe your answer is,
+it's never seen the word bedroom before.</p>
+<p t="2201253" d="937">I see, yeah.</p>
+<p t="2202190" d="4630">So, if they're completely
+new words that describe new</p>
+<p t="2206820" d="3310">existing kinds of relationships,
+it would also have some trouble.</p>
+<p t="2210130" d="5370">In this case, it probably would still
+work because it doesn't really care about</p>
+<p t="2215500" d="4560">that many things in between, unless now
+you have certain things like John slept</p>
+<p t="2220060" d="4050">in the bedroom versus John went to
+the bedroom and now you have different</p>
+<p t="2224110" d="5080">kinds of questions and it needs to know
+what the actual action and verb is.</p>
+<p t="2229190" d="3190">And then, if you don't have that in
+a trained data, then it couldn't do it.</p>
+<p t="2232380" d="4518">But in general,
+this kind of model struggles with</p>
+<p t="2236898" d="4322">these things that i mentioned,
+which is this thing right here,</p>
+<p t="2241220" d="3350">in the first version of this
+model is still a softmax.</p>
+<p t="2244570" d="5200">So, if you've never seen a certain answer
+at training time, the word hallway or</p>
+<p t="2249770" d="3720">bedroom, maybe they've only went
+to kitchens and living rooms or</p>
+<p t="2253490" d="4280">something that, it would never be
+able to give you that kind of answer.</p>
+<p t="2257770" d="4890">But they're now ways to extend these kinds
+of models with the pointer sentinel idea</p>
+<p t="2262660" d="4890">and generally pointers that learn to
+point to certain parts of your input and</p>
+<p t="2267550" d="4580">that's one way of fixing that problem and
+you'll implement pointers I think for</p>
+<p t="2272130" d="940">your PA4 as well.</p>
+<p t="2273070" d="5510">But a lot of the other kinds of
+ideas are not that unreasonable.</p>
+<p t="2278580" d="2852">For those kinds of models, too.</p>
+<p t="2309340" d="2735">So, the question is how do
+we compute the m vector?</p>
+<p t="2312075" d="5705">So the m vector is going to be
+defined as the last hidden state</p>
+<p t="2317780" d="6100">of this time sequence model,
+which inside has a GRU,</p>
+<p t="2323880" d="4160">but also has this global
+gate on top of it.</p>
+<p t="2328040" d="3520">So, for simplicity for instance,
+if the fact is very relevant based on</p>
+<p t="2331560" d="4840">this attention score g, then h will
+just be computed as a standard GRU.</p>
+<p t="2337940" d="2520">All right, so
+this is just a single scalar.</p>
+<p t="2340460" d="4070">That single scalar is one
+then we'll just have it GRU.</p>
+<p t="2344530" d="4437">Now the last hidden state of this GRU
+as it goes over the inputs we'll just</p>
+<p t="2348967" d="815">define as m.</p>
+<p t="2353833" d="2267">So that's for one pass.</p>
+<p t="2356100" d="4960">But then, the second pass will actually
+take that last hidden state and give it</p>
+<p t="2361060" d="5130">as input together with the previous hidden
+state and actually, never mind, yeah.</p>
+<p t="2366190" d="2400">Let's just assume that
+that's your m state.</p>
+<p t="2368590" d="2970">There are lots of modifications
+that you can make to this model but</p>
+<p t="2371560" d="4470">they're not that relevant and
+they usually only change your accuracy.</p>
+<p t="2376030" d="2132">1 to 2 or 3%, so</p>
+<p t="2378162" d="6048">the simplest iteration is just going to
+be going through these m's independently.</p>
+<p t="2384210" d="3240">And then, you can try various options of</p>
+<p t="2387450" d="4450">incorporating this last hidden state
+m also at the very last time stamp.</p>
+<p t="2391900" d="10230">But you can kind of- All right, awesome.</p>
+<p t="2402130" d="5880">So, the answer module also adjust the GRU,
+but one little trick here,</p>
+<p t="2408010" d="4766">which is We don't just have the previous
+hidden state at, and some word</p>
+<p t="2412776" d="4807">vector cuz there are no word vectors,
+there are no inputs for the answer module.</p>
+<p t="2417583" d="5134">And so, what we have instead is will
+concatenate the question vector</p>
+<p t="2422717" d="6173">at every single input state here,
+as well as the previous words output.</p>
+<p t="2428890" d="4814">So if we have this longer sequence
+of things that we're generating,</p>
+<p t="2433704" d="4482">then we have here the previous
+word that we generated each time.</p>
+<p t="2438186" d="5040">So this is similar to mission completion
+for instance, where we give it</p>
+<p t="2443226" d="4883">as input every time the word we just
+generated in the ten step before.</p>
+<p t="2454884" d="2926">Cool, now there's a bunch of related work.</p>
+<p t="2457810" d="6590">Many of these papers we've talked about,
+well actually not that many, some of them.</p>
+<p t="2464400" d="4835">So Sequence to Sequence learning,
+is one such model.</p>
+<p t="2469235" d="4077">We didn't really cover Neural Turing
+Machines in some of these other models</p>
+<p t="2473312" d="2613">here, with somewhat over-promising titles,</p>
+<p t="2475925" d="3285">like teaching machines to read and
+comprehend.</p>
+<p t="2479210" d="3440">I don't think any of these models
+are really comprehending that much,</p>
+<p t="2482650" d="2405">or reading in the sense that people read,
+but</p>
+<p t="2485055" d="3635">it's similar kinds of models
+that have memory components.</p>
+<p t="2489830" d="2930">As they go over different kinds of text.</p>
+<p t="2492760" d="4250">The one that's most relevant and
+was actually developed in peril</p>
+<p t="2497010" d="3960">to this dynamic memory network, is
+the memory network from Jason Weston, and</p>
+<p t="2500970" d="3555">the extension to them in
+end to end memory networks.</p>
+<p t="2504525" d="3960">And so it makes sense to look a little
+bit at the differences between these.</p>
+<p t="2508485" d="5595">Basically, both of these kinds of
+models have mechanisms to compute</p>
+<p t="2514080" d="6088">some representations for input,
+then scoring attention and responses.</p>
+<p t="2520168" d="4099">The main difference is that for
+the memory networks,</p>
+<p t="2524267" d="4143">the input representations
+are bag of words.</p>
+<p t="2528410" d="1979">And then have some nonlinear or</p>
+<p t="2530389" d="5114">linear embeddings that explicitly
+encode the position of each word.</p>
+<p t="2535503" d="5169">And then the memory networks interfere on
+a variety of different kinds of functions,</p>
+<p t="2540672" d="2168">both for attention and responses.</p>
+<p t="2542840" d="760">So essentially,</p>
+<p t="2543600" d="5500">each of these four components is
+a very different kind of network.</p>
+<p t="2549100" d="4489">And it's not just a sequence model,
+and so the dynamic memory</p>
+<p t="2553589" d="4766">network here really takes as its core,
+a neural sequence model.</p>
+<p t="2558355" d="3372">It could be a GRU which we've
+tried compared to LSTMs,</p>
+<p t="2561727" d="4415">turned out LSTMs got the same performance,
+but have more parameters.</p>
+<p t="2566142" d="3963">So we use just a GRU, and
+what's nice about this is that,</p>
+<p t="2570105" d="5995">that will naturally capture that we
+have a temporality in our sequence.</p>
+<p t="2576100" d="4300">So if we asked did this happen before,
+or if we want to do sequence tagging,</p>
+<p t="2580400" d="3510">things like that we can immediately
+do that with this model.</p>
+<p t="2583910" d="4140">So we have basically much broader range of
+different kind of tasks that we can solve</p>
+<p t="2588050" d="901">with this model.</p>
+<p t="2591120" d="4755">Now, before we get to evaluation,
+we'll have a research highlights.</p>
+<p t="2599731" d="4518">&gt;&gt; Cool, hi everyone, so first of all
+happy belated International Women's Day</p>
+<p t="2604249" d="3839">and so for the recent highlight,
+I'm going to present the paper.</p>
+<p t="2608088" d="4083">Learning Program Embeddings
+to Propagate Feedback on</p>
+<p t="2612171" d="2760">Student Code by Chris Piech, et al.</p>
+<p t="2614931" d="553">Great.
+So,</p>
+<p t="2615484" d="3286">if you remember your first days of
+programming and for some of you,</p>
+<p t="2618770" d="3829">if you've taken one of six-eight here,
+you'll probably remember Karel.</p>
+<p t="2622599" d="3317">You'll know how important it is to
+get feedback from your teachers,</p>
+<p t="2625916" d="2644">about what your coding to
+become a better programmer.</p>
+<p t="2629630" d="2860">But now let's imagine that you're
+teaching a class that has,</p>
+<p t="2632490" d="3070">let's say,
+an online course with a million students.</p>
+<p t="2635560" d="3000">How do you actually make sure that
+you give feedback to everyone.</p>
+<p t="2638560" d="4331">Wouldn't it be nice if you just gave
+feedback or if you graded, let's say,</p>
+<p t="2642891" d="1694">about 100 assignments and</p>
+<p t="2644585" d="4148">you could propagate that feedback to
+the other students in that course?</p>
+<p t="2648733" d="5571">So that's kind of the motivation for
+creating program embeddings.</p>
+<p t="2654304" d="3826">Yeah, the idea's that you want to be
+able to cluster on these programs and</p>
+<p t="2658130" d="2930">together by like similar in some ways.</p>
+<p t="2661060" d="3320">So, and you all know that we can
+do that with flagged sentences.</p>
+<p t="2664380" d="1747">We've seen that a lot in this class.</p>
+<p t="2666127" d="4820">And the question is, can we also represent
+programs with vector representations,</p>
+<p t="2670947" d="4764">such that these vectors capture something
+about the functionality of the code,</p>
+<p t="2675711" d="3820">even if the code, let's say,
+crushes or doesn't really compile.</p>
+<p t="2683010" d="2292">So you know how to encode sentences.</p>
+<p t="2685302" d="2628">You've seen lots of different
+architectures to do that.</p>
+<p t="2687930" d="4620">Usually, we train them on some task,
+which requires and bottling the language.</p>
+<p t="2692550" d="5190">And then we can use that neural network
+to create embeddings and for new imports.</p>
+<p t="2697740" d="2234">So can we do the same thing for
+computer programs?</p>
+<p t="2699974" d="4536">And here this is what's presented
+in the paper, and this is for</p>
+<p t="2704510" d="2680">a very simple program you can
+see the program in the middle.</p>
+<p t="2707190" d="3130">It's just like to put a beeper and
+move, and</p>
+<p t="2710320" d="4430">then on the left side you can see that
+there are two precondition states.</p>
+<p t="2714750" d="3660">So that means just define what
+precondition, postcondition means.</p>
+<p t="2718410" d="3245">So, pre-condition is a current
+state of Karel world.</p>
+<p t="2721655" d="3751">For example, Karel is in the first square
+and there is no beeper to world, so,</p>
+<p t="2725406" d="3370">that could be like a state, so,
+that's a pre-conditioned and then,</p>
+<p t="2728776" d="2604">once you execute a program
+we get to a post-condition.</p>
+<p t="2731380" d="3550">It's like where Karel ends up
+after we execute that program.</p>
+<p t="2734930" d="1283">So, as you can imagine, for</p>
+<p t="2736213" d="3209">one program we can actually have
+a lot of different pre-conditions and</p>
+<p t="2739422" d="3568">then once you execute program,
+you have different post-conditions.</p>
+<p t="2742990" d="4342">So here you see two samples
+of P_1 as one precondition,</p>
+<p t="2747332" d="3848">once we execute the program,
+we get to Q_1.</p>
+<p t="2751180" d="4877">We also have another example,
+P_k here, which brings us to Q_k.</p>
+<p t="2756057" d="5553">And you can imagine we have lots of these
+pre-condition post-condition pairings.</p>
+<p t="2761610" d="5120">And so yeah, so the first step in this
+model is that we want to encode the state.</p>
+<p t="2766730" d="2250">So we encode the precondition state.</p>
+<p t="2768980" d="3230">We get a vector presentation for
+that state, then we</p>
+<p t="2772210" d="4480">apply the matrix M_A which is actually
+the embedding that we're trying to learn.</p>
+<p t="2776690" d="4070">So we apply that and
+then we get and after from that,</p>
+<p t="2780760" d="5690">which we are then decoding into what
+we predict to be the post condition.</p>
+<p t="2786450" d="3374">So it's in some ways similar
+to the approach that we</p>
+<p t="2789824" d="3686">see at the beginning of
+the class with word2vec where we</p>
+<p t="2793510" d="4410">are trying to learn this feature
+matrix like M_A in this case.</p>
+<p t="2797920" d="2710">So the goal is that M_A
+captures something about</p>
+<p t="2800630" d="1860">the meaning of this particular program.</p>
+<p t="2803750" d="2590">And you can also see that,
+like the encoder and decoder,</p>
+<p t="2806340" d="2500">they follow very similar structures
+that you've seen in class.</p>
+<p t="2808840" d="4370">We apply a linear function with
+a nonlinearity around it, and also for</p>
+<p t="2813210" d="4320">decoding, it's very similar so we use
+the output from our cell in the mddle and</p>
+<p t="2817530" d="3800">then we, again, apply a linear function
+with a nonlinearity afterwards.</p>
+<p t="2823650" d="3140">So the last function here
+mainly consists of two parts.</p>
+<p t="2826790" d="5340">We have a prediction loss, which measures
+how well we can predict the post condition</p>
+<p t="2832130" d="2170">given our P prediction and the program.</p>
+<p t="2834300" d="4550">And we also have an autoencoding loss,
+which measures how good our encoder and</p>
+<p t="2838850" d="1290">decoders are.</p>
+<p t="2840140" d="2880">So in a way like if we have,
+get and code us and decode us,</p>
+<p t="2843020" d="3590">we should be able to also
+reconstruct our precondition.</p>
+<p t="2846610" d="2109">And the last term is just regularization,</p>
+<p t="2848719" d="2399">which you also have seen
+many times in this class.</p>
+<p t="2852447" d="5400">[COUGH] So but if we have like a complex
+program, we would like to actually combine</p>
+<p t="2857847" d="6433">or we can't necessarily train the previous
+model on all different kinds of programs.</p>
+<p t="2864280" d="3120">So we want to be able to use
+these building blocks, and</p>
+<p t="2867400" d="3222">then create our representation form or
+complex program.</p>
+<p t="2870622" d="3938">And here, so you've already seen
+recursive neural nets in this class, so</p>
+<p t="2874560" d="2650">we can use recursive
+neural nets to do that.</p>
+<p t="2877210" d="3640">And the cool thing about programs is,
+they're already in a tree structure, so</p>
+<p t="2880850" d="4060">we don't even have to create a tree
+structure but it's already given to you.</p>
+<p t="2884910" d="4310">So given that tree structure, we can
+reconstruct a recursive neural network</p>
+<p t="2889220" d="2790">which exactly follows the same structure.</p>
+<p t="2892010" d="3980">And then we combine these embeddings
+that we've learned from the first task</p>
+<p t="2895990" d="3660">together recursively
+until we reach the root.</p>
+<p t="2899650" d="3860">And the ideas that embedding
+like the activation at the root</p>
+<p t="2903510" d="3170">in this case is the one thing
+that's blue at the top.</p>
+<p t="2906680" d="4030">That representation should contain
+something about the meaning,</p>
+<p t="2910710" d="1470">the logic of the entire program.</p>
+<p t="2913190" d="3482">And we can also train this
+recursive neural network because</p>
+<p t="2916672" d="4594">when we're combining these embeddings
+together, we also multiply them with</p>
+<p t="2921266" d="3498">parameters which we can learn
+by training on an objective.</p>
+<p t="2924764" d="524">Okay.
+So</p>
+<p t="2925288" d="2776">just to summarize what
+this paper presented, is</p>
+<p t="2928064" d="4669">a neural network architecture which allows
+us to encode programs as a mapping from</p>
+<p t="2932733" d="5247">precondition spaces to a postcondition
+space, using recursive neural networks.</p>
+<p t="2937980" d="3090">And the advantage of using recursive
+neural networks in this case,</p>
+<p t="2941070" d="4060">is that we are also using
+the structure of the program itself.</p>
+<p t="2945130" d="2410">And once we have these learned
+representations, we can use them for</p>
+<p t="2947540" d="1180">lots of different tasks.</p>
+<p t="2948720" d="2330">So going back to our initial motivation,</p>
+<p t="2951050" d="3490">we can use them to cluster students
+by their similarity of programs.</p>
+<p t="2954540" d="3657">So let's say once you've waited around 100
+students, we can use that feedback and</p>
+<p t="2958197" d="1466">give it to other students as well.</p>
+<p t="2959663" d="2257">We have similar programs.</p>
+<p t="2961920" d="4536">We can essentially to feedback prediction
+part and another application is to</p>
+<p t="2966456" d="4234">actually perform knowledge tracing
+over multiple code submissions.</p>
+<p t="2970690" d="4111">So an example of that is when you're
+solving your programming challenge,</p>
+<p t="2974801" d="2829">you might actually submit multiple times.</p>
+<p t="2977630" d="1788">It'll be interesting to
+actually see your trajectories.</p>
+<p t="2979418" d="4158">So as a teacher, you can oftentimes
+see how the student's progressing and</p>
+<p t="2983576" d="4224">you can see if the student actually
+understood what they were programming or</p>
+<p t="2987800" d="2650">if they just kind of
+randomly guessed the code.</p>
+<p t="2991650" d="2740">So this is actually still ongoing research</p>
+<p t="2995550" d="2850">by something that I've actually
+been working on with Chris.</p>
+<p t="2998400" d="5120">So for example, possible interventions
+that you might want to predict,</p>
+<p t="3003520" d="1880">an online course.</p>
+<p t="3005400" d="3349">When should you give a hint to the
+student, should you show a motivational</p>
+<p t="3008749" d="4021">video right now or should you maybe
+choose a different next exercise?</p>
+<p t="3012770" d="4180">And in order to do that, one thing that
+you could do is given all these program</p>
+<p t="3016950" d="3050">submissions by the student, you convert
+them into the program embeddings,</p>
+<p t="3020000" d="2040">using the approach that we just saw.</p>
+<p t="3022040" d="3624">And then you can feed them into
+another recurring neural network and</p>
+<p t="3025664" d="2716">then predict future student success.</p>
+<p t="3028380" d="2570">Yeah, so and that's it,
+if you have any questions,</p>
+<p t="3030950" d="3320">feel free to find me after class and
+I would love to chat about it, thanks.</p>
+<p t="3034270" d="627">&gt;&gt; Thanks Lisa.</p>
+<p t="3034897" d="629">That was great.</p>
+<p t="3035526" d="7074">&gt;&gt; [APPLAUSE]
+&gt;&gt; All right, that was awesome.</p>
+<p t="3042600" d="1960">So now,</p>
+<p t="3044560" d="5170">let's look at the various tasks that we
+can apply to dynamic memory network, too.</p>
+<p t="3049730" d="4389">So the first one here is the babI or
+babI data set, it's actually not</p>
+<p t="3054119" d="5261">a great data set in some ways because
+it is actually a synthetic data set.</p>
+<p t="3059380" d="4410">Which is in some ways a big no-no for
+a lot of NLP people.</p>
+<p t="3063790" d="3700">Because that was what the field
+had done many, many years ago.</p>
+<p t="3067490" d="3960">We've moved past that since, and
+actually can use real language.</p>
+<p t="3071450" d="4190">But I still think it was
+an interesting data set for a while.</p>
+<p t="3075640" d="3040">We've solved it to such a high degree at
+this point already that it's not that</p>
+<p t="3078680" d="880">interesting anymore.</p>
+<p t="3079560" d="2576">We've sort of solved it as
+a community fairly quickly.</p>
+<p t="3082136" d="5073">But it's interesting in that it gives you
+a lot of necessary, but not sufficient</p>
+<p t="3087209" d="4841">conditions for systems to be able to
+answer certain kinds of questions.</p>
+<p t="3092050" d="4194">So simple things like counting, like X
+goes into the room, Y goes into the room,</p>
+<p t="3096244" d="1487">how many people in the room?</p>
+<p t="3097731" d="645">Right?</p>
+<p t="3098376" d="3532">So it's very simple and
+if you give it enough examples,</p>
+<p t="3101908" d="5036">it will be able to predict some number
+between 1 to 10 or something like that or</p>
+<p t="3106944" d="4006">a simple negation like John
+did not go into the bathroom.</p>
+<p t="3110950" d="675">Is John in the bathroom?</p>
+<p t="3111625" d="641">No.</p>
+<p t="3112266" d="985">Things like that.</p>
+<p t="3113251" d="4749">So if it sees a lot of certain
+kinds of patterns, it can do this.</p>
+<p t="3118000" d="2490">Sometimes indefinite knowledge.</p>
+<p t="3120490" d="7840">Just simple sentences like John may have
+gone to the hallway or the bathroom.</p>
+<p t="3128330" d="1180">Is he in the bathroom?</p>
+<p t="3129510" d="700">Maybe.</p>
+<p t="3130210" d="2220">So, super simple stuff like that.</p>
+<p t="3133480" d="1920">Basic induction, positional reasoning.</p>
+<p t="3135400" d="2420">And this one is actually a little harder.</p>
+<p t="3137820" d="5061">You basically have a bunch
+of inputs saying the castle</p>
+<p t="3142881" d="5298">is north of the beach and
+the beach is east of the desert.</p>
+<p t="3148179" d="3977">Now John moves west and
+north from the beach.</p>
+<p t="3152156" d="2594">Is he south of the desert or</p>
+<p t="3154750" d="3260">something like that, probably doesn't
+make sense but you get the idea.</p>
+<p t="3158010" d="4183">So those kinds of reasoning, were a little
+hard but it turns out there's another</p>
+<p t="3162193" d="4811">version of this data set where you can
+sample 10,000 examples instead of 1,000.</p>
+<p t="3167004" d="3245">And then most of the models can
+also solve positional reasoning,</p>
+<p t="3170249" d="3421">it's just a matter of how
+many examples you've seen.</p>
+<p t="3173670" d="3620">So in many ways, this was encouraging.</p>
+<p t="3177290" d="3925">Briefly, and
+then we've moved onto real data sets.</p>
+<p t="3181215" d="2638">But that use real kinds of real language.</p>
+<p t="3183853" d="2461">The agent motivation here
+is fairly simple too,</p>
+<p t="3186314" d="4092">we basically showed a lot of examples of
+somebody eating or drinking something.</p>
+<p t="3190406" d="2880">And then you asked,
+why did they drink something, and</p>
+<p t="3193286" d="2454">it's because they were thirsty.</p>
+<p t="3195740" d="2250">And so
+thirsty is sort of the simple answer.</p>
+<p t="3197990" d="4190">So again, very simple kinds of patterns.</p>
+<p t="3202180" d="3030">But again, interesting and
+necessary conditions.</p>
+<p t="3205210" d="4660">If you can't even solve that with
+your deep neural network model,</p>
+<p t="3209870" d="3920">you will never get to a real question
+answering system either that can solve</p>
+<p t="3213790" d="3265">all kinds of more complex
+types of reasoning.</p>
+<p t="3218205" d="4050">What's more interesting is when we
+actually applied it to real sentiment.</p>
+<p t="3222255" d="3615">So here, the question is
+essentially always the same,</p>
+<p t="3225870" d="4575">you could almost ignore the question
+vector and just have a zero,</p>
+<p t="3230445" d="3650">it adds essentially just some
+bias weights to the model.</p>
+<p t="3234095" d="3755">But what was cool is
+that model actually got</p>
+<p t="3237850" d="4100">the state of the art on sentiment analysis
+on the Stanford Sentiment Treebank.</p>
+<p t="3241950" d="1690">And it's the same architecture.</p>
+<p t="3243640" d="2540">But again, sadly,
+it's not this same exact model.</p>
+<p t="3247200" d="2440">So the hyperparameters here are different.</p>
+<p t="3249640" d="3850">And one such hyperparameter is for
+instance, how many times do you need to go</p>
+<p t="3253490" d="3870">over the input before you wanna
+predict the final answer?</p>
+<p t="3257360" d="5060">And sadly, you get different state of
+the art results depending on the tasks.</p>
+<p t="3262420" d="5550">So for sentiment, the best number for
+fine grain sentiments so very negative,</p>
+<p t="3267970" d="4460">negative, neutral, positive, very positive
+classifications for each sentiments.</p>
+<p t="3272430" d="4420">The best, and when you allow
+the model to go over the input twice.</p>
+<p t="3279100" d="2470">But, for various of types of reasoning,</p>
+<p t="3281570" d="4060">such as reasoning that requires
+three different kinds of facts.</p>
+<p t="3285630" d="2960">So, John went in the hallway,
+the hallway is in the house,</p>
+<p t="3288590" d="2700">the house is in this area.</p>
+<p t="3291290" d="1830">Is John in this area, yes or no, right?</p>
+<p t="3293120" d="3760">You now need to know and
+go over multiple facts.</p>
+<p t="3296880" d="4580">Or the simple examples,
+like John drop the football there,</p>
+<p t="3301460" d="3390">where is John, so that those kinds of
+transitive reasonings you can make.</p>
+<p t="3304850" d="4470">You can create artificially sort
+of transitive reasoning chains,</p>
+<p t="3309320" d="2480">that will require multiple passes, and</p>
+<p t="3311800" d="4405">this also shows here that in theory,
+you'd only need three passes.</p>
+<p t="3316205" d="5140">But in practice, the model hadn't been
+able to perfectly pick up all the relevant</p>
+<p t="3321345" d="4680">facts at the exact right pass
+over the input the first time and</p>
+<p t="3326025" d="1780">needed multiple times.</p>
+<p t="3327805" d="1900">Needed to go over it multiple times.</p>
+<p t="3329705" d="3990">And this is assuming you don't
+give it the fact supervision.</p>
+<p t="3333695" d="4802">There's actually another data
+set version of the data set,</p>
+<p t="3338497" d="6135">that tells you this fact is important and
+the first time you go over the input.</p>
+<p t="3344632" d="4357">And then this fact is important the second
+time you go over the input, if you do</p>
+<p t="3348989" d="4645">that, then you can get away with three
+passes for these three-fact reasonings.</p>
+<p t="3353634" d="3211">But without that supervision,
+just training everything end to end.</p>
+<p t="3356845" d="520">Question, answer,</p>
+<p t="3357365" d="5340">input triplets need to have 5 passes
+to get very high accuracy here.</p>
+<p t="3370131" d="4038">So why is this not
+a task-dependent hyperparameter?</p>
+<p t="3374169" d="3281">It is, it is actually
+a task-dependent hyperparameter.</p>
+<p t="3377450" d="4073">And we did here, based on
+the development splits, the analysis and</p>
+<p t="3381523" d="4585">found that the best hyperparameter of
+number of passes for sentiment is 2.</p>
+<p t="3397409" d="1579">That's exactly right.</p>
+<p t="3398988" d="3614">So, the question is, in practice,
+you would just, at training time,</p>
+<p t="3402602" d="4153">adjust these hyperparameters and for your
+trained data set and identify, based on</p>
+<p t="3406755" d="4745">your developments, what the best type of
+parameter is, and that's exactly right.</p>
+<p t="3411500" d="2448">So at least you don't have to,
+for a variety of different tasks,</p>
+<p t="3413948" d="2776">think about all the different kinds
+of architectures that are out there.</p>
+<p t="3416724" d="4161">But you still have to run some
+hyperparameter search on what the best</p>
+<p t="3420885" d="2924">type of parameters are for
+this architecture.</p>
+<p t="3425640" d="798">Yeah?</p>
+<p t="3430380" d="2943">So why is there no result here for
+5 passes?</p>
+<p t="3433323" d="6307">Because compute time is costly and
+it already went down after 3.</p>
+<p t="3439630" d="4384">And the probability, I guess our estimates
+of that, it would magically go back up or</p>
+<p t="3444014" d="2989">very, very low, so
+we just didn't run the experiment.</p>
+<p t="3453567" d="3759">All right, so now,
+let's look at a couple of examples</p>
+<p t="3457326" d="3884">of this attention mechanism for
+sentiment analysis.</p>
+<p t="3461210" d="4744">So we now, here, have a couple of
+examples that even the dynamic memory</p>
+<p t="3465954" d="4843">network got wrong when we only allowed
+it one iteration over the inputs.</p>
+<p t="3470797" d="4773">And what you see here is
+basically a coloring scheme.</p>
+<p t="3475570" d="2152">And the darker the color is,</p>
+<p t="3477722" d="5662">the larger the attention weight that
+g scalar is for that particular word.</p>
+<p t="3486548" d="3800">And so, these are the kinds of examples,
+also, that you now need to get correct</p>
+<p t="3490348" d="3712">if you want to push the state of
+the art in sentiment analysis.</p>
+<p t="3494060" d="2343">And they're kind of interesting and
+fun, actually.</p>
+<p t="3496403" d="4007">So, in its ragged, cheap and
+unassuming way, the movie works.</p>
+<p t="3500410" d="4635">You can see it in the first pass over the
+input, it just kind of pays attention to</p>
+<p t="3505045" d="3866">all the things you would sensibly
+pay attention to for a sentiment</p>
+<p t="3508911" d="4514">analysis trained neural network,
+which is a bunch of adjectives, right?</p>
+<p t="3513425" d="5842">Ragged, cheap, unassuming,
+a little bit of way, and so on.</p>
+<p t="3519267" d="1462">Now, on 2 passes,</p>
+<p t="3520729" d="4851">the model actually is not quite
+certain where to pay attention to.</p>
+<p t="3525580" d="3904">In the very first pass,
+a little bit of cheap, unassuming, way,</p>
+<p t="3529484" d="1969">somewhat oddly the, and works.</p>
+<p t="3531453" d="5104">But in the second one, it sort of now
+takes into consideration the context of</p>
+<p t="3536557" d="5506">that whole sentence, and really increases
+the attention to the movie working and</p>
+<p t="3542063" d="6307">being sort of unassuming, which is less
+negative than, for instance, just cheap.</p>
+<p t="3548370" d="2635">And now correctly
+classifies it as positive.</p>
+<p t="3551005" d="2660">Yeah?</p>
+<p t="3553665" d="2639">&gt;&gt; Why can't it do that in one pass?</p>
+<p t="3556304" d="5951">Like see all the words once and
+process that?</p>
+<p t="3562255" d="3952">Why does it need multiple passes?</p>
+<p t="3566207" d="2505">&gt;&gt; So the question is,
+why does the model need multiple passes?</p>
+<p t="3568712" d="2277">Why couldn't it just do it in one pass?</p>
+<p t="3570989" d="5055">I guess the trouble is that, basically,
+as you go from left to right,</p>
+<p t="3576044" d="4283">and this is, in some ways,
+what we think is the reason, and</p>
+<p t="3580327" d="3541">the intuitions that we
+used to build this model.</p>
+<p t="3583868" d="5894">But I can't definitively tell you that
+that is exactly why it cannot work.</p>
+<p t="3589762" d="7718">It works, so, it works on 50% or so
+of the cases, it gets it perfectly right.</p>
+<p t="3597480" d="1296">Now, these are just examples.</p>
+<p t="3598776" d="4050">It didn't get it right on 0 or 1 pass, and</p>
+<p t="3602826" d="4084">basically the difference here is 0.6.</p>
+<p t="3606910" d="3120">So in a small subset of the sentences,</p>
+<p t="3610030" d="3812">it could only get it
+right on multiple passes.</p>
+<p t="3613842" d="5648">So intuitively here, what's happening is
+you actually agglomerate all the facts.</p>
+<p t="3619490" d="4381">And now, with that global viewpoint
+of the sentence, you can now go back.</p>
+<p t="3623871" d="1609">And having this m vector,</p>
+<p t="3625480" d="4606">you can now use the m vector to pay
+attention to every single word out there,</p>
+<p t="3630086" d="6434">and you can realize, with that, that maybe
+some words are more important than others.</p>
+<p t="3636520" d="3524">So, that's intuitively what you can do.</p>
+<p t="3640044" d="2342">If you only go from left to right once,</p>
+<p t="3642386" d="5914">then you cannot really incorporate
+the global information at every time step.</p>
+<p t="3648300" d="2516">You can only take the information
+you've got from the left, or,</p>
+<p t="3650816" d="1373">if you have a bi-directional one,</p>
+<p t="3652189" d="3095">from the left and the right, but not sort
+of the global picture of the sentence.</p>
+<p t="3659394" d="1499">All right, here's another fun example.</p>
+<p t="3660893" d="1020">The best way to hope for</p>
+<p t="3661913" d="3067">any chance of enjoying this film
+is by lowering your expectations.</p>
+<p t="3666710" d="1390">In the beginning here,</p>
+<p t="3668100" d="4249">it basically pays a little bit of
+attention to a lot of different things.</p>
+<p t="3672349" d="3760">But everything pales in
+comparison to the second pass,</p>
+<p t="3676109" d="3120">where it really focuses
+on the expectations,</p>
+<p t="3679229" d="5531">a little bit that they're lowered, and
+realizes this is actually negative now.</p>
+<p t="3685790" d="2962">And when I say realizes,
+I'm anthropomorphizing a little bit here.</p>
+<p t="3688752" d="1620">That classifies them correctly.</p>
+<p t="3690372" d="1081">Yep?</p>
+<p t="3696340" d="4719">The color scheme is the same inside each
+plot, but not across different plots.</p>
+<p t="3708924" d="872">That's a great question.</p>
+<p t="3709796" d="3708">So, does the attention converge,
+or does it shift again?</p>
+<p t="3713504" d="4288">We've noticed it's converging in a lot
+of cases, but we also didn't run it for</p>
+<p t="3717792" d="1518">ten passes or something.</p>
+<p t="3719310" d="3869">It might eventually explode or
+do something crazy, I don't know.</p>
+<p t="3723179" d="2597">But in most cases it does well, but</p>
+<p t="3725776" d="4784">then we also notice that it
+actually deteriorates sometimes.</p>
+<p t="3730560" d="1844">So there are some cases, clearly,</p>
+<p t="3732404" d="3328">where it then also deviates again
+from what it should have done.</p>
+<p t="3735732" d="1418">I'm sort of over-, again,</p>
+<p t="3737150" d="4058">anthropomorphizing my model here
+a little bit, but overthinking it.</p>
+<p t="3749830" d="2330">Are the weights all summing up to one?</p>
+<p t="3752160" d="1393">For this model, they do not, no.</p>
+<p t="3753553" d="2433">It's just sigmoids at every time step.</p>
+<p t="3767494" d="1080">Great question.</p>
+<p t="3768574" d="3276">So do we share weights of how we
+compose information at each pass?</p>
+<p t="3771850" d="5206">So, yeah, so we have these different GRUs
+that each, as we go over the inputs,</p>
+<p t="3777056" d="3990">and it's actually a hyperparameter
+that we evaluate it on.</p>
+<p t="3781046" d="5640">And it works slightly better across
+several tasks to have separate weights for</p>
+<p t="3786686" d="2854">each time you go over the input.</p>
+<p t="3789540" d="2287">My hunch is that is a balance between
+how much training data do you have.</p>
+<p t="3791827" d="4413">If you have enough training data,
+it's better to have more parameters there.</p>
+<p t="3796240" d="2443">And if you don't have
+enough training data,</p>
+<p t="3798683" d="2262">you might wanna share each pass weights.</p>
+<p t="3800945" d="1706">Great question.</p>
+<p t="3802651" d="2776">All right, second-to-last example.</p>
+<p t="3805427" d="3938">The film starts out as competent but
+unremarkable, and</p>
+<p t="3809365" d="4225">gradually grows into something
+of considerable power.</p>
+<p t="3813590" d="4727">Again, focuses first as competent,
+on competent, and</p>
+<p t="3818317" d="6804">a little bit out of everything, and power,
+and then really hones in on the power.</p>
+<p t="3825121" d="3074">And now, the last one here,
+I actually like a lot, which is,</p>
+<p t="3828195" d="3495">my response to the film is
+best described as lukewarm.</p>
+<p t="3831690" d="4563">So every normal sentiment algorithm
+would overindex, just like this one,</p>
+<p t="3836253" d="1723">on the first pass, on best.</p>
+<p t="3837976" d="5614">Cuz best, if you run a simple unigram,
+base type model, Get very,</p>
+<p t="3843590" d="6210">very high certainty that best correlates
+very much with a positive sentence.</p>
+<p t="3849800" d="4990">But in the second pass it actually
+lowered it and our hope here is that it</p>
+<p t="3854790" d="4260">realized actually used here as an adverb
+and just best describing something.</p>
+<p t="3859050" d="3420">But what it's actually
+describing is lukewarm, and</p>
+<p t="3862470" d="2896">then correctly classifies
+it as a negative.</p>
+<p t="3869405" d="2900">Now, last task is part-of-speech tagging.</p>
+<p t="3872305" d="3496">The difference here is instead of
+triggering the answer module only</p>
+<p t="3875801" d="2145">at the end of the episodic memory module,</p>
+<p t="3877946" d="2604">we actually trigger it at
+every single time step.</p>
+<p t="3880550" d="2390">So at every single timestep you classify.</p>
+<p t="3882940" d="2311">Part of speech tags.</p>
+<p t="3885251" d="1689">And when you combine a couple.</p>
+<p t="3886940" d="3370">So one thing we don't,
+that's not mentioned here.</p>
+<p t="3890310" d="2600">Is that we actually have,
+I think, two different models.</p>
+<p t="3892910" d="2865">And we ensemble to get
+to the state of the art.</p>
+<p t="3895775" d="4288">But really, personally,
+who cares about 0.06</p>
+<p t="3900063" d="4589">improvement on a task like
+part-of-speech tagging.</p>
+<p t="3904652" d="6353">But it's good to see that it can very
+accurately also predict sequence tasks.</p>
+<p t="3911005" d="1790">That's sort of the main
+take away message here.</p>
+<p t="3914660" d="5520">Now, in the interest of time, I'll skip
+the live demo, and go to another fun fact.</p>
+<p t="3920180" d="1500">Or a fun aspect of this model.</p>
+<p t="3921680" d="5544">Which is,
+we had a new researcher join our group.</p>
+<p t="3927224" d="4266">And he had a vision background.</p>
+<p t="3931490" d="2260">And so, he said,
+well there's this cool new VQA,</p>
+<p t="3933750" d="2040">visual question answering dataset.</p>
+<p t="3935790" d="1560">Can't we use this model?</p>
+<p t="3937350" d="1120">Cuz I was all like, yes!</p>
+<p t="3938470" d="600">A general model.</p>
+<p t="3939070" d="610">It's so great.</p>
+<p t="3939680" d="1170">Everything is question answering.</p>
+<p t="3940850" d="811">I was super excited.</p>
+<p t="3941661" d="4863">And so, he basically said,
+I'll replace the input module with</p>
+<p t="3946524" d="4607">one that will give us a sequence
+over Images, image blocks.</p>
+<p t="3951131" d="1323">And he was also just new,</p>
+<p t="3952454" d="2996">we had implemented at this
+time everything in Torch.</p>
+<p t="3955450" d="2060">We've since moved away from Torch and</p>
+<p t="3957510" d="3980">then now came back to it through pytorch,
+but different story.</p>
+<p t="3961490" d="3800">And basically replaced
+the input module and</p>
+<p t="3965290" d="5470">checked if we can actually run visual
+question answering with this architecture.</p>
+<p t="3970760" d="2300">So what is visual question answering?</p>
+<p t="3973060" d="1340">Basically, same idea.</p>
+<p t="3974400" d="3980">Input, question,
+answer as training input, but</p>
+<p t="3978380" d="3870">the input is now a picture,
+an image instead of a sequence of words.</p>
+<p t="3984100" d="3310">So the kinds of questions you might
+have here is what kind of tree</p>
+<p t="3987410" d="950">is in the background.</p>
+<p t="3988360" d="1131">And the answer should be palm.</p>
+<p t="3991645" d="2065">And another simplification here.</p>
+<p t="3993710" d="4450">In this particular dataset, the answers,
+you can get to way above state of</p>
+<p t="3998160" d="4160">the art if you only ever predict a single
+word instead of a sequence of words.</p>
+<p t="4002320" d="2370">Because most of the answers
+are just single words.</p>
+<p t="4004690" d="4130">So instead of running a fancy GRU for
+always a single time step.</p>
+<p t="4008820" d="1720">You just classify a softmax right away.</p>
+<p t="4010540" d="3630">And you give the inputs that you
+would have given to the GRU,</p>
+<p t="4014170" d="2259">directly to a single softmax layer.</p>
+<p t="4016429" d="2581">Now, how does this input module change?</p>
+<p t="4019010" d="4570">We won't be able to fully appreciate
+this figure, to be honest,</p>
+<p t="4023580" d="2690">but we can get some intuition.</p>
+<p t="4026270" d="3730">We've no convolution networks,
+but we don't know this exact</p>
+<p t="4031350" d="3406">convolution of networks which
+has a lot of bells and whistles.</p>
+<p t="4034756" d="4954">On top of it essentially,
+intuitively what's happening here is that,</p>
+<p t="4039710" d="3860">the convolutional network will give us
+a feature of vector representation for</p>
+<p t="4043570" d="1820">every block of the image.</p>
+<p t="4045390" d="5530">So in the end that every image that we
+get as input will chop into 14 by 14 and</p>
+<p t="4050920" d="3470">a grid of 14 by 14 and
+we have a feature vector for</p>
+<p t="4054390" d="2350">every one of these 14 x 14 grids.</p>
+<p t="4061223" d="997">How's that train?</p>
+<p t="4062220" d="4220">So you can actually backpropagate
+everything jointly, as well.</p>
+<p t="4066440" d="3500">But as I mentioned in the beginning of
+multitask learning computer vision is</p>
+<p t="4069940" d="4160">further ahead in that sense than
+natural language processing</p>
+<p t="4074100" d="3890">because most people start their
+convolution work from a pre trained.</p>
+<p t="4079040" d="3190">Convolutional network that
+usually is trained on ImageNet.</p>
+<p t="4093053" d="4395">So is there yet a project that answers
+questions based on both images and</p>
+<p t="4097448" d="5302">text, and the answer is there are some
+small datasets, but no dataset that.</p>
+<p t="4102750" d="3745">I personally find it exciting enough
+to,have started working on it.</p>
+<p t="4106495" d="2686">It's really a dataset
+problem at this point,</p>
+<p t="4109181" d="5362">until we have a very compelling dataset
+where you collect hundred of thousands,</p>
+<p t="4114543" d="4157">ideally questions that you really
+need to have both an image and</p>
+<p t="4118700" d="3620">some text about the image to
+answer the questions from.</p>
+<p t="4122320" d="2850">It's tricky,
+cuz a lot of times there's some overlap.</p>
+<p t="4125170" d="2677">If you take the news, for
+instance, sometimes news images.</p>
+<p t="4127847" d="1498">I thought about this for awhile, and</p>
+<p t="4129345" d="1955">thought about collecting
+that kinda dataset.</p>
+<p t="4131300" d="2680">But a lot of times news images just show</p>
+<p t="4133980" d="3340">sort of some general thing that
+is barely related to the content.</p>
+<p t="4137320" d="3310">And so, it's non-trivial to find a good
+data set where that's really necessary.</p>
+<p t="4150802" d="2264">Paintings?</p>
+<p t="4153066" d="4004">So the question is, will you be able to do
+this kind of model with paintings, too?</p>
+<p t="4157070" d="1160">And I don't see why not.</p>
+<p t="4158230" d="3510">I mean unless they're super abstract and
+you have to really interpret a lot.</p>
+<p t="4161740" d="3864">But as long as they're realistic paintings
+where you actually see objects I think</p>
+<p t="4165604" d="3425">that as long as they're into trained
+data it should do reasonably well.</p>
+<p t="4169029" d="6501">So let's assume we have a feature vector
+for every single region of the image.</p>
+<p t="4175530" d="4060">What we're going to do is we're just in
+a snake like fashion lay them out and</p>
+<p t="4179590" d="1960">now have a sequence.</p>
+<p t="4181550" d="5690">And now this sequence is given to
+again bidirectional GRU block and</p>
+<p t="4187240" d="4470">then the final feature vector that every
+time step is just a concatenation of</p>
+<p t="4191710" d="2530">the forward and the backward or
+the left to right, and</p>
+<p t="4194240" d="3010">right to left hidden states of
+these by direction you use.</p>
+<p t="4201043" d="2761">So essentially we replaced word vectors,</p>
+<p t="4203804" d="2996">with feature vectors
+from regions of images.</p>
+<p t="4212721" d="3934">Now, what was amazing is that literally,
+on the second experiment we ran,</p>
+<p t="4216655" d="2185">we got to state of
+the art on this dataset.</p>
+<p t="4218840" d="5735">And we didn't really change the episodic
+memory module code, the question code.</p>
+<p t="4224575" d="5174">Just the input module changed, and we got
+state of the art on this data set, and</p>
+<p t="4229749" d="5281">what's even more fun is looking now
+at this attention visualizations.</p>
+<p t="4235030" d="1520">Again, it's unsupervised,</p>
+<p t="4236550" d="5730">the model is never given inputs on
+to where it should pay attention to,</p>
+<p t="4242280" d="5610">to answer a certain kind of question,
+so here we basically visualize this, so</p>
+<p t="4247890" d="6160">this is kind of the equivalent plot to
+what I showed you about the sentiment.</p>
+<p t="4254050" d="4090">But the difference here is,
+instead of being very dark,</p>
+<p t="4262801" d="4247">Instead of being very dark blue,
+it's white.</p>
+<p t="4267048" d="4766">So the whiter it is,
+the higher the attention score here is for</p>
+<p t="4271814" d="2069">that region of the image.</p>
+<p t="4273883" d="3212">And so, when we ask what is
+the main color on the bus,</p>
+<p t="4277095" d="5125">it actually literally pays attention to
+that bus, and then gives the answer blue.</p>
+<p t="4285407" d="3753">And so, we can ask what type of
+trees are in the background.</p>
+<p t="4289160" d="2550">Pays attention to the background and
+trees.</p>
+<p t="4291710" d="1127">Answer's pine.</p>
+<p t="4292837" d="1843">How many pink flags are there?</p>
+<p t="4294680" d="3140">Pays attention to the pink flags and
+gives the answer, two.</p>
+<p t="4297820" d="3910">Now, in general, number questions
+are actually not that great.</p>
+<p t="4301730" d="6369">So you can see here that, while this is
+sort of the, close to the best model.</p>
+<p t="4308099" d="3828">None of the models actually do really
+great on numbering because the attention</p>
+<p t="4311927" d="4124">mechanisms that all these different kinds
+of models are using are very continuous.</p>
+<p t="4316051" d="4149">All we're doing is as we're
+agglomerating facts into this GRU,</p>
+<p t="4320200" d="4320">we have high attention score and so
+we're agglomerating that region.</p>
+<p t="4324520" d="2040">But these models don't
+have a discrete sense,</p>
+<p t="4326560" d="3740">like this is a discrete object and
+this is another discrete object.</p>
+<p t="4330300" d="4711">And so, also if you have 50
+objects it would never give you</p>
+<p t="4335011" d="5373">the answer 50 because it can't count
+in such a fine grained way and</p>
+<p t="4340384" d="5560">of course, we have the problem that,
+it's a classifier in the end and</p>
+<p t="4345944" d="4240">so if it's never seen 39
+objects at training time,</p>
+<p t="4350184" d="4656">it cannot produce the number or
+the answer 39 as a class.</p>
+<p t="4354840" d="4701">So there's actually still problems with
+this but in this particular data set</p>
+<p t="4359541" d="3779">most of the number of objects
+actually are relatively small.</p>
+<p t="4363320" d="1064">Is this in the wild?</p>
+<p t="4364384" d="1406">It's kind of interesting actually.</p>
+<p t="4365790" d="4230">It pays attention to the man-made
+structure, the house or barn or</p>
+<p t="4370020" d="2150">whatever it is in the background here,
+and the answer is no.</p>
+<p t="4373340" d="4250">And so, I was still pretty skeptical in
+the beginning of why it's doing so well.</p>
+<p t="4377590" d="2030">But through these
+attention visualizations,</p>
+<p t="4379620" d="2700">I actually felt much
+better about this model.</p>
+<p t="4382320" d="4190">It's really clearly learning
+something about this domain.</p>
+<p t="4387580" d="3059">So again, sometimes,
+you can overinterpret too much.</p>
+<p t="4390639" d="1811">So who is on both photos?</p>
+<p t="4392450" d="3830">It's not like the model actually gained
+an understanding of that there are two</p>
+<p t="4396280" d="1040">photos.</p>
+<p t="4397320" d="4224">And then, captures,
+is their face in the same person and both.</p>
+<p t="4401544" d="4888">The majority object that you would
+answer to a who question on this is</p>
+<p t="4406432" d="2848">just a baby girl, so it just says girl.</p>
+<p t="4410780" d="1260">This one again is very fun.</p>
+<p t="4412040" d="1250">What is the boy holding?</p>
+<p t="4413290" d="2840">Actually, literally learns to
+pay attention to the arm and</p>
+<p t="4416130" d="2000">then the surfboard and
+gives answer surfboard.</p>
+<p t="4418130" d="2210">So at this point I felt like,</p>
+<p t="4420340" d="5910">this is more than just sort of learning
+facts from just the language itself.</p>
+<p t="4426250" d="2673">It really takes into
+consideration image and</p>
+<p t="4428923" d="3315">this one here's actually
+another fun example of that.</p>
+<p t="4432238" d="6025">Cuz there are some baselines where people
+compare on just looking at the image and</p>
+<p t="4438263" d="4057">answering, ignoring the actual question.</p>
+<p t="4442320" d="2575">It's like here's an image,
+what's the answer?</p>
+<p t="4444895" d="5785">[LAUGH] And that also does 28% of
+the time does the right thing.</p>
+<p t="4450680" d="4307">So it's just their certain patterns when
+you ask a question about this image,</p>
+<p t="4454987" d="3671">what are they gonna ask and
+it's capturing that sort of baseline.</p>
+<p t="4458658" d="3511">In some ways,
+even is if you just look at the question,</p>
+<p t="4462169" d="3911">what is the bar holding in almost half
+of the cases also gets it right not</p>
+<p t="4466080" d="1975">having to look at the image at all.</p>
+<p t="4468055" d="1624">&gt;&gt; [LAUGH]
+&gt;&gt; So</p>
+<p t="4469679" d="4787">sometimes we glance over these tables, but
+it's important in both your projects and</p>
+<p t="4474466" d="2404">that's what we'll do when we grade them.</p>
+<p t="4476870" d="4921">Actually you've really critically
+questioned what's going on in those</p>
+<p t="4481791" d="639">tables.</p>
+<p t="4482430" d="5006">So really, what this model has been able
+to do when this data set first came out,</p>
+<p t="4487436" d="2714">we combine the two, question and images.</p>
+<p t="4490150" d="5766">Read just only 4% or
+less better than just the question alone.</p>
+<p t="4495916" d="5186">But then this model does around
+8% better than this model,</p>
+<p t="4501102" d="4898">and around 12 or so
+than just looking at the question alone.</p>
+<p t="4506000" d="3290">And this is a good example of
+where it actually took the image</p>
+<p t="4509290" d="4120">into consideration namely, the question
+here is what color of the bananas?</p>
+<p t="4513410" d="1980">And if you just look at the question and</p>
+<p t="4515390" d="5760">the default answer that you'd probably
+be pretty good estimate would be yellow.</p>
+<p t="4521150" d="4190">But in this particular Image the bananas
+that it's paying attention to are not</p>
+<p t="4525340" d="2660">quite ripe yet and
+it learns to give the answer green.</p>
+<p t="4529150" d="3410">Last one here is like what's the pattern
+on the cat's fur on its tail?</p>
+<p t="4532560" d="2892">Actually pays attention to the tail and
+says stripe.</p>
+<p t="4535452" d="1728">So some of them are pretty incredible.</p>
+<p t="4537180" d="4913">And so, we then had put together
+a demo to play around with it and</p>
+<p t="4542093" d="4507">these were eight questions,
+that we asked this demo.</p>
+<p t="4546600" d="3740">And I was actually kind of
+surprised how good it was.</p>
+<p t="4550340" d="1170">So what is the girl holding?</p>
+<p t="4551510" d="1000">A tennis racket.</p>
+<p t="4552510" d="800">What is the girl doing?</p>
+<p t="4553310" d="600">Playing tennis.</p>
+<p t="4553910" d="1510">These are kind of simple.</p>
+<p t="4555420" d="3390">And of course, it has to have seen
+these kinds of answers before.</p>
+<p t="4558810" d="2890">It has to have seen
+pictures from that domain.</p>
+<p t="4561700" d="680">Is the girl wearing a hat?</p>
+<p t="4562380" d="2750">That's actually,
+a journalist had asked this.</p>
+<p t="4565130" d="3900">And I was already coming up with excuses,
+because the hat's sort of black and</p>
+<p t="4569030" d="1384">it's a black background.</p>
+<p t="4570414" d="1120">But then I got it right.</p>
+<p t="4571534" d="3526">And then,
+what is the girl wearing, shorts.</p>
+<p t="4575060" d="2720">And what's interesting also, when you ask
+what it's wearing, it says shorts, but</p>
+<p t="4577780" d="3230">when you ask what color's her skirt,
+it actually says white.</p>
+<p t="4581010" d="1470">So it's kind of an interesting.</p>
+<p t="4583560" d="3008">Robustness in some ways to the questions.</p>
+<p t="4586568" d="4239">And then, I ask what color's the ground
+and said brown and then I was like,</p>
+<p t="4590807" d="4658">well the brown's the majority color and
+so I asked what color is the ball.</p>
+<p t="4595465" d="6134">And actually got it right despite the ball
+being a very small part of the image.</p>
+<p t="4601599" d="5119">And so, eventually the way I found it,
+I broke sort of this demo,</p>
+<p t="4606718" d="4297">was I asked,
+is the woman about to hit the ball?</p>
+<p t="4611015" d="2790">And it said, yes and then I asked,
+did the woman just hit the ball?</p>
+<p t="4613805" d="3505">And it said, yes again,
+and I was like, all right,</p>
+<p t="4617310" d="4570">that was the last one, but again it
+boils down to having seen enough times,</p>
+<p t="4621880" d="4950">of certain angles I guess of the arm, and
+then that kind of question, and so on.</p>
+<p t="4626830" d="3085">So I don't think it's something in theory,
+it could never pick up, but</p>
+<p t="4629915" d="1280">it just didn't have enough training data.</p>
+<p t="4633665" d="5150">So in summary, I hope I could show you and
+motivate you and excite you for</p>
+<p t="4638815" d="5390">your PA-4 and the various question
+answering projects that you're working on.</p>
+<p t="4644205" d="3800">Cuz in the end, question answering is
+really one of the most interesting tasks,</p>
+<p t="4648005" d="1570">I think, in natural language processing.</p>
+<p t="4649575" d="3925">And a lot of the tasks that other
+task that we looked at in the class.</p>
+<p t="4653500" d="4695">you could incorporate, I encourage you
+actually to think about your projects in</p>
+<p t="4658195" d="4845">PA-4 and extensions, and like could you
+incorporate other kinds of tasks into</p>
+<p t="4663040" d="4710">your data set and then see what happens
+when you try to train them jointly.</p>
+<p t="4667750" d="4250">The dynamic memory network can quite
+accurately solve a whole variety of</p>
+<p t="4672000" d="6160">different QA tasks, but as we'll talk
+about next week's lecture, in one of them,</p>
+<p t="4678160" d="4620">there are actually also extensions to this
+where you can do dynamic generation of</p>
+<p t="4682780" d="6330">answers and pay co-attention of
+the inputs and the question jointly.</p>
+<p t="4689110" d="3228">So still more work to be done on it.</p>
+<p t="4692338" d="1392">Thank you.</p>
+</body>
+</timedtext>

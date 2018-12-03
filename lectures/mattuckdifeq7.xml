@@ -1,0 +1,1134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="40000" d="5267">This is also written in the
+form, it's the k that's on the</p>
+<p t="45267" d="4158">right hand side.
+Actually, I found that source</p>
+<p t="49425" d="4251">is of considerable difficulty.
+And, in general,</p>
+<p t="53676" d="2957">it is.
+For these, the temperature</p>
+<p t="56633" d="4528">concentration model,
+it's natural to have the k on</p>
+<p t="61161" d="4713">the right-hand side,
+and to separate out the (q)e as</p>
+<p t="65874" d="4782">part of it.
+Another model for which that's</p>
+<p t="70656" d="3897">true is mixing,
+as I think I will show you on</p>
+<p t="74553" d="2214">Monday.
+On the other hand,</p>
+<p t="76767" d="4340">there are some common
+first-order models for which</p>
+<p t="81107" d="3985">it's not a natural way to
+separate things out.</p>
+<p t="85092" d="4516">Examples would be the RC
+circuit, radioactive decay,</p>
+<p t="89608" d="4880">stuff like that.
+So, this is not a universal</p>
+<p t="94488" d="3595">utility.
+But I thought that that form of</p>
+<p t="98083" d="5347">writing it was a sufficient
+utility to make a special case,</p>
+<p t="103430" d="4056">and I emphasize it very heavily
+in the nodes.</p>
+<p t="107486" d="4977">Let's look at the equation.
+And, this form will be good</p>
+<p t="112463" d="4148">enough, the y prime.
+When you solve it,</p>
+<p t="116611" d="3687">let me remind you how the
+solutions look,</p>
+<p t="120298" d="4702">because that explains the
+terminology.</p>
+<p t="125000" d="3667">The solution looks like,
+after you have done the</p>
+<p t="128667" d="3200">integrating factor and
+multiplied through,</p>
+<p t="131867" d="4369">and integrated both sides,
+in short, what you're supposed</p>
+<p t="136236" d="4761">to do, the solution looks like y
+equals, there's the term e to</p>
+<p t="140997" d="4526">the negative k out
+front times an integral which</p>
+<p t="145523" d="4682">you can either make definite or
+indefinite, according to your</p>
+<p t="150205" d="3808">preference.
+q of t times e to the kt inside</p>
+<p t="154013" d="3898">dt,
+it will help you to remember</p>
+<p t="157911" d="3703">the opposite signs if you think
+that when q is a constant,</p>
+<p t="161614" d="2794">one, for example,
+you want these two guys to</p>
+<p t="164408" d="2728">cancel out and produce a
+constant solution.</p>
+<p t="167136" d="3509">That's a good way to remember
+that the signs have to be</p>
+<p t="170645" d="2468">opposite.
+But, I don't encourage you to</p>
+<p t="173113" d="3638">remember the formula at all.
+It's just a convenient thing</p>
+<p t="176751" d="3249">for me to be able to use right
+now.</p>
+<p t="180000" d="4724">And then, there's the other
+term, which comes by putting up</p>
+<p t="184724" d="4318">the arbitrary constant
+explicitly, c e to the negative</p>
+<p t="189042" d="3665">kt.
+So, you could either write it</p>
+<p t="192707" d="4807">this way, where this is somewhat
+vague, or you could make it</p>
+<p t="197514" d="3665">definite by putting a zero here
+and a t there,</p>
+<p t="201179" d="4888">and change the dummy variable
+inside according to the way the</p>
+<p t="206067" d="5035">notes tell you to do it.
+Now, when you do this,</p>
+<p t="211102" d="4682">and if k is positive,
+that's absolutely essential,</p>
+<p t="215784" d="3440">only when that is so,
+then this term,</p>
+<p t="219224" d="5829">as I told you a week or so ago,
+this term goes to zero because</p>
+<p t="225053" d="3344">k is positive as t goes to
+infinity.</p>
+<p t="228397" d="5543">So, this goes to zero as t
+goes, and it doesn't matter what</p>
+<p t="233940" d="5351">c is, as t goes to infinity.
+This term stays some sort of</p>
+<p t="239291" d="3822">function.
+And so, this term is called the</p>
+<p t="243113" d="5255">steady-state or long-term
+solution, or it's called both,</p>
+<p t="248368" d="5797">a long-term solution.
+And this, which disappears,</p>
+<p t="254165" d="3208">gets smaller and smaller as
+time goes on,</p>
+<p t="257373" d="4331">is therefore called the
+transient because it disappears</p>
+<p t="261704" d="2646">at the time increases to
+infinity.</p>
+<p t="264350" d="4572">So, this part uses the initial
+condition, uses the initial</p>
+<p t="268922" d="2326">value.
+Let's call it y of zero,</p>
+<p t="271248" d="4250">assuming that you
+started the initial value,</p>
+<p t="275498" d="4652">t, when t was equal to zero,
+which is a common thing to do,</p>
+<p t="280150" d="3850">although of course not
+necessary.</p>
+<p t="284000" d="3627">The starting value appears in
+this term.</p>
+<p t="287627" d="5768">This one is just some function.
+Now, the general picture or the</p>
+<p t="293395" d="4465">way that looks is,
+the steady-state solution will</p>
+<p t="297860" d="3256">be some solution like,
+I don't know,</p>
+<p t="301116" d="4279">like that, let's say.
+So, that's a steady-state</p>
+<p t="305395" d="4594">solution, the SSS.
+Well, what do the other guys</p>
+<p t="309989" d="2913">look like?
+Well, the steady-state solution</p>
+<p t="312902" d="3908">has this starting point.
+Other solutions can have any of</p>
+<p t="316810" d="3482">these other starting points.
+So, in the beginning,</p>
+<p t="320292" d="3268">they won't look like the
+steady-state solution.</p>
+<p t="323560" d="3908">But, we know that as time goes
+on, they must approach it</p>
+<p t="327468" d="4476">because this term represents the
+difference between the solution</p>
+<p t="331944" d="5520">and the steady-state solution.
+So, this term is going to zero.</p>
+<p t="337464" d="3577">And therefore,
+whatever these guys do to start</p>
+<p t="341041" d="4451">out with, after a while they
+must follow the steady-state</p>
+<p t="345492" d="4054">solution more and more closely.
+They must, in short,</p>
+<p t="349546" d="3497">be asymptotic to it.
+So, the solutions to any</p>
+<p t="353043" d="3259">equation of that form will look
+like this.</p>
+<p t="356302" d="2544">Up here, maybe it started at
+127.</p>
+<p t="358846" d="2066">That's okay.
+After a while,</p>
+<p t="360912" d="5088">it's going to start approaching
+that green curve.</p>
+<p t="366000" d="3413">Of course, they won't cross
+each other.</p>
+<p t="369413" d="4222">That's the rock star,
+and these are the groupies</p>
+<p t="373635" d="5121">trying to get close to it.
+Now, but something follows from</p>
+<p t="378756" d="3414">that picture.
+Which is the steady-state</p>
+<p t="382170" d="2156">solution?
+What, in short,</p>
+<p t="384326" d="3234">is so special about this green
+curve?</p>
+<p t="387560" d="5480">All these other white solution
+curves have that same property,</p>
+<p t="393040" d="5569">the same property that all the
+other white curves and the green</p>
+<p t="398609" d="5391">curve, too, are trying to get
+close to them.</p>
+<p t="404000" d="3606">In other words,
+there is nothing special about</p>
+<p t="407606" d="3768">the green curve.
+It's just that they all want to</p>
+<p t="411374" d="3045">get close to each other.
+And therefore,</p>
+<p t="414419" d="4489">though you can write a formula
+like this, there isn't one</p>
+<p t="418908" d="2966">steady-state solution.
+There are many.</p>
+<p t="421874" d="5242">Now, this produces vagueness.
+You talk about the steady-state</p>
+<p t="427116" d="2799">solution; which one are you
+talking about?</p>
+<p t="429915" d="3687">I have no answer to that;
+the usual answer is whichever</p>
+<p t="433602" d="3140">one looks simplest.
+Normally, the one that will</p>
+<p t="436742" d="2731">look simplest is the one where c
+is zero.</p>
+<p t="439473" d="3824">But, if this is a peculiar
+function, it might be that for</p>
+<p t="443297" d="3072">some other value of c,
+you get an even simpler</p>
+<p t="446369" d="2799">expression.
+So, the steady-state solution:</p>
+<p t="449168" d="3482">about the best I can see,
+either you integrate that,</p>
+<p t="452650" d="3619">don't use an arbitrary
+constant, and use what you get,</p>
+<p t="456269" d="5388">or pick the simplest.
+Pick the value of c,</p>
+<p t="461657" d="4650">which gives you the simplest
+answer.</p>
+<p t="466307" d="7574">Pick the simplest function,
+and that's what usually called</p>
+<p t="473881" d="6496">the steady-state solution.
+Now, from that point of view,</p>
+<p t="480377" d="4675">what I'm calling the input in
+this input response point of</p>
+<p t="485052" d="3936">view, which we are going to be
+using, by the way,</p>
+<p t="488988" d="3526">constantly, well,
+pretty much all term long,</p>
+<p t="492514" d="4346">but certainly for the next
+month or so, I'm constantly</p>
+<p t="496860" d="4346">going to be coming back to it.
+The input is the q of t.</p>
+<p t="501206" d="1967">In other words,</p>
+<p t="503173" d="4593">it seems rather peculiar.
+But the input is the right-hand</p>
+<p t="507766" d="4017">side of the equation of the
+differential equation.</p>
+<p t="511783" d="4183">And the reason is because I'm
+always thinking of the</p>
+<p t="515966" d="5078">temperature model.
+The external water bath at</p>
+<p t="521044" d="3697">temperature T external,
+the internal thing here,</p>
+<p t="524741" d="2753">the problem is,
+given this function,</p>
+<p t="527494" d="3618">the external water bath
+temperature is driving,</p>
+<p t="531112" d="3303">so to speak,
+the temperature of the inside.</p>
+<p t="534415" d="3540">And therefore,
+the input is the temperature of</p>
+<p t="537955" d="3961">the water bath.
+I don't like the word output,</p>
+<p t="541916" d="3303">although it would be the
+natural thing because this</p>
+<p t="545219" d="2577">temperature doesn't look like an
+output.</p>
+<p t="547796" d="3832">Anyone might be willing to say,
+yeah, you are inputting the</p>
+<p t="551628" d="3502">value of the temperature here.
+This, it's more likely,</p>
+<p t="555130" d="3898">the normal term is response.
+This thing, this plus the water</p>
+<p t="559028" d="3700">bath, is a little system.
+And the response of the system,</p>
+<p t="562728" d="1982">i.e.
+the change in the internal</p>
+<p t="564710" d="3898">temperature is governed by the
+driving external temperature.</p>
+<p t="568608" d="3436">So, the input is q of t,
+and the response of</p>
+<p t="572044" d="4956">the system is the solution to
+the differential equation.</p>
+<p t="585000" d="4876">Now, if the thing is special,
+as it's going to be for most of</p>
+<p t="589876" d="4551">this period, it has that special
+form, then I'm going to,</p>
+<p t="594427" d="3901">I really want to call q sub e
+the input.</p>
+<p t="598328" d="4633">I want to call q sub e the
+input, and there is no standard</p>
+<p t="602961" d="3901">way of doing that,
+although there's a most common</p>
+<p t="606862" d="3347">way.
+So, I'm just calling it the</p>
+<p t="610209" d="2454">physical input,
+in other words,</p>
+<p t="612663" d="4009">the temperature input,
+or the concentration input.</p>
+<p t="616672" d="4418">And, that will be my (q)e of t,
+and by the</p>
+<p t="621090" d="5237">subscript e, you will understand
+that I'm writing it in that form</p>
+<p t="626327" d="4091">and thinking of this model,
+or concentration model,</p>
+<p t="630418" d="4582">or mixing model as I will show
+you on Monday.</p>
+<p t="635000" d="2997">By the way, this is often
+handled, I mean,</p>
+<p t="637997" d="3143">how would you handle this to
+get rid of a k?</p>
+<p t="641140" d="3875">Well, divide through by k.
+So, this equation is often,</p>
+<p t="645015" d="2559">in the literature,
+written this way:</p>
+<p t="647574" d="3582">one over k times y prime plus y
+is equal to, well,</p>
+<p t="651156" d="3875">now they call it q of t,
+not (q)e of t because they've</p>
+<p t="655031" d="4606">gotten rid of this funny factor.
+But</p>
+<p t="659637" d="4954">I will continue to call it (q)e.
+So, in other words,</p>
+<p t="664591" d="4440">and this part this is just,
+frankly, called the input.</p>
+<p t="669031" d="2932">It doesn't say physical or
+anything.</p>
+<p t="671963" d="4105">And, this is the solution,
+it's then the response,</p>
+<p t="676068" d="3685">and this funny coefficient of y
+prime,</p>
+<p t="679753" d="4189">that's not in standard linear
+form, is it, anymore?</p>
+<p t="683942" d="4440">But, it's a standard form if
+you want to do this input</p>
+<p t="688382" d="3602">response analysis.
+So, this is also a way of</p>
+<p t="691984" d="6047">writing the equation.
+I'm not going to use it because</p>
+<p t="698031" d="5868">how many standard forms could
+this poor little course absorb?</p>
+<p t="703899" d="3716">I'll stick to that one.
+Okay, you have,</p>
+<p t="707615" d="5183">then, the superposition
+principle, which I don't think</p>
+<p t="712798" d="4205">I'm going to-- the solution,
+which solution?</p>
+<p t="717003" d="5378">Well, normally it means any
+solution, or in other words,</p>
+<p t="722381" d="5528">the steady-state solution.
+Now, notice that terminology</p>
+<p t="727909" d="2931">only makes sense if k is
+positive.</p>
+<p t="730840" d="2591">And, in fact,
+there is nothing like the</p>
+<p t="733431" d="3887">picture, the picture doesn't
+look at all like this if k is</p>
+<p t="737318" d="3613">negative, and therefore,
+the terms would steady state,</p>
+<p t="740931" d="3341">transient would be totally
+inappropriate if k were</p>
+<p t="744272" d="2455">negative.
+So, this assumes definitely</p>
+<p t="746727" d="3273">that k has to be greater than
+zero.</p>
+<p t="750000" d="3654">Otherwise, no.
+So, I'll call this the physical</p>
+<p t="753654" d="2274">input.
+And then, you have the</p>
+<p t="755928" d="4224">superposition principle,
+which I really can't improve</p>
+<p t="760152" d="4386">upon what's written in the
+notes, this superposition of</p>
+<p t="764538" d="2599">inputs.
+Whether they are physical</p>
+<p t="767137" d="4629">inputs or nonphysical inputs,
+if the input q of t produces</p>
+<p t="771766" d="3086">the response, y of t,</p>
+<p t="774852" d="4549">and q two of t produces the
+response, y two of t,</p>
+<p t="782000" d="5326">-- then a simple calculation
+with the differential equation</p>
+<p t="787326" d="2755">shows you that by,
+so to speak,</p>
+<p t="790081" d="5510">adding, that the sum of these
+two, I stated it very generally</p>
+<p t="795591" d="5511">in the notes but it corresponds,
+we will have as the response</p>
+<p t="801102" d="4775">y1, the steady-state response y1
+plus y2,</p>
+<p t="805877" d="4482">and a constant times y1.
+That's an expression,</p>
+<p t="810359" d="1682">essentially,
+of the linear,</p>
+<p t="812041" d="3495">it uses the fact that the
+special form of the equation,</p>
+<p t="815536" d="3301">and we will have a very
+efficient and elegant way of</p>
+<p t="818837" d="3106">seeing this when we study higher
+order equations.</p>
+<p t="821943" d="3236">For now, I will just,
+the little calculation that's</p>
+<p t="825179" d="3624">done in the notes will suffice
+for first-order equations.</p>
+<p t="828803" d="3883">If you don't have a complicated
+equation, there's no point in</p>
+<p t="832686" d="2201">making a fuss over proofs using
+it.</p>
+<p t="834887" d="2653">But essentially,
+it uses the fact that the</p>
+<p t="837540" d="3640">equation is linear.
+Or, that's bad,</p>
+<p t="841180" d="3070">so linearity of the ODE.
+In other words,</p>
+<p t="844250" d="4802">it's a consequence of the fact
+that the equation looks the way</p>
+<p t="849052" d="2991">it does.
+And, something like this would</p>
+<p t="852043" d="3306">not, in any sense,
+be true if the equation,</p>
+<p t="855349" d="3149">for example,
+had here a y squared</p>
+<p t="858498" d="3070">instead of t.
+Everything I'm saying this</p>
+<p t="861568" d="5432">period would be total nonsense
+and totally inapplicable.</p>
+<p t="867000" d="5142">Now, today, what I wanted to
+discuss was, what's in the notes</p>
+<p t="872142" d="4543">that I gave you today,
+which is, what happens when the</p>
+<p t="876685" d="4457">physical input is trigonometric?
+For certain reasons,</p>
+<p t="881142" d="3343">that's the most important case
+there is.</p>
+<p t="884485" d="4715">It's because of the existence
+of what are called Fourier</p>
+<p t="889200" d="4285">series, and there are a couple
+of words about them.</p>
+<p t="893485" d="5057">That's something we will be
+studying in about three weeks or</p>
+<p t="898542" d="3157">so.
+What's going on,</p>
+<p t="901699" d="4354">roughly, is that,
+so I'm going to take the</p>
+<p t="906053" d="6371">equation in the form y prime
+plus ky equals k times </p>
+<p t="912424" d="4991">(q)e of t,
+and the input that I'm</p>
+<p t="917415" d="6478">interested in is when this is a
+simple one that you use on the</p>
+<p t="923893" d="6478">visual that you did about two
+points worth of work for handing</p>
+<p t="930371" d="5629">in today, cosine omega t.</p>
+<p t="936000" d="1504">So, if you like,
+k here.</p>
+<p t="937504" d="3858">So, the (q)e is cosine omega t.
+That was the physical input.</p>
+<p t="941362" d="3597">And, omega, as you know,
+is, you have to be careful when</p>
+<p t="944959" d="3466">you use the word frequency.
+I assume you got this from</p>
+<p t="948425" d="4119">physics class all last semester.
+But anyway, just to remind you,</p>
+<p t="952544" d="3728">there's a whole yoga of five or
+six terms that go whenever</p>
+<p t="956272" d="3728">you're talking about
+trigonometric functions.</p>
+<p t="960000" d="3939">Instead of giving a long
+explanation, the end of the</p>
+<p t="963939" d="4481">second page of the notes just
+gives you a reference list of</p>
+<p t="968420" d="4558">what you are expected to know
+for 18.03 and physics as well,</p>
+<p t="972978" d="4249">with a brief one or two line
+description of what each of</p>
+<p t="977227" d="3322">those means.
+So, think of it as something to</p>
+<p t="980549" d="2704">refer back to if you have
+forgotten.</p>
+<p t="983253" d="4249">But, omega is what's called the
+angular frequency or the</p>
+<p t="987502" d="3553">circular frequency.
+It's somewhat misleading to</p>
+<p t="991055" d="4945">call it the frequency,
+although I probably will.</p>
+<p t="996000" d="3531">It's the angular frequency.
+It's, in other words,</p>
+<p t="999531" d="2943">it's the number of complete
+oscillations.</p>
+<p t="1002474" d="4636">This cosine omega t
+is going up and down right?</p>
+<p t="1007110" d="4488">So, a complete oscillation as
+it goes down and then returns to</p>
+<p t="1011598" d="3458">where it started.
+That's a complete oscillation.</p>
+<p t="1015056" d="3679">This is only half an
+oscillation because you didn't</p>
+<p t="1018735" d="4415">give it a chance to get back.
+Okay, so the number of complete</p>
+<p t="1023150" d="3385">oscillations in how much time,
+well, in two pi,</p>
+<p t="1026535" d="3163">in the distance,
+two pi on the t-axis in the</p>
+<p t="1029698" d="3385">interval of length two pi
+because, for example,</p>
+<p t="1033083" d="3311">if omega is one,
+cosine t takes two</p>
+<p t="1036394" d="3606">pi to repeat itself,
+right?</p>
+<p t="1040000" d="3448">If omega were two,
+it would repeat itself.</p>
+<p t="1043448" d="4626">It would make two complete
+oscillations in the interval,</p>
+<p t="1048074" d="3344">two pi.
+So, it's what happens to the</p>
+<p t="1051418" d="3886">interval, two pi,
+not what happens in the time</p>
+<p t="1055304" d="3886">interval, one,
+which is the natural meaning of</p>
+<p t="1059190" d="4146">the word frequency.
+There's always this factor of</p>
+<p t="1063336" d="4923">two pi that floats around to
+make all of your formulas and</p>
+<p t="1068259" d="2936">solutions incorrect.
+Okay, now, so,</p>
+<p t="1071195" d="4577">what I'm out to do is,
+the problem is for the physical</p>
+<p t="1075772" d="4146">input, (q)e cosine omega t,</p>
+<p t="1079918" d="2850">find the response.
+In other words,</p>
+<p t="1082768" d="4232">solve the differential
+equation.</p>
+<p t="1087000" d="4065">In short, for the visual that
+you looked at,</p>
+<p t="1091065" d="3214">I think I've forgot the colors
+now.</p>
+<p t="1094279" d="4917">The input was in green,
+maybe, but I do remember that</p>
+<p t="1099196" d="4822">the response was in yellow.
+I think I remember that.</p>
+<p t="1104018" d="4538">So, find the response,
+yellow, and the input was,</p>
+<p t="1108556" d="2269">what color was it,
+green?</p>
+<p t="1110825" d="3343">Blue, blue.
+Light blue.</p>
+<p t="1114168" d="5631">Okay, so we've got to solve the
+differential equation.</p>
+<p t="1119799" d="6588">Now, it's a question of how I'm
+going to solve the differential</p>
+<p t="1126387" d="3506">equation.
+I'm going to use complex</p>
+<p t="1129893" d="5100">numbers throughout,
+A because that's the way it's</p>
+<p t="1134993" d="4463">usually done.
+B, to give you practice using</p>
+<p t="1139456" d="4675">complex numbers,
+and I don't think I need any</p>
+<p t="1144131" d="5681">other reasons.
+So, I'm going to use complex</p>
+<p t="1149812" d="3215">numbers.
+I'm going to complexify.</p>
+<p t="1153027" d="5425">To use complex numbers,
+what you do is complexification</p>
+<p t="1158452" d="4621">of the problem.
+So, I'm going to complexify the</p>
+<p t="1163073" d="5927">problem, turn it into the domain
+of complex numbers.</p>
+<p t="1169000" d="4189">So, take the differential
+equation, turn it into a</p>
+<p t="1173189" d="4018">differential equation involving
+complex numbers,</p>
+<p t="1177207" d="4873">solve that, and then go back to
+the real domain to get the</p>
+<p t="1182080" d="4360">answer, since it's easier to
+integrate exponentials.</p>
+<p t="1186440" d="2650">And therefore,
+try to introduce,</p>
+<p t="1189090" d="4531">try to change the trigonometric
+functions into complex</p>
+<p t="1193621" d="3762">exponentials,
+simply because the work will be</p>
+<p t="1197383" d="4617">easier to do.
+All right, so let's do it.</p>
+<p t="1202000" d="3631">To change this differential
+equation, remember,</p>
+<p t="1205631" d="3553">I've got cosine omega t here.</p>
+<p t="1209184" d="4816">I'm going to use the fact that
+e to the i omega t,</p>
+<p t="1214000" d="3868">Euler's formula,
+that the real part of it is</p>
+<p t="1217868" d="4816">cosine omega t.
+So, I'm going to view this as</p>
+<p t="1222684" d="3000">the real part of this complex
+function.</p>
+<p t="1225684" d="3079">But, I will throw at the
+imaginary part,</p>
+<p t="1228763" d="3079">too, since at one point we will
+need it.</p>
+<p t="1231842" d="4342">Now, what is the equation,
+then, that it's going to turn</p>
+<p t="1236184" d="5249">into?
+The complexified equation is</p>
+<p t="1241433" d="5274">going to be y prime plus ky
+equals, and now,</p>
+<p t="1246707" d="6623">instead of the right hand side,
+k times cosine omega t,</p>
+<p t="1253330" d="6990">I'll use the whole complex
+exponential, e i omega t.</p>
+<p t="1260320" d="5697">Now, I have a problem because</p>
+<p t="1266017" d="3965">y, here, in this equation,
+y means the real function which</p>
+<p t="1269982" d="3478">solves that problem.
+I therefore cannot continue to</p>
+<p t="1273460" d="3479">call this y because I want y to
+be a real function.</p>
+<p t="1276939" d="3895">I have to change its name.
+Since this is complex function</p>
+<p t="1280834" d="3757">on the right-hand side,
+I will have to expect a complex</p>
+<p t="1284591" d="3409">solution to the differential
+equation.</p>
+<p t="1288000" d="4801">I'm going to call that complex
+solution y tilda.</p>
+<p t="1292801" d="6026">Now, that's what I would also
+use as the designation for the</p>
+<p t="1298827" d="3576">variable.
+So, y tilda is the complex</p>
+<p t="1302403" d="3677">solution.
+And, it's going to have the</p>
+<p t="1306080" d="3780">form y1 plus i times y2.</p>
+<p t="1309860" d="3779">It's going to be the complex
+solution.</p>
+<p t="1313639" d="3678">And now, what I say is,
+so, solve it.</p>
+<p t="1317317" d="5924">Find this complex solution.
+So, find the program is to find</p>
+<p t="1323241" d="5492">y tilde, --
+-- that's the complex solution.</p>
+<p t="1328733" d="3967">And then I say,
+all you have to do is take the</p>
+<p t="1332700" d="3703">real part of that,
+and that will answer the</p>
+<p t="1336403" d="4144">original problem.
+Then, y1, that's the real part</p>
+<p t="1340547" d="2557">of it, right?
+It's a function,</p>
+<p t="1343104" d="5290">you know, like this is cosine
+plus sine, as it was over here,</p>
+<p t="1348394" d="3527">it will naturally be something
+different.</p>
+<p t="1351921" d="4496">It will be something different,
+but that part of it,</p>
+<p t="1356417" d="3968">the real part will solve the
+original problem,</p>
+<p t="1360385" d="3615">the original,
+real, ODE.</p>
+<p t="1364000" d="3469">Now, you will say,
+you expect us to believe that?</p>
+<p t="1367469" d="3543">Well, yes, in fact.
+I think we've got a lot to do,</p>
+<p t="1371012" d="3759">so since the argument for this
+is given in the nodes,</p>
+<p t="1374771" d="4120">so, read this in the notes.
+It only takes a line or two of</p>
+<p t="1378891" d="3109">standard work with
+differentiation.</p>
+<p t="1382000" d="3954">So, read in the notes the
+argument for that,</p>
+<p t="1385954" d="3954">why that's so.
+It just amounts to separating</p>
+<p t="1389908" d="3678">real and imaginary parts.
+Okay, so let's,</p>
+<p t="1393586" d="3770">now, solve this.
+Since that's our program,</p>
+<p t="1397356" d="3218">all we have to find is the
+solution.</p>
+<p t="1400574" d="4506">Well, just use integrating
+factors and just do it.</p>
+<p t="1405080" d="4598">So, the integrating factor will
+be, what, e to the,</p>
+<p t="1409678" d="4322">I don't want to use that
+formula.</p>
+<p t="1414000" d="4831">So, the integrating factor will
+be e to the kt is the</p>
+<p t="1418831" d="3452">integrating factor.
+If I multiply through both</p>
+<p t="1422283" d="4601">sides by the integrating factor,
+then the left-hand side will</p>
+<p t="1426884" d="3375">become y e to the kt,
+the way it always does,</p>
+<p t="1430259" d="2915">prime, Y tilde, sorry,</p>
+<p t="1433174" d="4141">and the right-hand side will
+be, now I'm going to start</p>
+<p t="1437315" d="6598">combining exponentials.
+It will be k times e to the</p>
+<p t="1443913" d="7681">power i times omega t plus k.</p>
+<p t="1451594" d="8406">I'm going to write that k plus
+omega t.</p>
+<p t="1471000" d="5551">i omega t plus k.</p>
+<p t="1476551" d="4408">Thank you.
+i omega t plus k,</p>
+<p t="1480959" d="6041">or k plus i omega t.</p>
+<p t="1487000" d="1469">kt?
+Sorry.</p>
+<p t="1488469" d="9143">So, it's k times e to the i
+omega t times e to the kt.</p>
+<p t="1497612" d="8735">So, that's (k plus i omega)</p>
+<p t="1506347" d="4093">times t. Sorry.</p>
+<p t="1510440" d="6571">So, y tilda e to the kt
+is k divided by,</p>
+<p t="1517011" d="6076">now I integrate this,
+so it essentially reproduces</p>
+<p t="1523087" d="7068">itself, except you have to put
+down on the bottom k plus i</p>
+<p t="1530155" d="5470">omega.
+I'll take the final step.</p>
+<p t="1535625" d="3315">What's y tilda equals,
+see, when you do it this way,</p>
+<p t="1538940" d="3250">then you don't get a messy
+looking formula that you</p>
+<p t="1542190" d="2665">substitute into and that is
+scary looking.</p>
+<p t="1544855" d="3315">This is never scary.
+Now, I'm going to do two things</p>
+<p t="1548170" d="1820">simultaneously.
+First of all,</p>
+<p t="1549990" d="2795">here, if I multiply,
+after I get the answer,</p>
+<p t="1552785" d="3574">I'm going to want to multiply
+it by e to the negative kt,</p>
+<p t="1556359" d="3641">right,
+to solve for y tilda.</p>
+<p t="1560000" d="4472">If I multiply this by e to the
+negative kt, then that just gets</p>
+<p t="1564472" d="4040">rid of the k that I put in,
+and left back with e to the i</p>
+<p t="1568512" d="2164">omega t.
+So, that side is easy.</p>
+<p t="1570676" d="4040">All that is left is e to the i
+omega t.</p>
+<p t="1574716" d="3318">Now, what's interesting is this
+thing out here,</p>
+<p t="1578034" d="4184">k plus i omega.
+I'm going to take a typical</p>
+<p t="1582218" d="2597">step of scaling it.
+And you scale it.</p>
+<p t="1584815" d="4185">I'm going to divide the top and
+bottom by k.</p>
+<p t="1589000" d="6675">And, what does that produce?
+One divided by one plus i times</p>
+<p t="1595675" d="4413">omega over k.</p>
+<p t="1600088" d="5771">What I've done is take these
+two separate constants,</p>
+<p t="1605859" d="5431">and shown that the critical
+thing is their ratio.</p>
+<p t="1611290" d="6110">Okay, now, what I have to do
+now is take the real part.</p>
+<p t="1617400" d="3847">Now, there are two ways to do
+this.</p>
+<p t="1621247" d="6967">There are two ways to do this.
+Both are instructive.</p>
+<p t="1628214" d="5273">So, there are two methods.
+I have a multiplication.</p>
+<p t="1633487" d="4218">The problem is,
+of course, that these two</p>
+<p t="1637705" d="5378">things are multiplied together.
+And, one of them is,</p>
+<p t="1643083" d="3164">essentially,
+in Cartesian form,</p>
+<p t="1646247" d="3058">and the other is,
+essentially,</p>
+<p t="1649305" d="5695">in polar form.
+You have to make a decision.</p>
+<p t="1655000" d="5599">Either go polar,
+it sounds like go postal,</p>
+<p t="1660599" d="4508">doesn't it, or worse,
+like a bear,</p>
+<p t="1665107" d="7102">savage, attack it savagely,
+which that's a very good,</p>
+<p t="1672209" d="6556">aggressive attitude to have
+when doing a problem,</p>
+<p t="1678765" d="6426">or we can go Cartesian.
+Going polar is a little faster,</p>
+<p t="1685191" d="2898">and I think it's what's done in
+the nodes.</p>
+<p t="1688089" d="3746">The notes to do both of these.
+They just do the first.</p>
+<p t="1691835" d="2968">On the other hand,
+they give you a formula,</p>
+<p t="1694803" d="3605">which is the critical thing
+that you will need to go</p>
+<p t="1698408" d="2898">Cartesian.
+I hope I can do both of them if</p>
+<p t="1701306" d="2898">we sort of hurry along.
+How do I go polar?</p>
+<p t="1704204" d="2968">To go polar,
+what you want to do is express</p>
+<p t="1707172" d="5185">this thing in polar form.
+Now, one of the things I didn't</p>
+<p t="1712357" d="3573">emphasize enough,
+probably, when I talked to you</p>
+<p t="1715930" d="4258">about complex numbers last time
+is, so I will remind you,</p>
+<p t="1720188" d="3650">which saves my conscience and
+doesn't hurt yours,</p>
+<p t="1723838" d="3194">suppose you have alpha as a
+complex number.</p>
+<p t="1727032" d="3041">See, this complex number is a
+reciprocal.</p>
+<p t="1730073" d="2738">The good number is what's down
+below.</p>
+<p t="1732811" d="2281">Unfortunately,
+it's downstairs.</p>
+<p t="1735092" d="3497">You should know,
+like you know the back of your</p>
+<p t="1738589" d="4411">hand, which nobody knows,
+one over alpha.</p>
+<p t="1743000" d="2981">So that's the form.
+The number I'm interested in,</p>
+<p t="1745981" d="2671">that coefficient,
+it is of the form one over</p>
+<p t="1748652" d="2174">alpha.
+One over alpha times alpha is</p>
+<p t="1750826" d="2360">equal to one.</p>
+<p t="1753186" d="2484">And, from that,
+it follows, first of all,</p>
+<p t="1755670" d="3354">if I take absolute values,
+if the absolute value of one</p>
+<p t="1759024" d="3665">over alpha times the absolute
+value of this is equal to one,</p>
+<p t="1762689" d="3540">so, this is equal to one over
+the absolute value of alpha.</p>
+<p t="1766229" d="3416">I think you all knew that.
+I'm a little less certain you</p>
+<p t="1769645" d="3355">knew how to take care of the
+angles.</p>
+<p t="1773000" d="3947">How about the argument?
+Well, the argument of the</p>
+<p t="1776947" d="4029">angle, in other words,
+the angle of one over alpha</p>
+<p t="1780976" d="3537">plus, because when you multiply,
+angles add.</p>
+<p t="1784513" d="3700">Remember that.
+Plus, the angle associated with</p>
+<p t="1788213" d="3701">alpha has to be the angle
+associated with one.</p>
+<p t="1791914" d="2632">But what's that?
+One is out here.</p>
+<p t="1794546" d="3454">What's the angle of one?
+Zero.</p>
+<p t="1806000" d="4731">Therefore, the argument,
+the absolute value of this</p>
+<p t="1810731" d="3501">thing is want over the absolute
+value.</p>
+<p t="1814232" d="3880">That's easy.
+And, you should know that the</p>
+<p t="1818112" d="5678">argument of want over alpha is
+equal to minus the argument of</p>
+<p t="1823790" d="3312">alpha.
+So, when you take reciprocal,</p>
+<p t="1827102" d="3123">the angle turns into its
+negative.</p>
+<p t="1830225" d="5393">Okay, I'm going to use that
+now, because my aim is to turn</p>
+<p t="1835618" d="4637">this into polar form.
+So, let's do that someplace,</p>
+<p t="1840255" d="8484">I guess here.
+So, I want the polar form for</p>
+<p t="1848739" d="11479">one over one plus i times omega
+over k.</p>
+<p t="1860218" d="4622">Okay, I will draw a picture.</p>
+<p t="1864840" d="4261">Here's one.
+Here is omega over k.</p>
+<p t="1869101" d="3145">Let's call this angle phi.</p>
+<p t="1872246" d="3145">It's a natural thing to call
+it.</p>
+<p t="1875391" d="3246">It's a right triangle,
+of course.</p>
+<p t="1878637" d="6087">Okay, now, this is going to be
+a complex number times e to an</p>
+<p t="1884724" d="3652">angle.
+Now, what's the angle going to</p>
+<p t="1888376" d="4285">be?
+Well, this is a complex number,</p>
+<p t="1892661" d="2748">the angle for the complex
+number.</p>
+<p t="1895409" d="5237">So, the argument of the complex
+number, one plus i times omega</p>
+<p t="1900646" d="3348">over k is how much?</p>
+<p t="1903994" d="4809">Well, there's the complex
+number one plus i over one plus</p>
+<p t="1908803" d="4550">i times omega over k.</p>
+<p t="1913353" d="3778">Its angle is phi.
+So, the argument of this is</p>
+<p t="1917131" d="4207">phi, and therefore,
+the argument of its reciprocal</p>
+<p t="1921338" d="5417">is negative phi.
+So, it's e to the minus i phi.</p>
+<p t="1926755" d="2754">And, what's A?</p>
+<p t="1929509" d="5225">A is one over the absolute
+value of that complex number.</p>
+<p t="1934734" d="5510">Well, the absolute value of
+this complex number is one plus</p>
+<p t="1940244" d="3801">omega over k squared.</p>
+<p t="1944045" d="5415">So, the A is going to be one
+over that, the square root of</p>
+<p t="1949460" d="4085">one plus omega over k,
+the quantity squared,</p>
+<p t="1953545" d="5794">times e to the minus i phi.</p>
+<p t="1959339" d="3664">See, I did that.</p>
+<p t="1963003" d="3387">That's a critical step.
+You must turn that coefficient.</p>
+<p t="1966390" d="2822">If you want to go polar,
+you must turn is that</p>
+<p t="1969212" d="3324">coefficient, write that
+coefficient in the polar form.</p>
+<p t="1972536" d="2446">And for that,
+you need these basic facts</p>
+<p t="1974982" d="2885">about, draw the complex number,
+draw its angle,</p>
+<p t="1977867" d="5033">and so on and so forth.
+And now, what's there for the</p>
+<p t="1982900" d="3100">solution?
+Once you've done that,</p>
+<p t="1986000" d="4500">the work is over.
+What's the complex solution?</p>
+<p t="1990500" d="5900">The complex solution is this.
+I've just found the polar form</p>
+<p t="1996400" d="4000">for this.
+So, I multiply it by e to the i</p>
+<p t="2000400" d="5500">omega t,
+which means these things add.</p>
+<p t="2005900" d="5000">So, it's equal to A,
+this A, times e to the i omega</p>
+<p t="2010900" d="6100">t minus i times phi.</p>
+<p t="2017000" d="5314">Or, in other words,
+the coefficient is one over,</p>
+<p t="2022314" d="5654">this is a real number,
+now, square root of one plus</p>
+<p t="2027968" d="5880">omega over k squared.</p>
+<p t="2033848" d="4975">And, this is e to the,
+see if I get it right,</p>
+<p t="2038823" d="1809">now.
+And finally,</p>
+<p t="2040632" d="4749">now, what's the answer to our
+real problem?</p>
+<p t="2045381" d="5650">y1: the real answer.
+I mean: the really real answer.</p>
+<p t="2051031" d="2555">What is it?
+Well, this is a real number.</p>
+<p t="2053586" d="3670">So, I simply reproduce that as
+the coefficient out front.</p>
+<p t="2057256" d="3407">And for the other part,
+I want the real part of that.</p>
+<p t="2060663" d="2425">But you can write that down
+instantly.</p>
+<p t="2063088" d="2097">So, let's recopy the
+coefficient.</p>
+<p t="2065185" d="2817">And then, I want just the real
+part of this.</p>
+<p t="2068002" d="3998">Well, this is e to the i times
+some crazy angle.</p>
+<p t="2072000" d="4004">So, the real part is the cosine
+of that crazy angle.</p>
+<p t="2076004" d="4319">So, it's the cosine of omega t
+minus phi.</p>
+<p t="2080323" d="2277">And, if somebody says,</p>
+<p t="2082600" d="2748">yeah, well, okay,
+I got the omega k,</p>
+<p t="2085348" d="3691">I know what that is.
+That came from the problem,</p>
+<p t="2089039" d="3769">the driving frequency,
+driving angular frequency.</p>
+<p t="2092808" d="2355">That was omega,
+and k, I guess,</p>
+<p t="2095163" d="4005">k was the conductivity,
+the thing which told you how</p>
+<p t="2099168" d="4790">quickly the heat that penetrated
+the walls of the little inner</p>
+<p t="2103958" d="3325">chamber.
+So, that's okay,</p>
+<p t="2107283" d="3931">but what's this phi?
+Well, the best way to get phi</p>
+<p t="2111214" d="4654">is just to draw that picture,
+but if you want a formula for</p>
+<p t="2115868" d="3851">phi, phi will be,
+well, I guess from the picture,</p>
+<p t="2119719" d="3690">it's the arc tangent of omega,
+k, divided by k,</p>
+<p t="2123409" d="4814">over one,
+which I don't have to put</p>
+<p t="2128223" d="1925">in.
+So, it's this number,</p>
+<p t="2130148" d="3852">phi, in reference to this
+function.</p>
+<p t="2134000" d="5779">See, if the phi weren't there,
+this would be cosine omega t,</p>
+<p t="2139779" d="4783">and we all know what that looks</p>
+<p t="2144562" d="3587">like.
+The phi is called the phase lag</p>
+<p t="2148149" d="3488">or phase delay,
+something like that,</p>
+<p t="2151637" d="5281">the phase lag of the function.
+What does it represent?</p>
+<p t="2156918" d="5082">It represents,
+let me draw you a picture.</p>
+<p t="2162000" d="3030">Let's draw the picture like
+this.</p>
+<p t="2165030" d="3599">Here's cosine omega t.</p>
+<p t="2168629" d="4546">Now, regular cosine would look
+sort of like that.</p>
+<p t="2173175" d="5682">But, I will indicate that the
+angular frequency is not one by</p>
+<p t="2178857" d="4357">making my cosine squinchy up a
+little too much.</p>
+<p t="2183214" d="5304">Everybody can tell that that's
+the cosine on a limp axis,</p>
+<p t="2188518" d="3125">something for Salvador Dali,
+okay.</p>
+<p t="2191643" d="4357">So, there's cosine of
+something.</p>
+<p t="2196000" d="1922">So, what was it?
+Blue?</p>
+<p t="2197922" d="3204">I don't have blue.
+Yes, I have blue.</p>
+<p t="2201126" d="5585">Okay, so now you will know what
+I'm talking about because this</p>
+<p t="2206711" d="5310">looks just like the screen on
+your computer when you put in</p>
+<p t="2212021" d="4577">the visual for this.
+Frequency: your response order</p>
+<p t="2216598" d="2747">one.
+So, this is cosine omega t.</p>
+<p t="2219345" d="4863">Now, how will cosine omega t</p>
+<p t="2224208" d="2919">minus phi look?</p>
+<p t="2227127" d="3551">Well, it'll be moved over.
+Let's, for example,</p>
+<p t="2230678" d="4733">suppose phi were pi over two.
+Now, where's pi over two on the</p>
+<p t="2235411" d="3077">picture?
+Well, what I do is cosine omega</p>
+<p t="2238488" d="4102">t minus this.
+I move it over by one,</p>
+<p t="2242590" d="4260">so that this point becomes that
+one, and it looks like,</p>
+<p t="2246850" d="3471">the site will look like this.
+In other words,</p>
+<p t="2250321" d="3551">I shove it over by,
+so this is the point where</p>
+<p t="2253872" d="5128">omega t equals pi over two.</p>
+<p t="2259000" d="4093">It's not the value of t.
+It's not the value of t.</p>
+<p t="2263093" d="3155">It's the value of omega t.</p>
+<p t="2266248" d="4093">And, when I do that,
+then the blue curve has been</p>
+<p t="2270341" d="5201">shoved over one quarter of its
+total cycle, and that turns it,</p>
+<p t="2275542" d="5458">of course, into the sine curve,
+which I hope I can draw.</p>
+<p t="2281000" d="4680">So, this goes up to there,
+and then, it's got to get back</p>
+<p t="2285680" d="2925">through.
+Let me stop there while I'm</p>
+<p t="2288605" d="2507">ahead.
+So, this is sine omega t,</p>
+<p t="2291112" d="2841">the yellow thing,</p>
+<p t="2293953" d="2675">but that's also,
+in another life,</p>
+<p t="2296628" d="4931">cosine of omega t minus pi over
+two.</p>
+<p t="2301559" d="4930">The main thing is you don't
+subtract, the pi over two is not</p>
+<p t="2306489" d="5779">being subtracted from the t.
+It's being subtracted from the</p>
+<p t="2312268" d="3176">whole expression,
+and this whole expression</p>
+<p t="2315444" d="3705">represents an angle,
+which tells you where you are</p>
+<p t="2319149" d="2722">in the travel,
+a long cosine to this.</p>
+<p t="2321871" d="4386">What this quantity gets to be
+two pi, you're back where you</p>
+<p t="2326257" d="2874">started.
+That's not the distance on the</p>
+<p t="2329131" d="2646">t axis.
+It's the angle through which</p>
+<p t="2331777" d="2269">you go through.
+In other words,</p>
+<p t="2334046" d="4159">does number describes where you
+are on the cosine cycle.</p>
+<p t="2338205" d="3781">It doesn't tell you,
+it's not aiming at telling you</p>
+<p t="2341986" d="2646">exactly where you are on the t
+axis.</p>
+<p t="2344632" d="4462">The response function looks
+like one over the square root of</p>
+<p t="2349094" d="4461">one plus omega over k squared
+times cosine omega t minus phi.</p>
+<p t="2359000" d="5068">And, I asked you on the problem
+set, if k goes up,</p>
+<p t="2364068" d="4242">in other words,
+if the conductivity rises,</p>
+<p t="2368310" d="6103">if heat can get more rapidly
+from the outside to the inside,</p>
+<p t="2374413" d="3724">for example,
+how does that affect the</p>
+<p t="2378137" d="4613">amplitude?
+This is the amplitude,</p>
+<p t="2382750" d="4500">A, and the phase lag.
+In other words,</p>
+<p t="2387250" d="4125">how does this affect the
+response?</p>
+<p t="2391375" d="4250">And now, you can see.
+If k goes up,</p>
+<p t="2395625" d="4125">this fraction is becoming
+smaller.</p>
+<p t="2399750" d="5750">That means the denominator is
+becoming smaller,</p>
+<p t="2405500" d="6500">and therefore,
+the amplitude is going up.</p>
+<p t="2412000" d="2969">What's happening to the phase
+lag?</p>
+<p t="2414969" d="5581">Well, the phase lag looks like
+this: phi one omega over k.</p>
+<p t="2420550" d="2609">If k is going up,</p>
+<p t="2423159" d="5130">then the size of this side is
+going down, and the angle is</p>
+<p t="2428289" d="4231">going down.
+Now, that part is intuitive.</p>
+<p t="2432520" d="3871">I would have expected everybody
+to get that.</p>
+<p t="2436391" d="3870">It's the heat gets in quickly,
+more quickly,</p>
+<p t="2440261" d="3781">then the amplitude will match
+more quickly.</p>
+<p t="2444042" d="3871">This will rise,
+and get fairly close to one,</p>
+<p t="2447913" d="5220">in fact, and there should be
+very little lag in the way the</p>
+<p t="2453133" d="4591">response follows input.
+But how about the other one?</p>
+<p t="2457724" d="3871">Okay, I give you two minutes.
+The other one,</p>
+<p t="2461595" d="1933">you will figure out yourself.</p>
+</body>
+</timedtext>

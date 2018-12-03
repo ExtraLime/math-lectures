@@ -1,0 +1,1290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="110" d="2380">The following content is
+provided under a Creative</p>
+<p t="2490" d="666">Commons license.</p>
+<p t="3156" d="2284">Your support will help
+MIT OpenCourseWare</p>
+<p t="5440" d="4520">continue to offer high quality
+educational resources for free.</p>
+<p t="9960" d="2670">To make a donation or to
+view additional materials</p>
+<p t="12630" d="3280">from hundreds of MIT courses
+visit MIT OpenCourseWare</p>
+<p t="15910" d="6690">at ocw.mit.edu.</p>
+<p t="22600" d="4890">Okay so I'd like to begin the
+second lecture by reminding you</p>
+<p t="27490" d="3280">what we did last time.</p>
+<p t="30770" d="19750">So last time, we
+defined the derivative</p>
+<p t="50520" d="13740">as the slope of a tangent line.</p>
+<p t="64260" d="2820">So that was our
+geometric point of view</p>
+<p t="67080" d="3390">and we also did a
+couple of computations.</p>
+<p t="70470" d="7820">We worked out that the
+derivative of 1 / x was -1 /</p>
+<p t="78290" d="1810">x^2.</p>
+<p t="80100" d="4770">And we also computed the
+derivative of x to the nth</p>
+<p t="84870" d="7227">power for n = 1, 2, etc.,
+and that turned out to be x,</p>
+<p t="92097" d="833">I'm sorry, nx^(n-1).</p>
+<p t="96970" d="9210">So that's what we did
+last time, and today I</p>
+<p t="106180" d="5400">want to finish up with
+other points of view</p>
+<p t="111580" d="1850">on what a derivative is.</p>
+<p t="113430" d="2820">So this is extremely
+important, it's</p>
+<p t="116250" d="2500">almost the most important thing
+I'll be saying in the class.</p>
+<p t="118750" d="2560">But you'll have to think about
+it again when you start over</p>
+<p t="121310" d="3290">and start using calculus
+in the real world.</p>
+<p t="124600" d="9430">So again we're talking
+about what is a derivative</p>
+<p t="134030" d="5630">and this is just a
+continuation of last time.</p>
+<p t="139660" d="3600">So, as I said last time,
+we talked about geometric</p>
+<p t="143260" d="4870">interpretations, and today
+what we're gonna talk about</p>
+<p t="148130" d="6180">is rate of change
+as an interpretation</p>
+<p t="154310" d="5690">of the derivative.</p>
+<p t="160000" d="6260">So remember we drew graphs
+of functions, y = f(x)</p>
+<p t="166260" d="6930">and we kept track of the change
+in x and here the change in y,</p>
+<p t="173190" d="2950">let's say.</p>
+<p t="176140" d="5732">And then from this new point
+of view a rate of change,</p>
+<p t="181872" d="2208">keeping track of the rate
+of change of x and the rate</p>
+<p t="184080" d="2950">of change of y, it's the
+relative rate of change</p>
+<p t="187030" d="5560">we're interested in, and that's
+delta y / delta x and that</p>
+<p t="192590" d="3420">has another interpretation.</p>
+<p t="196010" d="5640">This is the average change.</p>
+<p t="201650" d="5230">Usually we would think of that,
+if x were measuring time and so</p>
+<p t="206880" d="4470">the average and that's
+when this becomes a rate,</p>
+<p t="211350" d="4480">and the average is over
+the time interval delta x.</p>
+<p t="215830" d="6840">And then the limiting
+value is denoted dy/dx</p>
+<p t="222670" d="4910">and so this one is the
+average rate of change</p>
+<p t="227580" d="12280">and this one is the
+instantaneous rate.</p>
+<p t="239860" d="1552">Okay, so that's
+the point of view</p>
+<p t="241412" d="1708">that I'd like to
+discuss now and give you</p>
+<p t="243120" d="3080">just a couple of examples.</p>
+<p t="246200" d="6780">So, let's see.</p>
+<p t="252980" d="6640">Well, first of all, maybe some
+examples from physics here.</p>
+<p t="259620" d="6830">So q is usually the
+name for a charge,</p>
+<p t="266450" d="7210">and then dq/dt is
+what's known as current.</p>
+<p t="273660" d="4940">So that's one physical example.</p>
+<p t="278600" d="6600">A second example, which is
+probably the most tangible one,</p>
+<p t="285200" d="6300">is we could denote the
+letter s by distance</p>
+<p t="291500" d="7020">and then the rate of change
+is what we call speed.</p>
+<p t="298520" d="3590">So those are the
+two typical examples</p>
+<p t="302110" d="4440">and I just want to
+illustrate the second example</p>
+<p t="306550" d="2350">in a little bit more
+detail because I think</p>
+<p t="308900" d="3790">it's important to have some
+visceral sense of this notion</p>
+<p t="312690" d="3630">of instantaneous speed.</p>
+<p t="316320" d="6250">And I get to use the example of
+this very building to do that.</p>
+<p t="322570" d="3290">Probably you know,
+or maybe you don't,</p>
+<p t="325860" d="3830">that on Halloween
+there's an event that</p>
+<p t="329690" d="3352">takes place in this
+building or really</p>
+<p t="333042" d="1458">from the top of
+this building which</p>
+<p t="334500" d="2500">is called the pumpkin drop.</p>
+<p t="337000" d="7450">So let's illustrates this
+idea of rate of change</p>
+<p t="344450" d="4590">with the pumpkin drop.</p>
+<p t="349040" d="4760">So what happens is,
+this building-- well</p>
+<p t="353800" d="7270">let's see here's the building,
+and here's the dot, that's</p>
+<p t="361070" d="3820">the beautiful grass out on
+this side of the building,</p>
+<p t="364890" d="4540">and then there's
+some people up here</p>
+<p t="369430" d="2880">and very small
+objects, well they're</p>
+<p t="372310" d="2930">not that small when
+you're close to them, that</p>
+<p t="375240" d="3760">get dumped over the side there.</p>
+<p t="379000" d="2510">And they fall down.</p>
+<p t="381510" d="2660">You know everything at MIT
+or a lot of things at MIT</p>
+<p t="384170" d="4260">are physics experiments.</p>
+<p t="388430" d="1010">That's the pumpkin drop.</p>
+<p t="389440" d="3115">So roughly speaking,
+the building</p>
+<p t="392555" d="3805">is about 300 feet
+high, we're down here</p>
+<p t="396360" d="3210">on the first usable floor.</p>
+<p t="399570" d="4560">And so we're going to
+use instead of 300 feet,</p>
+<p t="404130" d="2200">just for convenience
+purposes we'll</p>
+<p t="406330" d="9080">use 80 meters because that makes
+the numbers come out simply.</p>
+<p t="415410" d="8970">So we have the height
+which starts out</p>
+<p t="424380" d="5210">at 80 meters at time 0 and then
+the acceleration due to gravity</p>
+<p t="429590" d="3740">gives you this formula
+for h, this is the height.</p>
+<p t="433330" d="8430">So at time t = 0, we're up
+at the top, h is 80 meters,</p>
+<p t="441760" d="2820">the units here are meters.</p>
+<p t="444580" d="7620">And at time t = 4 you
+notice, 5 * 4^2 is 80.</p>
+<p t="452200" d="1830">I picked these numbers
+conveniently so</p>
+<p t="454030" d="4290">that we're down at the bottom.</p>
+<p t="458320" d="5300">Okay, so this notion
+of average change here,</p>
+<p t="463620" d="7760">so the average change, or
+the average speed here,</p>
+<p t="471380" d="4256">maybe we'll call it
+the average speed,</p>
+<p t="475636" d="7274">since that's-- over this time
+that it takes for the pumpkin</p>
+<p t="482910" d="4475">to drop is going to be
+the change in h divided</p>
+<p t="487385" d="2785">by the change in t.</p>
+<p t="490170" d="8180">Which starts out at, what
+does it start out as?</p>
+<p t="498350" d="3520">It starts out as 80, right?</p>
+<p t="501870" d="2060">And it ends at 0.</p>
+<p t="503930" d="2590">So actually we have
+to do it backwards.</p>
+<p t="506520" d="5590">We have to take 0 - 80
+because the first value is</p>
+<p t="512110" d="3390">the final position
+and the second value</p>
+<p t="515500" d="1890">is the initial position.</p>
+<p t="517390" d="4080">And that's divided by
+4 - 0; times 4 seconds</p>
+<p t="521470" d="2210">minus times 0 seconds.</p>
+<p t="523680" d="5520">And so that of course is
+-20 meters per second.</p>
+<p t="529200" d="7660">So the average speed of this
+guy is 20 meters a second.</p>
+<p t="536860" d="4110">Now, so why did I
+pick this example?</p>
+<p t="540970" d="3510">Because, of course, the
+average, although interesting,</p>
+<p t="544480" d="2060">is not really what
+anybody cares about who</p>
+<p t="546540" d="2130">actually goes to the event.</p>
+<p t="548670" d="2790">All we really care about
+is the instantaneous speed</p>
+<p t="551460" d="7545">when it hits the pavement
+and so that's can</p>
+<p t="559005" d="4605">be calculated at the bottom.</p>
+<p t="563610" d="1720">So what's the
+instantaneous speed?</p>
+<p t="565330" d="4200">That's the derivative,
+or maybe to be</p>
+<p t="569530" d="2190">consistent with the notation
+I've been using so far,</p>
+<p t="571720" d="4230">that's d/dt of h.</p>
+<p t="575950" d="1630">All right?</p>
+<p t="577580" d="1510">So that's d/dt of h.</p>
+<p t="579090" d="2930">Now remember we have
+formulas for these things.</p>
+<p t="582020" d="1830">We can differentiate
+this function now.</p>
+<p t="583850" d="4080">We did that yesterday.</p>
+<p t="587930" d="3420">So we're gonna take the rate of
+change and if you take a look</p>
+<p t="591350" d="5440">at it, it's just the rate
+of change of 80 is 0,</p>
+<p t="596790" d="6070">minus the rate change for
+this -5t^2, that's minus 10t.</p>
+<p t="602860" d="5890">So that's using the fact
+that d/dt of 80 is equal to 0</p>
+<p t="608750" d="3600">and d/dt of t^2 is equal to 2t.</p>
+<p t="612350" d="2070">The special case...</p>
+<p t="614420" d="2740">Well I'm cheating
+here, but there's</p>
+<p t="617160" d="1340">a special case that's obvious.</p>
+<p t="618500" d="1350">I didn't throw it in over here.</p>
+<p t="619850" d="3900">The case n = 2 is that
+second case there.</p>
+<p t="623750" d="6630">But the case n = 0 also works.</p>
+<p t="630380" d="1154">Because that's constants.</p>
+<p t="631534" d="1416">The derivative of
+a constant is 0.</p>
+<p t="632950" d="3831">And then the factor n there's
+0 and that's consistent.</p>
+<p t="636781" d="1999">And actually if you look
+at the formula above it</p>
+<p t="638780" d="5310">you'll see that it's
+the case of n = -1.</p>
+<p t="644090" d="5730">So we'll get a larger pattern
+soon enough with the powers.</p>
+<p t="649820" d="630">Okay anyway.</p>
+<p t="650450" d="3320">Back over here we have
+our rate of change</p>
+<p t="653770" d="1610">and this is what it is.</p>
+<p t="655380" d="3970">And at the bottom, at
+that point of impact,</p>
+<p t="659350" d="5350">we have t = 4 and so h',
+which is the derivative,</p>
+<p t="664700" d="8160">is equal to -40
+meters per second.</p>
+<p t="672860" d="3680">So twice as fast as
+the average speed here,</p>
+<p t="676540" d="6360">and if you need to convert that,
+that's about 90 miles an hour.</p>
+<p t="682900" d="6550">Which is why the police are
+there at midnight on Halloween</p>
+<p t="689450" d="3860">to make sure you're all safe
+and also why when you come</p>
+<p t="693310" d="4020">you have to be prepared
+to clean up afterwards.</p>
+<p t="697330" d="2930">So anyway that's what happens,
+it's 90 miles an hour.</p>
+<p t="700260" d="2060">It's actually the
+buildings a little taller,</p>
+<p t="702320" d="2690">there's air resistance
+and I'm sure you</p>
+<p t="705010" d="5340">can do a much more thorough
+study of this example.</p>
+<p t="710350" d="3950">All right so now I want to give
+you a couple of more examples</p>
+<p t="714300" d="4400">because time and these kinds
+of parameters and variables</p>
+<p t="718700" d="3870">are not the only ones that
+are important for calculus.</p>
+<p t="722570" d="3040">If it were only this kind of
+physics that was involved,</p>
+<p t="725610" d="4100">then this would be a much more
+specialized subject than it is.</p>
+<p t="729710" d="3630">And so I want to give you a
+couple of examples that don't</p>
+<p t="733340" d="3230">involve time as a variable.</p>
+<p t="736570" d="3605">So the third example
+I'll give here</p>
+<p t="740175" d="7085">is-- The letter T often
+denotes temperature,</p>
+<p t="747260" d="8400">and then dT/dx would be what
+is known as the temperature</p>
+<p t="755660" d="3170">gradient.</p>
+<p t="758830" d="4480">Which we really care
+about a lot when</p>
+<p t="763310" d="2510">we're predicting the weather
+because it's that temperature</p>
+<p t="765820" d="6320">difference that causes air flows
+and causes things to change.</p>
+<p t="772140" d="2270">And then there's
+another theme which</p>
+<p t="774410" d="6700">is throughout the sciences
+and engineering which</p>
+<p t="781110" d="6590">I'm going to talk about under
+the heading of sensitivity</p>
+<p t="787700" d="7900">of measurements.</p>
+<p t="795600" d="2870">So let me explain this.</p>
+<p t="798470" d="3060">I don't want to belabor
+it because I just</p>
+<p t="801530" d="2280">am doing this in
+order to introduce you</p>
+<p t="803810" d="2570">to the ideas on your
+problem set which</p>
+<p t="806380" d="2970">are the first case of this.</p>
+<p t="809350" d="3940">So on problem set one
+you have an example</p>
+<p t="813290" d="4070">which is based on a
+simplified model of GPS,</p>
+<p t="817360" d="2190">sort of the Flat Earth Model.</p>
+<p t="819550" d="2850">And in that situation,
+well, if the Earth is flat</p>
+<p t="822400" d="3090">it's just a horizontal
+line like this.</p>
+<p t="825490" d="8530">And then you have a satellite,
+which is over here, preferably</p>
+<p t="834020" d="8420">above the earth, and the
+satellite or the system</p>
+<p t="842440" d="3370">knows exactly where the point
+directly below the satellite</p>
+<p t="845810" d="670">is.</p>
+<p t="846480" d="5690">So this point is
+treated as known.</p>
+<p t="852170" d="9990">And I'm sitting here
+with my little GPS device</p>
+<p t="862160" d="4280">and I want to know where I am.</p>
+<p t="866440" d="2440">And the way I
+locate where I am is</p>
+<p t="868880" d="5870">I communicate with this
+satellite by radio signals</p>
+<p t="874750" d="4000">and I can measure this distance
+here which is called h.</p>
+<p t="878750" d="6310">And then system will compute
+this horizontal distance which</p>
+<p t="885060" d="8300">is L. So in other
+words what is measured,</p>
+<p t="893360" d="9660">so h measured by radios,
+radio waves and a clock,</p>
+<p t="903020" d="1890">or various clocks.</p>
+<p t="904910" d="8650">And then L is deduced from h.</p>
+<p t="913560" d="3170">And what's critical in
+all of these systems</p>
+<p t="916730" d="3590">is that you don't
+know h exactly.</p>
+<p t="920320" d="6010">There's an error in h
+which will denote delta h.</p>
+<p t="926330" d="4710">There's some degree
+of uncertainty.</p>
+<p t="931040" d="4510">The main uncertainty in
+GPS is from the ionosphere.</p>
+<p t="935550" d="2730">But there are lots
+of corrections</p>
+<p t="938280" d="3060">that are made of all kinds.</p>
+<p t="941340" d="2230">And also if you're
+inside a building</p>
+<p t="943570" d="1220">it's a problem to measure it.</p>
+<p t="944790" d="3180">But it's an extremely
+important issue,</p>
+<p t="947970" d="1760">as I'll explain in a second.</p>
+<p t="949730" d="4310">So the idea is we
+then get at delta</p>
+<p t="954040" d="10206">L is estimated by considering
+this ratio delta L/delta</p>
+<p t="964246" d="2814">h which is going
+to be approximately</p>
+<p t="967060" d="6850">the same as the derivative
+of L with respect to h.</p>
+<p t="973910" d="3905">So this is the thing that's
+easy because of course it's</p>
+<p t="977815" d="1125">calculus.</p>
+<p t="978940" d="3020">Calculus is the
+easy part and that</p>
+<p t="981960" d="3370">allows us to deduce something
+about the real world that's</p>
+<p t="985330" d="3270">close by over here.</p>
+<p t="988600" d="3380">So the reason why you should
+care about this quite a bit</p>
+<p t="991980" d="2890">is that it's used all the
+time to land airplanes.</p>
+<p t="994870" d="1810">So you really do care
+that they actually</p>
+<p t="996680" d="5706">know to within a few feet or
+even closer where your plane is</p>
+<p t="1002386" d="5764">and how high up it
+is and so forth.</p>
+<p t="1008150" d="500">All right.</p>
+<p t="1008650" d="2200">So that's it for the
+general introduction</p>
+<p t="1010850" d="1160">of what a derivative is.</p>
+<p t="1012010" d="1660">I'm sure you'll be
+getting used to this</p>
+<p t="1013670" d="2890">in a lot of different contexts
+throughout the course.</p>
+<p t="1016560" d="7950">And now we have to get back
+down to some rigorous details.</p>
+<p t="1024510" d="5030">Okay, everybody happy with
+what we've got so far?</p>
+<p t="1029540" d="500">Yeah?</p>
+<p t="1030040" d="3360">Student: How did you get
+the equation for height?</p>
+<p t="1033400" d="1580">Professor: Ah good question.</p>
+<p t="1034980" d="3580">The question was how did I
+get this equation for height?</p>
+<p t="1038560" d="6410">I just made it up because
+it's the formula from physics</p>
+<p t="1044970" d="4622">that you will learn when
+you take 8.01 and, in fact,</p>
+<p t="1049592" d="5468">it has to do with the fact
+that this is the speed if you</p>
+<p t="1055060" d="2280">differentiate
+another time you get</p>
+<p t="1057340" d="3210">acceleration and
+acceleration due to gravity</p>
+<p t="1060550" d="1780">is 10 meters per second.</p>
+<p t="1062330" d="2120">Which happens to be the
+second derivative of this.</p>
+<p t="1064450" d="3260">But anyway I just pulled it
+out of a hat from your physics</p>
+<p t="1067710" d="640">class.</p>
+<p t="1068350" d="7160">So you can just say see 8.01 .</p>
+<p t="1075510" d="7330">All right, other questions?</p>
+<p t="1082840" d="2130">All right, so let's go on now.</p>
+<p t="1084970" d="4370">Now I have to be a little bit
+more systematic about limits.</p>
+<p t="1089340" d="10790">So let's do that now.</p>
+<p t="1100130" d="10240">So now what I'd like to talk
+about is limits and continuity.</p>
+<p t="1110370" d="3830">And this is a warm
+up for deriving</p>
+<p t="1114200" d="3700">all the rest of the formulas,
+all the rest of the formulas</p>
+<p t="1117900" d="2530">that I'm going to
+need to differentiate</p>
+<p t="1120430" d="1170">every function you know.</p>
+<p t="1121600" d="2520">Remember, that's our goal
+and we only have about a week</p>
+<p t="1124120" d="3390">left so we'd better get started.</p>
+<p t="1127510" d="11470">So first of all there is
+what I will call easy limits.</p>
+<p t="1138980" d="1670">So what's an easy limit?</p>
+<p t="1140650" d="6635">An easy limit is something like
+the limit as x goes to 4 of x</p>
+<p t="1147285" d="4285">plus 3 over x^2 + 1.</p>
+<p t="1151570" d="4670">And with this kind of limit all
+I have to do to evaluate it is</p>
+<p t="1156240" d="7530">to plug in x = 4 because,
+so what I get here is 4 + 3</p>
+<p t="1163770" d="4130">divided by 4^2 + 1.</p>
+<p t="1167900" d="3660">And that's just 7 / 17.</p>
+<p t="1171560" d="2160">And that's the end of it.</p>
+<p t="1173720" d="4790">So those are the easy limits.</p>
+<p t="1178510" d="4159">The second kind of limit -
+well so this isn't the only</p>
+<p t="1182669" d="2291">second kind of limit but I
+just want to point this out,</p>
+<p t="1184960" d="10720">it's very important - is that:
+derivatives are are always</p>
+<p t="1195680" d="3690">harder than this.</p>
+<p t="1199370" d="3860">You can't get away
+with nothing here.</p>
+<p t="1203230" d="1860">So, why is that?</p>
+<p t="1205090" d="2530">Well, when you
+take a derivative,</p>
+<p t="1207620" d="5540">you're taking the limit
+as x goes to x_0 of f(x),</p>
+<p t="1213160" d="11360">well we'll write it all
+out in all its glory.</p>
+<p t="1224520" d="4270">Here's the formula
+for the derivative.</p>
+<p t="1228790" d="10320">Now notice that if you plug in
+x = x:0, always gives 0 / 0.</p>
+<p t="1239110" d="2970">So it just basically
+never works.</p>
+<p t="1242080" d="8860">So we always are going
+to need some cancellation</p>
+<p t="1250940" d="15020">to make sense out of the limit.</p>
+<p t="1265960" d="6610">Now in order to make things
+a little easier for myself</p>
+<p t="1272570" d="3130">to explain what's
+going on with limits</p>
+<p t="1275700" d="2960">I need to introduce just
+one more piece of notation.</p>
+<p t="1278660" d="1830">What I'm gonna
+introduce here is what's</p>
+<p t="1280490" d="2890">known as a left-hand
+and a right limit.</p>
+<p t="1283380" d="6120">If I take the limit as x tends
+to x_0 with a plus sign here</p>
+<p t="1289500" d="12780">of some function, this is what's
+known as the right-hand limit.</p>
+<p t="1302280" d="2590">And I can display it visually.</p>
+<p t="1304870" d="1080">So what does this mean?</p>
+<p t="1305950" d="1580">It means practically
+the same thing</p>
+<p t="1307530" d="3630">as x tends to x_0 except there
+is one more restriction which</p>
+<p t="1311160" d="2470">has to do with this plus
+sign, which is we're going</p>
+<p t="1313630" d="1740">from the plus side of x_0.</p>
+<p t="1315370" d="3340">That means x is bigger than x_0.</p>
+<p t="1318710" d="3060">And I say right-hand, so
+there should be a hyphen here,</p>
+<p t="1321770" d="4830">right-hand limit because
+on the number line,</p>
+<p t="1326600" d="7980">if x_0 is over here
+the x is to the right.</p>
+<p t="1334580" d="500">All right?</p>
+<p t="1335080" d="1670">So that's the right-hand limit.</p>
+<p t="1336750" d="2800">And then this being the
+left side of the board,</p>
+<p t="1339550" d="3166">I'll put on the right side
+of the board the left limit,</p>
+<p t="1342716" d="1844">just to make things confusing.</p>
+<p t="1344560" d="5960">So that one has the
+minus sign here.</p>
+<p t="1350520" d="3420">I'm just a little dyslexic
+and I hope you're not.</p>
+<p t="1353940" d="4260">So I may have gotten that wrong.</p>
+<p t="1358200" d="3310">So this is the left-hand
+limit, and I'll draw it.</p>
+<p t="1361510" d="4195">So of course that just
+means x goes to x_0 but x is</p>
+<p t="1365705" d="2555">to the left of x_0 .</p>
+<p t="1368260" d="4030">And again, on the number
+line, here's the x_0</p>
+<p t="1372290" d="4280">and the x is on the
+other side of it.</p>
+<p t="1376570" d="2400">Okay, so those two
+notations are going</p>
+<p t="1378970" d="2860">to help us to clarify
+a bunch of things.</p>
+<p t="1381830" d="2750">It's much more
+convenient to have</p>
+<p t="1384580" d="3940">this extra bit of
+description of limits</p>
+<p t="1388520" d="7360">than to just consider
+limits from both sides.</p>
+<p t="1395880" d="10100">Okay so I want to give
+an example of this.</p>
+<p t="1405980" d="3330">And also an example
+of how you're going to</p>
+<p t="1409310" d="2800">think about these
+sorts of problems.</p>
+<p t="1412110" d="5910">So I'll take a function which
+has two different definitions.</p>
+<p t="1418020" d="9550">Say it's x + 1, when x &gt;
+0 and -x + 2, when x &lt; 0.</p>
+<p t="1427570" d="3710">So maybe put commas there.</p>
+<p t="1431280" d="7260">So when x &gt; 0, it's x + 1.</p>
+<p t="1438540" d="2490">Now I can draw a
+picture of this.</p>
+<p t="1441030" d="1925">It's gonna be kind
+of a little small</p>
+<p t="1442955" d="1875">because I'm gonna try
+to fit it down in here,</p>
+<p t="1444830" d="2840">but maybe I'll put
+the axis down below.</p>
+<p t="1447670" d="6320">So at height 1, I have to
+the right something of slope</p>
+<p t="1453990" d="2900">1 so it goes up like this.</p>
+<p t="1456890" d="1350">All right?</p>
+<p t="1458240" d="8260">And then to the left of 0 I have
+something which has slope -1,</p>
+<p t="1466500" d="4220">but it hits the axis
+at 2 so it's up here.</p>
+<p t="1470720" d="3455">So I had this sort of
+strange antenna figure here,</p>
+<p t="1474175" d="975">which is my graph.</p>
+<p t="1475150" d="8560">Maybe I should draw these in
+another color to depict that.</p>
+<p t="1483710" d="4070">And then if I calculate
+these two limits here,</p>
+<p t="1487780" d="6890">what I see is that
+the limit as x</p>
+<p t="1494670" d="6190">goes to 0 from above of f(x),
+that's the same as the limit</p>
+<p t="1500860" d="7130">as x goes to 0 of the
+formula here, x + 1.</p>
+<p t="1507990" d="2440">Which turns out to be 1.</p>
+<p t="1510430" d="4930">And if I take the limit, so
+that's the left-hand limit.</p>
+<p t="1515360" d="5340">Sorry, I told you
+I was dyslexic.</p>
+<p t="1520700" d="2620">This is the right, so
+it's that right-hand.</p>
+<p t="1523320" d="1760">Here we go.</p>
+<p t="1525080" d="6450">So now I'm going from the
+left, and it's f(x) again,</p>
+<p t="1531530" d="3650">but now because I'm on that
+side the thing I need to plug</p>
+<p t="1535180" d="8360">is the other formula, -x + 2,
+and that's gonna give us 2.</p>
+<p t="1543540" d="4770">Now, notice that the left
+and right limits, and this</p>
+<p t="1548310" d="3160">is one little tiny subtlety
+and it's almost the only thing</p>
+<p t="1551470" d="2300">that I need you to really
+pay attention to a little bit</p>
+<p t="1553770" d="12440">right now, is that this, we
+did not need x = 0 value.</p>
+<p t="1566210" d="5650">In fact I never even told
+you what f(0) was here.</p>
+<p t="1571860" d="2790">If we stick it in we
+could stick it in.</p>
+<p t="1574650" d="5400">Okay let's say we stick
+it in on this side.</p>
+<p t="1580050" d="2920">Let's make it be that
+it's on this side.</p>
+<p t="1582970" d="9890">So that means that this point
+is in and this point is out.</p>
+<p t="1592860" d="4820">So that's a typical notation:
+this little open circle</p>
+<p t="1597680" d="3850">and this closed dot for
+when you include the.</p>
+<p t="1601530" d="3300">So in that case
+the value of f(x)</p>
+<p t="1604830" d="3530">happens to be the same
+as its right-hand limit,</p>
+<p t="1608360" d="8170">namely the value is
+1 here and not 2.</p>
+<p t="1616530" d="4610">Okay, so that's the
+first kind of example.</p>
+<p t="1621140" d="5470">Questions?</p>
+<p t="1626610" d="6810">Okay, so now our next
+job is to introduce</p>
+<p t="1633420" d="3850">the definition of continuity.</p>
+<p t="1637270" d="2810">So that was the
+other topic here.</p>
+<p t="1640080" d="3410">So we're going to define.</p>
+<p t="1643490" d="16025">So f is continuous at x_0 means
+that the limit of f(x) as x</p>
+<p t="1659515" d="4925">tends to x_0 is
+equal to f(x_0) .</p>
+<p t="1664440" d="2650">Right?</p>
+<p t="1667090" d="4660">So the reason why I spend
+all this time paying</p>
+<p t="1671750" d="2790">attention to the left and the
+right and so on and so forth</p>
+<p t="1674540" d="2800">and focusing is that I want you
+to pay attention for one moment</p>
+<p t="1677340" d="4480">to what the content
+of this definition is.</p>
+<p t="1681820" d="10820">What it's saying is the
+following: continuous at x_0</p>
+<p t="1692640" d="2810">has various ingredients here.</p>
+<p t="1695450" d="9090">So the first one is
+that this limit exists.</p>
+<p t="1704540" d="2540">And what that means
+is that there's</p>
+<p t="1707080" d="8070">an honest limiting value
+both from the left and right.</p>
+<p t="1715150" d="4100">And they also have
+to be the same.</p>
+<p t="1719250" d="2730">All right, so that's
+what's going on here.</p>
+<p t="1721980" d="8400">And the second property
+is that f(x_0) is defined.</p>
+<p t="1730380" d="1720">So I can't be in one
+of these situations</p>
+<p t="1732100" d="2670">where I haven't
+even specified what</p>
+<p t="1734770" d="10450">f(x_0) is and they're equal.</p>
+<p t="1745220" d="3970">Okay, so that's the situation.</p>
+<p t="1749190" d="4120">Now again let me
+emphasize a tricky part</p>
+<p t="1753310" d="2250">of the definition of a limit.</p>
+<p t="1755560" d="4760">This side, the left-hand side
+is completely independent,</p>
+<p t="1760320" d="3470">is evaluated by a
+procedure which does not</p>
+<p t="1763790" d="1280">involve the right-hand side.</p>
+<p t="1765070" d="1830">These are separate things.</p>
+<p t="1766900" d="7410">This one is, to evaluate it, you
+always avoid the limit point.</p>
+<p t="1774310" d="3360">So that's if you like a
+paradox, because it's exactly</p>
+<p t="1777670" d="3620">the question: is it true
+that if you plug in x_0</p>
+<p t="1781290" d="3010">you get the same answer as
+if you move in the limit?</p>
+<p t="1784300" d="1970">That's the issue that
+we're considering here.</p>
+<p t="1786270" d="2000">We have to make that
+distinction in order</p>
+<p t="1788270" d="2610">to say that these
+are two, otherwise</p>
+<p t="1790880" d="4390">this is just tautological.</p>
+<p t="1795270" d="1360">It doesn't have any meaning.</p>
+<p t="1796630" d="1416">But in fact it
+does have a meaning</p>
+<p t="1798046" d="2574">because one thing is evaluated
+separately with reference</p>
+<p t="1800620" d="3230">to all the other
+points and the other</p>
+<p t="1803850" d="3020">is evaluated right at
+the point in question.</p>
+<p t="1806870" d="4220">And indeed what
+these things are,</p>
+<p t="1811090" d="6806">are exactly the easy limits.</p>
+<p t="1817896" d="1874">That's exactly what
+we're talking about here.</p>
+<p t="1819770" d="4380">They're the ones you
+can evaluate this way.</p>
+<p t="1824150" d="1490">So we have to make
+the distinction.</p>
+<p t="1825640" d="2045">And these other ones are
+gonna be the ones which</p>
+<p t="1827685" d="1985">we can't evaluate that way.</p>
+<p t="1829670" d="1870">So these are the
+nice ones and that's</p>
+<p t="1831540" d="2290">why we care about them, why
+we have a whole definition</p>
+<p t="1833830" d="2640">associated with them.</p>
+<p t="1836470" d="2230">All right?</p>
+<p t="1838700" d="1700">So now what's next?</p>
+<p t="1840400" d="8510">Well, I need to give you a a
+little tour, very brief tour,</p>
+<p t="1848910" d="5180">of the zoo of what are known
+as discontinuous functions.</p>
+<p t="1854090" d="3340">So sort of everything else
+that's not continuous.</p>
+<p t="1857430" d="7120">So, the first example here,
+let me just write it down here.</p>
+<p t="1864550" d="9120">It's jump discontinuities.</p>
+<p t="1873670" d="1630">So what would a jump
+discontinuity be?</p>
+<p t="1875300" d="3430">Well we've actually
+already seen it.</p>
+<p t="1878730" d="3060">The jump discontinuity
+is the example</p>
+<p t="1881790" d="1440">that we had right there.</p>
+<p t="1883230" d="9260">This is when the limit
+from the left and right</p>
+<p t="1892490" d="9690">exist, but are not equal.</p>
+<p t="1902180" d="8760">Okay, so that's
+as in the example.</p>
+<p t="1910940" d="500">Right?</p>
+<p t="1911440" d="2240">In this example, the
+two limits, one of them</p>
+<p t="1913680" d="4210">was 1 and of them was 2.</p>
+<p t="1917890" d="4260">So that's a jump discontinuity.</p>
+<p t="1922150" d="7160">And this kind of issue,
+of whether something</p>
+<p t="1929310" d="5630">is continuous or not, may
+seem a little bit technical</p>
+<p t="1934940" d="11180">but it is true that people
+have worried about it a lot.</p>
+<p t="1946120" d="2700">Bob Merton, who was a
+professor at MIT when</p>
+<p t="1948820" d="4590">he did his work for the
+Nobel prize in economics,</p>
+<p t="1953410" d="2770">was interested in
+this very issue</p>
+<p t="1956180" d="3140">of whether stock
+prices of various kinds</p>
+<p t="1959320" d="3220">are continuous from the left
+or right in a certain model.</p>
+<p t="1962540" d="2040">And that was a
+very serious issue</p>
+<p t="1964580" d="4570">in developing the model
+that priced things</p>
+<p t="1969150" d="2690">that our hedge funds
+use all the time now.</p>
+<p t="1971840" d="5790">So left and right can really
+mean something very different.</p>
+<p t="1977630" d="3877">In this case left is the
+past and right is the future</p>
+<p t="1981507" d="1833">and it makes a big
+difference whether things</p>
+<p t="1983340" d="3500">are continuous from the left
+or continuous from the right.</p>
+<p t="1986840" d="2280">Right, is it true that
+the point is here,</p>
+<p t="1989120" d="2600">here, somewhere in the
+middle, somewhere else.</p>
+<p t="1991720" d="1760">That's a serious issue.</p>
+<p t="1993480" d="4730">So the next example
+that I want to give you</p>
+<p t="1998210" d="4510">is a little bit more subtle.</p>
+<p t="2002720" d="9420">It's what's known as a
+removable discontinuity.</p>
+<p t="2012140" d="10870">And so what this means is that
+the limit from left and right</p>
+<p t="2023010" d="3180">are equal.</p>
+<p t="2026190" d="1790">So a picture of
+that would be, you</p>
+<p t="2027980" d="2500">have a function which is
+coming along like this</p>
+<p t="2030480" d="2340">and there's a hole
+maybe where, who knows</p>
+<p t="2032820" d="3450">either the function is undefined
+or maybe it's defined up here,</p>
+<p t="2036270" d="2481">and then it just continues on.</p>
+<p t="2038751" d="499">All right?</p>
+<p t="2039250" d="1960">So the two limits are the same.</p>
+<p t="2041210" d="3800">And then of course the function
+is begging to be redefined</p>
+<p t="2045010" d="2360">so that we remove that hole.</p>
+<p t="2047370" d="7100">And that's why it's called
+a removable discontinuity.</p>
+<p t="2054470" d="3240">Now let me give you
+an example of this,</p>
+<p t="2057710" d="4750">or actually a
+couple of examples.</p>
+<p t="2062460" d="5670">So these are quite
+important examples</p>
+<p t="2068130" d="5890">which you will be working
+with in a few minutes.</p>
+<p t="2074020" d="7640">So the first is the function
+g(x), which is sin x / x,</p>
+<p t="2081660" d="3600">and the second will be the
+function h(x), which is 1 -</p>
+<p t="2085260" d="5260">cos x over x.</p>
+<p t="2090520" d="9770">So we have a problem at
+g(0), g(0) is undefined.</p>
+<p t="2100290" d="3470">On the other hand it turns
+out this function has what's</p>
+<p t="2103760" d="1950">called a removable singularity.</p>
+<p t="2105710" d="8920">Namely the limit as x goes
+to 0 of sin x / x does exist.</p>
+<p t="2114630" d="2420">In fact it's equal to 1.</p>
+<p t="2117050" d="3380">So that's a very important limit
+that we will work out either</p>
+<p t="2120430" d="2990">at the end of this lecture or
+the beginning of next lecture.</p>
+<p t="2123420" d="7520">And similarly, the
+limit of 1 - cos x</p>
+<p t="2130940" d="4430">divided by x, as
+x goes to 0, is 0.</p>
+<p t="2135370" d="2681">Maybe I'll put that
+a little farther</p>
+<p t="2138051" d="2309">away so you can read it.</p>
+<p t="2140360" d="4580">Okay, so these are
+very useful facts</p>
+<p t="2144940" d="2860">that we're going
+to need later on.</p>
+<p t="2147800" d="2660">And what they say is
+that these things have</p>
+<p t="2150460" d="8060">removable singularities, sorry
+removable discontinuity at x</p>
+<p t="2158520" d="6080">= 0.</p>
+<p t="2164600" d="8430">All right so as I say, we'll
+get to that in a few minutes.</p>
+<p t="2173030" d="3370">Okay so are there any
+questions before I move on?</p>
+<p t="2176400" d="500">Yeah?</p>
+<p t="2176900" d="13730">Student: [INAUDIBLE]</p>
+<p t="2190630" d="7670">Professor: The question
+is: why is this true?</p>
+<p t="2198300" d="2000">Is that what your question is?</p>
+<p t="2200300" d="3770">The answer is it's
+very, very unobvious,</p>
+<p t="2204070" d="4290">I haven't shown it to you
+yet, and if you were not</p>
+<p t="2208360" d="3200">surprised by it then that
+would be very strange indeed.</p>
+<p t="2211560" d="1830">So we haven't done it yet.</p>
+<p t="2213390" d="2600">You have to stay
+tuned until we do.</p>
+<p t="2215990" d="1220">Okay?</p>
+<p t="2217210" d="2040">We haven't shown it yet.</p>
+<p t="2219250" d="2070">And actually even
+this other statement,</p>
+<p t="2221320" d="2280">which maybe seems
+stranger still,</p>
+<p t="2223600" d="2160">is also not yet explained.</p>
+<p t="2225760" d="3105">Okay, so we are going
+to get there, as I said,</p>
+<p t="2228865" d="1375">either at the end
+of this lecture</p>
+<p t="2230240" d="5170">or at the beginning of next.</p>
+<p t="2235410" d="7150">Other questions?</p>
+<p t="2242560" d="5620">All right, so let me
+just continue my tour</p>
+<p t="2248180" d="5820">of the zoo of discontinuities.</p>
+<p t="2254000" d="3050">And, I guess, I want
+to illustrate something</p>
+<p t="2257050" d="4390">with the convenience of
+right and left hand limits</p>
+<p t="2261440" d="10740">so I'll save this board about
+right and left-hand limits.</p>
+<p t="2272180" d="2790">So a third type of
+discontinuity is</p>
+<p t="2274970" d="12350">what's known as an
+infinite discontinuity.</p>
+<p t="2287320" d="4630">And we've already
+encountered one of these.</p>
+<p t="2291950" d="2500">I'm going to draw
+them over here.</p>
+<p t="2294450" d="4920">Remember the
+function y is 1 / x.</p>
+<p t="2299370" d="3080">That's this function here.</p>
+<p t="2302450" d="3050">But now I'd like to draw
+also the other branch</p>
+<p t="2305500" d="5640">of the hyperbola down here
+and allow myself to consider</p>
+<p t="2311140" d="1180">negative values of x.</p>
+<p t="2312320" d="3590">So here's the graph of 1 / x.</p>
+<p t="2315910" d="6730">And the convenience here
+of distinguishing the left</p>
+<p t="2322640" d="3980">and the right hand limits is
+very important because here I</p>
+<p t="2326620" d="5180">can write down that the limit
+as x goes to 0+ of 1 / x.</p>
+<p t="2331800" d="5500">Well that's coming from the
+right and it's going up.</p>
+<p t="2337300" d="3280">So this limit is infinity.</p>
+<p t="2340580" d="4800">Whereas, the limit in
+the other direction,</p>
+<p t="2345380" d="5250">from the left, that
+one is going down.</p>
+<p t="2350630" d="5880">And so it's quite different,
+it's minus infinity.</p>
+<p t="2356510" d="3350">Now some people say that
+these limits are undefined</p>
+<p t="2359860" d="3080">but actually they're going in
+some very definite direction.</p>
+<p t="2362940" d="2010">So you should,
+whenever possible,</p>
+<p t="2364950" d="1690">specify what these limits are.</p>
+<p t="2366640" d="4220">On the other hand, the
+statement that the limit</p>
+<p t="2370860" d="6390">as x goes to 0 of 1 / x is
+infinity is simply wrong.</p>
+<p t="2377250" d="3090">Okay, it's not that
+people don't write this.</p>
+<p t="2380340" d="1340">It's just that it's wrong.</p>
+<p t="2381680" d="1790">It's not that they
+don't write it down.</p>
+<p t="2383470" d="1530">In fact you'll probably see it.</p>
+<p t="2385000" d="3055">It's because people are just
+thinking of the right hand</p>
+<p t="2388055" d="735">branch.</p>
+<p t="2388790" d="2430">It's not that they're making
+a mistake necessarily,</p>
+<p t="2391220" d="1896">but anyway, it's sloppy.</p>
+<p t="2393116" d="1874">And there's some sloppiness
+that we'll endure</p>
+<p t="2394990" d="2090">and others that
+we'll try to avoid.</p>
+<p t="2397080" d="3040">So here, you want to say this,
+and it does make a difference.</p>
+<p t="2400120" d="4870">You know, plus infinity is
+an infinite number of dollars</p>
+<p t="2404990" d="2460">and minus infinity is and
+infinite amount of debt.</p>
+<p t="2407450" d="1530">They're actually different.</p>
+<p t="2408980" d="910">They're not the same.</p>
+<p t="2409890" d="5650">So, you know, this is sloppy and
+this is actually more correct.</p>
+<p t="2415540" d="2345">Okay, so now in
+addition, I just want</p>
+<p t="2417885" d="3465">to point out one more thing.</p>
+<p t="2421350" d="2860">Remember, we calculated
+the derivative,</p>
+<p t="2424210" d="2670">and that was -1/x^2.</p>
+<p t="2426880" d="4316">But, I want to draw
+the graph of that</p>
+<p t="2431196" d="1374">and make a few
+comments about it.</p>
+<p t="2432570" d="1850">So I'm going to draw
+the graph directly</p>
+<p t="2434420" d="4400">underneath the graph
+of the function.</p>
+<p t="2438820" d="2470">And notice what this graphs is.</p>
+<p t="2441290" d="7240">It goes like this, it's always
+negative, and it points down.</p>
+<p t="2448530" d="2950">So now this may look
+a little strange,</p>
+<p t="2451480" d="3600">that the derivative of
+this thing is this guy,</p>
+<p t="2455080" d="3550">but that's because of
+something very important.</p>
+<p t="2458630" d="2400">And you should always remember
+this about derivatives.</p>
+<p t="2461030" d="2965">The derivative function looks
+nothing like the function,</p>
+<p t="2463995" d="865">necessarily.</p>
+<p t="2464860" d="2920">So you should just forget
+about that as being an idea.</p>
+<p t="2467780" d="2260">Some people feel like
+if one thing goes down,</p>
+<p t="2470040" d="1430">the other thing has to go down.</p>
+<p t="2471470" d="1560">Just forget that intuition.</p>
+<p t="2473030" d="1130">It's wrong.</p>
+<p t="2474160" d="6010">What we're dealing with here,
+if you remember, is the slope.</p>
+<p t="2480170" d="3700">So if you have a slope
+here, that corresponds</p>
+<p t="2483870" d="3090">to just a place over
+here and as the slope</p>
+<p t="2486960" d="3230">gets a little bit
+less steep, that's</p>
+<p t="2490190" d="3130">why we're approaching
+the horizontal axis.</p>
+<p t="2493320" d="3160">The number is getting a
+little smaller as we close in.</p>
+<p t="2496480" d="4640">Now over here, the
+slope is also negative.</p>
+<p t="2501120" d="1860">It is going down and
+as we get down here</p>
+<p t="2502980" d="1600">it's getting more
+and more negative.</p>
+<p t="2504580" d="3590">As we go here the slope,
+this function is going up,</p>
+<p t="2508170" d="1880">but its slope is going down.</p>
+<p t="2510050" d="5740">All right, so the slope is down
+on both sides and the notation</p>
+<p t="2515790" d="7900">that we use for that is
+well suited to this left</p>
+<p t="2523690" d="5720">and right business.</p>
+<p t="2529410" d="6620">Namely, the limit as x
+goes to 0 of -1 / x^2,</p>
+<p t="2536030" d="2110">that's going to be
+equal to minus infinity.</p>
+<p t="2538140" d="6620">And that applies to x going
+to 0+ and x going to 0-.</p>
+<p t="2544760" d="7020">So both have this property.</p>
+<p t="2551780" d="2260">Finally let me just
+make one last comment</p>
+<p t="2554040" d="3620">about these two graphs.</p>
+<p t="2557660" d="4560">This function here
+is an odd function</p>
+<p t="2562220" d="2400">and when you take the
+derivative of an odd function</p>
+<p t="2564620" d="6120">you always get an even function.</p>
+<p t="2570740" d="3640">That's closely related to the
+fact that this 1 / x is an odd</p>
+<p t="2574380" d="6790">power and-- x^1 is an odd
+power and x^2 is an even power.</p>
+<p t="2581170" d="4450">So all of this your intuition
+should be reinforcing the fact</p>
+<p t="2585620" d="5450">that these pictures look right.</p>
+<p t="2591070" d="4940">Okay, now there's one
+last kind of discontinuity</p>
+<p t="2596010" d="4450">that I want to mention
+briefly, which I will call</p>
+<p t="2600460" d="13530">other ugly discontinuities.</p>
+<p t="2613990" d="5780">And there are lots
+and lots of them.</p>
+<p t="2619770" d="4450">So one example would
+be the function y = sin</p>
+<p t="2624220" d="5860">1 / x, as x goes to 0.</p>
+<p t="2630080" d="8834">And that looks a
+little bit like this.</p>
+<p t="2638914" d="1416">Back and forth and
+back and forth.</p>
+<p t="2640330" d="5840">It oscillates infinitely
+often as we tend to 0.</p>
+<p t="2646170" d="13090">There's no left or right
+limit in this case.</p>
+<p t="2659260" d="6070">So there is a very large
+quantity of things like that.</p>
+<p t="2665330" d="4020">Fortunately we're not gonna
+deal with them in this course.</p>
+<p t="2669350" d="2150">A lot of times in
+real life there</p>
+<p t="2671500" d="3300">are things that oscillate
+as time goes to infinity,</p>
+<p t="2674800" d="5380">but we're not going to
+worry about that right now.</p>
+<p t="2680180" d="8910">Okay, so that's our final
+mention of a discontinuity,</p>
+<p t="2689090" d="5040">and now I need to do just
+one more piece of groundwork</p>
+<p t="2694130" d="5230">for our formulas next time.</p>
+<p t="2699360" d="9770">Namely, I want to check
+for you one basic fact,</p>
+<p t="2709130" d="1150">one limiting tool.</p>
+<p t="2710280" d="2680">So this is going
+to be a theorem.</p>
+<p t="2712960" d="4490">Fortunately it's a
+very short theorem</p>
+<p t="2717450" d="2130">and has a very short proof.</p>
+<p t="2719580" d="2510">So the theorem goes under
+the name differentiable</p>
+<p t="2722090" d="6120">implies continuous.</p>
+<p t="2728210" d="1980">And what it says
+is the following:</p>
+<p t="2730190" d="5410">it says that if f is
+differentiable, in other words</p>
+<p t="2735600" d="9960">its-- the derivative
+exists at x_0, then</p>
+<p t="2745560" d="13685">f is continuous at x_0.</p>
+<p t="2759245" d="1625">So, we're gonna need
+this is as a tool,</p>
+<p t="2760870" d="4880">it's a key step in the
+product and quotient rules.</p>
+<p t="2765750" d="6630">So I'd like to prove
+it right now for you.</p>
+<p t="2772380" d="3890">So here is the proof.</p>
+<p t="2776270" d="4160">Fortunately the proof
+is just one line.</p>
+<p t="2780430" d="4310">So first of all, I want to
+write in just the right way what</p>
+<p t="2784740" d="2670">it is that we have to check.</p>
+<p t="2787410" d="6130">So what we have to check is that
+the limit, as x goes to x_0,</p>
+<p t="2793540" d="7807">of f(x) - f(x_0) is equal to 0.</p>
+<p t="2801347" d="1333">So this is what we want to know.</p>
+<p t="2802680" d="2250">We don't know it
+yet, but we're trying</p>
+<p t="2804930" d="2720">to check whether
+this is true or not.</p>
+<p t="2807650" d="2140">So that's the same
+as the statement</p>
+<p t="2809790" d="2390">that the function is continuous
+because the limit of f(x)</p>
+<p t="2812180" d="4120">is supposed to be f(x_0) and
+so this difference should</p>
+<p t="2816300" d="3390">have limit 0.</p>
+<p t="2819690" d="3040">And now, the way this
+is proved is just</p>
+<p t="2822730" d="6990">by rewriting it by multiplying
+and dividing by (x - x_0).</p>
+<p t="2829720" d="7661">So I'll rewrite the limit
+as x goes to x_0 of f(x) -</p>
+<p t="2837381" d="8189">f(x_0) divided by x
+- x_0 times x - x_0.</p>
+<p t="2845570" d="3660">Okay, so I wrote down the same
+expression that I had here.</p>
+<p t="2849230" d="2850">This is just the same limit,
+but I multiplied and divided</p>
+<p t="2852080" d="5990">by (x - x_0).</p>
+<p t="2858070" d="7080">And now when I take the limit
+what happens is the limit</p>
+<p t="2865150" d="3680">of the first factor is f'(x_0).</p>
+<p t="2868830" d="5110">That's the thing we know
+exists by our assumption.</p>
+<p t="2873940" d="6700">And the limit of the second
+factor is 0 because the limit</p>
+<p t="2880640" d="6060">as x goes to x_0 of (x
+- x_0) is clearly 0 .</p>
+<p t="2886700" d="2510">So that's it.</p>
+<p t="2889210" d="3000">The answer is 0, which
+is what we wanted.</p>
+<p t="2892210" d="2770">So that's the proof.</p>
+<p t="2894980" d="4520">Now there's something
+exceedingly fishy-looking</p>
+<p t="2899500" d="6870">about this proof and let me just
+point to it before we proceed.</p>
+<p t="2906370" d="6680">Namely, you're used in limits
+to setting x equal to 0.</p>
+<p t="2913050" d="2830">And this looks like we're
+multiplying, dividing by 0,</p>
+<p t="2915880" d="2550">exactly the thing
+which makes all proofs</p>
+<p t="2918430" d="4132">wrong in all kinds of
+algebraic situations</p>
+<p t="2922562" d="958">and so on and so forth.</p>
+<p t="2923520" d="2260">You've been taught
+that that never works.</p>
+<p t="2925780" d="1970">Right?</p>
+<p t="2927750" d="3290">But somehow these
+limiting tricks</p>
+<p t="2931040" d="3060">have found a way around
+this and let me just</p>
+<p t="2934100" d="1780">make explicit what it is.</p>
+<p t="2935880" d="7620">In this limit we never
+are using x = x_0.</p>
+<p t="2943500" d="2220">That's exactly the
+one value of x that we</p>
+<p t="2945720" d="3400">don't consider in this limit.</p>
+<p t="2949120" d="2790">That's how limits are cooked up.</p>
+<p t="2951910" d="2930">And that's sort of been
+the themes so far today,</p>
+<p t="2954840" d="2260">is that we don't
+have to consider that</p>
+<p t="2957100" d="2890">and so this multiplication
+and division by this number</p>
+<p t="2959990" d="1460">is legal.</p>
+<p t="2961450" d="3750">It may be small, this number,
+but it's always non-zero.</p>
+<p t="2965200" d="2470">So this really works,
+and it's really true,</p>
+<p t="2967670" d="3370">and we just checked that a
+differentiable function is</p>
+<p t="2971040" d="1520">continuous.</p>
+<p t="2972560" d="6020">So I'm gonna have to carry
+out these limits, which</p>
+<p t="2978580" d="3460">are very interesting 0
+/ 0 limits next time.</p>
+<p t="2982040" d="4472">But let's hang on for one second
+to see if there any questions</p>
+<p t="2986512" d="1395">before we stop.</p>
+<p t="2987907" d="1083">Yeah, there is a question.</p>
+<p t="2988990" d="11980">Student: [INAUDIBLE] Professor:
+Repeat this proof right here?</p>
+<p t="3000970" d="1860">Just say again.</p>
+<p t="3002830" d="5400">Student: [INAUDIBLE]</p>
+<p t="3008230" d="4830">Professor: Okay, so there
+are two steps to the proof</p>
+<p t="3013060" d="4810">and the step that you're
+asking about is the first step.</p>
+<p t="3017870" d="710">Right?</p>
+<p t="3018580" d="2310">And what I'm saying is
+if you have a number,</p>
+<p t="3020890" d="3750">and you multiply it by 10
+/ 10 it's the same number.</p>
+<p t="3024640" d="2280">If you multiply it by 3
+/ 3 it's the same number.</p>
+<p t="3026920" d="3190">2 / 2, 1 / 1, and so on.</p>
+<p t="3030110" d="2275">So it is okay to
+change this to this,</p>
+<p t="3032385" d="2015">it's exactly the same thing.</p>
+<p t="3034400" d="1820">That's the first step.</p>
+<p t="3036220" d="500">Yes?</p>
+<p t="3036720" d="4840">Student: [INAUDIBLE]</p>
+<p t="3041560" d="3450">Professor: Shhhh...</p>
+<p t="3045010" d="7090">The question was how does the
+proof, how does this line,</p>
+<p t="3052100" d="1860">yeah where the question mark is.</p>
+<p t="3053960" d="1950">So what I checked was
+that this number which</p>
+<p t="3055910" d="3940">is on the left hand side
+is equal to this very long</p>
+<p t="3059850" d="4950">complicated number which is
+equal to this number which</p>
+<p t="3064800" d="1470">is equal to this number.</p>
+<p t="3066270" d="2330">And so I've checked that
+this number is equal to 0</p>
+<p t="3068600" d="3520">because the last thing is 0.</p>
+<p t="3072120" d="4000">This is equal to that is
+equal to that is equal to 0.</p>
+<p t="3076120" d="1300">And that's the proof.</p>
+<p t="3077420" d="500">Yes?</p>
+<p t="3077920" d="3990">Student: [INAUDIBLE]</p>
+<p t="3081910" d="8670">Professor: So that's
+a different question.</p>
+<p t="3090580" d="5170">Okay, so the hypothesis
+of differentiability I</p>
+<p t="3095750" d="3670">use because this limit
+is equal to this number.</p>
+<p t="3099420" d="1100">That that limit exits.</p>
+<p t="3100520" d="3650">That's how I use the
+hypothesis of the theorem.</p>
+<p t="3104170" d="2390">The conclusion of the
+theorem is the same</p>
+<p t="3106560" d="4740">as this because being
+continuous is the same as limit</p>
+<p t="3111300" d="4720">as x goes to x_0 of
+f(x) is equal to f(x_0).</p>
+<p t="3116020" d="1510">That's the definition
+of continuity.</p>
+<p t="3117530" d="3460">And I subtracted
+f(x_0) from both sides</p>
+<p t="3120990" d="1870">to get this as being
+the same thing.</p>
+<p t="3122860" d="5240">So this claim is continuity and
+it's the same as this question</p>
+<p t="3128100" d="2250">here.</p>
+<p t="3130350" d="830">Last question.</p>
+<p t="3131180" d="5591">Student: How did you
+get the 0 [INAUDIBLE]</p>
+<p t="3136771" d="1749">Professor: How did we
+get the 0 from this?</p>
+<p t="3138520" d="1930">So the claim that is
+being made, so the claim</p>
+<p t="3140450" d="4220">is why is this tending to that.</p>
+<p t="3144670" d="2740">So for example, I'm going
+to have to erase something</p>
+<p t="3147410" d="1320">to explain that.</p>
+<p t="3148730" d="5170">So the claim is that the limit
+as x goes to x_0 of x - x_0</p>
+<p t="3153900" d="1340">is equal to 0.</p>
+<p t="3155240" d="1920">That's what I'm claiming.</p>
+<p t="3157160" d="2330">Okay, does that
+answer your question?</p>
+<p t="3159490" d="1500">Okay.</p>
+<p t="3160990" d="1430">All right.</p>
+<p t="3162420" d="2900">Ask me other stuff
+after lecture.</p>
+</body>
+</timedtext>

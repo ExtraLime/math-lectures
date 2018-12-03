@@ -1,0 +1,1506 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="40" d="2370">The following content is
+provided under a Creative</p>
+<p t="2410" d="1380">Commons license.</p>
+<p t="3790" d="2240">Your support will help
+MIT OpenCourseWare</p>
+<p t="6030" d="4070">continue to offer high-quality
+educational resources for free.</p>
+<p t="10100" d="2580">To make a donation or to
+view additional materials</p>
+<p t="12680" d="3910">from hundreds of MIT courses,
+visit MIT OpenCourseWare</p>
+<p t="16590" d="1680">at fsae@mit.edu.</p>
+<p t="37340" d="4973">PATRICK WINSTON: It was in
+2010, yes, that's right.</p>
+<p t="42313" d="2317">It was in 2010.</p>
+<p t="44630" d="1960">We were having our
+annual discussion</p>
+<p t="46590" d="3380">about what we would dump fro
+6034 in order to make room</p>
+<p t="49970" d="1750">for some other stuff.</p>
+<p t="51720" d="2820">And we almost killed
+off neural nets.</p>
+<p t="54540" d="3470">That might seem strange
+because our heads</p>
+<p t="58010" d="1850">are stuffed with neurons.</p>
+<p t="59860" d="2140">If you open up your skull
+and pluck them all out,</p>
+<p t="62000" d="1870">you don't think anymore.</p>
+<p t="63870" d="4044">So it would seem
+that neural nets</p>
+<p t="67914" d="4696">would be a fundamental
+and unassailable topic.</p>
+<p t="72610" d="4100">But many of us felt that
+the neural models of the day</p>
+<p t="76710" d="6670">weren't much in the way
+of faithful models of what</p>
+<p t="83380" d="2096">actually goes on
+inside our heads.</p>
+<p t="85476" d="1374">And besides that,
+nobody had ever</p>
+<p t="86850" d="3420">made a neural net that was
+worth a darn for doing anything.</p>
+<p t="90270" d="2800">So we almost killed it off.</p>
+<p t="93070" d="1624">But then we said,
+well, everybody</p>
+<p t="94694" d="1666">would feel cheated
+if they take a course</p>
+<p t="96360" d="1700">in artificial intelligence,
+don't learn anything</p>
+<p t="98060" d="1274">about neural nets,
+and then they'll</p>
+<p t="99334" d="1306">go off and invent
+them themselves.</p>
+<p t="100640" d="1600">And they'll waste
+all sorts of time.</p>
+<p t="102240" d="2500">So we kept the subject in.</p>
+<p t="104740" d="3680">Then two years
+later, Jeff Hinton</p>
+<p t="108420" d="3650">from the University of
+Toronto stunned the world</p>
+<p t="112070" d="4380">with some neural network
+he had done on recognizing</p>
+<p t="116450" d="2360">and classifying pictures.</p>
+<p t="118810" d="1800">And he published
+a paper from which</p>
+<p t="120610" d="4300">I am now going to show
+you a couple of examples.</p>
+<p t="124910" d="3379">Jeff's neural net, by the
+way, had 60 million parameters</p>
+<p t="128289" d="1100">in it.</p>
+<p t="129389" d="5721">And its purpose was to determine
+which of 1,000 categories</p>
+<p t="135110" d="1977">best characterized a picture.</p>
+<p t="142900" d="1110">So there it is.</p>
+<p t="144010" d="7270">There's a sample of things
+that the Toronto neural net</p>
+<p t="151280" d="4136">was able to recognize
+or make mistakes on.</p>
+<p t="155416" d="1624">I'm going to blow
+that up a little bit.</p>
+<p t="157040" d="1583">I think I'm going
+to look particularly</p>
+<p t="158623" d="4307">at the example labeled
+container ship.</p>
+<p t="162930" d="4210">So what you see here is that
+the program returned its best</p>
+<p t="167140" d="4490">estimate of what it was
+ranked, first five, according</p>
+<p t="171630" d="3460">to the likelihood,
+probability, or the certainty</p>
+<p t="175090" d="4150">that it felt that a
+particular class was</p>
+<p t="179240" d="1790">characteristic of the picture.</p>
+<p t="181030" d="2390">And so you can see this
+one is extremely confident</p>
+<p t="183420" d="2840">that it's a container ship.</p>
+<p t="186260" d="3660">It also was fairly
+moved by the idea</p>
+<p t="189920" d="3670">that it might be a lifeboat.</p>
+<p t="193590" d="3800">Now, I'm not sure about you,
+but I don't think this looks</p>
+<p t="197390" d="1276">much like a lifeboat.</p>
+<p t="198666" d="1624">But it does look like
+a container ship.</p>
+<p t="200290" d="3160">So if I look at only the best
+choice, it looks pretty good.</p>
+<p t="203450" d="2310">Here are the other things
+they did pretty well,</p>
+<p t="205760" d="2220">got the right answer
+is the first choice--</p>
+<p t="207980" d="2277">is this first choice.</p>
+<p t="210257" d="1583">So over on the left,
+you see that it's</p>
+<p t="211840" d="3440">decided that the picture
+is a picture of a mite.</p>
+<p t="215280" d="2420">The mite is not anywhere near
+the center of the picture,</p>
+<p t="217700" d="3740">but somehow it managed to find
+it-- the container ship again.</p>
+<p t="221440" d="2670">There is a motor scooter, a
+couple of people sitting on it.</p>
+<p t="224110" d="4380">But it correctly characterized
+the picture as a motor scooter.</p>
+<p t="228490" d="1670">And then on the
+right, a Leopard.</p>
+<p t="230160" d="2290">And everything else
+is a cat of some sort.</p>
+<p t="232450" d="1830">So it seems to be
+doing pretty well.</p>
+<p t="234280" d="2650">In fact, it does do pretty well.</p>
+<p t="236930" d="2194">But anyone who does
+this kind of work</p>
+<p t="239124" d="1416">has an obligation
+to show you some</p>
+<p t="240540" d="2570">of the stuff that
+doesn't work so well on</p>
+<p t="243110" d="1560">or doesn't get quite right.</p>
+<p t="244670" d="5340">And so these pictures also
+occurred in Hinton's paper.</p>
+<p t="250010" d="2830">So the first one is
+characterized as a grill.</p>
+<p t="252840" d="3070">But the right answer was
+supposed to be convertible.</p>
+<p t="255910" d="3570">Oh, no, yes, yeah, right
+answer was convertible.</p>
+<p t="259480" d="2950">In the second case,
+the characterization</p>
+<p t="262430" d="2130">is of a mushroom.</p>
+<p t="264560" d="3760">And the alleged right
+answer is agaric.</p>
+<p t="268320" d="1420">Is that pronounced right?</p>
+<p t="269740" d="3990">It turns out that's a kind of
+mushroom-- so no problem there.</p>
+<p t="273730" d="2550">In the next case, it
+said it was a cherry.</p>
+<p t="276280" d="1650">But it was supposed
+to be a dalmatian.</p>
+<p t="277930" d="3270">Now, I think a dalmatian is
+a perfectly legitimate answer</p>
+<p t="281200" d="3420">for that particular picture--
+so hard to fault it for that.</p>
+<p t="284620" d="3020">And the last case,
+the correct answer</p>
+<p t="287640" d="3060">was not in any of the top five.</p>
+<p t="290700" d="2400">I'm not sure if you've
+ever seen a Madagascar cap.</p>
+<p t="293100" d="1620">But that's a picture of one.</p>
+<p t="294720" d="1500">And it's interesting
+to compare that</p>
+<p t="296220" d="2750">with the first choice of the
+program, the squirrel monkey.</p>
+<p t="298970" d="3190">This is the two side by side.</p>
+<p t="302160" d="2030">So in a way, it's not
+surprising that it</p>
+<p t="304190" d="2140">thought that the
+Madagascar cat was</p>
+<p t="306330" d="4460">a picture of a squirrel
+monkey-- so pretty impressive.</p>
+<p t="310790" d="1260">It blew away the competition.</p>
+<p t="312050" d="4175">It did so much better the
+second place wasn't even close.</p>
+<p t="316225" d="2375">And for the first time, it
+demonstrated that a neural net</p>
+<p t="318600" d="1750">could actually do something.</p>
+<p t="320350" d="3460">And since that time, in the
+three years since that time,</p>
+<p t="323810" d="2340">there's been an enormous
+amount of effort</p>
+<p t="326150" d="5320">put into neural net technology,
+which some say is the answer.</p>
+<p t="331470" d="2970">So what we're going to
+do today and tomorrow</p>
+<p t="334440" d="4690">is have a look at this stuff
+and ask ourselves why it works,</p>
+<p t="339130" d="2430">when it might not work,
+what needs to be done,</p>
+<p t="341560" d="2230">what has been done, and all
+those kinds of questions</p>
+<p t="343790" d="680">will emerge.</p>
+<p t="351520" d="4120">So I guess the first thing to
+do is think about what it is</p>
+<p t="355640" d="2330">that we are being inspired by.</p>
+<p t="357970" d="3010">We're being inspired
+by those things that</p>
+<p t="360980" d="3670">are inside our head-- all
+10 to the 11th of them.</p>
+<p t="364650" d="5105">And so if we take one of those
+10 to the 11th and look at it,</p>
+<p t="369755" d="2945">you know from 700 something
+or other approximately</p>
+<p t="372700" d="1870">what a neuron looks like.</p>
+<p t="374570" d="3190">And by the way, I'm going
+to teach you in this lecture</p>
+<p t="377760" d="2470">how to answer questions
+about neurobiology</p>
+<p t="380230" d="2940">with an 80% probability that
+you will give the same answer</p>
+<p t="383170" d="2300">as a neurobiologist.</p>
+<p t="385470" d="2840">So let's go.</p>
+<p t="388310" d="1830">So here's a neuron.</p>
+<p t="390140" d="1790">It's got a cell body.</p>
+<p t="391930" d="1600">And there is a nucleus.</p>
+<p t="393530" d="2820">And then out here is
+a long thingamajigger</p>
+<p t="396350" d="4880">which divides maybe a
+little bit, but not much.</p>
+<p t="401230" d="1165">And we call that the axon.</p>
+<p t="406080" d="4020">So then over here, we've got
+this much more branching type</p>
+<p t="410100" d="4472">of structure that looks
+maybe a little bit like so.</p>
+<p t="422144" d="2406">Maybe like that-- and this
+stuff branches a whole lot.</p>
+<p t="424550" d="1970">And that part is called
+the dendritic tree.</p>
+<p t="435400" d="1910">Now, there are a
+couple of things</p>
+<p t="437310" d="4040">we can note about this is that
+these guys are connected axon</p>
+<p t="441350" d="1290">to dendrite.</p>
+<p t="442640" d="5790">So over here, they'll be
+a so-called pre-synaptic</p>
+<p t="448430" d="1210">thickening.</p>
+<p t="449640" d="3750">And over here will be some
+other neuron's dendrite.</p>
+<p t="453390" d="4830">And likewise, over here
+some other neuron's axon</p>
+<p t="458220" d="7635">is coming in here and hitting
+the dendrite of our the one</p>
+<p t="465855" d="1662">that occupies most
+of our picture.</p>
+<p t="473220" d="4040">So if there is enough
+stimulation from this side</p>
+<p t="477260" d="3800">in the axonal tree,
+or the dendritic tree,</p>
+<p t="481060" d="3560">then a spike will
+go down that axon.</p>
+<p t="484620" d="3200">It acts like a
+transmission line.</p>
+<p t="487820" d="4550">And then after that
+happens, the neuron</p>
+<p t="492370" d="2630">will go quiet for a while as
+it's recovering its strength.</p>
+<p t="495000" d="1550">That's called the
+refractory period.</p>
+<p t="499560" d="3670">Now, if we look at that
+connection in a little more</p>
+<p t="503230" d="6770">detail, this little piece right
+here sort of looks like this.</p>
+<p t="510000" d="2820">Here's the axon coming in.</p>
+<p t="512820" d="3050">It's got a whole bunch
+of little vesicles in it.</p>
+<p t="515870" d="3179">And then there's a
+dendrite over here.</p>
+<p t="519049" d="3681">And when the axon is stimulated,
+it dumps all these vesicles</p>
+<p t="522730" d="2472">into this inner synaptic space.</p>
+<p t="525202" d="2208">For a long time, it wasn't
+known whether those things</p>
+<p t="527410" d="2020">were actually separated.</p>
+<p t="529430" d="1680">I think it was
+Raamon and Cahal who</p>
+<p t="531110" d="3300">demonstrated that one
+neuron is actually</p>
+<p t="534410" d="1620">not part of the next one.</p>
+<p t="536030" d="5580">They're actually separated
+by these synaptic gaps.</p>
+<p t="541610" d="2510">So there it is.</p>
+<p t="544120" d="2650">How can we model,
+that sort of thing?</p>
+<p t="546770" d="1670">Well, here's what's
+usually done.</p>
+<p t="548440" d="2880">Here's what is done in
+the neural net literature.</p>
+<p t="557070" d="3890">First of all, we've got
+some kind of binary input,</p>
+<p t="560960" d="2410">because these things either
+fire or they don't fire.</p>
+<p t="563370" d="2690">So it's an all-or-none
+kind of situation.</p>
+<p t="566060" d="3450">So over here, we have
+some kind of input value.</p>
+<p t="569510" d="1490">We'll call it x1.</p>
+<p t="571000" d="3010">And is either a 0 or 1.</p>
+<p t="574010" d="1900">So it comes in here.</p>
+<p t="575910" d="4540">And then it gets multiplied
+times some kind of weight.</p>
+<p t="580450" d="2185">We'll call it w1.</p>
+<p t="585620" d="4290">So this part here is modeling
+this synaptic connection.</p>
+<p t="589910" d="1980">It may be more or less strong.</p>
+<p t="591890" d="1960">And if it's more strong,
+this weight goes up.</p>
+<p t="593850" d="2660">And if it's less strong,
+this weight goes down.</p>
+<p t="596510" d="4710">So that reflects the
+influence of the synapse</p>
+<p t="601220" d="4680">on whether or not the whole
+axon decides it's stimulated.</p>
+<p t="605900" d="6210">Then we got other inputs down
+here-- x sub n, also 0 or 1.</p>
+<p t="612110" d="3070">It's also multiplied
+by a weight.</p>
+<p t="615180" d="2390">We'll call that w sub n.</p>
+<p t="617570" d="2990">And now, we have to
+somehow represent</p>
+<p t="620560" d="6400">the way in which these inputs
+are collected together--</p>
+<p t="626960" d="2330">how they have collective force.</p>
+<p t="629290" d="1670">And we're going to
+model that very, very</p>
+<p t="630960" d="6650">simply just by saying, OK,
+we'll run it through a summer</p>
+<p t="637610" d="2050">like so.</p>
+<p t="639660" d="3730">But then we have to decide if
+the collective influence of all</p>
+<p t="643390" d="5240">those inputs is sufficient
+to make the neuron fire.</p>
+<p t="648630" d="2800">So we're going to
+do that by running</p>
+<p t="651430" d="4680">this guy through a
+threshold box like so.</p>
+<p t="656110" d="3820">Here is what the box looks like
+in terms of the relationship</p>
+<p t="659930" d="2610">between input and the output.</p>
+<p t="662540" d="1890">And what you can see
+here is that nothing</p>
+<p t="664430" d="4610">happens until the input
+exceeds some threshold t.</p>
+<p t="669040" d="4920">If that happens, then
+the output z is a 1.</p>
+<p t="673960" d="2310">Otherwise, it's a 0.</p>
+<p t="676270" d="3770">So binary, binary out-- we
+model the synaptic weights</p>
+<p t="680040" d="1490">by these multipliers.</p>
+<p t="681530" d="5320">We model the cumulative effect
+of all that input to the neuron</p>
+<p t="686850" d="1650">by a summer.</p>
+<p t="688500" d="3249">We decide if it's going to be
+an all-or-none 1 by running it</p>
+<p t="691749" d="1541">through this threshold
+box and seeing</p>
+<p t="693290" d="6080">if the sum of the products add
+up to more than the threshold.</p>
+<p t="699370" d="2240">If so, we get a 1.</p>
+<p t="701610" d="5210">So what, in the end,
+are we in fact modeling?</p>
+<p t="706820" d="8080">Well, with this model,
+we have number 1, all</p>
+<p t="714900" d="17990">or none-- number 2, cumulative
+influence-- number 3, oh, I,</p>
+<p t="732890" d="1281">suppose synaptic weight.</p>
+<p t="740432" d="1458">But that's not all
+that there might</p>
+<p t="741890" d="3050">be to model in a real neuron.</p>
+<p t="744940" d="2202">We might want to deal with
+the refractory period.</p>
+<p t="759180" d="4290">In these biological models that
+we build neural nets out of,</p>
+<p t="763470" d="1915">we might want to model
+axonal bifurcation.</p>
+<p t="773280" d="3050">We do get some division
+in the axon of the neuron.</p>
+<p t="776330" d="2740">And it turns out that that
+pulse will either go down</p>
+<p t="779070" d="2130">one branch or the other.</p>
+<p t="781200" d="1770">And which branch it
+goes down depends</p>
+<p t="782970" d="3900">on electrical activity in
+the vicinity of the division.</p>
+<p t="786870" d="2690">So these things might actually
+be a fantastic coincidence</p>
+<p t="789560" d="1280">detectors.</p>
+<p t="790840" d="1166">But we're not modeling that.</p>
+<p t="792006" d="3624">We don't know how it works.</p>
+<p t="795630" d="1660">So axonal bifurcation
+might be modeled.</p>
+<p t="797290" d="4610">We might also have a
+look at time patterns.</p>
+<p t="806402" d="1458">See, what we don't
+know is we don't</p>
+<p t="807860" d="4380">know if the timing of the
+arrival of these pulses</p>
+<p t="812240" d="2050">in the dendritic
+tree has anything</p>
+<p t="814290" d="3760">to do with what that neuron
+is going to recognize--</p>
+<p t="818050" d="2270">so a lot of unknowns here.</p>
+<p t="820320" d="2330">And now, I'm going
+to show you how</p>
+<p t="822650" d="2360">to answer a question
+about neurobiology</p>
+<p t="825010" d="2580">with 80% probability
+you'll get it right.</p>
+<p t="827590" d="4320">Just say, we don't know.</p>
+<p t="831910" d="1980">And that will be with
+80% probability what</p>
+<p t="833890" d="1380">the neurobiologist would say.</p>
+<p t="838700" d="4540">So this is a model inspired
+by what goes on in our heads.</p>
+<p t="843240" d="4000">But it's far from clear
+if what we're modeling</p>
+<p t="847240" d="6040">is the essence of why those guys
+make possible what we can do.</p>
+<p t="853280" d="2000">Nevertheless, that's where
+we're going to start.</p>
+<p t="855280" d="1291">That's where we're going to go.</p>
+<p t="856571" d="3929">So we've got this model
+of what a neuron does.</p>
+<p t="860500" d="4680">So what about what does a
+collection of these neurons do?</p>
+<p t="865180" d="6650">Well, we can think of your skull
+as a big box full of neurons.</p>
+<p t="877680" d="1490">Maybe a better way
+to think of this</p>
+<p t="879170" d="2860">is that your head
+is full of neurons.</p>
+<p t="882030" d="9460">And they in turn are full of
+weights and thresholds like so.</p>
+<p t="891490" d="5186">So into this box come a variety
+of inputs x1 through xm.</p>
+<p t="900080" d="1700">And these find their
+way to the inside</p>
+<p t="901780" d="3010">of this gaggle of neurons.</p>
+<p t="904790" d="8530">And out here come a bunch
+of outputs c1 through zn.</p>
+<p t="913320" d="3790">And there a whole bunch
+of these maybe like so.</p>
+<p t="917110" d="2570">And there are a lot
+of inputs like so.</p>
+<p t="919680" d="3950">And somehow these inputs
+through the influence</p>
+<p t="923630" d="5630">of the weights of the thresholds
+come out as a set of outputs.</p>
+<p t="929260" d="2090">So we can write
+that down a little</p>
+<p t="931350" d="5420">fancier by just saying
+that z is a vector, which</p>
+<p t="936770" d="5450">is a function of, certainly
+the input vector, but also</p>
+<p t="942220" d="3290">the weight vector and
+the threshold vector.</p>
+<p t="945510" d="2270">So that's all a neural net is.</p>
+<p t="947780" d="1650">And when we train
+a neural net, all</p>
+<p t="949430" d="2780">we're going to be able to
+do is adjust those weights</p>
+<p t="952210" d="5220">and thresholds so that what
+we get out is what we want.</p>
+<p t="957430" d="3140">So a neural net is a
+function approximator.</p>
+<p t="960570" d="1700">It's good to think about that.</p>
+<p t="962270" d="1208">It's a function approximator.</p>
+<p t="965420" d="6140">So maybe we've got some sample
+data that gives us an output</p>
+<p t="971560" d="6305">vector that's desired as
+another function of the input,</p>
+<p t="977865" d="2375">forgetting about what the
+weights and the thresholds are.</p>
+<p t="980240" d="2310">That's what we want to get out.</p>
+<p t="982550" d="2440">And so how well we're
+doing can be figured out</p>
+<p t="984990" d="6450">by comparing the desired
+value with the actual value.</p>
+<p t="991440" d="2080">So we might think
+then that we can</p>
+<p t="993520" d="4930">get a handle on how well
+we're doing by constructing</p>
+<p t="998450" d="7320">some performance function, which
+is determined by the desired</p>
+<p t="1005770" d="5190">vector and the input
+vector-- sorry,</p>
+<p t="1010960" d="3370">the desired vector and
+the actual output vector</p>
+<p t="1014330" d="4040">for some particular input
+or for some set of inputs.</p>
+<p t="1018370" d="2970">And the question is what
+should that function be?</p>
+<p t="1021340" d="2430">How should we
+measure performance</p>
+<p t="1023770" d="3210">given that we have
+what we want out here</p>
+<p t="1026980" d="2690">and what we actually
+got out here?</p>
+<p t="1029670" d="2679">Well, one simple
+thing to do is just</p>
+<p t="1032349" d="4171">to measure the magnitude
+of the difference.</p>
+<p t="1036520" d="1610">That makes sense.</p>
+<p t="1038130" d="6050">But of course, that would give
+us a performance function that</p>
+<p t="1044180" d="1939">is a function of the
+distance between those</p>
+<p t="1046119" d="2170">vectors would look like this.</p>
+<p t="1052000" d="3880">But this turns out
+to be mathematically</p>
+<p t="1055880" d="1100">inconvenient in the end.</p>
+<p t="1056980" d="1750">So how do you think we're going
+to turn it up a little bit?</p>
+<p t="1058730" d="1180">AUDIENCE: Normalize it?</p>
+<p t="1059910" d="1208">PATRICK WINSTON: What's that?</p>
+<p t="1061118" d="1002">AUDIENCE: Normalize it?</p>
+<p t="1062120" d="1630">PATRICK WINSTON:
+Well, I don't know.</p>
+<p t="1063750" d="2622">How about just we square it?</p>
+<p t="1066372" d="3518">And that way we're going to go
+from this little sharp point</p>
+<p t="1069890" d="4910">down there to something
+that looks more like that.</p>
+<p t="1074800" d="3500">So it's best when the
+difference is 0, of course.</p>
+<p t="1078300" d="4080">And it gets worse as
+you move away from 0.</p>
+<p t="1082380" d="1700">But what we're
+trying to do here is</p>
+<p t="1084080" d="3290">we're trying to get
+to a minimum value.</p>
+<p t="1087370" d="1990">And I hope you'll forgive me.</p>
+<p t="1089360" d="1810">I just don't like
+the direction we're</p>
+<p t="1091170" d="2870">going here, because I like to
+think in terms of improvement</p>
+<p t="1094040" d="2700">as going uphill
+instead of down hill.</p>
+<p t="1096740" d="4330">So I'm going to dress this up
+one more step-- put a minus</p>
+<p t="1101070" d="1510">sign out there.</p>
+<p t="1102580" d="2960">And then our performance
+function looks like this.</p>
+<p t="1105540" d="1270">It's always negative.</p>
+<p t="1106810" d="2830">And the best value it
+can possibly be is zero.</p>
+<p t="1109640" d="3400">So that's what we're going to
+use just because I am who I am.</p>
+<p t="1113040" d="1550">And it doesn't matter, right?</p>
+<p t="1114590" d="2670">Still, you're trying to
+either minimize or maximize</p>
+<p t="1117260" d="3230">some performance function.</p>
+<p t="1120490" d="1170">OK, so what do we got to do?</p>
+<p t="1121660" d="4970">I guess what we could do is we
+could treat this thing-- well,</p>
+<p t="1126630" d="2370">we already know what to do.</p>
+<p t="1129000" d="2860">I'm not even sure why we're
+devoting our lecture to this,</p>
+<p t="1131860" d="3720">because it's clear that
+what we're trying to do</p>
+<p t="1135580" d="4260">is we're trying to take our
+weights and our thresholds</p>
+<p t="1139840" d="3270">and adjust them so as
+to maximize performance.</p>
+<p t="1143110" d="2460">So we can make a
+little contour map here</p>
+<p t="1145570" d="3450">with a simple neural net
+with just two weights in it.</p>
+<p t="1149020" d="2542">And maybe it looks like
+this-- contour map.</p>
+<p t="1154990" d="3820">And at any given time
+we've got a particular w1</p>
+<p t="1158810" d="1660">and particular w2.</p>
+<p t="1160470" d="3100">And we're trying to
+find a better w1 and w2.</p>
+<p t="1163570" d="2980">So here we are right now.</p>
+<p t="1166550" d="2210">And there's the contour map.</p>
+<p t="1168760" d="1180">And it's a 6034.</p>
+<p t="1169940" d="1694">So what do we do?</p>
+<p t="1171634" d="1396">AUDIENCE: Climb.</p>
+<p t="1173030" d="2490">PATRICK WINSTON: Simple matter
+of hill climbing, right?</p>
+<p t="1175520" d="2840">So we'll take a step
+in every direction.</p>
+<p t="1178360" d="3500">If we take a step in that
+direction, not so hot.</p>
+<p t="1181860" d="2240">That actually goes pretty bad.</p>
+<p t="1184100" d="2450">These two are really ugly.</p>
+<p t="1186550" d="1730">Ah, but that one--
+that one takes us</p>
+<p t="1188280" d="2150">up the hill a little bit.</p>
+<p t="1190430" d="3690">So we're done,
+except that I just</p>
+<p t="1194120" d="1750">mentioned that
+Hinton's neural net had</p>
+<p t="1195870" d="2092">60 million parameters in it.</p>
+<p t="1197962" d="2458">So we're not going to hill
+climb with 60 million parameters</p>
+<p t="1200420" d="3392">because it explodes
+exponentially</p>
+<p t="1203812" d="1458">in the number of
+weights you've got</p>
+<p t="1205270" d="3666">to deal with-- the number
+of steps you can take.</p>
+<p t="1208936" d="2000">So this approach is
+computationally intractable.</p>
+<p t="1213560" d="5720">Fortunately, you've all taken
+1801 or the equivalent thereof.</p>
+<p t="1219280" d="2410">So you have a better idea.</p>
+<p t="1221690" d="3080">Instead of just taking a
+step in every direction, what</p>
+<p t="1224770" d="2820">we're going to do is
+we're going to take</p>
+<p t="1227590" d="2560">some partial derivatives.</p>
+<p t="1230150" d="3010">And we're going to
+see what they suggest</p>
+<p t="1233160" d="3560">to us in terms of how we're
+going to get around in space.</p>
+<p t="1236720" d="2410">So we might have a partial
+of that performance function</p>
+<p t="1239130" d="3839">up there with respect to w1.</p>
+<p t="1242969" d="1791">And we might also take
+a partial derivative</p>
+<p t="1244760" d="3690">of that guy with respect to w2.</p>
+<p t="1248450" d="2030">And these will tell us
+how much improvement</p>
+<p t="1250480" d="3030">we're getting by making a little
+movement in those directions,</p>
+<p t="1253510" d="1710">right?</p>
+<p t="1255220" d="2188">How much a change is
+given that we're just</p>
+<p t="1257408" d="1124">going right along the axis.</p>
+<p t="1261180" d="5840">So maybe what we ought
+to do is if this guy is</p>
+<p t="1267020" d="1890">much bigger than
+this guy, it would</p>
+<p t="1268910" d="3210">suggest we mostly want to
+move in this direction,</p>
+<p t="1272120" d="1870">or to put it in 1801
+terms, what we're</p>
+<p t="1273990" d="2560">going to do is we're going
+to follow the gradient.</p>
+<p t="1276550" d="4770">And so the change
+in the w vector</p>
+<p t="1281320" d="4456">is going to equal to this
+partial derivative times</p>
+<p t="1285776" d="4234">i plus this partial
+derivative times j.</p>
+<p t="1290010" d="2590">So what we're going to end up
+doing in this particular case</p>
+<p t="1292600" d="4010">by following that formula is
+moving off in that direction</p>
+<p t="1296610" d="3700">right up to the steepest
+part of the hill.</p>
+<p t="1300310" d="3530">And how much we
+move is a question.</p>
+<p t="1303840" d="3560">So let's just have a rate
+constant R that decides how</p>
+<p t="1307400" d="2710">big our step is going to be.</p>
+<p t="1310110" d="2970">And now you think we were done.</p>
+<p t="1313080" d="2660">Well, too bad for our side.</p>
+<p t="1315740" d="1640">We're not done.</p>
+<p t="1317380" d="2030">There's a reason
+why we can't use--</p>
+<p t="1319410" d="4804">create ascent, or in the case
+that I've drawn our gradient,</p>
+<p t="1324214" d="1791">descent if we take the
+performance function</p>
+<p t="1326005" d="1215">the other way.</p>
+<p t="1327220" d="1908">Why can't we use it?</p>
+<p t="1329128" d="958">AUDIENCE: Local maxima.</p>
+<p t="1332237" d="1833">PATRICK WINSTON: The
+remark is local maxima.</p>
+<p t="1334070" d="1613">And that is certainly true.</p>
+<p t="1335683" d="1333">But it's not our first obstacle.</p>
+<p t="1339860" d="2032">Why doesn't gradient
+ascent work?</p>
+<p t="1346301" d="1949">AUDIENCE: So you're
+using a step function.</p>
+<p t="1348250" d="300">PATRICK WINSTON: Ah,
+there's something</p>
+<p t="1348550" d="2030">wrong with our function.</p>
+<p t="1350580" d="1110">That's right.</p>
+<p t="1351690" d="3900">It's non-linear, but
+rather, it's discontinuous.</p>
+<p t="1355590" d="3510">So gradient ascent requires
+a continuous space,</p>
+<p t="1359100" d="1770">continuous surface.</p>
+<p t="1360870" d="3010">So too bad our side.</p>
+<p t="1363880" d="2130">It isn't.</p>
+<p t="1366010" d="2900">So what to do?</p>
+<p t="1368910" d="3930">Well, nobody knew what
+to do for 25 years.</p>
+<p t="1372840" d="2280">People were screwing around
+with training neural nets</p>
+<p t="1375120" d="6220">for 25 years before Paul
+Werbos sadly at Harvard in 1974</p>
+<p t="1381340" d="1670">gave us the answer.</p>
+<p t="1383010" d="2110">And now I want to tell
+you what the answer is.</p>
+<p t="1385120" d="4800">The first part of the answer is
+those thresholds are annoying.</p>
+<p t="1389920" d="5520">They're just extra
+baggage to deal with.</p>
+<p t="1395440" d="3870">What we really like instead of
+c being a function of xw and t</p>
+<p t="1399310" d="4155">was we'd like c prime
+to be a function f</p>
+<p t="1403465" d="4410">prime of x and the weights.</p>
+<p t="1407875" d="2125">But we've got to account
+for the threshold somehow.</p>
+<p t="1410000" d="1960">So here's how you do that.</p>
+<p t="1411960" d="4260">What you do is
+you say let us add</p>
+<p t="1416220" d="4100">another input to this neuron.</p>
+<p t="1420320" d="4195">And it's going to
+have a weight w0.</p>
+<p t="1429160" d="2960">And it's going to be
+connected to an input that's</p>
+<p t="1432120" d="3220">always minus 1.</p>
+<p t="1435340" d="1392">You with me so far?</p>
+<p t="1436732" d="1458">Now what we're
+going to do is we're</p>
+<p t="1438190" d="5880">going to say, let w0 equal t.</p>
+<p t="1446578" d="2124">What does that do to the
+movement of the threshold?</p>
+<p t="1451660" d="2100">What it does is it
+takes that threshold</p>
+<p t="1453760" d="2300">and moves it back to 0.</p>
+<p t="1456060" d="3690">So this little trick here
+takes this pink threshold</p>
+<p t="1459750" d="4800">and redoes it so that the new
+threshold box looks like this.</p>
+<p t="1470370" d="1110">Think about it.</p>
+<p t="1471480" d="4450">If this is t, and this is
+minus 1, then this is minus t.</p>
+<p t="1475930" d="2560">And so this thing ought to
+fire if everything's over--</p>
+<p t="1478490" d="1260">if the sum is over 0.</p>
+<p t="1479750" d="1330">So it makes sense.</p>
+<p t="1481080" d="2340">And it gets rid of the
+threshold thing for us.</p>
+<p t="1483420" d="3500">So now we can just
+think about weights.</p>
+<p t="1486920" d="6820">But still, we've got
+that step function there.</p>
+<p t="1493740" d="1974">And that's not good.</p>
+<p t="1495714" d="1416">So what we're going
+to do is we're</p>
+<p t="1497130" d="3570">going to smooth that guy out.</p>
+<p t="1500700" d="3146">So this is trick number two.</p>
+<p t="1503846" d="1374">Instead of a step
+function, we're</p>
+<p t="1505220" d="2390">going to have this
+thing we lovingly</p>
+<p t="1507610" d="2230">call a sigmoid
+function, because it's</p>
+<p t="1509840" d="2270">kind of from an s-type shape.</p>
+<p t="1512110" d="6170">And the function we're going
+to use is this one-- one,</p>
+<p t="1518280" d="5430">well, better make it a little
+bit different-- 1 over 1 plus</p>
+<p t="1523710" d="3520">e to the minus
+whatever the input is.</p>
+<p t="1527230" d="2840">Let's call the input alpha.</p>
+<p t="1530070" d="2540">Does that makes sense?</p>
+<p t="1532610" d="4950">Is alpha is 0, then it's 1
+over 1 plus 1 plus one half.</p>
+<p t="1537560" d="3400">If alpha is extremely big,
+then even the minus alpha</p>
+<p t="1540960" d="1100">is extremely small.</p>
+<p t="1542060" d="2040">And it becomes one.</p>
+<p t="1544100" d="3360">It goes up to an asymptotic
+value of one here.</p>
+<p t="1547460" d="3050">On the other hand, if alpha
+is extremely negative,</p>
+<p t="1550510" d="3330">than the minus alpha
+is extremely positive.</p>
+<p t="1553840" d="2630">And it goes to 0 asymptotically.</p>
+<p t="1556470" d="3360">So we got the right
+look to that function.</p>
+<p t="1559830" d="1850">It's a very convenient function.</p>
+<p t="1561680" d="4310">Did God say that neurons
+ought to be-- that threshold</p>
+<p t="1565990" d="2090">ought to work like that?</p>
+<p t="1568080" d="1060">No, God didn't say so.</p>
+<p t="1569140" d="2620">Who said so?</p>
+<p t="1571760" d="1780">The math says so.</p>
+<p t="1573540" d="3420">It has the right shape
+and look and the math.</p>
+<p t="1576960" d="2562">And it turns out to
+have the right math,</p>
+<p t="1579522" d="1083">as you'll see in a moment.</p>
+<p t="1583530" d="827">So let's see.</p>
+<p t="1584357" d="1093">Where are we?</p>
+<p t="1585450" d="1500">We decided that
+what we'd like to do</p>
+<p t="1586950" d="2072">is take these
+partial derivatives.</p>
+<p t="1589022" d="2208">We know that it was awkward
+to have those thresholds.</p>
+<p t="1591230" d="1064">So we got rid of them.</p>
+<p t="1592294" d="2166">And we noted that it was
+impossible to have the step</p>
+<p t="1594460" d="500">function.</p>
+<p t="1594960" d="1490">So we got rid of it.</p>
+<p t="1596450" d="2070">Now, we're a situation
+where we can actually</p>
+<p t="1598520" d="2650">take those partial derivatives,
+and see if it gives us</p>
+<p t="1601170" d="2010">a way of training
+the neural net so as</p>
+<p t="1603180" d="2975">to bring the actual output into
+alignment with what we desire.</p>
+<p t="1608525" d="1375">So to deal with
+that, we're going</p>
+<p t="1609900" d="4220">to have to work with the
+world's simplest neural net.</p>
+<p t="1614120" d="3776">Now, if we've got one
+neuron, it's not a net.</p>
+<p t="1617896" d="2124">But if we've got two-word
+neurons, we've got a net.</p>
+<p t="1620020" d="2540">And it turns out that's the
+world's simplest neuron.</p>
+<p t="1622560" d="3320">So we're going to look at it--
+not 60 million parameters,</p>
+<p t="1625880" d="5510">but just a few, actually,
+just two parameters.</p>
+<p t="1631390" d="1960">So let's draw it out.</p>
+<p t="1633350" d="2740">We've got input x.</p>
+<p t="1636090" d="2470">That goes into a multiplier.</p>
+<p t="1638560" d="4230">And it gets multiplied times w1.</p>
+<p t="1642790" d="4910">And that goes into a
+sigmoid box like so.</p>
+<p t="1647700" d="3050">We'll call this p1, by the
+way, product number one.</p>
+<p t="1650750" d="2520">Out here comes y.</p>
+<p t="1653270" d="3760">Y gets multiplied
+times another weight.</p>
+<p t="1657030" d="3600">We'll call that w2.</p>
+<p t="1660630" d="4310">The neck produces another
+product which we'll call p2.</p>
+<p t="1664940" d="4260">And that goes into
+a sigmoid box.</p>
+<p t="1669200" d="2720">And then that comes out as z.</p>
+<p t="1671920" d="2310">And z is the number
+that we use to determine</p>
+<p t="1674230" d="1590">how well we're doing.</p>
+<p t="1675820" d="4450">And our performance
+function p is</p>
+<p t="1680270" d="2674">going to be one
+half minus one half,</p>
+<p t="1682944" d="1416">because I like
+things are going in</p>
+<p t="1684360" d="3970">a direction, times the
+difference between the desired</p>
+<p t="1688330" d="2676">output and the actual
+output squared.</p>
+<p t="1694480" d="3884">So now let's decide what
+those partial derivatives</p>
+<p t="1698364" d="666">are going to be.</p>
+<p t="1705220" d="960">Let me do it over here.</p>
+<p t="1712976" d="1374">So what are we
+trying to compute?</p>
+<p t="1714350" d="4750">Partial of the performance
+function p with respect to w2.</p>
+<p t="1722553" d="499">OK.</p>
+<p t="1727970" d="2354">Well, let's see.</p>
+<p t="1730324" d="1666">We're trying to figure
+out how much this</p>
+<p t="1731990" d="2546">wiggles when we wiggle that.</p>
+<p t="1737390" d="3786">But you know it goes
+through this variable p2.</p>
+<p t="1741176" d="1624">And so maybe what we
+could do is figure</p>
+<p t="1742800" d="2950">out how much this wiggles--
+how much z wiggles</p>
+<p t="1745750" d="3080">when we wiggle p2
+and then how much p2</p>
+<p t="1748830" d="4460">wiggles when we wiggle w2.</p>
+<p t="1753290" d="2290">I just multiplied
+those together.</p>
+<p t="1755580" d="500">I forget.</p>
+<p t="1756080" d="2760">What's that called?</p>
+<p t="1758840" d="1470">N180-- something or other.</p>
+<p t="1760310" d="1000">AUDIENCE: The chain rule</p>
+<p t="1761310" d="1444">PATRICK WINSTON: The chain rule.</p>
+<p t="1762754" d="1416">So what we're going
+to do is we're</p>
+<p t="1764170" d="3060">going to rewrite that partial
+derivative using chain rule.</p>
+<p t="1767230" d="1970">And all it's doing is
+saying that there's</p>
+<p t="1769200" d="2050">an intermediate variable.</p>
+<p t="1771250" d="4130">And we can compute how much
+that end wiggles with respect</p>
+<p t="1775380" d="4375">how much that end
+wiggles by multiplying</p>
+<p t="1779755" d="1790">how much the other guys wiggle.</p>
+<p t="1781545" d="875">Let me write it down.</p>
+<p t="1782420" d="3000">It makes more sense
+in mathematics.</p>
+<p t="1785420" d="2840">So that's going to be
+able to the partial of p</p>
+<p t="1788260" d="10390">with respect to z times the
+partial of z with respect</p>
+<p t="1798650" d="1300">to p2.</p>
+<p t="1804140" d="2060">Keep me on track here.</p>
+<p t="1806200" d="3290">Partial of z with respect to w2.</p>
+<p t="1812310" d="3610">Now, I'm going to do something
+for which I will hate myself.</p>
+<p t="1815920" d="1860">I'm going to erase
+something on the board.</p>
+<p t="1817780" d="1000">I don't like to do that.</p>
+<p t="1818780" d="3120">But you know what I'm
+going to do, don't you?</p>
+<p t="1821900" d="6010">I'm going to say this is
+true by the chain rule.</p>
+<p t="1827910" d="2640">But look, I can
+take this guy here</p>
+<p t="1830550" d="3510">and screw around with it
+with the chain rule too.</p>
+<p t="1834060" d="1820">And in fact, what
+I'm going to do</p>
+<p t="1835880" d="4116">is I'm going to replace
+that with partial of z</p>
+<p t="1839996" d="8143">with respect to p2 and partial
+of p2 with respect to w2.</p>
+<p t="1848139" d="1291">So I didn't erase it after all.</p>
+<p t="1849430" d="2680">But you can see what
+I'm going to do next.</p>
+<p t="1852110" d="1500">Now, I'm going to
+do same thing with</p>
+<p t="1853610" d="2170">the other partial derivative.</p>
+<p t="1855780" d="3110">But this time, instead of
+writing down and writing over,</p>
+<p t="1858890" d="3690">I'm just going to expand it
+all out in one go, I think.</p>
+<p t="1865200" d="5420">So partial of p
+with respect to w1</p>
+<p t="1870620" d="4520">is equal to the partial
+of p with respect to z,</p>
+<p t="1875140" d="6670">the partial of z with respect
+to p2, the partial of p2</p>
+<p t="1881810" d="1890">with respect to what?</p>
+<p t="1883700" d="2560">Y?</p>
+<p t="1886260" d="8910">Partial of y with respect
+to p1-- partial of p1</p>
+<p t="1895170" d="3780">with respect to w1.</p>
+<p t="1898950" d="4730">So that's going like a zipper
+down that string of variables</p>
+<p t="1903680" d="2260">expanding each by
+using the chain</p>
+<p t="1905940" d="2550">rule until we got to the end.</p>
+<p t="1908490" d="1840">So there are some
+expressions that provide</p>
+<p t="1910330" d="1580">those partial derivatives.</p>
+<p t="1916660" d="6370">But now, if you'll
+forgive me, it</p>
+<p t="1923030" d="2340">was convenient to write
+them out that way.</p>
+<p t="1925370" d="1680">That matched the
+intuition in my head.</p>
+<p t="1927050" d="1624">But I'm just going
+to turn them around.</p>
+<p t="1931080" d="1880">It's just a product.</p>
+<p t="1932960" d="1830">I'm just going to
+turn them around.</p>
+<p t="1934790" d="7820">So partial p2, partial
+w2, times partial of z,</p>
+<p t="1942610" d="5750">partial p2, times the
+partial of p with respect</p>
+<p t="1948360" d="1680">to z-- same thing.</p>
+<p t="1950040" d="1820">And now, this one.</p>
+<p t="1951860" d="2330">Keep me on track, because
+if there's a mutation here,</p>
+<p t="1954190" d="1550">it will be fatal.</p>
+<p t="1955740" d="6120">Partial of p1-- partial
+of w1, partial of y,</p>
+<p t="1961860" d="10320">partial p1, partial of p2,
+partial of y, partial of z.</p>
+<p t="1972180" d="4740">There's a partial of p2,
+partial of a performance</p>
+<p t="1976920" d="1222">function with respect to z.</p>
+<p t="1981380" d="3360">Now, all we have to do is figure
+out what those partials are.</p>
+<p t="1984740" d="3969">And we have solved
+this simple neural net.</p>
+<p t="1988709" d="1041">So it's going to be easy.</p>
+<p t="1994530" d="1350">Where is my board space?</p>
+<p t="1995880" d="6480">Let's see, partial of p2
+with respect to-- what?</p>
+<p t="2002360" d="860">That's the product.</p>
+<p t="2003220" d="2520">The partial of z-- the
+performance function</p>
+<p t="2005740" d="1390">with respect to z.</p>
+<p t="2007130" d="3071">Oh, now I can see why I
+wrote it down this way.</p>
+<p t="2010201" d="499">Let's see.</p>
+<p t="2010700" d="2999">It's going to be d minus e.</p>
+<p t="2013699" d="1291">We can do that one in our head.</p>
+<p t="2021110" d="2524">What about the partial
+of p2 with respect to w2.</p>
+<p t="2026520" d="3730">Well, p2 is equal to y
+times w2, so that's easy.</p>
+<p t="2030250" d="800">That's just y.</p>
+<p t="2037830" d="2280">Now, all we have to do
+is figure out the partial</p>
+<p t="2040110" d="2000">of z with respect to p2.</p>
+<p t="2042110" d="4910">Oh, crap, it's going
+through this threshold box.</p>
+<p t="2047020" d="4050">So I don't know exactly what
+that partial derivative is.</p>
+<p t="2051070" d="2710">So we'll have to
+figure that out, right?</p>
+<p t="2053780" d="4634">Because the function relating
+them is this guy here.</p>
+<p t="2058414" d="2541">And so we have to figure out
+the partial of that with respect</p>
+<p t="2060955" d="3075">to alpha.</p>
+<p t="2064030" d="2090">All right, so we got to do it.</p>
+<p t="2066120" d="2210">There's no way around it.</p>
+<p t="2068330" d="4290">So we have to destroy something.</p>
+<p t="2072620" d="3820">OK, we're going to
+destroy our neuron.</p>
+<p t="2089989" d="2071">So the function
+we're dealing with</p>
+<p t="2092060" d="3560">is, we'll call it
+beta, equal to 1 over 1</p>
+<p t="2095620" d="4480">plus e to the minus alpha.</p>
+<p t="2100100" d="2611">And what we want
+is the derivative</p>
+<p t="2102711" d="4339">with respect to alpha of beta.</p>
+<p t="2107050" d="6030">And that's equal to d by
+d alpha of-- you know,</p>
+<p t="2113080" d="3450">I can never remember
+those quotient formulas.</p>
+<p t="2116530" d="2730">So I am going to rewrite
+it a little different way.</p>
+<p t="2119260" d="4258">I am going to write it as 1
+minus e to the minus alpha</p>
+<p t="2123518" d="4822">to the minus 1, because I
+can't remember the formula</p>
+<p t="2128340" d="3150">for differentiating a quotient.</p>
+<p t="2131490" d="1540">OK, so let's differentiate it.</p>
+<p t="2133030" d="12542">So that's equal to 1 minus e to
+the minus alpha to the minus 2.</p>
+<p t="2148380" d="2760">And we got that minus comes
+out of that part of it.</p>
+<p t="2151140" d="5520">Then we got to differentiate
+the inside of that expression.</p>
+<p t="2156660" d="2750">And when we differentiate the
+inside of that expression,</p>
+<p t="2159410" d="1746">we get e to the minus alpha.</p>
+<p t="2161156" d="986">AUDIENCE: Dr. Winston--</p>
+<p t="2162142" d="988">PATRICK WINSTON: Yeah?</p>
+<p t="2163130" d="2137">AUDIENCE: That should be 1 plus.</p>
+<p t="2165267" d="1583">PATRICK WINSTON: Oh,
+sorry, thank you.</p>
+<p t="2166850" d="2333">That was one of those fatal
+mistakes you just prevented.</p>
+<p t="2169183" d="1497">So that's 1 plus.</p>
+<p t="2170680" d="1720">That's 1 plus here too.</p>
+<p t="2172400" d="3190">OK, so we've
+differentiated that.</p>
+<p t="2175590" d="1580">We've turned that
+into a minus 2.</p>
+<p t="2177170" d="1720">We brought the
+minus sign outside.</p>
+<p t="2178890" d="2430">Then we're differentiating
+the inside.</p>
+<p t="2181320" d="2320">The derivative and the
+exponential is an exponential.</p>
+<p t="2183640" d="2339">Then we got to
+differentiate that guy.</p>
+<p t="2185979" d="1791">And that just helps us
+get rid of the minus</p>
+<p t="2187770" d="1920">sign we introduced.</p>
+<p t="2189690" d="2690">So that's the derivative.</p>
+<p t="2192380" d="4260">I'm not sure how much
+that helps except that I'm</p>
+<p t="2196640" d="3400">going to perform a parlor
+trick here and rewrite</p>
+<p t="2200040" d="3470">that expression thusly.</p>
+<p t="2203510" d="3660">We want to say
+that's going to be</p>
+<p t="2207170" d="6818">e to the minus alpha over
+1 plus e to the minus</p>
+<p t="2213988" d="7427">alpha times 1 over 1 plus
+e to the minus alpha.</p>
+<p t="2221415" d="2504">That OK?</p>
+<p t="2223919" d="1541">I've got a lot of
+nodding heads here.</p>
+<p t="2225460" d="3005">So I think I'm on safe ground.</p>
+<p t="2228465" d="2125">But now, I'm going to
+perform another parlor trick.</p>
+<p t="2233700" d="6070">I am going to add 1, which
+means I also have to subtract 1.</p>
+<p t="2244270" d="570">All right?</p>
+<p t="2244840" d="2680">That's legitimate isn't it?</p>
+<p t="2247520" d="5020">So now, I can rewrite
+this as 1 plus e</p>
+<p t="2252540" d="6280">to the minus alpha over 1
+plus e to the minus alpha</p>
+<p t="2258820" d="9265">minus 1 over 1 plus e to the
+minus alpha times 1 over 1 plus</p>
+<p t="2268085" d="3575">e to the minus alpha.</p>
+<p t="2271660" d="1540">Any high school
+kid could do that.</p>
+<p t="2273200" d="2380">I think I'm on safe ground.</p>
+<p t="2275580" d="6570">Oh, wait, this is beta.</p>
+<p t="2282150" d="2314">This is beta.</p>
+<p t="2284464" d="1476">AUDIENCE: That's the wrong side.</p>
+<p t="2285940" d="2500">PATRICK WINSTON: Oh,
+sorry, wrong side.</p>
+<p t="2288440" d="2880">Better make this
+beta and this 1.</p>
+<p t="2291320" d="2644">Any high school kid could do it.</p>
+<p t="2293964" d="2526">OK, so what we've
+got then is that this</p>
+<p t="2296490" d="5820">is equal to 1 minus
+beta times beta.</p>
+<p t="2302310" d="1280">That's the derivative.</p>
+<p t="2303590" d="2360">And that's weird
+because the derivative</p>
+<p t="2305950" d="2010">of the output with
+respect to the input</p>
+<p t="2307960" d="3560">is given exclusively
+in terms of the output.</p>
+<p t="2311520" d="1500">It's strange.</p>
+<p t="2313020" d="1330">It doesn't really matter.</p>
+<p t="2314350" d="1890">But it's a curiosity.</p>
+<p t="2316240" d="3320">And what we get out of this is
+that partial derivative there--</p>
+<p t="2319560" d="8120">that's equal to well,
+the output is p2.</p>
+<p t="2327680" d="1000">No, the output is z.</p>
+<p t="2328680" d="3660">So it's z time 1 minus e.</p>
+<p t="2332340" d="2040">So whenever we see
+the derivative of one</p>
+<p t="2334380" d="2920">of these sigmoids with
+respect to its input,</p>
+<p t="2337300" d="2200">we can just write the output
+times one minus alpha,</p>
+<p t="2339500" d="730">and we've got it.</p>
+<p t="2340230" d="2060">So that's why it's
+mathematically convenient.</p>
+<p t="2342290" d="1791">It's mathematically
+convenient because when</p>
+<p t="2344081" d="4559">we do this differentiation, we
+get a very simple expression</p>
+<p t="2348640" d="1957">in terms of the output.</p>
+<p t="2350597" d="1333">We get a very simple expression.</p>
+<p t="2351930" d="1085">That's all we really need.</p>
+<p t="2356050" d="4310">So would you like to
+see a demonstration?</p>
+<p t="2360360" d="2440">It's a demonstration of
+the world's smallest neural</p>
+<p t="2362800" d="694">net in action.</p>
+<p t="2371080" d="1350">Where is neural nets?</p>
+<p t="2372430" d="500">Here we go.</p>
+<p t="2377707" d="1083">So there's our neural net.</p>
+<p t="2378790" d="1458">And what we're
+going to do is we're</p>
+<p t="2380248" d="1852">going to train it to
+do absolutely nothing.</p>
+<p t="2382100" d="2208">What we're going to do is
+train it to make the output</p>
+<p t="2384308" d="3152">the same as the input.</p>
+<p t="2387460" d="2200">Not what I'd call a fantastic
+leap of intelligence.</p>
+<p t="2389660" d="1125">But let's see what happens.</p>
+<p t="2398930" d="500">Wow!</p>
+<p t="2399430" d="833">Nothing's happening.</p>
+<p t="2407050" d="2070">Well, it finally
+got to the point</p>
+<p t="2409120" d="3410">where the maximum error,
+not the performance,</p>
+<p t="2412530" d="2060">but the maximum error
+went below a threshold</p>
+<p t="2414590" d="2010">that I had previously
+determined.</p>
+<p t="2416600" d="2210">So if you look at the
+input here and compare that</p>
+<p t="2418810" d="2390">with the desired output
+on the far right,</p>
+<p t="2421200" d="2860">you see it produces an output,
+which compared with the desired</p>
+<p t="2424060" d="1950">output, is pretty close.</p>
+<p t="2426010" d="3060">So we can test the
+other way like so.</p>
+<p t="2429070" d="1880">And we can see that
+the desired output</p>
+<p t="2430950" d="3350">is pretty close to the actual
+output in that case too.</p>
+<p t="2434300" d="2830">And it took 694 iterations
+to get that done.</p>
+<p t="2437130" d="822">Let's try it again.</p>
+<p t="2456090" d="3100">To 823-- of course, this is all
+a consequence of just starting</p>
+<p t="2459190" d="2075">off with random weights.</p>
+<p t="2461265" d="2625">By the way, if you started with
+all the weights being the same,</p>
+<p t="2463890" d="890">what would happen?</p>
+<p t="2464780" d="2715">Nothing because it would
+always stay the same.</p>
+<p t="2467495" d="1625">So you've got to put
+some randomization</p>
+<p t="2469120" d="2460">in in the beginning.</p>
+<p t="2471580" d="1090">So it took a long time.</p>
+<p t="2472670" d="2780">Maybe the problem is our
+rate constant is too small.</p>
+<p t="2475450" d="2656">So let's crank up the
+rate counts a little bit</p>
+<p t="2478106" d="874">and see what happens.</p>
+<p t="2482430" d="1300">That was pretty fast.</p>
+<p t="2483730" d="2780">Let's see if it was a
+consequence of random chance.</p>
+<p t="2489510" d="1410">Run.</p>
+<p t="2490920" d="7190">No, it's pretty fast there--
+57 iterations-- third try-- 67.</p>
+<p t="2498110" d="3910">So it looks like at my initial
+rate constant was too small.</p>
+<p t="2502020" d="3220">So if 0.5 was not
+as good as 5.0,</p>
+<p t="2505240" d="2458">why don't we crank it up
+to 50 and see what happens.</p>
+<p t="2511830" d="2872">Oh, in this case, 124--
+let's try it again.</p>
+<p t="2518470" d="4076">Ah, in this case 117-- so
+it's actually gotten worse.</p>
+<p t="2522546" d="1374">And not only has
+it gotten worse.</p>
+<p t="2523920" d="5350">You'll see there's a little a
+bit of instability showing up</p>
+<p t="2529270" d="3240">as it courses along its
+way toward a solution.</p>
+<p t="2532510" d="2690">So what it looks like is that
+if you've got a rate constant</p>
+<p t="2535200" d="1840">that's too small,
+it takes forever.</p>
+<p t="2537040" d="1980">If you've get a rate
+constant that's too big,</p>
+<p t="2539020" d="6290">it can of jump too far, as in
+my diagram which is somewhere</p>
+<p t="2545310" d="3897">underneath the board, you can
+go all the way across the hill</p>
+<p t="2549207" d="1083">and get to the other side.</p>
+<p t="2550290" d="1610">So you have to be careful
+about the rate constant.</p>
+<p t="2551900" d="1499">So what you really
+want to do is you</p>
+<p t="2553399" d="2611">want your rate constant
+to vary with what</p>
+<p t="2556010" d="7910">is happening as you progress
+toward an optimal performance.</p>
+<p t="2563920" d="2500">So if your performance is going
+down when you make the jump,</p>
+<p t="2566420" d="2152">you know you've got a rate
+constant that's too big.</p>
+<p t="2568572" d="2208">If your performance is going
+up when you make a jump,</p>
+<p t="2570780" d="1624">maybe you want to
+increase-- bump it up</p>
+<p t="2572404" d="5056">a little bit until it
+doesn't look so good.</p>
+<p t="2577460" d="1500">So is that all there is to it?</p>
+<p t="2578960" d="4050">Well, not quite, because
+this is the world's simplest</p>
+<p t="2583010" d="992">neural net.</p>
+<p t="2584002" d="1708">And maybe we ought to
+look at the world's</p>
+<p t="2585710" d="2740">second simplest neural net.</p>
+<p t="2588450" d="5532">Now, let's call this--
+well, let's call this x.</p>
+<p t="2593982" d="4428">What we're going to do is we're
+going to have a second input.</p>
+<p t="2598410" d="1440">And I don't know.</p>
+<p t="2599850" d="1246">Maybe this is screwy.</p>
+<p t="2601096" d="1624">I'm just going to
+use color coding here</p>
+<p t="2602720" d="4014">to differentiate between
+the two inputs and the stuff</p>
+<p t="2606734" d="666">they go through.</p>
+<p t="2614010" d="5656">Maybe I'll call this z2 and
+this z1 and this x1 and x2.</p>
+<p t="2622300" d="2840">Now, if I do that-- if I've
+got two inputs and two outputs,</p>
+<p t="2625140" d="2620">then my performance
+function is going</p>
+<p t="2627760" d="4040">to have two numbers in it-- the
+two desired values and the two</p>
+<p t="2631800" d="1760">actual values.</p>
+<p t="2633560" d="1790">And I'm going to
+have two inputs.</p>
+<p t="2635350" d="2330">But it's the same stuff.</p>
+<p t="2637680" d="3351">I just repeat what I did in
+white, only I make it orange.</p>
+<p t="2647440" d="5214">Oh, but what happens if--
+what happens if I do this?</p>
+<p t="2668850" d="2900">Say put little cross
+connections in there.</p>
+<p t="2671750" d="3280">So these two streams
+are going to interact.</p>
+<p t="2675030" d="2310">And then there might
+be some-- this y can</p>
+<p t="2677340" d="5950">go into another multiplier
+here and go into a summer here.</p>
+<p t="2683290" d="2930">And likewise, this
+y can go up here</p>
+<p t="2686220" d="4700">and into a multiplier like so.</p>
+<p t="2690920" d="10410">And there are weights all
+over the place like so.</p>
+<p t="2701330" d="3740">This guy goes up in here.</p>
+<p t="2705070" d="1360">And now what happens?</p>
+<p t="2706430" d="2370">Now, we've got a
+disaster on our hands,</p>
+<p t="2708800" d="3100">because there are all kinds
+of paths through this network.</p>
+<p t="2711900" d="4360">And you can imagine that if this
+was not just two neurons deep,</p>
+<p t="2716260" d="2910">but three neurons
+deep, what I would find</p>
+<p t="2719170" d="3130">is expressions that
+look like that.</p>
+<p t="2722300" d="3590">But you could go this way,
+and then down through, and out</p>
+<p t="2725890" d="1580">here.</p>
+<p t="2727470" d="5680">Or you could go this way and
+then back up through here.</p>
+<p t="2733150" d="4320">So it looks like there is an
+exponentially growing number</p>
+<p t="2737470" d="2440">of paths through that network.</p>
+<p t="2739910" d="1910">And so we're back to
+an exponential blowup.</p>
+<p t="2741820" d="750">And it won't work.</p>
+<p t="2750890" d="2506">Yeah, it won't
+work except that we</p>
+<p t="2753396" d="1874">need to let the math
+sing to us a little bit.</p>
+<p t="2755270" d="2400">And we need to look
+at the picture.</p>
+<p t="2757670" d="3520">And the reason I turned
+this guy around was actually</p>
+<p t="2761190" d="5390">because from a point of view
+of letting the math sing to us,</p>
+<p t="2766580" d="4920">this piece here is the
+same as this piece here.</p>
+<p t="2771500" d="2070">So part of what we
+needed to do to calculate</p>
+<p t="2773570" d="2494">the partial derivative
+with respect to w1</p>
+<p t="2776064" d="1666">has already been done
+when we calculated</p>
+<p t="2777730" d="4820">the partial derivative
+with respect to w2.</p>
+<p t="2782550" d="4420">And not only that,
+if we calculated</p>
+<p t="2786970" d="2230">the partial wit respect
+to these green w's</p>
+<p t="2789200" d="3260">at both levels, what
+we would discover</p>
+<p t="2792460" d="5380">is that sort of repetition
+occurs over and over again.</p>
+<p t="2797840" d="3490">And now, I'm going to try
+to give you an intuitive</p>
+<p t="2801330" d="2740">idea of what's going on here
+rather than just write down</p>
+<p t="2804070" d="2650">the math and salute it.</p>
+<p t="2806720" d="3260">And here's a way to think
+about it from an intuitive</p>
+<p t="2809980" d="768">point of view.</p>
+<p t="2813740" d="3220">Whatever happens to this
+performance function</p>
+<p t="2816960" d="7480">that's back of these p's
+here, the stuff over there can</p>
+<p t="2824440" d="2710">influence p only
+by going through,</p>
+<p t="2827150" d="2680">and influence performance
+only going through this column</p>
+<p t="2829830" d="2630">of p's.</p>
+<p t="2832460" d="1500">And there's a fixed
+number of those.</p>
+<p t="2833960" d="2375">So it depends on the width,
+not the depth of the network.</p>
+<p t="2839350" d="6680">So the influence of that
+stuff back there on p</p>
+<p t="2846030" d="2590">is going to end up going
+through these guys.</p>
+<p t="2848620" d="6220">And it's going to end
+up being so that we're</p>
+<p t="2854840" d="3210">going to discover that a lot of
+what we need to compute in one</p>
+<p t="2858050" d="5100">column has already been computed
+in the column on the right.</p>
+<p t="2863150" d="4280">So it isn't going to
+explode exponentially,</p>
+<p t="2867430" d="3213">because the influence-- let
+me say it one more time.</p>
+<p t="2874120" d="4320">The influences of changes of
+changes in p on the performance</p>
+<p t="2878440" d="2930">is all we care about when
+we come back to this part</p>
+<p t="2881370" d="4080">of the network, because
+this stuff cannot influence</p>
+<p t="2885450" d="4409">the performance except by going
+through this column of p's.</p>
+<p t="2889859" d="1791">So it's not going to
+blow up exponentially.</p>
+<p t="2891650" d="2910">We're going to be able to
+reuse a lot of the computation.</p>
+<p t="2894560" d="2480">So it's the reuse principle.</p>
+<p t="2897040" d="4310">Have we ever seen the reuse
+principle at work before.</p>
+<p t="2901350" d="759">Not exactly.</p>
+<p t="2902109" d="1541">But you remember
+that little business</p>
+<p t="2903650" d="2120">about the extended list?</p>
+<p t="2905770" d="5414">We know that we've
+seen-- we know</p>
+<p t="2911184" d="1166">we've seen something before.</p>
+<p t="2912350" d="2100">So we can stop computing.</p>
+<p t="2914450" d="1360">It's like that.</p>
+<p t="2915810" d="2060">We're going to be able
+to reuse the computation.</p>
+<p t="2917870" d="2851">We've already done it to
+prevent an exponential blowup.</p>
+<p t="2920721" d="1999">By the way, for those of
+you who know about fast</p>
+<p t="2922720" d="3160">Fourier transform-- same
+kind of idea-- reuse</p>
+<p t="2925880" d="2690">of partial results.</p>
+<p t="2928570" d="4020">So in the end, what can
+we say about this stuff?</p>
+<p t="2932590" d="10135">In the end, what we can say
+is that it's linear in depth.</p>
+<p t="2945710" d="2970">That is to say if we
+increase the number of layers</p>
+<p t="2948680" d="2040">to so-called depth,
+then we're going</p>
+<p t="2950720" d="1710">to increase the
+amount of computation</p>
+<p t="2952430" d="3560">necessary in a linear way,
+because the computation we</p>
+<p t="2955990" d="4430">need in any column
+is going to be fixed.</p>
+<p t="2960420" d="6480">What about how it goes
+with respect to the width?</p>
+<p t="2971070" d="2430">Well, with respect to
+the width, any neuron</p>
+<p t="2973500" d="3402">here can be connected to
+any neuron in the next row.</p>
+<p t="2976902" d="1958">So the amount of work
+we're going to have to do</p>
+<p t="2978860" d="2690">will be proportional to
+the number of connections.</p>
+<p t="2981550" d="5660">So with respect to width,
+it's going to be w-squared.</p>
+<p t="2987210" d="5050">But the fact is that in the end,
+this stuff is readily computed.</p>
+<p t="2992260" d="5860">And this, phenomenally enough,
+was overlooked for 25 years.</p>
+<p t="2998120" d="2620">So what is it in the end?</p>
+<p t="3000740" d="1750">In the end, it's an
+extremely simple idea.</p>
+<p t="3002490" d="1180">All great ideas are simple.</p>
+<p t="3003670" d="1480">How come there
+aren't more of them?</p>
+<p t="3005150" d="3122">Well, because frequently,
+that simplicity</p>
+<p t="3008272" d="1458">involves finding
+a couple of tricks</p>
+<p t="3009730" d="2420">and making a couple
+of observations.</p>
+<p t="3012150" d="2800">So usually, we humans
+are hardly ever</p>
+<p t="3014950" d="1994">go beyond one trick
+or one observation.</p>
+<p t="3016944" d="1416">But if you cascade
+a few together,</p>
+<p t="3018360" d="1910">sometimes something
+miraculous falls out</p>
+<p t="3020270" d="2980">that looks in retrospect
+extremely simple.</p>
+<p t="3023250" d="2606">So that's why we got the
+reuse principle at work--</p>
+<p t="3025856" d="1654">and our reuse computation.</p>
+<p t="3027510" d="2070">In this case, the
+miracle was a consequence</p>
+<p t="3029580" d="2010">of two tricks plus
+an observation.</p>
+<p t="3031590" d="2370">And the overall idea
+is all great ideas</p>
+<p t="3033960" d="3540">are simple and easy to
+overlook for a quarter century.</p>
+</body>
+</timedtext>

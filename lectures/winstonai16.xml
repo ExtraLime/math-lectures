@@ -1,0 +1,1430 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="9234" d="1066">PATRICK WINSTON: So
+where are we?</p>
+<p t="10300" d="4662">We started off with simple
+methods for learning stuff.</p>
+<p t="14962" d="5768">Then, we talked a little about
+a purchase of learning that</p>
+<p t="20730" d="3826">we're vaguely inspired by.</p>
+<p t="24556" d="2744">The fact that our heads are
+stuffed with neurons, and that</p>
+<p t="27300" d="3795">we seemed to have evolved
+from primates.</p>
+<p t="31095" d="3845">Then, we talked about looking at
+the problem and address the</p>
+<p t="34940" d="1470">issue of [? phrenology ?]</p>
+<p t="36410" d="4020">and how it's possible
+to learn concepts.</p>
+<p t="40430" d="3270">But now, we're coming full
+circle back to the beginning</p>
+<p t="43700" d="4290">and thinking about how to
+divide up a space with</p>
+<p t="47990" d="1940">decision boundaries.</p>
+<p t="49930" d="4650">But whereas, you do it with
+a neural net or a nearest</p>
+<p t="54580" d="1930">neighbors or a ID tree.</p>
+<p t="56510" d="5605">Those are very simple ideas
+that work very often.</p>
+<p t="62115" d="3780">Today, we're going to talk about
+a very sophisticated</p>
+<p t="65895" d="3317">idea that still has
+a implementation.</p>
+<p t="69212" d="4008">So this needs to be
+in the tool bag of</p>
+<p t="73220" d="2286">every civilized person.</p>
+<p t="75506" d="3054">This is about support
+vector machines, an</p>
+<p t="78560" d="2175">idea that was developed.</p>
+<p t="80735" d="1735">Well, I want to talk to
+you today about how</p>
+<p t="82470" d="2235">ideas develop, actually.</p>
+<p t="84705" d="2445">Because you look at stuff like
+this in a book, and you think,</p>
+<p t="87150" d="5365">well, Vladimir Vapnik just
+figured this out one Saturday</p>
+<p t="92515" d="3265">afternoon when the weather was
+too bad to go outside.</p>
+<p t="95780" d="1405">That's not how it happens.</p>
+<p t="97185" d="1395">It happens very differently.</p>
+<p t="98580" d="2650">I want to talk to you
+a little about that.</p>
+<p t="101230" d="5720">The next thing about great
+things that were done by</p>
+<p t="106950" d="2110">people who are still alive
+is you can ask them</p>
+<p t="109060" d="1150">how they did it.</p>
+<p t="110210" d="1600">You can't do that
+with Fourier.</p>
+<p t="111810" d="2500">You can't say to Fourier,
+how did you do it?</p>
+<p t="114310" d="2636">Did you dream it up on
+a Saturday afternoon?</p>
+<p t="116946" d="3274">But can call Vapnik on the phone
+and ask him questions.</p>
+<p t="120220" d="1830">That's the stuff I'm going
+to talk about toward</p>
+<p t="122050" d="2136">the end of the hour.</p>
+<p t="124186" d="1859">Well, it's all about decision
+boundaries.</p>
+<p t="126045" d="5355">And now, we have several
+techniques that we can use to</p>
+<p t="131400" d="1220">draw some decision boundaries.</p>
+<p t="132620" d="2080">And here's the same problem.</p>
+<p t="134700" d="3630">And if we drew decision
+boundaries in here, we might</p>
+<p t="138330" d="3496">get something that would
+look like maybe this.</p>
+<p t="141826" d="3964">If we were doing a nearest
+neighbor approach, and if</p>
+<p t="145790" d="5732">we're doing ID trees, we'll just
+draw in a line like that.</p>
+<p t="151522" d="3423">And if we're doing neural nets,
+well, you can put in a</p>
+<p t="154945" d="2605">lot of straight lines wherever
+you like with a neural net,</p>
+<p t="157550" d="1560">depending on how it's
+trained up.</p>
+<p t="159110" d="3360">Or if you just simply go in
+there and design it, so you</p>
+<p t="162470" d="3084">could do that if you wanted.</p>
+<p t="165554" d="2556">And you would think that after
+people have been working on</p>
+<p t="168110" d="4390">this sort of stuff for 50 or 75
+years that there wouldn't</p>
+<p t="172500" d="2035">be any tricks in the bag left.</p>
+<p t="174535" d="4805">And that's when everybody got
+surprised, because around the</p>
+<p t="179340" d="4540">early '90s Vladimir Vapnik
+introduced the ideas I'm about</p>
+<p t="183880" d="2036">to talk to you about.</p>
+<p t="185916" d="5299">So what Vapnik says is
+something like this.</p>
+<p t="191215" d="6255">Here you have a space, and you
+have some negative examples,</p>
+<p t="197470" d="2966">and you have some positive
+examples.</p>
+<p t="200436" d="2434">How do you divide the positive
+examples from</p>
+<p t="202870" d="1350">the negative examples?</p>
+<p t="204220" d="3490">And what he says that we want
+to do is we want to draw a</p>
+<p t="207710" d="1430">straight line.</p>
+<p t="209140" d="2922">But which straight line
+is the question.</p>
+<p t="212062" d="3078">Well, we want to draw
+a straight line.</p>
+<p t="215140" d="3001">Well, would this be a
+good straight line?</p>
+<p t="218141" d="2351">One that went up like that?</p>
+<p t="220492" d="2168">Probably not so hot.</p>
+<p t="222660" d="2962">How about one that's
+just right here?</p>
+<p t="225622" d="3838">Well, that might separate them,
+but it seems awfully</p>
+<p t="229460" d="2305">close to the negative
+examples.</p>
+<p t="231765" d="3265">So maybe what we ought to do
+is we ought to draw our</p>
+<p t="235030" d="2190">straight line in here,
+sort of like this.</p>
+<p t="240458" d="7132">And that line is drawn with a
+view toward putting in the</p>
+<p t="247590" d="5740">widest street that separates the
+positive samples from the</p>
+<p t="253330" d="1130">negative samples.</p>
+<p t="254460" d="2749">That's why I call it the
+widest street approach.</p>
+<p t="257209" d="4326">So that makes way of putting
+in the decision boundary--</p>
+<p t="261535" d="4025">is to put in a straight line but
+in contrast with the way</p>
+<p t="265560" d="1880">ID tree puts in a
+straight line.</p>
+<p t="267440" d="4725">It tries to put the line in in
+such a way as the separation</p>
+<p t="272165" d="2515">between the positive and
+negative examples.</p>
+<p t="274680" d="2556">That street is as wide
+as possible.</p>
+<p t="277236" d="486">All right.</p>
+<p t="277722" d="3898">So you might think to do that in
+the UROP project, and then,</p>
+<p t="281620" d="1585">let it go with that.</p>
+<p t="283205" d="1525">What's the big deal?</p>
+<p t="284730" d="2610">So what we've got to do is we've
+got to go through why</p>
+<p t="287340" d="1836">it's a big deal.</p>
+<p t="289176" d="5994">So first of all, we like to
+think about how you would make</p>
+<p t="295170" d="4156">a decision rule that would use
+that decision boundary.</p>
+<p t="299326" d="4324">So what I'm going to ask you to
+imagine is that we've got a</p>
+<p t="303650" d="6000">vector of any length that you
+like, constrained to be</p>
+<p t="309650" d="4065">perpendicular to the median, or
+if you like, perpendicular</p>
+<p t="313715" d="915">to the gutters.</p>
+<p t="314630" d="3650">It's perpendicular to the median
+line of the street.</p>
+<p t="318280" d="2260">All right, it's drawn in such
+a way that that's true.</p>
+<p t="320540" d="3444">We don't know anything about
+it's length, yet.</p>
+<p t="323984" d="5936">Then, we also have some unknown,
+say, right here.</p>
+<p t="329920" d="5405">And we have a vector that
+points to it by excel.</p>
+<p t="335325" d="3985">So now, what we're really
+interested in is whether or</p>
+<p t="339310" d="3610">not that unknown is on the right
+side of the street or on</p>
+<p t="342920" d="2142">the left side of the street.</p>
+<p t="345062" d="2848">So what we'd what to do is want
+to project that vector,</p>
+<p t="347910" d="4080">u, down on to one that's
+perpendicular to the street.</p>
+<p t="351990" d="3215">Because then, we'll have the
+distance in this direction or</p>
+<p t="355205" d="3285">a number that's proportional
+to this in this direction.</p>
+<p t="358490" d="4180">And the further out we go, the
+closer we'll get to being on</p>
+<p t="362670" d="2690">the right side of the street,
+where the right side of the</p>
+<p t="365360" d="2705">street is not the correct side
+but actually the right side of</p>
+<p t="368065" d="920">the street.</p>
+<p t="368985" d="5295">So what we can do is we can say,
+let's take w and dot it</p>
+<p t="374280" d="5650">with u and measure whether or
+not that number is equal to or</p>
+<p t="379930" d="2716">greater than some constant, c.</p>
+<p t="382646" d="3234">So remember that the dot
+product has taken the</p>
+<p t="385880" d="2016">projection onto w.</p>
+<p t="387896" d="4254">And the bigger that projection
+is, the further out along this</p>
+<p t="392150" d="2105">line the projection will lie.</p>
+<p t="394255" d="3235">And eventually it will be so
+big that the projection</p>
+<p t="397490" d="2950">crosses the median line of the
+street, and we'll say it must</p>
+<p t="400440" d="1250">be a positive sample.</p>
+<p t="405708" d="5172">Or we could say, without loss
+of generality that the dot</p>
+<p t="410880" d="5480">product plus some constant, b,
+is equal to or greater than 0.</p>
+<p t="416360" d="6690">If that's true, then it's
+a positive sample.</p>
+<p t="423050" d="1250">So that's our decision rule.</p>
+<p t="431522" d="5778">And this is the first in several
+elements that we're</p>
+<p t="437300" d="3660">going to have to line up to
+understand this idea called</p>
+<p t="440960" d="2380">support vector machines.</p>
+<p t="443340" d="1390">So that's the decision rule.</p>
+<p t="444730" d="4730">And the trouble is we don't know
+what constant to use, and</p>
+<p t="449460" d="2990">we don't know which
+w to use either.</p>
+<p t="452450" d="2940">We know that w has to be
+perpendicular to the median</p>
+<p t="455390" d="2086">line of the street.</p>
+<p t="457476" d="2404">But there's lot of w's that
+are perpendicular to the</p>
+<p t="459880" d="1190">median line of the street,
+because it</p>
+<p t="461070" d="1670">could be of any length.</p>
+<p t="462740" d="3010">So we don't have enough
+constraint here to fix a</p>
+<p t="465750" d="3782">particular b or a
+particular w.</p>
+<p t="469532" d="2863">Are you with me so far?</p>
+<p t="472395" d="2781">All right.</p>
+<p t="475176" d="2814">And this, by the way, we get
+just by saying that c</p>
+<p t="477990" d="1250">equals minus b.</p>
+<p t="482800" d="2990">What we're going to do next is
+we're going to lay on some</p>
+<p t="485790" d="3170">additional constraints whether
+you're toward putting enough</p>
+<p t="488960" d="4370">constraint on the situation that
+we can actually calculate</p>
+<p t="493330" d="2685">a b and a w.</p>
+<p t="496015" d="5275">So what we're going to say is
+this, that if we look at this</p>
+<p t="501290" d="3390">quantity that we're checking out
+to be greater than or less</p>
+<p t="504680" d="3360">than 0 to make our decision,
+then, what we're going to do</p>
+<p t="508040" d="4470">is we're going to say that if we
+take that vector w, and we</p>
+<p t="512510" d="5279">take the dot product of that
+with some x plus, some</p>
+<p t="517789" d="1140">positive sample, now.</p>
+<p t="518929" d="831">This is not an unknown.</p>
+<p t="519760" d="2512">This is a positive sample.</p>
+<p t="522272" d="4228">If we take the dot product of
+those two vectors, and we had</p>
+<p t="526500" d="3550">b just like in our decision
+rule, we're going to want that</p>
+<p t="530050" d="1320">to be equal to or
+greater than 1.</p>
+<p t="534220" d="4860">So in other words, you can be
+an unknown anywhere in this</p>
+<p t="539080" d="3060">street and be just a little bit
+greater or just a little</p>
+<p t="542140" d="1470">bit less than 0.</p>
+<p t="543610" d="2510">But if you're a positive sample,
+we're going to insist</p>
+<p t="546120" d="2430">that this decision function
+gives the</p>
+<p t="548550" d="2926">value of one or greater.</p>
+<p t="551476" d="9554">Likewise, if w thought it was
+some negative sample is</p>
+<p t="561030" d="3350">provided to us, then we're going
+to say that has to be</p>
+<p t="564380" d="1420">equal to or less than minus 1.</p>
+<p t="568690" d="1176">All right.</p>
+<p t="569866" d="3924">So if you're a minus sample,
+like one of these two guys or</p>
+<p t="573790" d="4540">any minus sample that may lie
+down here, this function that</p>
+<p t="578330" d="4176">gives us the decision rule must
+return minus 1 or less.</p>
+<p t="582506" d="2514">So there's a separation
+of distance here.</p>
+<p t="585020" d="1910">Minus 1 to plus 1 for
+all of the samples.</p>
+<p t="590717" d="2125">So that's cool.</p>
+<p t="592842" d="5448">But we're not quite done,
+because carrying around two</p>
+<p t="598290" d="3244">equations like this,
+it's a pain.</p>
+<p t="601534" d="3226">So what we're going to do is
+we're going to introduce</p>
+<p t="604760" d="3430">another variable to make
+like a little easier.</p>
+<p t="611502" d="3708">Like many things that we do, and
+when we develop this kind</p>
+<p t="615210" d="3910">of stuff, introducing this
+variable is not something that</p>
+<p t="619120" d="1250">God says has to be done.</p>
+<p t="624380" d="930">What is it?</p>
+<p t="625310" d="3620">We introduced this additional
+stuff to do what?</p>
+<p t="628930" d="5210">To make the mathematics more
+convenient, so mathematical</p>
+<p t="634140" d="1682">convenience.</p>
+<p t="635822" d="1908">So what we're going to do is
+we're going to introduce a</p>
+<p t="637730" d="15870">variable, y sub i, such that y
+sub i is equal to plus 1 for</p>
+<p t="653600" d="16860">plus samples and minus 1
+for negative samples.</p>
+<p t="670460" d="1225">All right.</p>
+<p t="671685" d="2505">So for each sample, we're going
+to have a value for this</p>
+<p t="674190" d="2490">new quantity we've
+introduced, y.</p>
+<p t="676680" d="3230">And the value of y is going to
+be determined by whether it's</p>
+<p t="679910" d="2460">a positive sample or
+negative sample.</p>
+<p t="682370" d="4230">If it's a positive sample it's
+got to be plus 1 for this</p>
+<p t="686600" d="2680">situation up here, and it's
+going to be minus 1 for this</p>
+<p t="689280" d="1955">situation down here.</p>
+<p t="691235" d="3245">So what we're going to do with
+this first equation is we're</p>
+<p t="694480" d="7125">going to multiply it by y sub
+i, and that is now x of i,</p>
+<p t="701605" d="4825">plus b is equal to or
+greater than 1.</p>
+<p t="706430" d="1310">And then, you know what
+we're going to do?</p>
+<p t="707740" d="5290">We're going to multiply the left
+side of this equation by</p>
+<p t="713030" d="1740">y sub i, as well.</p>
+<p t="714770" d="8402">So the second equation becomes
+y sub i times x sub i plus b.</p>
+<p t="723172" d="2704">And now, what does that
+do over here?</p>
+<p t="725876" d="3604">We multiplied this guy
+times minus 1.</p>
+<p t="729480" d="3270">So it used to be the case that
+that was less than minus 1.</p>
+<p t="732750" d="2150">So if we multiply it by minus
+1, then it has to be greater</p>
+<p t="734900" d="1250">than plus 1.</p>
+<p t="738990" d="4230">The two equations are the same,
+because that introduces</p>
+<p t="743220" d="3360">this little mathematical
+convenience.</p>
+<p t="746580" d="8850">So now, we can say that y sub
+i times x sub i plus b.</p>
+<p t="757986" d="3840">Well, what we're going to do--</p>
+<p t="761826" d="849">Brett?</p>
+<p t="762675" d="1580">STUDENT: What happened
+to the w?</p>
+<p t="764255" d="1195">PATRICK WINSTON: Oh, did
+I leave out a w?</p>
+<p t="765450" d="600">I'm sorry.</p>
+<p t="766050" d="2562">Thank you.</p>
+<p t="768612" d="2949">Yeah, I wouldn't have gotten
+very far with that.</p>
+<p t="771561" d="2649">So that's dot it with
+w, dot it with w.</p>
+<p t="774210" d="1395">Thank you, Brett.</p>
+<p t="775605" d="1105">Those are all vectors.</p>
+<p t="776710" d="3300">I'll pretty soon forget to put
+the little vector marks on</p>
+<p t="780010" d="1080">there, but you know
+what I mean.</p>
+<p t="781090" d="4166">So that's w plus b.</p>
+<p t="785256" d="4404">And now, let me bring that 1
+over to the left side, and</p>
+<p t="789660" d="1350">that's equal to or
+greater than 0.</p>
+<p t="793535" d="1195">All right.</p>
+<p t="794730" d="2710">With Brett's correction, I
+think everything's OK.</p>
+<p t="797440" d="3570">But we're going to take one more
+step, and we're going to</p>
+<p t="801010" d="10260">say that y sub i times x sub
+i times w plus b minus 1.</p>
+<p t="813885" d="1875">It's always got to be equal
+to or greater than 0.</p>
+<p t="815760" d="6732">But what I'm going to
+say is if we're for</p>
+<p t="822492" d="2058">x sub i in a gutter.</p>
+<p t="829092" d="2048">So there's always going to be
+greater than 0, but we're</p>
+<p t="831140" d="2400">going to add the additional
+constraint that it's going to</p>
+<p t="833540" d="4760">be exactly 0 for all the samples
+that end up in the</p>
+<p t="838300" d="1890">gutters here of the street.</p>
+<p t="840190" d="2820">So the value of that expression
+is going to be</p>
+<p t="843010" d="5380">exactly 0 for that sample, 0
+for this sample and this</p>
+<p t="848390" d="2070">sample, not 0 for that sample.</p>
+<p t="850460" d="1720">It's got to be greater than 1.</p>
+<p t="852180" d="1666">All right?</p>
+<p t="853846" d="2914">So that's step number two.</p>
+<p t="865319" d="1821">And this is step number one.</p>
+<p t="871454" d="496">OK.</p>
+<p t="871950" d="2390">So now, we've just got some
+expressions to talk about,</p>
+<p t="874340" d="2076">some constraints.</p>
+<p t="876416" d="1454">Now, what are we trying
+to do here?</p>
+<p t="877870" d="2052">I forgot.</p>
+<p t="879922" d="1398">Oh, I remember now.</p>
+<p t="881320" d="4180">We're trying to figure out how
+to arrange for the line to be</p>
+<p t="885500" d="3290">such at the street separating
+the pluses from the minuses as</p>
+<p t="888790" d="2331">wide as possible.</p>
+<p t="891121" d="3179">So maybe we better figure out
+how we can express the</p>
+<p t="894300" d="1830">distance between the
+two gutters.</p>
+<p t="903645" d="3177">Let's just repeat our drawing.</p>
+<p t="906822" d="5208">We've got some minuses here, got
+pluses out here, and we've</p>
+<p t="912030" d="4991">got gutters that are
+going down here.</p>
+<p t="917021" d="5269">And now, we've got a vector here
+to a minus, and we've got</p>
+<p t="922290" d="4801">a vector here to a plus.</p>
+<p t="927091" d="6859">So we'll call that x plus
+and this x minus.</p>
+<p t="933950" d="2780">So what's the width
+of the street?</p>
+<p t="936730" d="870">I don't know, yet.</p>
+<p t="937600" d="2760">But what we can do is we can
+take the difference of those</p>
+<p t="940360" d="3760">two vectors, and that will
+be a vector that</p>
+<p t="944120" d="2226">looks like this, right?</p>
+<p t="946346" d="5670">So that's x plus
+minus x minus.</p>
+<p t="952016" d="4264">So now, if I only had a unit
+normal that's normal to the</p>
+<p t="956280" d="4040">median line of the street, if
+it's a unit normal, then I</p>
+<p t="960320" d="1800">could just take the dot product
+or that unit normal</p>
+<p t="962120" d="1855">and this difference vector, and
+that would be the width of</p>
+<p t="963975" d="2005">the street, right?</p>
+<p t="965980" d="7110">So in other words, if I had a
+unit vector in that direction,</p>
+<p t="973090" d="2440">then I could just dot the two
+together, and that would be</p>
+<p t="975530" d="2366">the width of the street.</p>
+<p t="977896" d="3654">So let me write that down
+before I forget.</p>
+<p t="981550" d="10075">So the width is equal to
+x plus minus x minus.</p>
+<p t="991625" d="2771">OK.</p>
+<p t="994396" d="1184">That's the difference vector.</p>
+<p t="995580" d="1930">And now, I've got to multiple
+it by unit vector.</p>
+<p t="997510" d="670">But wait a minute.</p>
+<p t="998180" d="3410">I said that that w is
+a normal, right?</p>
+<p t="1001590" d="2442">The w is a normal.</p>
+<p t="1004032" d="5986">So what I can do is I can
+multiply this times w, and</p>
+<p t="1010018" d="4138">then, we'll divide by the
+magnitude of w, and that will</p>
+<p t="1014156" d="2435">make it a unit vector.</p>
+<p t="1016591" d="9059">So that dot product, not a
+product, that dot product is,</p>
+<p t="1025650" d="4679">in fact, a scalar, and it's
+the width of the street.</p>
+<p t="1030329" d="4401">It doesn't do as much good,
+because it doesn't look like</p>
+<p t="1034730" d="2323">we get much out of it.</p>
+<p t="1037053" d="1167">Oh, but I don't know.</p>
+<p t="1038220" d="3151">Let's see, what can
+we get out of it?</p>
+<p t="1041371" d="4583">Oh gee, we've got this equation
+over here, this</p>
+<p t="1045954" d="2640">equation that constrains
+the samples</p>
+<p t="1048594" d="2716">that lie in the gutter.</p>
+<p t="1051310" d="4300">So if we have a positive sample,
+for example, then this</p>
+<p t="1055610" d="2920">is plus 1, and we have
+this equation.</p>
+<p t="1061150" d="12750">So it says that x plus times w
+is equal to, oh, 1 minus b.</p>
+<p t="1078492" d="3718">See, I'm just taking this part
+here, this vector here, and</p>
+<p t="1082210" d="2670">I'm dotting it with x plus.</p>
+<p t="1084880" d="3770">So that's this piece
+right here.</p>
+<p t="1088650" d="2580">y is 1 for this kind
+of sample.</p>
+<p t="1091230" d="2370">So I'll just take the 1 and the
+b back over to the other</p>
+<p t="1093600" d="2612">side, and I've got 1 minus b.</p>
+<p t="1096212" d="2380">OK?</p>
+<p t="1098592" d="3649">Well, we can do the same
+trick with x minus.</p>
+<p t="1102241" d="2565">If we've got a negative sample,</p>
+<p t="1104806" d="3766">then y sub i is negative.</p>
+<p t="1108572" d="5724">That gives us our negative
+w times dot over x sub i.</p>
+<p t="1114296" d="2894">But now, we take this stuff back
+over to the right side,</p>
+<p t="1117190" d="3350">and we get 1 plus b.</p>
+<p t="1125252" d="4948">So that all licenses to rewrite
+this thing as 2 over</p>
+<p t="1130200" d="2446">the magnitude of w.</p>
+<p t="1132646" d="1564">How did I get there?</p>
+<p t="1134210" d="5060">Well, I decided I was going to
+enforce this constraint.</p>
+<p t="1139270" d="4270">I noted that the width of the
+street has got to be this</p>
+<p t="1143540" d="2565">difference vector times
+a unit vector.</p>
+<p t="1146105" d="3295">Then, I used the constraint to
+plug back some values here.</p>
+<p t="1149400" d="3080">And I discovered to my delight
+and amazement that the width</p>
+<p t="1152480" d="2870">of the street is 2 over
+the magnitude of w.</p>
+<p t="1158340" d="2048">Yes, Brett?</p>
+<p t="1160388" d="3493">STUDENT: So your first x
+plus is minus b, and x</p>
+<p t="1163881" d="1497">minus is 1 plus b.</p>
+<p t="1165378" d="499">PATRICK WINSTON: Yeah.</p>
+<p t="1165877" d="998">STUDENT: So you're
+subtracting it?</p>
+<p t="1166875" d="875">PATRICK WINSTON: Let's see.</p>
+<p t="1167750" d="4105">If I've got a minus here, then
+that makes that minus, and</p>
+<p t="1171855" d="1955">then, the b is minus, and when I
+take the b over to the other</p>
+<p t="1173810" d="1769">side it becomes plus.</p>
+<p t="1175579" d="2994">STUDENT: Yeah, so if you
+subtract the left with the</p>
+<p t="1178573" d="2495">right [INAUDIBLE].</p>
+<p t="1181068" d="602">PATRICK WINSTON: No.</p>
+<p t="1181670" d="650">No, sorry.</p>
+<p t="1182320" d="4661">This expression here
+is 1 plus b.</p>
+<p t="1186981" d="1889">Trust me it works.</p>
+<p t="1188870" d="2500">I haven't got my legs all
+tangled up like last Friday,</p>
+<p t="1191370" d="2416">well, not yet, anyway.</p>
+<p t="1193786" d="1554">It's possible.</p>
+<p t="1195340" d="3618">There's going to be a lot of
+algebra here eventually.</p>
+<p t="1198958" d="6037">So this quantity here, this
+is miracle number three.</p>
+<p t="1204995" d="4736">This quantity here is the
+width of the street.</p>
+<p t="1209731" d="3839">And what we're trying to
+do is we're trying to</p>
+<p t="1213570" d="3588">maximize that, right?</p>
+<p t="1217158" d="10012">So we want to maximize 2 over
+the magnitude of w if we're to</p>
+<p t="1227170" d="2130">get the widest street under
+the constraints that we've</p>
+<p t="1229300" d="2910">decided that we're going
+to work with.</p>
+<p t="1232210" d="840">All right.</p>
+<p t="1233050" d="13231">So that means that it's OK to
+maximize 1 over w, instead.</p>
+<p t="1246281" d="1969">We just drop the constant.</p>
+<p t="1248250" d="5300">And that means that it's
+OK to minimize the</p>
+<p t="1253550" d="2600">magnitude of w, right?</p>
+<p t="1259572" d="9138">And that means that it's OK
+to minimize 1/2 times the</p>
+<p t="1268710" d="3360">magnitude of w squared.</p>
+<p t="1272070" d="1605">Right, Brett?</p>
+<p t="1273675" d="2400">Why did I do that?</p>
+<p t="1276075" d="2935">Why did I multiply by
+1/2 and square it?</p>
+<p t="1279010" d="960">STUDENT: Because it's
+mathematically convenient.</p>
+<p t="1279970" d="960">PATRICK WINSTON: It's
+mathematically convenient.</p>
+<p t="1280930" d="1920">Thank you.</p>
+<p t="1282850" d="4990">So this is point number three
+in the development.</p>
+<p t="1287840" d="1110">So where do we go?</p>
+<p t="1288950" d="2220">We decided that was going
+to be our decision rule.</p>
+<p t="1291170" d="2360">We're going to see which side
+of the line we're on.</p>
+<p t="1293530" d="2890">We decided to constrain the
+situation, so the value of the</p>
+<p t="1296420" d="4330">decision rule is plus 1 in the
+gutters for the positive</p>
+<p t="1300750" d="2070">samples and minus 1
+in the gutters for</p>
+<p t="1302820" d="1250">the negative samples.</p>
+<p t="1304070" d="3400">And then, we discovered that
+maximizing the width of the</p>
+<p t="1307470" d="3620">street led us to an expression
+like that,</p>
+<p t="1311090" d="1250">which we wish to maximize.</p>
+<p t="1317425" d="925">Should we take a break?</p>
+<p t="1318350" d="1110">Should we get coffee?</p>
+<p t="1319460" d="2905">Too bad, we can't do that in
+this kind of situation.</p>
+<p t="1322365" d="2035">But we would if we could.</p>
+<p t="1324400" d="2690">And I'm sure when Vapnik
+got to this point, he</p>
+<p t="1327090" d="2736">went out for coffee.</p>
+<p t="1329826" d="3994">So now, we back up, and we say,
+well, let's let these</p>
+<p t="1333820" d="3432">expressions start developing
+into a song.</p>
+<p t="1337252" d="3778">Not like that, that's vapid,
+speaking of Vapnik.</p>
+<p t="1349760" d="2210">What song is it going to sing?</p>
+<p t="1351970" d="3710">We've got an expression here
+that we'd like to find the</p>
+<p t="1355680" d="2556">minimum of, the extremum of.</p>
+<p t="1358236" d="3554">And we've got some constraints
+here that we</p>
+<p t="1361790" d="2250">would like to honor.</p>
+<p t="1364040" d="1250">What are we going to do?</p>
+<p t="1367600" d="1700">Let me put what we're going
+to do to you in</p>
+<p t="1369300" d="3085">the form of a puzzle.</p>
+<p t="1372385" d="6515">Is it got something to
+do with Legendre?</p>
+<p t="1378900" d="5370">Has it got something
+to do with Laplace?</p>
+<p t="1384270" d="3105">Or does it have something
+to do with Lagrange?</p>
+<p t="1387375" d="2025">She says Lagrange.</p>
+<p t="1389400" d="3450">Actually, all three were said
+to be on Fourier's Doctoral</p>
+<p t="1392850" d="2740">Defense Committee-- must have
+been quite an example.</p>
+<p t="1395590" d="3370">But we want to talk about
+Lagrange, because we've got a</p>
+<p t="1398960" d="1645">situation here.</p>
+<p t="1400605" d="1455">Is this 1801?</p>
+<p t="1402060" d="780">1802?</p>
+<p t="1402840" d="2160">1802.</p>
+<p t="1405000" d="3462">We learned in 1802 that if we
+going to find the extremum of</p>
+<p t="1408462" d="5378">a function with constraints,
+then we're going to have to</p>
+<p t="1413840" d="2082">use Lagrange multipliers.</p>
+<p t="1415922" d="3898">That would give us a new
+expression, which we can</p>
+<p t="1419820" d="3530">maximize or minimize without
+thinking about</p>
+<p t="1423350" d="1740">the constraints anymore.</p>
+<p t="1425090" d="2665">That's how Lagrange
+multipliers work.</p>
+<p t="1427755" d="4685">So this brings us to miracle
+number four, developmental</p>
+<p t="1432440" d="1330">piece number four.</p>
+<p t="1433770" d="2650">And it works like this.</p>
+<p t="1436420" d="1790">We're going to say that L--</p>
+<p t="1438210" d="2510">the thing we're going to try
+to maximize in order to</p>
+<p t="1440720" d="1940">maximize the width
+of the street--</p>
+<p t="1442660" d="5575">is equal to 1/2 times the
+magnitude of that vector, w,</p>
+<p t="1448235" d="4241">squared minus.</p>
+<p t="1452476" d="3754">And now, we've got to have
+a summation over all the</p>
+<p t="1456230" d="1250">constraints.</p>
+<p t="1458880" d="2580">And each or those constraints is
+going to have a multiplier,</p>
+<p t="1461460" d="1952">alpha sub i.</p>
+<p t="1463412" d="2694">And then, we write down
+the constraint.</p>
+<p t="1466106" d="1469">And when we write down
+a constraint,</p>
+<p t="1467575" d="1525">there it is up there.</p>
+<p t="1469100" d="2590">And I've got to be hyper
+careful here, because,</p>
+<p t="1471690" d="2140">otherwise, I'll get lost
+in the algebra.</p>
+<p t="1473830" d="8690">So the constraint is y sub i
+times vector, w, dotted with</p>
+<p t="1482520" d="6510">vector x sub i plus b, and
+now, I've got a closing</p>
+<p t="1489030" d="3285">parenthesis, a minus 1.</p>
+<p t="1492315" d="4375">That's the end of my constraint,
+like so.</p>
+<p t="1500330" d="3050">I sure hope I've got that right,
+because I'll be in deep</p>
+<p t="1503380" d="1350">trouble if that's wrong.</p>
+<p t="1504730" d="1210">Anybody see any bugs in that?</p>
+<p t="1505940" d="2310">That looks right. doesn't it?</p>
+<p t="1508250" d="2060">We've got the original thing
+we're trying to work with.</p>
+<p t="1510310" d="4115">Now, we've got Lagrange
+multipliers all multiplied.</p>
+<p t="1514425" d="1875">It's back to that constraint
+up there, where each</p>
+<p t="1516300" d="4212">constraint is constrained
+to be 0.</p>
+<p t="1520512" d="4258">Well, there's a little bit of
+mathematical slight of hand</p>
+<p t="1524770" d="3040">here, because in the end, the
+ones that are going to be 0,</p>
+<p t="1527810" d="3400">the Lagrange multipliers here.</p>
+<p t="1531210" d="2585">The ones that are going to be
+non 0 are going to be the ones</p>
+<p t="1533795" d="2325">connected with vectors that
+lie in the gutter.</p>
+<p t="1536120" d="3728">The rest are going to be 0.</p>
+<p t="1539848" d="3532">But in any event, we can pretend
+that this is what</p>
+<p t="1543380" d="1250">we're doing.</p>
+<p t="1546550" d="1800">I don't care whether it's
+a maximum or minimum.</p>
+<p t="1548350" d="1200">I've lost track.</p>
+<p t="1549550" d="1740">But what we're going to do is
+we're going to try to find an</p>
+<p t="1551290" d="1070">extremum of that.</p>
+<p t="1552360" d="1370">So what do we do?</p>
+<p t="1553730" d="4600">What does 1801 teach us about?</p>
+<p t="1558330" d="1135">Finding the maximum--</p>
+<p t="1559465" d="5295">well, we've got to find the
+derivatives and set them to 0.</p>
+<p t="1564760" d="1740">And then, after we've done that,
+a little bit of that</p>
+<p t="1566500" d="2260">manipulation, we're going
+to see a wonderful</p>
+<p t="1568760" d="2090">song start to emerge.</p>
+<p t="1570850" d="2040">So let's see if we can do it.</p>
+<p t="1572890" d="4270">Let's take the partial of L, the
+Lagrangian, with respect</p>
+<p t="1577160" d="2030">to the vector, w.</p>
+<p t="1579190" d="2240">Oh my God, how do you
+differentiate with</p>
+<p t="1581430" d="1250">respect to a vector?</p>
+<p t="1585255" d="2795">It turns out that it has a form
+that looks exactly like</p>
+<p t="1588050" d="2400">differentiating with respect
+to a scalar.</p>
+<p t="1590450" d="2130">And the way you prove that to
+yourself is you just expand</p>
+<p t="1592580" d="2950">everything in terms of all of
+the vector's components.</p>
+<p t="1595530" d="2130">You differentiate those with
+respect to what you're</p>
+<p t="1597660" d="2480">differentiating with respect
+to, and everything</p>
+<p t="1600140" d="2240">turns out the same.</p>
+<p t="1602380" d="2500">So what you get when you
+differentiate this with</p>
+<p t="1604880" d="7400">respect to the vector, w, is 2
+comes down, and we have just</p>
+<p t="1612280" d="1553">magnitude of w.</p>
+<p t="1613833" d="2257">Was it the magnitude of w?</p>
+<p t="1616090" d="1910">Yeah, like so.</p>
+<p t="1621629" d="1281">Was it the magnitude of w?</p>
+<p t="1622910" d="3600">Oh, it's not the
+magnitude of w.</p>
+<p t="1626510" d="5886">It's just w, like so, no
+magnitude involved.</p>
+<p t="1632396" d="4084">Then, we've got a w over here,
+so we've got to differentiate</p>
+<p t="1636480" d="1790">this part with respect
+to w, as well.</p>
+<p t="1638270" d="1420">But that part's a lot easier,
+because all we</p>
+<p t="1639690" d="1620">have there is a w.</p>
+<p t="1641310" d="1040">There's no magnitude.</p>
+<p t="1642350" d="1652">It's not raised to any power.</p>
+<p t="1644002" d="2288">So what's w multiplied by?</p>
+<p t="1646290" d="5664">Well, it's multiplied by x and
+y sub i and alpha sub i.</p>
+<p t="1651954" d="656">All right.</p>
+<p t="1652610" d="3995">So that means that this
+expression, this derivative of</p>
+<p t="1656605" d="5055">the Lagrangian, with respect to
+w is going to be equal to w</p>
+<p t="1661660" d="10160">minus the sum of alpha sub i,
+y sub i, x sub i, and that's</p>
+<p t="1671820" d="2420">got to be set to 0.</p>
+<p t="1674240" d="8010">And that implies that w is equal
+to the sum of some alpha</p>
+<p t="1682250" d="4730">i, some scalars, times this
+minus 1 or plus 1 variable</p>
+<p t="1686980" d="4352">times x sub i over i.</p>
+<p t="1691332" d="3098">And now, the math is
+beginning to sing.</p>
+<p t="1694430" d="5060">Because it tells us that the
+vector w is a linear sum of</p>
+<p t="1699490" d="5002">the samples, all the samples
+or some of the sample.</p>
+<p t="1704492" d="3294">It didn't have to be that way.</p>
+<p t="1707786" d="1444">It could have been raised
+to a power.</p>
+<p t="1709230" d="1930">It could have been
+a logarithm.</p>
+<p t="1711160" d="1850">All sorts of horrible
+things could have</p>
+<p t="1713010" d="1310">happened when we did this.</p>
+<p t="1714320" d="4890">But when we did this, we
+discovered that w is going to</p>
+<p t="1719210" d="5410">be equal to a linear some
+of these vectors here.</p>
+<p t="1724620" d="4440">Some of the vectors in the
+sample set, and I say some,</p>
+<p t="1729060" d="2200">because for some alpha
+will be 0.</p>
+<p t="1734265" d="1250">All right.</p>
+<p t="1735515" d="6045">So this is something that we
+want to take note of as</p>
+<p t="1741560" d="3842">something important.</p>
+<p t="1745402" d="4358">Now, of course, we've got to
+differentiate L with respect</p>
+<p t="1749760" d="3140">to anything else it might
+vary, so we've got to</p>
+<p t="1752900" d="2280">differentiate L with respect
+to b, as well.</p>
+<p t="1758436" d="2786">So what's that going
+to be equal to?</p>
+<p t="1761222" d="4483">Well, there's no b in here, so
+that makes no contribution.</p>
+<p t="1765705" d="3045">This part here doesn't have a
+b in it, so that makes no</p>
+<p t="1768750" d="585">contribution.</p>
+<p t="1769335" d="2935">There's no b over here, so that
+makes no contribution.</p>
+<p t="1772270" d="4940">So we've got alpha i times
+y sub i times b.</p>
+<p t="1777210" d="2155">That has a contribution.</p>
+<p t="1779365" d="7105">So that's going to be the sum
+of alpha i times y sub i.</p>
+<p t="1786470" d="2100">And then, we're differentiating
+with respect</p>
+<p t="1788570" d="2065">to b, so that disappears.</p>
+<p t="1790635" d="4805">There's a minus sign here, and
+that's equal to 0, or that</p>
+<p t="1795440" d="4050">implies that the sum of the
+alpha i times y sub</p>
+<p t="1799490" d="3522">i is equal to 0.</p>
+<p t="1803012" d="2088">Hm, that looks like that might
+be helpful somewhere.</p>
+<p t="1810460" d="2295">And now, it's time
+for more coffee.</p>
+<p t="1812755" d="2765">By the way, these coffee
+periods take months.</p>
+<p t="1815520" d="1385">You stare at it.</p>
+<p t="1816905" d="2075">You work on something else.</p>
+<p t="1818980" d="3020">You've got to worry
+about your finals.</p>
+<p t="1822000" d="2020">And you think about
+it some more.</p>
+<p t="1824020" d="1720">And eventually, you come
+back from coffee</p>
+<p t="1825740" d="3190">and do the next thing.</p>
+<p t="1828930" d="2710">Oh, what is the next thing?</p>
+<p t="1831640" d="2540">Well, we've still got this
+expression that we're trying</p>
+<p t="1834180" d="6840">to find the minimum for.</p>
+<p t="1841020" d="2480">And you say to yourself, this
+is really a job for the</p>
+<p t="1843500" d="980">numerical analysts.</p>
+<p t="1844480" d="2725">Those guys know about
+this sort of stuff.</p>
+<p t="1847205" d="2415">Because of that little power
+in there, that square.</p>
+<p t="1849620" d="5152">This is a so-called quadratic
+optimization problem.</p>
+<p t="1854772" d="2708">So at this point, you would be
+inclined to hand this problem</p>
+<p t="1857480" d="1810">over to a numerical analysts.</p>
+<p t="1859290" d="2120">They'll come back in a few
+weeks with an algorithm.</p>
+<p t="1861410" d="1690">You implement the algorithm.</p>
+<p t="1863100" d="1020">And maybe things work.</p>
+<p t="1864120" d="770">Maybe they don't converge.</p>
+<p t="1864890" d="3435">But any case, you don't
+worry about it.</p>
+<p t="1868325" d="2035">But we're not going to do that,
+because we want to do a</p>
+<p t="1870360" d="2320">little bit more math, because
+we're interested</p>
+<p t="1872680" d="2210">in stuff like this.</p>
+<p t="1874890" d="3880">We're interested in the fact
+that the decision vector is a</p>
+<p t="1878770" d="2495">linear sum of the samples.</p>
+<p t="1881265" d="2765">So we're going to work a little
+harder on this stuff.</p>
+<p t="1884030" d="3700">And in particular, now that
+we've got an expression for w,</p>
+<p t="1887730" d="3280">this one right here, we're
+going to plug it back in</p>
+<p t="1891010" d="3860">there, and we're going to plug
+it back in here and see what</p>
+<p t="1894870" d="2570">happens to that thing
+we're trying to find</p>
+<p t="1897440" d="1250">the extremum of.</p>
+<p t="1906817" d="4403">Is everybody relaxed,
+taking deep breath?</p>
+<p t="1911220" d="1310">Actually, this is the
+easiest part.</p>
+<p t="1912530" d="3225">This is just doing a little
+bit of the algebra.</p>
+<p t="1915755" d="3075">So the think we're trying
+to maximize or</p>
+<p t="1918830" d="4635">minimize is equal to 1/2.</p>
+<p t="1923465" d="7105">And now, we've got to
+have this vector</p>
+<p t="1930570" d="6211">here in there twice.</p>
+<p t="1936781" d="409">Right?</p>
+<p t="1937190" d="4105">Because we're multiplying
+the two together.</p>
+<p t="1941295" d="1675">So let's see.</p>
+<p t="1942970" d="3890">We've got from that expression
+up there, one of those w's</p>
+<p t="1946860" d="6810">will just be the sum of the
+alpha i times y sub i times</p>
+<p t="1953670" d="2595">the vector x sub i.</p>
+<p t="1956265" d="2055">And then, we've got the
+other one, too.</p>
+<p t="1958320" d="3300">So that's just going to
+be the sum of alpha.</p>
+<p t="1961620" d="3660">Now, I'm going to, actually,
+eventually, squish those two</p>
+<p t="1965280" d="2770">sums together into a double
+summation, so I have to keep</p>
+<p t="1968050" d="1940">the indexes straight.</p>
+<p t="1969990" d="3796">So I'm just going to write
+that as alpha sub j, y</p>
+<p t="1973786" d="3940">sub j, x sub j.</p>
+<p t="1977726" d="2034">So those are my two vectors and
+I'm going to take the dot</p>
+<p t="1979760" d="1090">product of those.</p>
+<p t="1980850" d="3460">That's the first piece, right?</p>
+<p t="1984310" d="3035">Boy, this is hard.</p>
+<p t="1987345" d="6415">So minus, and now, the next term
+looks like alpha i, y sub</p>
+<p t="1993760" d="3635">i, x sub i times w.</p>
+<p t="1997395" d="2245">So you've got a whole
+bunch of these.</p>
+<p t="1999640" d="7356">We've got a sum of alpha i times
+y sub i times x sub i,</p>
+<p t="2006996" d="3429">and then, that gets multiplied
+times w.</p>
+<p t="2010425" d="8735">So we'll put this like this, the
+sum of alpha j, y sub j, x</p>
+<p t="2019160" d="2470">sub j in there like that.</p>
+<p t="2021630" d="2715">And then, that's the dot
+product like that.</p>
+<p t="2024345" d="1545">That wasn't as bad
+as I thought.</p>
+<p t="2029731" d="4419">Now, I've got to deal with the
+next term, the alpha i times y</p>
+<p t="2034150" d="1590">sub i times b.</p>
+<p t="2038475" d="9271">So that's minus sub of alpha
+i times y sub i times b.</p>
+<p t="2047746" d="6203">And then, to finish it off, we
+have plus the sum of alpha sub</p>
+<p t="2053949" d="4371">i minus 1 up there, minus 1 in
+front of the summation, such</p>
+<p t="2058320" d="1739">as the sum of the alphas.</p>
+<p t="2060059" d="1546">Are you with me so far?</p>
+<p t="2061605" d="2491">Just a little algebra.</p>
+<p t="2064096" d="764">It looks good.</p>
+<p t="2064860" d="3978">I think I haven't
+mucked it, yet.</p>
+<p t="2068838" d="2114">Let's see.</p>
+<p t="2070952" d="3413">alpha i times y sub i times
+b. b is a constant.</p>
+<p t="2074365" d="3045">So pull that out there, and
+then, I just got the sum of</p>
+<p t="2077410" d="3668">alpha sub i times y sub i.</p>
+<p t="2081078" d="1172">Oh, that's good.</p>
+<p t="2082250" d="1250">That's 0.</p>
+<p t="2088305" d="3595">Now, so for every one of these
+terms, we dot it with this</p>
+<p t="2091900" d="1250">whole expression.</p>
+<p t="2094966" d="5084">So that's just like taking this
+thing here and dotting</p>
+<p t="2100050" d="2095">those two things together,
+right?</p>
+<p t="2102145" d="2095">Oh, but that's just the same
+thing we've got here.</p>
+<p t="2107324" d="3816">So now, what we can do is we
+can say that we can rewrite</p>
+<p t="2111140" d="4420">this Lagrangian as--</p>
+<p t="2115560" d="4006">we've got that sum of alpha i.</p>
+<p t="2119566" d="2690">That's the positive element.</p>
+<p t="2122256" d="3424">And then, we've got one of
+these and half of these.</p>
+<p t="2125680" d="3185">So that's minus 1/2.</p>
+<p t="2128865" d="2115">And now, I'll just convert that
+whole works into a double</p>
+<p t="2130980" d="12250">sum over both i and j of alpha
+i times alpha j times y sub i</p>
+<p t="2143230" d="6530">times y sub j times x sub
+i dotted with x of j.</p>
+<p t="2152670" d="2890">We sure went through a lot of
+trouble to get there, but now,</p>
+<p t="2155560" d="650">we've got it.</p>
+<p t="2156210" d="2990">And we know that what we're
+trying to do is we're trying</p>
+<p t="2159200" d="4120">to find a maximum of
+that expression.</p>
+<p t="2167212" d="1698">And that's the one we're
+going to had off to</p>
+<p t="2168910" d="2100">the numerical analysts.</p>
+<p t="2171010" d="2080">So if we're going to had this
+off to the numerical analysts</p>
+<p t="2173090" d="3046">anyway, why did I go to
+all this trouble?</p>
+<p t="2176136" d="3064">Good question.</p>
+<p t="2179200" d="3426">Do you have any idea why I
+went to all this trouble?</p>
+<p t="2182626" d="2814">Because I wanted to find out
+the dependence of this</p>
+<p t="2185440" d="1510">expression.</p>
+<p t="2186950" d="1170">Wanda is telling me.</p>
+<p t="2188120" d="1330">I'm translating as I go.</p>
+<p t="2189450" d="2105">She's telling me in Romanian.</p>
+<p t="2191555" d="3955">I want to find what this
+maximization depends on with</p>
+<p t="2195510" d="5650">respect these vectors, the
+x, the sample vectors.</p>
+<p t="2201160" d="5320">And what I've discovered is that
+the optimization depends</p>
+<p t="2206480" d="7496">only on the dot product
+of pairs of samples.</p>
+<p t="2213976" d="1324">And that's something we
+want to keep in mind.</p>
+<p t="2215300" d="1320">That's why I put it
+in royal purple.</p>
+<p t="2219350" d="3570">Now, up here, so let's see.</p>
+<p t="2222920" d="1290">What do we call that
+one up there?</p>
+<p t="2224210" d="1505">That's two.</p>
+<p t="2225715" d="4790">I guess, we'll call this
+piece here three.</p>
+<p t="2230505" d="2095">This piece here is four.</p>
+<p t="2232600" d="2460">And now, there's
+one more piece.</p>
+<p t="2235060" d="5020">Because I want to take that w,
+and not only stick it back</p>
+<p t="2240080" d="2620">into that Lagrangian, I want
+to stick it back into the</p>
+<p t="2242700" d="1746">decision rule.</p>
+<p t="2244446" d="4584">So now, my decision rule with
+this expression for w is going</p>
+<p t="2249030" d="2380">to be w plugged into
+that thing.</p>
+<p t="2251410" d="5590">So the decision rule is going to
+look like the sum of alpha</p>
+<p t="2257000" d="8960">i times y sub i times x sub
+i dotted with the unknown</p>
+<p t="2265960" d="1880">vector, like so.</p>
+<p t="2267840" d="3696">And we're going to,
+I guess, add b.</p>
+<p t="2271536" d="2234">And we're going to say, if
+that's greater than or equal</p>
+<p t="2273770" d="3890">to 0, then plus.</p>
+<p t="2280560" d="4190">So you see why the math is
+beginning to sing to us now.</p>
+<p t="2284750" d="4090">Because now, we discover that
+the decision rule, also,</p>
+<p t="2288840" d="3860">depends only on the dot product
+of those sample</p>
+<p t="2292700" d="2640">vectors and the unknown.</p>
+<p t="2295340" d="3300">So the total of dependence
+of all of the</p>
+<p t="2298640" d="2466">math on the dot products.</p>
+<p t="2301106" d="2928">All right.</p>
+<p t="2304034" d="3126">And now, I hear a whisper.</p>
+<p t="2307160" d="3250">Someone is saying, I
+don't believe that</p>
+<p t="2310410" d="1310">mathematicians can do it.</p>
+<p t="2311720" d="2130">I don't think those numerical
+analysts can find the</p>
+<p t="2313850" d="1250">optimization.</p>
+<p t="2317360" d="1565">I want to be sure of it.</p>
+<p t="2318925" d="1925">Give me ocular proof.</p>
+<p t="2320850" d="1510">So I'd like to run a
+demonstration of it.</p>
+<p t="2336596" d="494">OK.</p>
+<p t="2337090" d="970">There's our sample problem.</p>
+<p t="2338060" d="1740">The one I started the
+hour out with.</p>
+<p t="2339800" d="5630">Now, if the optimization
+algorithm doesn't get stuck in</p>
+<p t="2345430" d="2290">a local maximum or something,
+it should find a nice,</p>
+<p t="2347720" d="3180">straight line separating those
+two guys to finding the widest</p>
+<p t="2350900" d="3545">street between the minuses
+and the pluses.</p>
+<p t="2354445" d="2435">So in just a couple of steps,
+you can see down</p>
+<p t="2356880" d="1270">there in step 11.</p>
+<p t="2358150" d="2480">It's decided that it's done
+as much as it can on the</p>
+<p t="2360630" d="1776">optimization.</p>
+<p t="2362406" d="3074">And it's got three alphas.</p>
+<p t="2365480" d="5490">And you can see that the two
+negative samples both figure</p>
+<p t="2370970" d="3605">into the solution, the weights
+on the Lagrangian multipliers</p>
+<p t="2374575" d="2245">are given by those little
+yellow bars.</p>
+<p t="2376820" d="3210">So the two negatives participate
+in the solution as</p>
+<p t="2380030" d="2010">one of the positives, but the
+other positive doesn't.</p>
+<p t="2382040" d="3460">So it has a 0 weight.</p>
+<p t="2385500" d="2200">So everything worked out well.</p>
+<p t="2387700" d="2740">Now, I said, as long as it
+doesn't get stuck on a local</p>
+<p t="2390440" d="4655">maximum, guess what, those
+mathematical friends of ours</p>
+<p t="2395095" d="3025">can tell us and prove
+to us that this</p>
+<p t="2398120" d="2300">thing is a convex space.</p>
+<p t="2400420" d="3622">That means it can never get
+stuck in a local maximum.</p>
+<p t="2404042" d="3738">So in contrast with things like
+neural nets, where you</p>
+<p t="2407780" d="3380">have a plague of local maxima,
+this guy never gets stuck in a</p>
+<p t="2411160" d="1195">local maxima.</p>
+<p t="2412355" d="3181">Let's try some other examples.</p>
+<p t="2415536" d="1714">Here's two vertical points--</p>
+<p t="2417250" d="3670">no surprises there, right?</p>
+<p t="2420920" d="1550">Well, you say, well,
+maybe it can't deal</p>
+<p t="2422470" d="1695">with diagonal points.</p>
+<p t="2424165" d="2665">Sure it can.</p>
+<p t="2426830" d="5261">How about this thing here?</p>
+<p t="2432091" d="6419">Yeah, it only needed two of the
+points since any two, a</p>
+<p t="2438510" d="3310">plus or minus, will
+define the street.</p>
+<p t="2441820" d="2760">Let's try this guy.</p>
+<p t="2444580" d="1946">Oh.</p>
+<p t="2446526" d="584">What do you think?</p>
+<p t="2447110" d="2936">What happened here?</p>
+<p t="2450046" d="1299">Well, we're screwed, right?</p>
+<p t="2451345" d="1250">Because it's linearly
+inseparable--</p>
+<p t="2456629" d="1250">bad news.</p>
+<p t="2460175" d="4075">So in situations where it's
+linearly inseparable, the</p>
+<p t="2464250" d="2810">mechanism struggles, and
+eventually, it will just slow</p>
+<p t="2467060" d="1510">down and you truncate
+it, because it's</p>
+<p t="2468570" d="940">not making any progress.</p>
+<p t="2469510" d="5255">And you see the red dots there
+are ones that it got wrong.</p>
+<p t="2474765" d="2715">So you say, well, too bad for
+our side-- doesn't look like</p>
+<p t="2477480" d="2022">it's all that good anyway.</p>
+<p t="2479502" d="6518">But then, a powerful idea comes
+to the rescue, when</p>
+<p t="2486020" d="2876">stuck switch to another
+perspective.</p>
+<p t="2488896" d="2954">So if we don't like the space
+that we're in, because it</p>
+<p t="2491850" d="5830">gives examples that are not
+linearly separable, then we</p>
+<p t="2497680" d="2025">can say, oh, shoot.</p>
+<p t="2499705" d="2347">Here's our space.</p>
+<p t="2502052" d="1250">Here are two points.</p>
+<p t="2509486" d="3458">Here are two other points.</p>
+<p t="2512944" d="1686">We can't separate them.</p>
+<p t="2514630" d="3110">But if we could somehow get them
+into another space, maybe</p>
+<p t="2517740" d="8860">we can separate them, because
+they look like this in the</p>
+<p t="2526600" d="2325">other space, and they're
+easy to separate.</p>
+<p t="2528925" d="3895">So what we need, then, is a
+transformation that will take</p>
+<p t="2532820" d="3250">us from the space we're in into
+a space where things are</p>
+<p t="2536070" d="1520">more convenient, so we're
+going to call that</p>
+<p t="2537590" d="5155">transformation phi
+with a vector, x.</p>
+<p t="2542745" d="1110">That's the transformation.</p>
+<p t="2543855" d="2435">And now, here's the reason
+for all the magic.</p>
+<p t="2548950" d="5930">I said, that the maximization
+only depends on dot products.</p>
+<p t="2554880" d="3930">So all I need to do the
+maximization is the</p>
+<p t="2558810" d="5165">transformation of one vector
+dotted with the transformation</p>
+<p t="2563975" d="3260">of another vector, like so.</p>
+<p t="2567235" d="4025">That's what I need to maximize,
+or to find the</p>
+<p t="2571260" d="1250">maximum on.</p>
+<p t="2572510" d="2706">Then, in order to recognize--</p>
+<p t="2575216" d="2490">where did it go?</p>
+<p t="2577706" d="1554">Underneath the chalkboard.</p>
+<p t="2585290" d="712">Oh, yes.</p>
+<p t="2586002" d="898">Here it is.</p>
+<p t="2586900" d="2720">To recognize, all I need
+is dot products, too.</p>
+<p t="2589620" d="7405">So for that one I need phi of
+x dotted with phi of u.</p>
+<p t="2597025" d="2275">And just to make this a little
+bit more consistent, the</p>
+<p t="2599300" d="3450">notation, I'll call that
+x j and this x sub i.</p>
+<p t="2602750" d="800">And that's x sub i.</p>
+<p t="2603550" d="4045">Those are the quantities I
+need in order to do it.</p>
+<p t="2607595" d="6945">So that means that if I have a
+function, let's call it k of x</p>
+<p t="2614540" d="10830">sub i and x sub j, that's equal
+to phi of x sub i dotted</p>
+<p t="2625370" d="3821">with phi of x sub j.</p>
+<p t="2629191" d="1024">Then, I'm done.</p>
+<p t="2630215" d="2091">This is what I need.</p>
+<p t="2632306" d="1714">I don't actually need this.</p>
+<p t="2636955" d="4035">All I need is that function, k,
+which happens to be called</p>
+<p t="2640990" d="3660">a kernel function, which
+provides me with the dot</p>
+<p t="2644650" d="3095">product of those two vectors
+in another space.</p>
+<p t="2647745" d="1565">I don't have to know
+the transformation</p>
+<p t="2649310" d="1890">into the other space.</p>
+<p t="2651200" d="4735">And that's the reason that
+this stuff is a miracle.</p>
+<p t="2655935" d="3660">So what are some of the kernels
+that are popular?</p>
+<p t="2659595" d="7605">One is the linear kernel that
+says that u dotted with v plus</p>
+<p t="2667200" d="5315">1 to the n-th is such a kernel,
+because it's got u in</p>
+<p t="2672515" d="2675">it and v in it, the
+two vectors.</p>
+<p t="2675190" d="2870">And this is what the dot product
+is in the other space.</p>
+<p t="2678060" d="1490">So that's one choice.</p>
+<p t="2679550" d="2900">Another choice is a kernel
+that looks like</p>
+<p t="2682450" d="3845">this, e to the minus.</p>
+<p t="2686295" d="4145">Let's take the dot product
+of the difference</p>
+<p t="2690440" d="1250">of those two guys.</p>
+<p t="2693880" d="2480">Let's take the magnitude
+of that and</p>
+<p t="2696360" d="1300">divide it by some sigma.</p>
+<p t="2697660" d="3500">That's a second kind of kernel
+that we can use.</p>
+<p t="2701160" d="3190">So let's go back and see if we
+can solve this problem by</p>
+<p t="2704350" d="2000">transforming it into another
+space where we have another</p>
+<p t="2706350" d="1250">perspective.</p>
+<p t="2710082" d="5536">So that's it.</p>
+<p t="2715618" d="2142">That's another kernel.</p>
+<p t="2717760" d="1110">And so sure, we can.</p>
+<p t="2718870" d="2410">And that's the answer when
+transformed back into the</p>
+<p t="2721280" d="1625">original space.</p>
+<p t="2722905" d="1785">We can also try doing that
+with a so-called</p>
+<p t="2724690" d="1090">radial basis kernel.</p>
+<p t="2725780" d="2332">That's the one with the
+exponential in it.</p>
+<p t="2728112" d="1198">We can learn on that one.</p>
+<p t="2729310" d="1170">Boom.</p>
+<p t="2730480" d="2866">No problem.</p>
+<p t="2733346" d="3514">So we've got a general method
+that's convex and guaranteed</p>
+<p t="2736860" d="2385">to produce a global solution.</p>
+<p t="2739245" d="3705">We've got a mechanism that
+easily allows us to transform</p>
+<p t="2742950" d="2520">this into another space.</p>
+<p t="2745470" d="2225">So it works like a charm.</p>
+<p t="2747695" d="3041">Of course, it doesn't remove
+all possible problems.</p>
+<p t="2750736" d="2914">Look at that exponential
+thing here.</p>
+<p t="2753650" d="6240">If we choose a sigma that is
+small enough, then those</p>
+<p t="2759890" d="2870">sigmas are essentially shrunk
+right around the sample</p>
+<p t="2762760" d="3332">points, and we could
+get overfitting.</p>
+<p t="2766092" d="3293">So it doesn't immunize us
+against overfitting, but it</p>
+<p t="2769385" d="3115">does immunize us against local
+maxima and does provide us</p>
+<p t="2772500" d="4320">with a general mechanism for
+doing a transformation into</p>
+<p t="2776820" d="2115">another space with a
+better perspective.</p>
+<p t="2778935" d="3500">Now, the history lesson, all
+this stuff feels fairly new.</p>
+<p t="2782435" d="3311">It feels like it's younger
+than you are.</p>
+<p t="2785746" d="2076">Here's the history of it.</p>
+<p t="2787822" d="3238">Vapnik immigrated from the
+Soviet Union to the United</p>
+<p t="2791060" d="2700">States in about 1991.</p>
+<p t="2793760" d="3035">Nobody ever heard of this stuff
+before he immigrated.</p>
+<p t="2796795" d="3405">He actually had done this work
+on the basic support vector</p>
+<p t="2800200" d="4155">idea in his Ph.D. thesis
+at Moscow University</p>
+<p t="2804355" d="2235">in the early '60s.</p>
+<p t="2806590" d="2880">But it wasn't possible for him
+to do anything with it,</p>
+<p t="2809470" d="1750">because they didn't have any
+computers they could try</p>
+<p t="2811220" d="1790">anything out with.</p>
+<p t="2813010" d="4450">So he spent the next 25 years at
+some oncology institute in</p>
+<p t="2817460" d="3200">the Soviet Union doing
+applications.</p>
+<p t="2820660" d="2780">Somebody from Bell Labs
+discovers him, invites him</p>
+<p t="2823440" d="2005">over to the United States
+where, subsequently, he</p>
+<p t="2825445" d="2021">decides to immigrate.</p>
+<p t="2827466" d="6114">In 1992, or thereabouts, Vapnik
+submits three papers to</p>
+<p t="2833580" d="3535">NIPS, the Neural Information
+Processing Systems journal.</p>
+<p t="2837115" d="1950">All of them were rejected.</p>
+<p t="2839065" d="4505">He's still sore about it,
+but it's motivating.</p>
+<p t="2843570" d="3490">So around 1992, 1993, Bell
+Labs was interested in</p>
+<p t="2847060" d="1360">hand-written character
+recognition</p>
+<p t="2848420" d="2036">and in neural nets.</p>
+<p t="2850456" d="2814">Vapnik thinks that
+neural nets--</p>
+<p t="2853270" d="3025">what would be a good
+word to use?</p>
+<p t="2856295" d="2115">I can think of the vernacular,
+but he thinks that</p>
+<p t="2858410" d="1740">they're not very good.</p>
+<p t="2860150" d="4170">So he bets a colleague a good
+dinner that support vector</p>
+<p t="2864320" d="2065">machines will eventually do
+better at handwriting</p>
+<p t="2866385" d="3971">recognition then neural nets.</p>
+<p t="2870356" d="1334">And it's a dinner bet, right?</p>
+<p t="2871690" d="910">It's not that big of deal.</p>
+<p t="2872600" d="2680">But as Napoleon said, it's
+amazing what a soldier will do</p>
+<p t="2875280" d="2361">for a bit of ribbon.</p>
+<p t="2877641" d="3739">So that makes colleague, who's
+working on this problem with</p>
+<p t="2881380" d="5350">handwritten recognition, decides
+to try a support</p>
+<p t="2886730" d="5970">vector machine with a kernel,
+in which n equals 2, just</p>
+<p t="2892700" d="2120">slightly nonlinear, works
+like a charm.</p>
+<p t="2897530" d="2360">Was this the first time anybody
+tried a kernel?</p>
+<p t="2899890" d="3180">Vapnik actually had the idea in
+his thesis but never though</p>
+<p t="2903070" d="2490">it was very important.</p>
+<p t="2905560" d="4110">As soon as it was shown to work
+in the early '90s on the</p>
+<p t="2909670" d="2420">problem handwriting recognition,
+Vapnik</p>
+<p t="2912090" d="3100">resuscitated the idea of the
+kernel, began to develop it,</p>
+<p t="2915190" d="3080">and became an essential part of
+the whole approach of using</p>
+<p t="2918270" d="1650">support vector machines.</p>
+<p t="2919920" d="4060">So the main point about this
+is that it was 30 years in</p>
+<p t="2923980" d="3400">between the concept and anybody
+ever hearing about it.</p>
+<p t="2927380" d="4980">It was 30 years between Vapnik's
+understanding of</p>
+<p t="2932360" d="3480">kernels and his appreciation
+of their importance.</p>
+<p t="2935840" d="4030">And that's the way things often
+go, great ideas followed</p>
+<p t="2939870" d="3450">by long periods of nothing
+happening, followed by an</p>
+<p t="2943320" d="3320">epiphanous moment when the
+original idea seemed to have</p>
+<p t="2946640" d="2680">great power with just a
+little bit of a twist.</p>
+<p t="2949320" d="1640">And then, the world
+never looks back.</p>
+<p t="2950960" d="3820">And Vapnik, who nobody ever
+heard of until the early '90s,</p>
+<p t="2954780" d="3600">becomes famous for something
+that everybody knows about</p>
+<p t="2958380" d="1250">today who does machine
+learning.</p>
+</body>
+</timedtext>

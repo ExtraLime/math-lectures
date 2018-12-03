@@ -1,0 +1,1466 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="80" d="1690">The following
+content is provided</p>
+<p t="1770" d="2240">under a Creative
+Commons license.</p>
+<p t="4010" d="2850">Your support will help MIT
+OpenCourseWare continue</p>
+<p t="6860" d="3860">to offer high quality
+educational resources for free.</p>
+<p t="10720" d="2610">To make a donation or
+view additional materials</p>
+<p t="13330" d="3877">from hundreds of MIT courses,
+visit MIT OpenCourseWare</p>
+<p t="17207" d="625">at ocw.mit.edu.</p>
+<p t="22210" d="2780">PROFESSOR: One of the cutest
+little data structures</p>
+<p t="24990" d="2900">that was ever invented
+is called the heap.</p>
+<p t="27890" d="3600">And we're going to use
+the heap as an example</p>
+<p t="31490" d="3900">implementation of
+a priority queue.</p>
+<p t="35390" d="5460">And we'll also use heaps to
+build a sorting algorithm,</p>
+<p t="40850" d="2990">called heap sort,
+that is very, very</p>
+<p t="43840" d="4950">different from either
+insertion sort or merge sort.</p>
+<p t="48790" d="3670">And it has some nice properties
+that neither insertions sort</p>
+<p t="52460" d="2060">nor merge sort have.</p>
+<p t="54520" d="3020">But what I want to
+do is get started</p>
+<p t="57540" d="5330">with motivating the
+heap data structure,</p>
+<p t="62870" d="3800">regardless of whether you're
+interested in sorting or not.</p>
+<p t="66670" d="2120">So the notion of a
+priority queue, I think,</p>
+<p t="68790" d="2850">makes intuitive
+sense to all of you.</p>
+<p t="71640" d="3110">It's essentially
+a structure that</p>
+<p t="74750" d="7035">implements a set S of elements.</p>
+<p t="88340" d="5840">And each of these elements
+is associated with the key.</p>
+<p t="103890" d="2410">And as you can imagine, a
+priority queue is something</p>
+<p t="106300" d="2950">where you queue
+up for something,</p>
+<p t="109250" d="2890">you want to buy something,
+you want to sell something.</p>
+<p t="112140" d="3440">You have certain
+priorities assigned to you,</p>
+<p t="115580" d="4390">and you want to pick the maximum
+priority or the min priority.</p>
+<p t="119970" d="2040">You want to be able to
+delete it from the queue.</p>
+<p t="122010" d="2640">You want to be able to insert
+things into this queue.</p>
+<p t="124650" d="2780">You want to be able to change
+priorities in the queue.</p>
+<p t="127430" d="5190">So all of these operations
+are interesting operations</p>
+<p t="132620" d="4577">that should run fast, and
+for some definition of fast.</p>
+<p t="137197" d="2333">Obviously we are interested
+in the asymptotic complexity</p>
+<p t="139530" d="1200">definition of fast.</p>
+<p t="140730" d="2650">In that case, we'll be saying
+does this operation run</p>
+<p t="143380" d="4020">an order n time, order
+log n time, et cetera.</p>
+<p t="147400" d="3410">So in general, I think
+for the next few lectures,</p>
+<p t="150810" d="5790">you're going to see a
+specification of data structure</p>
+<p t="156600" d="2820">in terms of the operations
+that the data structure should</p>
+<p t="159420" d="1070">perform.</p>
+<p t="160490" d="2170">And those of you who have
+taken six double O five,</p>
+<p t="162660" d="2900">you'll see that it's basically
+an abstract data type that's</p>
+<p t="165560" d="3130">associated with
+these operations.</p>
+<p t="168690" d="2850">So it's a spec for the
+abstract data type.</p>
+<p t="171540" d="2660">In six double O
+five, you had really</p>
+<p t="174200" d="2740">spent a lot of time on
+asymptotic complexity,</p>
+<p t="176940" d="3460">or the efficiency of operations
+on the abstract data type.</p>
+<p t="180400" d="4105">Here, in double O six,
+you'll specify this ADT,</p>
+<p t="184505" d="2815">and specify the set of
+operations or methods</p>
+<p t="187320" d="1130">in the ADT.</p>
+<p t="188450" d="4160">And we'll talk about whether
+these are order end complexity</p>
+<p t="192610" d="4640">log end complexity, and compare
+and contrast different ADTs.</p>
+<p t="197250" d="3490">So today's ADT is a heap.</p>
+<p t="200740" d="3890">And what is the
+set of operations</p>
+<p t="204630" d="3400">that we'd like to perform
+on a priority queue?</p>
+<p t="208030" d="3550">So we can use that to motivate
+the development of the heap.</p>
+<p t="211580" d="3500">And those are, insert s x.</p>
+<p t="215080" d="2190">So you have a set of
+elements s, and you</p>
+<p t="217270" d="10150">want to be able to insert
+element x into set s.</p>
+<p t="227420" d="4320">You want to be able
+to do max of s, which</p>
+<p t="231740" d="11390">is return the element of
+s with the largest key.</p>
+<p t="246740" d="5160">And different from
+max of s is extract</p>
+<p t="251900" d="6679">max of x, which not only returns
+the element with the largest</p>
+<p t="258579" d="9261">key, but also removes it from s.</p>
+<p t="267840" d="3309">So you have a queue, and
+the person in the queue</p>
+<p t="271149" d="2291">was serviced, or the element
+in the queue was serviced,</p>
+<p t="273440" d="2880">and then removed from the queue.</p>
+<p t="276320" d="5630">And finally you can
+imagine changing</p>
+<p t="281950" d="4660">the priority of a particular
+element x in the set s.</p>
+<p t="286610" d="4130">And this priority,
+there's an associated key</p>
+<p t="290740" d="3500">as we have up there
+with each element.</p>
+<p t="294240" d="2660">And that key is called a k.</p>
+<p t="296900" d="17080">And increase key s x k would
+increase the value of x's key</p>
+<p t="313980" d="1180">to the new value k.</p>
+<p t="321900" d="6090">And k could correspond to,
+it's just called increase.</p>
+<p t="327990" d="3290">Most of the time, you're
+increasing the value</p>
+<p t="331280" d="1500">in maybe a particular
+application.</p>
+<p t="332780" d="2190">You could have suddenly
+a decrease key,</p>
+<p t="334970" d="2610">and you would have to know
+what the previous value was.</p>
+<p t="337580" d="1980">And is just a matter
+of exactly what</p>
+<p t="339560" d="1250">operation you want to perform.</p>
+<p t="340810" d="5620">You could call it update, or
+increment, whatever you like.</p>
+<p t="346430" d="3650">I'm going to spend most
+of the time here talking</p>
+<p t="350080" d="5180">about how you maintain a
+rep invariant of this data</p>
+<p t="355260" d="4640">structure called the heap,
+that allows you to do</p>
+<p t="359900" d="3040">these operations in
+an efficient way.</p>
+<p t="362940" d="2770">And we'll talk about
+what the efficiency is,</p>
+<p t="365710" d="2620">and we'll try to analyze the
+efficiency of these algorithms</p>
+<p t="368330" d="700">that we put up.</p>
+<p t="371610" d="1600">So let's talk about a heap.</p>
+<p t="373210" d="3900">A heap is an implementation
+of a priority queue.</p>
+<p t="377110" d="4680">It's amazingly and
+array structure,</p>
+<p t="381790" d="8500">except that you're
+visualizing this array</p>
+<p t="390290" d="2650">as a nearly complete
+binary tree.</p>
+<p t="401130" d="2490">And what does that mean exactly?</p>
+<p t="403620" d="2670">Well, the best way
+to understand that</p>
+<p t="406290" d="2385">is by looking at an example.</p>
+<p t="411380" d="1250">We got 10 here, so.</p>
+<p t="419338" d="1250">1, 2, 3, 4, 5, 6, 7, 8, 9, 10.</p>
+<p t="424390" d="3170">So here's my array
+of 10 elements.</p>
+<p t="427560" d="8130">And the elements are
+16, 14, 10, 8, 7.</p>
+<p t="440470" d="2180">So some set of elements
+that are in random order,</p>
+<p t="442650" d="3600">clearly not sorted, and
+I'm looking at the indices,</p>
+<p t="446250" d="1470">and I'm looking at the elements.</p>
+<p t="447720" d="4480">I'm going to visualize this as
+a nearly complete binary tree.</p>
+<p t="452200" d="1740">Is not a full binary
+tree, because I only</p>
+<p t="453940" d="2510">have 10 elements
+in it, and it would</p>
+<p t="456450" d="4980">have to have 15 elements to
+be a complete binary tree.</p>
+<p t="461430" d="3960">And we want to be able to do
+the general case of an arbitrary</p>
+<p t="465390" d="5010">size array, and so that's why
+we have nearly complete here.</p>
+<p t="470400" d="3240">So what does it mean to
+visualize this as a tree?</p>
+<p t="473640" d="6020">Well, index one is
+the root of the tree,</p>
+<p t="479660" d="4710">and that item is
+the value is 16.</p>
+<p t="484370" d="11030">And what I have are indices
+2 and 3 are the children,</p>
+<p t="495400" d="11160">and 4, 5, 6, and 7 are
+the children of 2 and 3.</p>
+<p t="506560" d="13270">And 8, 9, and 10 are
+the children of 4 and 5,</p>
+<p t="519830" d="1270">in this case.</p>
+<p t="521100" d="1610">And so that's the
+picture you want</p>
+<p t="522710" d="2580">to keep in your head for
+the rest of this lecture.</p>
+<p t="525290" d="1582">Any time you see
+an array, and you</p>
+<p t="526872" d="1708">say we're going to be
+looking at the heap</p>
+<p t="528580" d="3100">representation of the array,
+the picture on the right</p>
+<p t="531680" d="2270">tells you what the
+heap looks like.</p>
+<p t="533950" d="2600">And so that I'm not going
+to fill in all of these.</p>
+<p t="536550" d="2420">You can, but I'll do a couple.</p>
+<p t="538970" d="8670">So you have 10 here,
+and 8, 7, et cetera.</p>
+<p t="547640" d="2750">So that's a heap structure.</p>
+<p t="550390" d="2530">So what's nice about
+this heap structure,</p>
+<p t="552920" d="6630">is that you'll have tree
+representation of an array,</p>
+<p t="559550" d="3460">and that lets you do a
+bunch of interesting things.</p>
+<p t="563010" d="4620">What do you get out
+of this visualization?</p>
+<p t="567630" d="12430">Well, the root of the
+tree is the first element</p>
+<p t="580060" d="3550">corresponding to i equals 1.</p>
+<p t="583610" d="8800">The parent of i is i over 2.</p>
+<p t="592410" d="4770">The left child of i is 2i.</p>
+<p t="597180" d="5820">And the right child
+of i is 2i plus 1.</p>
+<p t="606060" d="3750">So that's essentially what
+this mapping corresponds to.</p>
+<p t="609810" d="5420">Now on top of that, this is
+just what a heap corresponds to.</p>
+<p t="615230" d="3250">We're going to have
+particular types of heaps</p>
+<p t="618480" d="4570">that we'll call
+max-heaps and min-heaps.</p>
+<p t="623050" d="2220">And as you can imagine,
+max-heaps and min-heaps</p>
+<p t="625270" d="3110">have additional properties
+on top of the basic</p>
+<p t="628380" d="850">keep structures.</p>
+<p t="629230" d="2540">So this is essentially
+a definition of a heap.</p>
+<p t="631770" d="3250">Now I'm going to define what
+the max-heap property is.</p>
+<p t="641510" d="10760">And the max-heap property
+says that the key of a node</p>
+<p t="652270" d="8115">is greater than or equal to
+the keys of its children.</p>
+<p t="666120" d="2080">OK, that's it.</p>
+<p t="668200" d="2760">It's obviously
+recursive, in the sense</p>
+<p t="670960" d="8260">that you have to have this true
+for every node in the tree.</p>
+<p t="679220" d="3780">And when you get down to
+the leaves of the tree,</p>
+<p t="683000" d="2660">they're not children
+corresponding to the leaves,</p>
+<p t="685660" d="1730">So that's a trivial property.</p>
+<p t="687390" d="4050">But at higher levels, you're
+going to have children,</p>
+<p t="691440" d="1710">and you have to check that.</p>
+<p t="693150" d="3480">So if you look at
+this example here,</p>
+<p t="696630" d="2100">maybe I should fill
+this whole thing out.</p>
+<p t="698730" d="4870">A have eight and seven
+here, and six would be nine.</p>
+<p t="703600" d="7910">And I have three over here,
+and then two, four, one.</p>
+<p t="711510" d="3120">So we can look at this
+and check whether it</p>
+<p t="714630" d="3090">has the max-heap
+property or not.</p>
+<p t="717720" d="2090">Does it have the
+max-heap property?</p>
+<p t="719810" d="1290">This heap?</p>
+<p t="721100" d="500">Yeah.</p>
+<p t="721600" d="3510">All you have to do is
+look at these nodes.</p>
+<p t="725110" d="5100">one, two, three indices,
+index four, five, six, but you</p>
+<p t="730210" d="1730">don't have to look
+at six and seven,</p>
+<p t="731940" d="2170">because they don't
+have any children.</p>
+<p t="734110" d="3070">But you could shop
+with five here,</p>
+<p t="737180" d="4420">and you look at the
+children, and there you go.</p>
+<p t="741600" d="3910">To the parent is greater
+than or equal to either</p>
+<p t="745510" d="3680">of its children, or its only
+child, in the case of node</p>
+<p t="749190" d="940">five.</p>
+<p t="750130" d="2520">And so you have the
+max-heap property.</p>
+<p t="752650" d="3450">So fairly
+straightforward property.</p>
+<p t="756100" d="5840">And you can imagine defining
+the min-heap property</p>
+<p t="761940" d="1960">in an equivalent way.</p>
+<p t="763900" d="2080">Just replace the greater
+than or equal to,</p>
+<p t="765980" d="2070">with less than or equal to.</p>
+<p t="768050" d="5980">So right off the
+bat, what operation</p>
+<p t="774030" d="5600">is going to be trivially
+performed on a max-heap?</p>
+<p t="779630" d="3450">This is kind of
+trivial question.</p>
+<p t="783080" d="1635">Yep.</p>
+<p t="784715" d="1375">Just finding the
+biggest element.</p>
+<p t="786090" d="2460">Exactly right.</p>
+<p t="788550" d="1780">The max operation.</p>
+<p t="790330" d="4280">Now, what about extract max?</p>
+<p t="794610" d="4446">Is that trivially
+performed on a max-heap?</p>
+<p t="799056" d="499">No.</p>
+<p t="802110" d="2110">What do I mean by that?</p>
+<p t="804220" d="3550">When you say, max is
+trivially performed,</p>
+<p t="807770" d="2710">what it means is that
+you can return the max,</p>
+<p t="810480" d="3250">you can find the maximum
+element, or a maximum element,</p>
+<p t="813730" d="3320">and you obviously
+don't modify the heap.</p>
+<p t="817050" d="3640">And the heap stays the same,
+so it stays a max-heap.</p>
+<p t="820690" d="2310">In general, when we talk
+about data structures,</p>
+<p t="823000" d="2050">and this goes back to
+rep invariance, which</p>
+<p t="825050" d="1940">I've mentioned
+already, you typically</p>
+<p t="826990" d="2450">want to maintain
+this rep invariant.</p>
+<p t="829440" d="4580">And so the rep invariant of our
+data structure, in this case,</p>
+<p t="834020" d="1630">is a max-heap property.</p>
+<p t="835650" d="500">OK.</p>
+<p t="836150" d="2360">So we want to maintain
+the max-heap property</p>
+<p t="838510" d="1990">as we modify the heat.</p>
+<p t="840500" d="2110">So if you go from
+one heap to another,</p>
+<p t="842610" d="3820">you start at the max-heap, you
+want to end with the max-heap.</p>
+<p t="846430" d="3680">It makes perfect sense,
+because in one of the simplest</p>
+<p t="850110" d="2080">things that you want to
+do in a priority queue,</p>
+<p t="852190" d="3080">is you want to be able to
+create a priority queue,</p>
+<p t="855270" d="3210">and you want to be able to run
+extract max on the priority</p>
+<p t="858480" d="2224">queue, over and over.</p>
+<p t="860704" d="2416">And what that means, is that
+you take the max element, you</p>
+<p t="863120" d="2700">delete it, take the next
+max element, delete it,</p>
+<p t="865820" d="1290">and so on and so forth.</p>
+<p t="867110" d="3050">And there you go.</p>
+<p t="870160" d="2330">It's a bit of a
+preview here, but you</p>
+<p t="872490" d="2510">could imagine that if
+you did that, you would</p>
+<p t="875000" d="5460">get a sorted list of
+elements in decreasing order.</p>
+<p t="880460" d="2182">So you see the
+connection to sorting,</p>
+<p t="882642" d="2208">because you could imagine
+that once we have this heap</p>
+<p t="884850" d="2960">structure, and we can maintain
+the max-heap property,</p>
+<p t="887810" d="3200">that we could continually
+run extract max on it.</p>
+<p t="891010" d="2780">And if you could build extract
+max in an efficient way,</p>
+<p t="893790" d="2860">you might have a fantastic
+sorting algorithm.</p>
+<p t="899570" d="4710">So, the big question
+that really remains,</p>
+<p t="904280" d="3240">is how do we maintain
+the max-heap property</p>
+<p t="907520" d="2850">as we modify the heap?</p>
+<p t="910370" d="4660">And the other question,
+which I haven't answered</p>
+<p t="915030" d="13730">is-- this array that turns
+out it was a max-heap,</p>
+<p t="928760" d="2650">but it's quite
+possible that I have</p>
+<p t="931410" d="2475">a trivial example of an array.</p>
+<p t="940960" d="1250">In fact, let me make this one.</p>
+<p t="944830" d="2040">That is not a max-heap.</p>
+<p t="946870" d="2850">It's not a max-heap, it's
+not a min-heap, it's neither.</p>
+<p t="949720" d="2210">Right? it's just a heap.</p>
+<p t="951930" d="4810">So if I just
+transform, or visualize</p>
+<p t="956740" d="4460">I should say, this array as a
+heap, I don't have a max-heap,</p>
+<p t="961200" d="1490">I don't have a min-heap.</p>
+<p t="962690" d="4386">So if I'm very interested
+in sorting, and I am,</p>
+<p t="967076" d="1374">there's this
+another thing that's</p>
+<p t="968450" d="2260">sort of missing here
+that we have to work on,</p>
+<p t="970710" d="3960">which is how are we going
+to build a max-heap out</p>
+<p t="974670" d="3600">of an initially unsorted array.</p>
+<p t="978270" d="2940">Which may or may not
+turn into a max-heap.</p>
+<p t="981210" d="2650">This trivially happened to
+be exactly the right thing,</p>
+<p t="983860" d="2950">because I picked it, and
+it turned into a max-heap</p>
+<p t="986810" d="1910">just by visualizing it.</p>
+<p t="988720" d="1710">But it's quite
+possible that you have</p>
+<p t="990430" d="2590">arrays that are input to
+your sorting algorithm that</p>
+<p t="993020" d="800">look like that.</p>
+<p t="997500" d="3560">OK, so let's dive
+into heap operations.</p>
+<p t="1001060" d="5850">I'm going to have spend
+some time describing to you</p>
+<p t="1006910" d="4010">a bunch of different methods
+that you would call on a heap.</p>
+<p t="1010920" d="2860">And all of these
+methods are going</p>
+<p t="1013780" d="2660">to have to maintain
+our representation</p>
+<p t="1016440" d="3400">invariant of the
+max-heap property.</p>
+<p t="1019840" d="2610">So what are the heap
+operations that we</p>
+<p t="1022450" d="6460">have to implement and
+analyze the complexity for?</p>
+<p t="1028910" d="4659">Well, we're going to
+have build-max-heap</p>
+<p t="1033569" d="10561">which produces a max-heap
+from an arbitrary or unordered</p>
+<p t="1044130" d="500">array.</p>
+<p t="1048190" d="5230">So somehow I got to turn
+this into, for example,</p>
+<p t="1053420" d="4090">four, two, one.</p>
+<p t="1057510" d="3000">Which is in effect,
+sorting this array.</p>
+<p t="1060510" d="1060">Or changing the order.</p>
+<p t="1061570" d="2920">Maybe not fully sorting
+it, but changing the order.</p>
+<p t="1064490" d="2750">So that's what I have to
+do, and build-max-heap</p>
+<p t="1067240" d="4140">is going to have to do that.</p>
+<p t="1071380" d="8280">In order to do build-max-heap,
+the first procedure</p>
+<p t="1079660" d="5660">that I'm going to describe to
+you, is called max-heapify.</p>
+<p t="1085320" d="1340">Heapify.</p>
+<p t="1086660" d="4780">Sounds a little
+strange, but I guess</p>
+<p t="1091440" d="2530">you can -ify pretty
+much anything.</p>
+<p t="1093970" d="10290">So you correct a
+single violation</p>
+<p t="1104260" d="17180">of the heap property in a
+subtree, a subtree's root.</p>
+<p t="1124160" d="4090">And I'll explain what I mean
+by that in just a minute.</p>
+<p t="1128250" d="3030">So max-heapify is the
+fundamental operation</p>
+<p t="1131280" d="1610">that we have to understand here.</p>
+<p t="1132890" d="3260">And we're going to
+use it over and over.</p>
+<p t="1136150" d="3640">What it does, is
+take something that</p>
+<p t="1139790" d="2470">is not a heap, not a max-heap.</p>
+<p t="1142260" d="2896">When I say not a
+heap from now on,</p>
+<p t="1145156" d="1624">pretend that I'm
+saying not a max-heap.</p>
+<p t="1146780" d="1800">We're only going to be
+talking about max-heaps</p>
+<p t="1148580" d="1208">for the rest of this lecture.</p>
+<p t="1153320" d="4180">What max-heapify does,
+is take something</p>
+<p t="1157500" d="2750">that is not quite a max-heap.</p>
+<p t="1160250" d="1520">It can't take
+anything arbitrary.</p>
+<p t="1161770" d="1750">It's going to take
+something where there's</p>
+<p t="1163520" d="3350">a single violation of
+the max-heap property</p>
+<p t="1166870" d="5570">at some subtree of this
+heap that is given to you,</p>
+<p t="1172440" d="2050">and there's a single
+violation of that.</p>
+<p t="1174490" d="2130">And it's going to fix that.</p>
+<p t="1176620" d="3860">And we need to be able
+to do this recursively</p>
+<p t="1180480" d="2410">at different levels
+to go build a max-heap</p>
+<p t="1182890" d="2732">from an unordered array.</p>
+<p t="1185622" d="1458">Then once you have
+that, you can do</p>
+<p t="1187080" d="3350">all sorts of things like insert
+and extract max, and heap sort,</p>
+<p t="1190430" d="1790">and so on and so forth.</p>
+<p t="1192220" d="3660">So let's take a look at
+max-heapify using an example.</p>
+<p t="1195880" d="5010">I'm not going to write
+pseudocode for max-heapify.</p>
+<p t="1200890" d="4970">I'll run through an example, and
+the pseudocode is in the notes.</p>
+<p t="1205860" d="1800">The big assumption,
+and you think</p>
+<p t="1207660" d="5820">of this as a precondition,
+for running max-heapify,</p>
+<p t="1213480" d="17160">is the trees rooted at left
+i and right i are max-heaps.</p>
+<p t="1235420" d="5320">So max-heapify is going
+to look like a comma i.</p>
+<p t="1240740" d="4850">a is simply the array,
+and i is the index.</p>
+<p t="1245590" d="3050">Max-heapify is
+willing to, you're</p>
+<p t="1248640" d="5200">allowed to crash and
+not do anything useful</p>
+<p t="1253840" d="3450">if this precondition is
+violated in max-heapify.</p>
+<p t="1257290" d="3430">But if the precondition is
+true, then what you have to do</p>
+<p t="1260720" d="2850">is, you have to return
+a max-heap correcting</p>
+<p t="1263570" d="1767">this violation.</p>
+<p t="1265337" d="833">That's the contract.</p>
+<p t="1271160" d="2400">So let's take a
+look at an example.</p>
+<p t="1273560" d="3250">I think what I want to
+do is start over here.</p>
+<p t="1280670" d="1882">I want you to see all
+of the steps here.</p>
+<p t="1282552" d="1708">So we'll take a simple
+example, and we'll</p>
+<p t="1284260" d="1150">run through max-heapify.</p>
+<p t="1293550" d="32170">And let's take a
+look at 16, four--</p>
+<p t="1325720" d="3770">I'm just going to draw the
+indices for this first example,</p>
+<p t="1329490" d="1000">and then I won't bother.</p>
+<p t="1333230" d="2110">So there you go.</p>
+<p t="1335340" d="2720">Is this a max-heap?</p>
+<p t="1338060" d="650">No.</p>
+<p t="1338710" d="2730">Because right here,
+I've got a problem.</p>
+<p t="1341440" d="5730">4 is less than 14, therefore
+I have a violation.</p>
+<p t="1347170" d="11350">And so, if you look at the
+call max-heapify A comma 2,</p>
+<p t="1358520" d="2810">this is an index 2,
+and all you have to do</p>
+<p t="1361330" d="2120">is to look at this subtree.</p>
+<p t="1363450" d="4180">And what you need to
+be satisfied in order</p>
+<p t="1367630" d="6770">to run max-heapify, is that the
+subtrees of nodes index two,</p>
+<p t="1374400" d="3230">which is this four
+node, are max-heaps.</p>
+<p t="1377630" d="2750">And if you go look below, you
+see that this is a max-heap</p>
+<p t="1380380" d="2345">and that's a max-heap.</p>
+<p t="1382725" d="1375">Most of the time,
+by the way, you</p>
+<p t="1384100" d="2040">will be sort of
+working bottom up,</p>
+<p t="1386140" d="2740">and that's why this is
+going to make sense.</p>
+<p t="1388880" d="1900">This will all work
+out, because leaves</p>
+<p t="1390780" d="2550">are by definition max-heaps.</p>
+<p t="1393330" d="1960">Because you don't have
+to check anything.</p>
+<p t="1395290" d="1810">When you put two
+leaves together,</p>
+<p t="1397100" d="5110">and you want to create a tree
+like that, or a heap like that,</p>
+<p t="1402210" d="2780">then you run max-heapify.</p>
+<p t="1404990" d="2770">And then when you have a
+couple different max-heaps,</p>
+<p t="1407760" d="1590">and you want to
+put them together</p>
+<p t="1409350" d="4939">to make it a bigger max-heap,
+you'd have run max-heapify.</p>
+<p t="1414289" d="1541">So that's the way
+it's going to work.</p>
+<p t="1415830" d="3642">So you want to do a
+max-heapify A comma 2.</p>
+<p t="1419472" d="1958">One of the things that's
+going to be important,</p>
+<p t="1421430" d="3610">not in this example, but
+when we get to sorting,</p>
+<p t="1425040" d="3680">is that we want to know what
+the size of the heap is.</p>
+<p t="1428720" d="3100">And in this case,
+the heap size is 10.</p>
+<p t="1431820" d="3350">So, what does max-heapify do?</p>
+<p t="1435170" d="5090">Well, all max-heapify does
+is exchanges elements.</p>
+<p t="1440260" d="3150">And so, if you looked at
+the code for max-heapify,</p>
+<p t="1443410" d="3290">and you walked through it,
+this is what it would do.</p>
+<p t="1446700" d="2460">You're going to
+look at 4 and 14,</p>
+<p t="1449160" d="1670">and it's going to
+say, OK, I'm going</p>
+<p t="1450830" d="1480">to look at both my children.</p>
+<p t="1452310" d="3980">And I'm going to go ahead and
+exchange with the bigger child.</p>
+<p t="1456290" d="5370">So I'm going to
+exchange AA[2] with AA[4].</p>
+<p t="1464720" d="10730">And what that would do is,
+take this, make this 4,</p>
+<p t="1475450" d="2290">and make this 14.</p>
+<p t="1477740" d="2890">And that would be step one.</p>
+<p t="1480630" d="3140">And then when you
+get to this point,</p>
+<p t="1483770" d="4930">recursively, you'd realize
+that the max-heap property</p>
+<p t="1488700" d="2760">at this level is violated.</p>
+<p t="1491460" d="14810">And so you would go ahead and
+call max-heapify A comma 4.</p>
+<p t="1506270" d="6110">And when that happens,
+that call happens,</p>
+<p t="1512380" d="3950">you're going to look at the
+two children corresponding</p>
+<p t="1516330" d="3350">to this little subtree
+there, and you're</p>
+<p t="1519680" d="2130">going to do the exchange.</p>
+<p t="1521810" d="3090">You're going to have
+8 here and 4 here.</p>
+<p t="1524900" d="11720">So you would exchange
+AA[4] with AA[8].</p>
+<p t="1536620" d="8150">And now you're done, so
+there's no more calls.</p>
+<p t="1544770" d="2100">So, fairly straightforward.</p>
+<p t="1546870" d="2640">It's actually not any more
+complicated than this.</p>
+<p t="1549510" d="2330">There may be many steps.</p>
+<p t="1551840" d="2600">What might happen is that you'd
+have to go all the way down</p>
+<p t="1554440" d="1140">to the leaves.</p>
+<p t="1555580" d="3110">And in this case, you
+went a couple of steps,</p>
+<p t="1558690" d="1889">and then you got to stop.</p>
+<p t="1560579" d="1791">But obviously, you
+could have a large heap,</p>
+<p t="1562370" d="2260">and it could take
+a bunch of time.</p>
+<p t="1564630" d="5850">So, what is the
+complexity of max-heapify?</p>
+<p t="1570480" d="500">Anybody?</p>
+<p t="1573854" d="500">Yeah.</p>
+<p t="1574354" d="994">Back there.</p>
+<p t="1575348" d="1416">AUDIENCE: Ultimately,
+potentially,</p>
+<p t="1576764" d="1928">if the tree is
+totally upside down,</p>
+<p t="1578692" d="5208">you could potentially switch
+every node to make it order in.</p>
+<p t="1583900" d="4409">PROFESSOR: Every node
+to make it order in.</p>
+<p t="1588309" d="791">Everybody, anybody.</p>
+<p t="1589100" d="2430">Do you have a different answer?</p>
+<p t="1591530" d="950">AUDIENCE: Log n.</p>
+<p t="1592480" d="625">PROFESSOR: Why?</p>
+<p t="1593105" d="982">Why is it log n.</p>
+<p t="1594087" d="2083">AUDIENCE: Because I think
+the worst case scenario,</p>
+<p t="1596170" d="3675">all of your-- the
+worst case scenario you</p>
+<p t="1599845" d="2695">would have [INAUDIBLE]
+on the left-hand side,</p>
+<p t="1602540" d="1960">[INAUDIBLE] right-hand side.</p>
+<p t="1604500" d="3646">And it would be skewed.</p>
+<p t="1608146" d="500">[INAUDIBLE]</p>
+<p t="1628864" d="1916">PROFESSOR: So you're
+arguing that the solution</p>
+<p t="1630780" d="3410">to the recurrence gives you
+a logarithmic complexity.</p>
+<p t="1634190" d="500">Alright.</p>
+<p t="1634690" d="1650">Not quite.</p>
+<p t="1636340" d="1760">There's an easier
+way of arguing this.</p>
+<p t="1638100" d="500">this Yeah.</p>
+<p t="1638600" d="1430">Back there.</p>
+<p t="1640030" d="960">AUDIENCE: [INAUDIBLE].</p>
+<p t="1644830" d="1010">PROFESSOR: That's right.</p>
+<p t="1645840" d="952">AUDIENCE: [INAUDIBLE].</p>
+<p t="1650680" d="1000">PROFESSOR: That's right.</p>
+<p t="1651680" d="950">So what is the complexity?</p>
+<p t="1652630" d="540">AUDIENCE: Log n.</p>
+<p t="1653170" d="708">PROFESSOR: Log n.</p>
+<p t="1653878" d="832">Great.</p>
+<p t="1654710" d="1646">Excellent.</p>
+<p t="1656356" d="1124">Definitely worth a cushion.</p>
+<p t="1660060" d="1590">Missed you by that much.</p>
+<p t="1661650" d="900">AUDIENCE: Thank you.</p>
+<p t="1662550" d="1710">PROFESSOR: It's pretty
+soft, by the way.</p>
+<p t="1664260" d="500">Right.</p>
+<p t="1664760" d="980">OK.</p>
+<p t="1665740" d="2791">So, if I hit somebody,
+they get a cushion.</p>
+<p t="1668531" d="499">OK.</p>
+<p t="1674130" d="1240">That's exactly right.</p>
+<p t="1675370" d="2910">Thanks for that description.</p>
+<p t="1678280" d="3490">So, first off, there's
+two important aspects</p>
+<p t="1681770" d="1660">to this argument.</p>
+<p t="1683430" d="1750">The first thing is,
+that we're visualizing</p>
+<p t="1685180" d="3325">this is a nearly
+complete binary tree.</p>
+<p t="1688505" d="2006">It is not an unbalanced tree.</p>
+<p t="1690511" d="499">Alright?</p>
+<p t="1691010" d="2390">We'll talk about unbalanced
+trees and balanced trees</p>
+<p t="1693400" d="1530">in the next couple of lectures.</p>
+<p t="1694930" d="3450">But the visualization of a heap
+is a nearly complete binary</p>
+<p t="1698380" d="500">tree.</p>
+<p t="1698880" d="1850">And, in fact, if
+you had 15 elements,</p>
+<p t="1700730" d="2280">it would be a
+perfect binary tree.</p>
+<p t="1703010" d="5210">So the good news is, that the
+height of this visualization</p>
+<p t="1708220" d="3560">tree is bounded by log n.</p>
+<p t="1711780" d="1680">That's the good news.</p>
+<p t="1713460" d="2050">And you want to
+exploit that good news</p>
+<p t="1715510" d="4240">by creating algorithms
+that go level by level.</p>
+<p t="1719750" d="2800">If you can do that, you're going
+to have logarithmic complexity</p>
+<p t="1722550" d="2020">algorithms.</p>
+<p t="1724570" d="1240">So that was one aspect of it.</p>
+<p t="1725810" d="2610">The other aspect of it,
+is the key assumption</p>
+<p t="1728420" d="2570">that we're making, with
+respect to build-max-heap,</p>
+<p t="1730990" d="2300">that there was a
+single violation.</p>
+<p t="1733290" d="4440">It is true that the answer that
+was given that was order n,</p>
+<p t="1737730" d="1490">would be a problem.</p>
+<p t="1739220" d="2710">I could set it up so that's
+actually the right answer,</p>
+<p t="1741930" d="3100">if I did not have this
+assumption-- where</p>
+<p t="1745030" d="3440">do I have that here-- assume
+that the trees rooted at left i</p>
+<p t="1748470" d="1625">and right i are max-heaps.</p>
+<p t="1750095" d="1625">So maybe that's what
+you were thinking.</p>
+<p t="1751720" d="1850">But this is a key assumption.</p>
+<p t="1753570" d="2500">This is going back
+and like making</p>
+<p t="1756070" d="1950">connections between classes.</p>
+<p t="1758020" d="2740">This is a precondition
+that makes</p>
+<p t="1760760" d="1740">the algorithm more efficient.</p>
+<p t="1762500" d="2840">Makes the implementation easier.</p>
+<p t="1765340" d="3250">And this precondition
+essentially</p>
+<p t="1768590" d="3012">says that you have to just go
+down and do a number of steps,</p>
+<p t="1771602" d="2583">that's the number of levels in
+the tree, which is logarithmic.</p>
+<p t="1776800" d="3590">So that's the story here
+with the max-heapify.</p>
+<p t="1780390" d="4340">It's order log n, in
+terms of complexity.</p>
+<p t="1784730" d="1910">That's the number of
+steps that you have.</p>
+<p t="1786640" d="7100">And it's a basic building block
+for all of the other algorithms</p>
+<p t="1793740" d="3750">that we look at for the rest
+of this lecture, and in section</p>
+<p t="1797490" d="2570">tomorrow.</p>
+<p t="1800060" d="5550">Let's talk about how you
+would take max-heapify and use</p>
+<p t="1805610" d="2690">it to do build-max-heap.</p>
+<p t="1808300" d="2750">So the first step
+now, let's say that we</p>
+<p t="1811050" d="3460">want to go and get a
+nice sorting algorithm.</p>
+<p t="1814510" d="3200">We don't like insertion sort,
+we don't like merge sort.</p>
+<p t="1817710" d="3260">We'd like to get a
+heap-based sorting algorithm.</p>
+<p t="1820970" d="3090">One of the things that
+we need to do, as I said,</p>
+<p t="1824060" d="2990">is to take an unordered
+array, and turn it</p>
+<p t="1827050" d="4200">into a max-heap, which is
+a non-trivial thing to do.</p>
+<p t="1831250" d="4030">And once we do that, we can
+do this extract-max deal</p>
+<p t="1835280" d="2120">to sort the array.</p>
+<p t="1837400" d="8400">So the first step is, we
+want to convert an array A 1</p>
+<p t="1845800" d="6140">through n into a max-heap.</p>
+<p t="1851940" d="1780">And the key word
+here is max-heap,</p>
+<p t="1853720" d="4120">because every array can
+be visualized as a heap.</p>
+<p t="1857840" d="4910">And I am going write the
+pseudocode for build-max-heap,</p>
+<p t="1862750" d="3440">because it's just
+two lines of code.</p>
+<p t="1866190" d="5380">And that's about the limit
+of a size of a program</p>
+<p t="1871570" d="3770">I can really understand,
+or explain, I should say.</p>
+<p t="1879699" d="1291">And this is what it looks like.</p>
+<p t="1890960" d="500">Alright.</p>
+<p t="1891460" d="1110">that's it.</p>
+<p t="1892570" d="7850">Build-max-heap says go from
+i equals n, by 2, down to 1.</p>
+<p t="1900420" d="3920">Max-heapify A of i.</p>
+<p t="1904340" d="7600">So someone explain to me why
+I can start with n over 2,</p>
+<p t="1911940" d="3080">and why I'm going down to 1.</p>
+<p t="1915020" d="500">Yep.</p>
+<p t="1915520" d="1428">I saw you first.</p>
+<p t="1916948" d="952">AUDIENCE: [INAUDIBLE].</p>
+<p t="1920583" d="1125">PROFESSOR: Leaves are good.</p>
+<p t="1921708" d="1142">Leaves are good.</p>
+<p t="1922850" d="2600">I'll let you go on in a second.</p>
+<p t="1925450" d="9070">Leaves are good, because if you
+look at elements A of n over 2,</p>
+<p t="1934520" d="6932">plus 1 through n,
+are all leaves.</p>
+<p t="1941452" d="1083">That's a good observation.</p>
+<p t="1945510" d="2580">And this is true for any array.</p>
+<p t="1948090" d="1540">It doesn't matter what n is.</p>
+<p t="1949630" d="2250">Doesn't have the power of
+2, or 2 [INAUDIBLE] minus 1,</p>
+<p t="1951880" d="1290">or anything like that.</p>
+<p t="1953170" d="1910">And leaves a good,
+because they automatically</p>
+<p t="1955080" d="3310">satisfy the backseat property.</p>
+<p t="1958390" d="828">Continue.</p>
+<p t="1959218" d="1083">AUDIENCE: OK. [INAUDIBLE].</p>
+<p t="1974911" d="1810">PROFESSOR: That's exactly right.</p>
+<p t="1976721" d="499">Beautiful.</p>
+<p t="1980010" d="3250">I won't hit anybody here.</p>
+<p t="1983260" d="1470">So that's it.</p>
+<p t="1984730" d="3270">The reason this works,
+is because you're</p>
+<p t="1988000" d="2630">calling max-heapify
+multiple times,</p>
+<p t="1990630" d="5150">but every time you call it,
+you satisfy the precondition.</p>
+<p t="1995780" d="4310">And the leaves are
+automatically max-heaps.</p>
+<p t="2000090" d="3400">Then you start with n over 2.</p>
+<p t="2003490" d="3430">You are going to see two
+leaves as your children</p>
+<p t="2006920" d="1330">for the n over 2 node, right?</p>
+<p t="2008250" d="2790">I mean, just pick
+an example here.</p>
+<p t="2011040" d="4120">Our 2 is an A of 5, right?</p>
+<p t="2015160" d="1550">You're out here.</p>
+<p t="2016710" d="2010">In this case, depending
+on the value of n,</p>
+<p t="2018720" d="2452">you may have either two
+children, or just one child.</p>
+<p t="2021172" d="958">And you have one child.</p>
+<p t="2022130" d="1780">But regardless of
+that, that's going</p>
+<p t="2023910" d="2370">to be a max-heap,
+because it's a leaf.</p>
+<p t="2026280" d="2210">And so you'll have
+two leaves, and you</p>
+<p t="2028490" d="1350">need to put them together.</p>
+<p t="2029840" d="2990">And that's a fairly
+straightforward process</p>
+<p t="2032830" d="2980">of attaching the
+leaves together.</p>
+<p t="2035810" d="3320">You might have to do a swap,
+based on what the element is.</p>
+<p t="2039130" d="4300">One operation and you
+get a little small tree,</p>
+<p t="2043430" d="1910">that's a max-heap.</p>
+<p t="2045340" d="2110">And then you do a
+bunch of other things</p>
+<p t="2047450" d="4850">that all work on leaves,
+because n over 2 minus 1</p>
+<p t="2052300" d="1890">is probably also
+going to have leaves</p>
+<p t="2054190" d="3238">as it's children, given
+the large value of n.</p>
+<p t="2057428" d="1541">There will be a
+bunch of things where</p>
+<p t="2058969" d="4141">you work on these level
+one nodes, if you will,</p>
+<p t="2063110" d="2680">that all have
+leaves as children.</p>
+<p t="2065790" d="1730">And then you work on
+the level two nodes,</p>
+<p t="2067520" d="1199">and so on and so forth.</p>
+<p t="2068719" d="2701">And as I said before,
+you're working your way up,</p>
+<p t="2071420" d="2069">and you're only
+working with max-heaps</p>
+<p t="2073489" d="3544">as your left child
+and your right child.</p>
+<p t="2077033" d="666">That make sense?</p>
+<p t="2082630" d="3330">If you do that, and this
+is a fairly straightforward</p>
+<p t="2085960" d="2110">question, if you do
+a straightforward</p>
+<p t="2088070" d="3589">analysis of this, what is the
+complexity of build-max-heap?</p>
+<p t="2094670" d="967">Yep.</p>
+<p t="2095637" d="2955">AUDIENCE: [INAUDIBLE].</p>
+<p t="2098592" d="708">PROFESSOR: Right.</p>
+<p t="2099300" d="1160">So that's order.</p>
+<p t="2103100" d="1870">Order n log n.</p>
+<p t="2104970" d="3250">Now, this is through
+a simple analysis.</p>
+<p t="2108220" d="2376">Now I'm going to
+give you a chance</p>
+<p t="2110596" d="4474">to tell me if you can
+do better than that.</p>
+<p t="2115070" d="680">Or not.</p>
+<p t="2115750" d="1140">In terms of analysis.</p>
+<p t="2119430" d="3050">It's a subtle question.</p>
+<p t="2122480" d="2680">It's a subtle question,
+that I'm asking.</p>
+<p t="2125160" d="4000">I'm saying, this is
+the algorithm, alright?</p>
+<p t="2129160" d="2350">I don't want you to
+change the algorithm,</p>
+<p t="2131510" d="2830">but I want you to
+change your analysis.</p>
+<p t="2134340" d="3300">The analysis that
+you just did was,</p>
+<p t="2137640" d="4620">you said, I got
+[INAUDIBLE] n steps here,</p>
+<p t="2142260" d="3020">because it's n by 2 steps.</p>
+<p t="2145280" d="4520">Looks like each of the
+steps is taking log n time.</p>
+<p t="2149800" d="1590">So that's n log n.</p>
+<p t="2151390" d="2690">And I was careful.</p>
+<p t="2154080" d="1870">I put big O here.</p>
+<p t="2155950" d="632">OK?</p>
+<p t="2156582" d="1208">Because that's an upper bond.</p>
+<p t="2157790" d="2350">So that's a valid answer.</p>
+<p t="2160140" d="1510">Can you do better?</p>
+<p t="2161650" d="1660">Can you do a better
+analysis-- and I'll</p>
+<p t="2163310" d="5600">let you go first-- can you do
+a better analysis that somehow</p>
+<p t="2168910" d="2046">gives me better complexity?</p>
+<p t="2170956" d="3297">AUDIENCE: I think you
+bring it to [INAUDIBLE].</p>
+<p t="2174253" d="583">PROFESSOR: OK.</p>
+<p t="2174836" d="500">How?</p>
+<p t="2175336" d="4336">AUDIENCE: So each node get a
+maximum of two [INAUDIBLE].</p>
+<p t="2184154" d="9462">So, for some n, there will be a
+constant number of comparisons</p>
+<p t="2193616" d="3807">to max-heapify that [INAUDIBLE].</p>
+<p t="2203724" d="666">PROFESSOR: Yeah.</p>
+<p t="2204390" d="2377">It's hard to explain.</p>
+<p t="2206767" d="1083">You're on the right track.</p>
+<p t="2207850" d="2706">Absolutely on the right track.</p>
+<p t="2210556" d="1624">So it turns out that,
+and I'll do this,</p>
+<p t="2212180" d="1620">it's going to take
+a few minutes here,</p>
+<p t="2213800" d="1980">because I write some things out.</p>
+<p t="2215780" d="3400">You have to sum up a bunch of
+arithmetic series, and so on.</p>
+<p t="2219180" d="4760">So it's a bit unfair to have
+to speak out the answer,</p>
+<p t="2223940" d="3400">but the correct
+answer, in fact, is</p>
+<p t="2227340" d="3480">that this is order n complexity.</p>
+<p t="2230820" d="1980">This algorithm
+that I put up here,</p>
+<p t="2232800" d="2090">if you do a careful
+analysis of it,</p>
+<p t="2234890" d="2090">you can get order n out of it.</p>
+<p t="2236980" d="1790">And we'll do this
+careful analysis.</p>
+<p t="2238770" d="2600">And I'll tell you
+why it's order n,</p>
+<p t="2241370" d="3510">in terms of a hand
+wavy argument.</p>
+<p t="2244880" d="5146">A hand wavy argument is
+that you're doing basically,</p>
+<p t="2250026" d="1374">obviously no work
+for the leaves.</p>
+<p t="2251400" d="1416">But you're not
+even counting that,</p>
+<p t="2252816" d="1804">because you're
+starting with n over 2.</p>
+<p t="2254620" d="3470">But when you look at
+the n over 2 node,</p>
+<p t="2258090" d="3010">it's essentially one
+operation, or two operations,</p>
+<p t="2261100" d="4680">in whichever way you
+count, to build max-heap.</p>
+<p t="2265780" d="2680">And so for that
+first level of nodes,</p>
+<p t="2268460" d="2820">it's exactly one operation.</p>
+<p t="2271280" d="2120">The first level that
+are above the leaves.</p>
+<p t="2273400" d="3780">For the next level, you may
+be doing two operations.</p>
+<p t="2277180" d="3140">And so there is an
+increase in operations</p>
+<p t="2280320" d="2250">as you get higher and higher up.</p>
+<p t="2282570" d="2370">But there are fewer
+and fewer nodes as you</p>
+<p t="2284940" d="1800">at higher and higher up, right?</p>
+<p t="2286740" d="5450">Because there's only one node
+that is the highest level node.</p>
+<p t="2292190" d="1250">The root node.</p>
+<p t="2293440" d="3030">That node has logarithmic
+number of operations,</p>
+<p t="2296470" d="3510">but it's only one node.</p>
+<p t="2299980" d="2310">The ones down on the bottom
+have a constant number</p>
+<p t="2302290" d="1820">of operations.</p>
+<p t="2304110" d="2720">So I'll put all of this
+down, and hopefully you'll</p>
+<p t="2306830" d="3220">be convinced by the time
+we've done some math here,</p>
+<p t="2310050" d="5320">or some arithmetic here, but
+you can quantify what I just</p>
+<p t="2315370" d="5060">said fairly easily,
+as long as you're</p>
+<p t="2320430" d="2620">careful about the counting
+that we have to do.</p>
+<p t="2323050" d="2160">So this is really,
+truly counting.</p>
+<p t="2325210" d="2680">Analysis has a lot
+to do with counting.</p>
+<p t="2327890" d="2870">And we're just being more
+careful with the counting,</p>
+<p t="2330760" d="2580">as opposed to this
+straightforward argument that</p>
+<p t="2333340" d="3910">wasn't particularly
+careful with the counting.</p>
+<p t="2337250" d="3030">So let's take a look at
+exactly this algorithm.</p>
+<p t="2340280" d="2480">And I want to make
+an observation.</p>
+<p t="2342760" d="2350">Which is what I just did,
+but I'd like to write it out.</p>
+<p t="2345110" d="13420">Where we say, max-heapify
+takes constant time</p>
+<p t="2358530" d="10850">for nodes that are one
+level above leaves.</p>
+<p t="2374590" d="16430">And, in general,
+order L time for nodes</p>
+<p t="2391020" d="9595">that are L levels
+above the leaves.</p>
+<p t="2405480" d="3600">That's observation number one.</p>
+<p t="2409080" d="1490">Observation number
+two is that we</p>
+<p t="2410570" d="6520">have n over 4 nodes
+that, give or take one,</p>
+<p t="2417090" d="1780">depending on the value of n.</p>
+<p t="2418870" d="3456">I don't want to get hung
+up on floors and ceilings.</p>
+<p t="2422326" d="1374">And in any case,
+we're eventually</p>
+<p t="2423700" d="1779">going to get an
+asymptotic result,</p>
+<p t="2425479" d="1541">so we don't have to
+worry about that.</p>
+<p t="2427020" d="5050">But we have n over four nodes
+with level one, n over 8</p>
+<p t="2432070" d="960">with level two.</p>
+<p t="2436760" d="9100">And 1 node with log
+n, sort of the log n</p>
+<p t="2445860" d="3530">level, which is the root.</p>
+<p t="2449390" d="5110">So this is decrease in
+terms of nodes as the work</p>
+<p t="2454500" d="2730">that you're doing increases.</p>
+<p t="2457230" d="2300">And that's the careful
+accounting that we have to do.</p>
+<p t="2459530" d="4380">And so all I have to do now
+to prove to you that this</p>
+<p t="2463910" d="2620">is actually an
+order and algorithm,</p>
+<p t="2466530" d="3960">is to write a little
+summation that sums up</p>
+<p t="2470490" d="2850">all of the work across
+these different levels.</p>
+<p t="2480670" d="14300">And so the total amount
+of work in the 4 loop</p>
+<p t="2494970" d="5210">can be summed as n divided
+by 4, times 1, times c.</p>
+<p t="2500180" d="4010">So this sum, I have
+one level here,</p>
+<p t="2504190" d="2150">and I'm going to do some
+constant amount of work</p>
+<p t="2506340" d="1169">for that one level.</p>
+<p t="2507509" d="1541">So I'm just going
+to put c out there,</p>
+<p t="2509050" d="2000">because eventually I can
+take away the c, right?</p>
+<p t="2511050" d="2140">That's the beauty
+of asymptotics.</p>
+<p t="2513190" d="3380">So we don't need to
+argue about how much work</p>
+<p t="2516570" d="2170">is done at that one
+level, how many swaps,</p>
+<p t="2518740" d="1330">et cetera, et cetera.</p>
+<p t="2520070" d="1970">But the fact is that
+these n over four nodes</p>
+<p t="2522040" d="1790">are one level above the leaves.</p>
+<p t="2523830" d="1140">That's what's key.</p>
+<p t="2524970" d="9500">And then I have n over 8 times
+2c, plus n over 16 times 3c,</p>
+<p t="2534470" d="8700">plus 1 times log of n c.</p>
+<p t="2543170" d="3540">I've essentially written
+in an arithmetic expression</p>
+<p t="2546710" d="5130">exactly what I have
+observed on the board above.</p>
+<p t="2551840" d="2310">Stop me if you have questions.</p>
+<p t="2554150" d="3400">Now I'm going to set--
+just to try and make</p>
+<p t="2557550" d="3450">this a little easier to
+look at, and easy to reason</p>
+<p t="2561000" d="7900">about-- I'm going to set
+n over 4 to 2 raised to k,</p>
+<p t="2568900" d="1551">and I'm going to simplify.</p>
+<p t="2570451" d="1499">I'm just pulling
+out certain things,</p>
+<p t="2571950" d="2880">and this thing is going
+to translate to c times 2</p>
+<p t="2574830" d="10140">raised to k, times 1,
+divided by 2 raised to 0,</p>
+<p t="2584970" d="5000">2 divided by 2 raised to 1,
+3 divided by 2 raised to 2,</p>
+<p t="2589970" d="4380">et cetera, k plus 1
+divided by 2 raised to k.</p>
+<p t="2597340" d="3580">Now, if that was
+confusing, raise your hand,</p>
+<p t="2600920" d="4770">but it's essentially identical
+given the substitution and sort</p>
+<p t="2605690" d="3010">of just applying the
+distributive law.</p>
+<p t="2608700" d="1720">And the reason I did
+this, is because I</p>
+<p t="2610420" d="6960">wanted you to see the arithmetic
+expression that's in here.</p>
+<p t="2617380" d="5700">Now we do know that 2 raised
+to k is n over four, of course.</p>
+<p t="2623080" d="5020">But if you look at this
+expression that's inside here,</p>
+<p t="2628100" d="2770">what is this expression?</p>
+<p t="2630870" d="1980">Anyone?</p>
+<p t="2632850" d="4100">Can you bound this expression?</p>
+<p t="2636950" d="2860">Someone?</p>
+<p t="2639810" d="680">For the cushion.</p>
+<p t="2644730" d="6264">Remember your arithmetic
+series from wherever it was.</p>
+<p t="2650994" d="916">AUDIENCE: [INAUDIBLE].</p>
+<p t="2651910" d="1900">PROFESSOR: Yeah.</p>
+<p t="2653810" d="4170">You know better than I. I guess
+you took those courses more</p>
+<p t="2657980" d="4224">recently, but what
+happens with that?</p>
+<p t="2662204" d="1416">Those of you who
+have calculators,</p>
+<p t="2663620" d="5580">I mean, you could plug
+that in, and answer that.</p>
+<p t="2669200" d="926">No one?</p>
+<p t="2670126" d="500">Go ahead.</p>
+<p t="2670626" d="2465">AUDIENCE: [INAUDIBLE].</p>
+<p t="2673091" d="2469">You know that it's
+going to merge to two.</p>
+<p t="2675560" d="2750">PROFESSOR: That's exactly
+what I was looking for.</p>
+<p t="2678310" d="2670">Essentially, well, it's not
+quite two, because you have a 1</p>
+<p t="2680980" d="2250">here, and you have a 1 here,
+but you're exactly right.</p>
+<p t="2683230" d="1240">I mean, two is good.</p>
+<p t="2684470" d="1810">It's asymptotic,
+I mean, come on.</p>
+<p t="2686280" d="3200">I'm not going to complain
+about two versus three, right?</p>
+<p t="2689480" d="3220">So the point is it's
+bounded by a constant.</p>
+<p t="2692700" d="2470">It's bounded by a constant.</p>
+<p t="2695170" d="4010">This is a convergent series
+and it's bounded by a constant.</p>
+<p t="2699180" d="2560">And we can argue about
+what the constant is.</p>
+<p t="2701740" d="2860">It's less than three.</p>
+<p t="2704600" d="2406">And it doesn't matter
+of k goes to infinity.</p>
+<p t="2707006" d="1374">And you want k to
+go to infinity,</p>
+<p t="2708380" d="3060">but it doesn't matter if
+k is small or k is large,</p>
+<p t="2711440" d="1290">this is bounded by a constant.</p>
+<p t="2716930" d="5100">And that's the key observation.</p>
+<p t="2722030" d="1345">What do we have left?</p>
+<p t="2723375" d="875">What do we have left?</p>
+<p t="2724250" d="2180">We have a constant there.</p>
+<p t="2726430" d="1870">We have a c, which
+is a constant,</p>
+<p t="2728300" d="3970">and we have a 2 raised
+to k, which is really n.</p>
+<p t="2732270" d="1290">So there you go.</p>
+<p t="2733560" d="2250">There you have your
+theta n complexity.</p>
+<p t="2735810" d="3350">Now I can say theta n,
+because I know it's theta n.</p>
+<p t="2739160" d="4180">But big O of n, theta
+n, that's what it is.</p>
+<p t="2743340" d="2970">So that's what I'd say
+is subtle analysis.</p>
+<p t="2746310" d="2740">Clearly a little more
+complicated than anything</p>
+<p t="2749050" d="3320">we've done so far, and let me
+see if there are questions.</p>
+<p t="2752370" d="2660">How many people got this?</p>
+<p t="2755030" d="2660">I did too.</p>
+<p t="2757690" d="3410">Someone who didn't get
+it, ask a question.</p>
+<p t="2761100" d="1420">What didn't you get?</p>
+<p t="2762520" d="3370">What step would you
+like me to repeat here?</p>
+<p t="2765890" d="1880">Any particular step?</p>
+<p t="2767770" d="960">AUDIENCE: [INAUDIBLE].</p>
+<p t="2772515" d="1125">PROFESSOR: This thing here?</p>
+<p t="2773640" d="970">Right here?</p>
+<p t="2774610" d="2870">OK, so you're not convinced
+that this expression</p>
+<p t="2777480" d="2350">got translated to
+this expression.</p>
+<p t="2779830" d="2350">So let me try and convince
+you of that, alright?</p>
+<p t="2782180" d="3400">So let's take a look
+at each of the terms.</p>
+<p t="2785580" d="2100">n by 4 is 2 raised to k.</p>
+<p t="2787680" d="2790">I'm just looking at
+this term and this term.</p>
+<p t="2790470" d="3040">n by 4 is 2 raised to k.</p>
+<p t="2793510" d="2440">c is c.</p>
+<p t="2795950" d="8199">And I just wrote 1 as 1 divided
+by 2 raised to 0, which is 1.</p>
+<p t="2804149" d="1541">And the reason I
+want you to do this,</p>
+<p t="2805690" d="3370">is because I want to show you an
+expression where in some sense,</p>
+<p t="2809060" d="3740">this is the term that is the
+summation for your expression.</p>
+<p t="2812800" d="2520">If we just replace this,
+you can write this out</p>
+<p t="2815320" d="10120">as i equals 0 through k, I plus
+1 divided by 2 raised to i.</p>
+<p t="2825440" d="3620">That is the symbolic
+form of this expression,</p>
+<p t="2829060" d="1690">which came from here.</p>
+<p t="2830750" d="2500">And then the argument
+was made that this</p>
+<p t="2833250" d="5240">is a convergent series and
+is bounded by a constant.</p>
+<p t="2838490" d="1620">That make sense?</p>
+<p t="2840110" d="1630">Good.</p>
+<p t="2841740" d="1420">So that's pretty neat, right?</p>
+<p t="2843160" d="3360">I mean, you have the same
+algorithm and, whala,</p>
+<p t="2846520" d="2090">it suddenly got more efficient.</p>
+<p t="2848610" d="2060">Doesn't always happen,
+but that tells you</p>
+<p t="2850670" d="2490">that you have to have
+some care in doing</p>
+<p t="2853160" d="2960">your analysis, because what
+really happened here, was you</p>
+<p t="2856120" d="1660">did a rudimentary analysis.</p>
+<p t="2857780" d="2840">You said, this was order
+log n, big O log n,</p>
+<p t="2860620" d="3020">and you said this was theta
+n, and you ended up with this.</p>
+<p t="2863640" d="4000">But in reality, it's
+actually a faster algorithm.</p>
+<p t="2867640" d="1570">So that's the good news.</p>
+<p t="2869210" d="4090">Build-max-heap can be
+done in order n time.</p>
+<p t="2873300" d="2440">Now in the time that I
+have left, it turns out,</p>
+<p t="2875740" d="5720">we are essentially all
+the way to heaps sort.</p>
+<p t="2881460" d="3770">Because all we
+have to do is use,</p>
+<p t="2885230" d="1620">once we have
+build-max-heap, I'll</p>
+<p t="2886850" d="3990">just write out the
+code for heap sort,</p>
+<p t="2890840" d="2570">and you can take a look
+at examples in the notes.</p>
+<p t="2896120" d="2060">The pseudocode, I should
+say, for heap sort.</p>
+<p t="2898180" d="1770">And it looks like this.</p>
+<p t="2899950" d="5090">The first step that you
+do is you build max-heap</p>
+<p t="2905040" d="1990">from the unordered array.</p>
+<p t="2912000" d="5990">Then you find the
+maximum element AA[1].</p>
+<p t="2917990" d="3440">All of this I've
+said multiple times.</p>
+<p t="2921430" d="3780">Now the key step is, you
+could do extract max,</p>
+<p t="2925210" d="4220">but one nice way
+of handling this,</p>
+<p t="2929430" d="4630">is to swap the elements
+AA[n] with AA[1].</p>
+<p t="2936555" d="1375">Let me write this
+out and explain</p>
+<p t="2937930" d="2810">exactly what that means.</p>
+<p t="2940740" d="6480">Now the maximum element is
+at the end of the array.</p>
+<p t="2951930" d="1190">When you do the swap.</p>
+<p t="2953120" d="1990">That's the one step
+that I will have</p>
+<p t="2955110" d="2610">to spend another minute on.</p>
+<p t="2957720" d="6140">Now we discard node
+n from the heap,</p>
+<p t="2963860" d="6250">simply by decrementing
+heap size.</p>
+<p t="2970110" d="4410">So the heap becomes
+n minus 1 in size</p>
+<p t="2974520" d="3120">from n in the first iteration.</p>
+<p t="2977640" d="9970">Now the new root after the
+swap may violate max-heap,</p>
+<p t="2987610" d="4030">we'll call it the
+max-heap property,</p>
+<p t="2991640" d="3790">but the children are max-heaps.</p>
+<p t="2998760" d="2800">So that's the one node that
+can possibly violate it.</p>
+<p t="3001560" d="9300">So what that means, is we can
+run max-heapify to fix this.</p>
+<p t="3010860" d="1320">And that's it .</p>
+<p t="3012180" d="5350">Once you do that, you
+go back to that step.</p>
+<p t="3017530" d="1900">So what's happened here exactly?</p>
+<p t="3019430" d="3250">Well this part we spent
+a bunch of time on.</p>
+<p t="3022680" d="2900">element is the maximum
+element, so you grab that.</p>
+<p t="3025580" d="4200">And you know that's
+a maximum element.</p>
+<p t="3029780" d="2880">One way of doing it is to
+use extract max, but rather</p>
+<p t="3032660" d="2790">than doing extract max, which
+I haven't explained to you,</p>
+<p t="3035450" d="1960">you could imagine
+that you go off</p>
+<p t="3037410" d="5310">and you swap the top element
+with the bottom element,</p>
+<p t="3042720" d="2300">and then you discard it.</p>
+<p t="3045020" d="2610">So here's a trivial
+example, where</p>
+<p t="3047630" d="9290">let's say I had 4, 2, and
+1, which is a max-heap.</p>
+<p t="3056920" d="2910">What would happen is you'd
+say, I'm going to take 4</p>
+<p t="3059830" d="2650">and I'm going swap it with 1.</p>
+<p t="3062480" d="5060">And so you have, 1, 2, and 4.</p>
+<p t="3067540" d="4570">Now four used to be AA[1], and
+that's the maximum element,</p>
+<p t="3072110" d="2130">and I'm just going to
+delete it from the heap,</p>
+<p t="3074240" d="3490">which means I'm going to end up
+with a heap that looks like--</p>
+<p t="3077730" d="2240">a heap, not a max-heap--
+that looks like this.</p>
+<p t="3079970" d="1600">And I write down 4 here.</p>
+<p t="3081570" d="2510">4 is the first element
+in my sorted array.</p>
+<p t="3084080" d="4160">Now I look at 1 and
+2, and 1 and 2 there's</p>
+<p t="3088240" d="1450">obviously not a max-heap.</p>
+<p t="3089690" d="2610">But I can run max-- I know
+the child is a max-heap,</p>
+<p t="3092300" d="1820">so I can run
+max-heapify on this.</p>
+<p t="3094120" d="4020">And what this turns
+into is 2 and 1.</p>
+<p t="3098140" d="3100">And at this point, I know
+that the max is the root,</p>
+<p t="3101240" d="2800">because I've run max-heapify
+and I take 2 out,</p>
+<p t="3104040" d="3190">and after this, it
+becomes trivial.</p>
+<p t="3107230" d="2940">But that's the
+general algorithm.</p>
+<p t="3110170" d="2980">So this whole thing
+takes order n log n time,</p>
+<p t="3113150" d="1770">because even though
+build-max-heap</p>
+<p t="3114920" d="6960">is order n and max
+element is constant time,</p>
+<p t="3121880" d="3450">swapping the elements
+is constant time.</p>
+<p t="3125330" d="5400">But running max-heapify
+is order log n time,</p>
+<p t="3130730" d="2630">and you have n steps.</p>
+<p t="3133360" d="5040">So you have an order
+n log n algorithm.</p>
+<p t="3138400" d="2720">But the first step
+was order n, which</p>
+<p t="3141120" d="1830">is what we spent a
+bunch of time on.</p>
+<p t="3142950" d="2640">So I'll show you
+examples in the notes,</p>
+<p t="3145590" d="3380">and that will get
+covered again in section.</p>
+<p t="3148970" d="1720">I'll stick around for questions.</p>
+<p t="3150690" d="1950">See you next time.</p>
+</body>
+</timedtext>

@@ -1,0 +1,2045 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="259" d="2541">PROFESSOR: The following content
+is provided under a Creative</p>
+<p t="2800" d="1540">Commons license.</p>
+<p t="4340" d="2320">Your support will help
+MIT OpenCourseWare</p>
+<p t="6660" d="4360">continue to offer high quality
+educational resources for free.</p>
+<p t="11020" d="2620">To make a donation or
+view additional materials</p>
+<p t="13640" d="3725">from hundreds of MIT courses,
+visit MIT OpenCourseWare</p>
+<p t="17365" d="625">at ocw.mit.edu.</p>
+<p t="22741" d="1999">Today we're going to start
+with a simple problem</p>
+<p t="24740" d="2930">that many of you may
+have already encountered.</p>
+<p t="27670" d="2170">For example, when you
+got a student loan</p>
+<p t="29840" d="2724">or if your family took a
+loan out on your house,</p>
+<p t="32564" d="2746">you know, a home mortgage
+loan, and it's the problem</p>
+<p t="35310" d="2110">of pricing an annuity.</p>
+<p t="37420" d="2300">An annuity is a
+financial instrument</p>
+<p t="39720" d="2940">that pays a fixed
+amount of money</p>
+<p t="42660" d="2250">every year for some
+number of years,</p>
+<p t="44910" d="2105">and it has a value
+associated with it.</p>
+<p t="47015" d="1375">For example, with
+a student loan,</p>
+<p t="48390" d="4150">the value is the amount of
+money they gave you to pay MIT,</p>
+<p t="52540" d="3640">then later in life-- every
+year or every month-- you're</p>
+<p t="56180" d="1680">going to send them a check.</p>
+<p t="57860" d="2961">And you want to sort of equate
+those two things to find out,</p>
+<p t="60821" d="1749">are you getting enough
+money for the money</p>
+<p t="62570" d="2919">you're going to pay back
+monthly sometime in the future?</p>
+<p t="65489" d="4501">So let's define this, and
+there's a lot of variations</p>
+<p t="69990" d="4440">on annuities, but we'll
+start with one that's called</p>
+<p t="74430" d="16020">an n-year $m-dollar
+payment annuity,</p>
+<p t="90450" d="16500">and it works by paying m dollars
+at the start of each year,</p>
+<p t="106950" d="1632">and it lasts for n years.</p>
+<p t="112770" d="2474">Now, usually n is
+finite, but not always,</p>
+<p t="115244" d="1916">and in a few minutes
+we'll talk about the case</p>
+<p t="117160" d="1990">when it's infinite.</p>
+<p t="119150" d="2700">But this includes
+home mortgages,</p>
+<p t="121850" d="1840">where you pay every
+month for 30 years.</p>
+<p t="123690" d="2110">Megabucks, the lottery.</p>
+<p t="125800" d="2090">They don't actually give
+you the million dollars.</p>
+<p t="127890" d="3140">They give you $50,000
+per year for 20 years,</p>
+<p t="131030" d="2220">and call it a million bucks.</p>
+<p t="133250" d="1630">Retirement plans.</p>
+<p t="134880" d="2390">You pay in every
+year, and then you</p>
+<p t="137270" d="2350">get some big lump sum later.</p>
+<p t="139620" d="3260">Life insurance benefits,
+you know, and so forth.</p>
+<p t="142880" d="3060">Now, if you go to Wall
+Street, this is a big deal.</p>
+<p t="145940" d="2140">A lot of the stuff that
+happens on Wall Street</p>
+<p t="148080" d="2500">involves annuities in
+one form or another,</p>
+<p t="150580" d="3650">packaging them all up
+and, in fact, we'll</p>
+<p t="154230" d="1890">look at later when
+we do probability.</p>
+<p t="156120" d="2260">It was how these things
+were packaged and sold</p>
+<p t="158380" d="2890">that led to the sub-prime
+mortgage disaster,</p>
+<p t="161270" d="3000">and we'll see how some confusion
+over independents, when</p>
+<p t="164270" d="3410">you look at random variables,
+led to the global recession,</p>
+<p t="167680" d="1291">a real disaster.</p>
+<p t="168971" d="2249">Of course, some people
+understood how all that worked,</p>
+<p t="171220" d="2600">made hundreds of billions
+of dollars at the same time.</p>
+<p t="173820" d="3440">So it was sort of money went
+from one place to another.</p>
+<p t="177260" d="2530">So it's pretty
+important to understand</p>
+<p t="179790" d="3140">how much this is worth.</p>
+<p t="182930" d="2190">What is this
+instrument-- a piece</p>
+<p t="185120" d="1500">of paper that says
+it will pay you</p>
+<p t="186620" d="2540">m dollars at the beginning of
+each year for n years, what</p>
+<p t="189160" d="2270">is that worth today?</p>
+<p t="191430" d="3220">For example, say I
+gave you a choice--</p>
+<p t="194650" d="2930">the Megabucks choice--
+$50,000 a year</p>
+<p t="197580" d="4370">for 20 years or a
+million dollars today.</p>
+<p t="201950" d="4480">How many people would prefer
+the $50,000 a year for 20 years?</p>
+<p t="206430" d="600">A few of you.</p>
+<p t="207030" d="3810">How many would prefer the
+million bucks right up front?</p>
+<p t="210840" d="830">Much better.</p>
+<p t="211670" d="960">OK.</p>
+<p t="212630" d="2340">Always better to have
+the cash in hand,</p>
+<p t="214970" d="1930">because there's things
+like inflation--</p>
+<p t="216900" d="2780">pretty low now-- interest.</p>
+<p t="219680" d="1480">You can put the
+money in the bank</p>
+<p t="221160" d="3820">or invest it and make
+some money hopefully.</p>
+<p t="224980" d="2190">So the million dollars
+today is a lot better,</p>
+<p t="227170" d="3790">which is why the State pays you
+50 grand a year for 20 years.</p>
+<p t="230960" d="2654">It's better for them, and
+they call it a million bucks.</p>
+<p t="233614" d="1416">So that was pretty
+clear, but what</p>
+<p t="235030" d="6920">if I gave you this option-- 700
+grand today or 50 grand a year</p>
+<p t="241950" d="1750">for 20 years?</p>
+<p t="243700" d="4390">How many people want the cash
+upfront-- 700 grand only.</p>
+<p t="248090" d="570">A few.</p>
+<p t="248660" d="4650">How many people want 50
+grand a year for 20 years?</p>
+<p t="253310" d="2460">All right, we're almost--
+that's pretty close to half way.</p>
+<p t="255770" d="4980">How about 500 grand today versus
+50 grand a year for 20 years?</p>
+<p t="260750" d="3761">How many want half
+a million today?</p>
+<p t="264511" d="1249">A lot of people like the cash.</p>
+<p t="265760" d="2458">You know, it's this kind of a
+time, you have the recession,</p>
+<p t="268218" d="1399">it's a disaster on Wall Street.</p>
+<p t="269617" d="2083">You know, Street Wall
+Street didn't like the cash.</p>
+<p t="271700" d="2400">How many want, instead
+of a half a million</p>
+<p t="274100" d="3152">up front, 50 grand
+a year for 20 years?</p>
+<p t="277252" d="1458">All right, now
+we're about halfway.</p>
+<p t="278710" d="1140">All right, well
+that's pretty good.</p>
+<p t="279850" d="1965">So we're going to find
+out what you should pay,</p>
+<p t="281815" d="2935">or at least one way
+of estimating that.</p>
+<p t="284750" d="3710">Now, to do that, we've
+got to figure out what</p>
+<p t="288460" d="5210">$1 today is worth in a year.</p>
+<p t="293670" d="6694">And to do that, we
+make an assumption,</p>
+<p t="300364" d="1416">and the assumption
+is that there's</p>
+<p t="301780" d="4820">a fixed-- we'll call
+it an interest rate.</p>
+<p t="306600" d="3010">It's sort of the devaluation
+of the money per year.</p>
+<p t="312180" d="1310">And we're going to call it p.</p>
+<p t="313490" d="1510">Later we'll plug
+in values for p,</p>
+<p t="315000" d="3672">but you can think of
+it as like 6%, 1%.</p>
+<p t="318672" d="2208">You know, it's the money,
+if you put money in a bank,</p>
+<p t="320880" d="2770">they'll give you some
+percent back every year.</p>
+<p t="323650" d="1989">And, of course, the fact
+that different people</p>
+<p t="325639" d="1791">have different ideas
+of what this would be,</p>
+<p t="327430" d="2520">allows people to make
+money on Wall Street.</p>
+<p t="329950" d="2490">As we'll see, a
+slight difference in p</p>
+<p t="332440" d="4020">can make big differences in
+what the annuity is worth.</p>
+<p t="336460" d="11920">So for example, $1 today
+is going to equal 1 plus p</p>
+<p t="348380" d="2282">dollars in one year.</p>
+<p t="354360" d="2930">Similarly, $1 today--
+how much is that</p>
+<p t="357290" d="2355">going to be worth in two years?</p>
+<p t="363910" d="2618">Say that p stays fixed,
+the same over all time.</p>
+<p t="370060" d="4300">One plus p squared,
+because every year you</p>
+<p t="374360" d="2610">multiply what you got by
+1 plus p, because that's</p>
+<p t="376970" d="1590">the interest you're getting.</p>
+<p t="378560" d="2380">All right, we'll think of
+it in terms of interest.</p>
+<p t="380940" d="7130">In three years, $1 today
+is worth 1 plus p cubed in</p>
+<p t="388070" d="4590">three years and so forth.</p>
+<p t="392660" d="500">All right.</p>
+<p t="393160" d="3590">Now, what we really care about
+is what's $1, or m dollars,</p>
+<p t="396750" d="3340">worth today if you're
+getting it next year?</p>
+<p t="400090" d="3936">So we need to sort of flip
+this back the other way.</p>
+<p t="407930" d="8580">So what is $1 in a year
+worth today in terms of p?</p>
+<p t="419160" d="2562">So if I'm going to
+be paid $1 in a year,</p>
+<p t="421722" d="2208">what would be the equivalent
+amount to be paid today?</p>
+<p t="427580" d="5900">One over 1 plus p, because
+what's happening here</p>
+<p t="433480" d="4210">is, as you go forward in a year,
+you just multiply by 1 plus p.</p>
+<p t="437690" d="6820">So 1 over 1 plus p turns
+into $1 in a year-- being</p>
+<p t="444510" d="2760">paid in a year.</p>
+<p t="447270" d="860">All right.</p>
+<p t="448130" d="6897">What is $1 a year in
+two years worth today?</p>
+<p t="457650" d="4960">One over 1 plus p squared.</p>
+<p t="462610" d="5450">So $1 in two years is
+worth this much today.</p>
+<p t="468060" d="2740">Well, now we can use
+this to go figure</p>
+<p t="470800" d="4280">out the current value
+of that annuity.</p>
+<p t="475080" d="3980">We just figure out what every
+payment is worth today and then</p>
+<p t="479060" d="2320">add it up.</p>
+<p t="481380" d="2840">So we'll put the
+payments over here,</p>
+<p t="484220" d="2670">and we'll compute
+the current value</p>
+<p t="486890" d="1610">of every payment on this side.</p>
+<p t="491840" d="1740">So with the annuity,
+the way we've</p>
+<p t="493580" d="3050">set it up is it pays n dollars
+at the start of every year,</p>
+<p t="496630" d="3340">so the first payment is now.</p>
+<p t="499970" d="3740">So the first of the
+n payments is now,</p>
+<p t="503710" d="3420">and since it's being paid
+now, that's worth m dollars.</p>
+<p t="507130" d="3190">There's no devaluation.</p>
+<p t="510320" d="6469">The next payment is m
+dollars in one year,</p>
+<p t="516789" d="6571">and so that's going to be
+worth m over 1 plus p today.</p>
+<p t="523360" d="5490">And the next payment is
+m dollars in two years.</p>
+<p t="528850" d="5020">That's worth m over
+1 plus p squared,</p>
+<p t="533870" d="4010">and we keep on going
+until the last payment.</p>
+<p t="537880" d="5767">It's the n-th payment, so it's
+m dollars in n minus 1 years.</p>
+<p t="546330" d="6930">And so that's going to
+be worth m over 1 plus p</p>
+<p t="553260" d="1177">to the n minus 1.</p>
+<p t="556891" d="499">All right.</p>
+<p t="557390" d="3050">So we can compute the current
+value of all those payments,</p>
+<p t="560440" d="3990">then the annuity is computed--
+the value is computed just</p>
+<p t="564430" d="4390">by adding these up, of
+all the current values.</p>
+<p t="568820" d="10192">So the total current value is
+the sum i equals 0 to n minus 1</p>
+<p t="579012" d="5478">of m over 1 plus p to the i.</p>
+<p t="584490" d="1783">And that is the
+total current value.</p>
+<p t="590300" d="6530">That's what you should
+pay today for the annuity.</p>
+<p t="596830" d="2760">Any questions?</p>
+<p t="599590" d="2560">What we did here?</p>
+<p t="602150" d="1740">All right.</p>
+<p t="603890" d="3480">Well, of course, what we'd like
+is a closed form expression</p>
+<p t="607370" d="1057">here.</p>
+<p t="608427" d="1833">Something that's simple
+so we could actually</p>
+<p t="610260" d="4720">get a feel without having
+to add up all those terms,</p>
+<p t="614980" d="1540">and that's not hard to get.</p>
+<p t="616520" d="4040">In fact, let's put
+this sum in a form</p>
+<p t="620560" d="2860">that might be more familiar.</p>
+<p t="623420" d="3890">This equals-- we'll pull
+the m out in front--</p>
+<p t="627310" d="3060">and let's use x to be 1
+over 1 plus p to the i.</p>
+<p t="637140" d="10190">And so x equals 1 over 1 plus
+p, and I wrote it this way</p>
+<p t="647330" d="3919">because this might be familiar.</p>
+<p t="651249" d="1791">Does everybody remember
+that from-- I think</p>
+<p t="653040" d="2072">it was the second recitation?</p>
+<p t="657862" d="1208">Anybody remember the formula?</p>
+<p t="659070" d="1110">What this evaluates to?</p>
+<p t="662980" d="6400">The sum of x to the i, where
+i goes from 0 to n minus 1?</p>
+<p t="669380" d="1790">Remember that?</p>
+<p t="671170" d="1800">One minus x to the n.</p>
+<p t="675730" d="3090">Remember 1 minus x.</p>
+<p t="678820" d="1730">In the second
+recitation, I think,</p>
+<p t="680550" d="3000">we proved that this equals that.</p>
+<p t="683550" d="2820">What was the proof
+technique we used?</p>
+<p t="686370" d="1021">Induction.</p>
+<p t="687391" d="499">OK?</p>
+<p t="693490" d="3986">So, in fact, there's
+a theorem here.</p>
+<p t="701060" d="5670">For all n bigger and equal
+to 1 and x not equal to 1,</p>
+<p t="706730" d="5630">we proved the sum from i equals
+0 to n minus 1 x to the i</p>
+<p t="712360" d="4910">equals 1 minus x to
+the n over 1 minus x.</p>
+<p t="717270" d="1600">And so this is a
+nice, closed form.</p>
+<p t="718870" d="5170">No sum any more, just
+that, which is nice.</p>
+<p t="724040" d="3920">Now, induction proved
+it was the right answer.</p>
+<p t="727960" d="5490">Once you knew it-- we gave
+it to you-- using induction</p>
+<p t="733450" d="2650">to prove that
+theorem wasn't hard.</p>
+<p t="736100" d="3210">What we're going to look at
+doing this week and next week</p>
+<p t="739310" d="2270">is figuring out how
+to figure out this</p>
+<p t="741580" d="1970">was the answer in
+the first place.</p>
+<p t="743550" d="4690">Methods for doing that-- to
+evaluate the sum-- and there's</p>
+<p t="748240" d="3810">a lot of ways that you can
+do that particular sum.</p>
+<p t="752050" d="4430">Probably the easiest is known
+as the perturbation method.</p>
+<p t="760050" d="2040">This sometimes works.</p>
+<p t="762090" d="3110">Certainly with sums like
+that, it often works.</p>
+<p t="765200" d="1260">The idea is as follows.</p>
+<p t="766460" d="3000">We're trying to compute
+the sum S, which is 1</p>
+<p t="769460" d="8040">plus x plus x squared
+plus x to the n minus 1,</p>
+<p t="777500" d="3730">and what we're going to do
+is perturb it a little bit</p>
+<p t="781230" d="3980">and then subtract to
+get big cancellation.</p>
+<p t="785210" d="1410">In this case, it's
+pretty simple.</p>
+<p t="786620" d="12510">We multiply the sum by x to get
+x plus x squared plus-- I've</p>
+<p t="799130" d="3250">defined S to be that,
+x times S-- well, I</p>
+<p t="802380" d="6070">get x plus x squared and
+so forth, up to x to the n,</p>
+<p t="808450" d="4223">and now I can subtract one from
+the other and almost everything</p>
+<p t="812673" d="500">cancels.</p>
+<p t="816020" d="6200">So I get 1 minus x
+times S equals 1.</p>
+<p t="822220" d="3230">These cancel, cancel, cancel.</p>
+<p t="825450" d="3300">Minus x to the n.</p>
+<p t="828750" d="5560">And therefore S equals 1 minus
+x to the n over 1 minus x.</p>
+<p t="837000" d="4820">So that's a vague method.</p>
+<p t="841820" d="3110">This gets used all the time
+in applied mathematics,</p>
+<p t="844930" d="2000">and they call it the
+perturbation method.</p>
+<p t="846930" d="3220">Take your sum, wiggle
+it around a little bit,</p>
+<p t="850150" d="1840">get something that looks
+close, subtract it,</p>
+<p t="851990" d="2211">everything cancels,
+life is nice,</p>
+<p t="854201" d="2083">and all of a sudden you've
+figured out the answer.</p>
+<p t="861530" d="5400">So getting back to
+our annuity problem,</p>
+<p t="866930" d="4730">we can plug that
+formula back in here.</p>
+<p t="871660" d="7370">So the value of the annuity
+is m times 1 minus x to the n</p>
+<p t="879030" d="2050">over 1 minus x.</p>
+<p t="881080" d="6490">We'll plug in x equals
+1 over 1 plus p,</p>
+<p t="887570" d="7100">and we get m 1 minus
+1 over 1 plus p</p>
+<p t="894670" d="7160">to the n over 1 minus 1 over
+1 plus p, just plugging in.</p>
+<p t="901830" d="3320">And now to simplify this, I'll
+multiply the top and bottom</p>
+<p t="905150" d="6770">by 1 plus p, and I'll get 1
+plus p minus 1 on the bottom.</p>
+<p t="911920" d="2160">Just gives me a p on the bottom.</p>
+<p t="914080" d="4960">I have a 1 plus p on
+the top minus 1 over 1</p>
+<p t="919040" d="4640">plus p to the n
+minus 1, all over p.</p>
+<p t="927740" d="3110">So now we have a formula--
+closed form expression</p>
+<p t="930850" d="2990">formula-- for the
+value of the annuity.</p>
+<p t="933840" d="3560">All's we've got to plug in
+is m, the payment every year,</p>
+<p t="937400" d="4160">n, the number of years, and
+then p, the interest rate.</p>
+<p t="941560" d="9980">And so, for example, if
+we made m be $50,000,</p>
+<p t="951540" d="850">as in the lottery.</p>
+<p t="952390" d="6250">We made n be 20 years, and
+say we took 6% interest, which</p>
+<p t="958640" d="5070">is actually very good these
+days, and I plug those in here,</p>
+<p t="963710" d="9000">the value is going
+to be $607,906.</p>
+<p t="972710" d="500">All right.</p>
+<p t="973210" d="4470">So those of you that preferred
+700 grand-- if you assume 6%</p>
+<p t="977680" d="1880">interest-- you're right.</p>
+<p t="979560" d="2360">Those of you who
+preferred 500 grand, no,</p>
+<p t="981920" d="3440">you're better off waiting and
+getting your 50 grand a year.</p>
+<p t="985360" d="3140">Now, of course, if the
+interest rate is lower,</p>
+<p t="988500" d="2520">well, that changes things.</p>
+<p t="991020" d="1780">That shifts it even more.</p>
+<p t="992800" d="3560">The annuity is worth even more
+if the interest rate is lower--</p>
+<p t="996360" d="2180">if p is smaller.</p>
+<p t="998540" d="3860">In fact, say p was 0.</p>
+<p t="1002400" d="2910">Say the interest rate is 0, so
+$1 today equals $1 tomorrow,</p>
+<p t="1005310" d="3040">then what is the lottery worth?</p>
+<p t="1008350" d="1780">A million dollars.</p>
+<p t="1010130" d="3100">And the bigger p gets, the
+less your payment is worth.</p>
+<p t="1017660" d="1255">Any questions about that?</p>
+<p t="1021530" d="1790">OK.</p>
+<p t="1023320" d="7850">What if you were paid $50,000 a
+year forever-- you live forever</p>
+<p t="1031170" d="2780">or it goes to your
+estate and your heirs,</p>
+<p t="1033950" d="5010">$50,000 a year forever or
+a million dollars today.</p>
+<p t="1041609" d="3591">How many people want the
+million dollars today?</p>
+<p t="1045200" d="4330">How many want 50
+grand a year forever?</p>
+<p t="1049530" d="1200">Sounds good.</p>
+<p t="1050730" d="3830">You know, that's an infinite
+amount of money, sort of.</p>
+<p t="1054560" d="1630">It's not as good as it sounds.</p>
+<p t="1056190" d="3100">Let's see why.</p>
+<p t="1059290" d="5860">So this is a case where
+n equals infinity,</p>
+<p t="1065150" d="5690">and so I'll claim that
+if n equals infinity,</p>
+<p t="1070840" d="5260">then the value of this
+annuity is just m times 1</p>
+<p t="1076100" d="1080">plus p over p.</p>
+<p t="1080100" d="2689">Let's see why that's the case.</p>
+<p t="1082789" d="1541">You know, it sounds
+hard to evaluate,</p>
+<p t="1084330" d="3600">because it's an infinite
+number of payments,</p>
+<p t="1087930" d="4320">but what happens here
+when n goes to infinity?</p>
+<p t="1092250" d="3050">What happens to this thing?</p>
+<p t="1095300" d="3230">That goes to 0 as
+n goes to infinity,</p>
+<p t="1098530" d="1470">as long as p is bigger than 0.</p>
+<p t="1100000" d="2800">So we're going to
+assume 6% interest.</p>
+<p t="1102800" d="2540">So that goes away, so
+the annuity is worth just</p>
+<p t="1105340" d="5660">that, m times 1 plus p over
+p, because the limit as n</p>
+<p t="1111000" d="5550">goes to infinity of 1 over
+1 plus p to the n minus 1,</p>
+<p t="1116550" d="3340">that's going to 0.</p>
+<p t="1119890" d="22500">So the value for m is $50,000,
+and at 6% V is only $883,000.</p>
+<p t="1142390" d="2060">So you're better off
+taking a million dollars</p>
+<p t="1144450" d="4254">today than $50,000
+a year forever.</p>
+<p t="1148704" d="1916">Now, if you think about
+it, and think about it</p>
+<p t="1150620" d="1730">as an interest
+rate, why should it</p>
+<p t="1152350" d="2600">be obvious that you're better
+off with a million dollars</p>
+<p t="1154950" d="4229">today than 50 grand
+a year forever?</p>
+<p t="1159179" d="2291">Think about what you could
+do with that million dollars</p>
+<p t="1161470" d="6320">if you had it today
+at 6% interest.</p>
+<p t="1167790" d="3920">What would you do with it to
+make more money than 50 grand</p>
+<p t="1171710" d="650">a year forever?</p>
+<p t="1172360" d="1118">Yeah.</p>
+<p t="1173478" d="2624">AUDIENCE: You could have like--
+you could make $50,000 per year</p>
+<p t="1176102" d="1652">just off of [INAUDIBLE].</p>
+<p t="1177754" d="666">PROFESSOR: Yeah.</p>
+<p t="1178420" d="2400">In this model, if the
+interest rate is 6%,</p>
+<p t="1180820" d="1000">you can put in the bank.</p>
+<p t="1181820" d="3480">It makes 6% every year, that's
+60 grand a year forever.</p>
+<p t="1185300" d="2850">Better than 50 grand
+a year forever.</p>
+<p t="1188150" d="2144">So maybe it's-- even
+without doing the math,</p>
+<p t="1190294" d="1666">you can tell which
+way it's going to go,</p>
+<p t="1191960" d="2436">but this tells you
+exactly what it's worth.</p>
+<p t="1198460" d="642">Any questions?</p>
+<p t="1202340" d="2022">OK.</p>
+<p t="1204362" d="500">Yeah.</p>
+<p t="1204862" d="1566">AUDIENCE: [INAUDIBLE]
+current value--</p>
+<p t="1206428" d="2126">that's how much it's
+worth to you right now.</p>
+<p t="1208554" d="666">PROFESSOR: Yeah.</p>
+<p t="1209220" d="4790">AUDIENCE: So and, like, if
+you have $1 in the future--</p>
+<p t="1214010" d="1076">PROFESSOR: Yeah.</p>
+<p t="1215086" d="2783">AUDIENCE: --where S right
+now is m over 1 plus p--</p>
+<p t="1217869" d="666">PROFESSOR: Yeah.</p>
+<p t="1218535" d="2583">AUDIENCE: --is it worth less to
+you [INAUDIBLE] then later on,</p>
+<p t="1221118" d="1882">it's going to be
+worth more to you.</p>
+<p t="1223000" d="1930">PROFESSOR: Ah, so
+if you move yourself</p>
+<p t="1224930" d="3654">forward in time, $1 a year, in
+a year it'll worth $1 to you--</p>
+<p t="1228584" d="776">AUDIENCE: Yeah.</p>
+<p t="1229360" d="3130">PROFESSOR: --but today it's
+worth less than $1 to you,</p>
+<p t="1232490" d="2580">because you could take the
+dollar today and invest</p>
+<p t="1235070" d="3110">in the bank, and it's worth more
+in a year, because the money</p>
+<p t="1238180" d="3520">grows in value, as a
+way to think of it,</p>
+<p t="1241700" d="1810">because you can
+earn interest on it.</p>
+<p t="1243510" d="594">What's that?</p>
+<p t="1244104" d="1656">AUDIENCE: You could spend it.</p>
+<p t="1245760" d="720">PROFESSOR: Yeah.</p>
+<p t="1246480" d="1550">Yeah, if you just
+spend it, well,</p>
+<p t="1248030" d="1541">then at least you
+had the use of what</p>
+<p t="1249571" d="1438">you spent it on for the year.</p>
+<p t="1251009" d="1791">So there's some other
+kind of value, right?</p>
+<p t="1252800" d="2860">Maybe you bought a
+house or something</p>
+<p t="1255660" d="3750">that-- maybe something that
+even appreciated in value.</p>
+<p t="1259410" d="1200">OK.</p>
+<p t="1260610" d="3786">But these things
+get sort of squishy,</p>
+<p t="1264396" d="1374">and that is where
+a lot of people</p>
+<p t="1265770" d="3120">make money on Wall Street, is
+because different companies</p>
+<p t="1268890" d="1440">have different needs for money.</p>
+<p t="1270330" d="1530">They have different views of
+what the interest rates are</p>
+<p t="1271860" d="2320">going to be, and you
+can play in the middle</p>
+<p t="1274180" d="1990">and make a lot of
+money that way.</p>
+<p t="1295220" d="4400">So more generally, there's
+a corollary to the theorem,</p>
+<p t="1299620" d="4410">and that is that if the absolute
+value of x is less than 1,</p>
+<p t="1304030" d="7620">then the sum i equals 0
+to infinity x to the i</p>
+<p t="1311650" d="4430">is just 1 over 1 minus x.</p>
+<p t="1316080" d="3270">We didn't prove this back
+in the second recitation,</p>
+<p t="1319350" d="2780">because there's no
+n to induct on here,</p>
+<p t="1322130" d="3090">but the proof is simple
+from the theorem.</p>
+<p t="1325220" d="2840">And it's simply because
+if x is less than 1,</p>
+<p t="1328060" d="5270">an absolute value, as n goes
+to infinity, that goes to 0,</p>
+<p t="1333330" d="2080">and so you're just left
+with 1 over 1 minus x.</p>
+<p t="1346650" d="5030">So, for example,
+what's this sum?</p>
+<p t="1351680" d="1395">This one you all know, I'm sure.</p>
+<p t="1357010" d="870">Out to infinity.</p>
+<p t="1357880" d="3090">What's that sum to?</p>
+<p t="1360970" d="630">To 2.</p>
+<p t="1361600" d="650">Yeah.</p>
+<p t="1362250" d="5460">It's 1 over 1 minus
+1/2, which is 2.</p>
+<p t="1367710" d="7660">What about this sum
+out to infinity?</p>
+<p t="1375370" d="1135">What does that sum to?</p>
+<p t="1379263" d="2167">AUDIENCE: [INAUDIBLE]</p>
+<p t="1381430" d="6270">PROFESSOR: Yeah, 3/2, 1
+over 1 minus 1/3 is 3/2.</p>
+<p t="1387700" d="2220">So, easy corollaries.</p>
+<p t="1389920" d="2540">These are all examples
+of geometric series.</p>
+<p t="1392460" d="2140">That's what a definition
+of a geometric series is.</p>
+<p t="1394600" d="2210">Something that's going
+down by a fixed-- each term</p>
+<p t="1396810" d="2680">goes down by the same
+fixed amount every time.</p>
+<p t="1399490" d="3090">And geometric
+series, generally sum</p>
+<p t="1402580" d="3560">to something that is very
+close to the largest term.</p>
+<p t="1406140" d="2450">In this case, it's 1.</p>
+<p t="1408590" d="2790">Very common, because
+of that formula.</p>
+<p t="1411380" d="1392">It's 1 over 1 minus x.</p>
+<p t="1420270" d="3450">Any questions about this
+or geometric series?</p>
+<p t="1426760" d="1520">All right.</p>
+<p t="1428280" d="2860">Well, those are
+straight geometric sums.</p>
+<p t="1431140" d="2360">Sometimes you run into things
+that are a little bit more</p>
+<p t="1433500" d="1430">complicated.</p>
+<p t="1434930" d="6640">For example, say I have this
+kind of a sum, i equals 1 to n,</p>
+<p t="1441570" d="3460">i times x to the i.</p>
+<p t="1445030" d="6070">Now, those are adding up x
+plus 2x squared plus 3x cubed,</p>
+<p t="1451100" d="5269">and so forth, up
+to n x to the n.</p>
+<p t="1456369" d="1791">You know, that's a
+little more complicated.</p>
+<p t="1458160" d="3320">The terms are
+getting-- decreasing</p>
+<p t="1461480" d="3200">by a factor of x, increasing by
+1 in terms of the coefficient</p>
+<p t="1464680" d="740">every time.</p>
+<p t="1465420" d="1780">A little trickier.</p>
+<p t="1467200" d="4080">So say we wanted to get a
+closed form expression for that?</p>
+<p t="1471280" d="1850">There are several
+ways we can do it.</p>
+<p t="1473130" d="4060">The first would be to try to use
+perturbation-- the perturbation</p>
+<p t="1477190" d="710">method.</p>
+<p t="1477900" d="2830">Let's try that.</p>
+<p t="1480730" d="7640">So we write S equals x plus 2x
+squared plus 3x cubed plus nx</p>
+<p t="1488370" d="3550">to the n, and let's try
+the same perturbation.</p>
+<p t="1491920" d="5690">Multiply by x, I
+get that x squared</p>
+<p t="1497610" d="11810">plus 2x cubed plus n minus 1x to
+the n, plus nx to the n plus 1.</p>
+<p t="1509420" d="2950">And then I subtract to try
+to get all the cancellation.</p>
+<p t="1515220" d="2190">So then I do that.</p>
+<p t="1517410" d="7130">I get 1 minus x times S. Well, I
+didn't quite cancel everything.</p>
+<p t="1524540" d="7420">X plus x squared
+plus x cubed plus x</p>
+<p t="1531960" d="6000">to the n plus n-- or
+minus nx to the n plus 1.</p>
+<p t="1537960" d="3050">Ah, it didn't quite work.</p>
+<p t="1541010" d="2698">Anybody see a way that
+I can fix this up?</p>
+<p t="1549480" d="2130">What about this piece?</p>
+<p t="1551610" d="1410">That's still a mess here.</p>
+<p t="1553020" d="3220">Can I simplify that?</p>
+<p t="1556240" d="1282">Yeah?</p>
+<p t="1557522" d="952">AUDIENCE: [INAUDIBLE]</p>
+<p t="1565150" d="1611">PROFESSOR: Yeah.</p>
+<p t="1566761" d="499">There's</p>
+<p t="1567260" d="1730">a simpler way.</p>
+<p t="1568990" d="731">Yeah.</p>
+<p t="1569721" d="1499">AUDIENCE: That's a
+geometric series.</p>
+<p t="1571220" d="1940">PROFESSOR: That's
+a geometric series.</p>
+<p t="1573160" d="3200">We just got the formula
+for it, so that's easy.</p>
+<p t="1576360" d="8780">This equals 1 minus x to the
+n over 1 minus x minus the 1,</p>
+<p t="1585140" d="1770">because I'm missing the 1 here.</p>
+<p t="1586910" d="2130">So we can rewrite this
+whole thing over here.</p>
+<p t="1599551" d="499">Oops.</p>
+<p t="1600050" d="500">Yikes.</p>
+<p t="1600550" d="931">Got attacked.</p>
+<p t="1609880" d="680">What's that?</p>
+<p t="1610560" d="3400">AUDIENCE: Would it be 1
+minus x should be n plus 1?</p>
+<p t="1613960" d="2750">PROFESSOR: Yes it would.</p>
+<p t="1616710" d="650">That's right.</p>
+<p t="1617360" d="2270">I've got to add 1 to there.</p>
+<p t="1619630" d="570">OK.</p>
+<p t="1620200" d="2430">So that's good.</p>
+<p t="1622630" d="5410">So that says that
+1 minus x times S</p>
+<p t="1628040" d="7277">equals 1 minus x to the n
+plus 1 over 1 minus x minus 1,</p>
+<p t="1635317" d="2333">and then I've got to remember
+to subtract that term too.</p>
+<p t="1637650" d="3980">Minus nx to the n plus 1.</p>
+<p t="1641630" d="3070">That means now I
+just divide through,</p>
+<p t="1644700" d="3290">and I simplify-- divide through
+by 1 minus x-- and simplify,</p>
+<p t="1647990" d="2080">and I get the following formula.</p>
+<p t="1650070" d="2320">I won't go through all the
+details, but it's not hard.</p>
+<p t="1665460" d="3130">Let's see if I got that right.</p>
+<p t="1668590" d="1860">Yeah, that looks right.</p>
+<p t="1670450" d="2330">OK, so that is the
+closed form expression</p>
+<p t="1672780" d="3059">for that sum, which we can
+get from the perturbation</p>
+<p t="1675839" d="1541">method and the fact
+that we'd already</p>
+<p t="1677380" d="3560">done the geometric series.</p>
+<p t="1680940" d="4760">There's another way to
+compute these kinds of sums,</p>
+<p t="1685700" d="2567">which I want to show you,
+because it can be useful.</p>
+<p t="1696170" d="3010">So we're going to do the same
+sum and derive the formula</p>
+<p t="1699180" d="2000">a different way.</p>
+<p t="1701180" d="10540">This method is called
+the derivative method,</p>
+<p t="1711720" d="2720">and the idea is to start
+with a geometric series which</p>
+<p t="1714440" d="4840">it's close to and then
+take a derivative.</p>
+<p t="1719280" d="4420">So for x not equal to 1, we
+already know from the theorem</p>
+<p t="1723700" d="6380">that i equals 0 to n, x to the
+i equals 1 minus x to the n</p>
+<p t="1730080" d="3090">plus 1 over 1 minus x.</p>
+<p t="1733170" d="950">That was the theorem.</p>
+<p t="1734120" d="2890">We already know that.</p>
+<p t="1737010" d="2660">Now, I can take the
+derivative of both sides,</p>
+<p t="1739670" d="3550">and let's see what we get
+by taking the derivative.</p>
+<p t="1743220" d="4220">Well, here I get the sum.</p>
+<p t="1747440" d="2880">The derivative of x to the
+i is just i times x to the i</p>
+<p t="1750320" d="2700">minus 1.</p>
+<p t="1753020" d="3290">The derivative over here
+is a little messier.</p>
+<p t="1756310" d="3090">I've got to have--
+well, I take 1 minus x</p>
+<p t="1759400" d="1170">times a derivative of that.</p>
+<p t="1763530" d="9490">Derivative of this is now
+minus n plus 1, x to the n.</p>
+<p t="1773020" d="3960">Then I take this times
+the derivative of that</p>
+<p t="1776980" d="7810">is now minus minus 1, 1
+minus x to the n plus 1,</p>
+<p t="1784790" d="3330">and then I divide
+by that squared.</p>
+<p t="1792730" d="5660">Now, when we compute all that
+out, we get this, 1 minus n</p>
+<p t="1798390" d="8300">plus 1, x to the n plus
+nx to the n plus 1 over 1</p>
+<p t="1806690" d="2999">minus x squared.</p>
+<p t="1809689" d="1541">I won't drag you
+through the algebra,</p>
+<p t="1811230" d="2250">but it's not hard to
+go from there to there.</p>
+<p t="1813480" d="3540">This is pretty close
+to what we wanted.</p>
+<p t="1817020" d="8520">We're trying to figure out
+this, and we almost got there.</p>
+<p t="1825540" d="2930">What do I do to finish it up?</p>
+<p t="1828470" d="1000">AUDIENCE: Multiply by x.</p>
+<p t="1829470" d="1430">PROFESSOR: Multiply by x.</p>
+<p t="1830900" d="830">Good.</p>
+<p t="1831730" d="8410">So if I take this and multiply
+by x, i equals zero to n,</p>
+<p t="1840140" d="8920">ix to the i equals x minus
+n plus 1, x to the n plus 1,</p>
+<p t="1849060" d="7180">plus nx to the n plus 2,
+all over 1 minus x squared.</p>
+<p t="1856240" d="1647">OK?</p>
+<p t="1857887" d="2083">Which should be the same--
+yeah-- the same formula</p>
+<p t="1859970" d="1806">we had up there.</p>
+<p t="1861776" d="1624">So that's called the
+derivative method.</p>
+<p t="1863400" d="2125">You can start manipulating--
+you treat these things</p>
+<p t="1865525" d="3705">as polynomials-- these sums--
+and you start manipulating them</p>
+<p t="1869230" d="1700">like you would polynomials.</p>
+<p t="1870930" d="2740">In fact, there's a whole
+branch of mathematics</p>
+<p t="1873670" d="2160">called generating functions
+that we won't have time</p>
+<p t="1875830" d="4730">to do in this class that's
+in chapter 12 of the text.</p>
+<p t="1880560" d="3866">But you do things
+like that to get sums.</p>
+<p t="1889820" d="3610">Any questions about
+what we did there?</p>
+<p t="1893430" d="3370">You can also do a version where
+you take integrals of this</p>
+<p t="1896800" d="2460">if you want, and
+then you get the i's</p>
+<p t="1899260" d="2448">in the denominator instead
+of those coefficients.</p>
+<p t="1905340" d="3640">For homework, I
+think we've given you</p>
+<p t="1908980" d="3781">the sum of i squared x to the i.</p>
+<p t="1912761" d="3879">How do you think you're
+going to do that?</p>
+<p t="1916640" d="2580">Any thoughts about how
+you're going to solve that?</p>
+<p t="1919220" d="2220">Get the sum, a closed
+form for the sum of i</p>
+<p t="1921440" d="2720">squared x to the i?</p>
+<p t="1924160" d="1900">AUDIENCE: Do the
+derivative method twice.</p>
+<p t="1926060" d="1208">PROFESSOR: Yeah, do it twice.</p>
+<p t="1927268" d="1678">Take this, which now you know.</p>
+<p t="1928946" d="2754">Take the derivative again.</p>
+<p t="1931700" d="1180">Won't be too hard.</p>
+<p t="1938530" d="5450">You can also take the version of
+this where n goes to infinity.</p>
+<p t="1943980" d="675">Let's do that.</p>
+<p t="1950120" d="4780">If the absolute value of x
+is less than 1, the sum i</p>
+<p t="1954900" d="6920">equals 1 to infinity of ix to
+the i, what does that equal?</p>
+<p t="1964560" d="1796">This one, you can see
+it easier up here.</p>
+<p t="1969020" d="4870">What happens when
+n goes to infinity?</p>
+<p t="1973890" d="860">What does this do?</p>
+<p t="1977390" d="2180">X is less than 1,
+an absolute value.</p>
+<p t="1979570" d="3350">What happens to this
+as n goes to infinity?</p>
+<p t="1982920" d="500">This term.</p>
+<p t="1986380" d="2630">Goes to 0, right?</p>
+<p t="1989010" d="2920">This gets big, but this
+gets smaller faster.</p>
+<p t="1991930" d="4300">What happens to this term
+as n goes to infinity?</p>
+<p t="1996230" d="2270">Same thing, 0.</p>
+<p t="1998500" d="2420">All I'm left with is x
+over 1 minus x squared.</p>
+<p t="2009570" d="3360">Now, this formula
+is useful if you're</p>
+<p t="2012930" d="4480">trying to, say, get
+the value of a company,</p>
+<p t="2017410" d="2080">and the company is growing.</p>
+<p t="2019490" d="5360">Every year the company grows
+its bottom line by m dollars.</p>
+<p t="2024850" d="2390">So the first year, the
+company generates m dollars,</p>
+<p t="2027240" d="2820">the next year it generates
+two m dollars in profit,</p>
+<p t="2030060" d="2076">the next year is
+three m dollars.</p>
+<p t="2032136" d="1624">So you've got an
+entity that every year</p>
+<p t="2033760" d="1500">is growing by a fixed amount.</p>
+<p t="2035260" d="2610">It's not doubling every
+year, but every year</p>
+<p t="2037870" d="2890">adds in m dollars
+more of profit.</p>
+<p t="2040760" d="2640">What would you pay
+to buy that company?</p>
+<p t="2043400" d="2150">What is that worth?</p>
+<p t="2045550" d="2755">So you can think of this
+as, again, an annuity.</p>
+<p t="2053900" d="11190">Here the annuity pays im
+dollars, in this case,</p>
+<p t="2065090" d="7160">at the end, not the beginning,
+say, of the year i forever.</p>
+<p t="2079070" d="4339">This company is-- or this
+annuity-- is worth, well,</p>
+<p t="2083409" d="2781">we just plug into the formula.</p>
+<p t="2086190" d="4279">Instead of $1 each year, it's
+m so there's an m out front.</p>
+<p t="2090469" d="8021">x is 1 over 1 plus p, and
+then we have 1 minus 1 over 1</p>
+<p t="2098490" d="1224">plus p squared.</p>
+<p t="2102620" d="4220">And if we multiply the top and
+bottom by 1 plus p squared,</p>
+<p t="2106840" d="5114">we get m 1 plus
+p over p squared.</p>
+<p t="2115190" d="2626">So it's possible with
+a very simple formula</p>
+<p t="2117816" d="1374">to figure out how
+much you should</p>
+<p t="2119190" d="3540">spend to buy this company,
+what its value is today.</p>
+<p t="2122730" d="6860">So, for example, say the company
+was adding $50,000 a year</p>
+<p t="2129590" d="2060">in profit.</p>
+<p t="2131650" d="5650">The interest rate was 6%,
+the value of this company</p>
+<p t="2137300" d="8210">is $14 million-- $14.7
+million, just plugging</p>
+<p t="2145510" d="2450">into that formula.</p>
+<p t="2147960" d="3420">So people that buy
+companies and stuff,</p>
+<p t="2151380" d="4114">they use formulas like this
+to figure out what it's worth.</p>
+<p t="2155494" d="1416">Of course, you've
+got to make sure</p>
+<p t="2156910" d="4794">it's really going to keep paying
+the $50,000 more every year</p>
+<p t="2161704" d="1666">and that this is the
+right interest rate</p>
+<p t="2163370" d="2095">to be thinking about.</p>
+<p t="2165465" d="1625">You know, and the
+guys on Wall Street--</p>
+<p t="2167090" d="1541">the bankers on Wall
+Street-- they all</p>
+<p t="2168631" d="4039">have their estimations for
+what these things are--</p>
+<p t="2172670" d="3530">the value of p they would
+put into these formulas.</p>
+<p t="2176200" d="3210">Any questions about that?</p>
+<p t="2179410" d="1305">Yeah.</p>
+<p t="2180715" d="1532">AUDIENCE: [INAUDIBLE]</p>
+<p t="2182247" d="583">PROFESSOR: OK.</p>
+<p t="2182830" d="1460">Good.</p>
+<p t="2184290" d="2880">So this one is OK?</p>
+<p t="2187170" d="870">OK.</p>
+<p t="2188040" d="4870">I plugged x equals
+1 over 1 plus p,</p>
+<p t="2192910" d="2010">like we did before--
+remember for the annuity--</p>
+<p t="2194920" d="3170">because every year
+you're degrading it,</p>
+<p t="2198090" d="2340">devaluing by 1 over 1 plus p.</p>
+<p t="2200430" d="6730">So that's the x term, and it's
+paying-- in the i-th year,</p>
+<p t="2207160" d="4240">it's paying im dollars.</p>
+<p t="2211400" d="850">All right?</p>
+<p t="2212250" d="4220">So the first year it pays n
+dollars, the next year 2 m,</p>
+<p t="2216470" d="4360">the next year 3 m,
+the next year 4 m,</p>
+<p t="2220830" d="2480">but every year you're
+knocking it down by 1 plus 1</p>
+<p t="2223310" d="2760">over p to the number of years.</p>
+<p t="2226070" d="5450">So what you get-- the sum
+you've really got here--</p>
+<p t="2231520" d="3610">is i equals 1 to infinity,
+im dollars are paid,</p>
+<p t="2235130" d="3170">but those dollars are
+worth 1 over 1 plus p</p>
+<p t="2238300" d="2852">to the i today,
+the current value.</p>
+<p t="2241152" d="958">That's a good question.</p>
+<p t="2242110" d="2240">I should've said that.</p>
+<p t="2244350" d="2222">That's a great question.</p>
+<p t="2246572" d="1458">So that's how we
+connected this up,</p>
+<p t="2248030" d="3100">because you're getting paid
+this much in our years,</p>
+<p t="2251130" d="2260">and that's worth
+that much degradation</p>
+<p t="2253390" d="2350">or that much devaluation
+today, and now we</p>
+<p t="2255740" d="3190">add up a total current value.</p>
+<p t="2258930" d="2260">So even a company that is
+paying you more and more</p>
+<p t="2261190" d="6030">every year still has a finite
+value, because the extra--</p>
+<p t="2267220" d="2770">the payments are increasing
+but only linearly.</p>
+<p t="2269990" d="2680">The value today is
+decreasing geometrically,</p>
+<p t="2272670" d="2370">and the geometric decrease
+wipes out the value</p>
+<p t="2275040" d="1560">of the company in the future.</p>
+<p t="2276600" d="500">Yeah.</p>
+<p t="2277100" d="4710">AUDIENCE: Are you [? squaring ?]
+quantity of [INAUDIBLE].</p>
+<p t="2285640" d="1140">PROFESSOR: What did I do?</p>
+<p t="2286780" d="2250">Oh, wait, wait, wait.</p>
+<p t="2289030" d="3350">I screwed up here too.</p>
+<p t="2292380" d="2281">Is that what you're
+asking about?</p>
+<p t="2294661" d="499">Yeah.</p>
+<p t="2295160" d="1583">That's what I should
+have done, right?</p>
+<p t="2296743" d="3857">Because I got 1 minus x is
+1 minus 1 over 1 plus p.</p>
+<p t="2300600" d="5370">That gets squared, and now when
+I multiply 1 plus p squared,</p>
+<p t="2305970" d="2340">it's multiplying
+this by 1 plus p.</p>
+<p t="2308310" d="2320">It's 1 plus p minus 1 is p.</p>
+<p t="2310630" d="1712">So I have p squared.</p>
+<p t="2312342" d="1208">All right, so this part's OK.</p>
+<p t="2313550" d="2060">That part I wrote wrong.</p>
+<p t="2315610" d="670">That's good.</p>
+<p t="2316280" d="850">Any other questions?</p>
+<p t="2326430" d="1341">So let's do a simple example.</p>
+<p t="2343230" d="1480">What is this sum?</p>
+<p t="2354026" d="9554">A 1/2 plus 2/4 plus
+3/8 plus 4/16 forever.</p>
+<p t="2363580" d="3005">What's that sum equal?</p>
+<p t="2372970" d="3005">You can plug that
+in the formula.</p>
+<p t="2375975" d="2085">AUDIENCE: [INAUDIBLE]</p>
+<p t="2378060" d="2380">PROFESSOR: Yeah.</p>
+<p t="2380440" d="820">That's right.</p>
+<p t="2381260" d="2090">Good.</p>
+<p t="2383350" d="2960">These details.</p>
+<p t="2386310" d="1846">Otherwise that
+sum would be what?</p>
+<p t="2388156" d="2484">If I didn't put
+the negative here,</p>
+<p t="2390640" d="2870">it's going to be infinity,
+and that's not so interesting.</p>
+<p t="2393510" d="2460">The negative makes it more
+interesting, so I got 1 over 2</p>
+<p t="2395970" d="1840">to the i in there.</p>
+<p t="2397810" d="975">What's it worth then?</p>
+<p t="2401790" d="2240">Well, I can plug in the formula.</p>
+<p t="2404030" d="2620">What's x?</p>
+<p t="2406650" d="1110">One half.</p>
+<p t="2407760" d="8980">So I get 1/2 over 1 minus
+1/2 squared is 1/2 over 1/4,</p>
+<p t="2416740" d="950">and that's 2.</p>
+<p t="2424710" d="4215">Any questions on that formula?</p>
+<p t="2428925" d="2355">It's amazing how useful
+these things get to be later.</p>
+<p t="2434910" d="4220">So that's sort of the
+geometric kinds of things.</p>
+<p t="2439130" d="4030">Next I want to talk about more
+of the arithmetic kinds of sums</p>
+<p t="2443160" d="2280">and what you do there.</p>
+<p t="2445440" d="3770">In fact, we've already
+seen one that we've done.</p>
+<p t="2449210" d="5890">If I sum i equals 1 to n of
+i-- I think we've already</p>
+<p t="2455100" d="4400">done this one-- that's just
+n times n plus 1 over 2,</p>
+<p t="2459500" d="1670">and probably most
+of you even learned</p>
+<p t="2461170" d="2210">that formula back
+in middle school,</p>
+<p t="2463380" d="3840">I'm guessing-- maybe before.</p>
+<p t="2467220" d="2605">How many people know
+the answer for this sum?</p>
+<p t="2475000" d="2765">The sum of the squares--
+the first n squares.</p>
+<p t="2477765" d="625">Somebody knows.</p>
+<p t="2478390" d="1330">What is it?</p>
+<p t="2479720" d="6875">AUDIENCE: n times n plus 1
+times 2n plus 1, all over 6.</p>
+<p t="2486595" d="875">PROFESSOR: Very good.</p>
+<p t="2487470" d="1690">That is correct.</p>
+<p t="2489160" d="2290">Most people don't
+remember that one.</p>
+<p t="2491450" d="3690">It's a little harder to derive.</p>
+<p t="2495140" d="4270">How would you prove
+this by induction?</p>
+<p t="2499410" d="1790">Unfortunately, induction
+doesn't tell you</p>
+<p t="2501200" d="3060">how to remember what
+the formula was,</p>
+<p t="2504260" d="3440">and there's a couple of
+ways you can go about that.</p>
+<p t="2507700" d="2760">One is, you can
+remember or guess</p>
+<p t="2510460" d="2762">that the answer is
+a polynomial in n.</p>
+<p t="2513222" d="2488">In fact, because
+you're summing squares,</p>
+<p t="2515710" d="4390">you might guess that it's
+a cubic polynomial in n,</p>
+<p t="2520100" d="3790">and if you remember just that
+or guess just that, then you</p>
+<p t="2523890" d="4650">could actually plug in
+values and get the answer.</p>
+<p t="2528540" d="2330">And this is-- you
+know, a common method</p>
+<p t="2530870" d="1980">of solving these sums
+is you sort of guess</p>
+<p t="2532850" d="2160">the form of the solution.</p>
+<p t="2535010" d="8750">In this case you might
+guess that for all n,</p>
+<p t="2543760" d="5406">the sum i equals 1 to n of
+i squared equals a cubic.</p>
+<p t="2554730" d="6650">And then what you would do is
+plug in the value n equals 1,</p>
+<p t="2561380" d="2480">n equals 2, maybe
+even-- we'll make</p>
+<p t="2563860" d="3490">it n equals 0-- make
+it simple and start</p>
+<p t="2567350" d="4030">getting some constraints
+on the coefficients.</p>
+<p t="2571380" d="7796">If you would plug in n
+equals 0, the sum is 0.</p>
+<p t="2582300" d="3950">The polynomial evaluates to d.</p>
+<p t="2586250" d="3910">That tells you what d has got
+to be right away. n equals 1.</p>
+<p t="2590160" d="3890">The sum is 1, and when you
+plug into the polynomial,</p>
+<p t="2594050" d="4710">you get a plus b plus c plus d.</p>
+<p t="2598760" d="2780">n equals 2.</p>
+<p t="2601540" d="5170">Well, that's 1 plus
+4 is 5, 2 cubed is 8,</p>
+<p t="2606710" d="5970">so you have 8a plus
+4b plus 2c plus d,</p>
+<p t="2612680" d="4040">and you'll need one more since
+you've got four variables.</p>
+<p t="2616720" d="4230">Let's see, 1 plus
+4 plus 9 is 14.</p>
+<p t="2620950" d="9740">I've now got 3 cubed is
+27a plus 9b plus 3c plus d.</p>
+<p t="2630690" d="3430">So now I've got four
+equations and four variables</p>
+<p t="2634120" d="3240">and, with any luck, I can
+solve that system of equations</p>
+<p t="2637360" d="1570">and get the answer.</p>
+<p t="2638930" d="1160">And, in fact, you can.</p>
+<p t="2640090" d="7210">When you solve this system, you
+get a equals 1/3, b equals 1/2,</p>
+<p t="2647300" d="4160">c equals 1/6, and d equals 0.</p>
+<p t="2651460" d="3510">And that's exactly what
+you get in that formula.</p>
+<p t="2654970" d="4680">So that's a way to reproduce
+the formula if you forgot it.</p>
+<p t="2659650" d="3760">Now, this method--
+really to be sure you</p>
+<p t="2663410" d="2510">got the right answer--
+you've got to go prove it</p>
+<p t="2665920" d="4652">by induction, because I
+derived the answer-- if it</p>
+<p t="2670572" d="1958">was a polynomial, I would
+have gotten it right,</p>
+<p t="2672530" d="1639">but I might be
+wrong in my guess.</p>
+<p t="2674169" d="1541">And to make sure
+your guess is right,</p>
+<p t="2675710" d="1625">you've got to go back
+and use induction</p>
+<p t="2677335" d="1427">to prove it for this approach.</p>
+<p t="2678762" d="500">Yeah.</p>
+<p t="2679262" d="2719">AUDIENCE: How do you know that
+it would be [INAUDIBLE] and not</p>
+<p t="2681981" d="1179">some higher power?</p>
+<p t="2683160" d="2550">PROFESSOR: Well, it turns
+out that anytime you're</p>
+<p t="2685710" d="3920">summing powers, the answer
+is a polynomial to one</p>
+<p t="2689630" d="1910">higher degree.</p>
+<p t="2691540" d="3210">So if you just remembered that
+fact, or you guessed that fact.</p>
+<p t="2694750" d="3250">Another way to sort of
+imagine that might be true</p>
+<p t="2698000" d="3120">is that I'm getting
+n of them, so I</p>
+<p t="2701120" d="3380">might be multiplying--
+the top one is n squared,</p>
+<p t="2704500" d="3400">so I'm going to have n
+of them about n squared.</p>
+<p t="2707900" d="3470">Might be something like n cubed.</p>
+<p t="2711370" d="5290">That's another way you could
+think of it, to guess that.</p>
+<p t="2716660" d="3526">Any other questions on this?</p>
+<p t="2725130" d="4840">So far, all these sums had nice
+closed forms, and a lot of them</p>
+<p t="2729970" d="3440">do that you'll encounter
+later on, but not all,</p>
+<p t="2733410" d="4170">and sometimes you get sums that
+don't have a nice closed form--</p>
+<p t="2737580" d="2090">at least nobody has
+ever figured out one,</p>
+<p t="2739670" d="2890">and probably doesn't
+always exist.</p>
+<p t="2742560" d="4260">For example, what if I
+want to sum the first n</p>
+<p t="2746820" d="2020">square roots of integers?</p>
+<p t="2753340" d="1434">Let's write that down.</p>
+<p t="2764400" d="3218">So say I want a closed
+form for this guy.</p>
+<p t="2773560" d="3780">Nobody knows an answer
+for that, but there</p>
+<p t="2777340" d="4660">are ways of getting very
+good, close bounds on it that</p>
+<p t="2782000" d="1950">are closed form, and
+these are very important,</p>
+<p t="2783950" d="2110">and we're going to use
+this the rest of today</p>
+<p t="2786060" d="1830">and the rest of next time.</p>
+<p t="2787890" d="4850">And they're based on replacing
+the sum with an integral,</p>
+<p t="2792740" d="2400">and the integral is very
+close to the right answer,</p>
+<p t="2795140" d="2680">and then we can see what
+the error terms are.</p>
+<p t="2797820" d="1760">So let's first look
+at the case when</p>
+<p t="2799580" d="2980">we've got a sum where the
+terms are increasing as i</p>
+<p t="2802560" d="11680">grows, and we'll call
+these integration bounds,</p>
+<p t="2814240" d="3550">and a general sum will look
+like this-- i equals 1 to n</p>
+<p t="2817790" d="7080">of f of i, and the first case is
+when f is a positive increasing</p>
+<p t="2824870" d="8280">function, increasing in i.</p>
+<p t="2840660" d="2300">Integration bounds, and so
+we're increasing function.</p>
+<p t="2848160" d="3370">So let me draw a picture
+that will hopefully</p>
+<p t="2851530" d="2530">make the bounds that we're
+going to get pretty easy.</p>
+<p t="2867550" d="6040">So let's draw the
+sum here as follows.</p>
+<p t="2873590" d="10770">I've got 0, 1, 2, 3, n
+minus 2, n minus 1, n,</p>
+<p t="2884360" d="2480">and draw the values of f here.</p>
+<p t="2886840" d="10420">Here's f of 1, f of 2--
+it's increasing-- f of 3,</p>
+<p t="2897260" d="2290">f of n minus 1, and f of n.</p>
+<p t="2903180" d="4450">Then I'll draw the
+rectangles here.</p>
+<p t="2911640" d="6980">So this has area of f of
+1, this has area f of 2,</p>
+<p t="2918620" d="5010">this has area f of 3,
+and we keep on going.</p>
+<p t="2923630" d="3440">Let's see, this will
+be f of n minus 2</p>
+<p t="2927070" d="3705">on this one-- I'll just do f of
+n minus 1, draw this guy here.</p>
+<p t="2933950" d="2720">So its unit width, its
+height is f of n minus 1,</p>
+<p t="2936670" d="6466">so its area is f of n
+minus 1, and then f of n.</p>
+<p t="2945690" d="5550">And let me also--
+so the sum of f of i</p>
+<p t="2951240" d="3260">is the areas in the rectangles.</p>
+<p t="2954500" d="2260">That's what the
+sum is, and I want</p>
+<p t="2956760" d="4360">to get bounds on this
+sum using the integral,</p>
+<p t="2961120" d="2390">because integrals are
+easier to compute.</p>
+<p t="2963510" d="5230">So let's draw the function
+f of x from 1 to n.</p>
+<p t="2975720" d="4045">All right, so this is
+f of x as a function.</p>
+<p t="2982380" d="9530">Now I claim that the sum
+i equals 1 to n of f of i</p>
+<p t="2991910" d="5700">is at least f of 1 plus
+the integral from 1 to n,</p>
+<p t="2997610" d="1260">f of x, dx.</p>
+<p t="3001570" d="6020">Now, the integral
+from 1 to n of f of x</p>
+<p t="3007590" d="3196">is this stuff, the
+stuff under the curve.</p>
+<p t="3010786" d="4144">It comes down here,
+starts at 1, and it's</p>
+<p t="3014930" d="2830">the stuff under the curve.</p>
+<p t="3017760" d="1650">And what I'm saying
+here is that if you</p>
+<p t="3019410" d="2080">take that stuff under
+the curve and add</p>
+<p t="3021490" d="3510">f of 1, which is
+this piece, that's</p>
+<p t="3025000" d="3230">a lower bound on our sum.</p>
+<p t="3028230" d="2910">The sum's bigger than that.</p>
+<p t="3031140" d="3480">So what I'm saying is the
+area in the rectangles</p>
+<p t="3034620" d="3820">is at least as big as the
+area in the first rectangle</p>
+<p t="3038440" d="3810">plus the area under the curve.</p>
+<p t="3042250" d="2940">Does everybody see why that is?</p>
+<p t="3045190" d="4150">I'm saying the sum is the
+area in the rectangles, right?</p>
+<p t="3049340" d="1710">That's pretty clear.</p>
+<p t="3051050" d="5710">And that is at least as big
+as the first rectangle f of 1</p>
+<p t="3056760" d="3970">plus the stuff under the
+curve, which is the integral,</p>
+<p t="3060730" d="2310">and I've left-- I've
+chopped off these guys.</p>
+<p t="3063040" d="1460">That's extra.</p>
+<p t="3064500" d="1910">OK?</p>
+<p t="3066410" d="1300">Is that all right?</p>
+<p t="3067710" d="2490">So lower bound.</p>
+<p t="3070200" d="2310">Any questions on
+the lower bound?</p>
+<p t="3072510" d="3610">This is a picture proof, which
+we always tell you not to do,</p>
+<p t="3076120" d="2336">but we're going to do one here.</p>
+<p t="3081830" d="4289">And, of course, it totally hides
+why did I need f is increasing,</p>
+<p t="3086119" d="1291">but we'll see that in a minute.</p>
+<p t="3087410" d="2526">The proof would not work
+unless it is increasing here.</p>
+<p t="3092840" d="1500">Any questions,
+because now going I'm</p>
+<p t="3094340" d="3050">going to do the other
+bound, the other side.</p>
+<p t="3097390" d="3910">I also claim-- this will be
+a little trickier to see--</p>
+<p t="3101300" d="7930">that the sum is at most f of n
+plus the integral from 1 to n.</p>
+<p t="3113420" d="2690">So this is the lower
+bound add in f of 1,</p>
+<p t="3116110" d="1700">the upper bound
+just add in f of n.</p>
+<p t="3117810" d="2630">So let's see why that's true.</p>
+<p t="3120440" d="2700">Now, to see that,
+this is-- I'm not</p>
+<p t="3123140" d="2260">going to be able to draw it.</p>
+<p t="3125400" d="3020">I want you to imagine taking
+this curve and the area</p>
+<p t="3128420" d="8060">under it, down to here, and
+sliding it left one unit.</p>
+<p t="3136480" d="7487">sliding it left to here, sliding
+it left one unit over to here.</p>
+<p t="3146950" d="4030">Now, when I slide it left one
+unit, did the area under it</p>
+<p t="3150980" d="2770">change?</p>
+<p t="3153750" d="530">No.</p>
+<p t="3154280" d="2580">It's the same area
+under it, just where</p>
+<p t="3156860" d="2930">it sits on the picture
+is now out here.</p>
+<p t="3162950" d="2370">It's this area under this
+guy, but it's the same thing,</p>
+<p t="3165320" d="1980">its the same integral.</p>
+<p t="3167300" d="3380">And you can see that
+it's more than what's</p>
+<p t="3170680" d="4430">in these rectangles, because
+I got all this stuff.</p>
+<p t="3175110" d="1940">And, of course, I didn't
+even include this,</p>
+<p t="3177050" d="3990">so now I add the f n.</p>
+<p t="3181040" d="3600">So if I take the area under the
+curve, which is the integral,</p>
+<p t="3184640" d="1810">shift it left one,
+so it only goes up</p>
+<p t="3186450" d="4650">to here now, and then add in
+this rectangle, that dominates</p>
+<p t="3191100" d="3490">the area in the rectangles.</p>
+<p t="3194590" d="520">Bigger than.</p>
+<p t="3198890" d="901">Do you see that?</p>
+<p t="3203271" d="1749">I could do a lot of
+equations on the board</p>
+<p t="3205020" d="4530">but, for sure, that would
+be hopeless to follow.</p>
+<p t="3209550" d="1610">Any questions about this?</p>
+<p t="3211160" d="736">Yeah.</p>
+<p t="3211896" d="3192">AUDIENCE: I guess I understand
+the lower amounts because we're</p>
+<p t="3215088" d="1372">cutting off the triangles.</p>
+<p t="3216460" d="1900">PROFESSOR: Yeah.</p>
+<p t="3218360" d="4400">But is there-- is it
+a lot of hand waving,</p>
+<p t="3222760" d="2900">or am I just missing something,
+that it's always going to be</p>
+<p t="3225660" d="2344">the f of n is what we--</p>
+<p t="3228004" d="666">PROFESSOR: Yeah.</p>
+<p t="3228670" d="2080">There's a little
+hand waving going on,</p>
+<p t="3230750" d="2326">but I do believe it is true.</p>
+<p t="3233076" d="1624">With equations you
+can make it precise.</p>
+<p t="3234700" d="3176">Let's look at it again,
+do this one more time.</p>
+<p t="3237876" d="1606">AUDIENCE: [INAUDIBLE]</p>
+<p t="3239482" d="1958">PROFESSOR: Yeah, I'm
+waving hands a little bit,</p>
+<p t="3241440" d="3500">but it also-- hopefully
+the intuition comes across,</p>
+<p t="3244940" d="5280">because when I
+shift left by one,</p>
+<p t="3250220" d="3010">this point becomes this
+point, and that point becomes</p>
+<p t="3253230" d="3070">that point, and
+I'm catching sort</p>
+<p t="3256300" d="8000">of the cusp of these rectangles,
+and now I take this curve here,</p>
+<p t="3264300" d="3820">shifting the whole
+curve left one unit,</p>
+<p t="3268120" d="2310">and the area doesn't change.</p>
+<p t="3270430" d="2580">It would be equivalent of
+taking the integral from 0</p>
+<p t="3273010" d="2160">to n minus 1.</p>
+<p t="3275170" d="3639">You notice what I'm
+doing-- of f of x plus 1.</p>
+<p t="3278809" d="2041">There's another way to
+look at it mathematically,</p>
+<p t="3280850" d="2560">maybe-- probably the
+formal way to do it--</p>
+<p t="3283410" d="2650">but the idea is that
+this now contains</p>
+<p t="3286060" d="2520">all these first n
+minus 1 rectangles,</p>
+<p t="3288580" d="2600">are contained underneath it.</p>
+<p t="3291180" d="4400">And then I just add this
+in, and I'm good to go.</p>
+<p t="3295580" d="1790">I've contained all
+the rectangles now</p>
+<p t="3297370" d="3207">for the upper bounds.</p>
+<p t="3300577" d="1458">All right,
+mathematically what this</p>
+<p t="3302035" d="4235">is, this curve is
+0 to n minus 1,</p>
+<p t="3306270" d="4300">fx plus 1, which is the
+same thing as what that is.</p>
+<p t="3313810" d="5370">Any questions for that?</p>
+<p t="3319180" d="3980">But now I have good
+bounds on the sum.</p>
+<p t="3323160" d="4940">We know that the sum is at
+least this and at most that,</p>
+<p t="3328100" d="5890">and those two bounds only differ
+by a single term in the sum,</p>
+<p t="3333990" d="2134">so they're very close.</p>
+<p t="3336124" d="1916">These actually are good
+formulas to write down</p>
+<p t="3338040" d="833">for your crib sheet.</p>
+<p t="3338873" d="10007">That is worth doing on the test,
+and we'll use them more today,</p>
+<p t="3348880" d="2453">and we'll also use
+them on Thursday.</p>
+<p t="3356730" d="2670">So now we can actually
+get close bounds</p>
+<p t="3359400" d="3450">on the sum of the square roots.</p>
+<p t="3362850" d="3515">So let's see how
+this works for f</p>
+<p t="3366365" d="4755">of i equal to the square root
+of i, which is increasing.</p>
+<p t="3371120" d="6350">So I compute the integral from
+1 to n of square root of x dx,</p>
+<p t="3377470" d="7490">and that's just x to the 3/2
+over 3/2, evaluated at n and 1,</p>
+<p t="3384960" d="7700">and that just equals 2/3
+n to the 3/2 minus 1.</p>
+<p t="3392660" d="3160">And now I can compute
+the bounds on the sum</p>
+<p t="3395820" d="1340">of the first n square roots.</p>
+<p t="3399920" d="7830">So I know that square root
+i equals 1 to n-- well,</p>
+<p t="3407750" d="9250">the upper bound is f
+n plus the integral,</p>
+<p t="3417000" d="5204">and the lower bound is f
+of 1 plus the integral.</p>
+<p t="3427590" d="1800">What is f of n?</p>
+<p t="3432280" d="2870">That's the square root of n.</p>
+<p t="3435150" d="3180">What is f of 1?</p>
+<p t="3438330" d="3530">The square root
+of 1, which is 1.</p>
+<p t="3441860" d="2450">So I'll plug that in here.</p>
+<p t="3444310" d="10130">I get 2/3 n to the 3/2 plus
+1 minus 2/3 is plus 1/3,</p>
+<p t="3454440" d="6580">and here I get 2/3 n to the
+3/2 plus the square root</p>
+<p t="3461020" d="1778">of n minus 2/3.</p>
+<p t="3466210" d="3630">So now I have pretty good
+bounds on the sum of the first n</p>
+<p t="3469840" d="4480">square roots using this method.</p>
+<p t="3474320" d="8860">So for example,
+take n equals 100.</p>
+<p t="3483180" d="4090">This number evaluates to 667.</p>
+<p t="3487270" d="4860">This number evaluates to
+676, and the difference</p>
+<p t="3492130" d="4160">is 9, which is the square
+root of 100 minus 1.</p>
+<p t="3496290" d="3720">This is the square
+root of n, this is 1,</p>
+<p t="3500010" d="4200">so the gap here, square root
+of n minus 1, and n equals 100.</p>
+<p t="3504210" d="2220">Square root of 100 minus
+1 is 9, so I shouldn't be</p>
+<p t="3506430" d="2212">surprised my gap here is nine.</p>
+<p t="3508642" d="1708">So I didn't get exactly
+the right answer,</p>
+<p t="3510350" d="2705">but I'm pretty close here.</p>
+<p t="3516030" d="8640">Now, as n grows, what happens to
+the gap between the upper bound</p>
+<p t="3524670" d="3150">and the lower bound?</p>
+<p t="3527820" d="1550">What does it do?</p>
+<p t="3529370" d="1630">It gets bigger.</p>
+<p t="3531000" d="2010">So my gap gets bigger.</p>
+<p t="3533010" d="1480">That's not so nice.</p>
+<p t="3534490" d="5120">Doesn't always stay 9
+forever, but somehow</p>
+<p t="3539610" d="5280">though this is still pretty
+good, because the gap grows</p>
+<p t="3544890" d="4530">but the gap only grows
+as square root of n,</p>
+<p t="3549420" d="5250">where the answer-- the bounds--
+are growing as n to the 3/2.</p>
+<p t="3554670" d="4830">In other words, my error
+is somewhere around here,</p>
+<p t="3559500" d="3650">and that gets smaller
+compared to my answer, which</p>
+<p t="3563150" d="2820">is somewhere around there.</p>
+<p t="3565970" d="4040">And there's a special
+notation that people use.</p>
+<p t="3570010" d="3481">In fact, let's write that
+down and then do the notation.</p>
+<p t="3585570" d="8870">Another way of writing this is
+that the sum i equals 1 to n</p>
+<p t="3594440" d="2380">of square root of i.</p>
+<p t="3596820" d="5850">The leading term here
+is 2/3 n to the 3/2,</p>
+<p t="3602670" d="2960">and then there's some error
+term-- delta term here.</p>
+<p t="3605630" d="4200">We'll call that
+delta n, and we know</p>
+<p t="3609830" d="9339">that the error term is at
+least 1/3 and, at most,</p>
+<p t="3619169" d="1291">the square root of n minus 2/3.</p>
+<p t="3625100" d="3990">So this delta term is bound
+by the square root of n.</p>
+<p t="3629090" d="2130">That's getting
+bigger as n gets big,</p>
+<p t="3631220" d="5700">but this value compared to
+your answer is getting small.</p>
+<p t="3636920" d="5049">That's nice, and so the way that
+gets represented is as follows.</p>
+<p t="3641969" d="1916">We would say-- it's using
+that tilde notation.</p>
+<p t="3646620" d="5340">We write tilde 2/3
+times n to the 3/2,</p>
+<p t="3651960" d="1660">and now we've gotten
+rid of the delta,</p>
+<p t="3653620" d="2210">because this tilde is
+telling us that everything</p>
+<p t="3655830" d="5670">else out here gets small
+compared to this as n gets big.</p>
+<p t="3661500" d="2760">And the formal definition--
+Let's write out</p>
+<p t="3664260" d="1771">the formal definition for it.</p>
+<p t="3682720" d="1950">Now, a lot of times
+you'll see people</p>
+<p t="3684670" d="2500">use this symbol to mean about.</p>
+<p t="3687170" d="1620">That's informal.</p>
+<p t="3688790" d="3185">When I'm using it here,
+it's a very formal meaning</p>
+<p t="3691975" d="625">mathematically.</p>
+<p t="3695580" d="7350">A function g of x is
+tilde, a function h of x</p>
+<p t="3702930" d="13910">means that the limit as x goes
+to infinity of g over h is 1.</p>
+<p t="3716840" d="1910">In other words, that
+as x goes to infinity--</p>
+<p t="3718750" d="5730">as x gets big-- the ratio
+of these guys becomes 1.</p>
+<p t="3724480" d="1510">And let's see if
+that's true here.</p>
+<p t="3729040" d="3890">Well, square root
+of i equals this,</p>
+<p t="3732930" d="4800">so I need to show the limit
+of this over that is 1.</p>
+<p t="3737730" d="2820">So let's check that.</p>
+<p t="3740550" d="5810">A limit as n goes to
+infinity of 2/3 n to the 3/2</p>
+<p t="3746360" d="7350">plus that delta term
+over 2/3 n to the 3/2.</p>
+<p t="3753710" d="4855">Well, that equals-- divide out
+by 2/3 n to the 3/2, I get a 1.</p>
+<p t="3765776" d="1374">Did I-- should I
+have subtracted?</p>
+<p t="3767150" d="2680">No, that's OK.</p>
+<p t="3769830" d="8020">One plus delta n over
+2/3 n to the 3/2.</p>
+<p t="3777850" d="4240">If I can pull the 1 out front,
+that's 1 plus the limit,</p>
+<p t="3782090" d="3750">and this is now delta n is
+at most square root of n,</p>
+<p t="3785840" d="6020">so I get square root of
+n over 2/3 n to the 3/2.</p>
+<p t="3791860" d="5250">Square root of n over n to
+the 3/2, that goes to 0.</p>
+<p t="3797110" d="1420">So this equals 1.</p>
+<p t="3802280" d="2160">So this limit is 1,
+and so therefore I</p>
+<p t="3804440" d="3700">can say that the sum of
+the first n square roots</p>
+<p t="3808140" d="4360">is tilde 2/3 n to the 3/2.</p>
+<p t="3812500" d="2820">Any questions about this?</p>
+<p t="3815320" d="2730">We're going to do a lot of this
+kind of notation next time.</p>
+<p t="3818050" d="1140">Yeah.</p>
+<p t="3819190" d="1500">AUDIENCE: When you
+took the integral</p>
+<p t="3820690" d="3770">and got 2/3 into
+the 3/2 minus 1,</p>
+<p t="3824460" d="4590">why did the minus 1 not become
+part of the actual solution</p>
+<p t="3829050" d="2267">and become part of the delta?</p>
+<p t="3831317" d="583">PROFESSOR: OK.</p>
+<p t="3831900" d="2600">So you brought it
+up to here, right?</p>
+<p t="3834500" d="860">OK.</p>
+<p t="3835360" d="4050">So then I plug that
+into the integral that</p>
+<p t="3839410" d="2380">appears on both sides here,
+and here I add the f 1,</p>
+<p t="3841790" d="4649">here I add f n, and now I
+have the lower bound here</p>
+<p t="3846439" d="1041">and the upper bound here.</p>
+<p t="3847480" d="1610">Are you good with those?</p>
+<p t="3849090" d="500">All right.</p>
+<p t="3849590" d="3290">Now some judgment takes
+place, and what I'm really</p>
+<p t="3852880" d="4710">trying to do here is figure out
+what are the important terms</p>
+<p t="3857590" d="2660">in these bounds as n gets big?</p>
+<p t="3860250" d="3190">How big is this
+growing as n gets big?</p>
+<p t="3863440" d="4910">Well, as n gets big, the
+1/3 is not doing much.</p>
+<p t="3868350" d="2380">As n gets big, the
+square root of n</p>
+<p t="3870730" d="3640">grows, but it's nothing
+like what's happening here.</p>
+<p t="3874370" d="1450">If you had to
+describe to somebody</p>
+<p t="3875820" d="4671">what's going on in this bound,
+would you start here or here?</p>
+<p t="3880491" d="499">No.</p>
+<p t="3880990" d="708">You'd start here.</p>
+<p t="3881698" d="3052">This is the action, and there's
+a little bit-- the rest is just</p>
+<p t="3884750" d="1850">in the slop, in the air.</p>
+<p t="3886600" d="4480">And so now I've used judgement
+to say that delta is somewhere</p>
+<p t="3891080" d="2334">in this stuff here.</p>
+<p t="3893414" d="2416">What's really happening, and
+the nice thing is they match.</p>
+<p t="3895830" d="3940">The lower bound and the upper
+bound match on that term.</p>
+<p t="3899770" d="4980">So what I do is I write
+it equals this term</p>
+<p t="3904750" d="5640">plus something that's
+smaller and, in particular,</p>
+<p t="3910390" d="3690">it's between 1/3 and
+square root of n minus 2/3.</p>
+<p t="3914080" d="700">All right.</p>
+<p t="3914780" d="2110">So what I'm trying
+to capture here</p>
+<p t="3916890" d="3840">is just the guts of what's
+happening to this function</p>
+<p t="3920730" d="3800">as n grows, and the
+guts of it is this.</p>
+<p t="3924530" d="3680">It's not exactly equal to
+2/3 times n to the 3/2,</p>
+<p t="3928210" d="2230">but it's close
+and, in fact, if I</p>
+<p t="3930440" d="4490">take the limit of this over
+that, that limit goes to 1.</p>
+<p t="3934930" d="4330">It's a way of saying they're
+approximately the same that's</p>
+<p t="3939260" d="2720">called asymptotically
+the same, and we'll</p>
+<p t="3941980" d="3170">talk a lot more about
+asymptotic notation next time.</p>
+<p t="3945150" d="4064">We'll give you five more symbols
+besides tilde that people use.</p>
+<p t="3951900" d="2770">Any questions about-- maybe
+start with the bounds.</p>
+<p t="3954670" d="2440">Any question on the
+bounds that we got?</p>
+<p t="3957110" d="4680">That's the integration method,
+first getting the bounds.</p>
+<p t="3961790" d="3860">You take the integral, you add
+f of 1 for the lower bound,</p>
+<p t="3965650" d="2324">you add f of n for
+the upper bound,</p>
+<p t="3967974" d="1666">and it's in between,
+somewhere in there.</p>
+<p t="3972570" d="2390">Questions there?</p>
+<p t="3974960" d="510">All right.</p>
+<p t="3975470" d="3120">Then we plugged
+it in, and now we</p>
+<p t="3978590" d="3559">look at this tilde notation
+that says-- well, first we'd</p>
+<p t="3982149" d="791">write it like this.</p>
+<p t="3982940" d="4450">The sum is this value plus an
+error term and, lo and behold,</p>
+<p t="3987390" d="3450">that error term is small.</p>
+<p t="3990840" d="3640">If I take the limit of the whole
+thing divided by the big term,</p>
+<p t="3994480" d="4300">I get 1, which means this
+thing is really not important.</p>
+<p t="3998780" d="952">So I write this.</p>
+<p t="4002630" d="3210">Questions on that?</p>
+<p t="4005840" d="2660">All right.</p>
+<p t="4008500" d="2875">There's one more
+case to consider,</p>
+<p t="4011375" d="2375">and now we're going to go back
+to the integration bounds,</p>
+<p t="4013750" d="3807">and that is when f is
+a decreasing function,</p>
+<p t="4017557" d="1833">and we're going to do
+the analysis for that,</p>
+<p t="4019390" d="1125">and then we'll be all done.</p>
+<p t="4024480" d="5260">So we're going to look
+at integration bounds</p>
+<p t="4029740" d="3930">when f is decreasing
+and positive still.</p>
+<p t="4045660" d="9150">The example here might
+be, for example, the sum i</p>
+<p t="4054810" d="5450">equals 1 to n, 1 over
+the square root of i.</p>
+<p t="4060260" d="3290">Say you had to get some idea
+of how fast that function is</p>
+<p t="4063550" d="2420">growing as a function of n.</p>
+<p t="4065970" d="7026">I'm summing the first n
+inverse as the square roots.</p>
+<p t="4072996" d="1374">What is that
+roughly going to be?</p>
+<p t="4074370" d="3490">How fast does that grow
+as a function of n?</p>
+<p t="4077860" d="1121">So let's do that.</p>
+<p t="4082256" d="1624">And, of course, 1
+over square root of i</p>
+<p t="4083880" d="4620">decreases as i gets bigger.</p>
+<p t="4088500" d="7490">So let's do the general picture
+again and see what happens.</p>
+<p t="4095990" d="12800">So we have 0, 1, 2, 3, n minus
+2, n minus 1, n, and now f of n</p>
+<p t="4108790" d="14300">is the small term and f of n
+minus 1, f of 3 here, f of 1.</p>
+<p t="4123090" d="2160">Now, I'm going to
+draw the rectangle.</p>
+<p t="4125250" d="4220">This has area f of 1.</p>
+<p t="4129470" d="2712">This one has area f of 2.</p>
+<p t="4135080" d="8050">This one has area f of
+3, and then this one</p>
+<p t="4143130" d="11149">has area f of n minus 1 here,
+and then, lastly, area f of n.</p>
+<p t="4154279" d="4540">So the sum is the area in the
+rectangles, just like before,</p>
+<p t="4158819" d="3201">except now the rectangles
+are getting smaller.</p>
+<p t="4162020" d="5330">Let's draw the integral
+like we did before.</p>
+<p t="4167350" d="5030">The integral is the area
+under this curve, f of x here,</p>
+<p t="4172380" d="982">just like before.</p>
+<p t="4175960" d="3154">So this is f of x,
+only it's decreasing.</p>
+<p t="4181840" d="7830">Now, let's take the area under
+this curve, and add f of 1</p>
+<p t="4189670" d="1870">to it.</p>
+<p t="4191540" d="3370">If I take the area under
+this curve, all the way</p>
+<p t="4194910" d="5870">down to here and then add
+f of 1, what do I get?</p>
+<p t="4204440" d="3351">Upper bound on my sum.</p>
+<p t="4207791" d="499">OK.</p>
+<p t="4208290" d="5170">So the sum i equals
+1 to n f of i</p>
+<p t="4213460" d="6150">is upper bounded by that
+guy, which is f of 1,</p>
+<p t="4219610" d="7910">plus my integral, which is
+the area under the curve.</p>
+<p t="4227520" d="3880">The integral is the area under
+that curve, starting here,</p>
+<p t="4231400" d="3710">and that contains
+all these rectangles,</p>
+<p t="4235110" d="3016">and then I just add in f
+of 1 to get an upper bound.</p>
+<p t="4241540" d="3210">Now, for the lower bound,
+think about shifting</p>
+<p t="4244750" d="3080">the whole curve left by one.</p>
+<p t="4247830" d="3360">That goes to there,
+this goes to here,</p>
+<p t="4251190" d="5550">that goes to here, that goes to
+there, and that goes to there.</p>
+<p t="4256740" d="2460">The area under the
+curve did not change</p>
+<p t="4259200" d="3510">when I shifted it left by one.</p>
+<p t="4262710" d="4050">This is now my area
+under the curve.</p>
+<p t="4266760" d="2070">Stops here.</p>
+<p t="4268830" d="3970">What do I get when I take that
+area and add in this last box,</p>
+<p t="4272800" d="3770">f of n?</p>
+<p t="4276570" d="3129">A lower bound,
+because it's contained</p>
+<p t="4279699" d="916">in all the rectangles.</p>
+<p t="4290900" d="5592">Now, what's really weird
+about these formulas,</p>
+<p t="4296492" d="916">do they look familiar?</p>
+<p t="4300280" d="1500">Yeah.</p>
+<p t="4301780" d="1520">Yeah.</p>
+<p t="4303300" d="1661">I switched them.</p>
+<p t="4304961" d="499">Yeah.</p>
+<p t="4305460" d="3410">They're the same formulas
+we had over here,</p>
+<p t="4308870" d="2860">except we switched the direction
+on the less than and greater</p>
+<p t="4311730" d="2240">than signs.</p>
+<p t="4313970" d="2030">Well, I swapped f of 1
+and f of n, however you</p>
+<p t="4316000" d="1280">want to think about it.</p>
+<p t="4317280" d="3290">The lower bound
+here in that case</p>
+<p t="4320570" d="4430">became the upper
+bound in this case.</p>
+<p t="4325000" d="4330">Is that possible that the lower
+bound became the upper bound?</p>
+<p t="4329330" d="550">Yeah.</p>
+<p t="4329880" d="2030">Yeah, because what
+really happened here--</p>
+<p t="4331910" d="3330">which is the big term
+in this case, fn or f1?</p>
+<p t="4335240" d="2050">f1 is the big term
+because it's decreasing,</p>
+<p t="4337290" d="2360">so it's totally symmetric.</p>
+<p t="4339650" d="1030">All right?</p>
+<p t="4340680" d="2290">The proof was very
+similar, so the nice thing</p>
+<p t="4342970" d="2740">is you've only got to remember
+the bounds are now simple</p>
+<p t="4345710" d="3020">for any sum as long as an
+increasing or decreasing, it's</p>
+<p t="4348730" d="1760">the same as the integral.</p>
+<p t="4350490" d="3430">The lower bound is the smaller
+of the first and last term,</p>
+<p t="4353920" d="2730">and the upper bounds are larger
+of the first and last term.</p>
+<p t="4356650" d="1280">Very easy to remember.</p>
+<p t="4357930" d="1624">Probably don't even
+need the crib sheet</p>
+<p t="4359554" d="6646">for it, although to be safe,
+want to write that down.</p>
+<p t="4366200" d="3860">So now it's easy to compute
+good bounds on the sum</p>
+<p t="4370060" d="1490">of the inverse square roots.</p>
+<p t="4382020" d="6510">Any questions there
+before I go do it?</p>
+<p t="4388530" d="2910">So let's take the case
+where we're summing 1</p>
+<p t="4391440" d="1160">over square root of i.</p>
+<p t="4395360" d="7610">So we compute the integral of
+1 over square root of x dx.</p>
+<p t="4402970" d="6530">That equals the square root of x
+over 1/2, evaluated at n and 1.</p>
+<p t="4409500" d="4150">That equals 2 square
+root of n minus 1,</p>
+<p t="4413650" d="6815">or two square root of n minus
+2, and now we can bound the sum.</p>
+<p t="4428650" d="5730">The upper bound is f
+of 1 plus the integral.</p>
+<p t="4434380" d="4595">The lower bound is f
+of n plus the integral.</p>
+<p t="4442420" d="3350">What is f of 1?</p>
+<p t="4445770" d="2300">One?</p>
+<p t="4448070" d="1460">One over the square
+root of 1 is 1.</p>
+<p t="4449530" d="910">What is f of n?</p>
+<p t="4454120" d="1280">One over the square root of n.</p>
+<p t="4455400" d="1950">Small.</p>
+<p t="4457350" d="2940">So these bounds are
+pretty close here, right?</p>
+<p t="4460290" d="2065">In fact, this gets really
+tiny as n gets big,</p>
+<p t="4462355" d="1375">so I'm just going
+to replace this</p>
+<p t="4463730" d="2840">with 2 square root of n minus
+2 and make it a strict lower</p>
+<p t="4466570" d="3615">bound, and this--
+cancel there-- I</p>
+<p t="4470185" d="4165">get 2 square root of n minus 1.</p>
+<p t="4474350" d="1700">Wow, these bounds are great.</p>
+<p t="4476050" d="4230">They're within one for all n.</p>
+<p t="4480280" d="2980">That's really good.</p>
+<p t="4483260" d="5310">So we can rewrite this in
+terms of what really matters.</p>
+<p t="4488570" d="3940">What really matters
+in these bounds?</p>
+<p t="4492510" d="2050">How fast is this
+function growing?</p>
+<p t="4494560" d="860">AUDIENCE: 2 root n.</p>
+<p t="4495420" d="580">PROFESSOR: 2 root n.</p>
+<p t="4496000" d="2208">That's what really matters,
+so let's write that down.</p>
+<p t="4506020" d="3486">So this says that the
+sum i equals 1 to n</p>
+<p t="4509506" d="7420">of 1 over square root i
+equals 2 square root of n-- we</p>
+<p t="4516926" d="10064">have a minus delta n, where
+delta is between 1 and 2.</p>
+<p t="4526990" d="7000">And so if I use the tilde
+notation, what would I</p>
+<p t="4533990" d="2220">write down here for the tilde?</p>
+<p t="4536210" d="2844">Past the tilde?</p>
+<p t="4539054" d="916">I don't want to mess--</p>
+<p t="4539970" d="140">AUDIENCE: Tilde.</p>
+<p t="4540110" d="916">PROFESSOR: --I don't
+want to keep track of all</p>
+<p t="4541026" d="1573">the delta stuff as n gets big.</p>
+<p t="4542599" d="791">AUDIENCE: 2 root n.</p>
+<p t="4543390" d="5030">PROFESSOR: 2 root
+n, because this term</p>
+<p t="4548420" d="3890">over that goes to 0 as
+n gets large, so let's</p>
+<p t="4552310" d="780">just check that.</p>
+<p t="4556630" d="4900">So we take the limit as n
+goes to infinity of 2 root</p>
+<p t="4561530" d="4705">n minus delta n over 2 root n.</p>
+<p t="4566235" d="1915">I'm just checking
+the definition now.</p>
+<p t="4568150" d="2870">That's what the
+definition would be.</p>
+<p t="4571020" d="6360">Equals 1 minus the
+limit as n goes</p>
+<p t="4577380" d="3820">to infinity of 2 over 2 root n.</p>
+<p t="4581200" d="2050">This is 0.</p>
+<p t="4583250" d="2500">So it equals 1.</p>
+<p t="4585750" d="3990">And so now you know that the
+sum of the first n inverse</p>
+<p t="4589740" d="3118">square roots grows as 2 root
+n, which is the integral.</p>
+<p t="4592858" d="499">Yeah.</p>
+<p t="4593357" d="3673">AUDIENCE: [INAUDIBLE] dropped
+off the lower bound that f of n</p>
+<p t="4597030" d="1580">was 1 over root n?</p>
+<p t="4598610" d="3790">PROFESSOR: Yeah, I dropped it
+off, because it was so tiny</p>
+<p t="4602400" d="2750">and going to zero, I just
+made a strict less than.</p>
+<p t="4605150" d="700">In fact, yes.</p>
+<p t="4605850" d="2960">I don't hurt myself
+by dropping it off.</p>
+<p t="4608810" d="2230">In fact, the lower
+bound was a little bit--</p>
+<p t="4611040" d="2170">I made a little
+weaker lower bound.</p>
+<p t="4613210" d="1626">So this is still true.</p>
+<p t="4614836" d="1874">I just-- it wasn't as
+tight as it used to be,</p>
+<p t="4616710" d="2764">so I could keep it around.</p>
+<p t="4619474" d="1666">Yeah, it doesn't hurt
+to keep it around,</p>
+<p t="4621140" d="3140">then it's a less
+than or equal there.</p>
+<p t="4624280" d="6485">And now this would be
+something like that.</p>
+<p t="4630765" d="2375">So I could keep it around,
+but I'm going to get rid of it</p>
+<p t="4633140" d="3290">anyway, because I'm going
+to go to the tilde notation,</p>
+<p t="4636430" d="3447">and as n gets big,
+this is really tiny.</p>
+<p t="4639877" d="1583">So in this case, the
+bounds are great.</p>
+<p t="4641460" d="5080">You can nail it
+pretty much right on.</p>
+<p t="4646540" d="750">Yeah.</p>
+<p t="4647290" d="3000">AUDIENCE: You said one
+over n still there,</p>
+<p t="4650290" d="2000">the number is bigger than
+it would normally be,</p>
+<p t="4652290" d="2250">so when you take it
+out, it becomes smaller,</p>
+<p t="4654540" d="4095">so how could you go to
+a less than [INAUDIBLE]?</p>
+<p t="4658635" d="1875">PROFESSOR: Well, you're
+saying you don't like</p>
+<p t="4660510" d="1636">the fact I dropped it here?</p>
+<p t="4662146" d="583">AUDIENCE: Yes.</p>
+<p t="4662729" d="2398">When you drop it, why do you
+go to a less than instead of</p>
+<p t="4665127" d="500">[INAUDIBLE]?</p>
+<p t="4665627" d="5983">PROFESSOR: Oh, because I've got
+a bigger bound that I made less</p>
+<p t="4671610" d="870">when I dropped it.</p>
+<p t="4672480" d="3070">I took something away, so I
+know I could never equal this,</p>
+<p t="4675550" d="3210">because I know it's
+bigger than this.</p>
+<p t="4678760" d="2950">I know that the real answer
+has to be at least this big,</p>
+<p t="4681710" d="3227">and so it has to be bigger
+than something smaller.</p>
+<p t="4684937" d="833">That's why I did it.</p>
+<p t="4689960" d="3280">Any other questions?</p>
+<p t="4693240" d="3790">We'll get more practice tomorrow
+and next time with this stuff.</p>
+</body>
+</timedtext>

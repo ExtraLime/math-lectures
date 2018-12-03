@@ -1,0 +1,2640 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="120" d="2340">The following content is
+provided under a Creative</p>
+<p t="2460" d="1390">Commons license.</p>
+<p t="3850" d="2240">Your support will help
+MIT OpenCourseWare</p>
+<p t="6090" d="4090">continue to offer high quality
+educational resources for free.</p>
+<p t="10180" d="2540">To make a donation or to
+view additional materials</p>
+<p t="12720" d="3960">from hundreds of MIT courses,
+visit MIT OpenCourseWare</p>
+<p t="16680" d="3234">and ocw.mit.edu.</p>
+<p t="19914" d="2166">PHILIPPE RIGOLLET: The
+chapter is a natural capstone</p>
+<p t="22080" d="2760">chapter for this entire course.</p>
+<p t="24840" d="1920">We'll see some of
+the things we've</p>
+<p t="26760" d="3150">seen during maximum likelihood
+and some of the things</p>
+<p t="29910" d="4170">we've seen during linear
+regression, some of the things</p>
+<p t="34080" d="2940">we've seen in terms of the basic
+modeling that we've had before.</p>
+<p t="37020" d="2635">We're not going to go back
+to much inference questions.</p>
+<p t="39655" d="1625">It's really going to
+be about modeling.</p>
+<p t="41280" d="3075">And in a way, generalized
+linear models, as the word says,</p>
+<p t="44355" d="2655">are just a generalization
+of linear models.</p>
+<p t="47010" d="2290">And they're actually
+extremely useful.</p>
+<p t="49300" d="2600">They're often forgotten
+about and people just</p>
+<p t="51900" d="2820">jump onto machine learning
+and sophisticated techniques.</p>
+<p t="54720" d="2664">But those things do
+the job quite well.</p>
+<p t="57384" d="2166">So let's see in what sense
+they are a generalization</p>
+<p t="59550" d="2700">of the linear models.</p>
+<p t="62250" d="3150">So remember, the linear
+model looked like this.</p>
+<p t="65400" d="7630">We said that y was equal to x
+transpose beta plus epsilon,</p>
+<p t="73030" d="500">right?</p>
+<p t="73530" d="2430">That was our linear
+regression model.</p>
+<p t="75960" d="3370">And it's-- another way
+to say this is that if--</p>
+<p t="79330" d="1640">and let's assume
+that those were, say,</p>
+<p t="80970" d="4260">Gaussian with mean 0 and
+identity covariance matrix.</p>
+<p t="85230" d="1500">Then another way
+to say this is that</p>
+<p t="86730" d="5970">the conditional distribution
+of y given x is equal to--</p>
+<p t="92700" d="6990">sorry, I a Gaussian with mean
+x transpose beta and variance--</p>
+<p t="99690" d="3750">well, we had a sigma squared,
+which I will forget as usual--</p>
+<p t="103440" d="2640">x transpose beta and
+then sigma squared.</p>
+<p t="106080" d="4470">OK, so here, we just assumed
+that-- so what is regression</p>
+<p t="110550" d="4080">is just saying I'm trying to
+explain why as a function of x.</p>
+<p t="114630" d="3030">Given x, I'm assuming a
+distribution for the y.</p>
+<p t="117660" d="1800">And this x is just
+going to be here</p>
+<p t="119460" d="5970">to help me model what the mean
+of this Gaussian is, right?</p>
+<p t="125430" d="2290">I mean, I could have
+something crazy.</p>
+<p t="127720" d="5850">I could have something
+that looks like y given</p>
+<p t="133570" d="3990">x is n0 x transpose beta.</p>
+<p t="137560" d="2100">And then this could
+be some other thing</p>
+<p t="139660" d="3120">which looks like, I don't
+know, some x transpose</p>
+<p t="142780" d="4170">gamma squared
+times, I don't know,</p>
+<p t="146950" d="3400">x, x transpose plus identity--</p>
+<p t="150350" d="2900">some crazy thing that
+depends on x here, right?</p>
+<p t="153250" d="4320">And we deliberately assumed that
+all the thing that depends on x</p>
+<p t="157570" d="2250">shows up in the mean, OK?</p>
+<p t="159820" d="2700">And so what I have
+here is that y</p>
+<p t="162520" d="3120">given x is a Gaussian
+with a mean that</p>
+<p t="165640" d="5600">depends on x and covariance
+matrix sigma square identity.</p>
+<p t="171240" d="3459">Now the linear model
+assumed a very specific form</p>
+<p t="174699" d="541">for the mean.</p>
+<p t="175240" d="3950">It said I want the
+mean to be equal to x</p>
+<p t="179190" d="1860">transpose beta
+which, remember, was</p>
+<p t="181050" d="9220">the sum from, say, j equals
+1 to p of beta j xj, right?</p>
+<p t="190270" d="2970">It's where the xj's are
+the coordinates of x.</p>
+<p t="193240" d="2810">But I could do something
+also more complicated, right?</p>
+<p t="196050" d="3120">I could have something
+that looks like instead ,</p>
+<p t="199170" d="9820">replace this by, I don't know,
+sum of beta j log of x to the j</p>
+<p t="208990" d="5460">divided by x to the j squared
+or something like this, right?</p>
+<p t="214450" d="2910">I could do this as well.</p>
+<p t="217360" d="2270">So there's two things
+that we have assumed.</p>
+<p t="219630" d="1890">The first one is
+that when I look</p>
+<p t="221520" d="1920">at the conditional
+distribution of y given x,</p>
+<p t="223440" d="2130">x affects only the mean.</p>
+<p t="225570" d="1824">I also assume that
+it was Gaussian</p>
+<p t="227394" d="1416">and that it affects
+only the mean.</p>
+<p t="228810" d="2320">And the mean is affected
+in a very specific way,</p>
+<p t="231130" d="2540">which is linear in x, right?</p>
+<p t="233670" d="2600">So this is
+essentially the things</p>
+<p t="236270" d="1960">we're going to try to relax.</p>
+<p t="238230" d="1440">So the first thing
+that we assume,</p>
+<p t="239670" d="3630">the fact that y was Gaussian and
+had only its mean [INAUDIBLE]</p>
+<p t="243300" d="3840">dependant no x is what's
+called the random component.</p>
+<p t="247140" d="2295">It just says that the
+response variables, you know,</p>
+<p t="249435" d="4555">it sort of makes sense to
+assume that they're Gaussian.</p>
+<p t="253990" d="3230">And everything was
+essentially captured, right?</p>
+<p t="257220" d="1559">So there's this
+property of Gaussians</p>
+<p t="258779" d="3290">that if you tell me-- if
+the variance is known,</p>
+<p t="262069" d="1541">all you need to tell
+me to understand</p>
+<p t="263610" d="2340">exactly what the distribution
+of a Gaussian is,</p>
+<p t="265950" d="3160">all you need to tell me
+is its expected value.</p>
+<p t="269110" d="2620">All right, so
+that's this mu of x.</p>
+<p t="271730" d="3840">And the second thing is that
+we have this link that says,</p>
+<p t="275570" d="3030">well, I need to find a way
+to use my x's to explain</p>
+<p t="278600" d="1770">this mu you and the
+link was exactly</p>
+<p t="280370" d="2020">mu of x was equal
+to x transpose beta.</p>
+<p t="285770" d="5370">Now we are talking about
+generalized linear models.</p>
+<p t="291140" d="5010">So this part here where mu
+of x is of the form-- the way</p>
+<p t="296150" d="4470">I want my beta, my x,
+to show up is linear,</p>
+<p t="300620" d="2760">this will never be a question.</p>
+<p t="303380" d="2650">In principle, I could
+add a third point,</p>
+<p t="306030" d="4220">which is just question this
+part, the fact that mu of x</p>
+<p t="310250" d="1060">is x transpose beta.</p>
+<p t="311310" d="2330">I could have some more
+complicated, nonlinear function</p>
+<p t="313640" d="660">of x.</p>
+<p t="314300" d="1440">And then we'll never do
+that because we're talking</p>
+<p t="315740" d="1360">about generalized linear model.</p>
+<p t="317100" d="3540">The only thing with generalize
+are the random component,</p>
+<p t="320640" d="2690">the conditional
+distribution of y given x,</p>
+<p t="323330" d="3540">and the link that just says,
+well, once you actually tell me</p>
+<p t="326870" d="2670">that the only thing I need
+to figure out is the mean,</p>
+<p t="329540" d="2640">I'm just going to slap it
+exactly these x transpose beta</p>
+<p t="332180" d="4340">thing without any transformation
+of x transpose beta.</p>
+<p t="336520" d="1230">So those are the two things.</p>
+<p t="340300" d="1960">It will become
+clear what I mean.</p>
+<p t="342260" d="2190">This sounds like a
+tautology, but let's just</p>
+<p t="344450" d="2280">see how we could extend that.</p>
+<p t="346730" d="3410">So what we're going to do in
+generalized linear models--</p>
+<p t="350140" d="5342">right, so when I
+talk about GLNs,</p>
+<p t="355482" d="1708">the first thing I'm
+going to do with my x</p>
+<p t="357190" d="2140">is turn it into some
+x transpose beta.</p>
+<p t="359330" d="3042">And that's just
+the l part, right?</p>
+<p t="362372" d="1458">I'm not going to
+be able to change.</p>
+<p t="363830" d="1200">That's the way it works.</p>
+<p t="365030" d="2500">I'm not going to do
+anything non-linear.</p>
+<p t="367530" d="2250">But the two things
+I'm going to change</p>
+<p t="369780" d="6650">is this random
+component, which is</p>
+<p t="376430" d="4980">that y, which used to be some
+Gaussian with mean mu of x</p>
+<p t="381410" d="2790">here in sigma squared--</p>
+<p t="384200" d="2790">so y given x, sorry--</p>
+<p t="386990" d="8780">this is going to become y given
+x follows some distribution.</p>
+<p t="395770" d="1920">And I'm not going to
+allow any distribution.</p>
+<p t="397690" d="3210">I want something that comes
+from the exponential family.</p>
+<p t="409910" d="2490">Who knows what the exponential
+family of distribution is?</p>
+<p t="412400" d="3570">This is not the same thing as
+the exponential distribution.</p>
+<p t="415970" d="3000">It's a family of distributions.</p>
+<p t="418970" d="1525">All right, so we'll see that.</p>
+<p t="420495" d="1275">It's-- wow.</p>
+<p t="424560" d="1860">What can that be?</p>
+<p t="426420" d="1774">Oh yeah, that's
+actually [INAUDIBLE]..</p>
+<p t="431638" d="5412">So-- I'm sorry?</p>
+<p t="437050" d="2477">AUDIENCE: [INAUDIBLE]</p>
+<p t="439527" d="1833">PHILIPPE RIGOLLET: I'm
+in presentation mode.</p>
+<p t="441360" d="2290">That should not happen.</p>
+<p t="443650" d="1480">OK, so hopefully, this is muted.</p>
+<p t="449390" d="2910">So essentially, this is going
+to be a family of distributions.</p>
+<p t="452300" d="2142">And what makes them
+exponential typically</p>
+<p t="454442" d="1458">is that there's an
+exponential that</p>
+<p t="455900" d="3120">shows up in the definition
+of the density, all right?</p>
+<p t="459020" d="1980">We'll see that the
+Gaussian belongs</p>
+<p t="461000" d="1560">to the exponential family.</p>
+<p t="462560" d="1650">But they're slightly
+less expected ones</p>
+<p t="464210" d="4360">because there's this crazy
+thing that a to the x</p>
+<p t="468570" d="3757">is exponential x log a, which
+makes the potential show up</p>
+<p t="472327" d="833">without being there.</p>
+<p t="473160" d="1750">So if there's an
+exponential of some power,</p>
+<p t="474910" d="920">it's going to show up.</p>
+<p t="475830" d="810">But it's more than that.</p>
+<p t="476640" d="1999">So we'll actually come
+to this particular family</p>
+<p t="478639" d="1227">of distribution.</p>
+<p t="479866" d="1124">Why this particular family?</p>
+<p t="480990" d="1416">Because in a way,
+everything we've</p>
+<p t="482406" d="2304">done for the linear
+model with Gaussian</p>
+<p t="484710" d="3900">is going to extend fairly
+naturally to this family.</p>
+<p t="488610" d="2850">All right, and it actually
+also, because it encompasses</p>
+<p t="491460" d="2010">pretty much everything,
+all the distributions</p>
+<p t="493470" d="2480">we've discussed before.</p>
+<p t="495950" d="3940">All right, so the second thing
+that I want to question--</p>
+<p t="499890" d="2370">right, so before,
+we just said, well,</p>
+<p t="502260" d="6300">mu of x was directly
+equal to this thing.</p>
+<p t="511880" d="2380">Mu of x was directly
+x transpose beta.</p>
+<p t="514260" d="2270">So I knew I was going to
+have an x transpose beta</p>
+<p t="516530" d="2500">and I said, well, I could do
+something with this x transpose</p>
+<p t="519030" d="3720">beta before I used it to
+explain the expected value.</p>
+<p t="522750" d="1740">But I'm actually
+taking it like that.</p>
+<p t="524490" d="7710">Here, we're going to say, let's
+extend this to some function</p>
+<p t="532200" d="1800">is equal to this thing.</p>
+<p t="534000" d="2790">Now admittedly, this is
+not the most natural way</p>
+<p t="536790" d="810">to think about it.</p>
+<p t="537600" d="2124">What you would probably
+feel more comfortable doing</p>
+<p t="539724" d="4146">is write something like
+mu of x is a function.</p>
+<p t="543870" d="4200">Let's call it f of
+x transpose beta.</p>
+<p t="548070" d="4780">But here, I decide
+to call f g inverse.</p>
+<p t="552850" d="1724">OK, let's just my g inverse.</p>
+<p t="554574" d="500">Yes.</p>
+<p t="555074" d="3356">AUDIENCE: Is this different
+then just [INAUDIBLE]</p>
+<p t="558430" d="1000">PHILIPPE RIGOLLET: Yeah.</p>
+<p t="562820" d="4035">I mean, what transformation
+you want to put on your x's?</p>
+<p t="566855" d="8265">AUDIENCE: [INAUDIBLE]</p>
+<p t="575120" d="2500">PHILIPPE RIGOLLET: Oh
+no, certainly not, right?</p>
+<p t="577620" d="3200">I mean, if I give you-- if I
+force you to work with x1 plus</p>
+<p t="580820" d="3460">x2, you cannot work with
+any function of x1 plus any</p>
+<p t="584280" d="1770">function of x2, right?</p>
+<p t="586050" d="2385">So this is different.</p>
+<p t="591900" d="3330">All right, so-- yeah.</p>
+<p t="595230" d="2670">The transformation would
+be just the simple part</p>
+<p t="597900" d="1500">of your linear
+regression problem</p>
+<p t="599400" d="2520">where you would take your
+exes, transform them,</p>
+<p t="601920" d="2040">and then just apply
+another linear regression.</p>
+<p t="603960" d="990">This is genuinely new.</p>
+<p t="607419" d="791">Any other question?</p>
+<p t="611040" d="2700">All right, so this
+function g and the reason</p>
+<p t="613740" d="3090">why I sort of have to, like,
+stick to this slightly less</p>
+<p t="616830" d="1860">natural way of defining
+it is because that's</p>
+<p t="618690" d="2970">g that gets a name, not g
+inverse that gets a name.</p>
+<p t="621660" d="1670">And the name of g is
+the link function.</p>
+<p t="629950" d="3580">So if I want to give you a
+generalized linear model,</p>
+<p t="633530" d="1720">I need to give you
+two ingredients.</p>
+<p t="635250" d="2380">The first one is the
+random component,</p>
+<p t="637630" d="2480">which is the distribution
+of y given x.</p>
+<p t="640110" d="4410">And it can be anything in what's
+called the exponential family</p>
+<p t="644520" d="1110">of distributions.</p>
+<p t="645630" d="2040">So for example, I
+could say, y given</p>
+<p t="647670" d="3240">x is Gaussian with mean
+mu x sigma identity.</p>
+<p t="650910" d="2160">But I can also
+tell you y given x</p>
+<p t="653070" d="4510">is gamma with shared parameter
+equal to alpha of x, OK?</p>
+<p t="657580" d="2900">I could do some weird
+things like this.</p>
+<p t="660480" d="3450">And the second thing is I need
+to give you a link function.</p>
+<p t="663930" d="4370">And the link function is
+going to become very clear</p>
+<p t="668300" d="1560">how you pick a link function.</p>
+<p t="669860" d="2490">And the only reason that you
+actually pick a link function</p>
+<p t="672350" d="2660">is because of compatibility.</p>
+<p t="675010" d="3720">This mu of x, I call
+it mu because mu of x</p>
+<p t="678730" d="3220">is always the conditional
+expectation of y given x,</p>
+<p t="681950" d="3500">always, which means
+that let's think</p>
+<p t="685450" d="2210">of y as being a Bernoulli
+random variable.</p>
+<p t="691176" d="1354">Where does mu of x live?</p>
+<p t="697430" d="980">AUDIENCE: [INAUDIBLE]</p>
+<p t="698410" d="690">PHILIPPE RIGOLLET: 0, 1, right?</p>
+<p t="699100" d="1583">That's the expectation
+of a Bernoulli.</p>
+<p t="700683" d="2947">It's just the probability
+that my coin flip gives me 1.</p>
+<p t="703630" d="2000">So it's a number
+between 0 and 1.</p>
+<p t="705630" d="4330">But this guy right here, if
+my x's are anything, right--</p>
+<p t="709960" d="2580">think of any body
+measurements plus [INAUDIBLE]</p>
+<p t="712540" d="2980">linear combinations with
+arbitrarily large coefficients.</p>
+<p t="715520" d="2340">This thing can be
+any real number.</p>
+<p t="717860" d="3320">So the link function, what
+it's effectively going to do</p>
+<p t="721180" d="1880">is make those two
+things compatible.</p>
+<p t="723060" d="1510">It's going to take
+my number which,</p>
+<p t="724570" d="2700">for example, is constrained
+to be between 0 and 1</p>
+<p t="727270" d="3736">and map it into the
+entire real line.</p>
+<p t="731006" d="2374">If I have mu which is forced
+to be positive, for example,</p>
+<p t="733380" d="3450">in an exponential distribution,
+the mean is positive, right?</p>
+<p t="736830" d="4020">That's the, say, don't
+know, inter-arrival time</p>
+<p t="740850" d="1650">for Poisson process.</p>
+<p t="742500" d="2810">This thing is known to be
+positive for an exponential.</p>
+<p t="745310" d="1750">I need to map something
+that's exponential</p>
+<p t="747060" d="1012">to the entire real line.</p>
+<p t="748072" d="1958">I need a function that
+takes something positive</p>
+<p t="750030" d="1230">and [INAUDIBLE] everywhere.</p>
+<p t="751260" d="1260">So we'll see.</p>
+<p t="752520" d="1500">By the end of this
+chapter, you will</p>
+<p t="754020" d="2880">have 100 ways of doing this, but
+there are some more traditional</p>
+<p t="756900" d="1660">ones [INAUDIBLE].</p>
+<p t="758560" d="2550">So before we go any further,
+I gave you the example</p>
+<p t="761110" d="5699">of a Bernoulli random variable.</p>
+<p t="766809" d="2041">Let's see a few examples
+that actually fit there.</p>
+<p t="768850" d="499">Yes.</p>
+<p t="771104" d="2405">AUDIENCE: Will it come up
+later [INAUDIBLE] already know</p>
+<p t="773509" d="2645">why do we need the
+transformer [INAUDIBLE] why</p>
+<p t="776154" d="3146">don't [INAUDIBLE]</p>
+<p t="779300" d="2510">PHILIPPE RIGOLLET:
+Well actually, this</p>
+<p t="781810" d="1020">will not come up later.</p>
+<p t="782830" d="1680">It should be very
+clear from here</p>
+<p t="784510" d="1560">because if I actually
+have a model,</p>
+<p t="786070" d="2220">I just want it to
+be plausible, right?</p>
+<p t="788290" d="2750">I mean, what happens if I
+suddenly decide that my--</p>
+<p t="791040" d="1629">so this is what's
+going to happen.</p>
+<p t="792669" d="2041">You're going to have only
+data to fit this model.</p>
+<p t="794710" d="2820">Let's say you actually
+forget about this thing here.</p>
+<p t="797530" d="1530">You can always do this, right?</p>
+<p t="799060" d="4914">You can always say I'm
+going to pretend my y's just</p>
+<p t="803974" d="2166">happen to be the realizations
+of said Gaussians that</p>
+<p t="806140" d="2130">happen to be 0 or 1 only.</p>
+<p t="808270" d="3750">You can always, like, stuff that
+in some linear model, right?</p>
+<p t="812020" d="3740">You will have some least
+squares estimated for beta.</p>
+<p t="815760" d="1120">And it's going to be fine.</p>
+<p t="816880" d="1750">For all the points
+that you see, it</p>
+<p t="818630" d="1640">will definitely put
+some number that's</p>
+<p t="820270" d="1746">actually between 0 and 1.</p>
+<p t="822016" d="2124">So this is what your picture
+is going to look like.</p>
+<p t="824140" d="4655">You're going to have a
+bunch of values for x.</p>
+<p t="828795" d="1374">This is your y.</p>
+<p t="830169" d="1791">And for different-- so
+these are the values</p>
+<p t="831960" d="1470">of x that you will get.</p>
+<p t="833430" d="2490">And for a y, you will see
+either a 0 or a 1, right?</p>
+<p t="839180" d="3810">Right, that's what your
+Bernoulli dataset would look</p>
+<p t="842990" d="2220">like with a one dimensional x.</p>
+<p t="845210" d="4470">Now if you do least squares
+on this, you will find this.</p>
+<p t="849680" d="1680">And for this guy,
+this line certainly</p>
+<p t="851360" d="2930">takes values between 0 and 1.</p>
+<p t="854290" d="1952">But let's say now
+you get an x here.</p>
+<p t="856242" d="1708">You're going to actually
+start pretending</p>
+<p t="857950" d="2980">that the probability it spits
+out one conditionally in x</p>
+<p t="860930" d="1980">is like 1.2, and that's
+going to be weird.</p>
+<p t="868310" d="2930">Any other questions?</p>
+<p t="871240" d="3460">All right, so let's
+start with some examples.</p>
+<p t="874700" d="4090">Right, I mean, you get so used
+to them through this course.</p>
+<p t="878790" d="2460">So the first one is--</p>
+<p t="881250" d="1250">so all these things are taken.</p>
+<p t="882500" d="1624">So there's a few
+books on generalizing,</p>
+<p t="884124" d="1826">your models, generalize
+[INAUDIBLE] models.</p>
+<p t="885950" d="2970">And there's tons of
+applications that you can see.</p>
+<p t="888920" d="2070">Those are extremely
+versatile, and as soon</p>
+<p t="890990" d="2785">as you want to do modeling
+to explain some y given x,</p>
+<p t="893775" d="1625">you sort of need to
+do that if you want</p>
+<p t="895400" d="2640">to go beyond linear models.</p>
+<p t="898040" d="2570">So this was in the
+disease occurring rate.</p>
+<p t="900610" d="3730">So you have a disease
+epidemic and you</p>
+<p t="904340" d="4050">want to basically model
+the expected number</p>
+<p t="908390" d="3000">of new cases given--</p>
+<p t="911390" d="1710">at a certain time, OK?</p>
+<p t="913100" d="3090">So you have time that progresses
+for each of your reservation.</p>
+<p t="916190" d="2310">Each of your reservation
+is a time stamp--</p>
+<p t="918500" d="2910">say, I don't know, 20th day.</p>
+<p t="921410" d="4944">And your response is
+the number of new cases.</p>
+<p t="926354" d="2166">And you're going to actually
+put your model directly</p>
+<p t="928520" d="960">on mu, right?</p>
+<p t="929480" d="2490">When I looked at
+this, everything here</p>
+<p t="931970" d="2490">was on mu itself, on
+the expected, right?</p>
+<p t="934460" d="1950">Mu of x is always the expected--</p>
+<p t="939609" d="2621">the conditional
+expectation of y given x.</p>
+<p t="945280" d="610">right?</p>
+<p t="945890" d="5860">So all I need to model
+is this expected value.</p>
+<p t="951750" d="3110">So this mu I'm going
+to actually say--</p>
+<p t="954860" d="2760">so I look at some parameters,
+and it says, well,</p>
+<p t="957620" d="2869">it increases exponentially.</p>
+<p t="960489" d="2291">So I want to say I have some
+sort of exponential trend.</p>
+<p t="962780" d="2040">I can parametrize
+that in several ways.</p>
+<p t="964820" d="1680">And the two parameters
+I want to slap in</p>
+<p t="966500" d="3690">is, like, some sort of gamma,
+which is just the coefficient.</p>
+<p t="970190" d="3730">And then there's some rate
+delta that's in the exponential.</p>
+<p t="973920" d="1730">So if I tell you
+it's exponential,</p>
+<p t="975650" d="1680">that's a nice family
+of functions you</p>
+<p t="977330" d="1380">might want to think about, OK?</p>
+<p t="978710" d="5810">So here, mu of x, if I want
+to keep the notation, x</p>
+<p t="984520" d="6130">is gamma exponential
+delta x, right?</p>
+<p t="990650" d="3950">Except that here, my x
+are t1, t2, t3, et cetera.</p>
+<p t="994600" d="2740">And I want to find what the
+parameters gamma and delta are</p>
+<p t="997340" d="2700">because I want to be
+able to maybe compare</p>
+<p t="1000040" d="2940">different epidemics and see if
+they have the same parameter</p>
+<p t="1002980" d="3690">or maybe just do some
+prediction based on the data</p>
+<p t="1006670" d="2400">that I have without-- to
+extrapolate in the future.</p>
+<p t="1012020" d="6260">So here, clearly mu of
+x is not of the form</p>
+<p t="1018280" d="3690">x transpose beta, right?</p>
+<p t="1021970" d="2440">That's not x
+transpose beta at all.</p>
+<p t="1024410" d="3169">And it's actually not even a
+function of x transpose data,</p>
+<p t="1027579" d="631">right?</p>
+<p t="1028210" d="1690">There's two parameters,
+gamma and delta,</p>
+<p t="1029900" d="1949">and it's not of the form.</p>
+<p t="1031849" d="2510">So here we have x,
+which is 1 and x, right?</p>
+<p t="1034359" d="1841">I have two parameters.</p>
+<p t="1036200" d="1770">So what I do here
+is that I say, well,</p>
+<p t="1037970" d="2670">first, let me transform
+mu in such a way</p>
+<p t="1040640" d="2479">that I can hope to see
+something that's linear.</p>
+<p t="1043119" d="3700">So if I transform mu, I'm
+going to have log of mu, which</p>
+<p t="1046819" d="1280">is log of this thing, right?</p>
+<p t="1048099" d="5671">So log of mu of
+x is equal, well,</p>
+<p t="1053770" d="3180">to log of gamma plus
+log of exponential delta</p>
+<p t="1056950" d="2400">x, which is delta x.</p>
+<p t="1062050" d="4140">And now this thing is
+actually linear in x.</p>
+<p t="1066190" d="3250">So I have that this
+guy is my first beta 1.</p>
+<p t="1069440" d="1550">And so that's beta 1 finds 1.</p>
+<p t="1070990" d="2330">And this guy is beta 2--</p>
+<p t="1073320" d="2630">times, sorry that said beta
+0-- times 1, and this guy</p>
+<p t="1075950" d="2090">is beta 1 times x.</p>
+<p t="1078040" d="2160">OK, so that looks
+like a linear model.</p>
+<p t="1080200" d="2130">I just have to change
+my parameters--</p>
+<p t="1082330" d="3510">my parameters beta 1 becomes
+the log of gamma and beta 2</p>
+<p t="1085840" d="2340">becomes delta itself.</p>
+<p t="1088180" d="3030">And the reason why we do this
+is because, well, the way</p>
+<p t="1091210" d="2527">we put those gamma and those
+delta was just so that we</p>
+<p t="1093737" d="1083">have some parametrization.</p>
+<p t="1094820" d="2480">It just so happens that if
+we want this to be linear,</p>
+<p t="1097300" d="2752">we need to just change the
+parametrization itself.</p>
+<p t="1100052" d="1458">This is going to
+have some effects.</p>
+<p t="1101510" d="1791">We know that it's going
+to have some effect</p>
+<p t="1103301" d="1230">in the fissure information.</p>
+<p t="1104531" d="2499">It's going to have a bunch of
+effect to change those things.</p>
+<p t="1107030" d="2480">But that's what needs
+to be done to have</p>
+<p t="1109510" d="2730">a generalized linear model.</p>
+<p t="1112240" d="3220">Now here, the
+function that I took</p>
+<p t="1115460" d="2230">to turn it into something
+that's linear is simple.</p>
+<p t="1117690" d="3310">It came directly from some
+natural thing I would do here,</p>
+<p t="1121000" d="1430">which is taking the log.</p>
+<p t="1122430" d="2070">And so the function g,
+the link that I take,</p>
+<p t="1124500" d="3030">is called the log
+link very creatively.</p>
+<p t="1127530" d="2220">And it's just the
+function that I</p>
+<p t="1129750" d="2450">apply to mu so that I see
+something that's linear</p>
+<p t="1132200" d="1060">and that looks like this.</p>
+<p t="1139580" d="4310">So now this only tells me how
+to deal with the link function.</p>
+<p t="1143890" d="2490">But I still have
+to deal with 0.1.</p>
+<p t="1146380" d="2580">And this, again, is
+just some modeling.</p>
+<p t="1148960" d="2130">Given some data,
+some random data,</p>
+<p t="1151090" d="3540">what distribution do you choose
+to explain the randomness?</p>
+<p t="1154630" d="2970">And this-- I mean,
+unless there's no choice,</p>
+<p t="1157600" d="2220">you know, it's just a
+matter of practice, right?</p>
+<p t="1159820" d="2280">I mean, why would it be
+Gaussian and not, you know,</p>
+<p t="1162100" d="1440">doubly exponential?</p>
+<p t="1163540" d="1932">This is-- there's matters
+of convenience that</p>
+<p t="1165472" d="2208">come into this, and there's
+just matter of experience</p>
+<p t="1167680" d="2100">that come into this.</p>
+<p t="1169780" d="2880">You know, I remember when
+you chat with engineers,</p>
+<p t="1172660" d="1756">they have a very
+good notion of what</p>
+<p t="1174416" d="1124">the distribution should be.</p>
+<p t="1175540" d="2430">They have y bold distributions.</p>
+<p t="1177970" d="1939">You know, they do optics
+and things like this.</p>
+<p t="1179909" d="2541">So there's some distributions
+that just come up but sometimes</p>
+<p t="1182450" d="1190">just have to work.</p>
+<p t="1183640" d="1740">Now here what do we have?</p>
+<p t="1185380" d="2340">The thing we're
+trying to measure, y--</p>
+<p t="1187720" d="2070">as we said, so mu
+is the expectation,</p>
+<p t="1189790" d="2280">the conditional
+expectation, of y given x.</p>
+<p t="1192070" d="4020">But y is the number
+of new cases, right?</p>
+<p t="1196090" d="1470">Well it's a number of.</p>
+<p t="1197560" d="1500">And the first thing
+you should think</p>
+<p t="1199060" d="1920">of when you think
+about number of,</p>
+<p t="1200980" d="2640">if it were bounded above, you
+would think binomial, baby.</p>
+<p t="1203620" d="1600">But here, it's just a number.</p>
+<p t="1205220" d="1420">So you think Poisson.</p>
+<p t="1206640" d="2110">That's how insurers think.</p>
+<p t="1208750" d="4280">I have a number of, you
+know, claims per year.</p>
+<p t="1213030" d="2540">This is a Poisson distribution.</p>
+<p t="1215570" d="2492">And hopefully they can model
+the conditional distribution</p>
+<p t="1218062" d="2458">of the number of claims given
+everything that they actually</p>
+<p t="1220520" d="4420">ask you in the
+surveys that I hear</p>
+<p t="1224940" d="2040">you now fail in 15 minutes.</p>
+<p t="1226980" d="4944">All right, so now you have
+this Poisson distribution.</p>
+<p t="1231924" d="1666">And that's just the
+modeling assumption.</p>
+<p t="1233590" d="1250">There's no particular
+reason why you</p>
+<p t="1234840" d="1610">should do this except
+that, you know,</p>
+<p t="1236450" d="1600">that might be a good idea.</p>
+<p t="1238050" d="1650">And the expected
+value of your Poisson</p>
+<p t="1239700" d="3215">has to be this mu i, OK?</p>
+<p t="1242915" d="3415">At time i.</p>
+<p t="1246330" d="2430">Any question about this slide?</p>
+<p t="1248760" d="2900">OK, so let's switch
+to another example.</p>
+<p t="1251660" d="3210">Another example is the
+so-called pray capture rate.</p>
+<p t="1254870" d="3140">So here, what
+you're interested in</p>
+<p t="1258010" d="7320">is the rate capture of
+preys yi for a given prey.</p>
+<p t="1265330" d="5400">And you have xy, which
+is your explanation.</p>
+<p t="1270730" d="1545">And this is just
+the density of pray.</p>
+<p t="1272275" d="4755">So you're trying to explain the
+rate of captures of preys given</p>
+<p t="1277030" d="3030">the density of the prey, OK?</p>
+<p t="1280060" d="2904">And so you need to find
+some sort of relationship</p>
+<p t="1282964" d="666">between the two.</p>
+<p t="1283630" d="1620">And here again,
+you talk to experts</p>
+<p t="1285250" d="2320">and what they tell you
+is that, well, it's</p>
+<p t="1287570" d="1250">going to be increasing, right?</p>
+<p t="1288820" d="3630">I mean, animals like predators
+are going to just eat more</p>
+<p t="1292450" d="1789">if there's more preys.</p>
+<p t="1294239" d="1541">But at some point,
+they're just going</p>
+<p t="1295780" d="2670">to level off because they're
+going to be [INAUDIBLE] full</p>
+<p t="1298450" d="3930">and they're going to stop
+capturing those prays.</p>
+<p t="1302380" d="2424">And you're just going to
+have some phenomenon that</p>
+<p t="1304804" d="666">looks like this.</p>
+<p t="1305470" d="2400">So here is a curve that
+sort of makes sense, right?</p>
+<p t="1307870" d="4260">As your capture rate goes from
+0 to 1, you're increasing,</p>
+<p t="1312130" d="2400">and then you see you have
+this like [INAUDIBLE] function</p>
+<p t="1314530" d="3100">that says, you know, at
+some point it levels up.</p>
+<p t="1317630" d="1860">OK, so here, one way I could--</p>
+<p t="1319490" d="2100">I mean, there's again
+many ways I could just</p>
+<p t="1321590" d="1710">model a function
+that looks like this.</p>
+<p t="1323300" d="2610">But a simple one that
+has only two parameters</p>
+<p t="1325910" d="4020">is this one, where mu i is
+this a function of xi where</p>
+<p t="1329930" d="3300">I have some parameter alpha
+here and some parameter h here.</p>
+<p t="1333230" d="2590">OK, so there's clearly--</p>
+<p t="1335820" d="5420">so this function, there's one
+that essentially tells you--</p>
+<p t="1341240" d="2640">so this thing starts
+at 0 for sure.</p>
+<p t="1343880" d="1890">And essentially,
+alpha tells you how</p>
+<p t="1345770" d="2400">sharp this thing
+is, and h tells you</p>
+<p t="1348170" d="2010">at which points you end here.</p>
+<p t="1350180" d="2280">Well, it's not exactly what
+those values are equal to,</p>
+<p t="1352460" d="2920">but that tells you this.</p>
+<p t="1355380" d="5949">OK, so, you know-- simple, and--</p>
+<p t="1361329" d="541">well, no, OK.</p>
+<p t="1361870" d="2490">Sorry, that's actually alpha,
+which is the maximum capture.</p>
+<p t="1364360" d="2090">The rate and h represent
+the pre-density</p>
+<p t="1366450" d="1380">at which the capture weight is.</p>
+<p t="1367830" d="1900">So that's the half time.</p>
+<p t="1369730" d="2870">OK, so there's actual
+value [INAUDIBLE]..</p>
+<p t="1372600" d="1900">All right, so now I
+have this function.</p>
+<p t="1374500" d="2430">It's certainly not a function.</p>
+<p t="1376930" d="2400">There's no-- I don't see
+it as a function of x.</p>
+<p t="1379330" d="7060">So I need to find something that
+looks like a function of x, OK?</p>
+<p t="1386390" d="1950">So then here, there's no log.</p>
+<p t="1388340" d="5230">There's no-- well, I could
+actually take a log here.</p>
+<p t="1393570" d="2320">But I would have log of
+x and log of x plus h.</p>
+<p t="1395890" d="1710">So that would be weird.</p>
+<p t="1397600" d="2390">So what we propose to
+do here is to look,</p>
+<p t="1399990" d="3360">rather than looking at mu
+i, we look 1 over mu i.</p>
+<p t="1403350" d="1540">Right, and so
+since your function</p>
+<p t="1404890" d="12560">was mu i, when you
+take 1 over mu i,</p>
+<p t="1417450" d="5130">you get h plus xi divided
+by alpha xi, which</p>
+<p t="1422580" d="7110">is h over alpha times one
+over xi plus 1 over alpha.</p>
+<p t="1429690" d="2630">And now if I'm willing to
+make this transformation</p>
+<p t="1432320" d="2010">of variables and say,
+actually, I don't--</p>
+<p t="1434330" d="3570">my x, whether it's
+the density of prey</p>
+<p t="1437900" d="2859">or the inverse density of
+prey, it really doesn't matter.</p>
+<p t="1440759" d="1541">I can always make
+this transformation</p>
+<p t="1442300" d="1450">when the data comes.</p>
+<p t="1443750" d="2460">Then I'm actually just
+going to think of this</p>
+<p t="1446210" d="5190">as being some linear
+function beta 0 plus beta 1,</p>
+<p t="1451400" d="5945">which is this guy,
+times 1 over xi.</p>
+<p t="1457345" d="2735">And now my new variable
+becomes 1 over xi.</p>
+<p t="1460080" d="1180">And now it's linear.</p>
+<p t="1461260" d="2090">And the transformation
+I had to take</p>
+<p t="1463350" d="10890">was this 1 over x, which is
+called the reciprocal link, OK?</p>
+<p t="1474240" d="2880">You can probably guess what the
+exponential link is going to be</p>
+<p t="1477120" d="1333">and things like this, all right?</p>
+<p t="1478453" d="2927">So we'll talk about other
+links that have slightly less</p>
+<p t="1481380" d="1800">obvious names.</p>
+<p t="1483180" d="2026">Now again, modeling, right?</p>
+<p t="1485206" d="1374">So this was the
+random component.</p>
+<p t="1486580" d="1110">This was the easy part.</p>
+<p t="1487690" d="3230">Now I need to just poor
+in some domain knowledge</p>
+<p t="1490920" d="4980">about how do I think this
+function, this y, which</p>
+<p t="1495900" d="5910">is which is the rate
+of capture of praise,</p>
+<p t="1501810" d="3352">I want to understand how
+this thing is actually</p>
+<p t="1505162" d="4268">changing what is the randomness
+of the thing around its mean.</p>
+<p t="1509430" d="2120">And you know, something
+that-- so that</p>
+<p t="1511550" d="1097">comes from this textbook.</p>
+<p t="1512647" d="1583">The standing deviation
+of capture rate</p>
+<p t="1514230" d="2520">might be approximately
+proportional to the mean rate.</p>
+<p t="1516750" d="1500">You need to find a
+distribution that</p>
+<p t="1518250" d="1140">actually has this property.</p>
+<p t="1519390" d="1770">And it turns out
+that this happens</p>
+<p t="1521160" d="2790">for gamma distributions, right?</p>
+<p t="1523950" d="2100">In gamma distributions,
+just like say,</p>
+<p t="1526050" d="3690">for Poisson distribution, the--</p>
+<p t="1529740" d="2839">well, for Poisson, the variance
+and mean are of the same order.</p>
+<p t="1532579" d="1541">Here is the standard
+deviation that's</p>
+<p t="1534120" d="5420">of the same order as the
+[INAUDIBLE] for gammas.</p>
+<p t="1539540" d="2760">And it's a positive
+distribution as well.</p>
+<p t="1542300" d="1490">So here is a candidate.</p>
+<p t="1543790" d="1470">Now since we're
+sort of constrained</p>
+<p t="1545260" d="3517">to work under the exponential
+family of distributions,</p>
+<p t="1548777" d="1583">then you can just
+go through your list</p>
+<p t="1550360" d="2070">and just decide which
+one works best for you.</p>
+<p t="1555250" d="1690">All right, third example--</p>
+<p t="1556940" d="2330">so here we have binary response.</p>
+<p t="1559270" d="2100">Here, essentially the
+binary response variable</p>
+<p t="1561370" d="1590">indicates the
+presence or absence</p>
+<p t="1562960" d="4500">of postoperative deforming
+for kyphosis on children.</p>
+<p t="1567460" d="2850">And here, rather than having
+one covariance which was before,</p>
+<p t="1570310" d="2640">in the first example, was
+time, in the second example</p>
+<p t="1572950" d="2280">was the density, here
+there's three ways</p>
+<p t="1575230" d="1800">that you measure on children.</p>
+<p t="1577030" d="2480">The first one is
+age of the child</p>
+<p t="1579510" d="1930">and the second one is
+the number of vertebrae</p>
+<p t="1581440" d="1600">involved in the operation.</p>
+<p t="1583040" d="2220">And the third one is
+the start of the range,</p>
+<p t="1585260" d="4400">right-- so where
+it is on the spine.</p>
+<p t="1589660" d="5445">OK, so the response
+variable here is, you know,</p>
+<p t="1595105" d="1335">did it work or not, right?</p>
+<p t="1596440" d="1530">I mean, that's very simple.</p>
+<p t="1597970" d="3889">And so here, it's nice
+because the random component</p>
+<p t="1601859" d="791">is the easiest one.</p>
+<p t="1602650" d="3030">As I said, any random variable
+that takes only two outcomes</p>
+<p t="1605680" d="3340">must be a Bernoulli, right?</p>
+<p t="1609020" d="2984">So that's nice there's no
+modeling going on here.</p>
+<p t="1612004" d="2166">So you know that y given x
+is going to be Bernoulli,</p>
+<p t="1614170" d="1458">but of course, all
+your efforts are</p>
+<p t="1615628" d="2562">going to try to understand
+what the conditional mean</p>
+<p t="1618190" d="2125">of your Bernoulli, what
+the conditional probability</p>
+<p t="1620315" d="1775">of being 1 is going to be, OK?</p>
+<p t="1622090" d="3870">And so in particular--
+so I'm just-- here,</p>
+<p t="1625960" d="3030">I'm spelling it out before
+we close those examples.</p>
+<p t="1628990" d="3570">I cannot say that mu of x is x
+transpose data for exactly this</p>
+<p t="1632560" d="2960">picture that I drew
+for you here, right?</p>
+<p t="1635520" d="1980">There's just no
+way here-- the goal</p>
+<p t="1637500" d="2550">of doing this is certainly
+to be able to extrapolate</p>
+<p t="1640050" d="3600">for yet unseen children
+whether this is something</p>
+<p t="1643650" d="1200">that we should be doing.</p>
+<p t="1644850" d="2490">And maybe the range
+of x is actually</p>
+<p t="1647340" d="1140">going to be slightly out.</p>
+<p t="1648480" d="2070">And so, OK I don't
+want to see that have</p>
+<p t="1650550" d="4220">a negative probability of
+outcome or a positive one--</p>
+<p t="1654770" d="3820">sorry, or one that's
+lower than one.</p>
+<p t="1658590" d="2380">So I need to make
+this transformation.</p>
+<p t="1660970" d="2730">So what I need to do is
+to transform mu, which</p>
+<p t="1663700" d="1230">is, we know only a number.</p>
+<p t="1664930" d="1950">All we know is a
+number between 0 and 1.</p>
+<p t="1666880" d="1710">And we need to transform
+it in such a way</p>
+<p t="1668590" d="1920">that it maps the
+entire real line</p>
+<p t="1670510" d="6760">or reciprocally to say that--</p>
+<p t="1677270" d="1580">or inversely, I should say--</p>
+<p t="1678850" d="1800">that f of x
+transpose beta should</p>
+<p t="1680650" d="1760">be a number between 0 and 1.</p>
+<p t="1682410" d="2590">I need to find a function
+that takes any real number</p>
+<p t="1685000" d="1950">and maps it into 0 and 1.</p>
+<p t="1686950" d="3510">And we'll see that
+again, but you</p>
+<p t="1690460" d="2020">have an army of functions
+that do that for you.</p>
+<p t="1692480" d="1281">What are those functions?</p>
+<p t="1696707" d="982">AUDIENCE: [INAUDIBLE]</p>
+<p t="1697689" d="1473">PHILIPPE RIGOLLET: I'm sorry?</p>
+<p t="1699162" d="923">AUDIENCE: [INAUDIBLE]</p>
+<p t="1700085" d="1041">PHILIPPE RIGOLLET: Trait?</p>
+<p t="1701126" d="1539">AUDIENCE: [INAUDIBLE]</p>
+<p t="1702665" d="916">PHILIPPE RIGOLLET: Oh.</p>
+<p t="1703581" d="1937">AUDIENCE: [INAUDIBLE]</p>
+<p t="1705518" d="2541">PHILIPPE RIGOLLET: Yeah, I want
+them to be invertible, right?</p>
+<p t="1708059" d="6015">AUDIENCE: [INAUDIBLE]</p>
+<p t="1714074" d="1916">PHILIPPE RIGOLLET: I
+have an army of function.</p>
+<p t="1715990" d="3110">I'm not asking for one
+soldier in this army.</p>
+<p t="1719100" d="2760">I want the name of this army.</p>
+<p t="1721860" d="2197">AUDIENCE: [INAUDIBLE]</p>
+<p t="1724057" d="2583">PHILIPPE RIGOLLET: Well, they're
+not really invertible either,</p>
+<p t="1726640" d="2220">right?</p>
+<p t="1728860" d="4870">So they're actually in
+[INAUDIBLE] textbook.</p>
+<p t="1733730" d="1542">Because remember,
+statisticians don't</p>
+<p t="1735272" d="1708">know how to integrate
+functions, but they</p>
+<p t="1736980" d="2270">know how to turn a function
+into a Gaussian integral.</p>
+<p t="1739250" d="2472">So we know it integrates
+to 1 and things like this.</p>
+<p t="1741722" d="1458">Same thing here--
+we don't know how</p>
+<p t="1743180" d="3512">to build functions that
+are invertible and map</p>
+<p t="1746692" d="1708">the entire real line
+to 0, 1, but there's</p>
+<p t="1748400" d="2950">all the cumulative distribution
+functions that do that for us.</p>
+<p t="1751350" d="1840">So I can you any of
+those guys, and that's</p>
+<p t="1753190" d="3140">what I'm going to
+be doing, actually.</p>
+<p t="1756330" d="3400">All right, so just
+to recap what I just</p>
+<p t="1759730" d="4140">said as we were speaking, so
+normal linear model is not</p>
+<p t="1763870" d="6600">appropriate for these examples
+if only because the response</p>
+<p t="1770470" d="3870">variable is not
+necessarily Gaussian</p>
+<p t="1774340" d="3090">and also because the
+linear model has to be--</p>
+<p t="1777430" d="2170">the mean has to be transformed
+before I can actually</p>
+<p t="1779600" d="2610">apply a linear model for all
+these plausible nonlinear</p>
+<p t="1782210" d="2680">models that I
+actually came up with.</p>
+<p t="1784890" d="3190">OK, so the family
+we're going to go for</p>
+<p t="1788080" d="2700">is the exponential
+family of distributions.</p>
+<p t="1790780" d="3350">And we're going to
+be able to show--</p>
+<p t="1794130" d="1990">so one of the nice
+part of this is</p>
+<p t="1796120" d="2180">to actually compute
+maximum likelihood</p>
+<p t="1798300" d="1270">estimaters for those right?</p>
+<p t="1799570" d="2820">In the linear model,
+maximum-- like, in the Gauss</p>
+<p t="1802390" d="2970">linear model, maximum likelihood
+was as nice as it gets, right?</p>
+<p t="1805360" d="3450">This actually was the
+least squares estimator.</p>
+<p t="1808810" d="1410">We had a close form.</p>
+<p t="1810220" d="2700">x transpose x inverse
+x transpose y,</p>
+<p t="1812920" d="1200">and that was it, OK?</p>
+<p t="1814120" d="1660">We had to just take
+one derivative.</p>
+<p t="1815780" d="3800">Here, we're going to have a
+generally concave likelihood.</p>
+<p t="1819580" d="1590">We're not going to
+be able to actually</p>
+<p t="1821170" d="2580">solve this thing
+directly in close form</p>
+<p t="1823750" d="2860">unless it's Gaussian,
+but we will have--</p>
+<p t="1826610" d="3460">we'll see actually
+how this is not just</p>
+<p t="1830070" d="2700">a black box optimization
+of a concave function.</p>
+<p t="1832770" d="3060">We have a lot of properties
+of this concave function,</p>
+<p t="1835830" d="2670">and we will be able to show
+some iterative algorithms.</p>
+<p t="1838500" d="4380">We'll basically see how, when
+you opened the box of convex</p>
+<p t="1842880" d="3390">optimization, you will actually
+be able to see how things work</p>
+<p t="1846270" d="2800">and actually implement
+it using least squares.</p>
+<p t="1849070" d="2190">So each iteration of
+this iterative algorithm</p>
+<p t="1851260" d="1500">will essentially
+be a least squares,</p>
+<p t="1852760" d="1940">and that's actually
+quite [INAUDIBLE]..</p>
+<p t="1854700" d="2130">So, very demonstrative
+of statisticians</p>
+<p t="1856830" d="2940">being pretty
+ingenious so that they</p>
+<p t="1859770" d="2130">don't have to call in
+some statistical software</p>
+<p t="1861900" d="4140">but just can repeatedly
+call their least squares</p>
+<p t="1866040" d="3690">Oracle within a
+statistical software.</p>
+<p t="1869730" d="2440">OK, so what is the
+exponential family, right?</p>
+<p t="1872170" d="2220">I promised to do the
+exponential family.</p>
+<p t="1874390" d="3150">Before we go into
+this, let me just</p>
+<p t="1877540" d="2370">tell you something about
+exponential families,</p>
+<p t="1879910" d="2130">and what's the only
+thing to differentiate</p>
+<p t="1882040" d="3830">an exponential family from
+all possible distributions?</p>
+<p t="1885870" d="2770">An exponential family has
+two parameters, right?</p>
+<p t="1888640" d="1500">And those are not
+really parameters,</p>
+<p t="1890140" d="3390">but there's this theta parameter
+of my distribution, OK?</p>
+<p t="1893530" d="1920">So it's going to be
+indexed by some parameter.</p>
+<p t="1895450" d="1874">Here, I'm only talking
+about the distribution</p>
+<p t="1897324" d="3226">of, say, some random variable
+or some random vector, OK?</p>
+<p t="1900550" d="3810">So here in this slide, you see
+that the parameter theta that</p>
+<p t="1904360" d="4400">indexed those distribution
+is k dimensional</p>
+<p t="1908760" d="5080">and the space of the x's
+that I'm looking at-- so</p>
+<p t="1913840" d="1895">that should really be y, right?</p>
+<p t="1915735" d="1375">What I'm going to
+plug in here is</p>
+<p t="1917110" d="2460">the conditional distribution
+of y given x and theta is</p>
+<p t="1919570" d="1050">going to depend on x.</p>
+<p t="1920620" d="1490">But this really is the y.</p>
+<p t="1922110" d="2660">That's their distribution
+of the response variable.</p>
+<p t="1924770" d="1850">And so this is on q, right?</p>
+<p t="1926620" d="2630">So I'm going to
+assume that y takes--</p>
+<p t="1929250" d="2950">q dimensional--
+is q dimensional.</p>
+<p t="1932200" d="2070">Clearly soon, q is
+going to be equal to 1,</p>
+<p t="1934270" d="2070">but I can define those
+things generally.</p>
+<p t="1936340" d="1410">OK, so I have this.</p>
+<p t="1937750" d="1960">I have to tell you
+what this looks like.</p>
+<p t="1939710" d="3600">And let's assume that this is
+a probability density function.</p>
+<p t="1943310" d="3050">So this, right this notation,
+the fact that I just</p>
+<p t="1946360" d="2130">put my theta in
+subscript, is just</p>
+<p t="1948490" d="2910">for me to remember that
+this is the variable that</p>
+<p t="1951400" d="2760">indicates the random variable,
+and this is just the parameter.</p>
+<p t="1954160" d="3240">But I could just write it as a
+function of theta and x, right?</p>
+<p t="1957400" d="2250">This is just going to be--
+right, if you were in calc,</p>
+<p t="1959650" d="1710">in multivariable
+calc, you would have</p>
+<p t="1961360" d="1750">two parameter of theta
+and x and you would</p>
+<p t="1963110" d="2210">need to give me a function.</p>
+<p t="1965320" d="1260">Now think of all--</p>
+<p t="1966580" d="3780">think of x and theta as being
+one dimensional at this point.</p>
+<p t="1970360" d="1530">Think of all the
+functions that can</p>
+<p t="1971890" d="2640">be depending on theta and x.</p>
+<p t="1974530" d="2130">There's many of them.</p>
+<p t="1976660" d="5150">And in particular, there's many
+ways theta and x can interact.</p>
+<p t="1981810" d="1770">What the exponential
+family does for you</p>
+<p t="1983580" d="2280">is that it restricts
+the way these things</p>
+<p t="1985860" d="2017">can actually interact
+with each other.</p>
+<p t="1987877" d="1583">It's essentially
+saying the following.</p>
+<p t="1989460" d="6240">It's saying this is going to
+be of the form exponential--</p>
+<p t="1995700" d="2400">so this exponential is
+really not much because I</p>
+<p t="1998100" d="1920">could put a log next to it.</p>
+<p t="2000020" d="4920">But what I want is that
+the way theta and x</p>
+<p t="2004940" d="5370">interact has to be of
+the form theta times x</p>
+<p t="2010310" d="2220">in an exponential, OK?</p>
+<p t="2012530" d="1680">So that's the
+simplest-- that's one</p>
+<p t="2014210" d="2375">of the ways you can think of
+them interacting is you just</p>
+<p t="2016585" d="1315">the product of the two.</p>
+<p t="2017900" d="2550">Now clearly, this is
+not a very rich family.</p>
+<p t="2020450" d="2640">So what I'm allowing
+myself is to just slap</p>
+<p t="2023090" d="2910">on some terms that depend only
+on theta and depend only on x.</p>
+<p t="2026000" d="6630">So let's just call this thing, I
+don't know, f of x, g of theta.</p>
+<p t="2032630" d="4019">OK, so here, I've restricted the
+way theta and x can interact.</p>
+<p t="2036649" d="1541">So I have something
+that depends only</p>
+<p t="2038190" d="1791">on x, something that
+depends only on theta.</p>
+<p t="2039981" d="2579">And here, I have this
+very specific interaction.</p>
+<p t="2042560" d="3750">And that's all that exponential
+families are doing for you, OK?</p>
+<p t="2046310" d="3530">So if we go back to this slide,
+this is much more general,</p>
+<p t="2049840" d="4930">right? if I want to go from
+theta and x in r to theta</p>
+<p t="2054770" d="1500">and x theta in r--</p>
+<p t="2059449" d="7210">to theta in r k and x in rq,
+I cannot take the product</p>
+<p t="2066659" d="727">of theta and x.</p>
+<p t="2067386" d="2333">I cannot even take the inner
+product between theta and x</p>
+<p t="2069719" d="2311">because they're not even
+of compatible dimensions.</p>
+<p t="2072030" d="5430">But what I can do is to first
+map my theta into something</p>
+<p t="2077460" d="3480">and map my x into something
+so that I actually end up</p>
+<p t="2080940" d="1140">having the same dimensions.</p>
+<p t="2082080" d="1470">And then I can take
+the inner product.</p>
+<p t="2083550" d="1350">That's the natural
+generalization</p>
+<p t="2084900" d="958">of this simple product.</p>
+<p t="2099800" d="3540">OK, so what I have is--</p>
+<p t="2103340" d="1890">right, so if I want
+to go from theta</p>
+<p t="2105230" d="5280">to x, when I'm going to first
+do is I'm going to take theta,</p>
+<p t="2110510" d="1200">eta of theta--</p>
+<p t="2111710" d="4880">so let's say eta1 of
+theta to eta k of theta.</p>
+<p t="2120100" d="2120">And then I'm going
+to actually take</p>
+<p t="2122220" d="7774">x becomes t1 of x all
+the way to tk of x.</p>
+<p t="2129994" d="2166">And what I'm going to do
+is take the inner product--</p>
+<p t="2132160" d="3380">so let's call this eta
+and let's call this t.</p>
+<p t="2135540" d="4170">And I'm going to take the inner
+product of eta and t, which</p>
+<p t="2139710" d="9840">is just the sum from j equal
+1 to k of eta j of theta times</p>
+<p t="2149550" d="3220">tj of x.</p>
+<p t="2152770" d="4920">OK, so that's just a way to say
+I want this simple interaction</p>
+<p t="2157690" d="1000">but in higher dimension.</p>
+<p t="2158690" d="2210">The simplest way I can actually
+make those things happen</p>
+<p t="2160900" d="1333">is just by taking inner product.</p>
+<p t="2165490" d="1520">OK, and so now what
+it's telling me</p>
+<p t="2167010" d="2620">is that the distribution-- so
+I want the exponential times</p>
+<p t="2169630" d="2291">something that depends only
+on theta and something that</p>
+<p t="2171921" d="1069">depends only on x.</p>
+<p t="2172990" d="1500">And so what it tells
+me is that when</p>
+<p t="2174490" d="1710">I'm going to take
+p of theta x, it's</p>
+<p t="2176200" d="3440">just going to be something
+which is exponential</p>
+<p t="2179640" d="10585">times the sum from j equal 1
+to k of eta j theta tj of x.</p>
+<p t="2190225" d="2375">And then I'm going to have a
+function that depends only--</p>
+<p t="2192600" d="3440">so let me read it for now
+like c of theta and then</p>
+<p t="2196040" d="1570">a function that
+depends only on x.</p>
+<p t="2197610" d="1880">Let me call it h of x.</p>
+<p t="2199490" d="2850">And for convenience,
+there's no particular reason</p>
+<p t="2202340" d="960">why I do that.</p>
+<p t="2203300" d="1920">I'm taking this
+function c of theta</p>
+<p t="2205220" d="2080">and I'm just actually
+pushing it in there.</p>
+<p t="2207300" d="9882">So I can write c of theta as
+exponential minus log of 1</p>
+<p t="2217182" d="1430">over c of theta, right?</p>
+<p t="2221330" d="1994">And now I have exponential
+times exponential.</p>
+<p t="2223324" d="1666">So I push it in, and
+this thing actually</p>
+<p t="2224990" d="5330">looks like exponential sum
+from j equal 1 to k of eta</p>
+<p t="2230320" d="11800">j theta tj of x minus log 1
+over c of theta times h of x.</p>
+<p t="2242120" d="3910">And this thing here, log 1 over
+c of theta, I call actually</p>
+<p t="2246030" d="6030">b of theta Because
+c, I called it c.</p>
+<p t="2252060" d="3080">But I can actually
+directly call this guy b,</p>
+<p t="2255140" d="3020">and I don't actually
+care about c itself.</p>
+<p t="2258160" d="5740">Now why don't I put back
+also h of x in there?</p>
+<p t="2263900" d="5049">Because h of x is
+really here to just--</p>
+<p t="2268949" d="1449">how to put it--</p>
+<p t="2274262" d="5898">OK, h of x and b of theta
+don't play the same role.</p>
+<p t="2280160" d="3330">B of theta in many ways is a
+normalizing constant, right?</p>
+<p t="2283490" d="3330">I want this density
+to integrate to 1.</p>
+<p t="2286820" d="2700">If I did not have
+this guy, I'm not</p>
+<p t="2289520" d="2430">guaranteed that this
+thing integrates to 1.</p>
+<p t="2291950" d="2910">But by tweaking this function
+b of theta or c of theta--</p>
+<p t="2294860" d="1220">they're equivalent--</p>
+<p t="2296080" d="2270">I can actually ensure that
+this thing integrates to 1.</p>
+<p t="2298350" d="4484">So b of theta is just
+a normalizing constant.</p>
+<p t="2302834" d="2166">H of x is something that's
+going to be funny for us.</p>
+<p t="2305000" d="1583">It's going to be
+something that allows</p>
+<p t="2306583" d="3157">us to be able to treat both
+discrete and continuous</p>
+<p t="2309740" d="8400">variables within the framework
+of exponential families.</p>
+<p t="2318140" d="1920">So for those that are
+familiar with this,</p>
+<p t="2320060" d="1830">this is essentially
+saying that that h of x</p>
+<p t="2321890" d="2230">is really just a
+change of measure.</p>
+<p t="2324120" d="4250">When I actually look at
+the density of p of theta--</p>
+<p t="2328370" d="1950">this is with respect
+to some measure--</p>
+<p t="2330320" d="2490">the fact that I just multiplied
+by a function of x just</p>
+<p t="2332810" d="1180">means that I'm not looking--</p>
+<p t="2333990" d="2430">that this guy here
+without h of theta</p>
+<p t="2336420" d="2970">is not the density with respect
+to the original measure,</p>
+<p t="2339390" d="2270">but it's the density with
+respect to the distribution</p>
+<p t="2341660" d="2612">that has h as a density.</p>
+<p t="2344272" d="1208">That's all I'm saying, right?</p>
+<p t="2345480" d="3170">So I can first transform my
+x's and then take the density</p>
+<p t="2348650" d="1650">with respect to that.</p>
+<p t="2350300" d="2551">If you don't want to think
+about densities or measures,</p>
+<p t="2352851" d="749">you don't have to.</p>
+<p t="2353600" d="1190">This is just the way--</p>
+<p t="2354790" d="2140">this is just the definition.</p>
+<p t="2356930" d="2680">Is there any question
+about this definition?</p>
+<p t="2359610" d="1680">All right, so it
+looks complicated,</p>
+<p t="2361290" d="2270">but it's actually
+essentially the simplest</p>
+<p t="2363560" d="1800">way you could think about it.</p>
+<p t="2365360" d="3644">You want to be able to
+have x and theta interact</p>
+<p t="2369004" d="1666">and you just say, I
+want the interaction</p>
+<p t="2370670" d="3456">to be of the form
+exponential x times theta.</p>
+<p t="2374126" d="1374">And if they're
+higher dimensions,</p>
+<p t="2375500" d="1030">I'm going to take
+the exponential</p>
+<p t="2376530" d="1673">of the function
+of x inner product</p>
+<p t="2378203" d="1041">with a function of theta.</p>
+<p t="2383749" d="1791">All right, so I claimed
+since the beginning</p>
+<p t="2385540" d="1627">that the Gaussian
+was such an example.</p>
+<p t="2387167" d="833">So let's just do it.</p>
+<p t="2388000" d="3330">So is the Gaussian of the-- is
+the interaction between theta</p>
+<p t="2391330" d="4020">and x in a Gaussian of
+the form in the product?</p>
+<p t="2395350" d="3330">And the answer is yes.</p>
+<p t="2398680" d="4800">Actually, whether I know or
+not what the variance is, OK?</p>
+<p t="2403480" d="3267">So let's start for the case
+where I actually do not</p>
+<p t="2406747" d="1083">know what the variance is.</p>
+<p t="2407830" d="5670">So here, I have x is
+n mu sigma squared.</p>
+<p t="2413500" d="1304">This is all one dimensional.</p>
+<p t="2414804" d="2416">And here, I'm going to assume
+that my parameter is both mu</p>
+<p t="2417220" d="2220">and sigma square.</p>
+<p t="2419440" d="2695">OK, so what I need to do is
+to have some function of mu,</p>
+<p t="2422135" d="2375">some function of stigma square,
+and take an inner product</p>
+<p t="2424510" d="2125">of some function of x and
+some other function of x.</p>
+<p t="2426635" d="2425">So I want to show that--</p>
+<p t="2429060" d="3290">so p theta of x is what?</p>
+<p t="2432350" d="4040">Well, it's one over
+square root sigma 2 pi</p>
+<p t="2436390" d="5890">exponential minus x minus mu
+squared over 2 sigma squared,</p>
+<p t="2442280" d="2090">right?</p>
+<p t="2444370" d="1470">So that's just my
+Gaussian density.</p>
+<p t="2445840" d="3570">And I want to say that
+this thing here-- so</p>
+<p t="2449410" d="2250">clearly, the exponential
+shows up already.</p>
+<p t="2451660" d="2310">I want to show that this
+is something that looks</p>
+<p t="2453970" d="7650">like, you know, eta 1 of--</p>
+<p t="2461620" d="6775">sorry, so that was-- yeah, eta
+1 of, say, mu sigma squared.</p>
+<p t="2468395" d="1375">So I have only
+two of those guys,</p>
+<p t="2469770" d="2010">so I'm going to need
+only two etas, right?</p>
+<p t="2471780" d="4250">So I want it to be eta 1
+of mu and sigma times t1</p>
+<p t="2476030" d="6910">of x plus eta 2 mu 1 mu sigma
+squared times t2 of x, right?</p>
+<p t="2482940" d="3130">So I want to have something
+like that that shows up,</p>
+<p t="2486070" d="1760">and the only things
+that are left,</p>
+<p t="2487830" d="4420">I want them to depend either
+only on theta or only on x.</p>
+<p t="2492250" d="5250">So to find that out,
+we just need to expand.</p>
+<p t="2497500" d="4980">OK, so I'm going to first put
+everything into my exponential</p>
+<p t="2502480" d="1170">and expand this guy.</p>
+<p t="2503650" d="2460">So the first term here
+is going to be minus x</p>
+<p t="2506110" d="1766">squared over 2 sigma square.</p>
+<p t="2507876" d="1624">The second term is
+going to be minus mu</p>
+<p t="2509500" d="1650">squared over two sigma squared.</p>
+<p t="2511150" d="4500">And then the cross term is
+going to be plus x mu divided</p>
+<p t="2515650" d="1364">by sigma squared.</p>
+<p t="2517014" d="1666">And then I'm going
+to put this guy here.</p>
+<p t="2518680" d="6357">So I have a minus log
+sigma over 2 pi, OK?</p>
+<p t="2529020" d="4720">OK, is this-- so this term
+here contains an interaction</p>
+<p t="2533740" d="1770">between X and the parameters.</p>
+<p t="2535510" d="1740">This term here
+contains an interaction</p>
+<p t="2537250" d="1230">between X and the parameters.</p>
+<p t="2538480" d="2760">So let me try to write
+them in a way that I want.</p>
+<p t="2541240" d="1710">This guy only depends
+on the parameters,</p>
+<p t="2542950" d="2920">this guy only depends
+on the parameter.</p>
+<p t="2545870" d="2520">So I'm going to
+rearrange things.</p>
+<p t="2548390" d="5690">And so I claim that this
+is of the form x squared.</p>
+<p t="2554080" d="2289">Well, let's say-- do--</p>
+<p t="2563770" d="1030">who's getting the minus?</p>
+<p t="2564800" d="1380">Eta, OK.</p>
+<p t="2566180" d="6780">So it's x squared times
+minus 1 over 2 sigma</p>
+<p t="2572960" d="5490">squared plus x times mu
+over sigma squared, right?</p>
+<p t="2578450" d="1180">So that's this term here.</p>
+<p t="2579630" d="1430">That's this term here.</p>
+<p t="2581060" d="3069">Now I need to get this guy
+here, and that's minus.</p>
+<p t="2584129" d="1791">So I'm going to write
+it like this-- minus,</p>
+<p t="2585920" d="4030">and now I have mu
+squared over 2 sigma</p>
+<p t="2589950" d="5698">squared plus log sigma
+square root 2 pi.</p>
+<p t="2602210" d="9220">And now this thing is definitely
+of the form t of x times--</p>
+<p t="2611430" d="2590">did I call them the
+right way or not?</p>
+<p t="2614020" d="2470">Of course not.</p>
+<p t="2616490" d="2960">OK, so that's going to
+be t2 of x times eta</p>
+<p t="2619450" d="2370">2 of x eta 2 of theta.</p>
+<p t="2621820" d="6410">This guy is going to be t1
+of x times eta 1 of theta.</p>
+<p t="2628230" d="2762">All right, so just a function
+of theta times a function of x--</p>
+<p t="2630992" d="1958">just a function of theta
+times a function of x.</p>
+<p t="2632950" d="2730">And the way combined is
+just by sending them.</p>
+<p t="2635680" d="3010">And this is going
+to be my d of theta.</p>
+<p t="2641710" d="2990">What is h of x?</p>
+<p t="2644700" d="1445">AUDIENCE: 1.</p>
+<p t="2646145" d="875">PHILIPPE RIGOLLET: 1.</p>
+<p t="2647020" d="2780">There's one thing I
+can actually play with,</p>
+<p t="2649800" d="3240">and this is something you're
+going to have some three</p>
+<p t="2653040" d="1050">choices, right?</p>
+<p t="2654090" d="5760">This is not actually completely
+determined here is that--</p>
+<p t="2659850" d="7370">for example, so when I write
+the log sigma square root 2 pi,</p>
+<p t="2667220" d="5440">this is just log of sigma
+plus log square root 2 pi.</p>
+<p t="2672660" d="1610">So I have two choices here.</p>
+<p t="2674270" d="3400">Either my b becomes
+this guy, or--</p>
+<p t="2677670" d="3480">so either I have
+b of theta, which</p>
+<p t="2681150" d="4170">is mu squared over 2 sigma
+squared plus log sigma</p>
+<p t="2685320" d="6600">square root 2 pi and h of
+x is equal to 1, or I have</p>
+<p t="2691920" d="4200">that b of theta is mu
+square over 2 sigma squared</p>
+<p t="2696120" d="2000">plus log sigma.</p>
+<p t="2698120" d="1630">And h of x is equal to what?</p>
+<p t="2708400" d="1900">Well, I can just push
+this guy out, right?</p>
+<p t="2710300" d="1860">I can push it out
+of the exponential.</p>
+<p t="2712160" d="3210">And so it's just square
+root of 2 pi, which is</p>
+<p t="2715370" d="1220">a function of x, technically.</p>
+<p t="2716590" d="3170">I mean, it's a constant function
+of x, but it's a function.</p>
+<p t="2719760" d="2660">So you can see that it's
+not completely clear</p>
+<p t="2722420" d="2670">how you're going to do
+the trade off, right?</p>
+<p t="2725090" d="3750">So the constant terms can
+go either in b or in h.</p>
+<p t="2728840" d="4820">But you know, why bother with
+tracking down b and h when</p>
+<p t="2733660" d="1750">you can actually stuff
+everything into one</p>
+<p t="2735410" d="2790">and just call h one
+and call it a day?</p>
+<p t="2738200" d="2570">Right, so you can
+just forget about h.</p>
+<p t="2740770" d="3020">You know it's one and
+think about the right.</p>
+<p t="2743790" d="2620">H won't matter actually for
+estimation purposes or anything</p>
+<p t="2746410" d="1976">like this.</p>
+<p t="2748386" d="2374">All right, so that's basically
+everything that's written.</p>
+<p t="2750760" d="4280">When stigma square
+is known, what's</p>
+<p t="2755040" d="4980">happening is that this
+guy here is no longer</p>
+<p t="2760020" d="3620">a function of theta, right?</p>
+<p t="2763640" d="1761">Agreed?</p>
+<p t="2765401" d="1249">This is no longer a parameter.</p>
+<p t="2766650" d="8340">When sigma square is known,
+then theta is equal to mu only.</p>
+<p t="2774990" d="2670">There's no sigma
+square going on.</p>
+<p t="2777660" d="1997">So this-- everything
+depends on sigma square</p>
+<p t="2779657" d="1333">can be thought of as a constant.</p>
+<p t="2780990" d="2020">Think one.</p>
+<p t="2783010" d="3900">So in particular, this
+term here does not</p>
+<p t="2786910" d="3360">belong in the interaction
+between x and theta.</p>
+<p t="2790270" d="6880">It belongs to h, right?</p>
+<p t="2797150" d="11970">So if sigma is known, then this
+guy is only a function of h--</p>
+<p t="2809120" d="1650">of x.</p>
+<p t="2810770" d="10650">So h of x becomes exponential
+x squared minus x squared</p>
+<p t="2821420" d="4254">over 2 sigma squared, right?</p>
+<p t="2825674" d="1166">That's just a function of x.</p>
+<p t="2831010" d="671">Is that clear?</p>
+<p t="2836100" d="2550">So if you complete this
+computation, what you're</p>
+<p t="2838650" d="9752">going to get is that your new
+one parameter thing is that p</p>
+<p t="2848402" d="7358">theta x is not equal to
+exponential x times mu</p>
+<p t="2855760" d="3467">over sigma squared minus--</p>
+<p t="2859227" d="1333">well, it's still the same thing.</p>
+<p t="2869300" d="2090">And then you have your
+h of x that comes out--</p>
+<p t="2874210" d="4160">x squared over 2 sigma squared.</p>
+<p t="2878370" d="3980">OK, so that's my h of x.</p>
+<p t="2882350" d="3610">That's still my b of theta.</p>
+<p t="2885960" d="5300">And this is my t1 of x.</p>
+<p t="2891260" d="3930">And this is my eta one of theta.</p>
+<p t="2895190" d="2870">And remember, theta is just
+equal to mu in this case.</p>
+<p t="2902680" d="3930">So if I ask you prove that
+this distribution belongs</p>
+<p t="2906610" d="2780">to an exponential family,
+you just have to work it out.</p>
+<p t="2909390" d="3090">Typically, it's expanding what's
+in the exponential and see</p>
+<p t="2912480" d="700">what's--</p>
+<p t="2913180" d="2510">and just write it in
+this term and identify</p>
+<p t="2915690" d="1200">all the components, right?</p>
+<p t="2916890" d="2686">So here, notice those guys
+don't even get an index anymore</p>
+<p t="2919576" d="1374">because there's
+just one of them.</p>
+<p t="2920950" d="4679">So I wrote eta 1 and t1, but
+it's really just eta and t.</p>
+<p t="2930270" d="4140">Oh sorry, this guy also goes.</p>
+<p t="2934410" d="1830">This is also a constant, right?</p>
+<p t="2936240" d="5000">So it can actually
+just put sigma divided</p>
+<p t="2941240" d="2150">by sigma square root 2 pi.</p>
+<p t="2943390" d="1400">So h of x is what, actually?</p>
+<p t="2948718" d="3437">Is it the density of--</p>
+<p t="2952155" d="1475">AUDIENCE: Standard [INAUDIBLE].</p>
+<p t="2953630" d="720">PHILIPPE RIGOLLET:
+It's not standard.</p>
+<p t="2954350" d="990">It's centered.</p>
+<p t="2955340" d="990">It has mean 0.</p>
+<p t="2956330" d="2480">But it variance
+sigma squared, right?</p>
+<p t="2958810" d="2250">But it's the density
+of a Gaussian.</p>
+<p t="2961060" d="2560">And this is what I
+meant when I said</p>
+<p t="2963620" d="3660">h of x is really just telling
+you with respect to which</p>
+<p t="2967280" d="3640">distribution, which measure
+you're taking the density.</p>
+<p t="2970920" d="2390">And so this thing here
+is really telling you</p>
+<p t="2973310" d="4380">the density of my
+Gaussian with mean mu</p>
+<p t="2977690" d="4020">is equal to-- is this with
+respect to a centered Gaussian</p>
+<p t="2981710" d="1926">is this guy, right?</p>
+<p t="2983636" d="874">That's what it means.</p>
+<p t="2984510" d="1800">If this thing ends
+up being a density,</p>
+<p t="2986310" d="3060">it just means that now you
+just have a new measure, which</p>
+<p t="2989370" d="1900">is this density.</p>
+<p t="2991270" d="2000">So it's just saying
+that the density</p>
+<p t="2993270" d="4290">of the Gaussian with
+mean mu with respect</p>
+<p t="2997560" d="3368">to the Gaussian with mean 0
+is just this [INAUDIBLE] here.</p>
+<p t="3005140" d="2820">All right, so let's move on.</p>
+<p t="3007960" d="3090">So here, as I said,
+you could actually</p>
+<p t="3011050" d="2790">do all these computations
+and forget about the fact</p>
+<p t="3013840" d="2590">that x is continuous.</p>
+<p t="3016430" d="4260">You can actually do it with PMFs
+and do it for x is discrete.</p>
+<p t="3020690" d="2850">This actually also tells
+you if you can actually</p>
+<p t="3023540" d="3000">get the same form for
+your density, which</p>
+<p t="3026540" d="2460">is of the form exponential
+times the product</p>
+<p t="3029000" d="3060">of the the interaction
+between theta</p>
+<p t="3032060" d="1950">and x is just
+taking this product,</p>
+<p t="3034010" d="2940">then a function only of theta
+and of function only of x,</p>
+<p t="3036950" d="3180">for the PMF, it also works.</p>
+<p t="3040130" d="1920">OK, so I claim
+that the Bernoulli</p>
+<p t="3042050" d="2910">belongs to this family.</p>
+<p t="3044960" d="4420">So the PMF of a Bernoulli--</p>
+<p t="3049380" d="5210">we say parameter p is p to the
+x 1 minus p to the 1 minus x,</p>
+<p t="3054590" d="950">right?</p>
+<p t="3055540" d="4900">Because we know so that's
+only for x equals 0 or 1.</p>
+<p t="3060440" d="2720">And the reason is because
+when x is equal to 0,</p>
+<p t="3063160" d="900">this is 1 minus p.</p>
+<p t="3064060" d="2567">When x is equal to
+1, this is minus 0.</p>
+<p t="3066627" d="1583">OK, we've seen that
+when we're looking</p>
+<p t="3068210" d="3520">at likelihoods for Bernoullis.</p>
+<p t="3071730" d="4970">OK, this is not clear this is
+going to look like this at all.</p>
+<p t="3076700" d="2910">But let's do it.</p>
+<p t="3079610" d="2050">OK, so what does
+this thing look like?</p>
+<p t="3081660" d="1490">Well, the first
+thing I want to do</p>
+<p t="3083150" d="1560">is to make an
+exponential show up.</p>
+<p t="3084710" d="1374">So what I'm going
+to write is I'm</p>
+<p t="3086084" d="5106">going to write p to the x as
+exponential x log p, right?</p>
+<p t="3093714" d="1916">And so I'm going to do
+that for the other one.</p>
+<p t="3095630" d="2060">So this thing here--</p>
+<p t="3097690" d="5400">so I'm going to get
+exponential x log</p>
+<p t="3103090" d="3948">p plus 1 minus x log 1 minus p.</p>
+<p t="3111250" d="2800">So what I need to do is
+to collect my terms in x</p>
+<p t="3114050" d="2700">and my terms in whatever
+parameters I have,</p>
+<p t="3116750" d="2330">see here if theta is equal to p.</p>
+<p t="3123180" d="1990">So if I do this,
+what I end up having</p>
+<p t="3125170" d="3270">is equal to exponential--</p>
+<p t="3128440" d="4210">so determine x is log
+p minus log 1 minus p.</p>
+<p t="3132650" d="5490">So that's x times
+log p over 1 minus p.</p>
+<p t="3138140" d="1910">And then the term
+that rest is just--</p>
+<p t="3140050" d="3226">that stays is just 1
+times log 1 minus p.</p>
+<p t="3143276" d="2124">But I want to see this as
+a minus something, right?</p>
+<p t="3145400" d="1667">It was minus b of theta.</p>
+<p t="3147067" d="1458">So I'm going to
+write it as minus--</p>
+<p t="3152890" d="2260">well, I can just keep the
+plus, and I'm going to do--</p>
+<p t="3161770" d="2592">and that's all [INAUDIBLE].</p>
+<p t="3164362" d="1978">A-ha!</p>
+<p t="3166340" d="1720">Well, this is of the
+form exponential--</p>
+<p t="3168060" d="2880">something that depends only on
+x times something that depends</p>
+<p t="3170940" d="1780">only on theta--</p>
+<p t="3172720" d="3280">minus a function that
+depends only on theta.</p>
+<p t="3176000" d="3230">And then h of x is
+equal to 1 again.</p>
+<p t="3179230" d="1400">OK, so let's see.</p>
+<p t="3180630" d="2780">So I have t1 of x is equal to x.</p>
+<p t="3183410" d="1470">That's this guy.</p>
+<p t="3184880" d="6120">Eta 1 of theta is equal
+to log p1 minus p.</p>
+<p t="3191000" d="9930">And b of theta is equal to
+log 1 over 1 minus p, OK?</p>
+<p t="3200930" d="5540">And h of x is equal
+to 1, all right?</p>
+<p t="3209310" d="1920">You guys want to do
+Poisson, or do you</p>
+<p t="3211230" d="1083">want to have any homework?</p>
+<p t="3215120" d="2550">It's a dilemma because that's
+an easy homework versus</p>
+<p t="3217670" d="3740">no homework at all but maybe
+something more difficult. OK,</p>
+<p t="3221410" d="2270">who wants to do it now?</p>
+<p t="3223680" d="2651">Who does not want to
+raise their hand now?</p>
+<p t="3226331" d="1416">Who wants to raise
+their hand now?</p>
+<p t="3227747" d="9369">All right, so let's move on.</p>
+<p t="3237116" d="2124">I'll just do-- do you want
+to do the gammas instead</p>
+<p t="3239240" d="840">in the homework?</p>
+<p t="3240080" d="2070">That's going to be fun.</p>
+<p t="3242150" d="2300">I'm not even going to
+propose to do the gammas.</p>
+<p t="3244450" d="4120">And so this is the
+gamma distribution.</p>
+<p t="3248570" d="2250">It's brilliantly
+called gamma because it</p>
+<p t="3250820" d="3660">has the gamma function just
+like the beta distribution had</p>
+<p t="3254480" d="1920">the beta function in there.</p>
+<p t="3256400" d="1290">They look very similar.</p>
+<p t="3257690" d="3270">One is defined over r plus,
+the positive real line.</p>
+<p t="3260960" d="3690">And remember, the beta was
+defined over the interval 0, 1.</p>
+<p t="3264650" d="3990">And it's of the form x to
+some power times exponential</p>
+<p t="3268640" d="2340">of minus x to some--</p>
+<p t="3270980" d="1360">times something, right?</p>
+<p t="3272340" d="1958">So there's a function of
+polynomial [INAUDIBLE]</p>
+<p t="3274298" d="3706">x where the exponent
+depends on the parameter.</p>
+<p t="3278004" d="2666">And then there's the exponential
+minus x times something depends</p>
+<p t="3280670" d="1260">on the parameters.</p>
+<p t="3281930" d="5991">So this is going to also look
+like some function of x--</p>
+<p t="3287921" d="1749">sorry, like some
+exponential distribution.</p>
+<p t="3289670" d="2610">Can somebody guess what
+is going to be t2 of x?</p>
+<p t="3298338" d="2913">Oh, those are the functions of
+x that show up in this product,</p>
+<p t="3301251" d="499">right?</p>
+<p t="3301750" d="1712">Remember when we have this--</p>
+<p t="3303462" d="1708">we just need to take
+some transformations</p>
+<p t="3305170" d="3700">of x so it looks linear in those
+things and not in x itself.</p>
+<p t="3308870" d="2700">Remember, we had x squared
+and x, for example,</p>
+<p t="3311570" d="990">in the Gaussian case.</p>
+<p t="3312560" d="1911">I don't know if
+it's still there.</p>
+<p t="3314471" d="1249">Yeah, it's still there, right?</p>
+<p t="3315720" d="1610">t2 was x squared.</p>
+<p t="3317330" d="3210">What do you think x is
+going-- t2 of x here.</p>
+<p t="3320540" d="2996">So here's a hint.
+t1 is going to be x.</p>
+<p t="3323536" d="874">AUDIENCE: [INAUDIBLE]</p>
+<p t="3324410" d="1070">PHILIPPE RIGOLLET:
+Yeah, [INAUDIBLE],,</p>
+<p t="3325480" d="958">what is going to be t1?</p>
+<p t="3326438" d="1452">Yeah, you can--
+this one is taken.</p>
+<p t="3327890" d="800">This one is taken.</p>
+<p t="3331313" d="1267">What?</p>
+<p t="3332580" d="1120">Log x, right?</p>
+<p t="3333700" d="1980">Because this x to
+the a minus 1, I'm</p>
+<p t="3335680" d="3700">going to write that as
+exponential a minus 1 log x.</p>
+<p t="3339380" d="3995">So basically, eta 1 is
+going to be a minus 1.</p>
+<p t="3343375" d="4185">Eta 2 is going to
+be minus 1 over b--</p>
+<p t="3347560" d="1420">well, actually the opposite.</p>
+<p t="3348980" d="1291">And then you're going to have--</p>
+<p t="3350271" d="2359">but this is actually
+not too complicated.</p>
+<p t="3352630" d="2460">All right, then those
+parameters get names.</p>
+<p t="3355090" d="3390">a is the shape parameter,
+b is the scale parameter.</p>
+<p t="3358480" d="1800">It doesn't really matter.</p>
+<p t="3360280" d="2430">You have other things that
+are called the inverse gamma</p>
+<p t="3362710" d="3140">distribution, which
+has this form.</p>
+<p t="3365850" d="3510">The difference is that
+the parameter alpha</p>
+<p t="3369360" d="5340">shows negatively there and
+then the inverse Gaussian</p>
+<p t="3374700" d="780">distribution.</p>
+<p t="3378150" d="2070">You know, just densities
+you can come up with</p>
+<p t="3380220" d="3085">and they just happened
+to fall in this family.</p>
+<p t="3383305" d="2375">And there's other ones that
+you can actually put in there</p>
+<p t="3385680" d="960">that we've seen before.</p>
+<p t="3386640" d="2055">The chi-square is actually
+part of this family.</p>
+<p t="3388695" d="1875">The beta distribution
+is part of this family.</p>
+<p t="3390570" d="2041">The binomial distribution
+is part of this family.</p>
+<p t="3392611" d="2419">Well, that's easy because
+the Bernoulli was.</p>
+<p t="3395030" d="4360">The negative binomial, which
+is some stopping time--</p>
+<p t="3399390" d="3210">the first time you hit a
+certain number of successes</p>
+<p t="3402600" d="3520">when you flip some
+Bernoulli coins.</p>
+<p t="3406120" d="1545">So you can check
+for all of those,</p>
+<p t="3407665" d="2375">and you will see that you can
+actually write them as part</p>
+<p t="3410040" d="1470">of the exponential family.</p>
+<p t="3411510" d="1530">So the main goal
+of this slide is</p>
+<p t="3413040" d="1541">to convince you that
+this is actually</p>
+<p t="3414581" d="1819">a pretty broad range
+of distributions</p>
+<p t="3416400" d="3960">because it basically includes
+everything we've seen</p>
+<p t="3420360" d="3180">but not anything there--</p>
+<p t="3423540" d="3000">sorry, plus more, OK?</p>
+<p t="3426540" d="500">Yeah.</p>
+<p t="3427040" d="2000">AUDIENCE: Is there any
+example of a distribution</p>
+<p t="3429040" d="1416">that comes up
+pretty often that's</p>
+<p t="3430456" d="1345">not in the exponential family?</p>
+<p t="3431801" d="1583">PHILIPPE RIGOLLET:
+Yeah, like uniform.</p>
+<p t="3433384" d="2928">AUDIENCE: Oh, OK, so maybe
+a bit more complicated than</p>
+<p t="3436312" d="1390">[INAUDIBLE].</p>
+<p t="3437702" d="1708">Anything Anything that
+has a support that</p>
+<p t="3439410" d="2330">depends on the parameter
+is not going to fall--</p>
+<p t="3441740" d="2670">is not going to fit in there.</p>
+<p t="3444410" d="2160">Right, and you can
+actually convince yourself</p>
+<p t="3446570" d="5340">why anything that
+has the support that</p>
+<p t="3451910" d="1770">does not-- that depends
+on the parameter</p>
+<p t="3453680" d="1630">is not going to be
+part of this guy.</p>
+<p t="3455310" d="2150">It's kind of a hard thing to--</p>
+<p t="3457460" d="4870">in fact, you proved that it's
+not and you prove this rule.</p>
+<p t="3462330" d="1520">That's kind of a
+little difficult,</p>
+<p t="3463850" d="2340">but the way you can convince
+yourself is that remember,</p>
+<p t="3466190" d="3720">the only interaction between
+x and theta that I allowed</p>
+<p t="3469910" d="1560">was taking the
+product of those guys</p>
+<p t="3471470" d="2690">and then the exponential, right?</p>
+<p t="3474160" d="2500">If you have something that
+depends on some parameter--</p>
+<p t="3476660" d="3080">let's say you're going to see
+something that looks like this.</p>
+<p t="3479740" d="1770">Right, for uniform,
+it looks like this.</p>
+<p t="3484720" d="3490">Well, this is not of the form
+exponential x times theta.</p>
+<p t="3488210" d="2780">There's an interaction
+between x and theta here,</p>
+<p t="3490990" d="1850">but it's actually
+certainly not of the form</p>
+<p t="3492840" d="1740">x exponential x times theta.</p>
+<p t="3494580" d="2100">So this is definitely
+not going to be</p>
+<p t="3496680" d="1530">part of the exponential family.</p>
+<p t="3498210" d="2470">And every time you start
+doing things like that,</p>
+<p t="3500680" d="1250">it's just not going to happen.</p>
+<p t="3505790" d="2580">Actually, to be fair,
+I'm not even sure</p>
+<p t="3508370" d="2310">that all these
+guys, when you allow</p>
+<p t="3510680" d="1920">them to have all
+their parameters free,</p>
+<p t="3512600" d="2210">are actually going
+to be part of this.</p>
+<p t="3514810" d="1690">For example-- the
+beta probably is,</p>
+<p t="3516500" d="2230">but I'm not actually
+entirely convinced.</p>
+<p t="3523140" d="4180">There's books on
+experiential families.</p>
+<p t="3527320" d="1650">All right, so let's go back.</p>
+<p t="3528970" d="3090">So here, we've put a lot
+of effort understanding</p>
+<p t="3532060" d="5100">how big, how much wider than
+the Gaussian distribution</p>
+<p t="3537160" d="4470">can we think of for the
+conditional distribution</p>
+<p t="3541630" d="2400">of our response y given x.</p>
+<p t="3544030" d="2590">So let's go back to the
+generalized linear models,</p>
+<p t="3546620" d="500">right?</p>
+<p t="3547120" d="2750">So [INAUDIBLE] said, OK,
+the random component?</p>
+<p t="3549870" d="1930">y has to be part of
+some exponential family</p>
+<p t="3551800" d="1290">distribution-- check.</p>
+<p t="3553090" d="1636">We know what this means.</p>
+<p t="3554726" d="1624">So now I have to
+understand two things.</p>
+<p t="3556350" d="3777">I have to understand what
+is the expectation, right?</p>
+<p t="3560127" d="1833">Because that's actually
+what I model, right?</p>
+<p t="3561960" d="2200">I take the expectation, the
+conditional expectation,</p>
+<p t="3564160" d="690">of y given x.</p>
+<p t="3564850" d="2250">So I need to understand
+given this guy,</p>
+<p t="3567100" d="3150">it would be nice if you had some
+simple rules that would tell me</p>
+<p t="3570250" d="2700">exactly what the expectation
+is rather than having to do it</p>
+<p t="3572950" d="1410">over and over again, right?</p>
+<p t="3574360" d="1740">If I told you,
+here's a Gaussian,</p>
+<p t="3576100" d="1500">compute the
+expectation, every time</p>
+<p t="3577600" d="3150">you had to use that would
+be slightly painful.</p>
+<p t="3580750" d="2760">So hopefully, this thing
+being simple enough--</p>
+<p t="3583510" d="2360">we've actually
+selected a class that's</p>
+<p t="3585870" d="1720">simple enough so that
+we can have rules.</p>
+<p t="3587590" d="4770">Whereas as soon as they give you
+those parameters t1, t2, eta 1,</p>
+<p t="3592360" d="3450">eta 2, b and h, you can
+actually have some simple rules</p>
+<p t="3595810" d="4560">to compute the mean and
+variance and all those things.</p>
+<p t="3600370" d="3150">And so in particular, I'm
+interested in the mean,</p>
+<p t="3603520" d="2430">and I'm going to have to
+actually say, well, you know,</p>
+<p t="3605950" d="3820">this mean has to be mapped
+into the whole real line.</p>
+<p t="3609770" d="2270">So I can actually talk
+about modeling this function</p>
+<p t="3612040" d="2370">of the mean as x transpose beta.</p>
+<p t="3614410" d="2970">And we saw that for
+the [INAUDIBLE] dataset</p>
+<p t="3617380" d="4020">or whatever other data sets.</p>
+<p t="3621400" d="2850">You actually can-- you can
+actually do this using the log</p>
+<p t="3624250" d="3710">of the reciprocal or for the--</p>
+<p t="3627960" d="2090">oh, actually, we didn't
+do it for the Bernoulli.</p>
+<p t="3630050" d="890">We'll come to this.</p>
+<p t="3630940" d="2041">This is the most important
+one, and that's called</p>
+<p t="3632981" d="1529">a logit it or a logistic link.</p>
+<p t="3637090" d="2140">But before we go there,
+this was actually</p>
+<p t="3639230" d="3090">a very broad family, right?</p>
+<p t="3642320" d="2675">When I wrote this thing on the
+bottom board-- it's gone now,</p>
+<p t="3644995" d="1625">but when I wrote it
+in the first place,</p>
+<p t="3646620" d="2250">the only thing that I wrote
+is I wanted x times theta.</p>
+<p t="3648870" d="2249">Wouldn't it be nice if you
+have some distribution that</p>
+<p t="3651119" d="2111">was just x times theta,
+not some function of x</p>
+<p t="3653230" d="1430">times some function of theta?</p>
+<p t="3654660" d="3390">The functions seem to be
+here so that they actually</p>
+<p t="3658050" d="4560">make things a little--</p>
+<p t="3662610" d="2550">so the functions were here
+so that I can actually</p>
+<p t="3665160" d="1320">put a lot of functions there.</p>
+<p t="3666480" d="1950">But first of all,
+if I actually decide</p>
+<p t="3668430" d="2250">to re-parametrize my
+problem, I can always</p>
+<p t="3670680" d="1500">assume-- if I'm
+one dimensional, I</p>
+<p t="3672180" d="2790">can always assume
+that eta 1 of theta</p>
+<p t="3674970" d="2490">becomes my new theta, right?</p>
+<p t="3677460" d="3312">So this thing--
+here for example,</p>
+<p t="3680772" d="1458">I could say, well,
+this is actually</p>
+<p t="3682230" d="1280">the parameter of my Bernoulli.</p>
+<p t="3683510" d="2440">Let me call this
+guy theta, right?</p>
+<p t="3685950" d="2280">I could do that.</p>
+<p t="3688230" d="3000">Then I could say, well, here
+I have x that shows up here.</p>
+<p t="3691230" d="2750">And here since I'm talking
+about the response,</p>
+<p t="3693980" d="1710">I cannot really make
+any transformations.</p>
+<p t="3695690" d="2550">So here, I'm going to actually
+talk about a specific family</p>
+<p t="3698240" d="3680">for which this guy is not x
+square or square root of x</p>
+<p t="3701920" d="1430">or log of x or anything I want.</p>
+<p t="3703350" d="1999">I'm just going to actually
+look at distributions</p>
+<p t="3705349" d="1081">for which this is x.</p>
+<p t="3706430" d="2055">This exponential
+families are called</p>
+<p t="3708485" d="2655">a canonical exponential family.</p>
+<p t="3711140" d="3870">So in the canonical
+exponential family, what I have</p>
+<p t="3715010" d="2220">is that I have my x times theta.</p>
+<p t="3717230" d="2729">I'm going to allow myself
+some normalization factor phi,</p>
+<p t="3719959" d="1541">and we'll see, for
+example, that it's</p>
+<p t="3721500" d="3830">very convenient when I talk
+about the Gaussian, right?</p>
+<p t="3725330" d="2500">Because even if I know--</p>
+<p t="3731250" d="3884">yeah, even if I know this guy,
+which I actually pull into my--</p>
+<p t="3735134" d="1166">oh, that's over here, right?</p>
+<p t="3740970" d="2185">Right, I know sigma squared.</p>
+<p t="3743155" d="1625">But I don't want to
+change my parameter</p>
+<p t="3744780" d="1510">to be mu over sigma squared.</p>
+<p t="3746290" d="1200">It's kind of painful.</p>
+<p t="3747490" d="2630">So I just take mu, and
+I'm going to keep this guy</p>
+<p t="3750120" d="1860">as being this phi over there.</p>
+<p t="3751980" d="2850">And it's called the
+dispersion parameter</p>
+<p t="3754830" d="3180">from a clear analogy
+with the Gaussian, right?</p>
+<p t="3758010" d="3570">That's the variance and
+that's measuring dispersion.</p>
+<p t="3761580" d="3960">OK, so here, what
+I want is I'm going</p>
+<p t="3765540" d="3910">to think throughout this class--
+so phi may be known or not.</p>
+<p t="3769450" d="1940">And depending--
+when it's not known,</p>
+<p t="3771390" d="2970">this actually might turn
+into some exponential family</p>
+<p t="3774360" d="1110">or it might not.</p>
+<p t="3775470" d="5910">And the main reason is because
+this b of theta over phi</p>
+<p t="3781380" d="3570">is not necessarily a function
+of theta over phi, right?</p>
+<p t="3784950" d="4710">If I actually have phi
+unknown, then y theta over phi</p>
+<p t="3789660" d="1080">has to be--</p>
+<p t="3790740" d="2650">this guy has to be
+my new parameter.</p>
+<p t="3793390" d="4540">And b might not be a function
+of this new parameter.</p>
+<p t="3797930" d="3930">OK, so in a way,
+it may or may not,</p>
+<p t="3801860" d="2850">but this is not really a
+concern that we're going to have</p>
+<p t="3804710" d="2100">because throughout
+this class, we're</p>
+<p t="3806810" d="2385">going to assume that
+phi is known, OK?</p>
+<p t="3809195" d="2625">Phi is going to be known all the
+time, which means that this is</p>
+<p t="3811820" d="2514">always an exponential family.</p>
+<p t="3814334" d="1416">And it's just the
+simplest one you</p>
+<p t="3815750" d="2520">could think of-- one
+dimensional parameter, one</p>
+<p t="3818270" d="4530">dimensional response, and I just
+have-- the product is just y</p>
+<p t="3822800" d="2250">times or, we used to call it x.</p>
+<p t="3825050" d="4620">Now I've switched to y, but y
+times theta divided by phi, OK?</p>
+<p t="3832550" d="3570">Should I write this or this is
+clear to everyone what this is?</p>
+<p t="3836120" d="2545">Let me write it somewhere so
+we actually keep track of it</p>
+<p t="3838665" d="1900">toward the [INAUDIBLE].</p>
+<p t="3845800" d="2190">OK, so this is--</p>
+<p t="3847990" d="3630">remember, we had all
+the distributions.</p>
+<p t="3851620" d="4050">And then here we had
+the exponential family.</p>
+<p t="3855670" d="2940">And now we have the
+canonical exponential family.</p>
+<p t="3861280" d="2920">It's actually
+much, much smaller.</p>
+<p t="3864200" d="2750">Well, actually, it's probably
+sort of a good picture.</p>
+<p t="3866950" d="5670">And what I have is that
+my density or my PMF</p>
+<p t="3872620" d="4500">is just exponential
+y times theta minus b</p>
+<p t="3877120" d="3900">of theta divided by phi.</p>
+<p t="3881020" d="5460">And I have plus phi of--</p>
+<p t="3886480" d="7340">oh, yeah, plus phi
+of y phi, which</p>
+<p t="3893820" d="4860">means that this is really--
+if phi is known, h of y</p>
+<p t="3898680" d="7062">is just exponential
+c of y phi, agreed?</p>
+<p t="3905742" d="2208">Actually, this is the reason
+why it's not necessarily</p>
+<p t="3907950" d="2460">a canonical family.</p>
+<p t="3910410" d="2580">It might not be that
+this depends only on y.</p>
+<p t="3912990" d="2410">It could depend on y and
+phi in some annoying way</p>
+<p t="3915400" d="3550">and I may not be
+able to break it.</p>
+<p t="3918950" d="2270">OK, but if phi is known,
+this is just a function</p>
+<p t="3921220" d="2360">that depends on y, agreed?</p>
+<p t="3928290" d="1380">In particular, I
+think you need--</p>
+<p t="3929670" d="2083">I hope you can convince
+yourself that this is just</p>
+<p t="3931753" d="1997">a subcase of everything
+we've seen before.</p>
+<p t="3941990" d="2810">So for example, the Gaussian
+when the variance is known</p>
+<p t="3944800" d="2210">is indeed of this form, right?</p>
+<p t="3947010" d="2210">So we still have
+it on the board.</p>
+<p t="3949220" d="1820">So here is my y, right?</p>
+<p t="3951040" d="2910">So then let me write
+this as f theta of y.</p>
+<p t="3953950" d="5080">So every x is replaceable
+with y, blah, blah, blah.</p>
+<p t="3959030" d="2300">This is this guy.</p>
+<p t="3961330" d="5790">And now what I have is that
+this is going to be my phi.</p>
+<p t="3967120" d="3510">This is my parameter of theta.</p>
+<p t="3970630" d="3690">So I'm definitely of the form
+y times theta divided by phi.</p>
+<p t="3974320" d="2120">And then here I
+have a function b</p>
+<p t="3976440" d="4450">that depends only on
+theta over phi again.</p>
+<p t="3980890" d="6150">So b of theta is mu
+squared divided by 2.</p>
+<p t="3991000" d="2890">OK, then it's divided
+by 6 sigma square.</p>
+<p t="3993890" d="1629">And then I have
+this extra stuff.</p>
+<p t="3995519" d="1791">But I really don't care
+what it is for now.</p>
+<p t="3997310" d="4830">It's just something that depends
+only on y and known stuff.</p>
+<p t="4002140" d="2010">So it was just a function
+of y just like my h.</p>
+<p t="4004150" d="3030">I stuff everything in there.</p>
+<p t="4007180" d="2910">The b, though, this
+thing here, this</p>
+<p t="4010090" d="2139">is actually what's
+important because</p>
+<p t="4012229" d="1541">in the canonical
+family, if you think</p>
+<p t="4013770" d="3290">about it, when you know phi--</p>
+<p t="4017060" d="6210">sorry-- right, this
+is just y times theta</p>
+<p t="4023270" d="2520">scaled by a known
+constant-- sorry, y times</p>
+<p t="4025790" d="2370">theta scaled by a known
+constant is the first term.</p>
+<p t="4028160" d="3840">The second term is b of theta
+scaled by some known constant.</p>
+<p t="4032000" d="1860">But b of theta is
+what's going to make</p>
+<p t="4033860" d="3720">the difference between the
+Gaussian and Bernoullis</p>
+<p t="4037580" d="2100">and gammas and betas--</p>
+<p t="4039680" d="2070">this is all in this b
+of theta. b of theta</p>
+<p t="4041750" d="3300">contains everything
+that's idiosyncratic to</p>
+<p t="4045050" d="2220">this particular distribution.</p>
+<p t="4047270" d="1730">And so this is going
+to be important.</p>
+<p t="4049000" d="3120">And we will see that b of theta
+is going to capture information</p>
+<p t="4052120" d="2110">about the mean,
+about the variance,</p>
+<p t="4054230" d="2903">about likelihood,
+about everything.</p>
+<p t="4064710" d="1710">Should I go through
+this computation?</p>
+<p t="4066420" d="1227">I mean, it's the same.</p>
+<p t="4067647" d="1083">We've just done it, right?</p>
+<p t="4068730" d="5020">So maybe it's probably better
+if you can redo it on your own.</p>
+<p t="4073750" d="2930">All right, so the canonical
+exponential family also</p>
+<p t="4076680" d="1530">has other distributions, right?</p>
+<p t="4078210" d="2680">So there's the Gaussian
+and there's the Poisson</p>
+<p t="4080890" d="1520">and there's the Bernoulli.</p>
+<p t="4082410" d="2840">But the other ones may not
+be part of this, right?</p>
+<p t="4085250" d="2560">In particular, think about
+the gamma distribution.</p>
+<p t="4087810" d="5790">We had this-- log x was one
+of the things that showed up.</p>
+<p t="4093600" d="2070">I mean, I cannot get
+rid of this log x.</p>
+<p t="4095670" d="3059">I mean, that's part of it
+except if a is equal to 1</p>
+<p t="4098729" d="1651">and I know it for sure, right?</p>
+<p t="4100380" d="3599">So if a is equal to 1, then
+I'm going to have a minus 1,</p>
+<p t="4103979" d="1021">which is equal to 0.</p>
+<p t="4105000" d="2160">So I'm going to have
+a minus 1 times log</p>
+<p t="4107160" d="1470">x, which is going to be just 0.</p>
+<p t="4108630" d="1930">So log x is going
+to vanish from here.</p>
+<p t="4110560" d="2990">But if a is equal to 1,
+then this distribution</p>
+<p t="4113550" d="2700">is actually much nicer, and
+it actually does not even</p>
+<p t="4116250" d="1200">deserve the name gamma.</p>
+<p t="4117450" d="1440">What is it if a is equal to 1?</p>
+<p t="4122444" d="1125">It's an exponential, right?</p>
+<p t="4123569" d="4210">Gamma 1 is equal to 1. x to
+the a minus 1 is equal to 1.</p>
+<p t="4127779" d="3750">b-- so I have exponential
+x over b divided by b.</p>
+<p t="4131529" d="1991">So 1 over b-- call it lambda.</p>
+<p t="4133520" d="3239">And this is just an
+exponential distribution.</p>
+<p t="4136759" d="2041">And so every time you're
+going to see something--</p>
+<p t="4138800" d="3790">so all these guys that
+don't make it to this table,</p>
+<p t="4142590" d="3504">they could be part of those
+guys, but they're just more--</p>
+<p t="4146094" d="2956">they're just to--</p>
+<p t="4149050" d="1889">they just have another
+name in this thing.</p>
+<p t="4150939" d="3031">All right, so you could
+compute the value of theta</p>
+<p t="4153970" d="1550">for different values, right?</p>
+<p t="4155520" d="3194">So again, you still have some
+continuous or discrete ones.</p>
+<p t="4158714" d="916">This is my b of theta.</p>
+<p t="4159630" d="2890">And I said this is actually
+really what captures my theta.</p>
+<p t="4162520" d="3930">This b is actually called
+cumulant generating function,</p>
+<p t="4166450" d="710">OK?</p>
+<p t="4167160" d="1140">I don't have time.</p>
+<p t="4168300" d="2070">I could write five
+slides to explain to you,</p>
+<p t="4170370" d="2359">but it would just only
+tell you why it's called</p>
+<p t="4172729" d="1661">cumulant generating function.</p>
+<p t="4174390" d="3700">It's also known as the log of
+the moment generating function.</p>
+<p t="4178090" d="4105">And the way it's called
+cumulant generating function</p>
+<p t="4182195" d="2125">is because if I start taking
+successive derivatives</p>
+<p t="4184320" d="3264">and evaluating them at 0, I
+get the successive cumulance</p>
+<p t="4187584" d="3275">of this distribution, which
+are some transformation</p>
+<p t="4190859" d="956">of the moments.</p>
+<p t="4191815" d="1839">AUDIENCE: What are you
+talking about again?</p>
+<p t="4193654" d="1416">PHILIPPE RIGOLLET:
+The function b.</p>
+<p t="4195070" d="875">AUDIENCE: [INAUDIBLE]</p>
+<p t="4195945" d="2041">PHILIPPE RIGOLLET: So this
+is just normalization.</p>
+<p t="4197986" d="2184">So this is just to tell
+you I can compute this,</p>
+<p t="4200170" d="1470">but I really don't care.</p>
+<p t="4201640" d="2820">And obviously I don't care
+about stuff that's complicated.</p>
+<p t="4204460" d="2856">This is actually cute, and this
+is what completes everything.</p>
+<p t="4207316" d="2124">And the rest is just like
+some general description.</p>
+<p t="4209440" d="2490">You only need to tell
+you that the range of y</p>
+<p t="4211930" d="2160">is 0 to infinity, right?</p>
+<p t="4214090" d="2379">And that is
+essentially telling me</p>
+<p t="4216469" d="2541">this is going to give me some
+hints as to which link function</p>
+<p t="4219010" d="1170">I should be using, right?</p>
+<p t="4220180" d="1530">Because the range
+of y tells me what</p>
+<p t="4221710" d="2136">the range of expectation
+of y is going to be.</p>
+<p t="4223846" d="2124">All right, so here, it
+tells me that the range of y</p>
+<p t="4225970" d="2880">is between 0 and 1.</p>
+<p t="4228850" d="1650">OK, so what I want
+to show you is</p>
+<p t="4230500" d="2634">that this captures a
+variety of different ranges</p>
+<p t="4233134" d="954">that you can have.</p>
+<p t="4240300" d="6270">OK, so I'm going to want
+to go into the likelihood.</p>
+<p t="4246570" d="1890">And the likelihood
+I'm actually going</p>
+<p t="4248460" d="2320">to use to compute
+the expectations.</p>
+<p t="4250780" d="2060">But since I actually
+don't have time</p>
+<p t="4252840" d="2850">to do this now, let's just
+go quickly through this</p>
+<p t="4255690" d="4080">and give you spoiler alert to
+make sure that you all wake up</p>
+<p t="4259770" d="1500">on Thursday and
+really, really want</p>
+<p t="4261270" d="1890">to think about coming
+here immediately.</p>
+<p t="4263160" d="2310">All right, so the thing
+I'm going to want to do,</p>
+<p t="4265470" d="2100">as I said, is it would
+be nice if, at least</p>
+<p t="4267570" d="3864">for this canonical
+family, when I give you b,</p>
+<p t="4271434" d="1416">you would be able
+to say, oh, here</p>
+<p t="4272850" d="3490">is a simple computation of b
+that would actually give me</p>
+<p t="4276340" d="1190">the mean and the variance.</p>
+<p t="4277530" d="3060">The mean and the variance
+are also known as moments.</p>
+<p t="4280590" d="2380">b is called cumulant
+generating function.</p>
+<p t="4282970" d="1970">So it sounds like
+moments being related</p>
+<p t="4284940" d="3120">to cumulance, I might have a
+path to finding those, right?</p>
+<p t="4288060" d="3600">And it might involve taking
+derivatives of b, as we'll see.</p>
+<p t="4291660" d="1670">The way we're
+going to prove this</p>
+<p t="4293330" d="3490">by using this thing that
+we've used several times.</p>
+<p t="4296820" d="2534">So this property we use
+when we're computing,</p>
+<p t="4299354" d="1666">remember, the fisher
+information, right?</p>
+<p t="4301020" d="2400">We had two formulas for
+the fisher information.</p>
+<p t="4303420" d="5790">One was the expectation of the
+second derivative of the log</p>
+<p t="4309210" d="3816">likelihood, and one was negative
+expectation of the square--</p>
+<p t="4313026" d="2124">sorry, expectation of the
+square, and the other one</p>
+<p t="4315150" d="2820">was negative the expectation of
+the second derivative, right?</p>
+<p t="4317970" d="2880">The log likelihood is concave,
+so this number is negative,</p>
+<p t="4320850" d="1620">this number is positive.</p>
+<p t="4322470" d="2520">And the way we did this is by
+just permuting some derivative</p>
+<p t="4324990" d="1014">and integral here.</p>
+<p t="4326004" d="2166">And there was just-- we
+used the fact that something</p>
+<p t="4328170" d="1208">that looked like this, right?</p>
+<p t="4329378" d="4402">The log likelihood
+is log of f theta.</p>
+<p t="4333780" d="6720">And when I take the derivative
+of this guy with respect</p>
+<p t="4340500" d="4190">to theta, then I
+have something that</p>
+<p t="4344690" d="5770">looks like the derivative
+divided by f theta.</p>
+<p t="4350460" d="3560">And if I start taking the
+integral against f theta</p>
+<p t="4354020" d="5250">of this thing, so the
+expectation of this thing,</p>
+<p t="4359270" d="3150">those things would cancel.</p>
+<p t="4362420" d="3319">And then I had just the
+integral of a derivative, which</p>
+<p t="4365739" d="2291">I would make a leap of faith
+and say that it's actually</p>
+<p t="4368030" d="1291">the derivative of the integral.</p>
+<p t="4373770" d="2230">But this was equal to 1.</p>
+<p t="4376000" d="2404">So this derivative was
+actually equal to 0.</p>
+<p t="4378404" d="1916">And so that's how you
+got that the expectation</p>
+<p t="4380320" d="2610">of the derivative of the log
+likelihood is equal to 0.</p>
+<p t="4382930" d="2010">And you do it once again
+and you get this guy.</p>
+<p t="4384940" d="1410">It's just some nice
+things that happen</p>
+<p t="4386350" d="2083">with the [INAUDIBLE] taking
+derivative of the log.</p>
+<p t="4388433" d="1997">We've done that,
+we'll do that again.</p>
+<p t="4390430" d="3230">But once you do this, you
+can actually apply it.</p>
+<p t="4393660" d="3920">And-- missing a
+parenthesis over there.</p>
+<p t="4397580" d="2030">So when you write
+the log likelihood,</p>
+<p t="4399610" d="1656">it's just log of an exponential.</p>
+<p t="4401266" d="1374">Huh, that's actually
+pretty nice.</p>
+<p t="4402640" d="2380">Just like the least squares
+came naturally, the least</p>
+<p t="4405020" d="1416">squares [INAUDIBLE]
+came naturally</p>
+<p t="4406436" d="2768">when we took the log
+likelihood of the Gaussians,</p>
+<p t="4409204" d="2166">we're going to have the
+same thing that happens when</p>
+<p t="4411370" d="1710">I take the log of the density.</p>
+<p t="4413080" d="2220">The exponential is
+going to go away,</p>
+<p t="4415300" d="1690">and then I'm going
+to use this formula.</p>
+<p t="4416990" d="2780">But this formula is
+going to actually give me</p>
+<p t="4419770" d="3256">an equation directly--
+oh, that's where it was.</p>
+<p t="4423026" d="1814">So that's the one
+that's missing up there.</p>
+<p t="4424840" d="4170">And so the expectation
+minus this thing</p>
+<p t="4429010" d="1770">is going to be equal
+to 0, which tells me</p>
+<p t="4430780" d="2342">that the expectation
+is just the derivative.</p>
+<p t="4433122" d="2068">Right, so it's still
+a function of theta,</p>
+<p t="4435190" d="2220">but it's just a derivative of b.</p>
+<p t="4437410" d="2250">And the variance
+is just going to be</p>
+<p t="4439660" d="1620">the second derivative of b.</p>
+<p t="4441280" d="2630">But remember, this was some
+sort of a scaling, right?</p>
+<p t="4443910" d="2080">It's called the
+dispersion parameter.</p>
+<p t="4445990" d="3420">So if I had a Gaussian and
+the variance of the Gaussian</p>
+<p t="4449410" d="2610">did not depend on
+the sigma squared</p>
+<p t="4452020" d="3240">which I stuffed in this phi,
+that would be certainly weird.</p>
+<p t="4455260" d="2341">And it cannot depend only
+on mu, and so this will--</p>
+<p t="4457601" d="2249">for the Gaussian, this is
+definitely going to be equal</p>
+<p t="4459850" d="1110">to 1.</p>
+<p t="4460960" d="3390">And this is just going to
+be equal to my variance.</p>
+<p t="4464350" d="4110">So this is just by taking
+the second derivative.</p>
+<p t="4468460" d="4800">So basically, the take-home
+message is that this function b</p>
+<p t="4473260" d="1910">captures--</p>
+<p t="4475170" d="1920">by taking one derivative
+of the expectation</p>
+<p t="4477090" d="2475">and by taking two derivatives
+captures the variance.</p>
+<p t="4479565" d="1635">Another thing
+that's actually cool</p>
+<p t="4481200" d="1380">and we'll come
+back to this and I</p>
+<p t="4482580" d="3060">want to think about is if
+this second derivative is</p>
+<p t="4485640" d="3550">the variance, what can
+I say about this thing?</p>
+<p t="4492037" d="1333">What do I know about a variance?</p>
+<p t="4493370" d="1580">AUDIENCE: [INAUDIBLE]</p>
+<p t="4494950" d="1780">PHILIPPE RIGOLLET:
+Yeah, that's positive.</p>
+<p t="4496730" d="1380">So I know that this is positive.</p>
+<p t="4498110" d="2490">So what does that tell me?</p>
+<p t="4500600" d="2515">Positive?</p>
+<p t="4503115" d="875">That's convex, right?</p>
+<p t="4503990" d="3060">A function that has positive
+second derivative is convex.</p>
+<p t="4507050" d="2650">So we're going to use
+that as well, all right?</p>
+<p t="4509700" d="2830">So yeah, I'll see
+you on Thursday.</p>
+<p t="4512530" d="1850">I have your homework.</p>
+</body>
+</timedtext>

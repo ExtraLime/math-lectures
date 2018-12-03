@@ -1,0 +1,2163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="0" d="6499">[SOUND] Stanford University.</p>
+<p t="9584" d="5339">&gt;&gt; Okay, so we're back again with CS224N.</p>
+<p t="14923" d="2277">So Let's see.</p>
+<p t="17200" d="3900">So in terms of what we're gonna do today,
+I mean</p>
+<p t="21100" d="4675">I think it's gonna be a little bit muddled
+up, and going forwards and backwards.</p>
+<p t="25775" d="4380">Officially in the syllabus
+today's lecture is,</p>
+<p t="30155" d="2820">sequence to sequence models and attention.</p>
+<p t="32975" d="3820">And next Tuesday's lecture
+is machine translation.</p>
+<p t="36795" d="1710">But really,</p>
+<p t="38505" d="4995">Richard already started saying some things
+about machine translation last week.</p>
+<p t="43500" d="2820">And so I thought for
+various reasons, it probably makes</p>
+<p t="46320" d="5040">sense to also be saying more stuff
+about machine translation today.</p>
+<p t="51360" d="1860">So expect that.</p>
+<p t="53220" d="4870">But I am gonna cover the main content of
+what was meant to be in today's lecture,</p>
+<p t="58090" d="1790">and talk about attention today.</p>
+<p t="59880" d="2910">And that's a really useful
+thing to know about.</p>
+<p t="62790" d="4627">I mean almost certainly if you're gonna
+be doing anything in the space of sort of</p>
+<p t="67417" d="4423">reading comprehension, question
+answering models, such as, for instance,</p>
+<p t="71840" d="1119">assignment four.</p>
+<p t="72959" d="3962">But also kinds of things that a whole
+bunch of people have proposed for</p>
+<p t="76921" d="4387">final projects, you definitely
+wanna know about and use attention.</p>
+<p t="81308" d="3312">But then I actually thought
+I'd do a little bit of</p>
+<p t="84620" d="2436">going backwards next Tuesday.</p>
+<p t="87056" d="5254">And I want to go back and actually say a
+bit more about these kind of gated models,</p>
+<p t="92310" d="4240">like the GRUs and
+LSTMs that become popular lately.</p>
+<p t="96550" d="4900">and try and have a bit more of a go at
+saying just a little bit more about well,</p>
+<p t="101450" d="2103">why do people do this and
+why does it work?</p>
+<p t="103553" d="4747">And see if I can help make it
+a little bit more intelligible.</p>
+<p t="108300" d="2490">So we'll mix around between those topics.</p>
+<p t="110790" d="5060">But somehow over these two weeks of
+classes, we're doing recurrent models,</p>
+<p t="115850" d="3540">attention, MT and
+all those kinds of things.</p>
+<p t="120700" d="1010">Okay.</p>
+<p t="121710" d="2340">Other reminders and comments.</p>
+<p t="124050" d="2605">So the midterm is over yay!</p>
+<p t="126655" d="6016">And your dear TAs and me spent all
+last night grading that midterm.</p>
+<p t="132671" d="5480">So we're sort of 99%
+over with the midterm.</p>
+<p t="138151" d="4988">There's a slight catch that a couple
+of people haven't done it yet,</p>
+<p t="143139" d="3571">because of various complications.</p>
+<p t="146710" d="4665">So essentially next Tuesday is,
+when we're gonna be able to be sort of</p>
+<p t="151375" d="4015">releasing solutions to the midterm and
+handing them back.</p>
+<p t="155390" d="2050">Some people did exceedingly well.</p>
+<p t="157440" d="3170">The highest score was extremely high 90s.</p>
+<p t="160610" d="1620">Most people did pretty well.</p>
+<p t="162230" d="1890">It has a decent median.</p>
+<p t="164120" d="1525">A few few not so well.</p>
+<p t="165645" d="2495">[LAUGH] You know how what
+these things are like.</p>
+<p t="168140" d="5230">But yeah, overall we're pretty
+pleased with how people did in it.</p>
+<p t="173370" d="3376">I just thought I should
+mention one other issue,</p>
+<p t="176746" d="3714">which I will say sort of
+send a Piazza note about.</p>
+<p t="180460" d="5150">I mean I know that a few people
+were quite unhappy with the fact</p>
+<p t="185610" d="5260">that some students kept on writing
+after the official end of the exam.</p>
+<p t="190870" d="2380">And I mean I totally understand that.</p>
+<p t="193250" d="1400">Because the fact of the matter is,</p>
+<p t="194650" d="5050">these kind of short midterm exams
+do end up quite time-limited,</p>
+<p t="199700" d="5300">and many people feel like they could
+do more if they had more time.</p>
+<p t="205000" d="2310">I mean on the other hand,</p>
+<p t="207310" d="6000">I honestly feel like I don't know
+quite what to do about this problem.</p>
+<p t="213310" d="7328">Both Richard and me came from educational
+traditions, where we had exam proctors.</p>
+<p t="220638" d="4768">And when it was time to put your
+pens down, you put your pens down or</p>
+<p t="225406" d="2884">else dire consequences happen to you.</p>
+<p t="228290" d="3690">Whereas my experience at Stanford is that,</p>
+<p t="231980" d="5400">every exam I've ever been in at Stanford,
+there are people who keep writing</p>
+<p t="237380" d="4910">until you forcibly remove
+the exam out of their hands.</p>
+<p t="242290" d="3450">And so there seems to be
+a different tradition here.</p>
+<p t="245740" d="5100">And in theory this is meant to be
+student regulated by the honor code,</p>
+<p t="250840" d="5090">but we all know that there are some
+complications there as well.</p>
+<p t="255930" d="3076">So it's not that I'm not
+sensitive to the issue.</p>
+<p t="259006" d="4994">And you know really exactly what
+I said to the TAs before the end</p>
+<p t="264000" d="4600">of the exam is, so it's a real problem
+at Stanford, people going on writing, so</p>
+<p t="268600" d="2070">could everyone get in the room
+as quickly as possible,</p>
+<p t="270670" d="3110">and collect everyone's exams
+to minimize that problem.</p>
+<p t="273780" d="4300">But obviously, it's a little bit
+difficult when there are 680 students.</p>
+<p t="278080" d="2342">But we did the best we could.</p>
+<p t="280422" d="3288">And I think basically we
+have to proceed with that.</p>
+<p t="284810" d="500">Okay.</p>
+<p t="286570" d="1190">Other topics.</p>
+<p t="287760" d="2512">Assignment three is looming.</p>
+<p t="290272" d="3198">Apologies that we were a bit
+late getting that out.</p>
+<p t="293470" d="3620">Though with the midterm,
+it wouldn't have made much difference.</p>
+<p t="297090" d="3380">We have put a little bit of
+extension to assignment three.</p>
+<p t="300470" d="6646">I guess we're really nervous about,
+giving more extension to assignment three.</p>
+<p t="307116" d="3658">Not because we don't want you to have
+time to do assignment three, but</p>
+<p t="310774" d="4464">just because we realized that anything we
+do is effectively stealing days away from</p>
+<p t="315238" d="3414">the time you have to do the final
+project or assignment four.</p>
+<p t="318652" d="2228">So we don't wanna do that too much.</p>
+<p t="320880" d="2823">We hope that assignment
+three isn't too bad.</p>
+<p t="323703" d="2762">And the fact that you can do
+it in teams can help, and</p>
+<p t="326465" d="2315">that that won't be such a problem.</p>
+<p t="328780" d="4020">Another thing that we want people
+to do but are a bit behind on, but</p>
+<p t="332800" d="5640">I hopefully can get in place tomorrow, is
+giving people access to Microsoft Azure,</p>
+<p t="338440" d="3140">to be able to use GPUs
+to do the assignments.</p>
+<p t="341580" d="3320">We really do want people to do that for
+assignment three.</p>
+<p t="344900" d="4345">Since it's just great experience to have
+and will be useful to know about, for</p>
+<p t="349245" d="3165">then going on for assignment four and
+the final project.</p>
+<p t="352410" d="3160">So we hope we can have
+that in place imminently.</p>
+<p t="355570" d="4770">And it really will allow you to do things
+much quicker for assignment three.</p>
+<p t="360340" d="2070">So the kind of models
+that you're building for</p>
+<p t="362410" d="4820">assignment three, should run at least
+an order of magnitude, sort of ten,</p>
+<p t="367230" d="4730">12 times or something faster, if you're
+running them on a GPU rather than a CPU.</p>
+<p t="371960" d="2320">So look forward to
+hearing more about that.</p>
+<p t="374280" d="6350">The final reminder I want to mention is,
+I'm really really encouraging people</p>
+<p t="380630" d="5460">to come to final project office hours for
+discussion.</p>
+<p t="386090" d="4991">Richard was really disappointed how few
+people came to talk to him about final</p>
+<p t="391081" d="2509">projects on Tuesday after the exam.</p>
+<p t="393590" d="2840">Now maybe that's quite
+understandable why no one turned up.</p>
+<p t="396430" d="6640">But at any rate moving forward from here,
+I really really encourage you to do that.</p>
+<p t="403070" d="4940">So I have final project office
+hours tomorrow from one to three.</p>
+<p t="408010" d="3370">Richard is gonna be doing
+it again next Tuesday.</p>
+<p t="411380" d="4960">The various other PhD students
+having their office hours.</p>
+<p t="416340" d="4250">So really do for the rest of quarter,
+try and get along to those.</p>
+<p t="420590" d="4165">and check in on projects
+as often as possible.</p>
+<p t="424755" d="4758">And in particular, make really really sure
+that either next week or the week after,</p>
+<p t="429513" d="5327">that you do talk to your project mentor,
+to find out their advice on the project.</p>
+<p t="434840" d="1220">Okay, all good?</p>
+<p t="436060" d="1415">Any questions?</p>
+<p t="440788" d="4302">Okay, so
+let's get back into machine translation.</p>
+<p t="445090" d="4847">And I just thought I'd sort of say
+a couple of slides of how important</p>
+<p t="449937" d="1881">is machine translation.</p>
+<p t="451818" d="4925">Now really a large percentage of
+the audience of these Stanford classes</p>
+<p t="456743" d="1979">are not American citizens.</p>
+<p t="458722" d="4663">So probably a lot of you realize that,
+machine translation is important.</p>
+<p t="463385" d="4695">But for the few of you that
+are native-born American citizens.</p>
+<p t="468080" d="4720">I think a lot of native-born Americans
+are sort of, very unaware of</p>
+<p t="472800" d="5790">the importance of translation, because
+they live in an English-only world.</p>
+<p t="478590" d="1520">Where most of the resources for</p>
+<p t="480110" d="5060">information are available in English, and
+America is this, sort of, a big enough</p>
+<p t="485170" d="4420">place that you're not often dealing with
+stuff outside the rest of the world.</p>
+<p t="489590" d="5310">But really in general, for
+humanity and commerce, translation,</p>
+<p t="494900" d="4630">in general, and machine translation in
+particular, are just huge things, right?</p>
+<p t="499530" d="5390">That for places like the European Union
+to run, is completely dependent on having</p>
+<p t="504920" d="5560">translation happen, so it can work across
+the many languages of the European Union.</p>
+<p t="510480" d="4080">So, the translation industry is
+a $40 billion a year industry.</p>
+<p t="514560" d="4130">And that's basically the amount
+that's spent on human translation,</p>
+<p t="518690" d="4230">because most of what's done as
+machine translation at the moment</p>
+<p t="522920" d="4170">is in the form of free services,
+and so it's a huge issue in Europe,</p>
+<p t="527090" d="4930">it's growing in Asia, lots of needs in
+every domain, as well as commercial,</p>
+<p t="532020" d="2990">there's social, government,
+and military needs.</p>
+<p t="535010" d="4880">And so the use of machine translation
+has itself become a huge thing.</p>
+<p t="539890" d="4910">So Google now translate over 100
+billion words per day, right?</p>
+<p t="544800" d="4658">There are a lot of people that
+are giving Google stuff to translate.</p>
+<p t="549458" d="4571">It's then important for
+things like having social connections.</p>
+<p t="554029" d="1234">So I mean in 2016,</p>
+<p t="555263" d="5477">last year Facebook rolled out their
+own homegrown machine translation.</p>
+<p t="560740" d="3520">Prior to that they've made use of
+other people's translation, but</p>
+<p t="564260" d="4130">essentially what they had found was that
+the kind of commercial machine translation</p>
+<p t="568390" d="5230">offerings didn't do a very good job
+at translating social chit chat.</p>
+<p t="573620" d="3910">And the fact of the matter is that doing
+a better job at that is sufficiently</p>
+<p t="577530" d="4600">important to a company like Facebook that
+they're developing their own in house</p>
+<p t="582130" d="2130">machine translation to do it.</p>
+<p t="584260" d="3820">One of the quotes that came along with
+that was when they were testing it and</p>
+<p t="588080" d="4810">turned off the machine translation for
+some users, that they really went nuts,</p>
+<p t="592890" d="3510">that lots of people really
+do actually depend on this.</p>
+<p t="596400" d="1480">Other areas as well.</p>
+<p t="597880" d="4970">So eBay makes extensive use of machine
+translation to enable cross-border trade.</p>
+<p t="602850" d="3410">So that if you are going
+to be able to successfully</p>
+<p t="606260" d="2650">sell products in different markets,
+well, you have</p>
+<p t="608910" d="5030">to be able to translate the descriptions
+into things that people can read.</p>
+<p t="613940" d="4070">Okay, and so that then leads us into
+what we're gonna be focusing on here,</p>
+<p t="618010" d="2660">which is neural machine translation.</p>
+<p t="620670" d="6650">And so, neural machine translation or NMT
+is sort of a commonly used slogan name.</p>
+<p t="627320" d="5130">And it's come to have a sort of
+a particular meaning that's slightly more</p>
+<p t="632450" d="2520">than neural plus machine translation.</p>
+<p t="634970" d="5190">That neural machine translation is
+used to mean what we want to do</p>
+<p t="640160" d="5160">is build one big neural
+network which we can train</p>
+<p t="645320" d="6110">the entire end-to-end machine translation
+process in and optimize end to end.</p>
+<p t="651430" d="4360">And so systems that do that are then
+what are referred to as an MT system.</p>
+<p t="655790" d="2430">So that the kind of picture here</p>
+<p t="658220" d="2980">is that we're going to have
+this big neural network.</p>
+<p t="661200" d="3230">It's gonna take input text that's
+somehow going to encode into</p>
+<p t="664430" d="1640">neural network vectors.</p>
+<p t="666070" d="4940">It's then gonna have a decoder and
+out would come text at the end.</p>
+<p t="671010" d="2620">And so we get these
+encoder-decoder architectures.</p>
+<p t="675040" d="4760">Before getting into the modern stuff,
+I thought I'd take two slides</p>
+<p t="679800" d="4900">to tell you about the archaeology
+of neural networks.</p>
+<p t="688520" d="4890">Neural networks had sorta been very
+marginal or dead as a field for</p>
+<p t="693410" d="1710">a couple of decades.</p>
+<p t="695120" d="4020">And so I think a lot of the time people
+these days think of deep learning</p>
+<p t="699140" d="4430">turned up around 2012,
+with the ImageNet breakthroughs.</p>
+<p t="703570" d="2490">And boy has it been amazing since then.</p>
+<p t="706060" d="2480">But really there have been
+earlier ages of neural networks.</p>
+<p t="708540" d="4901">And in particular there's a boom in the
+use of neural networks in the second half</p>
+<p t="713441" d="4464">of the 80s into the early 90s which
+corresponds to when Rumelhart and</p>
+<p t="717905" d="5196">McClelland, so that's the James McClelland
+that's still in the Psych Department</p>
+<p t="723101" d="4829">at Stanford, pioneered or re-pioneered
+the use of neural networks partly as</p>
+<p t="727930" d="3860">a cognitive science tool, but
+also as a computing tool.</p>
+<p t="731790" d="3420">And many of the technologies
+that we've been talking about</p>
+<p t="735210" d="3210">really the math of them are worked
+out during that period.</p>
+<p t="738420" d="4754">So it was in the 80s there was really
+worked out of how to do general back</p>
+<p t="743174" d="4136">propagation algorithms for
+multi-layer neural networks.</p>
+<p t="747310" d="3040">And it was also during
+that period when people</p>
+<p t="750350" d="3160">worked out how to do the math
+of recurrent neural networks.</p>
+<p t="753510" d="5560">So algorithms like backpropagation through
+time were worked out in this period,</p>
+<p t="759070" d="4720">in the late 80s, often by people who were
+psychologists, cognitive scientists,</p>
+<p t="763790" d="3650">rather than hard core CS
+people in those days.</p>
+<p t="767440" d="5492">And so, also in that period, was
+actually when neural MT, in having these</p>
+<p t="772932" d="5778">encoder decoder architectures for
+doing translation, was first tried out.</p>
+<p t="778710" d="4270">The systems that were built were
+incredibly primitive and limited,</p>
+<p t="782980" d="4440">which partly reflects the computational
+resources of those days.</p>
+<p t="787420" d="2820">But they still were in
+coder/decoder architectures.</p>
+<p t="790240" d="5100">So as far as I've been able to work out,
+the first neural MT system was this system</p>
+<p t="795340" d="2960">that was done by Bob Allen in 1987,</p>
+<p t="798300" d="5060">the very first international
+conference on neural networks, and so</p>
+<p t="803360" d="6220">he constructed 3,000 English/Spanish
+pairs over a tiny vocabulary.</p>
+<p t="809580" d="2270">Sort of a 30 to 40 word vocabulary and</p>
+<p t="811850" d="3790">the sentences were actually kind of
+constructed based on the grammar,</p>
+<p t="815640" d="4613">it wasn't actually kind of we'll just
+collect together human language use, but</p>
+<p t="820253" d="4907">you know you sort of had sentences like
+this with some variation of word order and</p>
+<p t="825160" d="1230">things like that.</p>
+<p t="826390" d="4220">And he built this simple encoded decoded</p>
+<p t="830610" d="4310">network that you can see on the right
+that was not a recurrent model.</p>
+<p t="834920" d="4090">You just had sort of a binary
+representation of the sequence of words in</p>
+<p t="839010" d="6480">a sentence and the sentences were only
+short and then were pumped through that.</p>
+<p t="845490" d="4290">A few years after that, Lonnie Chrisman.</p>
+<p t="849780" d="2640">Lonnie Chrisman is actually
+a guy who lives in the Bay Area.</p>
+<p t="852420" d="3115">He works at a tech firm still to this day.</p>
+<p t="855535" d="3405">[LAUGH] Not doing neural networks anymore.</p>
+<p t="858940" d="5360">So Lonnie Chrisman in the early 90s
+then developed a more sophisticated</p>
+<p t="865310" d="6340">neural network architecture for
+doing encoded decoder MT architecture.</p>
+<p t="871650" d="6860">So he was using this model called
+RAAMS Recursive Auto Associative Memories</p>
+<p t="878510" d="4020">which were developed in the early 90s.</p>
+<p t="882530" d="2750">Not worth explaining the details of them.</p>
+<p t="885280" d="3192">But a RAAM is in some sense kind of
+like recurrent network of the kind</p>
+<p t="888472" d="2268">that we've already started to look at.</p>
+<p t="890740" d="2250">And he was building those ones.</p>
+<p t="892990" d="2690">And so that then leads into our modern</p>
+<p t="895680" d="4370">encoder decoder architectures
+that Richard already mentioned.</p>
+<p t="900050" d="4420">Where we're having, perhaps a recurrent
+network that's doing the encoding and</p>
+<p t="904470" d="5320">then another recurrent network there's
+then decoding out in another language.</p>
+<p t="909790" d="3210">And where in reality they're not
+normally as simple as this, and</p>
+<p t="913000" d="4210">we have more layers and more stuff,
+and it all gets more complicated.</p>
+<p t="918310" d="4775">I just wanted to mention
+quickly a couple more</p>
+<p t="923085" d="2480">things about the space of these things.</p>
+<p t="925565" d="2790">So you can think of what
+these encoder decoder</p>
+<p t="928355" d="4232">architectures are as a conditional
+recurrent language model.</p>
+<p t="932587" d="3680">So if we want to generate a translation,</p>
+<p t="936267" d="5500">we're encoding the source so
+we're producing a Y from the source.</p>
+<p t="941767" d="4283">And then from that Y
+we're going to decode,</p>
+<p t="946050" d="4450">we're going to run a recurrent neural
+network to produce the translation.</p>
+<p t="950500" d="6270">And so you can think of that decoder there
+as a conditional recurrent language model.</p>
+<p t="956770" d="3324">So it's essentially being a language
+model that's generating forward</p>
+<p t="960094" d="1606">as a recurrent language model.</p>
+<p t="961700" d="3909">And the only difference from
+any other kind of recurrent or</p>
+<p t="965609" d="4598">neural language model is that you're
+conditioning on one other thing,</p>
+<p t="970207" d="4633">that you've calculated this Y
+based on the source sentence.</p>
+<p t="974840" d="2450">And that's the only
+architecture difference.</p>
+<p t="978410" d="3263">So if we then look down into
+the details a little bit,</p>
+<p t="981673" d="3350">there are different ways
+that you can do the encoder.</p>
+<p t="985023" d="5511">The most common way to do the encoder has
+been with these gated recurrent units,</p>
+<p t="990534" d="2147">whether the GRUs or the LSTMs,</p>
+<p t="992681" d="5419">which are another kind of gated recurrent
+unit that Richard talked about last time.</p>
+<p t="998100" d="2091">I mean, people have tried other things.</p>
+<p t="1000191" d="4240">I mean the modern resurgence
+of neural machine translation,</p>
+<p t="1004431" d="4695">actually the very first paper that
+tried to do it was this paper by</p>
+<p t="1009126" d="4954">Nal Kalchbrenner and Phil Blunsom
+who now both work at DeepMind.</p>
+<p t="1014080" d="1445">And they actually for</p>
+<p t="1015525" d="5467">their encoder they were using a recurrent
+sequence of convolutional networks.</p>
+<p t="1020992" d="3818">Not the kind of gated recurrent
+networks that we talked about.</p>
+<p t="1024810" d="3350">And sometime later in the course
+we'll talk a bit more</p>
+<p t="1028160" d="3150">about convolutional networks and
+how they're used in language.</p>
+<p t="1031310" d="3115">They're not nearly as much used
+in language, they're much,</p>
+<p t="1034425" d="1307">much more used in Vision.</p>
+<p t="1035732" d="4590">And so if next quarter you do CS231N and
+get even more neural</p>
+<p t="1040322" d="4978">networks then you'll spend way more of
+the time on convolutional networks.</p>
+<p t="1045300" d="4877">But the one other idea I sort of
+wanted to just sort of put out</p>
+<p t="1050177" d="4283">there is sort of another
+concept to be aware of.</p>
+<p t="1054460" d="6480">So we have this Y that we've
+encoded the source with.</p>
+<p t="1060940" d="3380">And then there's this
+question of how you use that.</p>
+<p t="1064320" d="5046">So for the models that we've shown
+up until now and that Richard had,</p>
+<p t="1069366" d="4181">essentially what happened was
+we calculated up to here.</p>
+<p t="1073547" d="1691">This was our y.</p>
+<p t="1075238" d="5943">And we just used the y as the starting
+point of the hidden layer,</p>
+<p t="1081181" d="2931">and then we started to decode.</p>
+<p t="1084112" d="4806">So this was effectively the Google
+tradition of the way of doing it,</p>
+<p t="1088918" d="3809">the model that Sutskever
+et al proposed in 2014.</p>
+<p t="1092727" d="4985">And so effectively, if you're doing
+it this way, you're putting most of</p>
+<p t="1097712" d="4478">the pressure on the forget gates
+not doing too much forgetting.</p>
+<p t="1102190" d="4811">Because you have the entire knowledge
+of the source sentence here.</p>
+<p t="1107001" d="4925">And you have to make sure you're carrying
+enough of it along through the network.</p>
+<p t="1111926" d="4890">That you'll be able to continue to access
+the source sentence's semantics all</p>
+<p t="1116816" d="3647">the way through your generation
+of the target sentence.</p>
+<p t="1120463" d="4967">So it's especially true in
+that case that you will really</p>
+<p t="1125430" d="4602">lose badly if you got something
+like a plain recurrent neural</p>
+<p t="1130032" d="3776">network which isn't very good
+at having a medium term memory.</p>
+<p t="1133808" d="3237">And you can do much better
+with something like an LSTM.</p>
+<p t="1137045" d="3950">Which is much more able to
+maintain a medium term memory with</p>
+<p t="1140995" d="3555">the sort of ideas that Richard
+started to talk about.</p>
+<p t="1145660" d="3610">But that isn't actually
+the only way of doing it.</p>
+<p t="1149270" d="4930">And so the other pioneering work
+in neural machine translation</p>
+<p t="1154200" d="3910">was work that was done at the University
+of Montreal by Kyunghyun Cho and</p>
+<p t="1158110" d="3103">colleagues and
+that wasn't actually the way they did it.</p>
+<p t="1161213" d="3858">The way they did it was once
+they'd calculated the Y as</p>
+<p t="1165071" d="2585">the representation of the source.</p>
+<p t="1167656" d="6444">They fed that Y into every time step
+during the period of generation.</p>
+<p t="1174100" d="4090">So when you were generating at each state,
+you were getting a hidden</p>
+<p t="1178190" d="3684">representation which was kind
+of just your language model.</p>
+<p t="1181874" d="1697">And then you were getting two inputs.</p>
+<p t="1183571" d="5016">You were getting one input which
+was the previous word, the x_t.</p>
+<p t="1188587" d="2146">And then you were getting a second input,</p>
+<p t="1190733" d="2403">which was the y that you
+were conditioning on.</p>
+<p t="1193136" d="4190">So you were directly feeding that
+conditioning in at every time step.</p>
+<p t="1197326" d="3756">And so then you're less dependent on
+having to sort of preserve it along</p>
+<p t="1201082" d="1948">the whole sequence.</p>
+<p t="1203030" d="4924">And in a way having the input
+available at every time step,</p>
+<p t="1207954" d="2623">that seems to be a useful idea.</p>
+<p t="1210577" d="4469">And so that's actually the idea that will
+come back when I talk about attention.</p>
+<p t="1215046" d="4774">That attention is again going to give
+us a different mechanism of getting at</p>
+<p t="1219820" d="1680">the input when we need it.</p>
+<p t="1221500" d="1570">And to being able to condition on it.</p>
+<p t="1224350" d="4608">Let me just sort of give you
+a couple more pictures and</p>
+<p t="1228958" d="5463">a sense of how exciting neural
+machine translation has been.</p>
+<p t="1234421" d="4794">So for machine translation,
+there are a couple of prominent</p>
+<p t="1239215" d="4141">evaluations of machine
+translation that are done.</p>
+<p t="1243356" d="3658">But I mean I think the most prominent
+one has been done by what's called</p>
+<p t="1247014" d="2276">the workshop on machine translation.</p>
+<p t="1249290" d="1945">Which has a yearly evaluation.</p>
+<p t="1251235" d="2798">And so this is showing results from that.</p>
+<p t="1254033" d="4293">And most of the results shown
+are the results from Edinburgh Systems.</p>
+<p t="1258326" d="3874">And the University of Edinburgh's
+traditionally been one of the strongest</p>
+<p t="1262200" d="2370">universities at doing machine translation.</p>
+<p t="1264570" d="2030">And they have several systems.</p>
+<p t="1266600" d="6445">And so what we can see from these results,
+up is good of machine translation quality.</p>
+<p t="1273045" d="5159">So we have the phrase-based syntactic
+machine translation systems</p>
+<p t="1278204" d="6309">which is the kind of thing that you saw
+on Google Translate until November 2016.</p>
+<p t="1284513" d="3312">That although they work reasonably,</p>
+<p t="1287825" d="5079">there is sort of a feeling that
+although they are a pioneering</p>
+<p t="1292904" d="4447">a good use of large data
+machine learning systems.</p>
+<p t="1297351" d="3649">That they had kind of stalled.</p>
+<p t="1301000" d="4206">So there really was very little
+progress in phrase-based machine</p>
+<p t="1305206" d="2486">translation systems in recent years.</p>
+<p t="1307692" d="4814">Until neural machine translation came
+along, the idea that people were most</p>
+<p t="1312506" d="4449">actively exploring was building
+syntax-based statistical machine</p>
+<p t="1316955" d="5355">translation systems, which made more
+use of the structure of language.</p>
+<p t="1322310" d="4680">They were improving a little bit
+more quickly but not very quickly.</p>
+<p t="1326990" d="4110">How quickly kind of partly depends
+on how you draw that line.</p>
+<p t="1331100" d="4440">It sort of depends on whether
+you believe 2015 was a fluke or</p>
+<p t="1335540" d="4730">whether I should draw the line as I have,
+in the middle between them.</p>
+<p t="1340270" d="2740">But you got slightly more slope,
+then not a lot.</p>
+<p t="1343010" d="2069">But so compared to those two things,</p>
+<p t="1345079" d="4760">I mean actually just this amazing thing
+happened with neural machine translation.</p>
+<p t="1349839" d="4541">So it was only in 2014,
+after the WMT evaluation,</p>
+<p t="1354380" d="2974">that people started playing with.</p>
+<p t="1357354" d="4087">Could we build an end-to-end
+neural machine translation system?</p>
+<p t="1361441" d="4722">But then extremely quickly,
+people were able to build these systems.</p>
+<p t="1366163" d="7047">And so by 2016 they were clearly winning
+in the workshop and machine translation.</p>
+<p t="1373210" d="3130">In terms of how much slope you have for
+improvement,</p>
+<p t="1376340" d="2072">that the slope is extremely high.</p>
+<p t="1378412" d="5483">And indeed the numbers are kind of
+continuing to go up too in the last year.</p>
+<p t="1383895" d="2737">So that's actually been super exciting.</p>
+<p t="1386632" d="2267">As I say in the next slide.</p>
+<p t="1388899" d="3905">That so
+neural MT really went from this sort of,</p>
+<p t="1392804" d="7265">fringe research activity of let's try this
+and see if it could possibly work in 2014.</p>
+<p t="1400069" d="1292">To two years later,</p>
+<p t="1401361" d="4422">it had become this is the way that
+you have to do machine translation.</p>
+<p t="1405783" d="4319">Because it just works better
+than everything else.</p>
+<p t="1410102" d="2155">So I'll say more about
+machine translation.</p>
+<p t="1412257" d="3459">But I thought I'd just highlight
+at the beginning, well,</p>
+<p t="1415716" d="3611">why do we get these big wins
+from neural machine translation?</p>
+<p t="1419327" d="2873">And I think there are maybe
+sort of four big wins.</p>
+<p t="1422200" d="3600">At any rate,
+this is my attempt at dividing it up.</p>
+<p t="1425800" d="2590">So the first big win</p>
+<p t="1428390" d="3560">is the fact that you're just
+training these models end-to-end.</p>
+<p t="1431950" d="5144">So if you can train all parameters
+of the model simultaneously for</p>
+<p t="1437094" d="2520">one target driven loss function.</p>
+<p t="1439614" d="4206">That's just proved
+a really powerful notion.</p>
+<p t="1443820" d="5011">And indeed I think quite a lot of
+the success of deep learning systems is</p>
+<p t="1448831" d="5119">that because we have these sort
+of big computational flow graphs</p>
+<p t="1453950" d="5477">that we can optimize everything over
+in one big back propagation process.</p>
+<p t="1459427" d="2445">So it's easy to do end to end training.</p>
+<p t="1461872" d="4260">But that's been a very productive
+way to do end to end training.</p>
+<p t="1466132" d="5417">And it's the end to end training
+more than neural nets are magical.</p>
+<p t="1471549" d="3435">I think sometimes they're just
+given enormous amounts of power to</p>
+<p t="1474984" d="866">these systems.</p>
+<p t="1475850" d="2090">But there are other factors as well.</p>
+<p t="1477940" d="1582">So as we stressed a lot,</p>
+<p t="1479522" d="4526">these distributed representations
+are actually just worth a ton.</p>
+<p t="1484048" d="4715">So that they allow you to kind of
+share statistical strength between</p>
+<p t="1488763" d="2490">similar words, similar phrases.</p>
+<p t="1491253" d="3124">And you can exploit that to
+just get better predictions,</p>
+<p t="1494377" d="2863">and that's given a lot of improvement.</p>
+<p t="1497240" d="4420">A third big cause of improvement
+has been these neural MT</p>
+<p t="1501660" d="4560">systems are just much better
+at exploiting context.</p>
+<p t="1506220" d="3168">So Richard briefly mentioned
+traditional language models.</p>
+<p t="1509388" d="4706">So those were things like four gram and
+five gram models which were just</p>
+<p t="1514094" d="3846">done on counts of how often
+sequences of words occurred.</p>
+<p t="1517940" d="5581">And those were very useful parts
+of machine translation systems.</p>
+<p t="1523521" d="3924">But the reality was that
+the language models on</p>
+<p t="1527445" d="4735">the generation side only
+used a very short context.</p>
+<p t="1532180" d="2180">And when you are translating words and</p>
+<p t="1534360" d="4040">phrases that the standard systems
+did that completely context free.</p>
+<p t="1538400" d="5181">So the neural machine translation systems
+are just able to use much more context and</p>
+<p t="1543581" d="2566">that means that they can do a lot better.</p>
+<p t="1546147" d="3202">And there's an interesting way
+in which these things kind of</p>
+<p t="1549349" d="1768">go together in a productive way.</p>
+<p t="1551117" d="4714">So precisely the reason why your
+machine translation systems can</p>
+<p t="1555831" d="2666">practically use much more context.</p>
+<p t="1558497" d="4010">Is because there are these distributed
+representations that allow you</p>
+<p t="1562507" d="1883">to share statistical strength.</p>
+<p t="1564390" d="4191">Effectively you could never use more
+context in traditional systems.</p>
+<p t="1568581" d="3761">Because you were using these
+one-hot representations of words.</p>
+<p t="1572342" d="4801">And therefore you couldn't build more than
+five gram models usefully because you were</p>
+<p t="1577143" d="3182">just being killed by
+the sparseness of the data.</p>
+<p t="1580325" d="4618">And then the fourth thing that
+I want to call out is sort of</p>
+<p t="1584943" d="3457">really related to all of one two or three.</p>
+<p t="1588400" d="2350">But I think it's just sort
+of worth calling out.</p>
+<p t="1590750" d="4555">Is something really powerful
+that's happened in the last couple</p>
+<p t="1595305" d="2414">of years with neural NLP methods.</p>
+<p t="1597719" d="6370">Is that they've proven to just be
+extremely good for generating fluent text.</p>
+<p t="1604089" d="5060">So, I think it's fair to say
+that the field of sort of</p>
+<p t="1609149" d="8071">natural language generation was sort
+of fairly moribund in the 2000s decade.</p>
+<p t="1617220" d="3418">Because although there were sort
+of simple things that you can do,</p>
+<p t="1620638" d="3310">writing a printf,
+that's a text generation method.</p>
+<p t="1623948" d="3515">[LAUGH] But people could do a bit
+better than that with grammar driven</p>
+<p t="1627463" d="1667">text generation and so on.</p>
+<p t="1629130" d="4137">But there really were not a lot of good
+ideas as how to produce really good,</p>
+<p t="1633267" d="2552">high quality natural language generation.</p>
+<p t="1635819" d="4443">Whereas, it's just proven
+extremely easy and productive.</p>
+<p t="1640262" d="1550">To do high-quality,</p>
+<p t="1641812" d="4658">natural language generation using
+these neural language models.</p>
+<p t="1646470" d="3181">Because it's very easy for
+them to use big contexts,</p>
+<p t="1649651" d="4178">condition on other goals at the same time,
+and they work really well.</p>
+<p t="1653829" d="4571">And so one of the big reasons why
+neural machine translation has been so</p>
+<p t="1658400" d="2880">successful and the results look very good.</p>
+<p t="1661280" d="3819">Is that the text that they're
+generating is very fluent.</p>
+<p t="1665099" d="3858">In fact it's sometimes the case
+that the actual quality</p>
+<p t="1668957" d="2061">of the translation is worse.</p>
+<p t="1671018" d="4822">That the quality of the generation
+in terms of fluency is much better.</p>
+<p t="1677520" d="2982">It's also worth knowing
+what's not on that list.</p>
+<p t="1680502" d="3705">So one thing that's not on that list,
+that's a good thing,</p>
+<p t="1684207" d="3453">is we don't have any separate
+black box component models for</p>
+<p t="1687660" d="4180">things like reordering and
+transliteration and things like that.</p>
+<p t="1691840" d="5180">And traditional statistical MT systems
+have lots of these separate components.</p>
+<p t="1697020" d="4850">You had lexicalized reordering components
+and distortion models and this models and</p>
+<p t="1701870" d="1000">that models.</p>
+<p t="1702870" d="4585">And getting rid of all of that with
+this end to end system is great.</p>
+<p t="1707455" d="2564">There are some other things
+that are not so great.</p>
+<p t="1710019" d="5347">That our current NMT models really make
+no use of any kind of explicit syntax or</p>
+<p t="1715366" d="1484">semantics.</p>
+<p t="1716850" d="3140">You could sort of say, well maybe some
+interesting stuff is happening inside</p>
+<p t="1719990" d="2040">the word vectors and maybe it is.</p>
+<p t="1722030" d="2950">Sorry, there are current
+hidden state vectors and</p>
+<p t="1724980" d="2730">maybe it is, but it's sort of unclear.</p>
+<p t="1727710" d="2319">But actually this is something
+that has started to be worked on.</p>
+<p t="1730029" d="2930">There have been a couple of papers
+that have come out just this year.</p>
+<p t="1732959" d="4366">Where people are starting to put more
+syntax into neural machine translation</p>
+<p t="1737325" d="2495">models, and
+are getting gains from doing so.</p>
+<p t="1739820" d="4292">So I think that's something
+that will revive itself.</p>
+<p t="1744112" d="5373">Also another huge failing of machine
+translation, has been a lot of the errors.</p>
+<p t="1749485" d="3888">That higher level textual
+notions are really badly done</p>
+<p t="1753373" d="2647">by machine translation systems.</p>
+<p t="1756020" d="4420">So those are things of sort of discourse
+structure, clause linking, anaphora and</p>
+<p t="1760440" d="1270">things like that.</p>
+<p t="1761710" d="2360">And we haven't solved those ones.</p>
+<p t="1765170" d="3452">Yeah, so that's been the general picture.</p>
+<p t="1768622" d="5822">Before going on, one of the things we
+haven't done very much of in this class.</p>
+<p t="1774444" d="5216">Is actually looking at linguistic
+examples and having language on slide.</p>
+<p t="1779660" d="4990">So I thought I'd do at least one
+sentence of machine translation.</p>
+<p t="1784650" d="3540">And I kind of guessed that
+the highest density of</p>
+<p t="1788190" d="3240">knowledge of another language
+in my audience is Chinese.</p>
+<p t="1791430" d="2302">So we're doing Chinese.</p>
+<p t="1793732" d="5028">And this is my one sentence test set for</p>
+<p t="1798760" d="5668">Chinese to English machine translation.</p>
+<p t="1804428" d="3239">So I guess back in the mid 2000s,</p>
+<p t="1807667" d="5383">we were doing Chinese to
+English machine translation.</p>
+<p t="1813050" d="3540">And there was this evaluation
+that we did kind of badly on.</p>
+<p t="1816590" d="5109">And one of the sentences that we
+translated terribly was this sentence.</p>
+<p t="1821699" d="4192">And ever since then, I've been using
+this as my one sentence evaluation set.</p>
+<p t="1825891" d="5723">So I guess this sentence, it actually
+comes from Jared Diamond's book,</p>
+<p t="1831614" d="2396">Guns, Germs, and Steel.</p>
+<p t="1834010" d="3650">So in a sense it's sort of a funny one
+since it's starting with the Chinese</p>
+<p t="1837660" d="2940">translation of Jared Diamond's text.</p>
+<p t="1840600" d="3786">And then we're trying to translate it
+back into English, but never mind!</p>
+<p t="1844386" d="1472">That's our sentence for now.</p>
+<p t="1845858" d="1471">So what have we got here?</p>
+<p t="1847329" d="3484">So this is the 1519 year,</p>
+<p t="1850813" d="4696">there were 600 Spanish people and</p>
+<p t="1855509" d="3340">their landing in Mexico.</p>
+<p t="1858849" d="2401">And then we've got "to conquer".</p>
+<p t="1861250" d="4400">And the first bit I want to focus
+on is then this next bit here.</p>
+<p t="1865650" d="6460">The several million population
+of the Aztec Empire.</p>
+<p t="1873340" d="5970">And so, what you get in Chinese is so
+here's our "Aztec Empire".</p>
+<p t="1879310" d="6540">So in general in Chinese all modifiers
+of a noun are appearing before the noun.</p>
+<p t="1885850" d="3842">And Chinese has this really handy little
+morpheme right here, the [FOREIGN].</p>
+<p t="1889692" d="5638">This is saying the thing
+that comes before it,</p>
+<p t="1895330" d="5490">shown in that brownish color, is
+a modifier of this noun that follows it.</p>
+<p t="1900820" d="3875">And this one's saying the sort
+of several million population.</p>
+<p t="1904695" d="4131">So it's the Aztec Empire with
+the population of a few million.</p>
+<p t="1908826" d="4663">And there's this very specific linguistic
+marker that tells you how you're meant to</p>
+<p t="1913489" d="1331">translate it.</p>
+<p t="1914820" d="5520">And then after that We
+then got the part here,</p>
+<p t="1920340" d="4450">where then we've got so
+first time confronted them,</p>
+<p t="1926370" d="2840">losses, two-thirds.</p>
+<p t="1929210" d="3470">And so that's just sort of tacked
+on to the end of the sentence, so</p>
+<p t="1932680" d="3850">they lost two-thirds of their
+soldiers in the first clash.</p>
+<p t="1936530" d="4060">This is just an interesting
+thing in how translation works.</p>
+<p t="1940590" d="5740">So you could in an English translation try
+and tack that onto the end of the sentence</p>
+<p t="1946330" d="5470">and sort of say "losing two thirds of
+their soldiers in the first clash" or</p>
+<p t="1951800" d="4190">"and they lost two thirds of their
+soldiers in the first clash".</p>
+<p t="1955990" d="2790">But neither of those sound
+very good in English.</p>
+<p t="1958780" d="3280">So, below here what we
+have is the reference</p>
+<p t="1962060" d="4860">translation which is where we got some
+competent human to translate this.</p>
+<p t="1966920" d="4490">And so, interestingly what they did and
+I think correctly actually here is that</p>
+<p t="1971410" d="4400">they decide it would actually be much
+better to make this into two sentences.</p>
+<p t="1975810" d="3640">And so, they put in a period and
+then they made a second sentence.</p>
+<p t="1979450" d="3372">They lost two thirds of their
+soldiers in the first clash.</p>
+<p t="1982822" d="3532">Okay, so
+I won't tell you a bad translation, but</p>
+<p t="1986354" d="5063">every year since I've been running
+since this sentence through Google and</p>
+<p t="1991417" d="3463">so I'll show you the Google translations.</p>
+<p t="1994880" d="4230">So on 2009, this is what Google produced.</p>
+<p t="1999110" d="3910">1519, 600 Spaniards landed in Mexico.</p>
+<p t="2003020" d="2400">So that start's not very good.</p>
+<p t="2005420" d="2800">But if we go in particular
+to this focus part,</p>
+<p t="2008220" d="3270">millions of people to
+conquer the Aztec empire.</p>
+<p t="2011490" d="2180">No, that's not correct.</p>
+<p t="2013670" d="4990">And well it's getting some of the words
+right but it's completely not making any</p>
+<p t="2018660" d="4970">use of the structure of
+the sentence in Chinese.</p>
+<p t="2023630" d="1640">And it doesn't get much better.</p>
+<p t="2025270" d="5041">The first two-thirds of
+soldiers against their loss.</p>
+<p t="2030311" d="3503">Okay, so we can go on to 2011.</p>
+<p t="2033814" d="4786">I left some of them out so
+he font size stayed vaguely readable.</p>
+<p t="2038600" d="1840">So it changes a bit but not really.</p>
+<p t="2040440" d="3100">1519, 600 Spaniards landed in Mexico.</p>
+<p t="2043540" d="2280">Millions of people to
+conquer the Aztec empire.</p>
+<p t="2045820" d="3620">The initial loss of soldiers
+two-thirds of their encounters.</p>
+<p t="2049440" d="3957">So that last bit may be a fraction
+better but the rest of it is no better.</p>
+<p t="2053397" d="4335">In 2013, it seemed like they might
+have made a bit of progress.</p>
+<p t="2057732" d="5444">1519 600 Spaniards landed in Mexico
+to conquer the Aztec empire,</p>
+<p t="2063176" d="2584">hundreds of million of people.</p>
+<p t="2065760" d="1423">It's unclear if it's made progress.</p>
+<p t="2067183" d="4224">The fact that you can read the to conquer
+the Aztec empire has mean the Spaniards</p>
+<p t="2071407" d="3712">sort of means it might have made some
+progress but then after that they</p>
+<p t="2075119" d="3458">just dump the hundreds of millions
+of people between two commas.</p>
+<p t="2078577" d="3774">And so it's really not quite
+clear what that's doing but</p>
+<p t="2082351" d="5029">it sort of seemed like whatever that
+change that was just kind of luck because</p>
+<p t="2087380" d="5267">in 2014 it sort of switch back 1519
+600 Spaniards landed in Mexico,</p>
+<p t="2092647" d="3224">millions of people to
+conquer the Aztec empire,</p>
+<p t="2095871" d="3889">the first two-thirds of the loss
+of soldiers they clash.</p>
+<p t="2101680" d="6288">And not only that interestingly
+when I ran it again in 2015 and</p>
+<p t="2107968" d="5457">2016, the translation
+didn't change at all.</p>
+<p t="2113425" d="5055">So I don't know what all the people were
+doing on the Google MT translation team in</p>
+<p t="2118480" d="5700">2015 and 2016, but they definitely weren't
+making progress in Chinese translation.</p>
+<p t="2124180" d="2940">And I think this sort of
+reflects as if the feeling</p>
+<p t="2127120" d="1990">that the system wasn't really progressing.</p>
+<p t="2129110" d="5278">That they sort of built the models and
+mined all the data they could for</p>
+<p t="2134388" d="5098">their Chinese English MT system
+that wasn't getting any better.</p>
+<p t="2139486" d="4921">So then in late 2016, Google rolled out
+their neural machine translation system,</p>
+<p t="2144407" d="2736">which you're gonna hear
+more about in a moment.</p>
+<p t="2147143" d="3967">And there's actual and
+distinct signs of progress.</p>
+<p t="2151110" d="3669">So in 1519 600,
+Spaniards landed in Mexico.</p>
+<p t="2154779" d="4466">So the beginning of it is a lot better
+'cause the whole time it'd just been</p>
+<p t="2159245" d="5545">plunking down 1519 and 600,
+which wasn't a very promising beginning.</p>
+<p t="2164790" d="3089">In the Chinese there's no word for
+"in", right?</p>
+<p t="2167879" d="1792">So this character here is "year", right?</p>
+<p t="2169671" d="6779">So it's sort of 1519 year,
+600 people, Spanish people, right?</p>
+<p t="2176450" d="4695">But clearly in English you wanna be
+putting in it in there and say in 1519.</p>
+<p t="2181145" d="3945">But somehow Google it never manage
+to get that right where you might</p>
+<p t="2185090" d="1080">have thought it could.</p>
+<p t="2186170" d="1500">But now it is, right?</p>
+<p t="2187670" d="2540">In 1519 comma, great beginning, and</p>
+<p t="2190210" d="4610">it continues much better 600
+Spaniards landed in Mexico</p>
+<p t="2194820" d="4850">to conquer the millions of people of the
+Aztec empire, this is getting really good.</p>
+<p t="2199670" d="2580">Neural machine translation is much,
+much better.</p>
+<p t="2202250" d="2188">But there is still some work to do.</p>
+<p t="2204438" d="4761">I guess this last part is kind of
+difficult in a sense the way it's so</p>
+<p t="2209199" d="2649">tacked on to the end of the sentence.</p>
+<p t="2211848" d="2976">But you're right,
+it still isn't working very well for</p>
+<p t="2214824" d="4402">that cuz they've just tacked on the first
+confrontation they killed two-thirds,</p>
+<p t="2219226" d="2852">which sort of it seems to be
+the wrong way around because</p>
+<p t="2222078" d="3412">that's suggesting they killed
+two-thirds of the Aztecs.</p>
+<p t="2225490" d="4420">Whereas meant to be that they
+lost two thirds of the Spaniards.</p>
+<p t="2229910" d="3950">So there's still work to be done from
+proving neural machine translation.</p>
+<p t="2233860" d="4880">But, I do actually think that that's
+showing very genuine progress and that's,</p>
+<p t="2238740" d="1970">in general, what's been shown.</p>
+<p t="2240710" d="3730">So neural machine translation
+has just given big gains.</p>
+<p t="2244440" d="2820">It's been aggressively
+rolled out by industry.</p>
+<p t="2247260" d="2009">So actually the first
+people who rolled out</p>
+<p t="2250520" d="2230">neural machine translation was Microsoft.</p>
+<p t="2252750" d="4810">So in February 2016, Microsoft</p>
+<p t="2257560" d="4920">launched neural machine translation
+on Android phones no less.</p>
+<p t="2262480" d="4700">And another of the huge selling points
+of neural machine translation systems,</p>
+<p t="2267180" d="2830">is that they're actually
+massively more compact.</p>
+<p t="2270010" d="4590">So that they were able to build a neural
+machine translation system that actually</p>
+<p t="2274600" d="2000">ran on the cellphone.</p>
+<p t="2276600" d="4780">And actually that's a very useful
+use case, 'cause the commonest</p>
+<p t="2281380" d="4970">time when people want machine translation
+is when they're not in their home country.</p>
+<p t="2286350" d="1440">And at that point it depends.</p>
+<p t="2287790" d="3970">But a lot of people don't actually have
+cell plans that work in foreign countries,</p>
+<p t="2291760" d="1430">at decent prices.</p>
+<p t="2293190" d="3770">And so it's really useful to be able to
+run your MT system just on the phone.</p>
+<p t="2296960" d="3200">And that was sort of essentially
+never possible with the huge</p>
+<p t="2300160" d="3880">kind of look up tables of phrase
+based systems it is now possible.</p>
+<p t="2304040" d="5250">Systran is a veteran old MT company
+that also launched this system.</p>
+<p t="2309290" d="4930">And then Google launched their
+neural machine translation system</p>
+<p t="2314220" d="4470">with massively more hype than
+either of the two predecessors,</p>
+<p t="2318690" d="5800">including some huge overclaims of
+equaling human translation quality.</p>
+<p t="2324490" d="2070">Which we've just seen still isn't true,</p>
+<p t="2326560" d="4240">based on my one sentence test set,
+that they still have some work to do.</p>
+<p t="2330800" d="5410">But on the other hand,
+they did publish a really interesting</p>
+<p t="2336210" d="4710">paper on the novel research that they've
+done on neural machine translation.</p>
+<p t="2340920" d="3808">And so for the research highlight
+today Emma is gonna talk about that.</p>
+<p t="2352994" d="3283">&gt;&gt; Hi, today I'm gonna talk about Google's</p>
+<p t="2356277" d="5703">multi lingual NMT system which
+enables zero shot translation.</p>
+<p t="2361980" d="3581">So as we have seen in the lecture,
+this is the standard architecture for</p>
+<p t="2365561" d="2699">an NMT system which you have
+an encoder and a decoder.</p>
+<p t="2368260" d="3960">However, this thin architecture supports
+only bilingual translation, meaning</p>
+<p t="2372220" d="4086">that we can have only one specific source
+language and one specific target language.</p>
+<p t="2376306" d="3106">So what if you want to have a system
+that's able to do multilingual</p>
+<p t="2379412" d="740">translation?</p>
+<p t="2380152" d="4318">Meaning that we can have multiple source
+languages and multiple target languages.</p>
+<p t="2384470" d="3450">So previously people have proposed
+several different approaches.</p>
+<p t="2387920" d="3210">The first one, they proposed to have
+multiple different encoders and</p>
+<p t="2391130" d="1610">multiple different decoders.</p>
+<p t="2392740" d="4630">Where each pair correspond to one specific
+pair of source and target languages.</p>
+<p t="2397370" d="4010">And the second one that proposed to
+have a shared encoder that works for</p>
+<p t="2401380" d="1960">one specific source language, but</p>
+<p t="2403340" d="4610">have different decoders to decode
+into different target languages.</p>
+<p t="2407950" d="3990">And they also have proposed
+the third one is they have</p>
+<p t="2411940" d="3410">multiple different encoders to work for
+different source languages and</p>
+<p t="2415350" d="4340">wants a single shared decoder to work for
+more specific target language.</p>
+<p t="2420800" d="4540">So what's so special about
+Google's multilingual NMT system?</p>
+<p t="2425340" d="740">So first of all,</p>
+<p t="2426080" d="4510">it's really simple because here we only
+need one single model that is able to</p>
+<p t="2430590" d="5150">translate from different source languages
+to different target languages, and</p>
+<p t="2435740" d="6620">because of the simplicity the system can
+trivially scale up to more language pairs.</p>
+<p t="2442360" d="3410">And second, the system improves
+the translation quality for</p>
+<p t="2445770" d="960">low resource language.</p>
+<p t="2447800" d="4310">So because the progress of the model
+are shared implicitly and so</p>
+<p t="2452110" d="3620">the model is forced to generalize
+across language boundaries.</p>
+<p t="2455730" d="3830">So it's observed that if we train
+the language that has very little training</p>
+<p t="2459560" d="4870">data with a language pair that
+has a lot of training data in one</p>
+<p t="2464430" d="2540">single model, the translation quality for</p>
+<p t="2466970" d="2509">the low-resourced language
+is significantly improved.</p>
+<p t="2470510" d="3810">And also the system is able to
+perform zero-shot translation.</p>
+<p t="2474320" d="3086">Meaning that the model can
+inclusively translate for</p>
+<p t="2477406" d="2894">the language pairs it has never
+seen during training time.</p>
+<p t="2480300" d="4530">For example, if we train a model
+on Portuguese to English and</p>
+<p t="2484830" d="4800">English to Spanish data,
+the model is able to</p>
+<p t="2489630" d="4150">generate reasonable translation for
+Portuguese to Spanish directly.</p>
+<p t="2493780" d="3510">Without seeing any data for
+the language pair during training time.</p>
+<p t="2498910" d="3170">And this is the architecture for
+the models.</p>
+<p t="2502080" d="3190">As we can see, this is kind of
+the standard architecture for</p>
+<p t="2505270" d="2714">the state-of-the-art NMT system.</p>
+<p t="2507984" d="5236">Where we have multiple stacked layers of
+LSTMs for both decoders and encoders and</p>
+<p t="2513220" d="4180">those applied attention mechanism which
+we will talk about later in a lecture.</p>
+<p t="2517400" d="4470">So what is the magic here that enables the
+system to do a multilingual translation?</p>
+<p t="2522920" d="4430">So it turns out instead of trying to
+modify the architecture, they instead</p>
+<p t="2527350" d="5660">modified the input data, by adding the
+special artificial token at the beginning</p>
+<p t="2533010" d="4850">of every input sentence, to indicate what
+target language you want to translate to.</p>
+<p t="2537860" d="2940">So for example, if you wanna
+translate from English to Spanish,</p>
+<p t="2540800" d="5010">we simple add this &lt;2es&gt; token to indicate
+that Spanish is the target language.</p>
+<p t="2545810" d="3640">And after adding this artificial token,
+we simply just put together</p>
+<p t="2549450" d="2980">all of the multi-lingual data and
+just start training.</p>
+<p t="2555312" d="2258">With this simple trick,</p>
+<p t="2557570" d="4020">the system is able to surpass
+the state-of-the-art performance for</p>
+<p t="2561590" d="5040">English to German, French to English,
+and German to English translation.</p>
+<p t="2566630" d="3192">And they have comparable performance for
+English to French translation.</p>
+<p t="2571050" d="2190">Both on the WMT benchmark.</p>
+<p t="2574570" d="4370">So and here's a little more detail
+about a zero-shot translation.</p>
+<p t="2578940" d="1300">The setting is like this.</p>
+<p t="2580240" d="3680">So during training time we train
+a model on Portuguese to English and</p>
+<p t="2583920" d="1670">English to Spanish data.</p>
+<p t="2585590" d="3480">But during test time we ask the model
+to perform Portuguese to Spanish</p>
+<p t="2589070" d="1710">translation directly.</p>
+<p t="2590780" d="4183">And it's shown here that the model
+is able to have comparable</p>
+<p t="2594963" d="4657">performance as the phrase based
+machine translation system.</p>
+<p t="2599620" d="2798">And also the NMT system with bridging.</p>
+<p t="2602418" d="2302">And also with a little bit
+of incremental training.</p>
+<p t="2604720" d="7530">Meaning that we add a little bit of data
+for the Portuguese to Spanish translation.</p>
+<p t="2612250" d="4370">The model is able to surpass all
+of the other models listed above.</p>
+<p t="2617630" d="7015">And that's all, thank you.</p>
+<p t="2624645" d="925">[APPLAUSE]
+&gt;&gt; So</p>
+<p t="2625570" d="3202">I think that actually is
+a really amazing result.</p>
+<p t="2628772" d="4658">I mean, in some sense,</p>
+<p t="2633430" d="4660">it's actually realizing a long-held
+dream of machine translation.</p>
+<p t="2638090" d="4780">So a traditional problem
+with machine translation has</p>
+<p t="2642870" d="4910">always been that if you'd like to be able
+to translate between a lot of languages,</p>
+<p t="2647780" d="3270">or you're then in a product space
+of number of systems, right.</p>
+<p t="2651050" d="4560">So if you'd like to support around
+80 languages as Google does.</p>
+<p t="2655610" d="3860">That if you wanna allow translation
+between any pairs straightforwardly you</p>
+<p t="2659470" d="3770">have to build 6,400 machine
+translation systems.</p>
+<p t="2663240" d="2780">And that's a lot of machine
+translation systems.</p>
+<p t="2666020" d="1790">And they never quite did that.</p>
+<p t="2667810" d="1880">That was a reference to bridging.</p>
+<p t="2669690" d="4190">So if something was being bridged,
+what that effectively meant for</p>
+<p t="2673880" d="2980">Google was you were translating
+twice via an intermediate</p>
+<p t="2676860" d="3030">language where the intermediate
+language was normally English.</p>
+<p t="2679890" d="3058">So the goal has for
+a long time has been in MT,</p>
+<p t="2682948" d="3732">is to achieve this dream
+of an interlingua.</p>
+<p t="2686680" d="4650">So that if you had an interlingua in the
+middle you have to translate each language</p>
+<p t="2691330" d="4640">to and from the interlingua, so you only
+need 80 encoders and 80 decoders, so</p>
+<p t="2695970" d="2320">it's then the number of languages.</p>
+<p t="2698290" d="5020">And that has sort of never been very
+successful, which is why effectively</p>
+<p t="2703310" d="3530">people just sort of build all
+of these bilingual systems but</p>
+<p t="2706840" d="4860">this system is now sort of
+illustrating how you can actually have</p>
+<p t="2711700" d="4500">the encodings of neural MT system
+be an effective interlingua.</p>
+<p t="2717680" d="5040">Okay, so now on to the main technical
+content to get through today,</p>
+<p t="2722720" d="2970">is introducing this idea of attention.</p>
+<p t="2725690" d="2390">So what's the problem
+we want to deal with?</p>
+<p t="2728080" d="3764">So if we're into the sort of
+vanilla sequence to sequence,</p>
+<p t="2731844" d="2056">encoder-decoder model.</p>
+<p t="2733900" d="5750">We have this problem because
+our only representation of</p>
+<p t="2739650" d="5330">the input is this sort of one
+fixed-dimensional representation Y</p>
+<p t="2744980" d="5860">which was sort of the state
+that our encoder was last in.</p>
+<p t="2750840" d="3660">And so,
+we need to kind of carry that through</p>
+<p t="2754500" d="3680">our entire generation of
+our translation sentence.</p>
+<p t="2758180" d="5980">And that seems like it might be
+a difficult thing to do, and</p>
+<p t="2764160" d="5275">indeed, what was shown was that was
+indeed a difficult thing to do and</p>
+<p t="2769435" d="3320">so what people found is
+that this initial neural</p>
+<p t="2772755" d="4560">machines translations systems
+worked well on short sentences.</p>
+<p t="2777315" d="4233">But if you tried to use them to translate
+very long sentences, that their</p>
+<p t="2781548" d="5452">performance started to tank and I'll show
+you some numbers on that later; And so</p>
+<p t="2787000" d="5540">the idea that people came up with and
+this idea was actually first proposed for</p>
+<p t="2792540" d="4680">vision but was then moved over and
+tried for neural</p>
+<p t="2797220" d="4405">machine translation by Kyunghyun Cho and
+colleagues at Montreal, was to say,</p>
+<p t="2801625" d="4635">well instead of saying that
+our Y that we generate</p>
+<p t="2806260" d="5730">from is just the last hidden states,
+why don't we say all of the hidden states</p>
+<p t="2811990" d="4500">of the entire encoding
+process are available to us.</p>
+<p t="2816490" d="2810">And so
+we sort of have this pool of source states</p>
+<p t="2819300" d="2950">that we can draw from
+to do the translation.</p>
+<p t="2822250" d="4310">And so then when we're
+translating any particular word,</p>
+<p t="2826560" d="4830">we then want to work out which
+of those ones to draw from.</p>
+<p t="2831390" d="4640">So effectively,
+the pool of source states becomes kind</p>
+<p t="2836030" d="5190">of like a random access memory which the
+neural network is then going to be able</p>
+<p t="2841220" d="4270">to retrieve from as needed when
+it wants to do its translation.</p>
+<p t="2845490" d="4670">And it'll find some stuff from it and
+use it for translating each word.</p>
+<p t="2851160" d="4370">And so attention for
+neural machine translation is one specific</p>
+<p t="2855530" d="5340">instantiation of this, but in general this
+sort of builds into a bigger concept that</p>
+<p t="2860870" d="5520">has actually been a very exciting concept
+in recent neural networks research and</p>
+<p t="2866390" d="2810">I know at least a couple of Groups
+are interested in doing for</p>
+<p t="2869200" d="3630">their final projects is
+this idea of can we augment</p>
+<p t="2873830" d="3750">neural networks with a memory on the side.</p>
+<p t="2877580" d="4355">So that we cannot only lengthen our
+short term memory with an LSTM, but</p>
+<p t="2881935" d="2620">we can actually have a much
+longer term memory that</p>
+<p t="2884555" d="2440">we can access stuff from as we need it.</p>
+<p t="2886995" d="2830">And attention is a simple
+form of doing that.</p>
+<p t="2889825" d="4471">And then some of the more recent work like
+neural turing machines is trying to do</p>
+<p t="2894296" d="5564">more sophisticated forms of read-write
+memories augmenting neural networks.</p>
+<p t="2899860" d="4470">Okay, so if we want to retrieve as needed,
+you could think of that as saying,</p>
+<p t="2904330" d="3590">okay, well,
+out of all of this pool of source states,</p>
+<p t="2907920" d="5362">we want to be looking at where in
+the input we want to retrieve stuff from.</p>
+<p t="2913282" d="4998">So effectively, after we've said, Je, and</p>
+<p t="2918280" d="3960">we wanting to translate the next word.</p>
+<p t="2922240" d="3080">We should be working out,
+well, where in here do</p>
+<p t="2925320" d="4270">we want to be paying attention to
+decide what to translate next?</p>
+<p t="2929590" d="3190">And if it's French,
+we wanna be translating the am next.</p>
+<p t="2932780" d="6000">And so our attention model effectively
+sort of becomes like an alignment model.</p>
+<p t="2938780" d="1690">'cause it's saying, well,</p>
+<p t="2940470" d="3260">which part of the source are you
+next gonna be translating?</p>
+<p t="2943730" d="4420">So you've got this implicit alignment
+between the source and the translation.</p>
+<p t="2948150" d="5364">And that just seems a good idea, 'cause
+that's even what human translators do.</p>
+<p t="2953514" d="3103">It's not that a human translator
+reads the whole of a big,</p>
+<p t="2956617" d="2161">long sentence and says, okay, got it.</p>
+<p t="2958778" d="3112">And then starts furiously scribbling
+down the translation, right?</p>
+<p t="2961890" d="3550">They're looking back at
+the source as they translate, and</p>
+<p t="2965440" d="2460">are translating different phrases of it.</p>
+<p t="2967900" d="5113">And so Richard mentioned last
+week the idea that in training</p>
+<p t="2973013" d="5217">statistical models that one of
+the first steps was you worked</p>
+<p t="2978230" d="5333">out these word alignments between
+the source and the target.</p>
+<p t="2983563" d="4578">And that was used to extract phrases
+that gave you kind of phrases to use in</p>
+<p t="2988141" d="2342">a statistical phrase based system.</p>
+<p t="2990483" d="4218">Here, we're not doing that,
+it's rather just at</p>
+<p t="2994701" d="5017">translation time by process of
+using this attention model.</p>
+<p t="2999718" d="4341">We're implicitly making connections
+between source and target,</p>
+<p t="3004059" d="2581">which gives us a kind of alignment.</p>
+<p t="3006640" d="4690">But nevertheless, it effectively means
+that we're building this end-to-end neural</p>
+<p t="3011330" d="5130">machine translation system that's doing
+alignments and translation as it works.</p>
+<p t="3016460" d="4770">So it achieves this NMT vision, and
+you do get these good alignments.</p>
+<p t="3022550" d="4430">So we're using this kind of
+on the right structure where</p>
+<p t="3026980" d="4690">we're sort of filling in where
+the alignments have occurred.</p>
+<p t="3031670" d="5348">And so you can look at where attention
+was laid when you're producing</p>
+<p t="3037018" d="5982">a translation,
+translating here from French to English.</p>
+<p t="3043000" d="3560">And you can see that this model,
+which is a model from people at Montreal,</p>
+<p t="3046560" d="4370">is doing a good job at deciding
+where to place attention.</p>
+<p t="3050930" d="5080">So it's starting off with the agreement
+on the, and then the interesting part is</p>
+<p t="3056010" d="5330">that sort of French typically has
+adjectival modifiers after the head down.</p>
+<p t="3061340" d="2910">So this is the zone, economic, European,</p>
+<p t="3064250" d="4460">which you have to flip in English
+to get the European economic area.</p>
+<p t="3068710" d="2700">And so
+it's kind of correctly modelling that flip</p>
+<p t="3071410" d="2880">in deciding where to pay
+attention in the source.</p>
+<p t="3074290" d="3540">And then kind of goes back to
+a more monotonic linear order.</p>
+<p t="3079490" d="4940">Okay, so that looks good,
+how do we go about doing that?</p>
+<p t="3084430" d="4220">So what we're gonna be doing is
+we've started to generate, and</p>
+<p t="3088650" d="2290">we wanna generate the next word.</p>
+<p t="3090940" d="5455">And we want to use our hidden
+state to decide where to access</p>
+<p t="3096395" d="5424">our random access memory,
+which is all the blue stuff.</p>
+<p t="3101819" d="4726">And so, well we haven't yet generated
+the hidden state for the next word, so</p>
+<p t="3106545" d="6035">it seems like our only good choice
+is to use, I think I skipped one.</p>
+<p t="3112580" d="2730">Okay, the only good choice is to use</p>
+<p t="3115310" d="3410">the previous hidden state
+as the basis of attention.</p>
+<p t="3118720" d="6120">And that's what we do, and then what
+we're gonna do is come up with some</p>
+<p t="3124840" d="6110">score that combines it and
+elements of the hidden state.</p>
+<p t="3130950" d="4130">And commonly, people are only using
+the highest level of the hidden state for</p>
+<p t="3135080" d="3530">attention, and
+decides where to pay attention.</p>
+<p t="3138610" d="4623">And so this scoring function,
+will score each position and</p>
+<p t="3143233" d="2685">saying, where to pay attention.</p>
+<p t="3145918" d="3082">And I'll get back to the scoring
+functions in a minute.</p>
+<p t="3149000" d="4930">And so the model that they proposed was,
+we get a score for</p>
+<p t="3153930" d="2520">each component of the memory.</p>
+<p t="3156450" d="5228">And then what we're gonna do is
+sort of build a representation</p>
+<p t="3161678" d="4939">which combines all of the memories
+weighted by the score.</p>
+<p t="3166617" d="3690">So what we're gonna do is
+we're going to say, okay,</p>
+<p t="3170307" d="4453">we'll take those scores and
+we'll do our standard trick.</p>
+<p t="3174760" d="3919">We'll stick them through
+a softmax function and</p>
+<p t="3178679" d="4874">that will then give us a probability
+distribution of how much</p>
+<p t="3183553" d="4509">attention to pay to the different
+places in the source.</p>
+<p t="3188062" d="5253">And so then, we're going to combine,
+okay, then we're going</p>
+<p t="3193315" d="4963">to combine together all of
+the hidden states of the encoder,</p>
+<p t="3198278" d="4303">weighted by how much
+attention we're paying to it.</p>
+<p t="3202581" d="4660">So that we're taking, these are each
+hidden state of the encoder,</p>
+<p t="3207241" d="4108">the amount of attention you're
+paying to that position.</p>
+<p t="3211349" d="2969">And then you're just
+calculating a weighted sum and</p>
+<p t="3214318" d="2512">that then gives us a context vector.</p>
+<p t="3216830" d="3340">So now rather than simply
+using the last hidden state</p>
+<p t="3220170" d="5040">as our representation of all of meaning,
+we're using the entire of our</p>
+<p t="3225210" d="3630">hidden states of the encoder as
+our representation of meaning.</p>
+<p t="3228840" d="3460">And at different points in
+time we weight it differently</p>
+<p t="3232300" d="2860">to pay attention in different places.</p>
+<p t="3235160" d="4490">And so now what we're gonna do,
+is based on what we were.</p>
+<p t="3241150" d="1500">This is going automatic on me.</p>
+<p t="3242650" d="2980">Now what we're gonna do is based
+on what we were doing before.</p>
+<p t="3247780" d="7147">And so the previous hidden state and the
+next and the previous word of the decoder.</p>
+<p t="3254927" d="4029">But also conditioned on
+this context vector,</p>
+<p t="3258956" d="3729">we're then gonna generate the next word.</p>
+<p t="3262685" d="6859">Okay, so then the question is, well,
+how do we actually score that?</p>
+<p t="3269544" d="3844">And at this point we need
+some kind of attention</p>
+<p t="3273388" d="4522">function that decides how
+to work out the score.</p>
+<p t="3277910" d="4560">And a very simple idea you could use for
+that is just to say, well,</p>
+<p t="3282470" d="6052">let's take the dot product between
+the decoded hidden state and</p>
+<p t="3288522" d="2278">an encoded the hidden state.</p>
+<p t="3290800" d="4338">And we wanna find the ones that are
+similar, cuz that means we're in the right</p>
+<p t="3295138" d="4033">ballpark of words that have the same
+meaning, and generate from that.</p>
+<p t="3299171" d="3085">And that's a possible
+thing that you could do.</p>
+<p t="3302256" d="6002">The one that was proposed by the people
+in Montreal was this bottom one.</p>
+<p t="3308258" d="4815">Where we're effectively using a single
+layer of neural net, just like</p>
+<p t="3313073" d="5417">the kind of functions that we've been
+using everywhere else inside our LSTM.</p>
+<p t="3318490" d="5210">So we're taking the concatenation
+of the two hidden states.</p>
+<p t="3323700" d="4870">We're multiplying the biometrics,
+putting it through a tanh function.</p>
+<p t="3328570" d="3340">And then multiplying that by another
+vector, where both the V and</p>
+<p t="3331910" d="1310">W are learned.</p>
+<p t="3333220" d="2740">And using that as an attention function.</p>
+<p t="3335960" d="3665">And so that's what they did in their work,
+and that worked pretty well.</p>
+<p t="3339625" d="5337">In the work we did at Stanford, so
+principally Thang Luong's work, that we</p>
+<p t="3344962" d="5578">proposed using a different attention
+function, which is the one in the middle.</p>
+<p t="3350540" d="2539">Which is this bilinear attention function,</p>
+<p t="3353079" d="3553">which has actually been quite
+successful and widely adopted.</p>
+<p t="3356632" d="4258">So here, it's kind of like the top
+one where you're doing a dot product.</p>
+<p t="3360890" d="5235">But you're sticking in between
+the dot product a mediating matrix W.</p>
+<p t="3366125" d="4970">And so that matrix can effectively
+then learn how much weight to</p>
+<p t="3371095" d="3394">put on different parts of the dot product.</p>
+<p t="3374489" d="3473">To sort of have an idea of
+where to pay attention.</p>
+<p t="3377962" d="4393">And that's actually turned out to
+be a model that works kind of well.</p>
+<p t="3382355" d="2789">And I think there's a reason
+why it works kind of well.</p>
+<p t="3385144" d="4792">Cuz what you would like to do
+is kind of have interaction</p>
+<p t="3389936" d="3342">terms that look at h_t and h_s together.</p>
+<p t="3393278" d="4542">And even the dot product kind of has
+this interaction between h_t and h_s.</p>
+<p t="3397820" d="4773">And this is a more sophisticated way
+of getting an interaction between</p>
+<p t="3402593" d="987">h_t and h_s.</p>
+<p t="3403580" d="5750">Whereas if you're using this model with
+only a single layer of neural network,</p>
+<p t="3409330" d="4300">you don't actually get
+interactions between h_t and h_s.</p>
+<p t="3413630" d="3670">Because you've got the sort of
+two parts of this vector and</p>
+<p t="3417300" d="4160">each of them is multiplied by
+a separate part of this matrix.</p>
+<p t="3421460" d="3870">And then you put it through a tanh, but
+that just rescales it element-wise.</p>
+<p t="3425330" d="3988">And then you multiply it by a vector,
+but that just rescales it element-wise.</p>
+<p t="3429318" d="4804">So there's no place that h_t and
+h_s actually interact with each other.</p>
+<p t="3434122" d="4806">And that's essentially the same
+problem of the sort of classic result</p>
+<p t="3438928" d="3836">that you can't get an xor function
+out of a one layer perceptron is</p>
+<p t="3442764" d="4526">because you can't get the two
+things to interact with each other.</p>
+<p t="3447290" d="3600">So, this is a very
+simple low parameter way</p>
+<p t="3450890" d="2270">in which you can actually
+have interaction terms.</p>
+<p t="3453160" d="2850">It seems to work really well for
+attention functions.</p>
+<p t="3456010" d="2110">It's not the only way
+that you could do it.</p>
+<p t="3458120" d="4050">Another way that you could do things that
+a couple of papers have used is to say,</p>
+<p t="3462170" d="3010">well, gee,
+a one way neural net's just not enough.</p>
+<p t="3465180" d="3190">Let's make it a two layer
+feedforward network.</p>
+<p t="3468370" d="3960">And then we could have arbitrary
+interactions again like the xor model.</p>
+<p t="3472330" d="2671">And a couple of people have
+also played with that.</p>
+<p t="3478537" d="4093">Another thing that has been explored for
+attention that I'll just mention.</p>
+<p t="3482630" d="4338">So the simple model of attention,
+you've got this attention function.</p>
+<p t="3486968" d="4320">That spreads attention over
+the entire source encoding.</p>
+<p t="3491288" d="2157">And you've got a weighting on it.</p>
+<p t="3493445" d="2550">That's kind of simple, it's easy to learn.</p>
+<p t="3495995" d="2762">It's a continuous,
+nice differentiable model.</p>
+<p t="3498757" d="4494">It's potentially unpleasant
+computationally if you've got very long</p>
+<p t="3503251" d="815">sequences.</p>
+<p t="3504066" d="4617">Because that means if you start thinking
+about your back prop algorithm that you're</p>
+<p t="3508683" d="2678">back propagating into
+everywhere all the time.</p>
+<p t="3511361" d="3865">So people have also looked some
+at having local attention models.</p>
+<p t="3515226" d="4600">Where you're only paying attention to
+a subset of the states at one time.</p>
+<p t="3519826" d="5139">And that's more of an exact notion of
+retrieving certain things from memory.</p>
+<p t="3524965" d="4071">And that can be good,
+especially for long sequences.</p>
+<p t="3529036" d="5308">It's not necessarily compellingly better
+just for the performance numbers so far.</p>
+<p t="3534344" d="4838">Okay, so here's a chart that shows you
+how some of the performance works out.</p>
+<p t="3539182" d="6502">So what we see is that this
+red model has no attention.</p>
+<p t="3545684" d="2507">And so this shows the result that,</p>
+<p t="3548191" d="5885">a no attention model works reasonably
+well up to sentences of about length 30.</p>
+<p t="3554076" d="4998">But if you try and run a no
+attention machine translation system</p>
+<p t="3559074" d="2740">on sentences beyond length 30.</p>
+<p t="3561814" d="3788">Performance just starts
+to drop off quite badly.</p>
+<p t="3565602" d="5948">And so in some sense this is
+the glass half full story.</p>
+<p t="3571550" d="6510">The glass half full is actually LSTMs
+are just miraculous at remembering things.</p>
+<p t="3578060" d="3710">I mean,
+I think quite to many peoples' surprise,</p>
+<p t="3581770" d="4380">you can remember out to about length
+30 which is actually pretty stunning.</p>
+<p t="3586150" d="3330">But nevertheless,
+there's magic and there's magic.</p>
+<p t="3589480" d="1920">And you don't get an infinite memory.</p>
+<p t="3591400" d="3910">And if you're trying translate
+sentences that are 70 words long.</p>
+<p t="3595310" d="6830">You start to suffer pretty badly with
+the basic LSTM model, oops, okay.</p>
+<p t="3602140" d="5804">So then the models that are higher up
+is then showing models with attention,</p>
+<p t="3607944" d="3093">and I won't go through all the details.</p>
+<p t="3611037" d="4123">The interesting thing is that even for
+these shorter sentences.</p>
+<p t="3615160" d="3318">Actually there are a lot of gains from
+putting attention into the models.</p>
+<p t="3618478" d="4907">That it actually does just let you do
+a much better job of working out where</p>
+<p t="3623385" d="2499">to focus on at each generation step.</p>
+<p t="3625884" d="1754">And you translate much better.</p>
+<p t="3627638" d="4446">But the most dramatic result is
+essentially these curves turn into flat</p>
+<p t="3632084" d="3596">lines, there's a little
+bit of a peak here, maybe.</p>
+<p t="3635680" d="4620">But essentially you can be translating
+out to 70 word sentences without your</p>
+<p t="3640300" d="2090">performance going downhill.</p>
+<p t="3642390" d="1728">And that's interesting.</p>
+<p t="3644118" d="4741">The one thing that you might think freaky
+about all of these charts is that they all</p>
+<p t="3648859" d="2310">go downhill for very short sentences.</p>
+<p t="3651169" d="1716">That's sort of weird.</p>
+<p t="3652885" d="6118">But I think it's sort of just
+a weirdo fact about the data.</p>
+<p t="3659003" d="4157">That it turns out that
+the things that are in this kind</p>
+<p t="3663160" d="4267">of data which is
+European Parliament data actually.</p>
+<p t="3667427" d="2114">That are five word sentences.</p>
+<p t="3669541" d="2804">They just aren't sentences,
+like, I love my mum,</p>
+<p t="3672345" d="4224">which is a four word sentence that has
+a really simple grammatical structure.</p>
+<p t="3676569" d="4873">That, when you're seeing five
+word things that they're normally</p>
+<p t="3681442" d="1798">things like titles of x.</p>
+<p t="3683240" d="2973">Or that there are half sentences
+that were cut off in the middle and</p>
+<p t="3686213" d="876">things like that.</p>
+<p t="3687089" d="3113">So that they're sort of weirdish stuff and</p>
+<p t="3690202" d="3728">that's why that tends to
+prove hard to translate.</p>
+<p t="3693930" d="2706">Okay, here are just a couple of examples,</p>
+<p t="3696636" d="3316">of giving you again some
+examples of translations.</p>
+<p t="3699952" d="3368">So we've got a source,
+a human reference translation.</p>
+<p t="3703320" d="3840">Then down at the bottom,
+we have the LSTM model.</p>
+<p t="3707160" d="2540">And above it, it's putting in attention.</p>
+<p t="3710760" d="3260">So for this sentence,
+it does a decent job,</p>
+<p t="3714020" d="5010">the base model of translating it,
+except for one really funny fact.</p>
+<p t="3719030" d="4342">It actually sticks in here a name that
+has nothing whatsoever to do with</p>
+<p t="3723372" d="1410">the source sentence.</p>
+<p t="3724782" d="3554">And that's something that you
+actually notice quite a bit in neural</p>
+<p t="3728336" d="1755">machine translation systems.</p>
+<p t="3730091" d="3355">Especially ones without attention.</p>
+<p t="3733446" d="3196">That they are actually
+very good language models.</p>
+<p t="3736642" d="5686">So that they generate sentences that
+are good sentences of the target language.</p>
+<p t="3742328" d="5031">But they don't necessarily pay very much
+attention to what the source sentence was.</p>
+<p t="3747359" d="3213">And so they kind of go, okay,
+I'm generating a sentence and</p>
+<p t="3750572" d="2087">a name goes there, stick in some name.</p>
+<p t="3752659" d="3631">And let's get on with generating, it's got
+nothing to do with the source sentence.</p>
+<p t="3756290" d="2350">That gets better in the other example,</p>
+<p t="3758640" d="1670">where it actually
+generates the right name.</p>
+<p t="3760310" d="2010">That's an improvement.</p>
+<p t="3762320" d="5053">Here's a much more complex example
+where there's various stuff going on.</p>
+<p t="3767373" d="5110">One thing to focus on though, is that
+the source has this "not incompatible"</p>
+<p t="3772483" d="4467">whereas the base model translates
+that as "not compatible",</p>
+<p t="3776950" d="3030">which is the opposite semantics.</p>
+<p t="3779980" d="5190">Whereas our one here we're then
+getting "the incompatible".</p>
+<p t="3785170" d="1940">So not incompatible.</p>
+<p t="3787110" d="2160">So that's definitely an improvement.</p>
+<p t="3789270" d="3137">None of these translations are perfect.</p>
+<p t="3792407" d="4218">I mean in particular one of the things
+that they do wrong is "safety and</p>
+<p t="3796625" d="741">security".</p>
+<p t="3797366" d="2157">Where in the translation,</p>
+<p t="3799523" d="4042">we have exactly the same words,
+so it's of the form A and A.</p>
+<p t="3803565" d="4597">Now really safety and
+security have a fairly similar meaning.</p>
+<p t="3808162" d="1335">So it's not actually so</p>
+<p t="3809497" d="3683">unreasonable to translate either
+of those words with this word.</p>
+<p t="3813180" d="5040">But clearly you don't want to translate
+safety and security as safety and safety.</p>
+<p t="3818220" d="2780">[LAUGH] That's just not
+a very good translation.</p>
+<p t="3821000" d="2258">So that could be better.</p>
+<p t="3823258" d="3352">I'll go on.</p>
+<p t="3826610" d="580">Yeah.</p>
+<p t="3827190" d="6320">So this idea of attention
+has been a great idea.</p>
+<p t="3833510" d="3540">Another idea that's been interesting
+is the idea of coverage.</p>
+<p t="3837050" d="1470">That when you're attending,</p>
+<p t="3838520" d="5150">you want to make sure you've attended
+to different parts of the input, and</p>
+<p t="3843670" d="4340">that was actually an idea that, sort of,
+again, first came up in Vision.</p>
+<p t="3848010" d="2660">So, people have done Caption Generation,</p>
+<p t="3850670" d="4915">where you're wanting to generate
+a caption that summarizes a picture.</p>
+<p t="3855585" d="2450">And so
+one of the things you might wanna do</p>
+<p t="3858035" d="4180">is when you're paying
+attention to different places,</p>
+<p t="3862215" d="4420">you wanna make sure you're paying
+attention to the different main parts.</p>
+<p t="3866635" d="2470">So you both wanna pay
+attention to the bird.</p>
+<p t="3869105" d="3620">And you wanna pay attention to
+the background so you're producing</p>
+<p t="3872725" d="3915">a caption that's something like "a
+bird flying over a body of water".</p>
+<p t="3878010" d="4020">And so you don't want to miss
+important image patches.</p>
+<p t="3882030" d="6480">And so that's an idea that people have
+also worked on in the neural MT case.</p>
+<p t="3888510" d="4890">So one idea is an idea of doing
+sort of attention doubly, and</p>
+<p t="3893400" d="3480">so you're sort of working out
+an attention in both directions.</p>
+<p t="3896880" d="4260">So there's a horizontal attention and
+a vertical attention.</p>
+<p t="3901140" d="4990">And you're wanting to make sure you've
+covered things in both directions.</p>
+<p t="3908350" d="2540">Okay, so that's one idea.</p>
+<p t="3910890" d="5530">And in general, something interesting
+that's been happening is in the last</p>
+<p t="3916420" d="1960">roughly a year, I guess.</p>
+<p t="3918380" d="3230">That essentially,
+people have been taking a number of</p>
+<p t="3921610" d="4680">the ideas that have been explored in other
+approaches to machine translation and</p>
+<p t="3926290" d="4130">building them into more
+linguistic attention functions.</p>
+<p t="3930420" d="3630">So one idea is this idea of coverage.</p>
+<p t="3934050" d="4520">But actually if you look in the older
+literature for word alignments, well there</p>
+<p t="3938570" d="7180">are some other ideas in those older
+machine translation word alignment models.</p>
+<p t="3945750" d="4760">Some of the other ideas
+were an idea of position.</p>
+<p t="3950510" d="6530">So normally attention or alignment isn't
+completely sort of random in the sentence.</p>
+<p t="3957040" d="4430">Normally although there's some reordering,
+stuff near the beginning of the source</p>
+<p t="3961470" d="4380">sentence goes somewhere near the beginning
+of the translation, and stuff somewhere</p>
+<p t="3965850" d="3940">near the end of the source sentence
+goes towards the end of the translation.</p>
+<p t="3969790" d="6000">And that's an idea you can put in
+to your attention model as well.</p>
+<p t="3975790" d="2770">And a final idea here is fertility.</p>
+<p t="3978560" d="3060">Fertility is sort of
+the opposite of coverage.</p>
+<p t="3981620" d="6250">It's sort of saying it's bad if you pay
+attention to the same place too often.</p>
+<p t="3987870" d="4710">Because sometimes one word is gonna
+be translated with two words or</p>
+<p t="3992580" d="3440">three words in the target
+language that happens.</p>
+<p t="3996020" d="5910">But if you're translating one word with
+six words in your generated translation,</p>
+<p t="4001930" d="3500">that probably means that you've
+ended up repeating yourself and</p>
+<p t="4005430" d="2870">that's another of the mistakes
+of sometimes neural</p>
+<p t="4008300" d="4130">machine translations systems can make,
+that they can repeat themselves.</p>
+<p t="4012430" d="4530">And so people have started to build
+in those ideas of fertility as well.</p>
+<p t="4019070" d="1483">Okay.</p>
+<p t="4020553" d="2985">Any questions or
+people good with the attention?</p>
+<p t="4028109" d="682">Yeah?</p>
+<p t="4042147" d="4203">So the question is that when we're
+doing the attention function,</p>
+<p t="4046350" d="6700">we were just We were just doing
+it based on the hidden state.</p>
+<p t="4053050" d="6895">And another thing that we could do is
+actually put in the previous word, the xt.</p>
+<p t="4059945" d="3595">And also put that into
+the attention function.</p>
+<p t="4064770" d="3700">I mean one answer is to say yes,
+of course you could.</p>
+<p t="4068470" d="2340">And you could go off and try that.</p>
+<p t="4070810" d="3600">And see if you could get value from it.</p>
+<p t="4075720" d="3520">And it's not impossible you could.</p>
+<p t="4079240" d="4180">I suspect it's less likely that
+that's really going to work</p>
+<p t="4083420" d="4990">because I think a lot of the time,
+what you get with these LSTMs</p>
+<p t="4088410" d="4280">is that the hidden state,
+to a fair degree.</p>
+<p t="4092690" d="3600">Is still representing the word
+that you've just read in, but</p>
+<p t="4096290" d="4560">it actually has the advantage that
+it's kind of a context-disambiguated</p>
+<p t="4100850" d="1940">representation of the words.</p>
+<p t="4102790" d="5300">So one of the really useful things that
+LSTMs do is that they're sort of very good</p>
+<p t="4108090" d="5540">at word-sense disambiguation because
+you start with a word representation.</p>
+<p t="4113630" d="4700">Which is often the kind of average of
+different senses and meanings of a word.</p>
+<p t="4118330" d="5690">And the LSTM can use its
+preceeding context to decide,</p>
+<p t="4124020" d="4360">In this context, I should be
+representing this word in this way.</p>
+<p t="4128380" d="2760">And you kind of get this
+word sense disambiguation.</p>
+<p t="4131140" d="5090">So I suspect most of the time
+that the hidden state</p>
+<p t="4136230" d="4530">records enough about the meaning of the
+word and actually improves on it by some</p>
+<p t="4140760" d="6100">of this using of context that I'm a little
+doubtful whether that would give gains.</p>
+<p t="4146860" d="3190">On the other hand, I'm not actually
+aware of someone that's tried that.</p>
+<p t="4150050" d="3130">So it's totally in the space
+of someone could try it and</p>
+<p t="4153180" d="2270">see if you could get value from it.</p>
+<p t="4155450" d="518">Yes.</p>
+<p t="4161031" d="4372">Yes, there's a very good reason to use
+an LSTM as your generator even if you're</p>
+<p t="4165403" d="1587">going to do attention.</p>
+<p t="4166990" d="6890">Which is, the most powerful part of
+these neural machine translation systems</p>
+<p t="4173880" d="5070">remains the fact that you've got this
+neural language model as your generator</p>
+<p t="4178950" d="5980">which is extremely powerful and
+good as a fluent text generator.</p>
+<p t="4184930" d="5680">And that's still being powered
+by the LSTM of the decoder.</p>
+<p t="4190610" d="1265">And so.</p>
+<p t="4191875" d="2745">[INAUDIBLE]
+&gt;&gt; And no, I.</p>
+<p t="4194620" d="4515">The power you get from the LSTM at
+better remembering the sort of longer</p>
+<p t="4199135" d="4675">short-term memory is really useful
+as a language model for generation.</p>
+<p t="4203810" d="3160">So I'm sure that that's still
+giving you huge value, and</p>
+<p t="4206970" d="2390">you'd be much worse off without it.</p>
+<p t="4210600" d="500">Yeah.</p>
+<p t="4211100" d="5360">I mean the thing that you could wonder,
+is in this picture I'm still feeding</p>
+<p t="4216460" d="7370">the final state in to initialize
+the LSTM for the decoder.</p>
+<p t="4223830" d="2790">Do you need to do that, or
+could you just cross that off and</p>
+<p t="4226620" d="4390">start with a zero hidden state, and
+do it all with the attention model?</p>
+<p t="4231010" d="1338">That might actually work fine.</p>
+<p t="4232348" d="1176">Yeah?</p>
+<p t="4233524" d="7626">&gt;&gt; [INAUDIBLE]
+&gt;&gt; That's a good question.</p>
+<p t="4241150" d="1370">So where do I have that?</p>
+<p t="4244550" d="846">Here, okay, yeah.</p>
+<p t="4245396" d="7584">So in this simple case,
+if you sort of are making a hard decision</p>
+<p t="4252980" d="5780">to pay attention to only
+a couple of places,</p>
+<p t="4258760" d="5490">that's a hard decision and so
+that then kills differentiability.</p>
+<p t="4264250" d="6330">And so the easiest way to sort
+of keep everything nice and</p>
+<p t="4270580" d="4570">simply differentiable is just to say,
+use global attention.</p>
+<p t="4275150" d="4000">Put some attention weight
+on each position that's</p>
+<p t="4279150" d="2260">differentiable the whole way through.</p>
+<p t="4281410" d="5130">So if you're making a hard decision here,
+traditionally,</p>
+<p t="4286540" d="3410">the most correct way to
+do this properly and</p>
+<p t="4289950" d="4845">train the model is to say, okay, we have
+to do this as reinforcement learning.</p>
+<p t="4294795" d="3645">'Cause, doing a reinforcement
+learning system lets you get</p>
+<p t="4298440" d="2100">around the non-differentiability.</p>
+<p t="4300540" d="3570">And then, you're in this space of deep
+reinforcement learning which has been</p>
+<p t="4304110" d="1560">very popular lately.</p>
+<p t="4305670" d="3700">And, there are a couple of papers
+that have used local attention,</p>
+<p t="4309370" d="4520">which have done it using
+reinforcement learning training.</p>
+<p t="4313890" d="4840">So in the paper that Thang did,
+that's not what he did.</p>
+<p t="4318730" d="4352">He sort of, I think it's true to say that,
+to some extent, he sort of fudged</p>
+<p t="4323082" d="4078">the non-differentiability but
+it seemed to work okay for him.</p>
+<p t="4327160" d="3554">But, I mean,
+this is actually an area in which,</p>
+<p t="4330714" d="5208">there's been some recent work,
+in which people have explored methods</p>
+<p t="4335922" d="5121">which in some sense continuing this
+tradition of fudging by putting it</p>
+<p t="4341043" d="5157">on the more of a theoretical footing and
+finding this works very well.</p>
+<p t="4346200" d="5042">So, an idea that's been explored
+quite a bit in recent work is to say,</p>
+<p t="4351242" d="4273">in the forward model we're going
+to be making some discreet</p>
+<p t="4355515" d="3685">choices as to which positions
+to pay attention to.</p>
+<p t="4359200" d="4806">In the backwards model,
+we’re going to be using</p>
+<p t="4364006" d="4573">a soft approximation of those decisions,
+and</p>
+<p t="4368579" d="4821">we will then do the back
+propagation using that.</p>
+<p t="4373400" d="4828">So that kind of idea is, You are working
+out, say, where to pay attention,</p>
+<p t="4378228" d="3847">and you are choosing the states
+with the sort of a high need for</p>
+<p t="4382075" d="3998">attention, is a hard decision,
+but in the backwards model you</p>
+<p t="4386073" d="4927">are then having a sort of soft attention
+still and you are training with that.</p>
+<p t="4391000" d="4857">And so, that leads into ideas like
+the Straight Through Estimator</p>
+<p t="4395857" d="3903">which has been explored by
+Yoshua Bengio's group and</p>
+<p t="4399760" d="5220">other recent ideas of Gumbel-Softmaxes,
+and things like that.</p>
+<p t="4404980" d="4351">And that's actually, sort of been
+worked out as another way to explain,</p>
+<p t="4409331" d="3720">another way to train these not
+really differentiable models,</p>
+<p t="4413051" d="3885">which is in some ways easier than
+using reinforcement learning.</p>
+<p t="4420502" d="1358">I'll go on.</p>
+<p t="4421860" d="5810">There was one other last thing,
+I did want to sort of squeeze in for</p>
+<p t="4427670" d="6034">the end of today, is I just wanted
+to say a little bit about what's.</p>
+<p t="4436464" d="7395">Okay, so assuming that at source time,
+we've got our source sentence,</p>
+<p t="4443859" d="5383">we encode it in some way that
+we're gonna make use of.</p>
+<p t="4449242" d="4900">And, decoders,
+that really our decoders are just saying,</p>
+<p t="4454142" d="5300">okay here's the meaning we want convey,
+produce a sentence,</p>
+<p t="4459442" d="6318">that expresses that meaning and
+how can we do that decoding successfully.</p>
+<p t="4465760" d="1888">And I just sort of wanted to mention for</p>
+<p t="4467648" d="3196">couple minutes, what are the options and
+how do they work.</p>
+<p t="4470844" d="5075">So, one thing in theory
+we could do is say,</p>
+<p t="4475919" d="3501">okay, well, let's just explore</p>
+<p t="4479420" d="4470">every possible sequence of words we
+can generate up to a certain length.</p>
+<p t="4483890" d="4020">Let's score every one of them with
+our model and pick the best one.</p>
+<p t="4487910" d="5100">So, we'd literally have an exhaustive
+search of possible translations.,</p>
+<p t="4493010" d="3070">Well, that's obviously
+completely impossible to do.</p>
+<p t="4496080" d="3640">Because, not only is that exponential
+in the length of what we generate,</p>
+<p t="4499720" d="1950">we have this enormous vocabulary.</p>
+<p t="4501670" d="3970">It's not even like we're doing
+exponential on a base of two or three.</p>
+<p t="4505640" d="3970">We're doing exponential on the base
+of 100,000 or something like that.</p>
+<p t="4509610" d="2710">So, that can't possibly work out.</p>
+<p t="4512320" d="8020">So, the obvious idea and the first
+thing that people do is -- Sorry.</p>
+<p t="4520340" d="1552">I'll get to the obvious one next.</p>
+<p t="4521892" d="4378">The second thing,
+[LAUGH] the not quite so obvious but</p>
+<p t="4526270" d="5620">the probabilistically nice and good thing
+to do is to do a sampling based approach.</p>
+<p t="4531890" d="2830">Which is a sort of a succesive sampling.</p>
+<p t="4534720" d="3770">So, it's sometimes referred
+to as Ancestral Sampling.</p>
+<p t="4538490" d="5360">So, what we're doing then is we've
+generated up to word t-1 and</p>
+<p t="4543850" d="1720">then saying okay.</p>
+<p t="4545570" d="5670">Based on our model, we have a probability
+distribution over the t-th word.</p>
+<p t="4551240" d="5138">And so, we sample from that probability
+distribution one symbol at a time.</p>
+<p t="4556378" d="3228">And we keep on generating
+one word at a time,</p>
+<p t="4559606" d="3854">until we generate our end
+of end of sentence symbol.</p>
+<p t="4563460" d="4627">So, we generate a word and
+then based on what we have now we do</p>
+<p t="4568087" d="5563">a probabilistic sample of the next
+word and we continue along.</p>
+<p t="4573650" d="4880">So, if you are a theoretician that's
+the right practical thing to do</p>
+<p t="4578530" d="1650">because if you are doing that,</p>
+<p t="4580180" d="4830">you've gotten not only an efficient model
+of generating, unlike the first model, but</p>
+<p t="4585010" d="5610">you've got one that's unbiased,
+asymptotically exact, great model.</p>
+<p t="4590620" d="4630">If you're a practical person this
+is not a very great thing to do</p>
+<p t="4595250" d="3560">because what comes out is
+very high variants and</p>
+<p t="4598810" d="3620">it's different every time you
+decode the same sentence.</p>
+<p t="4602430" d="3230">Okay, so the practical easy thing to do,</p>
+<p t="4605660" d="5630">which is the first thing that everybody
+really does, is a greedy search.</p>
+<p t="4611290" d="3460">So, we've generated up
+to the T minus one word.</p>
+<p t="4614750" d="2370">We wanna generate the t-th word.</p>
+<p t="4617120" d="5103">We use our model, we work out what's
+the most likely word to generate next,</p>
+<p t="4622223" d="4627">and we choose it and
+then we repeat that over and</p>
+<p t="4626850" d="6450">generate successive next words,
+so that's then a greedy search.</p>
+<p t="4633300" d="4600">We're choosing best thing given
+the preceding subsequence.</p>
+<p t="4637900" d="4510">But that, doesn't guarantee us
+the best whole sentence because we can</p>
+<p t="4642410" d="4510">go wrong in any of a number of ways
+because of our greedy decisions.</p>
+<p t="4646920" d="1670">So it's super-efficient.</p>
+<p t="4648590" d="2240">But is heavily suboptimal.</p>
+<p t="4650830" d="3200">So, if you want to do a bit better
+than that, which people commonly do,</p>
+<p t="4654030" d="5290">the next thing that you think about
+trying is then doing a beam search.</p>
+<p t="4659320" d="4995">So, for a beam search we're
+up to word t-1 and we say,</p>
+<p t="4664315" d="5205">gee, what are the five most
+likely words to generate next.</p>
+<p t="4669520" d="4810">And, we generate all of them and
+we have a beam of five.</p>
+<p t="4674330" d="4010">And then, when we go on to generate
+word T plus one, we say for</p>
+<p t="4678340" d="5120">each of those sequences up to length T,
+what are the five</p>
+<p t="4683460" d="3800">most likely words to generate
+is the T plus first word and</p>
+<p t="4687260" d="4660">we generate all of them and
+well then we've got 25 hypotheses and</p>
+<p t="4691920" d="4820">if we kept on doing that, we'd again
+be exponential but with a smaller base.</p>
+<p t="4696740" d="1190">But we don't wanna do that.</p>
+<p t="4697930" d="5250">So, what we do is say, well out of
+those 25, which are the five best ones?</p>
+<p t="4703180" d="2280">And we keep those five best ones.</p>
+<p t="4705460" d="3550">And then, we generate five
+possibilities from each of those for</p>
+<p t="4709010" d="2110">the T plus two time.</p>
+<p t="4711120" d="4730">And so we maintain a constant
+size k hypotheses and</p>
+<p t="4715850" d="2020">we head along and do things.</p>
+<p t="4719630" d="4870">So as K goes to infinity,
+that becomes unbiased.</p>
+<p t="4724500" d="4380">But in practice our K is small,
+so it is biased.</p>
+<p t="4728880" d="4380">It doesn't necessarily monotonically
+improve as you increase K, but</p>
+<p t="4733260" d="4060">in practice it usually does
+up to some point, at least.</p>
+<p t="4737320" d="3203">It turns out that often there's
+a limit to how big you can go for</p>
+<p t="4740523" d="2477">it improving,
+which might even be quite small.</p>
+<p t="4743000" d="2537">Because sometimes,
+you actually tend to get worse</p>
+<p t="4745537" d="4163">if your model is not very good and
+you explore things further down.</p>
+<p t="4749700" d="1640">It's not as efficient, right?</p>
+<p t="4751340" d="3750">That your efficiency is
+going down in K squared.</p>
+<p t="4755090" d="5280">So, as soon as you're at a beam of 10
+you're 2 orders of magnitude slower</p>
+<p t="4760370" d="4210">than the greedy search, but
+nevertheless it gives good gains.</p>
+<p t="4764580" d="4000">So, here are some results.</p>
+<p t="4768580" d="3730">So this is from work
+again of Kyunghyun Cho's.</p>
+<p t="4772310" d="4477">So, in the middle here we
+have the greedy decoding.</p>
+<p t="4776787" d="6073">And, we're getting these
+numbers like 15.5 and 16.66,</p>
+<p t="4782860" d="4323">so something I haven't actually done yet
+is explain the machine translation</p>
+<p t="4787183" d="4617">evaluation, and that's something I'll
+actually do in the next lecture.</p>
+<p t="4791800" d="3590">But big is good for these scores.</p>
+<p t="4795390" d="5360">So, what you see is that if you
+sort of sample 50 translations and</p>
+<p t="4800750" d="1722">go with the best one,</p>
+<p t="4802472" d="5479">although that gives you some
+improvement over the greedy one best.</p>
+<p t="4807951" d="4413">The amount of improvement it gives
+you isn't actually very much because</p>
+<p t="4812364" d="3472">there's such a vast space
+that you're sampling from and</p>
+<p t="4815836" d="5154">it's quite likely that most of your 50
+examples are sampling something bad.</p>
+<p t="4820990" d="4750">On the other hand, if you're using
+a fairly modest beam of size five or</p>
+<p t="4825740" d="2450">ten, that's actually
+giving you a very good and</p>
+<p t="4828190" d="5950">noticeable gain much bigger than you're
+getting from the ancestral sampling.</p>
+<p t="4834140" d="2975">And so,
+that's basically the state of the art for</p>
+<p t="4837115" d="4845">neural machine translation, is people
+do beam search with a small beam.</p>
+<p t="4841960" d="3350">The good news about that
+actually is in statistical</p>
+<p t="4845310" d="4808">phrase space machine translation,
+people always used a very large beam.</p>
+<p t="4850118" d="4432">So people would typically use
+a beam size of size 100 or 150, and</p>
+<p t="4854550" d="4300">really people would have
+liked to use larger.</p>
+<p t="4858850" d="3020">Apart from where it's just
+computationally too difficult.</p>
+<p t="4861870" d="3530">But what people found with neural
+machine translation systems</p>
+<p t="4865400" d="4465">is small beams like 5 or
+10 actually work extremely well and</p>
+<p t="4869865" d="3110">conversely bigger beams often
+don't work much better.</p>
+<p t="4872975" d="4410">Okay, and so that gives us sort of Beam
+Search with a small beam as the de facto</p>
+<p t="4877385" d="1920">standard in NMT.</p>
+<p t="4879305" d="3640">Okay, that's it for today, and we'll have
+more of these things on next Tuesday.</p>
+</body>
+</timedtext>

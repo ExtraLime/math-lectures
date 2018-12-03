@@ -1,0 +1,796 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="7360" d="8500">OK, let's get started. Now... I'm assuming that,
+A, you went recitation yesterday,</p>
+<p t="15860" d="6800">B, that even if you didn't, you know how to separate
+variables, and you know how to construct simple</p>
+<p t="22660" d="6650">models, solve physical problems with differential
+equations, and possibly even solve them.</p>
+<p t="29310" d="9830">So, you should have learned that either in high
+school, or 18.01 here, or... yeah.</p>
+<p t="39140" d="5240">So, I'm going to start from that point, assume you know
+that. I'm not going to tell you what differential</p>
+<p t="44390" d="5219">equations are, or what modeling is. If you
+still are uncertain about those things, the</p>
+<p t="49609" d="7751">book has a very long and good explanation
+of it. Just read that stuff. So, </p>
+<p t="57360" d="9000">we are talking about first order ODEs.</p>
+<p t="66360" d="7500">ODE: I'll only use three ... two acronyms. ODE is ordinary
+differential equations. I think all of MIT</p>
+<p t="73860" d="7660">knows that, whether they've been taking the
+course or not. So, we are talking about first-order ODEs.</p>
+<p t="84740" d="7580">which in standard form, are written,
+you isolate the derivative of y with respect</p>
+<p t="92320" d="6510">to, x, let's say, on the left-hand side, and
+on the right-hand side you write everything</p>
+<p t="98830" d="6240">else. You can't always do this very well,
+but for today, I'm going to assume that it</p>
+<p t="105070" d="7250">has been done and it's doable. So, for example,
+some of the ones that will be considered either</p>
+<p t="112320" d="7000">today or in the problem set are things like</p>
+<p t="120820" d="2880">oh... y' = x / y</p>
+<p t="123710" d="7680">That's pretty simple. The problem set has
+y' = ...let's see...</p>
+<p t="137180" d="4500">x - y^2.</p>
+<p t="141680" d="8560"> And, it also has y' = y - x^2.</p>
+<p t="151000" d="6030">There are others, too. Now, when you look
+at this, this, of course, you can solve by</p>
+<p t="157030" d="7970">separating variables. So, this is solvable.
+This one is-- and neither of these can you</p>
+<p t="165000" d="7000">separate variables. And they look extremely
+similar. But they are extremely dissimilar.</p>
+<p t="172230" d="7610">The most dissimilar about them is that this
+one is easily solvable. And you will learn,</p>
+<p t="179840" d="4220">if you don't know already, next time next
+Friday how to solve this one</p>
+<p t="184060" d="5330">This one, which looks almost the same, is
+unsolvable in a certain sense. Namely, there</p>
+<p t="189390" d="5200">are no elementary functions which you can
+write down, which will give a solution of</p>
+<p t="194590" d="6200">that differential equation. So, right away,
+one confronts the most significant fact that</p>
+<p t="200790" d="5169">even for the simplest possible differential
+equations, those which only involve the first</p>
+<p t="205959" d="4911">derivative, it's possible to write down extremely
+looking simple guys.</p>
+<p t="210870" d="11040">I'll put this one up in blue to indicate that
+it's bad. Whoops, sorry, I mean, not really</p>
+<p t="221910" d="10600">bad, but recalcitrant. It's not solvable in
+the ordinary sense in which you think of an</p>
+<p t="232510" d="6699">equation is solvable. And, since those equations
+are the rule rather than the exception, I'm</p>
+<p t="239209" d="5871">going about this first day to not solving
+a single differential equation, but indicating</p>
+<p t="245080" d="4370">to you what you do when you meet a blue equation
+like that.</p>
+<p t="249450" d="5539">What do you do with it? So, this first day
+is going to be devoted to geometric ways of</p>
+<p t="254989" d="6560">looking at differential equations and numerical.
+At the very end, I'll talk a little bit about</p>
+<p t="261549" d="7511">numerical ways. And you'll work on both of
+those for the first problem set. So,</p>
+<p t="269060" d="7180">what's our geometric view of differential equations?</p>
+<p t="280000" d="2860">Well, it's something that's contrasted with</p>
+<p t="282870" d="6030">the usual procedures, by which you solve things
+and find elementary functions which solve</p>
+<p t="288900" d="6780">them. I'll call that the analytic method.
+So, on the one hand, we have the analytic</p>
+<p t="295680" d="8140">ideas, in which you write down explicitly
+the equation, y' = f(x,y).</p>
+<p t="303820" d="5409">And, you look for certain functions, which
+are called its solutions. Now, so there's</p>
+<p t="309229" d="7060">the ODE. And, y1 of x, notice I don't use
+a separate letter. I don't use g or h or something</p>
+<p t="316290" d="5050">like that for the solution because the letters
+multiply so quickly, that is, multiply in</p>
+<p t="321340" d="5130">the sense of rabbits, that after a while,
+if you keep using different letters for each</p>
+<p t="326470" d="3160">new idea, you can't figure out what you're
+talking about.</p>
+<p t="329630" d="8599">So, I'll use y1 means, it's a solution of
+this differential equation. Of course, the</p>
+<p t="338229" d="4720">differential equation has many solutions containing
+an arbitrary constant. So, we'll call this</p>
+<p t="342949" d="7984">the solution. Now, the geometric view,</p>
+<p t="352740" d="3660">the geometric guy that corresponds to this version</p>
+<p t="356400" d="6200">of writing the equation, is something called
+a direction field.</p>
+<p t="365940" d="2600">And, the solution is, from</p>
+<p t="368540" d="7000">the geometric point of view, something called
+an integral curve.</p>
+<p t="378160" d="1420">So, let me explain if you</p>
+<p t="379580" d="3670">don't know what the direction field is. I
+know for some of you, I'm reviewing what you</p>
+<p t="383250" d="4310">learned in high school. Those of you who had
+the BC syllabus in high school should know</p>
+<p t="387560" d="4980">these things. But, it never hurts to get a
+little more practice. And, in any event, I</p>
+<p t="392540" d="7680">think the computer stuff that you will be
+doing on the problem set, a certain amount</p>
+<p t="400220" d="1479">of it should be novel to you.</p>
+<p t="401699" d="6861">It was novel to me, so why not to you? So,
+what's a direction field? Well, the direction</p>
+<p t="408560" d="7280">field is, you take the plane, and in each
+point of the plane-- of course, that's an</p>
+<p t="415850" d="4560">impossibility. But, you pick some points of
+the plane. You draw what's called a little</p>
+<p t="420410" d="5560">line element. So, there is a point. It's a
+little line, and the only thing which distinguishes</p>
+<p t="425970" d="5590">it outside of its position in the plane, so
+here's the point, (x,y), at which we are drawing</p>
+<p t="431560" d="11120">this line element, is its slope. And, what
+is its slope? Its slope is to be f(x,y).</p>
+<p t="445120" d="6240"> And now, You fill up the plane with these things
+until you're tired of putting then in. So,</p>
+<p t="451400" d="1680">I'm going to get tired pretty quickly.</p>
+<p t="453080" d="5619">So, I don't know, let's not make them all
+go the same way. That sort of seems cheating.</p>
+<p t="458699" d="6931">How about here? Here's a few randomly chosen
+line elements that I put in, and I putted</p>
+<p t="465630" d="4580">the slopes at random since I didn't have any
+particular differential equation in mind.</p>
+<p t="470210" d="7220">Now, the integral curve, so those are the
+line elements. The integral curve is a curve,</p>
+<p t="477430" d="7990">which goes through the plane, and at every
+point is tangent to the line element there.</p>
+<p t="485420" d="7219">So, this is the integral curve. Hey, wait
+a minute, I thought tangents were the line</p>
+<p t="492639" d="4611">element there didn't even touch it. Well,
+I can't fill up the plane with line elements.</p>
+<p t="497250" d="5009">Here, at this point, there was a line element,
+which I didn't bother drawing in. And, it</p>
+<p t="502259" d="6451">was tangent to that. Same thing over here:
+if I drew the line element here, I would find</p>
+<p t="508710" d="4579">that the curve had exactly the right slope
+there.</p>
+<p t="513289" d="10511">So, the point is the integral, what distinguishes
+the integral curve is that everywhere it has</p>
+<p t="523800" d="5780">the direction, that's the way I'll indicate
+that it's tangent, has the direction of the</p>
+<p t="529580" d="10400">field everywhere at all points on the curve,
+of course, where it doesn't go. It doesn't</p>
+<p t="539990" d="10710">have any mission to fulfill. Now, I say that
+this integral curve is the graph of the solution</p>
+<p t="550700" d="5840">to the differential equation. In other words,
+writing down analytically the differential</p>
+<p t="556540" d="6460">equation is the same geometrically as drawing
+this direction field, and solving analytically</p>
+<p t="563000" d="5320">for a solution of the differential equation
+is the same thing as geometrically drawing</p>
+<p t="568320" d="2680">an integral curve. So, what am I saying?</p>
+<p t="571000" d="7000">I say that an integral curve,</p>
+<p t="578740" d="3640">all right, let me write it this way. I'll make a little theorem</p>
+<p t="582380" d="9360">out of it, that y1(x) is a solution to the
+differential equation </p>
+<p t="594640" d="3740">if, and only if,</p>
+<p t="598380" d="13280">the graph, the curve associated with this, the
+graph of y1 of x is an integral curve.</p>
+<p t="611660" d="5640">Integral curve of what? Well, of the direction field
+associated with that equation. But there isn't</p>
+<p t="617310" d="4240">quite enough room to write that on the board.
+But, you could put it in your notes, if you</p>
+<p t="621550" d="8950">take notes. So, this is the relation between
+the two, the integral curves of the graphs</p>
+<p t="630500" d="930">or solutions.</p>
+<p t="631430" d="6260">Now, why is that so? Well, in fact, all I
+have to do to prove this, if you can call</p>
+<p t="637690" d="7130">it a proof at all, is simply to translate
+what each side really means. What does it</p>
+<p t="644820" d="6360">really mean to say that a given function is
+a solution to the differential equation? Well,</p>
+<p t="651180" d="5760">it means that if you plug it into the differential
+equation, it satisfies it. Okay, what is that?</p>
+<p t="656940" d="3940">So, how do I plug it into the differential
+equation and check that it satisfies it?</p>
+<p t="660880" d="7500">Well, doing it in the abstract, I first calculate
+its derivative. And then, how will it look</p>
+<p t="668380" d="4790">after I plugged it into the differential equation?
+Well, I don't do anything to the x, but wherever</p>
+<p t="673170" d="5990">I see y, I plug in this particular function.
+So, in notation, that would be written this</p>
+<p t="679160" d="7000">way. So, for this to be a solution means this,</p>
+<p t="688160" d="4300">that that equation is satisfied. Okay, what</p>
+<p t="692470" d="7170">does it mean for the graph to be an integral
+curve? Well, it means that at each point,</p>
+<p t="699640" d="10680">the slope of this curve, it means that the
+slope of y1 of x should be, at each point,</p>
+<p t="710320" d="14260">(x1,y1). It should be equal to the slope of
+the direction field at that point.</p>
+<p t="724580" d="5520">And then, what is the slope of the direction
+field at that point? Well, it is f of that</p>
+<p t="730110" d="12400">particular, well, at the point, (x,y1). If
+you like, you can put a subscript, one, on</p>
+<p t="742510" d="4509">there, send a one here or a zero there, to
+indicate that you mean a particular point.</p>
+<p t="747019" d="6041">But, it looks better if you don't. But, there's
+some possibility of confusion. I admit to</p>
+<p t="753060" d="4670">that. So, the slope of the direction field,
+what is that slope? Well, by the way, I calculated</p>
+<p t="757730" d="6620">the direction field. Its slope at the point
+was to be x, whatever the value of x was,</p>
+<p t="764350" d="8170">and whatever the value of y1(x) was, substituted
+into the right-hand side of the equation.</p>
+<p t="772520" d="6160">So, what the slope of this function of that
+curve of the graph should be equal to the</p>
+<p t="778680" d="2810">slope of the direction field. Now, what does
+this say?</p>
+<p t="781490" d="7000">Well, what's the slope of y1(x)? That's y1'(x).
+That's from the first day of 18.01, calculus.</p>
+<p t="788740" d="6180">What's the slope of the direction field? This?
+Well, it's this. And, that's with the right</p>
+<p t="794920" d="6310">hand side. So, saying these two guys are the
+same or equal, is exactly, analytically, the</p>
+<p t="801230" d="6160">same as saying these two guys are equal. So,
+in other words, the proof consists of, what</p>
+<p t="807390" d="4870">does this really mean? What does this really
+mean? And after you see what both really mean,</p>
+<p t="812260" d="1940">you say, yeah, they're the same.</p>
+<p t="814200" d="16240">So, I don't how to write that. It's okay:
+same, same, how's that? This is the same as that.</p>
+<p t="831840" d="6179">Okay, well, this leaves us the interesting
+question of how do you draw a direction from</p>
+<p t="838019" d="7240">the, well, this being 2003, mostly computers
+draw them for you. Nonetheless, you do have</p>
+<p t="845260" d="4300">to know a certain amount. I've given you a
+couple of exercises where you have to draw</p>
+<p t="849560" d="6140">the direction field yourself. This is so you
+get a feeling for it, and also because humans</p>
+<p t="855700" d="7000">don't draw direction fields the same way computers
+do. So, let's first of all, how did computers</p>
+<p t="863480" d="7000">do it? They are very stupid. There's no problem.</p>
+<p t="872420" d="6190">Since they go very fast and have unlimited
+amounts of energy to waste, the computer method</p>
+<p t="878610" d="11180">is the naive one. You pick the point. You
+pick a point, and generally, they are usually</p>
+<p t="889790" d="4890">equally spaced. You determine some spacing,
+that one: blah, blah, blah, blah, blah, blah,</p>
+<p t="894680" d="17000">blah, equally spaced. And, at each point,
+it computes f(x, y) at the point, finds, meets,</p>
+<p t="911680" d="6360">and computes the value of f of (x, y), that
+function, and the next thing is, on the screen,</p>
+<p t="918040" d="12880">it draws, at (x, y), the little line element
+having slope f(x, y). In other words, it does</p>
+<p t="930930" d="4620">what the differential equation tells it to
+do.</p>
+<p t="935550" d="5360">And the only thing that it does is you can,
+if you are telling the thing to draw the direction</p>
+<p t="940910" d="5299">field, about the only option you have is telling
+what the spacing should be, and sometimes</p>
+<p t="946209" d="3810">people don't like to see a whole line. They
+only like to see a little bit of a half line.</p>
+<p t="950019" d="4481">And, you can sometimes tell, according to
+the program, tell the computer how long you</p>
+<p t="954500" d="4350">want that line to be, if you want it teeny
+or a little bigger. Once in awhile you want</p>
+<p t="958850" d="2750">you want it narrower on it, but not right
+now.</p>
+<p t="961600" d="8740">Okay, that's what a computer does. What does
+a human do? This is what it means to be human.</p>
+<p t="970350" d="7260">You use your intelligence. From a human point
+of view, this stuff has been done in the wrong</p>
+<p t="977610" d="4820">order. And the reason it's been done in the
+wrong order: because for each new point, it</p>
+<p t="982430" d="6269">requires a recalculation of f(x, y). That
+is horrible. The computer doesn't mind, but</p>
+<p t="988699" d="7340">a human does. So, for a human, the way to
+do it is not to begin by picking the point,</p>
+<p t="996040" d="5849">but to begin by picking the slope that you
+would like to see. So, you begin by taking</p>
+<p t="1001889" d="7911">the slope. Let's call it the value of the
+slope, C. So, you pick a number. C is two.</p>
+<p t="1009800" d="6640">I want to see where are all the points in
+the plane where the slope of that line element</p>
+<p t="1016440" d="5030">would be two? Well, they will satisfy an equation.</p>
+<p t="1021470" d="11479">The equation is f(x,y) = C, in general. So,
+what you do is plot this, plot the equation,</p>
+<p t="1032949" d="5430">plot this equation. Notice, it's not the differential
+equation. You can't exactly plot a differential</p>
+<p t="1038379" d="7380">equation. It's a curve, an ordinary curve.
+But which curve will depend; it's, in fact,</p>
+<p t="1045769" d="9990">from the 18.02 point of view, the level curve
+of C, sorry, it's a level curve of f of (x,</p>
+<p t="1055759" d="4020">y), the function f of x and y corresponding
+to the level of value C</p>
+<p t="1059779" d="4760">But we are not going to call it that because
+this is not 18.02. Instead, we're going to</p>
+<p t="1064540" d="14939">call it an isocline. And then, you plot, well,
+you've done it. So, you've got this isocline,</p>
+<p t="1079479" d="7940">except I'm going to use a solution curve,
+solid lines, only for integral curves. When</p>
+<p t="1087429" d="5550">we do plot isoclines, to indicate that they
+are not solutions, we'll use dashed lines</p>
+<p t="1092979" d="7840">for doing them. One of the computer things
+does and the other one doesn't. But they use</p>
+<p t="1100830" d="4319">different colors, also. There are different
+ways of telling you what's an isocline and</p>
+<p t="1105149" d="4571">what's the solution curve. So, and what do
+you do? So, these are all the points where</p>
+<p t="1109720" d="1809">the slope is going to be C.</p>
+<p t="1111529" d="7000">And now, what you do is draw in as many as
+you want of line elements having slope C.</p>
+<p t="1118570" d="4270">Notice how efficient that is. If you want
+50 million of them and have the time, draw</p>
+<p t="1122840" d="4519">in 50 million. If two or three are enough,
+draw in two or three. You will be looking</p>
+<p t="1127359" d="5270">at the picture. You will see what the curve
+looks like, and that will give you your judgment</p>
+<p t="1132629" d="5870">as to how you are to do that. So, in general,
+a picture drawn that way, so let's say, an</p>
+<p t="1138499" d="4060">isocline corresponding to C equals zero.</p>
+<p t="1142559" d="5161">The line elements, and I think for an isocline,
+for the purposes of this lecture, it would</p>
+<p t="1147720" d="5639">be a good idea to put isoclines. Okay, so
+I'm going to put solution curves in pink,</p>
+<p t="1153359" d="10700">or whatever this color is, and isoclines are
+going to be in orange, I guess. So, isocline,</p>
+<p t="1164070" d="5579">represented by a dashed line, and now you
+will put in the line elements of, we'll need</p>
+<p t="1169649" d="4061">lots of chalk for that. So, I'll use white
+chalk.</p>
+<p t="1173710" d="5010">Y horizontal? Because according to this the
+slope is supposed to be zero there. And at</p>
+<p t="1178720" d="5179">the same way, how about an isocline where
+the slope is negative one? Let's suppose here</p>
+<p t="1183899" d="5520">C is equal to negative one. Okay, then it
+will look like this. These are supposed to</p>
+<p t="1189419" d="7160">be lines of slope negative one. Don't shoot
+me if they are not. So, that's the principle.</p>
+<p t="1196580" d="4429">So, this is how you will fill up the plane
+to draw a direction field: by plotting the</p>
+<p t="1201009" d="3181">isoclines first.</p>
+<p t="1204190" d="5169">And then, once you have the isoclines there,
+you will have line elements. And you can draw</p>
+<p t="1209359" d="4221">a direction field. Okay, so, for the next
+few minutes, I'd like to work a couple of</p>
+<p t="1213580" d="5680">examples for you to show how this works out
+in practice.</p>
+<p t="1235260" d="1580">So, the first equation is going</p>
+<p t="1236840" d="7000">to be y' = -x / y.</p>
+<p t="1246940" d="8980">Okay, first thing, what
+are the isoclines? Well, the isoclines</p>
+<p t="1262020" d="3380">the isoclines are going to be y.</p>
+<p t="1265409" d="10311">Well, -x / y = C. Maybe I better make two
+steps out of this. Minus x over y is equal</p>
+<p t="1275720" d="5949">to C. But, of course, nobody draws a curve
+in that form. You'll want it in the form y</p>
+<p t="1281669" d="14710">= -1 / C * x. So, there's our isocline. Why
+don't I put that up in orange since it's going</p>
+<p t="1296379" d="8320">to be, that's the color I'll draw it in. In
+other words, for different values of C, now</p>
+<p t="1304700" d="5859">this thing is aligned. It's aligned, in fact,
+through the origin. This looks pretty simple.</p>
+<p t="1310559" d="7160">Okay, so here's our plane. The isoclines are
+going to be lines through the origin. And</p>
+<p t="1317720" d="3959">now, let's put them in, suppose, for example,
+C is equal to one.</p>
+<p t="1321679" d="10000">Well, if C is equal to one, then it's the
+line, y equals minus x. So, this is the isocline.</p>
+<p t="1331680" d="7000">I'll put, down here, C equals minus one. And,</p>
+<p t="1346780" d="3960">and along it, the</p>
+<p t="1353200" d="2620">no, something's wrong.</p>
+<p t="1358060" d="2820">I'm sorry?</p>
+<p t="1362880" d="9259">C is one, not negative one, right, thanks.
+Thanks. So, C equals one. So, it should be</p>
+<p t="1372139" d="5210">little line segments of slope one will be
+the line elements, things of slope one. OK,</p>
+<p t="1377349" d="2650">now how about C equals negative one?</p>
+<p t="1379999" d="7620">If C equals negative one, then it's the line,
+y = x. And so, that's the isocline. Notice,</p>
+<p t="1387629" d="7430">still dash because these are isoclines. Here,
+C is negative one. And so, the slope elements</p>
+<p t="1395059" d="7680">look like this. Notice, they are perpendicular.
+Now, notice that they are always going to</p>
+<p t="1402749" d="9530">be perpendicular to the line because the slope
+of this line is minus one over C. But, the</p>
+<p t="1412279" d="7040">slope of the line element is going to be C.
+Those numbers, minus one over C and C, are</p>
+<p t="1419320" d="5919">negative reciprocals. And, you know that two
+lines whose slopes are negative reciprocals</p>
+<p t="1425239" d="6860">are perpendicular. So, the line elements are
+going to be perpendicular to these. And therefore,</p>
+<p t="1432099" d="5351">I hardly even have to bother calculating,
+doing any more calculation. Here's going to</p>
+<p t="1437450" d="3059">be a, well, how about this one?</p>
+<p t="1440509" d="6900">Here's a controversial isocline. Is that an
+isocline? Well, wait a minute. That doesn't</p>
+<p t="1447409" d="9600">correspond to anything looking like this.
+Ah-ha, but it would if I put C multiplied</p>
+<p t="1457009" d="6420">through by C. And then, it would correspond
+to C being zero. In other words, don't write</p>
+<p t="1463429" d="7280">it like this. Multiply through by C. It will
+read C y = - x. And then, when C is zero,</p>
+<p t="1471330" d="3279">I have x equals zero, which is exactly the
+y-axis.</p>
+<p t="1474609" d="9760">So, that really is included. How about the
+x-axis? Well, the x-axis is not included.</p>
+<p t="1484369" d="5530">However, most people include it anyway. This
+is very common to be a sort of sloppy and</p>
+<p t="1489899" d="5380">bending the edges of corners a little bit,
+and hoping nobody will notice. We'll say that</p>
+<p t="1495279" d="5120">corresponds to C equals infinity. I hope nobody
+wants to fight about that. If you do, go fight</p>
+<p t="1500399" d="5760">with somebody else. So, if C is infinity,
+that means the little line segment should</p>
+<p t="1506159" d="5380">have infinite slope, and by common consent,
+that means it should be vertical. And so,</p>
+<p t="1511539" d="7220">we can even count this as sort of an isocline.
+And, I'll make the dashes smaller, indicate</p>
+<p t="1518769" d="9790">it has a lower status than the others. And,
+I'll put this in, do this weaselly thing of</p>
+<p t="1528559" d="5170">putting it in quotation marks to indicate
+that I'm not responsible for it.</p>
+<p t="1533729" d="6711">Okay, now, we now have to put it the integral
+curves. Well, nothing could be easier. I'm</p>
+<p t="1540440" d="7159">looking for curves which are everywhere perpendicular
+to these rays. Well, you know from geometry</p>
+<p t="1547600" d="5760">that those are circles. So, the integral curves
+are circles.</p>
+<p t="1560940" d="2880">And, it's an elementary exercise,</p>
+<p t="1563830" d="9539">which I would not deprive you of the pleasure
+of. Solve the ODE by separation of variables.</p>
+<p t="1573369" d="6790">In other words, we've gotten the, so the circles
+are ones with a center at the origin, of course,</p>
+<p t="1580159" d="7240">equal some constant. I'll call it C1, so it's
+not confused with this C. They look like that,</p>
+<p t="1587400" d="5760">and now you should solve this by separating
+variables, and just confirm that the solutions</p>
+<p t="1593169" d="3031">are, in fact, those circles.</p>
+<p t="1596200" d="6130">One interesting thing, and so I confirm this,
+I won't do it because I want to do geometric</p>
+<p t="1602330" d="5079">and numerical things today. So, if you solve
+it by separating variables, one interesting</p>
+<p t="1607409" d="9960">thing to note is that if I write the solution
+as y = y1(x), well, it'll look something like</p>
+<p t="1617369" d="6860">the sqrt (C1 - x^2). We'll make the x squared
+because that's the way people usually put the radius.</p>
+<p t="1624229" d="2020">Minus x squared.</p>
+<p t="1626249" d="7270">And so, a solution, a typical solution looks
+like this. Well, what's the solution over</p>
+<p t="1633519" d="8560">here? Well, that one solution will be goes
+from here to here. If you like, it has a negative</p>
+<p t="1642090" d="5230">side to it. So, I'll make, let's say, plus.
+There's another solution, which has a negative</p>
+<p t="1647320" d="5269">value. But let's use the one with the positive
+value of the square root. My point is this,</p>
+<p t="1652589" d="8000">that that solution, the domain of that solution,
+really only goes from here to here. It's not</p>
+<p t="1660589" d="5280">the whole x-axis. It's just a limited piece
+of the x-axis where that solution is defined.</p>
+<p t="1665869" d="6760">There's no way of extending it further. And,
+there's no way of predicting, by looking at</p>
+<p t="1672629" d="4900">the differential equation, that a typical
+solution was going to have a limited domain</p>
+<p t="1677529" d="2420">like that.</p>
+<p t="1681480" d="6779">In other words, you could find a solution,
+but how far out is it going to go? Sometimes,</p>
+<p t="1688259" d="5250">it's impossible to tell, except by either
+finding it explicitly, or by asking a computer</p>
+<p t="1693509" d="3900">to draw a picture of it, and seeing if that
+gives you some insight. It's one of the many</p>
+<p t="1697409" d="4791">difficulties in handling differential equations.
+You don't know what the domain of a solution</p>
+<p t="1702200" d="3909">is going to be until you've actually calculated
+it.</p>
+<p t="1706109" d="22490">Now, a slightly more complicated example is
+going to be, let's see, y' = 1 + x - y. It's</p>
+<p t="1728599" d="6490">not a lot more complicated, and as a computer
+exercise, you will work with, still, more</p>
+<p t="1735089" d="5840">complicated ones. But here, the isoclines
+would be what? Well, I set that equal to C.</p>
+<p t="1740929" d="6880">Can you do the algebra in your head? An isocline
+will have the equation: this equals C. So,</p>
+<p t="1747809" d="5610">I'm going to put the y on the right hand side,
+and that C on the left hand side. So, it will</p>
+<p t="1753419" d="12440">have the equation y = 1 + x - C, or a nicer
+way to write it would be y = x + 1 - C. I</p>
+<p t="1765869" d="4571">guess it really doesn't matter.</p>
+<p t="1770440" d="5589">So there's the equation of the isocline. Let's
+quickly draw the direction field. And notice,</p>
+<p t="1776029" d="5030">by the way, it's a simple equation, but you
+cannot separate variables. So, I will not,</p>
+<p t="1781059" d="7000">today at any rate, be able to check the answer.
+I will not be able to get an analytic answer.</p>
+<p t="1790070" d="5130">All we'll be able to do now is get a geometric
+answer. But notice how quickly, relatively</p>
+<p t="1795200" d="6289">quickly, one can get it. So, I'm feeling for
+how the solutions behave to this equation.</p>
+<p t="1801489" d="8720">All right, let's see, what should we plot
+first? I like C equals one, no, don't do C</p>
+<p t="1810210" d="9190">equals one. Let's do C equals zero, first.
+C equals zero. That's the line. y = x + 1.</p>
+<p t="1819400" d="3760">Okay, let me run and get that chalk.</p>
+<p t="1826420" d="3579">So, I'll isoclines are in orange. If so, when C equals</p>
+<p t="1829999" d="6180">zero, y equals x plus one. So, let's say it's
+this curve.</p>
+<p t="1837860" d="2620">C equals zero.</p>
+<p t="1841400" d="1380">How about C equals</p>
+<p t="1842789" d="6620">negative one? Then it's y = x + 2. It's this
+curve.</p>
+<p t="1852120" d="4619">Well, let's label it down here.</p>
+<p t="1858660" d="8499">So, this is C equals negative one. C equals negative
+two would be y equals x, no, what am I doing?</p>
+<p t="1867159" d="7000">C equals negative one is y = x + 2. That's
+right. Well, how about the other side?</p>
+<p t="1875100" d="7240">If C equals plus one, well, then it's going to
+go through the origin.</p>
+<p t="1885800" d="6620">It looks like a little more room down here. How about, so if this
+is going to be C equals one, then I sort of</p>
+<p t="1892429" d="6220">get the idea. C equals two will look like
+this. They're all going to be parallel lines</p>
+<p t="1898649" d="6671">because all that's changing is the y-intercept,
+as I do this thing. So, here, it's C equals</p>
+<p t="1905320" d="9040">two. That's probably enough. All right, let's
+put it in the line elements. All right,</p>
+<p t="1914360" d="7500">C equals negative one. These will be perpendicular.
+C equals zero, like this.</p>
+<p t="1924999" d="5530">C equals one. Oh, this is interesting. I can't
+even draw in the line elements because they</p>
+<p t="1930529" d="7000">seem to coincide with the curve itself, with
+the line itself. They write y along the line,</p>
+<p t="1937839" d="6080">and that makes it hard to draw them in. How
+about C equals two? Well, here, the line elements</p>
+<p t="1943919" d="6440">will be slanty. They'll have slope two, so
+a pretty slanty up. And, I can see if a C</p>
+<p t="1950359" d="4540">equals three in the same way. There are going
+to be even more slantier up. And here, they're</p>
+<p t="1954899" d="6880">going to be even more slanty down. This is
+not very scientific terminology or mathematical,</p>
+<p t="1961779" d="5450">but you get the idea. Okay, so there's our
+quick version of the direction field. All</p>
+<p t="1967229" d="5160">we have to do is put in some integral curves
+now. Well, it looks like it's doing this.</p>
+<p t="1972389" d="5610">It gets less slanty here. It levels out, has
+slope zero.</p>
+<p t="1977999" d="4470">And now, in this part of the plain, the slope
+seems to be rising. So, it must do something</p>
+<p t="1982469" d="7050">like that. This guy must do something like
+this. I'm a little doubtful of what I should</p>
+<p t="1989519" d="9280">be doing here. Or, how about going from the
+other side? Well, it rises, gets a little,</p>
+<p t="1998809" d="7260">should it cross this? What should I do? Well,
+there's one integral curve, which is easy</p>
+<p t="2006070" d="7069">to see. It's this one. This line is both an
+isocline and an integral curve.</p>
+<p t="2013139" d="11060">It's everything, except drawable, [LAUGHTER]
+so, you understand this is the same line.</p>
+<p t="2024200" d="4870">It's both orange and pink at the same time.
+But I don't know what combination color that</p>
+<p t="2029070" d="13039">would make. It doesn't look like a line, but
+be sympathetic. Now, the question is, what's</p>
+<p t="2042109" d="8911">happening in this corridor? In the corridor,
+that's not a mathematical word either, between</p>
+<p t="2051020" d="5499">the isoclines for, well, what are they? They
+are the isoclines for C equals two, and C</p>
+<p t="2056520" d="2980">equals zero.</p>
+<p t="2063860" d="4880">How does that corridor look?
+Well: something like this. Over here, the</p>
+<p t="2068740" d="5210">lines all look like that. And here, they all
+look like this.</p>
+<p t="2073950" d="12810">The slope is two. And, a hapless solution
+gets in there. What's it to do? Well, do you</p>
+<p t="2086760" d="5409">see that if a solution gets in that corridor,
+an integral curve gets in that corridor, no</p>
+<p t="2092169" d="8791">escape is possible. It's like a lobster trap.
+The lobster can walk in. But it cannot walk</p>
+<p t="2100960" d="7480">out because things are always going in. How
+could it escape? Well, it would have to double</p>
+<p t="2108450" d="6280">back, somehow, and remember, to escape, it
+has to be, to escape on the left side, it</p>
+<p t="2114730" d="1930">must be going horizontally.</p>
+<p t="2116660" d="8000">But, how could it do that without doubling
+back first and having the wrong slope? The</p>
+<p t="2124660" d="5560">slope of everything in this corridor is positive,
+and to double back and escape, it would at</p>
+<p t="2130220" d="4549">some point have to have negative slope. It
+can't do that. Well, could it escape on the</p>
+<p t="2134769" d="5780">right-hand side? No, because at the moment
+when it wants to cross, it will have to have</p>
+<p t="2140549" d="8510">a slope less than this line. But all these
+spiky guys are pointing; it can't escape that</p>
+<p t="2149059" d="6141">way either. So, no escape is possible. It
+has to continue on, there. But, more than</p>
+<p t="2155200" d="5909">that is true. So, a solution can't escape.</p>
+<p t="2161109" d="10311">Once it's in there, it can't escape. It's
+like, what do they call those plants, I forget,</p>
+<p t="2171420" d="6060">pitcher plants. You know, all their hairs are
+going down. So, it looks like that. And so,</p>
+<p t="2177480" d="5740">the poor little insect falls in. They could
+climb up the walls except that all the hairs</p>
+<p t="2183220" d="5639">are going the wrong direction, and it can't
+get over them. Well, let's think of it that</p>
+<p t="2188859" d="5180">way: this poor trap solution. So, it does
+what it has to do. Now, there's more to it</p>
+<p t="2194039" d="7000">than that. Because there are two principles
+involved here that you should know, that help</p>
+<p t="2201640" d="8580">a lot in drawing these pictures. Principle
+number one is that two integral curves cannot</p>
+<p t="2210230" d="7589">cross at an angle. Two integral curves can't
+cross, I mean, by crossing at an angle like</p>
+<p t="2217819" d="4821">that. I'll indicate what I mean by a picture
+like that.</p>
+<p t="2222640" d="8679">Now, why not? This is an important principle.
+Let's put that up in the white box. They can't</p>
+<p t="2231319" d="7820">cross because if two integral curves, are
+trying to cross, well, one will look like</p>
+<p t="2239140" d="6709">this. It's an integral curve because it has
+this slope. And, the other integral curve</p>
+<p t="2245849" d="6391">has this slope. And now, they fight with each
+other. What is the true slope at that point?</p>
+<p t="2252240" d="4980">Well, the direction field only allows you
+to have one slope. If there's a line element</p>
+<p t="2257220" d="4450">at that point, it has a definite slope. And
+therefore, it cannot have both the slope and</p>
+<p t="2261670" d="10050">that one. It's as simple as that. So, the
+reason is you can't have two slopes. The direction</p>
+<p t="2271720" d="7000">field doesn't allow it. Well, that's a big,
+big help because if I know, here's an integral</p>
+<p t="2278970" d="4470">curve, and if I know that none of these other
+pink integral curves are allowed to cross</p>
+<p t="2283440" d="2329">it, how else can I do it?</p>
+<p t="2285769" d="5971">Well, they can't escape. They can't cross.
+It's sort of clear that they must get closer</p>
+<p t="2291740" d="7339">and closer to it. You know, I'd have to work
+a little to justify that. But I think that</p>
+<p t="2299079" d="5990">nobody would have any doubt of it who did
+a little experimentation. In other words,</p>
+<p t="2305069" d="9100">all these curves joined that little tube and
+get closer and closer to this line, y = x.</p>
+<p t="2314170" d="8820">And there, without solving the differential
+equation, it's clear that all of these solutions,</p>
+<p t="2322990" d="8629">how do they behave? As x goes to infinity,
+they become asymptotic to, they become closer</p>
+<p t="2331619" d="10520">and closer to the solution, x. Is x a solution?
+Yeah, because y equals x is an integral curve.</p>
+<p t="2342150" d="6260">Is x a solution? Yeah, because if I plug in
+y equals x, I get what? On the right-hand</p>
+<p t="2348410" d="11659">side, I get one. And on the left-hand side,
+I get one. One equals one. So, this is a solution.</p>
+<p t="2360069" d="9560">Let's indicate that it's a solution. So, analytically,
+we've discovered an analytic solution to the</p>
+<p t="2369630" d="8169">differential equation, namely, Y equals X,
+just by this geometric process. Now, there's</p>
+<p t="2377799" d="9960">one more principle like that, which is less
+obvious. But you do have to know it. So, you</p>
+<p t="2387769" d="6840">are not allowed to cross. That's clear. But
+it's much, much, much, much, much less obvious</p>
+<p t="2394609" d="6440">that two integral curves cannot touch. That
+is, they cannot even be tangent. Two integral</p>
+<p t="2401049" d="4040">curves cannot be tangent.</p>
+<p t="2410670" d="6449">I'll indicate that by the word touch, which
+is what a lot of people say. In other words,</p>
+<p t="2417119" d="5400">if this is illegal, so is this.</p>
+<p t="2429480" d="2100">Can't have it.</p>
+<p t="2432700" d="2700">You know, without that for example, it might</p>
+<p t="2435410" d="7300">be, I might feel that there would be nothing
+in this to prevent those curves from joining.</p>
+<p t="2442710" d="7170">Why couldn't these pink curves join the line,
+y equals x? You know, it's a solution. They</p>
+<p t="2449880" d="6320">just pitch a ride, as it were. The answer
+is they cannot do that because they have to</p>
+<p t="2456200" d="6220">just get asymptotic to it, ever, ever closer.
+They can't join y equals x because at the</p>
+<p t="2462420" d="2970">point where they join, you have that situation.</p>
+<p t="2465390" d="5850">Now, why can't you to have this? That's much
+more sophisticated than this, and the reason</p>
+<p t="2471240" d="5380">is because of something called the Existence
+and Uniqueness Theorem,</p>
+<p t="2476620" d="5680">Existence and Uniqueness Theorem</p>
+<p t="2485860" d="2800">which says</p>
+<p t="2489980" d="2180">which says</p>
+<p t="2492160" d="6880">which says that there is through a point, (x0, y0),</p>
+<p t="2499040" d="13300"> that y prime equals y' = f(x, y) has only
+one, and only one solution. One has one solution.</p>
+<p t="2512349" d="4010">In mathematics speak, that means at least
+one solution. It doesn't mean it has just</p>
+<p t="2516359" d="6440">one solution. That's mathematical convention.
+It has one solution, at least one solution.</p>
+<p t="2522799" d="4441">But, the killer is, only one solution.</p>
+<p t="2527240" d="5769">That's what you have to say in mathematics
+if you want just one, one, and only one solution</p>
+<p t="2533009" d="11340">through the point (x0, y0). So, the fact that
+it has one, that is the existence part. The</p>
+<p t="2544349" d="6531">fact that it has only one is the uniqueness
+part of the theorem. Now, like all good mathematical</p>
+<p t="2550880" d="9280">theorems, this one does have hypotheses. So,
+this is not going to be a course, I warn you,</p>
+<p t="2560170" d="5659">those of you who are theoretically inclined,
+very rich in hypotheses. But, hypotheses for</p>
+<p t="2565829" d="8520">those one or that f(x, y) should be a continuous
+function. Now, like polynomial, signs, should</p>
+<p t="2574349" d="7000">be continuous near, in the vicinity of that
+point.</p>
+<p t="2583349" d="5131">That guarantees existence, and what guarantees
+uniqueness is the hypothesis that you would</p>
+<p t="2588480" d="8060">not guess by yourself. Neither would I. What
+guarantees the uniqueness is that also, it's</p>
+<p t="2596549" d="7000">partial derivative with respect to y should
+be continuous, </p>
+<p t="2605440" d="6760">should be continuous near (x0, y0).</p>
+<p t="2615780" d="1420">Well,</p>
+<p t="2620740" d="9820">I have to make a decision. I don't
+have time to talk about Euler's method. Let me</p>
+<p t="2630569" d="5290">refer you to the, there's one page of notes,
+and I couldn't do any more than just repeat</p>
+<p t="2635859" d="4291">what's on those notes. So, I'll trust you
+to read that.</p>
+<p t="2640150" d="5020">And instead, let me give you an example which
+will solidify these things in your mind a</p>
+<p t="2645170" d="6260">little bit. I think that's a better course.
+The example is not in your notes, and therefore,</p>
+<p t="2651430" d="7000">remember, you heard it here first. Okay, so
+what's the example? It's...</p>
+<p t="2665840" d="1000">So,</p>
+<p t="2672860" d="3160">there's our differential equation.</p>
+<p t="2677260" d="6880">Now, let's just solve it by separating
+variables. dy. Can you do it in your head? dy</p>
+<p t="2684140" d="7160">over dx, put all the y's on the left. It will
+look like dy / (1 - y). Put all the dx's on</p>
+<p t="2691309" d="6240">the left. So, the dx here goes on the right,
+rather. That will be dx. And then, the x goes</p>
+<p t="2697549" d="3570">down into the denominator. So now, it looks
+like that.</p>
+<p t="2701119" d="11140">And, if I integrate both sides, I get the
+log of one minus y, I guess, maybe with a,</p>
+<p t="2712259" d="7480">I never bothered with that, but you can. It
+should be absolute values. All right, put</p>
+<p t="2719750" d="8150">an absolute value, plus a constant. And now,
+if I exponentiate both sides, the constant</p>
+<p t="2727900" d="9620">is positive. So, this is going to look like
+y. (1 - y) = x. And, the constant will be</p>
+<p t="2737529" d="8180">e^C1. And, I'll just make that a new constant,
+Cx. And now, by letting C be negative, that's</p>
+<p t="2745710" d="4240">why you can get rid of the absolute values,
+if you allow C to have negative values as</p>
+<p t="2749950" d="6669">well as positive values. Let's write this
+in a more human form. So, y = 1 - Cx. Good,</p>
+<p t="2756619" d="2490">all right, let's just plot those. So, these
+are the solutions.</p>
+<p t="2759109" d="5920">It's a pretty easy equation, pretty easy solution
+method, just separation of variables. What</p>
+<p t="2765029" d="11100">do they look like? Well, these are all lines
+whose intercept is at one. And, they have</p>
+<p t="2776130" d="12239">any slope whatsoever. So, these are the lines
+that look like that. Okay, now let me ask,</p>
+<p t="2788369" d="6710">existence and uniqueness. Existence: through
+which points of the plane does the solution</p>
+<p t="2795079" d="6980">go? Answer: through every point of the plane,
+through any point here, I can find one and</p>
+<p t="2802059" d="8580">only one of those lines, except for these
+stupid guys here on the stalk of the flower.</p>
+<p t="2810650" d="8760">Here, for each of these points, there is no
+existence. There is no solution to this differential</p>
+<p t="2819410" d="8169">equation, which goes through any of these
+wiggly points on the y-axis, with one exception.</p>
+<p t="2827579" d="7640">This point is oversupplied. At this point,
+it's not existence that fails. It's uniqueness</p>
+<p t="2835230" d="9910">that fails: no uniqueness. There are lots
+of things which go through here. Now, is that</p>
+<p t="2845140" d="4340">a violation of the existence and uniqueness
+theorem? It cannot be a violation because</p>
+<p t="2849480" d="6269">the theorem has no exceptions. Otherwise,
+it wouldn't be a theorem. So, let's take a</p>
+<p t="2855749" d="4941">look. What's wrong? We thought we solved it
+modulo, putting the absolute value signs on</p>
+<p t="2860690" d="6339">the log. What's wrong? The answer: what's
+wrong is to use the theorem you must write</p>
+<p t="2867029" d="6240">the differential equation in standard form,
+in the green form I gave you. Let's write</p>
+<p t="2873269" d="8471">the differential equation the way we were
+supposed to. It says dy / dx = (1 - y) / x.</p>
+<p t="2881740" d="8160">And now, I see, the right-hand side is not
+continuous, in fact, not even defined when</p>
+<p t="2889910" d="6619">x equals zero, when along the y-axis. And
+therefore, the existence and uniqueness is</p>
+<p t="2896529" d="6671">not guaranteed along the line, x equals zero
+of the y-axis. And, in fact, we see that it</p>
+<p t="2903200" d="7379">failed. Now, as a practical matter, it's the
+way existence and uniqueness fails in all</p>
+<p t="2910579" d="4911">ordinary life work with differential equations
+is not through sophisticated examples that</p>
+<p t="2915490" d="2059">mathematicians can construct.</p>
+<p t="2917549" d="5220">But normally, because f(x, y) will fail to
+be defined somewhere, and those will be the</p>
+<p t="2922769" d="3030">bad points. Thanks.</p>
+</body>
+</timedtext>

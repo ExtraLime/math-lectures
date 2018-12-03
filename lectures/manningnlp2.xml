@@ -1,0 +1,1838 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="0" d="6314">[MUSIC]</p>
+<p t="6314" d="1399">Stanford University.</p>
+<p t="11743" d="2514">&gt;&gt; Okay, so let's get going.</p>
+<p t="14257" d="4352">Welcome back to the second
+class of CS224N /Ling 284,</p>
+<p t="18609" d="3961">Natural Language Processing
+with Deep Learning.</p>
+<p t="22570" d="5545">So this class is gonna be almost
+the complete opposite of the last class.</p>
+<p t="28115" d="1722">So in the last class,</p>
+<p t="29837" d="5763">it was a very high level picture of
+sort of trying from the very top down.</p>
+<p t="35600" d="3862">Sort of say a little bit about what
+is natural language processing,</p>
+<p t="39462" d="4404">what is deep learning, why it's exciting,
+why both of them are exciting and</p>
+<p t="43866" d="2354">how I'd like to put them together?</p>
+<p t="46220" d="4467">So for today's class we're gonna go
+completely to the opposite extreme.</p>
+<p t="50687" d="3637">We're gonna go right down
+to the bottom of words,</p>
+<p t="54324" d="4604">and we're gonna have vectors,
+and we're gonna do baby math.</p>
+<p t="58928" d="6037">Now for some of you this will seem
+like tedious repetitive baby math.</p>
+<p t="64965" d="3514">But I think that there are probably
+quite a few of you for</p>
+<p t="68479" d="3678">which having some math review
+is just going to be useful.</p>
+<p t="72157" d="5043">And this is really the sort of foundation
+on which everything else builds.</p>
+<p t="77200" d="4653">And so if you don't have sort of straight
+the fundamentals right at the beginning of</p>
+<p t="81853" d="4453">how you can use neural networks on the
+sort of very simplest kind of structures,</p>
+<p t="86306" d="2346">it's sort of really all over from there.</p>
+<p t="88652" d="3947">So what I'd like to do today is
+sort of really go slowly and</p>
+<p t="92599" d="5435">carefully through the foundations of how
+you can start to do things with neural</p>
+<p t="98034" d="5216">networks in this very simple case of
+learning representations for words.</p>
+<p t="103250" d="4600">And hope that's kind of a good foundation
+that we can build on forwards.</p>
+<p t="107850" d="3210">And indeed that's what we're gonna
+keep on doing, building forward.</p>
+<p t="111060" d="5128">So next week Richard is gonna keep on
+doing a lot of math from the ground up to</p>
+<p t="116188" d="5405">try, and really help get straight some
+of the foundations of Deep Learning.</p>
+<p t="121593" d="4027">Okay, so this is basically the plan.</p>
+<p t="125620" d="5843">So tiny bit word meaning and</p>
+<p t="131463" d="2798">no, [LAUGH].</p>
+<p t="134261" d="5532">&gt;&gt; [LAUGH]
+&gt;&gt; Tiny bit on word meaning then start to</p>
+<p t="139793" d="5367">introduce this model of learning
+word vectors called Word2vec.</p>
+<p t="145160" d="4036">And this was a model that was
+introduced by Thomas Mikolov and</p>
+<p t="149196" d="2386">colleagues at Google in 2013.</p>
+<p t="151582" d="3696">And so there are many other
+ways that you could think about</p>
+<p t="155278" d="2537">having representations of words.</p>
+<p t="157815" d="3602">And next week, Richard's gonna talk
+about some of those other mechanisms.</p>
+<p t="161417" d="3588">But today, I wanna sort of avoid
+having a lot of background and</p>
+<p t="165005" d="1805">comparative commentary.</p>
+<p t="166810" d="3495">So I'm just gonna present
+this one way of doing it.</p>
+<p t="170305" d="2643">And you'd also pretty study
+the good way of doing it, so</p>
+<p t="172948" d="2272">it's not a bad one to know.</p>
+<p t="175220" d="3443">Okay, so then after that,
+we're gonna have the first or</p>
+<p t="178663" d="2951">was it gonna be one of
+the features of this class.</p>
+<p t="181614" d="6197">We decided that all the evidence says that
+students can't concentrate for 75 minutes.</p>
+<p t="187811" d="4160">So we decided we'd sort of mix
+it up a little, and hopefully,</p>
+<p t="191971" d="4961">also give people an opportunity to sort
+of get more of a sense of what some of</p>
+<p t="196932" d="5168">the exciting new work that's coming
+out every month in Deep Learning is.</p>
+<p t="202100" d="5630">And so what we're gonna do is have one TA
+each time, do a little research highlight.</p>
+<p t="207730" d="3173">Which will just be sort of a like
+a verbal blog post of telling</p>
+<p t="210903" d="4260">you a little bit about some recent paper
+and why it's interesting, exciting.</p>
+<p t="215163" d="3171">We're gonna start that today with Danqi.</p>
+<p t="218334" d="1009">Then after that,</p>
+<p t="219343" d="4723">I wanna go sort of carefully through the
+word to vec objective function gradients.</p>
+<p t="224066" d="3036">Refresher little on optimization,
+mention the assignment,</p>
+<p t="227102" d="4078">tell you all about Word2vec
+that's basically the plan, okay?</p>
+<p t="231180" d="4348">So we kinda wonder sort
+of have word vectors as I</p>
+<p t="235528" d="4467">mentioned last time as
+a model of word meaning.</p>
+<p t="239995" d="2530">That's a pretty
+controversial idea actually.</p>
+<p t="242525" d="4810">And I just wanna give kind of a few words
+of context before we dive into that and</p>
+<p t="247335" d="1315">do it anyway.</p>
+<p t="248650" d="4145">Okay, so
+if you look up meaning in a dictionary cuz</p>
+<p t="252795" d="4753">a dictionary is a storehouse
+of word meanings after all.</p>
+<p t="257548" d="4374">What the Webster's dictionary says is
+meaning is the idea that is represented by</p>
+<p t="261922" d="2098">a word, phrase, etc.</p>
+<p t="264020" d="5428">The idea that a person wants to express
+by using words, signs, etc, etc.</p>
+<p t="270660" d="3550">In some sense, this is fairly close</p>
+<p t="274210" d="4050">to what is the commonest linguistic
+way of thinking of meaning.</p>
+<p t="278260" d="6798">So standardly in linguistics,
+you have a linguistic sign like a word,</p>
+<p t="285058" d="5118">and then it has things that
+it signifies in the world.</p>
+<p t="290176" d="5475">So if I have a word like glasses then
+it's got a signification which includes</p>
+<p t="295651" d="5836">these and there are lots of other pairs of
+glasses I can see in front of me, right?</p>
+<p t="301487" d="4046">And those things that it signifies,</p>
+<p t="305533" d="4052">the denotation of the term glasses.</p>
+<p t="309585" d="5767">That hasn't proven to be a notion of
+meaning that's been very easy for people</p>
+<p t="315352" d="5908">to make much use of in computational
+systems for dealing with language.</p>
+<p t="321260" d="4470">So in practice, if you look at what
+computational systems have done for</p>
+<p t="325730" d="3580">meanings of words over
+the last several decades.</p>
+<p t="329310" d="4450">By far the most common thing that's
+happened is, people have tried</p>
+<p t="333760" d="4840">to deal with the meaning of words by
+making use of taxonomic resources.</p>
+<p t="338600" d="4200">And so if they're English, the most
+famous taxonomic resource is WordNet.</p>
+<p t="342800" d="3681">And it's famous,
+maybe not like Websters is famous.</p>
+<p t="346481" d="2148">But it's famous among
+computational linguists.</p>
+<p t="348629" d="2531">Because it's free to download a copy and</p>
+<p t="351160" d="4553">that's much more useful than having
+a copy of Webster's on your shelf.</p>
+<p t="355713" d="4467">And it provides a lot of
+taxonomy information about words.</p>
+<p t="361500" d="1990">So this little bit of Python code.</p>
+<p t="363490" d="4402">This is showing you getting a hold of
+word net using the nltk which is one of</p>
+<p t="367892" d="2348">the main Python packages for nlp.</p>
+<p t="370240" d="3561">And so then I'm asking it for
+the word panda,</p>
+<p t="373801" d="3767">not the Python package Panda,
+the word panda.</p>
+<p t="377568" d="1080">Then I'm saying,</p>
+<p t="378648" d="4542">well tell me about the hypernym the kind
+of things that it's the kind of.</p>
+<p t="383190" d="4813">And so for Panda it's sort of heading
+up through carnivores, placentals,</p>
+<p t="388003" d="3396">mammals up into sort of
+abstract types like objects.</p>
+<p t="391399" d="3013">Or on the right hand side,
+I'm sort of asking for</p>
+<p t="394412" d="3718">the word good,
+will tell me about synonyms of good.</p>
+<p t="398130" d="4760">And part of what your finding there is,
+well WordNet is saying,</p>
+<p t="402890" d="3097">well the word good has different senses.</p>
+<p t="405987" d="3883">So for each sense, let me tell
+you some synonyms for each sense.</p>
+<p t="409870" d="4590">So one sense, the second one is sort
+of the kind of good person sense.</p>
+<p t="414460" d="4468">And they're suggesting synonyms
+like honorable and respectable.</p>
+<p t="418928" d="5159">But there are other ones here
+where this pair is good to eat and</p>
+<p t="424087" d="2843">that's sort of meaning is ripe.</p>
+<p t="428750" d="2530">Okay, so
+you get this sort of sense of meaning.</p>
+<p t="432402" d="3641">That's been,
+that's been a great resource, but</p>
+<p t="436043" d="4394">it's also been a resource that
+people have found in practice.</p>
+<p t="440437" d="5593">It's hard to get nearly as much value out
+of it as you'd like to get out of it.</p>
+<p t="446030" d="1909">And why is that?</p>
+<p t="447939" d="2271">I mean there are a whole bunch of reasons.</p>
+<p t="450210" d="5324">I mean one reason is that at this level
+of this sort of taxonomic relationships,</p>
+<p t="455534" d="2627">you lose an enormous amount of nuance.</p>
+<p t="458161" d="4985">So one of those synonym sets for
+good was adept, expert, good, practiced,</p>
+<p t="463146" d="1698">proficient, skillful.</p>
+<p t="464844" d="4614">But I mean, it seems like those mean
+really different things, right?</p>
+<p t="469458" d="3362">It seems like saying I'm
+an expert at deep learning.</p>
+<p t="473965" d="5545">Means something slightly different
+to I'm good at deep learning.</p>
+<p t="479510" d="2028">So there's a lot of nuance there.</p>
+<p t="481538" d="4480">There's a lot of incompleteness in WordNet
+so for a lot of the ways that people,</p>
+<p t="486018" d="4779">Use words more flexibly.</p>
+<p t="490797" d="3369">So if I say I'm a deep-learning ninja, or</p>
+<p t="494166" d="4599">something like that,
+that that's not in WordNet at all.</p>
+<p t="498765" d="4673">What kind of things you put into these
+synonym sets ends up very subjective,</p>
+<p t="503438" d="518">right?</p>
+<p t="503956" d="3282">Which sense distinctions you make and
+which things you do and</p>
+<p t="507238" d="2712">don't say are the same,
+it's all very unclear.</p>
+<p t="509950" d="2590">It requires,
+even to the extent that it's made,</p>
+<p t="512540" d="4510">it's required many person
+years of human labor.</p>
+<p t="517050" d="5980">And at the end of the day,
+it's sort of, it's kind</p>
+<p t="523030" d="4720">of hard to get anything accurate out of it
+in the way of sort of word similarities.</p>
+<p t="527750" d="6080">Like I kind of feel that proficient is
+more similar to expert than good, maybe.</p>
+<p t="533830" d="3255">But you can't get any of this
+kind of stuff out of WordNet.</p>
+<p t="538330" d="5410">Okay, so therefore,
+that's sort of something of a problem.</p>
+<p t="543740" d="4870">And it's part of this
+general problem of discrete,</p>
+<p t="548610" d="4580">or categorical, representations
+that I started on last time.</p>
+<p t="553190" d="3470">So, the fundamental thing
+to note is that for</p>
+<p t="556660" d="5270">sorta just about all NLP,
+apart from both modern deep learning and</p>
+<p t="561930" d="3740">a little bit of neural net work
+NLP that got done in the 1980s,</p>
+<p t="565670" d="5890">that it's all used atomic symbols
+like hotel, conference, walk.</p>
+<p t="571560" d="5160">And if we think of that from our kind
+of jaundiced neural net direction,</p>
+<p t="576720" d="3780">using atomic symbols is kind of like using</p>
+<p t="580500" d="4600">big vectors that are zero everywhere
+apart from a one and one position.</p>
+<p t="585100" d="3980">So what we have, is we have a lot of words
+in the language that are equivalent to our</p>
+<p t="589080" d="3980">symbols and we're putting a one
+in the position, in the vector,</p>
+<p t="593060" d="2875">that represents the particular symbol,
+perhaps hotel.</p>
+<p t="595935" d="3285">And these vectors are going to be really,
+really long.</p>
+<p t="599220" d="2180">I mean,
+how long depends on how you look at it.</p>
+<p t="601400" d="4100">So sometimes a speech recognizer
+might have a 20,000 word vocabulary.</p>
+<p t="605500" d="1750">So it'd be that long.</p>
+<p t="607250" d="3660">But, if we're kinda building
+a machine translation system,</p>
+<p t="610910" d="5090">we might use a 500,000 word vocabulary,
+so that's very long.</p>
+<p t="616000" d="5130">And Google released sort of
+a 1-terabyte corpus of web crawl.</p>
+<p t="621130" d="3340">That's a resource that's been
+widely used for a lot of NLP.</p>
+<p t="624470" d="3430">And while the size of the vocabulary
+in that is 13 million words, so</p>
+<p t="627900" d="1790">that's really, really long.</p>
+<p t="629690" d="4278">So, it's a very, very big vector.</p>
+<p t="633968" d="3762">And so, why are these vectors problematic?</p>
+<p t="637730" d="5420">I'm sorry, I'm not remembering my slides,
+so I should say my slides first.</p>
+<p t="643150" d="4740">Okay, so this is referred to in
+neural net land as one-hot in coding</p>
+<p t="647890" d="3757">because there's just this
+one on zero in the vector.</p>
+<p t="651647" d="3933">And so, that's the example of
+a localist representation.</p>
+<p t="657000" d="2270">So why is this problematic?</p>
+<p t="659270" d="4730">And the reason why it's
+problematic is it doesn't give any</p>
+<p t="664000" d="3870">inherent notion of
+relationships between words.</p>
+<p t="667870" d="4520">So, very commonly what we want
+to know is when meanings and</p>
+<p t="672390" d="2716">words and
+phrases are similar to each other.</p>
+<p t="675106" d="4414">So, for example, in a web search
+application, if the user searches for</p>
+<p t="679520" d="2150">Dell notebook battery size,</p>
+<p t="681670" d="4450">we'd like to match a document that
+says Dell laptop battery capacity.</p>
+<p t="686120" d="3530">So we sort of want to know that
+notebooks and laptops are similar,</p>
+<p t="689650" d="4100">and size and capacity are similar,
+so this will be equivalent.</p>
+<p t="693750" d="3730">We want to know that hotels and
+motels are similar in meaning.</p>
+<p t="697480" d="4917">And the problem is that if we're
+using one-hot vector encodings,</p>
+<p t="702397" d="3203">they have no natural notion of similarity.</p>
+<p t="705600" d="2475">So if we take these two vectors and say,</p>
+<p t="708075" d="3834">what is the dot product between
+those vectors, it's zero.</p>
+<p t="711909" d="4141">They have no inherent
+notion of similarity.</p>
+<p t="716050" d="4838">And, something I just wanna stress
+a little, since this is important,</p>
+<p t="720888" d="4918">is note this problem of symbolic
+encoding applies not only to traditional</p>
+<p t="725806" d="4523">rule base logical approaches to
+natural language processing, but</p>
+<p t="730329" d="4917">it also applies to basically all of
+the work that was done in probabilistic</p>
+<p t="735246" d="5544">statistical conventional machine learning
+base natural language processing.</p>
+<p t="740790" d="4708">Although those Latin models normally had
+real numbers, they had probabilities of</p>
+<p t="745498" d="4373">something occurring in the context of
+something else, that nevertheless,</p>
+<p t="749871" d="3089">they were built over
+symbolic representations.</p>
+<p t="752960" d="4940">So that you weren't having any kind of
+capturing relationships between words and</p>
+<p t="757900" d="4290">the models,
+each word was a nation to itself.</p>
+<p t="762190" d="4010">Okay, so that's bad, and
+we have to do something about it.</p>
+<p t="766200" d="5116">Now, as I've said, there's more than
+one thing that you could do about it.</p>
+<p t="773451" d="2557">And so, one answer is to say, okay gee,</p>
+<p t="776008" d="3707">we need to have a similarity
+relationship between words.</p>
+<p t="779715" d="980">Let's go over here and</p>
+<p t="780695" d="4470">start building completely separately
+a similarity relationship between words.</p>
+<p t="785165" d="1617">And, of course, you could do that.</p>
+<p t="786782" d="2760">But I'm not gonna talk about that here.</p>
+<p t="789542" d="5120">What instead I'm going to talk about and
+suggest is that</p>
+<p t="794662" d="5270">what we could do is we could
+explore this direct approach,</p>
+<p t="799932" d="5240">where the representation of
+a word encodes its meaning</p>
+<p t="805172" d="4688">in such a way that you can
+just directly read off</p>
+<p t="809860" d="4360">from these representations,
+the similarity between words.</p>
+<p t="814220" d="2080">So what we're gonna do is
+have these vectors and</p>
+<p t="816300" d="2420">do something like a dot product.</p>
+<p t="818720" d="3900">And that will be giving us a sense
+of the similarity between words.</p>
+<p t="824050" d="2800">Okay, so how do we go about doing that?</p>
+<p t="826850" d="5080">And so the way we gonna go about
+doing that is by making use of this</p>
+<p t="833320" d="4030">very simple, but
+extremely profound and widely used,</p>
+<p t="837350" d="3580">NLP idea called distributional similarity.</p>
+<p t="840930" d="2700">So this has been a really powerful notion.</p>
+<p t="843630" d="5830">So the notion of distributional similarity
+is that you can get a lot of value for</p>
+<p t="849460" d="4580">representing the meaning of a word
+by looking at the context in</p>
+<p t="854040" d="4090">which it appears and
+doing something with those contexts.</p>
+<p t="859860" d="3090">So, if I want to know what
+the word banking means,</p>
+<p t="862950" d="5080">what I'm gonna do is find thousands of
+instances of the word banking in text and</p>
+<p t="868030" d="3820">I'm gonna look at the environment
+in which each one appeared.</p>
+<p t="871850" d="3400">And I'm gonna see debt problems,
+governments,</p>
+<p t="875250" d="3990">regulation, Europe, saying unified and</p>
+<p t="879240" d="4350">I'm gonna start counting up all of these
+things that appear and by some means,</p>
+<p t="883590" d="4880">I'll use those words in the context
+to represent the meaning of banking.</p>
+<p t="889630" d="5650">The most famous slogan that you
+will read everywhere if you look</p>
+<p t="895280" d="6100">into distributional similarity is this one
+by JR Firth, who was a British linguist,</p>
+<p t="901380" d="4978">who said, you shall know a word
+by the company it keeps.</p>
+<p t="906358" d="5467">But this is also really exactly the same
+notion that Wittgenstein proposed in</p>
+<p t="911825" d="5210">his later writings where he
+suggested a use theory of meaning.</p>
+<p t="917035" d="4805">Where, somewhat controversially,
+this not the main stream in semantics,</p>
+<p t="921840" d="5140">he suggested that the right way to
+think about the meaning of words is</p>
+<p t="926980" d="2140">understanding their uses in text.</p>
+<p t="929120" d="4450">So, essentially,
+if you could predict which textual context</p>
+<p t="933570" d="3920">the word would appear in, then you
+understand the meaning of the word.</p>
+<p t="938680" d="2430">Okay, so that's what we're going to do.</p>
+<p t="941110" d="5238">So what we want to do is say for
+each word we're going to come up for</p>
+<p t="946348" d="6502">it a vector and that dense vector
+is gonna be chosen so that</p>
+<p t="952850" d="5840">it'll be good at predicting other words
+that appear in the context of this word.</p>
+<p t="958690" d="1080">Well how do we do that?</p>
+<p t="959770" d="4148">Well, each of those other words will also
+have a word that are attached to them and</p>
+<p t="963918" d="3172">then we'll be looking at sort
+of similarity measures like dot</p>
+<p t="967090" d="1891">product between those two vectors.</p>
+<p t="968981" d="2886">And we're gonna change
+them as well to make it so</p>
+<p t="971867" d="2463">that good at being able to be predicted.</p>
+<p t="974330" d="3551">So it all kind off gets a little
+bit recursive or circular, but</p>
+<p t="977881" d="3550">we're gonna come up with this
+clever algorithm to do that, so</p>
+<p t="981431" d="4219">that words will be able to predict
+their context words and vice-versa.</p>
+<p t="985650" d="5230">And so I'm gonna go on and
+say a little bit more about that.</p>
+<p t="990880" d="3600">But let me just underline one bit</p>
+<p t="994480" d="4740">of terminology that was
+appearing before in the slide.</p>
+<p t="999220" d="3139">So we saw two keywords.</p>
+<p t="1002359" d="5351">One was distributional, which was here.</p>
+<p t="1007710" d="4170">And then we've had
+distributed representations</p>
+<p t="1011880" d="3560">where we have these dense vectors to
+represent the meaning of the words.</p>
+<p t="1015440" d="4370">Now people tend to
+confuse those two words.</p>
+<p t="1019810" d="3140">And there's sort of two
+reasons they confuse them.</p>
+<p t="1022950" d="5240">One is because they both start with
+distribute and so they're kind of similar.</p>
+<p t="1028190" d="8198">And the second reason people confuse them
+is because they very strongly co-occur,.</p>
+<p t="1036388" d="5682">So that distributed representations and
+meaning have almost always,</p>
+<p t="1042070" d="4090">up until now, been built by
+using distributional similarity.</p>
+<p t="1046160" d="5360">But I did just want people to gather
+that these are different notions, right?</p>
+<p t="1051520" d="5900">So the idea of distributional similarity
+is a theory about semantics of word</p>
+<p t="1057420" d="5220">meaning that you can describe the meaning
+of words by as a use theory of meaning,</p>
+<p t="1062640" d="2740">understanding the context
+in which they appear.</p>
+<p t="1065380" d="4777">So distributional contrasts with,
+way back here when I said but</p>
+<p t="1070157" d="3810">didn't really explain,
+denotational, right?</p>
+<p t="1073967" d="3667">The denotational idea of
+word meaning is the meaning</p>
+<p t="1077634" d="4676">of glasses is the set of pairs of
+glasses that are around the place.</p>
+<p t="1082310" d="2850">That's different from
+distributional meaning.</p>
+<p t="1085160" d="5592">And distributed then contrasts
+with our one-hot word vector.</p>
+<p t="1090752" d="4988">So the one-hot word vectors are localist
+representation where you're storing in</p>
+<p t="1095740" d="720">one place.</p>
+<p t="1096460" d="2540">You're saying here is the symbol glasses.</p>
+<p t="1099000" d="4610">It's stored right here whereas
+in distributed representations</p>
+<p t="1103610" d="3448">we're smearing the meaning of
+something over a large vector space.</p>
+<p t="1107058" d="5892">Okay, so that's part one.</p>
+<p t="1112950" d="5584">And we're now gonna sorta be heading into
+part two, which is what is Word2vec?</p>
+<p t="1118534" d="4036">Okay, and so
+I'll go almost straight into this.</p>
+<p t="1122570" d="4606">But this is sort of the recipe in
+general for what we're doing for</p>
+<p t="1127176" d="2814">learning neural word embeddings.</p>
+<p t="1129990" d="5010">So we're gonna define a model
+that aims to predict between</p>
+<p t="1135000" d="5010">a center word and
+words that appear in it's context.</p>
+<p t="1140010" d="3450">Kind of like we are here,
+the distributional wording.</p>
+<p t="1143460" d="3512">And we'll sort of have some,
+perhaps probability measure or</p>
+<p t="1146972" d="3320">predicts the probability of
+the context given the words.</p>
+<p t="1150292" d="4519">And then once we have that we can
+have a loss function as to whether</p>
+<p t="1154811" d="2389">we do that prediction well.</p>
+<p t="1157200" d="4750">So ideally we'd be able to perfectly
+predict the words around the word so</p>
+<p t="1161950" d="5310">the minus t means the words that aren't
+word index t so the words around t.</p>
+<p t="1167260" d="4000">If we could predict those perfectly
+from t we'd have probability one so</p>
+<p t="1171260" d="3090">we'd have no loss but
+normally we can't do that.</p>
+<p t="1174350" d="3254">And if we give them probability a quarter
+then we'll have sort of three quarters</p>
+<p t="1177604" d="1176">loss or something, right?</p>
+<p t="1178780" d="1897">So we'll have a loss function and</p>
+<p t="1180677" d="3593">we'll sort of do that in many
+positions in a large corpus.</p>
+<p t="1184270" d="5000">And so our goal will be to change
+the representations of words so</p>
+<p t="1189270" d="2450">as to minimize our loss.</p>
+<p t="1191720" d="3950">And at this point sort
+of a miracle occurs.</p>
+<p t="1195670" d="5020">It's sort of surprising, but
+true that you can do no more</p>
+<p t="1201830" d="3300">than set up this kind of
+prediction objective.</p>
+<p t="1205130" d="5240">Make it the job of every words word
+vectors to be such that they're</p>
+<p t="1210370" d="5310">good at predicting their words that
+appear in their context or vice versa.</p>
+<p t="1215680" d="5098">You just have that very simple goal and
+you say nothing else about how this is</p>
+<p t="1220778" d="6102">gonna be achieved, but you just pray and
+depend on the magic of deep learning.</p>
+<p t="1226880" d="1945">And this miracle happens and</p>
+<p t="1228825" d="4665">outcome these word vectors that
+are just amazingly powerful</p>
+<p t="1233490" d="4990">at representing the meaning of words and
+are useful for all sorts of things.</p>
+<p t="1238480" d="5218">And so that's where we want to get into
+more detail and say how that happens.</p>
+<p t="1243698" d="879">Okay.</p>
+<p t="1248986" d="5079">So that representation was
+meant to be meaning all words</p>
+<p t="1254065" d="5025">apart from the wt, yes,
+what is this w minus t mean?</p>
+<p t="1259090" d="2620">I'm actually not gonna use that
+notation again in this lecture.</p>
+<p t="1261710" d="4850">But the w minus t, minus is sometimes
+used to mean everything except t.</p>
+<p t="1266560" d="5910">So wt is my focus word, and w minus
+t is in all the words in the context.</p>
+<p t="1274615" d="4394">Okay, so this idea that you can
+learn low dimensional vector</p>
+<p t="1279009" d="4966">representations is an idea that
+has a history in neural networks.</p>
+<p t="1283975" d="2190">It was certainly present in the 1980s,</p>
+<p t="1286165" d="4635">parallel distributed processing
+era including work by</p>
+<p t="1290800" d="3960">Rumelhart on learning representations
+by back-propagating errors.</p>
+<p t="1294760" d="7320">It really was demonstrated for
+word representations in this pioneering</p>
+<p t="1302080" d="5580">early paper by Yoshua Bengio in 2003 and
+neural probabilistic language model.</p>
+<p t="1307660" d="5210">I mean, at the time, sort of not so many
+people actually paid attention to this</p>
+<p t="1312870" d="5390">paper, this was sort of before
+the deep learning boom started.</p>
+<p t="1318260" d="5130">But really this was the paper
+where the sort of showed</p>
+<p t="1323390" d="5410">how much value you could get from having
+distributed representations of words and</p>
+<p t="1328800" d="3000">be able to predict other words in context.</p>
+<p t="1331800" d="5538">But then as things started to take off
+that idea was sort of built on and</p>
+<p t="1337338" d="869">revived.</p>
+<p t="1338207" d="5297">So in 2008, Collobert and Weston started
+in the sort of modern direction by saying,</p>
+<p t="1343504" d="4305">well, if we just want good word
+representations, we don't even have to</p>
+<p t="1347809" d="4097">necessarily make a probabilistic
+language model that can predict,</p>
+<p t="1351906" d="3850">we just need to have a way of
+learning our word representations.</p>
+<p t="1355756" d="4298">And that's something that's then being
+continued in the model that I'm gonna look</p>
+<p t="1360054" d="1986">at now, the word2vec model.</p>
+<p t="1362040" d="5155">That the emphasis of the word2vec model
+was how can we build a very simple,</p>
+<p t="1367195" d="6355">scalable, fast to train model
+that we can run over billions</p>
+<p t="1373550" d="4150">of words of text that will produce
+exceedingly good word representations.</p>
+<p t="1380190" d="2940">Okay, word2vec, here we come.</p>
+<p t="1383130" d="5310">The basic thing word2vec is trying
+to do is use theory of meaning,</p>
+<p t="1388440" d="4160">predict between every word and
+its context words.</p>
+<p t="1392600" d="2850">Now word2vec is a piece of software,
+I mean,</p>
+<p t="1395450" d="3900">actually inside word2vec it's kind
+of a sort of a family of things.</p>
+<p t="1399350" d="4880">So there are two algorithms inside it for
+producing word vectors and</p>
+<p t="1404230" d="4010">there are two moderately
+efficient training methods.</p>
+<p t="1408240" d="4070">So for this class what I'm
+going to do is tell you about</p>
+<p t="1412310" d="4170">one of the algorithms which
+is a skip-gram method and</p>
+<p t="1416480" d="3620">about neither of the moderately
+efficient training algorithms.</p>
+<p t="1420100" d="3820">Instead I'm gonna tell you about
+the hopelessly inefficient training</p>
+<p t="1423920" d="5070">algorithm but is sort of the conceptual
+basis of how this is meant to work and</p>
+<p t="1428990" d="3650">that the moderately efficient ones,
+which I'll mention at the end.</p>
+<p t="1432640" d="3280">And then what you'll have to do to
+actually make this a scalable process</p>
+<p t="1435920" d="1580">that you can run fast.</p>
+<p t="1437500" d="3800">And then, today is also the day
+when we're handing out assignment</p>
+<p t="1442400" d="4889">one and Major part of what you
+guys get to do in assignment</p>
+<p t="1447289" d="4393">one is to implement one of
+the efficient training algorithms, and</p>
+<p t="1451682" d="4799">to work through the method one of
+those efficient training algorithms.</p>
+<p t="1456481" d="3289">So this is the picture
+of the skip-gram model.</p>
+<p t="1459770" d="4360">So the idea of the skip-gram model is for</p>
+<p t="1464130" d="6000">each estimation step,
+you're taking one word as the center word.</p>
+<p t="1470130" d="5970">So that's here, is my word banking and
+then what you're going to do</p>
+<p t="1476100" d="6060">is you're going to try and predict words
+in its context out to some window size.</p>
+<p t="1482160" d="4720">And so, the model is going to define
+a probability distribution that</p>
+<p t="1486880" d="5590">is the probability of a word appearing
+in the context given this center word.</p>
+<p t="1492470" d="4636">And we're going to choose vector
+representations of words so</p>
+<p t="1497106" d="4289">we can try and
+maximize that probability distribution.</p>
+<p t="1501395" d="2690">And the thing that we'll come back to.</p>
+<p t="1504085" d="5140">But it's important to realize is there's
+only one probability distribution,</p>
+<p t="1509225" d="950">this model.</p>
+<p t="1510175" d="2450">It's not that there's
+a probability distribution for</p>
+<p t="1512625" d="3565">the word one to the left and the word
+one to the right, and things like that.</p>
+<p t="1516190" d="4303">We just have one probability
+distribution of a context word,</p>
+<p t="1520493" d="4220">which we'll refer to as the output,
+because it's what we,</p>
+<p t="1524713" d="5153">produces the output, occurring in
+the context close to the center word.</p>
+<p t="1529866" d="2452">Is that clear?</p>
+<p t="1532318" d="3212">Yeah, okay.</p>
+<p t="1537070" d="5350">So that's what we kinda wanna do so
+we're gonna have a radius m and</p>
+<p t="1542420" d="4970">then we're going to predict
+the surrounding words from sort of</p>
+<p t="1547390" d="5020">positions m before our center
+word to m after our center word.</p>
+<p t="1552410" d="4130">And we're gonna do that a whole bunch
+of times in a whole bunch of places.</p>
+<p t="1556540" d="4080">And we want to choose word</p>
+<p t="1560620" d="5250">vectors such as that we're maximizing
+the probability of that prediction.</p>
+<p t="1565870" d="8210">So what our loss function or objective
+function is is really this J prime here.</p>
+<p t="1574080" d="4900">So the J prime is saying we're going to,
+so we're going to take a big</p>
+<p t="1578980" d="4750">long amount of text, we take the whole
+of Wikipedia or something like that so</p>
+<p t="1583730" d="4510">we got big long sequence of words, so
+there are words in the context and</p>
+<p t="1588240" d="4900">real running text, and we're going to
+go through each position in the text.</p>
+<p t="1593140" d="4200">And then, for each position in the text,
+we're going to have a window</p>
+<p t="1597340" d="4380">of size 2m around it,
+m words before and m words after it.</p>
+<p t="1601720" d="5460">And we're going to have a probability
+distribution that will give a probability</p>
+<p t="1607180" d="4220">to a word appearing in
+the context of the center word.</p>
+<p t="1612400" d="5160">And what we'd like to do is set
+the parameters of our model so</p>
+<p t="1617560" d="2610">that these probabilities
+of the words that actually</p>
+<p t="1620170" d="3930">do appear in the context of the center
+word are as high as possible.</p>
+<p t="1625625" d="5270">So the parameters in this model of these
+theta here that I show here and here.</p>
+<p t="1630895" d="2245">After this slide,
+I kinda drop the theta over here.</p>
+<p t="1633140" d="3915">But you can just assumed
+that there is this theta.</p>
+<p t="1637055" d="500">What is this theta?</p>
+<p t="1637555" d="2780">What is theta is?</p>
+<p t="1640335" d="4120">It's going to be the vector
+representation of the words.</p>
+<p t="1644455" d="5315">The only parameters in this model of
+the vector representations of each word.</p>
+<p t="1649770" d="4254">There are no other parameters whatsoever
+in this model as you'll see pretty</p>
+<p t="1654024" d="606">quickly.</p>
+<p t="1654630" d="5040">So conceptually this is
+our objective function.</p>
+<p t="1659670" d="5330">We wanna maximize the probability
+of this predictions.</p>
+<p t="1665000" d="2950">In practice, we just slightly tweak that.</p>
+<p t="1667950" d="4378">Firstly, almost unbearably when
+we're working with probabilities and</p>
+<p t="1672328" d="4731">we want to do maximization, we actually
+turn things into log probabilities cuz</p>
+<p t="1677059" d="2399">then all that products turn into sums and</p>
+<p t="1679458" d="4682">our math gets a lot easier to work with
+and so that's what I've done down here.</p>
+<p t="1689405" d="1206">Good points.</p>
+<p t="1690611" d="3504">And the question is, hey, wait a minute
+you're cheating, windows size,</p>
+<p t="1694115" d="1955">isn't that a parameter of the model?</p>
+<p t="1696070" d="2530">And you are right,
+this is the parameter of the model.</p>
+<p t="1698600" d="3720">So I guess I was a bit loose there.</p>
+<p t="1702320" d="3780">Actually, it turns out that there are
+several hyper parameters of the model, so</p>
+<p t="1706100" d="620">I did cheat.</p>
+<p t="1706720" d="4970">It turns out that there are a few
+hyper parameters of the model.</p>
+<p t="1711690" d="3650">One is Windows sized and it turns out
+that we'll come across a couple of</p>
+<p t="1715340" d="2410">other fudge factors later in the lecture.</p>
+<p t="1717750" d="4360">And all of those things are hyper
+parameters that you could adjust.</p>
+<p t="1722110" d="1810">But let's just ignore those for
+the moment,</p>
+<p t="1723920" d="2450">let's just assume those are constant.</p>
+<p t="1726370" d="2780">And given those things
+aren't being adjusted,</p>
+<p t="1729150" d="5840">the only parameters in the model,
+the factor representations of the words.</p>
+<p t="1734990" d="4411">What I'm meaning is that there's
+sort of no other probability</p>
+<p t="1739401" d="2838">distribution with its own parameters.</p>
+<p t="1742239" d="1131">That's a good point.</p>
+<p t="1743370" d="1851">I buy that one.</p>
+<p t="1745221" d="6128">So we've gone to the log probability and
+the sums now and,</p>
+<p t="1751349" d="6881">and then rather than having
+the probability of the whole corpus,</p>
+<p t="1758230" d="7925">we can sort of take the average over
+each positions so I've got 1 on T here.</p>
+<p t="1766155" d="6695">And that's just sort of a making it per
+word as sort of a kinda normalization.</p>
+<p t="1772850" d="2430">So that doesn't affect what's the maximum.</p>
+<p t="1775280" d="4200">And then, finally,
+the machine learning people</p>
+<p t="1779480" d="3820">really love to minimize things
+rather than maximizing things.</p>
+<p t="1783300" d="3690">And so, you can always swap
+between maximizing and minimizing,</p>
+<p t="1786990" d="4440">when you're in plus minus land, by
+putting a minus sign in front of things.</p>
+<p t="1791430" d="4520">And so, at this point,
+we get the negative log likelihood,</p>
+<p t="1795950" d="3100">the negative log probability
+according to our model.</p>
+<p t="1799050" d="4513">And so, that's what we will be formally</p>
+<p t="1803563" d="4527">minimizing as our objective function.</p>
+<p t="1808090" d="4768">So if there were objective function, cost
+function, loss function, all the same,</p>
+<p t="1812858" d="4507">this negative log likelihood criterion
+really that means that we're using this</p>
+<p t="1817365" d="3776">our cross-entropy loss which is
+gonna come back to this next week so</p>
+<p t="1821141" d="1959">I won't really go through it now.</p>
+<p t="1823100" d="3790">But the trick is since we
+have a one hot target,</p>
+<p t="1826890" d="3240">which is just predict the word
+that actually occurred.</p>
+<p t="1830130" d="4666">Under that criteria the only
+thing that's left in cross</p>
+<p t="1834796" d="5018">entropy loss is the negative
+probability of the true class.</p>
+<p t="1839814" d="3396">Well, how are we gonna actually do this?</p>
+<p t="1843210" d="4567">How can we make use of
+these word vectors to</p>
+<p t="1847777" d="4604">minimize that negative log likelihood?</p>
+<p t="1852381" d="3309">Well, the way we're gonna
+do it is we're gonna come</p>
+<p t="1855690" d="4710">with the probably
+distribution of context word,</p>
+<p t="1860400" d="5650">given the center word, which is
+constructed out of our word vectors.</p>
+<p t="1866050" d="3940">And so, this is what our probability
+distribution is gonna look like.</p>
+<p t="1869990" d="4665">So just to make sure we're clear on
+the terminology I'm gonna use forward</p>
+<p t="1874655" d="760">from here.</p>
+<p t="1875415" d="7430">So c and o are indices in the space
+of the vocabulary, the word types.</p>
+<p t="1882845" d="6535">So up here, the t and the t plus j, where
+in my text there are positions in my text.</p>
+<p t="1889380" d="5320">Those are sort of words,
+763 in words 766 in my text.</p>
+<p t="1894700" d="5288">But here o and c in my vocabulary
+words I have word types and</p>
+<p t="1899988" d="5742">so I have my p for words 73 and
+47 in my vocabulary words.</p>
+<p t="1905730" d="7410">And so, each word type they're going to
+have a vector associated with them so</p>
+<p t="1913140" d="6270">u o is the vector associated
+with context word in index o and</p>
+<p t="1919410" d="5190">vc is the vector that's
+associated with the center word.</p>
+<p t="1924600" d="5860">And so, how we find this probability
+distribution is we're going to use this,</p>
+<p t="1930460" d="6080">what's called a Softmax form,
+where we're taking dot products between</p>
+<p t="1936540" d="5970">the the two word vectors and then we're
+putting them into a Softmax form.</p>
+<p t="1942510" d="3380">So just to go through that kind
+of maximally slowly, right?</p>
+<p t="1945890" d="5000">So we've got two word vectors and
+we're gonna dot product them,</p>
+<p t="1950890" d="3040">which means that we so
+take the corresponding terms and</p>
+<p t="1953930" d="3560">multiply them together and
+sort of sum them all up.</p>
+<p t="1957490" d="4680">So may adopt product is sort of like
+a loose measure of similarity so</p>
+<p t="1962170" d="4150">the contents of the vectors
+are more similar to each other</p>
+<p t="1966320" d="2066">the number will get bigger.</p>
+<p t="1968386" d="4404">So that's kind of a similarity
+measure through the dot product.</p>
+<p t="1972790" d="3940">And then once we've worked out
+dot products between words</p>
+<p t="1976730" d="3270">we're then putting it
+in this Softmax form.</p>
+<p t="1980000" d="3454">So this Softmax form is a standard way to</p>
+<p t="1983454" d="4303">turn numbers into
+a probability distribution.</p>
+<p t="1987757" d="4703">So when we calculate dot products,
+they're just numbers, real numbers.</p>
+<p t="1992460" d="2280">They could be minus 17 or 32.</p>
+<p t="1994740" d="5250">So we can't directly turn those
+into a probability distribution so</p>
+<p t="1999990" d="3300">an easy thing that we can
+do is exponentiate them.</p>
+<p t="2003290" d="3976">Because if you exponentiate things
+that puts them into positive land so</p>
+<p t="2007266" d="1754">it's all gonna be positive.</p>
+<p t="2009020" d="5490">And that's a good basis for
+having a probability distribution.</p>
+<p t="2014510" d="4660">And if you have a bunch of numbers that
+come from anywhere that are positive and</p>
+<p t="2019170" d="4020">you want to turn them into a probability
+distribution that's proportional to</p>
+<p t="2023190" d="4070">the size of those numbers,
+there's a really easy way to do that.</p>
+<p t="2027260" d="4850">Which is you sum all the numbers together
+and you divide through by the sum and</p>
+<p t="2032110" d="3320">that then instantly gives you
+a probability distribution.</p>
+<p t="2035430" d="4830">So that's then denominated that is
+normalizing to give a probability and so</p>
+<p t="2040260" d="5190">when you put those together, that then
+gives us this form that we're using</p>
+<p t="2045450" d="5000">as our Softmax form which is now
+giving us a probability estimate.</p>
+<p t="2050450" d="3010">So that's giving us this
+probability estimate</p>
+<p t="2053460" d="4600">here built solely in terms of
+the word vector representations.</p>
+<p t="2058060" d="1570">Is that good?</p>
+<p t="2059630" d="500">Yeah.</p>
+<p t="2064767" d="4759">That is an extremely good question and
+I was hoping to delay saying that for</p>
+<p t="2069526" d="3844">just a minute but you've asked and
+so I will say it.</p>
+<p t="2073370" d="8450">Yes, you might think that one word should
+only have one vector representation.</p>
+<p t="2081820" d="6160">And if you really wanted to you could
+do that, but it turns out you can make</p>
+<p t="2087980" d="5420">the math considerably easier by
+saying now actually each word has two</p>
+<p t="2093400" d="4520">vector representation that has one vector
+representation when it synthesis the word.</p>
+<p t="2097920" d="4130">And it has another vector representation
+when it's a context word.</p>
+<p t="2102050" d="2640">So that's formally what we have here.</p>
+<p t="2104690" d="6080">So the v is the center word vectors,
+and the u are the context word vectors.</p>
+<p t="2110770" d="3150">And it turns out not only does
+that make the math a lot easier,</p>
+<p t="2113920" d="2950">because the two
+representations are separated</p>
+<p t="2116870" d="3120">when you do optimization rather
+than tied to each other.</p>
+<p t="2119990" d="4170">It's actually in practice empirically
+works a little better as well,</p>
+<p t="2124160" d="4740">so if your life is easier and
+better, who would not choose that?</p>
+<p t="2128900" d="2270">So yes, we have two vectors for each word.</p>
+<p t="2132290" d="961">Any other questions?</p>
+<p t="2152837" d="2859">Yeah, so the question is,
+well wait a minute,</p>
+<p t="2155696" d="3644">you just said this was a way to
+make everything positive, but</p>
+<p t="2159340" d="4287">actually you also simultaneously
+screwed with the scale of things a lot.</p>
+<p t="2163627" d="1653">And that's true, right?</p>
+<p t="2165280" d="4140">The reason why this is called a Softmax
+function is because it's kind of</p>
+<p t="2169420" d="4840">close to a max function,
+because when you exponentiate things,</p>
+<p t="2174260" d="4065">the big things get way bigger and
+so they really dominate.</p>
+<p t="2178325" d="5480">And so this really sort of blows out
+in the direction of a max function,</p>
+<p t="2183805" d="1140">but not fully.</p>
+<p t="2184945" d="2110">It's still a sort of a soft thing.</p>
+<p t="2187055" d="3125">So you might think that
+that's a bad thing to do.</p>
+<p t="2190180" d="3890">Doing things like this is the most
+standard underlying a lot of math,</p>
+<p t="2194070" d="3710">including all those super
+common logistic regressions,</p>
+<p t="2197780" d="2340">you see another class's
+way of doing things.</p>
+<p t="2200120" d="1270">So it's a good way to know,</p>
+<p t="2201390" d="2640">but people have certainly worked
+on a whole bunch of other ways.</p>
+<p t="2204030" d="2450">And there are reasons that you might
+think they're interesting, but</p>
+<p t="2206480" d="1710">I won't do them now.</p>
+<p t="2208190" d="528">Yes?</p>
+<p t="2220734" d="3876">Yeah, so the question was,
+when I'm dealing with the context words,</p>
+<p t="2224610" d="3440">am I paying attention to where they are or
+just their identity?</p>
+<p t="2228050" d="3680">Yeah, where they are has nothing
+to do with it in this model.</p>
+<p t="2231730" d="4210">It's just, what is the identity of
+the word somewhere in the window?</p>
+<p t="2235940" d="3720">So there's just one
+probability distribution and</p>
+<p t="2239660" d="2050">one representation of the context word.</p>
+<p t="2241710" d="3625">Now you know, it's not that
+that's necessarily a good idea.</p>
+<p t="2245335" d="5590">There are other models which absolutely
+pay attention to position and distance.</p>
+<p t="2250925" d="3490">And for some purposes,
+especially more syntactic</p>
+<p t="2254415" d="4040">purposes rather than semantic purposes,
+that actually helps a lot.</p>
+<p t="2258455" d="4734">But if you're sort of more interested
+in just sort of word meaning,</p>
+<p t="2263189" d="2658">it turns out that not paying attention</p>
+<p t="2265847" d="4501">to position actually tends to
+help you rather than hurting you.</p>
+<p t="2270348" d="921">Yeah.</p>
+<p t="2285663" d="4947">Yeah, so the question is how, wait
+a minute, is there a unique solution here?</p>
+<p t="2290610" d="3670">Could there be different rotations
+that would be equally good?</p>
+<p t="2295310" d="4570">And the answer is yes, there can be.</p>
+<p t="2299880" d="4850">I think we should put off discussing
+this cuz actually there's a lot to</p>
+<p t="2304730" d="5040">say about optimization in neural networks,
+and there's a lot of exciting new work.</p>
+<p t="2309770" d="5090">And the one sentence headline is
+it's all good news, people spent</p>
+<p t="2314860" d="4770">years saying that minimal work ought to be
+a big problem and it turns out it's not.</p>
+<p t="2319630" d="1190">It all works.</p>
+<p t="2320820" d="4940">But I think we better off talking
+about that in any more detail.</p>
+<p t="2325760" d="5230">Okay, so</p>
+<p t="2330990" d="5670">yeah this is my picture of what the skip
+gram model ends up looking like.</p>
+<p t="2336660" d="2360">It's a bit confusing and hard to read, but</p>
+<p t="2339020" d="2480">also I've got it thrown
+from left to right.</p>
+<p t="2341500" d="3610">Right, so we have the center
+word that's a one hot vector.</p>
+<p t="2346260" d="7548">We then have a matrix of
+the representations of center words.</p>
+<p t="2353808" d="8892">So if we kind of do a multiplication
+of this matrix by that vector.</p>
+<p t="2362700" d="4270">We just sort of actually select
+out the column of the matrix</p>
+<p t="2366970" d="3700">which is then the representation
+of the center word.</p>
+<p t="2371870" d="3180">Then what we do is we have a second matrix</p>
+<p t="2375050" d="4610">which stores the representations
+of the context words.</p>
+<p t="2379660" d="3190">And so for each position in the context,</p>
+<p t="2382850" d="3220">I show three here because
+that was confusing enough.</p>
+<p t="2386070" d="4520">We're going to multiply
+the vector by this matrix</p>
+<p t="2391620" d="4340">which is the context word representations.</p>
+<p t="2395960" d="4290">And so
+we will be picking out sort of the dot</p>
+<p t="2400250" d="4580">products of the center word
+with each context word.</p>
+<p t="2404830" d="3050">And it's the same matrix for
+each position, right?</p>
+<p t="2407880" d="2886">We only have one context word matrix.</p>
+<p t="2410766" d="1986">And then these dot products,</p>
+<p t="2412752" d="4380">we're gonna soft max then turn
+into a probability distribution.</p>
+<p t="2417132" d="5403">And so our model, as a generative model,
+is predicting the probability of</p>
+<p t="2422535" d="6715">each word appearing in the context given
+that a certain word is the center word.</p>
+<p t="2429250" d="3657">And so if we are actually using
+it generatively, it would say,</p>
+<p t="2432907" d="3041">well, the word you should
+be using is this one here.</p>
+<p t="2435948" d="5113">But if there is sort of actual ground
+truth as to what was the context word,</p>
+<p t="2441061" d="5459">we can sort of say, well, the actual
+ground truth was this word appeared.</p>
+<p t="2446520" d="3830">And you gave a probability
+estimate of 0.1 to that word.</p>
+<p t="2450350" d="3835">And so that's the basis, so if you
+didn't do a great job at prediction,</p>
+<p t="2454185" d="3395">then there's going to be some loss, okay?</p>
+<p t="2457580" d="2200">But that's the picture of our model.</p>
+<p t="2459780" d="3640">Okay, and so what we wanna do is now learn</p>
+<p t="2464890" d="4900">parameters, these word vectors,
+in such a way that we</p>
+<p t="2469790" d="4830">do as good a job at prediction
+as we possibly can.</p>
+<p t="2476670" d="4860">And so standardly when we do these things,
+what we do</p>
+<p t="2481530" d="5230">is we take all the parameters in our model
+and put them into a big vector theta.</p>
+<p t="2486760" d="4970">And then we're gonna say we're gonna do
+optimization to change those parameters so</p>
+<p t="2491730" d="3678">as to maximize objective
+function of our model.</p>
+<p t="2495408" d="3582">So what our parameters are is that for</p>
+<p t="2498990" d="4480">each word, we're going to have
+a little d dimensional vector,</p>
+<p t="2503470" d="4010">when it's a center word and
+when it's a context word.</p>
+<p t="2507480" d="2696">And so
+we've got a vocabulary of some size.</p>
+<p t="2510176" d="4747">So we're gonna have a vector for
+aardvark as a context word,</p>
+<p t="2514923" d="2817">a vector for art as a context word.</p>
+<p t="2517740" d="2590">We're going to have a vector
+of aardvark as a center word,</p>
+<p t="2520330" d="1910">a vector of art as a center word.</p>
+<p t="2522240" d="4158">So our vector in total is
+gonna be of length 2dV.</p>
+<p t="2526398" d="4385">There's gonna be a big long vector that
+has everything that was in what was shown</p>
+<p t="2530783" d="1777">in those matrices before.</p>
+<p t="2532560" d="3070">And that's what we then gonna
+be saying about optimizing.</p>
+<p t="2535630" d="4240">And so after the break, I'm going to be so</p>
+<p t="2539870" d="3700">going through concretely how
+we do that optimization.</p>
+<p t="2543570" d="1814">But before the break,</p>
+<p t="2545384" d="5168">we have the intermission with
+our special guest, Danqi Chen.</p>
+<p t="2550552" d="1873">&gt;&gt; Hi, everyone.</p>
+<p t="2552425" d="3655">I'm Danqi Chen, and
+I'm the head TA of this class.</p>
+<p t="2556080" d="3130">So today I will start our first
+research highlight session,</p>
+<p t="2559210" d="3180">and I will introduce you
+a paper from Princeton.</p>
+<p t="2562390" d="4530">The title is A Simple but Tough-to-beat
+Baseline for Sentence Embeddings.</p>
+<p t="2566920" d="3285">So today we are learning the word
+vector representations, so</p>
+<p t="2570205" d="3545">we hope these vectors can
+encode the word meanings.</p>
+<p t="2573750" d="4655">But our central question in natural
+language processing, and also this class,</p>
+<p t="2578405" d="4519">is that how we could have the vector
+representations that encode the meaning of</p>
+<p t="2582924" d="3235">sentences like,
+natural language processing is fun.</p>
+<p t="2588120" d="4575">So with these sentence representations,
+we can compute</p>
+<p t="2592695" d="5565">the sentence similarity using
+the inner product of the two vectors.</p>
+<p t="2598260" d="4493">So, for example, Mexico wishes to
+guarantee citizen's safety, and,</p>
+<p t="2602753" d="2757">Mexico wishes to avoid more violence.</p>
+<p t="2605510" d="4388">So we can use the vector
+representation to predict these two</p>
+<p t="2609898" d="2404">sentences are pretty similar.</p>
+<p t="2612302" d="3668">We can also use this sentence
+representation to use as</p>
+<p t="2615970" d="3965">features to do some sentence
+classification task.</p>
+<p t="2619935" d="1950">For example, sentiment analysis.</p>
+<p t="2621885" d="3600">So given a sentence like,
+natural language processing is fun,</p>
+<p t="2625485" d="3667">we can put our classifier on top
+of the vector representations and</p>
+<p t="2629152" d="2373">predict if sentiment is positive.</p>
+<p t="2631525" d="2793">Hopefully this is right, so.</p>
+<p t="2634318" d="4090">So there are a wide range of
+measures that compose word vector</p>
+<p t="2638408" d="4512">representations into sentence
+vector representations.</p>
+<p t="2642920" d="3244">So the most simple way is
+to use the bag-of-words.</p>
+<p t="2646164" d="3586">So the bag-of-words is just like
+the vector representation of</p>
+<p t="2649750" d="1770">the natural language processing.</p>
+<p t="2651520" d="4244">It's a average of the three single
+word vector representations,</p>
+<p t="2655764" d="2813">the natural, language, and processing.</p>
+<p t="2658577" d="5482">Later in this quarter, we'll learn a bunch
+of complex models, such as recurrent</p>
+<p t="2664059" d="5335">neural nets, the recursing neural nets,
+and the convolutional neural nets.</p>
+<p t="2669394" d="4808">But today, for this paper from Princeton,
+I want to introduce</p>
+<p t="2674202" d="4913">that this paper introduces a very
+simple unsupervised method.</p>
+<p t="2679115" d="4672">That is essentially just
+a weighted bag-of-words sentence</p>
+<p t="2683787" d="4143">representation plus remove
+some special direction.</p>
+<p t="2687930" d="1670">I will explain this.</p>
+<p t="2690690" d="1470">So they have two steps.</p>
+<p t="2692160" d="4880">So the first step is that just like how
+we compute the average of the vector</p>
+<p t="2697040" d="6410">representations, they also do this,
+but each word has a separate weight.</p>
+<p t="2703450" d="2043">Now here, a is a constant.</p>
+<p t="2705493" d="4197">And the p(w),
+it means the frequency of this word.</p>
+<p t="2709690" d="2540">So this basically means that</p>
+<p t="2712230" d="3700">the average representation down
+weight the frequent words.</p>
+<p t="2715930" d="3134">That's the very simple Step 1.</p>
+<p t="2719064" d="4860">So for the Step 2, after we compute
+all of these sentence vector</p>
+<p t="2723924" d="5041">representations, we compute
+the first principal components and</p>
+<p t="2728965" d="5325">also subtract the projections onto
+this first principle component.</p>
+<p t="2735600" d="4982">You might be familiar with this
+if you have ever taken CS 229 and</p>
+<p t="2740582" d="1461">also learned PCA.</p>
+<p t="2742043" d="1084">So that's it.</p>
+<p t="2743127" d="1334">That's their approach.</p>
+<p t="2746010" d="4368">So in this paper,
+they also give a probabilistic</p>
+<p t="2750378" d="4770">interpretation about why
+they want to do this.</p>
+<p t="2755148" d="5012">So basically, the idea is that given the
+sentence representation, the probability</p>
+<p t="2760160" d="5630">of the limiting or single word, they're
+related to the frequency of the word.</p>
+<p t="2765790" d="6295">And also related to how close the word is
+related to this sentence representation.</p>
+<p t="2772085" d="4958">And also there's a C0 term that
+means common discourse vector.</p>
+<p t="2777043" d="2495">That's usually related to some syntax.</p>
+<p t="2781774" d="2736">So, finally, the results.</p>
+<p t="2784510" d="5073">So first, they take context parents
+on the sentence similarity and</p>
+<p t="2789583" d="4984">they show that this simple approach
+is much better than the average</p>
+<p t="2794567" d="3293">of word vectors, all the TFIDF rating, and</p>
+<p t="2797860" d="5160">also all the performance of
+other sophisticated models.</p>
+<p t="2803020" d="4409">And also for some supervised tasks
+like sentence classification,</p>
+<p t="2807429" d="4961">they're also doing pretty well,
+like the entailment and sentiment task.</p>
+<p t="2812390" d="2002">So that's it, thanks.</p>
+<p t="2814392" d="1398">&gt;&gt; Thank you.</p>
+<p t="2815790" d="4791">[LAUGH]
+&gt;&gt; [APPLAUSE]</p>
+<p t="2820581" d="8248">&gt;&gt; Okay, Okay,</p>
+<p t="2828829" d="4833">so, and we'll go back from there.</p>
+<p t="2837970" d="6015">All right, so now we're wanting to sort
+of actually work through our model.</p>
+<p t="2843985" d="2875">So this is what we had, right?</p>
+<p t="2846860" d="6625">We had our objective function where we
+wanna minimize negative log likelihood.</p>
+<p t="2853485" d="4953">And this is the form of the probability
+distribution up there, where we have these</p>
+<p t="2858438" d="6225">sort of word vectors with both center
+word vectors and context word vectors.</p>
+<p t="2864663" d="5494">And the idea is we want to change
+our parameters, these vectors, so</p>
+<p t="2870157" d="6480">as to minimize the negative log likelihood
+item, maximize the probability we predict.</p>
+<p t="2876637" d="4030">So if that's what we want to do,</p>
+<p t="2880667" d="5390">how can we work out how
+to change our parameters?</p>
+<p t="2891254" d="2697">Gradient, yes,
+we're gonna use the gradient.</p>
+<p t="2893951" d="4929">So, what we're gonna have to do
+at this point is to start to do</p>
+<p t="2898880" d="5280">some calculus to see how
+we can change the numbers.</p>
+<p t="2904160" d="5550">So precisely, what we'll going
+to want to do is to say, well,</p>
+<p t="2909710" d="6890">we have this term for
+working out log probabilities.</p>
+<p t="2916600" d="7766">So, we have the log of the probability
+of the word t plus j word t.</p>
+<p t="2924366" d="1644">Well, what is the form of that?</p>
+<p t="2926010" d="1700">Well, we've got it right here.</p>
+<p t="2927710" d="5090">So, we have the log of v
+maybe I can save a line.</p>
+<p t="2934020" d="6030">We've got this log of this.</p>
+<p t="2940050" d="6790">And then, what we're gonna want to do is
+that we're going to want to change this so</p>
+<p t="2946840" d="4630">that we have, I'm sorry,
+minimized in this objective.</p>
+<p t="2951470" d="4320">So, let's suppose we sort of
+look at these center vectors.</p>
+<p t="2955790" d="5347">So, what we're gonna want to do is start
+working out the partial derivatives</p>
+<p t="2961137" d="5123">of this with respect to the center
+vector which is then, going to give us,</p>
+<p t="2966260" d="6530">how we can go about working out,
+in which way to change this vector</p>
+<p t="2974570" d="3670">to minimize our objective function.</p>
+<p t="2978240" d="2350">Okay, so, we want to deal with this.</p>
+<p t="2981610" d="3110">So, what's the first thing we can
+do with that to make it simpler?</p>
+<p t="2987810" d="2030">Subtraction, yeah.</p>
+<p t="2989840" d="6015">So, this is a log of a division so, we can
+turn that into a log of a subtraction,</p>
+<p t="2995855" d="4485">and then, we can do the partial
+derivatives separately.</p>
+<p t="3000340" d="5409">So, we have the derivative</p>
+<p t="3005749" d="5285">with Vc of the log of the exp of</p>
+<p t="3011034" d="5529">u0^T vc and then, we've got</p>
+<p t="3016563" d="5171">minus the log of the sum of w</p>
+<p t="3021734" d="5431">equals 1 to V of exp of u w^T vc.</p>
+<p t="3027165" d="4876">And at that point,
+we can separate it into two pieces, right,</p>
+<p t="3032041" d="5719">cuz when there's addition or
+subtraction we can do them separately.</p>
+<p t="3037760" d="4494">So, we can do this piece 1 and
+we can do the,</p>
+<p t="3042254" d="5238">work out the partial
+derivatives of this piece 2.</p>
+<p t="3047492" d="4973">So, piece 1 looks kind of easy so,
+let's start here.</p>
+<p t="3052465" d="2600">So, what's the first thing I
+should do to make this simpler?</p>
+<p t="3057490" d="2689">Easy question.</p>
+<p t="3061850" d="6771">Cancel some things out, log and x inverses
+of each other so, they can just go away.</p>
+<p t="3068621" d="4654">So, for 1,
+we can say that this is going to be</p>
+<p t="3073275" d="5535">the partial derivative with
+respect to Vc of u0^T vc.</p>
+<p t="3078810" d="7038">Okay, that's looking kind of simpler so,</p>
+<p t="3085848" d="4945">what is the partial derivative</p>
+<p t="3090793" d="4387">of this with respect to vc?</p>
+<p t="3095180" d="3460">u0, so, this just comes out as u0.</p>
+<p t="3100478" d="6892">Okay, and so, I mean, effectively, this is
+the kind of level of calculus that you're</p>
+<p t="3107370" d="5480">gonna have to be able to do to be okay on
+assignment one that's coming out today.</p>
+<p t="3112850" d="5500">So, it's nothing that life threatening,
+hopefully, you've seen this before.</p>
+<p t="3118350" d="6480">But nevertheless, we are here using
+calculus with vectors, right?</p>
+<p t="3124830" d="4900">So, vc here is not just a single number,
+it's a whole vector.</p>
+<p t="3129730" d="6820">So, that's sort of the Math 51,
+CME 100 kind of content.</p>
+<p t="3136550" d="5310">Now, if you want to,
+you can pull it all apart.</p>
+<p t="3141860" d="4704">And you can work out
+the partial derivative</p>
+<p t="3146564" d="4054">with respect to Vc, some index, k.</p>
+<p t="3150618" d="2683">And then,</p>
+<p t="3153301" d="5367">you could have this as</p>
+<p t="3158668" d="5364">the sum of l = 1 to d of</p>
+<p t="3164032" d="5080">(u0)l (Vc)l.</p>
+<p t="3169112" d="5920">And what will happen then is if you're
+working out of with respect to only one</p>
+<p t="3175032" d="6578">index, then, all of these terms will go
+away apart from the one where k equals l.</p>
+<p t="3181610" d="8110">And you'll sort of end up with
+that being the (uo)k term.</p>
+<p t="3189720" d="5025">And I mean, if things get confusing and
+complicated, I think it can actually,</p>
+<p t="3194745" d="4950">and your brain is small like mine, it can
+actually be useful to sort of go down to</p>
+<p t="3199695" d="4875">the level of working it out with real
+numbers and actually have all the indices</p>
+<p t="3204570" d="4180">there and you can absolutely do that and
+it comes out the same.</p>
+<p t="3208750" d="4000">But a lot of the time it's sort
+of convenient if we can just</p>
+<p t="3212750" d="4650">stay at this vector level and
+work out vector derivatives, okay.</p>
+<p t="3217400" d="3710">So, now, this was the easy part and</p>
+<p t="3221110" d="3650">we've got it right there and
+we'll come back to that, okay.</p>
+<p t="3224760" d="4595">So then, the trickier part is we then,
+go on to number 2.</p>
+<p t="3232675" d="5452">So now, if we just ignore the minus</p>
+<p t="3238127" d="4324">sign for a little bit, so,</p>
+<p t="3242451" d="5264">we'll subtract it afterwards,</p>
+<p t="3247715" d="6392">we've then got the partial derivatives</p>
+<p t="3254107" d="5828">with respect to vc of the log of the sum</p>
+<p t="3259935" d="6225">from w = 1 to v of the exp of uw^T vc,
+okay.</p>
+<p t="3266160" d="2710">Well, how can we make
+progress with this half?</p>
+<p t="3279296" d="4956">Yeah, so that's right,
+before you're going to do that?</p>
+<p t="3284252" d="5714">The chain rule, okay, so, our key tool
+that we need to know how to use and</p>
+<p t="3289966" d="5214">we'll just use everywhere
+is the chain rule, right?</p>
+<p t="3295180" d="5350">So, neural net people talk all
+the time about backpropagation,</p>
+<p t="3300530" d="6850">it turns out that backpropagation
+is nothing more than the chain rule</p>
+<p t="3307380" d="5180">with some efficient storage
+of partial quantities so</p>
+<p t="3312560" d="4420">that you don't keep on calculating
+the same quantity over and over again.</p>
+<p t="3316980" d="3030">So, it's sort of like chain
+rule with memorization,</p>
+<p t="3320010" d="2980">that is the backpropagation algorithm.</p>
+<p t="3322990" d="7090">So, now, key tool is the chain rule so,
+what is the chain rule?</p>
+<p t="3330080" d="4100">So, within saying, okay, well,</p>
+<p t="3334180" d="4788">what overall are we going to have
+is some function where we're taking</p>
+<p t="3338968" d="6322">f(g(u)) of something.</p>
+<p t="3345290" d="4340">And so, we have this inside part z and so,</p>
+<p t="3349630" d="5090">what we're going to be doing is that
+we're going to be taking the derivative</p>
+<p t="3354720" d="6890">of the outside part then,
+with the value of the inside.</p>
+<p t="3361610" d="4620">And then, we're gonna be taking
+the derivative of the inside part So for</p>
+<p t="3366230" d="5260">this here, so the outside part,
+here's our F.</p>
+<p t="3371490" d="2940">And then here's our inside part Z.</p>
+<p t="3374430" d="4660">So the outside part is F,
+which is a log function.</p>
+<p t="3379090" d="4354">And so the derivative of a log
+function is the one on X function.</p>
+<p t="3383444" d="5832">So that we're then gonna be having</p>
+<p t="3389276" d="5025">that this is 1 over the sum of w</p>
+<p t="3394301" d="5241">equals 1 to V of the exp of uw^T vc.</p>
+<p t="3399542" d="5715">And then we're going to be multiplying
+it by, what do we get over there.</p>
+<p t="3414407" d="6092">So we get the partial
+derivative with respect to</p>
+<p t="3426824" d="3743">With respect to vc,</p>
+<p t="3430567" d="6576">of This inside part.</p>
+<p t="3437143" d="5987">The sum of, and it's a little trickier.</p>
+<p t="3443130" d="2800">We really need to be careful of indices so</p>
+<p t="3445930" d="6090">we're gonna get in the bad mess if
+we have W here, and we reuse W here.</p>
+<p t="3452020" d="2485">We really need to change
+it into something else.</p>
+<p t="3454505" d="2943">So we're gonna have X equals 1 to V.</p>
+<p t="3457448" d="8181">And then we've got the exp of UX,</p>
+<p t="3465629" d="4271">transpose VC.</p>
+<p t="3469900" d="2740">So that's made a little bit of progress.</p>
+<p t="3472640" d="3680">We want to make a bit more progress here.</p>
+<p t="3476320" d="1383">So what's the next thing we're gonna do.</p>
+<p t="3484118" d="2452">Distribute the derivative.</p>
+<p t="3486570" d="1780">This is just adding some stuff.</p>
+<p t="3489930" d="5820">We can do the same trick of we can do
+each part of the derivative separately.</p>
+<p t="3495750" d="4719">So X equals 1 to big V of
+the partial derivative</p>
+<p t="3500469" d="4129">with respect to VC of the exp of ux^T vc.</p>
+<p t="3504598" d="6874">Okay, now we wanna keep
+going What can we do next.</p>
+<p t="3513923" d="1537">The chain rule again.</p>
+<p t="3516580" d="3700">This is also the form of here's our F and
+here's our</p>
+<p t="3520280" d="5300">inner values V which is in
+turn sort of a function.</p>
+<p t="3525580" d="4620">Yeah, so we can apply the chain
+rule a second time and</p>
+<p t="3530200" d="5590">so we need the derivative of X.</p>
+<p t="3535790" d="1422">What's the derivative of X.</p>
+<p t="3537212" d="5138">X, so this part here is gonna be staying.</p>
+<p t="3542350" d="4640">The sum of X equals 1 to V
+of the partial derivative.</p>
+<p t="3546990" d="1450">Hold on no.</p>
+<p t="3548440" d="2080">Not that one, moving that inside.</p>
+<p t="3550520" d="7941">So it's still exp at its value of UX T VC.</p>
+<p t="3558461" d="5742">And then we're having the partial</p>
+<p t="3564203" d="6738">derivative with respect to VC of UXT VC.</p>
+<p t="3570941" d="2519">And then we've got a bit
+more progress to make.</p>
+<p t="3573460" d="3520">So we now need to work out what this is.</p>
+<p t="3576980" d="687">So what's that.</p>
+<p t="3580102" d="3254">Right, so
+that's the same as sort of back over here.</p>
+<p t="3583356" d="6028">At this point this is just going to be,
+that' s coming out as UX.</p>
+<p t="3589384" d="5555">And here we still have the sum</p>
+<p t="3594939" d="6731">of X equals 1 to V of the X of UX T VC.</p>
+<p t="3601670" d="6960">So at this point we kind of wanna
+put this together with that.</p>
+<p t="3608630" d="2910">Cuz we're still, I stopped writing that.</p>
+<p t="3611540" d="4320">But we have this one over</p>
+<p t="3615860" d="4752">the sum of W equals 1 to V of</p>
+<p t="3620612" d="5429">the exp of UW, transpose VC.</p>
+<p t="3626041" d="8574">Can we put those things together
+in a way that makes it prettier.</p>
+<p t="3650406" d="4086">So I can move this inside this sum.</p>
+<p t="3654492" d="6441">Cuz this is just the sort of number that's
+a multiplier that's distributed through.</p>
+<p t="3660933" d="4995">And in particular when I do that,
+I can start to sort of</p>
+<p t="3665928" d="4773">notice this interesting
+thing that I'm going to be</p>
+<p t="3670701" d="5106">reconstructing a form that
+looks very like this form.</p>
+<p t="3675807" d="2074">Sorry, leaving this part up aside.</p>
+<p t="3677881" d="5939">It looks very like the Softmax
+form that I started off with.</p>
+<p t="3683820" d="5081">And so I can then be saying that</p>
+<p t="3688901" d="5081">this is the sum from X equals 1</p>
+<p t="3693982" d="5283">to V of the exp of UX transpose VC</p>
+<p t="3699265" d="5455">over the sum of W equals 1 to V.</p>
+<p t="3704720" d="6220">So this is where it's important that I
+have X and W with different variables</p>
+<p t="3710940" d="6494">of the X of U W transpose VC times U of X.</p>
+<p t="3719560" d="4180">And so well, at that point,
+that's kind of interesting cuz,</p>
+<p t="3723740" d="5690">this is kind of exactly the form
+that I started of with,</p>
+<p t="3729430" d="3730">for my softmax probability distribution.</p>
+<p t="3733160" d="1953">So what we're doing is we.</p>
+<p t="3739840" d="6939">What we're doing is that that part is then</p>
+<p t="3746779" d="5354">being the sum over X equals one to</p>
+<p t="3752133" d="5963">V of the probability of [INAUDIBLE].</p>
+<p t="3758096" d="1777">It was wait.</p>
+<p t="3759873" d="4303">The probability of O given</p>
+<p t="3764176" d="6424">the probability of X given C times UX.</p>
+<p t="3770600" d="3630">So that's what we're getting
+from the denominator.</p>
+<p t="3774230" d="2710">And then we still had the numerator.</p>
+<p t="3776940" d="1860">The numerator was U zero.</p>
+<p t="3780220" d="7149">What we have here is our
+final form is U0 minus that.</p>
+<p t="3787369" d="5091">And if you look at this a bit
+it's sort of a form that you</p>
+<p t="3792460" d="5410">always get from these
+softmax style formulations.</p>
+<p t="3797870" d="2110">So this is what we observed.</p>
+<p t="3799980" d="5740">There was the actual output
+context word appeared.</p>
+<p t="3805720" d="3240">And this has the form of an expectation.</p>
+<p t="3808960" d="2370">So what we're doing is right here.</p>
+<p t="3811330" d="4020">We're calculating expectation
+though we're working out</p>
+<p t="3815350" d="4550">the probability of every possible
+word appearing in the context, and</p>
+<p t="3819900" d="4900">based on that probability we get
+taking that much of that UX.</p>
+<p t="3824800" d="4410">So this is in some,
+this is the expectation vector.</p>
+<p t="3829210" d="3500">It's the average over all
+the possible context vectors,</p>
+<p t="3832710" d="1930">weighted by their
+likelihood of occurrence.</p>
+<p t="3836880" d="2730">That's the form of our derivative.</p>
+<p t="3839610" d="6010">What we're going to want to be doing is
+changing the parameters in our model.</p>
+<p t="3845620" d="5123">In such a way that these become
+equal cause that's when we're</p>
+<p t="3850743" d="4742">then finding the maximum and
+minimum for us to minimize.</p>
+<p t="3855485" d="6375">[INAUDIBLE] Okay and so that gives
+us the derivatives in that model.</p>
+<p t="3861860" d="3630">Does that make sense?</p>
+<p t="3865490" d="2058">Yeah, that's gonna be question.</p>
+<p t="3867548" d="1157">Anyway, so</p>
+<p t="3868705" d="5575">precisely doing things like this is what
+will expect you to do for assignment one.</p>
+<p t="3874280" d="3330">And I'll take the question, but
+let me just mention one point.</p>
+<p t="3877610" d="3910">So in this case,
+I've only done this for the VC,</p>
+<p t="3881520" d="4900">the center vectors.</p>
+<p t="3886420" d="2940">We do this to every
+parameter of the model.</p>
+<p t="3889360" d="4290">In this model, our only other
+parameters are the context vectors.</p>
+<p t="3893650" d="2230">We're also gonna do it for those.</p>
+<p t="3895880" d="3400">It's very similar cuz if you look
+at the form of the equation,</p>
+<p t="3899280" d="2650">there's a certain
+symmetry between the two.</p>
+<p t="3901930" d="3470">But we're gonna do it for that as well but
+I'm not gonna do it here.</p>
+<p t="3905400" d="2100">That's left to you guys.</p>
+<p t="3907500" d="500">Question.</p>
+<p t="3909220" d="6078">Yeah.
+&gt;&gt; [INAUDIBLE]</p>
+<p t="3924580" d="1043">&gt;&gt; From here to here.</p>
+<p t="3925623" d="1257">Okay.</p>
+<p t="3926880" d="500">So.</p>
+<p t="3928450" d="4100">So, right, so this is a sum right?</p>
+<p t="3932550" d="3640">And this is just the number
+at the end of the day.</p>
+<p t="3936190" d="5600">So I can divide every term in
+this sum through by that number.</p>
+<p t="3941790" d="1290">So that's what I'm doing.</p>
+<p t="3943080" d="5420">So now I've got my sum with every term
+in that divided through by this number.</p>
+<p t="3948500" d="5580">And then I say, wait a minute,
+the form of this piece here</p>
+<p t="3954080" d="4450">is precisely my softmax
+probably distribution,</p>
+<p t="3958530" d="3680">where this is the probability
+of x given C.</p>
+<p t="3962210" d="4680">And so then I'm just rewriting
+it as probability of x given c.</p>
+<p t="3966890" d="3420">Where that is meaning,
+I kind of did double duty here.</p>
+<p t="3970310" d="4610">But that's sort of meaning that you're
+using this probability of x given c</p>
+<p t="3974920" d="1645">using this probability form.</p>
+<p t="3976565" d="5635">&gt;&gt; [INAUDIBLE]</p>
+<p t="3986367" d="652">&gt;&gt; Yeah,</p>
+<p t="3987019" d="5886">the probability that x occurs as
+a context word of center word c.</p>
+<p t="3992905" d="3792">&gt;&gt; [INAUDIBLE]
+&gt;&gt; Well,</p>
+<p t="3996697" d="2976">we've just assumed some
+fixed window size M.</p>
+<p t="3999673" d="5062">So maybe our window size is five and so
+we're considering sort of ten words,</p>
+<p t="4004735" d="2465">five to the left, five to the right.</p>
+<p t="4008580" d="3890">So that's a hypergrameter,
+and that stuff's nowhere.</p>
+<p t="4012470" d="3043">We're not dealing with that, we just
+assume that God's fixed that for us.</p>
+<p t="4019506" d="2865">The problem, so
+it's done at each position.</p>
+<p t="4022371" d="7142">So for any position, and
+all of them are treated equivalently,</p>
+<p t="4029513" d="5026">for any position,
+the probability that word</p>
+<p t="4034539" d="5026">x is the word that occurs
+within this window at</p>
+<p t="4039565" d="4910">any position given
+the center word was of C.</p>
+<p t="4046452" d="1057">Yeah?</p>
+<p t="4047509" d="3434">&gt;&gt; [INAUDIBLE]</p>
+<p t="4060475" d="2554">&gt;&gt; All right, so the question is,</p>
+<p t="4063029" d="3691">why do we choose the dot
+product as our basis for</p>
+<p t="4066720" d="3418">coming up with this probability measure?</p>
+<p t="4070138" d="7971">And you know I think the answer
+is there's no necessary reason,</p>
+<p t="4078109" d="4428">that there are clearly other things</p>
+<p t="4082537" d="5083">that you could have done and might do.</p>
+<p t="4087620" d="4390">On the other hand,
+I kind of think in terms of</p>
+<p t="4093030" d="7260">Vector Algebra it's sort of the most
+obvious and simple thing to do.</p>
+<p t="4100290" d="8130">Because it's sort of a measure of
+the relatedness and similarity.</p>
+<p t="4108420" d="4100">I mean I sort of said loosely it was
+a measure of similarity between vectors.</p>
+<p t="4112520" d="4680">Someone could have called me on that
+because If you say, well wait a minute.</p>
+<p t="4117200" d="4180">If you don't control for
+the scale of the vectors,</p>
+<p t="4121380" d="3340">you can make that number as big
+as you want, and that is true.</p>
+<p t="4124720" d="5310">So really the common measure of similarity
+between vectors is the cosine measure.</p>
+<p t="4130030" d="3340">Where what you do is in the numerator.</p>
+<p t="4133370" d="4800">You take a dot product and then you divide
+through by the length of the vectors.</p>
+<p t="4138170" d="1800">So you've got scale and variance and</p>
+<p t="4139970" d="2084">you can't just cheat by
+making the vectors bigger.</p>
+<p t="4142054" d="6346">And so, that's a bigger,
+better measure of similarity.</p>
+<p t="4148400" d="3990">But to do that you have to
+do a whole lot more math and</p>
+<p t="4152390" d="3370">it's not actually necessary here
+because since you're sort of</p>
+<p t="4155760" d="3230">predicting every word
+against every other word.</p>
+<p t="4158990" d="3822">If you sort of made one
+vector very big to try and</p>
+<p t="4162812" d="3735">make some probability
+of word k being large.</p>
+<p t="4166547" d="3630">Well the consequence would be it would
+make the probability of every other word</p>
+<p t="4170177" d="825">be large as well.</p>
+<p t="4171002" d="2998">So you kind of can't cheat
+by lengthening the vectors.</p>
+<p t="4174000" d="4396">And therefore you can get away with
+just using the dot product as a kind of</p>
+<p t="4178396" d="1474">a similarity measure.</p>
+<p t="4179870" d="1929">Does that sort of satisfy?</p>
+<p t="4196556" d="1931">So yes.</p>
+<p t="4198487" d="2943">I mean, it's not necessary, right?</p>
+<p t="4201430" d="3000">And if we were going to argue,
+you could sort of argue with me and</p>
+<p t="4204430" d="4520">say no look, this is crazy,
+because by construction,</p>
+<p t="4208950" d="4919">this means the most likely word to appear
+in the context of a word is itself.</p>
+<p t="4215520" d="2195">That doesn't seem like a good result,</p>
+<p t="4217715" d="3684">[LAUGH] because presumably
+different words occur.</p>
+<p t="4221399" d="6921">And you could then go from there and say
+well no let's do something more complex.</p>
+<p t="4228320" d="3790">Why don't we put a matrix to mediate
+between the two vectors to express what</p>
+<p t="4232110" d="7310">appears in the context of each other,
+it turns out you don't need to.</p>
+<p t="4239420" d="5000">Now one thing of course is since we
+have different representations for</p>
+<p t="4244420" d="4980">the context and center word vectors, it's
+not necessarily true that the same word</p>
+<p t="4249400" d="4340">would be highest because there're
+two different representations.</p>
+<p t="4253740" d="3670">But in practice they often have a lot
+of similarity between themselves not</p>
+<p t="4257410" d="2800">really that that's the reason.</p>
+<p t="4260210" d="4590">It's more that it's sort
+of works out pretty well.</p>
+<p t="4264800" d="2540">Because although it is true
+that you're not likely to</p>
+<p t="4267340" d="2680">get exactly the same word in the context,</p>
+<p t="4270020" d="3780">you're actually very likely to get words
+that are pretty similar in meaning.</p>
+<p t="4273800" d="4840">And are strongly associated and when
+those words appear as the center word,</p>
+<p t="4278640" d="3650">you're likely to get your
+first word as a context word.</p>
+<p t="4282290" d="3050">And so at a sort of a macro level,
+you are actually</p>
+<p t="4285340" d="3200">getting this effect that the same
+words are appearing on both sides.</p>
+<p t="4290370" d="2020">More questions, yeah,
+there are two of them.</p>
+<p t="4292390" d="560">I don't know.</p>
+<p t="4292950" d="1505">Do I do the behind person first and
+then the in front person?</p>
+<p t="4294455" d="665">[LAUGH]</p>
+<p t="4312809" d="1441">So I haven't yet done gradient descent.</p>
+<p t="4314250" d="4480">And maybe I should do that in a minute and
+I will see try then.</p>
+<p t="4318730" d="1730">Okay?
+&gt;&gt; [INAUDIBLE]</p>
+<p t="4320460" d="500">&gt;&gt; Yeah</p>
+<p t="4331612" d="1349">&gt;&gt; So that truth is well,</p>
+<p t="4332961" d="2999">we've just clicked to
+the huge amount text.</p>
+<p t="4335960" d="4229">So if our word at any position, we know
+what are the five words to the left and</p>
+<p t="4340189" d="2838">the five words to the right and
+that's the truth.</p>
+<p t="4343027" d="3554">And so we're actually giving some
+probability estimate to every</p>
+<p t="4346581" d="1873">word appearing in that context and</p>
+<p t="4348454" d="4018">we can say, well, actually the word
+that appeared there was household.</p>
+<p t="4352472" d="4118">What probability did you give to that and
+there's some answer.</p>
+<p t="4356590" d="2240">And so, that's our truth.</p>
+<p t="4358830" d="4690">Time is running out, so maybe I'd sort
+of just better say a little bit more</p>
+<p t="4363520" d="4780">before we finish which is sort of
+starting to this optimization.</p>
+<p t="4368300" d="4974">So this is giving us our derivatives,
+we then want to use our</p>
+<p t="4373274" d="4390">derivatives to be able to
+work out our word vectors.</p>
+<p t="4377664" d="5550">And I mean, I'm gonna spend
+a super short amount time on this,</p>
+<p t="4383214" d="4841">the hope is through 221,
+229 or similar class.</p>
+<p t="4388055" d="7402">You've seen a little bit of optimization
+and you've seen some gradient descent.</p>
+<p t="4395457" d="2738">And so, this is just a very quick review.</p>
+<p t="4398195" d="4756">So the idea is once we have gradient
+set at point x that if what we</p>
+<p t="4402951" d="4299">do is we subtract off a little
+fraction of the gradient,</p>
+<p t="4407250" d="3760">that will move us downhill
+towards the minimum.</p>
+<p t="4411010" d="5057">And so if we then calculate the gradient
+there again and subtract off</p>
+<p t="4416067" d="6238">a little fraction of it, we'll sort of
+start walking down towards the minimum.</p>
+<p t="4422305" d="3882">And so,
+that's the algorithm of gradient descent.</p>
+<p t="4426187" d="5651">So once we have an objective function and
+we have the derivatives of the objective</p>
+<p t="4431838" d="4903">function with respect to all of
+the parameters, our gradient descent</p>
+<p t="4436741" d="5594">algorithm would be to say,
+you've got some current parameter values.</p>
+<p t="4442335" d="2747">We've worked out the gradient
+at that position.</p>
+<p t="4445082" d="3925">We subtract off a little
+fraction of that and</p>
+<p t="4449007" d="5197">that will give us new parameter
+values which we will expect</p>
+<p t="4454204" d="7456">to be give us a lower objective value,
+and we'll walk towards the minimum.</p>
+<p t="4461660" d="4060">And in general, that is true and
+that will work.</p>
+<p t="4468850" d="2701">So then, to write that up as Python code,</p>
+<p t="4471551" d="4727">it's really sort of super simple that
+you just go in this while true loop.</p>
+<p t="4476278" d="4770">You have to have some stopping condition
+actually where you evaluating the gradient</p>
+<p t="4481048" d="4841">of given your objective function, your
+corpus and your current parameters, so</p>
+<p t="4485889" d="4770">you have the theta grad and then you're
+sort of subtracting a little fraction of</p>
+<p t="4490659" d="5301">the theta grad after the current
+parameters and then you just repeat over.</p>
+<p t="4495960" d="4924">And so the picture is, so the red lines
+that are sort of the contour lines of</p>
+<p t="4500884" d="2551">the value of the objective function.</p>
+<p t="4503435" d="4558">And so what you do is when you
+calculate the gradient, it's giving you</p>
+<p t="4507993" d="4791">the direction of the steepest descent and
+you walk a little bit each time in</p>
+<p t="4512784" d="5361">that direction and you will hopefully
+walk smoothly towards the minimum.</p>
+<p t="4518145" d="4364">Now the reason that might not work is
+if you actually take a first step and</p>
+<p t="4522509" d="4391">you go from here to over there,
+you've greatly overshot the minimum.</p>
+<p t="4526900" d="4922">So, it's important that alpha be small
+enough that you're still walking calmly</p>
+<p t="4531822" d="3260">down towards the minimum and
+then all work.</p>
+<p t="4535082" d="5325">And so, gradient descent is the most
+basic tool to minimize functions.</p>
+<p t="4540407" d="6233">So it's the conceptually first thing to
+know, but then the sort of last minute.</p>
+<p t="4546640" d="3123">What I wanted to explain is actually,</p>
+<p t="4549763" d="5087">we might have 40 billion tokens
+in our corpus to go through.</p>
+<p t="4554850" d="4620">And if you have to work out
+the gradient of your objective function</p>
+<p t="4559470" d="4956">relative to a 40 billion word corpus,
+that's gonna take forever,</p>
+<p t="4564426" d="5314">so you'll wait for an hour before
+you make your first gradient update.</p>
+<p t="4569740" d="3914">And so, you're not gonna be able train
+your model in a realistic amount of time.</p>
+<p t="4573654" d="3895">So for basically,
+all neural nets doing naive batch</p>
+<p t="4577549" d="4611">gradient descent hopeless algorithm,
+you can't use that.</p>
+<p t="4582160" d="1965">It's not practical to use.</p>
+<p t="4584125" d="4599">So instead, what we do Is used
+stochastic gradient descent.</p>
+<p t="4588724" d="5376">So, the stochastic gradient descent or
+SGD is our key tool.</p>
+<p t="4594100" d="6163">And so what that's meaning is, so
+we just take one position in the text.</p>
+<p t="4600263" d="4990">So we have one center word and
+the words around it and we say, well,</p>
+<p t="4605253" d="4726">let's adjust it at that one
+position work out the gradient with</p>
+<p t="4609979" d="2851">respect to all of our parameters.</p>
+<p t="4612830" d="4592">And using that estimate of
+the gradient in that position,</p>
+<p t="4617422" d="3480">we'll work a little bit in that direction.</p>
+<p t="4620902" d="4145">If you think about it for
+doing something like word vector learning,</p>
+<p t="4625047" d="4504">this estimate of the gradient is
+incredibly, incredibly noisy, because</p>
+<p t="4629551" d="5029">we've done it at one position which just
+happens to have a few words around it.</p>
+<p t="4634580" d="4144">So the vast majority of the parameters
+of our model, we didn't see at all.</p>
+<p t="4638724" d="3765">So, it's a kind of incredibly
+noisy estimate of the gradient.</p>
+<p t="4642489" d="4167">walking a little bit in that direction
+isn't even guaranteed to have make you</p>
+<p t="4646656" d="3254">walk downhill,
+because it's such a noisy estimate.</p>
+<p t="4649910" d="3407">But in practice, this works like a gem.</p>
+<p t="4653317" d="2732">And in fact, it works better.</p>
+<p t="4656049" d="1573">Again, it's a win, win.</p>
+<p t="4657622" d="4493">It's not only that doing things
+this way is orders of magnitude</p>
+<p t="4662115" d="2714">faster than batch gradient descent,</p>
+<p t="4664829" d="5581">because you can do an update after you
+look at every center word position.</p>
+<p t="4670410" d="4790">It turns out that neural
+network algorithms love noise.</p>
+<p t="4675200" d="5765">So the fact that this gradient descent,
+the estimate of the gradient is noisy,</p>
+<p t="4680965" d="4819">actually helps SGD to work better
+as an optimization algorithm and</p>
+<p t="4685784" d="1991">neural network learning.</p>
+<p t="4687775" d="2125">And so, this is what we're
+always gonna use in practice.</p>
+<p t="4689900" d="4229">I have to stop there for today even
+though the fire alarm didn't go off.</p>
+<p t="4694129" d="737">Thanks a lot.</p>
+<p t="4694866" d="3074">&gt;&gt; [APPLAUSE]</p>
+</body>
+</timedtext>

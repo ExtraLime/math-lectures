@@ -1,0 +1,1467 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="2000" d="3000">We're going to start.</p>
+<p t="31000" d="6383">We are going to start studying
+today, and for quite a while,</p>
+<p t="37383" d="5302">the linear second-order
+differential equation with</p>
+<p t="42685" d="4219">constant coefficients.
+In standard form,</p>
+<p t="46904" d="4328">it looks like,
+there are various possible</p>
+<p t="51232" d="4220">choices for the variable,
+unfortunately,</p>
+<p t="55452" d="6384">so I hope it won't disturb you
+much if I use one rather than</p>
+<p t="61836" d="4573">another.
+I'm going to write it this way</p>
+<p t="66409" d="3535">in standard form.
+I'll use y as the dependent</p>
+<p t="69944" d="2892">variable.
+Your book uses little p and</p>
+<p t="72836" d="3213">little q.
+I'll probably switch to that by</p>
+<p t="76049" d="2009">next time.
+But, for today,</p>
+<p t="78058" d="4418">I'd like to use the most
+neutral letters I can find that</p>
+<p t="82476" d="2731">won't interfere with anything
+else.</p>
+<p t="85207" d="3535">So, of course call the constant
+coefficients,</p>
+<p t="88742" d="4258">respectively,
+capital A and capital B.</p>
+<p t="93000" d="4804">I'm going to assume for today
+that the right-hand side is</p>
+<p t="97804" d="2746">zero.
+So, that means it's what we</p>
+<p t="100550" d="3947">call homogeneous.
+The left-hand side must be in</p>
+<p t="104497" d="4976">this form for it to be linear,
+it's second order because it</p>
+<p t="109473" d="4118">involves a second derivative.
+These coefficients,</p>
+<p t="113591" d="3947">A and B, are understood to be
+constant because,</p>
+<p t="117538" d="4462">as I said, it has constant
+coefficients.</p>
+<p t="122000" d="4214">Of course, that's not the most
+general linear equation there</p>
+<p t="126214" d="2643">could be.
+In general, it would be more</p>
+<p t="128857" d="3500">general by making this a
+function of the dependent</p>
+<p t="132357" d="2714">variable, x or t,
+whatever it's called.</p>
+<p t="135071" d="3643">Similarly, this could be a
+function of the dependent</p>
+<p t="138714" d="2786">variable.
+Above all, the right-hand side</p>
+<p t="141500" d="3928">can be a function of a variable
+rather than simply zero.</p>
+<p t="145428" d="4572">In that case the equation is
+called inhomogeneous.</p>
+<p t="150000" d="4094">But it has a different physical
+meaning, and therefore it's</p>
+<p t="154094" d="2400">customary to study that after
+this.</p>
+<p t="156494" d="3600">You start with this.
+This is the case we start with,</p>
+<p t="160094" d="4164">and then by the middle of next
+week we will be studying more</p>
+<p t="164258" d="3106">general cases.
+But, it's a good idea to start</p>
+<p t="167364" d="1906">here.
+Your book starts with,</p>
+<p t="169270" d="3812">in general, some theory of a
+general linear equation of</p>
+<p t="173082" d="2470">second-order,
+and even higher order.</p>
+<p t="175552" d="4448">I'm asking you to skip that for
+the time being.</p>
+<p t="180000" d="3518">We'll come back to it next
+Wednesday, it two lectures,</p>
+<p t="183518" d="2855">in other words.
+I think it's much better and</p>
+<p t="186373" d="3983">essential for your problems at
+for you to get some experience</p>
+<p t="190356" d="4117">with a simple type of equation.
+And then, you'll understand the</p>
+<p t="194473" d="1991">general theory,
+how it applies,</p>
+<p t="196464" d="1394">a lot better,
+I think.</p>
+<p t="197858" d="3851">So, let's get experience here.
+The downside of that is that</p>
+<p t="201709" d="3651">I'm going to have to assume a
+couple of things about the</p>
+<p t="205360" d="2590">solution to this equation,
+how it looks;</p>
+<p t="207950" d="4050">I don't think that will upset
+you too much.</p>
+<p t="212000" d="5845">So, what I'm going to assume,
+and we will justify it in a</p>
+<p t="217845" d="4383">couple lectures,
+that the general solution,</p>
+<p t="222228" d="5324">that is, the solution involving
+arbitrary constants,</p>
+<p t="227552" d="4384">looks like this.
+y is equal-- The arbitrary</p>
+<p t="231936" d="4175">constants occur in a certain
+special way.</p>
+<p t="236111" d="6889">There is c one y one plus c two
+y two.</p>
+<p t="243000" d="3267">So, these are two arbitrary
+constants corresponding to the</p>
+<p t="246267" d="2752">fact that we are solving a
+second-order equation.</p>
+<p t="249019" d="2923">In general, the number of
+arbitrary constants in the</p>
+<p t="251942" d="3382">solution is the same as the
+order of the equation because if</p>
+<p t="255324" d="3325">it's a second-order equation
+because if it's a second-order</p>
+<p t="258649" d="3325">equation, that means somehow or
+other, it may be concealed.</p>
+<p t="261974" d="3382">But you're going to have to
+integrate something twice to get</p>
+<p t="265356" d="1433">the answer.
+And therefore,</p>
+<p t="266789" d="3211">there should be two arbitrary
+constants.</p>
+<p t="270000" d="4791">That's very rough,
+but it sort of gives you the</p>
+<p t="274791" d="3438">idea.
+Now, what are the y1 and y2?</p>
+<p t="278229" d="4479">Well, as you can see,
+if these are arbitrary</p>
+<p t="282708" d="5312">constants, if I take c2 to be
+zero and c1 to be one,</p>
+<p t="288020" d="5521">that means that y1 must be a
+solution to the equation,</p>
+<p t="293541" d="4167">and similarly y2.
+So, where y1 and y2 are</p>
+<p t="297708" d="4420">solutions.
+Now, what that shows you is</p>
+<p t="302128" d="3862">that the task of solving this
+equation is reduced,</p>
+<p t="305990" d="3389">in some sense,
+to finding just two solutions</p>
+<p t="309379" d="3468">of it, somehow.
+All we have to do is find two</p>
+<p t="312847" d="4965">solutions, and then we will have
+solved the equation because the</p>
+<p t="317812" d="4651">general solution is made up in
+this way by multiplying those</p>
+<p t="322463" d="4098">two solutions by arbitrary
+constants and adding them.</p>
+<p t="326561" d="3862">So, the problem is,
+where do we get that solutions</p>
+<p t="330423" d="3146">from?
+But, first of all,</p>
+<p t="333569" d="4884">or rather, second or third of
+all, the initial conditions</p>
+<p t="338453" d="4012">enter into the,
+I haven't given you any initial</p>
+<p t="342465" d="3226">conditions here,
+but if you have them,</p>
+<p t="345691" d="4099">and I will illustrate them when
+I work problems,</p>
+<p t="349790" d="4448">the initial conditions,
+well, the initial values are</p>
+<p t="354238" d="5232">satisfied by choosing c1 and c2,
+are satisfied by choosing c1</p>
+<p t="359470" d="4509">and c2 properly.
+So, in other words,</p>
+<p t="363979" d="4687">if you have an initial value
+problem to solve,</p>
+<p t="368666" d="5521">that will be taken care of by
+the way those constants,</p>
+<p t="374187" d="5521">c, enter into the solution.
+Okay, without further ado,</p>
+<p t="379708" d="6146">there is a standard example,
+which I wish I had looked up in</p>
+<p t="385854" d="4479">the physics syllabus for the
+first semester.</p>
+<p t="390333" d="4792">Did you study the
+spring-mass-dashpot system in</p>
+<p t="395125" d="4168">8.01?
+I'm embarrassed having to ask</p>
+<p t="399293" d="949">you.
+You did?</p>
+<p t="400242" d="4508">Raise your hands if you did.
+Okay, that means you all did.</p>
+<p t="404750" d="4349">Well, just let me draw an
+instant picture to remind you.</p>
+<p t="409099" d="2452">So, this is a two second
+review.</p>
+<p t="411551" d="3005">I don't know how they draw the
+picture.</p>
+<p t="414556" d="3084">Probably they don't draw
+picture at all.</p>
+<p t="417640" d="4824">They have some elaborate system
+here of the thing running back</p>
+<p t="422464" d="2214">and forth.
+Well, in the math,</p>
+<p t="424678" d="5412">we do that all virtually.
+So, here's my system.</p>
+<p t="430090" d="4380">That's a fixed thing.
+Here's a little spring.</p>
+<p t="434470" d="4281">And, there's a little car on
+the track here,</p>
+<p t="438751" d="2887">I guess.
+So, there's the mass,</p>
+<p t="441638" d="5773">some mass in the little car,
+and motion is damped by what's</p>
+<p t="447411" d="4874">called a dashpot.
+A dashpot is the sort of thing,</p>
+<p t="452285" d="3318">you see them in everyday life
+as door closers.</p>
+<p t="455603" d="4424">They're the thing up above that
+you never notice that prevent</p>
+<p t="460027" d="3613">the door slamming shut.
+So, if you take one apart,</p>
+<p t="463640" d="3908">it looks something like this.
+So, that's the dash pot.</p>
+<p t="467548" d="4350">It's a chamber with a piston.
+This is a piston moving in and</p>
+<p t="471898" d="3097">out, and compressing the air,
+releasing it,</p>
+<p t="474995" d="2728">is what damps the motion of the
+thing.</p>
+<p t="477723" d="4277">So, this is a dashpot,
+it's usually called.</p>
+<p t="482000" d="3233">And, here's our mass in that
+little truck.</p>
+<p t="485233" d="4022">And, here's the spring.
+And then, the equation which</p>
+<p t="489255" d="2524">governs it is,
+let's call this x.</p>
+<p t="491779" d="3943">I'm already changing,
+going to change the dependent</p>
+<p t="495722" d="4101">variable from y to x,
+but that's just for the sake of</p>
+<p t="499823" d="3470">example, and because the track
+is horizontal,</p>
+<p t="503293" d="3707">it seems more natural to call
+it x.</p>
+<p t="507000" d="3609">There's some equilibrium
+position somewhere,</p>
+<p t="510609" d="3693">let's say, here.
+That's the position at which</p>
+<p t="514302" d="4364">the mass wants to be,
+if the spring is not pulling on</p>
+<p t="518666" d="3777">it or pushing on it,
+and the dashpot is happy.</p>
+<p t="522443" d="3861">I guess we'd better have a
+longer dashpot here.</p>
+<p t="526304" d="4365">So, this is the equilibrium
+position where nothing is</p>
+<p t="530669" d="2937">happening.
+When you depart from that</p>
+<p t="533606" d="3777">position, then the spring,
+if you go that way,</p>
+<p t="537383" d="4617">the spring tries to pull the
+mass back.</p>
+<p t="542000" d="5000">If it goes on the site,
+the spring tries to push the</p>
+<p t="547000" d="2156">mass away.
+The dashpot,</p>
+<p t="549156" d="5393">meanwhile, is doing its thing.
+And so, the force on the,</p>
+<p t="554549" d="4901">m x double prime.
+That's by Newton's law,</p>
+<p t="559450" d="5099">the force, comes from where?
+Well, there's the spring</p>
+<p t="564549" d="4705">pushing and pulling on it.
+That force is opposed.</p>
+<p t="569254" d="5589">If x gets to be beyond zero,
+then the spring tries to pull</p>
+<p t="574843" d="4413">it back.
+If it gets to the left of zero,</p>
+<p t="579256" d="3639">if x gets to be negative,
+that that spring force is</p>
+<p t="582895" d="3567">pushing it this way,
+wants to get rid of the mass.</p>
+<p t="586462" d="3930">So, it should be minus kx,
+and this is from the spring,</p>
+<p t="590392" d="4440">the fact that is proportional
+to the amount by which x varies.</p>
+<p t="594832" d="3348">So, that's called Hooke's Law.
+Never mind that.</p>
+<p t="598180" d="2854">This is a law.
+That's a law,</p>
+<p t="601034" d="2069">Newton's law,
+okay, Newton,</p>
+<p t="603103" d="3342">Hooke with an E,
+and the dashpot damping is</p>
+<p t="606445" d="4695">proportional to the velocity.
+It's not doing anything if the</p>
+<p t="611140" d="3899">mass is not moving,
+even if it's stretched way out</p>
+<p t="615039" d="4457">of its equilibrium position.
+So, it resists the velocity.</p>
+<p t="619496" d="4535">If the thing is trying to go
+that way, the dashpot resists</p>
+<p t="624031" d="2388">it.
+It's trying to go this way,</p>
+<p t="626419" d="3581">the dashpot resists that,
+too.</p>
+<p t="630000" d="2549">It's always opposed to the
+velocity.</p>
+<p t="632549" d="2477">And so, this is a dash pot
+damping.</p>
+<p t="635026" d="4444">I don't know whose law this is.
+So, it's the force coming from</p>
+<p t="639470" d="2986">the dashpot.
+And, when you write this out,</p>
+<p t="642456" d="3351">the final result,
+therefore, is it's m x double</p>
+<p t="645807" d="3789">prime plus c x prime,
+it's important to see where the</p>
+<p t="649596" d="3351">various terms are,
+plus kx equals zero.</p>
+<p t="652947" d="3132">And now, that's still not in</p>
+<p t="656079" d="2987">standard form.
+To put it in standard form,</p>
+<p t="659066" d="3934">you must divide through by the
+mass.</p>
+<p t="663000" d="4441">And, it will now read like
+this, plus k divided by m times</p>
+<p t="667441" d="2961">x equals zero.
+And, that's the equation</p>
+<p t="670402" d="2649">governing the motion of the
+spring.</p>
+<p t="673051" d="4520">I'm doing this because your
+problem set, problems three and</p>
+<p t="677571" d="4208">four, ask you to look at a
+little computer visual which</p>
+<p t="681779" d="4519">illustrates a lot of things.
+And, I didn't see how it would</p>
+<p t="686298" d="3818">make, you can do it without this
+interpretation of</p>
+<p t="690116" d="2884">spring-mass-dashpot,
+--</p>
+<p t="693000" d="4312">-- but, I think thinking of it
+of these constants as,</p>
+<p t="697312" d="4312">this is the damping constant,
+and this is the spring,</p>
+<p t="701624" d="4893">the constant which represents
+the force being exerted by the</p>
+<p t="706517" d="3565">spring, the spring constant,
+as it's called,</p>
+<p t="710082" d="4644">makes it much more vivid.
+So, you will note is that those</p>
+<p t="714726" d="3069">problems are labeled Friday or
+Monday.</p>
+<p t="717795" d="3731">Make it Friday.
+You can do them after today if</p>
+<p t="721526" d="5474">you have the vaguest idea of
+what I'm talking about.</p>
+<p t="727000" d="3623">If not, go back and repeat
+8.01.</p>
+<p t="730623" d="5727">So, all this was just an
+example, a typical model.</p>
+<p t="736350" d="4325">But, by far,
+the most important simple</p>
+<p t="740675" d="4325">model.
+Okay, now what I'd like to talk</p>
+<p t="745000" d="5610">about is the solution.
+What is it I have to do to</p>
+<p t="750610" d="6435">solve the equation?
+So, to solve the equation that</p>
+<p t="757045" d="4263">I outlined in orange on the
+board, the ODE,</p>
+<p t="761308" d="3349">our task is to find two
+solutions.</p>
+<p t="764657" d="5279">Now, don't make it too trivial.
+There is a condition.</p>
+<p t="769936" d="3451">The solution should be
+independent.</p>
+<p t="773387" d="4973">All that means is that y2
+should not be a constant</p>
+<p t="778360" d="4327">multiple of y1.
+I mean, if you got y1,</p>
+<p t="782687" d="3990">then two times y1 is not an
+acceptable value for this</p>
+<p t="786677" d="4143">because, as you can see,
+you really only got one there.</p>
+<p t="790820" d="4680">You're not going to be able to
+make up a two parameter family.</p>
+<p t="795500" d="4066">So, the solutions have to be
+independent, which means,</p>
+<p t="799566" d="4526">to repeat, that neither should
+be a constant multiple of the</p>
+<p t="804092" d="2532">other.
+They should look different.</p>
+<p t="806624" d="5492">That's an adequate explanation.
+Okay, now, what's the basic</p>
+<p t="812116" d="2587">method to finding those
+solutions?</p>
+<p t="814703" d="3919">Well, that's what we're going
+to use all term long,</p>
+<p t="818622" d="2978">essentially,
+studying equations of this</p>
+<p t="821600" d="4625">type, even systems of this type,
+with constant coefficients.</p>
+<p t="826225" d="3919">The basic method is to try y
+equals an exponential.</p>
+<p t="830144" d="4468">Now, the only way you can
+fiddle with an exponential is in</p>
+<p t="834612" d="2744">the constant that you put up on
+top.</p>
+<p t="837356" d="5644">So, I'm going to try y equals e
+to the rt.</p>
+<p t="843000" d="5242">Notice you can't tell from that
+what I'm using as the</p>
+<p t="848242" d="5041">independent variable.
+But, this tells you I'm using</p>
+<p t="853283" d="2823">t.
+And, I'm switching back to</p>
+<p t="856106" d="3327">using t as the dependent
+variable.</p>
+<p t="859433" d="3327">So, T is the independent
+variable.</p>
+<p t="862760" d="4738">Why do I do that?
+The answer is because somebody</p>
+<p t="867498" d="3529">thought of doing it,
+probably Euler,</p>
+<p t="871027" d="5646">and it's been a tradition
+that's handed down for the last</p>
+<p t="876673" d="5360">300 or 400 years.
+Some things we just know.</p>
+<p t="882033" d="4554">All right, so if I do that,
+as you learned from the exam,</p>
+<p t="886587" d="3578">it's very easy to differentiate
+exponentials.</p>
+<p t="890165" d="4066">That's why people love them.
+It's also very easy to</p>
+<p t="894231" d="4067">integrate exponentials.
+And, half of you integrated</p>
+<p t="898298" d="4717">instead of differentiating.
+So, we will try this and see if</p>
+<p t="903015" d="3985">we can pick r so that it's a
+solution.</p>
+<p t="907000" d="2363">Okay, well, I will plug in,
+then.</p>
+<p t="909363" d="3398">Substitute, in other words,
+and what do we get?</p>
+<p t="912761" d="3841">Well, for y double prime,
+I get r squared e to the rt.</p>
+<p t="916602" d="3324">That's y double prime</p>
+<p t="919926" d="2806">because each time you
+differentiate it,</p>
+<p t="922732" d="2955">you put an extra power of r out
+in front.</p>
+<p t="925687" d="1847">But otherwise,
+do nothing.</p>
+<p t="927534" d="5466">The next term will be r times,
+sorry, I forgot the constant.</p>
+<p t="933000" d="3060">Capital A times r e to the rt,</p>
+<p t="936060" d="3339">and then there's the last term,
+B times y itself,</p>
+<p t="939399" d="2435">which is B e to the rt.</p>
+<p t="941834" d="2783">And, that's supposed to be
+equal to zero.</p>
+<p t="944617" d="3965">So, I have to choose r so that
+this becomes equal to zero.</p>
+<p t="948582" d="2713">Now, you see,
+the e to the rt</p>
+<p t="951295" d="3618">occurs as a factor in every
+term, and the e to the rt</p>
+<p t="954913" d="2713">is never zero.
+And therefore,</p>
+<p t="957626" d="4104">you can divide it out because
+it's always a positive number,</p>
+<p t="961730" d="5997">regardless of the value of t.
+So, I can cancel out from each</p>
+<p t="967727" d="3182">term.
+And, what I'm left with is the</p>
+<p t="970909" d="5545">equation r squared plus ar plus
+b equals zero.</p>
+<p t="976454" d="3182">We are trying to find values of</p>
+<p t="979636" d="4636">r that satisfy that equation.
+And that, dear hearts,</p>
+<p t="984272" d="4728">is why you learn to solve
+quadratic equations in high</p>
+<p t="989000" d="5363">school, in order that in this
+moment, you would be now ready</p>
+<p t="994363" d="6637">to find how spring-mass systems
+behave when they are damped.</p>
+<p t="1001000" d="4782">This is called the
+characteristic equation.</p>
+<p t="1005782" d="7061">The characteristic equation of
+the ODE, or of the system of the</p>
+<p t="1012843" d="4441">spring mass system,
+which it's modeling,</p>
+<p t="1017284" d="5353">the characteristic equation of
+the system, okay?</p>
+<p t="1022637" d="5921">Okay, now, we solve it,
+but now, from high school you</p>
+<p t="1028558" d="6426">know there are several cases.
+And, each of those cases</p>
+<p t="1034984" d="2895">corresponds to a different
+behavior.</p>
+<p t="1037879" d="4218">And, the cases depend upon what
+the roots look like.</p>
+<p t="1042097" d="3722">The possibilities are the roots
+could be real,</p>
+<p t="1045819" d="3226">and distinct.
+That's the easiest case to</p>
+<p t="1049045" d="2894">handle.
+The roots might be a pair of</p>
+<p t="1051939" d="5033">complex conjugate numbers.
+That's harder to handle,</p>
+<p t="1056972" d="3781">but we are ready to do it.
+And, the third case,</p>
+<p t="1060753" d="4274">which is the one most in your
+problem set is the most</p>
+<p t="1065027" d="3616">puzzling: when the roots are
+real, and equal.</p>
+<p t="1068643" d="4932">And, I'm going to talk about
+those three cases in that order.</p>
+<p t="1073575" d="4274">So, the first case is the roots
+are real and unequal.</p>
+<p t="1077849" d="4767">If I tell you they are unequal,
+and I will put down real to</p>
+<p t="1082616" d="4431">make that clear.
+Well, that is by far the</p>
+<p t="1087047" d="4264">simplest case because
+immediately, one sees we have</p>
+<p t="1091311" d="2474">two roots.
+They are different,</p>
+<p t="1093785" d="3241">and therefore,
+we get our two solutions</p>
+<p t="1097026" d="2900">immediately.
+So, the solutions are,</p>
+<p t="1099926" d="4862">the general solution to the
+equation, I write down without</p>
+<p t="1104788" d="5203">further ado as y equals c1 e to
+the r1 t plus c2 e to the r2 t.</p>
+<p t="1114000" d="4187">There's our solution.
+Now, because that was so easy,</p>
+<p t="1118187" d="4681">and we didn't have to do any
+work, I'd like to extend this</p>
+<p t="1122868" d="5255">case a little bit by using it as
+an example of how you put in the</p>
+<p t="1128123" d="3202">initial conditions,
+how to put in the c.</p>
+<p t="1131325" d="3613">So, let me work a specific
+numerical example,</p>
+<p t="1134938" d="4844">since we are not going to try
+to do this theoretically until</p>
+<p t="1139782" d="4534">next Wednesday.
+Let's just do a numerical</p>
+<p t="1144316" d="2779">example.
+So, suppose I take the</p>
+<p t="1147095" d="4540">constants to be the damping
+constant to be a four,</p>
+<p t="1151635" d="4911">and the spring constant,
+I'll take the mass to be one,</p>
+<p t="1156546" d="3243">and the spring constant to be
+three.</p>
+<p t="1159789" d="4540">So, there's more damping here,
+damping force here.</p>
+<p t="1164329" d="6671">You can't really talk that way
+since the units are different.</p>
+<p t="1171000" d="2857">But, this number is bigger than
+that one.</p>
+<p t="1173857" d="2071">That seems clear,
+at any rate.</p>
+<p t="1175928" d="3357">Okay, now, what was the
+characteristic equation?</p>
+<p t="1179285" d="2572">Look, now watch.
+Please do what I do.</p>
+<p t="1181857" d="3857">I've found in the past,
+even by the middle of the term,</p>
+<p t="1185714" d="4286">there are still students who
+feel that they must substitute y</p>
+<p t="1190000" d="3928">equals e to the rt,
+and go through that whole</p>
+<p t="1193928" d="3429">little derivation to find that
+you don't do that.</p>
+<p t="1197357" d="4904">It's a waste of time.
+I did it that you might not</p>
+<p t="1202261" d="4271">ever have to do it again.
+Immediately write down the</p>
+<p t="1206532" d="3770">characteristic equation.
+That's not very hard.</p>
+<p t="1210302" d="4690">r squared plus 4r plus three
+equals zero.</p>
+<p t="1214992" d="2848">And, if you can write down its</p>
+<p t="1217840" d="2261">roots immediately,
+splendid.</p>
+<p t="1220101" d="3853">But, let's not assume that
+level of competence.</p>
+<p t="1223954" d="5109">So, it's r plus three times r
+plus one equals zero.</p>
+<p t="1229063" d="3937">Okay, you factor it.</p>
+<p t="1233000" d="3126">This being 18.03,
+a lot of the times the roots</p>
+<p t="1236126" d="3196">will be integers when they are
+not, God forbid,</p>
+<p t="1239322" d="2918">you will have to use the
+quadratic formula.</p>
+<p t="1242240" d="2293">But here, the roots were
+integers.</p>
+<p t="1244533" d="2779">It is, after all,
+only the first example.</p>
+<p t="1247312" d="2918">So, the solution,
+the general solution is y</p>
+<p t="1250230" d="4030">equals c1 e to the negative,
+notice the root is minus three</p>
+<p t="1254260" d="2710">and minus one,
+minus 3t plus c2 e to the</p>
+<p t="1256970" d="4030">negative t.</p>
+<p t="1261000" d="3139">Now, suppose it's an initial
+value problem.</p>
+<p t="1264139" d="2616">So, I gave you an initial
+condition.</p>
+<p t="1266755" d="4335">Suppose the initial conditions
+were that y of zero were one.</p>
+<p t="1271090" d="2242">So, at the start,</p>
+<p t="1273332" d="3289">the mass has been moved over to
+the position,</p>
+<p t="1276621" d="2317">one, here.
+Well, we expected it,</p>
+<p t="1278938" d="3961">then, to start doing that.
+But, this is fairly heavily</p>
+<p t="1282899" d="2242">damped.
+This is heavily damped.</p>
+<p t="1285141" d="4859">I'm going to assume that the
+mass starts at rest.</p>
+<p t="1290000" d="3680">So, the spring is distended.
+The masses over here.</p>
+<p t="1293680" d="4282">But, there's no motion at times
+zero this way or that way.</p>
+<p t="1297962" d="2554">In other words,
+I'm not pushing it.</p>
+<p t="1300516" d="4056">I'm just releasing it and
+letting it do its thing after</p>
+<p t="1304572" d="2254">that.
+Okay, so y prime of zero,</p>
+<p t="1306826" d="2554">I'll assume, is zero.</p>
+<p t="1309380" d="3831">So, it starts at rest,
+but in the extended position,</p>
+<p t="1313211" d="3681">one unit to the right of the
+equilibrium position.</p>
+<p t="1316892" d="5108">Now, all you have to do is use
+these two conditions.</p>
+<p t="1322000" d="4357">Notice I have to have two
+conditions because there are two</p>
+<p t="1326357" d="2829">constants I have to find the
+value of.</p>
+<p t="1329186" d="2370">All right, so,
+let's substitute,</p>
+<p t="1331556" d="4052">well, we're going to have to
+calculate the derivative.</p>
+<p t="1335608" d="2676">So, why don't we do that right
+away?</p>
+<p t="1338284" d="4664">So, this is minus three c1 e to
+the minus 3t minus c2 e to the</p>
+<p t="1342948" d="4052">negative t.</p>
+<p t="1347000" d="4319">And now, if I substitute in at
+zero, when t equals zero,</p>
+<p t="1351319" d="3063">what do I get?
+Well, the first equation,</p>
+<p t="1354382" d="4319">the left says that y of zero
+should be one.</p>
+<p t="1358701" d="2435">And, the right says this is
+one.</p>
+<p t="1361136" d="2434">So, it's c1 plus c2.</p>
+<p t="1363570" d="4084">That's the result of
+substituting t equals zero.</p>
+<p t="1367654" d="2120">How about substituting?</p>
+<p t="1369774" d="3691">What should I substitute in the
+second equation?</p>
+<p t="1373465" d="3377">Well, y prime of zero is zero.</p>
+<p t="1376842" d="4320">So, if the second equation,
+when I put in t equals zero,</p>
+<p t="1381162" d="4162">the left side is zero according
+to that initial value,</p>
+<p t="1385324" d="6676">and the right side is negative
+three c1 minus c2.</p>
+<p t="1392000" d="3735">You see what you end up with,
+therefore, is a pair of</p>
+<p t="1395735" d="4239">simultaneous linear equations.
+And, this is why you learn to</p>
+<p t="1399974" d="4310">study linear set of pairs of
+simultaneous linear equations in</p>
+<p t="1404284" d="2586">high school.
+These are among the most</p>
+<p t="1406870" d="2802">important.
+Solving problems of this type</p>
+<p t="1409672" d="4023">are among the most important
+applications of that kind of</p>
+<p t="1413695" d="3305">algebra, and this kind of
+algebra.</p>
+<p t="1417000" d="3461">All right, what's the answer
+finally?</p>
+<p t="1420461" d="5481">Well, if I add the two of them,
+I get minus 2c1 equals one.</p>
+<p t="1425942" d="3942">So, c1 is equal to minus one
+half.</p>
+<p t="1429884" d="4423">And, if c1 is minus a half,</p>
+<p t="1434307" d="3269">then c2 is minus 3c1.</p>
+<p t="1437576" d="4424">So, c2 is three halves.</p>
+<p t="1450000" d="3014">The final question is,
+what does that look like as a</p>
+<p t="1453014" d="1537">solution?
+Well, in general,</p>
+<p t="1454551" d="3370">these combinations of two
+exponentials aren't very easy to</p>
+<p t="1457921" d="2719">plot by yourself.
+That's one of the reasons you</p>
+<p t="1460640" d="3488">are being given this little
+visual which plots them for you.</p>
+<p t="1464128" d="2128">All you have to do is,
+as you'll see,</p>
+<p t="1466256" d="2542">set the damping constant,
+set the constants,</p>
+<p t="1468798" d="2364">set the initial conditions,
+and by magic,</p>
+<p t="1471162" d="2838">the curve appears on the
+screen.</p>
+<p t="1474000" d="6631">And, if you change either of
+the constants,</p>
+<p t="1480631" d="7579">the curve will change nicely
+right along with it.</p>
+<p t="1488210" d="9474">So, the solution is y equals
+minus one half e to the minus 3t</p>
+<p t="1497684" d="9000">plus three halves e to the
+negative t.</p>
+<p t="1506684" d="4794">How does it look?</p>
+<p t="1511478" d="5217">Well, I don't expect you to be
+able to plot that by yourself,</p>
+<p t="1516695" d="2783">but you can at least get
+started.</p>
+<p t="1519478" d="4000">It does have to satisfy the
+initial conditions.</p>
+<p t="1523478" d="5130">That means it should start at
+one, and its starting slope is</p>
+<p t="1528608" d="3392">zero.
+So, it starts like that.</p>
+<p t="1532000" d="3371">These are both declining
+exponentials.</p>
+<p t="1535371" d="4830">This declines very rapidly,
+this somewhat more slowly.</p>
+<p t="1540201" d="4739">It does something like that.
+If this term were a lot,</p>
+<p t="1544940" d="4101">lot more negative,
+I mean, that's the way that</p>
+<p t="1549041" d="5195">particular solution looks.
+How might other solutions look?</p>
+<p t="1554236" d="3190">I'll draw a few other
+possibilities.</p>
+<p t="1557426" d="3280">If the initial term,
+if, for example,</p>
+<p t="1560706" d="3919">the initial slope were quite
+negative, well,</p>
+<p t="1564625" d="4375">that would have start like
+this.</p>
+<p t="1569000" d="3553">Now, just your experience of
+physics, or of the real world</p>
+<p t="1572553" d="3241">suggests that if I give,
+if I start the thing at one,</p>
+<p t="1575794" d="3741">but give it a strongly negative
+push, it's going to go beyond</p>
+<p t="1579535" d="3116">the equilibrium position,
+and then come back again.</p>
+<p t="1582651" d="3554">But, because the damping is
+big, it's not going to be able</p>
+<p t="1586205" d="2805">to get through that.
+The equilibrium position,</p>
+<p t="1589010" d="2805">a second time,
+is going to look something like</p>
+<p t="1591815" d="2762">that.
+Or, if I push it in that</p>
+<p t="1594577" d="3416">direction, the positive
+direction, that it starts off</p>
+<p t="1597993" d="3483">with a positive slope.
+But it loses its energy because</p>
+<p t="1601476" d="3417">the spring is pulling it.
+It comes and does something</p>
+<p t="1604893" d="1905">like that.
+So, in other words,</p>
+<p t="1606798" d="2826">it might go down.
+Cut across the equilibrium</p>
+<p t="1609624" d="2431">position, come back again,
+it do that?</p>
+<p t="1612055" d="3417">No, that it cannot do.
+I was considering giving you a</p>
+<p t="1615472" d="3351">problem to prove that,
+but I got tired of making out</p>
+<p t="1618823" d="2825">the problems set,
+and decided I tortured you</p>
+<p t="1621648" d="3352">enough already,
+as you will see.</p>
+<p t="1625000" d="6461">So, anyway, these are different
+possibilities for the way that</p>
+<p t="1631461" d="3496">can look.
+This case, where it just</p>
+<p t="1634957" d="5720">returns in the long run is
+called the over-damped case,</p>
+<p t="1640677" d="4026">over-damped.
+Now, there is another case</p>
+<p t="1644703" d="5297">where the thing oscillates back
+and forth.</p>
+<p t="1650000" d="3847">We would expect to get that
+case if the damping is very</p>
+<p t="1653847" d="3348">little or nonexistent.
+Then, there's very little</p>
+<p t="1657195" d="4275">preventing the mass from doing
+that, although we do expect if</p>
+<p t="1661470" d="4061">there's any damping at all,
+we expect it ultimately to get</p>
+<p t="1665531" d="3206">nearer and nearer to the
+equilibrium position.</p>
+<p t="1668737" d="3135">Mathematically,
+what does that correspond to?</p>
+<p t="1671872" d="3135">Well, that's going to
+correspond to case two,</p>
+<p t="1675007" d="4880">where the roots are complex.
+The roots are complex,</p>
+<p t="1679887" d="3174">and this is why,
+let's call the roots,</p>
+<p t="1683061" d="5148">in that case we know that the
+roots are of the form a plus or</p>
+<p t="1688209" d="2488">minus bi.
+There are two roots,</p>
+<p t="1690697" d="2745">and they are a complex
+conjugate.</p>
+<p t="1693442" d="2831">All right, let's take one of
+them.</p>
+<p t="1696273" d="4547">What does a correspond to in
+terms of the exponential?</p>
+<p t="1700820" d="3517">Well, remember,
+the function of the r was,</p>
+<p t="1704337" d="5663">it's this r when we tried our
+exponential solution.</p>
+<p t="1710000" d="4462">So, what we formally,
+this means we get a complex</p>
+<p t="1714462" d="3718">solution.
+The complex solution y equals e</p>
+<p t="1718180" d="5671">to this, let's use one of them,
+let's say, (a plus bi) times t.</p>
+<p t="1723851" d="3161">The question is,</p>
+<p t="1727012" d="4462">what do we do that?
+We are not really interested,</p>
+<p t="1731474" d="5206">I don't know what a complex
+solution to that thing means.</p>
+<p t="1736680" d="5206">It doesn't have any meaning.
+What I want to know is how y</p>
+<p t="1741886" d="5114">behaves or how x behaves in that
+picture.</p>
+<p t="1747000" d="3669">And, that better be a real
+function because otherwise I</p>
+<p t="1750669" d="4146">don't know what to do with it.
+So, we are looking for two real</p>
+<p t="1754815" d="2854">functions, the y1 and the y2.
+But, in fact,</p>
+<p t="1757669" d="2583">what we've got is one complex
+function.</p>
+<p t="1760252" d="2650">All right, now,
+a theorem to the rescue:</p>
+<p t="1762902" d="3806">this, I'm not going to save for
+Wednesday because it's so</p>
+<p t="1766708" d="4156">simple.
+So, the theorem is that if you</p>
+<p t="1770864" d="5157">have a complex solution,
+u plus iv, so each of these is</p>
+<p t="1776021" d="4106">a function of time,
+u plus iv is the complex</p>
+<p t="1780127" d="5061">solution to a real differential
+equation with constant</p>
+<p t="1785188" d="4010">coefficients.
+Well, it doesn't have to have</p>
+<p t="1789198" d="4011">constant coefficients.
+It has to be linear.</p>
+<p t="1793209" d="5825">Let me just write it out to y
+double prime plus A y prime plus</p>
+<p t="1799034" d="4966">B y equals zero.</p>
+<p t="1804000" d="4207">Suppose you got a complex
+solution to that equation.</p>
+<p t="1808207" d="3217">These are understood to be real
+numbers.</p>
+<p t="1811424" d="4373">They are the damping constant
+and the spring constant.</p>
+<p t="1815797" d="4538">Then, the conclusion is that u
+and v are real solutions.</p>
+<p t="1820335" d="3052">In other words,
+having found a complex</p>
+<p t="1823387" d="4785">solution, all you have to do is
+take its real and imaginary</p>
+<p t="1828172" d="3795">parts, and voila,
+you've got your two solutions</p>
+<p t="1831967" d="5033">you were looking for for the
+original equation.</p>
+<p t="1837000" d="2963">Now, that might seem like
+magic, but it's easy.</p>
+<p t="1839963" d="3931">It's so easy it's the sort of
+theorem I could spend one minute</p>
+<p t="1843894" d="2899">proving for you now.
+What's the reason for it?</p>
+<p t="1846793" d="3931">Well, the main thing I want you
+to get out of this argument is</p>
+<p t="1850724" d="3608">to see that it absolutely
+depends upon these coefficients</p>
+<p t="1854332" d="2191">being real.
+You have to have a real</p>
+<p t="1856523" d="2641">differential equation for this
+to be true.</p>
+<p t="1859164" d="4327">Otherwise, it's certainly not.
+So, the proof is,</p>
+<p t="1863491" d="2982">what does it mean to be a
+solution?</p>
+<p t="1866473" d="3860">It means when you plug in A (u
+plus iv) plus,</p>
+<p t="1870333" d="4386">prime,
+plus B times u plus iv,</p>
+<p t="1874719" d="2807">what am I supposed to get?</p>
+<p t="1877526" d="3070">Zero.
+Well, now, separate these into</p>
+<p t="1880596" d="4035">the real and imaginary parts.
+What does it say?</p>
+<p t="1884631" d="5176">It says u double prime plus A u
+prime plus B u,</p>
+<p t="1889807" d="5350">that's the real part of
+this expression when I expand it</p>
+<p t="1895157" d="4161">out.
+And, I've got an imaginary</p>
+<p t="1899318" d="3833">part, too, which all have the
+coefficient i.</p>
+<p t="1903151" d="3656">So, from here,
+I get v double prime plus i</p>
+<p t="1906807" d="4814">times A v prime plus 
+i times B v.</p>
+<p t="1911621" d="5528">So, this is the imaginary part.
+Now, here I have something with</p>
+<p t="1917149" d="5171">a real part plus the imaginary
+part, i, times the imaginary</p>
+<p t="1922320" d="3566">part is zero.
+Well, the only way that can</p>
+<p t="1925886" d="5350">happen is if the real part is
+zero, and the imaginary part is</p>
+<p t="1931236" d="4490">separately zero.
+So, the conclusion is that</p>
+<p t="1935726" d="3719">therefore this part must be
+zero, and therefore this part</p>
+<p t="1939445" d="4051">must be zero because the two of
+them together make the complex</p>
+<p t="1943496" d="3586">number zero plus zero i.
+Now, what does it mean for the</p>
+<p t="1947082" d="3918">real part to be zero?
+It means that u is a solution.</p>
+<p t="1951000" d="3685">This, the imaginary part zero
+means v is a solution,</p>
+<p t="1954685" d="2240">and therefore,
+just what I said.</p>
+<p t="1956925" d="3035">u and v are solutions to the
+real equation.</p>
+<p t="1959960" d="4480">Where did I use the fact that A
+and B were real numbers and not</p>
+<p t="1964440" d="3107">complex numbers?
+In knowing that this is the</p>
+<p t="1967547" d="3541">real part, I had to know that A
+was a real number.</p>
+<p t="1971088" d="3541">If A were something like one
+plus i,</p>
+<p t="1974629" d="3324">I'd be screwed,
+I mean, because then I couldn't</p>
+<p t="1977953" d="4047">say that this was the real part
+anymore.</p>
+<p t="1982000" d="5805">So, saying that's the real
+part, and this is the imaginary</p>
+<p t="1987805" d="4991">part, I was using the fact that
+these two numbers,</p>
+<p t="1992796" d="4685">constants, were real constants:
+very important.</p>
+<p t="1997481" d="3361">So, what is the case two
+solution?</p>
+<p t="2000842" d="5908">Well, what are the real and
+imaginary parts </p>
+<p t="2006750" d="4481">of (a plus b i) t?
+Well, y equals e to the at +</p>
+<p t="2011231" d="6134">ibt.
+Okay, you've had experience.</p>
+<p t="2017365" d="4814">You know how to do this now.
+That's e to the at</p>
+<p t="2022179" d="5068">times, well, the real part is,
+well, let's write it this way.</p>
+<p t="2027247" d="4477">The real part is e to the at
+times cosine b t.</p>
+<p t="2031724" d="3210">Notice how the a and b enter</p>
+<p t="2034934" d="3463">into the expression.
+That's the real part.</p>
+<p t="2038397" d="4900">And, the imaginary part is e to
+the at times the sine of bt.</p>
+<p t="2043297" d="4004">And therefore,</p>
+<p t="2047301" d="2975">the solution,
+both of these must,</p>
+<p t="2050276" d="3625">therefore, be solutions to the
+equation.</p>
+<p t="2053901" d="4183">And therefore,
+the general solution to the ODE</p>
+<p t="2058084" d="3811">is y equals, now,
+you've got to put in the</p>
+<p t="2061895" d="4276">arbitrary constants.
+It's a nice thing to do to</p>
+<p t="2066171" d="3440">factor out the e to the at.</p>
+<p t="2069611" d="2974">It makes it look a little
+better.</p>
+<p t="2072585" d="6415">And so, the constants are c1
+cosine bt and c2 sine bt.</p>
+<p t="2079000" d="2791">Yeah, but what does that look
+like?</p>
+<p t="2081791" d="3860">Well, you know that too.
+This is an exponential,</p>
+<p t="2085651" d="3448">which controls the amplitude.
+But this guy,</p>
+<p t="2089099" d="4681">which is a combination of two
+sinusoidal oscillations with</p>
+<p t="2093780" d="4023">different amplitudes,
+but with the same frequency,</p>
+<p t="2097803" d="4188">the b's are the same in both of
+them, and therefore,</p>
+<p t="2101991" d="2874">this is, itself,
+a purely sinusoidal</p>
+<p t="2104865" d="4576">oscillation.
+So, in other words,</p>
+<p t="2109441" d="6167">I don't have room to write it,
+but it's equal to,</p>
+<p t="2115608" d="4755">you know.
+It's a good example of where</p>
+<p t="2120363" d="7581">you'd use that trigonometric
+identity I spent time on before</p>
+<p t="2127944" d="3444">the exam.
+Okay, let's work a quick</p>
+<p t="2131388" d="2198">example just to see how this
+works out.</p>
+<p t="2133586" d="3009">Well, let's get rid of this.
+Okay, let's now make the</p>
+<p t="2136595" d="2487">damping, since this is showing
+oscillations,</p>
+<p t="2139082" d="3587">it must correspond to the case
+where the damping is less strong</p>
+<p t="2142669" d="1909">compared with the spring
+constant.</p>
+<p t="2144578" d="3124">So, the theorem is that if you
+have a complex solution,</p>
+<p t="2147702" d="2835">u plus iv, so each of these is
+a function of time,</p>
+<p t="2150537" d="3066">u plus iv is the
+complex solution to a real</p>
+<p t="2153603" d="2777">differential equation with
+constant coefficients.</p>
+<p t="2156380" d="2603">A stiff spring,
+one that pulls with hard force</p>
+<p t="2158983" d="2603">is going to make that thing go
+back and forth,</p>
+<p t="2161586" d="3414">particularly at the dipping is
+weak.</p>
+<p t="2165000" d="4621">So, let's use almost the same
+equation as I've just concealed.</p>
+<p t="2169621" d="2803">But, do you remember a used
+four here?</p>
+<p t="2172424" d="4697">Okay, before we used three and
+we got the solution to look like</p>
+<p t="2177121" d="2575">that.
+Now, we will give it a little</p>
+<p t="2179696" d="3637">more energy by putting some
+moxie in the springs.</p>
+<p t="2183333" d="3409">So now, the spring is pulling a
+little harder,</p>
+<p t="2186742" d="3258">bigger force,
+a stiffer spring.</p>
+<p t="2190000" d="5137">Okay, the characteristic
+equation is now going to be r</p>
+<p t="2195137" d="5720">squared plus 4r plus five is
+equal to zero.</p>
+<p t="2200857" d="3005">And therefore,
+if I solve for r,</p>
+<p t="2203862" d="5234">I'm not going to bother trying
+to factor this because I</p>
+<p t="2209096" d="5332">prepared for this lecture,
+and I know, quadratic formula</p>
+<p t="2214428" d="5719">time, minus four plus or minus
+the square root of b squared,</p>
+<p t="2220147" d="5235">16, minus four times five,
+16 minus 20 is negative four</p>
+<p t="2225382" d="3824">all over two.
+And therefore,</p>
+<p t="2229206" d="4222">that makes negative two plus or
+minus, this makes,</p>
+<p t="2233428" d="2413">simply, i.
+2i divided by two,</p>
+<p t="2235841" d="3619">which is i.
+So, the exponential solution is</p>
+<p t="2239460" d="4308">e to the negative two,
+you don't have to write this</p>
+<p t="2243768" d="2930">in.
+You can get the thing directly.</p>
+<p t="2246698" d="5084">t, let's use the one with the
+plus sign, and that's going to</p>
+<p t="2251782" d="4911">give, as the real solutions,
+e to the negative two t times</p>
+<p t="2256693" d="4998">cosine t,
+and e to the negative 2t times</p>
+<p t="2261691" d="4309">the sine of t.</p>
+<p t="2266000" d="5229">And therefore,
+the solution is going to be y</p>
+<p t="2271229" d="7054">equals e to the negative 2t
+times</p>
+<p t="2278283" d="5717">(c1 cosine t plus c2 sine t).</p>
+<p t="2284000" d="4049">If you want to put initial
+conditions, you can put them in</p>
+<p t="2288049" d="4404">the same way I did them before.
+Suppose we use the same initial</p>
+<p t="2292453" d="3197">conditions: y of zero 
+equals one,</p>
+<p t="2295650" d="4049">and y prime of zero equals one,
+equals zero,</p>
+<p t="2299699" d="2344">let's say, wait,
+blah, blah, blah,</p>
+<p t="2302043" d="2913">zero, yeah.
+Okay, I'd like to take time to</p>
+<p t="2304956" d="5044">actually do the calculation,
+but there's nothing new in it.</p>
+<p t="2310000" d="5150">I'd have to take,
+calculate the derivative here,</p>
+<p t="2315150" d="5151">and then I would substitute in,
+solve equations,</p>
+<p t="2320301" d="4383">and when you do all that,
+just as before,</p>
+<p t="2324684" d="6028">the answer that you get is y
+equals e to the negative 2t,</p>
+<p t="2330712" d="5041">so,
+choose the constants c1 and c2</p>
+<p t="2335753" d="6027">by solving linear equations,
+and the answer is cosine t,</p>
+<p t="2341780" d="5918">so, c1 turns out to be one,
+and c2 turns out to be two,</p>
+<p t="2347698" d="3818">I hope.
+Okay, I want to know,</p>
+<p t="2351516" d="4115">but what does that look like?
+Well, use that trigonometric</p>
+<p t="2355631" d="2382">identity.
+The e to the negative 2t</p>
+<p t="2358013" d="3609">is just a real
+factor which is going to</p>
+<p t="2361622" d="2383">reproduce itself.
+The question is,</p>
+<p t="2364005" d="4476">what is cosine t plus 2 sine t
+look like?</p>
+<p t="2368481" d="3032">What's its amplitude as a pure
+oscillation?</p>
+<p t="2371513" d="3898">It's the square root of one
+plus two squared.</p>
+<p t="2375411" d="3826">Remember, it depends on looking</p>
+<p t="2379237" d="2672">at that little triangle,
+which is one,</p>
+<p t="2381909" d="2887">two, this is a different scale
+than that.</p>
+<p t="2384796" d="3032">And here is the square root of
+five, right?</p>
+<p t="2387828" d="2238">And, here is phi,
+the phase lag.</p>
+<p t="2390066" d="2960">So, it's equal to the square
+root of five.</p>
+<p t="2393026" d="4187">So, it's the square root of
+five times e to </p>
+<p t="2397213" d="3393">the negative 2t,
+and the stuff inside is the</p>
+<p t="2400606" d="5552">cosine of, the frequency is one.
+Circular frequency is one,</p>
+<p t="2406158" d="4650">so it's t minus phi,
+where phi is this angle.</p>
+<p t="2410808" d="2325">How big is that,
+one and two?</p>
+<p t="2413133" d="3570">Well, if this were the square
+root of three,</p>
+<p t="2416703" d="3986">which is a little less than
+two, it would be 60 infinity.</p>
+<p t="2420689" d="4069">So, this must be 70 infinity.
+So, phi is 70 infinity plus or minus</p>
+<p t="2424758" d="4386">five, let's say.
+So, it looks like a slightly</p>
+<p t="2429144" d="3828">delayed cosine curve,
+but the amplitude is falling.</p>
+<p t="2432972" d="2834">So, it has to start.
+So, if I draw it,</p>
+<p t="2435806" d="3752">here's one, here is,
+let's say, the square root of</p>
+<p t="2439558" d="3676">five up about here.
+Then, the square root of five</p>
+<p t="2443234" d="4365">times e to the negative 2t
+looks maybe</p>
+<p t="2447599" d="3828">something like this.
+So, that's square root of five</p>
+<p t="2451427" d="3063">e to the negative 2t.</p>
+<p t="2454490" d="4519">This is cosine t,
+but shoved over by not quite pi</p>
+<p t="2459009" d="3305">over two.
+It starts at one,</p>
+<p t="2462314" d="4020">and with the slope zero.
+So, the solution starts like</p>
+<p t="2466334" d="2396">this.
+It has to be guided in its</p>
+<p t="2468730" d="4639">amplitude by this function out
+there, and in between it's the</p>
+<p t="2473369" d="2551">cosine curve.
+But it's moved over.</p>
+<p t="2475920" d="4097">So, if this is pi over two,
+the first time it crosses,</p>
+<p t="2480017" d="4406">it's 72 infinity to the right 
+of that. So, if this is pi </p>
+<p t="2484423" d="3247">over two, it's pi over two plus 
+70 infinity where it crosses.</p>
+<p t="2487670" d="4330">So, it must be doing something
+like this.</p>
+<p t="2492000" d="4781">And now, on the other side,
+it's got to stay within the</p>
+<p t="2496781" d="3984">same amplitude.
+So, it must be doing something</p>
+<p t="2500765" d="2833">like this.
+Okay, that gets us to,</p>
+<p t="2503598" d="5047">if this is the under-damped
+case, because if you're trying</p>
+<p t="2508645" d="5578">to do this with a swinging door,
+it means the door's going to be</p>
+<p t="2514223" d="4870">swinging back and forth.
+Or, our little mass now hidden,</p>
+<p t="2519093" d="5224">but you could see it behind
+that board, is going to be doing</p>
+<p t="2524317" d="3618">this.
+But, it never stops.</p>
+<p t="2527935" d="3290">It never stops.
+It doesn't realize,</p>
+<p t="2531225" d="5516">but not in theoretical life.
+So, this is the under-damped.</p>
+<p t="2536741" d="5226">All right, so it's like
+Goldilocks and the Three Bears.</p>
+<p t="2541967" d="3484">That's too hot,
+and this is too cold.</p>
+<p t="2545451" d="4549">What is the thing which is just
+right?</p>
+<p t="2550000" d="7193">Well, that's the thing you're
+going to study on the problem</p>
+<p t="2557193" d="3473">set.
+So, just right is called</p>
+<p t="2560666" d="5582">critically damped.
+It's what people aim for in</p>
+<p t="2566248" d="5209">trying to damp motion that they
+don't want.</p>
+<p t="2571457" d="7070">Now, what's critically damped?
+It must be the case just in</p>
+<p t="2578527" d="5056">between these two.
+Neither complex,</p>
+<p t="2583583" d="4947">nor the roots different.
+It's the case of two equal</p>
+<p t="2588530" d="3363">roots.
+So, r squared plus Ar plus B</p>
+<p t="2591893" d="5145">equals zero
+has two equal roots.</p>
+<p t="2597038" d="3463">Now, that's a very special
+equation.</p>
+<p t="2600501" d="4354">Suppose we call the root,
+since all of these,</p>
+<p t="2604855" d="5145">notice these roots in this
+physical case.</p>
+<p t="2610000" d="3357">The roots always turn out to be
+negative numbers,</p>
+<p t="2613357" d="4056">or have a negative real part.
+I'm going to call the root a.</p>
+<p t="2617413" d="3078">So, r equals negative a,
+the root.</p>
+<p t="2620491" d="2728">a is understood to be a
+positive number.</p>
+<p t="2623219" d="2658">I want that root to be really
+negative.</p>
+<p t="2625877" d="4196">Then, the equation looks like,
+the characteristic equation is</p>
+<p t="2630073" d="3567">going to be r plus a,
+right, if the root is negative</p>
+<p t="2633640" d="3567">a, squared because it's a double
+root.</p>
+<p t="2637207" d="4267">And, that means the equation is
+of the form r squared plus two</p>
+<p t="2641474" d="5526">times a r plus a squared equals
+zero.</p>
+<p t="2647000" d="3536">In other words,
+the ODE looked like this.</p>
+<p t="2650536" d="5040">The ODE looked like y double
+prime plus 2a y prime</p>
+<p t="2655576" d="2475">plus, in other words,</p>
+<p t="2658051" d="4863">the damping and the spring
+constant were related in this</p>
+<p t="2662914" d="3714">special wake,
+that for a given value of the</p>
+<p t="2666628" d="4067">spring constant,
+there was exactly one value of</p>
+<p t="2670695" d="5305">the damping which produced this
+in between case.</p>
+<p t="2676000" d="3539">Now, what's the problem
+connected with it?</p>
+<p t="2679539" d="2763">Well, the problem,
+unfortunately,</p>
+<p t="2682302" d="4316">is staring us in the face when
+we want to solve it.</p>
+<p t="2686618" d="5094">The problem is that we have a
+solution, but it is y equals e</p>
+<p t="2691712" d="5180">to the minus at.
+I don't have another root to</p>
+<p t="2696892" d="4608">get another solution with.
+And, the question is,</p>
+<p t="2701500" d="2785">where do I get that other
+solution from?</p>
+<p t="2704285" d="2500">Now, there are three ways to
+get it.</p>
+<p t="2706785" d="2500">Well, there are four ways to
+get it.</p>
+<p t="2709285" d="3286">You look it up in Euler.
+That's the fourth way.</p>
+<p t="2712571" d="4214">That's the real way to do it.
+But, I've given you one way as</p>
+<p t="2716785" d="2643">problem number one on the
+problem set.</p>
+<p t="2719428" d="3857">I've given you another way as
+problem number two on the</p>
+<p t="2723285" d="2786">problem set.
+And, the third way you will</p>
+<p t="2726071" d="2857">have to wait for about a week
+and a half.</p>
+<p t="2728928" d="4072">And, I will give you a third
+way, too.</p>
+<p t="2733000" d="3780">By that time,
+you won't want to see any more</p>
+<p t="2736780" d="3077">ways.
+But, I'd like to introduce you</p>
+<p t="2739857" d="4044">to the way on the problem set.
+And, it is this,</p>
+<p t="2743901" d="3868">that if you know one solution
+to an equation,</p>
+<p t="2747769" d="3780">which looks like a linear
+equation, in fact,</p>
+<p t="2751549" d="2725">the piece can be functions of
+t.</p>
+<p t="2754274" d="5363">They don't have to be constant,
+so I'll use the books notation</p>
+<p t="2759637" d="5363">with p's and q's.
+y prime plus q y equals zero.</p>
+<p t="2765000" d="3888">If you know one solution,
+there's an absolute,</p>
+<p t="2768888" d="4149">ironclad guarantee,
+if you'll know that it's true</p>
+<p t="2773037" d="4061">because I'm asking you to prove
+it for yourself.</p>
+<p t="2777098" d="4494">There's another of the form,
+having this as a factor,</p>
+<p t="2781592" d="2852">one solution y one,
+let's call it,</p>
+<p t="2784444" d="3975">y equals y1 u is
+another solution.</p>
+<p t="2788419" d="4581">And, you will be able to find
+u, I swear.</p>
+<p t="2793000" d="4354">Now, let's, in the remaining
+couple of minutes carry that out</p>
+<p t="2797354" d="4210">just for this case because I
+want you to see how to arrange</p>
+<p t="2801564" d="3411">the work nicely.
+And, I want you to arrange your</p>
+<p t="2804975" d="3557">work when you do the problem
+sets in the same way.</p>
+<p t="2808532" d="3774">So, the way to do it is,
+the solution we know is e to</p>
+<p t="2812306" d="3992">the minus at.
+So, we are going to look for a</p>
+<p t="2816298" d="3702">solution to this differential
+equation.</p>
+<p t="2820000" d="2970">That's the differential
+equation.</p>
+<p t="2822970" d="5663">And, the solution we are going
+to look for is of the form e to</p>
+<p t="2828633" d="3435">the negative at times u.</p>
+<p t="2832068" d="5014">Now, you're going to have to
+make calculation like this</p>
+<p t="2837082" d="3620">several times in the course of
+the term.</p>
+<p t="2840702" d="2786">Do it this way.
+y prime equals,</p>
+<p t="2843488" d="3899">differentiate,
+minus a e to the minus a t u</p>
+<p t="2847387" d="5849">plus e to the minus a
+t u prime.</p>
+<p t="2853236" d="3917">And then, differentiate again.</p>
+<p t="2857153" d="2583">The answer will be a squared.</p>
+<p t="2859736" d="3804">You differentiate this:
+a squared e to the negative at</p>
+<p t="2863540" d="3517">u.
+I'll have to do this a little</p>
+<p t="2867057" d="3158">fast, but the next term will be,
+okay, minus,</p>
+<p t="2870215" d="3732">so this times u prime,
+and from this are you going to</p>
+<p t="2873947" d="3517">get another minus.
+So, combining what you get from</p>
+<p t="2877464" d="3229">here, and here,
+you're going to get minus 2a e</p>
+<p t="2880693" d="4307">to the minus a t u prime.</p>
+<p t="2885000" d="3757">And then, there is a final
+term, which comes from this,</p>
+<p t="2888757" d="2297">e to the minus a t u double
+prime.</p>
+<p t="2891054" d="4105">Two of these,
+because of a piece here and a</p>
+<p t="2895159" d="3967">piece here combine to make that.
+And now, to plug into the</p>
+<p t="2899126" d="2366">equation, you multiply this by
+one.</p>
+<p t="2901492" d="2992">In other words,
+you don't do anything to it.</p>
+<p t="2904484" d="4175">You multiply this line by 2a,
+and you multiply that line by a</p>
+<p t="2908659" d="3341">squared, and you add them.</p>
+<p t="2912000" d="2673">On the left-hand side,
+I get zero.</p>
+<p t="2914673" d="4375">What do I get on the right?
+Notice how I've arrange the</p>
+<p t="2919048" d="4293">work so it adds nicely.
+This has a squared times this,</p>
+<p t="2923341" d="4051">plus 2a times that,
+plus one times that makes zero.</p>
+<p t="2927392" d="3564">2a times this plus one times
+this makes zero.</p>
+<p t="2930956" d="5104">All that survives is e to the a
+t u double prime,</p>
+<p t="2936060" d="3322">and therefore,
+e to the minus a t u double</p>
+<p t="2939382" d="4618">prime is equal to zero.</p>
+<p t="2944000" d="2981">So, please tell me,
+what's u double prime?</p>
+<p t="2946981" d="2109">It's zero.
+So, please tell me,</p>
+<p t="2949090" d="2837">what's u?
+It's c1 t plus c2.</p>
+<p t="2951927" d="2254">Now, that gives me a whole</p>
+<p t="2954181" d="3637">family of solutions.
+Just t would be enough because</p>
+<p t="2957818" d="4218">all I am doing is looking for
+one solution that's different</p>
+<p t="2962036" d="2545">from e to the minus a t.</p>
+<p t="2964581" d="3637">And, that solution,
+therefore, is y equals e to the</p>
+<p t="2968218" d="3782">minus a t times t.</p>
+<p t="2972000" d="2238">And, there's my second
+solution.</p>
+<p t="2974238" d="3754">So, this is a solution of the
+critically damped case.</p>
+<p t="2977992" d="4405">And, you are going to use it in
+three or four of the different</p>
+<p t="2982397" d="4187">problems on the problem set.
+But, I think you can deal with</p>
+<p t="2986584" d="4333">virtually the whole problem set,
+except for the last problem,</p>
+<p t="2990917" d="1000">now.</p>
+</body>
+</timedtext>

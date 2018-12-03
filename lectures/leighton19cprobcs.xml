@@ -1,0 +1,2245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="499" d="2321">The following content is
+provided under a Creative</p>
+<p t="2820" d="1520">Commons license.</p>
+<p t="4340" d="2330">Your support will help
+MIT OpenCourseWare</p>
+<p t="6670" d="4370">continue to offer high quality
+educational resources for free.</p>
+<p t="11040" d="2610">To make a donation or
+view additional materials</p>
+<p t="13650" d="3887">from hundreds of MIT courses,
+visit MIT OpenCourseWare</p>
+<p t="17537" d="625">at ocw.mit.edu.</p>
+<p t="23160" d="2210">PROFESSOR: Just a reminder,
+drop day is tomorrow.</p>
+<p t="25370" d="2045">So if you were thinking
+about dropping the course</p>
+<p t="27415" d="2545">or in danger of a bad
+grade or something,</p>
+<p t="29960" d="4460">tomorrow's the last
+chance to bail out.</p>
+<p t="34420" d="2240">Last time we began our
+discussion on probability</p>
+<p t="36660" d="3780">with the Monty Hall game--
+the Monty Hall problem.</p>
+<p t="40440" d="2840">And as part of the analysis,
+we made assumptions</p>
+<p t="43280" d="5300">of the form that given that
+Carol placed the prize in box</p>
+<p t="48580" d="3860">1, the probability that
+the contestant chooses</p>
+<p t="52440" d="2840">box 1 is 1/3.</p>
+<p t="55280" d="2340">Now, this is an
+example of something</p>
+<p t="57620" d="2969">that's called a
+conditional probability.</p>
+<p t="60589" d="1791">And that's what we're
+going to study today.</p>
+<p t="73930" d="2240">Now, in general,
+you have something</p>
+<p t="76170" d="3780">like the conditional
+probability that an event, A,</p>
+<p t="79950" d="4260">happens given that some
+other event, B, has already</p>
+<p t="84210" d="1560">taken place.</p>
+<p t="85770" d="12880">And you write that down as
+a probability of A given B.</p>
+<p t="98650" d="1295">And both A and B are events.</p>
+<p t="104190" d="2475">Now, the example
+from Monty Hall--</p>
+<p t="106665" d="2205">and actually, we had
+several-- but you</p>
+<p t="108870" d="7360">might have B being
+the event that Carol</p>
+<p t="116230" d="3440">places the prize in box 1.</p>
+<p t="123820" d="13480">And A might be the event that
+the contestant chooses box 1.</p>
+<p t="137300" d="2900">And we assumed for
+the Monty Hall game</p>
+<p t="140200" d="9000">that the probability of
+A given B in this case</p>
+<p t="149200" d="3910">was 1/3 third because
+the contestant didn't</p>
+<p t="153110" d="2110">know where the prize was.</p>
+<p t="157960" d="2360">Now in general, there's
+a very simple formula</p>
+<p t="160320" d="4654">to compute the probability
+of A given B. In fact, we'll</p>
+<p t="164974" d="1041">treat it as a definition.</p>
+<p t="168920" d="6780">Assuming the probability of B
+is non-zero than the probability</p>
+<p t="175700" d="7740">of A given B is just the
+probability of A and B</p>
+<p t="183440" d="4420">happening, both happening,
+divided by the probability</p>
+<p t="187860" d="2840">of B happening.</p>
+<p t="190700" d="4920">And you can see why this makes
+sense when the picture-- say</p>
+<p t="195620" d="2940">this is our sample space.</p>
+<p t="198560" d="3810">And let this be the
+event, A, and this</p>
+<p t="202370" d="6070">be the event, B. Now we're
+conditioning on the fact</p>
+<p t="208440" d="2670">that B happened.</p>
+<p t="211110" d="2250">Now once we've
+conditioned on that,</p>
+<p t="213360" d="3960">all this stuff outside of
+B is no longer possible.</p>
+<p t="217320" d="5610">All those outcomes are no longer
+in the space of consideration.</p>
+<p t="222930" d="2920">The only outcomes left
+are in B. So in some sense</p>
+<p t="225850" d="3200">we've shrunk the
+sample space to be B.</p>
+<p t="229050" d="3610">And all we care about is the
+probability that A happens</p>
+<p t="232660" d="2750">inside this new sample space.</p>
+<p t="235410" d="3540">And that is, we're asking the
+probability 1 of these outcomes</p>
+<p t="238950" d="4090">happens given that this
+is the sample space.</p>
+<p t="243040" d="4120">Well, this is just A
+intersect B because you still</p>
+<p t="247160" d="2490">have to have A happen, but
+now you're inside of B.</p>
+<p t="249650" d="3880">And then we divide
+by probability of B.</p>
+<p t="253530" d="3620">So we normalize this
+to be probability one.</p>
+<p t="257150" d="499">OK.</p>
+<p t="257649" d="1841">Because we're
+saying B happened--</p>
+<p t="259490" d="1480">we're conditioning on that.</p>
+<p t="260970" d="3710">Therefore, the probability
+of these outcomes must be 1.</p>
+<p t="264680" d="3980">So we divide by the probability
+of B. So we normalize.</p>
+<p t="268660" d="2630">This now becomes-- the
+probability of A given B</p>
+<p t="271290" d="5020">is this share of B
+weighted by the outcomes.</p>
+<p t="276310" d="500">OK.</p>
+<p t="279020" d="500">All right.</p>
+<p t="279520" d="5890">For example then, what's the
+probability of B given B?</p>
+<p t="287970" d="1770">what's that equal?</p>
+<p t="289740" d="960">1.</p>
+<p t="290700" d="770">OK.</p>
+<p t="291470" d="2936">Because we said it happened-- so
+it happens with probability 1.</p>
+<p t="294406" d="4484">Or, using the formula, that's
+just probability of B and B</p>
+<p t="298890" d="3000">divided by probability
+of B. Well, that</p>
+<p t="301890" d="3580">equals the probability
+of B divided</p>
+<p t="305470" d="4041">by the probability
+of B, which is 1.</p>
+<p t="309511" d="499">All right.</p>
+<p t="310010" d="3000">Any questions about
+the definition</p>
+<p t="313010" d="2960">of the conditional probability?</p>
+<p t="315970" d="530">Very simple.</p>
+<p t="316500" d="3630">And it's easy to work
+with using the formulas.</p>
+<p t="320130" d="2720">Now, there's a nice
+rule called the product</p>
+<p t="322850" d="2785">rule, which follows from
+the definition very simply.</p>
+<p t="331600" d="3850">The product rule says that
+the probability of A and B</p>
+<p t="335450" d="4840">for two events is equal
+to the probability of B</p>
+<p t="340290" d="4590">times the probability
+of A given B.</p>
+<p t="344880" d="2180">And that's just follow
+straightforwardly</p>
+<p t="347060" d="2640">from this definition.</p>
+<p t="349700" d="4050">Just multiply by probability
+of B on both sides.</p>
+<p t="353750" d="500">All right.</p>
+<p t="354250" d="1458">So now you have a
+rule of computing</p>
+<p t="355708" d="4042">a probability of two events
+simultaneously happening.</p>
+<p t="359750" d="3710">So for example, in the
+Monty Hall problem,</p>
+<p t="363460" d="2730">what's the probability
+that Carol places</p>
+<p t="366190" d="5650">the prize in box one and that's
+the box the contestant chooses?</p>
+<p t="371840" d="500">All right?</p>
+<p t="372340" d="3310">So if we took A and B
+as defined up there,</p>
+<p t="375650" d="3230">that's the probability that
+Carol places it in box one</p>
+<p t="378880" d="3210">and the contestant chose it.</p>
+<p t="382090" d="2410">Well, that's the probability
+that the contestant chooses</p>
+<p t="384500" d="4240">it is 1/3 times the probability
+that Carol put it there,</p>
+<p t="388740" d="4390">given the contestant chose
+it, or actually, vice versa,</p>
+<p t="393130" d="3152">Is 1/9.</p>
+<p t="396282" d="2148">OK?</p>
+<p t="398430" d="1845">And this extends to more events.</p>
+<p t="402870" d="1960">It is called the
+general product rule.</p>
+<p t="415500" d="6670">So if you want to compute
+the probability of A1 and A2</p>
+<p t="422170" d="6670">and all the way up to An, that's
+simply the probability of a 1</p>
+<p t="428840" d="8920">happening all by itself times
+the probability of A2 given A1</p>
+<p t="437760" d="2590">times-- well, I'll do the next
+one-- times the probability</p>
+<p t="440350" d="9400">of A3 given A1 and A2, dot,
+dot dot, times, finally,</p>
+<p t="449750" d="3190">the probability of An
+given all the others.</p>
+<p t="460730" d="2630">So that starts to look a
+little more complicated.</p>
+<p t="463360" d="3360">But it gives you a handy way
+of computing the probability</p>
+<p t="466720" d="1845">that an intersection
+of events takes place.</p>
+<p t="471080" d="3559">I do This is proved by induction
+on n, just taking that rule</p>
+<p t="474639" d="1041">and using induction on n.</p>
+<p t="475680" d="1010">It's not hard.</p>
+<p t="476690" d="3120">But we won't go through it.</p>
+<p t="479810" d="500">All right.</p>
+<p t="480310" d="2460">Let's do some examples.</p>
+<p t="482770" d="1300">We'll start with an easy one.</p>
+<p t="487750" d="3920">Say you're playing
+a playoff series</p>
+<p t="491670" d="1760">and you're going to
+play best 2 out of 3.</p>
+<p t="493430" d="1928">All right.</p>
+<p t="495358" d="6852">So you have a best
+2 out of 3 series.</p>
+<p t="502210" d="3140">So whoever wins the first two
+games, best two out of three</p>
+<p t="505350" d="2240">wins.</p>
+<p t="507590" d="4620">And say you're told that
+the probability of winning</p>
+<p t="512210" d="1360">the first game is 1/2.</p>
+<p t="524450" d="4110">So the teams are matched
+50-50 for the first game.</p>
+<p t="528560" d="4460">But then you're told that the
+probability of winning a game</p>
+<p t="533020" d="2570">after a victory is higher.</p>
+<p t="535590" d="575">It's 2/3.</p>
+<p t="542000" d="7700">So the probability of
+winning immediately</p>
+<p t="549700" d="12490">after a game following
+a win is two thirds.</p>
+<p t="562190" d="4350">And similarly, the probability
+of winning after a loss is 1/3.</p>
+<p t="583370" d="500">All right.</p>
+<p t="583870" d="2130">And the idea here is
+that you win a game,</p>
+<p t="586000" d="1860">you're sort of psyched,
+you've got momentum,</p>
+<p t="587860" d="3010">and going into the next day
+you're more likely to win.</p>
+<p t="590870" d="1860">Similarly, if you lost
+you're sort of down</p>
+<p t="592730" d="2520">and the other guy has a
+better chance of beating you.</p>
+<p t="595250" d="2380">Now, what we're going
+to try to figure out</p>
+<p t="597630" d="4310">is the probability
+of winning the series</p>
+<p t="601940" d="3510">given you won the first game.</p>
+<p t="605450" d="500">All right?</p>
+<p t="605950" d="2150">Now, conditional
+probability comes up</p>
+<p t="608100" d="3440">in two places in this problem.</p>
+<p t="611540" d="2180">Anybody tell me places
+where it's come up?</p>
+<p t="613720" d="2250">So I got the problem statement
+and the that's the goal</p>
+<p t="615970" d="1900">is to figure out the probability
+you win the series given</p>
+<p t="617870" d="958">you won the first game.</p>
+<p t="618828" d="2202">So what's one place
+conditional probability</p>
+<p t="621030" d="3850">is entering into this problem?</p>
+<p t="624880" d="1260">Yeah?</p>
+<p t="626140" d="1410">AUDIENCE: The
+probability changes</p>
+<p t="627550" d="3702">depending on the result
+of the previous game.</p>
+<p t="631252" d="958">PROFESSOR: That's true.</p>
+<p t="632210" d="2060">The probability of winning
+any particular game</p>
+<p t="634270" d="1640">is influenced by
+the previous game.</p>
+<p t="635910" d="2870">So you're using conditional
+probability there.</p>
+<p t="638780" d="1360">All right.</p>
+<p t="640140" d="1720">And where else?</p>
+<p t="641860" d="686">Yeah.</p>
+<p t="642546" d="3888">AUDIENCE: [INAUDIBLE]
+you have to take</p>
+<p t="646434" d="1666">into account [INAUDIBLE].</p>
+<p t="648100" d="1250">PROFESSOR: That's interesting.</p>
+<p t="649350" d="2208">That will be another question
+we're going to look at.</p>
+<p t="651558" d="2492">What's the probability
+of playing three games?</p>
+<p t="654050" d="1290">Yep.</p>
+<p t="655340" d="2181">That's one.</p>
+<p t="657521" d="499">OK.</p>
+<p t="658020" d="2390">Well, the question
+we're after, what's</p>
+<p t="660410" d="1900">the probability of
+winning the series given</p>
+<p t="662310" d="1730">that you won the first game.</p>
+<p t="664040" d="3000">We're going to compute a
+conditional probability there.</p>
+<p t="667040" d="2914">So it's coming up in a
+couple of places here.</p>
+<p t="669954" d="916">All right.</p>
+<p t="670870" d="1780">Let's figure this out.</p>
+<p t="672650" d="4060">It's easy to do given
+the tree method.</p>
+<p t="676710" d="2900">So let's make the tree for this.</p>
+<p t="679610" d="7690">So we have possibly three games
+there's game one, game two,</p>
+<p t="687300" d="890">and game three.</p>
+<p t="691060" d="1850">Game one, you can win or lose.</p>
+<p t="692910" d="3650">There's two branches.</p>
+<p t="696560" d="1575">Game two you can win or lose.</p>
+<p t="701350" d="5300">And now, game three-- well, it
+doesn't even take place here.</p>
+<p t="706650" d="800">But it does here.</p>
+<p t="707450" d="3350">You can win or lose here.</p>
+<p t="710800" d="3720">And you could win or lose here.</p>
+<p t="714520" d="1600">And here the series is over.</p>
+<p t="716120" d="3920">So there is no game
+three in that case.</p>
+<p t="720040" d="2990">The probabilities are
+next we put a probability</p>
+<p t="723030" d="1870">of every branch here.</p>
+<p t="724900" d="920">Game one is 50-50.</p>
+<p t="728207" d="1833">What's the probability
+you take this branch?</p>
+<p t="733530" d="3640">2/3, because you're on the path
+where you won the first game.</p>
+<p t="737170" d="1590">You win the second
+game with 2/3.</p>
+<p t="738760" d="2780">You lose with 1/3.</p>
+<p t="741540" d="3480">Now here you're on the path
+where you lost the first game.</p>
+<p t="745020" d="4911">So this has 1/3
+and this has 2/3.</p>
+<p t="749931" d="499">All right?</p>
+<p t="750430" d="2080">And then lastly, what's
+the probability I have</p>
+<p t="752510" d="6550">the win on the third game here?</p>
+<p t="759060" d="3090">1/3, because I just
+lost the last game.</p>
+<p t="762150" d="2070">That's all I'm conditioning on.</p>
+<p t="764220" d="2030">So that becomes 1/3.</p>
+<p t="766250" d="2900">And this is 2/3 now.</p>
+<p t="769150" d="1620">And then here I just won a game.</p>
+<p t="770770" d="3616">So I've got 2/3 and 1/3.</p>
+<p t="774386" d="904">All right.</p>
+<p t="775290" d="2600">So I got all the probabilities.</p>
+<p t="777890" d="4980">And now I need to figure out
+for the sample points what's</p>
+<p t="782870" d="860">their probability.</p>
+<p t="783730" d="4030">So this sample point
+we'll call win-win.</p>
+<p t="787760" d="3416">This sample point
+is win-lose-win.</p>
+<p t="795089" d="1041">This one's win-lose-lose.</p>
+<p t="800130" d="7650">Then we have lose-win-win,
+lose-win-lose,</p>
+<p t="807780" d="2260">and then lose-lose.</p>
+<p t="810040" d="1970">So I got six sample points.</p>
+<p t="812010" d="3420">And let's figure out the
+probability for each one.</p>
+<p t="815430" d="3850">Now remember the rule we
+had for the tree method.</p>
+<p t="819280" d="3290">I just multiply these things.</p>
+<p t="822570" d="2250">Well, in fact, the
+reason we have that rule</p>
+<p t="824820" d="4300">is because that is the
+same as the product rule.</p>
+<p t="829120" d="1710">Because what I'm
+asking here to compute</p>
+<p t="830830" d="12380">the probability of this guy
+is-- so the product rule gives</p>
+<p t="843210" d="4490">the probability of a win-win
+scenario-- win the first game,</p>
+<p t="847700" d="1720">win the second game.</p>
+<p t="849420" d="1790">By the product rule
+is the probability</p>
+<p t="851210" d="5370">that I win the first game
+times the probability</p>
+<p t="856580" d="6990">that I win the second game
+given that I won the first game.</p>
+<p t="863570" d="3710">That's what the
+product rule says.</p>
+<p t="867280" d="4310">Probability I win the
+first game is 1/2 times</p>
+<p t="871590" d="1890">the probability I
+win the second given</p>
+<p t="873480" d="4110">that I won the first is 2/3.</p>
+<p t="877590" d="2680">So that equals 1/3.</p>
+<p t="885641" d="1749">So what we're doing
+here now is giving you</p>
+<p t="887390" d="3880">the formal justification for
+that rule that we had last time</p>
+<p t="891270" d="2500">and that you'll always use--
+is the probability of a sample</p>
+<p t="893770" d="2550">point is the product
+of the probabilities</p>
+<p t="896320" d="2780">on the edges leading to it.</p>
+<p t="899100" d="1210">It's just the product rule.</p>
+<p t="900310" d="2950">Now the next
+example is this one.</p>
+<p t="903260" d="2895">And here we're going to use the
+general product rule to get it.</p>
+<p t="909190" d="6970">The probability of win-lose-win
+by the general product rule</p>
+<p t="916160" d="4280">is the probability that
+you win the first game</p>
+<p t="920440" d="4380">times the probability you
+lose the second game given</p>
+<p t="924820" d="5820">the that you win the first
+times the probability you</p>
+<p t="930640" d="4146">win the third given what?</p>
+<p t="934786" d="3954">What am I given on
+the product rule?</p>
+<p t="938740" d="4842">Won the first, lost the second.</p>
+<p t="943582" d="837">All right.</p>
+<p t="944419" d="1541">Well, now we can
+fill in the numbers.</p>
+<p t="945960" d="3808">The probability I win
+the first is a 1/2.</p>
+<p t="949768" d="2972">The probability that
+I lose the second</p>
+<p t="952740" d="4980">given that I won the
+first, that's 1/3.</p>
+<p t="957720" d="1720">And then this one
+here, the probability</p>
+<p t="959440" d="2240">that I win the third
+given that I won the first</p>
+<p t="961680" d="2920">and lost the second,
+that simplifies</p>
+<p t="964600" d="4560">the probability I win the third
+given that I lost the second.</p>
+<p t="969160" d="2635">Doesn't matter what
+happened on the first.</p>
+<p t="971795" d="625">And that's 1/3.</p>
+<p t="976010" d="8640">So this is 1/2 times
+1/3 times 1/3 is 118.</p>
+<p t="984650" d="3440">And that's 1/18.</p>
+<p t="988090" d="3390">And it's just the product
+because the product rule</p>
+<p t="991480" d="3810">saying product of
+the first probability</p>
+<p t="995290" d="2620">times this one, which is
+the conditional probability</p>
+<p t="997910" d="2170">of being here times
+this one, which</p>
+<p t="1000080" d="5520">is a conditional probability if
+these events happened before.</p>
+<p t="1005600" d="3580">Any questions about that?</p>
+<p t="1009180" d="2060">Very simple to
+do, which is good.</p>
+<p t="1011240" d="500">Yeah.</p>
+<p t="1011740" d="1850">Is there a question?</p>
+<p t="1013590" d="500">OK.</p>
+<p t="1014090" d="624">All right.</p>
+<p t="1014714" d="1916">So let's fill in the
+other probabilities here.</p>
+<p t="1016630" d="2870">I got 1/2, 1/3, and 2/3.</p>
+<p t="1019500" d="2320">That's 1/9.</p>
+<p t="1021820" d="2830">Same thing here is 1/9.</p>
+<p t="1024650" d="4020">This is 1/18 and 1/3.</p>
+<p t="1032069" d="500">OK.</p>
+<p t="1032569" d="2750">So those are the probabilities
+in the sample points.</p>
+<p t="1035319" d="4800">Now, to compute the probability
+of winning the series given</p>
+<p t="1040119" d="3005">that we won the first game,
+let's define the events here.</p>
+<p t="1046890" d="5465">So A be the event that
+we win the series.</p>
+<p t="1056220" d="6200">B will be the event that
+we win the first game.</p>
+<p t="1065580" d="4980">And I want to compute the
+probability of A given B.</p>
+<p t="1070560" d="2460">And we use our formula.</p>
+<p t="1073020" d="1805">Where's the formula for that?</p>
+<p t="1074825" d="1345">It's way back over there.</p>
+<p t="1076170" d="3040">The probability of A
+given B is the probability</p>
+<p t="1079210" d="5500">of both happening, the
+probability of A and B</p>
+<p t="1084710" d="4740">divided by the probability of B.</p>
+<p t="1089450" d="4170">So now I just have to
+compute these probabilities.</p>
+<p t="1093620" d="3080">So to do that I got to figure
+out which sample points are</p>
+<p t="1096700" d="4120">in A and B here.</p>
+<p t="1100820" d="1210">So let's write that down.</p>
+<p t="1102030" d="5720">There's A, B, A
+and B. All right.</p>
+<p t="1107750" d="5030">So A is the event that
+we win the series.</p>
+<p t="1115670" d="7240">Now this sample point qualifies,
+that one does, and this one.</p>
+<p t="1122910" d="1620">B is the event we
+won the first game.</p>
+<p t="1124530" d="3830">And that's these
+three sample points.</p>
+<p t="1128360" d="6161">And then A and B
+intersect B is these two.</p>
+<p t="1134521" d="499">All right.</p>
+<p t="1135020" d="1540">So for each event
+that I care about</p>
+<p t="1136560" d="2124">I figure out which sample
+points are in that event.</p>
+<p t="1141370" d="4200">And now I just add
+the probabilities up.</p>
+<p t="1145570" d="3170">So what's the
+probability of A and B?</p>
+<p t="1157400" d="1670">7/18.</p>
+<p t="1159070" d="680">1/3 plus 1/18.</p>
+<p t="1164810" d="1355">What's the probability of B?</p>
+<p t="1170661" d="499">Yeah.</p>
+<p t="1171160" d="1170">1/2, 9/18.</p>
+<p t="1172330" d="1100">I got these three points.</p>
+<p t="1177070" d="6700">So this'll be 1/3 third plus
+1/18 plus the extra one, 1/9.</p>
+<p t="1183770" d="5570">So I've got 7/18 over 9/18.</p>
+<p t="1189340" d="3300">7/9 is the answer.</p>
+<p t="1192640" d="1830">So the probability
+we win the Series</p>
+<p t="1194470" d="1900">given we won the
+first game is 7/9.</p>
+<p t="1199032" d="583">Any questions?</p>
+<p t="1203050" d="3040">We're going to do this same
+thing about 10 different times.</p>
+<p t="1206090" d="760">OK?</p>
+<p t="1206850" d="2320">And it will look a little
+different each time maybe.</p>
+<p t="1209170" d="1080">But it's the same idea.</p>
+<p t="1210250" d="3530">And the beauty here is
+it's really easy to do.</p>
+<p t="1213780" d="2620">I'm going to give you a
+lot of confusing examples.</p>
+<p t="1216400" d="4296">But really, if you just do this
+is it's going to be very easy.</p>
+<p t="1220696" d="524">All right.</p>
+<p t="1221220" d="3450">Somebody talked about the
+series lasting three games.</p>
+<p t="1224670" d="3052">What's the probability the
+series lasts three games?</p>
+<p t="1227722" d="1990">Can anybody look at
+that and tell me?</p>
+<p t="1233410" d="3900">1/3 because what you would do
+is add up these three sample</p>
+<p t="1237310" d="1790">points.</p>
+<p t="1239100" d="2810">And it's the opposite
+of these two.</p>
+<p t="1241910" d="3780">So it's 2/3 chance of two games,
+a 1/3 chance of three games.</p>
+<p t="1245690" d="4220">So it's not likely
+to go three games.</p>
+<p t="1249910" d="1730">All right.</p>
+<p t="1251640" d="3220">So to this point,
+we've seen examples</p>
+<p t="1254860" d="1970">of a conditional
+probability where</p>
+<p t="1256830" d="6740">it's A given B where A follows
+B, like, we're told B happened.</p>
+<p t="1263570" d="3800">Now what's the chance of
+A. And A is coming later.</p>
+<p t="1267370" d="2620">The probability of
+winning today's game</p>
+<p t="1269990" d="2960">given that you won yesterday's
+game, the probability</p>
+<p t="1272950" d="4820">of winning the series given
+you already won the first game.</p>
+<p t="1277770" d="3370">Next, we're going to look
+at the opposite scenario</p>
+<p t="1281140" d="3180">where the events are
+reversed in order.</p>
+<p t="1284320" d="3920">The probability that
+you won the first game</p>
+<p t="1288240" d="4054">given that you won the series.</p>
+<p t="1292294" d="826">All right.</p>
+<p t="1293120" d="4020">Now, this is
+inherently confusing</p>
+<p t="1297140" d="3030">because if you're
+trying to figure--</p>
+<p t="1300170" d="3190">if you know you
+the series, well,</p>
+<p t="1303360" d="2010">you already know what
+happened in the first game</p>
+<p t="1305370" d="1900">because it's been played.</p>
+<p t="1307270" d="2000">So how could there be
+any probability there?</p>
+<p t="1309270" d="1970">It happened.</p>
+<p t="1311240" d="3220">Well, so what the meaning
+is is over all the times</p>
+<p t="1314460" d="2402">where the series
+was played, sort</p>
+<p t="1316862" d="1708">of what fraction of
+the time did the team</p>
+<p t="1318570" d="2190">that won the series win
+the first game is one</p>
+<p t="1320760" d="2570">way you could think about it.</p>
+<p t="1323330" d="1790">Or, maybe you just don't know.</p>
+<p t="1325120" d="904">The game was played.</p>
+<p t="1326024" d="1166">You know you won the series.</p>
+<p t="1327190" d="2110">But you don't know who
+won the first game.</p>
+<p t="1329300" d="3240">And so you could think of a
+probability still being there.</p>
+<p t="1332540" d="4680">Now when you think about it,
+it gets me confused still.</p>
+<p t="1337220" d="2620">But just think about
+it like the math.</p>
+<p t="1339840" d="2141">It's the same formula.</p>
+<p t="1341981" d="499">OK.</p>
+<p t="1342480" d="3320">It doesn't matter which
+happened first in time.</p>
+<p t="1345800" d="1950">You use the same mathematics.</p>
+<p t="1347750" d="3560">In fact, they give a special
+name these kinds of things.</p>
+<p t="1351310" d="3170">They're called a postieri
+conditional probabilities.</p>
+<p t="1370410" d="4650">It's a fancy name for just
+saying that things are out</p>
+<p t="1375060" d="2651">of order in time.</p>
+<p t="1377711" d="499">All right?</p>
+<p t="1378210" d="9710">So it's a probability of B given
+A where B precedes A in time.</p>
+<p t="1394100" d="2050">All right?</p>
+<p t="1396150" d="1610">So it's the same math.</p>
+<p t="1397760" d="3740">It's just they're out of order.</p>
+<p t="1401500" d="3410">So let's figure
+out the probability</p>
+<p t="1404910" d="5180">that you won the first game
+given that you want the series.</p>
+<p t="1410090" d="2480">Let's figure it out.</p>
+<p t="1412570" d="5760">So I want probability of B
+given A now for this example.</p>
+<p t="1418330" d="4290">Well, it's just the
+probability of B and A</p>
+<p t="1422620" d="4970">over the probability of A.</p>
+<p t="1427590" d="2340">We already computed the
+probability of A and B.</p>
+<p t="1429930" d="1020">That's 1/3 plus 1/18.</p>
+<p t="1436380" d="2380">what's the probability
+of A, the probability</p>
+<p t="1438760" d="1530">of winning the first game?</p>
+<p t="1444705" d="500">1/2.</p>
+<p t="1445205" d="2885">It's those three sample points
+and they better add up to 1/2</p>
+<p t="1448090" d="2500">because we sort of said, the
+probability of the first game's</p>
+<p t="1450590" d="1760">1/2.</p>
+<p t="1452350" d="2550">So that's over
+1/2, which is 9/18.</p>
+<p t="1457780" d="2420">Well this was 7/18 over 9/18.</p>
+<p t="1460200" d="2780">It's 7/9.</p>
+<p t="1462980" d="2580">So the probability of
+winning the first game given</p>
+<p t="1465560" d="1516">that you won series is 7/9.</p>
+<p t="1469950" d="4268">Anybody notice anything
+unusual about that answer here?</p>
+<p t="1474218" d="3412">It's the same as the
+answer over there.</p>
+<p t="1477630" d="750">Is that a theorem?</p>
+<p t="1480970" d="500">No.</p>
+<p t="1481470" d="2450">The probability of A
+given B is not always</p>
+<p t="1483920" d="3310">the probability of B given
+A. It was in this case.</p>
+<p t="1487230" d="1840">It is not always true.</p>
+<p t="1489070" d="3240">In fact, we could
+make a simple example</p>
+<p t="1492310" d="1625">to see why that's
+not always the case.</p>
+<p t="1507191" d="499">All right.</p>
+<p t="1507690" d="3460">So say here's your sample space.</p>
+<p t="1511150" d="4700">And say that this
+is B and this is</p>
+<p t="1515850" d="5140">A. What's the probability
+of A given B in this case?</p>
+<p t="1523670" d="660">1.</p>
+<p t="1524330" d="1650">If you're in B-- wait.</p>
+<p t="1525980" d="500">No.</p>
+<p t="1526480" d="2370">It's not 1.</p>
+<p t="1528850" d="3970">What's the probability of
+A given B If I got some--</p>
+<p t="1532820" d="1150">probably less than 1.</p>
+<p t="1533970" d="3240">Might be I've drawn it as
+1/3 third if it was uniform.</p>
+<p t="1537210" d="3520">But in this case, the
+probability of A given B</p>
+<p t="1540730" d="850">is less than 1.</p>
+<p t="1541580" d="1870">What's the probability
+of B given A?</p>
+<p t="1547240" d="6575">1, because if I'm in A I'm
+definitely in B. All right.</p>
+<p t="1553815" d="2125">So that's an example where
+they would be different.</p>
+<p t="1555940" d="3510">And that's the generic
+case is they're different.</p>
+<p t="1559450" d="2390">All right?</p>
+<p t="1561840" d="2520">When are they equal because
+they were equal in this case?</p>
+<p t="1564360" d="2280">What makes them equal?</p>
+<p t="1566640" d="690">Let's see.</p>
+<p t="1567330" d="4570">When does the
+probability of A given B</p>
+<p t="1571900" d="2270">equal a probability
+of B given A?</p>
+<p t="1574170" d="1965">Let's see.</p>
+<p t="1576135" d="3015">Well, If I plug-in
+the formula, this</p>
+<p t="1579150" d="7260">equals the probability of A and
+B over the probability of B.</p>
+<p t="1586410" d="8590">That equals the probability of
+B and A over a probability of A.</p>
+<p t="1595000" d="1030">So when are those equal?</p>
+<p t="1599430" d="500">Yeah.</p>
+<p t="1599930" d="3450">When probability A equals
+probability B. All right.</p>
+<p t="1603380" d="1690">So that's one case.</p>
+<p t="1608152" d="1158">What's the other case?</p>
+<p t="1614230" d="1290">Yeah-- when it's 0.</p>
+<p t="1615520" d="1940">Probability-- there's
+no intersection.</p>
+<p t="1617460" d="2264">Probability of A
+intersect B is 0.</p>
+<p t="1619724" d="916">That's the other case.</p>
+<p t="1627071" d="499">All right.</p>
+<p t="1627570" d="2460">But usually these
+conditions won't</p>
+<p t="1630030" d="3660">apply-- just happened to in
+this example by coincidence.</p>
+<p t="1636320" d="5430">Any questions about that?</p>
+<p t="1641750" d="1900">All right.</p>
+<p t="1643650" d="500">Yeah.</p>
+<p t="1644150" d="2249">So the math is the same with
+a postieri probabilities.</p>
+<p t="1646399" d="2811">It's really, really easy.</p>
+<p t="1649210" d="620">All right.</p>
+<p t="1649830" d="3685">So let's do another simple
+example that'll start to maybe</p>
+<p t="1653515" d="1125">be a little more confusing.</p>
+<p t="1658470" d="2120">Say we've got two coins.</p>
+<p t="1673510" d="1570">One of them is a fair coin.</p>
+<p t="1679200" d="2330">And by that, I mean the
+probability comes up</p>
+<p t="1681530" d="3030">heads is the same as
+the probability comes up</p>
+<p t="1684560" d="2420">tails is 1/2.</p>
+<p t="1686980" d="1790">The other one is an unfair coin.</p>
+<p t="1692440" d="3616">And in this case, that
+means it's always heads.</p>
+<p t="1696056" d="1874">The probability of heads is 1.</p>
+<p t="1697930" d="3462">The probability of tails is 0.</p>
+<p t="1701392" d="1148">All right?</p>
+<p t="1702540" d="2830">I've got two such coins here.</p>
+<p t="1705370" d="960">All right.</p>
+<p t="1706330" d="4540">Here is the unfair
+coin-- heads and heads.</p>
+<p t="1710870" d="2610">Actually, they make these things
+look like quarters sometimes.</p>
+<p t="1713480" d="4720">Here's the fair coin--
+heads and tails.</p>
+<p t="1718200" d="700">All right.</p>
+<p t="1718900" d="6510">Now suppose I pick one of
+these at random, 50-50,</p>
+<p t="1725410" d="5180">I pick one of
+these things, and I</p>
+<p t="1730590" d="6869">flip it, which I'm doing behind
+my back, and lo and behold,</p>
+<p t="1737459" d="1416">it comes out and,
+you see a heads.</p>
+<p t="1742240" d="4550">What's the probability
+I'm holding the fair coin?</p>
+<p t="1751010" d="4690">I picked the coin,
+50-50, behind my back.</p>
+<p t="1755700" d="5720">So one answer is, I picked the
+fair coin with 50% probability.</p>
+<p t="1761420" d="2790">But then I flipped
+it behind my back</p>
+<p t="1764210" d="3910">and I showed you the
+result. And you see heads.</p>
+<p t="1768120" d="3130">Of course, if I'd
+have shown you tails,</p>
+<p t="1771250" d="2600">You would have known for
+sure it was the fair coin</p>
+<p t="1773850" d="1110">because that's the only
+one with the tails.</p>
+<p t="1774960" d="1440">But you don't know for sure now.</p>
+<p t="1776400" d="2000">You see a heads.</p>
+<p t="1778400" d="2880">What's the probability this is
+the fair coin given that you</p>
+<p t="1781280" d="4190">saw a heads after the flip?</p>
+<p t="1785470" d="2900">How many people think 1/2?</p>
+<p t="1788370" d="2570">After all, I picked it
+with probability 1/2.</p>
+<p t="1790940" d="3950">How many people think
+it's less than 1/2?</p>
+<p t="1794890" d="790">Good.</p>
+<p t="1795680" d="1850">OK.</p>
+<p t="1797530" d="2580">Somebody even said 1/3.</p>
+<p t="1800110" d="2420">Does that sound right?</p>
+<p t="1802530" d="2340">A couple people like 1/3.</p>
+<p t="1804870" d="2290">OK.</p>
+<p t="1807160" d="500">All right.</p>
+<p t="1807660" d="2330">Now, part of what
+makes this tricky</p>
+<p t="1809990" d="3960">is I told you I picked the
+coin with 50% probability.</p>
+<p t="1813950" d="1780">But then I gave you information.</p>
+<p t="1815730" d="3864">So I've conditioned the problem.</p>
+<p t="1819594" d="1416">And so this is one
+of those things</p>
+<p t="1821010" d="2120">you could have an
+ask Marilyn about.</p>
+<p t="1823130" d="1220">Is it 1/2 or is it 1/3?</p>
+<p t="1824350" d="2180">Because I picked
+it with 50% chance,</p>
+<p t="1826530" d="4370">what does the
+information do for you?</p>
+<p t="1830900" d="3290">Now, I'll give you a clue.</p>
+<p t="1834190" d="3470">Bobo might have written
+in and said it's 1/2.</p>
+<p t="1837660" d="2124">And his proof is that
+three other mathematicians</p>
+<p t="1839784" d="666">agreed with him.</p>
+<p t="1840450" d="1190">[LAUGHTER]</p>
+<p t="1841640" d="2050">All right?</p>
+<p t="1843690" d="860">OK.</p>
+<p t="1844550" d="3480">So let's figure it out.</p>
+<p t="1848030" d="2290">And really it's very simple.</p>
+<p t="1850320" d="4230">It's just drawing out
+the tree and computing</p>
+<p t="1854550" d="1930">the conditional probability.</p>
+<p t="1856480" d="3590">So we're going to do the same
+thing over and over again</p>
+<p t="1860070" d="3394">because it just works
+for every problem.</p>
+<p t="1863464" d="4486">Of course, you could imagine
+debating this for awhile,</p>
+<p t="1867950" d="940">arguing with somebody.</p>
+<p t="1868890" d="1310">Is it 1/2 or 1/3?</p>
+<p t="1870200" d="4239">Much simpler just to do it.</p>
+<p t="1874439" d="2166">So the first thing is we
+have, which coin is picked?</p>
+<p t="1879300" d="2740">So it could be
+fair-- and I told you</p>
+<p t="1882040" d="4610">that happens with
+probability 1/2-- or unfair,</p>
+<p t="1886650" d="2650">which is also 1/2.</p>
+<p t="1889300" d="3990">Then we have the flip.</p>
+<p t="1893290" d="2280">The fair coin is
+equally likely to be</p>
+<p t="1895570" d="3600">heads or tails, each with 1/2.</p>
+<p t="1899170" d="7020">The unfair coin, guaranteed
+to be heads, probability 1.</p>
+<p t="1906190" d="540">All right.</p>
+<p t="1906730" d="3780">Now we get the sample
+point outcomes.</p>
+<p t="1910510" d="3800">It's fair in heads with
+the probability 1/4,</p>
+<p t="1914310" d="3680">fair in tails,
+probability 1/4, unfair</p>
+<p t="1917990" d="3590">in heads, probability 1/2.</p>
+<p t="1921580" d="3490">Now we define the
+events of interest.</p>
+<p t="1925070" d="2440">A is going to be that
+we chose the fair coin.</p>
+<p t="1933670" d="2780">And B is at the
+result, is heads.</p>
+<p t="1939980" d="2170">And of course what
+I want to know</p>
+<p t="1942150" d="3490">is the probability that I
+chose the fair coin given</p>
+<p t="1945640" d="1020">that I saw a heads.</p>
+<p t="1949610" d="2410">So to do that we
+plug in our formula.</p>
+<p t="1952020" d="5730">That's just the
+probability of A and B</p>
+<p t="1957750" d="4440">over the probability
+of B. And to compute</p>
+<p t="1962190" d="3700">that I got to figure out
+the probability of A and B</p>
+<p t="1965890" d="1350">and the probability of B.</p>
+<p t="1967240" d="1870">So I'll make my diagram.</p>
+<p t="1969110" d="5860">A here, B here, A
+and B. A is the event</p>
+<p t="1974970" d="2600">I chose the fair coin.</p>
+<p t="1977570" d="2480">That's these guys.</p>
+<p t="1980050" d="2800">B is the event the
+result is heads.</p>
+<p t="1982850" d="2640">That's this one and this one.</p>
+<p t="1988070" d="4660">And A intersect B,
+That's the only point.</p>
+<p t="1992730" d="3720">So this is really
+easy to compute now.</p>
+<p t="1996450" d="1600">What's the probability
+of A and B?</p>
+<p t="2000770" d="720">1/4.</p>
+<p t="2001490" d="2780">It's just that sample point.</p>
+<p t="2004270" d="1595">What's the probability of B?</p>
+<p t="2008400" d="2080">3/4, 1/4 plus 1/2.</p>
+<p t="2013100" d="2530">So the probability
+of A given B is 1/3.</p>
+<p t="2018650" d="2750">Really simple to
+answer this question.</p>
+<p t="2021400" d="1900">Just don't even think about it.</p>
+<p t="2023300" d="3160">Just write down the tree
+when you get these things.</p>
+<p t="2026460" d="4292">So much easier just to
+write the tree down.</p>
+<p t="2030752" d="968">All right.</p>
+<p t="2031720" d="5970">Now the key here is we
+knew the probability</p>
+<p t="2037690" d="3755">of picking the fair
+coin in the first place.</p>
+<p t="2041445" d="1645">Maybe it's worth
+writing down what</p>
+<p t="2043090" d="4178">happens if that's a variable--
+sum variable P. Let's do that.</p>
+<p t="2055239" d="4891">For example, what if I hadn't
+told you the probability</p>
+<p t="2060130" d="2560">that I picked the fair coin?</p>
+<p t="2062690" d="3730">I just picked one
+and flipped it.</p>
+<p t="2066420" d="3710">Think that'll change the answer?</p>
+<p t="2070130" d="2810">It should because you got
+to plug something in there</p>
+<p t="2072940" d="1987">for the 1/2 for this to work.</p>
+<p t="2074927" d="1083">So let's see what happens.</p>
+<p t="2076010" d="4879">Say I picked the fair
+coin with probability</p>
+<p t="2080889" d="5991">P and the unfair
+coin with 1 minus P.</p>
+<p t="2086880" d="5549">And this is the same
+heads and tails, 1/2, 1/2.</p>
+<p t="2092429" d="3810">Heads, the probability 1.</p>
+<p t="2096239" d="5281">Well now, instead of 1/4
+I get P over 2 up here.</p>
+<p t="2101520" d="2440">And this is now 1
+minus P instead of 1/2.</p>
+<p t="2106580" d="6156">So the probability of A given
+B is the probability of A and B</p>
+<p t="2112736" d="3484">is p over 2.</p>
+<p t="2116220" d="3670">And the probability
+of B is P over 2</p>
+<p t="2119890" d="11210">plus 1 minus P. That's P over
+2 up top, one minus P over 2,</p>
+<p t="2131100" d="2850">and that is all
+multiplied by-- what am I</p>
+<p t="2133950" d="1770">going to multiply-- 2 here.</p>
+<p t="2135720" d="5490">I'll get P over 2 minus P.</p>
+<p t="2141210" d="3600">So the probability with which
+I picked the coin to start with</p>
+<p t="2144810" d="3250">impacts the answer here.</p>
+<p t="2148060" d="7620">For example, what if I picked
+the unfair coin for sure?</p>
+<p t="2155680" d="1650">That would be P being 0.</p>
+<p t="2160820" d="2310">Well, the probability that
+I picked the fair coin</p>
+<p t="2163130" d="3574">is 0 over 2, which is 0.</p>
+<p t="2166704" d="2166">All right though-- even
+know I showed you the heads,</p>
+<p t="2168870" d="3390">there's no chance it was the
+fair coin because I picked</p>
+<p t="2172260" d="1350">the unfair coin for sure.</p>
+<p t="2179840" d="3180">Same thing if I picked
+the fair coin for sure,</p>
+<p t="2183020" d="2090">better be the case this is 1.</p>
+<p t="2185110" d="1610">So I get 1 over 2 minus 1.</p>
+<p t="2186720" d="680">It's 1.</p>
+<p t="2190380" d="2230">Any questions?</p>
+<p t="2192610" d="3434">So it's important you know
+the probability I picked</p>
+<p t="2196044" d="1166">the fair coin to start with.</p>
+<p t="2197210" d="2420">Otherwise, you
+can't go anywhere.</p>
+<p t="2202700" d="1230">All right.</p>
+<p t="2203930" d="2710">What if I do the same game?</p>
+<p t="2206640" d="4270">Pick a coin with probability p.</p>
+<p t="2210910" d="3381">But now I flip it K times.</p>
+<p t="2214291" d="2109">Say I flip it 100 times.</p>
+<p t="2216400" d="1940">And every time it
+comes up heads.</p>
+<p t="2221420" d="3300">I mean you're pretty sure you
+got the unfair coin because you</p>
+<p t="2224720" d="1130">never saw a tails.</p>
+<p t="2225850" d="1630">Right?</p>
+<p t="2227480" d="740">So let's do that.</p>
+<p t="2228220" d="2840">Let's compute that scenario.</p>
+<p t="2231060" d="5370">So instead of a single
+heads I get K straight heads</p>
+<p t="2236430" d="2880">and no tails.</p>
+<p t="2239310" d="2980">This would happen with
+1 over 2 to the K.</p>
+<p t="2242290" d="4980">This would happen with 1
+minus 1 over 2 to the K.</p>
+<p t="2247270" d="4710">So this is now p over 2 to
+the K. This is now P1 minus 2</p>
+<p t="2251980" d="2890">to the minus K.</p>
+<p t="2254870" d="1510">Let's recompute
+the probabilities.</p>
+<p t="2256380" d="2277">I'm going somewhere where this.</p>
+<p t="2258657" d="583">Wait a minute.</p>
+<p t="2270340" d="1460">So now we're
+looking at the event</p>
+<p t="2271800" d="4455">that B is K straight heads.</p>
+<p t="2279080" d="3070">Come up.</p>
+<p t="2282150" d="2090">And I want to know
+the probability</p>
+<p t="2284240" d="3180">that I picked the fair coin
+given that it just never comes</p>
+<p t="2287420" d="2280">up tails.</p>
+<p t="2289700" d="875">The math is the same.</p>
+<p t="2297390" d="2505">The probability now that
+I picked the fair coin</p>
+<p t="2299895" d="3415">and got k straight
+heads is just p times 2</p>
+<p t="2303310" d="8180">to the minus K. The probability
+that I got K straight heads is</p>
+<p t="2311490" d="2720">P times 2 to the minus
+K plus the chance</p>
+<p t="2314210" d="4020">I picked the unfair
+coin, which is 1 minus P.</p>
+<p t="2318230" d="2110">And if I multiply top
+and bottom by 2 to the K,</p>
+<p t="2320340" d="7231">I get P over P plus
+to the K 1 minus B.</p>
+<p t="2327571" d="499">All right.</p>
+<p t="2328070" d="5220">So it gets very unlikely that
+I've got the fair coin here</p>
+<p t="2333290" d="1990">as K gets big.</p>
+<p t="2335280" d="3380">Like if K is 100 I got
+a big number down here.</p>
+<p t="2338660" d="2020">And basically it's
+0 chance-- close</p>
+<p t="2340680" d="3220">to 0 chance of the fair coin.</p>
+<p t="2346910" d="3850">But now say I do the
+following experiment.</p>
+<p t="2350760" d="6060">I don't tell you P.
+But I pull a coin out</p>
+<p t="2356820" d="4560">and 100 flips in
+a row it's heads.</p>
+<p t="2361380" d="1330">Which coin do you think I have?</p>
+<p t="2366340" d="2960">I flipped it 100 straight times
+and it's heads every time.</p>
+<p t="2372550" d="500">Yeah.</p>
+<p t="2373050" d="1291">There's not enough information.</p>
+<p t="2374341" d="649">You don't know.</p>
+<p t="2374990" d="2850">What do you want to say?</p>
+<p t="2377840" d="3050">You want to say
+it's the unfair coin</p>
+<p t="2380890" d="5360">but you have no idea because I
+might have picked the fair coin</p>
+<p t="2386250" d="2540">with probability 1, in which
+case it is the fair coin</p>
+<p t="2388790" d="2210">and it just was unlucky
+that it came up heads</p>
+<p t="2391000" d="2270">100 times in a row.</p>
+<p t="2393270" d="1260">But it could be.</p>
+<p t="2394530" d="4200">So you could say nothing if you
+don't know the probability P.</p>
+<p t="2398730" d="6640">Because sure enough, if
+I plug in P being 1 here,</p>
+<p t="2405370" d="2480">that wipes out the 2 to the K
+and I just get probability 1.</p>
+<p t="2410600" d="2340">OK?</p>
+<p t="2412940" d="500">All right.</p>
+<p t="2413440" d="5070">Now when this comes
+up in practice</p>
+<p t="2418510" d="2050">is with things like polling.</p>
+<p t="2420560" d="2120">Like, we just had an election.</p>
+<p t="2422680" d="2750">And people do poles
+ahead of time.</p>
+<p t="2425430" d="3420">And they sample
+thousands of voters</p>
+<p t="2428850" d="2310">from 1% of the population.</p>
+<p t="2431160" d="2430">And they say, OK,
+that 60% of the people</p>
+<p t="2433590" d="3650">are going to vote Republican.</p>
+<p t="2437240" d="2640">And they might have a margin of
+error, three points, whatever</p>
+<p t="2439880" d="500">that means.</p>
+<p t="2440380" d="2200">And we'll figure
+that out next week.</p>
+<p t="2442580" d="3340">What does that tell you about
+the electorate as a whole--</p>
+<p t="2445920" d="6260">the population if they sample 1%
+at random, 60% are Republican.</p>
+<p t="2452180" d="2392">Yeah?</p>
+<p t="2454572" d="3904">AUDIENCE: [INAUDIBLE]
+The options you have,</p>
+<p t="2458476" d="1952">is it all heads or
+is it all tails?</p>
+<p t="2460428" d="1464">It should be one
+option all heads</p>
+<p t="2461892" d="1968">and another option
+at least one tails.</p>
+<p t="2463860" d="1050">PROFESSOR: You're right.</p>
+<p t="2464910" d="1410">Oops.</p>
+<p t="2466320" d="620">All right.</p>
+<p t="2466940" d="963">At least one tail for this one.</p>
+<p t="2467903" d="499">Yeah.</p>
+<p t="2468402" d="1766">Good.</p>
+<p t="2470168" d="1362">That is true.</p>
+<p t="2471530" d="2340">OK.</p>
+<p t="2473870" d="4680">Any questions
+about that example?</p>
+<p t="2478550" d="1000">OK.</p>
+<p t="2479550" d="1750">Now we're back to the
+election and there's</p>
+<p t="2481300" d="5220">a pole that says they sampled
+1% of the population at random</p>
+<p t="2486520" d="3020">and 60% said they're
+going to vote Republican.</p>
+<p t="2489540" d="3030">And the margin of error
+is 3% or something.</p>
+<p t="2492570" d="3940">What does that tell you about
+the population of the country?</p>
+<p t="2496510" d="1390">Nothing.</p>
+<p t="2497900" d="1660">That's right.</p>
+<p t="2499560" d="2930">It is what it is.</p>
+<p t="2502490" d="4710">All you can conclude is
+that either the population</p>
+<p t="2507200" d="4720">is close to 60% Republican
+or you were unlucky</p>
+<p t="2511920" d="2820">in the 1% you sample.</p>
+<p t="2514740" d="4380">That's what you can conclude
+because the population really</p>
+<p t="2519120" d="990">is fixed in this case.</p>
+<p t="2520110" d="950">It is what it is.</p>
+<p t="2521060" d="3030">There's no randomness
+in the population.</p>
+<p t="2524090" d="500">All right?</p>
+<p t="2524590" d="3040">So you have next
+week for recitation.</p>
+<p t="2527630" d="2260">You're going to design a
+pole and work through how</p>
+<p t="2529890" d="1750">to calculate the margin
+of error and work</p>
+<p t="2531640" d="3000">through what that
+really means in terms</p>
+<p t="2534640" d="2770">of what the population is like.</p>
+<p t="2537410" d="3120">Now of course, if it comes
+out 100 straight times heads,</p>
+<p t="2540530" d="3060">you've got to be really
+unlucky to have the fair coin.</p>
+<p t="2543590" d="1870">And the same thing
+with designing the poll</p>
+<p t="2545460" d="2810">if you're way off.</p>
+<p t="2548270" d="4491">Any questions about that?</p>
+<p t="2552761" d="499">OK.</p>
+<p t="2553260" d="4710">The next example comes up
+all the time in practice.</p>
+<p t="2557970" d="2976">And that's with medical testing.</p>
+<p t="2560946" d="2601">Maybe I'll leave-- no.</p>
+<p t="2563547" d="833">I'll take that down.</p>
+<p t="2564380" d="1254">We know that now.</p>
+<p t="2585030" d="3490">Now in this case--
+in fact, this is</p>
+<p t="2588520" d="3010">a question we had on the
+final exam a few years ago.</p>
+<p t="2591530" d="2700">And there's a good chance
+this kind of question's</p>
+<p t="2594230" d="2110">going to be on the
+final this year.</p>
+<p t="2596340" d="2420">There's a disease out there.</p>
+<p t="2598760" d="2630">And you can have a test for it.</p>
+<p t="2601390" d="3117">But like most medical
+tests, they're not perfect.</p>
+<p t="2604507" d="2333">Sometimes when it says you've
+got the disease you really</p>
+<p t="2606840" d="1060">don't.</p>
+<p t="2607900" d="3757">And if it ways you don't
+have it, you really do.</p>
+<p t="2611657" d="1583">So in this case,
+we're going to assume</p>
+<p t="2613240" d="12674">that 10% of the population has
+the disease, whatever it is.</p>
+<p t="2625914" d="1416">You don't get
+symptoms right away.</p>
+<p t="2627330" d="1860">So you have this test.</p>
+<p t="2629190" d="14952">But if you have the disease
+there is a 10% chance</p>
+<p t="2644142" d="1083">that the test is negative.</p>
+<p t="2648940" d="6100">And this is called
+a false negative,</p>
+<p t="2655040" d="2370">because the test comes back
+negative but it's wrong,</p>
+<p t="2657410" d="2340">because you have the disease.</p>
+<p t="2659750" d="2870">And similarly, if you
+have the disease--</p>
+<p t="2662620" d="6620">or sorry-- if you
+don't have the disease,</p>
+<p t="2669240" d="5930">there's a 30% chance that
+the test comes back positive.</p>
+<p t="2675170" d="6390">And it's called a false positive
+because it came back positive,</p>
+<p t="2681560" d="2310">but you don't have it.</p>
+<p t="2683870" d="1930">So the test is pretty good.</p>
+<p t="2685800" d="700">Right?</p>
+<p t="2686500" d="5890">It's 10% false negative right,
+30% false positive right.</p>
+<p t="2692390" d="6820">Now say you select a random
+person and they test positive.</p>
+<p t="2699210" d="1910">What you want to know
+is the probability</p>
+<p t="2701120" d="2894">they have the disease given
+that it's a random person.</p>
+<p t="2707730" d="4900">So actually, this came
+up in my personal life.</p>
+<p t="2712630" d="5450">Many years ago when my wife
+was pregnant with Alex,</p>
+<p t="2718080" d="4760">she was exposed to somebody
+with TB here at MIT.</p>
+<p t="2722840" d="2560">And she took the test.</p>
+<p t="2725400" d="2640">And it came back positive.</p>
+<p t="2728040" d="2599">Now the bad thing--
+TB's a bad thing.</p>
+<p t="2730639" d="1041">You don't want to get it.</p>
+<p t="2731680" d="4310">But the medicine for it
+you take for six months.</p>
+<p t="2735990" d="1770">And she was worried
+about taking medicine</p>
+<p t="2737760" d="2770">for six months when she's
+pregnant because who</p>
+<p t="2740530" d="3300">knows what the TB medicine
+does kind of thing</p>
+<p t="2743830" d="2110">if you have a baby.</p>
+<p t="2745940" d="2500">So she asked the doc, what's
+the probability I really</p>
+<p t="2748440" d="2880">have the disease?</p>
+<p t="2751320" d="2250">The doc doesn't know.</p>
+<p t="2753570" d="2050">The doc maybe could give
+you some of these steps,</p>
+<p t="2755620" d="2730">10% false negative,
+30% false positive.</p>
+<p t="2758350" d="1410">But it tested positive.</p>
+<p t="2759760" d="3770">So they just normally
+give you the medicine.</p>
+<p t="2763530" d="1610">So say this was the story.</p>
+<p t="2765140" d="1350">What would you say?</p>
+<p t="2766490" d="1180">What do you think?</p>
+<p t="2767670" d="2420">How many people think that
+it's a least a 70% chance</p>
+<p t="2770090" d="2810">you got the disease?</p>
+<p t="2772900" d="2030">She tested positive
+and it's only</p>
+<p t="2774930" d="1890">got a 30% false positive rate.</p>
+<p t="2776820" d="1881">Anybody?</p>
+<p t="2778701" d="2559">So you don't think
+she's likely to have it.</p>
+<p t="2781260" d="2460">How many people think
+it's better than 50-50</p>
+<p t="2783720" d="3100">you have the disease?</p>
+<p t="2786820" d="1050">A few.</p>
+<p t="2787870" d="3550">How many people
+think less than 50%.</p>
+<p t="2791420" d="870">A bunch.</p>
+<p t="2792290" d="780">Yeah.</p>
+<p t="2793070" d="3180">You're right, in fact.</p>
+<p t="2796250" d="1190">Let's figure out the answer.</p>
+<p t="2797440" d="2110">It's easy to do.</p>
+<p t="2799550" d="4385">So A is the event the
+person has the disease.</p>
+<p t="2811800" d="5035">And B is the event that
+the person tests positive.</p>
+<p t="2821120" d="2280">And of course what
+we want to know</p>
+<p t="2823400" d="2270">is the probability you
+have the disease given</p>
+<p t="2825670" d="1880">that you tested positive.</p>
+<p t="2827550" d="3870">And that's just the probability
+of both events divided</p>
+<p t="2831420" d="4920">by the probability
+of testing positive.</p>
+<p t="2836340" d="3720">So let's figure that
+out by drawing the tree.</p>
+<p t="2858750" d="2220">So first, do you
+have the disease?</p>
+<p t="2863980" d="1380">And it's yes or no.</p>
+<p t="2869320" d="1060">And let's see.</p>
+<p t="2870380" d="2870">The probability of
+having the disease, what</p>
+<p t="2873250" d="2760">is that for a random person?</p>
+<p t="2876010" d="800">10%.</p>
+<p t="2876810" d="1570">that the stat.</p>
+<p t="2878380" d="2894">So it's-- actually,
+we'll call it 0.1.</p>
+<p t="2881274" d="2723">And 9.9 you don't have it.</p>
+<p t="2883997" d="1083">And then there's the test.</p>
+<p t="2887940" d="2055">Well, you can be
+positive or negative.</p>
+<p t="2894360" d="5160">Now if you have
+the disease, there</p>
+<p t="2899520" d="7360">is a-- the chance you
+test negative is 10%, 0.1.</p>
+<p t="2906880" d="4472">Therefore there's a 90%
+chance you test positive.</p>
+<p t="2911352" d="1458">Now if, you don't
+have the disease,</p>
+<p t="2912810" d="1083">you could test either way.</p>
+<p t="2916740" d="3650">If you don't have the
+disease there's a 30% chance</p>
+<p t="2920390" d="2200">you test positive.</p>
+<p t="2922590" d="5170">30 here and 70% percent
+chance you're negative.</p>
+<p t="2927760" d="3860">Now we can compute each
+sample point probability.</p>
+<p t="2931620" d="4940">This one is 0.1
+times 0.9 is 0.09.</p>
+<p t="2936560" d="3490">0.1 times 1 is 0.01.</p>
+<p t="2940050" d="3670">0.9 and 0.3 is 0.27.</p>
+<p t="2943720" d="5860">0.9 and 0.7 is 0.63.</p>
+<p t="2949580" d="2770">So all sample points
+are figured out.</p>
+<p t="2952350" d="3890">Now we figure out which sample
+points are in which sets.</p>
+<p t="2956240" d="5410">So we have event A, event B,
+and A intersect B. Let's see.</p>
+<p t="2961650" d="3650">A is the event you
+have the disease.</p>
+<p t="2965300" d="2290">That's these guys.</p>
+<p t="2967590" d="4200">B is the event
+you test positive.</p>
+<p t="2971790" d="5050">That's this one and this one.</p>
+<p t="2976840" d="3681">A intersect B is just this one.</p>
+<p t="2980521" d="499">All right.</p>
+<p t="2981020" d="2129">We're almost done.</p>
+<p t="2983149" d="1541">Let's just figure
+out the probability</p>
+<p t="2984690" d="2500">you have the disease.</p>
+<p t="2987190" d="1810">What's the probability
+of A intersect B?</p>
+<p t="2992340" d="780">0.09.</p>
+<p t="2993120" d="3620">It's just that one sample point.</p>
+<p t="2996740" d="2905">What's the probability
+that you tested positive?</p>
+<p t="3002170" d="1060">0.36.</p>
+<p t="3003230" d="500">Yeah.</p>
+<p t="3003730" d="9880">0.09 plus 0.27, which is 0.36.</p>
+<p t="3013610" d="7820">So I got 0.09 over 0.36 is 1/4.</p>
+<p t="3021430" d="1360">Wow.</p>
+<p t="3022790" d="1281">That seems bizarre.</p>
+<p t="3024071" d="499">Right?</p>
+<p t="3024570" d="4170">You've got a test, 10%
+percent false negative,</p>
+<p t="3028740" d="1510">30% false positive.</p>
+<p t="3030250" d="3810">Yet, when you test positive
+there's only a 25% chance</p>
+<p t="3034060" d="2430">you have the disease.</p>
+<p t="3036490" d="2120">So maybe you don't
+take the medicine.</p>
+<p t="3038610" d="2220">So if there's risk
+both ways, probably</p>
+<p t="3040830" d="2100">don't have the disease.</p>
+<p t="3042930" d="2040">Yeah?</p>
+<p t="3044970" d="1500">AUDIENCE: [INAUDIBLE]
+disease change</p>
+<p t="3046470" d="1500">because you've
+already been exposed</p>
+<p t="3047970" d="1000">to somebody that has it?</p>
+<p t="3048970" d="3560">PROFESSOR: That's a
+great point, great point,</p>
+<p t="3052530" d="1910">because there's
+additional information</p>
+<p t="3054440" d="2750">conditioning this in the
+personal example I cited.</p>
+<p t="3057190" d="2060">You were exposed to somebody.</p>
+<p t="3059250" d="2780">So we need to condition
+on that as well, which</p>
+<p t="3062030" d="2220">raises the chance
+you have the disease.</p>
+<p t="3064250" d="1790">That's a great point.</p>
+<p t="3066040" d="1910">Yeah.</p>
+<p t="3067950" d="2470">Just like in the-- well, we
+haven't got to that example.</p>
+<p t="3070420" d="2000">Do another example with
+that exact kind of thing</p>
+<p t="3072420" d="2011">is very important.</p>
+<p t="3074431" d="499">All right.</p>
+<p t="3074930" d="2990">So this is sort of
+paradoxical that it</p>
+<p t="3077920" d="3200">looks like a pretty good
+test-- low false positive,</p>
+<p t="3081120" d="4340">full false negatives, but
+likely be wrong, at least if it</p>
+<p t="3085460" d="3177">tells you have the disease.</p>
+<p t="3088637" d="1083">In fact, let's figure out.</p>
+<p t="3089720" d="2000">What's the probability
+that the test is correct?</p>
+<p t="3095620" d="3510">What's the probability the
+test is right in general?</p>
+<p t="3103030" d="1320">72%.</p>
+<p t="3104350" d="1220">Let's see.</p>
+<p t="3105570" d="3161">So it would be 0.09 plus 0.63.</p>
+<p t="3108731" d="500">72%.</p>
+<p t="3116780" d="2924">So it's likely to be right.</p>
+<p t="3119704" d="1666">But if it tells you
+you have the disease</p>
+<p t="3121370" d="1090">it's likely to be wrong.</p>
+<p t="3125500" d="1350">It's hard.</p>
+<p t="3126850" d="1680">Why is this happening?</p>
+<p t="3128530" d="1250">Why does it come out that way?</p>
+<p t="3129780" d="500">Yeah?</p>
+<p t="3132980" d="3210">AUDIENCE: Then there is
+only a 1 in 64 chance</p>
+<p t="3136190" d="2440">that you have the disease.</p>
+<p t="3138630" d="2160">So if it comes back
+negative, then it's</p>
+<p t="3140790" d="1794">a pretty good indication
+that you're OK.</p>
+<p t="3142584" d="666">PROFESSOR: Yeah.</p>
+<p t="3143250" d="3730">If it comes back negative than
+it really is doing very well.</p>
+<p t="3146980" d="927">That's right.</p>
+<p t="3147907" d="1708">But why is it when it
+comes back positive</p>
+<p t="3149615" d="2541">that you're unlikely to have
+the disease if it's a good test.</p>
+<p t="3152156" d="730">Yeah.</p>
+<p t="3152886" d="1374">AUDIENCE: The
+disease is so rare.</p>
+<p t="3154260" d="1500">PROFESSOR: The
+disease is so rare.</p>
+<p t="3155760" d="1740">Absolutely.</p>
+<p t="3157500" d="2270">This number here is so small.</p>
+<p t="3159770" d="2190">And that's what's doing it.</p>
+<p t="3161960" d="3060">Because if you look at how
+many people have the disease</p>
+<p t="3165020" d="2100">and test positive, it's 0.09.</p>
+<p t="3167120" d="3150">So many people don't
+have the disease</p>
+<p t="3170270" d="2850">that even with a small false
+positive rate, this number</p>
+<p t="3173120" d="2260">swamps out that number.</p>
+<p t="3175380" d="2550">In fact, imagine
+nobody had the disease.</p>
+<p t="3177930" d="2490">You'd have a 0 here.</p>
+<p t="3180420" d="720">All right?</p>
+<p t="3181140" d="3610">And then you would always be
+wrong if you said you had it.</p>
+<p t="3184750" d="730">OK?</p>
+<p t="3185480" d="3300">That's good.</p>
+<p t="3188780" d="500">OK.</p>
+<p t="3189280" d="2700">This comes up in weather
+prediction, the same paradox.</p>
+<p t="3191980" d="2070">For example, say you're
+trying to predict</p>
+<p t="3194050" d="1700">the weather for Seattle.</p>
+<p t="3195750" d="2410">Sometimes it seems
+like this in Boston.</p>
+<p t="3198160" d="4330">And you just say,
+it's going to rain.</p>
+<p t="3202490" d="2782">Forget all the fancy weather
+forecasting stuff, the radar,</p>
+<p t="3205272" d="708">and all the rest.</p>
+<p t="3205980" d="2460">Just say it's going
+to rain tomorrow.</p>
+<p t="3208440" d="2502">You're going to be right
+almost all the time.</p>
+<p t="3210942" d="678">All right?</p>
+<p t="3211620" d="2730">And in fact, if you
+try to do fancy stuff,</p>
+<p t="3214350" d="2870">you're probably going to
+be wrong more of the time.</p>
+<p t="3217220" d="580">All right.</p>
+<p t="3217800" d="2330">For example, in this
+case, if you just</p>
+<p t="3220130" d="4380">say the person does not have the
+disease, forget the lab test.</p>
+<p t="3224510" d="3041">Just come back with negative.</p>
+<p t="3227551" d="999">How often are you right?</p>
+<p t="3231870" d="2320">90% of the time you're right.</p>
+<p t="3234190" d="2270">Much better than the test
+you paid a lot of money for.</p>
+<p t="3239050" d="800">I see.</p>
+<p t="3239850" d="2780">You've got to be careful
+what you're looking for,</p>
+<p t="3242630" d="3870">how you measure the value
+of a test or a prediction.</p>
+<p t="3246500" d="1640">Because presumably
+the one you paid</p>
+<p t="3248140" d="6100">for is better, even though
+accurate less of the time.</p>
+<p t="3254240" d="1764">Any questions about that?</p>
+<p t="3260350" d="1680">OK.</p>
+<p t="3262030" d="1500">So For the rest of
+today we're going</p>
+<p t="3263530" d="3630">to do three more paradoxes.</p>
+<p t="3267160" d="2830">And in each case
+they're going to expose</p>
+<p t="3269990" d="3230">a flaw in our intuition
+about probability.</p>
+<p t="3273220" d="1612">But the good news
+is in each case it's</p>
+<p t="3274832" d="1208">easy to get the right answer.</p>
+<p t="3276040" d="3600">Just stick with the math and
+try not to think about it.</p>
+<p t="3279640" d="4450">Now the first example
+is a game involving</p>
+<p t="3284090" d="4150">dice that's called carnival dice
+that you can find in carnivals</p>
+<p t="3288240" d="1935">and you can also
+find in casinos.</p>
+<p t="3293150" d="3900">It's a pretty popular
+game, actually.</p>
+<p t="3297050" d="2725">So the way it works
+is as follows.</p>
+<p t="3307310" d="14050">The player picks a number from
+1 to 6-- we'll call it N--</p>
+<p t="3321360" d="2290">and then rolls three dice.</p>
+<p t="3323650" d="2356">And let's say they're fair
+and mutually independent.</p>
+<p t="3334970" d="1500">We haven't talked
+about independent.</p>
+<p t="3336470" d="1990">So they're fair dice.</p>
+<p t="3338460" d="2790">For now, normal
+dice-- nothing fishy.</p>
+<p t="3341250" d="9530">And the player wins if and
+only if the number he picked</p>
+<p t="3350780" d="1675">comes up on at least
+one of the dice.</p>
+<p t="3358100" d="1730">So you either win
+or you lose the game</p>
+<p t="3359830" d="3545">depending on if your lucky
+number came up at least once.</p>
+<p t="3365960" d="2630">Now you've got three dice,
+each of which has a 1</p>
+<p t="3368590" d="2150">in 6 chance of coming
+up a winner for you.</p>
+<p t="3373420" d="4310">So how many people think
+this is a fair game-- you</p>
+<p t="3377730" d="5000">got a 50-50 chance of
+winning-- three dice, each 1/6</p>
+<p t="3382730" d="1560">chance of winning?</p>
+<p t="3384290" d="3250">Anybody think it's
+not a fair game?</p>
+<p t="3387540" d="880">A bunch of you.</p>
+<p t="3388420" d="3420">How many people think it
+is a fair game-- 50-50?</p>
+<p t="3391840" d="761">A few.</p>
+<p t="3392601" d="499">All right.</p>
+<p t="3393100" d="3379">Well, let's figure it out.</p>
+<p t="3396479" d="1791">And instead of doing
+the tree method, which</p>
+<p t="3398270" d="1458">we know we're
+supposed to do, we're</p>
+<p t="3399728" d="6556">just going to wing it, which
+is always seems easier to do.</p>
+<p t="3411650" d="2530">If you're in the Casino
+you want to just wing it</p>
+<p t="3414180" d="3790">instead of taking your napkin
+out and drawing a tree.</p>
+<p t="3417970" d="9770">So the claim, question mark, is
+the probability you win in 1/2.</p>
+<p t="3427740" d="7510">And the proof, question
+mark, is you let Ai</p>
+<p t="3435250" d="9970">be the event that the i-th die
+comes up N. And i is 1 to 3</p>
+<p t="3445220" d="1647">here.</p>
+<p t="3446867" d="833">So then you say, OK.</p>
+<p t="3447700" d="5600">The probability I win is
+the probability of A1--</p>
+<p t="3453300" d="4710">I could win that
+way-- or A2, or A3.</p>
+<p t="3458010" d="3800">All I need is one of the
+die to come up my way.</p>
+<p t="3461810" d="3620">And that is the
+probability of A1</p>
+<p t="3465430" d="6780">plus the probability of A2
+plus the probability of A3.</p>
+<p t="3472210" d="2345">And each die wins for
+me with probability 1/6.</p>
+<p t="3479345" d="875">And that is then 1/2.</p>
+<p t="3483460" d="6246">So that's a proof that we
+win with probability of 1/2.</p>
+<p t="3489706" d="3454">What do you think?</p>
+<p t="3493160" d="1227">Any problems with that proof?</p>
+<p t="3494387" d="875">AUDIENCE: [INAUDIBLE]</p>
+<p t="3500489" d="1541">PROFESSOR: Well
+that's a great point.</p>
+<p t="3502030" d="820">Yeah.</p>
+<p t="3502850" d="3100">So if I extended this
+nice proof technique</p>
+<p t="3505950" d="3160">I couldn't have probability of
+7/6 of winning with seven die.</p>
+<p t="3509110" d="1140">Yeah?</p>
+<p t="3510250" d="875">AUDIENCE: [INAUDIBLE]</p>
+<p t="3514874" d="666">PROFESSOR: Yeah.</p>
+<p t="3515540" d="1450">You're very close.</p>
+<p t="3516990" d="4072">I didn't technically
+assume that.</p>
+<p t="3521062" d="2908">AUDIENCE: [INAUDIBLE]</p>
+<p t="3523970" d="1480">PROFESSOR: They could double up.</p>
+<p t="3525450" d="1130">Yeah.</p>
+<p t="3526580" d="3460">There's no intersection
+in the events.</p>
+<p t="3530040" d="3180">In fact, there is
+intersection because there's</p>
+<p t="3533220" d="3520">a chance I rolled
+all six-- all Ns.</p>
+<p t="3536740" d="940">Say N is 6.</p>
+<p t="3537680" d="2130">I could roll all sixes
+and then each of these</p>
+<p t="3539810" d="1180">would be a winner.</p>
+<p t="3540990" d="2614">But I don't get to
+count them separately.</p>
+<p t="3543604" d="1416">Then I only win
+once in that case.</p>
+<p t="3545020" d="2270">In other words, all of
+these could turned on</p>
+<p t="3547290" d="770">at the same time.</p>
+<p t="3548060" d="1208">There's an intersection here.</p>
+<p t="3549268" d="4302">So this rule does not hold.</p>
+<p t="3553570" d="2720">I need the Ai to be
+disjoined for this</p>
+<p t="3556290" d="4090">to be true-- the
+events to be disjoined.</p>
+<p t="3560380" d="1730">And they're not
+disjoined because there's</p>
+<p t="3562110" d="2930">a sample point were
+two or more of the die</p>
+<p t="3565040" d="3430">could come up the same
+being a winner, which</p>
+<p t="3568470" d="5090">means the same sample
+point, namely all die are N,</p>
+<p t="3573560" d="1400">comes up in each of these three.</p>
+<p t="3574960" d="1570">So they're not disjoined.</p>
+<p t="3576530" d="4160">Now what's the principal
+you used two weeks ago when</p>
+<p t="3580690" d="5870">you did cardinality of a set--
+cardinality of a union of sets?</p>
+<p t="3586560" d="1920">Inclusion, exclusion.</p>
+<p t="3588480" d="2220">And the same thing
+needs to be done here.</p>
+<p t="3595870" d="1494">So let's do that.</p>
+<p t="3597364" d="2041">And then we'll figure out
+the actual probability.</p>
+<p t="3603450" d="4680">So this is a fact based on the
+inclusion, exclusion principle.</p>
+<p t="3608130" d="5380">The probability of A1,
+union A2, union A3,</p>
+<p t="3613510" d="4170">is just what you think it would
+be from inclusion, exclusion.</p>
+<p t="3617680" d="1930">It's a probability of
+A1 plus a probability</p>
+<p t="3619610" d="6940">of A2 plus the
+probability of A3 minus</p>
+<p t="3626550" d="1170">the pairwise intersections.</p>
+<p t="3633700" d="6070">A1 intersect A3 minus
+probability of A2 intersect A3.</p>
+<p t="3642310" d="3550">And is there anything else?</p>
+<p t="3645860" d="2440">Plus, the probably of
+all of them matching.</p>
+<p t="3654860" d="500">OK.</p>
+<p t="3655360" d="3710">So the proof is
+really the same proof</p>
+<p t="3659070" d="2606">you use for inclusion,
+exclusion with sets.</p>
+<p t="3661676" d="2124">The only difference is that
+in a probability space,</p>
+<p t="3663800" d="1910">we have weights on the elements.</p>
+<p t="3665710" d="3480">And the weight corresponds
+to the probability.</p>
+<p t="3669190" d="5320">So in fact, if you were drawing
+the sample space, say here's A1</p>
+<p t="3674510" d="5280">and here's A2, and here's A3.</p>
+<p t="3679790" d="5070">Well, you need to add the
+probabilities here, here,</p>
+<p t="3684860" d="910">and here.</p>
+<p t="3685770" d="4410">Then you subtract off the double
+counting from here, from here,</p>
+<p t="3690180" d="610">and from here.</p>
+<p t="3690790" d="2770">And then you add back again
+what you subtracted off</p>
+<p t="3693560" d="2900">too much there.</p>
+<p t="3696460" d="2970">Same proof, it's just your
+have weights on the elements</p>
+<p t="3699430" d="2510">of probabilities.</p>
+<p t="3701940" d="500">All right.</p>
+<p t="3702440" d="2840">So let's figure out
+the right probability.</p>
+<p t="3705280" d="5270">That's 1/6, 1/6, 1/6.</p>
+<p t="3710550" d="3150">What's the probability
+of the first two die</p>
+<p t="3713700" d="1280">matching-- both of them?</p>
+<p t="3720360" d="2280">1/36.</p>
+<p t="3722640" d="2470">We'll talk more about
+why that is next time.</p>
+<p t="3725110" d="4490">But there's a 6 for A1 then
+given that 1/6 for the second</p>
+<p t="3729600" d="660">die matching.</p>
+<p t="3730260" d="5540">So it's 1/6 times
+1/6 minus the 1/36.</p>
+<p t="3735800" d="6210">1/36, the chance that all three
+match is 1/216 or 6 cubed.</p>
+<p t="3742010" d="7510">So when you add all that up you
+get the 0.421 and some more.</p>
+<p t="3749520" d="1540">So the chance of
+winning this game</p>
+<p t="3751060" d="5220">is 41% which makes it a
+worst game in the casino.</p>
+<p t="3756280" d="2280">It is hard to find a
+worse game than this.</p>
+<p t="3758560" d="1020">Roulette, much better.</p>
+<p t="3759580" d="3380">We'll study Roulette in the
+last lecture-- much better game.</p>
+<p t="3762960" d="3030">And even that's a
+terrible game to play.</p>
+<p t="3765990" d="1710">So it looks like an easy game.</p>
+<p t="3767700" d="1900">There's a quick proof
+that it's 50-50.</p>
+<p t="3769600" d="4650">But it's horrible odds
+against the house.</p>
+<p t="3774250" d="3410">Now, this is a nice
+example because it</p>
+<p t="3777660" d="3830">shows how a rule you had for
+computing the cardinality</p>
+<p t="3781490" d="3610">of a set gives you
+the probability.</p>
+<p t="3785100" d="520">All right.</p>
+<p t="3785620" d="4590">In fact, all the set laws you
+learned a couple weeks ago</p>
+<p t="3790210" d="2759">work for probability
+spaces the same way.</p>
+<p t="3792969" d="1791">And there were several
+of those in homework</p>
+<p t="3794760" d="3640">that you just had
+the last problem set.</p>
+<p t="3798400" d="1560">Any questions about that?</p>
+<p t="3805660" d="1430">OK.</p>
+<p t="3807090" d="4710">Now in addition, all those
+set laws you did also</p>
+<p t="3811800" d="3270">work for conditional
+probabilities.</p>
+<p t="3815070" d="3340">For example, this is true.</p>
+<p t="3818410" d="6280">The probability of A union B
+given C-- whoops-- given C,</p>
+<p t="3824690" d="6170">is the probability of A given
+C plus the probability of B</p>
+<p t="3830860" d="6170">given C minus the intersection,
+A intersect B given</p>
+<p t="3837030" d="5150">C. In other words, take any
+probability rule you have</p>
+<p t="3842180" d="4400">and condition everything on an
+event, C, and it still works.</p>
+<p t="3849310" d="2030">And the proof is not hard.</p>
+<p t="3851340" d="2240">You can go through
+each individual law</p>
+<p t="3853580" d="3970">but it all comes out to be fine.</p>
+<p t="3857550" d="2130">All right.</p>
+<p t="3859680" d="2090">You have to be a little
+careful though because you</p>
+<p t="3861770" d="3260">got to remember which
+side you're doing,</p>
+<p t="3865030" d="2550">which what you're putting on
+either side of the bar here.</p>
+<p t="3867580" d="2250">For example, what
+about this one?</p>
+<p t="3869830" d="710">Is this true?</p>
+<p t="3873080" d="1820">Claim.</p>
+<p t="3874900" d="2500">Let's take-- say C
+and D are disjoined.</p>
+<p t="3882900" d="2790">Is this true?</p>
+<p t="3885690" d="4180">Then the probability
+of A conditioned</p>
+<p t="3889870" d="6580">on C union D. So given
+that either C or D is true,</p>
+<p t="3896450" d="4360">does that equal the
+probability of A given C</p>
+<p t="3900810" d="3610">plus probability of A given D?</p>
+<p t="3907140" d="4010">We know that if I swapped
+all these, it's true.</p>
+<p t="3911150" d="3212">The probability of C union
+D when C and D are disjoined</p>
+<p t="3914362" d="2458">is the probability that C given
+A plus the probability of D</p>
+<p t="3916820" d="2210">given A. That I just claimed.</p>
+<p t="3919030" d="1040">And what about this way?</p>
+<p t="3920070" d="1615">Can I swap things around?</p>
+<p t="3924580" d="1726">Yeah?</p>
+<p t="3926306" d="6404">AUDIENCE: [INAUDIBLE]
+would C union D be 0?</p>
+<p t="3932710" d="3640">PROFESSOR: If C and
+D are disjoined,</p>
+<p t="3936350" d="6700">C union D would just be C union
+D. But you're not a good point.</p>
+<p t="3943050" d="1490">What if C and D are disjoined?</p>
+<p t="3944540" d="1200">That's a good example.</p>
+<p t="3945740" d="666">Let's draw that.</p>
+<p t="3952726" d="1000">Let's look at that case.</p>
+<p t="3957640" d="2900">So we've got a
+sample space here.</p>
+<p t="3960540" d="5020">And you've got C
+here and D here.</p>
+<p t="3965560" d="4185">And just for fun, let's make A
+be here-- include all of them.</p>
+<p t="3973140" d="5540">What's the probability-- is
+this going to do what I want?</p>
+<p t="3978680" d="550">Yeah.</p>
+<p t="3979230" d="2274">What's the probability
+of A given C?</p>
+<p t="3985440" d="890">1.</p>
+<p t="3986330" d="3970">If I'm in C I'm in A.
+A is everything here.</p>
+<p t="3990300" d="2670">So the probability
+of A given C is one.</p>
+<p t="3992970" d="3285">What's the probability
+of A given D?</p>
+<p t="3996255" d="2965">1.</p>
+<p t="3999220" d="500">All right.</p>
+<p t="3999720" d="1557">Well, this is a
+problem because I</p>
+<p t="4001277" d="2583">can't have the probability ot--
+what's the probably of A given</p>
+<p t="4003860" d="3030">C union D?</p>
+<p t="4006890" d="900">Well, it can't be 2.</p>
+<p t="4007790" d="1160">Right?</p>
+<p t="4008950" d="1600">It's 1.</p>
+<p t="4010550" d="1000">They are not equal.</p>
+<p t="4014120" d="4540">So you cannot do those set
+rules on the right side</p>
+<p t="4018660" d="2360">of the conditioning bar.</p>
+<p t="4021020" d="3060">You can do them on the
+left, not on the right.</p>
+<p t="4024080" d="500">All right.</p>
+<p t="4024580" d="833">So this is not true.</p>
+<p t="4033320" d="1071">Now nobody would do this.</p>
+<p t="4034391" d="499">Right?</p>
+<p t="4034890" d="3250">I mean, the probability of-- not
+that it's-- see this example?</p>
+<p t="4038140" d="3380">This you just would never
+make this mistake again seeing</p>
+<p t="4041520" d="1930">that example.</p>
+<p t="4043450" d="1970">Everybody understand
+the example,</p>
+<p t="4045420" d="1750">how it's clearly
+not always the case</p>
+<p t="4047170" d="1600">that probability
+of A given C union</p>
+<p t="4048770" d="4245">D is a probability of A given C
+plus probability of A given D?</p>
+<p t="4053015" d="2375">Because now I'm going to show
+you an example where you're</p>
+<p t="4055390" d="2860">going to swear it's true.</p>
+<p t="4058250" d="1122">All right?</p>
+<p t="4059372" d="1333">And this is a real life example.</p>
+<p t="4063660" d="3610">Many years ago now there was
+a sex discrimination suit</p>
+<p t="4067270" d="2050">at Berkeley.</p>
+<p t="4069320" d="2850">There was a female professor
+in the math department.</p>
+<p t="4072170" d="2330">And she was denied tenure.</p>
+<p t="4074500" d="2680">And she filed a lawsuit
+against Berkeley</p>
+<p t="4077180" d="2500">alleging sex discrimination.</p>
+<p t="4079680" d="2710">Said she wasn't tenured
+because she's a woman.</p>
+<p t="4082390" d="2271">Now, unfortunately
+sex discrimination</p>
+<p t="4084661" d="1374">is a problem in
+math departments.</p>
+<p t="4086035" d="3865">It's historically
+been a difficult area.</p>
+<p t="4089900" d="1440">But it's always hard to prove.</p>
+<p t="4091340" d="1500">It's a nebulous kind of thing.</p>
+<p t="4092840" d="1750">They don't say, hey,
+you can't have tenure</p>
+<p t="4094590" d="1220">because you're a woman.</p>
+<p t="4095810" d="3740">They'd get sued and
+get killed for that.</p>
+<p t="4099550" d="4470">So she had to get some
+mat to back her up.</p>
+<p t="4104020" d="3549">So what she did is she looked
+into Berkeley's practices</p>
+<p t="4107569" d="3431">and she found that in
+all 22 departments,</p>
+<p t="4111000" d="3040">every single department,
+the percentage</p>
+<p t="4114040" d="4390">of male PhD applicants
+that were accepted</p>
+<p t="4118430" d="5520">was higher than the percentage
+of female PhD applicants</p>
+<p t="4123950" d="2119">that were accepted.</p>
+<p t="4126069" d="3000">Now you could understand some of
+the departments accepting more</p>
+<p t="4129069" d="1740">male PhDs than female PhDs.</p>
+<p t="4130809" d="2621">But all 22?</p>
+<p t="4133430" d="1310">What are the odds of that?</p>
+<p t="4134740" d="1710">I mean, so the
+immediate conclusion</p>
+<p t="4136450" d="3770">is, well, that's clearly there's
+sex discrimination going on</p>
+<p t="4140220" d="1280">at Berkeley.</p>
+<p t="4141500" d="1899">OK?</p>
+<p t="4143399" d="2861">Well Berkeley took a look at
+that and said, nothing good.</p>
+<p t="4146260" d="1870">That doesn't look good for them.</p>
+<p t="4148130" d="5010">But they did their own
+study of PhD applicants.</p>
+<p t="4153140" d="3790">And they said that if the
+university as a whole--</p>
+<p t="4156930" d="4110">look at the University as a
+whole, actually, the women,</p>
+<p t="4161040" d="3989">the females have a higher
+acceptance rate for the PhD</p>
+<p t="4165029" d="2580">Program than the men.</p>
+<p t="4167609" d="500">So look.</p>
+<p t="4168109" d="1731">Berkeley said, we're
+accepting more women</p>
+<p t="4169840" d="2700">than men percentage-wise.</p>
+<p t="4172540" d="3080">So how could we be
+discriminating against women?</p>
+<p t="4175620" d="3050">And this is where the same
+argument the female faculty</p>
+<p t="4178670" d="2340">member's making, But they're
+saying as a university</p>
+<p t="4181010" d="3150">as a whole, when you add
+up all 22 departments.</p>
+<p t="4184160" d="1250">Well, that sounds pretty good.</p>
+<p t="4185410" d="2380">How could they be
+discriminating?</p>
+<p t="4187790" d="500">OK.</p>
+<p t="4188290" d="3500">So the question for you
+guys, is it possible that</p>
+<p t="4191790" d="3000">both sides we're
+telling the truth,</p>
+<p t="4194790" d="2790">that in every single department
+the women have a lower</p>
+<p t="4197580" d="4430">acceptance rate than men, but
+on the university as a whole</p>
+<p t="4202010" d="2840">the women are higher percentage?</p>
+<p t="4204850" d="7600">It sounds like it's-- and just
+to avoid any confusion here,</p>
+<p t="4212450" d="4880">people only apply to one
+department and they're only one</p>
+<p t="4217330" d="1160">sex.</p>
+<p t="4218490" d="3426">So you can't--
+Carroll didn't apply.</p>
+<p t="4221916" d="3704">[LAUGHTER]</p>
+<p t="4225620" d="2590">How many people think that one
+of the sides, actually, when</p>
+<p t="4228210" d="1830">they look at the
+studies was wrong,</p>
+<p t="4230040" d="3030">that they're contradictory?</p>
+<p t="4233070" d="1200">Nobody?</p>
+<p t="4234270" d="1582">You've been in 6
+over 2 too long.</p>
+<p t="4235852" d="1458">How many people
+think it's possible</p>
+<p t="4237310" d="3000">that both sides were right?</p>
+<p t="4240310" d="631">Yeah.</p>
+<p t="4240941" d="499">All right.</p>
+<p t="4241440" d="2970">So let's see how this works.</p>
+<p t="4250709" d="1791">And to make it simple
+I'm going to get down</p>
+<p t="4252500" d="4000">to just two departments rather
+than try to do data for all 22.</p>
+<p t="4256500" d="3206">And I'm going to do not the
+actual data but something</p>
+<p t="4259706" d="1416">that's represents
+what's going on.</p>
+<p t="4265931" d="499">OK.</p>
+<p t="4266430" d="1958">So we're going to look
+at the following events.</p>
+<p t="4272210" d="7130">A is the event that the
+applicant is admitted.</p>
+<p t="4285930" d="5030">FCS is the event
+that the applicant</p>
+<p t="4290960" d="6685">is female and applying to CS.</p>
+<p t="4300420" d="3350">FEE is the event
+that the applicant</p>
+<p t="4303770" d="3045">is female and applying to EE.</p>
+<p t="4309540" d="9600">MCS is the event the
+applicant is a male and CS.</p>
+<p t="4319140" d="7010">And then finally we have MEE
+is the event the applicant is</p>
+<p t="4326150" d="2044">male and in EE.</p>
+<p t="4328194" d="1916">So we're just going to
+look at two departments</p>
+<p t="4330110" d="3840">here and try to figure
+out if it can happen</p>
+<p t="4333950" d="2810">that in both departments
+the women are worse off</p>
+<p t="4336760" d="2388">but if you take the
+union they're better off.</p>
+<p t="4345840" d="4230">So the female professor's
+argument effectively</p>
+<p t="4350070" d="3960">is, the probability of being
+admitted given that you're</p>
+<p t="4354030" d="5700">a female in CS is less than the
+probability of being admitted</p>
+<p t="4359730" d="3350">given that you're a male at CS.</p>
+<p t="4363080" d="3740">And same thing in EE.</p>
+<p t="4366820" d="3390">Probability of being admitted
+in EE if you're a female</p>
+<p t="4370210" d="1255">is less than if you're a male.</p>
+<p t="4376290" d="1390">OK?</p>
+<p t="4377680" d="6540">Now Berkeley is saying
+it's sort of the reverse.</p>
+<p t="4384220" d="3520">The probability
+that you're admitted</p>
+<p t="4387740" d="5520">given that you're a female
+in either department</p>
+<p t="4393260" d="4270">is bigger than the probability
+of being admitted if you're</p>
+<p t="4397530" d="2095">a male in either department.</p>
+<p t="4404720" d="500">OK.</p>
+<p t="4405220" d="2960">So we've now expressed
+their arguments</p>
+<p t="4408180" d="5130">as conditional
+probabilities Any questions?</p>
+<p t="4413310" d="3735">Can you sort of see why
+this seems contradictory?</p>
+<p t="4419610" d="2190">Not plus, union.</p>
+<p t="4421800" d="4190">Because this is sort of
+like-- these are just joined.</p>
+<p t="4425990" d="4230">This is the sum of those.</p>
+<p t="4430220" d="4460">And this is sort of
+the sum of those.</p>
+<p t="4434680" d="4220">And yet the inequality changed.</p>
+<p t="4438900" d="500">All right.</p>
+<p t="4439400" d="3750">In fact, this is the logic
+that we've just debunked over</p>
+<p t="4443150" d="3156">there-- exactly that claim.</p>
+<p t="4446306" d="3304">In fact, these are
+not equal as the sum.</p>
+<p t="4453230" d="1040">So let's do an example.</p>
+<p t="4458370" d="4737">Say that-- let's
+do it over here.</p>
+<p t="4463107" d="1583">I'll put the real
+values in over here.</p>
+<p t="4464690" d="3480">Say that for women in
+computer science, 0 out of 1</p>
+<p t="4468170" d="3870">were admitted compared to
+the men, were 50 out of 100</p>
+<p t="4472040" d="2760">were admitted.</p>
+<p t="4474800" d="2880">And then in EE, 70
+out of 100 women</p>
+<p t="4477680" d="6170">were admitted compared to the
+men, which had 1 out of 1.</p>
+<p t="4483850" d="500">All right?</p>
+<p t="4484350" d="3100">So as ratios, 70%
+is less than 100%.</p>
+<p t="4487450" d="2170">0% is less than 50.</p>
+<p t="4489620" d="2000">Now if I look at the two
+departments is a whole,</p>
+<p t="4491620" d="9210">I get 70 over 101 is in fact
+bigger than 51 over 101.</p>
+<p t="4500830" d="500">All right?</p>
+<p t="4501330" d="1460">And so as a whole
+women are a lot more</p>
+<p t="4502790" d="1800">likely to be admitted even
+though in each department</p>
+<p t="4504590" d="1458">they're less likely
+to be admitted.</p>
+<p t="4508020" d="2780">OK?</p>
+<p t="4510800" d="2900">So what went wrong with
+the intuition, which</p>
+<p t="4513700" d="2470">you didn't fall victim
+to, but people often</p>
+<p t="4516170" d="5110">do, that it shouldn't have
+been possible given that?</p>
+<p t="4521280" d="1430">What's going on
+here that make it</p>
+<p t="4522710" d="2949">so that it's not
+a less than when</p>
+<p t="4525659" d="1708">you look at the union
+of the departments?</p>
+<p t="4533440" d="626">Yeah?</p>
+<p t="4534066" d="2124">AUDIENCE: [INAUDIBLE]
+they're weighted differently?</p>
+<p t="4536190" d="666">PROFESSOR: Yeah.</p>
+<p t="4536856" d="2641">They're weighted
+very differently.</p>
+<p t="4539497" d="2033">You got huge waves here.</p>
+<p t="4541530" d="500">Right?</p>
+<p t="4542030" d="3710">So if I look at the average
+of the percentages here,</p>
+<p t="4545740" d="5220">well it's 35% for the women
+versus 75% for the men.</p>
+<p t="4550960" d="2900">So the average of the percentage
+is just what you'd think.</p>
+<p t="4553860" d="2420">35 is less than 75.</p>
+<p t="4556280" d="3630">But I've got huge weightings
+on these guys, which changes</p>
+<p t="4559910" d="3270">the numbers quite dramatically.</p>
+<p t="4563180" d="1596">So it all depends
+how you count it.</p>
+<p t="4568432" d="1958">Actually, who do you
+think had a better-- Yeah.</p>
+<p t="4570390" d="836">Go ahead.</p>
+<p t="4571226" d="894">AUDIENCE: [INAUDIBLE]</p>
+<p t="4572120" d="1291">PROFESSOR: Who won the lawsuit?</p>
+<p t="4573411" d="2499">Actually, the woman
+won the lawsuit.</p>
+<p t="4575910" d="2269">And which argument
+would you buy now?</p>
+<p t="4578179" d="1041">You've got two arguments.</p>
+<p t="4579220" d="3900">Which one would you
+believe if either?</p>
+<p t="4583120" d="1130">Which one?</p>
+<p t="4584250" d="4570">I mean, now if I look
+at exactly this data</p>
+<p t="4588820" d="3340">I might side-- I might
+side with Berkeley</p>
+<p t="4592160" d="2240">looking at these numbers.</p>
+<p t="4594400" d="3790">Then again, when you think about
+all 22 departments and the fact</p>
+<p t="4598190" d="2750">they weren't this
+lopsided, not so good.</p>
+<p t="4600940" d="2467">So in the end Berkeley lost.</p>
+<p t="4603407" d="1833">I'm going to see another
+example in a minute</p>
+<p t="4605240" d="2166">where it's even more clear
+which side to believe in.</p>
+<p t="4607406" d="1924">But it really depends
+on the numbers</p>
+<p t="4609330" d="2130">as to which one you
+might, if you had to vote,</p>
+<p t="4611460" d="2610">which way you'd vote.</p>
+<p t="4614070" d="2320">Here's another example.</p>
+<p t="4616390" d="4430">This is from a newspaper article
+on which airlines are best</p>
+<p t="4620820" d="4944">to fly because they have
+the best on-time rates.</p>
+<p t="4625764" d="4536">And in this case they were
+comparing American Airlines</p>
+<p t="4630300" d="4550">and America West,
+looking at on-time rates.</p>
+<p t="4634850" d="3700">And here's the data they
+showed for the two airlines.</p>
+<p t="4638550" d="1970">Here's American Airlines.</p>
+<p t="4640520" d="2990">Here's America West.</p>
+<p t="4643510" d="7560">And they took five cities,
+LA, Phoenix, San Diego,</p>
+<p t="4651070" d="2035">San Francisco, and Seattle.</p>
+<p t="4656510" d="4840">And then you looked
+at the number on time,</p>
+<p t="4661350" d="5999">the number of flights, and then
+the rate, percentage on time.</p>
+<p t="4667349" d="1041">And then same thing here.</p>
+<p t="4668390" d="8910">Number on time, number
+of flights, and the rate.</p>
+<p t="4677300" d="2500">So I'm just going to give
+you the numbers here.</p>
+<p t="4679800" d="14300">So they had 500 out of 560 for
+a rate of 89%, 220 over 230</p>
+<p t="4694100" d="17470">for 95, 210 over 230 for
+92%, 500 over 600 for 83%,</p>
+<p t="4711570" d="860">and then Seattle.</p>
+<p t="4712430" d="1150">They had a lot of flights.</p>
+<p t="4713580" d="7390">That's where they're-- we
+have a hub of 2,200 for 86%.</p>
+<p t="4720970" d="7550">And if you added them all up,
+they got 3,300 out of 3,820</p>
+<p t="4728520" d="5740">for 87% on time.</p>
+<p t="4734260" d="2000">Now the data for
+American West looks</p>
+<p t="4736260" d="1890">something like the following.</p>
+<p t="4738150" d="4566">In LA it's 700 out
+of 800 for 87%.</p>
+<p t="4746170" d="1300">they're based in Phoenix.</p>
+<p t="4747470" d="1390">They got a zillion
+flights there.</p>
+<p t="4748860" d="7680">4,900 out of 5,300 for 92%.</p>
+<p t="4756540" d="15320">And 400 over 450 for 89%, 320,
+over 450, 71%, 200 over 260</p>
+<p t="4771860" d="2430">for 77%.</p>
+<p t="4774290" d="1440">And then you add all them up.</p>
+<p t="4775730" d="9380">And you've got 6,520
+over 7,260 for 90%.</p>
+<p t="4785110" d="3420">So the newspaper concluded
+and literally said</p>
+<p t="4788530" d="1980">that American West
+is the better airline</p>
+<p t="4790510" d="2900">to fly because they're
+on-time rate is much better.</p>
+<p t="4793410" d="2415">It's 90% versus 87%.</p>
+<p t="4798880" d="1540">What do you think?</p>
+<p t="4800420" d="3540">Which airline would you
+fly looking at that data?</p>
+<p t="4803960" d="875">AUDIENCE: [INAUDIBLE]</p>
+<p t="4810550" d="3340">PROFESSOR: I know
+which one I'd fly.</p>
+<p t="4813890" d="2900">It looks like America
+West is better.</p>
+<p t="4816790" d="3890">Every single city, American
+Airlines is better.</p>
+<p t="4823410" d="1970">92 versus 89.</p>
+<p t="4825380" d="1510">Everywhere it's
+better by a bunch.</p>
+<p t="4826890" d="2120">83 versus 71.</p>
+<p t="4829010" d="2320">86 versus 77.</p>
+<p t="4831330" d="5180">Every single city, American
+Airlines is better.</p>
+<p t="4836510" d="3912">Yet, America West
+is better overall.</p>
+<p t="4840422" d="1458">And that's what
+the newspaper said.</p>
+<p t="4841880" d="1316">They went on this.</p>
+<p t="4843196" d="1791">But of course, no matter
+where you're going</p>
+<p t="4844987" d="1708">you're better off with
+American Airlines.</p>
+<p t="4848961" d="499">All right?</p>
+<p t="4849460" d="4420">Now what happened here?</p>
+<p t="4853880" d="1390">The waiting.</p>
+<p t="4855270" d="4190">In fact, America West
+flies out of Phoenix</p>
+<p t="4859460" d="3060">where the weather's great.</p>
+<p t="4862520" d="3220">So you get a higher on-time rate
+when in a good-weather city.</p>
+<p t="4865740" d="1950">And they got most of
+their flights there.</p>
+<p t="4867690" d="2250">American Airlines got a
+lot of flights in Seattle</p>
+<p t="4869940" d="4450">where the weather sucks
+and you're always delayed.</p>
+<p t="4874390" d="500">All right?</p>
+<p t="4874890" d="1640">And so they look
+worse on average</p>
+<p t="4876530" d="2535">because so many of their
+flights are in a bad city</p>
+<p t="4879065" d="3685">and so many of America
+West are in a good city.</p>
+<p t="4882750" d="500">All right?</p>
+<p t="4883250" d="1700">So it makes America
+West look better</p>
+<p t="4884950" d="3470">when in fact, in this case, it's
+absolutely clear whose better.</p>
+<p t="4888420" d="3002">American Airlines is
+better, every single city.</p>
+<p t="4891422" d="608">All right.</p>
+<p t="4892030" d="2830">That's why Mark
+Twain said, "There's</p>
+<p t="4894860" d="4840">three kinds of lies-- lies,
+damned lies, and statistics."</p>
+<p t="4899700" d="2710">We'll see more
+examples next time.</p>
+</body>
+</timedtext>

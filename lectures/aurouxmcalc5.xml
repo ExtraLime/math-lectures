@@ -1,0 +1,1164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="1000" d="2000">The following content is
+provided under a Creative</p>
+<p t="3000" d="2000">Commons license.
+Your support will help MIT</p>
+<p t="5000" d="3000">OpenCourseWare continue to offer
+high quality educational</p>
+<p t="8000" d="5000">resources for free.
+To make a donation or to view</p>
+<p t="13000" d="5000">additional materials from
+hundreds of MIT courses,</p>
+<p t="18000" d="5000">visit MIT OpenCourseWare at
+ocw.mit.edu.</p>
+<p t="23000" d="2000">So, so far, we've seen things
+about vectors,</p>
+<p t="25000" d="2000">equation of planes,
+motions in space,</p>
+<p t="27000" d="3000">and so on.
+Basically we've done geometry</p>
+<p t="30000" d="1000">in space.
+But, calculus,</p>
+<p t="31000" d="2000">really, is about studying
+functions.</p>
+<p t="33000" d="4000">Now, we're going to actually
+move on to studying functions of</p>
+<p t="37000" d="3000">several variables.
+So, this new unit,</p>
+<p t="40000" d="5000">what we'll do over the next
+three weeks or so will be about</p>
+<p t="45000" d="5000">functions of several variables
+and their derivatives.</p>
+<p t="50000" d="5000">OK, so first of all,
+we should try to figure out how</p>
+<p t="55000" d="3000">we are going to think about
+functions.</p>
+<p t="58000" d="4000">So, remember,
+if you have a function of one</p>
+<p t="62000" d="6000">variable, that means you have a
+quantity that depends on one</p>
+<p t="68000" d="4000">parameter.
+Maybe f depends on the variable</p>
+<p t="72000" d="2000">x.
+And, for example,</p>
+<p t="74000" d="5000">a function that you all know is
+f of x equals sin(x).</p>
+<p t="79000" d="3000">And, the way we would represent
+that is maybe just by plotting</p>
+<p t="82000" d="6000">the graph of the function.
+So, the graph of a function,</p>
+<p t="88000" d="6000">we plot y = f(x).
+And, the graph of a sine</p>
+<p t="94000" d="11000">function that looks like this.
+OK, so now, let's say that we</p>
+<p t="105000" d="8000">had, actually,
+a function of two variables.</p>
+<p t="113000" d="3000">So, that means that the value
+of F depends actually on two</p>
+<p t="116000" d="3000">different parameters,
+say, if the variables are x and</p>
+<p t="119000" d="4000">y,
+or they can have any names you</p>
+<p t="123000" d="4000">want.
+So, given values of the two</p>
+<p t="127000" d="6000">parameters, x and y,
+the function will give us a</p>
+<p t="133000" d="4000">number that we'll call f(x,
+y).</p>
+<p t="137000" d="4000">That depends on x and y
+according to some formula,</p>
+<p t="141000" d="8000">OK, not very surprising so far.
+So, for example,</p>
+<p t="149000" d="15000">I can give you the function
+f(x, y) = x^2 y^2.</p>
+<p t="164000" d="3000">And, of course,
+as with functions of one</p>
+<p t="167000" d="3000">variable, we don't need things
+to be defined everywhere.</p>
+<p t="170000" d="3000">Sometimes there is the domain
+of definition.</p>
+<p t="173000" d="4000">So, this one is defined all the
+time.</p>
+<p t="177000" d="4000">But, if I tell you,
+say, f of x,</p>
+<p t="181000" d="7000">y equals square root of y,
+well, this is only defined if y</p>
+<p t="188000" d="6000">is nonnegative.
+If I tell you f(x,</p>
+<p t="194000" d="9000">y) equals one over x y,
+that's only defined if x y is</p>
+<p t="203000" d="7000">not zero, and so on.
+Now, so these are mathematical</p>
+<p t="210000" d="3000">examples given by explicit
+formulas.</p>
+<p t="213000" d="2000">And, of course,
+there's physical examples.</p>
+<p t="215000" d="3000">For example,
+so examples coming from real</p>
+<p t="218000" d="2000">life, so for example,
+you can look at the temperature</p>
+<p t="220000" d="3000">at the certain point on the
+surface of the earth.</p>
+<p t="223000" d="3000">So, you use maybe longitude and
+latitude; that's x and y.</p>
+<p t="226000" d="3000">And then you have f(x,
+y) equals the temperature at</p>
+<p t="229000" d="1000">that point.</p>
+<p t="252000" d="5000">In fact, because temperature
+depends also may be on how high</p>
+<p t="257000" d="1000">up you are.
+It depends on elevation.</p>
+<p t="258000" d="3000">So, it's actually a function of
+maybe x, y, z.</p>
+<p t="261000" d="3000">And, it also depends on time.
+So, in fact,</p>
+<p t="264000" d="4000">maybe it's a function of t in x
+y z coordinates in space.</p>
+<p t="268000" d="3000">So, you see that real-world
+functions can depends on a lot</p>
+<p t="271000" d="2000">of variables.
+So, our goal will be to</p>
+<p t="273000" d="2000">understand how to deal with
+that.</p>
+<p t="297000" d="4000">OK, so now you will see very
+soon, but actually it's already</p>
+<p t="301000" d="4000">tricky enough to picture a
+function of two variables.</p>
+<p t="305000" d="3000">So, we are going to focus on
+the case of functions of two</p>
+<p t="308000" d="2000">variables.
+And then, we'll see that if we</p>
+<p t="310000" d="2000">have more than two variables,
+then it's harder to plot the</p>
+<p t="312000" d="2000">function.
+We cannot draw with the graph</p>
+<p t="314000" d="3000">looks like anymore.
+But, the tools are the same,</p>
+<p t="317000" d="3000">the notion of partial
+derivatives, grade and vector,</p>
+<p t="320000" d="3000">and so on,
+all the tools that we will</p>
+<p t="323000" d="4000">develop work exactly the same
+way no matter how many variables</p>
+<p t="327000" d="3000">you have.
+So, I'll say,</p>
+<p t="330000" d="11000">for simplicity -- -- we'll
+focus mostly on two or sometimes</p>
+<p t="341000" d="7000">three variables.
+But, it works the same in any</p>
+<p t="348000" d="8000">number of variables.
+OK, so the first question is</p>
+<p t="356000" d="9000">how to visualize a function of
+two variables.</p>
+<p t="365000" d="5000">So, the first thing we can do
+is try to draw the graph of f.</p>
+<p t="370000" d="9000">So, maybe I should say f --
+which is a function of two</p>
+<p t="379000" d="4000">variables.
+So, the first answer will be,</p>
+<p t="383000" d="3000">we can try to look at it's
+graph.</p>
+<p t="386000" d="3000">And, the idea is the same as
+with one variable,</p>
+<p t="389000" d="2000">namely, we look at all the
+possible values of the</p>
+<p t="391000" d="3000">parameters,
+x and y, and for each of them,</p>
+<p t="394000" d="6000">we plot a point whose height is
+the value of a function at these</p>
+<p t="400000" d="3000">parameters.
+So, we'll plot,</p>
+<p t="403000" d="4000">let's say, z equals f(x,
+y).</p>
+<p t="407000" d="5000">And, now that will become,
+actually, a surface in space.</p>
+<p t="412000" d="5000">OK, so for each value of x and
+y, yeah, we have x,</p>
+<p t="417000" d="5000">y in the x, y plane,
+then we'll plot the point in</p>
+<p t="422000" d="3000">space at position x,
+y.</p>
+<p t="425000" d="8000">And, z equals f of x, y.
+OK, and if we take all of these</p>
+<p t="433000" d="4000">points together,
+they will give us some surface</p>
+<p t="437000" d="7000">that sits in space.
+Yes?</p>
+<p t="444000" d="5000">Oh, a function of two
+variables, shorthand.</p>
+<p t="449000" d="7000">Well, let's say how to
+visualize a function of two</p>
+<p t="456000" d="3000">variables.
+OK, so, how do we do that</p>
+<p t="459000" d="2000">concretely?
+Say that I give you a formula</p>
+<p t="461000" d="5000">for f.
+How do we try to represent it?</p>
+<p t="466000" d="11000">So, let's do our first example.
+Let's say I give you a function</p>
+<p t="477000" d="5000">f(x, y) = -y.
+OK, so it looks a little bit</p>
+<p t="482000" d="2000">silly because it doesn't depend
+on x.</p>
+<p t="484000" d="6000">But, that's not the problem.
+It's still a valid function of</p>
+<p t="490000" d="3000">x and y.
+It just happens to be constant</p>
+<p t="493000" d="4000">with respect to x.
+So, to draw the graph we look</p>
+<p t="497000" d="5000">at the surface in space defined
+by z equals y.</p>
+<p t="502000" d="4000">What kind of surface is that?
+It's a plane, OK?</p>
+<p t="506000" d="6000">And, if we want to draw it,
+z equals minus y will look,</p>
+<p t="512000" d="4000">well, let's put y axis.
+Let's put x axis.</p>
+<p t="516000" d="3000">Let's put z axis.
+If I look at what happens in</p>
+<p t="519000" d="4000">the y, z plane in the plane of a
+blackboard, it will just look</p>
+<p t="523000" d="2000">like a line that goes downward
+with slope one.</p>
+<p t="525000" d="6000">OK, so it will be this.
+And, what happens if I change x?</p>
+<p t="531000" d="3000">Well, if I change x,
+nothing happens because x</p>
+<p t="534000" d="3000">doesn't appear in this equation.
+So, in fact,</p>
+<p t="537000" d="4000">if instead of setting x equal
+to zero I set x equal to one,</p>
+<p t="541000" d="3000">I'm in front of the blackboard,
+or minus one at the back.</p>
+<p t="544000" d="3000">Well, it still looks exactly
+the same.</p>
+<p t="547000" d="8000">So, I have this plane that
+actually contains the x axis and</p>
+<p t="555000" d="7000">slopes downwards with slope one.
+It's kind of hard to draw.</p>
+<p t="562000" d="3000">Now, you see immediately what
+the big problem with graphs will</p>
+<p t="565000" d="4000">be.
+But, these pictures are hard to</p>
+<p t="569000" d="5000">read.
+But that's our first graph.</p>
+<p t="574000" d="7000">OK, a question so far?
+OK, so let's say that we have a</p>
+<p t="581000" d="2000">slightly more complicated
+function.</p>
+<p t="583000" d="7000">How do we see it?
+So, let's draw another example.</p>
+<p t="590000" d="8000">Let's say I give you f(x,
+y) = 1 - x^2-y^2.</p>
+<p t="598000" d="8000">So, we should try to picture
+what the surface z=1- x^2-y^2</p>
+<p t="606000" d="4000">looks like.
+So, how do we do that?</p>
+<p t="610000" d="5000">Well, maybe you are very fast
+and figured out what it looks</p>
+<p t="615000" d="2000">like.
+But, if not,</p>
+<p t="617000" d="4000">then we need to work piece by
+piece.</p>
+<p t="621000" d="6000">So, maybe it will help if we
+understand first what it does in</p>
+<p t="627000" d="8000">the plane of the blackboard.
+So, if we look at it in the y,</p>
+<p t="635000" d="7000">z plane, that means we set x
+equal to zero.</p>
+<p t="642000" d="6000">And then, z becomes 1 - y^2.
+What is that?</p>
+<p t="648000" d="6000">It's a parabola pointing
+downwards, and starting at one.</p>
+<p t="654000" d="6000">So, we should draw maybe this
+downward parabola.</p>
+<p t="660000" d="8000">It starts at one and it cuts
+the y axis at one.</p>
+<p t="668000" d="3000">When y is one,
+that gives us zero.</p>
+<p t="671000" d="4000">So, we might have an idea of
+what it might look like,</p>
+<p t="675000" d="4000">or maybe not.
+Let's get more slices.</p>
+<p t="679000" d="8000">Let's see what it does in the
+x, z plane, this other vertical</p>
+<p t="687000" d="6000">plane that's coming towards us.
+So, in the x,</p>
+<p t="693000" d="5000">z plane, if we set y equal to
+zero, we get z equals one minus</p>
+<p t="698000" d="2000">x^2.
+It's, again,</p>
+<p t="700000" d="6000">a parabola going downwards.
+OK, so I'm going to try to draw</p>
+<p t="706000" d="5000">a parabola that goes downward,
+but now to the front and to the</p>
+<p t="711000" d="3000">back.
+So, we are starting to have a</p>
+<p t="714000" d="3000">slightly better idea but we
+still don't know whether the</p>
+<p t="717000" d="2000">cross section of this thing
+might be round,</p>
+<p t="719000" d="5000">square, something else.
+So, it wants more confirmation.</p>
+<p t="724000" d="12000">We might want to also figure
+out where the surface intersects</p>
+<p t="736000" d="6000">the x, y plane.
+So, we hit the x,</p>
+<p t="742000" d="7000">y plane when z equals zero.
+That means 1-x^2-y^2 should be</p>
+<p t="749000" d="9000">0, that becomes x^2 y^2 = 1.
+That is a circle of radius 1.</p>
+<p t="758000" d="8000">That's the unit size.
+So, that means that here,</p>
+<p t="766000" d="4000">we actually have the unit
+circle.</p>
+<p t="770000" d="4000">And now, you should imagine
+that you have this thing that</p>
+<p t="774000" d="3000">when you slice it by a vertical
+plane, looks like a downwards</p>
+<p t="777000" d="3000">parabola.
+And, it's actually a surface of</p>
+<p t="780000" d="3000">revolution.
+You can rotate it around the z</p>
+<p t="783000" d="3000">axis, OK?
+Now, if you stare long enough</p>
+<p t="786000" d="3000">at that equation,
+you'll actually see that,</p>
+<p t="789000" d="3000">yes, we know that it had to be
+like that.</p>
+<p t="792000" d="5000">But, see, so these are useful
+ways of trying to guess what the</p>
+<p t="797000" d="2000">graph looks like.
+Of course, the other way is to</p>
+<p t="799000" d="5000">just ask your computer to do it.
+And then, you know,</p>
+<p t="804000" d="6000">you will get that kind of
+formula.</p>
+<p t="810000" d="6000">OK, well, I can leave it on if
+you want.</p>
+<p t="816000" d="4000">No, because I plotted a
+different function that I will</p>
+<p t="820000" d="3000">show you later.
+So, it goes this way.</p>
+<p t="823000" d="3000">I mean, if you want,
+it's really going downward.</p>
+<p t="826000" d="3000">Yes, I agree that the sheet is
+upside down.</p>
+<p t="829000" d="3000">That's because I plotted
+something else.</p>
+<p t="832000" d="6000">OK, so, in fact,
+so I plotted in my computer was</p>
+<p t="838000" d="5000">actually x^2 y^2 that looks like
+that.</p>
+<p t="843000" d="5000">See, it's the same with a
+parabola going upwards.</p>
+<p t="848000" d="6000">If you want to see more
+examples, I have various</p>
+<p t="854000" d="5000">examples to show,
+well, here's the graph,</p>
+<p t="859000" d="2000">y^2-x^2.
+See, so that one is kind of</p>
+<p t="861000" d="2000">interesting.
+It looks like a saddle.</p>
+<p t="863000" d="6000">If you look at it in the y,
+z plane, then it's a parabola</p>
+<p t="869000" d="5000">going up, z = y^2.
+And, that's what we see to the</p>
+<p t="874000" d="4000">left and to the right.
+But, if you put it in the x,</p>
+<p t="878000" d="4000">z plane, then that's a parabola
+going downwards,</p>
+<p t="882000" d="3000">z = - x^2.
+So, we have a parabola going</p>
+<p t="885000" d="3000">downwards in one direction,
+upwards in the other one.</p>
+<p t="888000" d="5000">And together,
+they form this surface.</p>
+<p t="893000" d="2000">And of course,
+you can plot much more</p>
+<p t="895000" d="3000">complicated functions.
+So, this one,</p>
+<p t="898000" d="2000">well, if you can read very
+small things,</p>
+<p t="900000" d="3000">you can see the formula.
+It doesn't matter,</p>
+<p t="903000" d="6000">just to show you that you can
+put a formula into a computer:</p>
+<p t="909000" d="9000">it will show you a picture.
+OK, so that's pretty good.</p>
+<p t="918000" d="2000">I mean, you can see that it can
+get a bit cluttered because</p>
+<p t="920000" d="2000">maybe those features that are
+hidden behind,</p>
+<p t="922000" d="3000">or maybe we have trouble seeing
+if we don't have a computer,</p>
+<p t="925000" d="4000">that looks very readable.
+But, this is kind of hard to</p>
+<p t="929000" d="4000">visualize sometimes.
+So, there is another way to</p>
+<p t="933000" d="3000">plot the functions of two
+variables.</p>
+<p t="936000" d="11000">And, let's call it the contour
+plot.</p>
+<p t="947000" d="4000">So, the contour plot is a very
+elegant solution to the problem</p>
+<p t="951000" d="4000">that it's difficult to draw to
+space pictures on a sheet of</p>
+<p t="955000" d="3000">paper or on a blackboard.
+So, instead,</p>
+<p t="958000" d="4000">let's try to represent the
+function of two variables by</p>
+<p t="962000" d="2000">just the map,
+you know, the same way that</p>
+<p t="964000" d="3000">when you walk around,
+you have actually geographical</p>
+<p t="967000" d="4000">maps that fit on a piece of
+paper that tell you about what</p>
+<p t="971000" d="6000">the real world looks like.
+So, what contour plot looks</p>
+<p t="977000" d="5000">something like this?
+So, it's an x, y plot.</p>
+<p t="982000" d="3000">And, that, you have a bunch of
+curves.</p>
+<p t="985000" d="7000">And, what the curves represent
+are the elevations on the graph.</p>
+<p t="992000" d="3000">So, for example,
+this curve might correspond to</p>
+<p t="995000" d="2000">all the points where f(x,
+y) = 1.</p>
+<p t="997000" d="9000">And, that curve might be all
+the points where f=2 and f=3 and</p>
+<p t="1006000" d="3000">so on, OK?
+So, when you see you this kind</p>
+<p t="1009000" d="4000">of plot, you're supposed to
+think that the graph of the</p>
+<p t="1013000" d="3000">function sits somewhere in space
+above that.</p>
+<p t="1016000" d="4000">It's like a map telling you how
+high things are.</p>
+<p t="1020000" d="3000">And, what you would want to do
+with the function,</p>
+<p t="1023000" d="3000">really, is be able to tell
+quickly what's the value at a</p>
+<p t="1026000" d="2000">given point?
+Well, let's say I want to look</p>
+<p t="1028000" d="3000">at that point.
+I know that f is somewhere</p>
+<p t="1031000" d="3000">between 1 and 2.
+Actually, it's much faster to</p>
+<p t="1034000" d="3000">read than the graph.
+On the graph I might have to</p>
+<p t="1037000" d="1000">look carefully,
+and then measure things,</p>
+<p t="1038000" d="4000">and so on.
+Here, I can just raise the</p>
+<p t="1042000" d="5000">value of f by comparing with the
+nearby lines.</p>
+<p t="1047000" d="4000">OK, so let me try to make that
+more precise.</p>
+<p t="1051000" d="10000">So, it shows all the points --
+-- where f(x,</p>
+<p t="1061000" d="12000">y) equals some fixed values,
+some fixed constants.</p>
+<p t="1073000" d="12000">And, these constants typically
+are chosen at regular intervals.</p>
+<p t="1085000" d="2000">For example,
+here I chose one,</p>
+<p t="1087000" d="4000">two, three, and they could
+continue with zero minus one,</p>
+<p t="1091000" d="5000">and so on.
+So, one way to think about it,</p>
+<p t="1096000" d="5000">how does this relate to the
+graph?</p>
+<p t="1101000" d="10000">Well, that's the same thing as
+cutting, I mean,</p>
+<p t="1111000" d="9000">we slice the graph by
+horizontal planes.</p>
+<p t="1120000" d="4000">So, horizontal planes have
+equations of a form z equals</p>
+<p t="1124000" d="2000">some constant,
+z equals zero,</p>
+<p t="1126000" d="2000">z equals one,
+z equals two,</p>
+<p t="1128000" d="3000">and so on.
+So, maybe the graph of my</p>
+<p t="1131000" d="4000">function will be some sort of
+plot out there.</p>
+<p t="1135000" d="5000">And, if I slice it by the plane
+z equals one,</p>
+<p t="1140000" d="4000">then I will get the level
+curve,</p>
+<p t="1144000" d="10000">which is the point where f(x,
+y) = 1,</p>
+<p t="1154000" d="10000">and so, that's called a level
+curve of f.</p>
+<p t="1164000" d="8000">OK, and so we repeat the
+process with maybe z equals two,</p>
+<p t="1172000" d="6000">and we get another level curve,
+and so on.</p>
+<p t="1178000" d="6000">And, then we squish all of them
+up, and that's how we get the</p>
+<p t="1184000" d="3000">contour plot.
+OK, so each of these lines,</p>
+<p t="1187000" d="3000">imagine that this is like some
+mountain or something that you</p>
+<p t="1190000" d="2000">are hiking on.
+Each of these lines tells you</p>
+<p t="1192000" d="3000">how you could move to stay at a
+constant height if you want to</p>
+<p t="1195000" d="3000">get to the other side of the
+mountain but without ever going</p>
+<p t="1198000" d="5000">up or down.
+You would just walk along that</p>
+<p t="1203000" d="5000">path, and it will get you there
+without effort.</p>
+<p t="1208000" d="3000">So, in fact,
+if you have been talking about</p>
+<p t="1211000" d="4000">hiking on mountains,
+well, that's exactly what a</p>
+<p t="1215000" d="6000">topographical map is about.
+So, I need to zoom a bit.</p>
+<p t="1221000" d="6000">So, a topographic map,
+this one from the US geological</p>
+<p t="1227000" d="5000">survey shows you,
+basically, all the level curves</p>
+<p t="1232000" d="5000">of an altitude function on a
+piece of land.</p>
+<p t="1237000" d="3000">So, you know that if you walk
+right along these curves,</p>
+<p t="1240000" d="2000">you will stay along the same
+height.</p>
+<p t="1242000" d="4000">And you know that if you walk
+towards, these don't have</p>
+<p t="1246000" d="2000">numbers.
+Let me find a place with</p>
+<p t="1248000" d="5000">numbers.
+Here, there is a 500 in the</p>
+<p t="1253000" d="3000">middle.
+So, you know that if you walk</p>
+<p t="1256000" d="3000">on the line that says 500,
+you stay always at 500 meters</p>
+<p t="1259000" d="3000">in elevation.
+If you walk towards the</p>
+<p t="1262000" d="3000">mountain that I think is below
+it, then you will go up,</p>
+<p t="1265000" d="2000">and so on.
+So, you can see,</p>
+<p t="1267000" d="3000">for example,
+here there's a peak,</p>
+<p t="1270000" d="3000">and here there is a valley with
+the river in it,</p>
+<p t="1273000" d="4000">and the altitudes go down,
+and then back up again on the</p>
+<p t="1277000" d="2000">other side.
+OK, so that's an example of a</p>
+<p t="1279000" d="3000">contour plot of a function.
+Of course, we don't have a</p>
+<p t="1282000" d="3000">formula for that function,
+but we have a contour plot,</p>
+<p t="1285000" d="4000">and that's what we need
+actually to understand what's</p>
+<p t="1289000" d="7000">going on there.
+OK, any questions?</p>
+<p t="1296000" d="3000">No?
+OK, so another example of</p>
+<p t="1299000" d="3000">contour plots,
+well, you've probably seen</p>
+<p t="1302000" d="4000">various versions of these
+temperature maps.</p>
+<p t="1306000" d="5000">So, that's supposed to be how
+warm it is right now.</p>
+<p t="1311000" d="4000">So, this one is color-coded.
+Instead of having curves,</p>
+<p t="1315000" d="3000">it has all these colors.
+But, the effect is the same.</p>
+<p t="1318000" d="3000">If you look at the separations
+between consecutive colors,</p>
+<p t="1321000" d="4000">these are the level curves of a
+function that tells you the</p>
+<p t="1325000" d="7000">temperature at a given point.
+OK, so these are examples of</p>
+<p t="1332000" d="12000">contour plots in real life.
+OK, no questions?</p>
+<p t="1344000" d="2000">No?
+OK, so basically,</p>
+<p t="1346000" d="5000">one of the goals that one
+should try to achieve at this</p>
+<p t="1351000" d="4000">point is becoming familiar with
+the contour plot,</p>
+<p t="1355000" d="3000">the graph,
+and how to view and deal with</p>
+<p t="1358000" d="1000">functions.</p>
+<p t="1374000" d="8000">[APPLAUSE]
+OK, so -- Let's do an example.</p>
+<p t="1382000" d="2000">Well, let's do a couple of
+examples.</p>
+<p t="1384000" d="4000">So, let's start with f(x,y) = -
+y.</p>
+<p t="1388000" d="4000">And, I'm going to take the same
+two examples as there to start</p>
+<p t="1392000" d="4000">with so that we see the relation
+between the graph and the</p>
+<p t="1396000" d="7000">contour plots.
+So, let's try to plot it.</p>
+<p t="1403000" d="7000">So, we are asked for the level
+curve, f equals 0 for this one?</p>
+<p t="1410000" d="8000">Well, f is zero when y is zero.
+So, that's the x axis.</p>
+<p t="1418000" d="6000">OK, so that's the level, zero.
+Where's the level one?</p>
+<p t="1424000" d="4000">Well, f is one when negative y
+is one.</p>
+<p t="1428000" d="3000">That means when y is negative
+one.</p>
+<p t="1431000" d="6000">So, you go to minus one,
+and that will be where my level</p>
+<p t="1437000" d="5000">one is, and so on.
+f is two when y is negative</p>
+<p t="1442000" d="4000">two.
+F is negative one when y is</p>
+<p t="1446000" d="4000">one, and so on.
+Is that convincing?</p>
+<p t="1450000" d="5000">Do you see how we got that?
+OK, let me do it again.</p>
+<p t="1455000" d="3000">I don't see anybody nodding,
+so that's kind of bad news.</p>
+<p t="1458000" d="4000">So, if I want to know,
+where is the level curve,</p>
+<p t="1462000" d="4000">say, one, I try to set f equals
+to one.</p>
+<p t="1466000" d="5000">Let's do this one.
+f equals one means that</p>
+<p t="1471000" d="5000">negative y is one means that y
+is minus one,</p>
+<p t="1476000" d="7000">and y equals minus one is this
+horizontal line on this chart.</p>
+<p t="1483000" d="4000">OK, and same with the others.
+So, you can see on the map that</p>
+<p t="1487000" d="2000">the value of a function doesn't
+depend on x.</p>
+<p t="1489000" d="3000">If you move parallel to the x
+axis, nothing happens.</p>
+<p t="1492000" d="4000">If you move in the y direction,
+it decreases at a constant</p>
+<p t="1496000" d="3000">rate.
+That's why the contours are</p>
+<p t="1499000" d="4000">evenly spaced.
+How spaced out they are tells</p>
+<p t="1503000" d="3000">you, actually,
+how steep things are.</p>
+<p t="1506000" d="2000">So, that corresponds exactly to
+that picture,</p>
+<p t="1508000" d="3000">except that here we draw x
+coming to the front,</p>
+<p t="1511000" d="3000">and y to the right.
+So, you have to rotate the map</p>
+<p t="1514000" d="5000">by 90� to get to that.
+It's an unfortunate consequence</p>
+<p t="1519000" d="5000">of the usual way of plotting
+things in space.</p>
+<p t="1524000" d="8000">OK, so these horizontal lines
+here correspond actually to</p>
+<p t="1532000" d="3000">horizontal lines here.</p>
+<p t="1543000" d="11000">OK, second example.
+Let's do 1-x^2-y^2.</p>
+<p t="1554000" d="6000">OK, or maybe I will write it as
+1 - (x^2 y^2).</p>
+<p t="1560000" d="6000">It's really the same thing.
+So, x, y, let's see,</p>
+<p t="1566000" d="6000">where is this function equal to
+zero?</p>
+<p t="1572000" d="9000">Well, we said f is zero in the
+unit circle.</p>
+<p t="1581000" d="11000">OK, so, the zero level,
+well, let's say that this is my</p>
+<p t="1592000" d="4000">unit.
+That's where it's at zero.</p>
+<p t="1596000" d="12000">What about f equals one?
+Well, that's when x^2 y^2 = 0.</p>
+<p t="1608000" d="1000">Well, that's only going to be
+here.</p>
+<p t="1609000" d="11000">So, that's just a single point.
+What about f equals minus one?</p>
+<p t="1620000" d="7000">That's when x^2 y^2 =2.
+That's a circle of radius</p>
+<p t="1627000" d="3000">square root of two,
+which is about 1.4.</p>
+<p t="1630000" d="7000">So, it's somewhere here.
+Then, minus two,</p>
+<p t="1637000" d="7000">similarly, will be x^2 y^2 = 3.
+Square root of three is about</p>
+<p t="1644000" d="3000">1.7.
+And then, minus three will be</p>
+<p t="1647000" d="3000">of radius two,
+and so on.</p>
+<p t="1650000" d="8000">So, what I want to show here is
+that they are getting closer and</p>
+<p t="1658000" d="3000">closer apart,
+OK?</p>
+<p t="1661000" d="3000">So, first it's concentric
+circles that tells us that we</p>
+<p t="1664000" d="3000">have a shape that's a solid of
+the graph is going to be a</p>
+<p t="1667000" d="5000">surface of revolution.
+Things don't change if I rotate.</p>
+<p t="1672000" d="4000">And second, the level curves
+are getting closer and closer to</p>
+<p t="1676000" d="3000">each other.
+That means it's getting steeper</p>
+<p t="1679000" d="4000">and steeper because I have to
+travel a shorter distance if I</p>
+<p t="1683000" d="3000">want my altitude to change by
+one.</p>
+<p t="1686000" d="3000">OK, so, this top here is kind
+of flat.</p>
+<p t="1689000" d="2000">And then it gets steeper and
+steeper.</p>
+<p t="1691000" d="5000">And, that's what we observe on
+that picture there.</p>
+<p t="1696000" d="8000">OK, so just to show you a few
+more, where did I put my,</p>
+<p t="1704000" d="6000">so, for x^2 y^2,
+the contour plot looks like</p>
+<p t="1710000" d="7000">this.
+Maybe actually I'll make it.</p>
+<p t="1717000" d="4000">OK, so it looks exactly the
+same as this one.</p>
+<p t="1721000" d="3000">But, the difference is if you
+can see the numbers which are</p>
+<p t="1724000" d="1000">not there,
+so you can see them,</p>
+<p t="1725000" d="4000">then you would know that
+instead of decreasing as we move</p>
+<p t="1729000" d="3000">out,
+this one is increasing as we go</p>
+<p t="1732000" d="2000">out.
+OK, so that's where we use,</p>
+<p t="1734000" d="3000">actually, the labels on the
+level curves that tell us</p>
+<p t="1737000" d="3000">whether things are going up or
+down.</p>
+<p t="1740000" d="4000">But, the contour plots look
+exactly the same.</p>
+<p t="1744000" d="10000">For the next one I had,
+I think, was y^2-x^2.</p>
+<p t="1754000" d="4000">So, the contour plot,
+well, let me actually zoom out.</p>
+<p t="1758000" d="2000">So, the contour plot looks like
+that.</p>
+<p t="1760000" d="3000">So, the level curve
+corresponding to zero is</p>
+<p t="1763000" d="4000">actually two diagonal lines.
+And, if you look on the plot,</p>
+<p t="1767000" d="3000">say that you started at the
+saddle point in the middle and</p>
+<p t="1770000" d="3000">you try to stay at the same
+level.</p>
+<p t="1773000" d="2000">So, it looks like a mountain
+pass, right?</p>
+<p t="1775000" d="3000">Well, there's actually four
+directions from that point that</p>
+<p t="1778000" d="3000">you can go staying at the same
+height.</p>
+<p t="1781000" d="3000">And actually,
+on the map, they look exactly</p>
+<p t="1784000" d="2000">like this, too,
+these crossing lines.</p>
+<p t="1786000" d="3000">OK, so, these are things that
+go on the side of the two</p>
+<p t="1789000" d="4000">mountains that are to the left
+and right, and stay at the same</p>
+<p t="1793000" d="4000">height as the mountain pass.
+On the other hand,</p>
+<p t="1797000" d="4000">if you go along the y
+direction, to the left or to the</p>
+<p t="1801000" d="4000">right, then you go towards
+positive values.</p>
+<p t="1805000" d="6000">And, if you go along the x
+axis, then you get towards</p>
+<p t="1811000" d="7000">negative values.
+OK, the equation for,</p>
+<p t="1818000" d="7000">the function was y^2-x^2.
+So, you can try to plot them by</p>
+<p t="1825000" d="2000">hand and confirmed that it does
+look like that.</p>
+<p t="1827000" d="6000">But, I trust my computer.
+And, finally,</p>
+<p t="1833000" d="6000">this one, well,
+so the contour plot looks a bit</p>
+<p t="1839000" d="4000">complicated.
+But, you can see two things.</p>
+<p t="1843000" d="2000">In the middle,
+you can see these two origins</p>
+<p t="1845000" d="2000">with these concentric circles
+which are not really circles,</p>
+<p t="1847000" d="3000">but, you know,
+these closed curves that are</p>
+<p t="1850000" d="3000">concentric.
+And, they correspond to the two</p>
+<p t="1853000" d="3000">mountains.
+And then, at some point in the</p>
+<p t="1856000" d="4000">middle, we have a mountain pass.
+And there, we see the two</p>
+<p t="1860000" d="5000">crossing lines again,
+like, on the plot of y^2-x^2.</p>
+<p t="1865000" d="6000">And so, at this saddle point
+here, if we go north or south,</p>
+<p t="1871000" d="4000">then we go down on either side
+to the Valley.</p>
+<p t="1875000" d="2000">And, if we go east or west,
+then we go towards the</p>
+<p t="1877000" d="4000">mountains.
+We'll go up.</p>
+<p t="1881000" d="5000">OK, does that make sense a
+little bit?</p>
+<p t="1886000" d="5000">OK, so, reading plots is not
+easy, but hopefully we'll get</p>
+<p t="1891000" d="1000">used to it very soon.</p>
+<p t="1904000" d="5000">OK, so actually let's say,
+well, OK, so,</p>
+<p t="1909000" d="6000">I want to point out one thing.
+The contour plot tells us,</p>
+<p t="1915000" d="5000">actually, what happens when we
+move, when we change x and y.</p>
+<p t="1920000" d="5000">So, if I change the value of x
+and y, that means I'm moving</p>
+<p t="1925000" d="3000">east-west or north-south on the
+map.</p>
+<p t="1928000" d="4000">And then, I can ask myself,
+is the value of the function</p>
+<p t="1932000" d="3000">increase or decrease in each of
+these situations?</p>
+<p t="1935000" d="3000">Well, that's the kind of thing
+that the contour plot can tell</p>
+<p t="1938000" d="1000">me very quickly.</p>
+<p t="1974000" d="2000">So -- OK, so say,
+for example,</p>
+<p t="1976000" d="3000">that I have a piece of contour
+plot.</p>
+<p t="1979000" d="2000">That looks, you know,
+like that.</p>
+<p t="1981000" d="5000">Maybe this is f equals one,
+and this is f equals two.</p>
+<p t="1986000" d="7000">And here, this is f equals zero.
+And, let's say that I start at</p>
+<p t="1993000" d="4000">the point, say,
+at this point.</p>
+<p t="1997000" d="6000">OK, so here I have (x0, y0).
+And, the question I might ask</p>
+<p t="2003000" d="3000">myself is if I change x or y,
+how does f change?</p>
+<p t="2006000" d="8000">Well, the contour plot tells me
+that if x increases,</p>
+<p t="2014000" d="7000">and I keep y constant,
+then what happens to f(x,</p>
+<p t="2021000" d="3000">y)?
+Well, it will increase because</p>
+<p t="2024000" d="3000">if I move to the right,
+then I go from one to a value</p>
+<p t="2027000" d="3000">bigger than one.
+I don't know exactly how much,</p>
+<p t="2030000" d="3000">but I know that somewhere
+between one and two,</p>
+<p t="2033000" d="4000">it's more than one.
+If x decreases,</p>
+<p t="2037000" d="5000">then f decreases.
+And, similarly,</p>
+<p t="2042000" d="5000">I can tell that if y increases,
+then f, well,</p>
+<p t="2047000" d="7000">it looks like if I increase y,
+then f will also increase.</p>
+<p t="2054000" d="6000">And, if y decreases,
+then f decreases.</p>
+<p t="2060000" d="3000">And, that's the kind of
+qualitative analysis that we can</p>
+<p t="2063000" d="4000">do easily from the contour plot.
+But, maybe we'd like to</p>
+<p t="2067000" d="3000">actually be more precise in
+that, and tell how fast f</p>
+<p t="2070000" d="4000">changes if I change x or y.
+OK, so to find the rate of</p>
+<p t="2074000" d="5000">change, that's exactly where we
+use derivatives.</p>
+<p t="2079000" d="8000">So -- So, we are going to have
+to deal with partial</p>
+<p t="2087000" d="11000">derivatives.
+So, I will explain to you soon</p>
+<p t="2098000" d="7000">why partial.
+So, let me just remind you</p>
+<p t="2105000" d="7000">first, if you have a function of
+one variable,</p>
+<p t="2112000" d="6000">then so let's say f of x,
+then you have a derivative,</p>
+<p t="2118000" d="4000">f prime of x is also called
+df/dx.</p>
+<p t="2122000" d="9000">And, it's defined as a limit
+when delta x goes to zero of the</p>
+<p t="2131000" d="4000">change in f.
+Sorry, it's not going to fit.</p>
+<p t="2135000" d="7000">I have to go to the next line.
+It's going to be the limit as</p>
+<p t="2142000" d="5000">delta x goes to zero of the rate
+of change.</p>
+<p t="2147000" d="5000">So, the change in f between x
+and x plus delta x divided by</p>
+<p t="2152000" d="4000">delta x.
+Sometimes you write delta f for</p>
+<p t="2156000" d="3000">the change in f divided by delta
+x.</p>
+<p t="2159000" d="5000">And then, you take the limit of
+this rate of increase as delta x</p>
+<p t="2164000" d="1000">goes to zero.
+Now, of course,</p>
+<p t="2165000" d="3000">if you have a formula for f,
+then you know,</p>
+<p t="2168000" d="4000">at least you should know,
+I suspect most of you know how</p>
+<p t="2172000" d="7000">to actually take the derivative
+of a function from its formula.</p>
+<p t="2179000" d="11000">So -- Now, how do we do that?
+Sorry, and I should also tell</p>
+<p t="2190000" d="2000">you what this means on the
+graph.</p>
+<p t="2192000" d="4000">So, if I plot the graph of a
+function, and to have my point,</p>
+<p t="2196000" d="5000">x, and here I have f of x,
+how do I see the derivative?</p>
+<p t="2201000" d="7000">Well, I look at the tangent
+line to the graph,</p>
+<p t="2208000" d="7000">and the slope of the tangent
+line is f prime of x,</p>
+<p t="2215000" d="4000">OK?
+And, not every function has a</p>
+<p t="2219000" d="4000">derivative.
+You have functions that are not</p>
+<p t="2223000" d="2000">regular enough to actually have
+a derivative.</p>
+<p t="2225000" d="3000">So, in this class,
+we are not going to actually</p>
+<p t="2228000" d="3000">worry too much about
+differentiability.</p>
+<p t="2231000" d="5000">But, it's good,
+at least, to be aware that you</p>
+<p t="2236000" d="3000">can't always take the
+derivative.</p>
+<p t="2239000" d="5000">So, yes, and what else do I
+want to remind you of?</p>
+<p t="2244000" d="8000">Well, they also have an
+approximation formula -- --</p>
+<p t="2252000" d="7000">which says that,
+you know, if we have the value</p>
+<p t="2259000" d="2000">of f at some point,
+x0,</p>
+<p t="2261000" d="6000">and that we want to find the
+value at a nearby point,</p>
+<p t="2267000" d="4000">x close to x0,
+then our best guess is that</p>
+<p t="2271000" d="7000">it's f of x0 plus the derivative
+f prime at x0 times delta x,</p>
+<p t="2278000" d="4000">or if you want, x minus x0,
+OK?</p>
+<p t="2282000" d="4000">Is this kind of familiar to you?
+Yeah, I mean,</p>
+<p t="2286000" d="3000">maybe with different notations.
+Maybe you called that delta x</p>
+<p t="2289000" d="3000">or something.
+Maybe you called that x0 plus h</p>
+<p t="2292000" d="2000">or something.
+But, it's the usual</p>
+<p t="2294000" d="4000">approximation formula using the
+derivative.</p>
+<p t="2298000" d="3000">If you put more terms,
+then you get the dreaded Taylor</p>
+<p t="2301000" d="3000">approximation that I know you
+guys don't like.</p>
+<p t="2304000" d="12000">So, the question is how do we
+do the same for a function of</p>
+<p t="2316000" d="5000">two variables,
+f(x, y)?</p>
+<p t="2321000" d="4000">So, the difficulty there is we
+can change x,</p>
+<p t="2325000" d="4000">or we can change y,
+or we can change both.</p>
+<p t="2329000" d="3000">And, presumably,
+the manner in which f changes</p>
+<p t="2332000" d="4000">will be different depending on
+whether we change x or y.</p>
+<p t="2336000" d="4000">So, that's why we have several
+different notions of derivative.</p>
+<p t="2364000" d="13000">So, OK, we have a notation.
+OK, so this is a curly d,</p>
+<p t="2377000" d="4000">and it is not a straight d,
+and it is not a delta.</p>
+<p t="2381000" d="3000">It's a d that kind of curves
+backwards like that.</p>
+<p t="2384000" d="6000">And, this symbol is partial.
+OK, so it's a special notation</p>
+<p t="2390000" d="4000">for partial derivatives.
+And, essentially what it means</p>
+<p t="2394000" d="2000">is we are going to do a
+derivative where we care about</p>
+<p t="2396000" d="3000">only one variable at a time.
+That's why it's partial.</p>
+<p t="2399000" d="3000">It's missing the other
+variables.</p>
+<p t="2402000" d="4000">So, a function of several
+variables doesn't have the usual</p>
+<p t="2406000" d="4000">derivative.
+It has only partial derivatives</p>
+<p t="2410000" d="5000">for each variable.
+So, the partial derivative,</p>
+<p t="2415000" d="8000">the partial f partial x at (x0,
+y0) is defined to be the limit</p>
+<p t="2423000" d="6000">when I take a small change in x,
+delta x,</p>
+<p t="2429000" d="14000">of the change in f -- --
+divided by delta x.</p>
+<p t="2443000" d="4000">OK, so here I'm actually not
+changing y at all.</p>
+<p t="2447000" d="4000">I'm just changing x and looking
+at the rate of change with</p>
+<p t="2451000" d="3000">respect to x.
+And, I have the same with</p>
+<p t="2454000" d="4000">respect to y.
+Partial f partial y is the</p>
+<p t="2458000" d="6000">limit, so I should say,
+at a point x0 y0 is the limit</p>
+<p t="2464000" d="9000">as delta y turns to zero.
+So, this time I keep x the</p>
+<p t="2473000" d="8000">same, but I change y.
+OK, so that's the definition of</p>
+<p t="2481000" d="5000">a partial derivative.
+And, we say that a function is</p>
+<p t="2486000" d="3000">differentiable if these things
+exist.</p>
+<p t="2489000" d="2000">OK, so most of the functions
+we'll see are differentiable.</p>
+<p t="2491000" d="3000">And, we'll actually learn how
+to compute their partial</p>
+<p t="2494000" d="4000">derivatives without having to do
+this because we'll just have the</p>
+<p t="2498000" d="3000">usual methods for computing
+derivatives.</p>
+<p t="2501000" d="5000">So, in fact,
+I claim you already know how to</p>
+<p t="2506000" d="3000">take partial derivatives.
+So, let's see what it means</p>
+<p t="2509000" d="1000">geometrically.</p>
+<p t="2520000" d="7000">So, geometrically,
+my function can be represented</p>
+<p t="2527000" d="5000">by this graph,
+and I fix some point,</p>
+<p t="2532000" d="6000">(x0, y0).
+And then, I'm going to ask</p>
+<p t="2538000" d="6000">myself what happens if I change
+the value of,</p>
+<p t="2544000" d="6000">well, x, keeping y constant.
+So, if I keep y constant and</p>
+<p t="2550000" d="3000">change x, it means that I'm
+moving forwards or backwards</p>
+<p t="2553000" d="5000">parallel to the x axis.
+So, that determines for me the</p>
+<p t="2558000" d="8000">vertical plane parallel to the
+x, z plane when I fix y equals</p>
+<p t="2566000" d="5000">constant.
+And now, if I slice the graph</p>
+<p t="2571000" d="8000">by that, I will get some curve
+that goes, it's a slice of the</p>
+<p t="2579000" d="4000">graph of f.
+And now, what I want to find is</p>
+<p t="2583000" d="3000">how f depends on x if I keep y
+constant.</p>
+<p t="2586000" d="3000">That means it's the rate of
+change if I move along this</p>
+<p t="2589000" d="2000">curve.
+So, in fact,</p>
+<p t="2591000" d="6000">if I look at the slope of this
+thing.</p>
+<p t="2597000" d="5000">So, if I draw the tangent line
+to this slice,</p>
+<p t="2602000" d="6000">then the slope will be partial
+f of partial x.</p>
+<p t="2608000" d="4000">I think I have a better picture
+of that somewhere.</p>
+<p t="2612000" d="8000">Yes, here it is.
+OK, that's the same picture,</p>
+<p t="2620000" d="3000">just with different colors.
+So, I take the graph.</p>
+<p t="2623000" d="3000">I slice it by a vertical plane.
+I get the curve,</p>
+<p t="2626000" d="4000">and now I take the slope of
+that curve, and that gives me</p>
+<p t="2630000" d="4000">the partial derivative.
+And, to finish,</p>
+<p t="2634000" d="5000">let me just tell you how,
+and I should say,</p>
+<p t="2639000" d="3000">partial f partial y is the same
+thing but slicing now by your</p>
+<p t="2642000" d="3000">plane that goes in the y,
+z directions.</p>
+<p t="2645000" d="6000">OK, so I fix x equals constant.
+That means that I slice by a</p>
+<p t="2651000" d="2000">plane that's parallel to the
+blackboard.</p>
+<p t="2653000" d="4000">I get a curve,
+and I looked at the slope of</p>
+<p t="2657000" d="3000">that curve.
+OK, so it's just a matter of</p>
+<p t="2660000" d="3000">formatting one variable,
+setting it constant,</p>
+<p t="2663000" d="4000">and looking at the other one.
+So, how to compute these</p>
+<p t="2667000" d="2000">things, well,
+we actually,</p>
+<p t="2669000" d="4000">to find, well,
+there's a piece of notation I</p>
+<p t="2673000" d="5000">haven't told you yet.
+So, another notation you will</p>
+<p t="2678000" d="4000">see, I think this is what one
+uses a lot in physics.</p>
+<p t="2682000" d="3000">And, this is what one uses a
+lot in applied math,</p>
+<p t="2685000" d="2000">which is the same thing as
+physics but with different</p>
+<p t="2687000" d="3000">notations.
+OK, so it just too different</p>
+<p t="2690000" d="4000">notations: partial f partial x,
+or f subscript x.</p>
+<p t="2694000" d="7000">And, they are the same thing.
+Well, we just treat y as a</p>
+<p t="2701000" d="9000">constant, and x as a variable.
+And, vice versa if we want to</p>
+<p t="2710000" d="6000">find partial with aspect to y.
+So, let me just finish with one</p>
+<p t="2716000" d="6000">quick example.
+Let's say that they give you f</p>
+<p t="2722000" d="6000">of x, y equals x^3y y^2,
+then partial f partial x.</p>
+<p t="2728000" d="4000">Well, let's take the derivative.
+So, here it's x^3 times a</p>
+<p t="2732000" d="5000">constant.
+Derivative of x^3 is 3x^2 times</p>
+<p t="2737000" d="5000">the constant plus what's the
+derivative of y^2?</p>
+<p t="2742000" d="3000">Zero, because it's a constant.
+If you do, instead,</p>
+<p t="2745000" d="3000">partial f partial y,
+then this is actually a</p>
+<p t="2748000" d="3000">constant times y.
+The derivative of y is one.</p>
+<p t="2751000" d="6000">So, that's just x^3.
+And, the derivative of y^2 is</p>
+<p t="2757000" d="2000">2y.
+OK, so it's fairly easy.</p>
+<p t="2759000" d="3000">You just have to keep
+remembering which one is a</p>
+<p t="2762000" d="4000">variable, and which one isn't.
+OK, so more about this next</p>
+<p t="2766000" d="4000">time, and we will also learn
+about maxima and minima in</p>
+<p t="2770000" d="3000">several variables.</p>
+</body>
+</timedtext>

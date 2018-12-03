@@ -1,0 +1,1453 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="500" d="1736">The following
+content is provided</p>
+<p t="2236" d="1374">under a creative
+commons license.</p>
+<p t="3610" d="2370">Your support will help
+MIT OpenCourseWare</p>
+<p t="5980" d="3940">continue to offer high quality
+education resources for free.</p>
+<p t="9920" d="2670">To make a donation or to
+view additional materials</p>
+<p t="12590" d="4290">from hundreds of MIT courses
+visit MIT OpenCourseWare</p>
+<p t="16880" d="2450">at ocw.mit.edu.</p>
+<p t="19330" d="5100">PROFESSOR STRANG: Starting
+today on section 1.3,</p>
+<p t="24430" d="1860">actually we'll
+finish that today.</p>
+<p t="26290" d="5760">And that's about the big problem
+in, or the most common problem</p>
+<p t="32050" d="3220">in scientific computing,
+solving a linear system.</p>
+<p t="35270" d="1020">Au=b.</p>
+<p t="36290" d="1460">How would you do that?</p>
+<p t="37750" d="5490">So we will certainly do
+it for some examples.</p>
+<p t="43240" d="6310">Like our free-fixed or
+our fixed-fixed matrices.</p>
+<p t="49550" d="2320">But I thought I'd just
+put some comments.</p>
+<p t="51870" d="5230">Often I make comments that go
+beyond what specific things</p>
+<p t="57100" d="2630">we will do in detail.</p>
+<p t="59730" d="4020">Certainly the
+workhorse of-- if I'm</p>
+<p t="63750" d="4750">in MATLAB notation, the
+workhorse would be backslash.</p>
+<p t="68500" d="2730">That command is the
+quick, natural way</p>
+<p t="71230" d="3560">to get the answer u.</p>
+<p t="74790" d="3260">And I want to say
+more about backslash.</p>
+<p t="78050" d="4970">I won't be able to say
+all the things it does.</p>
+<p t="83020" d="5280">There's a lot built
+into that command.</p>
+<p t="88300" d="2840">And the MATLAB
+helpdesk would give</p>
+<p t="91140" d="2330">the details of all
+the different things</p>
+<p t="93470" d="2210">that backslash actually does.</p>
+<p t="95680" d="4920">It looks first, can it divide
+the problem into blocks,</p>
+<p t="100600" d="3860">into smaller problems.</p>
+<p t="104460" d="3050">It looks to see
+if A is symmetric.</p>
+<p t="107510" d="2130">If it's symmetric,
+because of course,</p>
+<p t="109640" d="2100">that would cut the work
+in half because you</p>
+<p t="111740" d="2530">know half the matrix
+from the other half</p>
+<p t="114270" d="2870">in the symmetric case.</p>
+<p t="117140" d="5590">It goes hopefully
+along and eventually</p>
+<p t="122730" d="1120">gives you the answer.</p>
+<p t="123850" d="2080">Okay, so I'm going to
+say more about that.</p>
+<p t="125930" d="2860">Because that's by elimination.</p>
+<p t="128790" d="2800">The method there is elimination.</p>
+<p t="131590" d="3350">I just thought I would mention
+that if I had a large sparse</p>
+<p t="134940" d="7590">matrix, so I was in sparse
+math MATLAB and used backslash,</p>
+<p t="142530" d="3980">it would try to
+reorder the rows.</p>
+<p t="146510" d="4450">Or it will try to reorder
+the rows in an optimal way.</p>
+<p t="150960" d="1610">Now, what would
+be an optimal way?</p>
+<p t="152570" d="1990">Just so you have
+an idea of what.</p>
+<p t="154560" d="4350">So elimination takes
+this matrix, right?</p>
+<p t="158910" d="2400">It's got all its rows.</p>
+<p t="161310" d="3310">And we'll do examples.</p>
+<p t="164620" d="6400">So the idea of elimination
+is that it produces a zero.</p>
+<p t="171020" d="6050">So let's suppose it accepts
+the first row as the pivot row.</p>
+<p t="177070" d="3520">And this (1, 1) entry
+would be the pivot.</p>
+<p t="180590" d="2430">And then how does
+it use the pivot?</p>
+<p t="183020" d="5960">It subtracts multiples of that
+pivot row from the other rows</p>
+<p t="188980" d="3630">in order to get zeroes
+in the first column.</p>
+<p t="192610" d="4660">So then it has a
+new matrix that's</p>
+<p t="197270" d="2190">like it's one size smaller.</p>
+<p t="199460" d="2150">And then it just
+continues all the way</p>
+<p t="201610" d="6570">until it gets to a
+triangular matrix</p>
+<p t="208180" d="5010">with all the pivots sitting
+there on the diagonal.</p>
+<p t="213190" d="2050">So that's the idea
+of elimination.</p>
+<p t="215240" d="2980">And we'll do small examples.</p>
+<p t="218220" d="6010">So why would you want
+to reorder the rows?</p>
+<p t="224230" d="3330">Two reason, two good reasons
+for reordering the rows.</p>
+<p t="227560" d="3840">One reason which
+MATLAB will always do,</p>
+<p t="231400" d="3430">unless it has some
+good reason not to,</p>
+<p t="234830" d="9130">is if that pivot is too small
+compared to numbers below it</p>
+<p t="243960" d="4770">it will pick the largest and
+reorder to put the largest</p>
+<p t="248730" d="1440">pivot up there.</p>
+<p t="250170" d="1710">So you like large pivots.</p>
+<p t="251880" d="1460">Why do you like large pivots?</p>
+<p t="253340" d="3570">Because for numerical
+stability that</p>
+<p t="256910" d="2270">gives you small multipliers.</p>
+<p t="259180" d="4570">If this is the biggest number
+then all the multiples that you</p>
+<p t="263750" d="3140">need, the multiple
+of that row that you</p>
+<p t="266890" d="8260">want to subtract from the other
+rows will be less than one.</p>
+<p t="275150" d="5600">The multiplier is, so
+just let's remember,</p>
+<p t="280750" d="10860">the multiplier is the entry to
+eliminate divided by the pivot.</p>
+<p t="291610" d="2410">So if that entry
+to be eliminated</p>
+<p t="294020" d="3710">is smaller then the pivot, then
+the multiplier's less than one</p>
+<p t="297730" d="2190">and things stay stable.</p>
+<p t="299920" d="4250">So that's a picture
+of elimination,</p>
+<p t="304170" d="1590">a sort of first picture.</p>
+<p t="305760" d="6470">And if it's sparse that means
+there's a lot of zeroes.</p>
+<p t="312230" d="3210">And where would we like
+those zeroes to be?</p>
+<p t="315440" d="2450">Where would we
+like to find zeroes</p>
+<p t="317890" d="5960">to save time and use
+to avoid all the steps,</p>
+<p t="323850" d="2330">to avoid going
+through every step.</p>
+<p t="326180" d="7250">If this was already a
+zero then it's there</p>
+<p t="333430" d="2930">and we don't need
+to get it there.</p>
+<p t="336360" d="1340">The job is already done.</p>
+<p t="337700" d="1460">We can go forward.</p>
+<p t="339160" d="4000">And if we have a
+zero here then it's</p>
+<p t="343160" d="3960">already zero in the next
+one and we don't have to do,</p>
+<p t="347120" d="1700">that would be the
+second pivot row,</p>
+<p t="348820" d="2530">we don't have to
+subtract it from this row</p>
+<p t="351350" d="2260">because a zero is already there.</p>
+<p t="353610" d="1880">So we like zeroes.</p>
+<p t="355490" d="2250">And sparse matrices
+have a lot of them.</p>
+<p t="357740" d="3130">But we only like them if
+they're in the right place.</p>
+<p t="360870" d="1370">And what's the right place?</p>
+<p t="362240" d="3900">It's, roughly speaking,
+it's the beginning of a row.</p>
+<p t="366140" d="3410">So we're very happy
+with, we would</p>
+<p t="369550" d="3850">like to get an ordering that
+looks somehow like this.</p>
+<p t="373400" d="4680">We would like to get a
+bunch of zeroes in there.</p>
+<p t="378080" d="3420">Well that's, I
+really overdid it.</p>
+<p t="381500" d="2170">Maybe we can't get that many.</p>
+<p t="383670" d="1960">But my point is,
+you see the point</p>
+<p t="385630" d="2360">that those are at the
+beginning of the rows.</p>
+<p t="387990" d="6280">So let's say we can't quite
+get to that, but maybe</p>
+<p t="394270" d="1480">something more like that.</p>
+<p t="395750" d="730">Zero.</p>
+<p t="396480" d="4970">So we get some rows starting
+with zeroes and then we get</p>
+<p t="401450" d="5671">rows that don't.</p>
+<p t="407121" d="2499">Which of course, I mean, they
+were there in the first place.</p>
+<p t="409620" d="2640">What we've done is move
+them to the bottom.</p>
+<p t="412260" d="2080">And the reason for
+moving them to the bottom</p>
+<p t="414340" d="6480">is that they don't
+destroy rows below them.</p>
+<p t="420820" d="2180">Yeah.</p>
+<p t="423000" d="3390">I didn't show how
+that would happen.</p>
+<p t="426390" d="2650">Suppose I had a number there.</p>
+<p t="429040" d="1790">Suppose that wasn't a zero.</p>
+<p t="430830" d="1710">And all these were.</p>
+<p t="432540" d="3910">Then when I do that elimination
+I subtract a multiple</p>
+<p t="436450" d="1680">of that row from this row.</p>
+<p t="438130" d="3120">Do you see that those
+zeroes will fill in?</p>
+<p t="441250" d="3480">So fill in is the bad thing
+that you're trying to avoid.</p>
+<p t="444730" d="4380">So in this quick
+discussion of reordering</p>
+<p t="449110" d="4540">you're trying to order the rows
+so that they start with zeroes</p>
+<p t="453650" d="3810">for as long as you can because
+those zeroes will never</p>
+<p t="457460" d="980">fill in.</p>
+<p t="458440" d="4380">Zeroes inside a band, yes,
+just to make the point again,</p>
+<p t="462820" d="4410">suppose I have a long row.</p>
+<p t="467230" d="4190">Then if I have some zeroes
+here, here, here, useless.</p>
+<p t="471420" d="6680">Because when I go to do
+elimination on these rows, when</p>
+<p t="478100" d="2610">I subtract a multiple of
+that row from that row,</p>
+<p t="480710" d="3200">that zero will fill in,
+it didn't help, it's gone.</p>
+<p t="483910" d="1480">And this and this.</p>
+<p t="485390" d="5050">So zeroes sort of
+near the diagonal</p>
+<p t="490440" d="1630">are often going to fill in.</p>
+<p t="492070" d="4080">It's zeroes at the far
+left that are good.</p>
+<p t="496150" d="3950">So that's a discussion
+of a topic that</p>
+<p t="500100" d="2950">actually comes into 18.086.</p>
+<p t="503050" d="3910">And so does the third words
+that I thought I would just</p>
+<p t="506960" d="860">write on the board.</p>
+<p t="507820" d="4750">So this would be topic
+specializing in how do you</p>
+<p t="512570" d="1850">solve large systems.</p>
+<p t="514420" d="4160">And reordering with
+elimination is one way.</p>
+<p t="518580" d="4180">And a second approach is, I
+just put these words up here</p>
+<p t="522760" d="1720">so that you've seen them.</p>
+<p t="524480" d="1840">Conjugate gradient
+method, that's</p>
+<p t="526320" d="5020">a giant success in solving
+symmetric problems.</p>
+<p t="531340" d="1410">Large symmetric problems.</p>
+<p t="532750" d="6890">Something called multigrid
+is a terrific, incomplete LU.</p>
+<p t="539640" d="6800">People have worked hard on ideas
+for solving problems so large</p>
+<p t="546440" d="3120">that this becomes too expensive.</p>
+<p t="549560" d="4510">But backslash is
+the natural choice.</p>
+<p t="554070" d="2580">If you can do it, it's
+like it's so simple.</p>
+<p t="556650" d="2380">So let me focus on backslash.</p>
+<p t="559030" d="3610">So backslash is the
+key to talk about.</p>
+<p t="562640" d="5950">Let me see, let's just think
+what does backslash do?</p>
+<p t="568590" d="4560">Suppose I had two equations,
+two different right-hand sides,</p>
+<p t="573150" d="7350">b and c with the same matrix
+A. Would I solve them,</p>
+<p t="580500" d="5100">would I do u=A\b and
+then separately A\c?</p>
+<p t="585600" d="1290">No.</p>
+<p t="586890" d="4910">If I had two equations
+with the same matrix,</p>
+<p t="591800" d="6510">there's a big saving in, suppose
+I have two equations, two,</p>
+<p t="598310" d="1530">well, can I put it?</p>
+<p t="599840" d="1240">I'll make a matrix.</p>
+<p t="601080" d="2630">I mean this is what
+MATLAB would always do.</p>
+<p t="603710" d="7360">Put those two right-hand
+sides into a matrix.</p>
+<p t="611070" d="4630">Then backslash is
+happy with that.</p>
+<p t="615700" d="5190">That backslash command
+would solve both equations.</p>
+<p t="620890" d="2320">It would give you the
+answer then, would be,</p>
+<p t="623210" d="2080">it would be two parts to it.</p>
+<p t="625290" d="4020">What would be the
+first column of u then?</p>
+<p t="629310" d="1800">So, do you see what I have now?</p>
+<p t="631110" d="4400">I have a square matrix
+A times an unknown u.</p>
+<p t="635510" d="1750">And I've got two
+right-hand sides.</p>
+<p t="637260" d="2140">The point is this often happens.</p>
+<p t="639400" d="5860">If you're doing, say,
+a design problem.</p>
+<p t="645260" d="1720">You might try different designs.</p>
+<p t="646980" d="3320">So those different designs give
+you different right-hand sides.</p>
+<p t="650300" d="4110">And then you have
+a problem to solve.</p>
+<p t="654410" d="2300">What's the response
+to those designs?</p>
+<p t="656710" d="4190">What are the displacements,
+what happens?</p>
+<p t="660900" d="3370">So you want to solve
+with two right-hand sides</p>
+<p t="664270" d="6040">and the point is you don't want
+to go through the elimination</p>
+<p t="670310" d="3500">process on A twice.</p>
+<p t="673810" d="1540">That's crazy.</p>
+<p t="675350" d="3730">You see how that
+elimination process on A</p>
+<p t="679080" d="4350">has this, what I described
+here, didn't look at b.</p>
+<p t="683430" d="2710">I didn't even get to the
+right-hand side part.</p>
+<p t="686140" d="4190">I was dealing with the expensive
+part, which is the matrix A.</p>
+<p t="690330" d="2460">So we don't want to
+pay that price twice.</p>
+<p t="692790" d="4950">And therefore backslash
+is all set up.</p>
+<p t="697740" d="4270">So what's the first
+column of u then?</p>
+<p t="702010" d="1810">It's A\b.</p>
+<p t="703820" d="1930">And now what's
+another way to write,</p>
+<p t="705750" d="2810">a more mathematical
+way to write A?</p>
+<p t="708560" d="1460">What's the answer to Au=b.</p>
+<p t="713380" d="3740">It's u equals A
+inverse b, right?</p>
+<p t="717120" d="1900">That's the answer
+in the first column</p>
+<p t="719020" d="4750">and A inverse c would be the
+answer in the second column.</p>
+<p t="723770" d="2550">So it would produce
+those answers.</p>
+<p t="726320" d="1810">Backslash will
+produce the answer</p>
+<p t="728130" d="3530">to the first equation and the
+answer the second equation.</p>
+<p t="731660" d="4580">Will it do that by
+finding A inverse?</p>
+<p t="736240" d="1910">No.</p>
+<p t="738150" d="2850">A inverse, for
+multiple reasons, we</p>
+<p t="741000" d="5380">don't often compute,
+if it's 3 by 3, 4 by 4,</p>
+<p t="746380" d="4580">then it's not a bad idea to
+see what A inverse looks like.</p>
+<p t="750960" d="2470">We'll do that
+actually, because it's</p>
+<p t="753430" d="3080">very enlightening if
+the matrix is small,</p>
+<p t="756510" d="1800">you can see what's going on.</p>
+<p t="758310" d="4000">But for a large problem
+we don't want A inverse.</p>
+<p t="762310" d="1610">We want the answer.</p>
+<p t="763920" d="2760">And backslash goes
+to the answer.</p>
+<p t="766680" d="6320">It doesn't get there
+by computing A inverse.</p>
+<p t="773000" d="3650">And our examples will show how.</p>
+<p t="776650" d="8950">So I'm giving A inverse a
+little bad comments right now.</p>
+<p t="785600" d="1760">So I maybe should
+finish that sentence</p>
+<p t="787360" d="2670">and then you'll
+see me turn around</p>
+<p t="790030" d="1720">and compute the darn thing.</p>
+<p t="791750" d="5200">But why do we not use A inverse?</p>
+<p t="796950" d="1300">Two reasons.</p>
+<p t="798250" d="2380">One is it's more expensive.</p>
+<p t="800630" d="3290">If I have to compute A
+inverse and multiply by b,</p>
+<p t="803920" d="2250">that's taking too long.</p>
+<p t="806170" d="6610">Second reason is A inverse could
+easily be a full, dense matrix.</p>
+<p t="812780" d="1430">All non-zero.</p>
+<p t="814210" d="3430">Where A itself was
+like, tridiagonal.</p>
+<p t="817640" d="3930">So if A is tridiagonal,
+all the numbers we need</p>
+<p t="821570" d="4940">are there in three diagonals,
+we don't want A inverse,</p>
+<p t="826510" d="1760">you'll see, A inverse is full.</p>
+<p t="828270" d="3020">So two reasons for
+not using A inverse.</p>
+<p t="831290" d="5700">Takes too long in the first
+place even in the good case</p>
+<p t="836990" d="4640">and often our matrix
+A has got lots</p>
+<p t="841630" d="6120">of zeroes that are not there in
+A inverse so we've wasted time.</p>
+<p t="847750" d="1910">Nevertheless let
+me say something</p>
+<p t="849660" d="6480">about A inverse
+on the next board.</p>
+<p t="856140" d="4120">I don't know if you ever thought
+about the inverse matrix.</p>
+<p t="860260" d="2280">Let me ask you this question.</p>
+<p t="862540" d="10850">Suppose I use the command
+A\I. What's that doing?</p>
+<p t="873390" d="3310">That's putting the identity
+on the right-hand side</p>
+<p t="876700" d="2800">instead of a single
+vector b or instead</p>
+<p t="879500" d="5450">of two vectors b and
+c I'm now putting n.</p>
+<p t="884950" d="1390">That's okay.</p>
+<p t="886340" d="1950">Backslash will work with that.</p>
+<p t="888290" d="3300">That's a shorthand for solving.</p>
+<p t="891590" d="4560">This solves all these equations.</p>
+<p t="896150" d="4040">A, it'll get my different
+answers, u_1, u_2.</p>
+<p t="900190" d="4560">It'll get n different answers
+from the n right-hand sides,</p>
+<p t="904750" d="4770">the columns of I. Let
+me take to be three.</p>
+<p t="909520" d="2920">0, 1, 0; 0, 0, 1.</p>
+<p t="912440" d="7280">But I'll take n to be three.</p>
+<p t="919720" d="1510">That's the identity.</p>
+<p t="921230" d="2620">So this solves that equation.</p>
+<p t="923850" d="5220">A\I will output
+u, will output u.</p>
+<p t="929070" d="2280">And here's the question.</p>
+<p t="931350" d="1400">What have I got?</p>
+<p t="932750" d="5700">If you have a matrix A,
+square matrix and of course</p>
+<p t="938450" d="6380">you have to create I as
+eye(3), that I would be,</p>
+<p t="944830" d="3030">this would be eye(3).</p>
+<p t="947860" d="4210">Cleve Moler's lousy pun.</p>
+<p t="952070" d="4050">So what would I get?</p>
+<p t="956120" d="1690">What would I get?</p>
+<p t="957810" d="1500">The inverse, yes.</p>
+<p t="959310" d="1530">I'd get the inverse.</p>
+<p t="960840" d="3700">I'd get the inverse matrix.</p>
+<p t="964540" d="2350">A backslash-- why's that?</p>
+<p t="966890" d="3010">Because what matrix
+solves, what's</p>
+<p t="969900" d="4070">the solution u to A
+times something equal I?</p>
+<p t="973970" d="6320">The solution to--
+This equation is Au=I.</p>
+<p t="980290" d="4080">The solution to that equation
+is the inverse matrix.</p>
+<p t="984370" d="3880">u will be A inverse.</p>
+<p t="988250" d="4280">So that is a pretty,
+I mean, that's pretty,</p>
+<p t="992530" d="3220">if I wanted A inverse
+that's a good way to do it.</p>
+<p t="995750" d="3660">Other ways to do it
+would be inv(A) in MATLAB</p>
+<p t="999410" d="5570">and other ways, but this is
+about as good as you get.</p>
+<p t="1004980" d="6430">Do you see that you get the
+inverse matrix that way?</p>
+<p t="1011410" d="11930">And it's worth giving
+some words to that fact.</p>
+<p t="1023340" d="2550">How would I describe this?</p>
+<p t="1025890" d="4520">This is a set of three
+different problems.</p>
+<p t="1030410" d="7760">I would describe [1, 0, 0], that
+right-hand side, as an impulse.</p>
+<p t="1038170" d="1060">That's an impulse.</p>
+<p t="1039230" d="7350">A delta vector with an impulse
+in the first component.</p>
+<p t="1046580" d="2670">I'd call that an impulse
+in the second component.</p>
+<p t="1049250" d="2360">I'd call that an impulse
+in the third component.</p>
+<p t="1051610" d="5500">So my inputs are three
+impulses and my outputs</p>
+<p t="1057110" d="2880">are u_1, u_2, u_3.</p>
+<p t="1059990" d="2390">What words might I use?</p>
+<p t="1062380" d="4020">I could call those
+impulse response.</p>
+<p t="1066400" d="2420">If I were in Course
+6, I certainly would.</p>
+<p t="1068820" d="3750">These would be impulses,
+these would be the responses</p>
+<p t="1072570" d="2840">to that impulse from our system.</p>
+<p t="1075410" d="5350">So those are impulse responses
+but in linear algebra</p>
+<p t="1080760" d="3950">the words I would
+use, u_1, u_2, u_3</p>
+<p t="1084710" d="4120">are the columns of
+A inverse, right?</p>
+<p t="1088830" d="3330">That's what we just
+said. u_1, u_2, u_3.</p>
+<p t="1092160" d="2930">So the columns of--
+Let me write that down.</p>
+<p t="1095090" d="8930">The columns of A inverse
+are the responses,</p>
+<p t="1104020" d="9410">the u's, the solutions to
+the impulses, to n impulses.</p>
+<p t="1113430" d="8090">And these are the
+columns of I. Do you see?</p>
+<p t="1121520" d="3760">Nothing I've said so
+far is deep or anything.</p>
+<p t="1125280" d="4290">But it's just, this
+comes up so much</p>
+<p t="1129570" d="3750">that it's nice to have different
+ways to think about this.</p>
+<p t="1133320" d="5110">And actually, yeah, if
+I had to solve by hand,</p>
+<p t="1138430" d="7250">if I had to find the inverse
+by hand I would use elimination</p>
+<p t="1145680" d="2400">on this system of equations.</p>
+<p t="1148080" d="2690">I would take A and put
+the identity next to it.</p>
+<p t="1150770" d="4440">I would do elimination a lot.</p>
+<p t="1155210" d="2400">Actually I'll put that in one.</p>
+<p t="1157610" d="7000">If I had to find the inverse I
+would take this block matrix.</p>
+<p t="1164610" d="3450">Is that the first block
+matrix we've seen?</p>
+<p t="1168060" d="6630">Block matrices are really,
+you should just get familiar,</p>
+<p t="1174690" d="2200">when you're getting
+familiar with matrices,</p>
+<p t="1176890" d="1700">they often come in blocks.</p>
+<p t="1178590" d="1730">So here's a three
+by three block,</p>
+<p t="1180320" d="2270">here's a three by three
+block, the whole matrix</p>
+<p t="1182590" d="1940">is three by six.</p>
+<p t="1184530" d="4190">I can go through the
+elimination steps on it.</p>
+<p t="1188720" d="2920">If I really go
+haywire on elimination</p>
+<p t="1191640" d="4640">and keep going and going and
+going all the way until A gets</p>
+<p t="1196280" d="5050">to the identity,
+so I do elimination</p>
+<p t="1201330" d="3560">and I get it triangular
+then I even clean out up</p>
+<p t="1204890" d="3790">above the pivots and then I
+change all the pivots to one,</p>
+<p t="1208680" d="1810">I can get all the
+way to the identity</p>
+<p t="1210490" d="1960">if the matrix is invertible.</p>
+<p t="1212450" d="5500">And what do you think will
+show up in the right half?</p>
+<p t="1217950" d="1740">A inverse, yeah.</p>
+<p t="1219690" d="3690">So A inverse will show up there.</p>
+<p t="1223380" d="4540">So in 18.06 I would
+explain, go through examples</p>
+<p t="1227920" d="7150">of this computation just
+to see A inverse appear.</p>
+<p t="1235070" d="3940">There's no reason for us
+to go through long examples</p>
+<p t="1239010" d="1770">like that.</p>
+<p t="1240780" d="2850">Maybe one three by three
+would be worth doing,</p>
+<p t="1243630" d="6270">but in the big picture we're
+going to use backslash.</p>
+<p t="1249900" d="1380">Questions or discussion.</p>
+<p t="1251280" d="4240">So this is the sort of overall
+picture about the inverse.</p>
+<p t="1255520" d="3140">Well this is about the inverse.</p>
+<p t="1258660" d="3460">This was about elimination.</p>
+<p t="1262120" d="2450">I've gotta take a little
+time on elimination.</p>
+<p t="1264570" d="2960">No it's just too important.</p>
+<p t="1267530" d="2430">It's sort of straightforward
+and mechanical</p>
+<p t="1269960" d="3460">but it's like, too
+important to blow away.</p>
+<p t="1273420" d="10000">So let me remove that and
+put something better there.</p>
+<p t="1283420" d="2550">So now I'm talking
+about elimination.</p>
+<p t="1285970" d="2490">I'm talking about one equation.</p>
+<p t="1288460" d="2380">I'm back to Au=b.</p>
+<p t="1290840" d="3870">Au=b.</p>
+<p t="1294710" d="6940">And notice I'm using the
+letter A rather than K or one</p>
+<p t="1301650" d="2400">of our special letters
+because right now I don't know</p>
+<p t="1304050" d="2590">that that's a special matrix.</p>
+<p t="1306640" d="2240">In a minute the
+example I do will</p>
+<p t="1308880" d="2720">be one of our special
+matrices of course,</p>
+<p t="1311600" d="3090">and then I'll use its letter.</p>
+<p t="1314690" d="3710">Just a word, though.</p>
+<p t="1318400" d="4520">I thought I would take-- you're
+getting a lot of big picture</p>
+<p t="1322920" d="2860">here for a minute and then
+we'll get into the details.</p>
+<p t="1325780" d="1960">I thought I would
+just, like, this</p>
+<p t="1327740" d="4140">is an occasion to look ahead.</p>
+<p t="1331880" d="5990">To say a word about the big
+picture of linear algebra.</p>
+<p t="1337870" d="4170">It's got four major
+problems, linear algebra.</p>
+<p t="1342040" d="3230">And there are four commands
+to solve those problems.</p>
+<p t="1345270" d="2300">And those commands,
+why not know?</p>
+<p t="1347570" d="3020">So those commands are: lu.</p>
+<p t="1350590" d="6380">I'm speaking about MATLAB
+notation but Octave, Scilab,</p>
+<p t="1356970" d="5980">Python, R, all other
+would have those.</p>
+<p t="1362950" d="2110">Would do these same things.</p>
+<p t="1365060" d="8010">So lu is the command
+that produces this,</p>
+<p t="1373070" d="3040">but I didn't say
+what that is yet.</p>
+<p t="1376110" d="970">Ooh.</p>
+<p t="1377080" d="1880">So that's my job, right.</p>
+<p t="1378960" d="4130">What does this mean?</p>
+<p t="1383090" d="2680">What's up there?</p>
+<p t="1385770" d="3710">So, okay, to nobody's
+surprise MATLAB thought, okay,</p>
+<p t="1389480" d="2630">lu was a good letter for that.</p>
+<p t="1392110" d="3570">And what did MATLAB think of as
+a good letter for the command</p>
+<p t="1395680" d="3220">that does this? qr.</p>
+<p t="1398900" d="10970">So if I did lu(A) or qr(A)
+I would get-- I mean,</p>
+<p t="1409870" d="4300">this is sometimes associated
+with the names of Gram-Schmidt.</p>
+<p t="1414170" d="2820">It makes vectors orthogonal.</p>
+<p t="1416990" d="2670">Not to worry about this stuff.</p>
+<p t="1419660" d="3320">You can like, close your
+eyes for a moment here.</p>
+<p t="1422980" d="4130">lu is the first command and
+that's what today's about.</p>
+<p t="1427110" d="4630">qr is the key command for
+least squares problems.</p>
+<p t="1431740" d="4040">Maybe the biggest application
+of rectangular matrices,</p>
+<p t="1435780" d="2030">I'm sure that's the big.</p>
+<p t="1437810" d="2520">Eigenvalues, do you
+know about eigenvalues?</p>
+<p t="1440330" d="4530">Well we'll just name
+the command eig(A).</p>
+<p t="1444860" d="3120">And the singular
+value decomposition,</p>
+<p t="1447980" d="10070">which you may never have heard
+of, but you will, is svd(A).</p>
+<p t="1458050" d="3510">Can I leave that?</p>
+<p t="1461560" d="1970">It's in the videotape now.</p>
+<p t="1463530" d="8910">And my point is that when
+we've spoken about those four,</p>
+<p t="1472440" d="3060">we really have got
+numerical linear algebra</p>
+<p t="1475500" d="6620">and a lot of pure linear
+algebra explained.</p>
+<p t="1482120" d="2640">These are the four big ones.</p>
+<p t="1484760" d="2940">And I guess what I'm
+saying is, the four</p>
+<p t="1487700" d="6100">big problems of linear algebra
+turn out to, a good way</p>
+<p t="1493800" d="5420">to describe the answer is as
+a factorization of the matrix.</p>
+<p t="1499220" d="980">This is a factor.</p>
+<p t="1500200" d="1960">So now let me say
+what this one is.</p>
+<p t="1502160" d="5330">I start with a matrix and
+what elimination is really</p>
+<p t="1507490" d="2540">doing, if you look to
+see what is it doing,</p>
+<p t="1510030" d="2900">it's producing a
+lower triangular</p>
+<p t="1512930" d="2400">times an upper triangular.</p>
+<p t="1515330" d="1970">Let's go directly to that.</p>
+<p t="1517300" d="1610">Let me go directly to that.</p>
+<p t="1518910" d="2480">Let me take an example.</p>
+<p t="1521390" d="1400">So here's my matrix.</p>
+<p t="1522790" d="11520">Well, I don't have to call it
+A because you recognize it.</p>
+<p t="1534310" d="2690">So what's our name
+for that matrix?</p>
+<p t="1537000" d="4140">T. T because the top
+boundary condition is free.</p>
+<p t="1541140" d="3060">Oh, that reminds me.</p>
+<p t="1544200" d="5510">Some good comments after class
+Friday brought out something</p>
+<p t="1549710" d="2190">that I sloughed over.</p>
+<p t="1551900" d="6310">That the free-fixed matrix,
+the free-fixed problem</p>
+<p t="1558210" d="4130">is usually one unknown
+larger than the fixed-fixed.</p>
+<p t="1562340" d="3030">Because remember the fixed-fixed
+problem had both ends fixed.</p>
+<p t="1565370" d="2040">They were not unknowns.</p>
+<p t="1567410" d="4930">The only unknowns were one,
+two, three to n in the middle.</p>
+<p t="1572340" d="4540">But people noticed when I was
+talking about the free boundary</p>
+<p t="1576880" d="4760">condition that u_0 came into
+it and u_0 is not known.</p>
+<p t="1581640" d="4480">So really, the free
+boundary condition like,</p>
+<p t="1586120" d="3920">has an extra unknown, an extra
+row and column in the matrix</p>
+<p t="1590040" d="3560">and that's correct.</p>
+<p t="1593600" d="4020">We'll see later in
+Fourier transforms</p>
+<p t="1597620" d="4570">cosine matrices are one size
+bigger than sine matrices.</p>
+<p t="1602190" d="2980">The cosine matrices
+are free-free</p>
+<p t="1605170" d="3710">and the sine matrices
+are fixed-fixed.</p>
+<p t="1608880" d="5790">And now here we're
+at free-fixed.</p>
+<p t="1614670" d="4390">I want to do elimination
+on that matrix.</p>
+<p t="1619060" d="4620">And while I'm at it,
+we'll find the inverse.</p>
+<p t="1623680" d="4600">But let's do elimination.</p>
+<p t="1628280" d="2030">Just on that matrix.</p>
+<p t="1630310" d="5350">Just to see what this
+L and U stuff is.</p>
+<p t="1635660" d="3820">What do we do?</p>
+<p t="1639480" d="2500">The first pivot is?</p>
+<p t="1641980" d="2760">One, it's fine.</p>
+<p t="1644740" d="2350">Not going to worry about that.</p>
+<p t="1647090" d="1060">We'll use it now.</p>
+<p t="1648150" d="1640">So how do I use it?</p>
+<p t="1649790" d="2755">I use a pivot, now
+listen because here</p>
+<p t="1652545" d="3805">is a convention here, I'm
+going to use the word subtract.</p>
+<p t="1656350" d="4680">You would say add that
+row to that row, right?</p>
+<p t="1661030" d="3000">Because you want
+to get a zero here.</p>
+<p t="1664030" d="2460">Forgive me for making
+it sound harder.</p>
+<p t="1666490" d="4210">I'm going to say subtract
+because I like subtraction.</p>
+<p t="1670700" d="3950">Subtract minus one of
+that row, my multiplier</p>
+<p t="1674650" d="1830">is minus one here.</p>
+<p t="1676480" d="3730">I'm going to say subtract minus
+one of that row from that.</p>
+<p t="1680210" d="1990">Same thing.</p>
+<p t="1682200" d="2420">You'll say okay.</p>
+<p t="1684620" d="1020">No problem.</p>
+<p t="1685640" d="1470">Let's just do it.</p>
+<p t="1687110" d="7490">So there's the pivot row and
+now when I-- shall I just add?</p>
+<p t="1694600" d="9230">When I add that to that, or
+as my superego is saying,</p>
+<p t="1703830" d="3630">subtract minus one
+of that from that.</p>
+<p t="1707460" d="910">What do I get?</p>
+<p t="1708370" d="4770">I get the zero, the
+one and the minus one.</p>
+<p t="1713140" d="1360">And then what do I get?</p>
+<p t="1714500" d="1770">What's the multiplier?</p>
+<p t="1716270" d="6320">So let's just put these l,
+these multipliers, the l_(2, 1).</p>
+<p t="1722590" d="1860">That's the multiplier.</p>
+<p t="1724450" d="3880">2, 1 refers to row
+two, column one.</p>
+<p t="1728330" d="3540">And this step got the zero
+in row two, column one.</p>
+<p t="1731870" d="2460">And what was the
+multiplier that did it?</p>
+<p t="1734330" d="3730">It's the number that I
+multiplied row one by</p>
+<p t="1738060" d="4760">and subtracted from row
+two, so it was minus one.</p>
+<p t="1742820" d="2590">What's l_(3,1)?</p>
+<p t="1745410" d="4840">What's the multiplier that
+produces a zero in the three,</p>
+<p t="1750250" d="3550">row three, column one position?</p>
+<p t="1753800" d="1970">It's zero.</p>
+<p t="1755770" d="3550">I take zero of this
+row away from this row</p>
+<p t="1759320" d="4140">because it's zero already.</p>
+<p t="1763460" d="4080">So I'm not going to change, that
+row won't change and l_(3,1)</p>
+<p t="1767540" d="2840">was zero.</p>
+<p t="1770380" d="4700">Now I know the next pivot.</p>
+<p t="1775080" d="1810">I'm ready to use it.</p>
+<p t="1776890" d="2150">I want to get a zero
+below it because I'm</p>
+<p t="1779040" d="3540">aiming at this
+upper triangular U.</p>
+<p t="1782580" d="2480">And what's the multiplier now?</p>
+<p t="1785060" d="2750">And what's its number?</p>
+<p t="1787810" d="1860">What's the multiplier number?</p>
+<p t="1789670" d="5330">3, 2 because I'm trying to
+fix row three, column two.</p>
+<p t="1795000" d="3560">And what do I multiply
+this by and subtract</p>
+<p t="1798560" d="3980">from this to make it zero?</p>
+<p t="1802540" d="2930">It's negative one again.
+negative one, right.</p>
+<p t="1805470" d="920">It's negative one.</p>
+<p t="1806390" d="2280">Sorry.</p>
+<p t="1808670" d="650">Right.</p>
+<p t="1809320" d="2000">And now what happens
+when I do that?</p>
+<p t="1811320" d="5050">Can I just do it in place here?</p>
+<p t="1816370" d="2940">Forgive me if I just
+add that to that.</p>
+<p t="1819310" d="5930">And I'll get zero and one.</p>
+<p t="1825240" d="5689">And now what do I know at this
+point, what have I learned?</p>
+<p t="1830929" d="1541">The most important
+thing I've learned</p>
+<p t="1832470" d="2460">is the matrix is invertible.</p>
+<p t="1834930" d="3650">Because the pivots
+one, one, and one,</p>
+<p t="1838580" d="2130">well they're all
+here on the diagonal.</p>
+<p t="1840710" d="5020">This is my matrix U. That's
+my upper triangular matrix.</p>
+<p t="1845730" d="2930">And-- yeah, of course?</p>
+<p t="1848660" d="14490">I'm subtracting
+from this, so I've</p>
+<p t="1863150" d="3710">got the two is there,
+yeah, yeah, that's right.</p>
+<p t="1866860" d="4680">So the two is sitting there
+and I'm subtracting minus one</p>
+<p t="1871540" d="5260">of that row from it and that
+would mean taking, yeah, yeah.</p>
+<p t="1876800" d="1400">Right.</p>
+<p t="1878200" d="2627">That would mean I'm
+subtracting one from the two</p>
+<p t="1880827" d="833">and getting the one.</p>
+<p t="1881660" d="1050">Yeah, yeah.</p>
+<p t="1882710" d="2700">So the row, the
+typical entry is,</p>
+<p t="1885410" d="3460">the typical result is:
+the row you have minus</p>
+<p t="1888870" d="2510">l times the pivot row.</p>
+<p t="1891380" d="3270">The row you have minus the
+multiplier times the pivot row.</p>
+<p t="1894650" d="5040">That's the operation that
+elimination lives on.</p>
+<p t="1899690" d="2720">Elimination does
+that all the time.</p>
+<p t="1902410" d="3390">It's one of the basic
+linear algebra subroutines.</p>
+<p t="1905800" d="2810">B L A S.</p>
+<p t="1908610" d="6100">Now, this is my U. So that's
+the goal of elimination,</p>
+<p t="1914710" d="2290">get it upper triangular.</p>
+<p t="1917000" d="3770">And the reason is, you can solve
+upper triangular systems really</p>
+<p t="1920770" d="1710">fast.</p>
+<p t="1922480" d="6460">These multipliers l, l_(2,1),
+and so on, they and go</p>
+<p t="1928940" d="3480">into the L matrix.</p>
+<p t="1932420" d="4590">And now, let me just say
+it here that in a way,</p>
+<p t="1937010" d="3810">that example is too beautiful.</p>
+<p t="1940820" d="4260">Seldom am I sorry to see an
+example come out beautifully,</p>
+<p t="1945080" d="3240">but why do I say this
+is too beautiful?</p>
+<p t="1948320" d="1980">It's not typical.</p>
+<p t="1950300" d="3970">If I had other numbers here, I
+would get to other numbers here</p>
+<p t="1954270" d="3660">and what would be the
+difference, typically?</p>
+<p t="1957930" d="6710">The pivots wouldn't be all ones.</p>
+<p t="1964640" d="3500">That's what's too beautiful
+here, but let's go with it.</p>
+<p t="1968140" d="4670">I mean, it was worth it because
+everything came out simple.</p>
+<p t="1972810" d="3640">But the pivots for
+another problem, ooh,</p>
+<p t="1976450" d="6550">let me just do a
+second problem here.</p>
+<p t="1983000" d="3920">I'll do the fixed-fixed guy.</p>
+<p t="1986920" d="2700">Okay, so let's just do
+elimination on that.</p>
+<p t="1989620" d="2110">That's the first pivot.</p>
+<p t="1991730" d="790">Subtract.</p>
+<p t="1992520" d="4951">Now what's the multiplier now?</p>
+<p t="1997471" d="1249">You're not as quick as MATLAB.</p>
+<p t="1998720" d="1360">MATLAB is ahead of you.</p>
+<p t="2000080" d="6040">So the multiplier is -1/2.</p>
+<p t="2006120" d="4580">So the multiplier
+is, l_(2,1) is -1/2.</p>
+<p t="2010700" d="3770">l_(3,1) will again be
+zero and let's use it,</p>
+<p t="2014470" d="2390">so it knocks that guys out.</p>
+<p t="2016860" d="2990">And what did that
+number come out to be?</p>
+<p t="2019850" d="700">Do you remember?</p>
+<p t="2020550" d="1690">That was 3/2.</p>
+<p t="2022240" d="2030">I think we looked at that once.</p>
+<p t="2024270" d="2720">And that would be all the same.</p>
+<p t="2026990" d="5320">And then the next multiplier,
+l_(3,2) will be negative 2/3</p>
+<p t="2032310" d="3970">because when I multiply that
+by 2/3 it gives me the negative</p>
+<p t="2036280" d="5920">one and then I subtract and
+it kills this and I get 4/3.</p>
+<p t="2042200" d="2200">I just did that quickly.</p>
+<p t="2044400" d="7330">And my main point was the
+pivots are on the diagonal.</p>
+<p t="2051730" d="2180">They're not all ones now.</p>
+<p t="2053910" d="1580">So this is a more typical one.</p>
+<p t="2055490" d="8730">This is, again our U.
+And our L matrix will be,</p>
+<p t="2064220" d="3000">oh, oh, that's the point.</p>
+<p t="2067220" d="1980">That these l's,
+these multipliers</p>
+<p t="2069200" d="3700">fit right into a lower
+triangular matrix.</p>
+<p t="2072900" d="3300">All these multipliers,
+and we'll put ones</p>
+<p t="2076200" d="4640">on the diagonal of that guy
+and these lower triangular ones</p>
+<p t="2080840" d="4650">will fit in just right
+perfectly in there.</p>
+<p t="2085490" d="6100">Over here the L would be,
+let me construct the L.</p>
+<p t="2091590" d="3160">Ones on the diagonal
+representing</p>
+<p t="2094750" d="4958">the pivot rows that stayed
+put and minus one, zero,</p>
+<p t="2099708" d="10312">and minus one as the multipliers
+that-- So this was L,</p>
+<p t="2110020" d="6130">the multipliers that we used.</p>
+<p t="2116150" d="2200">One more.</p>
+<p t="2118350" d="4520">We're doing lots of good
+stuff here and it's not deep,</p>
+<p t="2122870" d="6580">but it's-- Suppose the
+matrix had been singular.</p>
+<p t="2129450" d="4760">We have to realize, okay, this
+elimination method is great.</p>
+<p t="2134210" d="3730">But it can break down and
+it's going to break down,</p>
+<p t="2137940" d="3690">it has to break down somehow
+if the matrix is singular.</p>
+<p t="2141630" d="4480">Now what's our example of
+a singular matrix here?</p>
+<p t="2146110" d="4310">The matrix, this is free-fixed
+and that by fixing one</p>
+<p t="2150420" d="2770">support it wasn't singular,
+but if I want to make it</p>
+<p t="2153190" d="2420">singular, what'll I take?</p>
+<p t="2155610" d="1600">Free-free.</p>
+<p t="2157210" d="2180">Free-free matrix.</p>
+<p t="2159390" d="4780">So can I, if I had thought
+to bring colored chalk,</p>
+<p t="2164170" d="4230">I'll just erase for a
+moment for the bad case.</p>
+<p t="2168400" d="3620">The bad case would be free-free.</p>
+<p t="2172020" d="4410">And how would it show up
+as bad in elimination.</p>
+<p t="2176430" d="5380">How does a singular
+matrix reveal itself</p>
+<p t="2181810" d="2580">as elimination goes forward?</p>
+<p t="2184390" d="5386">Because you can't
+tell at the beginning.</p>
+<p t="2189776" d="1124">What would have gone wrong?</p>
+<p t="2190900" d="4380">We would have had a zero there.</p>
+<p t="2195280" d="3260">We had a two that
+dropped to one.</p>
+<p t="2198540" d="2770">But if we start with a
+one, it'll drop to zero.</p>
+<p t="2201310" d="2270">That would have
+been a zero there.</p>
+<p t="2203580" d="5880">The matrix would not
+have had three pivots.</p>
+<p t="2209460" d="3610">This upper triangular
+matrix is singular, no good.</p>
+<p t="2213070" d="2710">And that tells us back there
+that the original matrix</p>
+<p t="2215780" d="2750">is singular, no good.</p>
+<p t="2218530" d="5700">So if I can't get to
+three pivots somehow,</p>
+<p t="2224230" d="5760">the matrix'll be singular and
+that's an example that is.</p>
+<p t="2229990" d="2880">And MATLAB would immediately
+tell us, of course.</p>
+<p t="2232870" d="4640">So let's go back to the good
+case for the main point.</p>
+<p t="2237510" d="1590">The good case for
+the main point.</p>
+<p t="2239100" d="6950">So the good case
+was three pivots.</p>
+<p t="2246050" d="2060">In fact it was extra
+good because they all</p>
+<p t="2248110" d="1920">turned out to be ones.</p>
+<p t="2250030" d="6380">Now, oh, now we're ready for LU.</p>
+<p t="2256410" d="1710">Here's the magic.</p>
+<p t="2258120" d="2460">And I'm not giving a proof.</p>
+<p t="2260580" d="7720">The magic is that the result
+U, if I multiply the multiplier</p>
+<p t="2268300" d="5340">matrix L times
+the result U, I'll</p>
+<p t="2273640" d="5860">bring back A. I'll bring
+back A. So let me just see.</p>
+<p t="2279500" d="5600">If I multiply L by U, so
+this is now L times U,</p>
+<p t="2285100" d="4400">maybe you can see that
+I get A. So what is U?</p>
+<p t="2289500" d="6390">I just have to copy it.
+[1, 1,  1; -1, -1, 0].</p>
+<p t="2295890" d="7010">I could fill in the zeroes
+but I know they're there.</p>
+<p t="2302900" d="3310">That's L times U.
+And sure enough,</p>
+<p t="2306210" d="2410">if I do the multiplication,
+this-- How would</p>
+<p t="2308620" d="1320">you to that multiplication?</p>
+<p t="2309940" d="3030">I would say this is one of
+the first row when I see that.</p>
+<p t="2312970" d="1820">1, 0, 0 multiplying these.</p>
+<p t="2314790" d="2430">I'd say get one
+of the first row.</p>
+<p t="2317220" d="4410">That's correct in A. Here I
+would say this is minus one</p>
+<p t="2321630" d="3040">of the first row, plus
+one of the second row,</p>
+<p t="2324670" d="3660">and sure enough it's
+the right part of A.</p>
+<p t="2328330" d="2490">And this is minus one
+of the second row,</p>
+<p t="2330820" d="2640">plus one of the third row,
+and sure enough it's the right</p>
+<p t="2333460" d="7160">third row of A. I get A. And
+that's when elimination goes</p>
+<p t="2340620" d="4250">through with no zero
+pivots, no problems,</p>
+<p t="2344870" d="5750">just a bunch of multipliers,
+then that wonderful description</p>
+<p t="2350620" d="4550">of it, A=LU is correct.</p>
+<p t="2355170" d="1970">I don't know how
+many that's new to.</p>
+<p t="2357140" d="2130">I should maybe
+have thought ahead.</p>
+<p t="2359270" d="3370">How many have seen
+like, L times U before?</p>
+<p t="2362640" d="1780">Just to give me an idea?</p>
+<p t="2364420" d="600">Quite a few.</p>
+<p t="2365020" d="950">Okay.</p>
+<p t="2365970" d="5880">So it's terrific.</p>
+<p t="2371850" d="2480">Oh, here I would
+get L times U. Now</p>
+<p t="2374330" d="4050">this is like a little more
+interesting because the pivots</p>
+<p t="2378380" d="5420">were not ones.</p>
+<p t="2383800" d="5980">So that's my matrix U. And
+here's my matrix L, right?</p>
+<p t="2389780" d="1930">Okay, big point.</p>
+<p t="2391710" d="4940">Because we're so interested in
+symmetric matrices and this one</p>
+<p t="2396650" d="4120">in particular, or that one,
+symmetric matrices are good.</p>
+<p t="2400770" d="4720">Now, I'm unhappy
+about one aspect.</p>
+<p t="2405490" d="4980">So now there's just
+one part of this.</p>
+<p t="2410470" d="4040">This was great, we got three
+non-zero pivots, we got to U,</p>
+<p t="2414510" d="3660">we got the multiplier
+matrix all fine</p>
+<p t="2418170" d="3570">and we would be ready
+for the right-hand side</p>
+<p t="2421740" d="2491">and we would be ready
+for two right-hand sides,</p>
+<p t="2424231" d="2249">we would even be ready for
+all three right-hand sides,</p>
+<p t="2426480" d="2100">whatever.</p>
+<p t="2428580" d="4080">But I have one criticism.</p>
+<p t="2432660" d="7290">The matrix A which was
+our K, this was really K,</p>
+<p t="2439950" d="830">was symmetric.</p>
+<p t="2440780" d="2260">That was the very first
+thing you did, told me</p>
+<p t="2443040" d="2450">on the very first day.</p>
+<p t="2445490" d="3180">And now it's equal to L
+times U, but what's happened?</p>
+<p t="2448670" d="2580">The symmetry is lost.</p>
+<p t="2451250" d="4850">Somehow the L has
+ones on the diagonal,</p>
+<p t="2456100" d="4030">the U as we have it has
+pivots on the diagonal,</p>
+<p t="2460130" d="1730">now the pivots are not all ones.</p>
+<p t="2461860" d="3770">So you see the symmetry
+of the problem got lost,</p>
+<p t="2465630" d="2340">and that shouldn't happen.</p>
+<p t="2467970" d="2950">And there ought to
+be a way to get back.</p>
+<p t="2470920" d="610">Okay.</p>
+<p t="2471530" d="3860">And now I want to describe the
+way to get back to symmetry.</p>
+<p t="2475390" d="3740">So LU doesn't keep the symmetry.</p>
+<p t="2479130" d="3070">L has ones, U has pivots.</p>
+<p t="2482200" d="2170">Different.</p>
+<p t="2484370" d="5100">But a very simple idea will
+bring back the symmetry.</p>
+<p t="2489470" d="7960">That is peel off the pivots
+into a diagonal matrix.</p>
+<p t="2497430" d="2670">In other words,
+there's a matrix,</p>
+<p t="2500100" d="5400">I'll call it D, D for diagonal.</p>
+<p t="2505500" d="4440">I'll divide those
+numbers out of each row.</p>
+<p t="2509940" d="3300">And can I just do that?</p>
+<p t="2513240" d="2870">So I'm just going
+to write this U</p>
+<p t="2516110" d="2410">as a product of this
+diagonal D where I'm going</p>
+<p t="2518520" d="1940">to be dividing the two out.</p>
+<p t="2520460" d="2580">So when I divide the
+two out from that row</p>
+<p t="2523040" d="3650">I'm left with 1, -1/2, 0.</p>
+<p t="2526690" d="3780">And when I divide
+3/2, the pivot then,</p>
+<p t="2530470" d="2940">it makes that pivot
+into a one and what</p>
+<p t="2533410" d="2520">does it produce for that guy?</p>
+<p t="2535930" d="6550">When I divide 3/2, when I divide
+that -1 by 3/2, what do I get?</p>
+<p t="2542480" d="5850">I get negative, division will
+be 2/3, I'll get a negative 2/3.</p>
+<p t="2548330" d="4630">And now, on the last row I'm
+dividing that row by 4/3.</p>
+<p t="2552960" d="4250">When I divide that row by
+4/3, what row do I get here?</p>
+<p t="2557210" d="1470">[0, 0, 1].</p>
+<p t="2558680" d="4260">Because I've made the pivots
+one, well they're not pivots.</p>
+<p t="2562940" d="2790">What I've done is
+separate out the pivots.</p>
+<p t="2565730" d="5580">So I've made the diagonal ones
+just by separating it out.</p>
+<p t="2571310" d="7480">And what's happened?</p>
+<p t="2578790" d="3190">My goal was to get
+back some symmetry that</p>
+<p t="2581980" d="1900">was there at the start.</p>
+<p t="2583880" d="6550">Now so I have a pivot matrix
+D, and what's that matrix?</p>
+<p t="2590430" d="2500">You could say,
+well, it's the rest.</p>
+<p t="2592930" d="2710">But that's not what
+I'm looking for.</p>
+<p t="2595640" d="2280">What is it?</p>
+<p t="2597920" d="1430">Can everybody have a look at it?</p>
+<p t="2599350" d="1870">I can't raise it.</p>
+<p t="2601220" d="5730">If you look at what we
+got there, what is it?</p>
+<p t="2606950" d="2995">What's the right
+name to give it?</p>
+<p t="2609945" d="875">L transpose, exactly!</p>
+<p t="2610820" d="1470">That's the right name.</p>
+<p t="2612290" d="2110">L transpose.</p>
+<p t="2614400" d="2800">So what am I concluding then?</p>
+<p t="2617200" d="4970">I'm concluding that, let's
+see, where shall I put this?</p>
+<p t="2622170" d="1180">And it'll come back to it.</p>
+<p t="2623350" d="5700">Well, here we had just to
+show it wasn't an accident,</p>
+<p t="2629050" d="2560">here we had L L
+transpose and what</p>
+<p t="2631610" d="5360">was the pivot matrix in this
+too beautiful problem case?</p>
+<p t="2636970" d="1660">It was the identity.</p>
+<p t="2638630" d="1900">So we didn't notice it.</p>
+<p t="2640530" d="2070">So can I squeeze
+in the identity?</p>
+<p t="2642600" d="1980">That's the pivot matrix there.</p>
+<p t="2644580" d="4230">But and again, we had
+L times L transpose.</p>
+<p t="2648810" d="2630">The beauty was there,
+the symmetry was there.</p>
+<p t="2651440" d="2480">And now what's the usual thing?</p>
+<p t="2653920" d="7260">So really I'm completing
+this to one more thought.</p>
+<p t="2661180" d="3520">In that case when
+A is symmetric.</p>
+<p t="2664700" d="4240">I'm completing, I have the
+L. I'm factoring out the D.</p>
+<p t="2668940" d="4790">And what's left is L transpose.</p>
+<p t="2673730" d="9810">I hope you like LDL^T.
+Seeing a matrix on one side</p>
+<p t="2683540" d="3690">and the transpose
+on the other side,</p>
+<p t="2687230" d="3730">the matrix L at the left and L
+transpose at the right is just</p>
+<p t="2690960" d="1770">right.</p>
+<p t="2692730" d="15600">So the point of
+symmetric case we have,</p>
+<p t="2708330" d="3700">and I'll use the
+letter K rather than A</p>
+<p t="2712030" d="2920">because now we're getting the
+matrix that's more special.</p>
+<p t="2714950" d="3110">It's that K or
+it's this T or it's</p>
+<p t="2718060" d="2690">any other symmetric matrix.</p>
+<p t="2720750" d="5100">The elimination leads
+to, uses multipliers L</p>
+<p t="2725850" d="3960">and if I factor out
+the pivot matrix</p>
+<p t="2729810" d="3440">then the other part
+is L transpose.</p>
+<p t="2733250" d="3660">We've seen that just by example.</p>
+<p t="2736910" d="2650">By two examples.</p>
+<p t="2739560" d="2860">Now I want to just look at that.</p>
+<p t="2742420" d="8000">Because this that describes not
+only the result of elimination</p>
+<p t="2750420" d="6420">which is the key operation,
+but it also keeps the symmetry.</p>
+<p t="2756840" d="6660">In fact every matrix of
+that sort is symmetric.</p>
+<p t="2763500" d="4430">No, yeah, that's important.</p>
+<p t="2767930" d="5210">This is sure to be symmetric.</p>
+<p t="2773140" d="8840">We will often see matrices
+multiplied by their transpose.</p>
+<p t="2781980" d="2230">So what I'm saying is
+that if you gave me</p>
+<p t="2784210" d="5950">any matrix L, any diagonal
+matrix D, and then</p>
+<p t="2790160" d="2410">the transpose of L, if
+I multiplied those out,</p>
+<p t="2792570" d="2410">I would get a symmetric matrix.</p>
+<p t="2794980" d="3170">And going the other way, if I
+started with a symmetric matrix</p>
+<p t="2798150" d="2660">and I did elimination
+and got an L,</p>
+<p t="2800810" d="3720">then the D factoring out
+would leave me L transpose.</p>
+<p t="2804530" d="4130">So what you've
+seen by example is</p>
+<p t="2808660" d="2880">what will happen all the time.</p>
+<p t="2811540" d="5510">Now why is that
+matrix symmetric?</p>
+<p t="2817050" d="5360">Here we get a chance to show
+the power of matrix notation,</p>
+<p t="2822410" d="1170">really.</p>
+<p t="2823580" d="4370">I just think that if I have
+any matrix L, in this case</p>
+<p t="2827950" d="2260">it happened to be lower
+triangular, but if I have</p>
+<p t="2830210" d="4370">any matrix L and I have a
+nice, symmetric diagonal guy</p>
+<p t="2834580" d="3030">in the middle and I
+have the transpose</p>
+<p t="2837610" d="2990">of this matrix on
+the other side I</p>
+<p t="2840600" d="4620">think the result is a symmetric
+matrix when I multiply.</p>
+<p t="2845220" d="7870">So it's these symmetric
+factorizations</p>
+<p t="2853090" d="3080">that we're getting to and
+are important problems</p>
+<p t="2856170" d="2950">because our important
+problems are symmetric.</p>
+<p t="2859120" d="3710">Ok, why is that sure
+to be symmetric?</p>
+<p t="2862830" d="3110">Suppose I asked
+you as a exercise,</p>
+<p t="2865940" d="5790">prove that L times a diagonal
+times L transpose is always</p>
+<p t="2871730" d="3500">a symmetric matrix.</p>
+<p t="2875230" d="2140">How could you do that?</p>
+<p t="2877370" d="2110">How could you do that?</p>
+<p t="2879480" d="2820">You could certainly create
+an example that did it</p>
+<p t="2882300" d="3230">and check it out,
+multiply, it would work.</p>
+<p t="2885530" d="6390">But we want to see that this
+is going to be true always.</p>
+<p t="2891920" d="4660">So how would you do that?</p>
+<p t="2896580" d="3280">I guess, let me get started.</p>
+<p t="2899860" d="3000">I would take its transpose.</p>
+<p t="2902860" d="2470">If I want to show
+something's symmetric,</p>
+<p t="2905330" d="3550">I transpose it and see if I
+get the same matrix again.</p>
+<p t="2908880" d="3170">So let me take the
+transpose of this.</p>
+<p t="2912050" d="2990">So I'm answering, Why is
+it sure to be symmetric?</p>
+<p t="2915040" d="2510">So let me take K transpose.</p>
+<p t="2917550" d="2530">So this is the
+transpose of, I have</p>
+<p t="2920080" d="3820">K equals something times
+something times something,</p>
+<p t="2923900" d="4610">A times B times
+C, you could say.</p>
+<p t="2928510" d="5090">If I transpose a
+matrix, how can I</p>
+<p t="2933600" d="6210">create transposes
+out of A, B and C.</p>
+<p t="2939810" d="2530">Do you remember what happens?</p>
+<p t="2942340" d="1940">They reverse the order.</p>
+<p t="2944280" d="1430">It's like inverses.</p>
+<p t="2945710" d="8650">Transposes and inverses
+both have that key rule.</p>
+<p t="2954360" d="3450">When you have a product
+and you invert it,</p>
+<p t="2957810" d="1490">they come in the opposite order.</p>
+<p t="2959300" d="2880">When you transpose it, they
+come in the opposite order.</p>
+<p t="2962180" d="3880">So let me try put these
+separate transposes</p>
+<p t="2966060" d="5320">in the opposite order.</p>
+<p t="2971380" d="3030">So I've used the most
+important fact there.</p>
+<p t="2974410" d="9330">Which is just a fact about
+transposing a product.</p>
+<p t="2983740" d="4170">Okay, what have I got now?</p>
+<p t="2987910" d="2790">What's L transpose transposed?</p>
+<p t="2990700" d="1800">It's L, great.</p>
+<p t="2992500" d="1790">What's L transpose L transposed?</p>
+<p t="2994290" d="3390">Nothing but L. Transpose
+twice and I'm back to L.</p>
+<p t="2997680" d="2350">What about D transpose?</p>
+<p t="3000030" d="4320">Same as D. Because D was
+symmetric, in fact diagonal.</p>
+<p t="3004350" d="4380">So what have I learned?</p>
+<p t="3008730" d="2860">The proof is done.</p>
+<p t="3011590" d="1490">I've got K back again.</p>
+<p t="3013080" d="4750">This was the original K. So I've
+learned that K transpose is K.</p>
+<p t="3017830" d="3380">So you're going to
+see time after time,</p>
+<p t="3021210" d="3300">let me just put
+these things there,</p>
+<p t="3024510" d="4450">you're going to see an A
+transpose times an A. That's</p>
+<p t="3028960" d="4770">the most important, most highly
+important multiplication.</p>
+<p t="3033730" d="2380">Take a matrix,
+maybe rectangular,</p>
+<p t="3036110" d="1990">multiply by A transpose.</p>
+<p t="3038100" d="5120">So this matrix is
+certainly square</p>
+<p t="3043220" d="3910">because A could be m by n.</p>
+<p t="3047130" d="3880">And then A transpose
+would be n by m</p>
+<p t="3051010" d="4450">and the result would be n by n.</p>
+<p t="3055460" d="1690">So it's certainly square.</p>
+<p t="3057150" d="3350">But now what's the new
+property we now know?</p>
+<p t="3060500" d="1780">It's symmetric.</p>
+<p t="3062280" d="3020">It's symmetric because
+if I transpose it,</p>
+<p t="3065300" d="2580">the transpose of A
+will go on this side,</p>
+<p t="3067880" d="2110">the double transpose
+will go on this side,</p>
+<p t="3069990" d="6970">but the double transpose
+is A again, so symmetric.</p>
+<p t="3076960" d="4130">So I'm plugging away here
+on symmetric matrices</p>
+<p t="3081090" d="9880">because they're just-- yeah,
+what does symmetry mean in,</p>
+<p t="3090970" d="11030">yeah, can I just come back
+to this idea of responses?</p>
+<p t="3102000" d="8090">And by the way, if
+this was symmetric,</p>
+<p t="3110090" d="2840">would its inverse be symmetric?</p>
+<p t="3112930" d="1760">The answer is yes.</p>
+<p t="3114690" d="4680">If a matrix is symmetric,
+its inverse is symmetric.</p>
+<p t="3119370" d="5590">These symmetric matrices
+are a fantastic family.</p>
+<p t="3124960" d="2740">So I could add that to this.</p>
+<p t="3127700" d="9760">K inverse will also symmetric
+without having yet said why.</p>
+<p t="3137460" d="3350">But maybe in words, I'll
+just say a few words here</p>
+<p t="3140810" d="6450">at the end.</p>
+<p t="3147260" d="3970">So what's a typical entry?</p>
+<p t="3151230" d="6360">Say the (2, 1) entry, just to
+carry on with this language one</p>
+<p t="3157590" d="1720">more moment.</p>
+<p t="3159310" d="3690">This is A inverse here.</p>
+<p t="3163000" d="4510">Now the (2, 1)
+entry in the inverse</p>
+<p t="3167510" d="5770">is an impulse is in the first,
+the first mass, whatever</p>
+<p t="3173280" d="3370">gets an impulse.</p>
+<p t="3176650" d="4450">And that is the response
+of the second mass.</p>
+<p t="3181100" d="5340">The response in position two
+to the impulse in position one.</p>
+<p t="3186440" d="2220">Now my matrix is
+symmetric, thinking</p>
+<p t="3188660" d="1920">about symmetric matrices here.</p>
+<p t="3190580" d="2100">So what about here?</p>
+<p t="3192680" d="4050">Here, if I take the
+impulse in position two</p>
+<p t="3196730" d="4190">and look at the response
+in position one,</p>
+<p t="3200920" d="1750">so do you see the difference?</p>
+<p t="3202670" d="2130">In general, those
+could be different.</p>
+<p t="3204800" d="5200">This is the response at position
+two to an impulse at one.</p>
+<p t="3210000" d="4870">This is the response at
+one to an impulse at two.</p>
+<p t="3214870" d="2460">You see that I'm
+multiplying those columns</p>
+<p t="3217330" d="1360">and getting these columns.</p>
+<p t="3218690" d="3510">And what's the point
+about symmetry?</p>
+<p t="3222200" d="1390">Those are the same.</p>
+<p t="3223590" d="4830">Symmetry is expressing
+this physical meaning</p>
+<p t="3228420" d="4760">that the response at
+i, to an impulse at j</p>
+<p t="3233180" d="5210">is the same as the response
+at j to an impulse at i.</p>
+<p t="3238390" d="5580">And that's sort of, that's
+such an important property,</p>
+<p t="3243970" d="2560">you want to notice it.</p>
+<p t="3246530" d="3380">And it goes into symmetry.</p>
+<p t="3249910" d="5000">So many, many problems will be
+symmetric and then some won't.</p>
+<p t="3254910" d="2960">We'll have to admit this
+won't cover everything,</p>
+<p t="3257870" d="4280">but it covers such an
+important and beautiful part.</p>
+<p t="3262150" d="7140">So that's today's lecture
+on LU elimination,</p>
+<p t="3269290" d="4870">solving linear
+systems, and then let's</p>
+<p t="3274160" d="5940">move forward to understanding
+the actual inverses.</p>
+</body>
+</timedtext>

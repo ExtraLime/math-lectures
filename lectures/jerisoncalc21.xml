@@ -1,0 +1,1362 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="0" d="3516">The following content is
+provided under a Creative</p>
+<p t="3516" d="796">Commons license.</p>
+<p t="4312" d="2428">Your support will help MIT
+OpenCourseWare continue to</p>
+<p t="6740" d="3190">offer high quality educational
+resources for free.</p>
+<p t="9930" d="5555">To make a donation, or to view
+additional materials from</p>
+<p t="15485" d="3910">hundreds of MIT courses, visit
+MIT OpenCourseWare at</p>
+<p t="19395" d="2025">ocw.mit.edu.</p>
+<p t="21420" d="2310">PROFESSOR: One correction
+from last time.</p>
+<p t="23730" d="4980">Sorry to say, I forgot a very
+important factor when I was</p>
+<p t="28710" d="2190">telling you what an
+average value is.</p>
+<p t="30900" d="4260">If you don't put in that factor,
+it's only half off on</p>
+<p t="35160" d="3680">the exam problem that will
+be given on this.</p>
+<p t="38840" d="3810">So I would have gotten half off
+for missing out on this</p>
+<p t="42650" d="1590">factor, too.</p>
+<p t="44240" d="2950">So remember you have to divide
+by n here, certainly when</p>
+<p t="47190" d="2850">you're integrating over 0 to
+n, the Riemann sum is the</p>
+<p t="50040" d="1420">numerator here.</p>
+<p t="51460" d="2380">And if I divide by n on that
+side, I've got to divide by n</p>
+<p t="53840" d="1410">on the other side.</p>
+<p t="55250" d="3000">This was meant to illustrate
+this idea that we're dividing</p>
+<p t="58250" d="2290">by the total here.</p>
+<p t="60540" d="1810">And we are going to be
+talking about average</p>
+<p t="62350" d="2950">value in more detail.</p>
+<p t="65300" d="2390">Not today, though.</p>
+<p t="67690" d="8500">So this has to do with
+average value.</p>
+<p t="76190" d="4750">And we'll discuss it in
+considerable detail in a</p>
+<p t="80940" d="6400">couple of days, I guess.</p>
+<p t="87340" d="6560">Now, today I want to continue.</p>
+<p t="93900" d="3790">I didn't have time to finish
+my discussion of the</p>
+<p t="97690" d="2210">Fundamental Theorem
+of Calculus 2.</p>
+<p t="99900" d="2210">And anyway it's very important
+to write it down on the board</p>
+<p t="102110" d="4300">twice, because you want to
+see it at least twice.</p>
+<p t="106410" d="1960">And many more times as well.</p>
+<p t="108370" d="3440">So let's just remind you, the
+second version of the</p>
+<p t="111810" d="3620">Fundamental Theorem of Calculus
+says the following.</p>
+<p t="115430" d="6040">It says that the derivative of
+an integral gives you the</p>
+<p t="121470" d="2160">function back again.</p>
+<p t="123630" d="4680">So here's the theorem.</p>
+<p t="128310" d="4850">And the way I'd like to use
+it today, I started this</p>
+<p t="133160" d="1340">discussion last time.</p>
+<p t="134500" d="2160">But we didn't get into it.</p>
+<p t="136660" d="3460">And this is something that's on
+your problem set along with</p>
+<p t="140120" d="3070">several other examples.</p>
+<p t="143190" d="7580">Is that we can use this to solve
+differential equations.</p>
+<p t="150770" d="6320">And in particular, for example,
+we can solve the</p>
+<p t="157090" d="6450">equation y' = 1 / x
+with this formula.</p>
+<p t="163540" d="4190">Namely, using an integral.</p>
+<p t="167730" d="7040">L ( x ) is the integral
+from 1 to x of dt / t.</p>
+<p t="174770" d="5640">The function f ( t
+) is just 1 / t.</p>
+<p t="180410" d="8800">Now, that formula can be taken
+to be the starting place for</p>
+<p t="189210" d="1905">the derivation of all
+the properties of</p>
+<p t="191115" d="1395">the logarithm function.</p>
+<p t="192510" d="2140">So what we're going to do right
+now is we're going to</p>
+<p t="194650" d="13540">take this to be the definition
+of the logarithm.</p>
+<p t="208190" d="3760">And if we do that, then I claim
+that we can read off the</p>
+<p t="211950" d="2560">properties of the logarithm
+just about as easily as we</p>
+<p t="214510" d="1640">could before.</p>
+<p t="216150" d="2580">And so I'll illustrate
+that now.</p>
+<p t="218730" d="3610">And there are a few other
+examples of this where</p>
+<p t="222340" d="3110">somewhat more unfamiliar
+functions come up.</p>
+<p t="225450" d="5130">This one is one that in theory
+we know something about.</p>
+<p t="230580" d="2010">The first property of this
+function is the one that's</p>
+<p t="232590" d="1360">already given.</p>
+<p t="233950" d="5630">Namely, its derivative
+is 1 / x.</p>
+<p t="239580" d="2250">And we get a lot of information
+just out of the</p>
+<p t="241830" d="2420">fact that its derivative
+is 1 / x.</p>
+<p t="244250" d="2190">The other thing that we need
+in order to nail down the</p>
+<p t="246440" d="3375">function, besides its
+derivative, is one value of</p>
+<p t="249815" d="465">the function.</p>
+<p t="250280" d="4390">Because it's really not
+specified by this equation,</p>
+<p t="254670" d="2820">only specified up to a constant
+by this equation.</p>
+<p t="257490" d="2840">But we nail down that constant
+when we evaluate it at this</p>
+<p t="260330" d="2350">one place, L ( 1).</p>
+<p t="262680" d="2680">And there we're getting the
+integral from 1 to 1 of dt /</p>
+<p t="265360" d="3070">t, which is 0.</p>
+<p t="268430" d="2430">And that's the case with all
+these definite integrals.</p>
+<p t="270860" d="2140">If you evaluate them at their
+starting places, the</p>
+<p t="273000" d="1460">value will be 0.</p>
+<p t="274460" d="2970">And together these two
+properties specify this</p>
+<p t="277430" d="5370">function L (x), uniquely.</p>
+<p t="282800" d="4000">Now, the next step is to try
+to think about what its</p>
+<p t="286800" d="1060">properties are.</p>
+<p t="287860" d="3730">And the first approach to that,
+and this is the approach</p>
+<p t="291590" d="3116">that we always take, is to maybe
+graph the function, to</p>
+<p t="294706" d="1164">get a feeling for it.</p>
+<p t="295870" d="2100">And so I'm going to take
+the second derivative.</p>
+<p t="297970" d="2890">Now, notice that when you have
+a function which is given as</p>
+<p t="300860" d="1930">an integral, its first
+derivative is</p>
+<p t="302790" d="2140">really easy to compute.</p>
+<p t="304930" d="1740">And then its second derivative,
+well, you have to</p>
+<p t="306670" d="1620">differentiate whatever
+you get.</p>
+<p t="308290" d="1430">So it may or may not be easy.</p>
+<p t="309720" d="3160">But anyway, it's a lot harder in
+the case when I start with</p>
+<p t="312880" d="2270">a function to get to the
+second derivative.</p>
+<p t="315150" d="3920">Here it's relatively easy.</p>
+<p t="319070" d="2580">And these are the properties
+that I'm going to use.</p>
+<p t="321650" d="4760">I won't really use very much
+more about it than that.</p>
+<p t="326410" d="3250">And qualitatively, the
+conclusions that we can draw</p>
+<p t="329660" d="3380">from this are, first of all,
+from this, for example we see</p>
+<p t="333040" d="5930">that this thing is concave
+down every place.</p>
+<p t="338970" d="2670">And then to get started with the
+graph, since I see I have</p>
+<p t="341640" d="5070">a value here, which is L( 1) =
+0, I'm going to throw in the</p>
+<p t="346710" d="1850">value of the slope.</p>
+<p t="348560" d="3390">So L' ( 1), which I know is 1 of
+1, that's reading off from</p>
+<p t="351950" d="3230">this equation here,
+so that's 1.</p>
+<p t="355180" d="4020">And now I'm ready to sketch at
+least a part of the curve.</p>
+<p t="359200" d="8480">So here's a sketch
+of the graph.</p>
+<p t="367680" d="5320">Here's the point (1, 0);
+that is, x = 1, y = 0.</p>
+<p t="373000" d="4420">And the tangent line,
+I know, has slope 1.</p>
+<p t="377420" d="3120">And the curve is concave down.</p>
+<p t="380540" d="6990">So it's going to look
+something like this.</p>
+<p t="387530" d="3700">Incidentally, it's
+also increasing.</p>
+<p t="391230" d="3730">And that's an important
+property, it's strictly</p>
+<p t="394960" d="440">increasing.</p>
+<p t="395400" d="4170">That's because L' (
+x) is positive.</p>
+<p t="399570" d="3990">And so, we can get from this
+the following important</p>
+<p t="403560" d="660">definition.</p>
+<p t="404220" d="1910">Which, again, is working
+backwards from this</p>
+<p t="406130" d="480">definition.</p>
+<p t="406610" d="3010">We can get to where we started
+with a log in our previous</p>
+<p t="409620" d="1000">discussion.</p>
+<p t="410620" d="7480">Namely, if I take the level
+here, which is y = 1, then</p>
+<p t="418100" d="1630">that crosses the
+axis someplace.</p>
+<p t="419730" d="4450">And his point is what we're
+going to define as e.</p>
+<p t="424180" d="8960">So the definition of e is
+that it's the value such</p>
+<p t="433140" d="7080">that L ( e) = 1.</p>
+<p t="440220" d="2580">And again, the fact that there's
+exactly one such place</p>
+<p t="442800" d="3010">just comes from the fact that
+this L' is positive, so that L</p>
+<p t="445810" d="3530">is increasing.</p>
+<p t="449340" d="4190">No, there's just one other
+feature of this graph that I'm</p>
+<p t="453530" d="2400">going to emphasize to you.</p>
+<p t="455930" d="2500">There's one other thing which
+I'm not going to check, which</p>
+<p t="458430" d="1630">you would ordinarily
+do with graphs.</p>
+<p t="460060" d="1890">Once it's increasing there are
+no critical points, so the</p>
+<p t="461950" d="2280">only other interesting
+thing is the n's.</p>
+<p t="464230" d="2310">And it turns out that the limit
+as you go down to 0 is</p>
+<p t="466540" d="450">minus infinity.</p>
+<p t="466990" d="2850">As you go over to the right
+here it's plus infinity.</p>
+<p t="469840" d="3500">It does get arbitrarily high;
+it doesn't level off.</p>
+<p t="473340" d="2480">But I'm not going to
+discuss that here.</p>
+<p t="475820" d="2580">Instead, I'm going to just
+remark on one qualitative</p>
+<p t="478400" d="4510">feature of the graph, which is
+this remark that the part</p>
+<p t="482910" d="3940">which is to the left
+of 1 is below 0.</p>
+<p t="486850" d="10500">So I just want to remark, why
+is L (x) negative for x &lt; 1.</p>
+<p t="497350" d="1840">Maybe I don't have room
+for that, so I'll just</p>
+<p t="499190" d="4360">put in here x &lt; 1.</p>
+<p t="503550" d="1770">I want to give you
+two reasons.</p>
+<p t="505320" d="2660">Again, we're only working from
+very first principles here.</p>
+<p t="507980" d="5520">Just that the property that
+L' = 1 / x, and L (1) = 0.</p>
+<p t="513500" d="5890">So our first reason is that,
+well, I just said it.</p>
+<p t="519390" d="2040">L ( 1) = 0.</p>
+<p t="521430" d="5480">And L is increasing.</p>
+<p t="526910" d="2820">And if you read that backwards,
+if it gets up to 0</p>
+<p t="529730" d="4430">here, it must have been
+negative before 0.</p>
+<p t="534160" d="3800">So this is one way of seeing
+that L ( x) is negative.</p>
+<p t="537960" d="2190">There's a second way
+of seeing it,</p>
+<p t="540150" d="2260">which is equally important.</p>
+<p t="542410" d="5060">And it has to do with just
+manipulation of integrals.</p>
+<p t="547470" d="3330">Here I'm going to start out
+with L (x), and its</p>
+<p t="550800" d="630">definition.</p>
+<p t="551430" d="4300">Which is the integral
+from 1 to x dt / t.</p>
+<p t="555730" d="3520">And now I'm going to reverse
+the order of integration.</p>
+<p t="559250" d="2250">This is the same, by our
+definition of our properties</p>
+<p t="561500" d="2700">of integrals, as the integral
+from x to 1 with a</p>
+<p t="564200" d="5810">minus sign dt / t.</p>
+<p t="570010" d="4130">Now, I can tell that this
+quantity is negative.</p>
+<p t="574140" d="5550">And the reason that I can tell
+is that this chunk of it here,</p>
+<p t="579690" d="4320">this piece of it, is
+a positive number.</p>
+<p t="584010" d="2280">This part is positive.</p>
+<p t="586290" d="5000">And this part is positive
+because x &lt; 1.</p>
+<p t="591290" d="2450">So the lower limit is less than
+the upper limit, and so</p>
+<p t="593740" d="1000">this is interpreted.</p>
+<p t="594740" d="3330">The thing in the green box is
+interpreted as an area.</p>
+<p t="598070" d="900">It's an area.</p>
+<p t="598970" d="4150">And so negative a positive
+quantity is negative, minus a</p>
+<p t="603120" d="5160">positive quantity's negative.</p>
+<p t="608280" d="4380">So both of these work
+perfectly well as</p>
+<p t="612660" d="1210">interpretations.</p>
+<p t="613870" d="2140">And it's just to illustrate
+what we can do.</p>
+<p t="616010" d="2800">Now, there's one more
+manipulation of integrals that</p>
+<p t="618810" d="4570">gives us the fanciest
+property of the ln.</p>
+<p t="623380" d="3030">And that's the last one
+that I'm going to do.</p>
+<p t="626410" d="3040">And you have a similar thing
+on your homework.</p>
+<p t="629450" d="3470">So I'm going to prove that
+this is, as I say, the</p>
+<p t="632920" d="2050">fanciest property of the log.</p>
+<p t="634970" d="4710">On your homework, by the way,
+you're going to check that L(</p>
+<p t="639680" d="7000">1 / x) = - L ( x).</p>
+<p t="646680" d="5390">But we'll do this one.</p>
+<p t="652070" d="2710">The idea is just to plug
+in the formula</p>
+<p t="654780" d="1650">and see what it gives.</p>
+<p t="656430" d="6400">On the left-hand side, I
+have 1 to ab, dt / t.</p>
+<p t="662830" d="3210">That's L ( ab).</p>
+<p t="666040" d="2860">And then that's certainly equal
+to the left-hand side.</p>
+<p t="668900" d="3750">And then I'm going to now split
+this into two pieces.</p>
+<p t="672650" d="1950">Again, this is a property
+of integrals.</p>
+<p t="674600" d="4470">That if you have an integral
+from one place to another, you</p>
+<p t="679070" d="1550">can break it up into pieces.</p>
+<p t="680620" d="5920">So I'm going to start at
+1 but then go to a.</p>
+<p t="686540" d="7410">And then I'm going to continue
+from a to ab.</p>
+<p t="693950" d="2630">So this is the question
+that we have. We</p>
+<p t="696580" d="1430">haven't proved this.</p>
+<p t="698010" d="3040">Well, this one is
+actually true.</p>
+<p t="701050" d="1830">If we want this to be
+true, we know by</p>
+<p t="702880" d="2020">definition L ( ab) is this.</p>
+<p t="704900" d="3560">We know, we can see it,
+that L(a) is this.</p>
+<p t="708460" d="4570">So the question that this boils
+down to is, we want to</p>
+<p t="713030" d="1930">know that these two
+things are equal.</p>
+<p t="714960" d="6360">We want to know that L ( b) is
+that other integral there.</p>
+<p t="721320" d="3640">So let's check it.</p>
+<p t="724960" d="1230">I'm going to rewrite
+the integral.</p>
+<p t="726190" d="3180">It's the integral from - sorry,
+from lower limit a to</p>
+<p t="729370" d="4570">upper limit ab of dt / t.</p>
+<p t="733940" d="3430">And now, again, to illustrate
+properties of integrals, the</p>
+<p t="737370" d="3860">key property here that we're
+going to have to use is change</p>
+<p t="741230" d="2510">of variables.</p>
+<p t="743740" d="3050">This is a kind of a scaled
+integral where everything is</p>
+<p t="746790" d="3200">multiplied by a factor of a from
+what we want to get to</p>
+<p t="749990" d="2020">this L ( b) quantity.</p>
+<p t="752010" d="6230">And so this suggests that
+we write down t = a u.</p>
+<p t="758240" d="2220">That's going to be our trick.</p>
+<p t="760460" d="2450">And if I use that new variable
+u, then the change</p>
+<p t="762910" d="7530">in t, dt, is adu.</p>
+<p t="770440" d="3510">And as a result, I can write
+this as equal to an integral</p>
+<p t="773950" d="4060">from, let's see, dt = adu.</p>
+<p t="778010" d="2070">And t = au.</p>
+<p t="780080" d="5660">So I've now substituted
+in for the integrand.</p>
+<p t="785740" d="3470">But on top of this, with
+definite integrals, we also</p>
+<p t="789210" d="3870">have to check the limits.</p>
+<p t="793080" d="4060">And the limits work
+out as follows.</p>
+<p t="797140" d="3040">When t = a, that's
+the lower limit.</p>
+<p t="800180" d="2280">Let's just take a
+look. t = a u.</p>
+<p t="802460" d="4140">So that means that u
+is equal to, what?</p>
+<p t="806600" d="2110">It's 1.</p>
+<p t="808710" d="3170">Because a * 1 = a.</p>
+<p t="811880" d="2160">So if t = a, this is
+if and only if.</p>
+<p t="814040" d="3055">So this lower limit, which
+really in disguise was where t</p>
+<p t="817095" d="8305">= a, becomes where u = 1.</p>
+<p t="825400" d="8520">And similarly, when
+t = ab, u = b.</p>
+<p t="833920" d="2770">So the upper limit here is b.</p>
+<p t="836690" d="5450">And now, if you notice, we're
+just going to cancel these two</p>
+<p t="842140" d="780">factors here.</p>
+<p t="842920" d="4360">And now we recognize that this
+is just the same as the</p>
+<p t="847280" d="2660">definition of L ( b).</p>
+<p t="849940" d="3550">Because L ( x) is over
+here in the box.</p>
+<p t="853490" d="2780">And the fact that I use the
+letter t there is irrelevant;</p>
+<p t="856270" d="1750">it works equally well
+with the letter u.</p>
+<p t="858020" d="4410">So this is just L (b).</p>
+<p t="862430" d="10730">Which is what we
+wanted to show.</p>
+<p t="873160" d="2520">So that's an example, and you
+have one in your homework,</p>
+<p t="875680" d="9700">which is a little similar.</p>
+<p t="885380" d="3410">Now, the last example, that I'm
+going to discuss of this</p>
+<p t="888790" d="2600">type, I already mentioned
+last time.</p>
+<p t="891390" d="3040">Which is the function F ( x),
+which is the integral from 0</p>
+<p t="894430" d="3720">to x of e ^ -t^2 dt.</p>
+<p t="898150" d="5980">This one is even more exotic
+because unlike the logarithm</p>
+<p t="904130" d="1900">it's a new function.</p>
+<p t="906030" d="4200">It really is not any function
+that you can express in terms</p>
+<p t="910230" d="3640">of the functions that
+we know already.</p>
+<p t="913870" d="4880">And the approach, always, to
+these new functions is to</p>
+<p t="918750" d="3250">think of what their
+properties are.</p>
+<p t="922000" d="2570">And the way we think of
+functions in order to</p>
+<p t="924570" d="2000">understand them is to
+maybe sketch them.</p>
+<p t="926570" d="1390">And so I'm going to do
+exactly the same</p>
+<p t="927960" d="1870">thing I did over here.</p>
+<p t="929830" d="1800">So, what is it that I
+can get out of this?</p>
+<p t="931630" d="3475">Well, immediately I can figure
+out what the derivative is.</p>
+<p t="935105" d="2895">I read it off from the
+fundamental theorem.</p>
+<p t="938000" d="3610">It's this.</p>
+<p t="941610" d="3860">I also can figure out the value
+at the starting place.</p>
+<p t="945470" d="2970">In this case, the starting
+place is 0.</p>
+<p t="948440" d="5550">And the value is 0.</p>
+<p t="953990" d="3610">And I should check the second
+derivative, which is also not</p>
+<p t="957600" d="1545">so difficult to compute.</p>
+<p t="959145" d="6925">The second derivative
+is - 2x e ^ x^2.</p>
+<p t="966070" d="4580">And so now I can see that this
+function is increasing,</p>
+<p t="970650" d="2650">because this derivative is
+positive, it's always</p>
+<p t="973300" d="1370">increasing.</p>
+<p t="974670" d="3270">And it's going to be concave
+down when x is positive and</p>
+<p t="977940" d="2600">concave up when x is negative.</p>
+<p t="980540" d="4360">Because there's a minus sign
+here, so the sign is negative.</p>
+<p t="984900" d="5350">This is less than 0 when x is
+positive and greater than 0</p>
+<p t="990250" d="6550">when x is negative.</p>
+<p t="996800" d="3360">And maybe to get started I'll
+remind you F( 0), 0.</p>
+<p t="1000160" d="5060">It's also true that F' ( 0),
+that just comes right out of</p>
+<p t="1005220" d="7230">this, F' ( 0) = e ^
+- 0^2 which is 1.</p>
+<p t="1012450" d="2970">That means the tangent line
+again has slope 1.</p>
+<p t="1015420" d="1670">We do this a lot
+with functions.</p>
+<p t="1017090" d="3300">We normalize them so that their
+slopes of their tangent</p>
+<p t="1020390" d="3210">lines are 1 at convenient
+spots.</p>
+<p t="1023600" d="2790">So here's the tangent
+line of slope 1.</p>
+<p t="1026390" d="5150">We know this thing is concave
+down to the right and concave</p>
+<p t="1031540" d="3350">up to the left.</p>
+<p t="1034890" d="2680">And so it's going to look
+something like this.</p>
+<p t="1037570" d="3290">With an inflection point.</p>
+<p t="1040860" d="5430">Right?</p>
+<p t="1046290" d="6240">Now, I want to say one more,
+make one more remark about</p>
+<p t="1052530" d="2060">this function, or maybe two
+more remarks about this</p>
+<p t="1054590" d="1460">function, before we go on.</p>
+<p t="1056050" d="3180">Really, you want to know this
+graph as well as possible.</p>
+<p t="1059230" d="2990">And so there are just a
+couple more features.</p>
+<p t="1062220" d="3605">And one is enormously helpful
+because it cuts in half all of</p>
+<p t="1065825" d="3355">the work that you have. and
+that is the property that</p>
+<p t="1069180" d="2620">turns out that this
+function is i.</p>
+<p t="1071800" d="5060">Namely, F( - x) = - F(x).</p>
+<p t="1076860" d="4190">That's what's known as
+an odd function.</p>
+<p t="1081050" d="5100">Now, the reason why it's
+odd is that it's the</p>
+<p t="1086150" d="2350">antiderivative of something
+that's even.</p>
+<p t="1088500" d="1930">This function in here is even.</p>
+<p t="1090430" d="4430">And we nailed it down so
+that it was 0 at 0.</p>
+<p t="1094860" d="2680">Another way of interpreting
+that, and let me show it to</p>
+<p t="1097540" d="3020">you underneath, is
+the following.</p>
+<p t="1100560" d="3600">When we look at its derivative,
+its derivative,</p>
+<p t="1104160" d="4030">course, is the function e ^ x.</p>
+<p t="1108190" d="1850">Sorry, e ^ - x ^2.</p>
+<p t="1110040" d="7390">So that's this shape here.</p>
+<p t="1117430" d="4240">And you can see the slope is 0,
+but fairly close to 0, but</p>
+<p t="1121670" d="940">positive along here.</p>
+<p t="1122610" d="1950">It's getting, this is
+its steepest point.</p>
+<p t="1124560" d="1530">This is the highest
+point here.</p>
+<p t="1126090" d="2120">And then it's leveling off
+again; the slope is going</p>
+<p t="1128210" d="2460">down, always positive.</p>
+<p t="1130670" d="6190">This is the graph of
+F' = e ^ -x^2.</p>
+<p t="1136860" d="5580">Now, the interpretation of the
+function that's up above is</p>
+<p t="1142440" d="6070">that the value here is
+the area from 0 to x.</p>
+<p t="1148510" d="4180">So this is area F(x).</p>
+<p t="1152690" d="3880">Maybe I'll color it in, decorate
+it a little bit.</p>
+<p t="1156570" d="8550">So this area here is F ( x).</p>
+<p t="1165120" d="3720">Now, I want to show you
+this odd property,</p>
+<p t="1168840" d="2060">by using this symmetry.</p>
+<p t="1170900" d="4450">The graph here is even, so in
+other words, what's back here</p>
+<p t="1175350" d="3940">is exactly the same
+as what's forward.</p>
+<p t="1179290" d="3290">But now there's a reversal.</p>
+<p t="1182580" d="2490">Because we're keeping track
+of the area starting</p>
+<p t="1185070" d="1260">from 0 going forward.</p>
+<p t="1186330" d="760">That's positive.</p>
+<p t="1187090" d="2850">If we go backwards, it's
+counted negatively.</p>
+<p t="1189940" d="2850">So if we went backwards to - x,
+we'd get exactly the same</p>
+<p t="1192790" d="2180">as that green patch
+over there.</p>
+<p t="1194970" d="1840">We'd get a red patch
+over here.</p>
+<p t="1196810" d="4470">But it would be counted
+negatively.</p>
+<p t="1201280" d="2930">And that's the property
+that it's odd.</p>
+<p t="1204210" d="1800">You can also check this
+by properties</p>
+<p t="1206010" d="2910">of integrals directly.</p>
+<p t="1208920" d="7270">That would be just like
+this process here.</p>
+<p t="1216190" d="3720">So it's completely analogous
+to checking this</p>
+<p t="1219910" d="5500">formula over there.</p>
+<p t="1225410" d="4260">So that's one of the comments
+I wanted to make about this.</p>
+<p t="1229670" d="2440">And why does this save us
+a lot of time, if we</p>
+<p t="1232110" d="990">know this is odd?</p>
+<p t="1233100" d="3170">Well, we know that the shape of
+this branch is exactly the</p>
+<p t="1236270" d="2680">reverse, or the reflection,
+if you like, of the</p>
+<p t="1238950" d="990">shape of this one.</p>
+<p t="1239940" d="2240">What we want to do is flip it
+under the axis and then</p>
+<p t="1242180" d="2780">reflect it over that way.</p>
+<p t="1244960" d="8630">And that's the symmetry property
+of the graph of F(x).</p>
+<p t="1253590" d="4330">Now, the last property that I
+want to mention is what's</p>
+<p t="1257920" d="2830">happening with the ends.</p>
+<p t="1260750" d="2820">And at the end there's
+an asymptote,</p>
+<p t="1263570" d="2250">there's a limit here.</p>
+<p t="1265820" d="4880">So this is an asymptote.</p>
+<p t="1270700" d="2140">And the same thing down here,
+which will be exactly because</p>
+<p t="1272840" d="2950">of the odd feature, this'll
+be exactly negative.</p>
+<p t="1275790" d="3780">The opposite value over here.</p>
+<p t="1279570" d="4000">And you might ask yourself, what
+level is this, exactly.</p>
+<p t="1283570" d="3280">Now, that level turns out to be
+a very important quantity.</p>
+<p t="1286850" d="2910">It's interpreted down here as
+the area under this whole</p>
+<p t="1289760" d="1860">infinite stretch.</p>
+<p t="1291620" d="5050">It's all the way out
+to infinity.</p>
+<p t="1296670" d="2290">So, let's see.</p>
+<p t="1298960" d="9780">What do you think it is?</p>
+<p t="1308740" d="1010">You're all clueless.</p>
+<p t="1309750" d="2710">Well, maybe not all of you,
+you're just afraid to say.</p>
+<p t="1312460" d="1680">So it's obvious.</p>
+<p t="1314140" d="2900">It's the square root of pi/2.</p>
+<p t="1317040" d="3130">That was right on the tip of
+your tongue, wasn't it?</p>
+<p t="1320170" d="1440">STUDENT: Ah, yes.</p>
+<p t="1321610" d="2640">PROFESSOR: Right, so this is
+actually very un-obvious, but</p>
+<p t="1324250" d="2040">it's a very important
+quantity.</p>
+<p t="1326290" d="2460">And it's an amazing fact
+that this thing</p>
+<p t="1328750" d="1970">approaches this number.</p>
+<p t="1330720" d="7340">And it's something that people
+worried about for many years</p>
+<p t="1338060" d="4800">before actually nailing down.</p>
+<p t="1342860" d="3845">And so what I just claimed here
+is that the limit as x</p>
+<p t="1346705" d="6595">approaches infinity of F ( x)
+= the square root of pi / 2.</p>
+<p t="1353300" d="2400">And similarly, if you do it to
+minus infinity, you'll get</p>
+<p t="1355700" d="2670">minus square root of pi/2.</p>
+<p t="1358370" d="3720">And for this reason, people
+introduce a new function</p>
+<p t="1362090" d="1920">because they like
+the number 1.</p>
+<p t="1364010" d="5730">This function is erf, short
+for error function.</p>
+<p t="1369740" d="4400">And it's 2 / the square root of
+pi times the integral from</p>
+<p t="1374140" d="3490">0 to x, e ^ - t ^2 dt.</p>
+<p t="1377630" d="2580">In other words, it's just our
+original, our previous</p>
+<p t="1380210" d="8030">function multiplied by 2 /
+the square root of pi.</p>
+<p t="1388240" d="2640">And that's the function which
+gets tabulated quite a lot.</p>
+<p t="1390880" d="3640">You'll see it on the internet
+everywhere, and it's a very</p>
+<p t="1394520" d="1380">important function.</p>
+<p t="1395900" d="2640">There are other normalizations
+that are used, and the</p>
+<p t="1398540" d="2720">discussions of the other
+normalizations are in your</p>
+<p t="1401260" d="4020">problems. This is one
+of them, and another</p>
+<p t="1405280" d="2260">one is in your exercises.</p>
+<p t="1407540" d="3590">The standard normal
+distribution.</p>
+<p t="1411130" d="2530">There are tons of functions
+like this, which are new</p>
+<p t="1413660" d="2260">functions that we can
+get at once we</p>
+<p t="1415920" d="1730">have the tool of integrals.</p>
+<p t="1417650" d="2930">And I'll write down just one
+or two more, just so that</p>
+<p t="1420580" d="2180">you'll see the variety.</p>
+<p t="1422760" d="6320">Here's one which is called
+a Fresnel integral.</p>
+<p t="1429080" d="3300">On your problem set next week,
+we'll do the other Fresnel</p>
+<p t="1432380" d="4710">integral, we'll look
+at this one.</p>
+<p t="1437090" d="4900">These functions cannot be
+expressed in elementary terms.</p>
+<p t="1441990" d="9900">The one on your homework for
+this week was this one.</p>
+<p t="1451890" d="3090">This one comes up in
+Fourier analysis.</p>
+<p t="1454980" d="4930">And I'm going to just tell you
+maybe one more such function.</p>
+<p t="1459910" d="3400">There's a function which is
+called Li ( x), logarithmic</p>
+<p t="1463310" d="6910">integral of x, which
+is this guy.</p>
+<p t="1470220" d="3420">The reciprocal of the logarithm,
+the natural log.</p>
+<p t="1473640" d="5160">And the significance of this
+one is that Li ( x) is</p>
+<p t="1478800" d="10880">approximately equal to the
+number of primes &lt; x.</p>
+<p t="1489680" d="4750">And, in fact, if you can make
+this as precise as possible,</p>
+<p t="1494430" d="4550">you'll be famous for millennia,
+because this is</p>
+<p t="1498980" d="2850">known as the Riemann
+hypothesis.</p>
+<p t="1501830" d="3540">Exactly how closely this
+approximation occurs.</p>
+<p t="1505370" d="4350">But it's a hard problem, and
+already a century ago the</p>
+<p t="1509720" d="2540">prime number theorem, which
+established this connection</p>
+<p t="1512260" d="6190">was extremely important
+to progress in math.</p>
+<p t="1518450" d="890">Yeah, question.</p>
+<p t="1519340" d="2010">STUDENT: [INAUDIBLE]</p>
+<p t="1521350" d="2350">PROFESSOR: Is this stuff you're
+supposed to understand.</p>
+<p t="1523700" d="1140">That's a good question.</p>
+<p t="1524840" d="1460">I love that question.</p>
+<p t="1526300" d="4700">The answer is, this is,
+so we launched off</p>
+<p t="1531000" d="1080">into something here.</p>
+<p t="1532080" d="2230">And let me just explain
+it to you.</p>
+<p t="1534310" d="2830">I'm going to be talking a fair
+amount more about this</p>
+<p t="1537140" d="5000">particular function, because
+it's associated to the normal</p>
+<p t="1542140" d="1100">distribution.</p>
+<p t="1543240" d="2000">And I'm going to let you
+get familiar with it.</p>
+<p t="1545240" d="2570">What I'm doing here is
+purely cultural.</p>
+<p t="1547810" d="3690">Well, after this panel, what I'm
+doing is purely cultural.</p>
+<p t="1551500" d="2560">Just saying there's a lot
+of other beasts out</p>
+<p t="1554060" d="1750">there in the world.</p>
+<p t="1555810" d="2120">And one of them is called
+C of [INAUDIBLE].</p>
+<p t="1557930" d="3530">So we'll have a just a very
+passing familiarity with one</p>
+<p t="1561460" d="1460">or two of these functions.</p>
+<p t="1562920" d="2830">But there are literally dozens
+and dozens of them.</p>
+<p t="1565750" d="3230">The only thing that you'll need
+to do with such functions</p>
+<p t="1568980" d="4250">is things like understanding
+the derivative, the second</p>
+<p t="1573230" d="2910">derivative, and tracking
+what the function does.</p>
+<p t="1576140" d="2810">Sketching the same way you
+did with any other tool.</p>
+<p t="1578950" d="3920">So we're going to do this type
+of thing with these functions.</p>
+<p t="1582870" d="2890">And I'll have to lead
+you through.</p>
+<p t="1585760" d="1930">If I wanted to ask you a
+question about one of these</p>
+<p t="1587690" d="4780">functions, I have to tell you
+exactly what I'm aiming for.</p>
+<p t="1592470" d="3490">Yeah, another question.</p>
+<p t="1595960" d="620">STUDENT: [INAUDIBLE]</p>
+<p t="1596580" d="182">PROFESSOR: Yeah, I did.</p>
+<p t="1596762" d="6758">I called these guys
+Fresnel integrals.</p>
+<p t="1603520" d="3940">The guy's name is Fresnel.</p>
+<p t="1607460" d="1720">It's just named after
+a person.</p>
+<p t="1609180" d="3270">But, and this one, Li's
+logarithmic integral, it's not</p>
+<p t="1612450" d="800">named after a person.</p>
+<p t="1613250" d="3570">Logarithm is not somebody's
+name.</p>
+<p t="1616820" d="5140">So look, in fact this will be
+mentioned also on a problem</p>
+<p t="1621960" d="2490">set, but I don't expect you
+to remember these names.</p>
+<p t="1624450" d="2520">In particular, that you
+definitely don't want to try</p>
+<p t="1626970" d="630">to remember.</p>
+<p t="1627600" d="1130">Yes, another question.</p>
+<p t="1628730" d="1290">STUDENT: [INAUDIBLE]</p>
+<p t="1630020" d="5220">PROFESSOR: The question is,
+will we prove this limit.</p>
+<p t="1635240" d="2230">And the answer is yes,
+if we have time.</p>
+<p t="1637470" d="4020">It'll be in about
+a week or so.</p>
+<p t="1641490" d="1200">We're not going to do it now.</p>
+<p t="1642690" d="6320">It takes us quite a bit
+of work to do it.</p>
+<p t="1649010" d="3620">OK.</p>
+<p t="1652630" d="3630">I'm going to change years now,
+I'm going to shift gears.</p>
+<p t="1656260" d="5490">And we're going to go back to
+a more standard thing which</p>
+<p t="1661750" d="2900">has to do with just setting
+up integrals.</p>
+<p t="1664650" d="3170">And this has to do with
+understanding where integrals</p>
+<p t="1667820" d="3090">play a role, and they play a
+role in cumulative sums, in</p>
+<p t="1670910" d="1250">evaluating things.</p>
+<p t="1672160" d="3320">This is much more closely
+associated with the first</p>
+<p t="1675480" d="1540">Fundamental Theorem.</p>
+<p t="1677020" d="2900">That is, we'll take, today
+we were talking about how</p>
+<p t="1679920" d="2340">integrals are formulas
+for functions.</p>
+<p t="1682260" d="2470">Or solutions to differential
+equations.</p>
+<p t="1684730" d="4180">We're going to go back and talk
+about integrals as being</p>
+<p t="1688910" d="5050">the answer to a question
+as opposed to.</p>
+<p t="1693960" d="440">what we've done now.</p>
+<p t="1694400" d="4600">So in other words, and the first
+example, or most of the</p>
+<p t="1699000" d="3880">examples for now, are going
+to be taken from geometry.</p>
+<p t="1702880" d="4560">Later on we'll get
+to probability.</p>
+<p t="1707440" d="17110">And the first topic is just
+areas between curves.</p>
+<p t="1724550" d="2340">Here's the idea.</p>
+<p t="1726890" d="3420">If you have a couple of curves
+that look like this and maybe</p>
+<p t="1730310" d="4020">like this, and you want to start
+at a place a and you</p>
+<p t="1734330" d="9150">want to end at a place b, then
+you can chop it up the same</p>
+<p t="1743480" d="4290">way we did with Riemann
+sums. And take a chunk</p>
+<p t="1747770" d="3010">that looks like this.</p>
+<p t="1750780" d="2030">And I'm going to write the
+thickness of that chunk.</p>
+<p t="1752810" d="1900">Well, let's give these
+things names.</p>
+<p t="1754710" d="2780">Let's say the top curve is
+f(x), and the bottom</p>
+<p t="1757490" d="3020">curve is g ( x).</p>
+<p t="1760510" d="6470">And then this thickness
+is going to be dx.</p>
+<p t="1766980" d="3040">That's the thickness.</p>
+<p t="1770020" d="2280">And what is the height?</p>
+<p t="1772300" d="2580">Well, the height is the
+difference between the top</p>
+<p t="1774880" d="4090">value and the bottom value.</p>
+<p t="1778970" d="5150">So here we have (f (
+x) - g ( x)) dx.</p>
+<p t="1784120" d="6000">This is, if you like, base times
+- whoops, backwards.</p>
+<p t="1790120" d="4730">This is height, and this is
+the base of the rectangle.</p>
+<p t="1794850" d="2000">And these are approximately
+correct.</p>
+<p t="1796850" d="2840">But of course, only in limit
+when this is an infinitesimal,</p>
+<p t="1799690" d="4200">is it exactly right.</p>
+<p t="1803890" d="2330">In order to get the
+whole area, I have</p>
+<p t="1806220" d="4160">add these guys up.</p>
+<p t="1810380" d="1540">So I'm going to integrate
+from a to b.</p>
+<p t="1811920" d="2430">That's summing them, that's
+adding them up.</p>
+<p t="1814350" d="2120">And that's going
+to be my area.</p>
+<p t="1816470" d="10810">So that's the story here.</p>
+<p t="1827280" d="2740">Now, let me just say two
+things about this.</p>
+<p t="1830020" d="3340">First of all, on a very abstract
+level before we get</p>
+<p t="1833360" d="3150">started with details of more
+complicated problems. The</p>
+<p t="1836510" d="3830">first one is that every problem
+that I'm going to be</p>
+<p t="1840340" d="3770">talking about from now on for,
+several days, involves the</p>
+<p t="1844110" d="4590">following collection of,
+the following goals.</p>
+<p t="1848700" d="3390">I want to identify something
+to integrate.</p>
+<p t="1852090" d="5920">That's called an integrand.</p>
+<p t="1858010" d="8410">And I want to identify what
+are known as the limits.</p>
+<p t="1866420" d="5680">The whole game is simply to
+figure out what a, b, and this</p>
+<p t="1872100" d="1140">quantity is here.</p>
+<p t="1873240" d="2240">Whatever it is.</p>
+<p t="1875480" d="2610">And the minute we have that, we
+can calculate the integral</p>
+<p t="1878090" d="1720">if we like.</p>
+<p t="1879810" d="2620">We have numerical procedures
+or maybe we have analytic</p>
+<p t="1882430" d="2720">procedures, but anyway we
+can get at the integral.</p>
+<p t="1885150" d="2430">The goal here is
+to set them up.</p>
+<p t="1887580" d="2000">And in order to set
+them up, you must</p>
+<p t="1889580" d="2140">know these three things.</p>
+<p t="1891720" d="2300">The lower limit, the upper
+limit, and what we're</p>
+<p t="1894020" d="3900">integrating.</p>
+<p t="1897920" d="4360">If you leave one of these out,
+it's like the following thing.</p>
+<p t="1902280" d="3170">I ask you what the area
+of this region is.</p>
+<p t="1905450" d="3290">If I left out this end, how
+could I possibly know?</p>
+<p t="1908740" d="2430">I don't even know where it
+starts, so how can I figure</p>
+<p t="1911170" d="2070">out what this area is if I
+haven't identified what the</p>
+<p t="1913240" d="1990">left side is.</p>
+<p t="1915230" d="2980">I can't leave out the bottom.</p>
+<p t="1918210" d="2350">It's sitting here,
+in this formula.</p>
+<p t="1920560" d="2890">Because I need to know
+where it is.</p>
+<p t="1923450" d="1890">And I need to know the top and
+I need to know this side.</p>
+<p t="1925340" d="2260">Those are the four sides
+of the figure.</p>
+<p t="1927600" d="2760">If I don't incorporate them
+into the information, I'll</p>
+<p t="1930360" d="1280">never get anything out.</p>
+<p t="1931640" d="1980">So I need to know everything.</p>
+<p t="1933620" d="2420">And I need to know exactly those
+things, in order to have</p>
+<p t="1936040" d="4700">a formula for the area.</p>
+<p t="1940740" d="3670">Now, when this gets carried out
+in practice, as we will do</p>
+<p t="1944410" d="4020">now in our first example,
+it's more</p>
+<p t="1948430" d="1220">complicated than it looks.</p>
+<p t="1949650" d="19030">So here's our first example:
+Find the area between x = y ^2</p>
+<p t="1968680" d="8970">and y = x - 2.</p>
+<p t="1977650" d="2460">This is our first example.</p>
+<p t="1980110" d="4840">Let me make sure that I chose
+the example that I wanted to.</p>
+<p t="1984950" d="3470">Yeah.</p>
+<p t="1988420" d="11880">Now, there's a first step in
+figuring these things out.</p>
+<p t="2000300" d="7360">And this is that you must
+draw a picture.</p>
+<p t="2007660" d="2630">If you don't draw a picture
+you'll never figure out what</p>
+<p t="2010290" d="3390">this area is, because you'll
+never figure out what's what</p>
+<p t="2013680" d="2610">between these curves.</p>
+<p t="2016290" d="4250">The first curve, y = x
+^2, is a parabola.</p>
+<p t="2020540" d="2450">But x is a function of y.</p>
+<p t="2022990" d="2100">It's pointing this way.</p>
+<p t="2025090" d="2360">So it's this parabola here.</p>
+<p t="2027450" d="3240">That's y = x^2.</p>
+<p t="2030690" d="7220">Whoops, x = y ^2.</p>
+<p t="2037910" d="8790">The second curve is a line, a
+straight line of slope 1,</p>
+<p t="2046700" d="2970">starting at (x = 2, y = 0).</p>
+<p t="2049670" d="4490">It goes through this place here,
+which is 2 over and has</p>
+<p t="2054160" d="5900">slope 1, so it does this.</p>
+<p t="2060060" d="3450">And this shape in here is what
+we mean by the area between</p>
+<p t="2063510" d="590">the curves.</p>
+<p t="2064100" d="3040">Now that we see what it is,
+we have a better idea of</p>
+<p t="2067140" d="990">what our goal is.</p>
+<p t="2068130" d="11180">If you haven't drawn it,
+you have no hope.</p>
+<p t="2079310" d="3810">Now, I'm going to describe
+two ways of getting</p>
+<p t="2083120" d="7540">at this area here.</p>
+<p t="2090660" d="10000">And the first one is motivated
+by the shape that I just</p>
+<p t="2100660" d="2310">described right here.</p>
+<p t="2102970" d="4240">Namely, I'm going to use it
+in a straightforward way.</p>
+<p t="2107210" d="5350">I'm going to chop things up
+into these vertical pieces</p>
+<p t="2112560" d="4600">just as I did right there.</p>
+<p t="2117160" d="2255">Now, here's the difficulty
+with that.</p>
+<p t="2119415" d="6885">The difficulty is that the
+upper curve here has one</p>
+<p t="2126300" d="3140">formula but the lower curve
+shifts from being a part of</p>
+<p t="2129440" d="3680">the parabola to being a part
+of the straight line.</p>
+<p t="2133120" d="2340">That means that there are two
+different formulas for the</p>
+<p t="2135460" d="1470">lower function.</p>
+<p t="2136930" d="3010">And the only way to accommodate
+that is to</p>
+<p t="2139940" d="2840">separate this up into
+two halves.</p>
+<p t="2142780" d="2200">Separate it out into
+two halves.</p>
+<p t="2144980" d="5340">I'm going to have to divide
+it right here.</p>
+<p t="2150320" d="4000">So we must break it into two
+pieces and find the integral</p>
+<p t="2154320" d="3030">of one half and the other half.</p>
+<p t="2157350" d="430">Question?</p>
+<p t="2157780" d="9680">STUDENT: [INAUDIBLE]</p>
+<p t="2167460" d="600">PROFESSOR: So, you're one
+step ahead of me.</p>
+<p t="2168060" d="2060">We'll also have to be sure to
+distinguish between the top</p>
+<p t="2170120" d="2410">branch and the bottom branch of
+the parabola, which we're</p>
+<p t="2172530" d="1900">about to do.</p>
+<p t="2174430" d="3900">Now, in order to distinguish
+what's going on I actually</p>
+<p t="2178330" d="3670">have to use multi colors here.</p>
+<p t="2182000" d="2680">And so we will do that.</p>
+<p t="2184680" d="5040">First there's the top part,
+which is orange.</p>
+<p t="2189720" d="2480">That's the top part.</p>
+<p t="2192200" d="1790">I'll call it top.</p>
+<p t="2193990" d="7610">And then there's the bottom
+part, which has two halves.</p>
+<p t="2201600" d="11680">They are pink, and I
+guess this is blue.</p>
+<p t="2213280" d="7960">Alright, so now let's see
+what's happening.</p>
+<p t="2221240" d="6000">The most important two points
+that I have to figure out in</p>
+<p t="2227240" d="1340">order to get started here.</p>
+<p t="2228580" d="1380">Well, really I'm going
+to have to figure out</p>
+<p t="2229960" d="1050">three points, I claim.</p>
+<p t="2231010" d="2450">I'm going to have to figure
+out where this point is.</p>
+<p t="2233460" d="4190">Where this point is, and
+where that point is.</p>
+<p t="2237650" d="3100">If I know where these three
+points are, then I have a</p>
+<p t="2240750" d="2570">chance of knowing where
+to start, where</p>
+<p t="2243320" d="2070">to end, and so forth.</p>
+<p t="2245390" d="780">Another question.</p>
+<p t="2246170" d="1320">STUDENT: [INAUDIBLE]</p>
+<p t="2247490" d="3620">PROFESSOR: Could you speak up?</p>
+<p t="2251110" d="6660">STUDENT: [INAUDIBLE]</p>
+<p t="2257770" d="1580">PROFESSOR: The question
+is, why do we need to</p>
+<p t="2259350" d="2100">split up the area.</p>
+<p t="2261450" d="2880">And I think in order to answer
+that question further, I'm</p>
+<p t="2264330" d="2720">going to have to go into the
+details of the method, and</p>
+<p t="2267050" d="4430">then you'll see where
+it's necessary.</p>
+<p t="2271480" d="3390">So the first step is that I'm
+going to figure out what these</p>
+<p t="2274870" d="2290">three points are.</p>
+<p t="2277160" d="5300">This one is kind of easy;
+it's the point (0, 0).</p>
+<p t="2282460" d="2610">This point down here and
+this point up here are</p>
+<p t="2285070" d="2940">intersections of
+the two curves.</p>
+<p t="2288010" d="3140">I can identify them by the
+following equation.</p>
+<p t="2291150" d="10180">I need to see where these
+curves intersect.</p>
+<p t="2301330" d="5360">At what, well, if I plug in x
+= y^2, I get y = y^2 - 2.</p>
+<p t="2306690" d="2320">And then I can solve this
+quadratic equation. y</p>
+<p t="2309010" d="4830">^2 - y - 2 = 0.</p>
+<p t="2313840" d="5520">So (y - 2)( y + 1) = 0.</p>
+<p t="2319360" d="13270">And this is telling me that
+y = 2 or y = - 1.</p>
+<p t="2332630" d="1620">So I've found y = - 1.</p>
+<p t="2334250" d="6180">That means this point down here
+has second entry - 1.</p>
+<p t="2340430" d="4340">Its first entry, its x value,
+I can get from this formula</p>
+<p t="2344770" d="2120">here or the other formula.</p>
+<p t="2346890" d="3910">I have to square,
+this - 1 ^2 = 1.</p>
+<p t="2350800" d="4220">So that's the formula
+for this point.</p>
+<p t="2355020" d="5160">And the other point has
+second entry 2.</p>
+<p t="2360180" d="3510">And, again, with his formula y
+= x ^2, I have to square y to</p>
+<p t="2363690" d="8100">get x, so this is 4.</p>
+<p t="2371790" d="5550">Now, I claim I have enough
+data to get started.</p>
+<p t="2377340" d="3820">But maybe I'll identify
+one more thing.</p>
+<p t="2381160" d="7730">I need the top, the bottom left,
+and the bottom right.</p>
+<p t="2388890" d="6040">The top is the formula for this
+branch of x = y ^2, which</p>
+<p t="2394930" d="2950">is in the positive y region.</p>
+<p t="2397880" d="7250">And that is y = the
+square root of x.</p>
+<p t="2405130" d="4800">The bottom curve, part of the
+parabola, so this is the</p>
+<p t="2409930" d="12050">bottom left, is y = minus
+square root x.</p>
+<p t="2421980" d="2230">That's the other branch
+of the square root.</p>
+<p t="2424210" d="2750">And this is exactly what
+you were asking before.</p>
+<p t="2426960" d="1850">And this is, we have to
+distinguish between these two.</p>
+<p t="2428810" d="2700">And the point is, these formulas
+really are different.</p>
+<p t="2431510" d="2890">They're not the same.</p>
+<p t="2434400" d="3630">Now, the last bit is the bottom
+right chunk here, which</p>
+<p t="2438030" d="1880">is this pink part.</p>
+<p t="2439910" d="4420">Bottom right.</p>
+<p t="2444330" d="4730">And that one is the formula
+for the line.</p>
+<p t="2449060" d="6930">And that's y = x - 2.</p>
+<p t="2455990" d="7460">Now I'm ready to
+find the area.</p>
+<p t="2463450" d="2620">It's going to be
+in two chunks.</p>
+<p t="2466070" d="8990">This is the left part,
+plus the right part.</p>
+<p t="2475060" d="3240">And the left part, and I want to
+set it up as an integral, I</p>
+<p t="2478300" d="3050">want there to be a dx and here
+I want to set up an integral</p>
+<p t="2481350" d="2390">and I want it to be dx.</p>
+<p t="2483740" d="2660">I need to figure out what
+the range of x is.</p>
+<p t="2486400" d="1880">So, first I'm going to - well,
+let's leave ourselves a little</p>
+<p t="2488280" d="9360">more room than that.</p>
+<p t="2497640" d="1670">Just to be safe.</p>
+<p t="2499310" d="6430">OK, here's the right.</p>
+<p t="2505740" d="2750">So here we have our dx.</p>
+<p t="2508490" d="4670">Now, I need to figure out
+the starting place</p>
+<p t="2513160" d="1800">and the ending place.</p>
+<p t="2514960" d="2465">So the starting place is
+the leftmost place.</p>
+<p t="2517425" d="2575">The leftmost place
+is over here.</p>
+<p t="2520000" d="2890">And x = 0 there.</p>
+<p t="2522890" d="3270">So we're going to travel from
+this vertical line to the</p>
+<p t="2526160" d="2260">green line.</p>
+<p t="2528420" d="650">Over here.</p>
+<p t="2529070" d="4030">And that's from 0 to 1.</p>
+<p t="2533100" d="4180">And the difference between the
+orange curve and the blue</p>
+<p t="2537280" d="5050">curve is what I call top and
+bottom left, over there.</p>
+<p t="2542330" d="9950">So that is square root of x
+minus minus square root of x.</p>
+<p t="2552280" d="8890">Again, this is what I call
+top, and this was bottom.</p>
+<p t="2561170" d="7680">But only the left.</p>
+<p t="2568850" d="3720">I claim that's giving me the
+left half of this, the left</p>
+<p t="2572570" d="3080">section of this diagram.</p>
+<p t="2575650" d="4130">Now I'm going to do the right
+section of the diagram.</p>
+<p t="2579780" d="2260">I start at 1.</p>
+<p t="2582040" d="2120">The lower limit is 1.</p>
+<p t="2584160" d="4330">And I go all the way
+to this point here.</p>
+<p t="2588490" d="2670">Which is the last bit.</p>
+<p t="2591160" d="1910">And that's going to be x = 4.</p>
+<p t="2593070" d="6060">The upper limit here is 4.</p>
+<p t="2599130" d="2350">And now I have to take the
+difference between the top and</p>
+<p t="2601480" d="1090">the bottom again.</p>
+<p t="2602570" d="2230">The top is square root
+of x all over again.</p>
+<p t="2604800" d="1770">But the bottom has changed.</p>
+<p t="2606570" d="4860">The bottom is now the
+quantity (x - 2).</p>
+<p t="2611430" d="1560">Please don't forget
+your parenthesis.</p>
+<p t="2612990" d="11010">There's going to be minus
+signs and cancellations.</p>
+<p t="2624000" d="2420">Now, this is almost the
+end of the problem.</p>
+<p t="2626420" d="1850">The rest of it is routine.</p>
+<p t="2628270" d="4170">We would just have to evaluate
+these integrals.</p>
+<p t="2632440" d="5060">And, fortunately, I'm going
+to spare you that.</p>
+<p t="2637500" d="1830">We're not going to
+bother to do it.</p>
+<p t="2639330" d="1720">That's the easy part.</p>
+<p t="2641050" d="2520">We're not going to do it.</p>
+<p t="2643570" d="2270">But I'm going to show you that
+there's a much quicker way</p>
+<p t="2645840" d="1480">with this integral.</p>
+<p t="2647320" d="2660">And with this area calculation.</p>
+<p t="2649980" d="930">Right now.</p>
+<p t="2650910" d="4970">The quicker way is what
+you see when you see</p>
+<p t="2655880" d="2150">how long this is.</p>
+<p t="2658030" d="2650">And you see that there's another
+device that you can</p>
+<p t="2660680" d="3670">use that looks similar in
+principle to this, but</p>
+<p t="2664350" d="3900">reverses the roles of x and y.</p>
+<p t="2668250" d="5300">And the other device, which
+I'll draw over here,</p>
+<p t="2673550" d="1980">schematically.</p>
+<p t="2675530" d="11600">No, maybe I'll draw it on
+this blackboard here.</p>
+<p t="2687130" d="8690">So, Method 2, if you like,
+this was Method 1, and we</p>
+<p t="2695820" d="8360">should call it the hard way.</p>
+<p t="2704180" d="8680">Method 2, which is better
+in this case, is to use</p>
+<p t="2712860" d="11850">horizontal slices.</p>
+<p t="2724710" d="8390">Let me draw the picture,
+at least schematically.</p>
+<p t="2733100" d="2130">Here's our picture that
+we had before.</p>
+<p t="2735230" d="3910">And now instead of slicing it
+vertically, I'm going to slice</p>
+<p t="2739140" d="1390">it horizontally.</p>
+<p t="2740530" d="4380">Like this.</p>
+<p t="2744910" d="4830">Now, the dimensions have
+different names.</p>
+<p t="2749740" d="2250">But the principle is similar.</p>
+<p t="2751990" d="3180">The width, we now call dy.</p>
+<p t="2755170" d="3430">Because it's the change in y.</p>
+<p t="2758600" d="7100">And this distance here, from the
+left end to the right end,</p>
+<p t="2765700" d="4250">we have to figure out what the
+formulas for those things are.</p>
+<p t="2769950" d="6550">So on the left, maybe I'll draw
+them color coded again.</p>
+<p t="2776500" d="3130">So here's a left.</p>
+<p t="2779630" d="3770">And, whoops, orange
+is right, I guess.</p>
+<p t="2783400" d="1180">So here we go.</p>
+<p t="2784580" d="5890">So we have the left, which
+is this green.</p>
+<p t="2790470" d="4960">Is x = y ^2.</p>
+<p t="2795430" d="10660">And the right, which is
+orange, is y = x - 2.</p>
+<p t="2806090" d="4770">And now in order to use this,
+it's going to turn out that we</p>
+<p t="2810860" d="2310">want to write x as, we want
+to reverse roles.</p>
+<p t="2813170" d="4650">So we want to write this as
+x is a function of y.</p>
+<p t="2817820" d="6740">So we'll use it in this form.</p>
+<p t="2824560" d="7390">And now I want to set up
+the integral for you.</p>
+<p t="2831950" d="2750">This time, the area
+is equal to an</p>
+<p t="2834700" d="6500">integral in the dy variable.</p>
+<p t="2841200" d="5150">And its starting place
+is down here.</p>
+<p t="2846350" d="2610">And it's ending place
+is up there.</p>
+<p t="2848960" d="1890">This is the lowest value
+of y, and this is the</p>
+<p t="2850850" d="1050">top value of y.</p>
+<p t="2851900" d="3040">And we've already computed
+those things.</p>
+<p t="2854940" d="4890">The lowest level of y is - 1.</p>
+<p t="2859830" d="2370">So this is y = - 1.</p>
+<p t="2862200" d="3460">And this top value is y = 2.</p>
+<p t="2865660" d="5830">So this goes from - 1 to 2.</p>
+<p t="2871490" d="5710">And now the difference is this
+distance here, the distance</p>
+<p t="2877200" d="2680">between the rightmost point
+and the leftmost point.</p>
+<p t="2879880" d="2140">Those are the two dimensions.</p>
+<p t="2882020" d="2890">So again, it's a rectangle but
+its horizontal is long and its</p>
+<p t="2884910" d="2720">vertical is very short.</p>
+<p t="2887630" d="690">And what are they?</p>
+<p t="2888320" d="3210">It's the difference between
+the right and the left.</p>
+<p t="2891530" d="10230">The right-hand is (y + 2), and
+the right-hand is y ^2.</p>
+<p t="2901760" d="5230">So this is the formula.</p>
+<p t="2906990" d="8760">STUDENT: [INAUDIBLE]</p>
+<p t="2915750" d="3340">PROFESSOR: What was
+the question?</p>
+<p t="2919090" d="2540">Why is it right minus left?</p>
+<p t="2921630" d="1140">That's very important.</p>
+<p t="2922770" d="1770">Why is it right minus left?</p>
+<p t="2924540" d="2690">And that's actually the point
+that I was about to make.</p>
+<p t="2927230" d="1170">Which is this.</p>
+<p t="2928400" d="5460">That y + 2, which is the right,
+is bigger than y ^2,</p>
+<p t="2933860" d="1620">which is the left.</p>
+<p t="2935480" d="4840">So that means that y +
+2 - y ^2 is positive.</p>
+<p t="2940320" d="2510">If you do it backwards, you'll
+always get a negative number</p>
+<p t="2942830" d="4470">and you'll always get
+the wrong answer.</p>
+<p t="2947300" d="3710">So this is the right-hand end
+minus the left-hand end gives</p>
+<p t="2951010" d="3290">you a positive number.</p>
+<p t="2954300" d="2460">And it's not obvious, actually,
+where you are.</p>
+<p t="2956760" d="2270">There's another double-check,
+by the way.</p>
+<p t="2959030" d="2000">When you look at this quantity,
+you see that the</p>
+<p t="2961030" d="1600">ends pinch.</p>
+<p t="2962630" d="2690">And that's exactly the
+crossover points.</p>
+<p t="2965320" d="5630">That is, when y = - 1,
+y + 2 - y ^2 = 0.</p>
+<p t="2970950" d="5990">And when y = 2, y
++ 2 - y ^2 = 0.</p>
+<p t="2976940" d="3300">And that's not an accident,
+that's exactly the geometry of</p>
+<p t="2980240" d="4360">the shape that we picked
+out there.</p>
+<p t="2984600" d="1960">So this is the technique.</p>
+<p t="2986560" d="4640">Now, this is a much more
+routine integral.</p>
+<p t="2991200" d="2880">I'm not going to carry it out,
+I'll just do one last step.</p>
+<p t="2994080" d="7320">Which is that this is (y ^2
+/ 2) + 2y - (y ^3 / 3),</p>
+<p t="3001400" d="2200">evaluated at - 1 and 2.</p>
+<p t="3003600" d="4710">Which, if you work
+it out, is 9/2.</p>
+<p t="3008310" d="1920">So we're done for today.</p>
+<p t="3010230" d="3410">And tomorrow we'll do more
+volumes, more things including</p>
+<p t="3013640" d="1430">three dimensions.</p>
+</body>
+</timedtext>

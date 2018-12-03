@@ -1,0 +1,2137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="0" d="4915">[MUSIC]</p>
+<p t="4915" d="2973">Stanford University.</p>
+<p t="10809" d="513">&gt;&gt; Alright!</p>
+<p t="11322" d="1828">Hello, everybody.</p>
+<p t="13150" d="1440">Welcome to lecture three.</p>
+<p t="14590" d="3750">I'm Richard, and today we'll talk
+a little bit more about word vectors.</p>
+<p t="18340" d="5130">But before that, let's do three
+little organizational Items.</p>
+<p t="23470" d="3630">First we'll have our first
+coding session this week.</p>
+<p t="27100" d="4540">Next, the problem set one has
+a bunch of programming for</p>
+<p t="31640" d="4510">you, as the first and only one where
+you will do everything from scratch.</p>
+<p t="36150" d="1680">So, do get started early on it.</p>
+<p t="39800" d="2860">The coding session is mostly
+to help you chat with other</p>
+<p t="42660" d="1570">people go through small bugs.</p>
+<p t="44230" d="3030">Make sure you have everything set
+up properly, your environments and</p>
+<p t="47260" d="4500">everything, so you can get into the
+exciting deep learning parts right away.</p>
+<p t="53550" d="2530">Then there's the career fair,
+the computer science forum.</p>
+<p t="56080" d="8120">It's excited to help you find companies
+to work at, and talk about your career.</p>
+<p t="64200" d="3976">And then my first project advice office
+hour's today, I'll just grab a quick</p>
+<p t="68176" d="3964">dinner after this and then I'll be back
+here in the Huang basement to chat.</p>
+<p t="72140" d="4770">Mostly about projects, so we encourage you
+to think about your projects early and so</p>
+<p t="76910" d="2210">we'll start that today.</p>
+<p t="79120" d="3512">Very excited to chat with you if wanna
+just bounce off ideas in the beginning,</p>
+<p t="82632" d="928">that will be great.</p>
+<p t="85600" d="1727">Any questions around organization, yes.</p>
+<p t="89847" d="3512">I think just like outside,
+yeah like, you can't miss it,</p>
+<p t="93359" d="2261">like right here in front of the class.</p>
+<p t="98599" d="1944">Any other organizational questions?</p>
+<p t="106629" d="1353">Yeah.
+He will hold office hours too.</p>
+<p t="107982" d="2284">And we have a calendar on the website, and</p>
+<p t="110266" d="2753">you can find all our office
+hours on the calendar.</p>
+<p t="117447" d="913">Okay.
+We'll fix that.</p>
+<p t="118360" d="4264">We'll add the names of who's doing
+the office hours, especially for</p>
+<p t="122624" d="5576">Chris and mine All right, great.</p>
+<p t="128200" d="2090">So we'll finish word2vec.</p>
+<p t="130290" d="2310">But then where it gets
+really interesting is,</p>
+<p t="132600" d="3600">we're actually asked what
+word2vec really captures.</p>
+<p t="136200" d="2412">We have these objective
+functions we're optimizing.</p>
+<p t="138612" d="3001">And we'll take a bit of a look and
+analyze what's going on there.</p>
+<p t="141613" d="3603">And then we'll try to actually
+capture the essence of word2vec,</p>
+<p t="145216" d="1974">a little more effectively.</p>
+<p t="147190" d="3530">And then also look at our first analysis,
+of intrinsic and</p>
+<p t="150720" d="3410">extrinsic evaluations for word vectors.</p>
+<p t="154130" d="2070">So, it'll be really exciting.</p>
+<p t="156200" d="4720">By the end, you actually have a good sense
+of how to evaluate word vectors, and</p>
+<p t="160920" d="3070">you have at least two methods under
+your belt on how to train them.</p>
+<p t="165580" d="2200">So let's do a quick review of word2vec.</p>
+<p t="167780" d="4790">We ended with this following equation
+here, where we wanted to basically predict</p>
+<p t="173710" d="3550">the outside vectors from the center word,
+and</p>
+<p t="177260" d="4140">so lets just recap really
+quickly what that meant.</p>
+<p t="181400" d="4640">So let's say I have the beginning of
+a corpus, and it says something like,</p>
+<p t="186040" d="6920">I like deep learning,</p>
+<p t="192960" d="2970">or just and NLP.</p>
+<p t="197850" d="4040">Now, what we were gonna do is, we
+basically wanna compute the probability.</p>
+<p t="201890" d="4950">Let's say, we start with these word
+vectors in this is our first center word,</p>
+<p t="206840" d="1590">and that's deep.</p>
+<p t="208430" d="3530">So, we wanna first compute
+the probability of</p>
+<p t="213410" d="4450">the first outside word,
+I given the word deep and</p>
+<p t="217860" d="4680">that was something like
+the exponent here Of UO.</p>
+<p t="223970" d="4882">So the U vector is the outside word and
+so that's,</p>
+<p t="228852" d="4079">in our case, I here transposed the deep.</p>
+<p t="232931" d="4872">And then we had this big sum here and
+the sum is always the same,</p>
+<p t="237803" d="1895">given for a certain VC.</p>
+<p t="239698" d="1562">So that is the center word.</p>
+<p t="241260" d="2250">Now, how do we get this V and this U?</p>
+<p t="243510" d="4880">We basically have a large matrix here,</p>
+<p t="248390" d="2940">with all the different word vectors for
+all the different words.</p>
+<p t="251330" d="2370">So it starts with vector for aardvark.</p>
+<p t="256050" d="5100">And a and so on,
+all the way to maybe the vector for zebra.</p>
+<p t="261150" d="3810">And we had basically all
+our center words v in here.</p>
+<p t="264960" d="5340">And then we have one large matrix,
+where we have again, all the vectors</p>
+<p t="270300" d="5940">starting with aardvark and A,
+and so on, all the way to zebra.</p>
+<p t="278300" d="5827">And when we start in our first window
+through this corpus, we basically collect,</p>
+<p t="284127" d="4308">take that vector for deep here
+this vector V plug it in here and</p>
+<p t="288435" d="3052">then we wanna maximize this probability.</p>
+<p t="294689" d="4691">And now, we'll take the vectors for
+U for all these different words like I,</p>
+<p t="299380" d="2340">like, learning, and and.</p>
+<p t="301720" d="5270">So the next thing would be, I for like or
+the probability of like given deep.</p>
+<p t="308020" d="5880">And that'll be the exponent of
+U like transpose of v deep.</p>
+<p t="315190" d="2940">And again, we have to divide by this</p>
+<p t="318130" d="2450">pretty large sum over
+the entire vocabulary.</p>
+<p t="320580" d="3335">So, it's essentially little
+classification problems all over.</p>
+<p t="323915" d="2135">So that's the first window of this corpus.</p>
+<p t="327830" d="4300">Now, when we move to the next window,
+we basically move one over.</p>
+<p t="333550" d="6228">And now the center word is learning, and
+we wanna predict these outside words.</p>
+<p t="341453" d="5267">So now we'll take for this next,
+the second window here.</p>
+<p t="346720" d="2680">This was the first window,
+the second window.</p>
+<p t="349400" d="6220">We'll now take the vector V for learning
+and the U vector for like, deep and NLP.</p>
+<p t="357340" d="3690">So that was the skip gram model that
+we talked about in the last lecture,</p>
+<p t="361030" d="4380">just explained again
+with the same notation.</p>
+<p t="365410" d="2940">But basically, you take one window
+at a time, you move that window and</p>
+<p t="368350" d="2700">you keep trying to predict
+the outside words.</p>
+<p t="371050" d="890">Next to the center word.</p>
+<p t="374290" d="1160">Are there any questions around this?</p>
+<p t="375450" d="2239">Cuz we'll move, yep?</p>
+<p t="383951" d="2469">That's a good question, so
+how do you actually develop that?</p>
+<p t="386420" d="3670">You start with all the numbers,
+all these vectors are just random.</p>
+<p t="390090" d="5220">Little small random numbers, often sampled
+uniformly between two small numbers.</p>
+<p t="396360" d="3840">And then, you take the derivatives with
+respect to these vectors in order to</p>
+<p t="400200" d="1683">increase these probabilities.</p>
+<p t="404159" d="5919">And you essentially take the gradient
+here, of each of these windows with SGD.</p>
+<p t="410078" d="5209">And so, when you take the derivatives that
+we went through in Latin last lecture,</p>
+<p t="415287" d="4454">with respect to all these different
+vectors here, you get this very,</p>
+<p t="419741" d="2359">very large sparse update.</p>
+<p t="422100" d="4310">Cuz all your parameters
+are essentially all the word vectors.</p>
+<p t="426410" d="4542">And basically these two matrices,
+with all these different column vectors.</p>
+<p t="430952" d="3866">And so let's say you have
+100 dimensional vectors, and</p>
+<p t="434818" d="3724">you have a vocabulary of
+let's say 20,000 words.</p>
+<p t="438542" d="3628">So that's a lot of different
+numbers that you have to optimize.</p>
+<p t="442170" d="2940">And so these updates are very, very large.</p>
+<p t="445110" d="2310">But, they're also very
+sparse cuz each window,</p>
+<p t="447420" d="3990">you usually only see five words
+if your window size is two.</p>
+<p t="453300" d="3120">yeah?
+&gt;&gt; [INAUDIBLE]</p>
+<p t="456420" d="740">&gt;&gt; That's a good question.</p>
+<p t="457160" d="2790">We'll get to that once we look at
+the evaluation of these word vectors.</p>
+<p t="464304" d="5836">This cost function is not
+convex It doesn't matter,</p>
+<p t="470140" d="2730">sorry, I should repeat all the questions,
+sorry for the people on the video.</p>
+<p t="472870" d="2910">So the first question was,
+how do we choose the dimensionality?</p>
+<p t="475780" d="2250">We'll get to that very soon.</p>
+<p t="478030" d="2090">And then, this question here.</p>
+<p t="480120" d="1587">Was how do we start?</p>
+<p t="481707" d="2196">And how much does it matter?</p>
+<p t="483903" d="4763">It turns out most of the objective
+functions, pretty much almost of them in</p>
+<p t="488666" d="4574">this lecture, are not convex, and
+so initialization does matter.</p>
+<p t="493240" d="1580">And we'll go through tips and</p>
+<p t="494820" d="5420">tricks on how to circumvent getting
+stuck in very bad local optima.</p>
+<p t="500240" d="3100">But it turns out in practice,
+as long as you initialize with small</p>
+<p t="503340" d="3980">random numbers especially in these word
+vectors, it does not tend to be a problem.</p>
+<p t="510780" d="3350">All right, so we basically run SGD,
+it's just a recap of last lecture.</p>
+<p t="514130" d="4890">Run SGD, we update now our
+cost function here at each</p>
+<p t="519020" d="4610">window as we move through the corpus,
+right?</p>
+<p t="523630" d="3460">And so when you think about these updates
+and you think about implementing that,</p>
+<p t="527090" d="3790">which you'll very soon for
+problem set one, you'll realize well,</p>
+<p t="530880" d="4140">if I have this entire matrix,
+this entire vector here, sorry.</p>
+<p t="535020" d="2386">This vector of all these
+different numbers and</p>
+<p t="537406" d="2510">I explicitly actually
+keep around these zeros,</p>
+<p t="539916" d="4180">you have very, very large updates, and
+you'll run out of memory very quickly.</p>
+<p t="544096" d="2688">And so what instead you
+wanna do is either have very</p>
+<p t="546784" d="4797">sparse matrix operations where
+you update only specific columns.</p>
+<p t="551581" d="5330">For this second window, you only have
+to update the outside vectors for</p>
+<p t="556911" d="3288">like, deep and NLP and
+inside vector for learning.</p>
+<p t="560199" d="5852">Or you could also implement this as
+essentially a hash where you have keys and</p>
+<p t="566051" d="739">values.</p>
+<p t="566790" d="3790">And the values are the vectors,
+and the keys are the word strings.</p>
+<p t="573850" d="4140">All right, now, when I told you
+this is the skip-gram model,</p>
+<p t="577990" d="5070">I actually kind of lied a little bit
+to teach it to you one step at a time.</p>
+<p t="583060" d="4090">It turns out when you do
+this computation here,</p>
+<p t="588890" d="1550">the upper part is pretty simple, right?</p>
+<p t="590440" d="1740">This is just
+the hundred-dimensional vector, and</p>
+<p t="592180" d="2800">you multiply that with another
+hundred-dimensional vector.</p>
+<p t="594980" d="1375">So that's pretty fast.</p>
+<p t="596355" d="3963">But at each window, and again you
+go through an entire corpus, right?</p>
+<p t="600318" d="3161">You do this one step at a time,
+one word at a time.</p>
+<p t="603479" d="1786">And for each window,
+you do this computation.</p>
+<p t="605265" d="1986">And you do also this gigantic sum.</p>
+<p t="607251" d="2447">And this sum goes over
+the entire vocabulary.</p>
+<p t="609698" d="4989">Again, potentially 20,000 maybe
+even a million different words</p>
+<p t="614687" d="1561">in your whole corpus.</p>
+<p t="616248" d="2081">All right, so each window,</p>
+<p t="618329" d="4873">you have to make 20,000 times
+this inner product down here.</p>
+<p t="623202" d="2118">And that's not very efficient.</p>
+<p t="625320" d="3460">And it turns out,
+you also don't teach the model that much.</p>
+<p t="628780" d="6306">At each window you say, deep learning, or
+learning does not co-occur with zebra.</p>
+<p t="635086" d="1405">It does not co-occur of aardvark.</p>
+<p t="636491" d="2819">It does not co-occur
+with 20,000 other words.</p>
+<p t="639310" d="875">And it's kind of repetitive, right?</p>
+<p t="640185" d="4745">Cuz most words don't actually appear with
+most other words, it's pretty sparse.</p>
+<p t="644930" d="5220">And so the main idea behind skip-gram is a
+very neat trick, which is we'll just train</p>
+<p t="650150" d="3520">a couple of binary logistic
+regressions for the true pairs.</p>
+<p t="653670" d="3700">So we keep this idea of
+wanting to optimize and</p>
+<p t="657370" d="4420">maximize this inner product of
+the center word and the outside words.</p>
+<p t="661790" d="1550">But instead of going through all,</p>
+<p t="663340" d="2270">we'll actually just take
+a couple of random words and say,</p>
+<p t="665610" d="5510">how about these random words from
+the rest of the corpus don't co-occur.</p>
+<p t="671120" d="4620">And this leads us to the original
+objective function of the skip-gram model,</p>
+<p t="675740" d="4070">which sort of as a software
+package is often called Word2vec.</p>
+<p t="679810" d="3390">And the original paper title was
+Distributed Representations of Words and</p>
+<p t="683200" d="2100">Phrases, and their compositionality.</p>
+<p t="685300" d="2570">And so the overall objective
+function is as follows.</p>
+<p t="687870" d="1990">Let's walk through this slowly together.</p>
+<p t="690970" d="2440">Basically, you go again
+through each window.</p>
+<p t="693410" d="5320">So T here corresponds to each window
+as you go through the corpus,</p>
+<p t="698730" d="1150">and then we have two terms here.</p>
+<p t="699880" d="4830">The first one is essentially just a log
+probability of these two center words and</p>
+<p t="704710" d="1424">outside words co-occurring.</p>
+<p t="707240" d="3630">And so the sigmoid here is
+a simple element wise function.</p>
+<p t="710870" d="873">We'll become very good friends.</p>
+<p t="711743" d="1947">We'll use the sigmoid function a lot.</p>
+<p t="713690" d="3350">You'll have to really be able to
+take derivatives of it and so on.</p>
+<p t="717040" d="3000">But essentially what it does,
+it just takes any real number and</p>
+<p t="720040" d="2160">squashes it to be between zero and one.</p>
+<p t="722200" d="3982">And that's for you learning people,
+good enough to call it a probability.</p>
+<p t="726182" d="3213">If you're reading statistics,
+you wanna have proper measures and so on,</p>
+<p t="729395" d="3018">so it's not quite that much, but
+it's a number between zero and one.</p>
+<p t="732413" d="1032">We'll call it a probability.</p>
+<p t="733445" d="5919">And then we basically can call this
+here a term that we basically wanna</p>
+<p t="739364" d="5656">maximize the log probability of
+these two words co-occurring.</p>
+<p t="745020" d="1214">Any questions about the first term?</p>
+<p t="750282" d="3510">This is very similar to before, but
+then we have the second term here.</p>
+<p t="753792" d="3788">And the original description
+was this expected value here.</p>
+<p t="757580" d="4001">But really, we can have some clear
+notation that essentially just shows that</p>
+<p t="761581" d="4209">we're going to randomly sub sample
+a couple of the words from the corpus.</p>
+<p t="765790" d="1544">And for each of these,</p>
+<p t="767334" d="5136">we will essentially try to minimize
+their probability of co-occurring.</p>
+<p t="772470" d="4226">And so one good exercise is actually for</p>
+<p t="776696" d="3718">you in preparation for midterms.</p>
+<p t="780414" d="5554">And what not to prove to
+yourself that one of sigmoid</p>
+<p t="785968" d="5051">of minus x is the same as
+one minus sigmoid of x.</p>
+<p t="791019" d="3941">That is a nice little quick
+proof to get into the zone.</p>
+<p t="794960" d="3510">And so basically this is one
+minus the probability of this.</p>
+<p t="798470" d="3571">So we'd subsample a couple of random words
+from our corpus instead of going through</p>
+<p t="802041" d="2615">all the different ones saying
+an aardvark doesn't appear.</p>
+<p t="804656" d="2304">Zebra doesn't appear with learning and
+so on.</p>
+<p t="806960" d="4180">We'll just sample five, or ten, or so,
+and then we minimize their probabilities.</p>
+<p t="813070" d="1130">And so usually, we take and</p>
+<p t="814200" d="4920">this is again a hyperparameter, one that
+will have to evaluate how much it matters.</p>
+<p t="819120" d="2300">I will take k negative samples for</p>
+<p t="821420" d="3600">the second part here of the objective
+functions for each window.</p>
+<p t="825020" d="4663">And then we minimize the probability
+that these random words appear</p>
+<p t="829683" d="1732">around the center word.</p>
+<p t="831415" d="3644">And then the way we sample them is
+actually from a simple uniform or</p>
+<p t="835059" d="1664">unigram distribution here.</p>
+<p t="836723" d="3369">We basically look at how often do
+the words generally appear, and</p>
+<p t="840092" d="1818">then we sample them based on that.</p>
+<p t="841910" d="1529">But we also take the power
+of three-fourth.</p>
+<p t="843439" d="1523">It's kind of a hacky term.</p>
+<p t="844962" d="3764">If you play around with this model for
+long enough, you say, well,</p>
+<p t="848726" d="3830">maybe it should more often sample some
+of these rare words cuz otherwise,</p>
+<p t="852556" d="3684">it would very, very often sample THE and
+A and other stop words.</p>
+<p t="856240" d="4610">And would probably never, ever sample
+aardvark and zebra in our corpus,</p>
+<p t="860850" d="5120">so you take this to
+the power of three-fourth.</p>
+<p t="865970" d="1490">And you don't have to
+implement this function,</p>
+<p t="867460" d="3800">we'll just give it to you cuz you kind
+of have to compute the statistics</p>
+<p t="871260" d="2680">of how often each word
+appears in the corpus.</p>
+<p t="873940" d="1670">But we'll give this to
+you in the problem set.</p>
+<p t="877080" d="3217">All right, so
+any questions around the skip-gram model?</p>
+<p t="880297" d="500">Yeah?</p>
+<p t="886692" d="7228">That's right, so the question is,
+is it a choice of how to define p of w?</p>
+<p t="893920" d="3320">And it is a choice, you could do
+a lot of different things there.</p>
+<p t="897240" d="4984">But it turns out a very simple thing,
+like just taking the unigram distribution.</p>
+<p t="902224" d="3606">How often does this word
+appear works well enough.</p>
+<p t="905830" d="4519">So people haven't really explored
+more complex versions than that.</p>
+<p t="919712" d="1278">That's a good question.</p>
+<p t="920990" d="3440">Should we make sure that
+the random samples here</p>
+<p t="924430" d="2740">aren't the same as exactly this word?</p>
+<p t="928500" d="3960">Yes, but it turns out that the probability
+for a very large corpora is so</p>
+<p t="932460" d="4130">tiny that the very, very few times that
+ever happens is kind of irrelevant.</p>
+<p t="936590" d="3328">Cuz we randomly sub-sample so
+much that it doesn't change.</p>
+<p t="948573" d="1627">Orders of magnitude for which part?</p>
+<p t="951617" d="1607">K, it's ten.</p>
+<p t="953224" d="3212">It's relatively small, and
+it's an interesting trade-off that</p>
+<p t="956436" d="2881">you'll observe in actually
+several deep learning models.</p>
+<p t="959317" d="5143">Often, As you go through the corpus,
+you could do an update after each window,</p>
+<p t="964460" d="3830">but you could also say let's go through
+five windows collect the updates and</p>
+<p t="968290" d="2530">then make a really, a step in your...</p>
+<p t="970820" d="2151">Mini batch of your stochastic
+gradient descent and</p>
+<p t="972971" d="2710">we'll go through a lot these kind
+of options later in the class.</p>
+<p t="977375" d="8567">All right, last question on skip
+gram What does Jt(theta) represent?</p>
+<p t="985942" d="948">It's a good question.</p>
+<p t="986890" d="6760">So theta is often a parameter that we
+use for all the variables in our model.</p>
+<p t="993650" d="1670">So in our case here for
+the skip-gram model,</p>
+<p t="995320" d="4505">it's essentially all the U vectors and
+all the V vectors.</p>
+<p t="999825" d="2575">Later on, when we call,
+we'll call a theta,</p>
+<p t="1002400" d="3910">it might have other parameters of
+the neural network, layers and so on.</p>
+<p t="1006310" d="4050">And J is just our cost function and
+T is at the Tth time step or</p>
+<p t="1010360" d="3180">the Tth window as we
+go through our corpus.</p>
+<p t="1013540" d="3413">So in the end, our overall objective
+function that we actually optimize is</p>
+<p t="1016953" d="1042">the sum of all of them.</p>
+<p t="1017995" d="4947">But again, we don't wanna do one large
+update of the entire corpus, right?</p>
+<p t="1022942" d="3436">We don't wanna go through all the windows,
+collect all the updates and</p>
+<p t="1026378" d="3392">then make one gigantic step cuz that
+usually doesn't work very well.</p>
+<p t="1032162" d="4568">So, good question I think, last lecture
+we talked a lot about minimization.</p>
+<p t="1036730" d="3470">Here, we have these log probabilities and
+in the paper you wanna maximize that.</p>
+<p t="1044286" d="1254">And it's often very intuitive, right?</p>
+<p t="1045540" d="3810">Once you have probabilities,
+you usually wanna maximize the probability</p>
+<p t="1049350" d="3580">of the actual thing that you
+see in your corpus happening.</p>
+<p t="1052930" d="750">And then other times,</p>
+<p t="1053680" d="3880">when we call it a cost function,
+we wanna minimize the cost and so on.</p>
+<p t="1059550" d="4280">All right so, in word2vector's,
+another model,</p>
+<p t="1063830" d="2860">which you won't have to implement
+unless you want to get bonus points.</p>
+<p t="1066690" d="2875">But we will ask you to take
+derivatives of, and so</p>
+<p t="1069565" d="4117">it's good to understand it at least
+in a very simple conceptual level.</p>
+<p t="1073682" d="3868">And it's very similar
+to the skip-gram model.</p>
+<p t="1077550" d="2620">Basically, we want to predict</p>
+<p t="1080170" d="3870">the center word from the sum
+of the surrounding words.</p>
+<p t="1084040" d="4240">So very simply here, we sum up
+the vector of And of NLP and of deep and</p>
+<p t="1088280" d="2490">of like and
+we have the sum of these vectors.</p>
+<p t="1090770" d="3870">And then we have some inner products
+with just the vector of the inside.</p>
+<p t="1094640" d="3610">And basically that's called
+the continuous bag of words model.</p>
+<p t="1098250" d="4260">You'll learn all about the details and
+the definition of that in the problem set.</p>
+<p t="1103920" d="3116">So what actually happens when we
+train these word vectors, right?</p>
+<p t="1107036" d="4903">We optimize this objective function and
+we take gradients and</p>
+<p t="1111939" d="5978">after a while, something kind of
+magical happens to these word vectors.</p>
+<p t="1117917" d="5607">And that is that they actually start to
+cluster around similar kinds of meaning,</p>
+<p t="1123524" d="4456">and sometimes also similar
+kinds of syntactic functions.</p>
+<p t="1127980" d="5050">So when we zoom in, and again, this is,
+usually these vectors are 25 to even</p>
+<p t="1133030" d="5450">500 or thousand dimensional, this is just
+a PCA visualization of these vectors.</p>
+<p t="1138480" d="4730">And what we'll observe is that Tuesday and
+Thursday and</p>
+<p t="1143210" d="3830">weekdays cluster together,
+number terms cluster together,</p>
+<p t="1148170" d="3920">first names cluster together and so on.</p>
+<p t="1152090" d="4150">So basically, words that appear
+in similar context turn out to</p>
+<p t="1156240" d="3580">often have dissimilar meaning as
+we discussed in previous lecture.</p>
+<p t="1159820" d="4460">And so
+they essentially get similar vectors</p>
+<p t="1164280" d="4390">after we train this model for
+a sufficient number of sets.</p>
+<p t="1170926" d="2234">All right, let's summarize word2vec.</p>
+<p t="1173160" d="3110">Basically, we went through
+each word in the corpus.</p>
+<p t="1176270" d="2040">We looked at the surrounding
+words in the window.</p>
+<p t="1178310" d="2010">We predict the surrounding words.</p>
+<p t="1180320" d="3160">Now, what we are essentially
+doing there is</p>
+<p t="1183480" d="2650">trying to capture
+the coocurrence of words.</p>
+<p t="1186130" d="2982">How often does this word
+cooccur with the other word?</p>
+<p t="1189112" d="2044">And we did that one count at a time.</p>
+<p t="1191156" d="4864">It's like, I see the deep and
+learning happen.</p>
+<p t="1196020" d="2420">I make an update to both of this vectors.</p>
+<p t="1198440" d="3880">And then you go over the corpus and then
+you probably will eventually see deep and</p>
+<p t="1202320" d="4280">learning coocurring again and
+you make again a separate update step.</p>
+<p t="1206600" d="1888">When you think about that,
+it's not very efficient, right?</p>
+<p t="1208488" d="4372">Why now we just go to the entire corpus
+once, count how often this deep and</p>
+<p t="1212860" d="5480">learning cooccur, of these two
+words cooccur, and then we make one</p>
+<p t="1218340" d="5470">update step that captures the entire
+count instead of one sample at the time.</p>
+<p t="1225220" d="2690">And, yes we can do that and</p>
+<p t="1227910" d="4050">that is actually a method that
+came historically before word2vec.</p>
+<p t="1233060" d="3010">And there are different
+options of how we can do this.</p>
+<p t="1236070" d="1660">The simplest one or</p>
+<p t="1237730" d="3950">the one that is similar to word2vec at
+least is that we again use a window around</p>
+<p t="1241680" d="3780">each word and we basically just
+go through the entire corpus.</p>
+<p t="1245460" d="1740">We don't update anything,
+we don't do any SGD.</p>
+<p t="1247200" d="2470">We just collect the counts first.</p>
+<p t="1249670" d="3410">And once we have the counts,
+then we do something to that matrix.</p>
+<p t="1253080" d="3640">And so when we look at just
+the window of length maybe two,</p>
+<p t="1256720" d="5260">like in this example here, or maybe five,
+some small window size around each word,</p>
+<p t="1261980" d="3100">what we'll do is we'll capture,
+not just the semantics, but</p>
+<p t="1265080" d="2480">also some of the syntactic
+information of each word.</p>
+<p t="1267560" d="2650">Namely, what kind of
+part of speech tag is it.</p>
+<p t="1270210" d="3320">So verbs are going to be
+closer to one another.</p>
+<p t="1273530" d="2790">Then the verbs are to nouns, for instance.</p>
+<p t="1278460" d="3230">If, on the other hand, we look at
+co-occurrence counts that aren't just</p>
+<p t="1281690" d="4030">around the window, but entire document,
+so I don't just look at each window.</p>
+<p t="1285720" d="4985">But i say, this Word appears with all
+these other words in this entire Wikipedia</p>
+<p t="1290705" d="3200">article, for instance, or
+this entire Word document.</p>
+<p t="1293905" d="5410">Then, what you'll capture is actually
+more topics, and this is often</p>
+<p t="1299315" d="5604">called Latent Semantic Analysis,
+a big popular model from a while back.</p>
+<p t="1304919" d="3949">And basically what you'll get there is,
+you'll ignore the part of</p>
+<p t="1308868" d="4158">speech that you ignore any kind of
+syntactic information and just say,</p>
+<p t="1313026" d="3327">well swimming and boat and
+water and weather and the sun,</p>
+<p t="1316353" d="5537">they're all kind of appear in this topic
+together, in this document together.</p>
+<p t="1321890" d="3420">So we won't go into too many details for
+these cuz they turn out for</p>
+<p t="1325310" d="2750">a lot of other downstream tasks
+like machine translation or so and</p>
+<p t="1328060" d="4010">we really want to use these windows,
+but it's good knowledge to have.</p>
+<p t="1332070" d="6120">So let's go over a simple example of
+what we would do if we had a very small</p>
+<p t="1338190" d="4880">corpus and wanna collect these windows and
+then compute word vectors from that.</p>
+<p t="1364928" d="3187">So it is technically not cosine cuz we
+are not normalizing over the length, and</p>
+<p t="1368115" d="3445">technically we are not optimizing inner
+products of these probabilities and so on.</p>
+<p t="1371560" d="1039">But continue.</p>
+<p t="1380151" d="1349">That's right.
+So the question is,</p>
+<p t="1381500" d="4190">in all these visualizations here,
+we kind of look at Euclidean distance.</p>
+<p t="1385690" d="4530">And it's true, we're actually often
+are going to use inner products</p>
+<p t="1390220" d="1830">kinds of similarities.</p>
+<p t="1392050" d="5170">So yes, in some cases, Euclidean
+distance works reasonably well still,</p>
+<p t="1397220" d="4780">despite not doing this in fact we'll see
+one evaluation that is entirely based or</p>
+<p t="1402000" d="3400">partly based on Euclidean distances and
+partly inner products.</p>
+<p t="1405400" d="5300">So it turns out both work well despite
+our objective function only having this.</p>
+<p t="1410700" d="2893">And even more surprising there're a lot
+of things that work quite well on this</p>
+<p t="1413593" d="2147">despite starting with this
+kind of objective function.</p>
+<p t="1421429" d="4435">We often yeah, so if despite having
+only this inner product optimizations,</p>
+<p t="1425864" d="4246">we will actually also do often very
+well in terms of Euclidean distances.</p>
+<p t="1430110" d="2781">Yep.</p>
+<p t="1434287" d="5115">Well, it get's complicated but there
+are some interesting relationships between</p>
+<p t="1439402" d="4748">the ratios of the co-occurence counts
+We don't have enough time to dive into</p>
+<p t="1444150" d="3620">the details, but if you are interested
+in that I will talk about a paper.</p>
+<p t="1447770" d="4429">I mentioned the title of the paper in
+five or ten slides, that will help</p>
+<p t="1452199" d="3618">you understand that a little better and
+gain some more intuition, yep.</p>
+<p t="1455817" d="5133">All right, so,
+window based co-occurrence matrices.</p>
+<p t="1460950" d="1980">So, let's say,
+we have this corpus here, and</p>
+<p t="1462930" d="3280">that's to find our window length
+as just 1, for simplicity.</p>
+<p t="1466210" d="3160">Usually, we have more commonly
+5 to 10 windows around there.</p>
+<p t="1470560" d="3690">And we assume we have
+a symmetric window so,</p>
+<p t="1474250" d="3790">we don't care if a word is to the left or
+to the right of our center word.</p>
+<p t="1478040" d="1470">And we have this corpus.</p>
+<p t="1479510" d="4920">So, this is essentially what a window
+based co-occurrence matrix would be, for</p>
+<p t="1484430" d="2110">this very, very simple corpus.</p>
+<p t="1486540" d="5110">We just look at the word I and then,
+we look at which words appear next to I.</p>
+<p t="1491650" d="4540">And so, we look at I, we see like
+twice so, we have number two here.</p>
+<p t="1496190" d="4070">And we see enjoy once so,
+we put the count one here.</p>
+<p t="1500260" d="1870">And then, we know we have the word like.</p>
+<p t="1502130" d="5260">And so, like co-occurs twice
+with the word I on it's left and</p>
+<p t="1507390" d="1900">once with deep and once with NLP.</p>
+<p t="1509290" d="5026">And so, this is essentially we go through
+all the words in a very large corpus and</p>
+<p t="1514316" d="2861">we compute all these counts, super simple.</p>
+<p t="1517177" d="3243">Now, you could say, well,
+that's a vector already, right?</p>
+<p t="1520420" d="4350">You have a list of numbers here and that
+list of numbers now represents that word.</p>
+<p t="1524770" d="4404">And you already kinda capture things like,
+well, like and enjoy have some overlap so,</p>
+<p t="1529174" d="1557">maybe they're more similar.</p>
+<p t="1530731" d="2139">So, you already have a word vector, right?</p>
+<p t="1532870" d="3970">But now, it's not a very ideal word
+vector for a couple of reasons.</p>
+<p t="1536840" d="3110">The first one is,
+if you have a new word in your vocabulary,</p>
+<p t="1539950" d="1140">that word vector changes.</p>
+<p t="1541090" d="3590">So, if you have some downstream machine
+learning models now to take that</p>
+<p t="1544680" d="3860">vector's input, they always have to change
+and there's always some parameter missing.</p>
+<p t="1548540" d="2875">Also, this vector is going
+to be very high-dimensional.</p>
+<p t="1551415" d="2848">Of course, for this tiny corpus,
+it's small but generally,</p>
+<p t="1554263" d="2027">we'll have tens of thousands of words.</p>
+<p t="1556290" d="1780">So, it's a very high-dimensional vector.</p>
+<p t="1558070" d="3820">So, you'll have sparsity issues if you
+try to train a machine learning model</p>
+<p t="1561890" d="4870">on this afterwards and that moves up in
+a much less robust downstream models.</p>
+<p t="1567970" d="4224">And so, the solution to that is lets again
+have the similar idea to word2vec and</p>
+<p t="1572194" d="4113">have just don't store all of the co
+occurrence counts, every single number.</p>
+<p t="1576307" d="2711">But just store most of
+the important information,</p>
+<p t="1579018" d="3342">the fixed small number of dimensions,
+similar to word2vec,</p>
+<p t="1582360" d="4060">those will be somewhere around
+25 to 1,000 dimensions.</p>
+<p t="1586420" d="3520">And then, the question is okay,
+how do we now reduce the dimensionality,</p>
+<p t="1589940" d="2620">we have these very large
+co-occurrence matrices here.</p>
+<p t="1592560" d="3920">In the realistic setting, we'll have
+20,000 by 20,000 or even a million by</p>
+<p t="1596480" d="4690">a million, very large sparse matrix,
+how do we reduce the dimensionality?</p>
+<p t="1601170" d="3340">And the answer is we'll
+just use very simple SVD.</p>
+<p t="1604510" d="2590">So, who here is familiar with
+singular value decomposition?</p>
+<p t="1609420" d="3250">All right, good, the majority of people,
+if you're not then,</p>
+<p t="1612670" d="4560">I strongly suggest you go to the office
+hours and brush up on your linear algebra.</p>
+<p t="1619350" d="5390">But, basically, we'll have here
+this X hat matrix, which is</p>
+<p t="1624740" d="5580">going to be our best rank k approximation
+to our original co-occurrence matrix X.</p>
+<p t="1630320" d="7730">And we'll have basically these three
+simple matrices with orthonormal columns.</p>
+<p t="1638050" d="5320">U we often call also our left-singular
+vectors and we have here S the diagonal</p>
+<p t="1643370" d="4850">matrix containing all the singular
+values usually from largest to smallest.</p>
+<p t="1648220" d="4543">And we have our matrix V here,
+our orthonormal rows.</p>
+<p t="1652763" d="3758">And so, in code,
+this is also extremely simple,</p>
+<p t="1656521" d="4830">we can literally implement this
+in just a few lines, if we have,</p>
+<p t="1661351" d="5029">this is our corpus here, and
+this is our co-occurrence matrix X.</p>
+<p t="1666380" d="5450">Then, we can simply run SVD with
+one line of Python code and</p>
+<p t="1671830" d="2170">then, we get this matrix U.</p>
+<p t="1674000" d="8360">And now, we can take the first two
+columns here of U and plot them, right?</p>
+<p t="1682360" d="4737">And if we do this in the first two
+dimensions here, we'll actually get</p>
+<p t="1687097" d="5333">similar kinda visualization to all this
+other ones I've showed you, right?</p>
+<p t="1692430" d="4200">But this is a few lines of Python code
+to create that kinda word vector.</p>
+<p t="1698010" d="5642">And now, it's kinda reading tea leaves,
+none of these dimensions we can't really</p>
+<p t="1703652" d="5996">say, this dimension is noun, the verbness
+of a word, or something like that.</p>
+<p t="1709648" d="2772">But as you look at these long enough,</p>
+<p t="1712420" d="3180">you'll definitely observe
+some kinds of patterns.</p>
+<p t="1715600" d="4690">So for instance, I and like are very
+frequent words in this corpus and</p>
+<p t="1720290" d="2270">they're a little further to the left so,
+that's one.</p>
+<p t="1722560" d="4330">Like and enjoy are nearest
+neighbors in this space so</p>
+<p t="1726890" d="3740">that's another observation,
+they're both verbs, and so on.</p>
+<p t="1730630" d="3820">So, the things that were being liked,
+flying and</p>
+<p t="1734450" d="3710">deep and other things
+are closer together and so on.</p>
+<p t="1738160" d="4715">So, such a very simple method you get
+a first approximation to what word</p>
+<p t="1742875" d="2212">vectors can and should capture.</p>
+<p t="1747155" d="4549">Are there any questions around this SVD
+method in the co-occurrence matrix?</p>
+<p t="1758489" d="2357">It's a good question,
+is the window always symmetric?</p>
+<p t="1760846" d="4385">And the answer is no, we can actually
+evaluate asymmetric windows and</p>
+<p t="1765231" d="4995">symmetric windows, and I'll show you
+the result of that in a couple of slides.</p>
+<p t="1772439" d="4066">All right, now, once you realize, wow,
+this is so simple and it works kinda well,</p>
+<p t="1776505" d="3531">and you're a researcher, you always
+wanna try to improve it a little bit.</p>
+<p t="1780036" d="4355">And so, there are a lot of different hacks
+that we can make to this co-occurrence</p>
+<p t="1784391" d="529">matrix.</p>
+<p t="1784920" d="4640">So, instead of taking the raw counts, for
+instance, as you do this, you realize,</p>
+<p t="1789560" d="5610">well, a lot of representational power
+in this word vectors is now captured</p>
+<p t="1795170" d="3570">by the fact that the and he and</p>
+<p t="1798740" d="5100">has and a lot of other very, very frequent
+words co-occur with almost all the nouns.</p>
+<p t="1803840" d="4684">Like the appears in the window of
+pretty much every noun out there.</p>
+<p t="1808524" d="3759">And it doesn't really give us that much
+information that it does over and over and</p>
+<p t="1812283" d="1137">over again.</p>
+<p t="1813420" d="4300">And so, one thing we can do is
+actually just cap it and say,</p>
+<p t="1817720" d="4180">all right, whatever the co-occurs
+with the most, and a lot of other</p>
+<p t="1821900" d="4720">one of these function words,
+we'll just maximize the count at 100.</p>
+<p t="1826620" d="3686">Or, I know some people do this also,
+we just ignore a couple of the most</p>
+<p t="1830306" d="3563">frequent words cuz they really,
+we have a power law distribution or</p>
+<p t="1833869" d="3626">Zipf's law where basically,
+the most frequent words appear much,</p>
+<p t="1837495" d="3402">much more frequently than other words and
+then, it peters out.</p>
+<p t="1840897" d="5970">And then, there's a very long tail of
+words that don't appear that often but</p>
+<p t="1846867" d="4853">those very rare words often
+have a lot of semantic content.</p>
+<p t="1851720" d="2616">Then, another way we can change this,</p>
+<p t="1854336" d="4284">the way we compute these counts is by
+not counting all the words equally.</p>
+<p t="1858620" d="1223">So, we can say, well,</p>
+<p t="1859843" d="3317">words that appear right next to my
+center word get a count of one.</p>
+<p t="1863160" d="2731">Or words that appear and
+they're five steps away,</p>
+<p t="1865891" d="2486">five words away only
+you get a count of 0.5.</p>
+<p t="1868377" d="2343">And so, that's another hack we can do.</p>
+<p t="1870720" d="3290">And then, instead of counts we could
+compute correlations and set them to 0.</p>
+<p t="1874010" d="5078">You get the idea, you can play a little
+around with this matrix of co-occurrence</p>
+<p t="1879088" d="5922">counts in a variety of different ways and
+sometimes they help quite significantly.</p>
+<p t="1885010" d="5120">So, in 2005, so quite a long time ago,
+people used this SVD method and</p>
+<p t="1890130" d="1270">compared a lot of different</p>
+<p t="1893510" d="4070">ways of hacking the co-occurrence
+matrix and modifying it.</p>
+<p t="1898760" d="3580">And basically found quite surprising and
+awesome results.</p>
+<p t="1902340" d="2920">And so, this is another way
+we can try to visualize</p>
+<p t="1905260" d="1480">this very high dimensional space.</p>
+<p t="1906740" d="3530">Again, these vectors are usually
+around 100 dimensions or so, so</p>
+<p t="1910270" d="1360">it's hard to visualize it.</p>
+<p t="1911630" d="3930">And so, instead of projecting it down to
+just 2D, here they just choose a couple of</p>
+<p t="1915560" d="4880">words and look at the nearest
+neighbours and which word is closest To</p>
+<p t="1920440" d="4340">what other word and they find that wrist
+and ankle are closest to one another.</p>
+<p t="1924780" d="2030">And next closest word is shoulder.</p>
+<p t="1926810" d="2200">And the next closest one is arm and so on.</p>
+<p t="1929010" d="4205">And so different extremities cluster
+together, we'll see different</p>
+<p t="1933215" d="5150">cities clustering together, and American
+cities are closer to one another than</p>
+<p t="1938365" d="4080">cities from other countries, and country
+names are close together, and so on.</p>
+<p t="1942445" d="1450">So it's quite amazing, right?</p>
+<p t="1943895" d="3275">Even with something as simple
+as SVD around these windows,</p>
+<p t="1947170" d="4870">you capture a lot of different
+kinds of information.</p>
+<p t="1952040" d="3870">In fact it even goes to syntactic and</p>
+<p t="1955910" d="4700">chromatical kinds of patterns that
+are captured by this SVD method.</p>
+<p t="1960610" d="4950">So show, showed, shown or
+take, took, taken and so</p>
+<p t="1965560" d="5650">on are all always together in
+often similar kinds of patterns.</p>
+<p t="1972240" d="5220">And it goes further and
+even more semantic in the verbs that</p>
+<p t="1978690" d="5440">are very similar and
+related to these kinds of nouns.</p>
+<p t="1984130" d="5165">Often appear even in roughly similar
+kinds of Euclidean distances.</p>
+<p t="1989295" d="8145">So, swim and swimmer, clean and janitor,
+drive and driver, teach and teacher.</p>
+<p t="1997440" d="5320">They're all basically have a similar
+kind of vector difference.</p>
+<p t="2005500" d="3397">And intuitively you would
+think well they appear,</p>
+<p t="2008897" d="4192">they often have similar kinds
+of context in which they appear.</p>
+<p t="2013089" d="3881">And there's some intuitive sense of why,
+why this would happen,</p>
+<p t="2016970" d="3545">as you're trying to capture
+these co-occurrence counts.</p>
+<p t="2025449" d="2031">Does the language matter?</p>
+<p t="2027480" d="1356">Yes, in what way?</p>
+<p t="2032738" d="541">Great question.</p>
+<p t="2033279" d="2851">So if it was German instead of English.</p>
+<p t="2036130" d="5090">So it's actually a sad truth of a lot of
+natural language processing research that</p>
+<p t="2041220" d="1820">the majority of it is in English.</p>
+<p t="2043040" d="2910">And a few people do this.</p>
+<p t="2045950" d="2489">It turns out this works for
+a lot of other languages.</p>
+<p t="2048439" d="3200">But people don't have as good
+evaluation metrics often for</p>
+<p t="2051639" d="4103">these other languages and evaluation
+data sets which we'll get to in a bit.</p>
+<p t="2055742" d="3820">But we would believe that it works for
+pretty much all languages.</p>
+<p t="2059562" d="4468">Now there's a lot of complexity because
+some languages like Finnish or German have</p>
+<p t="2064030" d="4510">potentially a lot of different words, cuz
+they have much richer morphology, right?</p>
+<p t="2068540" d="2110">German has compound nouns.</p>
+<p t="2070650" d="3169">And so you get more and
+more rare words, and</p>
+<p t="2073819" d="5019">then the rarer the words are,
+the less good counts you have of them,</p>
+<p t="2078838" d="4582">and the harder it is to use
+this method in a vanilla way.</p>
+<p t="2083420" d="3260">Which eventually in the limit
+will get us to character-based</p>
+<p t="2086680" d="2590">natural language processing,
+which we'll get to in a couple weeks.</p>
+<p t="2089270" d="2250">But in general, this works for
+pretty much any language.</p>
+<p t="2092820" d="1480">Great question.</p>
+<p t="2094300" d="1820">So now, what's the problem here?</p>
+<p t="2096120" d="2940">Well SVD, while being very simple and</p>
+<p t="2099060" d="4372">one nice line of Python code, is actually
+computationally not always great,</p>
+<p t="2103432" d="2608">especially as we get larger and
+larger matrices.</p>
+<p t="2107200" d="5145">So we essentially have this quadratic
+cost here in the smaller dimension.</p>
+<p t="2112345" d="2956">So either if it's a word by
+word co-occurrence matrix or</p>
+<p t="2115301" d="3523">even a word by document,
+we'd assume this gets very, very large.</p>
+<p t="2118824" d="5017">And then it also gets hard to
+incorporate new words or documents into,</p>
+<p t="2123841" d="4760">into this whole model cuz you have
+to rerun this whole PCA or sorry,</p>
+<p t="2128601" d="2914">the SVD, singular value decomposition.</p>
+<p t="2131515" d="1627">And then on top of that SVD, and</p>
+<p t="2133142" d="3943">how we optimize that is quite different
+to a lot of the other downstream deep</p>
+<p t="2137085" d="3685">learning methods that we'll use
+like neural networks and so on.</p>
+<p t="2140770" d="2130">It's a very different
+kind of optimization.</p>
+<p t="2142900" d="2934">And so the word to vec objective
+function is similar to SVD,</p>
+<p t="2145834" d="1596">you look at one window at a time.</p>
+<p t="2147430" d="960">You make an update step.</p>
+<p t="2148390" d="4542">And that is very similar to how we
+optimize most of the other models in this</p>
+<p t="2152932" d="2396">lecture and in deep learning for NLP.</p>
+<p t="2155328" d="3718">And so basically what we
+came with with post-doc and</p>
+<p t="2159046" d="3382">Chris' group, so
+Jeffery Pennington, me and</p>
+<p t="2162428" d="4948">Chris, is a method that tries to
+combine the best of both worlds.</p>
+<p t="2167376" d="3074">So let's summarize what the advantages and</p>
+<p t="2170450" d="2700">disadvantages are of these two
+different kinds of methods.</p>
+<p t="2173150" d="3000">Basically we have these count
+based methods based on SVD and</p>
+<p t="2176150" d="1910">the co-occurence matrix.</p>
+<p t="2178060" d="1260">And we have the window-based or</p>
+<p t="2179320" d="2290">direct prediction methods
+like the Skip-Gram model.</p>
+<p t="2184310" d="4610">The advantages of PCA is that
+it's relatively fast to train,</p>
+<p t="2188920" d="2790">unless the matrix gets very,
+very large but</p>
+<p t="2191710" d="4040">we're making very efficient usage of
+the statistics that we have, right?</p>
+<p t="2195750" d="2681">We only have to collect the statistics
+once, and we could in theory,</p>
+<p t="2198431" d="1168">throw away the whole corpus.</p>
+<p t="2199599" d="5304">And then we can try a lot of different
+things on just these co-occurence counts.</p>
+<p t="2204903" d="4173">Sadly, when you do this,
+it captures mostly word similarity,</p>
+<p t="2209076" d="4485">and not various other patterns that
+the word2vec model, captures and</p>
+<p t="2213561" d="3033">we'll show you what
+those are in evaluation.</p>
+<p t="2216594" d="3816">And we give often disproportionate
+importance to these large counts.</p>
+<p t="2220410" d="4000">And we can try various ways
+of lowering the importance</p>
+<p t="2224410" d="1960">that these function words and
+very frequent words have.</p>
+<p t="2228830" d="4221">The disadvantage of
+the Skip-Gram of model is that</p>
+<p t="2233051" d="3149">it scales with a corpus size, right?</p>
+<p t="2236200" d="2400">You have to go through
+every single window,</p>
+<p t="2238600" d="4810">which is not very efficient, and
+henceforth you also don't really make very</p>
+<p t="2243410" d="4640">efficient usage of the statistics that
+you have overall, of the data set.</p>
+<p t="2248050" d="2610">However we actually get, in may cases,</p>
+<p t="2250660" d="2180">much better performance
+on downstream tasks.</p>
+<p t="2252840" d="770">And we don't know yet,</p>
+<p t="2253610" d="3230">those downstream tasks, that's why we have
+the whole lecture for this whole quarter.</p>
+<p t="2256840" d="4130">But for a variety of different
+problems like an entity recognition or</p>
+<p t="2260970" d="1675">part of speech tagging and so on.</p>
+<p t="2262645" d="1830">Things that you'll implement
+in the problem sets,</p>
+<p t="2264475" d="4255">it turns out the Skip-Gram like models
+turn out to work slightly better.</p>
+<p t="2269950" d="2950">And we can capture various
+complex patterns, some of</p>
+<p t="2272900" d="3740">which are very surprising and we'll get
+to in the second part of this lecture.</p>
+<p t="2276640" d="1200">And so, basically,</p>
+<p t="2277840" d="4200">what we tried to do here is combining
+the best of both of these worlds.</p>
+<p t="2282040" d="5000">And the result of that was the GloVe
+model, our Global Vectors model.</p>
+<p t="2287040" d="2600">So let's walk through this
+objective function a little bit.</p>
+<p t="2289640" d="3440">Again, theta here will
+be all our parameters.</p>
+<p t="2293080" d="3328">So in this case, again,
+we have these U and these V vectors.</p>
+<p t="2296408" d="2297">But they're even more symmetric now,</p>
+<p t="2298705" d="4396">we basically just go through all pairs
+of words that might ever co-occur.</p>
+<p t="2303101" d="3071">So we go through these very
+large co-occurrence matrix that</p>
+<p t="2306172" d="2418">we computed in the beginning and
+we call P here.</p>
+<p t="2309590" d="4119">And for
+each pair of words in this entire corpus,</p>
+<p t="2313709" d="5125">we basically want to minimize
+the distance between the inner</p>
+<p t="2318834" d="4436">product here, and
+the log count of these two words.</p>
+<p t="2323270" d="5549">So again, this is just this kind of
+matrix here that we're going over.</p>
+<p t="2328819" d="4385">We're going over all elements of
+this kind of co-occurrence matrix.</p>
+<p t="2333204" d="3552">But instead of running the large SVD,</p>
+<p t="2336756" d="5773">we'll basically just optimize
+one such count at a time here.</p>
+<p t="2342529" d="2748">So I have the square of this distance and</p>
+<p t="2345277" d="4661">then we also have this term here,
+f, which allows us to weight even</p>
+<p t="2349938" d="4362">lower some of these very
+frequent kinds of co-occurrences.</p>
+<p t="2354300" d="4604">So the, for instance, will have
+the maximum amount that we can weigh it</p>
+<p t="2358904" d="2787">inside this overall objective function.</p>
+<p t="2364557" d="552">All right,</p>
+<p t="2365109" d="3381">so now what this allows us to do is
+essentially we can train very quickly.</p>
+<p t="2368490" d="3744">Cuz instead of saying, all right, we'll
+optimize that deep and learning co-occur</p>
+<p t="2372234" d="3718">in one window, and then we'll go in a
+couple windows later, they co-occur again.</p>
+<p t="2375952" d="2218">And we update again, with just one say or</p>
+<p t="2378170" d="2640">a deep learning co-occur
+in this entire corpus.</p>
+<p t="2380810" d="3891">Which could now be in all of Wikipedia or
+in our case, all of common crawl.</p>
+<p t="2384701" d="3081">Which is most of the Internet,
+that's kind of amazing.</p>
+<p t="2387782" d="2698">It's a gigantic corpora
+with billions of tokens.</p>
+<p t="2390480" d="2054">And we just say, all right, deep and</p>
+<p t="2392534" d="4990">learning in these billions of documents
+co-occur 536 times or something like that.</p>
+<p t="2397524" d="1453">Probably now a lot more often.</p>
+<p t="2398977" d="4997">And then we'll just optimize basically
+This inner product to be closed and</p>
+<p t="2403974" d="3889">it's value to the log of
+that overall account.</p>
+<p t="2411199" d="3371">And because of that,
+it scales to very large corpora.</p>
+<p t="2414570" d="4160">Which is great because the rare
+words appear not very often and</p>
+<p t="2418730" d="5134">just build hours to capture even rarer
+like the semantics of very rare words.</p>
+<p t="2423864" d="4091">And because of the efficient usage
+of the statistics, it turns out</p>
+<p t="2427955" d="4325">to also work very well on small
+corpora and even smaller vector sizes.</p>
+<p t="2434320" d="2865">So now you might be confused
+because individualization,</p>
+<p t="2437185" d="3883">we keep showing you a single vector but
+here, we again, just like with the skip</p>
+<p t="2441068" d="4142">gram vector, we have v vector, it's the
+outside vectors and the inside vectors.</p>
+<p t="2446810" d="3810">And so let's get rid of that confusion and</p>
+<p t="2450620" d="3880">basically tell you that there are a lot
+of different options of how you get,</p>
+<p t="2454500" d="3420">eventually, just a single vector
+from having these two vectors.</p>
+<p t="2457920" d="1680">You could concatenate them but</p>
+<p t="2459600" d="2420">it turns out what works best
+is just to sum them up.</p>
+<p t="2462020" d="2860">They essentially both
+capture co-occurence counts.</p>
+<p t="2464880" d="3900">And if we just sum them,
+that turns out to work best in practice.</p>
+<p t="2469800" d="3650">And so, that also destroys
+some of the intuitions of why</p>
+<p t="2473450" d="4045">certain things should happen, but it turns
+out in practice this works best, yeah?</p>
+<p t="2477495" d="4125">&gt;&gt; [INAUDIBLE]
+&gt;&gt; What are U and</p>
+<p t="2481620" d="3990">V again, so U here are again just
+the vectors of all the words.</p>
+<p t="2485610" d="4750">And so here, just like with the skip-gram,
+we had the inside and the outside vectors.</p>
+<p t="2490360" d="4570">Here, u and v are just the vectors in
+the column and the vectors in the row.</p>
+<p t="2494930" d="2820">They're essentially interchangeable and
+because of that,</p>
+<p t="2497750" d="2200">it makes even more sense to sum them up.</p>
+<p t="2499950" d="3610">You could even say, well, why don't
+you just have one set of vectors?</p>
+<p t="2503560" d="4480">But then, you'd have a more, a less
+well behaved objective function here,</p>
+<p t="2508040" d="5960">because you have the inner product between
+two of the same sets of parameters.</p>
+<p t="2514000" d="3922">And it turns out, in terms of the
+optimization having the separate vectors</p>
+<p t="2517922" d="4308">during optimization and combining them at
+the very end just was much more stable.</p>
+<p t="2527946" d="814">That's right.</p>
+<p t="2528760" d="1950">Even for skip-gram, that's the question.</p>
+<p t="2530710" d="2190">Is it common also time for
+skip-gram to sum them up?</p>
+<p t="2532900" d="2860">It is.
+And it's a good, it's good whenever you</p>
+<p t="2535760" d="3820">have these choices and they seem a little
+arbitrary, also, for all your projects.</p>
+<p t="2539580" d="3220">The best thing to always do is like,
+well, there are two things.</p>
+<p t="2542800" d="2450">You could just come to me and
+say, hey what should I do?</p>
+<p t="2545250" d="1000">X or Y?</p>
+<p t="2546250" d="1300">And the true answer,</p>
+<p t="2547550" d="3800">especially as you get closer to your
+project and to more research and</p>
+<p t="2551350" d="4320">novel kinds of applications, the best
+answer is always, try all of them.</p>
+<p t="2557110" d="5810">And then have a real metric a quantitative
+of measure of how well all of them do and</p>
+<p t="2562920" d="3670">then have a nice little
+table in your final projects</p>
+<p t="2566590" d="3880">description that tells you
+very concretely what it is.</p>
+<p t="2570470" d="2920">And once you do that many times,
+you'll gain some intuitions,</p>
+<p t="2573390" d="3230">and you'll realize alright, for the fifth
+project, you just realized well summing</p>
+<p t="2576620" d="3920">them up usually works best, so
+I'm just going to continue doing that.</p>
+<p t="2580540" d="1390">Especially as you get into the field,</p>
+<p t="2581930" d="3755">it's good to try a lot of these
+different knobs and hyperparameters.</p>
+<p t="2585685" d="6075">&gt;&gt; [INAUDIBLE]
+&gt;&gt; That's right,</p>
+<p t="2591760" d="1280">they're all in the same scale here.</p>
+<p t="2593040" d="2097">Really they are quite interchangeable,
+especially for the Glove model.</p>
+<p t="2614349" d="1146">Is that a question?</p>
+<p t="2615495" d="1050">Alright I will try to repeat it.</p>
+<p t="2616545" d="2730">So in theory here you're right.</p>
+<p t="2619275" d="5460">So the question is does the magnitude
+of these vectors matter?</p>
+<p t="2626215" d="750">Good paraphrase?</p>
+<p t="2626965" d="2360">And so you are right.</p>
+<p t="2629325" d="690">It does.</p>
+<p t="2630015" d="6425">But in the end you will see them basically
+in very similar contexts, a lot of times.</p>
+<p t="2636440" d="2380">And so in this log here,</p>
+<p t="2640220" d="3570">they will eventually have to
+capture the log count, right?</p>
+<p t="2643790" d="5700">So they will have to go to a certain size
+of what these log counts usually are.</p>
+<p t="2649490" d="2760">And then the model just figures
+out that they are in the end</p>
+<p t="2652250" d="2200">roughly in the same place.</p>
+<p t="2654450" d="3859">There's nothing in the optimization
+that pushes some vectors to get really,</p>
+<p t="2658309" d="3508">really large, except of course,
+the vectors of words that appear very</p>
+<p t="2661817" d="3040">frequently, and
+that's why we have exactly this term here,</p>
+<p t="2664857" d="2994">to basically cap the importance
+of the very frequent words.</p>
+<p t="2685028" d="6542">Yes, so the question is, and I'll just
+phrase it the way it is, which is right.</p>
+<p t="2691570" d="4380">The skip-gram model tries to capture
+co-occurrences one window at a time.</p>
+<p t="2697190" d="4500">And the Glove model tries to capture
+the counts of the overall statistics</p>
+<p t="2701690" d="4560">of how often these words appear together,
+all right.</p>
+<p t="2706250" d="620">One more question?</p>
+<p t="2706870" d="3580">I think there was one.</p>
+<p t="2710450" d="580">No?</p>
+<p t="2711030" d="630">Great.</p>
+<p t="2711660" d="3080">So now we can look at some fun results.</p>
+<p t="2714740" d="4720">And, basically, we found,
+the nearest neighbors for</p>
+<p t="2719460" d="1940">frog were all these various words.</p>
+<p t="2721400" d="2620">And we're first a little worried,
+but then we looked them up.</p>
+<p t="2724020" d="1940">And realize, alright,
+those are actually quite good.</p>
+<p t="2725960" d="4560">So you'll see here even for
+very rare words, Glove will give you very,</p>
+<p t="2730520" d="3560">very good nearest neighbors in this space.</p>
+<p t="2734080" d="2680">And so next,
+we will do the evaluation, but</p>
+<p t="2736760" d="4730">before that we'll do a little
+intermission with Arun.</p>
+<p t="2742510" d="554">Take it away.</p>
+<p t="2747638" d="4763">&gt;&gt; [SOUND] Cool, so
+we've been talking about word vectors.</p>
+<p t="2752401" d="3529">I'm gonna take a brief detour
+to talk about Polysemy.</p>
+<p t="2757350" d="3850">So far we've seen that word vectors
+encode similarity, we see that</p>
+<p t="2761200" d="5390">similar concepts are even distributed
+in Euclidean space near each other.</p>
+<p t="2766590" d="4670">And the question I want you to think
+about is, what do we do about polysemy?</p>
+<p t="2771260" d="1370">Suppose you have a word like tie.</p>
+<p t="2772630" d="3590">All right, tie could mean
+something like a tie in a game.</p>
+<p t="2776220" d="3189">So maybe it should be near this cluster.</p>
+<p t="2781730" d="3180">Over here.
+It could be a piece of clothing, so</p>
+<p t="2784910" d="1930">maybe it should be near this cluster, or</p>
+<p t="2786840" d="4440">it could be an action like braid twist,
+should be near this cluster.</p>
+<p t="2791280" d="1850">Where should it lie?</p>
+<p t="2793130" d="3880">So this paper by Sanjeev Arora and</p>
+<p t="2797010" d="4290">the entire group,
+they seek to answer this question.</p>
+<p t="2801300" d="4360">And one of the first things
+they find is that if</p>
+<p t="2805660" d="4570">you have an imaginary you could split
+up tie into these polysemous vectors.</p>
+<p t="2810230" d="3070">You had tie one every time you
+talk about this sport event.</p>
+<p t="2813300" d="2750">Tie two every time you talked
+about the garment of clothing.</p>
+<p t="2817450" d="4660">Then, you can show that the actual
+tie that is a combination of</p>
+<p t="2822110" d="5660">all of these words lies in the linear
+superposition of all of these vectors.</p>
+<p t="2827770" d="3610">You might be wondering, how is this
+vector close to all of them, but</p>
+<p t="2831380" d="3660">that's because we're projecting
+this into a 2D plane and so</p>
+<p t="2835040" d="2420">it's actually closer to
+them in other dimensions.</p>
+<p t="2839200" d="4520">Now that we know that
+this tie lies near or</p>
+<p t="2843720" d="5500">in the plane of the different senses
+we might be curious to find out,</p>
+<p t="2849220" d="4250">can we actually find out what
+the different senses of a word are.</p>
+<p t="2853470" d="5070">Suppose we can only see this word tie,
+could we computationally find out</p>
+<p t="2858540" d="5395">to some core logistics that tie had
+a meaning about sport clothing etc.</p>
+<p t="2865060" d="2800">So the second thing that they're able
+to show is that there's an algorithm</p>
+<p t="2867860" d="1410">called sparse coding.</p>
+<p t="2869270" d="1770">That is able to recover these.</p>
+<p t="2871040" d="4230">I don't have time to discuss exactly what
+sparse coding how the algorithm works but</p>
+<p t="2875270" d="1490">let me describe the model.</p>
+<p t="2876760" d="5063">The model says that every word
+vector you have is composed as</p>
+<p t="2881823" d="6677">the sum of a small selected number
+of what are called context vectors.</p>
+<p t="2888500" d="2730">So these context vectors,
+there are only 2,000 that they found for</p>
+<p t="2891230" d="3620">their entire corpus,
+are common across every word.</p>
+<p t="2894850" d="2940">But every word like tie is
+only composed of a small</p>
+<p t="2897790" d="1850">number of these context vectors.</p>
+<p t="2899640" d="2796">So, the context vector could
+be something like sports, etc.</p>
+<p t="2902436" d="4004">There's some noise added in,
+but that's not very important.</p>
+<p t="2906440" d="3670">And so, if you look at the type of output
+that you get for something like tie,</p>
+<p t="2910110" d="4840">you see something to do with clothing,
+with sports.</p>
+<p t="2914950" d="2830">Very interestingly you also
+see output about music.</p>
+<p t="2917780" d="2580">Some of you might realize
+that actually makes sense.</p>
+<p t="2921600" d="3928">And now,
+we might wonder how this is qualitative.</p>
+<p t="2925528" d="3361">Is there a way we can quantitatively
+evaluate how good the senses we</p>
+<p t="2928889" d="1516">recover are?</p>
+<p t="2930405" d="5910">So it turns out, yes you can, and
+here's the sort of experimental set-up.</p>
+<p t="2936315" d="4210">So, for
+every word that was taken from WordNet,</p>
+<p t="2940525" d="5355">a number of about 20 sets of
+related senses were picked up.</p>
+<p t="2945880" d="3750">So, a bunch of words that represent
+that sense, like tie, blouse, or</p>
+<p t="2949630" d="4610">pants, or something totally unrelated,
+like computer, mouse, and keyboard.</p>
+<p t="2954240" d="5349">And so now they asked a bunch of grad
+students, because they're guinea pigs, to</p>
+<p t="2959589" d="5365">differentiate if they could find out which
+one of these words correspond to tie.</p>
+<p t="2964954" d="3556">And they also asked the algorithm
+if it could make that distinction.</p>
+<p t="2968510" d="1580">The interesting thing is that,</p>
+<p t="2971120" d="4780">the performance of this method that
+I alluded to earlier, is about at</p>
+<p t="2975900" d="4640">the same level as the non-native grad
+students that they had surveyed.</p>
+<p t="2980540" d="2300">Which I think is interesting.</p>
+<p t="2982840" d="3970">The native speakers do better on the task.</p>
+<p t="2986810" d="3890">So in summary,
+word vectors can indeed capture polysemy.</p>
+<p t="2990700" d="2300">It turns out these polysemies,
+the word vectors,</p>
+<p t="2993000" d="3410">are in the linear superposition
+of the polysemy vectors.</p>
+<p t="2996410" d="5550">You can recover the senses that
+a polysemous word has wIth sparse coding.</p>
+<p t="3001960" d="3072">And the senses that you
+recover are almost as good as</p>
+<p t="3005032" d="2438">that of a non-native English speaker.</p>
+<p t="3007470" d="1160">Thank you.</p>
+<p t="3008630" d="1037">&gt;&gt; Awesome, thank you Arun.</p>
+<p t="3009667" d="5399">&gt;&gt; [APPLAUSE]
+&gt;&gt; All right,</p>
+<p t="3015066" d="3144">so now on to evaluating word vectors.</p>
+<p t="3018210" d="4950">So we've had gone through now
+a bunch of new machinery.</p>
+<p t="3023160" d="2750">And you say, well,
+how well does this actually work?</p>
+<p t="3025910" d="1610">I have all these hyperparameters.</p>
+<p t="3027520" d="1820">What's the window size?</p>
+<p t="3029340" d="1350">What's the vector size?</p>
+<p t="3030690" d="1970">And we already came up
+with these questions.</p>
+<p t="3032660" d="2380">How much does it matter
+how do we choose them?</p>
+<p t="3035040" d="2460">And these are all the answers now.</p>
+<p t="3037500" d="1850">Well, at least some of them.</p>
+<p t="3039350" d="4640">So, in a very high level, and this will be
+true for a lot of your projects as well,</p>
+<p t="3043990" d="4480">you can make a high level decision of
+whether you will have an intrinsic or</p>
+<p t="3048470" d="4210">an extrinsic evaluation of
+whatever project you're doing.</p>
+<p t="3052680" d="3380">And in the case of word vectors,
+that is no different.</p>
+<p t="3056060" d="5290">So intrinsic evaluations are usually on
+some specific or intermediate subtask.</p>
+<p t="3061350" d="4690">So we might, for instance, look at how
+well do these vector differences or vector</p>
+<p t="3066040" d="4220">similarities and inner products correlate
+with human judgments of similarity.</p>
+<p t="3070260" d="3550">And we'll go through a couple
+of these kinds of evaluations in</p>
+<p t="3073810" d="1660">the next couple of slides.</p>
+<p t="3075470" d="3294">The advantage of intrinsic evaluations
+is that they're going to be very fast</p>
+<p t="3078764" d="563">to compute.</p>
+<p t="3079327" d="1421">You have your vectors,</p>
+<p t="3080748" d="3844">you run them through this quick
+similarity correlation study.</p>
+<p t="3084592" d="3658">And you get a number out and
+you then can claim victory very quickly.</p>
+<p t="3088250" d="5569">And then or you can modify your model and
+try 50,000 different little knobs and</p>
+<p t="3093819" d="3646">combinations and tune this very quickly.</p>
+<p t="3097465" d="4745">It sometimes helps you really understand
+very quickly how your system works, what</p>
+<p t="3102210" d="4705">kinds of hyperparameters actually have
+an impact on this metric of similarity,</p>
+<p t="3106915" d="1197">for instance.</p>
+<p t="3108112" d="3510">However, there's no free lunch here.</p>
+<p t="3111622" d="3440">It's not clear, sometimes,
+if your intermediate or</p>
+<p t="3115062" d="4570">intrinsic evaluation and improvements
+actually carry out to be a real</p>
+<p t="3119632" d="3178">improvement in some task
+real people will care about.</p>
+<p t="3122810" d="2690">And real people is a little
+tricky definition.</p>
+<p t="3125500" d="1065">I guess real people,</p>
+<p t="3126565" d="3255">usually we'll assume are like
+normal people who want to just have</p>
+<p t="3129820" d="4410">a machine translation system or a question
+answering system or something like that.</p>
+<p t="3134230" d="1300">Not necessarily linguists and</p>
+<p t="3135530" d="2910">natural language processing
+researchers in the field.</p>
+<p t="3138440" d="4093">And so, sometimes you actually
+observe people trying to</p>
+<p t="3142533" d="3334">optimize their intrinsic
+evaluations a lot.</p>
+<p t="3145867" d="2520">And they spent years of
+their life optimizing them.</p>
+<p t="3148387" d="3759">And other people later find out, well,
+it turns out those improvements on your</p>
+<p t="3152146" d="3254">intrinsic task, when I actually
+applied your better word vectors or</p>
+<p t="3155400" d="3087">something to name entity recognition or
+part of speech tagging or</p>
+<p t="3158487" d="3353">machine translation,
+I don't see an improvement.</p>
+<p t="3161840" d="3660">So then the question is, well, how useful
+is your intrinsic evaluation task?</p>
+<p t="3165500" d="3820">So as you go down this route, and
+a lot of you will for their projects,</p>
+<p t="3169320" d="4480">you always wanna make sure you establish
+some kind of correlation between these.</p>
+<p t="3173800" d="3178">Now, the extrinsic one is basically
+evaluation on a real task.</p>
+<p t="3176978" d="3152">And that's really where
+the rubber hits the road, or</p>
+<p t="3180130" d="1880">the proof is in the pudding, or whatever.</p>
+<p t="3182010" d="3020">The problem with that is that
+it can take a very long time.</p>
+<p t="3185030" d="2510">You have your new word vectors and
+you're like,</p>
+<p t="3187540" d="3275">I took the Pearson correlation instead of
+the raw count of my core currents matrix.</p>
+<p t="3190815" d="2185">I think that's the best thing ever.</p>
+<p t="3193000" d="3421">Now I wanna evaluate whether that
+word vector really helps for</p>
+<p t="3196421" d="1326">machine translation.</p>
+<p t="3197747" d="2082">And you say, all right,
+now I'm gonna take my word vectors and</p>
+<p t="3199829" d="2151">plug them into this machine
+translation system.</p>
+<p t="3201980" d="1600">And that turns out to
+take a week to train.</p>
+<p t="3204760" d="2840">And then you have to wait a long time,
+and now you have ten other knobs, and</p>
+<p t="3207600" d="1130">before you know it, the year is over.</p>
+<p t="3208730" d="3600">And you can't really just do
+that every time you have a tiny,</p>
+<p t="3212330" d="4580">little improvement on your first
+early word vectors, for instance.</p>
+<p t="3216910" d="3213">So that's the problem,
+it takes a long time.</p>
+<p t="3220123" d="4042">And then often people will often make
+the mistake of tuning a lot of different</p>
+<p t="3224165" d="765">subsystems.</p>
+<p t="3224930" d="4323">And then they put it all together
+into the full system, the real task,</p>
+<p t="3229253" d="1775">like machine translation.</p>
+<p t="3231028" d="2007">And something overall has improved,</p>
+<p t="3233035" d="3675">but now it's unclear which part
+actually gave the improvement.</p>
+<p t="3236710" d="3330">Maybe two parts where actually, one was
+really good, the other one was bad.</p>
+<p t="3240040" d="1750">They cancel each other out, and so on.</p>
+<p t="3241790" d="3590">So you wanna basically,
+when you use extrinsic evaluations,</p>
+<p t="3245380" d="4500">be very certain that you only change
+one thing that you came up with, or</p>
+<p t="3249880" d="2200">one aspect of your word vectors,
+for instance.</p>
+<p t="3252080" d="3590">And if you then get an improvement
+on your overall downstream task,</p>
+<p t="3255670" d="2650">then you're really in a good place.</p>
+<p t="3258320" d="2350">So let's be more explicit and</p>
+<p t="3260670" d="3390">go through some of these
+intrinsic word vector evaluations.</p>
+<p t="3265430" d="4821">One that was very popular and
+came out just very recently</p>
+<p t="3270251" d="5141">with the word2vec paper was
+these word vector analogies.</p>
+<p t="3275392" d="5090">Where basically they found,
+which was initially very surprising to</p>
+<p t="3280482" d="5964">a lot of people, that you have amazing
+kinds of semantic and syntactic analogies</p>
+<p t="3286446" d="5104">that are captured through these
+cosine distances in these vectors.</p>
+<p t="3291550" d="5230">So for instance, you might ask,
+what is man to woman and</p>
+<p t="3296780" d="2580">the relationship of king to another word?</p>
+<p t="3300590" d="2550">And basically a simple analogy.</p>
+<p t="3303140" d="3450">Man to woman is like king to queen.</p>
+<p t="3306590" d="1000">That's right.</p>
+<p t="3307590" d="3828">And so it turns out that,
+when you just take vector of woman,</p>
+<p t="3311418" d="3993">you subtract the vector of man,
+and you add the vector of king.</p>
+<p t="3315411" d="6529">And then you try to find the vector
+that has the largest cosine similarity.</p>
+<p t="3321940" d="4436">It turns out the vector of queen
+is actually that vector that has</p>
+<p t="3326376" d="3191">the largest cosine
+similarity to this term.</p>
+<p t="3331400" d="3252">And so that is quite amazing,
+and it works for</p>
+<p t="3334652" d="3862">a lot of different kinds
+of very intuitive patterns.</p>
+<p t="3338514" d="1989">So, let’s go through a couple of them.</p>
+<p t="3340503" d="4958">So you'd have similar things like, if
+sir to madam is similar as man to woman,</p>
+<p t="3345461" d="5339">or heir to heiress, or king to queen,
+or emperor to empress, and so on.</p>
+<p t="3350800" d="5386">So they all have a similar kind of
+relationship that is captured very well</p>
+<p t="3356186" d="6324">by these cosine distances in this simple
+Euclidean Subtractions and additions.</p>
+<p t="3365040" d="1740">It goes even more specific.</p>
+<p t="3366780" d="4830">You have similar kinds of companies and
+their CEO names.</p>
+<p t="3371610" d="4380">And you can take company, title,
+minus CEO plus other company, and</p>
+<p t="3375990" d="3200">you get to the vector of the name
+of the CEO of that other company.</p>
+<p t="3381200" d="3240">And it works not just for
+semantic relationships but also for</p>
+<p t="3384440" d="4710">syntactic relationships, so slow,
+slower, or slowest in these glove</p>
+<p t="3389150" d="5030">things has very similar
+kind of differences and so</p>
+<p t="3394180" d="5160">on, to short, shorter, and shortest,
+or strong, stronger, and strongest.</p>
+<p t="3399340" d="4730">You can have a lot of fun with this and
+people did so here are some even more fun</p>
+<p t="3404070" d="6590">ones like Sushi- Japan + Germany
+goes to bratwurst, and so on.</p>
+<p t="3410660" d="3090">Which as a German, I'm mildly offended by.</p>
+<p t="3413750" d="5600">And of course,
+it's very intuitive in some ways.</p>
+<p t="3419350" d="1060">But it's also questionable.</p>
+<p t="3420410" d="2531">Maybe it should have been [INAUDIBLE] or
+whatever.</p>
+<p t="3422941" d="3533">Other typical German foods.</p>
+<p t="3428080" d="5850">While this is very intuitive and for
+some people, in terms of the actual</p>
+<p t="3433930" d="4930">semantics that are captured here, you
+might really wonder why this has happened.</p>
+<p t="3438860" d="4710">And there is no mathematical proof
+of why this has to fall out but</p>
+<p t="3443570" d="3620">intuitively you can kind of
+make sense of it a little bit.</p>
+<p t="3447190" d="6065">Superlatives for instance might
+appear next to certain words,</p>
+<p t="3453255" d="3885">very often, in similar kinds of ways.</p>
+<p t="3457140" d="4895">Maybe most, for instance,
+appears in front of a lot of superlative.</p>
+<p t="3463850" d="8670">Or barely might appear in front of
+certain words like slower or shorter.</p>
+<p t="3472520" d="3405">It's barely shorter
+than this other person.</p>
+<p t="3475925" d="4757">And since in these vectors you're
+capturing these core occurrence accounts,</p>
+<p t="3480682" d="4686">as you take out, basically one concurrence
+you subtract that one concurrence</p>
+<p t="3485368" d="2349">intuitively it's a little hand wavy.</p>
+<p t="3487717" d="3902">There's no like again here this is
+not a nice mathematical proof but</p>
+<p t="3491619" d="4721">intuitively you can see how similar kinds
+of words appeared and you subtract those</p>
+<p t="3496340" d="4258">counts and hence you arrive in similar
+kinds of places into vector space.</p>
+<p t="3500598" d="5052">Now first you try a couple of these, and
+you're surprised that this works well.</p>
+<p t="3505650" d="2230">And then you want to make it
+a little more quantitative.</p>
+<p t="3507880" d="530">All right, so</p>
+<p t="3508410" d="5480">this was a qualitative sub sample of some
+words where this works incredibly well.</p>
+<p t="3513890" d="2200">It's also true that when you
+really play around with it for</p>
+<p t="3516090" d="2630">a while,
+you'll find something things that are like</p>
+<p t="3518720" d="3910">Audi minus German goes to some
+crazy sushi term or something.</p>
+<p t="3522630" d="1930">It doesn't always make sense but</p>
+<p t="3524560" d="3790">there are a lot of them where it
+really is surprisingly intuitive.</p>
+<p t="3528350" d="4870">And so people essentially then came
+up with a data set to try to see</p>
+<p t="3533220" d="5010">how often does it really appear and
+does it really work this well?</p>
+<p t="3538230" d="4580">And so they basically collected
+this Word Vector Analogies task.</p>
+<p t="3542810" d="1340">And these are some examples.</p>
+<p t="3544150" d="2110">You can download all of
+them on this link here.</p>
+<p t="3546260" d="4395">This is, again, the original
+word2vec paper that discovered and</p>
+<p t="3550655" d="2605">described these linear relationships.</p>
+<p t="3553260" d="3240">And they basically look at Chicago and
+Illinois and Houston Texas.</p>
+<p t="3556500" d="3920">And you can basically come up
+with a lot of different analogies</p>
+<p t="3560420" d="2090">where this city appears in that state.</p>
+<p t="3563660" d="4110">Of course there are some problems and
+as you optimize this metric more and</p>
+<p t="3567770" d="4590">more you will observe like well maybe
+that city name actually appears in</p>
+<p t="3572360" d="3130">multiple different cities and
+different states have the same name.</p>
+<p t="3575490" d="2870">And then it kind of depends on your
+corpus that you're training on whether or</p>
+<p t="3578360" d="2130">not this has been captured or not.</p>
+<p t="3580490" d="3180">But still, a lot of people,
+it makes a lot of sense for</p>
+<p t="3583670" d="3351">most of them to optimize these
+at least for a little bit.</p>
+<p t="3587021" d="4845">Here are some other examples of analogies
+that are in this data set that are being</p>
+<p t="3591866" d="4772">captured, and just like the capital and
+the world, of course you know as those</p>
+<p t="3596638" d="4375">change if it doesn't change in your
+corpus that's also problematic.</p>
+<p t="3601013" d="3803">But in many cases the capitals of
+countries don't change, and so</p>
+<p t="3604816" d="4775">it's quite intuitive and here's some
+examples of syntactic relationships and</p>
+<p t="3609591" d="3869">analogies that are basically
+in this data set to evaluate.</p>
+<p t="3613460" d="2760">We have several thousands
+of these analogies and</p>
+<p t="3616220" d="3210">now, we compute our word vectors,
+we've tuned some knob,</p>
+<p t="3619430" d="4130">we changed the hyperparameter instead of
+25 dimensions, we have 50 dimensions and</p>
+<p t="3623560" d="2840">then we evaluate which one is better for
+these analogies.</p>
+<p t="3628880" d="4370">And again, here is another syntactic one
+with past tense kinds of relationships.</p>
+<p t="3633250" d="2250">Dancing to danced should
+be like going to went.</p>
+<p t="3637070" d="4100">Now, we can basically look at a lot of
+different methods, and we don't know all</p>
+<p t="3641170" d="5390">of these in the class here, but we know
+the skip gram SG and the Glove model.</p>
+<p t="3646560" d="5670">And here is the first
+evaluation that is quantitative</p>
+<p t="3652230" d="4390">and basically looks at the semantic and
+the syntactic relationships, and</p>
+<p t="3656620" d="2440">then just average, in terms of the total.</p>
+<p t="3659060" d="6460">And just says, how often is
+exactly this relationship true,</p>
+<p t="3665520" d="4110">for all these different analogies
+that we have here in the data set.</p>
+<p t="3669630" d="7650">And it turns out that when both of
+these papers came out in 2013 and</p>
+<p t="3677280" d="5250">14 basically GloVe was the best
+at capturing these relationships.</p>
+<p t="3682530" d="2370">And so we observe a couple
+of interesting things here.</p>
+<p t="3684900" d="4090">One, it turns out
+sometimes more dimensions</p>
+<p t="3688990" d="4530">don't actually help in capturing
+these relationships better, so</p>
+<p t="3693520" d="4660">thousand dimensional vectors work
+worst than 300 dimensional vectors.</p>
+<p t="3698180" d="4440">Another interesting observation and that
+is something that is somewhat sadly true</p>
+<p t="3702620" d="5710">for pretty much every deep learning model
+ever is more data will work better.</p>
+<p t="3708330" d="3820">If you train your word
+vectors on 42 billion tokens,</p>
+<p t="3712150" d="2940">it will work better than
+on 6 billion tokens.</p>
+<p t="3715090" d="3460">By you know, 4% or so.</p>
+<p t="3718550" d="2700">Here we have the same 300 dimensions.</p>
+<p t="3721250" d="4593">Again, we only want to change one thing
+to understand whether that one change</p>
+<p t="3725843" d="1494">actually has an impact.</p>
+<p t="3727337" d="3103">And we'll see here a big gap.</p>
+<p t="3737664" d="1690">It's a good question.
+How come the performance</p>
+<p t="3739354" d="1089">sometimes goes down?</p>
+<p t="3740443" d="6177">It turns out it also depends on what
+you're training your word vectors on.</p>
+<p t="3746620" d="3810">It turns out, Wikipedia for instance,
+is really great because Wikipedia has very</p>
+<p t="3750430" d="3100">good descriptions of all these
+capitals in all the world.</p>
+<p t="3753530" d="5000">But now if you take news, and let's say if
+you take US news and in US news you might</p>
+<p t="3758530" d="4930">not have Abuja and
+Ashgabat mentioned very often.</p>
+<p t="3763460" d="2640">Well, then the vectors for
+those words will also not</p>
+<p t="3766100" d="3510">capture their semantics very well and
+so you will do worse.</p>
+<p t="3769610" d="4170">And so some not, bigger is not always
+better it also depends on the quality</p>
+<p t="3773780" d="1310">of the data that you have.</p>
+<p t="3775090" d="4410">And Wikipedia has less misspellings
+than general Internet texts and so on.</p>
+<p t="3779500" d="2350">And it's actually a very good data set.</p>
+<p t="3781850" d="4950">And so here are some of
+the evaluations and we have a lot of</p>
+<p t="3786800" d="4040">questions of like how do we choose this
+hyperparameter the size and so on.</p>
+<p t="3790840" d="5680">This is I think a very good and careful
+analysis that Geoffrey had done here three</p>
+<p t="3796520" d="5090">years ago on a variety of these different
+hyperparameters that we've observed and</p>
+<p t="3801610" d="2180">kind of mentioned in passing.</p>
+<p t="3803790" d="790">And so</p>
+<p t="3804580" d="6030">this is also a great sort of way that you
+should try to emulate for your projects.</p>
+<p t="3810610" d="3750">Whenever I see plots like this I
+get a big smile on my face and</p>
+<p t="3814360" d="1935">your grades just like improve right away.</p>
+<p t="3816295" d="1325">&gt;&gt; [LAUGH]
+&gt;&gt; Unless</p>
+<p t="3817620" d="1490">you make certain mistakes in your plots.</p>
+<p t="3819110" d="2770">But let's go through them.</p>
+<p t="3821880" d="4530">Here we look at basically the symmetric
+context, the asymmetric context is</p>
+<p t="3826410" d="4600">where we only count words that have
+happened after the current word.</p>
+<p t="3831010" d="3840">We ignore the things that's before but it
+turns out symmetric usually works better</p>
+<p t="3834850" d="4480">and so a vector dimension here
+is a good one to evaluate.</p>
+<p t="3839330" d="2148">It's pretty fundamental
+how high dimensional.</p>
+<p t="3841478" d="2332">Should these be.</p>
+<p t="3843810" d="2700">And we basically observe
+that when they're very small</p>
+<p t="3846510" d="4666">it doesn't work as well in capturing these
+analogies but then after around 200,</p>
+<p t="3851176" d="4064">300 it actually kind of peters out and
+then it doesn't get much better.</p>
+<p t="3855240" d="6220">In fact, over all it's pretty
+flat between 300 and 600.</p>
+<p t="3861460" d="1227">And this is good.</p>
+<p t="3862687" d="3933">So, the main number we often look
+at here is the overall accuracy and</p>
+<p t="3866620" d="1246">that's in red here.</p>
+<p t="3867866" d="1324">And that's flat.</p>
+<p t="3869190" d="5020">So, one mistake you could make
+when create such a plot is you</p>
+<p t="3874210" d="4550">can prove you have some hyperparameter and
+you have some kind of accuracy.</p>
+<p t="3879880" d="2860">This could be the vector size,
+and you create a nice plot and</p>
+<p t="3882740" d="2980">you say look, things got better.</p>
+<p t="3885720" d="3670">And then my comment if I see
+a plot like this would be,</p>
+<p t="3889390" d="2350">well why didn't you go
+further in this direction?</p>
+<p t="3891740" d="2180">It seems to just be going up and up.</p>
+<p t="3893920" d="2250">Like, so that is not good.</p>
+<p t="3896170" d="3690">You should find your plots until
+they actually kind of peter out, and</p>
+<p t="3899860" d="6080">you say all right now, I really found
+the optimum value for this hyperparameter.</p>
+<p t="3905940" d="5170">So, another important
+thing to evaluate here</p>
+<p t="3911110" d="4900">is the window's size, and there
+are sometimes considerations around this.</p>
+<p t="3916010" d="5020">So word vectors for instance,
+maybe the 200 worked</p>
+<p t="3921030" d="4560">here slightly better than, or
+300 works slightly better than 200.</p>
+<p t="3925590" d="3210">But, larger word vectors
+also means more RAM, right?</p>
+<p t="3928800" d="4050">Your software now needs
+to store more data.</p>
+<p t="3932850" d="3810">And you need to, you might want
+to ship it to the cellphone.</p>
+<p t="3936660" d="5840">And now yes you might get 2%
+improvement on this intrinsic task.</p>
+<p t="3942500" d="3550">But you also have 30%
+higher RAM requirements.</p>
+<p t="3946050" d="2350">And maybe you say, well,
+I don't care about those 2% or</p>
+<p t="3948400" d="2810">so improvement in accuracy
+on this intrinsic task.</p>
+<p t="3951210" d="2000">I still choose a smaller word vector.</p>
+<p t="3953210" d="3320">So, that's a legit argument,
+but in general here,</p>
+<p t="3956530" d="4120">we're just trying to optimize this metric.</p>
+<p t="3960650" d="1980">And so
+we wanna look at carefully what these are.</p>
+<p t="3962630" d="4142">All right, now, window's size, again
+this is how many words to the left and</p>
+<p t="3966772" d="5418">to the right of each of the center
+words do we wanna predict and</p>
+<p t="3972190" d="1880">compute the counts for.</p>
+<p t="3974070" d="4480">Turns out around eight or
+so, you get the highest.</p>
+<p t="3978550" d="5391">But again that also increases
+the complexity and the training time.</p>
+<p t="3983941" d="1945">The longer the windows are,</p>
+<p t="3985886" d="4222">the more times you have to compute
+these kind of expressions.</p>
+<p t="3990108" d="2466">And then for asymmetric context,</p>
+<p t="3992574" d="4770">it's actually slightly different
+windows size that works best.</p>
+<p t="3997344" d="3387">All right,
+any question around these evaluations?</p>
+<p t="4004358" d="1268">Great.</p>
+<p t="4005626" d="4649">Now, it's very hard actually,
+to compare glove and the skip gram model,</p>
+<p t="4010275" d="3805">cuz they're very different
+kinds of training regimes.</p>
+<p t="4014080" d="2345">One goes through the one window at a time,</p>
+<p t="4016425" d="4635">the other one first computes all
+the counts, and then works on the counts.</p>
+<p t="4021060" d="4420">So this is kind of us
+trying to do well and</p>
+<p t="4025480" d="3870">answer a reviewer question of
+when you compare them directly.</p>
+<p t="4029350" d="2250">So what we did here is we
+looked at the Negative Samples.</p>
+<p t="4031600" d="2800">So remember, we had that sum and
+the objective function for</p>
+<p t="4034400" d="3820">the skip gram model of how many words
+we want to push down the probability of</p>
+<p t="4038220" d="3440">cuz they don't appear in that window and
+so</p>
+<p t="4041660" d="6670">that is one way to increase training time,
+and in theory do better on that objective.</p>
+<p t="4048330" d="5015">Versus different iterations of how
+often do we go over this cocurrence</p>
+<p t="4053345" d="4682">counts to optimize each pair in
+the cocurrence matrix for GloVe.</p>
+<p t="4058027" d="2921">And in this evaluation GloVe did better</p>
+<p t="4060948" d="4611">regardless of how many hours you
+sort of trained both models.</p>
+<p t="4065559" d="6451">And this is more data helps,
+that the argument already made.</p>
+<p t="4072010" d="3140">Especially Wikipedia.</p>
+<p t="4075150" d="2620">So here Gigaword is I think
+mostly a news corpus.</p>
+<p t="4077770" d="7450">So news, despite being more actually it
+does not work quite as well, overall, and</p>
+<p t="4085220" d="5870">especially not for semantic,
+relationships and analogies,</p>
+<p t="4091090" d="4060">but Common Crawl, which is a super large
+data set of 42 billion tokens, works best.</p>
+<p t="4098730" d="3220">All right, so now these amazing analogies
+of king minus man plus woman and</p>
+<p t="4101950" d="3120">so on were very exciting.</p>
+<p t="4105070" d="5800">Before that, people used often
+just correlation judgements.</p>
+<p t="4110870" d="5073">So basically they asked a bunch of people,
+often grad students,</p>
+<p t="4115943" d="5922">to give on a scale of one to ten, how
+similar do you think these two words are?</p>
+<p t="4121865" d="3982">So tiger and cat, when you ask three or
+five humans on a scale from one to ten</p>
+<p t="4125847" d="4239">how similar they are, they might say,
+one might say seven, the other eight,</p>
+<p t="4130086" d="3173">the other six or something like that and
+then you average.</p>
+<p t="4133259" d="4159">And then you get basically a score
+here of similarities our computer and</p>
+<p t="4137418" d="1342">internet are seven.</p>
+<p t="4138760" d="3649">But stock and
+CD are not very similar at all.</p>
+<p t="4142409" d="4450">So a bunch of people will say on a scale
+from one to ten, it's only 1.3 on average.</p>
+<p t="4146859" d="3654">&gt;&gt; [INAUDIBLE]
+&gt;&gt; And now,</p>
+<p t="4150513" d="2927">we could try to basically say all right.</p>
+<p t="4153440" d="6160">We want to train word vectors such that
+the vectors have a high correlation and</p>
+<p t="4159600" d="4980">their distances be it cosine similarity or
+Euclidian distance,</p>
+<p t="4164580" d="5210">or you can try different distance metrics
+too and look at how close they are.</p>
+<p t="4169790" d="1950">And so here's one such example.</p>
+<p t="4171740" d="4680">You take the word of Sweden and
+you look in terms of cosine similarity and</p>
+<p t="4176420" d="4250">you basically find lots of words
+that are very, very close by or</p>
+<p t="4180670" d="4470">have the largest cosine similarity and</p>
+<p t="4186380" d="3960">you basically get Norway and
+Denmark to be very close by.</p>
+<p t="4190340" d="4810">And so, if you have a lot of these
+kinds of data sets and this one,</p>
+<p t="4195150" d="5470">WordSim353 has basically
+353 such pairs of words.</p>
+<p t="4200620" d="4030">And you can look at how well</p>
+<p t="4204650" d="5320">do your vector distances correlate
+with these human judgements.</p>
+<p t="4209970" d="2043">So the higher the correlation,</p>
+<p t="4212013" d="5084">the more intuitive we would think are the
+distances in this large vector space.</p>
+<p t="4217097" d="5039">And again, Glove does very well
+here across a whole host of</p>
+<p t="4222136" d="5253">different kinds of datasets
+like the WordSim 353 and,</p>
+<p t="4227389" d="5471">again, the largest training
+dataset here did best for Glove.</p>
+<p t="4232860" d="5455">Any questions on word vector
+similarities and correlations?</p>
+<p t="4238315" d="2039">No, good, all right.</p>
+<p t="4240354" d="7166">Now, basically, intrinsic's evaluations
+have this huge problem, right?</p>
+<p t="4247520" d="2420">We have these nice similarities,
+but who knows?</p>
+<p t="4249940" d="3540">Maybe that doesn't actually improve the
+real tasks that we care about in the end.</p>
+<p t="4253480" d="4430">And so the best kinds of evaluations,
+but again they are very expensive,</p>
+<p t="4257910" d="4540">are those on real tasks or at least
+subsequent kinds of downstream tasks.</p>
+<p t="4262450" d="2400">And so one such example is
+named entity recognition.</p>
+<p t="4264850" d="2220">It's a good one cuz
+it's relatively simple.</p>
+<p t="4267070" d="2290">But it's actually useful enough.</p>
+<p t="4269360" d="3380">You might want to run a named entity
+recognition system over a bunch of</p>
+<p t="4272740" d="1350">your corporate emails.</p>
+<p t="4274090" d="3743">To understand which person is in
+relationship to what company, and</p>
+<p t="4277833" d="3687">where do they live and the locations
+of different people and so on.</p>
+<p t="4281520" d="4825">It's actually a useful system to have,
+a named entity recognition system.</p>
+<p t="4286345" d="3600">And basically we'll go
+through the actual models for</p>
+<p t="4289945" d="4455">doing a named entity recognition
+in the next lecture.</p>
+<p t="4294400" d="2930">But as we plug in different
+word vectors into these</p>
+<p t="4297330" d="4440">downstream models that we'll describe in
+the next lecture we'll observe that for</p>
+<p t="4301770" d="4780">many of them GloVe vectors again do very,
+very well on these downstream tasks.</p>
+<p t="4308620" d="1860">All right.
+Any questions on extrinsic methods?</p>
+<p t="4310480" d="3580">We'll go through the actual
+model that works here later.</p>
+<p t="4330486" d="540">That's right.</p>
+<p t="4331026" d="5054">Well, so you're not optimizing
+anything here, you're just evaluating.</p>
+<p t="4336080" d="1686">You're not training anything.</p>
+<p t="4337766" d="4134">You've trained your word vectors with your
+objective function from skip-gram, and</p>
+<p t="4341900" d="2690">you fix them, and
+then you just evaluate them.</p>
+<p t="4344590" d="4140">And so what you're evaluating here now
+is you look at for instance Sweden and</p>
+<p t="4348730" d="4430">Norway, and they have a certain
+distance between them, and</p>
+<p t="4353160" d="2300">then you want to basically
+look at the human</p>
+<p t="4357460" d="3870">measure of how similar do humans
+think these two words are.</p>
+<p t="4361330" d="5120">And then you want these kinds of human
+judgements of similarity to correlate well</p>
+<p t="4366450" d="1790">with the cosine distances of the vectors.</p>
+<p t="4370170" d="3450">And when they correlate well,
+you think, the vectors are capturing</p>
+<p t="4373620" d="3436">similar kinds of intuitions that people
+have, and hence they should be good.</p>
+<p t="4377056" d="4874">And again, intuitively it would
+make sense that if Sweden</p>
+<p t="4381930" d="4010">has good cosine similarity and you plugged
+it into some other downstream system,</p>
+<p t="4385940" d="4000">that that system will also get
+better at capturing named entities.</p>
+<p t="4389940" d="3700">Because maybe at training time
+it sees the vector of Sweden and</p>
+<p t="4393640" d="2645">at test time it sees
+the vector of Norway and</p>
+<p t="4396285" d="3515">at training time you told that Sweden is
+a location, and so a test time it might</p>
+<p t="4399800" d="5120">be more likely to correctly identify
+Norway or Denmark also as a location.</p>
+<p t="4404920" d="2080">Because they're actually
+close by in the vector space.</p>
+<p t="4408310" d="3909">And we'll go actually through example
+of how we train word vectors and so</p>
+<p t="4412219" d="1291">on in the next lecture.</p>
+<p t="4413510" d="1888">Or train downstream tasks.</p>
+<p t="4415398" d="4902">So I think we have until 5:50,
+so we got 8 more minutes.</p>
+<p t="4420300" d="6950">So, let's look briefly at simple,
+single word classification.</p>
+<p t="4427250" d="6940">So you know we talked about these
+word vectors and I basically showed</p>
+<p t="4434190" d="3940">you the difference between starting with
+these very simple co-occurrence counts and</p>
+<p t="4438130" d="6650">these very sparse large vectors versus
+having small dense vectors like Word2vec.</p>
+<p t="4444780" d="5040">And so the major benefits are basically
+that because similar words cluster</p>
+<p t="4449820" d="6250">together, we'll be able to classify and
+be more robust in classifying</p>
+<p t="4457450" d="4770">different kinds of words that we might
+not see in the training data set.</p>
+<p t="4462220" d="2830">So for instance,
+because countries cluster together and</p>
+<p t="4465050" d="4576">our goal is to classify location words
+then we'll do better if we initialize</p>
+<p t="4469626" d="4854">all these country words to be in
+a similar part of the vector space.</p>
+<p t="4475660" d="3420">It turns out later we'll actually
+fine tune these vectors too.</p>
+<p t="4479080" d="3930">So right now we learned
+an unsupervised objective function.</p>
+<p t="4483010" d="4894">It's unsupervised in the sense that we
+don't have human labels that we assigned</p>
+<p t="4487904" d="4146">to each input, we just basically
+took a large corpus of words, and</p>
+<p t="4492050" d="2790">we learned with these
+unsupervised objective functions.</p>
+<p t="4496650" d="3280">But other tasks where that
+doesn't actually work as well.</p>
+<p t="4499930" d="6180">So for instance sentiment analysis turns
+out to not be a great downstream task for</p>
+<p t="4506110" d="6300">some word vectors because good and bad
+might actually appear in similar contexts.</p>
+<p t="4512410" d="3730">I thought this movie was really good or
+bad.</p>
+<p t="4516140" d="3120">And so when your downstream
+task is sentiment analysis</p>
+<p t="4519260" d="3270">it turns out that maybe you can just
+initialize your word vectors randomly.</p>
+<p t="4523700" d="2964">So this is kind of a bummer
+after listening to us for</p>
+<p t="4526664" d="3406">many hours on how word
+vectors should be trained.</p>
+<p t="4530070" d="5247">But fret not, it's in many cases word
+vectors are helpful as your first step for</p>
+<p t="4535317" d="2994">your deep learning model, just not always.</p>
+<p t="4538311" d="3119">And again, that will be
+something that you can evaluate.</p>
+<p t="4541430" d="2120">Can I just initialize my words randomly or</p>
+<p t="4543550" d="2950">should I initialize them with
+the Word2vec or the glove model.</p>
+<p t="4547860" d="4700">So as we're trying to classify words,
+what we'll use is the softmax.</p>
+<p t="4552560" d="4070">And so you've seen this equation already
+in the very beginning in the first slide</p>
+<p t="4556630" d="902">of the lecture.</p>
+<p t="4557532" d="4538">But we'll change the notation a little
+bit because all the math that will follow</p>
+<p t="4562070" d="4750">will be easier to go through
+with this kind of notation.</p>
+<p t="4566820" d="5120">So this is going to be
+the softmax that we'll optimize.</p>
+<p t="4571940" d="3730">It's essentially just a different
+word term for logistic regression.</p>
+<p t="4575670" d="6000">And we'll in many cases, have generally
+a matrix W here for our different classes.</p>
+<p t="4582760" d="4320">So x, for instance, could be in
+a simplest form, just a word vector.</p>
+<p t="4587080" d="4387">We're just trying to classify different
+word vectors with no context of just like,</p>
+<p t="4591467" d="1502">are these locations or not.</p>
+<p t="4592969" d="4161">It's not very useful, but just for
+pedagogical reasons, let's assume x,</p>
+<p t="4597130" d="2500">our input here, is just a word vector.</p>
+<p t="4599630" d="3490">And I want to classify, is it a location,
+or is it not a location.</p>
+<p t="4603120" d="4514">And then we give it basically, these
+different kinds of word vectors that we</p>
+<p t="4607634" d="4865">compute it, for instance, for Sweden and
+Norway, and then we want to classify is</p>
+<p t="4612499" d="4187">now Finland, Switzerland, and
+also a location, yes or no.</p>
+<p t="4616686" d="1584">So that's the task.</p>
+<p t="4618270" d="6110">And so our softmax here might just
+have in the simplest case two,</p>
+<p t="4624380" d="4870">two doesn't really make sense so let's say
+we have multiple different classes and</p>
+<p t="4629250" d="3370">each class has one row vector here.</p>
+<p t="4632620" d="6020">And so this notation y is essentially
+the number of rows that we have,</p>
+<p t="4638640" d="2230">so the specific row that we have.</p>
+<p t="4640870" d="5646">And we have here inner product with this
+rho vector times this column vector x.</p>
+<p t="4646516" d="3978">And then we normalize just
+like we always do for</p>
+<p t="4650494" d="4590">logistic regression to get
+an overall vector here for</p>
+<p t="4655084" d="3672">all the different classes that sums to 1.</p>
+<p t="4658756" d="5814">So W in general for classification
+will be a C by d dimensional matrix.</p>
+<p t="4664570" d="3090">Where d is our input and
+C is the number of classes that we have.</p>
+<p t="4670720" d="4207">And again, logistic regression, just a
+different term for softmax classification.</p>
+<p t="4677847" d="5414">And the nice thing about the softmax is
+that it will generalize well above for</p>
+<p t="4683261" d="2209">multiple different classes.</p>
+<p t="4685470" d="5850">And so, basically this is also
+something we've already covered.</p>
+<p t="4691320" d="4480">So the loss function will use a similar
+term for all the subsequent lectures.</p>
+<p t="4695800" d="3920">Loss function, cost function and objective
+functions, we kind of use interchangeably.</p>
+<p t="4700850" d="4848">And what we'll use to optimize
+the softmax is the cross entropy loss.</p>
+<p t="4705698" d="3392">And so I feel like the last minute,</p>
+<p t="4709090" d="4100">I'll just give you one extra minute,
+cuz if we start now, it'll be too late.</p>
+<p t="4713190" d="3681">So that's it, thank you.</p>
+<p t="4716871" d="2509">&gt;&gt; [APPLAUSE]</p>
+</body>
+</timedtext>

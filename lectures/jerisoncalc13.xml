@@ -1,0 +1,1449 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="1900" d="1282">The following content is
+provided under a Creative</p>
+<p t="3182" d="428">Commons license.</p>
+<p t="3610" d="3225">Your support will help MIT
+OpenCourseWare continue to</p>
+<p t="6835" d="2015">offer high quality educational
+resources for free.</p>
+<p t="8850" d="2920">To make a donation or to view
+additional materials from</p>
+<p t="11770" d="2430">hundreds of MIT courses, visit
+MIT OpenCourseWare at</p>
+<p t="14200" d="7580">ocw.mit.edu.</p>
+<p t="21780" d="3240">PROFESSOR: Today we're going
+to keep on going</p>
+<p t="25020" d="5640">with related rates.</p>
+<p t="30660" d="4940">And you may recall that last
+time we were in the middle of</p>
+<p t="35600" d="3400">a problem with this geometry.</p>
+<p t="39000" d="2260">There was a right triangle.</p>
+<p t="41260" d="1930">There was a road.</p>
+<p t="43190" d="3810">Which was going this way,
+from right to left.</p>
+<p t="47000" d="6830">And the police were up here,
+monitoring the situation.</p>
+<p t="53830" d="2160">30 feet from the road.</p>
+<p t="55990" d="4000">And you're here.</p>
+<p t="59990" d="4380">And you're heading this way.</p>
+<p t="64370" d="2155">Maybe it's a two lane highway,
+but anyway it's only going</p>
+<p t="66525" d="1155">this direction.</p>
+<p t="67680" d="3990">And this distance was 50 feet.</p>
+<p t="71670" d="5650">So, because you're moving, this
+distance is varying and</p>
+<p t="77320" d="1800">so we gave it a letter.</p>
+<p t="79120" d="2780">And, similarly, your distance
+to the foot of the</p>
+<p t="81900" d="3150">perpendicular with the
+road is also varying.</p>
+<p t="85050" d="4840">At this instant it's 40, because
+this is a 3, 4, 5</p>
+<p t="89890" d="1680">right triangle.</p>
+<p t="91570" d="4260">So this was the situation that
+we were in last time.</p>
+<p t="95830" d="2260">And we're going to pick
+up where we left off.</p>
+<p t="98090" d="12770">The question is, are you
+speeding if the rate of change</p>
+<p t="110860" d="5650">of D with respect to t is
+80 feet per second.</p>
+<p t="116510" d="4170">Now, technically that would be
+- 80, because you're going</p>
+<p t="120680" d="2350">towards the policemen.</p>
+<p t="123030" d="2500">Alright, so D is shrinking
+at a rate of</p>
+<p t="125530" d="5020">- 80 feet per second.</p>
+<p t="130550" d="6360">And I remind you that 95 feet
+per second is approximately</p>
+<p t="136910" d="750">the speed limit.</p>
+<p t="137660" d="3710">Which is 65 miles per hour.</p>
+<p t="141370" d="3480">So, again, this is where
+we were last time.</p>
+<p t="144850" d="5300">And, got a little question
+mark there.</p>
+<p t="150150" d="3990">And so let's solve
+this problem.</p>
+<p t="154140" d="3340">So, this is the setup.</p>
+<p t="157480" d="1400">There's a right triangle.</p>
+<p t="158880" d="3410">So there's a relationship
+between these lengths.</p>
+<p t="162290" d="7510">And the relationship is that
+x ^2 + 30 ^2 = D ^2.</p>
+<p t="169800" d="4220">So that's the first relationship
+that we have. And</p>
+<p t="174020" d="1680">the second relationship
+that we have, we've</p>
+<p t="175700" d="1680">already written down.</p>
+<p t="177380" d="11240">Which is dx / dt - oops, sorry.
+dD / dt = minus 80.</p>
+<p t="188620" d="6300">Now, the idea here is relatively
+straightforward.</p>
+<p t="194920" d="2870">We just want to use
+differentiation.</p>
+<p t="197790" d="8020">Now, you could solve for x.</p>
+<p t="205810" d="5770">Alright, x is the square root
+of D^2 - 30 squared.</p>
+<p t="211580" d="1240">That's one possibility.</p>
+<p t="212820" d="3240">But this is basically
+a waste of time.</p>
+<p t="216060" d="1750">It's a waste of your time.</p>
+<p t="217810" d="7740">So it's easier, or easiest, to
+follow this method of implicit</p>
+<p t="225550" d="1830">differentiation, which
+I want to encourage</p>
+<p t="227380" d="1700">you to get used to.</p>
+<p t="229080" d="2410">Namely, we just differentiate
+this equation</p>
+<p t="231490" d="1970">with respect to time.</p>
+<p t="233460" d="2590">Now, when you do that, you have
+to remember that you are</p>
+<p t="236050" d="3070">not allowed to plug
+in a constant.</p>
+<p t="239120" d="1990">Namely 40, for t.</p>
+<p t="241110" d="1960">You have to keep in mind what's
+really going on in this</p>
+<p t="243070" d="2600">problem which is that x is
+moving, it's changing.</p>
+<p t="245670" d="1580">And D is also changing.</p>
+<p t="247250" d="3130">So you have to differentiate
+first before</p>
+<p t="250380" d="1650">you plug in the values.</p>
+<p t="252030" d="3580">So the easiest thing is to use,
+in this case, implicit</p>
+<p t="255610" d="4520">differentiation.</p>
+<p t="260130" d="12870">And if I do that, I get 2x dx /
+dt is equal to 2D (dD / dt).</p>
+<p t="273000" d="1910">No more DDT left.</p>
+<p t="274910" d="1730">We hope.</p>
+<p t="276640" d="2520">Except in this blackboard.</p>
+<p t="279160" d="1530">So there's our situation.</p>
+<p t="280690" d="7380">Now, if I just plug in,
+now I can plug in.</p>
+<p t="288070" d="4750">In values. so this is after
+taking the derivative.</p>
+<p t="292820" d="2930">And, indeed, we have here 2
+times the value for x which is</p>
+<p t="295750" d="1750">40 at this instant.</p>
+<p t="297500" d="3570">And then we have dx / dt.</p>
+<p t="301070" d="6440">And that's equal to 2
+(D), which is 50.</p>
+<p t="307510" d="5390">And then dD / dt is - 80.</p>
+<p t="312900" d="6280">So the 80's cancel and we
+see that dv / dt = -</p>
+<p t="319180" d="2480">100 feet per second.</p>
+<p t="321660" d="5680">And so the answer to the
+question is yes.</p>
+<p t="327340" d="3430">Although you probably wouldn't
+be pulled over for this much</p>
+<p t="330770" d="1770">of a violation.</p>
+<p t="332540" d="3930">So that's, right, it's more than
+65 miles an hour, by a</p>
+<p t="336470" d="4720">little bit.</p>
+<p t="341190" d="2190">So that's the end of
+this question.</p>
+<p t="343380" d="3080">And usually in these rate of
+change or related rates</p>
+<p t="346460" d="2070">questions, this is considered
+to be the answer to the</p>
+<p t="348530" d="5000">question, if you like.</p>
+<p t="353530" d="2070">So that's one example.</p>
+<p t="355600" d="3360">I'm going to give one more
+example before we go on to</p>
+<p t="358960" d="5600">some other applications implicit
+differentiation.</p>
+<p t="364560" d="6960">So my second example is going
+to be, you have a it is a</p>
+<p t="371520" d="5730">conical tank.</p>
+<p t="377250" d="9390">With top of radius 4
+feet, let's say.</p>
+<p t="386640" d="5130">And depth 10 feet.</p>
+<p t="391770" d="2940">So that's our situation.</p>
+<p t="394710" d="3020">And then it's being
+filled with water.</p>
+<p t="397730" d="5100">So, is being filled
+with water.</p>
+<p t="402830" d="7070">At 2 cubic feet per minute.</p>
+<p t="409900" d="3080">So there is our situation.</p>
+<p t="412980" d="14600">And then the question is, how
+fast is the water rising when</p>
+<p t="427580" d="7460">it is at depth 5 feet?</p>
+<p t="435040" d="4630">So if this thing is half-full
+in the sense, well not</p>
+<p t="439670" d="2100">half-full in terms
+of total volume.</p>
+<p t="441770" d="7390">But half-full in terms of
+height, what's the speed at</p>
+<p t="449160" d="7380">which the water is rising.</p>
+<p t="456540" d="3430">So, how do we set up
+problems like this?</p>
+<p t="459970" d="2270">Well, we talked about
+this last time.</p>
+<p t="462240" d="9540">The first step is to set up
+a diagram and variables.</p>
+<p t="471780" d="2670">And I'm just going to
+draw the picture.</p>
+<p t="474450" d="3870">And I'm actually going to
+draw the picture twice.</p>
+<p t="478320" d="3270">So here's the conical tank.</p>
+<p t="481590" d="3450">And we have this radius,
+which is 4.</p>
+<p t="485040" d="2930">And we have this height,
+which is 10.</p>
+<p t="487970" d="2980">So that's just to allow me to
+think about this problem.</p>
+<p t="490950" d="7780">Now, it turns out because we
+have a varying depth and so</p>
+<p t="498730" d="3000">on, and this is just the top.</p>
+<p t="501730" d="2800">That I'd better depict also the
+level at which the water</p>
+<p t="504530" d="2170">actually is at present.</p>
+<p t="506700" d="4190">And furthermore, it's better to
+do this schematically, as</p>
+<p t="510890" d="940">you'll see.</p>
+<p t="511830" d="6370">So the key point here is to
+draw this triangle here.</p>
+<p t="518200" d="7030">Which shows me the 10 and shows
+me the 4, over here.</p>
+<p t="525230" d="3060">And then imagine that I'm
+filling it partway.</p>
+<p t="528290" d="2260">So maybe we'll put that
+water level in in</p>
+<p t="530550" d="1850">another color here.</p>
+<p t="532400" d="1970">So here's the water level.</p>
+<p t="534370" d="3470">And the water level, I'm going
+to depict that horizontal</p>
+<p t="537840" d="1930">distance here, as r.</p>
+<p t="539770" d="1180">That's going to be
+my variable.</p>
+<p t="540950" d="3200">That's the radius of the
+top of the water.</p>
+<p t="544150" d="2830">So I'm taking a cross-section
+of this, because that</p>
+<p t="546980" d="3250">geometrically the only thing
+I have to keep track of.</p>
+<p t="550230" d="1590">At least initially.</p>
+<p t="551820" d="2810">So this is our water level.</p>
+<p t="554630" d="3910">And it's really rotated
+around.</p>
+<p t="558540" d="4590">But I'm depicting just this one
+half-slice of the picture.</p>
+<p t="563130" d="3170">And then similarly,
+I have the height.</p>
+<p t="566300" d="4090">Which is this dimension there.</p>
+<p t="570390" d="2180">Or, if you like, the
+depth of the water.</p>
+<p t="572570" d="9570">So the water has filled us up,
+up to this point here.</p>
+<p t="582140" d="4710">So I set it up this way so that
+it's clear that we have</p>
+<p t="586850" d="600">two triangles here.</p>
+<p t="587450" d="2760">And that one piece of
+information we can get from</p>
+<p t="590210" d="3670">the geometry is the similar
+triangles information.</p>
+<p t="593880" d="5990">Namely, that r / h = 4 / 10.</p>
+<p t="599870" d="10080">So this is by far the most
+typical geometric fact that</p>
+<p t="609950" d="3500">you'll have to glean
+from a picture.</p>
+<p t="613450" d="3830">So that's one piece of
+information that we get from</p>
+<p t="617280" d="1640">this picture.</p>
+<p t="618920" d="4330">Now, the second thing we have
+to do is set up formulas for</p>
+<p t="623250" d="3220">the volume of water,
+and then figure out</p>
+<p t="626470" d="860">what's going on here.</p>
+<p t="627330" d="6130">So the volume of water
+is, of a cone.</p>
+<p t="633460" d="3900">So again, you have to know
+something about geometry to do</p>
+<p t="637360" d="2930">many of these problems. So you
+have to know that the volume</p>
+<p t="640290" d="4210">of a cone is 1/3 base
+times height.</p>
+<p t="644500" d="1400">Now, this one is upside down.</p>
+<p t="645900" d="4120">The base is on the top and it's
+going down but it works</p>
+<p t="650020" d="700">the same way.</p>
+<p t="650720" d="1550">That doesn't affect volume.</p>
+<p t="652270" d="5180">So it's 1/3 and the base is
+pi r^2, that's the base.</p>
+<p t="657450" d="4440">And times h, which
+is the height.</p>
+<p t="661890" d="4400">So this is the setup
+for this problem.</p>
+<p t="666290" d="5980">And now, having our
+relationship, we have one</p>
+<p t="672270" d="2310">relationship left that
+we have to remember.</p>
+<p t="674580" d="1340">Because we have one
+more piece of</p>
+<p t="675920" d="1710">information in this problem.</p>
+<p t="677630" d="3360">Namely, how fast the
+volume is changing.</p>
+<p t="680990" d="1970">It's going at 2 cubic
+feet per minute.</p>
+<p t="682960" d="6780">It's increasing, so that
+means that dv / dt = 2.</p>
+<p t="689740" d="5600">So I've now gotten rid of all
+the words and I have only</p>
+<p t="695340" d="2670">formulas left.</p>
+<p t="698010" d="5950">I started here with the words,
+I drew some pictures, and I</p>
+<p t="703960" d="780">derived some formulas.</p>
+<p t="704740" d="1460">Actually, there's one
+thing missing.</p>
+<p t="706200" d="3730">What's missing?</p>
+<p t="709930" d="2640">Yeah.</p>
+<p t="712570" d="4660">STUDENT: [INAUDIBLE]</p>
+<p t="717230" d="510">PROFESSOR: Exactly.</p>
+<p t="717740" d="680">What you want to find.</p>
+<p t="718420" d="2270">What I left out is
+the question.</p>
+<p t="720690" d="14420">So the question is, what
+is dh / dt when h = 5?</p>
+<p t="735110" d="5490">So that's the question here.</p>
+<p t="740600" d="2030">Now, we've got the whole problem
+and we never have to</p>
+<p t="742630" d="2880">look at it again if you like.</p>
+<p t="745510" d="7100">We just have to pay attention
+to this piece here.</p>
+<p t="752610" d="2170">So let's carry it out.</p>
+<p t="754780" d="2090">So what happens here.</p>
+<p t="756870" d="2320">So look, you could do this by
+implicit differentiation.</p>
+<p t="759190" d="3990">But it's so easy to express r
+as a function of h that that</p>
+<p t="763180" d="1380">seems kind of foolish.</p>
+<p t="764560" d="4340">So let's write r as 2/5 h.</p>
+<p t="768900" d="2380">That's coming from this
+first equation here.</p>
+<p t="771280" d="2520">And then let's substitute
+that in.</p>
+<p t="773800" d="11010">That means that v = 1/3
+pi ( 2/5 h^2) h.</p>
+<p t="784810" d="1820">And now I have to differentiate
+that.</p>
+<p t="786630" d="2220">So now I will use implicit
+differentiation.</p>
+<p t="788850" d="3350">It's very foolish at this point
+to take cube roots to</p>
+<p t="792200" d="1120">solve for h.</p>
+<p t="793320" d="2760">You just get yourself into
+a bunch of junk.</p>
+<p t="796080" d="2500">So there is a stage at which
+we're still using implicit</p>
+<p t="798580" d="910">differentiation here.</p>
+<p t="799490" d="5290">I'm not going to try to solve
+for h as a function of v.</p>
+<p t="804780" d="1920">Instead I'm just differentiating
+straight out</p>
+<p t="806700" d="1920">from this formula, which
+is relatively easy to</p>
+<p t="808620" d="910">differentiate.</p>
+<p t="809530" d="6680">So this is dv / dt, which
+of course = 2 and if I</p>
+<p t="816210" d="3430">differentiate it I just get this
+constant, pi / 3, this</p>
+<p t="819640" d="2750">other constant, (2/5)^2.</p>
+<p t="822390" d="2810">And then I have to differentiate
+h^3.</p>
+<p t="825200" d="2090">(h^2)h.</p>
+<p t="827290" d="5850">So that's 3h^2 ( dh / dt).</p>
+<p t="833140" d="6620">That's the chain rule.</p>
+<p t="839760" d="2320">So now let's plug in
+all of our numbers.</p>
+<p t="842080" d="5030">Again, the other theme is, you
+don't plug in numbers, fixed</p>
+<p t="847110" d="2490">numbers, until everything
+has stopped moving.</p>
+<p t="849600" d="2040">At this point, we've
+already calculated</p>
+<p t="851640" d="1150">our rates of change.</p>
+<p t="852790" d="1350">So now I can put
+in the numbers.</p>
+<p t="854140" d="11870">So, 2 = pi 3 ( 2/5)^2( 3), and
+then h was 5, so this is 5^2.</p>
+<p t="866010" d="1860">And then I have dh / dt.</p>
+<p t="867870" d="3730">There's only one unknown thing
+left in this problem,</p>
+<p t="871600" d="960">which is dh / dt.</p>
+<p t="872560" d="1430">Everything else is a number.</p>
+<p t="873990" d="2810">And if you do all the
+cancellations, you see that</p>
+<p t="876800" d="1410">this cancels this.</p>
+<p t="878210" d="3070">One of the 2's cancels - well,
+this cancels this.</p>
+<p t="881280" d="1410">And then one of the
+2's cancels that.</p>
+<p t="882690" d="11390">So all-told what we have here
+is that dh / dt = 1 / 2 pi.</p>
+<p t="894080" d="4620">And so that happens to
+be feet per second.</p>
+<p t="898700" d="5910">This is the whole story.</p>
+<p t="904610" d="1070">Questions, way back there.</p>
+<p t="905680" d="4360">STUDENT: [INAUDIBLE]</p>
+<p t="910040" d="1590">PROFESSOR: Where did I get --
+the question is where did I</p>
+<p t="911630" d="2960">get r = 2/5 h from.</p>
+<p t="914590" d="3090">The answer was, it came from
+similar triangles,</p>
+<p t="917680" d="1340">which is over here.</p>
+<p t="919020" d="1360">I did this similar
+triangle thing.</p>
+<p t="920380" d="5900">And I got this relationship
+here. r / h = 4/10, but then I</p>
+<p t="926280" d="5510">canceled it, got 2/5 and
+brought the h over.</p>
+<p t="931790" d="1100">Another question, over here.</p>
+<p t="932890" d="12580">STUDENT: [INAUDIBLE]</p>
+<p t="945470" d="7630">PROFESSOR: The question
+was the following.</p>
+<p t="953100" d="2920">Suppose you're at this
+stage, can you write</p>
+<p t="956020" d="2290">from here dv / dh.</p>
+<p t="958310" d="1250">So, suppose you're here.</p>
+<p t="959560" d="1830">And work out what this is.</p>
+<p t="961390" d="3640">It's going to end up being
+some constant times h^2.</p>
+<p t="965030" d="9960">And then also use dv / dt
+= dv / dh ( dh / dt).</p>
+<p t="974990" d="2530">Which the chain rule.</p>
+<p t="977520" d="3310">And the answer is yes.</p>
+<p t="980830" d="3670">We can do that, and indeed
+that is what my</p>
+<p t="984500" d="1810">next sentence is.</p>
+<p t="986310" d="1440">That's exactly what
+I'm saying.</p>
+<p t="987750" d="2490">So when I said this
+- sorry, when you</p>
+<p t="990240" d="2540">said this, I did that.</p>
+<p t="992780" d="1300">That's exactly what I did.</p>
+<p t="994080" d="7030">This chunk is exactly dv / dh.</p>
+<p t="1001110" d="2280">That's just what I'm doing.</p>
+<p t="1003390" d="1340">OK.</p>
+<p t="1004730" d="4020">So, definitely, that's
+what I had in mind.</p>
+<p t="1008750" d="1010">Yeah, another question.</p>
+<p t="1009760" d="5520">STUDENT: [INAUDIBLE]</p>
+<p t="1015280" d="1450">PROFESSOR: You're asking
+me whether my</p>
+<p t="1016730" d="1310">arithmetic is right or not?</p>
+<p t="1018040" d="5850">STUDENT: [INAUDIBLE]</p>
+<p t="1023890" d="2960">PROFESSOR: Pi - per second.</p>
+<p t="1026850" d="500">Oh.</p>
+<p t="1027350" d="2130">This should - no, OK, right.</p>
+<p t="1029480" d="2080">I guess it's per minute.</p>
+<p t="1031560" d="1330">Since the other one
+is per minute.</p>
+<p t="1032890" d="1510">Thank you.</p>
+<p t="1034400" d="2410">Yes.</p>
+<p t="1036810" d="1070">Was there another question?</p>
+<p t="1037880" d="3930">Probably also fixing my
+seconds to minutes.</p>
+<p t="1041810" d="1340">Way back there.</p>
+<p t="1043150" d="3451">STUDENT: I don't understand,
+why did you</p>
+<p t="1046601" d="889">have to do all that.</p>
+<p t="1047490" d="3440">Isn't the speed 2 cubic
+feet per minute?</p>
+<p t="1050930" d="3090">PROFESSOR: The speed at which
+you're filling it is 2 cubic</p>
+<p t="1054020" d="3520">feet, but the water level is
+rising at a different rate,</p>
+<p t="1057540" d="2810">depending on whether you're
+low down or high up.</p>
+<p t="1060350" d="3870">It depends on how wide the
+pond, the surface, is.</p>
+<p t="1064220" d="1090">So in fact it's not.</p>
+<p t="1065310" d="3640">In fact, the answer wasn't
+2 cubic - it wasn't.</p>
+<p t="1068950" d="950">There's a rate there.</p>
+<p t="1069900" d="2190">That is, that's how much
+volume is being added.</p>
+<p t="1072090" d="2160">But then there's another number
+that we're keeping</p>
+<p t="1074250" d="1530">track of, which is the height.</p>
+<p t="1075780" d="3010">Or, if you like, the
+depth of the water.</p>
+<p t="1078790" d="1240">OK.</p>
+<p t="1080030" d="1720">So this is the whole point
+about related rates.</p>
+<p t="1081750" d="2100">Is you have one variable,
+which is v, which</p>
+<p t="1083850" d="1510">is volume of something.</p>
+<p t="1085360" d="1650">You have another variable,
+which is h, which is the</p>
+<p t="1087010" d="3740">height of the cone
+of water there.</p>
+<p t="1090750" d="1510">And you're keeping track
+of one variable in</p>
+<p t="1092260" d="1040">terms of the other.</p>
+<p t="1093300" d="3060">And the relationship will always
+be a chain rule type of</p>
+<p t="1096360" d="780">relationship.</p>
+<p t="1097140" d="1970">So, therefore, you'll be able to
+- if you know one you'll be</p>
+<p t="1099110" d="1700">able to figure out the other.</p>
+<p t="1100810" d="2080">Provided you get all of
+the related rates.</p>
+<p t="1102890" d="1640">These are what are called
+related rates.</p>
+<p t="1104530" d="1480">This is a rate of something
+with respect to</p>
+<p t="1106010" d="2040">something, etc. etc.</p>
+<p t="1108050" d="2490">So it's really all about
+the chain rule.</p>
+<p t="1110540" d="10440">And just fitting it to word
+problems. So there's a couple</p>
+<p t="1120980" d="920">of examples.</p>
+<p t="1121900" d="2530">And I'll let you work
+out some more.</p>
+<p t="1124430" d="6440">So now, the next thing that I
+want to do is to give you one</p>
+<p t="1130870" d="3210">more max-min problem.</p>
+<p t="1134080" d="4660">Which has to do with this
+device, which I</p>
+<p t="1138740" d="1660">brought with me.</p>
+<p t="1140400" d="2080">So this is a ring.</p>
+<p t="1142480" d="3420">Happens to be a napkin ring,
+and this is some parachute</p>
+<p t="1145900" d="3550">string, which I use when
+I go backpacking.</p>
+<p t="1149450" d="6440">And the question is if you have
+a - you think of this is</p>
+<p t="1155890" d="1200">a weight, it's flexible.</p>
+<p t="1157090" d="1950">It's allowed to move
+along here.</p>
+<p t="1159040" d="4440">And the question is, if I fix
+these two ends where my two</p>
+<p t="1163480" d="2920">hands are, where my right hand
+is here and where my left hand</p>
+<p t="1166400" d="2010">is over there.</p>
+<p t="1168410" d="4090">And the question is, where does
+this ring settle down.</p>
+<p t="1172500" d="3030">Now, it's obvious, or should be
+maybe obvious, is that if</p>
+<p t="1175530" d="3530">my two hands are at equal
+heights, it should settle in</p>
+<p t="1179060" d="2360">the middle.</p>
+<p t="1181420" d="2600">The question that we're trying
+to resolve is what if one hand</p>
+<p t="1184020" d="3270">is a little higher
+than the other.</p>
+<p t="1187290" d="1750">What happens, or if
+the other way.</p>
+<p t="1189040" d="3330">Where does it settle down?</p>
+<p t="1192370" d="3350">So in order to depict this
+problem properly, I need two</p>
+<p t="1195720" d="1760">volunteers to help me out.</p>
+<p t="1197480" d="2920">Can I have some help?</p>
+<p t="1200400" d="2970">OK.</p>
+<p t="1203370" d="2950">So I need one of you to hold the
+right side, and one of you</p>
+<p t="1206320" d="2140">to hold the left side.</p>
+<p t="1208460" d="800">OK.</p>
+<p t="1209260" d="1920">And just hold it against
+the blackboard.</p>
+<p t="1211180" d="1060">We're going to trace.</p>
+<p t="1212240" d="3440">So stick it about here, in
+the middle somewhere.</p>
+<p t="1215680" d="1760">And now we want to make sure
+that this one is a little</p>
+<p t="1217440" d="1520">higher, alright?</p>
+<p t="1218960" d="3470">So we'll have to - yeah, let's
+get a little higher up.</p>
+<p t="1222430" d="3300">That's probably good enough.</p>
+<p t="1225730" d="4040">So the experiment
+has been done.</p>
+<p t="1229770" d="1330">We now see where
+this thing is.</p>
+<p t="1231100" d="2710">But, so now hold on tight.</p>
+<p t="1233810" d="2150">This thing stretches.</p>
+<p t="1235960" d="2240">So we want to get it stretched
+so that we can</p>
+<p t="1238200" d="2760">see what it is properly.</p>
+<p t="1240960" d="2040">So this thing isn't heavy enough
+for this demonstration.</p>
+<p t="1243000" d="3480">I should've had a ten-ton
+brick attached there.</p>
+<p t="1246480" d="3750">But if I did that, than I would
+tax my, right, I would</p>
+<p t="1250230" d="1860">tax your abilities to.</p>
+<p t="1252090" d="2310">Right, so we're going to try
+to trace out what the</p>
+<p t="1254400" d="9410">possibilities are here.</p>
+<p t="1263810" d="3180">So this is, roughly speaking,
+where this thing - and so now</p>
+<p t="1266990" d="970">where does it settle.</p>
+<p t="1267960" d="2590">Well, it settles about here.</p>
+<p t="1270550" d="2080">So we're going to put that
+as x marks the spot.</p>
+<p t="1272630" d="3270">OK, thank you very much.</p>
+<p t="1275900" d="2330">Got to remember where
+those dots --</p>
+<p t="1278230" d="2730">OK, all right.</p>
+<p t="1280960" d="3080">Sorry, I forgot to
+mark the spots.</p>
+<p t="1284040" d="3370">OK, so here's the situation.</p>
+<p t="1287410" d="2450">We have a problem.</p>
+<p t="1289860" d="3310">And we've hung a string.</p>
+<p t="1293170" d="6460">And it went down like this and
+then it went like that.</p>
+<p t="1299630" d="4080">And we discovered where
+it settled.</p>
+<p t="1303710" d="1040">Physically.</p>
+<p t="1304750" d="3070">So we want to explain this
+mathematically, and see what's</p>
+<p t="1307820" d="1460">going on with this problem.</p>
+<p t="1309280" d="1660">So this is a real-life
+problem.</p>
+<p t="1310940" d="2300">It honestly is the problem you
+have to solve if you want to</p>
+<p t="1313240" d="760">build a bridge.</p>
+<p t="1314000" d="1570">Like, a suspension bridge.</p>
+<p t="1315570" d="2560">This, among many problems.
+It's a very serious and</p>
+<p t="1318130" d="1220">important problem.</p>
+<p t="1319350" d="3590">And this is the simplest
+one of this type.</p>
+<p t="1322940" d="2050">So we've got our shape here.</p>
+<p t="1324990" d="2780">This should be a straight
+line, maybe not quite as</p>
+<p t="1327770" d="3150">angled as that.</p>
+<p t="1330920" d="2600">The first, we've already drawn
+the diagram and we've more or</p>
+<p t="1333520" d="2490">less visualized what's
+going on here.</p>
+<p t="1336010" d="5450">But the first step after the
+diagram is to give letters.</p>
+<p t="1341460" d="3170">Is to label things
+appropriately.</p>
+<p t="1344630" d="2640">And I do not expect you
+to be able to do</p>
+<p t="1347270" d="1900">this, at this stage.</p>
+<p t="1349170" d="2220">Because it requires a
+lot of experience.</p>
+<p t="1351390" d="1650">But I'm going to
+do it for you.</p>
+<p t="1353040" d="1590">We're going to just do that.</p>
+<p t="1354630" d="2760">So the simplest thing
+to do is to use the</p>
+<p t="1357390" d="2410">coordinates of the plane.</p>
+<p t="1359800" d="3950">And if you do that, it's also
+easiest to use the origin.</p>
+<p t="1363750" d="2840">My favorite number is 0 and
+it should be yours, too.</p>
+<p t="1366590" d="4830">So we're going to make
+this point be (0, 0).</p>
+<p t="1371420" d="3130">Now, there's another fixed
+point in this problem.</p>
+<p t="1374550" d="2650">And it's this point over here.</p>
+<p t="1377200" d="1680">And we don't know what
+its coordinates are.</p>
+<p t="1378880" d="1970">So we're just going to give
+them letters, a and b.</p>
+<p t="1380850" d="1940">But those letters are
+going to be fixed</p>
+<p t="1382790" d="3320">numbers in this problem.</p>
+<p t="1386110" d="2730">And we want to solve it for
+all possible a's and b's.</p>
+<p t="1388840" d="2560">Now, the interesting thing,
+remember, is what happens when</p>
+<p t="1391400" d="1230">b Is not 0.</p>
+<p t="1392630" d="3620">If b = 0, we already have a clue
+that the point should be</p>
+<p t="1396250" d="700">the center point.</p>
+<p t="1396950" d="2490">It should be exactly that x,
+the middle point, which I'm</p>
+<p t="1399440" d="3290">going to label in a second,
+is halfway in between.</p>
+<p t="1402730" d="3200">So now the variable point that
+I'm going to use is down here.</p>
+<p t="1405930" d="4290">I'm going to call this
+point (x, y).</p>
+<p t="1410220" d="1380">So here's my setup.</p>
+<p t="1411600" d="3160">I've now given labels
+to all the things on</p>
+<p t="1414760" d="3040">the diagram so far.</p>
+<p t="1417800" d="4460">Most of the things
+on the diagram.</p>
+<p t="1422260" d="5440">So now, what else
+do I have to do?</p>
+<p t="1427700" d="7230">Well, I have to explain
+to you that this is a</p>
+<p t="1434930" d="1920">minimization problem.</p>
+<p t="1436850" d="4420">What happens, actually,
+physically is that the weight</p>
+<p t="1441270" d="1780">settles to the lowest point.</p>
+<p t="1443050" d="2770">That's the thing that has the
+lowest potential energy.</p>
+<p t="1445820" d="3550">So we're minimizing
+a function.</p>
+<p t="1449370" d="3890">And it's this curve here.</p>
+<p t="1453260" d="3740">The constraint is that we're
+restricted to this curve.</p>
+<p t="1457000" d="1660">So this is a constraint curve.</p>
+<p t="1458660" d="5930">And we want the lowest
+point of this curve.</p>
+<p t="1464590" d="4570">So now, we need a little bit
+more language in order to</p>
+<p t="1469160" d="2020">describe what it is
+that we've got.</p>
+<p t="1471180" d="5320">And the constraint curve, we
+got it in a particular way.</p>
+<p t="1476500" d="2820">Namely, we strung some string
+from here to there.</p>
+<p t="1479320" d="2660">And what happens at all these
+points is that the total</p>
+<p t="1481980" d="3940">length of the string
+is the same.</p>
+<p t="1485920" d="3380">So one way of expressing the
+constraint is that the length</p>
+<p t="1489300" d="2970">of the string is constant.</p>
+<p t="1492270" d="2420">And so in order to figure out
+what the constraint is, what</p>
+<p t="1494690" d="3430">this curve is, I have to
+describe that analytically.</p>
+<p t="1498120" d="3710">And I'm going to do that by
+drawing in some helping lines.</p>
+<p t="1501830" d="1890">Namely, some right triangles
+to figure out</p>
+<p t="1503720" d="1680">what this length is.</p>
+<p t="1505400" d="1890">And what the other length is.</p>
+<p t="1507290" d="2260">So this length is pretty
+easy if I draw a</p>
+<p t="1509550" d="1860">right triangle here.</p>
+<p t="1511410" d="3000">Because we go over x
+and we go down y.</p>
+<p t="1514410" d="4740">So this length is the square
+root of x^2 + y^2.</p>
+<p t="1519150" d="3270">That's the Pythagorean
+theorem.</p>
+<p t="1522420" d="3780">Similarly, over here, I'm going
+to get another length.</p>
+<p t="1526200" d="2160">Which is a little
+bit of a mess.</p>
+<p t="1528360" d="2310">It's the vertical.</p>
+<p t="1530670" d="4620">So I'm just going to label one
+half of it, so that you see.</p>
+<p t="1535290" d="3310">So this horizontal
+distance is x.</p>
+<p t="1538600" d="3210">And this horizontal distance
+from this top point with this</p>
+<p t="1541810" d="2190">right angle, over there.</p>
+<p t="1544000" d="3660">It starts at x and ends at a.</p>
+<p t="1547660" d="3160">The right-most point is
+a in the x coordinate.</p>
+<p t="1550820" d="5330">So the whole distance
+is a - x.</p>
+<p t="1556150" d="4550">So that's this leg of
+this right triangle.</p>
+<p t="1560700" d="5070">And, similarly, the vertical
+distance will be b - y.</p>
+<p t="1565770" d="2530">And so, the formula here, which
+is a little complicated</p>
+<p t="1568300" d="8860">for this length, is the square
+root of (a - x)^2 + (b - y)^2.</p>
+<p t="1577160" d="4270">So here are the two formulas
+that are going to allow me to</p>
+<p t="1581430" d="1030">set up my problem now.</p>
+<p t="1582460" d="1990">So, my goal is to set
+it up the way I did</p>
+<p t="1584450" d="2490">here, just with formulas.</p>
+<p t="1586940" d="13650">And not with diagrams
+and not with names.</p>
+<p t="1600590" d="2320">So here's what I'd like to do.</p>
+<p t="1602910" d="3280">I claim that what's constrained,
+if I'm along that</p>
+<p t="1606190" d="2720">curve, is that the total
+length is constant.</p>
+<p t="1608910" d="1820">So that's this statement here.</p>
+<p t="1610730" d="5100">The square root of x^2 + y^2
++ this other square root.</p>
+<p t="1615830" d="6530">These are the two lengths
+of string.</p>
+<p t="1622360" d="5850">Is equal to some number,
+L, which is constant.</p>
+<p t="1628210" d="7830">And this, as I said, is what
+I'm calling my constraint.</p>
+<p t="1636040" d="250">Yeah.</p>
+<p t="1636290" d="4190">STUDENT: [INAUDIBLE]</p>
+<p t="1640480" d="4270">PROFESSOR: So the question is,
+shouldn't it be b plus y.</p>
+<p t="1644750" d="3460">No, and the reason is that
+y is a negative number.</p>
+<p t="1648210" d="2090">It's below 0.</p>
+<p t="1650300" d="8910">So it's actually the sum, -
+y is a positive number.</p>
+<p t="1659210" d="4630">Alright, so here's
+the formula.</p>
+<p t="1663840" d="9160">And then, we want to find the
+minimum of something.</p>
+<p t="1673000" d="3250">So what is it that we're
+finding the minimum of?</p>
+<p t="1676250" d="2120">This is actually the hardest
+part of the problem,</p>
+<p t="1678370" d="660">conceptually.</p>
+<p t="1679030" d="2580">I tried to prepare it,
+but it's very hard</p>
+<p t="1681610" d="1040">to figure this out.</p>
+<p t="1682650" d="4890">We're finding the least what?</p>
+<p t="1687540" d="3200">It's y.</p>
+<p t="1690740" d="1090">We got a name for that.</p>
+<p t="1691830" d="5390">So we want to find
+the lowest y.</p>
+<p t="1697220" d="2830">Now, the reason why it seems
+a little weird is you might</p>
+<p t="1700050" d="1720">think of y as just
+being a variable.</p>
+<p t="1701770" d="3410">But really, y is a function.</p>
+<p t="1705180" d="7620">It's really y = y ( x ) is
+defined implicitly by the</p>
+<p t="1712800" d="2130">constraint equation.</p>
+<p t="1714930" d="1490">That's what that curve is.</p>
+<p t="1716420" d="5700">And notice the bottom point is
+exactly the place where the</p>
+<p t="1722120" d="4040">tangent line will
+be horizontal.</p>
+<p t="1726160" d="2020">Which is just what we want.</p>
+<p t="1728180" d="15420">So from the diagram, the bottom
+point is where y' = 0.</p>
+<p t="1743600" d="11595">So this is the critical point.</p>
+<p t="1755195" d="10525">Yeah?</p>
+<p t="1765720" d="1820">STUDENT: [INAUDIBLE]</p>
+<p t="1767540" d="900">PROFESSOR: Exactly.</p>
+<p t="1768440" d="4000">So I'm deriving for you, so the
+question is, could I have</p>
+<p t="1772440" d="3150">just tried to find y'
+= 0 to begin with.</p>
+<p t="1775590" d="1800">The answer is yes, absolutely.</p>
+<p t="1777390" d="1680">And in fact I'm leading
+in that direction.</p>
+<p t="1779070" d="3330">I'm just showing you, so I'm
+trying to make the following,</p>
+<p t="1782400" d="1530">very subtle, point.</p>
+<p t="1783930" d="5570">Which is in maximum-minimum
+problems, we always have to</p>
+<p t="1789500" d="1630">keep track of two things.</p>
+<p t="1791130" d="3980">Often the interesting point
+is the critical point.</p>
+<p t="1795110" d="1730">And that indeed turns out
+to be the case here.</p>
+<p t="1796840" d="3000">But we always have to
+check the ends.</p>
+<p t="1799840" d="2285">And so there are several ways
+of checking the ends.</p>
+<p t="1802125" d="1365">One is, we did this
+physical problem.</p>
+<p t="1803490" d="1920">We can see that it's
+coming up here.</p>
+<p t="1805410" d="1200">We can see that it's
+coming up here.</p>
+<p t="1806610" d="3870">Therefore the bottom must be
+at this critical point.</p>
+<p t="1810480" d="3660">So that's OK, so that's one
+way of checking it.</p>
+<p t="1814140" d="3430">Another way of checking it is
+the reasoning that I just</p>
+<p t="1817570" d="1760">gave. But it's really
+the same reasoning.</p>
+<p t="1819330" d="2560">I'm pointing to this thing and
+I'm showing you that the</p>
+<p t="1821890" d="1120">bottom is somewhere
+in the middle.</p>
+<p t="1823010" d="3460">So, therefore, it is a place
+of horizontal tangency.</p>
+<p t="1826470" d="2500">That's the reasoning
+that I'm using.</p>
+<p t="1828970" d="3600">So, again, this is to avoid
+having to evaluate a limit of</p>
+<p t="1832570" d="2730">an end or to use the second
+derivative test, which is a</p>
+<p t="1835300" d="7010">total catastrophe in this case.</p>
+<p t="1842310" d="3160">OK, now.</p>
+<p t="1845470" d="3310">There's one other thing that you
+might know about this if</p>
+<p t="1848780" d="2800">you've seen this geometric
+construction before.</p>
+<p t="1851580" d="2720">With a string and chalk.</p>
+<p t="1854300" d="3770">Which is that this curve
+is an eclipse.</p>
+<p t="1858070" d="1680">It turns out, this is a
+piece of an eclipse.</p>
+<p t="1859750" d="1120">It's a huge ellipse.</p>
+<p t="1860870" d="1410">These two points turn
+out to be the</p>
+<p t="1862280" d="3220">so-called foci of the ellipse.</p>
+<p t="1865500" d="4030">However, that geometric fact is
+totally useless for solving</p>
+<p t="1869530" d="1330">this problem.</p>
+<p t="1870860" d="1530">Completely useless.</p>
+<p t="1872390" d="2460">If you actually write out the
+formulas for the ellipse,</p>
+<p t="1874850" d="1890">you'll discover that you
+have a much harder</p>
+<p t="1876740" d="1350">problem on your hands.</p>
+<p t="1878090" d="4370">And it will take you twice or
+ten times as long, so, it's</p>
+<p t="1882460" d="3210">true that it's an ellipse,
+but it doesn't help.</p>
+<p t="1885670" d="3840">OK, so what we're going to do
+instead is much simpler.</p>
+<p t="1889510" d="3150">We're going to leave this
+expression along and we're</p>
+<p t="1892660" d="2820">just going to differentiate
+implicitly.</p>
+<p t="1895480" d="7290">So again, we use implicit
+differentiation on the</p>
+<p t="1902770" d="6660">constraint equation.</p>
+<p t="1909430" d="1920">So that's the equation which
+is directly above me</p>
+<p t="1911350" d="2960">there, at the top.</p>
+<p t="1914310" d="3160">And I have to differentiate
+it with respect to x.</p>
+<p t="1917470" d="1980">So that's a little ugly,
+but we've done</p>
+<p t="1919450" d="1630">this a few times before.</p>
+<p t="1921080" d="2550">When you differentiate a square
+root, the square root</p>
+<p t="1923630" d="4600">goes into the denominator.</p>
+<p t="1928230" d="3270">And there's a factor of 1/2, so
+there's a 2x which cancels.</p>
+<p t="1931500" d="1250">So I claim it's this.</p>
+<p t="1932750" d="4430">Now, because y depends on x,
+there's also a y y' here.</p>
+<p t="1937180" d="4750">So technically speaking, it's
+twice this with a half.</p>
+<p t="1941930" d="2380">2 / 2 times that.</p>
+<p t="1944310" d="1930">So that's the differentiation
+of the first</p>
+<p t="1946240" d="4550">piece of this guy.</p>
+<p t="1950790" d="2540">Now I'm going to do this second
+one, and it's also the</p>
+<p t="1953330" d="730">chain rule.</p>
+<p t="1954060" d="5090">But you're just going to have
+to let me do it for you.</p>
+<p t="1959150" d="4080">Because it's just a little bit
+too long for you to pay</p>
+<p t="1963230" d="650">attention to.</p>
+<p t="1963880" d="2700">It turns out there's a minus
+sign that comes out, because</p>
+<p t="1966580" d="3130">there's a - x and a - y there.</p>
+<p t="1969710" d="3170">And then the numerator, the
+denominator is the same</p>
+<p t="1972880" d="2220">massive square root.</p>
+<p t="1975100" d="4820">So it's (a - x)^2 ( b - y)^2.</p>
+<p t="1979920" d="5910">And the numerator is a
+- x, which is what</p>
+<p t="1985830" d="1920">replaces the x over here.</p>
+<p t="1987750" d="5910">And then another term,
+which is (b - y)y'.</p>
+<p t="1993660" d="2300">I claim that that's analogous
+to what I did</p>
+<p t="1995960" d="1180">in the first term.</p>
+<p t="1997140" d="2970">And you'll just have to check
+this on your own.</p>
+<p t="2000110" d="1520">Because I did it too
+fast for you to be</p>
+<p t="2001630" d="2100">able to check yourself.</p>
+<p t="2003730" d="1570">Now, that's going to
+be equal to what on</p>
+<p t="2005300" d="890">the right-hand side.</p>
+<p t="2006190" d="3320">What's the derivative of
+L with respect to x?</p>
+<p t="2009510" d="1030">It's 0.</p>
+<p t="2010540" d="1760">It's not changing
+in the problem.</p>
+<p t="2012300" d="5330">Although my parachute
+stuff stretches.</p>
+<p t="2017630" d="3070">We tried to stretch it to
+its fullest extent.</p>
+<p t="2020700" d="4400">So that we kept it fixed,
+that was the goal here.</p>
+<p t="2025100" d="5280">So now, this looks like
+a total mess.</p>
+<p t="2030380" d="2560">But, it's not.</p>
+<p t="2032940" d="1500">And let me show you why.</p>
+<p t="2034440" d="2670">It simplifies a great deal.</p>
+<p t="2037110" d="4030">And let me show you
+exactly how.</p>
+<p t="2041140" d="3080">So, first of all, the whole
+point is we're looking for the</p>
+<p t="2044220" d="2640">place where y' = 0.</p>
+<p t="2046860" d="7220">So that means that these
+terms go away. y' = 0.</p>
+<p t="2054080" d="2610">So they're gone.</p>
+<p t="2056690" d="4380">And now what we have is the
+following equation.</p>
+<p t="2061070" d="6520">It's x / square root of x^2 +
+y^2 squared is equal to, if I</p>
+<p t="2067590" d="3040">put it on the other side the
+minus sign is changed to a</p>
+<p t="2070630" d="6500">plus sign. a - x divided by this
+other massive object, (a</p>
+<p t="2077130" d="6170">- x)^2 + (b - y)^2.</p>
+<p t="2083300" d="2210">So this is what it's
+simplifies to.</p>
+<p t="2085510" d="5510">Now again, that also might
+look complicated to you.</p>
+<p t="2091020" d="6300">But I claim that this is
+something, this is a kind of</p>
+<p t="2097320" d="4660">equilibrium equation that can be
+interpreted geometrically,</p>
+<p t="2101980" d="3380">in a way that is very meaningful
+and important.</p>
+<p t="2105360" d="3970">So first of all, let me observe
+for you that this x is</p>
+<p t="2109330" d="1400">something on our picture.</p>
+<p t="2110730" d="2030">And the square root
+of x^2 + y^2 is</p>
+<p t="2112760" d="1400">something on our picture.</p>
+<p t="2114160" d="5070">Namely, if I go over to the
+picture, here was x and this</p>
+<p t="2119230" d="1530">was a right triangle.</p>
+<p t="2120760" d="4940">And this hypotenuse was square
+root of x^2 + y^2.</p>
+<p t="2125700" d="5980">So, if I call this angle
+alpha, then this</p>
+<p t="2131680" d="2650">is the sine of alpha.</p>
+<p t="2134330" d="370">Right?</p>
+<p t="2134700" d="2250">It's a right triangle, that's
+the opposite leg.</p>
+<p t="2136950" d="7990">So this guy is the
+sine of alpha.</p>
+<p t="2144940" d="3910">Similarly, the other side has
+an interpretation for the</p>
+<p t="2148850" d="1950">other right triangle.</p>
+<p t="2150800" d="5445">If this angle is beta, then the
+opposite side is a - x,</p>
+<p t="2156245" d="4605">and the hypotenuse is what was
+in the denominator over there.</p>
+<p t="2160850" d="9280">So this side is sine of beta.</p>
+<p t="2170130" d="4720">And so what this condition
+is telling us is</p>
+<p t="2174850" d="4380">that alpha = beta.</p>
+<p t="2179230" d="3390">Which is the hidden symmetry
+in the problem.</p>
+<p t="2182620" d="2980">I don't know if you can actually
+see it when I show</p>
+<p t="2185600" d="2890">you this thing.</p>
+<p t="2188490" d="4630">But, no matter how I tilt it,
+actually the two angles from</p>
+<p t="2193120" d="6210">the horizontal are the same.</p>
+<p t="2199330" d="1900">In the middle it's kind
+of obvious that that</p>
+<p t="2201230" d="1310">should be the case.</p>
+<p t="2202540" d="1970">But on the sides it's
+not obvious that</p>
+<p t="2204510" d="2310">that's what's happening.</p>
+<p t="2206820" d="3135">Now, this has even, so that's
+a symmetry, if you like, of</p>
+<p t="2209955" d="635">the situation.</p>
+<p t="2210590" d="2000">These two angles are equal.</p>
+<p t="2212590" d="2850">But there's something
+more to be said.</p>
+<p t="2215440" d="3430">If you do a forced diagram for
+this, what you'll discover is</p>
+<p t="2218870" d="4810">that the tension on the
+two lines is the same.</p>
+<p t="2223680" d="2300">Which means that when you
+build something which is</p>
+<p t="2225980" d="5370">hanging like this, it will
+involve the least stress.</p>
+<p t="2231350" d="2990">If you hang something very
+heavy, and one side carries</p>
+<p t="2234340" d="2360">twice as much load as the other,
+then you have twice as</p>
+<p t="2236700" d="2560">much chance of its falling
+and breaking.</p>
+<p t="2239260" d="3830">If they each hold the same
+strength, then you've</p>
+<p t="2243090" d="3230">distributed the load in a
+much more balanced way.</p>
+<p t="2246320" d="2850">So this is a kind of a balance
+condition, and it's very</p>
+<p t="2249170" d="3780">typical of minimization
+problems. And fortunately,</p>
+<p t="2252950" d="2860">there are nice solutions which
+distribute the weight</p>
+<p t="2255810" d="1210">reasonably well.</p>
+<p t="2257020" d="4270">That's certainly the principal
+of suspension bridges.</p>
+<p t="2261290" d="1530">So yeah, one more question.</p>
+<p t="2262820" d="1940">STUDENT: [INAUDIBLE]</p>
+<p t="2264760" d="4720">PROFESSOR: OK, so the question
+where it hangs, that is, what</p>
+<p t="2269480" d="3550">the formula for x is and what
+the formula for y is.</p>
+<p t="2273030" d="3210">And other things, like the
+equation for the ellipse and</p>
+<p t="2276240" d="2070">lots of other stuff like that.</p>
+<p t="2278310" d="3720">Those are things that I will
+answer for you in a set of</p>
+<p t="2282030" d="1670">notes which I will hand out.</p>
+<p t="2283700" d="2610">And they're just a mess.</p>
+<p t="2286310" d="2620">You see they're, just as in that
+other problem that we did</p>
+<p t="2288930" d="3010">last time, there's some
+illuminating things you can</p>
+<p t="2291940" d="3950">say about the problem and then
+there's some messy formulas.</p>
+<p t="2295890" d="3380">You know, you want to try to
+pick out the simple things</p>
+<p t="2299270" d="660">that you can say.</p>
+<p t="2299930" d="3490">In fact, that's a property of
+math, you want to focus on the</p>
+<p t="2303420" d="1080">more comprehensible things.</p>
+<p t="2304500" d="2270">On the other hand,
+it can be done.</p>
+<p t="2306770" d="3520">It just takes a little
+bit of computation.</p>
+<p t="2310290" d="1790">So I didn't answer the
+question of what</p>
+<p t="2312080" d="1550">the lowest y was.</p>
+<p t="2313630" d="5390">But I'll do that for you.</p>
+<p t="2319020" d="3740">Maybe I'll just mention one more
+thing about this problem.</p>
+<p t="2322760" d="1650">I'm using problems
+from a completely</p>
+<p t="2324410" d="1480">different point of view.</p>
+<p t="2325890" d="4800">If you sort of roll the ellipse
+around, you get the</p>
+<p t="2330690" d="4890">same phenomenon from
+each place here.</p>
+<p t="2335580" d="2590">So it doesn't matter
+where a and 0 are.</p>
+<p t="2338170" d="1320">You'll get the same
+phenomenon.</p>
+<p t="2339490" d="2550">That is, the tangent line.</p>
+<p t="2342040" d="3990">So, this angle and that
+angle will be equal.</p>
+<p t="2346030" d="4080">So you can also read that as
+being the angle over here and</p>
+<p t="2350110" d="1240">the angle over here are equal.</p>
+<p t="2351350" d="2950">That is, beta, that is
+the complementary</p>
+<p t="2354300" d="2990">angles are also equal.</p>
+<p t="2357290" d="4440">And if you interpret this as a
+ray of light, and this as a</p>
+<p t="2361730" d="2940">mirror, then this would be
+saying that if you start at</p>
+<p t="2364670" d="3620">one focus, every ray of light
+will bounce and go to the</p>
+<p t="2368290" d="1020">other focus.</p>
+<p t="2369310" d="3380">So that's a property that
+an ellipse has.</p>
+<p t="2372690" d="3770">More precisely, a property that
+this kind of curve has.</p>
+<p t="2376460" d="5440">And in fact, a few years ago
+there was this great piece of</p>
+<p t="2381900" d="3310">art at something called the
+DeCordova Museum, which I</p>
+<p t="2385210" d="5360">recommended very highly to you
+go sometime to visit in your</p>
+<p t="2390570" d="1890">four years here.</p>
+<p t="2392460" d="6540">There was a collection of
+miniature golf holes.</p>
+<p t="2399000" d="3650">So they had a bunch of mini
+golf pieces of art.</p>
+<p t="2402650" d="1670">And every one was completely
+different from the other.</p>
+<p t="2404320" d="3590">And one of them was called
+hole in one.</p>
+<p t="2407910" d="3200">And the tee was at one
+focus of the ellipse.</p>
+<p t="2411110" d="4280">And the hole was at the other
+focus of the ellipse.</p>
+<p t="2415390" d="3680">So, no matter how you hit
+the golf ball, it always</p>
+<p t="2419070" d="2720">goes into the hole.</p>
+<p t="2421790" d="2805">No matter where it bounces,
+it just, one bounce</p>
+<p t="2424595" d="2225">and it's in the hole.</p>
+<p t="2426820" d="3730">So that's actually a consequence
+of the computation</p>
+<p t="2430550" d="9710">that we just did.</p>
+<p t="2440260" d="1910">Time to go on.</p>
+<p t="2442170" d="23980">We're going to now talk
+about something else.</p>
+<p t="2466150" d="4840">So our next topic is
+Newton's method.</p>
+<p t="2470990" d="13030">Which is one of the greatest
+applications of calculus.</p>
+<p t="2484020" d="3590">And I'm going to describe
+it here for you.</p>
+<p t="2487610" d="9330">And we'll illustrate it on an
+example, which is solving the</p>
+<p t="2496940" d="3030">equation x^2 = 5.</p>
+<p t="2499970" d="2030">We're going to find the
+square root of 5.</p>
+<p t="2502000" d="3520">Now, you can actually solve
+any equation this way.</p>
+<p t="2505520" d="2190">Any equation that you
+understand, you can solve this</p>
+<p t="2507710" d="2220">way, essentially.</p>
+<p t="2509930" d="2190">So even though I'm doing it
+for the square root of 5,</p>
+<p t="2512120" d="2120">which is something that you
+can figure out on your</p>
+<p t="2514240" d="5450">calculator, in fact this is
+really at the heart of many of</p>
+<p t="2519690" d="2520">the ways in which calculators
+work.</p>
+<p t="2522210" d="2100">So, the first thing is to
+make this problem a</p>
+<p t="2524310" d="2110">little bit more abstract.</p>
+<p t="2526420" d="7410">We're going to set f
+( x ) = x^2 - 5.</p>
+<p t="2533830" d="6010">And then we're going
+to solve f (x) = 0.</p>
+<p t="2539840" d="3140">So this is the sort of
+standard form for</p>
+<p t="2542980" d="1140">solving such a.</p>
+<p t="2544120" d="3240">So you take some either
+complicated or simple function</p>
+<p t="2547360" d="2950">of x, linear functions are
+boring, quadratic functions</p>
+<p t="2550310" d="2240">are already interesting.</p>
+<p t="2552550" d="4170">And cubic functions, as I've
+said a few times, you don't</p>
+<p t="2556720" d="1260">even have formulas
+for solving.</p>
+<p t="2557980" d="2315">So this would be the only method
+you have for solving</p>
+<p t="2560295" d="3455">them numerically.</p>
+<p t="2563750" d="2060">So here's how it works.</p>
+<p t="2565810" d="4200">So the idea, I'll plot
+this function.</p>
+<p t="2570010" d="5800">Here's the function, it's
+a parabola, y = x^2 - 5.</p>
+<p t="2575810" d="1790">It dips below 0, sorry,
+it should be</p>
+<p t="2577600" d="3490">centered, but anyway.</p>
+<p t="2581090" d="5440">And now the idea here is
+to start with a guess.</p>
+<p t="2586530" d="4850">And square root of 5 is pretty
+close to the square root of 4,</p>
+<p t="2591380" d="980">which is 2.</p>
+<p t="2592360" d="4670">So my first guess is going
+to be 2, here.</p>
+<p t="2597030" d="13480">So start with initial guess.</p>
+<p t="2610510" d="1810">So that's our first guess.</p>
+<p t="2612320" d="4750">And now, what we're going to do
+is we're going to pretend</p>
+<p t="2617070" d="3010">that the function is linear.</p>
+<p t="2620080" d="1220">That's all we're going to do.</p>
+<p t="2621300" d="4410">And then if the function were
+linear, we're going to try to</p>
+<p t="2625710" d="1840">find where the 0 is.</p>
+<p t="2627550" d="2920">So if the function is linear,
+what we'll use is we'll plot</p>
+<p t="2630470" d="7870">the point where 2 is on, that
+is, the point (2, f ( 2 )),</p>
+<p t="2638340" d="8320">and then we're going to draw
+the tangent line here.</p>
+<p t="2646660" d="9150">And this is going to be
+our new guess. x = x,</p>
+<p t="2655810" d="6610">which I'll call x1.</p>
+<p t="2662420" d="4410">So the idea here is that this
+point may be somewhat far from</p>
+<p t="2666830" d="4420">where it crosses, but this point
+will be a little closer.</p>
+<p t="2671250" d="2580">And now we're going to do this
+over and over again.</p>
+<p t="2673830" d="4510">And see how fast it gets to the
+place we're aiming for.</p>
+<p t="2678340" d="3680">So we have to work out what
+the formulas are.</p>
+<p t="2682020" d="11680">And that's the strategy.</p>
+<p t="2693700" d="8030">So now, the first step here is,
+we have our guess, we have</p>
+<p t="2701730" d="4290">our tangent line.</p>
+<p t="2706020" d="7520">Which has the formula
+y - y0 = m(x - x0).</p>
+<p t="2713540" d="2680">So that's the general form
+for a tangent line.</p>
+<p t="2716220" d="3920">And now, I have to tell
+you what x1 is.</p>
+<p t="2720140" d="9830">In terms of this tangent line.
+x1 is the x intercept.</p>
+<p t="2729970" d="3450">The tangent line, if you look
+over here at the diagram, the</p>
+<p t="2733420" d="2800">tangent line is the
+orange line.</p>
+<p t="2736220" d="5120">Where that crosses the axis,
+that's where I want to put x1.</p>
+<p t="2741340" d="2190">So that's the x intercept.</p>
+<p t="2743530" d="3140">Now, how do you find
+the x intercept?</p>
+<p t="2746670" d="3090">You find it by setting y = 0.</p>
+<p t="2749760" d="2510">That horizontal line is y = 0.</p>
+<p t="2752270" d="7520">So I set y = 0, and I get
+0 - y0 = m (x1 - x0).</p>
+<p t="2759790" d="2510">So I changed two things
+in this equation.</p>
+<p t="2762300" d="2670">I plugged in 0 here, for y.</p>
+<p t="2764970" d="2370">And I said that the place where
+that happens is going to</p>
+<p t="2767340" d="5710">be where x is x1.</p>
+<p t="2773050" d="2480">So now let's solve.</p>
+<p t="2775530" d="4170">And what we get here is -
+y divided by - sorry,</p>
+<p t="2779700" d="6690">-y0 / m = x1 - x0.</p>
+<p t="2786390" d="4410">And now I can get a
+formula for x1.</p>
+<p t="2790800" d="15800">So x1 = x0 - (y0 / m).</p>
+<p t="2806600" d="6980">I now need to tell you what this
+formula means, in terms</p>
+<p t="2813580" d="2490">of the function f.</p>
+<p t="2816070" d="3160">So first of all, x0 is
+x0, whatever x0 is.</p>
+<p t="2819230" d="7000">And y0, I claim, is f (x0).</p>
+<p t="2826230" d="4850">And m is the slope at
+that same place.</p>
+<p t="2831080" d="6150">So it's f' (x0).</p>
+<p t="2837230" d="2420">And this is the whole story.</p>
+<p t="2839650" d="5790">This is the formula which will
+enable us to calculate</p>
+<p t="2845440" d="9080">basically any root.</p>
+<p t="2854520" d="2330">I'm going to repeat this
+formula, so I'm going to tell</p>
+<p t="2856850" d="3770">you again what Newton's method
+is, and put a little more</p>
+<p t="2860620" d="2460">colorful box around it.</p>
+<p t="2863080" d="10130">So Newton's method involves
+the following formula.</p>
+<p t="2873210" d="5620">In order to get the n + 1st
+point, that's our better and</p>
+<p t="2878830" d="4240">better guess, I'm going to take
+the nth one and then I'm</p>
+<p t="2883070" d="1260">going to plug in this formula.</p>
+<p t="2884330" d="5540">So f ( xn ) / f' ( xn ).</p>
+<p t="2889870" d="4140">So this is the basic formula,
+and if you like, this is the</p>
+<p t="2894010" d="4810">idea of just repeating
+what I had before.</p>
+<p t="2898820" d="3410">Now, we've gone from geometry,
+from just pictures, to an</p>
+<p t="2902230" d="1940">honest to goodness formula
+which is completely</p>
+<p t="2904170" d="5280">implementable and very easy
+to implement in any case.</p>
+<p t="2909450" d="4090">So let's see how it works in
+the case that we've got.</p>
+<p t="2913540" d="7620">Which is x0 = 2.
+f(x) = x^2 - 5.</p>
+<p t="2921160" d="3690">Let's see how to implement
+this formula.</p>
+<p t="2924850" d="5070">So first of all, I have to
+calculate for you, f' (x).</p>
+<p t="2929920" d="5280">That's 2x.</p>
+<p t="2935200" d="10530">And so, x1 = x0 -, so
+f' , sorry, f ( x )</p>
+<p t="2945730" d="2960">would be x0^2 - 5.</p>
+<p t="2948690" d="1860">That's what's in
+the numerator.</p>
+<p t="2950550" d="1210">And in the denominator
+I have the</p>
+<p t="2951760" d="7060">derivative, so that's 2 x0.</p>
+<p t="2958820" d="5100">And so all told, well, let's
+work it out in two steps here.</p>
+<p t="2963920" d="6880">This is - 1/2 x0 for the first
+term, and then + (5/2 / x0)</p>
+<p t="2970800" d="950">for the second term.</p>
+<p t="2971750" d="8700">And these two terms combine, so
+we have here 1/2 x0 + 5/2</p>
+<p t="2980450" d="2560">with an x0 in the denominator.</p>
+<p t="2983010" d="10300">So here's the formula for
+x1. in this case.</p>
+<p t="2993310" d="10310">Now I'd like to show you
+how well this works.</p>
+<p t="3003620" d="7530">So first of all, we have x1 =
+1/2 ( 2), if I plug in x1, +</p>
+<p t="3011150" d="5480">5/4, which is 9/4.</p>
+<p t="3016630" d="11920">And x2, I have 1/2 (
+9/4) + 5/2 ( 4/9).</p>
+<p t="3028550" d="1810">That's the next one.</p>
+<p t="3030360" d="7250">And if you work this
+out, it's 161/72.</p>
+<p t="3037610" d="3730">And then x3 is kind of long.</p>
+<p t="3041340" d="2170">But I will just write down what
+it is, so that you can</p>
+<p t="3043510" d="6070">see it's 1/2 ( 161/72) +
+5/2 and then I do the</p>
+<p t="3049580" d="1020">reciprocal of that.</p>
+<p t="3050600" d="6020">So 72/161.</p>
+<p t="3056620" d="4150">So let's see how
+good these are.</p>
+<p t="3060770" d="5080">I carefully calculated
+how far off they are.</p>
+<p t="3065850" d="1660">Somewhere on my notes.</p>
+<p t="3067510" d="4150">So I'll just take a look
+and see what I said.</p>
+<p t="3071660" d="2270">Oh yeah, I did do it.</p>
+<p t="3073930" d="6940">So, what's the square root of 5
+minus - so here's n, here's</p>
+<p t="3080870" d="3550">the square root of 5
+- xn, if you like.</p>
+<p t="3084420" d="2380">Or the other way around.</p>
+<p t="3086800" d="2100">The size of this.</p>
+<p t="3088900" d="3400">You'll have to decide on your
+homework whether it comes out</p>
+<p t="3092300" d="1900">positive or negative,
+to the right or to</p>
+<p t="3094200" d="1460">the left of the answer.</p>
+<p t="3095660" d="1800">But let's do this.</p>
+<p t="3097460" d="3610">So when n = 0, the
+guess was 2.</p>
+<p t="3101070" d="4260">And we're off by about
+2 ( 10 ^ - 1).</p>
+<p t="3105330" d="4760">And if n = 1, so that's this
+9/4, that's off by</p>
+<p t="3110090" d="3030">about 10 ^ - 2.</p>
+<p t="3113120" d="5120">And then n = 2, that's this
+number here, right?</p>
+<p t="3118240" d="5300">And that's off by about
+4 ( 10 ^ - 5).</p>
+<p t="3123540" d="2730">That's already as good an
+approximation to the square</p>
+<p t="3126270" d="4180">root of 5 as you'll ever
+need in your life.</p>
+<p t="3130450" d="7740">If you do 3, this number here
+turns out to be accurate to 10</p>
+<p t="3138190" d="1950">^ - 10 or so.</p>
+<p t="3140140" d="2050">This goes right off
+to the edge of my</p>
+<p t="3142190" d="1700">calculator, this one here.</p>
+<p t="3143890" d="5380">So already, with the third
+iterate. you're of way past</p>
+<p t="3149270" d="2070">the accuracy that you need
+for most things.</p>
+<p t="3151340" d="730">Yep, question.</p>
+<p t="3152070" d="130">STUDENT: [INAUDIBLE]</p>
+<p t="3152200" d="6460">PROFESSOR: How come
+the x0 disappears?</p>
+<p t="3158660" d="1160">STUDENT: [INAUDIBLE]</p>
+<p t="3159820" d="16190">PROFESSOR: So, from here
+to here [INAUDIBLE]</p>
+<p t="3176010" d="370">STUDENT: [INAUDIBLE]</p>
+<p t="3176380" d="1900">PROFESSOR: Hang on, folks,
+we have a question.</p>
+<p t="3178280" d="1110">Let's just answer it.</p>
+<p t="3179390" d="3830">So here we have an x0, and here
+we have - 1/2, there's an</p>
+<p t="3183220" d="4830">x0^2 and an x which cancel.</p>
+<p t="3188050" d="3430">And here we have a minus,
+and a - 5/2 x0.</p>
+<p t="3191480" d="4670">So I combine the 1 - 1/2,
+I got + 1/2, that's all.</p>
+<p t="3196150" d="1530">OK?</p>
+<p t="3197680" d="1210">Alright, thanks.</p>
+<p t="3198890" d="3020">We'll have to ask other
+questions after class.</p>
+</body>
+</timedtext>

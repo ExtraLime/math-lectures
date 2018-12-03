@@ -1,0 +1,2877 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="120" d="2340">The following content is
+provided under a Creative</p>
+<p t="2460" d="1420">Commons license.</p>
+<p t="3880" d="2210">Your support will help
+MIT OpenCourseWare</p>
+<p t="6090" d="4090">continue to offer high quality
+educational resources for free.</p>
+<p t="10180" d="2540">To make a donation or to
+view additional materials</p>
+<p t="12720" d="3960">from hundreds of MIT courses,
+visit MIT OpenCourseWare</p>
+<p t="16680" d="1200">at ocw.mit.edu.</p>
+<p t="20270" d="2500">PROFESSOR: So we've been talking
+about this chi square test.</p>
+<p t="22770" d="3630">And the name chi square
+comes from the fact</p>
+<p t="26400" d="2310">that we build a
+test statistic that</p>
+<p t="28710" d="2400">has asymptotic
+distribution given</p>
+<p t="31110" d="4970">by the chi square distribution.</p>
+<p t="36080" d="1380">Let's just give it another shot.</p>
+<p t="44970" d="2470">OK.</p>
+<p t="47440" d="770">This test.</p>
+<p t="48210" d="2560">Who has actually ever
+encountered the chi square test</p>
+<p t="50770" d="3380">outside of a stats classroom?</p>
+<p t="54150" d="780">All right.</p>
+<p t="54930" d="1010">So some people have.</p>
+<p t="55940" d="3220">It's a fairly common test
+that you might encounter.</p>
+<p t="59160" d="2490">And it was essentially
+to test, if given</p>
+<p t="61650" d="5250">some data with a fixed
+probability mass function, so</p>
+<p t="66900" d="1680">a discrete
+distribution, you wanted</p>
+<p t="68580" d="4410">to test if the PMF was
+equal to a set value, p0,</p>
+<p t="72990" d="2010">or if it was different from p0.</p>
+<p t="75000" d="3480">And the way the chi
+square arose here</p>
+<p t="78480" d="3680">was by looking at Wald's test.</p>
+<p t="82160" d="2860">And essentially if you write--
+so Wald's is the one that</p>
+<p t="85020" d="2100">has the chi square as the
+limiting distribution,</p>
+<p t="87120" d="4780">and if you invert the
+covariance matrix,</p>
+<p t="91900" d="2000">the asymptotic covariance
+matrix, so you compute</p>
+<p t="93900" d="2208">the Fisher information,
+which in this particular case</p>
+<p t="96108" d="3252">does not exist for the
+multinomial distribution,</p>
+<p t="99360" d="1820">but we found the trick
+on how to do this.</p>
+<p t="101180" d="3290">We remove the part that
+forbid it to be invertible,</p>
+<p t="104470" d="1839">then we found this chi
+square distribution.</p>
+<p t="106309" d="1541">In a way we have
+this test statistic,</p>
+<p t="107850" d="2700">which you might have learned
+as a black box, laundry list,</p>
+<p t="110550" d="2730">but going through the math
+which might have been slightly</p>
+<p t="113280" d="2730">unpleasant, I acknowledge,
+but really told you</p>
+<p t="116010" d="3120">why you should do this
+particular normalization.</p>
+<p t="119130" d="5340">So since some of you requested
+a little more practical examples</p>
+<p t="124470" d="2730">of how those things work,
+let me show you a couple.</p>
+<p t="127200" d="5010">The first one is you want to
+answer the question, well,</p>
+<p t="132210" d="4230">you know, when should I
+be born to be successful.</p>
+<p t="136440" d="3780">Some people believe in zodiac,
+and so Fortune magazine</p>
+<p t="140220" d="4650">actually collected the signs of
+256 heads of the Fortune 500.</p>
+<p t="144870" d="1537">Those were taken randomly.</p>
+<p t="146407" d="1583">And they were collected
+there, and you</p>
+<p t="147990" d="3270">can see the count of
+number of CEOs that</p>
+<p t="151260" d="1800">have a particular zodiac sign.</p>
+<p t="153060" d="2520">And if this was completely
+uniformly distributed,</p>
+<p t="155580" d="1830">you should actually
+get a number that's</p>
+<p t="157410" d="5130">around 256 divided by 12,
+which in this case is 21.33.</p>
+<p t="162540" d="3330">And you can see that
+there is numbers</p>
+<p t="165870" d="4020">that are probably in the
+vicinity, but look at this guy.</p>
+<p t="169890" d="1470">Pisces, that's 29.</p>
+<p t="171360" d="1660">So who's Pisces here?</p>
+<p t="173020" d="2580">All right.</p>
+<p t="175600" d="1910">All right, so give
+me your information</p>
+<p t="177510" d="2430">and we'll meet
+again in 10 years.</p>
+<p t="179940" d="2844">And so basically you
+might want to test</p>
+<p t="182784" d="2166">if actually the fact that
+it's uniformly distributed</p>
+<p t="184950" d="1330">is a valid assumption.</p>
+<p t="186280" d="2960">Now this is clearly
+a random variable.</p>
+<p t="189240" d="3990">I pick a random
+CEO and I measure</p>
+<p t="193230" d="3340">what his zodiac sign is.</p>
+<p t="196570" d="2960">And I want to know, so it's a
+probability over, I don't know,</p>
+<p t="199530" d="1320">12 zodiac signs.</p>
+<p t="200850" d="2480">And I want to know if
+it's uniform or not.</p>
+<p t="203330" d="1900">Uniform sounds like it
+should be the status</p>
+<p t="205230" d="2160">quo, if you're reasonable.</p>
+<p t="207390" d="4140">And maybe there's actually
+something that moves away.</p>
+<p t="211530" d="3420">So we could do this, in view
+of these data is there evidence</p>
+<p t="214950" d="1770">that one is different.</p>
+<p t="216720" d="2010">Here is another example
+where you might want</p>
+<p t="218730" d="1830">to apply the chi square test.</p>
+<p t="220560" d="3659">So as I said, the
+benchmark distribution</p>
+<p t="224219" d="2041">was the uniform distribution
+for the zodiac sign,</p>
+<p t="226260" d="1583">and that's usually
+the one I give you.</p>
+<p t="227843" d="2047">1 over k, 1 over k,
+because well that's</p>
+<p t="229890" d="4040">sort of the zero, the central
+point for all distributions.</p>
+<p t="233930" d="3424">That's the point, the center
+of what we call the simplex.</p>
+<p t="237354" d="1416">But you can have
+another benchmark</p>
+<p t="238770" d="1200">that sort of makes sense.</p>
+<p t="239970" d="4800">So for example this is an actual
+dataset where 275 jurors were</p>
+<p t="244770" d="4590">identified, racial
+group were collected,</p>
+<p t="249360" d="1530">and you actually
+might want to know</p>
+<p t="250890" d="2100">if you know juries
+in this country</p>
+<p t="252990" d="4630">are actually representative
+of the actual population.</p>
+<p t="257620" d="1880">And so here of
+course, the population</p>
+<p t="259500" d="3769">is not uniformly distributed
+according to racial group.</p>
+<p t="263269" d="1541">And the way you
+actually do it is you</p>
+<p t="264810" d="1640">actually go on
+Wikipedia, for example,</p>
+<p t="266450" d="2250">and you look at the demographics
+of the United States,</p>
+<p t="268700" d="4870">and you find that the proportion
+of white is 72%, black is 7%,</p>
+<p t="273570" d="8040">Hispanic is 12, and
+other is about 9%.</p>
+<p t="281610" d="1470">So that's a total of 1.</p>
+<p t="283080" d="3590">And this is what we actually
+measured for some jurors.</p>
+<p t="286670" d="1450">So for this guy,
+you can actually</p>
+<p t="288120" d="1350">run the chi square test.</p>
+<p t="289470" d="2160">You have the estimated
+proportion, which</p>
+<p t="291630" d="1440">comes from this first line.</p>
+<p t="293070" d="1934">You have the tested
+proportion, p0,</p>
+<p t="295004" d="1666">that comes from the
+second line, and you</p>
+<p t="296670" d="1833">might want to check if
+those things actually</p>
+<p t="298503" d="1467">correspond to each other.</p>
+<p t="299970" d="1680">OK, so I'm not going
+to do it for you,</p>
+<p t="301650" d="1590">but I sort of
+invite you to do it</p>
+<p t="303240" d="2160">and test, and see
+how this compares</p>
+<p t="305400" d="2074">to the quantiles of
+the appropriate chi</p>
+<p t="307474" d="2666">square distribution and see what
+you can conclude from those two</p>
+<p t="310140" d="2180">things.</p>
+<p t="312320" d="500">All right.</p>
+<p t="312820" d="2360">So this was the
+multinomial case.</p>
+<p t="315180" d="1930">So this is essentially
+what we did.</p>
+<p t="317110" d="2020">We computed the MLE under
+the right constraint,</p>
+<p t="319130" d="1850">and that was our test
+statistic that converges</p>
+<p t="320980" d="1150">to the chi square distribution.</p>
+<p t="322130" d="1458">So if you've seen
+it before, that's</p>
+<p t="323588" d="1202">all that was given to you.</p>
+<p t="324790" d="3030">Now we know why the
+normalization here</p>
+<p t="327820" d="5490">is p0 j and not p0 j squared or
+square root of p0 j, or even 1.</p>
+<p t="333310" d="1764">I mean it's not clear
+that this should</p>
+<p t="335074" d="1416">be the right
+normalization, but we</p>
+<p t="336490" d="2460">know that's what
+comes from taking</p>
+<p t="338950" d="2460">the right normalization,
+which comes from the Fisher</p>
+<p t="341410" d="820">information.</p>
+<p t="342230" d="1191">All right?</p>
+<p t="343421" d="499">OK.</p>
+<p t="347500" d="2790">The thing I wanted to move
+onto, so we've basically covered</p>
+<p t="350290" d="840">chi square test.</p>
+<p t="351130" d="2850">Are there any questions
+about chi square test?</p>
+<p t="353980" d="2160">And for those of you who
+were not here on Thursday,</p>
+<p t="356140" d="1522">I'm really just--</p>
+<p t="357662" d="1868">do not pretend I just did it.</p>
+<p t="359530" d="2200">That's something we
+did last Thursday.</p>
+<p t="361730" d="1594">But are there any
+questions that arose</p>
+<p t="363324" d="1666">when you were reading
+your notes, things</p>
+<p t="364990" d="1240">that you didn't understand?</p>
+<p t="366230" d="722">Yes.</p>
+<p t="366952" d="2460">AUDIENCE: Is there
+like a formal name?</p>
+<p t="369412" d="3444">Before we had talked about
+how what we call the Fisher</p>
+<p t="372856" d="4920">information [INAUDIBLE],,
+still has the same [INAUDIBLE]</p>
+<p t="377776" d="4058">because it's the same number.</p>
+<p t="381834" d="1416">PROFESSOR: So it's
+not the Fisher.</p>
+<p t="383250" d="2740">The Fisher information does
+not exist in this case.</p>
+<p t="385990" d="2002">And so there's no
+appropriate name for this.</p>
+<p t="387992" d="2458">It's the pseudoinverse of the
+asymptotic covariance matrix,</p>
+<p t="390450" d="2012">and that's what it is.</p>
+<p t="392462" d="1708">I don't know if I
+mentioned it last time,</p>
+<p t="394170" d="2060">but there's this entire
+field that uses--</p>
+<p t="396230" d="3190">you know, for people who really
+aspire to differential geometry</p>
+<p t="399420" d="1675">but are stuck in the
+stats department,</p>
+<p t="401095" d="2375">and there's this thing called
+information geometry, which</p>
+<p t="403470" d="3750">is essentially studying
+the manifolds associated</p>
+<p t="407220" d="3240">to the Fisher information
+metric, the metric that's</p>
+<p t="410460" d="1950">associated to
+Fisher information.</p>
+<p t="412410" d="3400">And so those of course can be
+lower dimensional manifolds,</p>
+<p t="415810" d="2192">not only distorts the
+geometry but forces everything</p>
+<p t="418002" d="1458">to live on a lower
+dimension, which</p>
+<p t="419460" d="2950">is what happens when your Fisher
+information does not exist.</p>
+<p t="422410" d="1940">And so there's a bunch
+of things that you</p>
+<p t="424350" d="2550">can study, what this manifold
+looks like, et cetera.</p>
+<p t="426900" d="2500">But no, there's no
+particular terminology here</p>
+<p t="429400" d="3479">about going here.</p>
+<p t="432879" d="1791">To be fair, within the
+scope of this class,</p>
+<p t="434670" d="3650">this is the only
+case where you--</p>
+<p t="438320" d="1650">multinomial case
+is the only case</p>
+<p t="439970" d="6199">where you typically see a lack
+of a Fisher information matrix.</p>
+<p t="446169" d="2291">And that's just because we
+have these extra constraints</p>
+<p t="448460" d="1740">that the sum of the
+parameters should be 1.</p>
+<p t="450200" d="1666">And if you have an
+extra constraint that</p>
+<p t="451866" d="2504">seems like it's actually
+remove one degree of freedom,</p>
+<p t="454370" d="2100">this will happen inevitably.</p>
+<p t="456470" d="3570">And so maybe what you
+can do is reparameterize.</p>
+<p t="460040" d="4200">So if I actually reparameterize
+everything function of p1</p>
+<p t="464240" d="2700">to p k minus 1, and
+then 1 minus the sum,</p>
+<p t="466940" d="1560">this would not have happened.</p>
+<p t="468500" d="2700">Because I have only a
+k-dimensional space.</p>
+<p t="471200" d="1970">So there's tricks
+around this to make it</p>
+<p t="473170" d="2890">exist if you want it to exist.</p>
+<p t="476060" d="2680">Any other question?</p>
+<p t="478740" d="500">All right.</p>
+<p t="479240" d="2940">So let's move on to
+Student's t-test.</p>
+<p t="482180" d="1470">We mentioned it last time.</p>
+<p t="483650" d="2740">So essentially you've
+probably done it</p>
+<p t="486390" d="3380">more even in the homework than
+you've done it in lectures,</p>
+<p t="489770" d="3100">but just quickly this
+is essentially the test.</p>
+<p t="492870" d="2635">That's the test when we have
+an actual data that comes</p>
+<p t="495505" d="1125">from a normal distribution.</p>
+<p t="496630" d="2120">There is no Central Limit
+Theorem that exists.</p>
+<p t="498750" d="2330">This is really to
+account for the fact</p>
+<p t="501080" d="3060">that for smaller
+sample sizes, it</p>
+<p t="504140" d="3780">might be the case that it's
+not exactly true that when</p>
+<p t="507920" d="5940">I look at xn bar minus mu
+divided by-- so if I look</p>
+<p t="513860" d="3150">at xn bar minus mu divided by
+sigma times square root of n,</p>
+<p t="517010" d="4169">then this thing should have N
+0, 1 distribution approximately.</p>
+<p t="521179" d="1101">Right?</p>
+<p t="522280" d="3490">By the Central Limit Theorem.</p>
+<p t="525770" d="1350">So that's for n large.</p>
+<p t="527120" d="6660">But if n is small,
+then it's still true</p>
+<p t="533780" d="7130">when the data is N
+mu, sigma squared,</p>
+<p t="540910" d="2030">then it's true that
+square root of n--</p>
+<p t="549310" d="2730">so here it's approximately.</p>
+<p t="552040" d="2680">And this is always true.</p>
+<p t="554720" d="2210">But I don't know sigma
+in practice, right?</p>
+<p t="556930" d="3620">Maybe mu, it comes from my,
+maybe mu comes from my mu</p>
+<p t="560550" d="3280">0, maybe something
+from the test statistic</p>
+<p t="563830" d="1460">where mu actually is here.</p>
+<p t="565290" d="2200">But for this guy I'm
+going to have inevitably</p>
+<p t="567490" d="1630">to find an estimator.</p>
+<p t="569120" d="3680">And now in this case, for small
+n, this is no longer true.</p>
+<p t="572800" d="1575">And what the t
+statistic is doing</p>
+<p t="574375" d="2500">is essentially telling you what
+the distribution of this guy</p>
+<p t="576875" d="905">is.</p>
+<p t="577780" d="3270">So what you should say
+is that now this guy</p>
+<p t="581050" d="3390">has a t distribution with n
+minus 1 degrees of freedom.</p>
+<p t="584440" d="2856">That's basically the
+laundry list stats</p>
+<p t="587296" d="874">that you would learn.</p>
+<p t="588170" d="2690">It says just look at a different
+table, that's what it is.</p>
+<p t="590860" d="4320">But we actually defined
+what a t distribution was.</p>
+<p t="595180" d="3330">And a t distribution
+is basically</p>
+<p t="598510" d="4980">something that has the same
+distribution as some N 0, 1,</p>
+<p t="603490" d="2550">divided by the square
+root of a chi square</p>
+<p t="606040" d="2070">with d degrees of
+freedom divided by d.</p>
+<p t="608110" d="4640">And that's a t distribution
+with d degrees of freedom.</p>
+<p t="612750" d="2035">And those two have
+to be independent.</p>
+<p t="620960" d="3320">And so what I need to check
+is that this guy over there</p>
+<p t="624280" d="750">is of this form.</p>
+<p t="637160" d="1960">OK?</p>
+<p t="639120" d="2710">So let's look at the numerator.</p>
+<p t="641830" d="4156">Well, square root of
+n, xn bar minus mu.</p>
+<p t="645986" d="1624">What is the distribution
+of this thing?</p>
+<p t="647610" d="2952">Is it an N 0, 1?</p>
+<p t="650562" d="2007">AUDIENCE: N 0, sigma squared?</p>
+<p t="652569" d="1541">PROFESSOR: N 0,
+sigma squared, right.</p>
+<p t="658817" d="1333">So I'm not going to put it here.</p>
+<p t="660150" d="1564">So if I want this
+guy to be N 0, 1,</p>
+<p t="661714" d="2416">I need to divide by sigma,
+that's what we have over there.</p>
+<p t="666980" d="2840">So that's my N 0, 1 that's going
+to play the role of this guy</p>
+<p t="669820" d="1480">here.</p>
+<p t="671300" d="2670">So if I want to go
+a little further,</p>
+<p t="673970" d="7120">I need to just say, OK, now I
+need to have square root of n,</p>
+<p t="681090" d="2580">and I need to find
+something here</p>
+<p t="683670" d="3630">that looks like my square
+root of chi square divided</p>
+<p t="687300" d="819">by-- yeah?</p>
+<p t="688119" d="1333">AUDIENCE: Really quick question.</p>
+<p t="689452" d="3248">The equals sign with the d on
+top, that's just defined as?</p>
+<p t="692700" d="2740">PROFESSOR: No, that's
+just the distribution.</p>
+<p t="695440" d="1767">So, I don't know.</p>
+<p t="697207" d="1083">AUDIENCE: Then never mind.</p>
+<p t="698290" d="3510">PROFESSOR: Let's just write
+it like that, if you want.</p>
+<p t="701800" d="2606">I mean, that's not really
+appropriate to have.</p>
+<p t="704406" d="1624">Usually you write
+only one distribution</p>
+<p t="706030" d="2280">on the right-hand inside
+of this little thing.</p>
+<p t="708310" d="2850">So not just this complicated
+function of distributions.</p>
+<p t="711160" d="1950">This is more like to explain.</p>
+<p t="713110" d="1800">OK, and so usually
+the thing you should</p>
+<p t="714910" d="4080">say that t is equal to this
+X divided by square root of Z</p>
+<p t="718990" d="2670">divided by d where X
+has normal distribution,</p>
+<p t="721660" d="4550">Z has chi square distribution
+with d degrees of freedom.</p>
+<p t="726210" d="1020">So what do we need here?</p>
+<p t="727230" d="2801">Well I need to have something
+which looks like my sigma hat,</p>
+<p t="730031" d="499">right?</p>
+<p t="730530" d="3210">So somehow inevitably I'm going
+to need to have sigma hat.</p>
+<p t="736430" d="2436">Now of course I need to
+divide this by my sigma</p>
+<p t="738866" d="1124">so that my sigma goes away.</p>
+<p t="742710" d="2485">And so now this thing here--</p>
+<p t="745195" d="2685">sorry, I should move
+on to the right, OK.</p>
+<p t="747880" d="5390">And so this thing here, so
+sigma hat is square root of Sn.</p>
+<p t="753270" d="2030">And now I'm almost there.</p>
+<p t="755300" d="2790">So this thing is actually
+equal to square root of n.</p>
+<p t="767760" d="4160">But this thing here
+is actually not a--</p>
+<p t="775100" d="2790">so this thing here
+follows a distribution</p>
+<p t="777890" d="2640">which is actually a
+chi square, square root</p>
+<p t="780530" d="10980">of a chi square
+distribution divided by n.</p>
+<p t="795460" d="2880">Yeah, that's the square
+root chi square distribution</p>
+<p t="798340" d="2400">with n minus 1 degrees
+of freedom divided</p>
+<p t="800740" d="4620">by n, because sigma hat
+is equal to 1 over n sum</p>
+<p t="805360" d="4930">from i equal 1 to n,
+xi minus x bar squared.</p>
+<p t="810290" d="2460">And we just said
+that this part here</p>
+<p t="812750" d="1250">was a chi square distribution.</p>
+<p t="814000" d="2770">We didn't just say it, we said
+it a few lectures years back,</p>
+<p t="816770" d="2458">that this thing was a chi square
+distribution, and the fact</p>
+<p t="819228" d="2932">that the presence
+of this x bar here</p>
+<p t="822160" d="3840">was actually removing one
+degree of freedom from this sum.</p>
+<p t="826000" d="2220">OK, so this guy here has
+the same distribution</p>
+<p t="828220" d="4640">as a chi square n
+minus 1 divided by n.</p>
+<p t="832860" d="3240">So I need to actually still
+arrange this thing a little bit</p>
+<p t="836100" d="2070">to have a t distribution.</p>
+<p t="838170" d="3680">I should not see n here,
+but I should n minus 1.</p>
+<p t="841850" d="4546">The d is the same
+as this d here.</p>
+<p t="846396" d="1374">And so let me make
+the correction</p>
+<p t="847770" d="2110">so that this actually happens.</p>
+<p t="849880" d="4820">Well, if I actually write
+this to be equal to--</p>
+<p t="854700" d="5250">so if I write square root of
+n minus 1, as on the slide,</p>
+<p t="859950" d="5250">times xn bar minus
+mu divided by--</p>
+<p t="865200" d="1950">well let me write it
+as square root of Sn,</p>
+<p t="867150" d="2400">which is my sigma hat.</p>
+<p t="869550" d="4352">Then what this thing
+is actually equal to,</p>
+<p t="873902" d="5128">it follows a N 0, 1,
+divided by the square root</p>
+<p t="879030" d="1530">of my chi square
+distribution with n</p>
+<p t="880560" d="1590">minus 1 degrees of freedom.</p>
+<p t="882150" d="1780">And here the fact
+that I multiply</p>
+<p t="883930" d="1509">by square root of
+n minus 1, and I</p>
+<p t="885439" d="2291">have the square root of n
+here, is essentially the same</p>
+<p t="887730" d="3710">as dividing here by n minus 1.</p>
+<p t="891440" d="3160">And that's my tn distribution.</p>
+<p t="894600" d="3590">My t distribution with n
+minus 1 degrees of freedom.</p>
+<p t="898190" d="2010">Just by definition of
+what this thing is.</p>
+<p t="900200" d="500">OK?</p>
+<p t="922020" d="611">All right.</p>
+<p t="922631" d="499">Yes?</p>
+<p t="923130" d="3257">AUDIENCE: Where'd you
+get the square root from?</p>
+<p t="926387" d="833">PROFESSOR: This guy?</p>
+<p t="927220" d="1291">Oh sorry, that's sigma squared.</p>
+<p t="928511" d="1699">Thank you.</p>
+<p t="930210" d="2360">That's the estimator of the
+variance, not the estimator</p>
+<p t="932570" d="870">of the standard deviation.</p>
+<p t="933440" d="2499">And when I want to divide it I
+divide by standard deviation.</p>
+<p t="935939" d="2541">Thank you.</p>
+<p t="938480" d="1714">Any other question or remark?</p>
+<p t="940194" d="2000">AUDIENCE: Shouldn't you
+divide by sigma squared?</p>
+<p t="942194" d="3423">The actual.</p>
+<p t="945617" d="1793">The estimator for
+the variance is</p>
+<p t="947410" d="5070">equal to sigma squared
+times chi square, right?</p>
+<p t="952480" d="3495">PROFESSOR: The estimator
+for the variance.</p>
+<p t="955975" d="875">Oh yes, you're right.</p>
+<p t="956850" d="2475">So there's a sigma squared here.</p>
+<p t="959325" d="1125">Is that what you're asking?</p>
+<p t="960450" d="300">AUDIENCE: Yeah.</p>
+<p t="960750" d="1124">PROFESSOR: Yes, absolutely.</p>
+<p t="961874" d="1886">And that's where,
+it get cancels here.</p>
+<p t="963760" d="1100">It gets canceled here.</p>
+<p t="970048" d="500">OK?</p>
+<p t="973185" d="2125">So this is really a sigma
+squared times chi square.</p>
+<p t="980040" d="1080">OK.</p>
+<p t="981120" d="1620">So the fact that
+it's sigma squared</p>
+<p t="982740" d="1500">is just because I
+can pull out sigma</p>
+<p t="984240" d="1790">squared and just think
+those guys N 0, 1.</p>
+<p t="992591" d="499">All right.</p>
+<p t="993090" d="1870">So that's my t distribution.</p>
+<p t="994960" d="2990">Now that I actually have a
+pivotal distribution, what I do</p>
+<p t="997950" d="2280">is that I form the statistic.</p>
+<p t="1000230" d="2250">Here I called it Tn tilde.</p>
+<p t="1012180" d="1080">OK.</p>
+<p t="1013260" d="1090">And what is this thing?</p>
+<p t="1014350" d="1900">I know that this has a
+pivotal distribution.</p>
+<p t="1016250" d="2900">So for example, I know
+that the probability</p>
+<p t="1019150" d="6510">that Tn tilde in absolute value
+exceeds some number that I'm</p>
+<p t="1025660" d="5760">going to call q alpha over
+2 for the t n minus 1,</p>
+<p t="1031420" d="1980">is equal to alpha.</p>
+<p t="1033400" d="3480">So that's basically,
+remember the t distribution</p>
+<p t="1036880" d="2820">has the same shape as the
+Gaussian distribution.</p>
+<p t="1039700" d="2220">What I'm finding is,
+for this t distribution,</p>
+<p t="1041920" d="4159">some number q alpha
+over 2 of t n minus 1</p>
+<p t="1046079" d="3291">and minus q alpha
+over 2 of t minus 1.</p>
+<p t="1049370" d="2240">So those are different
+from the Gaussian one.</p>
+<p t="1051610" d="1680">Such that the area
+under the curve</p>
+<p t="1053290" d="3240">here is alpha over
+2 on each side</p>
+<p t="1056530" d="3240">so that the probability that
+my absolute value exceeds</p>
+<p t="1059770" d="4020">this number is equal to alpha.</p>
+<p t="1063790" d="2250">And that's what I'm going
+to use to reject the test.</p>
+<p t="1066040" d="13230">So now my test becomes, for H0,
+say mu is equal to some mu 0,</p>
+<p t="1079270" d="5745">versus H1, mu is
+not equal to mu 0.</p>
+<p t="1088240" d="4850">The rejection region is going
+to be equal to the set on which</p>
+<p t="1093090" d="6430">square root of n minus 1 times
+xn bar minus mu 0 this time,</p>
+<p t="1099520" d="6180">divided by square root of Sn
+exceeds, in absolute value,</p>
+<p t="1105700" d="2880">exceeds q-- sorry
+that's already here--</p>
+<p t="1108580" d="5550">exceeds q alpha over
+2 of t n minus 1.</p>
+<p t="1114130" d="2070">So I reject when
+this thing increases.</p>
+<p t="1116200" d="2850">The same as the Gaussian case,
+except that rather than reading</p>
+<p t="1119050" d="2360">my quantiles from
+the Gaussian table</p>
+<p t="1121410" d="3140">I read them from
+the Student table.</p>
+<p t="1124550" d="1050">It's just the same thing.</p>
+<p t="1125600" d="3140">So they're just going to
+be a little bit farther.</p>
+<p t="1128740" d="3900">So this guy here is just
+going to be a little bigger</p>
+<p t="1132640" d="1860">than the one for
+the Gaussian one,</p>
+<p t="1134500" d="2670">because it's going to require
+me a little more evidence</p>
+<p t="1137170" d="1890">in my data to be able
+to reject because I</p>
+<p t="1139060" d="2351">have to account for the
+fluctuations of sigma hat.</p>
+<p t="1149270" d="3530">So of course Student's
+test is used everywhere.</p>
+<p t="1152800" d="3000">People use only t tests, right?</p>
+<p t="1155800" d="3390">If you look at any
+data point, any output,</p>
+<p t="1159190" d="2314">even if you had
+500 observations,</p>
+<p t="1161504" d="1916">if you look at the
+statistical software output</p>
+<p t="1163420" d="1800">it's going to say t test.</p>
+<p t="1165220" d="1410">And the reason
+why you see t test</p>
+<p t="1166630" d="2790">is because somehow it's felt
+like it's not asymptotic.</p>
+<p t="1169420" d="2430">You don't need to
+actually do, you</p>
+<p t="1171850" d="1830">know, to be
+particularly careful.</p>
+<p t="1173680" d="2025">And anyway, if n
+is equal to 500,</p>
+<p t="1175705" d="2025">since the two curves
+are above each other</p>
+<p t="1177730" d="1289">it's basically the same thing.</p>
+<p t="1179019" d="1541">So it doesn't really
+change anything.</p>
+<p t="1180560" d="2760">So why not use the t test?</p>
+<p t="1183320" d="1140">So it's not asymptotic.</p>
+<p t="1184460" d="2580">It doesn't require Central
+Limit Theorem to kick in.</p>
+<p t="1187040" d="3900">And so in particular it be run
+if you have 15 observations.</p>
+<p t="1190940" d="1830">Of course, the drawback
+of the Student test</p>
+<p t="1192770" d="1458">is that it relies
+on the assumption</p>
+<p t="1194228" d="2351">that the sample is Gaussian,
+and that's something</p>
+<p t="1196579" d="1291">we really need to keep in mind.</p>
+<p t="1197870" d="3840">If you have a small sample size,
+there is no magic going on.</p>
+<p t="1201710" d="2610">It's not like Student t
+test allows you to get rid</p>
+<p t="1204320" d="2400">of this asymptotic normality.</p>
+<p t="1206720" d="1800">It sort of assumes
+that it's built in.</p>
+<p t="1208520" d="5630">It assumes that your data
+has a Gaussian distribution.</p>
+<p t="1214150" d="4430">So if you have 15 observations,
+what are you going to do?</p>
+<p t="1218580" d="3030">You want to test if the mean is
+equal to 0 or not equal to 0,</p>
+<p t="1221610" d="2900">but you have only
+15 observations.</p>
+<p t="1224510" d="3390">You have to somehow assume
+that your data is Gaussian.</p>
+<p t="1227900" d="2370">But if the data is given
+to you, this is not math,</p>
+<p t="1230270" d="2244">you actually have to
+check that it's Gaussian.</p>
+<p t="1232514" d="1416">And so we're going
+to have to find</p>
+<p t="1233930" d="4910">a test that, given some data,
+tells us whether it's Gaussian</p>
+<p t="1238840" d="990">or not.</p>
+<p t="1239830" d="2490">If I have 15
+observations, 8 of them</p>
+<p t="1242320" d="3769">are equal to plus 1 and 7 of
+them are equal to minus 1,</p>
+<p t="1246089" d="1541">then it's pretty
+unlikely that you're</p>
+<p t="1247630" d="2416">going to be able to conclude
+that your data has a Gaussian</p>
+<p t="1250046" d="954">distribution.</p>
+<p t="1251000" d="3320">However, if you see some sort
+of spread around some value,</p>
+<p t="1254320" d="1800">you form a histogram
+maybe and it sort of</p>
+<p t="1256120" d="1590">looks like it's a
+Gaussian, you might</p>
+<p t="1257710" d="1410">want to say it's Gaussian.</p>
+<p t="1259120" d="2800">And so how do we make
+this more quantitative?</p>
+<p t="1261920" d="3470">Well, the sad answer
+to this question</p>
+<p t="1265390" d="2640">is that there will be some
+tests that make it quantitative,</p>
+<p t="1268030" d="3560">but here, if you think about it
+for one second, what is going</p>
+<p t="1271590" d="1440">to be your null hypothesis?</p>
+<p t="1273030" d="2900">Your null hypothesis,
+since it's one point,</p>
+<p t="1275930" d="1950">it's going to be
+that it's Gaussian,</p>
+<p t="1277880" d="1410">and then the
+alternative is going</p>
+<p t="1279290" d="2230">to be that it's not Gaussian.</p>
+<p t="1281520" d="2340">So what it means is
+that, for the first time</p>
+<p t="1283860" d="2280">in your statistician
+life, you're</p>
+<p t="1286140" d="4002">going to want to conclude
+that H0 is the true one.</p>
+<p t="1290142" d="1458">You're definitely
+not going to want</p>
+<p t="1291600" d="2416">to say that it's not Gaussian,
+because then everything you</p>
+<p t="1294016" d="2564">know is sort of falling apart.</p>
+<p t="1296580" d="2960">And so it's kind of
+a weird thing where</p>
+<p t="1299540" d="1890">you're sort of going
+to be seeking tests</p>
+<p t="1301430" d="1710">that have no power basically.</p>
+<p t="1303140" d="3100">You're going to want to test
+that, and that's the nature.</p>
+<p t="1306240" d="2900">The amount of
+alternatives, the number</p>
+<p t="1309140" d="3570">of ways you can be not
+Gaussian, is so huge</p>
+<p t="1312710" d="3859">that all tests are sort of
+bound to have very low power.</p>
+<p t="1316569" d="2291">And so that's why people are
+pretty happy with the idea</p>
+<p t="1318860" d="1560">that things are
+Gaussian, because it's</p>
+<p t="1320420" d="1541">very hard to find
+a test that's going</p>
+<p t="1321961" d="2829">to reject this hypothesis.</p>
+<p t="1324790" d="3689">And so we're even going to find
+some tests that are visual,</p>
+<p t="1328479" d="1541">where you're going
+to be able to say,</p>
+<p t="1330020" d="2780">well, sort of looks
+Gaussian to me.</p>
+<p t="1332800" d="3960">It allows you to deal
+with the borderline cases</p>
+<p t="1336760" d="820">pretty efficiently.</p>
+<p t="1337580" d="2350">We'll see actually a
+particular example.</p>
+<p t="1339930" d="2350">All right, so this
+theory of testing</p>
+<p t="1342280" d="2190">whether data comes from
+a particular distribution</p>
+<p t="1344470" d="2460">is called goodness of fit.</p>
+<p t="1346930" d="4550">Is this distribution a
+good fit for my data?</p>
+<p t="1351480" d="2140">That's the goodness of fit test.</p>
+<p t="1353620" d="2490">We have just seen a
+goodness of fit test.</p>
+<p t="1356110" d="580">What was it?</p>
+<p t="1361950" d="2193">Yeah.</p>
+<p t="1364143" d="1947">The chi square test, right?</p>
+<p t="1366090" d="3570">The case square test, we
+were given a candidate PMF</p>
+<p t="1369660" d="2730">and we were testing if this
+was a good fit for our data.</p>
+<p t="1372390" d="2100">That was a goodness of fit test.</p>
+<p t="1374490" d="2700">So of course multinomial
+is one example,</p>
+<p t="1377190" d="2310">but really what we have
+in the back of our mind is</p>
+<p t="1379500" d="1710">I want to test if
+my data is Gaussian.</p>
+<p t="1381210" d="2200">That's basically
+the usual thing.</p>
+<p t="1383410" d="2600">And just like you always see
+t test as the standard output</p>
+<p t="1386010" d="3210">from statistical software
+whether you ask for it or not,</p>
+<p t="1389220" d="2310">there will be a
+test for normality</p>
+<p t="1391530" d="4970">whether you ask it or not from
+any statistical software app.</p>
+<p t="1396500" d="520">All right.</p>
+<p t="1397020" d="2560">So a goodness of fit
+test looks as follows.</p>
+<p t="1399580" d="1760">There's a random
+variable X and you're</p>
+<p t="1401340" d="2569">given i.i.d. copies
+of X, X1 to Xn,</p>
+<p t="1403909" d="1541">they come from the
+same distribution.</p>
+<p t="1405450" d="3300">And you're going to ask the
+following question: does X have</p>
+<p t="1408750" d="2760">a standard normal distribution?</p>
+<p t="1411510" d="2010">So for t distribution
+that's definitely</p>
+<p t="1413520" d="2200">the kind of questions
+you may want to ask.</p>
+<p t="1415720" d="4100">Does X have a uniform
+distribution on 0, 1?</p>
+<p t="1419820" d="1740">That's different from
+the distribution 1</p>
+<p t="1421560" d="2550">over k, 1 over k, it's
+the continuous notion</p>
+<p t="1424110" d="3320">of uniformity.</p>
+<p t="1427430" d="2520">And for example, you
+might want to test that--</p>
+<p t="1429950" d="1750">so there's actually a
+nice exercise, which</p>
+<p t="1431700" d="1880">is if you look at the p-values.</p>
+<p t="1433580" d="2320">So we've defined what
+the p-values were.</p>
+<p t="1435900" d="3810">And the p-value's a number
+between 0 and 1, right?</p>
+<p t="1439710" d="1560">And you could
+actually ask yourself,</p>
+<p t="1441270" d="3390">what is the distribution of
+the p-value under the null?</p>
+<p t="1444660" d="3340">So the p-value is
+a random number.</p>
+<p t="1448000" d="2180">It's the probability-- so
+the p-value-- let's look</p>
+<p t="1450180" d="3540">at the following test.</p>
+<p t="1457995" d="7195">H0, mu is equal to 0, versus
+H1, mu is not equal to 0.</p>
+<p t="1465190" d="3567">And I know that the p-value is--</p>
+<p t="1468757" d="1083">so I'm going to form what?</p>
+<p t="1469840" d="4992">I'm going to look
+at Xn bar minus mu</p>
+<p t="1474832" d="2208">times square root of n
+divided by-- let's say that we</p>
+<p t="1477040" d="3000">know sigma for one second.</p>
+<p t="1480040" d="3000">Then the p-value
+is the probability</p>
+<p t="1483040" d="5550">that this is larger then
+square root of n little xn</p>
+<p t="1488590" d="6185">bar minus mu, minus 0
+actually in this case,</p>
+<p t="1494775" d="4825">divided by sigma, where
+this guy is the observed.</p>
+<p t="1504360" d="1150">OK.</p>
+<p t="1505510" d="4380">So now you could say, well,
+how is that a random variable?</p>
+<p t="1509890" d="1370">It's just a number.</p>
+<p t="1511260" d="2120">It's just a probability
+of something.</p>
+<p t="1513380" d="3710">But then I can view this
+as a function of this guy</p>
+<p t="1517090" d="6100">here when I plug it back
+to be a random variable.</p>
+<p t="1523190" d="2850">So what I mean by this is
+that if I look at this value</p>
+<p t="1526040" d="8480">here, if I say that phi
+is the CDF of N 0, 1,</p>
+<p t="1534520" d="1740">so the p-value is
+the probability</p>
+<p t="1536260" d="1470">that it exceeds this.</p>
+<p t="1537730" d="4000">So that's the probability
+that I'm either here or here.</p>
+<p t="1544258" d="3717">AUDIENCE: [INAUDIBLE]</p>
+<p t="1547975" d="1291">PROFESSOR: No, it's not, right?</p>
+<p t="1549266" d="3264">AUDIENCE: [INAUDIBLE]</p>
+<p t="1552530" d="2760">PROFESSOR: This is a big
+X and this is a small x.</p>
+<p t="1555290" d="2395">This is just where
+you plug in your data.</p>
+<p t="1557685" d="1625">The p-value is the
+probability that you</p>
+<p t="1559310" d="3870">have more evidence
+against your null</p>
+<p t="1563180" d="2210">than what you already have.</p>
+<p t="1565390" d="1430">OK, so now I can
+write it in terms</p>
+<p t="1566820" d="2370">of cumulative
+distribution functions.</p>
+<p t="1569190" d="750">So this is what?</p>
+<p t="1569940" d="4540">This is phi of this guy, which
+is minus this thing here.</p>
+<p t="1577500" d="1770">Well it's basically
+2 times this guy,</p>
+<p t="1579270" d="8680">phi of minus square root of
+n, Xn bar divided by sigma.</p>
+<p t="1590740" d="912">That's my p-value.</p>
+<p t="1591652" d="2208">If you give me data, I'm
+going to compute the average</p>
+<p t="1593860" d="2575">and plug it in there, and
+it can spit out the p-value.</p>
+<p t="1596435" d="905">Everybody agrees?</p>
+<p t="1599890" d="3050">So now I can view this, if I
+start now looking back I say,</p>
+<p t="1602940" d="2770">well, where does
+this data come from?</p>
+<p t="1605710" d="2810">Well, it could be
+a random variable.</p>
+<p t="1608520" d="2820">It came from the
+realization of this thing.</p>
+<p t="1611340" d="3324">So I can try to, I can
+think of this value,</p>
+<p t="1614664" d="2416">where now this is a random
+variable because I just plugged</p>
+<p t="1617080" d="2760">in a random variable in here.</p>
+<p t="1619840" d="4400">So now I view my p-value
+as a random variable.</p>
+<p t="1624240" d="2720">So I keep switching from
+small x to large X. Everybody</p>
+<p t="1626960" d="1780">agrees what I'm doing here?</p>
+<p t="1628740" d="2750">So I just wrote it as a
+deterministic function</p>
+<p t="1631490" d="2645">of some deterministic
+number, and now the function</p>
+<p t="1634135" d="3385">stays deterministic but
+the number becomes random.</p>
+<p t="1637520" d="4182">And so I can think of this
+as some statistic of my data.</p>
+<p t="1641702" d="1958">And I could say, well,
+what is the distribution</p>
+<p t="1643660" d="2900">of this random variable?</p>
+<p t="1646560" d="2920">Now if my data is actually
+normally distributed,</p>
+<p t="1649480" d="2330">so I'm actually
+under the null, so</p>
+<p t="1651810" d="5760">under the null, that means that
+Xn bar times square root of n</p>
+<p t="1657570" d="3377">divided by sigma has
+what distribution?</p>
+<p t="1668335" d="500">Normal?</p>
+<p t="1676540" d="2720">Well it was sigma,
+I assume I knew it.</p>
+<p t="1679260" d="1260">So it's N 0, 1, right?</p>
+<p t="1680520" d="1560">I divided by sigma here.</p>
+<p t="1682080" d="930">OK?</p>
+<p t="1683010" d="1490">So now I have this
+random variable.</p>
+<p t="1695880" d="8132">And so my random variable is now
+2 phi of minus absolute value</p>
+<p t="1704012" d="583">of a Gaussian.</p>
+<p t="1714430" d="5870">And I'm actually interested in
+the distribution of this thing.</p>
+<p t="1720300" d="1320">I could ask that.</p>
+<p t="1721620" d="1530">Anybody has an idea
+of how you would</p>
+<p t="1723150" d="1867">want to tackle this thing?</p>
+<p t="1725017" d="1583">If I ask you, what
+is the distribution</p>
+<p t="1726600" d="2330">of a random variable, how
+do you tackle this question?</p>
+<p t="1733120" d="1240">There's basically two ways.</p>
+<p t="1734360" d="1520">One is to try to
+find something that</p>
+<p t="1735880" d="6210">looks like the expectation
+of h of x for all h.</p>
+<p t="1742090" d="2700">And you try to write this
+using change of variables</p>
+<p t="1744790" d="4470">and something that looks like
+integral of h of x p of x dx.</p>
+<p t="1749260" d="3280">And then you say, well,
+that's the density.</p>
+<p t="1752540" d="2750">If you can read this
+for any h, then that's</p>
+<p t="1755290" d="1680">the way you would do it.</p>
+<p t="1756970" d="2190">But there's a simpler
+way that does not</p>
+<p t="1759160" d="2645">involve changing
+variables, et cetera,</p>
+<p t="1761805" d="2125">you just try to compute
+the cumulative distribution</p>
+<p t="1763930" d="1320">function.</p>
+<p t="1765250" d="1650">So let's try to
+compute the probability</p>
+<p t="1766900" d="7950">that 2 phi minus N
+0, 1, is less than t.</p>
+<p t="1774850" d="3280">And maybe we can find
+something we know.</p>
+<p t="1778130" d="500">OK.</p>
+<p t="1778630" d="1083">Well that's equal to what?</p>
+<p t="1779713" d="3327">That's the probability
+that a minus N 0,</p>
+<p t="1783040" d="2928">well let's say that an N 0, 1--</p>
+<p t="1785968" d="11622">sorry, N 0, 1 absolute value is
+greater than minus phi inverse</p>
+<p t="1797590" d="1010">of t over 2.</p>
+<p t="1804170" d="1307">And that's what?</p>
+<p t="1805477" d="2083">Well, it's just the same
+thing that we had before.</p>
+<p t="1807560" d="5430">It's equal to-- so
+if I look again,</p>
+<p t="1812990" d="2850">this is the probability that
+I'm actually on this side</p>
+<p t="1815840" d="1710">or that side of this number.</p>
+<p t="1817550" d="1100">And this number is what?</p>
+<p t="1818650" d="7190">It's minus phi of t over 2.</p>
+<p t="1825840" d="1240">Why do I have a minus here?</p>
+<p t="1832230" d="1650">That's fine, OK.</p>
+<p t="1833880" d="2340">So it's actually not this,
+it's actually the probability</p>
+<p t="1836220" d="3610">that my absolute value--</p>
+<p t="1839830" d="1510">oh, because phi inverse.</p>
+<p t="1841340" d="990">OK.</p>
+<p t="1842330" d="2130">Because phi inverse is--</p>
+<p t="1844460" d="3820">so I'm going to
+look at t between 0</p>
+<p t="1848280" d="4160">and-- so this number is
+ranging between 0 and 1.</p>
+<p t="1852440" d="2730">So it means that this number
+is ranging between 0--</p>
+<p t="1855170" d="3060">well, the probability that
+something is less than t</p>
+<p t="1858230" d="4800">should be ranging between the
+numbers that this guy takes,</p>
+<p t="1863030" d="1470">so that's between 0 and 2.</p>
+<p t="1871410" d="3340">Because this thing takes
+values between 0 and 2.</p>
+<p t="1874750" d="2074">I want to see 0 and 1, though.</p>
+<p t="1881048" d="2485">AUDIENCE: Negative absolute
+value is always less</p>
+<p t="1883533" d="1243">than [INAUDIBLE].</p>
+<p t="1889314" d="666">PROFESSOR: Yeah.</p>
+<p t="1889980" d="999">You're right, thank you.</p>
+<p t="1890979" d="3111">So this is always some
+number which is less than 0,</p>
+<p t="1894090" d="2400">so the probability that
+the Gaussian is less</p>
+<p t="1896490" d="2220">than this number is always
+less than the probability</p>
+<p t="1898710" d="2040">it's less than 0,
+which is 1/2, so t only</p>
+<p t="1900750" d="1140">has to be between 0 and 1.</p>
+<p t="1901890" d="2050">Thank you.</p>
+<p t="1903940" d="3440">And so now for t
+between 0 and 1, then</p>
+<p t="1907380" d="3300">this guy is actually becoming
+something which is positive,</p>
+<p t="1910680" d="1594">for the same reason as before.</p>
+<p t="1912274" d="791">And so that's what?</p>
+<p t="1913065" d="11645">That's just basically 2 times
+phi of phi inverse of t over 2.</p>
+<p t="1927625" d="2125">That's just playing with
+the symmetry a little bit.</p>
+<p t="1929750" d="1945">You can look at the
+areas under the curve.</p>
+<p t="1931695" d="2125">And so what it means is
+that those two guys cancel.</p>
+<p t="1933820" d="1500">This is the identity.</p>
+<p t="1935320" d="3420">And so this is equal to t.</p>
+<p t="1938740" d="4500">So which distribution
+has a density--</p>
+<p t="1943240" d="4170">sorry, which distribution
+has a cumulative distribution</p>
+<p t="1947410" d="4630">function which is equal to
+t for t between 0 and 1?</p>
+<p t="1952040" d="2100">That's the uniform
+distribution, right?</p>
+<p t="1954140" d="3660">So it means that this guy
+follows a uniform distribution</p>
+<p t="1957800" d="1330">on the interval 0, 1.</p>
+<p t="1964264" d="1416">And you could
+actually check that.</p>
+<p t="1965680" d="1560">For any test you're
+going to come up with,</p>
+<p t="1967240" d="1208">this is going to be the case.</p>
+<p t="1968448" d="3892">Your p-value under the null
+will have a distribution</p>
+<p t="1972340" d="1990">which is uniform.</p>
+<p t="1974330" d="3740">So now if somebody shows up
+and says, here's my test,</p>
+<p t="1978070" d="2482">it's awesome, it
+just works great.</p>
+<p t="1980552" d="1958">I'm not going to explain
+to you how I built it,</p>
+<p t="1982510" d="1416">it's a complicated
+statistics that</p>
+<p t="1983926" d="2814">involve moments of order 27.</p>
+<p t="1986740" d="1770">And I'm like, OK,
+you know, how am I</p>
+<p t="1988510" d="3180">going to test that your test
+statistic actually makes sense?</p>
+<p t="1991690" d="4400">Well one thing I can do
+is to run a bunch of data,</p>
+<p t="1996090" d="2350">draw a bunch of samples,
+compute your test statistic,</p>
+<p t="1998440" d="4170">compute the p-value, and
+check if my p-value has</p>
+<p t="2002610" d="4440">a uniform distribution
+on the interval 0, 1.</p>
+<p t="2007050" d="2290">But for that I need
+to have a test that,</p>
+<p t="2009340" d="1770">given a bunch of
+observations, can tell me</p>
+<p t="2011110" d="1950">whether they're actually
+distributed uniformly</p>
+<p t="2013060" d="1350">on the interval 0, 1.</p>
+<p t="2014410" d="2340">And again one thing I could
+do is build a histogram</p>
+<p t="2016750" d="3282">and see if it looks
+like that of a uniform,</p>
+<p t="2020032" d="2208">but I could also try to be
+slightly more quantitative</p>
+<p t="2022240" d="992">about this.</p>
+<p t="2023232" d="1722">AUDIENCE: Why does
+the [INAUDIBLE] have</p>
+<p t="2024954" d="2085">to be for a [INAUDIBLE]?</p>
+<p t="2027039" d="1041">PROFESSOR: For two tests?</p>
+<p t="2028080" d="3381">AUDIENCE: For each test.</p>
+<p t="2031461" d="2909">Why does the p-value
+have to be normal?</p>
+<p t="2034370" d="726">I mean, uniform.</p>
+<p t="2035096" d="2524">PROFESSOR: It's
+uniform under the null.</p>
+<p t="2037620" d="2979">So because my test statistic
+was built under the null,</p>
+<p t="2040599" d="2541">and so I have to be able to plug
+in the right value in there,</p>
+<p t="2043140" d="1666">otherwise it's going
+to shift everything</p>
+<p t="2044806" d="1272">for this particular test.</p>
+<p t="2046078" d="2125">AUDIENCE: At the beginning
+while your probabilities</p>
+<p t="2048203" d="1707">were of big Xn, that thing.</p>
+<p t="2049910" d="1938">That thing is the p-value.</p>
+<p t="2051848" d="1541">PROFESSOR: That's
+the p-value, right?</p>
+<p t="2053389" d="1649">That's the definition
+of the p-value.</p>
+<p t="2055038" d="541">AUDIENCE: OK.</p>
+<p t="2057604" d="1416">PROFESSOR: So it's
+the probability</p>
+<p t="2059020" d="4815">that my test statistic exceeds
+what I've actually observed.</p>
+<p t="2063835" d="2435">AUDIENCE: So how you run
+the test is basically</p>
+<p t="2066270" d="3409">you have your
+observations and plug them</p>
+<p t="2069679" d="3896">into the cumulative distribution
+function for a normal,</p>
+<p t="2073575" d="2279">and then see if it
+falls under the given--</p>
+<p t="2075854" d="666">PROFESSOR: Yeah.</p>
+<p t="2076520" d="3330">So my p-value is
+just this number</p>
+<p t="2079850" d="2579">when I just plug in the
+values that I observe here.</p>
+<p t="2082429" d="750">That's one number.</p>
+<p t="2083179" d="1861">For every dataset
+you're going to give me,</p>
+<p t="2085040" d="1780">it's going to be one number.</p>
+<p t="2086820" d="5000">Now what I can do is generate
+a bunch of datasets of size n,</p>
+<p t="2091820" d="1616">like 200 of them.</p>
+<p t="2093436" d="1624">And then I'm going
+to have a new sample</p>
+<p t="2095060" d="3940">of say 200, which is just
+the sample of 200 p-values.</p>
+<p t="2099000" d="1770">And I want to test if
+those p-values have</p>
+<p t="2100770" d="1590">a uniform distribution.</p>
+<p t="2102360" d="570">OK?</p>
+<p t="2102930" d="2758">Because that's the distribution
+they should be having.</p>
+<p t="2105688" d="988">All right?</p>
+<p t="2111130" d="1044">OK.</p>
+<p t="2112174" d="1166">This one we've already seen.</p>
+<p t="2113340" d="5070">Does x have a PMF with
+30%, 50%, and 20%?</p>
+<p t="2118410" d="2660">That's something I
+could try to test.</p>
+<p t="2121070" d="6190">That looks like your grade point
+distribution for this class.</p>
+<p t="2127260" d="2970">Well not exactly, but
+that looks like it.</p>
+<p t="2130230" d="2809">So all these things are known
+as goodness of fit tests.</p>
+<p t="2133039" d="1541">The goodness of fit
+test is something</p>
+<p t="2134580" d="3600">that you want to know if the
+data that you have at hand</p>
+<p t="2138180" d="3210">follows the hypothesized
+distribution.</p>
+<p t="2141390" d="1620">So it's not a parametric test.</p>
+<p t="2143010" d="3780">It's not a test that says, is
+my mean equal to 25 or not.</p>
+<p t="2146790" d="4410">Is my proportion of heads
+larger than 1/2 or not?</p>
+<p t="2151200" d="2294">It's something that
+says, my distribution</p>
+<p t="2153494" d="916">this particular thing.</p>
+<p t="2157290" d="3400">So I'm going to write them as
+goodness of fit, G-O-F here.</p>
+<p t="2160690" d="2250">You don't need to have
+parametric modeling to do that.</p>
+<p t="2165560" d="1200">So how do I work?</p>
+<p t="2166760" d="2790">So if I don't have any
+parametric modeling,</p>
+<p t="2169550" d="2880">I need to have something which
+is somewhat non-parametric,</p>
+<p t="2172430" d="2430">something that goes
+beyond computing the mean</p>
+<p t="2174860" d="1770">and the standard
+deviation, something</p>
+<p t="2176630" d="3270">that computes some intrinsic
+non-parametric aspect</p>
+<p t="2179900" d="1470">of my data.</p>
+<p t="2181370" d="3030">And just like here we made
+this computation, what we did</p>
+<p t="2184400" d="4090">is we said well,
+if I actually check</p>
+<p t="2188490" d="5850">that the CDF of my data,
+that my p-value is uniform,</p>
+<p t="2194340" d="1160">then I know it's uniform.</p>
+<p t="2195500" d="2340">So it means that the cumulative
+distribution function</p>
+<p t="2197840" d="2010">has an intrinsic value
+about it that captures</p>
+<p t="2199850" d="1890">the entire distribution.</p>
+<p t="2201740" d="2460">Everything I need to know
+about my distribution</p>
+<p t="2204200" d="3120">is captured by the cumulative
+distribution function.</p>
+<p t="2207320" d="2490">Now I have an empirical
+way of computing,</p>
+<p t="2209810" d="2370">I have a data-driven
+way of computing</p>
+<p t="2212180" d="2670">an estimate for the cumulative
+distribution function, which</p>
+<p t="2214850" d="2190">is using the old
+statistical trick which</p>
+<p t="2217040" d="3150">consists of replacing
+expectations by averages.</p>
+<p t="2220190" d="4230">So as I said, the cumulative
+distribution function</p>
+<p t="2224420" d="4020">for any distribution, for
+any random variable, is--</p>
+<p t="2232510" d="5100">so F of t is the
+probability that X</p>
+<p t="2237610" d="1990">is less than or
+equal to t, which</p>
+<p t="2239600" d="3030">is equal to the expectation
+of the indicator</p>
+<p t="2242630" d="3480">that X is less
+than or equal to t.</p>
+<p t="2246110" d="2200">That's the definition
+of a probability.</p>
+<p t="2248310" d="3350">And so here I'm just going
+to replace expectation</p>
+<p t="2251660" d="2730">by the average.</p>
+<p t="2254390" d="3090">That's my usual
+statistical trick.</p>
+<p t="2257480" d="5500">And so my estimator Fn for--</p>
+<p t="2262980" d="2960">the distribution is going
+to be 1 over n sum from i</p>
+<p t="2265940" d="2483">equal 1 to n of
+these indicators.</p>
+<p t="2273420" d="5360">And this is called
+the empirical CDF.</p>
+<p t="2278780" d="2270">It's just the data
+version of the CDF.</p>
+<p t="2284800" d="3623">So I just replaced this
+expectation here by an average.</p>
+<p t="2293630" d="3640">Now when I sum
+indicators, I'm actually</p>
+<p t="2297270" d="3300">counting the number of them
+that satisfy something.</p>
+<p t="2300570" d="3500">So if you look at
+what this guy is,</p>
+<p t="2304070" d="8750">this is the number of X i's
+that is less than t, right?</p>
+<p t="2312820" d="2535">And so if I divide by n, it's
+the proportion of observations</p>
+<p t="2315355" d="1485">I have that are less than t.</p>
+<p t="2321821" d="1749">That's what the empirical
+distribution is.</p>
+<p t="2326920" d="3360">That's what's written here,
+the number of data points</p>
+<p t="2330280" d="1800">that are less than t.</p>
+<p t="2332080" d="1590">And so this is going
+to be something</p>
+<p t="2333670" d="3841">that's sort of trying to
+estimate one or the other.</p>
+<p t="2337511" d="1499">And the law of large
+number actually</p>
+<p t="2339010" d="4230">tells me that for any given t,
+if n is large enough, Fn of t</p>
+<p t="2343240" d="2360">should be close to F of t.</p>
+<p t="2345600" d="1410">Because it's an average.</p>
+<p t="2347010" d="3600">And this entire thing, this
+entire statistical trick,</p>
+<p t="2350610" d="3210">which consists of replacing
+expectations by averages,</p>
+<p t="2353820" d="2790">is justified by the
+law of large number.</p>
+<p t="2356610" d="3000">Every time we used it, that was
+because the law of large number</p>
+<p t="2359610" d="1950">sort of guaranteed to
+us that the average was</p>
+<p t="2361560" d="1497">close to the expectation.</p>
+<p t="2366720" d="530">OK.</p>
+<p t="2367250" d="3510">So law of large numbers tell
+me that Fn of t converges,</p>
+<p t="2370760" d="3250">so that's the strong law, says
+that almost surely actually</p>
+<p t="2374010" d="1380">Fn of t goes to F of t.</p>
+<p t="2380470" d="2790">And that's just for any given t.</p>
+<p t="2383260" d="3390">Is there any
+question about this?</p>
+<p t="2386650" d="1679">That averages converge
+to expectation,</p>
+<p t="2388329" d="1291">that's the law of large number.</p>
+<p t="2392690" d="2014">And almost surely we
+could say in probability</p>
+<p t="2394704" d="2416">it's the same, that would be
+the weak law of large number.</p>
+<p t="2400460" d="1500">Now this is fine.</p>
+<p t="2401960" d="3510">For any given t, the average
+converges to the true.</p>
+<p t="2405470" d="3540">It just happens that this
+random variable is indexed by t,</p>
+<p t="2409010" d="3450">and I could do it for
+t equals 1 or 2 or 25,</p>
+<p t="2412460" d="1820">and just check it again.</p>
+<p t="2414280" d="3865">But I might want to check
+it for all t's at once.</p>
+<p t="2418145" d="1625">And that's actually
+a different result.</p>
+<p t="2419770" d="2190">That's called a
+uniform result. I</p>
+<p t="2421960" d="3240">want this to hold for
+all t at the same time.</p>
+<p t="2425200" d="3520">And it may be the case that it
+works for each t individually</p>
+<p t="2428720" d="2480">but not for all t's
+at the same time.</p>
+<p t="2431200" d="2130">What could happen is
+that for t equals 1</p>
+<p t="2433330" d="2996">it converges at a certain
+rate, and for t equals 2</p>
+<p t="2436326" d="1624">it converges at a
+bit of a slower rate,</p>
+<p t="2437950" d="3060">and for t equals 3 at a
+slower rate and slower rate.</p>
+<p t="2441010" d="2760">And so as t goes to infinity,
+the rate is going to vanish</p>
+<p t="2443770" d="1590">and nothing is
+going to converge.</p>
+<p t="2445360" d="930">That could happen.</p>
+<p t="2446290" d="2310">I could make this happen
+at a finite point.</p>
+<p t="2448600" d="2250">There's many ways where
+it could make this happen.</p>
+<p t="2450850" d="1930">Let's see how that could work.</p>
+<p t="2452780" d="2000">I could say, well, actually no.</p>
+<p t="2454780" d="4335">I still need to have this
+at infinity for some reason.</p>
+<p t="2459115" d="2571">It turns out that this
+is still true uniformly,</p>
+<p t="2461686" d="2124">and this is actually a much
+more complicated result</p>
+<p t="2463810" d="1530">than the law of large number.</p>
+<p t="2465340" d="2400">It's called
+Glivenko-Cantelli Theorem.</p>
+<p t="2467740" d="1530">And the
+Glivenko-Cantelli Theorem</p>
+<p t="2469270" d="5690">tells me that, for all t's
+at once, Fn converges to F.</p>
+<p t="2474960" d="3270">So let me just show
+you quickly why</p>
+<p t="2478230" d="3810">this is just a little
+bit stronger than the one</p>
+<p t="2482040" d="3860">that we had.</p>
+<p t="2485900" d="3220">If sup is confusing
+you, think of max.</p>
+<p t="2489120" d="2760">It's just the max
+over an infinite set.</p>
+<p t="2491880" d="8620">And so what we know is
+that Fn of t goes to F of t</p>
+<p t="2500500" d="2770">as n goes to infinity.</p>
+<p t="2503270" d="2290">And that's almost surely.</p>
+<p t="2505560" d="2800">And that's the law
+of large numbers.</p>
+<p t="2508360" d="6560">Which is equivalent to saying
+that Fn of t minus F of t as n</p>
+<p t="2514920" d="4780">goes to infinity converges
+almost surely to 0, right?</p>
+<p t="2519700" d="2123">This is the same thing.</p>
+<p t="2521823" d="5394">Now I want this to happen
+for all t's at once.</p>
+<p t="2527217" d="2083">So what I'm going to do--
+oh, and this is actually</p>
+<p t="2529300" d="1874">equivalent to this.</p>
+<p t="2531174" d="1666">And so what I'm going
+to do is I'm going</p>
+<p t="2532840" d="1750">to make it a little stronger.</p>
+<p t="2534590" d="2400">So here the arrow
+only goes one way.</p>
+<p t="2536990" d="3670">And this is where the sup
+for t in R of Fn of t.</p>
+<p t="2546847" d="2083">And you could actually
+show that this happens also</p>
+<p t="2548930" d="583">almost surely.</p>
+<p t="2555500" d="2150">Now maybe almost
+surely is a bit more</p>
+<p t="2557650" d="1560">difficult to get a grasp on.</p>
+<p t="2563560" d="5070">Does anybody want to see, like
+why this statement for this sup</p>
+<p t="2568630" d="2400">is strictly stronger than the
+one that holds individually</p>
+<p t="2571030" d="1850">for all t's?</p>
+<p t="2572880" d="1206">You want to see that?</p>
+<p t="2574086" d="874">OK, so let's do that.</p>
+<p t="2574960" d="2450">So forget about it almost
+surely for one second.</p>
+<p t="2577410" d="2250">Let's just do it in probability.</p>
+<p t="2579660" d="10030">The fact that Fn of t
+converges to F of t for all t,</p>
+<p t="2589690" d="2610">in probability means that
+this goes to 0 as n goes</p>
+<p t="2592300" d="1560">to infinity for any epsilon.</p>
+<p t="2597400" d="1750">For any epsilon in t
+we know we have this.</p>
+<p t="2599150" d="3379">That's the convergence
+in probability.</p>
+<p t="2602529" d="1541">Now what I want is
+to put a sup here.</p>
+<p t="2608408" d="4512">The probability that the
+sup is lower than epsilon,</p>
+<p t="2612920" d="5160">might be actually always
+larger than, never go to 0</p>
+<p t="2618080" d="1010">in some cases.</p>
+<p t="2619090" d="3320">It could be the case
+that for each given t,</p>
+<p t="2622410" d="4030">I can make n large enough so
+that this probability becomes</p>
+<p t="2626440" d="1200">small.</p>
+<p t="2627640" d="2310">But then maybe it's an n of t.</p>
+<p t="2629950" d="3800">So this here means
+that for any--</p>
+<p t="2633750" d="2820">maybe I shouldn't put,
+let me put a delta here.</p>
+<p t="2636570" d="5890">So for any epsilon, for
+any t and for any epsilon,</p>
+<p t="2642460" d="7340">there exists n, which could
+depend on both epsilon</p>
+<p t="2649800" d="6120">and t, such that the
+probability that Fn t</p>
+<p t="2655920" d="9190">minus F of t exceeding delta
+is less than epsilon t.</p>
+<p t="2665110" d="4030">There exists an n and a delta.</p>
+<p t="2669140" d="1460">No, that's for all delta, sorry.</p>
+<p t="2674810" d="1290">So this is true.</p>
+<p t="2676100" d="3940">That's what this limit
+statement actually means.</p>
+<p t="2680040" d="3020">But it could be the case that
+now when I take the sup over t,</p>
+<p t="2683060" d="4320">maybe that n of t is
+something that looks like t.</p>
+<p t="2690480" d="4030">Or maybe, well,
+integer part of t.</p>
+<p t="2694510" d="1665">It could be, right?</p>
+<p t="2696175" d="875">I don't say anything.</p>
+<p t="2697050" d="2660">It's just an n
+that depends on t.</p>
+<p t="2699710" d="5020">So if this n is just t,
+maybe t over epsilon,</p>
+<p t="2704730" d="1200">because I want epsilon.</p>
+<p t="2705930" d="1680">Something like this.</p>
+<p t="2707610" d="1860">Well that means
+that if I want this</p>
+<p t="2709470" d="2040">to hold for all t's
+at once, I'm going</p>
+<p t="2711510" d="4470">to have to go for the n that
+works for all t's at once.</p>
+<p t="2715980" d="3090">But there's no such n that
+works for all t's at once.</p>
+<p t="2719070" d="2760">The only n that
+works is infinity.</p>
+<p t="2721830" d="2520">And so I cannot make this
+happen for all of them.</p>
+<p t="2724350" d="2070">What Glivenko-Cantelli
+tells you,</p>
+<p t="2726420" d="2670">it's actually this is not
+something that holds like this.</p>
+<p t="2729090" d="4560">That the n that depends on t,
+there's actually one largest n</p>
+<p t="2733650" d="3500">that works for all the t's
+at once, and that's it.</p>
+<p t="2739451" d="499">OK.</p>
+<p t="2739950" d="4200">So just so you know why this is
+actually a stronger statement,</p>
+<p t="2744150" d="4730">and that's basically
+how it works.</p>
+<p t="2748880" d="1687">Any other question?</p>
+<p t="2750567" d="500">Yeah.</p>
+<p t="2751067" d="2204">AUDIENCE: So what's
+the position for this</p>
+<p t="2753271" d="1708">to have, because the
+random variable have</p>
+<p t="2754979" d="2200">a finite mean, finite variance?</p>
+<p t="2757179" d="1485">PROFESSOR: No.</p>
+<p t="2758664" d="1916">Well the random variable
+does have finite mean</p>
+<p t="2760580" d="2000">and finite variance,
+because the random variable</p>
+<p t="2762580" d="1000">is an indicator.</p>
+<p t="2763580" d="1250">So it has everything you want.</p>
+<p t="2764830" d="1791">This is one of the
+nicest random variables,</p>
+<p t="2766621" d="1789">this is a Bernoulli
+random variable.</p>
+<p t="2768410" d="3542">So here when I say law of
+large number, that this holds.</p>
+<p t="2771952" d="958">Where did I write this?</p>
+<p t="2772910" d="1230">I think I erased it.</p>
+<p t="2774140" d="1300">Yeah, the one over there.</p>
+<p t="2775440" d="1130">This is actually the
+law of large numbers</p>
+<p t="2776570" d="1110">for Bernoulli random variables.</p>
+<p t="2777680" d="1250">They have everything you want.</p>
+<p t="2778930" d="2390">They're bounded.</p>
+<p t="2781320" d="500">Yes.</p>
+<p t="2781820" d="2169">AUDIENCE: So I'm having
+trouble understanding</p>
+<p t="2783989" d="1205">the first statement.</p>
+<p t="2785194" d="1928">So it says, for all
+epsilon and all t,</p>
+<p t="2787122" d="2418">the probability of that--</p>
+<p t="2789540" d="1500">PROFESSOR: So you mean this one?</p>
+<p t="2791040" d="750">AUDIENCE: Yeah.</p>
+<p t="2791790" d="2970">PROFESSOR: For all
+epsilon and all t.</p>
+<p t="2794760" d="1350">So you fix them now.</p>
+<p t="2796110" d="2940">Then the probability that,
+sorry, that was delta.</p>
+<p t="2799050" d="2644">I changed this epsilon
+to delta at some point.</p>
+<p t="2801694" d="3236">AUDIENCE: And then
+what's the second line?</p>
+<p t="2804930" d="4930">PROFESSOR: Oh, so then
+the second line says that,</p>
+<p t="2809860" d="3470">so I'm just rewriting in
+terms of epsilon delta</p>
+<p t="2813330" d="3030">what this n goes
+to infinity means.</p>
+<p t="2816360" d="5520">So it means that for
+any a t and delta,</p>
+<p t="2821880" d="2370">so that's the same
+as this guy here,</p>
+<p t="2824250" d="2034">then here I'm just going
+back to rewriting this.</p>
+<p t="2826284" d="2166">It says that for any epsilon
+there exists an n large</p>
+<p t="2828450" d="3540">enough such that, well,
+n larger than this thing</p>
+<p t="2831990" d="2380">basically, such that this
+thing is less than epsilon.</p>
+<p t="2838670" d="2750">So Glivenko-Cantelli tells us
+that not only is this thing</p>
+<p t="2841420" d="3730">a good idea pointwise, but it's
+also a good idea uniformly.</p>
+<p t="2845150" d="2540">And all it's saying
+is if you actually</p>
+<p t="2847690" d="2610">were happy with just
+this result, you should</p>
+<p t="2850300" d="1990">be even happier
+with that result.</p>
+<p t="2852290" d="2280">And both of those results
+only tell you one thing.</p>
+<p t="2854570" d="2150">They're just telling you
+that the empirical CDF</p>
+<p t="2856720" d="1476">is a good estimator of the CDF.</p>
+<p t="2861600" d="6120">Now since those indicators
+are Bernoulli distributions,</p>
+<p t="2867720" d="2670">I can actually do even more.</p>
+<p t="2870390" d="1740">So let me get this guy here.</p>
+<p t="2880240" d="13980">OK so, those guys,
+Fn of t, this guy</p>
+<p t="2894220" d="2310">is a Bernoulli distribution.</p>
+<p t="2896530" d="3964">What is the parameter of
+this Bernoulli distribution?</p>
+<p t="2900494" d="1916">What is the probability
+that it takes value 1?</p>
+<p t="2906250" d="739">AUDIENCE: F of t.</p>
+<p t="2906989" d="1041">PROFESSOR: F of t, right?</p>
+<p t="2908030" d="2454">It's just the probability
+that this thing happens,</p>
+<p t="2910484" d="666">which is F of t.</p>
+<p t="2914020" d="6630">So in particular the
+variance of this guy</p>
+<p t="2920650" d="1890">is the variance
+of this Bernoulli.</p>
+<p t="2922540" d="4190">So it's F of t 1 minus F of t.</p>
+<p t="2926730" d="3500">And I can use that in my
+Central Limit Theorem.</p>
+<p t="2930230" d="1530">And Central Limit
+Theorem is just</p>
+<p t="2931760" d="2130">going to tell me that
+if I look at the average</p>
+<p t="2933890" d="2640">of random variables,
+I remove their mean,</p>
+<p t="2936530" d="4470">so I look at square
+root of n Fn of t,</p>
+<p t="2941000" d="3380">which I could really
+write as xn bar, right?</p>
+<p t="2944380" d="2350">That's really just an xn bar.</p>
+<p t="2946730" d="1590">Minus the expectation,
+which is F</p>
+<p t="2948320" d="2970">of t, that comes from this guy.</p>
+<p t="2951290" d="4710">Now if I divide by square
+root of the variance, that's</p>
+<p t="2956000" d="2950">my square root p1 minus p.</p>
+<p t="2958950" d="3590">Then this guy, by the
+Central Limit Theorem,</p>
+<p t="2962540" d="1350">goes to some N 0, 1.</p>
+<p t="2967032" d="1708">Which is the same
+thing as you see there,</p>
+<p t="2968740" d="2125">except that the variance
+was put on the other side.</p>
+<p t="2974850" d="1320">OK.</p>
+<p t="2976170" d="6252">Do I have the same
+thing uniformly in t?</p>
+<p t="2986110" d="2520">Can I write something
+that holds uniformly in t?</p>
+<p t="2988630" d="2310">Well, if you think
+about it for one second</p>
+<p t="2990940" d="2580">it's unlikely it's
+going to go too well.</p>
+<p t="2993520" d="2130">In the sense that it's
+unlikely that the supremum</p>
+<p t="2995650" d="2880">of those random variables over t
+is going to also be a Gaussian.</p>
+<p t="3002800" d="5320">And the reason is that,
+well actually the reason</p>
+<p t="3008120" d="2670">is that this thing is actually
+a stochastic process indexed</p>
+<p t="3010790" d="670">by t.</p>
+<p t="3011460" d="3410">A stochastic process is just
+a sequence in random variables</p>
+<p t="3014870" d="2190">that's indexed by,
+let's say time.</p>
+<p t="3017060" d="2970">The one that's the most
+famous is Brownian motion,</p>
+<p t="3020030" d="4410">and it's basically a bunch
+of Gaussian increments.</p>
+<p t="3024440" d="2730">So when you go from t to
+just t a little after that,</p>
+<p t="3027170" d="3010">you have add some
+Gaussian into the thing.</p>
+<p t="3030180" d="3590">And here it's basically the
+same thing that's happening.</p>
+<p t="3033770" d="2200">And you would sort of expect,
+since each of this guy</p>
+<p t="3035970" d="1640">is Gaussian, you
+would expect to see</p>
+<p t="3037610" d="2395">something that looks like a
+Brownian motion at the end.</p>
+<p t="3040005" d="1625">But it's not exactly
+a Brownian motion,</p>
+<p t="3041630" d="2041">it's something that's
+called the Brownian bridge.</p>
+<p t="3043671" d="2249">So if you've seen the
+Brownian motion, if I make</p>
+<p t="3045920" d="3240">it start at 0 for example,
+so this is the value</p>
+<p t="3049160" d="1120">of my Brownian motion.</p>
+<p t="3050280" d="1830">Let's write it.</p>
+<p t="3052110" d="4260">So this is one path, one
+realization of Brownian motion.</p>
+<p t="3056370" d="2980">Let's call it w of
+t as t increases.</p>
+<p t="3059350" d="5080">So let's say it starts at 0 and
+looks like something like this.</p>
+<p t="3064430" d="2110">So that's what Brownian
+motion looks like.</p>
+<p t="3066540" d="4470">It's just something
+that's pretty nasty.</p>
+<p t="3071010" d="2700">I mean it looks pretty nasty,
+it's not continuous et cetera,</p>
+<p t="3073710" d="5400">but it's actually very
+benign in some average way.</p>
+<p t="3079110" d="2040">So Brownian motion
+is just something,</p>
+<p t="3081150" d="4670">you should view this as if I
+sum some random variable that</p>
+<p t="3085820" d="3700">are Gaussian, and then I look at
+this from farther and farther,</p>
+<p t="3089520" d="2460">it's going to look like this.</p>
+<p t="3091980" d="2770">And so here I cannot have
+a Brownian motion in the n,</p>
+<p t="3094750" d="5280">because what is the variance
+of Fn of t minus F of t at t is</p>
+<p t="3100030" d="643">equal to 1?</p>
+<p t="3103780" d="4110">Sorry, at t is
+equal to infinity.</p>
+<p t="3107890" d="500">AUDIENCE: 0.</p>
+<p t="3108390" d="1070">PROFESSOR: It's 0, right?</p>
+<p t="3109460" d="2640">The variance goes from 0
+at t is negative infinity,</p>
+<p t="3112100" d="4840">because at negative infinity
+F of t is going to 0.</p>
+<p t="3116940" d="2910">And as t goes to
+plus infinity, F of t</p>
+<p t="3119850" d="3740">is going to 1, which means that
+the variance of this guy as t</p>
+<p t="3123590" d="2730">goes from negative
+infinity to plus infinity</p>
+<p t="3126320" d="3670">is pinned to be 0 on each side.</p>
+<p t="3129990" d="2210">And so my Brownian
+motion cannot,</p>
+<p t="3132200" d="2430">when I describe a Brownian
+motion I'm just adding more</p>
+<p t="3134630" d="2250">and more entropy to the
+thing and it's going all over</p>
+<p t="3136880" d="3570">the place, but here what I want
+is that as I go back it should</p>
+<p t="3140450" d="1470">go back to essentially 0.</p>
+<p t="3141920" d="3360">It should be pinned down to
+a specific value at the n.</p>
+<p t="3145280" d="2042">And that's actually called
+the Brownian bridge.</p>
+<p t="3147322" d="1708">It's a Brownian motion
+that's conditioned</p>
+<p t="3149030" d="3516">to come back to where
+it started essentially.</p>
+<p t="3152546" d="2624">Now you don't need to understand
+Brownian bridges to understand</p>
+<p t="3155170" d="1610">what I'm going to
+be telling you.</p>
+<p t="3156780" d="2260">The only thing I want
+to communicate to you</p>
+<p t="3159040" d="3680">is that this guy here, when
+I say a Brownian bridge,</p>
+<p t="3162720" d="2290">I can go to any probabilist
+and they can tell you</p>
+<p t="3165010" d="6157">all the probability properties
+of this stochastic process.</p>
+<p t="3171167" d="1583">It can tell me the
+probability that it</p>
+<p t="3172750" d="2370">takes any value at any point.</p>
+<p t="3175120" d="2250">In particular, it can tell me--</p>
+<p t="3177370" d="3670">the supremum between
+0 and 1 of this guy,</p>
+<p t="3181040" d="2190">it could tell me what the
+cumulative distribution</p>
+<p t="3183230" d="1583">function of this
+thing is, can tell me</p>
+<p t="3184813" d="2772">what the density of this thing
+is, can tell me everything.</p>
+<p t="3187585" d="2125">So it means that if I want
+to compute probabilities</p>
+<p t="3189710" d="4500">on this object here, which is
+the maximum value that this guy</p>
+<p t="3194210" d="3355">can take over a certain period
+of time, which is basically</p>
+<p t="3197565" d="875">this random variable.</p>
+<p t="3198440" d="1950">So if I look at the
+value here, it's</p>
+<p t="3200390" d="1920">a random variable
+that fluctuates.</p>
+<p t="3202310" d="2850">It can tell me where it is
+with hyperability, can tell me</p>
+<p t="3205160" d="3630">the quantiles of this
+thing, which is useful</p>
+<p t="3208790" d="2650">because I can build a table and
+use it to compute my quantiles</p>
+<p t="3211440" d="3040">and form tests from it.</p>
+<p t="3214480" d="1620">So that's what
+actually is quite nice.</p>
+<p t="3216100" d="2070">It says that if I look at
+the square root of n Fn</p>
+<p t="3218170" d="2829">hat minus sup over
+t, I get something</p>
+<p t="3220999" d="1791">that looks like the
+sup of these Gaussians,</p>
+<p t="3222790" d="1500">but it's not really
+sup of Gaussian,</p>
+<p t="3224290" d="1750">it's sup of a Brownian motion.</p>
+<p t="3226040" d="2250">Now there's something you
+should be very careful here.</p>
+<p t="3228290" d="920">I cheated a little bit.</p>
+<p t="3229210" d="2041">I mean, I didn't cheat,
+I can do whatever I want.</p>
+<p t="3231251" d="4479">But my notation might
+be a little confusing.</p>
+<p t="3235730" d="6140">Everybody sees that this t here
+is not the same as this t here?</p>
+<p t="3241870" d="1270">Can somebody see that?</p>
+<p t="3243140" d="2550">Just because, first of all,
+this guy's between 0 and 1.</p>
+<p t="3245690" d="3860">And this guy is in all of R.</p>
+<p t="3249550" d="3210">What is this t here?</p>
+<p t="3252760" d="1280">As a function of this t here?</p>
+<p t="3261270" d="2500">This guy is F of this guy.</p>
+<p t="3263770" d="4020">So really, if I want it to
+be completely transparent</p>
+<p t="3267790" d="4960">and not save the
+keys of my keyboard,</p>
+<p t="3272750" d="9710">I would read this as sup
+over t of Fn t minus F of t</p>
+<p t="3282460" d="3970">goes to N distribution
+as n goes to infinity.</p>
+<p t="3286430" d="4010">The supremum over t,
+again in R, so this guy is</p>
+<p t="3290440" d="2215">for t in the entire
+real line, this guy</p>
+<p t="3292655" d="1965">is for t in the
+entire real line.</p>
+<p t="3294620" d="3820">But now I should
+write b of what?</p>
+<p t="3298440" d="2270">F of t, exactly.</p>
+<p t="3300710" d="3440">So really the t here is
+F of the original one.</p>
+<p t="3304150" d="2420">And so that's a
+Brownian bridge, where</p>
+<p t="3306570" d="3300">when t goes to infinity
+the Brownian bridge</p>
+<p t="3309870" d="1800">goes from 0 to 1 and
+it looks like this.</p>
+<p t="3311670" d="4430">A Brownian bridge at
+0 is 0, at 1 it's 0.</p>
+<p t="3316100" d="2370">And it does this.</p>
+<p t="3318470" d="2110">But it doesn't stray too
+far because I condition</p>
+<p t="3320580" d="2280">it to come back to this point.</p>
+<p t="3322860" d="3740">That's what a
+Brownian bridge is.</p>
+<p t="3326600" d="1850">OK.</p>
+<p t="3328450" d="5077">So in particular, I can find
+a distribution for this guy.</p>
+<p t="3333527" d="2083">And I can use this to build
+a test which is called</p>
+<p t="3335610" d="1510">the Kolmogorov-Smirnov test.</p>
+<p t="3339810" d="1085">The idea is the following.</p>
+<p t="3340895" d="3980">It says, if I want to
+test some distribution</p>
+<p t="3344875" d="4775">F0, some distribution that
+has a particular CDF F0,</p>
+<p t="3349650" d="2710">and I plug it in
+under the null, then</p>
+<p t="3352360" d="3060">this guy should have pretty
+much the same distribution</p>
+<p t="3355420" d="2670">as the supremum of
+Brownian bridge.</p>
+<p t="3358090" d="2700">And so if I see this to be
+much larger than it should</p>
+<p t="3360790" d="2190">be when it's the supremum
+of a Brownian bridge,</p>
+<p t="3362980" d="2040">I'm actually going to
+reject my hypothesis.</p>
+<p t="3368270" d="1020">So here's the test.</p>
+<p t="3369290" d="7810">I want to test whether
+H0, F is equal to F0,</p>
+<p t="3377100" d="5750">and you will see that most
+of the goodness of fit tests</p>
+<p t="3382850" d="2100">are formulated
+mathematically in terms</p>
+<p t="3384950" d="2010">of the cumulative
+distribution function.</p>
+<p t="3386960" d="2640">I could formulate them in
+terms of personality density</p>
+<p t="3389600" d="3670">function, or just
+write x follows N 0, 1,</p>
+<p t="3393270" d="1680">but that's the way we write it.</p>
+<p t="3394950" d="2930">We formulate them in terms
+of cumulative distribution</p>
+<p t="3397880" d="1770">function because
+that's what we have</p>
+<p t="3399650" d="2670">a handle on through the
+empirical cumulative</p>
+<p t="3402320" d="2010">distribution function.</p>
+<p t="3404330" d="5970">And then it's versus H1,
+F is not equal to F0.</p>
+<p t="3410300" d="2070">So now I have my empirical CDF.</p>
+<p t="3412370" d="2280">And I hope that for
+all t's, Fn of t</p>
+<p t="3414650" d="3250">should be close to F0 of t.</p>
+<p t="3417900" d="2430">Let me write it like this.</p>
+<p t="3420330" d="3410">I put it on the exponent
+because otherwise that</p>
+<p t="3423740" d="2910">would be the empirical
+distribution function based</p>
+<p t="3426650" d="1320">on zero observations.</p>
+<p t="3431060" d="2951">Now I form the following
+test statistic.</p>
+<p t="3441450" d="2830">So my test statistic
+is tn, which</p>
+<p t="3444280" d="3840">is the supremum over t in
+the real line of square root</p>
+<p t="3448120" d="6374">of n Fn of t minus F
+of t, sorry, F0 of t.</p>
+<p t="3454494" d="1166">So I can compute everything.</p>
+<p t="3455660" d="1790">I know this from
+the data, and this</p>
+<p t="3457450" d="2480">is the one that comes
+from my null hypothesis.</p>
+<p t="3459930" d="2009">As I can compute this thing.</p>
+<p t="3461939" d="1541">And I know that if
+this is true, this</p>
+<p t="3463480" d="2700">should actually be the
+supremum of a Brownian bridge.</p>
+<p t="3466180" d="2760">Pretty much.</p>
+<p t="3468940" d="12680">And so the Kolmogorov-Smirnov
+test is simply,</p>
+<p t="3481620" d="7460">reject if this guy,
+tn, in absolute value,</p>
+<p t="3489080" d="1610">no actually not
+in absolute value.</p>
+<p t="3490690" d="2900">This is just already
+absolute valued.</p>
+<p t="3493590" d="1370">Then this guy should be what?</p>
+<p t="3494960" d="5620">It should be larger than the
+q alpha over 2 distribution</p>
+<p t="3500580" d="960">that I have.</p>
+<p t="3501540" d="3330">But now rather than
+putting N 0, 1, or Tn,</p>
+<p t="3504870" d="5146">this is here whatever
+notation I have for supremum</p>
+<p t="3510016" d="1936">of Brownian bridge.</p>
+<p t="3520860" d="2850">Just like I did for any
+pivotal distribution.</p>
+<p t="3523710" d="2190">That was the same recipe
+every single time.</p>
+<p t="3525900" d="2070">I formed the test
+statistic such that</p>
+<p t="3527970" d="3360">the asymptotic distribution did
+not depend on anything I know,</p>
+<p t="3531330" d="2970">and then I would just reject
+when this pivotal distribution</p>
+<p t="3534300" d="1780">was larger than something.</p>
+<p t="3536080" d="765">Yes?</p>
+<p t="3536845" d="2790">AUDIENCE: I'm not really sure
+why Brownian bridge appears.</p>
+<p t="3542900" d="2642">PROFESSOR: Do you know what
+a Brownian bridge is, or?</p>
+<p t="3545542" d="958">AUDIENCE: Only vaguely.</p>
+<p t="3546500" d="600">PROFESSOR: OK.</p>
+<p t="3547100" d="7220">So this thing here, think
+of it as being a Gaussian.</p>
+<p t="3554320" d="3790">So for all t you have a
+Gaussian distribution.</p>
+<p t="3558110" d="9160">Now a Brownian motion, so
+if I had a Brownian motion</p>
+<p t="3567270" d="1500">I need to tell you what the--</p>
+<p t="3568770" d="1530">so it's basically
+a Brownian motion</p>
+<p t="3570300" d="1430">is something that
+looks like this.</p>
+<p t="3571730" d="2450">It's some random variable
+that's indexed by t.</p>
+<p t="3574180" d="4430">I want, say, the expectation
+of Xt could be equal to 0</p>
+<p t="3578610" d="2030">for all t.</p>
+<p t="3580640" d="2320">And what I want is
+that the increments</p>
+<p t="3582960" d="1680">have a certain distribution.</p>
+<p t="3584640" d="9060">So what I want is that the
+expectation of Xt minus Xs</p>
+<p t="3593700" d="4350">follows some distribution
+which is N 0, t minus s.</p>
+<p t="3598050" d="2700">So the increments are
+bigger as I go farther,</p>
+<p t="3600750" d="1830">in terms of variability.</p>
+<p t="3602580" d="3300">And I also want some covariance
+structure between the two.</p>
+<p t="3605880" d="4440">So what I want is that the
+covariance between Xs and Xt</p>
+<p t="3610320" d="2430">is actually equal to
+the minimum of s and t.</p>
+<p t="3618520" d="3140">Yeah, maybe.</p>
+<p t="3621660" d="1560">Yeah, that should be there.</p>
+<p t="3623220" d="2820">So this is, you open a
+probability book, that's</p>
+<p t="3626040" d="1330">what it's going to look like.</p>
+<p t="3627370" d="4340">So in particular, you
+can see, if I put 0 here</p>
+<p t="3631710" d="2680">and X0 is equal to
+0, it has 0 variance.</p>
+<p t="3634390" d="3790">So in particular,
+it means that Xt,</p>
+<p t="3638180" d="1740">if I look only at
+the t-th one, it</p>
+<p t="3639920" d="3190">has some normal distribution
+with variance t.</p>
+<p t="3643110" d="2940">So this is something
+that just blows up.</p>
+<p t="3646050" d="3180">So this guy here
+looks like it's going</p>
+<p t="3649230" d="1500">to be a Brownian
+motion because when</p>
+<p t="3650730" d="2970">I look at the left-hand side
+it has a normal distribution.</p>
+<p t="3653700" d="2250">Now there's a bunch of other
+things you need to check.</p>
+<p t="3655950" d="2375">It's the fact that you have
+this covariance, for example,</p>
+<p t="3658325" d="1765">which I did not tell you.</p>
+<p t="3660090" d="3210">But it sure look
+somewhat like that.</p>
+<p t="3663300" d="4290">And in particular, when I
+look at the normal with mean 0</p>
+<p t="3667590" d="2850">and variance here,
+then it's clear</p>
+<p t="3670440" d="1980">that this guy does not
+have a variance that's</p>
+<p t="3672420" d="4140">going to go to infinity just
+like the variance of this guy.</p>
+<p t="3676560" d="5060">We know that the variance
+is forced to be back to 0.</p>
+<p t="3681620" d="1670">And so in particular
+we have something</p>
+<p t="3683290" d="4980">that has mean 0 always, whose
+variance has to be 0 at 0,</p>
+<p t="3688270" d="3600">and variance-- sorry, at t
+equals negative infinity,</p>
+<p t="3691870" d="3020">and variance 1 at t
+equals plus infinity.</p>
+<p t="3694890" d="2030">So a variance 0 at t
+equals plus infinity,</p>
+<p t="3696920" d="3500">and so I have to basically force
+it to be equal to 0 at each n.</p>
+<p t="3700420" d="1980">So the Brownian
+motion here tends</p>
+<p t="3702400" d="2430">to just go to
+infinity somewhere,</p>
+<p t="3704830" d="2280">whereas this guy
+forces it to come back.</p>
+<p t="3707110" d="1590">Now everything I
+described to you</p>
+<p t="3708700" d="4020">is on the scale negative
+infinity to plus infinity,</p>
+<p t="3712720" d="3900">but since everything
+depends on F of t,</p>
+<p t="3716620" d="1740">I can actually
+just put that back</p>
+<p t="3718360" d="3940">into a scale, which is 0 and 1
+by a simple change of variable.</p>
+<p t="3722300" d="4514">It's called change of time
+for the Brownian motion.</p>
+<p t="3726814" d="500">OK?</p>
+<p t="3727314" d="988">Yeah.</p>
+<p t="3728302" d="1482">AUDIENCE: So does
+a Brownian bridge</p>
+<p t="3729784" d="3458">have a variance at each
+point that's proportional?</p>
+<p t="3733242" d="2140">Like it starts at
+0 variance and then</p>
+<p t="3735382" d="2306">goes to 1/4 variance
+in the middle</p>
+<p t="3737688" d="3458">and then goes back
+to 0 variance?</p>
+<p t="3741146" d="2778">Like in the same
+parabolic shape?</p>
+<p t="3743924" d="666">PROFESSOR: Yeah.</p>
+<p t="3744590" d="1590">I mean, definitely.</p>
+<p t="3746180" d="3693">I mean by symmetry you can
+probably infer all the things.</p>
+<p t="3749873" d="1833">AUDIENCE: Well I can
+imagine Brownian bridge</p>
+<p t="3751706" d="3198">with a variance that starts
+at 0 and stays, like,</p>
+<p t="3754904" d="3905">the shape of the variance
+as you move along.</p>
+<p t="3758809" d="1791">PROFESSOR: Yeah, so I
+don't know if-- there</p>
+<p t="3760600" d="2605">is an explicit formula
+for this, and it's simple.</p>
+<p t="3763205" d="2625">That's what I can tell you, but
+I don't know what the explicit,</p>
+<p t="3765830" d="1926">off the top of my head what
+the explicit formula is.</p>
+<p t="3767756" d="1952">AUDIENCE: But would it
+have to match this F</p>
+<p t="3769708" d="3404">of t 1 minus F of t structure?</p>
+<p t="3773112" d="500">Or not?</p>
+<p t="3773612" d="666">PROFESSOR: Yeah.</p>
+<p t="3776052" d="2458">AUDIENCE: Or does the fact that
+we're taking the supremum--</p>
+<p t="3778510" d="1190">PROFESSOR: No.</p>
+<p t="3779700" d="3690">Well the Brownian bridge, this
+is the supremum-- you're right.</p>
+<p t="3783390" d="3310">So this will be this form
+for the variance for sure,</p>
+<p t="3786700" d="2000">because this is only
+marginal distributions that</p>
+<p t="3788700" d="2220">don't take-- right,
+the process is not just</p>
+<p t="3790920" d="2440">what is the distribution
+at each instant t.</p>
+<p t="3793360" d="2630">It's also how do those
+distributions interact</p>
+<p t="3795990" d="1667">with each other in
+terms of covariance.</p>
+<p t="3797657" d="2083">For the marginal distributions
+at each instance t,</p>
+<p t="3799740" d="3210">you're right, the variance
+is F of t 1 minus F of t.</p>
+<p t="3802950" d="2220">We're not going to escape that.</p>
+<p t="3805170" d="2220">But then the covariance
+structure between those guys</p>
+<p t="3807390" d="1860">is a little more complicated.</p>
+<p t="3809250" d="1080">But yes, you're right.</p>
+<p t="3810330" d="1871">For marginal that's enough.</p>
+<p t="3812201" d="500">Yeah?</p>
+<p t="3812701" d="2000">AUDIENCE: So the supremum
+of the Brownian bridge</p>
+<p t="3814701" d="3479">is a number between 0
+and 10, let's just say.</p>
+<p t="3818180" d="2064">PROFESSOR: Yeah, it
+could be infinity.</p>
+<p t="3820244" d="2982">AUDIENCE: So it's not
+symmetrical with respect to 0,</p>
+<p t="3823226" d="1988">so why are we doing all over 2?</p>
+<p t="3836170" d="1730">PROFESSOR: OK.</p>
+<p t="3837900" d="740">Did say raise it?</p>
+<p t="3838640" d="590">Yeah.</p>
+<p t="3839230" d="2744">Because here I didn't say the
+supremum of the absolute value</p>
+<p t="3841974" d="1916">of a Brownian bridge, I
+just said the supremum</p>
+<p t="3843890" d="875">of a Brownian bridge.</p>
+<p t="3844765" d="3875">But you're right, let's
+just do this like that.</p>
+<p t="3848640" d="2430">And then it's probably cleaner.</p>
+<p t="3854580" d="2630">So yeah, actually well
+it should be q alpha.</p>
+<p t="3857210" d="2420">So this is basically,
+you're right.</p>
+<p t="3859630" d="2580">So think of it as
+being one-sided.</p>
+<p t="3862210" d="3750">And there's actually no
+symmetry for the supremum.</p>
+<p t="3865960" d="3114">I mean the supremum is
+not symmetric around 0,</p>
+<p t="3869074" d="666">so you're right.</p>
+<p t="3869740" d="3890">I should not use alpha
+over 2, thank you.</p>
+<p t="3873630" d="2060">Any other question?</p>
+<p t="3875690" d="1260">This should be alpha.</p>
+<p t="3876950" d="865">Yeah.</p>
+<p t="3877815" d="2125">I mean those slides were
+written with 1 minus alpha</p>
+<p t="3879940" d="2550">and I have not replaced all
+instances of 1 minus alpha</p>
+<p t="3882490" d="1490">by alpha.</p>
+<p t="3883980" d="1412">I mean, except this guy, tilde.</p>
+<p t="3885392" d="1708">Well, depends on how
+you want to call it.</p>
+<p t="3887100" d="3420">But this is still, the
+probability that Z exceeds</p>
+<p t="3890520" d="3030">this guy should be alpha.</p>
+<p t="3893550" d="610">OK?</p>
+<p t="3894160" d="1750">And this can be found in tables.</p>
+<p t="3895910" d="4460">And we can compute the p-value
+just like we did before.</p>
+<p t="3900370" d="1950">But we have to simulate
+it because it's not</p>
+<p t="3902320" d="1916">going to depend on the
+cumulative distribution</p>
+<p t="3904236" d="2654">function of a Gaussian, like
+it did for the usual Gaussian</p>
+<p t="3906890" d="850">test.</p>
+<p t="3907740" d="1916">That's something that's
+more complicated,</p>
+<p t="3909656" d="1374">and typically you
+don't even try.</p>
+<p t="3911030" d="3180">You get the statistical
+software to do it for you.</p>
+<p t="3914210" d="3440">So just let me skip a few lines.</p>
+<p t="3917650" d="2500">This is what the table looks
+like for the Kolmogorov-Smirnov</p>
+<p t="3920150" d="1280">test.</p>
+<p t="3921430" d="4260">So it just tells you, what is
+your number of observations, n.</p>
+<p t="3925690" d="2580">Then you want alpha to
+be equal to 5%, say.</p>
+<p t="3928270" d="2050">Let's say you have
+nine observations.</p>
+<p t="3930320" d="3920">So if square root of n absolute
+value of Fn of t minus F of t</p>
+<p t="3934240" d="2370">exceeds this thing, you reject.</p>
+<p t="3946060" d="1560">Well it's pretty
+clear from this test</p>
+<p t="3947620" d="1770">is that it looks
+very nice, and I tell</p>
+<p t="3949390" d="1290">you this is how you build it.</p>
+<p t="3950680" d="1897">But if you think about
+it for one second,</p>
+<p t="3952577" d="1583">it's actually really
+an annoying thing</p>
+<p t="3954160" d="3600">to build because you have
+to take the supremum over t.</p>
+<p t="3957760" d="3390">This depends on computing a
+supremum, which in practice</p>
+<p t="3961150" d="1920">might be super cumbersome.</p>
+<p t="3963070" d="2290">I don't want to have to
+compute this for all values t</p>
+<p t="3965360" d="2424">and then to take the
+maximum of those guys.</p>
+<p t="3967784" d="2166">It turns out that that's
+actually quite nice that we</p>
+<p t="3969950" d="1770">don't have to actually do this.</p>
+<p t="3971720" d="2340">What does the empirical
+distribution function</p>
+<p t="3974060" d="1414">look like?</p>
+<p t="3975474" d="7876">Well, this thing, remember
+Fn of t by definition was--</p>
+<p t="3983350" d="2240">so let me go to the
+slide that's relevant.</p>
+<p t="3985590" d="1700">So Fn of t looks like this.</p>
+<p t="3998320" d="3270">So what it means is that when
+t is between two observations,</p>
+<p t="4001590" d="2800">then this guy is actually
+keeping the same value.</p>
+<p t="4004390" d="3820">So if I put my observations
+on the real line here.</p>
+<p t="4008210" d="1730">So let's say I have
+one observation here,</p>
+<p t="4009940" d="1842">one observation here,
+one observation here,</p>
+<p t="4011782" d="1958">one observation here,
+and one observation here,</p>
+<p t="4013740" d="1530">for simplicity.</p>
+<p t="4015270" d="2460">Then this guy is basically,
+up to this normalization,</p>
+<p t="4017730" d="4090">counting how many observations
+they have that are less than t.</p>
+<p t="4021820" d="3200">So since I normalize by n, I
+know that the smallest number</p>
+<p t="4025020" d="5460">here is going to be 0, and
+the largest number here</p>
+<p t="4030480" d="2820">is going to be 1.</p>
+<p t="4033300" d="1680">So let's say this
+looks like this.</p>
+<p t="4034980" d="3310">This is the value 1.</p>
+<p t="4038290" d="3510">At the value, since I take
+it less than or equal to,</p>
+<p t="4041800" d="2730">when I'm at Xi, I'm
+actually counting it.</p>
+<p t="4044530" d="2040">So the jump happens at Xi.</p>
+<p t="4046570" d="2430">So that's the first
+observation, and then I jump.</p>
+<p t="4049000" d="1860">By how much do I jump?</p>
+<p t="4053650" d="1860">Yeah?</p>
+<p t="4055510" d="3160">One over n, right?</p>
+<p t="4058670" d="3062">And then this value
+belongs to the right.</p>
+<p t="4061732" d="958">And then I do it again.</p>
+<p t="4070850" d="3684">I know it's not going to work
+out for me, but we'll see.</p>
+<p t="4074534" d="1416">Oh no actually, I
+did pretty well.</p>
+<p t="4080790" d="3340">This is what my cumulative
+distribution looks like.</p>
+<p t="4084130" d="1500">Now if you look on
+this slide, there</p>
+<p t="4085630" d="2240">is this weird notation
+where I start putting now</p>
+<p t="4087870" d="2520">my indices in parentheses.</p>
+<p t="4090390" d="2960">X parenthesis 1, X
+parenthesis 2, et cetera.</p>
+<p t="4093350" d="2560">Those are called the
+ordered statistic.</p>
+<p t="4095910" d="2819">It's just because it might
+be, when my data is given</p>
+<p t="4098729" d="1693">to me I just call the
+first observation,</p>
+<p t="4100422" d="1458">the one that's on
+top of the table,</p>
+<p t="4101880" d="2760">but it doesn't have to
+be the smallest value.</p>
+<p t="4104640" d="3389">So it might be that this
+is X1 and that this is X2,</p>
+<p t="4108029" d="3481">and then this is X3, X4, and X5.</p>
+<p t="4111510" d="1864">These might be my observations.</p>
+<p t="4113374" d="1916">So what I do is that I
+call them in such a way</p>
+<p t="4115290" d="2819">that this is actually,
+I recall this guy X1,</p>
+<p t="4118109" d="2460">which is just really X3.</p>
+<p t="4120569" d="6241">This is X2, X3, X4, and X5.</p>
+<p t="4126810" d="1980">These are my
+reordered observations</p>
+<p t="4128790" d="3239">in such a way that the
+smallest one is indexed by one</p>
+<p t="4132029" d="1984">and the largest one
+is indexed by n.</p>
+<p t="4138439" d="2761">So now this is
+actually quite nice,</p>
+<p t="4141200" d="2970">because what I'm trying to
+do is to find the largest</p>
+<p t="4144170" d="3040">deviation from this guy to the
+true cumulative distribution</p>
+<p t="4147210" d="500">function.</p>
+<p t="4147710" d="1750">The true cumulative
+distribution function,</p>
+<p t="4149460" d="2269">let's say it's Gaussian,
+looks like this.</p>
+<p t="4155340" d="3780">It's something continuous,
+for a symmetric distribution</p>
+<p t="4159120" d="3400">it crosses this axis at 1/2,
+and that's what it looks like.</p>
+<p t="4162520" d="2810">And the Kolmogorov-Smirnov
+test is just</p>
+<p t="4165330" d="6140">telling me how far do
+those two curves get</p>
+<p t="4171470" d="3599">in the worst possible case?</p>
+<p t="4175069" d="2311">So in particular here,
+where are they the farthest?</p>
+<p t="4177380" d="3349">Clearly that's this point.</p>
+<p t="4180729" d="1761">And so up to rescaling,
+this is the value</p>
+<p t="4182490" d="2020">I'm going to be interested in.</p>
+<p t="4184510" d="4620">That's how they get as far
+as possible from each other.</p>
+<p t="4189130" d="3269">Here, something just
+happened, right?</p>
+<p t="4192399" d="2296">The farthest distance
+that I got was exactly</p>
+<p t="4194695" d="1275">at one of those dots.</p>
+<p t="4198480" d="3120">It turns out this is enough
+to look at those dots.</p>
+<p t="4201600" d="3060">And the reason is, well
+because after this dot</p>
+<p t="4204660" d="3800">and until the next jump,
+this guy does not change,</p>
+<p t="4208460" d="2770">but this guy increases.</p>
+<p t="4211230" d="3990">And so the only point where
+they can be the farthest apart</p>
+<p t="4215220" d="4500">is either to the left of a
+jump or to the right of a jump.</p>
+<p t="4219720" d="2820">That's the only place where
+they can be far from each other.</p>
+<p t="4222540" d="2356">And that means that
+only one observation.</p>
+<p t="4224896" d="1724">Everybody sees that?</p>
+<p t="4226620" d="2850">The farthest points, the points
+at which those two curves are</p>
+<p t="4229470" d="1830">the farthest from
+each other, has</p>
+<p t="4231300" d="2700">to be at one of
+the observations.</p>
+<p t="4234000" d="3790">And so rather than looking at
+a sup over all possible t's,</p>
+<p t="4237790" d="3130">really all I need to do
+is to look at a maximum</p>
+<p t="4240920" d="2116">only at my observations.</p>
+<p t="4246390" d="2570">I just need to check
+at each of those points</p>
+<p t="4248960" d="2190">whether they're far.</p>
+<p t="4251150" d="1940">Now here, notice
+that you did not,</p>
+<p t="4253090" d="4440">this is not written Fn of Xi.</p>
+<p t="4257530" d="3880">The reason is because I
+actually know what Fn of Xi is.</p>
+<p t="4261410" d="3910">Fn of the i-th order
+observation is just</p>
+<p t="4265320" d="3360">the number of jumps I've
+had until this observation.</p>
+<p t="4268680" d="2610">So here, I know that the
+value of Fn is 1 over n,</p>
+<p t="4271290" d="4230">here it's 2 over n, 3 over
+n, 4 over n, 5 over n.</p>
+<p t="4275520" d="3780">So I knew that the values
+of Fn at my observations,</p>
+<p t="4279300" d="3000">and those are actually the
+only values that Fn can take,</p>
+<p t="4282300" d="2760">are an integer divided by n.</p>
+<p t="4285060" d="4620">And that's why you see i
+minus 1 over n, or i over n.</p>
+<p t="4289680" d="2840">This is the difference
+just before the jump,</p>
+<p t="4292520" d="1930">and this is the
+difference at the jump.</p>
+<p t="4298090" d="4710">So here the key message
+is that this is no longer</p>
+<p t="4302800" d="1810">a supremum over all
+t's, but it's just</p>
+<p t="4304610" d="1500">the maximum from 1 to n.</p>
+<p t="4306110" d="3050">So I really have only
+two n values to compute.</p>
+<p t="4309160" d="2810">This value and this value for
+each observation, that's 2n</p>
+<p t="4311970" d="880">total.</p>
+<p t="4312850" d="2910">I look at the maximum and
+that's actually the value.</p>
+<p t="4315760" d="3147">And it's actually equal to tn.</p>
+<p t="4318907" d="1083">It's not an approximation.</p>
+<p t="4319990" d="850">Those things are equal.</p>
+<p t="4320840" d="1220">That's just the
+only places where</p>
+<p t="4322060" d="1083">those guys can be maximum.</p>
+<p t="4329242" d="1473">Yes?</p>
+<p t="4330715" d="4419">AUDIENCE: It seems like since
+the null hypothesis [INAUDIBLE]</p>
+<p t="4335134" d="2455">the entire
+distribution of theta,</p>
+<p t="4337589" d="2127">this is like strictly
+more powerful than just</p>
+<p t="4339716" d="3284">doing it [INAUDIBLE].</p>
+<p t="4343000" d="1832">PROFESSOR: It's
+strictly less powerful.</p>
+<p t="4344832" d="2952">AUDIENCE: Strictly
+less powerful.</p>
+<p t="4347784" d="2706">But is there, is that
+like a big trade-off</p>
+<p t="4350490" d="1528">that we're making
+when we do that?</p>
+<p t="4352018" d="1916">Obviously we're not
+certain in the first place</p>
+<p t="4353934" d="1375">that we want to
+assume normality.</p>
+<p t="4355309" d="2315">Does it make sense
+to [INAUDIBLE],,</p>
+<p t="4357624" d="1968">the Gaussian [INAUDIBLE].</p>
+<p t="4368000" d="2420">PROFESSOR: So can
+you, I'm not sure what</p>
+<p t="4370420" d="980">question you're asking.</p>
+<p t="4371400" d="1960">AUDIENCE: So when we're
+doing a normal test,</p>
+<p t="4373360" d="2450">we're just asking
+questions about the mus,</p>
+<p t="4375810" d="1470">the means of our distribution.</p>
+<p t="4377280" d="3103">[INAUDIBLE] This
+one, it seems like it</p>
+<p t="4380383" d="2287">would be both at the same time.</p>
+<p t="4382670" d="8330">[INAUDIBLE] Is this
+decreasing power [INAUDIBLE]??</p>
+<p t="4391000" d="2470">PROFESSOR: So remember,
+here in this test</p>
+<p t="4393470" d="2670">we want to conclude to H0, in
+the other test we typically</p>
+<p t="4396140" d="1530">want to conclude to H1.</p>
+<p t="4397670" d="3480">So here we actually don't
+want power, in a way.</p>
+<p t="4401150" d="3469">And you have to also assume
+that doing a test on the mean</p>
+<p t="4404619" d="1541">is probably not the
+only thing you're</p>
+<p t="4406160" d="1416">going to end up
+doing on your data</p>
+<p t="4407576" d="3896">after you actually establish
+that it's normally distributed.</p>
+<p t="4411472" d="1708">Then you have the
+dataset, you've sort of</p>
+<p t="4413180" d="1583">established it's
+normally distributed,</p>
+<p t="4414763" d="3327">and then you can just run the
+arsenal of statistical studies.</p>
+<p t="4418090" d="1450">And we're going
+to see regression</p>
+<p t="4419540" d="3030">and all sorts of predictive
+things, which are not just</p>
+<p t="4422570" d="1710">tests if the mean is
+equal to something.</p>
+<p t="4424280" d="1380">Maybe you want to build
+a confidence interval</p>
+<p t="4425660" d="870">for the mean.</p>
+<p t="4426530" d="3522">Then this is not, confidence
+interval is not a test.</p>
+<p t="4430052" d="2208">So you're going to have to
+first test if it's normal,</p>
+<p t="4432260" d="1500">and then see if you
+can actually use</p>
+<p t="4433760" d="2010">the quantiles of a Gaussian
+distribution or a t</p>
+<p t="4435770" d="3990">distribution to build
+this confidence interval.</p>
+<p t="4439760" d="3750">So in a way you should do
+this as like, the flat fee</p>
+<p t="4443510" d="2160">to enter the Gaussian
+world, and then you</p>
+<p t="4445670" d="3402">can do whatever you want to
+do in the Gaussian world.</p>
+<p t="4449072" d="1958">We'll see actually that
+your question goes back</p>
+<p t="4451030" d="3720">to something that's a
+little important, is here</p>
+<p t="4454750" d="2790">I said F0 is fully specified.</p>
+<p t="4457540" d="3950">It's like an N 1, 5.</p>
+<p t="4461490" d="2920">But I didn't say, is it
+normally distributed,</p>
+<p t="4464410" d="2030">which is the question
+that everybody asks.</p>
+<p t="4466440" d="2749">You're not asking, is it this
+particular normal distribution</p>
+<p t="4469189" d="2291">with this particular mean
+and this particular variance.</p>
+<p t="4471480" d="1380">So how would you
+do it in practice?</p>
+<p t="4472860" d="1416">Well you would
+say, I'm just going</p>
+<p t="4474276" d="2634">to replace the mean by the
+empirical mean and the variance</p>
+<p t="4476910" d="1810">by the empirical variance.</p>
+<p t="4478720" d="2990">But by doing that you're making
+a huge mistake because you</p>
+<p t="4481710" d="3450">are sort of depriving your
+test of the possibility</p>
+<p t="4485160" d="1807">to reject the Gaussian
+hypothesis just</p>
+<p t="4486967" d="2333">based on the fact that the
+mean is wrong or the variance</p>
+<p t="4489300" d="630">is wrong.</p>
+<p t="4489930" d="2670">You've already stuck to
+your data pretty well.</p>
+<p t="4492600" d="3060">And so you're sort
+of like already</p>
+<p t="4495660" d="3660">tilting the game in
+favor of H0 big time.</p>
+<p t="4499320" d="1980">So there's actually a
+way to arrange for this.</p>
+<p t="4503930" d="1625">OK, so this is about
+pivotal statistic.</p>
+<p t="4505555" d="1395">We've used this word many times.</p>
+<p t="4509680" d="2592">And So that's how.</p>
+<p t="4512272" d="1458">I'm not going to
+go into this test.</p>
+<p t="4513730" d="2910">It's really, this is a recipe
+on how you would actually</p>
+<p t="4516640" d="4280">build the table that I
+showed you, this table.</p>
+<p t="4520920" d="2740">This is basically the
+recipe on how to build it.</p>
+<p t="4523660" d="2130">There's another recipe to
+build it, which is just</p>
+<p t="4525790" d="1940">open a book at this page.</p>
+<p t="4527730" d="2040">That's a little faster.</p>
+<p t="4529770" d="3100">Or use software.</p>
+<p t="4532870" d="1180">I just wanted to show you.</p>
+<p t="4534050" d="2841">So let's just keep in mind,
+anybody has a good memory?</p>
+<p t="4536891" d="1499">Let's just keep in
+mind this number.</p>
+<p t="4538390" d="5670">This is the threshold for the
+Kolmogorov-Smirnov statistic.</p>
+<p t="4544060" d="3190">If I have 10 observations
+and I want to do it at 5%,</p>
+<p t="4547250" d="2810">it's about 41%.</p>
+<p t="4550060" d="2320">So that's the number that
+it should be larger from.</p>
+<p t="4552380" d="4250">So it turns out that if you want
+to test if it's normal, and not</p>
+<p t="4556630" d="2370">just the specific
+normal, this number</p>
+<p t="4559000" d="1145">is going to be different.</p>
+<p t="4560145" d="1375">Do you think the
+number I'm going</p>
+<p t="4561520" d="2041">to read in a table that's
+appropriate for this is</p>
+<p t="4563561" d="2069">going to be larger or smaller?</p>
+<p t="4565630" d="1875">Who says larger?</p>
+<p t="4567505" d="1625">AUDIENCE: Sorry, what
+was the question?</p>
+<p t="4569130" d="1458">PROFESSOR: So the
+question is, this</p>
+<p t="4570588" d="9682">is the number I should see if
+my test was, is X, say, N 0, 5.</p>
+<p t="4580270" d="500">Right?</p>
+<p t="4580770" d="4860">That's a specific distribution
+with a specific F0.</p>
+<p t="4585630" d="2180">So that's the
+number, I would build</p>
+<p t="4587810" d="1820">the Kolmogorov-Smirnov
+statistic from this.</p>
+<p t="4589630" d="2830">I would perform a test and
+check if my Kolmogorov-Smirnov</p>
+<p t="4592460" d="2510">statistic tn is larger
+than this number or not.</p>
+<p t="4594970" d="1480">If it's larger I'm
+going to reject.</p>
+<p t="4596450" d="4490">Now I say, actually, I don't
+want to test if H0 is N 0, 5,</p>
+<p t="4600940" d="7002">but it's just a mu sigma squared
+for some mu and sigma squared.</p>
+<p t="4607942" d="2458">And in particular I'm just
+going to plugin mu hat and sigma</p>
+<p t="4610400" d="2280">hat into my F0, run
+the same statistic,</p>
+<p t="4612680" d="3600">but compare it to
+a different number.</p>
+<p t="4616280" d="3810">So the larger the
+number, the more or less</p>
+<p t="4620090" d="3570">likely am I to reject?</p>
+<p t="4623660" d="2070">The less likely I
+am to reject, right?</p>
+<p t="4625730" d="3970">So if I just use that
+number, let's say</p>
+<p t="4629700" d="2960">this is a large
+number, I would be more</p>
+<p t="4632660" d="1417">tempted to say it's Gaussian.</p>
+<p t="4634077" d="1583">And if you look at
+the table you would</p>
+<p t="4635660" d="2640">get that if you make the
+appropriate correction</p>
+<p t="4638300" d="2900">at the same number
+of observations, 10,</p>
+<p t="4641200" d="5159">and the same level, you
+get 25% as opposed to 41%.</p>
+<p t="4646359" d="2291">That means that you're actually
+much more likely if you</p>
+<p t="4648650" d="4020">use the appropriate test to
+reject the fact that it's</p>
+<p t="4652670" d="2010">normal, which is bad
+news, because that means</p>
+<p t="4654680" d="2100">you don't have access
+to the Gaussian arsenal,</p>
+<p t="4656780" d="1380">and nobody wants to do this.</p>
+<p t="4658160" d="2760">So actually this is a
+mistake that people do a lot.</p>
+<p t="4660920" d="1650">They use the
+Kolmogorov-Smirnov test</p>
+<p t="4662570" d="3240">to test for normality without
+adjusting for the fact</p>
+<p t="4665810" d="2400">that they've plugged
+in the estimated mean</p>
+<p t="4668210" d="1890">and the estimated variance.</p>
+<p t="4670100" d="3420">This leads to rejecting
+less often, right?</p>
+<p t="4673520" d="4970">I mean this is almost half
+of the number that we had.</p>
+<p t="4678490" d="2500">And then they can be
+happy and walk home</p>
+<p t="4680990" d="2130">and say, well, I did the
+test and it was normal.</p>
+<p t="4683120" d="1520">So this is actually
+a mistake that I</p>
+<p t="4684640" d="2490">believe that genuinely at
+least a quarter of the people</p>
+<p t="4687130" d="2227">do make in purpose.</p>
+<p t="4689357" d="2333">They just say, well I want
+it to be Gaussian so I'm just</p>
+<p t="4691690" d="2070">going to make my life easier.</p>
+<p t="4693760" d="3420">So this is the so-called
+Kolmogorov Lilliefors test.</p>
+<p t="4697180" d="3620">We'll talk about it,
+well not today for sure.</p>
+<p t="4700800" d="3850">There's other statistics that
+you can test, that you can use.</p>
+<p t="4704650" d="1740">And the idea is to
+say, well, we want</p>
+<p t="4706390" d="1890">to know if the
+empirical distribution</p>
+<p t="4708280" d="3620">function, the empirical CDF,
+is close to the true CDF.</p>
+<p t="4711900" d="1980">The way we did it is by
+forming the difference</p>
+<p t="4713880" d="2360">in looking at the worst
+possible distance they can be.</p>
+<p t="4716240" d="3640">That's called a sup
+norm, or L infinity norm,</p>
+<p t="4719880" d="2260">in functional analysis.</p>
+<p t="4722140" d="1880">So here, this is
+what it looked like.</p>
+<p t="4724020" d="2610">The distance between Fn and
+F that we measured was just</p>
+<p t="4726630" d="1890">the supremum distance
+over all t's.</p>
+<p t="4728520" d="2580">That's one way to measure
+distance between two functions.</p>
+<p t="4731100" d="2070">But there's an
+infinite many ways</p>
+<p t="4733170" d="1710">to measure distance
+between functions.</p>
+<p t="4734880" d="1960">One is something we're
+much more familiar with,</p>
+<p t="4736840" d="2670">which is the squared L2-norm.</p>
+<p t="4739510" d="3260">This is nice because this
+has like an inner product,</p>
+<p t="4742770" d="1600">it has some nice properties.</p>
+<p t="4744370" d="2370">And you could actually just,
+rather than taking the sup,</p>
+<p t="4746740" d="3540">you could just integrate
+the squared distance.</p>
+<p t="4750280" d="4205">And this is what leads to
+Cramier-Von Mises test.</p>
+<p t="4754485" d="1375">And then there's
+another one that</p>
+<p t="4755860" d="2910">says, well, maybe I don't want
+to integrate without weights.</p>
+<p t="4758770" d="3460">Maybe I want to put weights
+that account for the variance.</p>
+<p t="4762230" d="2270">And this guy is called
+Anderson-Darling.</p>
+<p t="4764500" d="2310">For each of these
+tests you can check</p>
+<p t="4766810" d="2850">that the asymptotic distribution
+is going to be pivotal,</p>
+<p t="4769660" d="2760">which means that there will be
+a table at the back of some book</p>
+<p t="4772420" d="4770">that tells you what the
+statistic, the quantiles</p>
+<p t="4777190" d="1540">of square root of
+n times this guy</p>
+<p t="4778730" d="1603">are asymptotically, basically.</p>
+<p t="4780333" d="966">Yeah?</p>
+<p t="4781299" d="2898">AUDIENCE: For the
+Kolmogorov-Smirnov test,</p>
+<p t="4784197" d="3864">for the table that
+shows the value it has,</p>
+<p t="4788061" d="3511">it has the value
+for different n.</p>
+<p t="4791572" d="1818">But I thought we [INAUDIBLE]--</p>
+<p t="4793390" d="760">PROFESSOR: Yeah.</p>
+<p t="4794150" d="2499">So that's just to show you that
+asymptotically it's pivotal,</p>
+<p t="4796649" d="2511">and I can point you
+to one specific thing.</p>
+<p t="4799160" d="3682">But it turns out that this thing
+is actually pivotal for each n.</p>
+<p t="4802842" d="2458">And that's why you have this
+recipe to construct the entire</p>
+<p t="4805300" d="3390">thing, because it's actually
+not true for all possible n's.</p>
+<p t="4808690" d="2010">Also there's the n
+that shows up here.</p>
+<p t="4810700" d="2340">So no actually,
+this is something</p>
+<p t="4813040" d="1050">you should have in mind.</p>
+<p t="4814090" d="4260">So basically, let me
+strike what I just said.</p>
+<p t="4818350" d="1980">This thing you can
+actually, this distribution</p>
+<p t="4820330" d="3789">will not depend on F0
+for any particular n.</p>
+<p t="4824119" d="1791">It's just not going to
+be a Brownian bridge</p>
+<p t="4825910" d="2220">but a finite sample
+approximation of a Brownian</p>
+<p t="4828130" d="3030">bridge, and you can simulate
+that just drawing samples</p>
+<p t="4831160" d="2340">from it, building a
+histogram, and constructing</p>
+<p t="4833500" d="1786">the quantiles for this guy.</p>
+<p t="4835286" d="1624">AUDIENCE: No one has
+actually developed</p>
+<p t="4836910" d="1394">a table for Brownian--</p>
+<p t="4838304" d="1166">PROFESSOR: Oh, there is one.</p>
+<p t="4839470" d="3100">That's the table, maybe.</p>
+<p t="4842570" d="4100">Let's see if we see it at the
+bottom of the other table.</p>
+<p t="4846670" d="550">Yeah.</p>
+<p t="4847220" d="500">See?</p>
+<p t="4847720" d="1277">Over 40, over 30.</p>
+<p t="4848997" d="1583">So this is not the
+Kolmogorov-Smirnov,</p>
+<p t="4850580" d="2130">but that's the
+Kolmogorov Lilliefors.</p>
+<p t="4852710" d="2190">Those numbers that
+you see here, they</p>
+<p t="4854900" d="2160">are the numbers for the
+asymptotic thing which is</p>
+<p t="4857060" d="2132">some sort of Brownian bridge.</p>
+<p t="4859192" d="992">Yeah?</p>
+<p t="4860184" d="1000">AUDIENCE: Two questions.</p>
+<p t="4861184" d="2472">If I want to build the
+Kolmogorov-Smirnov test,</p>
+<p t="4863656" d="4464">it says that F0 is
+required to be continuous.</p>
+<p t="4868120" d="1984">PROFESSOR: Yeah.</p>
+<p t="4870104" d="3472">AUDIENCE: [INAUDIBLE] If
+we have, like, probability</p>
+<p t="4873576" d="1984">mass of a particular value.</p>
+<p t="4875560" d="2500">Like some sort of data.</p>
+<p t="4878060" d="2709">PROFESSOR: So then you won't
+have this nice picture, right?</p>
+<p t="4880769" d="1791">This can happen at any
+point because you're</p>
+<p t="4882560" d="1775">going to have
+discontinuities in F</p>
+<p t="4884335" d="2285">and those things can
+happen everywhere.</p>
+<p t="4886620" d="500">And then--</p>
+<p t="4887120" d="1914">AUDIENCE: Would the
+supremum still work?</p>
+<p t="4889034" d="1666">PROFESSOR: You mean
+the Brownian bridge?</p>
+<p t="4890700" d="1440">AUDIENCE: Yeah.</p>
+<p t="4892140" d="3200">The Kolmogorov test
+doesn't say that you</p>
+<p t="4895340" d="2042">have to be able to easily
+calculate the supremum.</p>
+<p t="4897382" d="1874">PROFESSOR: No, no, no,
+but you still need it.</p>
+<p t="4899256" d="1344">You still need it for--</p>
+<p t="4900600" d="2232">so there's some finite
+sample versions of it</p>
+<p t="4902832" d="2208">that you can use that are
+slightly more conservative,</p>
+<p t="4905040" d="2700">which is in a way good
+news because you're</p>
+<p t="4907740" d="2510">going to conclude more to H0.</p>
+<p t="4910250" d="2680">And there's are some,
+I forget the name,</p>
+<p t="4912930" d="4242">it's Kiefer-Wolfowitz, the
+Kiefer-Dvoretzky-Wolfowitz,</p>
+<p t="4917172" d="2458">an equality which is basically
+like Hoeffding's inequality.</p>
+<p t="4919630" d="1880">So it's basically
+up to bad constants</p>
+<p t="4921510" d="3390">telling you the same result
+as the Brownian bridge result,</p>
+<p t="4924900" d="1950">and those are true all the time.</p>
+<p t="4926850" d="1980">But for the exact
+asymptotic distribution,</p>
+<p t="4928830" d="2637">you need continuity.</p>
+<p t="4931467" d="1029">Yes.</p>
+<p t="4932496" d="1416">AUDIENCE: So just
+a clarification.</p>
+<p t="4933912" d="1956">So when we are testing
+the Kolmogorov,</p>
+<p t="4935868" d="4034">we shouldn't test a particular
+mu and sigma squared?</p>
+<p t="4939902" d="2208">PROFESSOR: Well if you know
+what they are you can use</p>
+<p t="4942110" d="3149">Kolmogorov-Smirnov, but if
+you don't know what they are</p>
+<p t="4945259" d="1041">you're going to plug in--</p>
+<p t="4946300" d="1458">as soon as you're
+going to estimate</p>
+<p t="4947758" d="1776">the mean and the
+variance from the data,</p>
+<p t="4949534" d="2166">you should use the one we'll
+see next time, which is</p>
+<p t="4951700" d="1500">called Kolmogorov Lilliefors.</p>
+<p t="4953200" d="1750">You don't have to think
+about it too much.</p>
+<p t="4954950" d="3050">We'll talk about it on Thursday.</p>
+<p t="4958000" d="1215">Any other question?</p>
+<p t="4959215" d="875">So we're out of time.</p>
+<p t="4960090" d="5610">So I think we should stop here,
+and we'll resume on Thursday.</p>
+</body>
+</timedtext>

@@ -1,0 +1,1484 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="50" d="1720">The following
+content is provided</p>
+<p t="1770" d="2230">under a Creative
+Commons license.</p>
+<p t="4000" d="2850">Your support will help MIT
+OpenCourseWare continue</p>
+<p t="6850" d="3860">to offer high quality
+educational resources for free.</p>
+<p t="10710" d="2610">To make a donation or
+view additional materials</p>
+<p t="13320" d="3867">from hundreds of MIT courses,
+visit MIT OpenCourseWare</p>
+<p t="17187" d="625">at ocw.mit.edu.</p>
+<p t="22300" d="4860">PROFESSOR: One more
+exacting lecture on hashing.</p>
+<p t="27160" d="1850">And a couple reminders.</p>
+<p t="29010" d="3950">I don't want to start out
+saying unpopular things,</p>
+<p t="32960" d="4450">but we do have a quiz coming
+up next week on Tuesday.</p>
+<p t="37410" d="4020">There will not be a
+lecture next Tuesday,</p>
+<p t="41430" d="1680">but there will be a quiz.</p>
+<p t="43110" d="4580">7:30 to 9:30 Tuesday evening.</p>
+<p t="47690" d="1450">I will send announcement.</p>
+<p t="49140" d="2340">There's going to
+be a couple rooms.</p>
+<p t="51480" d="1450">Some of you will
+be in this room.</p>
+<p t="52930" d="1999">Some of you will have to
+go to a different room,</p>
+<p t="54929" d="1961">since this room
+really can't hold</p>
+<p t="56890" d="3180">180 students taking a quiz.</p>
+<p t="60070" d="1330">All right?</p>
+<p t="61400" d="2647">So hashing.</p>
+<p t="64047" d="1583">I'm pretty excited
+about this lecture,</p>
+<p t="65630" d="3650">because I think as I was
+talking with Victor just</p>
+<p t="69280" d="3380">before this, if there's one
+thing you want to remember</p>
+<p t="72660" d="4040">about hashing and you want
+to go implement a hash table,</p>
+<p t="76700" d="1710">it's open addressing.</p>
+<p t="78410" d="2270">It's the simplest way
+that you can possibly</p>
+<p t="80680" d="2040">implement a hash table.</p>
+<p t="82720" d="3310">You can implement a hash
+table using an array.</p>
+<p t="86030" d="3970">We've obviously talked
+about link lists</p>
+<p t="90000" d="5360">and chaining to implement hash
+tables in previous lectures,</p>
+<p t="95360" d="3570">but we're going to actually get
+rid of pointers and link lists,</p>
+<p t="98930" d="3960">and implement a hash table using
+a single array data structure,</p>
+<p t="102890" d="3940">and that's the notion
+of open addressing.</p>
+<p t="106830" d="2530">Now in order to get
+open addressing to work,</p>
+<p t="109360" d="1300">there's no free lunch, right?</p>
+<p t="110660" d="1900">So you have a simple
+implementation.</p>
+<p t="112560" d="3680">It turns out that in order to
+make open addressing efficient,</p>
+<p t="116240" d="2560">you have to be a little
+more careful than if you're</p>
+<p t="118800" d="3590">using the hash
+tables with chaining.</p>
+<p t="122390" d="2680">And we're going to have
+to make an assumption</p>
+<p t="125070" d="1636">about uniform hashing.</p>
+<p t="126706" d="1583">I'll say a little
+bit more about that.</p>
+<p t="128289" d="3491">But it's a different assumption
+from simple uniform hashing</p>
+<p t="131780" d="1700">that Eric talked about.</p>
+<p t="133480" d="2680">And we'll state this
+uniform hashing assumption.</p>
+<p t="136160" d="4830">And we look at what the
+performance is of open</p>
+<p t="140990" d="2400">addressing under
+this assumption.</p>
+<p t="143390" d="2940">And this is assumption
+is going to give us</p>
+<p t="146330" d="4140">a sense of what good
+hash functions are</p>
+<p t="150470" d="2880">for open addressing applications
+or for open addressing</p>
+<p t="153350" d="1420">hash tables.</p>
+<p t="154770" d="4560">And finally we'll talk
+about cryptographic hashing.</p>
+<p t="159330" d="2770">This is not really
+6006 material,</p>
+<p t="162100" d="2190">but it's kind of cool material.</p>
+<p t="164290" d="3600">It has a lot of applications
+in computer security</p>
+<p t="167890" d="1210">and cryptography.</p>
+<p t="169100" d="4610">And so as we'll describe the
+notion of a cryptographic hash,</p>
+<p t="173710" d="4260">and we'll talk about a couple
+of real simple and pervasive</p>
+<p t="177970" d="2590">applications like
+password storage</p>
+<p t="180560" d="4680">and file corruption detectors
+that you can implement</p>
+<p t="185240" d="2210">using cryptographic
+hash functions, which</p>
+<p t="187450" d="2990">are quite different from
+the regular hash functions</p>
+<p t="190440" d="2620">that we're using in hash tables.</p>
+<p t="193060" d="5400">Be it chaining hash tables or
+open addressing hash tables.</p>
+<p t="198460" d="1230">All right?</p>
+<p t="199690" d="3430">So let's get started and
+talk about open addressing.</p>
+<p t="210080" d="3829">This is another approach
+to dealing with collisions.</p>
+<p t="213909" d="2041">If you didn't have
+collisions, obviously an array</p>
+<p t="215950" d="1240">would work, right?</p>
+<p t="217190" d="2544">If you could somehow guarantee
+that there were no collisions.</p>
+<p t="219734" d="1416">When you have
+collisions, you have</p>
+<p t="221150" d="3300">to worry about the
+chaining and ensuring</p>
+<p t="224450" d="2240">that you can still find
+the keys even though you</p>
+<p t="226690" d="4110">had two keys that collided
+into the same slot.</p>
+<p t="230800" d="3290">And we don't want
+to use chaining.</p>
+<p t="236820" d="3090">The simplest data structure that
+we can possibly use are arrays.</p>
+<p t="239910" d="4520">Back when I was a grad student,
+I went through and got a PhD</p>
+<p t="244430" d="4510">writing programs in C, never
+using any other structure</p>
+<p t="248940" d="3430">than arrays, because I
+didn't like pointers.</p>
+<p t="252370" d="3160">And so open addressing
+is a way that you</p>
+<p t="255530" d="3280">can implement hash tables
+doing exactly this.</p>
+<p t="258810" d="3490">And in particular,
+what we're going to do</p>
+<p t="262300" d="2755">is assume an array
+structure with items.</p>
+<p t="271810" d="5580">And we're going to assume
+that this one item-- at most</p>
+<p t="277390" d="1240">one item per slot.</p>
+<p t="281580" d="3390">So m has to be greater
+than or equal to n, right?</p>
+<p t="284970" d="3270">So this is important because
+we don't have link lists.</p>
+<p t="288240" d="3720">We can't arbitrarily
+increase the storage</p>
+<p t="291960" d="4900">of a slot using
+a chain, and have</p>
+<p t="296860" d="2200">n, which is the
+number of elements,</p>
+<p t="299060" d="1980">be greater than m, right?</p>
+<p t="301040" d="5250">Which you could in the link
+list table with chaining.</p>
+<p t="306290" d="2810">But here you only have
+these area locations,</p>
+<p t="309100" d="2410">these indices that you
+can put items into.</p>
+<p t="311510" d="5110">So it's pretty much guaranteed
+that if you want a working open</p>
+<p t="316620" d="7370">addressing hash table that m,
+which is the number of slots</p>
+<p t="323990" d="5090">in the table, should be greater
+than or equal to the number</p>
+<p t="329080" d="2580">of elements, all right?</p>
+<p t="331660" d="2920">That's important.</p>
+<p t="334580" d="1930">Now how does this work.</p>
+<p t="336510" d="2480">Well, we're going to have
+this notion of probing.</p>
+<p t="344250" d="3910">And the notion of
+probing is that we're</p>
+<p t="348160" d="5000">going to try to see if
+we can insert something</p>
+<p t="353160" d="2856">into this hash table,
+and if you fail</p>
+<p t="356016" d="1374">we're actually
+going to recompute</p>
+<p t="357390" d="3020">a slightly different
+hash for the key</p>
+<p t="360410" d="1750">that we're trying to
+insert, the key value</p>
+<p t="362160" d="1375">pair that we're
+trying to insert.</p>
+<p t="363535" d="499">All right?</p>
+<p t="364034" d="1926">So this is an iterative
+process, and we're</p>
+<p t="365960" d="3960">going to continually probe
+until we find an empty slot</p>
+<p t="369920" d="3640">into which we can insert
+this key value pair.</p>
+<p t="373560" d="2190">The key should index into it.</p>
+<p t="375750" d="3820">So you do have
+different hashes that</p>
+<p t="379570" d="2620">are going to be computed
+based on this probing</p>
+<p t="382190" d="2290">notion for a given key.</p>
+<p t="384480" d="2570">All right?</p>
+<p t="387050" d="4340">And so what we need
+now is a hash function</p>
+<p t="391390" d="3980">that's different from the
+standard hash functions</p>
+<p t="395370" d="7100">that we've talked about
+so far, which specifies</p>
+<p t="402470" d="8740">the order of slots to
+probe, which is basically</p>
+<p t="411210" d="1140">to try for a key.</p>
+<p t="418570" d="7510">And this is going to be true
+for insert, search, and delete,</p>
+<p t="426080" d="2110">which are three
+basic operations.</p>
+<p t="428190" d="2630">And they're a little bit
+different, all right?</p>
+<p t="430820" d="3404">Just like they were different
+for the chaining hash table,</p>
+<p t="434224" d="2416">they're different here, but
+they're kind of more different</p>
+<p t="436640" d="550">here.</p>
+<p t="437190" d="2430">And you'll see what I mean
+when we go through this.</p>
+<p t="442660" d="2610">And this is not
+just for one slot.</p>
+<p t="445270" d="2920">It's going to specify
+an order of slots.</p>
+<p t="448190" d="3990">And so our hash
+function h is going</p>
+<p t="452180" d="17710">to take the universe
+of keys and also take</p>
+<p t="469890" d="3230">what we're going to
+call the trial count.</p>
+<p t="473120" d="4540">So if you're lucky-- well, you
+get lucky in your first trial.</p>
+<p t="477660" d="3660">And if you're not, you hope to
+get lucky in your second trial,</p>
+<p t="481320" d="1390">and so on and so forth.</p>
+<p t="482710" d="5380">But the hash function is
+going to take two arguments.</p>
+<p t="488090" d="4490">It's going to take the
+key as an argument,</p>
+<p t="492580" d="4530">and it's going to take a trial,
+which is an integer between 0</p>
+<p t="497110" d="2330">to n minus 1, all right?</p>
+<p t="499440" d="4520">And it's going to produce-- just
+like the chaining hash function</p>
+<p t="503960" d="7700">it's going to produce a number
+between 0 and m minus 1, right?</p>
+<p t="511660" d="2370">Where m is the number
+of slots in the table.</p>
+<p t="514030" d="1889">All right.</p>
+<p t="515919" d="3231">So that's the story.</p>
+<p t="519150" d="9210">In order to ensure that you
+are using the hash table</p>
+<p t="528360" d="6410">corresponding to open addressing
+properly, what you want</p>
+<p t="534770" d="6910">is-- and this is an important
+property-- that h k 1,</p>
+<p t="541680" d="1960">so that's a key
+that you're given.</p>
+<p t="543640" d="4720">And this could be an
+arbitrary key, mind you.</p>
+<p t="548360" d="9410">So arbitrary key k.</p>
+<p t="557770" d="2660">And what you have in
+terms of the slots that</p>
+<p t="560430" d="7450">are being computed is
+this, h k 1, h k 2,</p>
+<p t="567880" d="5640">and so on and so forth
+to h k n minus 1.</p>
+<p t="573520" d="7470">And what you want
+is for this vector</p>
+<p t="580990" d="13520">to be a permutation of 0
+1 and so on to n minus 1.</p>
+<p t="594510" d="2810">And the reason for this
+hopefully is clear.</p>
+<p t="597320" d="4580">It's because you want
+to be able to use</p>
+<p t="601900" d="2760">the entirety of your hash table.</p>
+<p t="604660" d="3150">You don't want particular
+slots to go unused.</p>
+<p t="607810" d="6110">And when you get to the point
+where the number of elements n</p>
+<p t="613920" d="6110">is pretty close to m, and maybe
+there's just one slot left, OK?</p>
+<p t="620030" d="5250">And you want to fill up this
+last slot with this key k</p>
+<p t="625280" d="2460">that you want to put
+in there, and what</p>
+<p t="627740" d="2720">you want to be able to say is
+that for this arbitrary key k</p>
+<p t="630460" d="3800">that you want to put in there
+that the one slot that's free--</p>
+<p t="634260" d="1470">and it could be that first slot.</p>
+<p t="635730" d="1670">It could be the 17th slot.</p>
+<p t="637400" d="2940">Whatever-- That eventually
+the sequence of probes</p>
+<p t="640340" d="3580">is going to be able to allow
+you to insert into that slot.</p>
+<p t="643920" d="1310">All right?</p>
+<p t="645230" d="2220">And we generalize
+this notion into</p>
+<p t="647450" d="3730">the uniform hashing
+assumption in a few minutes,</p>
+<p t="651180" d="2470">but hopefully this makes
+sense from a standpoint</p>
+<p t="653650" d="3500">of really load
+balancing the table</p>
+<p t="657150" d="3440">and ensuring that all
+slots in the table</p>
+<p t="660590" d="2010">are sort of equal
+opportunity slots.</p>
+<p t="662600" d="5670">That you're going to be able to
+put keys in them as long as you</p>
+<p t="668270" d="3400">probe long enough that you're
+going to be able to get there.</p>
+<p t="671670" d="2480">Now of course the
+fact that you're</p>
+<p t="674150" d="2500">using one particular slot
+for one particular key</p>
+<p t="676650" d="1930">depends on the order
+of keys that you're</p>
+<p t="678580" d="1720">inserting into this table.</p>
+<p t="680300" d="3840">Again, you'll see that as we go
+through an example, all right?</p>
+<p t="684140" d="1120">So that's the set up.</p>
+<p t="685260" d="2540">That's the open
+addressing notion.</p>
+<p t="687800" d="2870">And that as you
+can see, we're just</p>
+<p t="690670" d="3410">going to go through
+a sequence of probes</p>
+<p t="694080" d="2120">and our hash function
+is going to tell us</p>
+<p t="696200" d="2750">what the sequences is, and
+so we don't need any pointers</p>
+<p t="698950" d="2400">or anything like that.</p>
+<p t="701350" d="8990">So let's take a look at how
+this might work in practice.</p>
+<p t="710340" d="5550">So maybe the easiest thing to
+do is to run through an example,</p>
+<p t="715890" d="1980">and then I'll show
+you some pseudocode.</p>
+<p t="717870" d="3930">But let's say that
+I have a table here,</p>
+<p t="721800" d="5260">and I'm going to concentrate
+on the insert operation.</p>
+<p t="727060" d="3470">And I'm going to start inserting
+things into this table.</p>
+<p t="737130" d="2560">And right here I have
+seven slots up there.</p>
+<p t="739690" d="8150">So let's say that I want to
+insert 586 into the table,</p>
+<p t="747840" d="7180">and I compute h of 586 comma
+1, and that gives me 1.</p>
+<p t="755020" d="740">OK?</p>
+<p t="755760" d="1460">This is the first insert.</p>
+<p t="757220" d="5430">So I'm going to go ahead and
+stick 586 in here, all right?</p>
+<p t="762650" d="5080">And then I insert, for
+argument's sake, 133.</p>
+<p t="767730" d="2870">I insert 204 out here.</p>
+<p t="770600" d="3890">And these are all things
+because the hash table is empty.</p>
+<p t="774490" d="3410">481 out here and so on.</p>
+<p t="777900" d="1900">And because the
+hash table is empty,</p>
+<p t="779800" d="4000">my very first trial is
+successful, all right?</p>
+<p t="783800" d="7390">So h of 481-- I'm not going to
+write this all out, but h 481 1</p>
+<p t="791190" d="4090">happens to be 6 and so on.</p>
+<p t="795280" d="540">All right?</p>
+<p t="795820" d="9090">Now I get to the point
+where I want to insert 496.</p>
+<p t="804910" d="15790">And when I try to insert
+496, I have h 496 1.</p>
+<p t="820700" d="2790">It happens to be 4.</p>
+<p t="823490" d="960">OK?</p>
+<p t="824450" d="3780">So the first thing that
+happens is I go in here,</p>
+<p t="828230" d="1840">and I say oops.</p>
+<p t="830070" d="4920">This slot is occupied,
+because this-- I'm</p>
+<p t="834990" d="5480">going to have a special flag
+associated with an empty slot,</p>
+<p t="840470" d="3360">and we can say it's none.</p>
+<p t="843830" d="2190">And if it's not none,
+then it's occupied.</p>
+<p t="846020" d="2060">And 204 is not equal to none.</p>
+<p t="848080" d="6430">So I look at this, and I say
+the first probe actually failed.</p>
+<p t="854510" d="650">OK?</p>
+<p t="855160" d="14990">And so h 496 1 equals 4 fails,
+so I need to go do h 496 2.</p>
+<p t="870150" d="6030">And h 496 2 may also fail.</p>
+<p t="876180" d="9730">You might be in a situation
+where h 496 2 gives you 586.</p>
+<p t="885910" d="10940">So this was h 496 1 h
+496 2 might give you 586.</p>
+<p t="896850" d="6800">And finally it may be that h 496
+3, which is your third attempt,</p>
+<p t="903650" d="1480">equals 3.</p>
+<p t="905130" d="2430">So you go in, and you say great.</p>
+<p t="907560" d="2650">I can insert 496.</p>
+<p t="910210" d="1560">And let me write
+that in bold here.</p>
+<p t="914830" d="1360">Out there.</p>
+<p t="916190" d="590">All right?</p>
+<p t="916780" d="1970">So pretty straightforward.</p>
+<p t="918750" d="4870">In this case, you've gone
+through three trials in order</p>
+<p t="923620" d="1870">to find an empty slot.</p>
+<p t="925490" d="3070">And so the big
+question really here is</p>
+<p t="928560" d="4020">other than taking care of
+search and delete, how long is</p>
+<p t="932580" d="1480">this process going to take?</p>
+<p t="934060" d="930">All right?</p>
+<p t="934990" d="2810">And I'm talking about
+that in a few minutes,</p>
+<p t="937800" d="3550">but let me explain,
+now that you've</p>
+<p t="941350" d="4470">seen insert, how search
+would work, right?</p>
+<p t="945820" d="4690">Or maybe I get one of
+you guys to explain to me</p>
+<p t="950510" d="4720">once you have insert,
+how would search work?</p>
+<p t="955230" d="500">Someone?</p>
+<p t="958550" d="1388">Someone from the back?</p>
+<p t="963290" d="1510">No one.</p>
+<p t="964800" d="3650">You guys are always
+answering questions.</p>
+<p t="968450" d="1350">Yeah, all the way in the back.</p>
+<p t="969800" d="2160">AUDIENCE: Would you
+just do the same kind</p>
+<p t="971960" d="6062">of probing [INAUDIBLE] where you
+find it or you don't find it?</p>
+<p t="978022" d="708">PROFESSOR: Right.</p>
+<p t="978730" d="830">So you do exactly.</p>
+<p t="979560" d="1230">It's very similar to insert.</p>
+<p t="983810" d="2570">You have a situation
+where you're</p>
+<p t="986380" d="7460">going to none would
+indicate an empty slot.</p>
+<p t="993840" d="3820">And you can think of
+this as being a flag.</p>
+<p t="997660" d="7790">And in the case of insert,
+what you did was you--</p>
+<p t="1005450" d="7670">insert k v would
+say keep probing.</p>
+<p t="1013120" d="2900">I'm not going to write
+the pseudocode for it.</p>
+<p t="1016020" d="7960">Keep probing until an
+empty slot is found.</p>
+<p t="1026630" d="1850">And then when it's
+found, insert item.</p>
+<p t="1036560" d="3370">And as long as you have
+the permutation property</p>
+<p t="1039930" d="3220">that we have up there, and
+given that m is greater than</p>
+<p t="1043150" d="3110">or equal to n, you're
+guaranteed that insert</p>
+<p t="1046260" d="1800">is going to find a slot.</p>
+<p t="1048060" d="500">OK?</p>
+<p t="1048560" d="1310">That's the good news.</p>
+<p t="1049870" d="1550">Now it might take
+awhile, and so we</p>
+<p t="1051420" d="4550">have a talk about performance
+a bit later, but it'll work.</p>
+<p t="1055970" d="830">OK?</p>
+<p t="1056800" d="2310">Now search is a
+little bit different.</p>
+<p t="1062490" d="8216">You're searching for a
+key k, and you essentially</p>
+<p t="1070706" d="1374">say you're going
+to keep probing.</p>
+<p t="1072080" d="12210">And you say as long as
+the slots encountered</p>
+<p t="1084290" d="9870">are occupied by
+keys not equal to k.</p>
+<p t="1094160" d="2280">So every time you
+probe, you go in there</p>
+<p t="1096440" d="2000">and you say I got a key.</p>
+<p t="1098440" d="2390">I found a hash for it.</p>
+<p t="1100830" d="1670">I go to this particular slot.</p>
+<p t="1102500" d="2770">I look inside of it,
+and I check to see</p>
+<p t="1105270" d="2730">whether the key that's
+stored inside of it</p>
+<p t="1108000" d="3170">is the same as the
+key I'm searching for.</p>
+<p t="1111170" d="3820">If not, I go to the next trial.</p>
+<p t="1114990" d="2140">If it is, then I return it.</p>
+<p t="1117130" d="500">Right?</p>
+<p t="1117630" d="3810">So that's pretty much it.</p>
+<p t="1121440" d="19250">And we keep probing until you
+either encounter k or find</p>
+<p t="1140690" d="730">an empty slot.</p>
+<p t="1144930" d="990">And this is the key.</p>
+<p t="1148714" d="666">No pun intended.</p>
+<p t="1152230" d="4450">A notion which is that when
+you find an empty slot,</p>
+<p t="1156680" d="5160">it means that you have
+failed to discover this key.</p>
+<p t="1161840" d="2432">You fail to-- yeah,
+question back there?</p>
+<p t="1164272" d="2898">AUDIENCE: What happens if you
+were to delete a key though?</p>
+<p t="1167170" d="2500">PROFESSOR: I'll make you answer
+that question for a cushion.</p>
+<p t="1172200" d="2544">So we'll get to
+delete in a minute.</p>
+<p t="1174744" d="1416">But I want to make
+sure you're all</p>
+<p t="1176160" d="3010">on board with insert and search.</p>
+<p t="1179170" d="750">OK?</p>
+<p t="1179920" d="3360">So these are actually fairly
+straightforward in comparison</p>
+<p t="1183280" d="500">to delete.</p>
+<p t="1183780" d="2070">It's not like delete is
+much more complicated,</p>
+<p t="1185850" d="3004">but there is a subtlety there.</p>
+<p t="1188854" d="1416">And so that's kind
+of neat, right?</p>
+<p t="1190270" d="2360">I mean this actually works.</p>
+<p t="1192630" d="6070">So if you had a situation where
+you were just accumulating</p>
+<p t="1198700" d="4220">keys, and you're looking for
+the number of distinct elements</p>
+<p t="1202920" d="2440">in the stream of data
+that was coming in,</p>
+<p t="1205360" d="2730">and that was pretty much it
+with respect to your program,</p>
+<p t="1208090" d="3850">you'd never have to delete
+keys, and this would be all</p>
+<p t="1211940" d="1470">that you'd have to implement.</p>
+<p t="1213410" d="870">Right?</p>
+<p t="1214280" d="3410">But let's talk about delete.</p>
+<p t="1217690" d="2180">Every once in awhile we'd
+want to delete a key?</p>
+<p t="1219870" d="700">Yeah, you had a question?</p>
+<p t="1220570" d="1708">AUDIENCE: I have a
+question about search.</p>
+<p t="1222278" d="3072">Why do you stop searching
+once you find an empty slot?</p>
+<p t="1225350" d="1720">PROFESSOR: Because
+you're searching.</p>
+<p t="1227070" d="2940">So what that means
+is that you're</p>
+<p t="1230010" d="4110">looking to see if this key
+were already in the table.</p>
+<p t="1234120" d="3030">And if key were
+already in the table,</p>
+<p t="1237150" d="2720">you want to return the value
+associated with that key.</p>
+<p t="1239870" d="2390">If you find an empty
+slot, since you're</p>
+<p t="1242260" d="5280">using the same deterministic
+sequence of probes</p>
+<p t="1247540" d="2680">that you would have if
+you had inserted it,</p>
+<p t="1250220" d="1990">then-- that make sense?</p>
+<p t="1252210" d="1110">Good.</p>
+<p t="1253320" d="760">All right.</p>
+<p t="1254080" d="2420">So so far so good?</p>
+<p t="1256500" d="4050">That's what works for
+insert and search.</p>
+<p t="1260550" d="980">Let's talk delete.</p>
+<p t="1261530" d="2686">So back there.</p>
+<p t="1264216" d="994">How does delete work?</p>
+<p t="1269070" d="3358">AUDIENCE: Well
+[INAUDIBLE] if you</p>
+<p t="1272428" d="3984">search until you find
+the none and assume</p>
+<p t="1276412" d="3984">that the key you're searching
+for was not put in there.</p>
+<p t="1280396" d="4814">But let's say you had one
+that was in that slot before</p>
+<p t="1285210" d="1500">and it got put back
+in, but then you</p>
+<p t="1286710" d="1791">delete the one that
+was in the slot before.</p>
+<p t="1288501" d="1246">PROFESSOR: Great, great.</p>
+<p t="1289747" d="1583">You haven't told me
+how to fix it yet,</p>
+<p t="1291330" d="4010">but do you have
+the guts for this?</p>
+<p t="1295340" d="1700">No.</p>
+<p t="1297040" d="2420">OK, I think this
+veers to the right.</p>
+<p t="1299460" d="2446">I always wanted to do this
+to somebody in the back.</p>
+<p t="1301906" d="2330">All right.</p>
+<p t="1304236" d="934">Whoa.</p>
+<p t="1305170" d="3410">All right, good catch.</p>
+<p t="1308580" d="650">All right.</p>
+<p t="1309230" d="590">OK.</p>
+<p t="1309820" d="2010">So you pointed out
+the problem, and I'm</p>
+<p t="1311830" d="1970">going to ask somebody
+else for a solution.</p>
+<p t="1313800" d="2000">All right?</p>
+<p t="1315800" d="1770">But here's the problem.</p>
+<p t="1317570" d="1530">Here's the problem,
+and we can look</p>
+<p t="1319100" d="5460">at it from a standpoint of
+that example right there.</p>
+<p t="1324560" d="4140">Let's say for argument's
+sake that I'm searching-- now</p>
+<p t="1328700" d="3140">I've done all of the inserts
+that I have up there, OK?</p>
+<p t="1331840" d="2360">So I've inserted 496.</p>
+<p t="1334200" d="660">All right?</p>
+<p t="1334860" d="6980">Then I delete 586
+from the table, OK?</p>
+<p t="1341840" d="2660">I delete 586 from the table.</p>
+<p t="1344500" d="5580">So let's just say
+that what I end up</p>
+<p t="1350080" d="8830">doing-- I have 586,
+133, 496, and then</p>
+<p t="1358910" d="3870">I have 204, and then a 481.</p>
+<p t="1362780" d="4990">And this is 0, 1, 2, et cetera.</p>
+<p t="1367770" d="4500">So I'm deleting 586, and let's
+say I replace it with none.</p>
+<p t="1372270" d="1030">OK?</p>
+<p t="1373300" d="1830">Let's just say I
+replace it with none.</p>
+<p t="1375130" d="8540">Now what happens is that when
+I search for 496, according</p>
+<p t="1383670" d="6270">to this search algorithm
+what am I going to get?</p>
+<p t="1389940" d="2100">AUDIENCE: None.</p>
+<p t="1392040" d="3650">PROFESSOR: Well the first slot
+I'm going to look at is 1,</p>
+<p t="1395690" d="2650">and according to this
+search algorithm,</p>
+<p t="1398340" d="2690">I find an empty slot, right?</p>
+<p t="1401030" d="2240">And when I find
+an empty slot, I'm</p>
+<p t="1403270" d="3430">going to say I
+failed in the search.</p>
+<p t="1406700" d="7120">If you encounter k, you succeed
+and return the key value pair,</p>
+<p t="1413820" d="500">right?</p>
+<p t="1414320" d="2190">Success means you
+return the value.</p>
+<p t="1416510" d="2280">And if you encounter
+an empty slot,</p>
+<p t="1418790" d="2900">it means that you've
+decided that this key is not</p>
+<p t="1421690" d="1940">in the table.</p>
+<p t="1423630" d="2880">And you say couldn't
+find it, right?</p>
+<p t="1426510" d="1470">That make sense?</p>
+<p t="1427980" d="1990">So this is obviously
+wrong, right?</p>
+<p t="1429970" d="4230">Because I just inserted
+496 into the table.</p>
+<p t="1434200" d="2320">So this would fail incorrectly.</p>
+<p t="1440560" d="2430">So failed to find
+the key, which is OK.</p>
+<p t="1442990" d="2210">I mean failure is OK
+if the key isn't there.</p>
+<p t="1445200" d="1951">But you don't want
+to fail incorrectly.</p>
+<p t="1447151" d="499">Right?</p>
+<p t="1447650" d="1940">Everyone buy that?</p>
+<p t="1449590" d="1060">Everyone buy that?</p>
+<p t="1450650" d="850">Good.</p>
+<p t="1451500" d="500">All right.</p>
+<p t="1452000" d="2170">So how do I fix it.</p>
+<p t="1454170" d="1290">Someone else?</p>
+<p t="1455460" d="1500">How do I fix this?</p>
+<p t="1456960" d="1603">Someone who doesn't
+have a cushion.</p>
+<p t="1458563" d="2123">All right, you.</p>
+<p t="1460686" d="9424">AUDIENCE: [INAUDIBLE] you can
+mark that spot by a, and when</p>
+<p t="1470110" d="4470">search comes across a,
+you just [INAUDIBLE].</p>
+<p t="1474580" d="3440">PROFESSOR: Right, great answer.</p>
+<p t="1478020" d="2460">We're now going to have to do
+a couple of different things</p>
+<p t="1480480" d="1860">for insert and search, OK?</p>
+<p t="1482340" d="1679">It's going to be
+subtly different,</p>
+<p t="1484019" d="1541">but the first thing
+we're going to do</p>
+<p t="1485560" d="1374">is we're going to
+have this flag,</p>
+<p t="1486934" d="1986">and I'll just call
+it delete me flag.</p>
+<p t="1488920" d="1700">OK?</p>
+<p t="1490620" d="9730">And we're going to say that
+when I delete something,</p>
+<p t="1500350" d="9610">replace deleted item
+with not the non flag,</p>
+<p t="1509960" d="5240">but a different flag that
+we'll call delete me.</p>
+<p t="1515200" d="4940">Is different from none.</p>
+<p t="1524230" d="1810">And that's going
+to be important,</p>
+<p t="1526040" d="2560">because now that you
+have a different flag,</p>
+<p t="1528600" d="6930">and you replace
+586 with delete me,</p>
+<p t="1535530" d="5370">you can now do different things
+in insert versus search, right?</p>
+<p t="1540900" d="3000">So in particular,
+what you would do</p>
+<p t="1543900" d="7222">is you'd have to
+modify this slightly,</p>
+<p t="1551122" d="1458">because the notion
+of an empty slot</p>
+<p t="1552580" d="2800">means that you're
+looking for none, right?</p>
+<p t="1555380" d="5270">And all it means is that--
+well actually in some sense,</p>
+<p t="1560650" d="1850">the pseudo code
+doesn't really change</p>
+<p t="1562500" d="5660">because if you say
+you either encounter k</p>
+<p t="1568160" d="6350">or you would-- even if
+you encounter a delete me,</p>
+<p t="1574510" d="1210">you keep going.</p>
+<p t="1575720" d="500">All right?</p>
+<p t="1576220" d="2430">That's the important thing.</p>
+<p t="1578650" d="1920">So I guess it does
+change, because I assume</p>
+<p t="1580570" d="2600">that you have only
+two cases here,</p>
+<p t="1583170" d="2905">but what you really have
+now are three cases.</p>
+<p t="1586075" d="2075">The three cases are
+when you're doing</p>
+<p t="1588150" d="2710">the search is that you
+encounter the key, which</p>
+<p t="1590860" d="1100">is the easy case.</p>
+<p t="1591960" d="730">You return it.</p>
+<p t="1592690" d="1750">You return the value.</p>
+<p t="1594440" d="4090">Or you can encounter a
+delete me flag, in which case</p>
+<p t="1598530" d="1710">you keep going.</p>
+<p t="1600240" d="1900">OK?</p>
+<p t="1602140" d="2790">And if you encounter
+an empty slot, which</p>
+<p t="1604930" d="2082">corresponds to none,
+at that point you know</p>
+<p t="1607012" d="2618">you failed and the key
+doesn't exist in the table.</p>
+<p t="1609630" d="940">All right?</p>
+<p t="1610570" d="3740">So let me just write that out.</p>
+<p t="1614310" d="8730">Insert treats delete
+me the same as none.</p>
+<p t="1627250" d="13820">But search keeps going
+and treats it differently.</p>
+<p t="1652117" d="1083">And that's pretty much it.</p>
+<p t="1653200" d="2060">So what would happen
+in our example?</p>
+<p t="1655260" d="4580">Well, going through
+exactly the same example,</p>
+<p t="1659840" d="3910">we started from here, and
+then we decided to delete 586.</p>
+<p t="1663750" d="7830">And so if we replaced 586 not
+with none, but with delete me,</p>
+<p t="1671580" d="3680">and the next time around
+when you search for 496,</p>
+<p t="1675260" d="2100">you're searching for 496.</p>
+<p t="1677360" d="1510">And what would
+happen is that you</p>
+<p t="1678870" d="5140">would go look at 586-- the
+slot that contained 586,</p>
+<p t="1684010" d="2350">and you see that there's
+a delete me flag in there.</p>
+<p t="1686360" d="2040">And so you go to the next trial.</p>
+<p t="1688400" d="6400">And then in the next trial, you
+discover that, in this case,</p>
+<p t="1694800" d="4410">you have-- I'm sorry.</p>
+<p t="1699210" d="3120">I had 204 first as
+the first trial,</p>
+<p t="1702330" d="3780">and then in the second
+trial I had 586.</p>
+<p t="1706110" d="2680">And I would continue
+beyond the second trial</p>
+<p t="1708790" d="7290">and get to third trial, and in
+fact return 496 in this case.</p>
+<p t="1716080" d="3672">I would get to returning
+496 in my third trial, which</p>
+<p t="1719752" d="958">is exactly what I want.</p>
+<p t="1723780" d="3030">The interesting thing here is
+that you can reuse storage.</p>
+<p t="1726810" d="2040">I mean the whole
+point of deleting</p>
+<p t="1728850" d="5030">is that you can take the storage
+and insert other keys in there.</p>
+<p t="1733880" d="2260">Once you've freed
+up the storage.</p>
+<p t="1736140" d="5640">And you can do that by
+making insert treat delete me</p>
+<p t="1741780" d="1785">the same as the none.</p>
+<p t="1743565" d="1625">So the next time you
+want to insert you</p>
+<p t="1745190" d="4430">could-- if you happen to index
+into the index corresponding</p>
+<p t="1749620" d="3030">to 586, you can override that.</p>
+<p t="1752650" d="3270">The delete me flag goes
+away, and some other key--</p>
+<p t="1755920" d="4820">call it 999 or something--
+would get in there.</p>
+<p t="1760740" d="2960">And you're all set with that.</p>
+<p t="1763700" d="840">OK?</p>
+<p t="1764540" d="1840">Any questions?</p>
+<p t="1766380" d="2150">This all makes sense?</p>
+<p t="1768530" d="4520">So you could imagine coding
+this up with an array structure</p>
+<p t="1773050" d="2050">is fairly straightforward.</p>
+<p t="1775100" d="3790">What remains here
+to be discussed</p>
+<p t="1778890" d="3280">is how well does
+this work, right?</p>
+<p t="1782170" d="4100">You have this extra requirement
+on the hash function</p>
+<p t="1786270" d="4660">corresponding to creating
+an extra argument</p>
+<p t="1790930" d="3020">as an input to it, which
+is this trial count.</p>
+<p t="1793950" d="3250">And you'd like to have this
+nice property of corresponding</p>
+<p t="1797200" d="1140">to a permutation.</p>
+<p t="1798340" d="2810">Can we actually design
+hash functions like this?</p>
+<p t="1801150" d="2230">And we'll take a look
+at a bad hash function,</p>
+<p t="1803380" d="2220">and then at a better one.</p>
+<p t="1805600" d="2660">So let's talk about
+probing strategies, which</p>
+<p t="1808260" d="7650">is essentially the same
+as taking a hash function</p>
+<p t="1815910" d="2660">and changing it
+so it is actually</p>
+<p t="1818570" d="2670">applicable to open addressing.</p>
+<p t="1821240" d="9240">So the notion of
+linear probing is</p>
+<p t="1830480" d="10440">that you do h k i
+equals h prime k, which</p>
+<p t="1840920" d="2300">is some hash function
+that you've chosen,</p>
+<p t="1843220" d="6365">plus i mod m, where this is
+an ordinary hash function.</p>
+<p t="1854620" d="840">OK?</p>
+<p t="1855460" d="1541">So that looks pretty
+straightforward.</p>
+<p t="1861280" d="820">What happens here?</p>
+<p t="1862100" d="3120">Does this satisfy the
+permutation argument?</p>
+<p t="1868785" d="1715">Before I forget.</p>
+<p t="1870500" d="3180">Does it satisfy the
+permutation property</p>
+<p t="1873680" d="6120">that I want h k 1, h k 2, h k
+m minus 1 to be a permutation?</p>
+<p t="1879800" d="780">That make sense?</p>
+<p t="1880580" d="800">Yep, yep.</p>
+<p t="1881380" d="1860">Because I then I start adding.</p>
+<p t="1883240" d="3540">The mod is precisely kind
+of this round robin cycle,</p>
+<p t="1886780" d="2000">so it's going to
+satisfy the permutation.</p>
+<p t="1888780" d="540">That's good.</p>
+<p t="1894120" d="3050">What's wrong with this?</p>
+<p t="1897170" d="2450">What's wrong with this?</p>
+<p t="1899620" d="500">Someone?</p>
+<p t="1903120" d="4500">AUDIENCE: The fact that
+[INAUDIBLE] keys, which they're</p>
+<p t="1907620" d="3000">all filled, then if you hit
+anywhere in here [INAUDIBLE]</p>
+<p t="1910620" d="1354">list of consecutive keys.</p>
+<p t="1911974" d="666">AUDIENCE: Right.</p>
+<p t="1912640" d="750">That's excellent.</p>
+<p t="1913390" d="1350">Excellent, excellent answer.</p>
+<p t="1914740" d="4650">So this notion of
+clustering is basically</p>
+<p t="1919390" d="1980">what's wrong with
+this probing strategy.</p>
+<p t="1921370" d="4060">And in fact, I'm not going to
+do this particular analysis,</p>
+<p t="1925430" d="5390">but I'll give you a sense of why
+the statement I'm going to make</p>
+<p t="1930820" d="940">is true.</p>
+<p t="1931760" d="2080">But the notion of
+clustering is that you</p>
+<p t="1933840" d="4690">start getting consecutive
+groups of occupied slots, OK?</p>
+<p t="1947850" d="930">Which keep growing.</p>
+<p t="1952820" d="3960">And so these clusters
+get longer and longer.</p>
+<p t="1956780" d="2170">And if you have a
+big cluster, it's</p>
+<p t="1958950" d="2070">more likely to
+grow bigger, right?</p>
+<p t="1961020" d="820">Which is bad.</p>
+<p t="1961840" d="3039">This is exactly the wrong thing
+for load balancing, right?</p>
+<p t="1964879" d="2291">And clustering is the reverse
+of load balancing, right?</p>
+<p t="1967170" d="1800">If you have a bunch
+of clumps and you</p>
+<p t="1968970" d="3131">have a bunch of empty space
+in your table, that's bad.</p>
+<p t="1972101" d="499">Right?</p>
+<p t="1972600" d="1500">The problem with
+linear probing is</p>
+<p t="1974100" d="3840">that once you start getting a
+cluster, given the, let's say,</p>
+<p t="1977940" d="2170">the randomness in the hash
+function, and h prime k</p>
+<p t="1980110" d="3360">is a pretty good hash function
+and can randomly go anywhere.</p>
+<p t="1983470" d="3670">Well, if you have 100 slots and
+you have a cluster of size 4,</p>
+<p t="1987140" d="3760">well there's a for 4/100
+chance, which is obviously</p>
+<p t="1990900" d="4150">four times greater than
+1/100, even I can do that,</p>
+<p t="1995050" d="2710">to go into those four slots.</p>
+<p t="1997760" d="1720">And if you going
+into those four slots</p>
+<p t="1999480" d="2960">you're going to keep
+going down to the bottom,</p>
+<p t="2002440" d="5060">and you're going to make that
+a cluster of size five, right?</p>
+<p t="2007500" d="3020">So that's the problem
+the linear probing,</p>
+<p t="2010520" d="3770">and you can essentially
+argue through making</p>
+<p t="2014290" d="5960">some probabilistic assumptions
+that if, in fact, you</p>
+<p t="2020250" d="6790">use linear probing that you
+lose your average constant time</p>
+<p t="2027040" d="4720">look up in your hash table
+for most load factors.</p>
+<p t="2031760" d="3140">So what's happening out
+here pictorially really</p>
+<p t="2034900" d="2970">is that you have a table and
+let's say you have a cluster.</p>
+<p t="2042060" d="1400">And this is your cluster.</p>
+<p t="2046220" d="4220">So if your h k 1--
+it doesn't really</p>
+<p t="2050440" d="5239">matter what it is-- but h
+k i maps to this cluster,</p>
+<p t="2055679" d="3000">then you're going
+to-- linear probing</p>
+<p t="2058679" d="2560">says that the next thing
+you're going to try</p>
+<p t="2061239" d="3305">is if you map to
+42 in the cluster,</p>
+<p t="2064544" d="1416">the next thing
+you're going to try</p>
+<p t="2065960" d="6410">is 43, 44, until you get maybe
+to this slot here, which is 57,</p>
+<p t="2072370" d="1650">for argument's sake.</p>
+<p t="2074020" d="500">Right?</p>
+<p t="2074520" d="1708">So you're going to
+keep going, and you're</p>
+<p t="2076228" d="5072">going to try 15 times in
+this relatively dumb fashion</p>
+<p t="2081300" d="4430">to go down to get to the
+open slot, which is 57.</p>
+<p t="2085730" d="2110">And oh, by the way,
+at the end of this you</p>
+<p t="2087840" d="3319">just increased your
+cluster length by one.</p>
+<p t="2091159" d="810">All right?</p>
+<p t="2091969" d="1851">So it doesn't really work.</p>
+<p t="2093820" d="4970">And in fact, under reasonable
+probabilistic assumptions</p>
+<p t="2098790" d="2990">in terms of what your
+hash functions are,</p>
+<p t="2101780" d="6070">you can say that when you have
+alpha, which is essentially</p>
+<p t="2107850" d="7763">your load factor, which is
+n over m less than 0.99,</p>
+<p t="2115613" d="9227">you see clusters
+of size log n, OK?</p>
+<p t="2124840" d="630">Right.</p>
+<p t="2125470" d="3050">So this is a
+probabilistic argument,</p>
+<p t="2128520" d="2359">and you're assuming that you
+have a hash function that's</p>
+<p t="2130879" d="1166">a pretty good hash function.</p>
+<p t="2132045" d="4635">So h prime k can be this perfect
+hash function, all right?</p>
+<p t="2136680" d="2380">So there's a problem here
+beyond the choice of h</p>
+<p t="2139060" d="2950">prime k, which is this hash
+function that worked really</p>
+<p t="2142010" d="2070">well for chaining.</p>
+<p t="2144080" d="550">All right?</p>
+<p t="2144630" d="4780">And the problem here is the
+linear probing aspect of it.</p>
+<p t="2149410" d="1160">So what does that mean?</p>
+<p t="2150570" d="3020">If you have clusters
+of theta log n,</p>
+<p t="2153590" d="3240">then your search and
+your insert are not</p>
+<p t="2156830" d="1520">going to be constant
+time anymore.</p>
+<p t="2158350" d="500">Right?</p>
+<p t="2158850" d="3330">Which is bad in a
+probabilistic sense.</p>
+<p t="2162180" d="1900">OK?</p>
+<p t="2164080" d="1930">So how do we fix that?</p>
+<p t="2166010" d="8580">Well, one strategy that
+works reasonably well</p>
+<p t="2174590" d="1070">is called double hashing.</p>
+<p t="2178590" d="4530">And it literally
+means what it says.</p>
+<p t="2183120" d="3850">You have to run a
+couple of hashes.</p>
+<p t="2186970" d="10300">And so the notion of double
+hashing is that you have h k i</p>
+<p t="2197270" d="10640">equals h1 k plus i h2 k mod m.</p>
+<p t="2207910" d="3400">And h1 and h2 are just
+ordinary hash functions.</p>
+<p t="2211310" d="1830">OK?</p>
+<p t="2213140" d="2860">Now the first thing
+that we need to do</p>
+<p t="2216000" d="5886">is figure out how we can
+guarantee a permutation, right?</p>
+<p t="2221886" d="1624">Because we still have
+that requirement,</p>
+<p t="2223510" d="2060">and it was OK for the
+linear probing part,</p>
+<p t="2225570" d="1700">but you still have
+this requirement</p>
+<p t="2227270" d="2500">that you need a permutation.</p>
+<p t="2229770" d="6000">And so those of you who
+are into number theory,</p>
+<p t="2235770" d="8790">can you tell me what property,
+what neat property of h2 and m</p>
+<p t="2244560" d="3590">can we ask for to
+guarantee a permutation?</p>
+<p t="2248150" d="1974">Do you have a question?</p>
+<p t="2250124" d="1186">You already do.</p>
+<p t="2251310" d="3210">Do you have a question?</p>
+<p t="2254520" d="1460">AUDIENCE: [INAUDIBLE].</p>
+<p t="2255980" d="740">PROFESSOR: [INAUDIBLE]
+relatively prime.</p>
+<p t="2256720" d="740">OK, good.</p>
+<p t="2257460" d="1860">So I figured some of
+you knew the answer,</p>
+<p t="2259320" d="2690">but I've seen you before.</p>
+<p t="2262010" d="700">Right.</p>
+<p t="2262710" d="590">Exactly right.</p>
+<p t="2263300" d="2000">Relatively prime.</p>
+<p t="2265300" d="2650">Just hand it to Victor.</p>
+<p t="2267950" d="4650">So h2 k and m being
+relatively prime,</p>
+<p t="2272600" d="13115">if that implies a permutation.</p>
+<p t="2288592" d="1458">It's similar to
+what we had before.</p>
+<p t="2290050" d="3167">You're multiplying this
+by i. i keeps increasing,</p>
+<p t="2293217" d="1333">and you're going to roll around.</p>
+<p t="2294550" d="350">All right?</p>
+<p t="2294900" d="1416">I mean you could
+do a proof of it,</p>
+<p t="2296316" d="1904">but I'm not going to bother.</p>
+<p t="2298220" d="2500">The important thing
+here is that you can now</p>
+<p t="2300720" d="4040">do something as simple as
+m equals 2 raised to r,</p>
+<p t="2304760" d="8860">and h2 k for all k is odd,
+and now you're in great shape.</p>
+<p t="2313620" d="2630">You can have your
+array to be 2 raised</p>
+<p t="2316250" d="2840">to something, which is
+what you really want.</p>
+<p t="2319090" d="2270">And you just use h2 k.</p>
+<p t="2321360" d="2030">You could even take a
+regular hash function</p>
+<p t="2323390" d="5410">and truncate it to
+make sure it's odd.</p>
+<p t="2328800" d="1340">You can do a bunch of things.</p>
+<p t="2330140" d="2840">There's hash functions
+that produce odd values,</p>
+<p t="2332980" d="1400">and you can use that.</p>
+<p t="2334380" d="800">All right?</p>
+<p t="2335180" d="3380">And so double hashing works
+fairly well in practice.</p>
+<p t="2338560" d="6730">It's a good way of getting
+open addressing to work.</p>
+<p t="2345290" d="3520">And in order to prove that
+open addressing actually</p>
+<p t="2348810" d="5390">works to the level at
+which chaining works,</p>
+<p t="2354200" d="4180">we have to make an
+assumption corresponding</p>
+<p t="2358380" d="2580">to uniform hashing.</p>
+<p t="2360960" d="4430">And I'm not going to
+actually do a proof,</p>
+<p t="2365390" d="1930">but it'll be in the notes.</p>
+<p t="2367320" d="6400">But I do want to talk about
+the theorem and the result</p>
+<p t="2373720" d="4600">that the theorem
+implies, assuming</p>
+<p t="2378320" d="2380">you have the uniform
+hashing assumption.</p>
+<p t="2380700" d="2880">And let me first
+say that this is not</p>
+<p t="2383580" d="6340">the same as simple
+uniform happening, which</p>
+<p t="2389920" d="4490">talks about the independence of
+keys in terms of their mapping</p>
+<p t="2394410" d="1240">to slots.</p>
+<p t="2395650" d="2330">The uniform hashing
+assumption says</p>
+<p t="2397980" d="13250">that each key is
+equally likely to have</p>
+<p t="2411230" d="8020">any one of the m
+factorial permutations--</p>
+<p t="2419250" d="1770">so we're talking about
+random permutations</p>
+<p t="2421020" d="3760">here-- as its probe sequence.</p>
+<p t="2431080" d="570">All right?</p>
+<p t="2431650" d="2280">This is very hard
+to get in practice.</p>
+<p t="2433930" d="4180">You can get pretty close
+using double hashing.</p>
+<p t="2438110" d="3010">But nobody's discovered
+a perfect hash function,</p>
+<p t="2441120" d="3452">deterministic hash function
+that satisfies this property.</p>
+<p t="2444572" d="1208">At least not that I know off.</p>
+<p t="2448290" d="1090">So what does this imply?</p>
+<p t="2449380" d="3960">Assuming that you have
+this and double hatching</p>
+<p t="2453340" d="5840">gives you this property, to a
+large extent what this means is</p>
+<p t="2459180" d="3990">that if alpha is
+n over m, you can</p>
+<p t="2463170" d="15110">show that the cost of operations
+such as search, insert, delete,</p>
+<p t="2478280" d="1410">et cetera.</p>
+<p t="2479690" d="3050">And in particular
+we talk about insert</p>
+<p t="2482740" d="4470">is less than or equal to 1
+divided by 1 minus alpha.</p>
+<p t="2487210" d="1940">OK?</p>
+<p t="2489150" d="4500">So obviously this goes
+as alpha tends to 1.</p>
+<p t="2493650" d="7340">As alpha tends to 1, the load
+factor in the table gets large,</p>
+<p t="2500990" d="3190">and the number of
+expected probes</p>
+<p t="2504180" d="3740">that you need to do when
+you get an insert grows.</p>
+<p t="2507920" d="4210">And if alpha is 0.99,
+you're going, on average,</p>
+<p t="2512130" d="2070">require 100 probes.</p>
+<p t="2514200" d="2760">It's a constant number, but
+it's a pretty bad constant.</p>
+<p t="2516960" d="500">Right?</p>
+<p t="2517460" d="3590">So you really want alpha
+to be fairly small.</p>
+<p t="2521050" d="2080">And in practice it
+turns out that you</p>
+<p t="2523130" d="2590">have to re-size you're
+open addressing table</p>
+<p t="2525720" d="4470">when alpha gets beyond
+about 0.5, 0.6 or so,</p>
+<p t="2530190" d="2942">because by then you're
+really in trouble.</p>
+<p t="2533132" d="2208">Remember this is an average
+case we're talking about.</p>
+<p t="2535340" d="2910">All of this is using a
+probabilistic assumption.</p>
+<p t="2538250" d="3530">But as you get to
+high alphas, suddenly</p>
+<p t="2541780" d="2940">by the time you get to
+0.7, open addressing</p>
+<p t="2544720" d="4210">doesn't work well in relation
+to an equivalent table</p>
+<p t="2548930" d="3530">with the overall
+number of slots that</p>
+<p t="2552460" d="2730">correspond to a
+changing table, OK?</p>
+<p t="2555190" d="3830">So open addressing
+is easy to implement.</p>
+<p t="2559020" d="3150">It uses less memory because
+you don't need pointers.</p>
+<p t="2562170" d="5200">But you better be careful that
+your alpha stays around 0.5</p>
+<p t="2567370" d="1110">and no more.</p>
+<p t="2568480" d="2400">So all that means is
+you can still use it.</p>
+<p t="2570880" d="1667">You just have to
+re-size your table.</p>
+<p t="2572547" d="1583">You have slightly
+different strategies</p>
+<p t="2574130" d="2300">for resizing your
+table when you use open</p>
+<p t="2576430" d="7150">addressing as opposed
+to chaining hash tables.</p>
+<p t="2583580" d="770">All right?</p>
+<p t="2584350" d="1780">So that's a summary
+of open addressing.</p>
+<p t="2586130" d="3262">I want to spend some time
+on cryptographic hashes</p>
+<p t="2589392" d="1208">in the time that I have left.</p>
+<p t="2590600" d="1780">I guess I have a
+few minutes left.</p>
+<p t="2592380" d="3560">But any questions
+about open addressing?</p>
+<p t="2595940" d="1174">Yep?</p>
+<p t="2597114" d="1761">AUDIENCE: On this
+delete part, what's</p>
+<p t="2598875" d="2695">going to happen if, say, you
+fill the table up and then</p>
+<p t="2601570" d="2450">delete everything, and
+then you start searching.</p>
+<p t="2604020" d="2123">Isn't that going to
+be bad because it's</p>
+<p t="2606143" d="1458">going to search
+through everything?</p>
+<p t="2607601" d="2079">PROFESSOR: So that's right.</p>
+<p t="2609680" d="1530">The bad thing about
+open addressing</p>
+<p t="2611210" d="3780">is that delete isn't
+instantaneous, right?</p>
+<p t="2614990" d="2900">In the sense that if you deleted
+something from the link list</p>
+<p t="2617890" d="2110">in your chaining
+table, then even</p>
+<p t="2620000" d="3470">if you went to that same
+thing, the chain got smaller,</p>
+<p t="2623470" d="3380">and that helps you, because
+your table now has lower load.</p>
+<p t="2626850" d="3140">But there's a delay
+associated with load</p>
+<p t="2629990" d="2140">when you have the
+delete me flag.</p>
+<p t="2632130" d="500">OK?</p>
+<p t="2632630" d="3980">So in some sense the alpha
+that you want to think about,</p>
+<p t="2636610" d="3206">you should be careful as
+to how you define alpha.</p>
+<p t="2639816" d="1374">And that's one of
+the reasons why</p>
+<p t="2641190" d="2684">when you get alpha
+being 0.5, 0.6</p>
+<p t="2643874" d="2416">you get into trouble, because
+if you have all these delete</p>
+<p t="2646290" d="2790">me flags, they're
+still hurting you.</p>
+<p t="2649080" d="1619">AUDIENCE: And when
+you resize do those</p>
+<p t="2650699" d="1970">delete me flags get deleted?</p>
+<p t="2652669" d="1541">PROFESSOR: When you
+completely resize</p>
+<p t="2654210" d="1510">and you redo the
+whole thing, then you</p>
+<p t="2655720" d="2208">can clean up the delete me's
+and turn them into nones</p>
+<p t="2657928" d="4282">because you're rehashing it.</p>
+<p t="2662210" d="640">All right.</p>
+<p t="2662850" d="1490">So yeah, back there.</p>
+<p t="2664340" d="500">Question?</p>
+<p t="2664840" d="1690">AUDIENCE: Yes, can you explain
+how you got the equation</p>
+<p t="2666530" d="2217">that the cost of operation
+insert is less than</p>
+<p t="2668747" d="2247">or equal to 1 over [INAUDIBLE].</p>
+<p t="2670994" d="1416">PROFESSOR: That's
+a longish proof,</p>
+<p t="2672410" d="4220">but let me explain to
+you how that comes out.</p>
+<p t="2676630" d="2740">Basically the intuition
+behind the proof</p>
+<p t="2679370" d="5710">is that we're going to
+assume some probability p.</p>
+<p t="2685080" d="3330">And initially you're
+going to say something</p>
+<p t="2688410" d="9670">like if the table, your p--
+I'll just write this out here--</p>
+<p t="2698080" d="4220">is m minus n divided by m.</p>
+<p t="2702300" d="1050">So what is that?</p>
+<p t="2703350" d="3270">Right now I have n
+elements in the table,</p>
+<p t="2706620" d="5770">and I have m slots, OK?</p>
+<p t="2712390" d="5140">So the probability that my very
+first trial is going to succeed</p>
+<p t="2717530" d="4830">is going to be m minus n
+divided by m, because these</p>
+<p t="2722360" d="1890">are the number of empty slots.</p>
+<p t="2724250" d="2330">And assuming my
+permutation argument,</p>
+<p t="2726580" d="1660">I could go into one of them.</p>
+<p t="2728240" d="2020">And so that's what I have here.</p>
+<p t="2730260" d="5750">And if you look at what this
+is, this is 1 minus alpha, OK?</p>
+<p t="2736010" d="2460">And so then you run
+off and you remember</p>
+<p t="2738470" d="2695">6041 or the high school
+probability course</p>
+<p t="2741165" d="3215">that you take, and you
+say generally speaking,</p>
+<p t="2744380" d="3090">you're going to be no worse
+than p for every trial.</p>
+<p t="2747470" d="2370">And so if you assume
+the worst and say</p>
+<p t="2749840" d="2550">every trial has a
+probability of success of p,</p>
+<p t="2752390" d="3650">the expected number
+of trials is 1/p, OK?</p>
+<p t="2756040" d="4040">And that's how you got
+the 1 over 1 minus alpha.</p>
+<p t="2760080" d="3950">So you'll see that written
+in gory detail in the notes.</p>
+<p t="2764030" d="1000">All right?</p>
+<p t="2765030" d="1240">OK.</p>
+<p t="2766270" d="2100">Expected to have
+a little more time</p>
+<p t="2768370" d="3010">in terms of talking about
+cryptographic hashes,</p>
+<p t="2771380" d="3660">but cryptographic hashes are
+not going to be on the quiz.</p>
+<p t="2775040" d="4880">This is purely material FYI.</p>
+<p t="2779920" d="2240">For your interest only.</p>
+<p t="2782160" d="2420">And again I have
+some notes on it,</p>
+<p t="2784580" d="3810">but I want to give you a sense
+of the other kinds of hashes</p>
+<p t="2788390" d="5980">that exist in the
+world, I guess.</p>
+<p t="2794370" d="5480">And hashes that are used for
+many different applications.</p>
+<p t="2799850" d="2220">So maybe the best way
+of motivating this</p>
+<p t="2802070" d="1920">is through an example.</p>
+<p t="2803990" d="2890">So let's talk about
+an example that</p>
+<p t="2806880" d="4400">is near and dear to every
+security person's heart</p>
+<p t="2811280" d="3770">and probably to people who
+aren't interested in security</p>
+<p t="2815050" d="3570">as well, which is
+password storage.</p>
+<p t="2818620" d="3130">So think about how,
+let's say, Unix systems</p>
+<p t="2821750" d="2900">work when you type
+in your password.</p>
+<p t="2824650" d="2000">You're typing in your
+password [INAUDIBLE],</p>
+<p t="2826650" d="2810">and this is true for
+other systems as well,</p>
+<p t="2829460" d="2190">but you have a password.</p>
+<p t="2831650" d="4820">And my password is a permutation
+of my first daughters</p>
+<p t="2836470" d="2440">first name.</p>
+<p t="2838910" d="2130">[LAUGHTER]</p>
+<p t="2841040" d="3840">Yeah, but haven't
+given it away, right?</p>
+<p t="2844880" d="2410">Haven't given it away.</p>
+<p t="2847290" d="2220">And so this password
+is something</p>
+<p t="2849510" d="3920">that I'm typing in
+every day, right?</p>
+<p t="2853430" d="3330">Now the sum check
+that needs to happen</p>
+<p t="2856760" d="3900">to ensure that I'm typing
+in the right password.</p>
+<p t="2860660" d="2950">So what is a dumb
+way of doing things.</p>
+<p t="2863610" d="2600">What's a dumb way
+of building systems?</p>
+<p t="2866210" d="3300">AUDIENCE: Storing [INAUDIBLE].</p>
+<p t="2869510" d="3012">PROFESSOR: This is
+kind of a freebie.</p>
+<p t="2872522" d="1713">AUDIENCE: [INAUDIBLE].</p>
+<p t="2874235" d="1125">PROFESSOR: In situ hashing.</p>
+<p t="2875360" d="3350">That's better.</p>
+<p t="2878710" d="1300">So you'd store it.</p>
+<p t="2880010" d="1060">I offered the dumb way.</p>
+<p t="2881070" d="2160">So there's a perfectly
+valid answer.</p>
+<p t="2883230" d="3220">So you could clearly store
+this in plain text in some file</p>
+<p t="2886450" d="3270">and you could call it
+slash etc slaw password.</p>
+<p t="2889720" d="4480">And you could make it
+read for the work, right?</p>
+<p t="2894200" d="3090">And that'd be great, and
+people do that, right?</p>
+<p t="2897290" d="2480">But what you would
+rather do is you</p>
+<p t="2899770" d="4810">want to make sure that even
+the sysadmin doesn't know</p>
+<p t="2904580" d="3050">my password or your
+password, right?</p>
+<p t="2907630" d="1510">So how do you do that?</p>
+<p t="2909140" d="2970">Well you do that using a
+cryptographic hash that</p>
+<p t="2912110" d="4290">has this interesting
+property that is one way, OK?</p>
+<p t="2916400" d="5970">And what that means is
+that given h of x-- OK,</p>
+<p t="2922370" d="3090">this is the value
+of the hash-- it</p>
+<p t="2925460" d="10160">is very hard to find the
+x such that x basically</p>
+<p t="2935620" d="1170">hashes to this value.</p>
+<p t="2936790" d="5590">So if h of x equals
+let's call it q,</p>
+<p t="2942380" d="6530">then you're only given h of x.</p>
+<p t="2948910" d="2840">And so what do you do now?</p>
+<p t="2951750" d="1610">Well, it's beautiful.</p>
+<p t="2953360" d="3350">Assuming you have this one way
+hash, this cryptographic hash,</p>
+<p t="2956710" d="6400">in your etc slash
+password file, you</p>
+<p t="2963110" d="8670">have something like
+login name, [INAUDIBLE],</p>
+<p t="2971780" d="3670">which happens to be the hash
+of my daughter's first name,</p>
+<p t="2975450" d="1080">or something.</p>
+<p t="2976530" d="4470">But this is what's stored
+in there and the same thing</p>
+<p t="2981000" d="2140">for a bunch of
+different users, right?</p>
+<p t="2983140" d="3830">So when I log in and I type
+in the actual password,</p>
+<p t="2986970" d="1700">what does the system do?</p>
+<p t="2988670" d="2450">What does the system do?</p>
+<p t="2991120" d="1010">It hashes it.</p>
+<p t="2992130" d="8170">It takes x prime, which is
+the typed in password, which</p>
+<p t="3000300" d="4007">may or may not be
+equal to my password,</p>
+<p t="3004307" d="2083">because somebody else might
+be trying to break in,</p>
+<p t="3006390" d="5130">or I just mistyped, or forgot
+my daughter's first name,</p>
+<p t="3011520" d="1730">which would be bad.</p>
+<p t="3013250" d="5450">And it will just check to see--
+it doesn't need x, because it's</p>
+<p t="3018700" d="4950">stored h of x in the system,
+so it doesn't need x.</p>
+<p t="3023650" d="3650">So if we just compare
+against what I typed in,</p>
+<p t="3027300" d="1530">it would compute the hash again.</p>
+<p t="3028830" d="4870">And then would let me in
+assuming that these things</p>
+<p t="3033700" d="2830">matched and would not
+let me in if it didn't.</p>
+<p t="3036530" d="2530">So now we can talk about-- and
+I don't have time for this,</p>
+<p t="3039060" d="2775">but you can certainly
+read up on it on Wikipedia</p>
+<p t="3041835" d="1509">and a bunch in the notes.</p>
+<p t="3043344" d="1416">You can talk about
+what properties</p>
+<p t="3044760" d="3480">should this hash function
+have, namely one way collision</p>
+<p t="3048240" d="2710">resistance, in order
+to solve these problems</p>
+<p t="3050950" d="1070">and other problems.</p>
+<p t="3052020" d="2750">I'm happy to stick around
+and answer questions.</p>
+</body>
+</timedtext>

@@ -1,0 +1,1182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="8160" d="5570">I've been multiplying
+matrices already,</p>
+<p t="13730" d="3910">but certainly time for
+me to discuss the rules</p>
+<p t="17640" d="1750">for matrix multiplication.</p>
+<p t="19390" d="5590">And the interesting part is
+the many ways you can do it,</p>
+<p t="24980" d="2990">and they all give
+the same answer.</p>
+<p t="27970" d="1810">And they're all important.</p>
+<p t="29780" d="4060">So matrix multiplication,
+and then, come inverses.</p>
+<p t="33840" d="4680">So we mentioned the
+inverse of a matrix.</p>
+<p t="38520" d="1140">That's a big deal.</p>
+<p t="39660" d="3740">Lots to do about inverses
+and how to find them.</p>
+<p t="43400" d="5020">Okay, so I'll begin with how
+to multiply two matrices.</p>
+<p t="48420" d="8910">First way, okay, so suppose
+I have a matrix A multiplying</p>
+<p t="57330" d="6170">a matrix B and --
+giving me a result --</p>
+<p t="63500" d="2490">well, I could call it C.</p>
+<p t="65990" d="1880">A times B.</p>
+<p t="67870" d="2470">Okay.</p>
+<p t="70340" d="8020">So, let me just review
+the rule for this entry.</p>
+<p t="78360" d="3640">That's the entry in
+row i and column j.</p>
+<p t="82000" d="2340">So that's the i j entry.</p>
+<p t="84340" d="3010">Right there is C i j.</p>
+<p t="87350" d="3550">We always write the row number
+and then the column number.</p>
+<p t="90900" d="770">So I might --</p>
+<p t="91670" d="5700">I might -- maybe I take it C
+3 4, just to make it specific.</p>
+<p t="97370" d="2330">So instead of i j,
+let me use numbers.</p>
+<p t="99700" d="1590">C 3 4.</p>
+<p t="101290" d="3920">So where does that come
+from, the three four entry?</p>
+<p t="105210" d="8540">It comes from row three, here,
+row three and column four,</p>
+<p t="113750" d="1870">as you know.</p>
+<p t="115620" d="1090">Column four.</p>
+<p t="116710" d="2040">And can I just write
+down, or can we</p>
+<p t="118750" d="6680">write down the formula for it?</p>
+<p t="125430" d="3109">If we look at the whole
+row and the whole column,</p>
+<p t="128539" d="6701">the quick way for me to
+say it is row three of A --</p>
+<p t="135240" d="2230">I could use a dot
+for dot product.</p>
+<p t="137470" d="2270">I won't often use
+that, actually.</p>
+<p t="139740" d="6050">Dot column four of B.</p>
+<p t="145790" d="2580">But this gives us a
+chance to just, like,</p>
+<p t="148370" d="3090">use a little matrix notation.</p>
+<p t="151460" d="1040">What are the entries?</p>
+<p t="152500" d="5940">What's this first
+entry in row three?</p>
+<p t="158440" d="3720">That number that's
+sitting right there is...</p>
+<p t="162160" d="4530">A, so it's got two
+indices and what are they?</p>
+<p t="166690" d="860">3 1.</p>
+<p t="167550" d="3990">So there's an a 3 1 there.</p>
+<p t="171540" d="4580">Now what's the first guy
+at the top of column four?</p>
+<p t="176120" d="2310">So what's sitting up there?</p>
+<p t="178430" d="3540">B 1 4, right.</p>
+<p t="181970" d="7700">So that this dot product
+starts with A 3 1 times B 1 4.</p>
+<p t="189670" d="4200">And then what's the next -- so
+this is like I'm accumulating</p>
+<p t="193870" d="6840">this sum, then comes the next
+guy, A 3 2, second column,</p>
+<p t="200710" d="3560">times B 2 4, second row.</p>
+<p t="204270" d="6850">So it's b A 3 2,
+B 2 4 and so on.</p>
+<p t="211120" d="1940">Just practice with indices.</p>
+<p t="213060" d="6040">Oh, let me even practice
+with a summation formula.</p>
+<p t="219100" d="2790">So this is --</p>
+<p t="221890" d="3020">most of the course,
+I use whole vectors.</p>
+<p t="224910" d="4770">I very seldom, get
+down to the details</p>
+<p t="229680" d="3390">of these particular entries,
+but here we'd better do it.</p>
+<p t="233070" d="3640">So it's some kind
+of a sum, right?</p>
+<p t="236710" d="7220">Of things in row three,
+column K shall I say?</p>
+<p t="243930" d="5740">Times things in
+row K, column four.</p>
+<p t="249670" d="3010">Do you see that that's
+what we're seeing here?</p>
+<p t="252680" d="4790">This is K is one, here
+K is two, on along --</p>
+<p t="257470" d="4600">so the sum goes all the
+way along the row and down</p>
+<p t="262070" d="3570">the column, say, one to N.</p>
+<p t="265640" d="4350">So that's what the C three
+four entry looks like.</p>
+<p t="269990" d="4290">A sum of a three K b K four.</p>
+<p t="274280" d="4220">Just takes a little
+practice to do that.</p>
+<p t="278500" d="720">Okay.</p>
+<p t="279220" d="3320">And -- well, maybe
+I should say --</p>
+<p t="282540" d="2940">when are we allowed to
+multiply these matrices?</p>
+<p t="285480" d="2680">What are the shapes
+of these things?</p>
+<p t="288160" d="1940">The shapes are --</p>
+<p t="290100" d="4795">if we allow them to be not
+necessarily square matrices.</p>
+<p t="294895" d="1875">If they're square,
+they've got to be the same</p>
+<p t="296770" d="1080">size.</p>
+<p t="297850" d="3730">If they're rectangular,
+they're not the same size.</p>
+<p t="301580" d="2980">If they're rectangular,
+this might be -- well,</p>
+<p t="304560" d="3930">I always think of A as m by n.</p>
+<p t="308490" d="2970">m rows, n columns.</p>
+<p t="311460" d="2040">So that sum goes to n.</p>
+<p t="313500" d="5720">Now what's the point -- how
+many rows does B have to have?</p>
+<p t="319220" d="560">n.</p>
+<p t="319780" d="3150">The number of rows in
+B, the number of guys</p>
+<p t="322930" d="2780">that we meet coming down has
+to match the number of ones</p>
+<p t="325710" d="900">across.</p>
+<p t="326610" d="4140">So B will have to
+be n by something.</p>
+<p t="330750" d="610">Whatever.</p>
+<p t="331360" d="8400">P. So the number of columns here
+has to match the number of rows</p>
+<p t="339760" d="1850">there, and then
+what's the result?</p>
+<p t="341610" d="1970">What's the shape of the result?</p>
+<p t="343580" d="2190">What's the shape
+of C, the output?</p>
+<p t="345770" d="5640">Well, it's got these same
+m rows -- it's got m rows.</p>
+<p t="351410" d="2590">And how many columns?</p>
+<p t="354000" d="4560">P. m by P. Okay.</p>
+<p t="358560" d="4050">So there are m times P little
+numbers in there, entries,</p>
+<p t="362610" d="3140">and each one, looks like that.</p>
+<p t="365750" d="1100">Okay.</p>
+<p t="366850" d="2140">So that's the standard rule.</p>
+<p t="368990" d="2775">That's the way people think
+of multiplying matrices.</p>
+<p t="375010" d="2800">I do it too.</p>
+<p t="377810" d="4180">But I want to talk
+about other ways</p>
+<p t="381990" d="2550">to look at that
+same calculation,</p>
+<p t="384540" d="5630">looking at whole
+columns and whole rows.</p>
+<p t="390170" d="720">Okay.</p>
+<p t="390890" d="3140">So can I do A B C again?</p>
+<p t="394030" d="1640">A B equaling C again?</p>
+<p t="395670" d="2820">But now, tell me about...</p>
+<p t="402190" d="850">I'll put it up here.</p>
+<p t="405770" d="12790">So here goes A, again,
+times B producing C.</p>
+<p t="418560" d="3000">And again, this is m by n.</p>
+<p t="421560" d="4960">This is n by P and
+this is m by P. Okay.</p>
+<p t="426520" d="2770">Now I want to look
+at whole columns.</p>
+<p t="429290" d="3300">I want to look at
+the columns of --</p>
+<p t="432590" d="3890">here's the second way
+to multiply matrices.</p>
+<p t="436480" d="2970">Because I'm going to build
+on what I know already.</p>
+<p t="439450" d="4700">How do I multiply a
+matrix by a column?</p>
+<p t="444150" d="3350">I know how to multiply
+this matrix by that column.</p>
+<p t="450270" d="2980">Shall I call that column one?</p>
+<p t="453250" d="2180">That tells me column
+one of the answer.</p>
+<p t="458460" d="4430">The matrix times the first
+column is that first column.</p>
+<p t="462890" d="2250">Because none of
+this stuff entered</p>
+<p t="465140" d="1770">that part of the answer.</p>
+<p t="466910" d="2640">The matrix times
+the second column</p>
+<p t="469550" d="2220">is the second column
+of the answer.</p>
+<p t="471770" d="2010">Do you see what I'm saying?</p>
+<p t="473780" d="3490">That I could think of
+multiplying a matrix</p>
+<p t="477270" d="3200">by a vector, which I
+already knew how to do,</p>
+<p t="480470" d="8390">and I can think of just P
+columns sitting side by side,</p>
+<p t="488860" d="3140">just like resting
+next to each other.</p>
+<p t="492000" d="3800">And I multiply A times
+each one of those.</p>
+<p t="495800" d="3850">And I get the P
+columns of the answer.</p>
+<p t="499650" d="2320">Do you see this as --
+this is quite nice,</p>
+<p t="501970" d="6010">to be able to think, okay,
+matrix multiplication works</p>
+<p t="507980" d="3730">so that I can just think
+of having several columns,</p>
+<p t="511710" d="3380">multiplying by A and getting
+the columns of the answer.</p>
+<p t="515090" d="8079">So, like, here's column one
+shall I call that column one?</p>
+<p t="523169" d="4371">And what's going in there
+is A times column one.</p>
+<p t="533310" d="1370">Okay.</p>
+<p t="534680" d="2540">So that's the picture
+a column at a time.</p>
+<p t="537220" d="1480">So what does that tell me?</p>
+<p t="538700" d="2700">What does that tell me
+about these columns?</p>
+<p t="541400" d="8180">These columns of C
+are combinations,</p>
+<p t="549580" d="13830">because we've seen that
+before, of columns of A.</p>
+<p t="563410" d="4480">Every one of these
+comes from A times this,</p>
+<p t="567890" d="2830">and A times a vector
+is a combination</p>
+<p t="570720" d="3670">of the columns of A.</p>
+<p t="574390" d="6250">And it makes sense, because
+the columns of A have length m</p>
+<p t="580640" d="2740">and the columns of
+C have length m.</p>
+<p t="583380" d="4880">And every column of
+C is some combination</p>
+<p t="588260" d="1180">of the columns of A.</p>
+<p t="589440" d="1970">And it's these
+numbers in here that</p>
+<p t="591410" d="2260">tell me what combination it is.</p>
+<p t="593670" d="4090">Do you see that?</p>
+<p t="597760" d="4210">That in that answer, C,
+I'm seeing stuff that's</p>
+<p t="601970" d="2770">combinations of these columns.</p>
+<p t="604740" d="4650">Now, suppose I look at it
+-- that's two ways now.</p>
+<p t="609390" d="3560">The third way is
+look at it by rows.</p>
+<p t="612950" d="4470">So now let me change to rows.</p>
+<p t="617420" d="1170">Okay.</p>
+<p t="618590" d="4730">So now I can think
+of a row of A --</p>
+<p t="623320" d="5890">a row of A multiplying all these
+rows here and producing a row</p>
+<p t="629210" d="3000">of the product.</p>
+<p t="632210" d="3950">So this row takes a
+combination of these rows</p>
+<p t="636160" d="1680">and that's the answer.</p>
+<p t="637840" d="12840">So these rows of C are
+combinations of what?</p>
+<p t="650680" d="4190">Tell me how to finish that.</p>
+<p t="654870" d="6130">The rows of C, when I have a
+matrix B, it's got its rows</p>
+<p t="661000" d="3840">and I multiply by A,
+and what does that do?</p>
+<p t="664840" d="1910">It mixes the rows up.</p>
+<p t="666750" d="6910">It creates combinations
+of the rows of B, thanks.</p>
+<p t="673660" d="4070">Rows of B.</p>
+<p t="677730" d="7260">That's what I wanted to
+see, that this answer --</p>
+<p t="684990" d="2830">I can see where the
+pieces are coming from.</p>
+<p t="687820" d="3510">The rows in the answer are
+coming as combinations of these</p>
+<p t="691330" d="760">rows.</p>
+<p t="692090" d="4930">The columns in the answer are
+coming as combinations of those</p>
+<p t="697020" d="730">columns.</p>
+<p t="697750" d="2170">And so that's three ways.</p>
+<p t="699920" d="4700">Now you can say, okay,
+what's the fourth way?</p>
+<p t="704620" d="3830">The fourth way --</p>
+<p t="708450" d="3990">so that's -- now we've
+got, like, the regular way,</p>
+<p t="712440" d="5920">the column way,
+the row way and --</p>
+<p t="718360" d="1320">what's left?</p>
+<p t="719680" d="6770">The one that I can --</p>
+<p t="726450" d="5660">well, one way is
+columns times rows.</p>
+<p t="732110" d="3830">What happens if I multiply --</p>
+<p t="735940" d="5540">So this was row times
+column, it gave a number.</p>
+<p t="741480" d="500">Okay.</p>
+<p t="741980" d="3690">Now I want to ask you
+about column times row.</p>
+<p t="745670" d="11940">If I multiply a column
+of A times a row of B,</p>
+<p t="757610" d="2850">what shape I ending up with?</p>
+<p t="760460" d="2920">So if I take a
+column times a row,</p>
+<p t="763380" d="4330">that's definitely different from
+taking a row times a column.</p>
+<p t="767710" d="5020">So a column of A was -- what's
+the shape of a column of A?</p>
+<p t="772730" d="3910">m by one.</p>
+<p t="776640" d="2790">A column of A is a column.</p>
+<p t="779430" d="3760">It's got m entries
+and one column.</p>
+<p t="783190" d="1590">And what's a row of B?</p>
+<p t="784780" d="5220">It's got one row and P columns.</p>
+<p t="790000" d="2870">So what's the shape -- what do
+I get if I multiply a column</p>
+<p t="792870" d="720">by a row?</p>
+<p t="796350" d="1820">I get a big matrix.</p>
+<p t="798170" d="2370">I get a full-sized matrix.</p>
+<p t="800540" d="5250">If I multiply a
+column by a row --</p>
+<p t="805790" d="2300">should we just do one?</p>
+<p t="808090" d="6380">Let me take the column two three
+four times the row one six.</p>
+<p t="818510" d="2315">That product there --</p>
+<p t="820825" d="2125">I mean, when I'm just
+following the rules of matrix</p>
+<p t="822950" d="3540">multiplication, those rules
+are just looking like --</p>
+<p t="826490" d="5080">kind of petite, kind of
+small, because the rows here</p>
+<p t="831570" d="2260">are so short and the
+columns there are so short,</p>
+<p t="833830" d="2780">but they're the same
+length, one entry.</p>
+<p t="836610" d="920">So what's the answer?</p>
+<p t="840270" d="3500">What's the answer if I do two
+three four times one six, just</p>
+<p t="843770" d="1550">for practice?</p>
+<p t="845320" d="3860">Well, what's the first
+row of the answer?</p>
+<p t="849180" d="1850">Two twelve.</p>
+<p t="851030" d="5390">And the second row of the
+answer is three eighteen.</p>
+<p t="856420" d="7800">And the third row of the
+answer is four twenty four.</p>
+<p t="864220" d="5180">That's a very special
+matrix, there.</p>
+<p t="869400" d="1440">Very special matrix.</p>
+<p t="870840" d="1990">What can you tell me
+about its columns,</p>
+<p t="872830" d="1390">the columns of that matrix?</p>
+<p t="877640" d="3770">They're multiples
+of this guy, right?</p>
+<p t="881410" d="1280">They're multiples of that one.</p>
+<p t="882690" d="1650">Which follows our rule.</p>
+<p t="884340" d="3200">We said that the columns of
+the answer were combinations,</p>
+<p t="887540" d="2760">but there's only -- to take
+a combination of one guy,</p>
+<p t="890300" d="2000">it's just a multiple.</p>
+<p t="892300" d="1700">The rows of the
+answer, what can you</p>
+<p t="894000" d="1530">tell me about those three rows?</p>
+<p t="898060" d="3420">They're all multiples
+of this row.</p>
+<p t="901480" d="3180">They're all multiples of
+one six, as we expected.</p>
+<p t="904660" d="2310">But I'm getting a
+full-sized matrix.</p>
+<p t="906970" d="8830">And now, just to complete
+this thought, if I have --</p>
+<p t="915800" d="1480">let me write down
+the fourth way.</p>
+<p t="921110" d="14520">A B is a sum of columns
+of A times rows of B.</p>
+<p t="935630" d="5050">So that, for example, if my
+matrix was two three four</p>
+<p t="940680" d="6770">and then had another column,
+say, seven eight nine,</p>
+<p t="947450" d="5560">and my matrix here has -- say,
+started with one six and then</p>
+<p t="953010" d="7880">had another column
+like zero zero, then --</p>
+<p t="960890" d="3740">here's the fourth way, okay?</p>
+<p t="964630" d="3060">I've got two columns there,
+I've got two rows there.</p>
+<p t="967690" d="3230">So the beautiful rule is --</p>
+<p t="970920" d="2160">see, the whole thing
+by columns and rows</p>
+<p t="973080" d="6650">is that I can take the first
+column times the first row</p>
+<p t="979730" d="5370">and add the second column
+times the second row.</p>
+<p t="992690" d="2100">So that's the fourth way --</p>
+<p t="994790" d="3970">that I can take
+columns times rows,</p>
+<p t="998760" d="3040">first column times first row,
+second column times second</p>
+<p t="1001800" d="1160">row and add.</p>
+<p t="1002960" d="1150">Actually, what will I get?</p>
+<p t="1004110" d="2655">What will the answer be for
+that matrix multiplication?</p>
+<p t="1009730" d="2400">Well, this one it's just
+going to give us zero,</p>
+<p t="1012130" d="3940">so in fact I'm back to
+this -- that's the answer,</p>
+<p t="1016070" d="3240">for that matrix multiplication.</p>
+<p t="1019310" d="6259">I'm happy to put up here
+these facts about matrix</p>
+<p t="1025569" d="4471">multiplication, because it
+gives me a chance to write down</p>
+<p t="1030040" d="2059">special matrices like this.</p>
+<p t="1032099" d="2951">This is a special matrix.</p>
+<p t="1035050" d="3519">All those rows lie
+on the same line.</p>
+<p t="1038569" d="3331">All those rows lie on
+the line through one six.</p>
+<p t="1041900" d="3340">If I draw a picture of
+all these row vectors,</p>
+<p t="1045240" d="2879">they're all the same direction.</p>
+<p t="1048119" d="2611">If I draw a picture of
+these two column vectors,</p>
+<p t="1050730" d="3170">they're in the same direction.</p>
+<p t="1053900" d="3530">Later, I would
+use this language.</p>
+<p t="1057430" d="1880">Not too much later, either.</p>
+<p t="1059310" d="3090">I would say the
+row space, which is</p>
+<p t="1062400" d="1980">like all the
+combinations of the rows,</p>
+<p t="1064380" d="2680">is just a line for this matrix.</p>
+<p t="1067060" d="4180">The row space is the line
+through the vector one six.</p>
+<p t="1071240" d="3150">All the rows lie on that line.</p>
+<p t="1074390" d="3320">And the column space
+is also a line.</p>
+<p t="1077710" d="3800">All the columns lie on the
+line through the vector two</p>
+<p t="1081510" d="1440">three four.</p>
+<p t="1082950" d="4390">So this is like a
+really minimal matrix.</p>
+<p t="1087340" d="3600">And it's because of these ones.</p>
+<p t="1090940" d="500">Okay.</p>
+<p t="1091440" d="7140">So that's a third way.</p>
+<p t="1098580" d="4580">Now I want to say one more thing
+about matrix multiplication</p>
+<p t="1103160" d="2940">while we're on the subject.</p>
+<p t="1106100" d="1960">And it's this.</p>
+<p t="1108060" d="1680">You could also multiply --</p>
+<p t="1109740" d="4650">You could also cut
+the matrix into blocks</p>
+<p t="1114390" d="2770">and do the
+multiplication by blocks.</p>
+<p t="1117160" d="9530">Yet that's actually so, useful
+that I want to mention it.</p>
+<p t="1126690" d="1055">Block multiplication.</p>
+<p t="1130540" d="3960">So I could take my matrix A
+and I could chop it up, like,</p>
+<p t="1134500" d="3960">maybe just for simplicity,
+let me chop it into two --</p>
+<p t="1138460" d="1310">into four square blocks.</p>
+<p t="1139770" d="1210">Suppose it's square.</p>
+<p t="1140980" d="3010">Let's just take a nice case.</p>
+<p t="1143990" d="3810">And B, suppose it's
+square also, same size.</p>
+<p t="1151340" d="2120">So these sizes don't
+have to be the same.</p>
+<p t="1153460" d="3080">What they have to do
+is match properly.</p>
+<p t="1156540" d="2050">Here they certainly will match.</p>
+<p t="1158590" d="3750">So here's the rule for
+block multiplication,</p>
+<p t="1162340" d="6540">that if this has
+blocks like, A --</p>
+<p t="1168880" d="5340">so maybe A1, A2, A3,
+A4 are the blocks here,</p>
+<p t="1174220" d="3990">and these blocks
+are B1, B2,3 and B4?</p>
+<p t="1178210" d="6560">Then the answer
+I can find block.</p>
+<p t="1184770" d="1730">And if you tell me
+what's in that block,</p>
+<p t="1186500" d="3060">then I'm going to be quiet
+about matrix multiplication</p>
+<p t="1189560" d="2310">for the rest of the day.</p>
+<p t="1191870" d="3050">What goes into that block?</p>
+<p t="1194920" d="2950">You see, these might be
+-- this matrix might be --</p>
+<p t="1197870" d="4530">these matrices might be, like,
+twenty by twenty with blocks</p>
+<p t="1202400" d="3630">that are ten by ten, to take the
+easy case where all the blocks</p>
+<p t="1206030" d="2910">are the same shape.</p>
+<p t="1208940" d="4170">And the point is that I could
+multiply those by blocks.</p>
+<p t="1213110" d="2830">And what goes in here?</p>
+<p t="1215940" d="4980">What's that block in the answer?</p>
+<p t="1220920" d="4790">A1 B1, that's a
+matrix times a matrix,</p>
+<p t="1225710" d="2560">it's the right size, ten by ten.</p>
+<p t="1228270" d="2340">Any more?</p>
+<p t="1230610" d="6150">Plus, what else goes in there?</p>
+<p t="1236760" d="1400">A2 B3, right?</p>
+<p t="1238160" d="3330">It's just like block
+rows times block columns.</p>
+<p t="1245610" d="3460">Nobody, I think, not even
+Gauss could see instantly</p>
+<p t="1249070" d="1970">that it works.</p>
+<p t="1251040" d="4090">But somehow, if we check
+it through, all five ways</p>
+<p t="1255130" d="2890">we're doing the same
+multiplications.</p>
+<p t="1258020" d="4410">So this familiar
+multiplication is</p>
+<p t="1262430" d="1840">what we're really
+doing when we do it</p>
+<p t="1264270" d="5970">by columns, by rows by columns
+times rows and by blocks.</p>
+<p t="1270240" d="500">Okay.</p>
+<p t="1270740" d="2940">I just have to, like,
+get the rules straight</p>
+<p t="1273680" d="3311">for matrix multiplication.</p>
+<p t="1276991" d="499">Okay.</p>
+<p t="1282740" d="1750">All right, I'm ready
+for the second topic,</p>
+<p t="1284490" d="3100">which is inverses.</p>
+<p t="1287590" d="889">Okay.</p>
+<p t="1288479" d="791">Ready for inverses.</p>
+<p t="1294140" d="4900">And let me do it for
+square matrices first.</p>
+<p t="1304270" d="500">Okay.</p>
+<p t="1304770" d="7500">So I've got a square matrix A.</p>
+<p t="1312270" d="3100">And it may or may not
+have an inverse, right?</p>
+<p t="1315370" d="1890">Not all matrices have inverses.</p>
+<p t="1317260" d="4510">In fact, that's the most
+important question you can ask</p>
+<p t="1321770" d="4490">about the matrix, is if it's
+-- if you know it's square,</p>
+<p t="1326260" d="2280">is it invertible or not?</p>
+<p t="1328540" d="3960">If it is invertible, then
+there is some other matrix,</p>
+<p t="1332500" d="3180">shall I call it A inverse?</p>
+<p t="1335680" d="5920">And what's the -- if
+A inverse exists --</p>
+<p t="1341600" d="2670">there's a big "if" here.</p>
+<p t="1344270" d="9850">If this matrix exists, and it'll
+be really central to figure out</p>
+<p t="1354120" d="1820">when does it exist?</p>
+<p t="1355940" d="4410">And then if it does exist,
+how would you find it?</p>
+<p t="1360350" d="5360">But what's the equation
+here that I haven't --</p>
+<p t="1365710" d="2190">that I have to finish now?</p>
+<p t="1367900" d="5380">This matrix, if it exists
+multiplies A and produces,</p>
+<p t="1373280" d="1475">I think, the identity.</p>
+<p t="1390840" d="1840">But a real --</p>
+<p t="1392680" d="4920">an inverse for a square matrix
+could be on the right as well</p>
+<p t="1397600" d="1640">--</p>
+<p t="1399240" d="6520">this is true, too, that it's --</p>
+<p t="1405760" d="2520">if I have a -- yeah in
+fact, this is not --</p>
+<p t="1408280" d="3290">this is probably the --</p>
+<p t="1411570" d="6830">this is something that's not
+easy to prove, but it works.</p>
+<p t="1418400" d="1840">That a left --</p>
+<p t="1420240" d="3430">square matrices, a left
+inverse is also a right</p>
+<p t="1423670" d="900">inverse.</p>
+<p t="1424570" d="4520">If I can find a matrix on the
+left that gets the identity,</p>
+<p t="1429090" d="1900">then also that
+matrix on the right</p>
+<p t="1430990" d="2640">will produce that identity.</p>
+<p t="1433630" d="3680">For rectangular matrices,
+we'll see a left inverse</p>
+<p t="1437310" d="1640">that isn't a right inverse.</p>
+<p t="1438950" d="2710">In fact, the shapes
+wouldn't allow it.</p>
+<p t="1441660" d="2040">But for square
+matrices, the shapes</p>
+<p t="1443700" d="6120">allow it and it happens,
+if A has an inverse.</p>
+<p t="1449820" d="4191">Okay, so give me some cases --</p>
+<p t="1454011" d="499">let's see.</p>
+<p t="1454510" d="2580">I hate to be negative
+here, but let's talk</p>
+<p t="1457090" d="2980">about the case with no inverse.</p>
+<p t="1460070" d="11140">So -- these matrices are called
+invertible or non-singular --</p>
+<p t="1476640" d="2320">those are the good ones.</p>
+<p t="1478960" d="2550">And we want to be able
+to identify how --</p>
+<p t="1481510" d="2670">if we're given a matrix,
+has it got an inverse?</p>
+<p t="1484180" d="2770">Can I talk about
+the singular case?</p>
+<p t="1492210" d="730">No inverse.</p>
+<p t="1497420" d="1530">All right.</p>
+<p t="1498950" d="3770">Best to start with an example.</p>
+<p t="1502720" d="4160">Tell me an example -- let's
+get an example up here.</p>
+<p t="1506880" d="2150">Let's make it two by two --</p>
+<p t="1509030" d="4510">of a matrix that has
+not got an inverse.</p>
+<p t="1513540" d="2620">And let's see why.</p>
+<p t="1516160" d="3070">Let me write one up.</p>
+<p t="1519230" d="1720">No inverse.</p>
+<p t="1520950" d="1670">Let's see why.</p>
+<p t="1522620" d="8160">Let me write up --
+one three two six.</p>
+<p t="1535180" d="2640">Why does that matrix
+have no inverse?</p>
+<p t="1540950" d="2295">You could answer
+that various ways.</p>
+<p t="1545760" d="2630">Give me one reason.</p>
+<p t="1548390" d="3230">Well, you could -- if you
+know about determinants,</p>
+<p t="1551620" d="5440">which you're not supposed to,
+you could take its determinant</p>
+<p t="1557060" d="1680">and you would get --</p>
+<p t="1558740" d="1590">Zero.</p>
+<p t="1560330" d="2760">Okay.</p>
+<p t="1563090" d="1030">Now -- all right.</p>
+<p t="1567640" d="2690">Let me ask you other reasons.</p>
+<p t="1570330" d="2790">I mean, as for other
+reasons that that matrix</p>
+<p t="1573120" d="2690">isn't invertible.</p>
+<p t="1575810" d="2955">Here, I could use
+what I'm saying here.</p>
+<p t="1584550" d="3250">Suppose A times other
+matrix gave the identity.</p>
+<p t="1592060" d="2690">Why is that not possible?</p>
+<p t="1594750" d="4260">Because -- oh, yeah --</p>
+<p t="1599010" d="2210">I'm thinking about columns here.</p>
+<p t="1601220" d="4980">If I multiply this matrix A by
+some other matrix, then the --</p>
+<p t="1606200" d="4040">the result -- what can you
+tell me about the columns?</p>
+<p t="1610240" d="5490">They're all multiples
+of those columns, right?</p>
+<p t="1615730" d="3610">If I multiply A by
+another matrix that --</p>
+<p t="1619340" d="4790">the product has columns that
+come from those columns.</p>
+<p t="1624130" d="2350">So can I get the
+identity matrix?</p>
+<p t="1626480" d="1640">No way.</p>
+<p t="1628120" d="3550">The columns of the identity
+matrix, like one zero --</p>
+<p t="1631670" d="3070">it's not a combination
+of those columns,</p>
+<p t="1634740" d="1780">because those two
+columns lie on the --</p>
+<p t="1636520" d="2620">both lie on the same line.</p>
+<p t="1639140" d="3000">Every combination is just
+going to be on that line</p>
+<p t="1642140" d="2340">and I can't get one zero.</p>
+<p t="1644480" d="9050">So, do you see that sort of
+column picture of the matrix</p>
+<p t="1653530" d="1220">not being invertible.</p>
+<p t="1654750" d="2830">In fact, here's another reason.</p>
+<p t="1657580" d="3140">This is even a more
+important reason.</p>
+<p t="1660720" d="1540">Well, how can I
+say more important?</p>
+<p t="1662260" d="2550">All those are important.</p>
+<p t="1664810" d="3100">This is another way to see it.</p>
+<p t="1667910" d="3500">A matrix has no inverse --</p>
+<p t="1671410" d="4300">yeah -- here -- now
+this is important.</p>
+<p t="1675710" d="3470">A matrix has no -- a square
+matrix won't have an inverse</p>
+<p t="1679180" d="8800">if there's no inverse
+because I can solve --</p>
+<p t="1687980" d="12830">I can find an X of -- a
+vector X with A times --</p>
+<p t="1700810" d="2330">this A times X giving zero.</p>
+<p t="1707010" d="4300">This is the reason I like best.</p>
+<p t="1711310" d="1860">That matrix won't
+have an inverse.</p>
+<p t="1713170" d="7320">Can you -- well, let
+me change I to U.</p>
+<p t="1720490" d="6290">So tell me a vector X that,
+solves A X equals zero.</p>
+<p t="1726780" d="2830">I mean, this is, like,
+the key equation.</p>
+<p t="1729610" d="1700">In mathematics, all
+the key equations</p>
+<p t="1731310" d="2180">have zero on the
+right-hand side.</p>
+<p t="1733490" d="2000">So what's the X?</p>
+<p t="1735490" d="2800">Tell me an X here --</p>
+<p t="1738290" d="3070">so now I'm going to put --
+slip in the X that you tell me</p>
+<p t="1741360" d="4140">and I'm going to get zero.</p>
+<p t="1745500" d="3500">What X would do that job?</p>
+<p t="1749000" d="2370">Three and negative one?</p>
+<p t="1751370" d="2240">Is that the one you
+picked, or -- yeah.</p>
+<p t="1753610" d="5110">Or another -- well, if
+you picked zero with zero,</p>
+<p t="1758720" d="2340">I'm not so excited, right?</p>
+<p t="1761060" d="2430">Because that would always work.</p>
+<p t="1763490" d="3060">So it's really the
+fact that this vector</p>
+<p t="1766550" d="2290">isn't zero that's important.</p>
+<p t="1768840" d="4910">It's a non-zero vector and
+three negative one would do it.</p>
+<p t="1773750" d="3380">That just says three of this
+column minus one of that column</p>
+<p t="1777130" d="1731">is the zero column.</p>
+<p t="1778861" d="499">Okay.</p>
+<p t="1782240" d="4620">So now I know that A
+couldn't be invertible.</p>
+<p t="1786860" d="3030">But what's the reasoning?</p>
+<p t="1789890" d="4830">If A X is zero, suppose I
+multiplied by A inverse.</p>
+<p t="1794720" d="1940">Yeah, well here's the reason.</p>
+<p t="1796660" d="5520">Here -- this is why this
+spells disaster for an inverse.</p>
+<p t="1802180" d="4400">The matrix can't have an
+inverse if some combination</p>
+<p t="1806580" d="2560">of the columns gives
+z- it gives nothing.</p>
+<p t="1809140" d="3490">Because, I could
+take A X equals zero,</p>
+<p t="1812630" d="8570">I could multiply by A inverse
+and what would I discover?</p>
+<p t="1821200" d="2640">Suppose I take that equation
+and I multiply by --</p>
+<p t="1823840" d="3020">if A inverse existed, which
+of course I'm going to come</p>
+<p t="1826860" d="3700">to the conclusion it can't
+because if it existed,</p>
+<p t="1830560" d="3010">if there was an A inverse
+to this dopey matrix,</p>
+<p t="1833570" d="3420">I would multiply that equation
+by that inverse and I would</p>
+<p t="1836990" d="5280">discover X is zero.</p>
+<p t="1842270" d="3050">If I multiply A by A inverse
+on the left, I get X.</p>
+<p t="1845320" d="3510">If I multiply by A inverse
+on the right, I get zero.</p>
+<p t="1848830" d="1960">So I would discover X was zero.</p>
+<p t="1850790" d="2260">But it -- X is not zero.</p>
+<p t="1853050" d="1750">X -- this guy wasn't zero.</p>
+<p t="1854800" d="660">There it is.</p>
+<p t="1855460" d="2710">It's three minus one.</p>
+<p t="1858170" d="8080">So, conclusion -- only, it takes
+us some time to really work</p>
+<p t="1866250" d="1790">with that conclusion --</p>
+<p t="1868040" d="6260">our conclusion will be that
+non-invertible matrices,</p>
+<p t="1874300" d="5190">singular matrices, some
+combinations of their columns</p>
+<p t="1879490" d="2800">gives the zero column.</p>
+<p t="1882290" d="3800">They they take some
+vector X into zero.</p>
+<p t="1886090" d="4560">And there's no way A
+inverse can recover, right?</p>
+<p t="1890650" d="1870">That's what this equation says.</p>
+<p t="1892520" d="4460">This equation says I take
+this vector X and multiplying</p>
+<p t="1896980" d="2490">by A gives zero.</p>
+<p t="1899470" d="2750">But then when I
+multiply by A inverse,</p>
+<p t="1902220" d="2470">I can never escape from zero.</p>
+<p t="1904690" d="3290">So there couldn't
+be an A inverse.</p>
+<p t="1907980" d="3721">Where here -- okay, now fix --</p>
+<p t="1911701" d="499">all right.</p>
+<p t="1912200" d="5000">Now let me take -- all right,
+back to the positive side.</p>
+<p t="1917200" d="4330">Let's take a matrix that
+does have an inverse.</p>
+<p t="1921530" d="2310">And why not invert it?</p>
+<p t="1923840" d="660">Okay.</p>
+<p t="1924500" d="4282">Can I -- so let me take on
+this third board a matrix --</p>
+<p t="1928782" d="1208">shall I fix that up a little?</p>
+<p t="1932810" d="2850">Tell me a matrix that
+has got an inverse.</p>
+<p t="1938680" d="4250">Well, let me say one three
+two -- what shall I put there?</p>
+<p t="1945620" d="3045">Well, don't put six,
+I guess is -- right?</p>
+<p t="1951570" d="3430">Do I any favorites here?</p>
+<p t="1955000" d="1910">One?</p>
+<p t="1956910" d="1370">Or eight?</p>
+<p t="1961470" d="670">I don't care.</p>
+<p t="1962140" d="1310">What, seven?</p>
+<p t="1963450" d="500">Seven.</p>
+<p t="1963950" d="590">Okay.</p>
+<p t="1964540" d="1520">Seven is a lucky number.</p>
+<p t="1966060" d="2690">All right, seven, okay.</p>
+<p t="1968750" d="630">Okay.</p>
+<p t="1969380" d="1700">So -- now what's our idea?</p>
+<p t="1971080" d="2660">We believe that this
+matrix is invertible.</p>
+<p t="1973740" d="3320">Those who like determinants have
+quickly taken its determinant</p>
+<p t="1977060" d="2260">and found it wasn't zero.</p>
+<p t="1979320" d="5290">Those who like columns,
+and probably that --</p>
+<p t="1984610" d="3840">that department is not
+totally popular yet --</p>
+<p t="1988450" d="2630">but those who like columns
+will look at those two columns</p>
+<p t="1991080" d="4010">and say, hey, they point
+in different directions.</p>
+<p t="1995090" d="2990">So I can get anything.</p>
+<p t="1998080" d="1780">Now, let me see, what do I mean?</p>
+<p t="1999860" d="2020">How I going to
+computer A inverse?</p>
+<p t="2001880" d="2180">So A inverse --</p>
+<p t="2004060" d="4300">here's A inverse, now,
+and I have to find it.</p>
+<p t="2008360" d="4859">And what do I get when I
+do this multiplication?</p>
+<p t="2013219" d="541">The identity.</p>
+<p t="2020810" d="3130">You know, forgive me for
+taking two by two-s, but --</p>
+<p t="2023940" d="5300">lt's good to keep the
+computations manageable and let</p>
+<p t="2029240" d="1850">the ideas come out.</p>
+<p t="2031090" d="4140">Okay, now what's
+the idea I want?</p>
+<p t="2035230" d="2290">I'm looking for this
+matrix A inverse, how</p>
+<p t="2037520" d="1230">I going to find it?</p>
+<p t="2038750" d="5485">Right now, I've got
+four numbers to find.</p>
+<p t="2048290" d="3869">I'm going to look
+at the first column.</p>
+<p t="2052159" d="4701">Let me take this
+first column, A B.</p>
+<p t="2056860" d="1839">What's up there?</p>
+<p t="2058699" d="1971">What -- tell me this.</p>
+<p t="2060670" d="4590">What equation does the
+first column satisfy?</p>
+<p t="2065260" d="6229">The first column satisfies A
+times that column is one zero.</p>
+<p t="2071489" d="2690">The first column of the answer.</p>
+<p t="2074179" d="4641">And the second column,
+C D, satisfies A times</p>
+<p t="2078820" d="2319">that second column is zero one.</p>
+<p t="2081139" d="7770">You see that finding the inverse
+is like solving two systems.</p>
+<p t="2088909" d="3301">One system, when the
+right-hand side is one zero --</p>
+<p t="2092210" d="1929">I'm just going to split
+it into two pieces.</p>
+<p t="2097427" d="1333">I don't even need to rewrite it.</p>
+<p t="2098760" d="5720">I can take A times --
+so let me put it here.</p>
+<p t="2104480" d="13620">A times column j of A inverse
+is column j of the identity.</p>
+<p t="2121350" d="1660">I've got n equations.</p>
+<p t="2123010" d="3490">I've got, well,
+two in this case.</p>
+<p t="2126500" d="2600">And they have the
+same matrix, A,</p>
+<p t="2129100" d="1760">but they have different
+right-hand sides.</p>
+<p t="2130860" d="1980">The right-hand sides
+are just the columns</p>
+<p t="2132840" d="2960">of the identity, this
+guy and this guy.</p>
+<p t="2135800" d="1650">And these are the two solutions.</p>
+<p t="2137450" d="2160">Do you see what I'm going --</p>
+<p t="2139610" d="5510">I'm looking at that
+equation by columns.</p>
+<p t="2145120" d="1930">I'm looking at A
+times this column,</p>
+<p t="2147050" d="2860">giving that guy, and A times
+that column giving that guy.</p>
+<p t="2149910" d="5590">So -- Essentially -- so
+this is like the Gauss --</p>
+<p t="2155500" d="910">we're back to Gauss.</p>
+<p t="2156410" d="4410">We're back to solving systems of
+equations, but we're solving --</p>
+<p t="2160820" d="4340">we've got two right-hand
+sides instead of one.</p>
+<p t="2165160" d="1850">That's where Jordan comes in.</p>
+<p t="2167010" d="2970">So at the very beginning
+of the lecture,</p>
+<p t="2169980" d="3250">I mentioned Gauss-Jordan,
+let me write it up again.</p>
+<p t="2173230" d="500">Okay.</p>
+<p t="2173730" d="2900">Here's the Gauss-Jordan idea.</p>
+<p t="2181600" d="13400">Gauss-Jordan solve
+two equations at once.</p>
+<p t="2199460" d="500">Okay.</p>
+<p t="2199960" d="3670">Let me show you how
+the mechanics go.</p>
+<p t="2203630" d="5340">How do I solve a
+single equation?</p>
+<p t="2208970" d="6790">So the two equations
+are one three two seven,</p>
+<p t="2215760" d="5870">multiplying A B gives one zero.</p>
+<p t="2221630" d="1930">And the other
+equation is the same</p>
+<p t="2223560" d="8570">one three two seven
+multiplying C D gives zero one.</p>
+<p t="2232130" d="2880">Okay.</p>
+<p t="2235010" d="2400">That'll tell me the two
+columns of the inverse.</p>
+<p t="2237410" d="1670">I'll have inverse.</p>
+<p t="2239080" d="3860">In other words, if I can
+solve with this matrix A,</p>
+<p t="2242940" d="1910">if I can solve with
+that right-hand side</p>
+<p t="2244850" d="3490">and that right-hand
+side, I'm invertible.</p>
+<p t="2248340" d="1120">I've got it.</p>
+<p t="2249460" d="1230">Okay.</p>
+<p t="2250690" d="5720">And Jordan sort of said to
+Gauss, solve them together,</p>
+<p t="2256410" d="3240">look at the matrix -- if
+we just solve this one,</p>
+<p t="2259650" d="3490">I would look at one
+three two seven,</p>
+<p t="2263140" d="2890">and how do I deal with
+the right-hand side?</p>
+<p t="2266030" d="2930">I stick it on as an
+extra column, right?</p>
+<p t="2276130" d="2330">That's this augmented matrix.</p>
+<p t="2278460" d="3290">That's the matrix when I'm
+watching the right-hand side</p>
+<p t="2281750" d="2720">at the same time, doing the
+same thing to the right side</p>
+<p t="2284470" d="2050">that I do to the left?</p>
+<p t="2286520" d="3090">So I just carry it along
+as an extra column.</p>
+<p t="2289610" d="2490">Now I'm going to carry
+along two extra columns.</p>
+<p t="2297200" d="3720">And I'm going to do
+whatever Gauss wants, right?</p>
+<p t="2300920" d="3230">I'm going to do elimination.</p>
+<p t="2304150" d="2860">I'm going to get
+this to be simple</p>
+<p t="2307010" d="3060">and this thing will
+turn into the inverse.</p>
+<p t="2310070" d="2390">This is what's coming.</p>
+<p t="2312460" d="3340">I'm going to do elimination
+steps to make this</p>
+<p t="2315800" d="3440">into the identity,
+and lo and behold,</p>
+<p t="2319240" d="2310">the inverse will show up here.</p>
+<p t="2321550" d="1780">K--- let's do it.</p>
+<p t="2323330" d="500">Okay.</p>
+<p t="2323830" d="3050">So what are the
+elimination steps?</p>
+<p t="2326880" d="4800">So you see -- here's my matrix
+A and here's the identity, like,</p>
+<p t="2331680" d="1115">stuck on, augmented on.</p>
+<p t="2332795" d="875">STUDENT: I'm sorry...</p>
+<p t="2333670" d="541">STRANG: Yeah?</p>
+<p t="2334211" d="4589">STUDENT: -- is the two and the
+three supposed to be switched?</p>
+<p t="2338800" d="2270">STRANG: Did I -- oh, no,
+they weren't supposed to be</p>
+<p t="2341070" d="500">switched.</p>
+<p t="2341570" d="500">Sorry.</p>
+<p t="2342070" d="2610">Thanks.</p>
+<p t="2344680" d="1250">Okay.</p>
+<p t="2345930" d="2495">Thank you very much.</p>
+<p t="2348425" d="1375">And there -- I've
+got them right.</p>
+<p t="2349800" d="1415">Okay, thanks.</p>
+<p t="2354520" d="990">Okay.</p>
+<p t="2355510" d="2270">So let's do elimination.</p>
+<p t="2357780" d="2110">All right, it's going
+to be simple, right?</p>
+<p t="2359890" d="3800">So I take two of this
+row away from this row.</p>
+<p t="2363690" d="3490">So this row stays
+the same and two</p>
+<p t="2367180" d="1500">of those come away from this.</p>
+<p t="2368680" d="3880">That leaves me with a zero and
+a one and two of these away from</p>
+<p t="2372560" d="4410">this is that what
+you're getting --</p>
+<p t="2376970" d="2960">after one elimination step --</p>
+<p t="2379930" d="2860">Let me sort of separate the --</p>
+<p t="2382790" d="2250">the left half from
+the right half.</p>
+<p t="2385040" d="3650">So two of that first row got
+subtracted from the second row.</p>
+<p t="2388690" d="4550">Now this is an upper
+triangular form.</p>
+<p t="2393240" d="3880">Gauss would quit, but
+Jordan says keeps going.</p>
+<p t="2397120" d="2130">Use elimination upwards.</p>
+<p t="2399250" d="4460">Subtract a multiple of
+equation two from equation one</p>
+<p t="2403710" d="2260">to get rid of the three.</p>
+<p t="2405970" d="3000">So let's go the whole way.</p>
+<p t="2408970" d="5450">So now I'm going to -- this guy
+is fine, but I'm going to --</p>
+<p t="2414420" d="1350">what do I do now?</p>
+<p t="2415770" d="4080">What's my final step that
+produces the inverse?</p>
+<p t="2419850" d="2350">I multiply this by
+the right number</p>
+<p t="2422200" d="3860">to get up to ther to
+remove that three.</p>
+<p t="2426060" d="2290">So I guess, I --
+since this is a one,</p>
+<p t="2428350" d="2480">there's the pivot sitting there.</p>
+<p t="2430830" d="2920">I multiply it by three
+and subtract from that,</p>
+<p t="2433750" d="1330">so what do I get?</p>
+<p t="2435080" d="3380">I'll have one zero -- oh,
+yeah that was my whole point.</p>
+<p t="2438460" d="3180">I'll multiply this by three
+and subtract from that,</p>
+<p t="2441640" d="4810">which will give me seven.</p>
+<p t="2446450" d="2890">And I multiply this by three
+and subtract from that,</p>
+<p t="2449340" d="1580">which gives me a minus three.</p>
+<p t="2460060" d="6440">And what's my hope, belief?</p>
+<p t="2466500" d="4280">Here I started with
+A and the identity,</p>
+<p t="2470780" d="5630">and I ended up with
+the identity and who?</p>
+<p t="2476410" d="2230">That better be A inverse.</p>
+<p t="2484090" d="2890">That's the Gauss Jordan idea.</p>
+<p t="2486980" d="6710">Start with this long matrix,
+double-length A I, eliminate,</p>
+<p t="2493690" d="3760">eliminate until this
+part is down to I,</p>
+<p t="2497450" d="3080">then this one will --
+must be for some reason,</p>
+<p t="2500530" d="4700">and we've got to find the
+reason -- must be A inverse.</p>
+<p t="2505230" d="1460">Shall I just check
+that it works?</p>
+<p t="2510160" d="4920">Let me just check that -- can I
+multiply this matrix this part</p>
+<p t="2515080" d="5220">times A, I'll carry A
+over here and just do that</p>
+<p t="2520300" d="890">multiplication.</p>
+<p t="2521190" d="2120">You'll see I'll do it
+the old fashioned way.</p>
+<p t="2523310" d="2690">Seven minus six is a one.</p>
+<p t="2526000" d="2670">Twenty one minus
+twenty one is a zero,</p>
+<p t="2528670" d="4610">minus two plus two is a zero,
+minus six plus seven is a one.</p>
+<p t="2533280" d="2500">Check.</p>
+<p t="2535780" d="2510">So that is the inverse.</p>
+<p t="2538290" d="2660">That's the Gauss-Jordan idea.</p>
+<p t="2540950" d="3240">So, you'll -- one of the
+homework problems or more than</p>
+<p t="2544190" d="6520">one for Wednesday will ask
+you to go through those steps.</p>
+<p t="2550710" d="2850">I think you just got to go
+through Gauss-Jordan a couple</p>
+<p t="2553560" d="5040">of times, but I --</p>
+<p t="2558600" d="5090">yeah -- just to
+see the mechanics.</p>
+<p t="2563690" d="4310">But the, important
+thing is, why --</p>
+<p t="2568000" d="2190">is, like, what happened?</p>
+<p t="2570190" d="3380">Why did we -- why did
+we get A inverse there?</p>
+<p t="2573570" d="1120">Let me ask you that.</p>
+<p t="2577860" d="5330">We got -- so we take --</p>
+<p t="2583190" d="4830">We do row reduction, we do
+elimination on this long matrix</p>
+<p t="2588020" d="4820">A I until the first half</p>
+<p t="2592840" d="2150">Then a second half
+is A inverse. is up.</p>
+<p t="2594990" d="5060">Well, how do I see that?</p>
+<p t="2600050" d="2260">Let me put up here
+how I see that.</p>
+<p t="2602310" d="7790">So here's my Gauss-Jordan thing,
+and I'm doing stuff to it.</p>
+<p t="2610100" d="4220">So I'm -- well,
+whole lot of E's.</p>
+<p t="2617530" d="2620">Remember those are those
+elimination matrices.</p>
+<p t="2620150" d="2711">Those are the -- those are the
+things that we figured out last</p>
+<p t="2622861" d="499">time.</p>
+<p t="2623360" d="6010">Yes, that's what an elimination
+step is it's in matrix form,</p>
+<p t="2629370" d="2060">I'm multiplying by some Es.</p>
+<p t="2631430" d="3690">And the result -- well, so I'm
+multiplying by a whole bunch</p>
+<p t="2635120" d="530">of Es.</p>
+<p t="2635650" d="1880">So, I get a --</p>
+<p t="2637530" d="4540">can I call the overall matrix E?</p>
+<p t="2642070" d="4350">That's the elimination matrix,
+the product of all those little</p>
+<p t="2646420" d="500">pieces.</p>
+<p t="2646920" d="2130">What do I mean by little pieces?</p>
+<p t="2649050" d="2110">Well, there was an
+elimination matrix</p>
+<p t="2651160" d="3240">that subtracted two of
+that away from that.</p>
+<p t="2654400" d="1780">Then there was an
+elimination matrix</p>
+<p t="2656180" d="2980">that subtracted three
+of that away from that.</p>
+<p t="2659160" d="2210">I guess in this
+case, that was all.</p>
+<p t="2661370" d="2910">So there were just two
+Es in this case, one</p>
+<p t="2664280" d="2350">that did this step and
+one that did this step</p>
+<p t="2666630" d="5060">and together they gave me
+an E that does both steps.</p>
+<p t="2671690" d="6870">And the net result
+was to get an I here.</p>
+<p t="2678560" d="6930">And you can tell me
+what that has to be.</p>
+<p t="2685490" d="4750">This is, like, the
+picture of what happened.</p>
+<p t="2690240" d="3110">If E multiplied A,
+whatever that E is --</p>
+<p t="2693350" d="6430">we never figured
+it out in this way.</p>
+<p t="2699780" d="6912">But whatever that E times
+that E is, E times A is --</p>
+<p t="2709410" d="2710">What's E times A?</p>
+<p t="2712120" d="1360">It's I.</p>
+<p t="2713480" d="7030">That E, whatever the heck it
+was, multiplied A and produced</p>
+<p t="2720510" d="2200">So E must be --</p>
+<p t="2722710" d="7930">E A equaling I tells us what
+E is, I. namely it is --</p>
+<p t="2730640" d="1470">STUDENT: It's the inverse of A.</p>
+<p t="2732110" d="1610">STRANG: It's the inverse of A.</p>
+<p t="2733720" d="1940">Great.</p>
+<p t="2735660" d="4120">And therefore, when the second
+half, when E multiplies I,</p>
+<p t="2739780" d="1690">it's E --</p>
+<p t="2741470" d="3290">Put this A inverse.</p>
+<p t="2744760" d="3690">You see the picture
+looking that way?</p>
+<p t="2748450" d="1460">E times A is the identity.</p>
+<p t="2749910" d="3570">It tells us what E has to be.</p>
+<p t="2753480" d="2120">It has to be the
+inverse, and therefore,</p>
+<p t="2755600" d="2270">on the right-hand
+side, where E --</p>
+<p t="2757870" d="2710">where we just smartly
+tucked on the identity,</p>
+<p t="2760580" d="2480">it's turning in, step by step --</p>
+<p t="2763060" d="2810">It's turning into A inverse.</p>
+<p t="2765870" d="6540">There is the statement of
+Gauss-Jordan elimination.</p>
+<p t="2772410" d="2180">That's how you find the inverse.</p>
+<p t="2774590" d="4620">Where we can look at
+it as elimination,</p>
+<p t="2779210" d="5050">as solving n equations
+at the same time -- --</p>
+<p t="2784260" d="3910">and tacking on n columns,
+solving those equations and up</p>
+<p t="2788170" d="4570">goes the n columns of
+A inverse Okay, thanks.</p>
+<p t="2792740" d="1900">See you on Wednesday.</p>
+</body>
+</timedtext>

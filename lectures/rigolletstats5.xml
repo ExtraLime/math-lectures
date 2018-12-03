@@ -1,0 +1,2495 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="120" d="2340">The following content is
+provided under a Creative</p>
+<p t="2460" d="1420">Commons license.</p>
+<p t="3880" d="2210">Your support will help
+MIT OpenCourseWare</p>
+<p t="6090" d="4090">continue to offer high quality
+educational resources for free.</p>
+<p t="10180" d="2540">To make a donation or to
+view additional materials</p>
+<p t="12720" d="3930">from hundreds of MIT courses,
+visit MIT OpenCourseWare</p>
+<p t="16650" d="1230">at ocw.mit.edu.</p>
+<p t="22729" d="2041">PROFESSOR: So I'm using
+a few things here, right?</p>
+<p t="24770" d="2970">I'm using the fact that
+KL is non-negative.</p>
+<p t="27740" d="3390">But KL is equal to 0 when I
+take twice the same argument.</p>
+<p t="31130" d="2931">So I know that this function
+is always non-negative.</p>
+<p t="38650" d="6930">So that's theta and that's
+KL P theta star P theta.</p>
+<p t="45580" d="5590">And I know that at theta
+star, it's equal to 0.</p>
+<p t="51170" d="1190">OK?</p>
+<p t="52360" d="4090">I could be in the case
+where I have this happening.</p>
+<p t="56450" d="5010">I have two-- let's call
+it theta star prime.</p>
+<p t="61460" d="2609">I have two minimizers.</p>
+<p t="64069" d="1321">That could be the case, right?</p>
+<p t="65390" d="2070">I'm not saying
+that-- so K of L--</p>
+<p t="67460" d="4350">KL is 0 at the minimum.</p>
+<p t="71810" d="2850">That doesn't mean that I
+have a unit minimum, right?</p>
+<p t="74660" d="1450">But it does, actually.</p>
+<p t="76110" d="1452">What do I need to
+use to make sure</p>
+<p t="77562" d="1208">that I have only one minimum?</p>
+<p t="82210" d="2070">So the definiteness
+is guaranteeing to me</p>
+<p t="84280" d="4132">that there's a unique P
+theta star that minimizes it.</p>
+<p t="88412" d="1708">But then I need to
+make sure that there's</p>
+<p t="90120" d="3094">a unique-- from this
+unique P theta star,</p>
+<p t="93214" d="2166">I need to make sure there's
+a unique theta star that</p>
+<p t="95380" d="1170">defines this P theta star.</p>
+<p t="99250" d="1300">Exactly.</p>
+<p t="100550" d="2870">All right, so I
+combine definiteness</p>
+<p t="103420" d="3990">and identifiability to make
+sure that there is a unique</p>
+<p t="107410" d="2660">minimizer, in this
+case cannot exist.</p>
+<p t="110070" d="5560">OK, so basically, let me
+write what I just said.</p>
+<p t="115630" d="10910">So definiteness, that
+implies that P theta star</p>
+<p t="126540" d="16580">is the unique minimizer of P
+theta maps to KL P theta star P</p>
+<p t="143120" d="790">theta.</p>
+<p t="143910" d="2380">So definiteness only
+guarantees that the probability</p>
+<p t="146290" d="3140">distribution is
+uniquely identified.</p>
+<p t="149430" d="12830">And identifiability
+implies that theta star</p>
+<p t="162260" d="14677">is the unique minimizer of
+theta maps to KL P theta star P</p>
+<p t="176937" d="3653">theta, OK?</p>
+<p t="180590" d="1890">So I'm basically
+doing the composition</p>
+<p t="182480" d="1780">of two injective functions.</p>
+<p t="184260" d="3710">The first one is the one that
+maps, say, theta to P theta.</p>
+<p t="187970" d="3120">And the second one is
+the one that maps P theta</p>
+<p t="191090" d="3392">to the set of minimizers, OK?</p>
+<p t="200770" d="6790">So at least morally, you
+should agree that theta star</p>
+<p t="207560" d="1380">is the minimizer of this thing.</p>
+<p t="208940" d="1583">Whether it's unique
+or not, you should</p>
+<p t="210523" d="2587">agree that it's a good one.</p>
+<p t="213110" d="3510">So maybe you can think
+a little longer on this.</p>
+<p t="216620" d="2100">So thinking about this
+being the minimizer,</p>
+<p t="218720" d="1500">then it says,
+well, if I actually</p>
+<p t="220220" d="2010">had a good estimate
+for this function,</p>
+<p t="222230" d="1820">I would use the strategy
+that I described</p>
+<p t="224050" d="1810">for the total
+variation, which is,</p>
+<p t="225860" d="2190">well, I don't know what
+this function looks like.</p>
+<p t="228050" d="1650">It depends on theta star.</p>
+<p t="229700" d="1770">But maybe I can
+find an estimator</p>
+<p t="231470" d="3700">of this function that
+fluctuates around this function,</p>
+<p t="235170" d="2900">and such that when I minimize
+this estimator of the function,</p>
+<p t="238070" d="3310">I'm actually not too far, OK?</p>
+<p t="241380" d="3270">And this is exactly what
+drives me to do this,</p>
+<p t="244650" d="2730">because I can actually
+construct an estimator.</p>
+<p t="247380" d="1920">I can actually construct
+an estimator such</p>
+<p t="249300" d="3240">that this estimator
+is actually--</p>
+<p t="252540" d="3360">of the KL is actually
+close to the KL, all right?</p>
+<p t="255900" d="2809">So I define KL hat.</p>
+<p t="258709" d="4211">So all we did is just replacing
+expectation with respect</p>
+<p t="262920" d="4480">to theta star by averages.</p>
+<p t="270840" d="3010">That's what we did.</p>
+<p t="273850" d="3420">So if you're a little puzzled by
+this error, that's all it says.</p>
+<p t="277270" d="2270">Replace this guy by this guy.</p>
+<p t="279540" d="1650">It has no mathematical meaning.</p>
+<p t="281190" d="1800">It just means just
+replace it by.</p>
+<p t="282990" d="3200">And now that actually tells
+me how to get my estimator.</p>
+<p t="286190" d="5470">It just says, well,
+my estimator, KL hat,</p>
+<p t="291660" d="3309">is equal to some constant
+which I don't know.</p>
+<p t="294969" d="1791">I mean, it certainly
+depends on theta star,</p>
+<p t="296760" d="2960">but I won't care about it
+when I'm trying to minimize--</p>
+<p t="299720" d="9890">minus 1/n sum from i from
+1 to n log f theta of x.</p>
+<p t="309610" d="1710">So here I'm reading
+it with the density.</p>
+<p t="311320" d="2630">You have it with the
+PMF on the slides,</p>
+<p t="313950" d="4610">and so you have the two
+versions in front of you, OK?</p>
+<p t="318560" d="3840">Oh sorry, I forgot the xi.</p>
+<p t="322400" d="3030">Now clearly, this function
+I know how to compute.</p>
+<p t="325430" d="5280">If you give me a theta, since
+I know the form of the density</p>
+<p t="330710" d="2670">f theta, for each
+theta that you give me,</p>
+<p t="333380" d="4690">I can actually compute
+this quantity, right?</p>
+<p t="338070" d="2405">This I don't know,
+but I don't care.</p>
+<p t="340475" d="2125">Because I'm just shifting
+the value of the function</p>
+<p t="342600" d="990">I'm trying to minimize.</p>
+<p t="343590" d="3240">The set of minimizers
+is not going to change.</p>
+<p t="346830" d="3590">So now, this is my
+estimation strategy.</p>
+<p t="350420" d="11140">Minimize in theta KL hat
+P theta star P theta, OK?</p>
+<p t="361560" d="4015">So now let's just make sure
+that we all agree that--</p>
+<p t="365575" d="2385">so what we want is the
+argument of the minimum,</p>
+<p t="367960" d="2750">right? arg min means the
+theta that minimizes this guy,</p>
+<p t="370710" d="2824">rather than finding
+the value of the min.</p>
+<p t="373534" d="2166">OK, so I'm trying to find
+the arg min of this thing.</p>
+<p t="375700" d="3200">Well, this is equivalent
+to finding the arg</p>
+<p t="378900" d="9120">min of, say, a constant minus
+1/n sum from i from 1 to n</p>
+<p t="388020" d="3206">of log f theta of xi.</p>
+<p t="393864" d="666">So that's just--</p>
+<p t="398850" d="2176">I don't think it likes me.</p>
+<p t="401026" d="1464">No.</p>
+<p t="402490" d="3620">OK, so thus minimizing
+this average, right?</p>
+<p t="406110" d="2510">I just plugged in the
+definition of KL hat.</p>
+<p t="408620" d="1740">Now, I claim that
+taking the arg min</p>
+<p t="410360" d="3150">of a constant plus a function
+or the arg min of the function</p>
+<p t="413510" d="2310">is the same thing.</p>
+<p t="415820" d="4830">Is anybody not comfortable
+with this idea?</p>
+<p t="420650" d="2880">OK, so this is the same.</p>
+<p t="433757" d="1993">By the way, this
+I should probably</p>
+<p t="435750" d="2880">switch to the next slide,
+because I'm writing</p>
+<p t="438630" d="4200">the same thing, but better.</p>
+<p t="442830" d="6530">And it's with PMF
+rather than as PF.</p>
+<p t="449360" d="4640">OK, now, arg min of the minimum
+is the same of arg max--</p>
+<p t="454000" d="1595">sorry, arg min of
+the negative thing</p>
+<p t="455595" d="2125">is the same as arg max
+without the negative, right?</p>
+<p t="460324" d="8686">arg max over theta of 1/n from
+i equal equal 1 to n log f</p>
+<p t="469010" d="840">theta of xi.</p>
+<p t="473540" d="1440">Taking the arg
+min of the average</p>
+<p t="474980" d="1583">or the arg min of
+the sum, again, it's</p>
+<p t="476563" d="2467">not going to make
+much difference.</p>
+<p t="479030" d="2280">Just adding constants OR
+multiplying by constants</p>
+<p t="481310" d="3130">does not change the
+arg min or the arg max.</p>
+<p t="484440" d="3237">Now, I have the
+sum of logs, which</p>
+<p t="487677" d="1083">is the log of the product.</p>
+<p t="503310" d="1040">OK?</p>
+<p t="504350" d="2930">It's the arg max of the
+log of f theta of x1 times</p>
+<p t="507280" d="2910">f theta of x2, f theta of xn.</p>
+<p t="510190" d="7250">But the log is a function
+that's increasing, so maximizing</p>
+<p t="517440" d="3390">log of a function or
+maximizing the function itself</p>
+<p t="520830" d="2030">is the same thing.</p>
+<p t="522860" d="2340">The value is going to
+change, but the arg max</p>
+<p t="525200" d="1020">is not going to change.</p>
+<p t="526220" d="1124">Everybody agrees with this?</p>
+<p t="530340" d="9650">So this is equivalent to arg
+max over theta of pi from 1 to n</p>
+<p t="539990" d="2790">of f theta xi.</p>
+<p t="542780" d="7735">And that's because x maps
+to log x is increasing.</p>
+<p t="553930" d="3210">So now I've gone from
+minimizing the KL</p>
+<p t="557140" d="2610">to minimizing the
+estimate of the KL</p>
+<p t="559750" d="3770">to maximizing this product.</p>
+<p t="563520" d="3760">Well, this chapter is called
+maximum likelihood estimation.</p>
+<p t="567280" d="3090">The maximum comes from the
+fact that our original idea</p>
+<p t="570370" d="1870">was to minimize the
+negative of a function.</p>
+<p t="572240" d="1910">So that's why it's
+maximum likelihood.</p>
+<p t="574150" d="8620">And this function here
+is called the likelihood.</p>
+<p t="582770" d="2380">This function is really
+just telling me--</p>
+<p t="585150" d="2220">they call it
+likelihood because it's</p>
+<p t="587370" d="2550">some measure of how
+likely it is that theta</p>
+<p t="589920" d="2880">was the parameter that
+generated the data.</p>
+<p t="592800" d="2644">OK, so let's go to the--</p>
+<p t="595444" d="2166">well, we'll go to the formal
+definition in a second.</p>
+<p t="597610" d="1550">But actually, let
+me just give you</p>
+<p t="599160" d="6432">intuition as to why this is
+the distribution of the data.</p>
+<p t="605592" d="1458">Why this is the
+likelihood-- sorry.</p>
+<p t="607050" d="4890">Why is this making sense
+as a measure of likelihood?</p>
+<p t="611940" d="2610">Let's now think for simplicity
+of the following model.</p>
+<p t="614550" d="1160">So I have--</p>
+<p t="615710" d="3840">I'm on the real line
+and I look at n, say,</p>
+<p t="619550" d="5990">theta 1 for theta in the
+real-- do you see that?</p>
+<p t="625540" d="500">OK.</p>
+<p t="626040" d="1620">Probably you don't.</p>
+<p t="627660" d="1200">Not that you care.</p>
+<p t="628860" d="930">OK, so--</p>
+<p t="641120" d="1470">OK, let's look at
+a simple example.</p>
+<p t="645990" d="2920">So here's the model.</p>
+<p t="648910" d="3400">As I said, we're looking at
+observations on the real line.</p>
+<p t="652310" d="4722">And they're distributed
+according to some n theta 1.</p>
+<p t="657032" d="1458">So I don't care
+about the variance.</p>
+<p t="658490" d="1320">I know it's 1.</p>
+<p t="659810" d="3360">And it's indexed by
+theta in the real line.</p>
+<p t="663170" d="2190">OK, so this is-- the only
+thing I need to figure out</p>
+<p t="665360" d="3900">is, what is the mean
+of those guys, OK?</p>
+<p t="669260" d="2340">Now, I have this n observations.</p>
+<p t="671600" d="4320">And if you actually remember
+from your probability class,</p>
+<p t="675920" d="2690">are you familiar with the
+concept of joint density?</p>
+<p t="678610" d="1810">You have multivariate
+observations.</p>
+<p t="680420" d="3330">The joint density of
+independent random variables</p>
+<p t="683750" d="3240">is just a product of their
+individual densities.</p>
+<p t="686990" d="3960">So really, when I look
+at the product from i</p>
+<p t="690950" d="3660">equal 1 to n of f
+theta of xi, this</p>
+<p t="694610" d="10190">is really the joint
+density of the vector--</p>
+<p t="708592" d="2618">well, let me not use
+the word vector--</p>
+<p t="711210" d="4450">of x1 xn, OK?</p>
+<p t="715660" d="3270">So if I take the product of
+density, is it still a density?</p>
+<p t="718930" d="5206">And it's actually-- but
+this time on the r to the n.</p>
+<p t="724136" d="1874">And so now what this
+thing is telling me-- so</p>
+<p t="726010" d="1320">think of it in r2, right?</p>
+<p t="727330" d="3300">So this is the joint
+density of two Gaussians.</p>
+<p t="730630" d="4010">So it's something that looks
+like some bell-shaped curve</p>
+<p t="734640" d="1300">in two dimensions.</p>
+<p t="735940" d="4470">And it's centered at
+the value theta theta.</p>
+<p t="740410" d="1980">OK, they both have
+the mean theta.</p>
+<p t="742390" d="1890">So let's assume for
+one second-- it's</p>
+<p t="744280" d="3720">going to be hard for me to
+make pictures in n dimensions.</p>
+<p t="748000" d="1710">Actually, already
+in two dimensions,</p>
+<p t="749710" d="1950">I can promise you that
+it's not very easy.</p>
+<p t="751660" d="2640">So I'm actually
+just going to assume</p>
+<p t="754300" d="2970">that n is equal to 1 for
+the sake of illustration.</p>
+<p t="757270" d="3630">OK, so now I have this data.</p>
+<p t="760900" d="3450">And now I have one
+observation, OK?</p>
+<p t="764350" d="3174">And I know that the f
+theta looks like this.</p>
+<p t="767524" d="1416">And what I'm doing
+is I'm actually</p>
+<p t="768940" d="3021">looking at the value of x
+theta as my observation.</p>
+<p t="774787" d="3083">Let's call it x1.</p>
+<p t="777870" d="2720">Now, my principal tells me,
+just find the theta that</p>
+<p t="780590" d="2670">makes this guy the most likely.</p>
+<p t="783260" d="2100">What is the likelihood of my x1?</p>
+<p t="785360" d="2280">Well, it's just the
+value of the function.</p>
+<p t="787640" d="1770">That this value here.</p>
+<p t="789410" d="4260">And if I wanted to find the most
+likely theta that had generated</p>
+<p t="793670" d="2700">this x1, what I would need
+to do is to shift this thing</p>
+<p t="796370" d="2920">and put it here.</p>
+<p t="799290" d="2660">And so my estimate, my
+maximum likelihood estimator</p>
+<p t="801950" d="6770">here would be theta
+is equal to x1, OK?</p>
+<p t="808720" d="1650">That would be just
+the observation.</p>
+<p t="810370" d="1740">Because if I have
+only one observation,</p>
+<p t="812110" d="1344">what else am I going to do?</p>
+<p t="813454" d="1416">OK, and so it sort
+of makes sense.</p>
+<p t="814870" d="1416">And if you have
+more observations,</p>
+<p t="816286" d="4254">you can think of it this way,
+as if you had more observations.</p>
+<p t="820540" d="2195">So now I have, say,
+K observations,</p>
+<p t="822735" d="1422">or n observations.</p>
+<p t="824157" d="2083">And what I do is that I
+look at the value for each</p>
+<p t="826240" d="2550">of these guys.</p>
+<p t="828790" d="3450">So this value, this value,
+this value, this value.</p>
+<p t="832240" d="3630">I take their product and
+I make this thing large.</p>
+<p t="835870" d="1380">OK, why do I take the product?</p>
+<p t="837250" d="2850">Well, because I'm trying
+to maximize their value</p>
+<p t="840100" d="2730">all together, and I need to
+just turn it into one number</p>
+<p t="842830" d="1200">that I can maximize.</p>
+<p t="844030" d="2550">And taking the product
+is the natural way</p>
+<p t="846580" d="1890">of doing it, either
+by motivating it</p>
+<p t="848470" d="2580">by the KL principle
+or motivating it</p>
+<p t="851050" d="3750">by maximizing the joint density,
+rather than just maximizing</p>
+<p t="854800" d="1110">anything.</p>
+<p t="855910" d="4290">OK, so that's why, visually,
+this is the maximum likelihood.</p>
+<p t="860200" d="3810">It just says that if my
+observations are here,</p>
+<p t="864010" d="5200">then this guy, this mean theta,
+is more likely than this guy.</p>
+<p t="869210" d="2240">Because now if I
+look at the value</p>
+<p t="871450" d="2400">of the function
+for this guy-- if I</p>
+<p t="873850" d="1890">look at theta being
+this thing, then this</p>
+<p t="875740" d="1800">is a very small value.</p>
+<p t="877540" d="2310">Very small value, very small
+value, very small value.</p>
+<p t="879850" d="2134">Everything gets a super
+small value, right?</p>
+<p t="881984" d="1916">That's just the value
+that it gets in the tail</p>
+<p t="883900" d="1830">here, which is very close to 0.</p>
+<p t="885730" d="2250">But as soon as I start
+covering all my points</p>
+<p t="887980" d="5280">with my bell-shaped curve,
+then all the values go up.</p>
+<p t="893260" d="5460">All right, so I just want
+to make a short break</p>
+<p t="898720" d="1770">into statistics,
+and just make sure</p>
+<p t="900490" d="3630">that the maximum likelihood
+principle involves</p>
+<p t="904120" d="1530">maximizing a function.</p>
+<p t="905650" d="1600">So I just want to
+make sure that we're</p>
+<p t="907250" d="3950">all on par about how do
+we maximize functions.</p>
+<p t="911200" d="2790">In most instances, it's going to
+be a one-dimensional function,</p>
+<p t="913990" d="2700">because theta is going to be
+a one-dimensional parameter.</p>
+<p t="916690" d="2110">Like here it's the real line.</p>
+<p t="918800" d="1310">So it's going to be easy.</p>
+<p t="920110" d="2020">In some cases, it may be
+a multivariate function</p>
+<p t="922130" d="2660">and it might be
+more complicated.</p>
+<p t="924790" d="1860">OK, so let's just
+make this interlude.</p>
+<p t="926650" d="1800">So the first thing
+I want you to notice</p>
+<p t="928450" d="3490">is that if you open any book
+on what's called optimization,</p>
+<p t="931940" d="3170">which basically is the science
+behind optimizing functions,</p>
+<p t="935110" d="1500">you will talk mostly--</p>
+<p t="936610" d="3560">I mean, I'd say
+99.9% of the cases</p>
+<p t="940170" d="2179">will talk about
+minimizing functions.</p>
+<p t="942349" d="2541">But it doesn't matter, because
+you can just flip the function</p>
+<p t="944890" d="2820">and you just put a minus
+sign, and minimizing h</p>
+<p t="947710" d="3930">is the same as maximizing
+minus h and the opposite, OK?</p>
+<p t="951640" d="1907">So for this class,
+since we're only</p>
+<p t="953547" d="2083">going to talk about maximum
+likelihood estimation,</p>
+<p t="955630" d="2024">we will talk about
+maximizing functions.</p>
+<p t="957654" d="1666">But don't be lost if
+you decide suddenly</p>
+<p t="959320" d="2249">to open a book on optimization
+and find only something</p>
+<p t="961569" d="2131">about minimizing functions.</p>
+<p t="963700" d="4579">OK, so maximizing an arbitrary
+function can actually be fairly</p>
+<p t="968279" d="2291">difficult. If I give you a
+function that has this weird</p>
+<p t="970570" d="3170">shape, right-- let's think of
+this polynomial for example--</p>
+<p t="973740" d="3400">and I wanted to find the
+maximum, how would we do it?</p>
+<p t="980350" d="3230">So what is the thing you've
+learned in calculus on how</p>
+<p t="983580" d="2620">to maximize the function?</p>
+<p t="986200" d="1656">Set the derivative equal to 0.</p>
+<p t="987856" d="1874">Maybe you want to check
+the second derivative</p>
+<p t="989730" d="1917">to make sure it's a
+maximum and not a minimum.</p>
+<p t="991647" d="2458">But the thing is, this is only
+guaranteeing to you that you</p>
+<p t="994105" d="1175">have a local one, right?</p>
+<p t="995280" d="3132">So if I do it for this function,
+for example, then this guy</p>
+<p t="998412" d="1458">is going to satisfy
+this criterion,</p>
+<p t="999870" d="1740">this guy is going to
+satisfy this criterion,</p>
+<p t="1001610" d="1920">this guy is going to satisfy
+this criterion, this guy here,</p>
+<p t="1003530" d="1874">and this guy satisfies
+the criterion, but not</p>
+<p t="1005404" d="1546">the second derivative one.</p>
+<p t="1006950" d="3210">So I have a lot of candidates.</p>
+<p t="1010160" d="2640">And if my function can
+be really anything,</p>
+<p t="1012800" d="1896">it's going to be
+difficult, whether it's</p>
+<p t="1014696" d="2124">analytically by taking
+derivatives and setting them</p>
+<p t="1016820" d="3410">to 0, or trying to find
+some algorithms to do this.</p>
+<p t="1020230" d="2170">Because if my function
+is very jittery,</p>
+<p t="1022400" d="2730">then my algorithm basically
+has to check all candidates.</p>
+<p t="1025130" d="3390">And if there's a lot of them,
+it might take forever, OK?</p>
+<p t="1028520" d="2849">So this is-- I have only
+one, two, three, four,</p>
+<p t="1031369" d="1740">five candidates to check.</p>
+<p t="1033109" d="2791">But in practice, you might have
+a million of them to check.</p>
+<p t="1035900" d="1560">And that might take forever.</p>
+<p t="1037460" d="3720">OK, so what's nice about
+statistical models, and one</p>
+<p t="1041180" d="3220">of the things that makes all
+these models particularly</p>
+<p t="1044400" d="3392">robust, and that we
+still talk about them 100</p>
+<p t="1047792" d="1458">years after they've
+been introduced</p>
+<p t="1049250" d="2430">is that the functions
+that-- the likelihoods</p>
+<p t="1051680" d="1770">that they lead
+for us to maximize</p>
+<p t="1053450" d="1350">are actually very simple.</p>
+<p t="1054800" d="2290">And they all share
+a nice property,</p>
+<p t="1057090" d="3260">which is that of being concave.</p>
+<p t="1060350" d="2217">All right, so what is
+a concave function?</p>
+<p t="1062567" d="2208">Well, by definition, it's
+just a function for which--</p>
+<p t="1064775" d="2985">let's think of it as being
+twice differentiable.</p>
+<p t="1067760" d="1560">You can define
+functions that are not</p>
+<p t="1069320" d="2375">differentiable as being concave,
+but let's think about it</p>
+<p t="1071695" d="1340">as having a second derivative.</p>
+<p t="1073035" d="1625">And so if you look
+at the function that</p>
+<p t="1074660" d="2820">has a second derivative,
+concave are the functions</p>
+<p t="1077480" d="1860">that have their second
+derivative that's</p>
+<p t="1079340" d="2720">negative everywhere.</p>
+<p t="1082060" d="4370">Not just at the
+maximum, everywhere, OK?</p>
+<p t="1086430" d="2760">And so if it's strictly
+concave, this second derivative</p>
+<p t="1089190" d="3090">is actually strictly
+less than zero.</p>
+<p t="1092280" d="3830">And particularly if I
+think of a linear function,</p>
+<p t="1096110" d="3370">y is equal to x,
+then this function</p>
+<p t="1099480" d="4650">has its second derivative
+which is equal to zero, OK?</p>
+<p t="1104130" d="1890">So it is concave.</p>
+<p t="1106020" d="2410">But it's not
+strictly concave, OK?</p>
+<p t="1108430" d="3140">If I look at the function
+which is negative x squared,</p>
+<p t="1111570" d="1490">what is its second derivative?</p>
+<p t="1115700" d="1110">Minus 2.</p>
+<p t="1116810" d="3000">So it's strictly
+negative everywhere, OK?</p>
+<p t="1119810" d="3957">So actually, this is a
+pretty canonical example</p>
+<p t="1123767" d="1083">strictly concave function.</p>
+<p t="1124850" d="2000">If you want to think of a
+picture of a strictly concave</p>
+<p t="1126850" d="1690">function, think of
+negative x squared.</p>
+<p t="1128540" d="4230">So parabola pointing downwards.</p>
+<p t="1132770" d="4210">OK, so we can talk about
+strictly convex functions.</p>
+<p t="1136980" d="2960">So convex is just happening when
+the negative of the function</p>
+<p t="1139940" d="817">is concave.</p>
+<p t="1140757" d="2333">So that translates into having
+a second derivative which</p>
+<p t="1143090" d="2820">is either non-negative
+or positive, depending</p>
+<p t="1145910" d="3130">on whether you're talking about
+convexity or strict convexity.</p>
+<p t="1149040" d="2810">But again, those
+convex functions</p>
+<p t="1151850" d="2730">are convenient when you're
+trying to minimize something.</p>
+<p t="1154580" d="1999">And since we're trying
+to maximize the function,</p>
+<p t="1156579" d="2131">we're looking for concave.</p>
+<p t="1158710" d="3022">So here are some examples.</p>
+<p t="1161732" d="1458">Let's just go
+through them quickly.</p>
+<p t="1179060" d="2770">OK, so the first one is--</p>
+<p t="1181830" d="4710">so here I made my
+life a little uneasy</p>
+<p t="1186540" d="3349">by talking about the
+functions in theta, right?</p>
+<p t="1189889" d="1541">I'm talking about
+likelihoods, right?</p>
+<p t="1191430" d="3030">So I'm thinking of functions
+where the parameter is theta.</p>
+<p t="1194460" d="1810">So I have h of theta.</p>
+<p t="1196270" d="3100">And so if I start
+with theta squared,</p>
+<p t="1199370" d="2800">negative theta squared,
+then as we said,</p>
+<p t="1202170" d="7320">h prime prime of theta, the
+second derivative is minus 2,</p>
+<p t="1209490" d="2340">which is strictly negative,
+so this function is strictly</p>
+<p t="1211830" d="499">concave.</p>
+<p t="1219210" d="5190">OK, another function is
+h of theta, which is--</p>
+<p t="1224400" d="1580">what did we pick--</p>
+<p t="1225980" d="2400">square root of theta.</p>
+<p t="1228380" d="1638">What is the first derivative?</p>
+<p t="1235760" d="3960">1/2 square root of theta.</p>
+<p t="1239720" d="1612">What is the second derivative?</p>
+<p t="1248220" d="3397">So that's theta to
+the negative 1/2.</p>
+<p t="1251617" d="1833">So I'm just picking up
+another negative 1/2,</p>
+<p t="1253450" d="3190">so I get negative 1/4.</p>
+<p t="1256640" d="5780">And then I get theta to
+the 3/4 downstairs, OK?</p>
+<p t="1262420" d="900">Sorry, 3/2.</p>
+<p t="1269430" d="7390">And that's strictly negative
+for theta, say, larger than 0.</p>
+<p t="1276820" d="3240">And I really need to have
+this thing larger than 0</p>
+<p t="1280060" d="1410">so that it's well-defined.</p>
+<p t="1281470" d="2850">But strictly larger than 0 is
+so that this thing does not</p>
+<p t="1284320" d="1277">blow up to infinity.</p>
+<p t="1285597" d="583">And it's true.</p>
+<p t="1286180" d="4560">If you think about this
+function, it looks like this.</p>
+<p t="1290740" d="4200">And already, the first
+derivative to infinity at 0.</p>
+<p t="1294940" d="2580">And it's a concave function, OK?</p>
+<p t="1297520" d="2400">Another one is the
+log, of course.</p>
+<p t="1304070" d="3570">What is the
+derivative of the log?</p>
+<p t="1307640" d="5070">That's 1 over theta, where h
+prime of theta is 1 over theta.</p>
+<p t="1312710" d="8370">And the second derivative
+negative 1 over theta squared,</p>
+<p t="1321080" d="5130">which again, is negative if
+theta is strictly positive.</p>
+<p t="1326210" d="1560">Here I define it as--</p>
+<p t="1327770" d="2540">I don't need to define it to
+be strictly positive here,</p>
+<p t="1330310" d="2800">but I need it for the log.</p>
+<p t="1333110" d="3210">And sine.</p>
+<p t="1336320" d="1710">OK, so let's just do one more.</p>
+<p t="1338030" d="4525">So h of theta is sine of theta.</p>
+<p t="1342555" d="1625">But here I take it
+only on an interval,</p>
+<p t="1344180" d="3360">because you want to
+think of this function</p>
+<p t="1347540" d="1572">as pointing always downwards.</p>
+<p t="1349112" d="1958">And in particular, you
+don't want this function</p>
+<p t="1351070" d="1330">to have an inflection point.</p>
+<p t="1352400" d="1680">You don't want it to
+go down and then up</p>
+<p t="1354080" d="3120">and then down and then up,
+because this is not concave.</p>
+<p t="1357200" d="2760">And so sine is certainly
+going up and down, right?</p>
+<p t="1359960" d="3570">So what we do is we restrict
+it to an interval where sine</p>
+<p t="1363530" d="2160">is actually-- so what does
+the sine function looks</p>
+<p t="1365690" d="1840">like at 0, 0?</p>
+<p t="1367530" d="1070">And it's going up.</p>
+<p t="1368600" d="4510">Where is the first
+maximum of the sine?</p>
+<p t="1373110" d="1231">STUDENT: [INAUDIBLE]</p>
+<p t="1374341" d="874">PROFESSOR: I'm sorry.</p>
+<p t="1375215" d="791">STUDENT: Pi over 2.</p>
+<p t="1376006" d="3214">PROFESSOR: Pi over 2,
+where it takes value 1.</p>
+<p t="1379220" d="2480">And then it goes down again.</p>
+<p t="1381700" d="2520">And then that's at pi.</p>
+<p t="1384220" d="1200">And then I go down again.</p>
+<p t="1385420" d="2940">And here you see I actually
+start changing my inflection.</p>
+<p t="1388360" d="2340">So what we do is
+we stop it at pi.</p>
+<p t="1390700" d="1750">And we look at this
+function, it certainly</p>
+<p t="1392450" d="1954">looks like a parabola
+pointing downwards.</p>
+<p t="1394404" d="2416">And so if you look at the--
+you can check that it actually</p>
+<p t="1396820" d="1124">works with the derivatives.</p>
+<p t="1397944" d="4586">So the derivative
+of sine is cosine.</p>
+<p t="1405160" d="6690">And the derivative of
+cosine is negative sine.</p>
+<p t="1414560" d="3610">OK, and this thing between 0
+and pi is actually positive.</p>
+<p t="1418170" d="2560">So this entire thing is
+going to be negative.</p>
+<p t="1420730" d="1130">OK?</p>
+<p t="1421860" d="3300">And you know, I can come
+up with a lot of examples,</p>
+<p t="1425160" d="1570">but let's just stick to those.</p>
+<p t="1426730" d="2260">There's a linear
+function, of course.</p>
+<p t="1428990" d="2206">And the find function
+is going to be concave,</p>
+<p t="1431196" d="2124">but it's actually going to
+be convex as well, which</p>
+<p t="1433320" d="1708">means that it's
+certainly not going to be</p>
+<p t="1435028" d="3752">strictly concave or convex, OK?</p>
+<p t="1438780" d="2670">So here's your standard picture.</p>
+<p t="1441450" d="3180">And here, if you look
+at the dotted line, what</p>
+<p t="1444630" d="2564">it tells me is that
+a concave function,</p>
+<p t="1447194" d="1666">and the property we're
+going to be using</p>
+<p t="1448860" d="4050">is that if a strictly concave
+function has a maximum, which</p>
+<p t="1452910" d="2880">is not always the case,
+but if it has a maximum,</p>
+<p t="1455790" d="2980">then it actually must be--
+sorry, a local maximum,</p>
+<p t="1458770" d="2580">it must be a global maximum.</p>
+<p t="1461350" d="2520">OK, so just the fact that
+it goes up and down and not</p>
+<p t="1463870" d="4390">again means that there's only
+global maximum that can exist.</p>
+<p t="1468260" d="4220">Now if you looked, for example,
+at the square root function,</p>
+<p t="1472480" d="2375">look at the entire
+positive real line,</p>
+<p t="1474855" d="2125">then this thing is never
+going to attain a maximum.</p>
+<p t="1476980" d="2382">It's just going to infinity
+as x goes to infinity.</p>
+<p t="1479362" d="1458">So if I wanted to
+find the maximum,</p>
+<p t="1480820" d="1770">I would have to stop
+somewhere and say</p>
+<p t="1482590" d="3610">that the maximum is attained
+at the right-hand side.</p>
+<p t="1486200" d="3690">OK, so that's the beauty about
+convex functions or concave</p>
+<p t="1489890" d="3990">functions, is that
+essentially, these functions</p>
+<p t="1493880" d="1230">are easy to maximize.</p>
+<p t="1495110" d="2550">And if I tell you a
+function is concave,</p>
+<p t="1497660" d="2504">you take the first
+derivative, set it equal to 0.</p>
+<p t="1500164" d="1666">If you find a point
+that satisfies this,</p>
+<p t="1501830" d="5730">then it must be a
+global maximum, OK?</p>
+<p t="1507560" d="1526">STUDENT: What if
+your set theta was</p>
+<p t="1509086" d="4609">[INAUDIBLE] then couldn't
+you have a function that,</p>
+<p t="1513695" d="3395">by the definition, is concave,
+with two upside down parabolas</p>
+<p t="1517090" d="5820">at two disjoint intervals, but
+yet it has two global maximums?</p>
+<p t="1526704" d="1416">PROFESSOR: So you
+won't get them--</p>
+<p t="1528120" d="2910">so you want the function
+to be concave on what?</p>
+<p t="1531030" d="3400">On the convex cell
+of the intervals?</p>
+<p t="1534430" d="1445">Or you want it to be--</p>
+<p t="1535875" d="2375">STUDENT: [INAUDIBLE] just
+said that any subset.</p>
+<p t="1538250" d="1779">PROFESSOR: OK, OK.</p>
+<p t="1540029" d="541">You're right.</p>
+<p t="1540570" d="1490">So maybe the
+definition-- so you're</p>
+<p t="1542060" d="3750">pointing to a weakness
+in the definition.</p>
+<p t="1545810" d="3240">Let's just say that
+theta is a convex set</p>
+<p t="1549050" d="1170">and then you're good, OK?</p>
+<p t="1550220" d="1230">So you're right.</p>
+<p t="1554210" d="2580">Since I actually just said that
+this is true only for theta,</p>
+<p t="1556790" d="2490">I can just take pieces of
+concave functions, right?</p>
+<p t="1559280" d="1710">I can do this, and
+then the next one</p>
+<p t="1560990" d="2340">I can do this, on the
+next one I can do this.</p>
+<p t="1563330" d="2200">And then I would
+have a bunch of them.</p>
+<p t="1565530" d="5090">But what I want is think
+of it as a global function</p>
+<p t="1570620" d="970">on some convex set.</p>
+<p t="1571590" d="1860">You're right.</p>
+<p t="1573450" d="1450">So think of theta
+as being convex</p>
+<p t="1574900" d="2660">for this guy, an interval,
+if it's a real line.</p>
+<p t="1580340" d="5349">OK, so as I said, for
+more generally-- so</p>
+<p t="1585689" d="2291">we can actually define concave
+functions more generally</p>
+<p t="1587980" d="1560">in higher dimensions.</p>
+<p t="1589540" d="3150">And that will be useful
+if theta is not just</p>
+<p t="1592690" d="1950">one parameter but
+several parameters.</p>
+<p t="1594640" d="4410">And for that, you need to
+remind yourself of Calculus II,</p>
+<p t="1599050" d="3390">and you have generalization of
+the notion of derivative, which</p>
+<p t="1602440" d="3690">is called a gradient, which
+is basically a vector where</p>
+<p t="1606130" d="3260">each coordinate is just the
+partial derivative with respect</p>
+<p t="1609390" d="1780">to each coordinate of theta.</p>
+<p t="1611170" d="3210">And the Hessian is
+the matrix, which</p>
+<p t="1614380" d="3640">is essentially a generalization
+of the second derivative.</p>
+<p t="1618020" d="3200">I denote it by nabla
+squared, but you</p>
+<p t="1621220" d="1390">can write it the way you want.</p>
+<p t="1622610" d="4686">And so this matrix
+here is taking as entry</p>
+<p t="1627296" d="3674">the second partial
+derivatives of h with respect</p>
+<p t="1630970" d="1950">to theta i and theta j.</p>
+<p t="1632920" d="2520">And so that's the ij-th entry.</p>
+<p t="1635440" d="1110">Who has never seen that?</p>
+<p t="1639400" d="1200">OK.</p>
+<p t="1640600" d="6600">So now, being concave here
+is essentially generalizing,</p>
+<p t="1647200" d="1620">saying that a vector
+is equal to zero.</p>
+<p t="1648820" d="2570">Well, that's just setting
+the vector-- sorry.</p>
+<p t="1651390" d="2310">The first order condition
+to say that it's a maximum</p>
+<p t="1653700" d="1000">is going to be the same.</p>
+<p t="1654700" d="4230">Saying that a function has
+a gradient equal to zero</p>
+<p t="1658930" d="4800">is the same as saying that
+each of its coordinates</p>
+<p t="1663730" d="1000">are equal to zero.</p>
+<p t="1664730" d="1791">And that's actually
+going to be a condition</p>
+<p t="1666521" d="2039">for a global maximum here.</p>
+<p t="1668560" d="3630">So to check convexity, we need
+to see that a matrix itself</p>
+<p t="1672190" d="1570">is negative.</p>
+<p t="1673760" d="1460">Sorry, to check
+concavity, we need</p>
+<p t="1675220" d="1800">to check that a
+matrix is negative.</p>
+<p t="1677020" d="2820">And there is a
+notion among matrices</p>
+<p t="1679840" d="3480">that compare matrix to zero,
+and that's exactly this notion.</p>
+<p t="1683320" d="2850">You pre- and post-multiply
+by the same x.</p>
+<p t="1686170" d="2790">So that works for
+symmetric matrices,</p>
+<p t="1688960" d="1630">which is the case here.</p>
+<p t="1690590" d="3350">And so you pre-multiply by x,
+post-multiply by the same x.</p>
+<p t="1693940" d="1990">So you have your matrix,
+your Hessian here.</p>
+<p t="1700630" d="3400">It's a d by d matrix if you
+have a d-dimensional matrix.</p>
+<p t="1704030" d="2870">So let's call it--</p>
+<p t="1706900" d="500">OK.</p>
+<p t="1707400" d="3750">And then here I
+pre-multiply by x transpose.</p>
+<p t="1711150" d="3180">I post-multiply by x.</p>
+<p t="1714330" d="4140">And this has to be non-positive
+if I want it to be concave,</p>
+<p t="1718470" d="4380">and strictly negative if I
+want it to be strictly concave.</p>
+<p t="1722850" d="1890">OK, that's just a
+real generalization.</p>
+<p t="1724740" d="2310">You can check for yourself
+that this is the same thing.</p>
+<p t="1727050" d="2710">If I were in dimension 1,
+this would be the same thing.</p>
+<p t="1729760" d="650">Why?</p>
+<p t="1730410" d="2970">Because in dimension 1, pre-
+and post-multiplying by x</p>
+<p t="1733380" d="2460">is the same as
+multiplying by x squared.</p>
+<p t="1735840" d="2980">Because in dimension 1, I can
+just move my x's around, right?</p>
+<p t="1738820" d="2360">And so that would just
+mean the first condition</p>
+<p t="1741180" d="3750">would mean in dimension 1 that
+the second derivative times x</p>
+<p t="1744930" d="6180">squared has to be less
+than or equal to zero.</p>
+<p t="1751110" d="3261">So here I need this for
+all x's that are not zero,</p>
+<p t="1754371" d="2499">because I can take x to be zero
+and make this equal to zero,</p>
+<p t="1756870" d="500">right?</p>
+<p t="1757370" d="4270">So this is for x's that
+are not equal to zero, OK?</p>
+<p t="1761640" d="4080">And so some examples.</p>
+<p t="1765720" d="1620">Just look at this function.</p>
+<p t="1767340" d="2490">So now I have functions that
+depend on two parameters,</p>
+<p t="1769830" d="1770">theta1 and theta2.</p>
+<p t="1771600" d="1530">So the first one is--</p>
+<p t="1773130" d="3330">so if I take theta
+to be equal to--</p>
+<p t="1776460" d="2550">now I need two
+parameters, r squared.</p>
+<p t="1779010" d="3660">And I look at the function,
+which is h of theta.</p>
+<p t="1782670" d="2596">Can somebody tell me
+what h of theta is?</p>
+<p t="1785266" d="4264">STUDENT: [INAUDIBLE]</p>
+<p t="1789530" d="2510">PROFESSOR: Minus
+2 theta2 squared?</p>
+<p t="1792040" d="8880">OK, so let's compute the
+gradient of h of theta.</p>
+<p t="1800920" d="3290">So it's going to be something
+that has two coordinates.</p>
+<p t="1804210" d="1854">To get the first
+coordinate, what do I do?</p>
+<p t="1806064" d="1666">Well, I take the
+derivative with respect</p>
+<p t="1807730" d="2500">to theta1, thinking of
+theta2 as being a constant.</p>
+<p t="1810230" d="1520">So this thing is
+going to go away.</p>
+<p t="1811750" d="2439">And so I get negative 2 theta1.</p>
+<p t="1814189" d="1791">And when I take the
+derivative with respect</p>
+<p t="1815980" d="2640">to the second part, thinking
+of this part as being constant,</p>
+<p t="1818620" d="2870">I get minus 4 theta2.</p>
+<p t="1824560" d="2410">That clear for everyone?</p>
+<p t="1826970" d="2485">That's just the definition
+of partial derivatives.</p>
+<p t="1832430" d="8450">And then if I want
+to do the Hessian,</p>
+<p t="1840880" d="1980">so now I'm going to
+get a 2 by 2 matrix.</p>
+<p t="1845690" d="2960">The first guy here, I take
+the first-- so this guy</p>
+<p t="1848650" d="2830">I get by taking the derivative
+of this guy with respect</p>
+<p t="1851480" d="1070">to theta1.</p>
+<p t="1852550" d="830">So that's easy.</p>
+<p t="1853380" d="1772">So that's just minus 2.</p>
+<p t="1855152" d="1458">This guy I get by
+taking derivative</p>
+<p t="1856610" d="1920">of this guy with
+respect to theta2.</p>
+<p t="1858530" d="1811">So I get what?</p>
+<p t="1860341" d="499">Zero.</p>
+<p t="1860840" d="2394">I treat this guy as
+being a constant.</p>
+<p t="1863234" d="1416">This guy is also
+going to be zero,</p>
+<p t="1864650" d="2340">because I take the derivative
+of this guy with respect</p>
+<p t="1866990" d="1279">to theta1.</p>
+<p t="1868269" d="2291">And then I take the derivative
+of this guy with respect</p>
+<p t="1870560" d="3750">to theta2, so I get minus 4.</p>
+<p t="1874310" d="4910">OK, so now I want to check
+that this matrix satisfies</p>
+<p t="1879220" d="1990">x transpose--</p>
+<p t="1881210" d="3480">this matrix x is negative.</p>
+<p t="1884690" d="1230">So what I do is--</p>
+<p t="1885920" d="1440">so what is x transpose x?</p>
+<p t="1887360" d="6450">So if I do x transpose delta
+squared h theta x, what I get</p>
+<p t="1893810" d="8760">is minus 2 x1 squared
+minus 4 x2 squared.</p>
+<p t="1902570" d="3420">Because this matrix is diagonal,
+so all it does is just weights</p>
+<p t="1905990" d="1930">the square of the x's.</p>
+<p t="1907920" d="3350">So this guy is
+definitely negative.</p>
+<p t="1911270" d="2310">This guy is negative.</p>
+<p t="1913580" d="2490">And actually, if one
+of the two is non-zero,</p>
+<p t="1916070" d="1980">which means that x is
+non-zero, then this thing</p>
+<p t="1918050" d="2190">is actually strictly negative.</p>
+<p t="1920240" d="2360">So this function is
+actually strictly concave.</p>
+<p t="1925380" d="2350">And it looks like a
+parabola that's slightly</p>
+<p t="1927730" d="1769">distorted in one direction.</p>
+<p t="1935730" d="5527">So well, I know this might
+have been some time ago.</p>
+<p t="1941257" d="2333">Maybe for some of you might
+have been since high school.</p>
+<p t="1943590" d="3770">So just remind yourself of doing
+second derivatives and Hessians</p>
+<p t="1947360" d="2350">and things like this.</p>
+<p t="1949710" d="3210">Here's another one
+as an exercise.</p>
+<p t="1952920" d="3740">h is minus theta1
+minus theta2 squared.</p>
+<p t="1956660" d="7440">So this one is going to
+actually not be diagonal.</p>
+<p t="1964100" d="2530">The Hessian is not
+going to be diagonal.</p>
+<p t="1966630" d="4030">Who would like to do
+this now in class?</p>
+<p t="1970660" d="1140">OK, thank you.</p>
+<p t="1971800" d="1930">This is not a calculus class.</p>
+<p t="1973730" d="2360">So you can just do it
+as a calculus exercise.</p>
+<p t="1976090" d="2020">And you can do it
+for log as well.</p>
+<p t="1978110" d="2990">Now, there is a nice
+recipe for concavity</p>
+<p t="1981100" d="4011">that works for the second
+one and the third one.</p>
+<p t="1985111" d="2499">And the thing is, if you look
+at those particular functions,</p>
+<p t="1987610" d="3750">what I'm doing is taking, first
+of all, a linear combination</p>
+<p t="1991360" d="1680">of my arguments.</p>
+<p t="1993040" d="2850">And then I take a concave
+function of this guy.</p>
+<p t="1995890" d="2460">And this is always
+going to work.</p>
+<p t="1998350" d="2580">This is always going to
+give me a complete function.</p>
+<p t="2000930" d="1911">So the computations
+that I just made,</p>
+<p t="2002841" d="1999">I actually never made
+them when I prepared those</p>
+<p t="2004840" d="1292">slides because I don't have to.</p>
+<p t="2006132" d="2416">I know that if I take a linear
+combination of those things</p>
+<p t="2008548" d="2102">and then I take a concave
+function of this guy,</p>
+<p t="2010650" d="3100">I'm always going to
+get a concave function.</p>
+<p t="2013750" d="5660">OK, so that's an easy way to
+check this, or at least as</p>
+<p t="2019410" d="3110">a sanity check.</p>
+<p t="2022520" d="5730">All right, and so as I said,
+finding maximizers of concave</p>
+<p t="2028250" d="2130">or strictly concave
+function is the same</p>
+<p t="2030380" d="2490">as it was in the
+one-dimensional case.</p>
+<p t="2032870" d="2182">What I do-- sorry, in
+the one-dimensional case,</p>
+<p t="2035052" d="1958">we just agreed that we
+just take the derivative</p>
+<p t="2037010" d="1067">and set it to zero.</p>
+<p t="2038077" d="2083">In the high dimensional
+case, we take the gradient</p>
+<p t="2040160" d="1110">and set it equal to zero.</p>
+<p t="2041270" d="3030">Again, that's
+calculus, all right?</p>
+<p t="2044300" d="3630">So it turns out that
+so this is going</p>
+<p t="2047930" d="1559">to give me equations, right?</p>
+<p t="2049489" d="2041">The first one is an
+equation in theta.</p>
+<p t="2051530" d="3510">The second one is an equation
+in theta1, theta2, theta3,</p>
+<p t="2055040" d="1694">all the way to theta d.</p>
+<p t="2056734" d="2416">And it doesn't mean that because
+I can write this equation</p>
+<p t="2059150" d="1980">that I can actually solve it.</p>
+<p t="2061130" d="1980">This equation might
+be super nasty.</p>
+<p t="2063110" d="5819">It might be like some polynomial
+and exponentials and logs equal</p>
+<p t="2068929" d="2290">zero, or some crazy thing.</p>
+<p t="2071219" d="5401">And so there's actually,
+for a concave function,</p>
+<p t="2076620" d="2140">since we know there's
+a unique maximizer,</p>
+<p t="2078760" d="4020">there's this theory of convex
+optimization, which really,</p>
+<p t="2082780" d="2129">since those books are
+talking about minimizing,</p>
+<p t="2084909" d="1711">you had to find some
+sort of direction.</p>
+<p t="2086620" d="3660">But you can think of it as the
+theory of concave maximization.</p>
+<p t="2090280" d="3780">And they allow you to
+find algorithms to solve</p>
+<p t="2094060" d="3610">this numerically and
+fairly efficiently.</p>
+<p t="2097670" d="1130">OK, that means fast.</p>
+<p t="2098800" d="2299">Even if d is of
+size 10,000, you're</p>
+<p t="2101099" d="1541">going to wait for
+one second and it's</p>
+<p t="2102640" d="2490">going to tell you
+what the maximum is.</p>
+<p t="2105130" d="1784">And that's what machine
+learning is about.</p>
+<p t="2106914" d="1916">If you've taken any class
+on machine learning,</p>
+<p t="2108830" d="2333">there's a lot of optimization,
+because they have really,</p>
+<p t="2111163" d="2687">really big problems to solve.</p>
+<p t="2113850" d="1620">Often in this
+class, since this is</p>
+<p t="2115470" d="3990">more introductory statistics,
+we will have a close form.</p>
+<p t="2119460" d="1790">For the maximum
+likelihood estimator</p>
+<p t="2121250" d="3990">will be saying theta hat
+equals, and say x bar,</p>
+<p t="2125240" d="2910">and that will be the maximum
+likelihood estimator.</p>
+<p t="2128150" d="6160">So just why-- so has anybody
+seen convex optimization</p>
+<p t="2134310" d="2640">before?</p>
+<p t="2136950" d="1880">So let me just give
+you an intuition</p>
+<p t="2138830" d="4860">why those functions are easy
+to maximize or to minimize.</p>
+<p t="2143690" d="3300">In one dimension, it's actually
+very easy for you to see that.</p>
+<p t="2150540" d="2010">And the reason is this.</p>
+<p t="2152550" d="4560">If I want to maximize the
+concave function, what</p>
+<p t="2157110" d="2670">I need to do is to be
+able to query a point</p>
+<p t="2159780" d="4300">and get as an answer the
+derivative of this function,</p>
+<p t="2164080" d="711">OK?</p>
+<p t="2164791" d="2249">So now I said this is the
+function I want to optimize,</p>
+<p t="2167040" d="6370">and I've been running my
+algorithm for 5/10 of a second.</p>
+<p t="2173410" d="2240">And it's at this point here.</p>
+<p t="2175650" d="1564">OK, that's the candidate.</p>
+<p t="2177214" d="1916">Now, what I can ask is,
+what is the derivative</p>
+<p t="2179130" d="1921">of my function here?</p>
+<p t="2181051" d="1499">Well, it's going
+to give me a value.</p>
+<p t="2182550" d="4050">And this value is going to
+be either negative, positive,</p>
+<p t="2186600" d="646">or zero.</p>
+<p t="2187246" d="1374">Well, if it's
+zero, that's great.</p>
+<p t="2188620" d="1791">That means I'm here
+and I can just go home.</p>
+<p t="2190411" d="1268">I've solved my problem.</p>
+<p t="2191679" d="1791">I know there's a unique
+maximum, and that's</p>
+<p t="2193470" d="1290">what I wanted to find.</p>
+<p t="2194760" d="2580">If it's positive,
+it actually tells me</p>
+<p t="2197340" d="4130">that I'm on the left
+of the optimizer.</p>
+<p t="2201470" d="2050">And on the left of
+the optimal value.</p>
+<p t="2203520" d="3750">And if it's negative,
+it means that I'm</p>
+<p t="2207270" d="3100">at the right of the
+value I'm looking for.</p>
+<p t="2210370" d="3230">And so most of the convex
+optimization methods</p>
+<p t="2213600" d="3180">basically tell you, well,
+if you query the derivative</p>
+<p t="2216780" d="3610">and it's actually positive,
+move to the right.</p>
+<p t="2220390" d="2040">And if it's negative,
+move to the left.</p>
+<p t="2222430" d="4850">Now, by how much you
+move is basically, well,</p>
+<p t="2227280" d="1740">why people write books.</p>
+<p t="2229020" d="4380">And in higher dimension, it's
+a little more complicated,</p>
+<p t="2233400" d="2860">because in higher dimension,
+thinks about two dimensions,</p>
+<p t="2236260" d="5680">then I'm only being
+able to get in a vector.</p>
+<p t="2241940" d="2380">And the vector is only
+telling me, well, here</p>
+<p t="2244320" d="2259">is half of the space
+in which you can move.</p>
+<p t="2246579" d="1791">Now here, if you tell
+me move to the right,</p>
+<p t="2248370" d="2250">I know exactly which direction
+I'm going to have to move.</p>
+<p t="2250620" d="1416">But in two dimension,
+you're going</p>
+<p t="2252036" d="5124">to basically tell me, well,
+move in this global direction.</p>
+<p t="2257160" d="3030">And so, of course, I know
+there's a line on the floor I</p>
+<p t="2260190" d="1950">cannot move behind.</p>
+<p t="2262140" d="3210">But even if you tell me,
+draw a line on the floor</p>
+<p t="2265350" d="2370">and move only to that
+side of the line,</p>
+<p t="2267720" d="3120">then there's many directions
+in that line that I can go to.</p>
+<p t="2270840" d="3030">And that's also why
+there's lots of things</p>
+<p t="2273870" d="2000">you can do in optimization.</p>
+<p t="2275870" d="5120">OK, but still, putting this
+line on the floor is telling me,</p>
+<p t="2280990" d="1177">do not go backwards.</p>
+<p t="2282167" d="1083">And that's very important.</p>
+<p t="2283250" d="1541">It's just telling
+you which direction</p>
+<p t="2284791" d="2679">I should be going always, OK?</p>
+<p t="2287470" d="3840">All right, so that's
+what's behind this notion</p>
+<p t="2291310" d="3180">of gradient descent
+algorithm, steepest descent.</p>
+<p t="2294490" d="3450">Or steepest descent, actually,
+if we're trying to maximize.</p>
+<p t="2297940" d="4210">OK, so let's move on.</p>
+<p t="2302150" d="4250">So this course is not about
+optimization, all right?</p>
+<p t="2306400" d="4290">So as I said, the
+likelihood was this guy.</p>
+<p t="2310690" d="1842">The product of f of the xi's.</p>
+<p t="2312532" d="1458">And one way you
+can do this is just</p>
+<p t="2313990" d="5070">basically the joint distribution
+of my data at the point theta.</p>
+<p t="2319060" d="2100">So now the likelihood,
+formerly-- so here</p>
+<p t="2321160" d="3600">I am giving myself
+the model e theta.</p>
+<p t="2324760" d="3360">And here I'm going to
+assume that e is discrete</p>
+<p t="2328120" d="1620">so that I can talk about PMFs.</p>
+<p t="2329740" d="2100">But everything
+you're doing, just</p>
+<p t="2331840" d="3240">redo for the sake of yourself
+by replacing PMFs by PDFs,</p>
+<p t="2335080" d="1600">and everything's
+going to be fine.</p>
+<p t="2336680" d="1580">We'll do it in a second.</p>
+<p t="2338260" d="4210">All right, so the
+likelihood of the model.</p>
+<p t="2342470" d="3082">So here I'm not looking at
+the likelihood of a parameter.</p>
+<p t="2345552" d="1708">I'm looking at the
+likelihood of a model.</p>
+<p t="2347260" d="1974">So it's actually a
+function of the parameter.</p>
+<p t="2349234" d="1416">And actually, I'm
+going to make it</p>
+<p t="2350650" d="3480">even a function of
+the points x1 to xn.</p>
+<p t="2354130" d="1630">All right, so I have a function.</p>
+<p t="2355760" d="2310">And what it takes as
+input is all the points x1</p>
+<p t="2358070" d="3992">to xn and a candidate
+parameter theta.</p>
+<p t="2362062" d="708">Not the true one.</p>
+<p t="2362770" d="1219">A candidate.</p>
+<p t="2363989" d="1541">And what I'm going
+to do is I'm going</p>
+<p t="2365530" d="3000">to look at the probability
+that my random variables</p>
+<p t="2368530" d="1440">under this
+distribution, p theta,</p>
+<p t="2369970" d="4660">take these exact
+values, px1, px2, pxn.</p>
+<p t="2374630" d="5660">Now remember, if my
+data was independent,</p>
+<p t="2380290" d="2910">then I could actually just
+say that the probability</p>
+<p t="2383200" d="2760">of this intersection is just a
+product of the probabilities.</p>
+<p t="2385960" d="2830">And it would look
+something like this.</p>
+<p t="2388790" d="2000">But I can define likelihood
+even if I don't have</p>
+<p t="2390790" d="2075">independent random variables.</p>
+<p t="2392865" d="1625">But think of them as
+being independent,</p>
+<p t="2394490" d="3060">because that's all we're going
+to encounter in this class, OK?</p>
+<p t="2397550" d="2830">I just want you to be aware that
+if I had dependent variables,</p>
+<p t="2400380" d="1709">I could still define
+the likelihood.</p>
+<p t="2402089" d="2541">I would have to understand how
+to compute these probabilities</p>
+<p t="2404630" d="3640">there to be able to compute it.</p>
+<p t="2408270" d="2730">OK, so think of
+Bernoullis, for example.</p>
+<p t="2411000" d="1985">So here is my example
+of a Bernoulli.</p>
+<p t="2416570" d="2080">So my parameter is--</p>
+<p t="2418650" d="6561">so my model is 0,1 Bernoulli p.</p>
+<p t="2425211" d="6579">p is in the interval 0,1.</p>
+<p t="2431790" d="4127">The probability, just
+as a side remark,</p>
+<p t="2435917" d="2083">I'm just going to use the
+fact that I can actually</p>
+<p t="2438000" d="3840">write the PMF of a Bernoulli
+in a very concise form, right?</p>
+<p t="2441840" d="2130">If I ask you what the
+PMF of a Bernoulli is,</p>
+<p t="2443970" d="2530">you could tell me, well,
+the probability that x--</p>
+<p t="2446500" d="4220">so under p, the probability that
+x is equal to 0 is 1 minus p.</p>
+<p t="2450720" d="6510">The probability under p that
+x is equal to 1 is equal to p.</p>
+<p t="2457230" d="4560">But I can be a bit smart and
+say that for any X that's</p>
+<p t="2461790" d="3120">either 0 or 1, the
+probability under p</p>
+<p t="2464910" d="2700">that X is equal to
+little x, I can write it</p>
+<p t="2467610" d="6540">in a compact form as p to the
+X, 1 minus p to the 1 minus x.</p>
+<p t="2474150" d="3420">And you can check that this is
+the right form because, well,</p>
+<p t="2477570" d="3340">you have to check it only
+for two values of X, 0 and 1.</p>
+<p t="2480910" d="2440">And if you plug in 1,
+you only keep the p.</p>
+<p t="2483350" d="4490">If you plug in 0, you
+only keep the 1 minus p.</p>
+<p t="2487840" d="3350">And that's just a trick, OK?</p>
+<p t="2491190" d="3160">I could have gone
+with many other ways.</p>
+<p t="2494350" d="1590">Agreed?</p>
+<p t="2495940" d="3402">I could have said,
+actually, something like--</p>
+<p t="2499342" d="2208">another one would be-- which
+we are not going to use,</p>
+<p t="2501550" d="5790">but we could say, well, it's
+xp plus and minus x 1 minus</p>
+<p t="2507340" d="510">p, right?</p>
+<p t="2510680" d="2480">That's another one.</p>
+<p t="2513160" d="2897">But this one is going
+to be convenient.</p>
+<p t="2516057" d="1583">So forget about this
+guy for a second.</p>
+<p t="2522750" d="2700">So now, I said that
+the likelihood is just</p>
+<p t="2525450" d="6930">this function that's computing
+the probability that X1</p>
+<p t="2532380" d="2670">is equal to little x1.</p>
+<p t="2535050" d="12900">So likelihood is L of X1, Xn.</p>
+<p t="2547950" d="2190">So let me try to make
+those calligraphic so you</p>
+<p t="2550140" d="3000">know that I'm talking about
+smaller values, right?</p>
+<p t="2553140" d="1870">Small x's.</p>
+<p t="2555010" d="3830">x1, xn, and then of course p.</p>
+<p t="2558840" d="1444">Sometimes we even put--</p>
+<p t="2560284" d="1916">I didn't do it, but
+sometimes you can actually</p>
+<p t="2562200" d="4440">put a semicolon here, semicolon
+so you know that those two</p>
+<p t="2566640" d="2220">things are treated differently.</p>
+<p t="2568860" d="2710">And so now you have this
+thing is equal to what?</p>
+<p t="2571570" d="2870">Well, it's just the
+probability under p</p>
+<p t="2574440" d="5550">that X1 is little x1 all
+the way to Xn is little xn.</p>
+<p t="2579990" d="2074">OK, that's just the definition.</p>
+<p t="2586910" d="4680">All right, so now
+let's start working.</p>
+<p t="2591590" d="1650">So we write the
+definition, and then we</p>
+<p t="2593240" d="2790">want to make it look like
+something we would potentially</p>
+<p t="2596030" d="1872">be able to maximize if I were--</p>
+<p t="2597902" d="2333">like if I take the derivative
+of this with respect to p,</p>
+<p t="2600235" d="2335">it's not very helpful
+because I just don't know.</p>
+<p t="2602570" d="4200">Just want the algebraic
+function of p.</p>
+<p t="2606770" d="1810">So this thing is going
+to be equal to what?</p>
+<p t="2608580" d="1833">Well, what is the first
+thing I want to use?</p>
+<p t="2612740" d="2610">I have a probability of
+an intersection of events,</p>
+<p t="2615350" d="4280">so it's just the product
+of the probabilities.</p>
+<p t="2619630" d="4766">So this is the product from
+i equal 1 to n of P, small p,</p>
+<p t="2624396" d="3574">Xi is equal to little xi.</p>
+<p t="2627970" d="1888">That's independence.</p>
+<p t="2634070" d="4620">OK, now, I'm starting to mean
+business, because for each P,</p>
+<p t="2638690" d="1680">we have a closed form, right?</p>
+<p t="2640370" d="3540">I wrote this as this
+supposedly convenient form.</p>
+<p t="2643910" d="2560">I still have to reveal to
+you why it's convenient.</p>
+<p t="2646470" d="3170">So this thing is equal to--</p>
+<p t="2649640" d="5450">well, we said that that
+was p xi for a little xi.</p>
+<p t="2655090" d="5150">1 minus p to the 1 minus xi, OK?</p>
+<p t="2662960" d="3690">So that was just what I wrote
+over there as the probability</p>
+<p t="2666650" d="2890">that Xi is equal to little xi.</p>
+<p t="2669540" d="3240">And since they all have
+the same parameter p, just</p>
+<p t="2672780" d="1500">have this p that shows up here.</p>
+<p t="2678140" d="3090">And so now I'm just taking
+the products of something</p>
+<p t="2681230" d="3930">to the xi, so it's this
+thing to the sum of the xi's.</p>
+<p t="2685160" d="2930">Everybody agrees with this?</p>
+<p t="2688090" d="8270">So this is equal to p
+sum of the xi, 1 minus p</p>
+<p t="2696360" d="1820">to the n minus sum of the xi.</p>
+<p t="2710180" d="3120">If you don't feel comfortable
+with writing it directly,</p>
+<p t="2713300" d="2220">you can observe
+that this thing here</p>
+<p t="2715520" d="6650">is actually equal to p over
+1 minus p to the xi times 1</p>
+<p t="2722170" d="3852">minus p, OK?</p>
+<p t="2726022" d="1458">So now when I take
+the product, I'm</p>
+<p t="2727480" d="1458">getting the products
+of those guys.</p>
+<p t="2728938" d="2442">So it's just this guy
+to the power of sum</p>
+<p t="2731380" d="2190">and this guy to the power n.</p>
+<p t="2733570" d="6100">And then I can rewrite
+it like this if I want to</p>
+<p t="2739670" d="3050">And so now-- well,
+that's what we have here.</p>
+<p t="2742720" d="3030">And now I am in business
+because I can still</p>
+<p t="2745750" d="3000">hope to maximize this function.</p>
+<p t="2748750" d="1929">And how to maximize
+this function?</p>
+<p t="2750679" d="1791">All I have to do is to
+take the derivative.</p>
+<p t="2752470" d="2240">Do you want to do it?</p>
+<p t="2754710" d="1792">Let's just take
+the derivative, OK?</p>
+<p t="2756502" d="2458">Sorry, I didn't tell you that,
+well, the maximum likelihood</p>
+<p t="2758960" d="2740">principle is to just maxim-- the
+idea is to maximize this thing,</p>
+<p t="2761700" d="500">OK?</p>
+<p t="2762200" d="2110">But I'm not going to
+get there right now.</p>
+<p t="2764310" d="4500">OK, so let's do it maybe for
+the Poisson model for a second.</p>
+<p t="2768810" d="8100">So if you want to do it
+for the Poisson model,</p>
+<p t="2776910" d="1470">let's write the likelihood.</p>
+<p t="2778380" d="1640">So right now I'm
+not doing anything.</p>
+<p t="2780020" d="990">I'm not maximizing.</p>
+<p t="2781010" d="3030">I'm just computing the
+likelihood function.</p>
+<p t="2789640" d="2830">OK, so the likelihood
+function for Poisson.</p>
+<p t="2792470" d="4240">So now I know-- what is my
+sample space for Poisson?</p>
+<p t="2796710" d="1430">STUDENT: Positives.</p>
+<p t="2798140" d="3030">PROFESSOR: Positive integers.</p>
+<p t="2801170" d="4050">And well, let me
+write it like this.</p>
+<p t="2805220" d="5950">Poisson lambda, and I'm going
+to take lambda to be positive.</p>
+<p t="2811170" d="2390">And so that means that the
+probability under lambda</p>
+<p t="2813560" d="4360">that X is equal to little
+x in the sample space</p>
+<p t="2817920" d="3110">is lambda to the
+X over factorial x</p>
+<p t="2821030" d="2100">e to the minus lambda.</p>
+<p t="2823130" d="2400">So that's basically the
+same as the compact form</p>
+<p t="2825530" d="1210">that I wrote over there.</p>
+<p t="2826740" d="2120">It's just now a different one.</p>
+<p t="2828860" d="3480">And so when I want to
+write my likelihood, again,</p>
+<p t="2832340" d="1160">we said little x's.</p>
+<p t="2837050" d="1340">This is equal to what?</p>
+<p t="2838390" d="5300">Well, it's equal to the
+probability under lambda</p>
+<p t="2843690" d="8106">that X1 is little
+x1, Xn is little xn,</p>
+<p t="2851796" d="1249">which is equal to the product.</p>
+<p t="2860950" d="1770">OK?</p>
+<p t="2862720" d="2550">Just by independence.</p>
+<p t="2865270" d="2370">And now I can write those
+guys as being-- each</p>
+<p t="2867640" d="4440">of them being i equal 1 to n.</p>
+<p t="2872080" d="4020">So this guy is just this
+thing where a plug in Xi.</p>
+<p t="2876100" d="9440">So I get lambda to the Xi
+divided by factorial xi times e</p>
+<p t="2885540" d="5120">to the minus lambda, OK?</p>
+<p t="2890660" d="3049">And now, I mean, this
+guy is going to be nice.</p>
+<p t="2893709" d="1541">This guy is not
+going to be too nice.</p>
+<p t="2895250" d="1320">But let's write it.</p>
+<p t="2896570" d="2250">When I'm going to take the
+product of those guys here,</p>
+<p t="2898820" d="3090">I'm going to pick up lambda
+to the sum of the xi's.</p>
+<p t="2901910" d="1560">Here I'm going to
+pick up exponential</p>
+<p t="2903470" d="1864">minus n times lambda.</p>
+<p t="2905334" d="1916">And here I'm going to
+pick up just the product</p>
+<p t="2907250" d="1950">of the factorials.</p>
+<p t="2909200" d="6700">So x1 factorial all the
+way to xn factorial.</p>
+<p t="2915900" d="5230">Then I get lambda,
+the sum of the xi.</p>
+<p t="2921130" d="2350">Those are little xi's.</p>
+<p t="2923480" d="3101">e to the minus xn lambda.</p>
+<p t="2926581" d="499">OK?</p>
+<p t="2931900" d="3610">So that might be freaky at
+this point, but remember,</p>
+<p t="2935510" d="2590">this is a function we
+will be maximizing.</p>
+<p t="2938100" d="3380">And the denominator here
+does not depend on lambda.</p>
+<p t="2941480" d="3380">So we knew that maximizing this
+function with this denominator,</p>
+<p t="2944860" d="2730">or any other
+denominator, including 1,</p>
+<p t="2947590" d="2340">will give me the same arg max.</p>
+<p t="2949930" d="2250">So it won't be a problem for me.</p>
+<p t="2952180" d="2169">As long as it does
+not depend on lambda,</p>
+<p t="2954349" d="1291">this thing is going to go away.</p>
+<p t="2959130" d="5590">OK, so in the continuous case,
+the likelihood I cannot--</p>
+<p t="2964720" d="500">right?</p>
+<p t="2965220" d="1500">So if I would write
+the likelihood</p>
+<p t="2966720" d="2880">like this in the
+continuous case,</p>
+<p t="2969600" d="2640">this one would be equal to what?</p>
+<p t="2972240" d="920">Zero, right?</p>
+<p t="2973160" d="1405">So it's not very helpful.</p>
+<p t="2974565" d="1875">And so what we do is we
+define the likelihood</p>
+<p t="2976440" d="3420">as the product of
+the f of theta xi.</p>
+<p t="2979860" d="3480">Now that would be a
+jump if I told you,</p>
+<p t="2983340" d="1890">well, just define it
+like that and go home</p>
+<p t="2985230" d="1470">and don't discuss it.</p>
+<p t="2986700" d="5311">But we know that this is
+exactly what's coming from the--</p>
+<p t="2992011" d="1499">well, actually, I
+think I erased it.</p>
+<p t="2993510" d="1860">It was just behind.</p>
+<p t="2995370" d="2910">So this was exactly what
+was coming from the KL</p>
+<p t="2998280" d="1920">divergence estimated, right?</p>
+<p t="3000200" d="1500">The thing that I
+showed you, if we</p>
+<p t="3001700" d="1500">want to follow this
+strategy, which</p>
+<p t="3003200" d="3630">consists in estimating the KL
+divergence and minimizing it,</p>
+<p t="3006830" d="1380">is exactly doing this.</p>
+<p t="3012190" d="4540">So in the Gaussian case--</p>
+<p t="3016730" d="1105">well, let's write it.</p>
+<p t="3017835" d="1775">So in the Gaussian
+case, let's see</p>
+<p t="3019610" d="1330">what the likelihood looks like.</p>
+<p t="3027600" d="4400">OK, so if I have a
+Gaussian experiment here--</p>
+<p t="3032000" d="1430">did I actually write it?</p>
+<p t="3036440" d="4150">OK, so I'm going to take mu and
+sigma as being two parameters.</p>
+<p t="3040590" d="3166">So that means that my sample
+space is going to be what?</p>
+<p t="3047330" d="2370">Well, my sample
+space is still R.</p>
+<p t="3049700" d="2050">Those are just my observations.</p>
+<p t="3051750" d="5090">But then I'm going to
+have a N mu sigma squared.</p>
+<p t="3056840" d="1560">And the parameters
+of interest are mu</p>
+<p t="3058400" d="5891">and R. And sigma squared
+and say 0 infinity.</p>
+<p t="3064291" d="2159">OK, so that's my Gaussian model.</p>
+<p t="3066450" d="1286">Yes.</p>
+<p t="3067736" d="9719">STUDENT: [INAUDIBLE]</p>
+<p t="3077455" d="1125">PROFESSOR: No, there's no--</p>
+<p t="3078580" d="1500">I mean, there's no difference.</p>
+<p t="3080080" d="1434">STUDENT: [INAUDIBLE]</p>
+<p t="3081514" d="666">PROFESSOR: Yeah.</p>
+<p t="3082180" d="2700">I think the all the slides
+I put the curly bracket,</p>
+<p t="3084880" d="1640">then I'm just being lazy.</p>
+<p t="3086520" d="5020">I just like those
+concave parenthesis.</p>
+<p t="3091540" d="2310">All right, so let's write it.</p>
+<p t="3093850" d="5820">So the definition, L xi, xn.</p>
+<p t="3099670" d="4140">And now I have two parameters,
+mu and sigma squared.</p>
+<p t="3103810" d="4225">We said, by definition,
+is the product from i</p>
+<p t="3108035" d="7505">equal 1 to n of f
+theta of little xi.</p>
+<p t="3115540" d="2010">Now, think about it.</p>
+<p t="3117550" d="3240">Here we always had
+an extra line, right?</p>
+<p t="3120790" d="2670">The line was to say that the
+definition was the probability</p>
+<p t="3123460" d="2010">that they were all
+equal to each other.</p>
+<p t="3125470" d="2760">That was the joint probability.</p>
+<p t="3128230" d="4200">And here it could actually have
+a line that says it's the joint</p>
+<p t="3132430" d="1716">probability distribution
+of the xi's.</p>
+<p t="3134146" d="1374">And if it's not
+independent, it's</p>
+<p t="3135520" d="1212">not going to be the product.</p>
+<p t="3136732" d="1458">But again, since
+we're only dealing</p>
+<p t="3138190" d="2830">with independent observations
+in the scope of this class,</p>
+<p t="3141020" d="2870">this is the only definition
+we're going to be using.</p>
+<p t="3143890" d="2820">OK, and actually,
+from here on, I</p>
+<p t="3146710" d="4200">will literally skip this step
+when I talk about discrete ones</p>
+<p t="3150910" d="2360">as well, because they
+are also independent.</p>
+<p t="3153270" d="2260">Agreed?</p>
+<p t="3155530" d="2040">So we start with
+this, which we agreed</p>
+<p t="3157570" d="2020">was the definition for
+this particular case.</p>
+<p t="3159590" d="4955">And so now all of you know by
+heart what the density of a--</p>
+<p t="3164545" d="1055">sorry, that's not theta.</p>
+<p t="3165600" d="1940">I should write it
+mu sigma squared.</p>
+<p t="3167540" d="3110">And so you need to
+understand what this density.</p>
+<p t="3170650" d="10420">And it's product of 1 over
+sigma square root 2 pi times</p>
+<p t="3181070" d="6280">exponential minus
+xi minus mu squared</p>
+<p t="3187350" d="2860">divided by 2 sigma squared.</p>
+<p t="3190210" d="3540">OK, that's the Gaussian density
+with parameters mu and sigma</p>
+<p t="3193750" d="2060">squared.</p>
+<p t="3195810" d="2550">I just plugged in this thing
+which I don't give you,</p>
+<p t="3198360" d="2270">so you just have to trust me.</p>
+<p t="3200630" d="1870">It's all over any book.</p>
+<p t="3202500" d="2834">Certainly, I mean,
+you can find it.</p>
+<p t="3205334" d="916">I will give it to you.</p>
+<p t="3206250" d="3060">And again, you're not
+expected to know it by heart.</p>
+<p t="3209310" d="4980">Though, if you do your homework
+every week without wanting to,</p>
+<p t="3214290" d="1890">you will definitely
+use some of your brain</p>
+<p t="3216180" d="1960">to remember that thing.</p>
+<p t="3218140" d="4540">OK, and so now, well, I
+have this constant in front.</p>
+<p t="3222680" d="2320">1 over sigma square root
+2 pi that I can pull out.</p>
+<p t="3225000" d="5474">So I get 1 over sigma square
+root 2 pi to the power n.</p>
+<p t="3230474" d="2416">And then I have the product
+of exponentials, which we know</p>
+<p t="3232890" d="2530">is the exponential of the sum.</p>
+<p t="3235420" d="3290">So this is equal to
+exponential minus.</p>
+<p t="3238710" d="2550">And here I'm going to put
+the 1 over 2 sigma squared</p>
+<p t="3241260" d="950">outside the sum.</p>
+<p t="3255740" d="4110">And so that's how
+this guy shows up.</p>
+<p t="3259850" d="3700">Just the product of the density
+is evaluated at, respectively,</p>
+<p t="3263550" d="1126">x1 to xn.</p>
+<p t="3268850" d="4390">OK, any questions about
+computing those likelihoods?</p>
+<p t="3273240" d="1316">Yes.</p>
+<p t="3274556" d="6904">STUDENT: Why [INAUDIBLE]</p>
+<p t="3281460" d="1430">PROFESSOR: Oh, that's a typo.</p>
+<p t="3282890" d="850">Thank you.</p>
+<p t="3283740" d="3300">Because I just took it from
+probably the previous thing.</p>
+<p t="3287040" d="1800">So those are
+actually-- should be--</p>
+<p t="3288840" d="2010">OK, thank you for
+noting that one.</p>
+<p t="3290850" d="9330">So this line should say for
+any x1 to xn in R to the n.</p>
+<p t="3300180" d="1290">Thank you, good catch.</p>
+<p t="3306940" d="3900">All right, so that's
+really e to the n, right?</p>
+<p t="3310840" d="1650">My sample space always.</p>
+<p t="3316090" d="3710">OK, so what is maximum
+likelihood estimation?</p>
+<p t="3319800" d="4970">Well again, if you go
+back to the estimate</p>
+<p t="3324770" d="3000">that we got, the estimation
+strategy, which consisted</p>
+<p t="3327770" d="3390">in replacing expectation
+with respect to theta star</p>
+<p t="3331160" d="4380">by average of the data
+in the KL divergence,</p>
+<p t="3335540" d="6270">we would try to maximize
+not this guy, but this guy.</p>
+<p t="3345770" d="2490">The thing that we actually
+plugged in were not any small</p>
+<p t="3348260" d="500">xi's.</p>
+<p t="3348760" d="3280">Were actually-- the random
+variable is capital Xi.</p>
+<p t="3352040" d="2150">So the maximum
+likelihood estimator</p>
+<p t="3354190" d="2900">is actually taking
+the likelihood,</p>
+<p t="3357090" d="2480">which is a function
+of little x's, and now</p>
+<p t="3359570" d="2640">the values at which it
+estimates, if you look at it,</p>
+<p t="3362210" d="1410">is actually--</p>
+<p t="3363620" d="2250">the capital X is my data.</p>
+<p t="3365870" d="3930">So it looks at the
+function, at the data,</p>
+<p t="3369800" d="2100">and at the parameter theta.</p>
+<p t="3371900" d="3032">That's what the-- so
+that's the first thing.</p>
+<p t="3374932" d="1708">And then the maximum
+likelihood estimator</p>
+<p t="3376640" d="3290">is maximizing this, OK?</p>
+<p t="3379930" d="4160">So in a way, what it does is
+it's a function that couples</p>
+<p t="3384090" d="3720">together the data,
+capital X1 to capital Xn,</p>
+<p t="3387810" d="4500">with the parameter theta and
+just now tries to maximize it.</p>
+<p t="3392310" d="7810">So if this is just a
+little hard for you to get,</p>
+<p t="3400120" d="2220">the likelihood is
+formally defined</p>
+<p t="3402340" d="1410">as a function of x, right?</p>
+<p t="3403750" d="2355">Like when I write f of x.</p>
+<p t="3406105" d="2475">f of little x, I
+define it like that.</p>
+<p t="3408580" d="4410">But really, the only
+x arguments we're</p>
+<p t="3412990" d="1690">going to evaluate
+this function at</p>
+<p t="3414680" d="3240">are always the random
+variable, which is the data.</p>
+<p t="3417920" d="1520">So if you want,
+you can think of it</p>
+<p t="3419440" d="2790">as those guys being not
+parameters of this function,</p>
+<p t="3422230" d="2580">but really, random variables
+themselves directly.</p>
+<p t="3429390" d="1293">Is there any question?</p>
+<p t="3430683" d="4833">STUDENT: [INAUDIBLE] those
+random variables [INAUDIBLE]??</p>
+<p t="3435516" d="2374">PROFESSOR: So those are going
+to be known once you have--</p>
+<p t="3437890" d="2610">so it's always the
+same thing in stats.</p>
+<p t="3440500" d="3540">You first design your
+estimator as a function</p>
+<p t="3444040" d="1230">of random variables.</p>
+<p t="3445270" d="2220">And then once you get
+data, you just plug it in.</p>
+<p t="3447490" d="2430">But we want to think of them
+as being random variables</p>
+<p t="3449920" d="2342">because we want to understand
+what the fluctuations are.</p>
+<p t="3452262" d="2458">So we're going to keep them as
+random variables for as long</p>
+<p t="3454720" d="965">as we can.</p>
+<p t="3455685" d="2125">We're going to spit out
+the estimator as a function</p>
+<p t="3457810" d="880">of the random variables.</p>
+<p t="3458690" d="1370">And then when we want
+to compute it from data,</p>
+<p t="3460060" d="1291">we're just going to plug it in.</p>
+<p t="3464170" d="2460">So keep the random variables
+for as long as you can.</p>
+<p t="3466630" d="1800">Unless I give you
+numbers, actual numbers,</p>
+<p t="3468430" d="2700">just those are random variables.</p>
+<p t="3471130" d="2419">OK, so there might
+be some confusion</p>
+<p t="3473549" d="2041">if you've seen any stats
+class, sometimes there's</p>
+<p t="3475590" d="2830">a notation which says,
+oh, the realization</p>
+<p t="3478420" d="2820">of the random variables
+are lower case versions</p>
+<p t="3481240" d="1490">of the original
+random variables.</p>
+<p t="3482730" d="3190">So lowercase x should be
+thought as the realization</p>
+<p t="3485920" d="3690">of the upper case X. This
+is not the case here.</p>
+<p t="3489610" d="2400">When I write this,
+it's the same way</p>
+<p t="3492010" d="4620">as I write f of x is
+equal to x squared, right?</p>
+<p t="3496630" d="3630">It's just an argument of a
+function that I want to define.</p>
+<p t="3500260" d="1890">So those are just generic x.</p>
+<p t="3502150" d="2430">So if you correct
+the typo that I have,</p>
+<p t="3504580" d="2570">this should say that this
+should be for any x and xn.</p>
+<p t="3507150" d="1840">I'm just describing a function.</p>
+<p t="3508990" d="1826">And now the only
+place at which I'm</p>
+<p t="3510816" d="1624">interested in evaluating
+that function,</p>
+<p t="3512440" d="3037">at least for those first n
+arguments, is at the capital</p>
+<p t="3515477" d="1833">N observations random
+variables that I have.</p>
+<p t="3521110" d="3930">So there's actually
+texts, there's actually</p>
+<p t="3525040" d="3030">people doing research on when
+does the maximum likelihood</p>
+<p t="3528070" d="1650">estimator exist?</p>
+<p t="3529720" d="7170">And that happens when you
+have infinite sets, thetas.</p>
+<p t="3536890" d="1880">And this thing can diverge.</p>
+<p t="3538770" d="1390">There is no global maximum.</p>
+<p t="3540160" d="1830">There's crazy things
+that might happen.</p>
+<p t="3541990" d="2640">And so we're actually
+always going to be in a case</p>
+<p t="3544630" d="2820">where this maximum
+likelihood estimator exists.</p>
+<p t="3547450" d="2130">And if it doesn't, then
+it means that you actually</p>
+<p t="3549580" d="4260">need to restrict your
+parameter space, capital Theta,</p>
+<p t="3553840" d="1590">to something smaller.</p>
+<p t="3555430" d="2070">Otherwise it won't exist.</p>
+<p t="3557500" d="4410">OK, so another thing is the
+log likelihood estimator.</p>
+<p t="3561910" d="1890">So it is still the
+likelihood estimator.</p>
+<p t="3563800" d="2580">We solved before that
+maximizing a function</p>
+<p t="3566380" d="1440">or maximizing log
+of this function</p>
+<p t="3567820" d="2530">is the same thing, because the
+log function is increasing.</p>
+<p t="3570350" d="1750">So the same thing is
+maximizing a function</p>
+<p t="3572100" d="3252">or maximizing, I don't know,
+exponential of this function.</p>
+<p t="3575352" d="1708">Every time I take an
+increasing function,</p>
+<p t="3577060" d="1350">it's actually the same thing.</p>
+<p t="3578410" d="1950">Maximizing a function
+or maximizing 10 times</p>
+<p t="3580360" d="1333">this function is the same thing.</p>
+<p t="3581693" d="4037">So the function x maps to
+10 times x is increasing.</p>
+<p t="3585730" d="3750">And so why do we talk about
+log likelihood rather than</p>
+<p t="3589480" d="1140">likelihood?</p>
+<p t="3590620" d="1970">So the log of likelihood
+is really just--</p>
+<p t="3592590" d="3220">I mean the log likelihood is
+the log of the likelihood.</p>
+<p t="3595810" d="3610">And the reason is exactly
+for this kind of reasons.</p>
+<p t="3599420" d="2820">Remember, that was
+my likelihood, right?</p>
+<p t="3602240" d="1930">And I want to maximize it.</p>
+<p t="3604170" d="1770">And it turns out that
+in stats, there's</p>
+<p t="3605940" d="4470">a lot of distributions that look
+like exponential of something.</p>
+<p t="3610410" d="2520">So I might as well just
+remove the exponential</p>
+<p t="3612930" d="1800">by taking the log.</p>
+<p t="3614730" d="2500">So once I have this
+guy, I can take the log.</p>
+<p t="3617230" d="1850">This is something to
+a power of something.</p>
+<p t="3619080" d="2640">If I take the log, it's
+going to look better for me.</p>
+<p t="3621720" d="1680">I have this thing--</p>
+<p t="3623400" d="2250">well, I have another
+one somewhere, I think,</p>
+<p t="3625650" d="2260">where I had the Poisson.</p>
+<p t="3627910" d="1160">Where was the Poisson?</p>
+<p t="3629070" d="2820">The Poisson's gone.</p>
+<p t="3631890" d="1720">So the Poisson was
+the same thing.</p>
+<p t="3633610" d="2060">If I took the log,
+because it had a power,</p>
+<p t="3635670" d="1540">that would make my life easier.</p>
+<p t="3637210" d="6590">So the log doesn't have any
+particular intrinsic notion,</p>
+<p t="3643800" d="3750">except that it's
+just more convenient.</p>
+<p t="3647550" d="1950">Now, that being
+said, if you think</p>
+<p t="3649500" d="3870">about maximizing the KL,
+the original formulation,</p>
+<p t="3653370" d="2220">we actually remove the log.</p>
+<p t="3655590" d="1450">If we come back
+to the KL thing--</p>
+<p t="3660700" d="910">where is my KL?</p>
+<p t="3661610" d="2160">Sorry.</p>
+<p t="3663770" d="4860">That was maximizing the sum
+of the logs of the pi's.</p>
+<p t="3668630" d="3240">And so then we worked at it by
+saying that the sum of the logs</p>
+<p t="3671870" d="669">was--</p>
+<p t="3672539" d="1791">maximizing the sum of
+the logs was the same</p>
+<p t="3674330" d="1890">as maximizing the product.</p>
+<p t="3676220" d="1920">But here, we're
+basically-- log likelihood</p>
+<p t="3678140" d="3431">is just going backwards in
+this chain of equivalences.</p>
+<p t="3681571" d="1999">And that's just because
+the original formulation</p>
+<p t="3683570" d="3610">was already convenient.</p>
+<p t="3687180" d="1760">So we went to find
+the likelihood</p>
+<p t="3688940" d="3680">and then coming back to our
+original estimation strategy.</p>
+<p t="3692620" d="1630">So look at the Poisson.</p>
+<p t="3694250" d="4960">I want to take log here to
+make my sum of xi's go down.</p>
+<p t="3699210" d="8300">OK, so this is my estimator.</p>
+<p t="3707510" d="2580">So the log of L--</p>
+<p t="3710090" d="1500">so one thing that
+you want to notice</p>
+<p t="3711590" d="8370">is that the log of L of
+x1, xn theta, as we said,</p>
+<p t="3719960" d="2900">is equal to the
+sum from i equal 1</p>
+<p t="3722860" d="7090">to n of the log of either
+p theta of xi, or--</p>
+<p t="3729950" d="1320">so that's in the discrete case.</p>
+<p t="3731270" d="3210">And in the continuous
+case is the sum</p>
+<p t="3734480" d="2147">of the log of f theta of xi.</p>
+<p t="3739277" d="2583">The beauty of this is that you
+don't have to really understand</p>
+<p t="3741860" d="1500">the difference between
+probability mass</p>
+<p t="3743360" d="1950">function and probability
+distribution function</p>
+<p t="3745310" d="1380">to implement this.</p>
+<p t="3746690" d="2828">Whatever you get,
+that's what you plug in.</p>
+<p t="3752930" d="880">Any questions so far?</p>
+<p t="3756550" d="3390">All right, so shall we
+do some computations</p>
+<p t="3759940" d="4780">and check that, actually, we've
+introduced all this stuff--</p>
+<p t="3764720" d="2660">complicate functions,
+maximizing, KL divergence,</p>
+<p t="3767380" d="3210">lot of things-- so that we
+can spit out, again, averages?</p>
+<p t="3770590" d="570">All right?</p>
+<p t="3771160" d="420">That's great.</p>
+<p t="3771580" d="1230">We're going to able
+to sleep at night</p>
+<p t="3772810" d="2340">and know that there's a really
+powerful mechanism called</p>
+<p t="3775150" d="2220">maximum likelihood
+estimator that was actually</p>
+<p t="3777370" d="3000">driving our intuition
+without us knowing.</p>
+<p t="3780370" d="4360">OK, so let's do this so.</p>
+<p t="3784730" d="1510">Bernoulli trials.</p>
+<p t="3786240" d="1160">I still have it over there.</p>
+<p t="3795920" d="3200">OK, so actually, I
+don't know what--</p>
+<p t="3799120" d="2140">well, let me write it like that.</p>
+<p t="3801260" d="4470">So it's P over 1 minus P xi--</p>
+<p t="3805730" d="6920">sorry, sum of the xi's
+times 1 minus P is to the n.</p>
+<p t="3812650" d="5310">So now I want to maximize
+this as a function of P.</p>
+<p t="3817960" d="1920">Well, the first thing
+we would want to do</p>
+<p t="3819880" d="1980">is to check that this
+function is concave.</p>
+<p t="3821860" d="3360">And I'm just going to ask
+you to trust me on this.</p>
+<p t="3825220" d="2580">So I don't want--
+sorry, sum of the xi's.</p>
+<p t="3827800" d="4720">I only want to take the
+derivative and just go home.</p>
+<p t="3832520" d="2630">So let's just take the
+derivative of this with respect</p>
+<p t="3835150" d="1182">to P. Actually, no.</p>
+<p t="3836332" d="1208">This one was more convenient.</p>
+<p t="3837540" d="500">I'm sorry.</p>
+<p t="3840820" d="2280">This one was slightly
+more convenient, OK?</p>
+<p t="3843100" d="2880">So now we have--</p>
+<p t="3845980" d="3150">so now let me take the log.</p>
+<p t="3849130" d="7830">So if I take the log, what I get
+is sum of the xi's times log p</p>
+<p t="3856960" d="7744">plus n minus some of the
+xi's times log 1 minus p.</p>
+<p t="3867970" d="1620">Now I take the
+derivative with respect</p>
+<p t="3869590" d="6247">to p and set it equal to zero.</p>
+<p t="3875837" d="1083">So what does that give me?</p>
+<p t="3876920" d="6790">It tells me that sum of the
+xi's divided by p minus n</p>
+<p t="3883710" d="6420">sum of the xi's divided by
+1 minus p is equal to 0.</p>
+<p t="3896360" d="2620">So now I need to solve for p.</p>
+<p t="3898980" d="940">So let's just do it.</p>
+<p t="3899920" d="6580">So what we get is that 1 minus p
+sum of the xi's is equal to p n</p>
+<p t="3906500" d="4030">minus sum of the xi's.</p>
+<p t="3910530" d="6770">So that's p times n minus sum of
+the xi's plus sum of the xi's.</p>
+<p t="3917300" d="1250">So let me put it on the right.</p>
+<p t="3918550" d="5860">So that's p times n is
+equal to sum of the xi's.</p>
+<p t="3924410" d="2760">And that's equivalent to p--</p>
+<p t="3927170" d="2850">actually, I should start
+by putting p hat from here</p>
+<p t="3930020" d="3700">on, because I'm already
+solving an equation, right?</p>
+<p t="3933720" d="3160">And so p hat is equal
+to syn of the xi's</p>
+<p t="3936880" d="1630">divided by n,
+which is my xn bar.</p>
+<p t="3944050" d="6230">Poisson model, as I
+said, Poisson is gone.</p>
+<p t="3950280" d="1594">So let me rewrite it quickly.</p>
+<p t="3960850" d="7125">So Poisson, the likelihood
+in X1, Xn, and lambda</p>
+<p t="3967975" d="5295">was equal to lambda to
+the sum of the xi's e</p>
+<p t="3973270" d="4380">to the minus n lambda
+divided by X1 factorial,</p>
+<p t="3977650" d="3270">all the way to Xn factorial.</p>
+<p t="3980920" d="4190">So let me take the
+log likelihood.</p>
+<p t="3985110" d="1380">That's going to
+be equal to what?</p>
+<p t="3986490" d="916">It's going to tell me.</p>
+<p t="3987406" d="1690">It's going to be--</p>
+<p t="3989096" d="1624">well, let me get rid
+of this guy first.</p>
+<p t="3990720" d="6060">Minus log of X1 factorial
+all the way to Xn factorial.</p>
+<p t="3996780" d="2740">That's a constant with
+respect to lambda.</p>
+<p t="3999520" d="3660">So when I'm going to take the
+derivative, it's going to go.</p>
+<p t="4003180" d="6230">Then I'm going to have plus sum
+of the xi's times log lambda.</p>
+<p t="4009410" d="2000">And then I'm going to
+have minus n lambda.</p>
+<p t="4014390" d="1500">So now then, you
+take the derivative</p>
+<p t="4015890" d="1770">and set it equal to zero.</p>
+<p t="4017660" d="7200">So log L-- well, partial with
+respect to lambda of log L,</p>
+<p t="4024860" d="3960">say lambda, equals zero.</p>
+<p t="4028820" d="2340">This is equivalent
+to, so this guy goes.</p>
+<p t="4031160" d="5280">This guy gives me sum of the
+xi's divided by lambda hat</p>
+<p t="4036440" d="630">equals n.</p>
+<p t="4042470" d="3220">And so that's
+equivalent to lambda hat</p>
+<p t="4045690" d="5402">is equal to sum of the xi's
+divided by n, which is Xn bar.</p>
+<p t="4054044" d="4741">Take derivative, set it equal
+to zero, and just solve.</p>
+<p t="4058785" d="4145">It's a very satisfying
+exercise, especially when</p>
+<p t="4062930" d="2220">you get the average in the end.</p>
+<p t="4065150" d="3910">You don't have to
+think about it forever.</p>
+<p t="4069060" d="5300">OK, the Gaussian model I'm going
+to leave to you as an exercise.</p>
+<p t="4074360" d="3240">Take the log to get rid
+of the pesky exponential,</p>
+<p t="4077600" d="3090">and then take the derivative
+and you should be fine.</p>
+<p t="4080690" d="2250">It's a bit more--</p>
+<p t="4082940" d="3020">it might be one more
+line than those guys.</p>
+<p t="4085960" d="6800">OK, so-- well actually,
+you need to take</p>
+<p t="4092760" d="1280">the gradient in this case.</p>
+<p t="4094040" d="1890">Don't check the second
+derivative right now.</p>
+<p t="4095930" d="1666">You don't have to
+really think about it.</p>
+<p t="4101430" d="2107">What did I want to add?</p>
+<p t="4103537" d="1833">I think there was
+something I wanted to say.</p>
+<p t="4105370" d="1949">Yes.</p>
+<p t="4107319" d="3721">When I have a function that's
+concave and I'm on, like,</p>
+<p t="4111040" d="2631">some infinite
+interval, then it's</p>
+<p t="4113671" d="2499">true that taking the derivative
+and setting it equal to zero</p>
+<p t="4116170" d="1859">will give me the maximum.</p>
+<p t="4118029" d="4301">But again, I might have a
+function that looks like this.</p>
+<p t="4122330" d="3930">Now, if I'm on some finite
+interval-- let me go elsewhere.</p>
+<p t="4126260" d="9290">So if I'm on some
+finite interval</p>
+<p t="4135550" d="5429">and my function looks like
+this as a function of theta--</p>
+<p t="4140979" d="2241">let's say this is
+my log likelihood</p>
+<p t="4143220" d="3190">as a function of theta--</p>
+<p t="4146410" d="6790">then, OK, there's no
+place in this interval--</p>
+<p t="4153200" d="1840">let's say this is
+between 0 and 1-- there's</p>
+<p t="4155040" d="4830">no place in this interval where
+the derivative is equal to 0.</p>
+<p t="4159870" d="2699">And if you actually
+try to solve this,</p>
+<p t="4162569" d="3618">you won't find a solution which
+is not in the interval 0, 1.</p>
+<p t="4166187" d="2083">And that's actually how
+you know that you probably</p>
+<p t="4168270" d="1874">should not take the
+derivative equal to zero.</p>
+<p t="4170144" d="2576">So don't panic if you
+get something that says,</p>
+<p t="4172720" d="2000">well, the solution is
+at infinity, right?</p>
+<p t="4174720" d="1565">If this function
+keeps going, you</p>
+<p t="4176285" d="1375">will find that
+the solution-- you</p>
+<p t="4177660" d="2830">won't be able to find a
+solution apart from infinity.</p>
+<p t="4180490" d="3230">You are going to see something
+like 1 over theta hat</p>
+<p t="4183720" d="2639">is equal to 0, or
+something like this.</p>
+<p t="4186359" d="2580">So you know that when you've
+found this kind of solution,</p>
+<p t="4188939" d="2431">you've probably made a
+mistake at some point.</p>
+<p t="4191370" d="3450">And the reason is because the
+functions that are like this,</p>
+<p t="4194820" d="3330">you don't find the maximum by
+setting the derivative equal</p>
+<p t="4198150" d="1080">to zero.</p>
+<p t="4199230" d="1929">You actually just find
+the maximum by saying,</p>
+<p t="4201159" d="2291">well, it's an increasing
+function on the interval 0, 1,</p>
+<p t="4203450" d="1550">so the maximum must
+be attained at 1.</p>
+<p t="4207209" d="1541">So here in this
+case, that would mean</p>
+<p t="4208750" d="3810">that my maximum would be 1.</p>
+<p t="4212560" d="1980">My estimator would be
+1, which would be weird.</p>
+<p t="4214540" d="2776">So typically here, you have
+a function of the xi's.</p>
+<p t="4217316" d="2624">So one example that you will see
+many times is when this guy is</p>
+<p t="4219940" d="4930">the maximum of the xi's.</p>
+<p t="4224870" d="2340">And in which case, the
+maximum is attained here,</p>
+<p t="4227210" d="1980">which is the maximum of this.</p>
+<p t="4229190" d="2430">OK, so just keep in mind--</p>
+<p t="4231620" d="2220">what I would recommend
+is every time</p>
+<p t="4233840" d="2610">you're trying to take the
+maximum of a function,</p>
+<p t="4236450" d="2870">just try to plot the
+function in your head.</p>
+<p t="4239320" d="1060">It's not too complicated.</p>
+<p t="4240380" d="4410">Those things are usually
+squares, or square roots,</p>
+<p t="4244790" d="840">or logs.</p>
+<p t="4245630" d="1800">You know what those
+functions look like.</p>
+<p t="4247430" d="2610">Just plug them in your
+mind and make sure</p>
+<p t="4250040" d="2190">that you will find a
+maximum which really</p>
+<p t="4252230" d="1980">goes up and then down again.</p>
+<p t="4254210" d="2190">If you don't, then
+that means your maximum</p>
+<p t="4256400" d="2970">is achieved at the
+boundary and you have</p>
+<p t="4259370" d="2580">to think differently to get it.</p>
+<p t="4261950" d="2640">So the machinery that consists
+in setting the derivative equal</p>
+<p t="4264590" d="2280">to zero works 80% of the time.</p>
+<p t="4266870" d="2010">But o you have to be careful.</p>
+<p t="4268880" d="3000">And from the context,
+it will be clear</p>
+<p t="4271880" d="2580">that you had to be careful,
+because you will find</p>
+<p t="4274460" d="2730">some crazy stuff, such
+as solve 1 over theta hat</p>
+<p t="4277190" d="900">is equal to zero.</p>
+<p t="4283140" d="2140">All right, so
+before we conclude,</p>
+<p t="4285280" d="2810">I just wanted to give you
+some intuition about how does</p>
+<p t="4288090" d="2530">the maximum likelihood perform?</p>
+<p t="4290620" d="2450">So there's something called
+the Fisher information</p>
+<p t="4293070" d="2910">that essentially controls
+how this thing performs.</p>
+<p t="4295980" d="2730">And the Fisher information
+is, essentially,</p>
+<p t="4298710" d="1710">a second derivative
+or a Hessian.</p>
+<p t="4300420" d="4560">So if I'm in a one-dimensional
+parameter case, it's a number,</p>
+<p t="4304980" d="1320">it's a second derivative.</p>
+<p t="4306300" d="4700">If I'm in a multidimensional
+case, it's actually a Hessian,</p>
+<p t="4311000" d="1780">it's a matrix.</p>
+<p t="4312780" d="5020">So I'm going to actually take
+in notation little curly L</p>
+<p t="4317800" d="2870">of theta to be the
+log likelihood, OK?</p>
+<p t="4320670" d="2240">And that's the log likelihood
+for one observation.</p>
+<p t="4322910" d="2650">So let's call it x generically,
+but think of it as being x1,</p>
+<p t="4325560" d="1920">for example.</p>
+<p t="4327480" d="1770">And I don't care
+of, like, summing,</p>
+<p t="4329250" d="2010">because I'm actually going to
+take expectation of this thing.</p>
+<p t="4331260" d="1916">So it's not going to be
+a data driven quantity</p>
+<p t="4333176" d="1214">I'm going to play with.</p>
+<p t="4334390" d="1416">So now I'm going
+to assume that it</p>
+<p t="4335806" d="3584">is twice differentiable,
+almost surely, because it's</p>
+<p t="4339390" d="1960">a random function.</p>
+<p t="4341350" d="2540">And so now I'm going to
+just sweep under the rug</p>
+<p t="4343890" d="3810">some technical conditions
+when these things hold.</p>
+<p t="4347700" d="4430">So typically, when can I
+permute integral and derivatives</p>
+<p t="4352130" d="3030">and this kind of stuff that
+you don't want to think about?</p>
+<p t="4355160" d="1570">OK, the rule of
+thumb is it always</p>
+<p t="4356730" d="2859">works until it
+doesn't, in which case,</p>
+<p t="4359589" d="1791">that probably means
+you're actually solving</p>
+<p t="4361380" d="2700">some sort of calculus problem.</p>
+<p t="4364080" d="3310">Because in practice,
+it just doesn't happen.</p>
+<p t="4367390" d="8620">So the Fisher information
+is the expectation of the--</p>
+<p t="4376010" d="1780">that's called the outer product.</p>
+<p t="4377790" d="3450">So that's the product
+of this gradient</p>
+<p t="4381240" d="1150">and the gradient transpose.</p>
+<p t="4382390" d="2150">So that forms a matrix, right?</p>
+<p t="4384540" d="5290">That's a matrix minus the outer
+product of the expectations.</p>
+<p t="4389830" d="3080">So that's really what's
+called the covariance matrix</p>
+<p t="4392910" d="3375">of this vector, nabla
+of L theta, which</p>
+<p t="4396285" d="1805">is a random vector.</p>
+<p t="4398090" d="2952">So I'm forming the covariance
+matrix of this thing.</p>
+<p t="4401042" d="2208">And the technical conditions
+tells me that, actually,</p>
+<p t="4403250" d="3350">this guy, which depends
+only on the Hessian,</p>
+<p t="4406600" d="4515">is actually equal to negative
+expectation of the-- sorry.</p>
+<p t="4411115" d="1125">It depends on the gradient.</p>
+<p t="4412240" d="3900">Is actually negative
+expectation of the Hessian.</p>
+<p t="4416140" d="2160">So I can actually
+get a quantity that</p>
+<p t="4418300" d="2100">depends on the second
+derivatives only using</p>
+<p t="4420400" d="1340">first derivatives.</p>
+<p t="4421740" d="2462">But the expectation is
+going to play a role here.</p>
+<p t="4424202" d="1208">And the fact that it's a log.</p>
+<p t="4425410" d="2770">And lots of things
+actually show up here.</p>
+<p t="4428180" d="3040">And so in this case,
+what I get is that--</p>
+<p t="4431220" d="2290">so in the one-dimensional
+case, then this</p>
+<p t="4433510" d="2970">is just the covariance matrix of
+a one-dimensional thing, which</p>
+<p t="4436480" d="1720">is just a variance of itself.</p>
+<p t="4438200" d="1850">So the variance
+of the derivative</p>
+<p t="4440050" d="4140">is actually equal to
+negative the expectation</p>
+<p t="4444190" d="2890">of the second derivative.</p>
+<p t="4447080" d="2200">OK, so we'll see that next time.</p>
+<p t="4449280" d="3320">But what I wanted to emphasize
+with this is that why do</p>
+<p t="4452600" d="2509">we care about this quantity?</p>
+<p t="4455109" d="1541">That's called the
+Fisher information.</p>
+<p t="4456650" d="3120">Fisher is the founding
+father of modern statistics.</p>
+<p t="4459770" d="3300">Why do we give this
+quantity his name?</p>
+<p t="4463070" d="2476">Well, it's because this quantity
+is actually very critical.</p>
+<p t="4465546" d="1874">What does the second
+derivative of a function</p>
+<p t="4467420" d="2140">tell me at the maximum?</p>
+<p t="4469560" d="4790">Well, it's telling me
+how curved it is, right?</p>
+<p t="4474350" d="3430">If I have a zero second
+derivative, I'm basically flat.</p>
+<p t="4477780" d="3357">And if I have a very high second
+derivative, I'm very curvy.</p>
+<p t="4481137" d="1583">And when I'm very
+curvy, what it means</p>
+<p t="4482720" d="3040">is that I'm very robust
+to the estimation error.</p>
+<p t="4485760" d="1400">Remember our
+estimation strategy,</p>
+<p t="4487160" d="2970">which consisted in replacing
+expectation by averages?</p>
+<p t="4490130" d="2700">If I'm extremely curvy,
+I can move a little bit.</p>
+<p t="4492830" d="2580">This thing, the maximum,
+is not going to move much.</p>
+<p t="4495410" d="1870">And this formula here--</p>
+<p t="4497280" d="2810">so forget about the matrix
+version for a second--</p>
+<p t="4500090" d="1690">is actually telling me exactly--</p>
+<p t="4501780" d="4220">it's telling me the curvature
+is basically the variance</p>
+<p t="4506000" d="2290">of the first derivative.</p>
+<p t="4508290" d="2550">And so the more the first
+derivative fluctuates,</p>
+<p t="4510840" d="2090">the more your maximum is
+actually-- your org max</p>
+<p t="4512930" d="1780">is going to move
+all over the place.</p>
+<p t="4514710" d="2240">So this is really
+controlling how flat</p>
+<p t="4516950" d="3330">your likelihood, your log
+likelihood, is at its maximum.</p>
+<p t="4520280" d="3060">The flatter it is, the more
+sensitive to fluctuation</p>
+<p t="4523340" d="1290">the arg max is going to be.</p>
+<p t="4524630" d="2430">The curvier it is, the
+less sensitive it is.</p>
+<p t="4527060" d="1680">And so what we're
+hoping-- a good model</p>
+<p t="4528740" d="2970">is going to be one that
+has a large or small value</p>
+<p t="4531710" d="2640">for the Fisher information.</p>
+<p t="4534350" d="2588">I want this to be--</p>
+<p t="4536938" d="1362">small?</p>
+<p t="4538300" d="1770">I want it to be large.</p>
+<p t="4540070" d="2220">Because this is the
+curvature, right?</p>
+<p t="4542290" d="2124">This number is
+negative, it's concave.</p>
+<p t="4544414" d="1416">So if I take a
+negative sign, it's</p>
+<p t="4545830" d="1980">going to be something
+that's positive.</p>
+<p t="4547810" d="3420">And the larger this thing,
+the more curvy it is.</p>
+<p t="4551230" d="1500">Oh, yeah, because
+it's the variance.</p>
+<p t="4552730" d="541">Again, sorry.</p>
+<p t="4553271" d="2159">This is what--</p>
+<p t="4555430" d="500">OK.</p>
+<p t="4559480" d="2676">Yeah, maybe I should not
+go into those details</p>
+<p t="4562156" d="1374">because I'm actually
+out of time.</p>
+<p t="4563530" d="3360">But just spoiler alert,
+the asymptotic variance</p>
+<p t="4566890" d="2130">of your-- the variance,
+basically, as n</p>
+<p t="4569020" d="2350">goes to infinity of the
+maximum likelihood estimator</p>
+<p t="4571370" d="1460">is going to be 1 over this guy.</p>
+<p t="4572830" d="2430">So we want it to be large,
+because the asymptotic variance</p>
+<p t="4575260" d="1650">is going to be very small.</p>
+<p t="4576910" d="1740">All right, so we're out of time.</p>
+<p t="4578650" d="1980">We'll see that next week.</p>
+<p t="4580630" d="2100">And I have your
+homework with me.</p>
+<p t="4582730" d="2322">And I will actually turn it in.</p>
+<p t="4585052" d="1458">I will give it to
+you outside so we</p>
+<p t="4586510" d="2070">can let the other room come in.</p>
+<p t="4588580" d="3050">OK, I'll just leave you the--</p>
+</body>
+</timedtext>

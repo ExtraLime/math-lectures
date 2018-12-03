@@ -1,0 +1,2052 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="0" d="4787">[MUSIC]</p>
+<p t="4787" d="2870">Stanford University.</p>
+<p t="7657" d="1414">&gt;&gt; All right, hello everybody.</p>
+<p t="10530" d="3810">Welcome to Lecture seven or
+maybe it's eight.</p>
+<p t="14340" d="3210">Definitely today is the beginning of</p>
+<p t="18620" d="4480">where we talk about models that
+really matter in practice.</p>
+<p t="23100" d="4830">We'll talk today about the simplest
+recurrent neural network model</p>
+<p t="27930" d="1100">one can think of.</p>
+<p t="29030" d="660">But in general,</p>
+<p t="29690" d="4760">this model family is what most people
+now use in real production settings.</p>
+<p t="34450" d="2320">So it's really exciting.</p>
+<p t="36770" d="3060">We only have a little bit
+of math in between and</p>
+<p t="39830" d="4050">a lot of it is quite applied and
+should be quite fun.</p>
+<p t="43880" d="3160">Just one organizational
+item before we get started.</p>
+<p t="47040" d="3290">I'll have an extra office
+hour today right after class.</p>
+<p t="50330" d="2280">I'll be again on Queuestatus 68 or so.</p>
+<p t="53960" d="2340">Last week we had to end at 8:30.</p>
+<p t="56300" d="3404">And there's still a lot of
+people who had a question, so</p>
+<p t="59704" d="3848">I'll be here after class for
+probably another two hours or so.</p>
+<p t="63552" d="2328">Try to get through everybody's questions.</p>
+<p t="65880" d="4825">Are there any questions around projects?</p>
+<p t="70705" d="2140">&gt;&gt; [LAUGH]
+&gt;&gt; And organizational stuff?</p>
+<p t="78075" d="3275">All right, then let's take a look
+at the overview for today.</p>
+<p t="81350" d="5170">So to really appreciate the power of
+recurrent neural networks it makes sense</p>
+<p t="86520" d="2480">to get a little bit of background
+on traditional language models.</p>
+<p t="89000" d="4628">Which will have huge RAM requirements and
+won't be quite feasible in</p>
+<p t="93628" d="4890">their best kinds of settings where
+they obtain the highest accuracies.</p>
+<p t="98518" d="2922">And then we'll motivate recurrent
+neural networks with language modeling.</p>
+<p t="101440" d="2880">It's a very important
+kind of fundamental task</p>
+<p t="104320" d="2240">in NLP that tries to
+predict the next word.</p>
+<p t="106560" d="3160">Something that sounds quite simple but
+is really powerful.</p>
+<p t="109720" d="3840">And then we'll dive a little bit into
+the problems that you can actually quite</p>
+<p t="113560" d="5050">easily understand once
+you have figured out</p>
+<p t="118610" d="4450">how to take gradients and you actually
+understand what backpropagation does.</p>
+<p t="123060" d="4640">And then we can go and
+see how to extend these models and</p>
+<p t="127700" d="3197">apply them to real sequence tasks
+that people really run in practice.</p>
+<p t="131970" d="2530">All right, so let's dive right in.</p>
+<p t="134500" d="860">Language models.</p>
+<p t="135360" d="1320">So basically,</p>
+<p t="136680" d="3810">we want to just compute the probability
+of an entire sequence of words.</p>
+<p t="140490" d="1620">And you might say,
+well why is that useful?</p>
+<p t="142110" d="3640">Why should we be able to compute
+how likely a sequence is?</p>
+<p t="145750" d="2870">And actually comes up for
+a lot of different kinds of problems.</p>
+<p t="148620" d="3200">So one, for instance,
+in machine translation,</p>
+<p t="151820" d="4900">you might have a bunch of potential
+translations that a system gives you.</p>
+<p t="156720" d="3970">And then you might wanna understand
+which order of words is the best.</p>
+<p t="160690" d="5680">So "the cat is small" should get a higher
+probability than "small the is cat".</p>
+<p t="166370" d="3420">But based on another language
+that you translate from,</p>
+<p t="169790" d="2320">it might not be as obvious.</p>
+<p t="172110" d="3950">And the other language might have
+a reversed word order and whatnot.</p>
+<p t="176060" d="2420">Another one is when you do speech
+recognition, for instance.</p>
+<p t="178480" d="2190">It also comes up in the machine
+translation a little bit,</p>
+<p t="180670" d="1580">where you might have,</p>
+<p t="182250" d="3085">well this particular example is clearly
+more a machine translation example.</p>
+<p t="185335" d="5235">But comes up also in speech
+recognition where you might wanna</p>
+<p t="190570" d="4170">understand which word might be the better
+choice given the rest of the sequence.</p>
+<p t="194740" d="4000">So "walking home after school" sounds
+a lot more natural than "walking</p>
+<p t="198740" d="1540">house after school".</p>
+<p t="200280" d="4930">But home and
+house have the same translation or</p>
+<p t="205210" d="3660">same word in German which is haus,
+H A U S.</p>
+<p t="208870" d="3130">And you want to know which one is
+the better one for that translation.</p>
+<p t="212000" d="3670">So comes up in a lot of
+different kinds of areas.</p>
+<p t="216840" d="6010">Now basically it's hard to compute
+the perfect probabilities for</p>
+<p t="222850" d="3050">all potential sequences 'cause
+there are a lot of them.</p>
+<p t="225900" d="5040">And so what we usually end up doing is
+we basically condition on just a window,</p>
+<p t="230940" d="5060">we try to predict the next word based
+on the just the previous n words</p>
+<p t="236000" d="2100">before the one that
+we're trying to predict.</p>
+<p t="238100" d="3460">So this is, of course,
+an incorrect assumption.</p>
+<p t="241560" d="5410">The next word that I will utter will
+depend on many words in the past.</p>
+<p t="246970" d="3060">But it's something that had to be done</p>
+<p t="250030" d="3710">to use traditional count based
+machine learning models.</p>
+<p t="253740" d="5330">So basically we'll approximate this
+overall sequence probability here</p>
+<p t="259070" d="3400">with just a simpler version.</p>
+<p t="262470" d="5890">In the perfect sense this would basically
+be the product here of each word,</p>
+<p t="268360" d="2680">given all preceding words
+from the first one all</p>
+<p t="271040" d="3160">the way to the one just
+before the i_th one.</p>
+<p t="274200" d="5160">But in practice, this probability with
+traditional machine learning models</p>
+<p t="279360" d="1230">we couldn't really compute so</p>
+<p t="280590" d="6100">we actually approximate that with some
+number of n words just before each word.</p>
+<p t="286690" d="4090">So this is a simple Markov assumption
+just assuming the next action or</p>
+<p t="290780" d="4280">next word that is uttered just
+depends on n previous words.</p>
+<p t="295060" d="5430">And now if we wanted to use traditional
+methods that are just basically</p>
+<p t="300490" d="4360">based on the counts of words and not
+using our fancy word vectors and so on.</p>
+<p t="304850" d="4796">Then the way we would compute and estimate
+these probabilities is essentially just by</p>
+<p t="309646" d="4282">counting how often does, if you want to
+get the probability for the second word,</p>
+<p t="313928" d="1275">given the first word.</p>
+<p t="315203" d="5813">We would just basically count up how often
+do these two words co-occur in this order,</p>
+<p t="321016" d="4434">divided by how often the first
+word appears in the whole corpus.</p>
+<p t="325450" d="2700">Let's say we have a very large corpus and
+we just collect all these counts.</p>
+<p t="330100" d="5190">And now if we wanted to condition not just
+on the first and the previous word but</p>
+<p t="335290" d="4410">on the two previous words, then we'd
+have to compute all these counts.</p>
+<p t="339700" d="2910">And now you can kind of sense that well,</p>
+<p t="342610" d="4560">if we want to ideally condition on as
+many n-grams as possible before but</p>
+<p t="347170" d="6932">we have a large vocabulary of say 100,000
+words, then we'll have a lot of counts.</p>
+<p t="354102" d="2497">Essentially 100,000 cubed,</p>
+<p t="356599" d="4842">many numbers we would have to store
+to estimate all these probabilities.</p>
+<p t="363674" d="1166">Does that make sense?</p>
+<p t="364840" d="2419">Are there any questions for
+these traditional methods?</p>
+<p t="373233" d="4665">All right, now, the problem with
+that is that the performance</p>
+<p t="377898" d="4324">usually improves as we have more and
+more of these counts.</p>
+<p t="382222" d="4758">But, also,
+you now increase your RAM requirements.</p>
+<p t="386980" d="3920">And so,
+one of the best models of this traditional</p>
+<p t="391980" d="6420">type actually required 140 gigs of RAM for
+just computing all these counts</p>
+<p t="398400" d="5070">when they wanted to compute them for
+126 billion token corpus.</p>
+<p t="404650" d="4920">So it's very,
+very inefficient in terms of RAM.</p>
+<p t="409570" d="3900">And you would never be able
+to put a model that basically</p>
+<p t="414930" d="2570">stores all these different n-gram counts.</p>
+<p t="417500" d="2710">You could never store it in a phone or
+any small machine.</p>
+<p t="422550" d="4380">And now, of course, once computer
+scientists struggle with a problem like</p>
+<p t="426930" d="2120">that, they'll find ways to deal with it,
+and so,</p>
+<p t="429050" d="2780">there are a lot of different
+ways you can back off.</p>
+<p t="431830" d="4510">You say, well, if I don't find the 4-gram,
+or I didn't store it,</p>
+<p t="436340" d="3820">because it was not frequent enough,
+then maybe I'll try the 3-gram.</p>
+<p t="440160" d="4010">And if I can't find that or I don't have
+many counts for that, then I can back off</p>
+<p t="444170" d="5090">and estimate my probabilities with fewer
+and fewer words in the context size.</p>
+<p t="449260" d="3485">But in general you want
+to have at least tri or</p>
+<p t="452745" d="4385">4-grams that you store and the RAM
+requirements for those are very large.</p>
+<p t="458630" d="3080">So that is actually something
+that you'll observe in a lot of</p>
+<p t="461710" d="2080">comparisons between deep
+learning models and</p>
+<p t="463790" d="5500">traditional NLP models that are based on
+just counting words for specific classes.</p>
+<p t="469290" d="2041">The more powerful your models are,</p>
+<p t="471331" d="3946">sometimes the RAM requirements can
+get very large very quickly, and</p>
+<p t="475277" d="4028">there are a lot of different ways
+people tried to combat these issues.</p>
+<p t="479305" d="3550">Now our way will be to use
+recurrent neural networks.</p>
+<p t="484390" d="4310">Where basically, they're similar to
+the normal neural networks that we've seen</p>
+<p t="488700" d="4900">already, but they will actually tie
+the weights between different time steps.</p>
+<p t="493600" d="2165">And as you go over it, you keep using,</p>
+<p t="495765" d="5236">re-using essentially the same
+linear plus non-linearity layer.</p>
+<p t="502260" d="4360">And that will at least in theory,
+allow us to actually condition</p>
+<p t="506620" d="3420">what we're trying to predict
+on all the previous words.</p>
+<p t="510040" d="4101">And now here the RAM requirements will
+only scale with the number of words not</p>
+<p t="514141" d="3605">with the length of the sequence
+that we might want to condition on.</p>
+<p t="519652" d="2548">So now how's this really defined?</p>
+<p t="522200" d="2780">Again, they're you'll see different
+kinds of visualizations and</p>
+<p t="524980" d="1700">I'm introducing you to a couple.</p>
+<p t="526680" d="5790">I like sort of this unfolded one where we
+have here a abstract hidden time step t</p>
+<p t="532470" d="6770">and we basically, it's conditioned on
+H_t-1, and then here you compute H_t+1.</p>
+<p t="539240" d="2780">But in general,
+the equations here are quite intuitive.</p>
+<p t="543220" d="2740">We assume we have a list of word vectors.</p>
+<p t="545960" d="3140">For now,
+let's assume the word vectors are fixed.</p>
+<p t="549100" d="5950">Later on we can actually loosen
+that assumption and get rid of it.</p>
+<p t="555050" d="3880">And now, at each time step
+to compute the hidden state.</p>
+<p t="558930" d="5140">At that time step will essentially
+just have these two matrices,</p>
+<p t="564070" d="4400">these two linear layers,
+matrix vector products and we sum them up.</p>
+<p t="568470" d="4539">And that's essentially similar to
+saying we concatenate h_t-1 and</p>
+<p t="573009" d="4811">the word vector at time step t, and
+we also concatenate these two matrices.</p>
+<p t="579550" d="2060">And then we apply
+an element-wise non-linearity.</p>
+<p t="581610" d="5000">So this is essentially just a standard
+single layer neural network.</p>
+<p t="588910" d="4140">And then on top of that we can
+use this as a feature vector, or</p>
+<p t="593050" d="4760">as our input to our standard
+softmax classification layer.</p>
+<p t="597810" d="4220">To get an output probability for
+instance over all the words.</p>
+<p t="603320" d="4130">So now the way we would write
+this out in this formulation is</p>
+<p t="607450" d="5330">basically the probability that
+the next word is of this specific,</p>
+<p t="612780" d="4120">at this specific index j conditioned
+on all the previous words</p>
+<p t="616900" d="4366">is essentially the j_th element
+of this large output vector.</p>
+<p t="621266" d="500">Yes?</p>
+<p t="625153" d="647">What is s?</p>
+<p t="625800" d="6310">So here you can have different
+ways to define your matrices.</p>
+<p t="632110" d="2920">Some people just use u, v,
+and w or something like that.</p>
+<p t="635030" d="4960">But here we basically use the superscript
+just identify which matrix we have.</p>
+<p t="639990" d="4970">And these are all different matrices, so
+W_(hh), the reason we call it hh is it's</p>
+<p t="644960" d="6330">the W that computes the hidden
+layer h given the input h t- 1.</p>
+<p t="651290" d="5180">And then you have an h_x here,
+which essentially maps x</p>
+<p t="656470" d="4710">into the same vector space that we have.</p>
+<p t="661180" d="3930">Our hidden states in and
+then s is just our softmax w.</p>
+<p t="665110" d="2300">The weights of the softmax classifier.</p>
+<p t="669200" d="3420">And so let's look at the dimensions here.</p>
+<p t="672620" d="1170">It's again very important.</p>
+<p t="673790" d="668">You have another question?</p>
+<p t="678610" d="3010">So why do we concatenate and
+not add is the question.</p>
+<p t="682840" d="1500">So they're the same.</p>
+<p t="684340" d="5211">So when you write W_(h) using</p>
+<p t="689551" d="5983">same notation plus W_(hx) times x</p>
+<p t="695534" d="6586">then this is actually the same thing.</p>
+<p t="702120" d="5940">And so this will now basically be
+a vector, and we are feed in linearity but</p>
+<p t="708060" d="5170">it doesn't really change things, so
+let's just look at this inside part here.</p>
+<p t="713230" d="5630">Now if we concatenated h and
+x together we're now have,</p>
+<p t="718860" d="6380">and let's say, x here has a certain
+dimensionality which we'll call d.</p>
+<p t="726370" d="5365">So x is in R_d and
+our h will define to be in for</p>
+<p t="731735" d="4935">having the dimensionality R_(Dh).</p>
+<p t="738750" d="5910">Now, what would the dimensionality be
+if we concatenated these two matrices?</p>
+<p t="744660" d="6100">So we have here the output has to be,
+again a Dh matrix.</p>
+<p t="750760" d="2217">And now this vector here is a,</p>
+<p t="752977" d="5431">what dimensionality does this factor
+have when we concatenate the two?</p>
+<p t="761244" d="1006">That's right.</p>
+<p t="762250" d="5870">So this is a d plus Dh times one and</p>
+<p t="768120" d="4490">here we have Dh times our matrix.</p>
+<p t="772610" d="3783">It has to be the same dimensionality, so</p>
+<p t="776393" d="4231">d plus Dh and
+that's why we could essentially</p>
+<p t="780624" d="5646">concatenate here W_h in this way,
+and W_hx here.</p>
+<p t="786270" d="2340">And now we could basically multiply these.</p>
+<p t="788610" d="4030">And if you, again if this is confusing,
+you can write out all the indices.</p>
+<p t="792640" d="2206">And you realize that these
+two are exactly the same.</p>
+<p t="798731" d="500">Does that make sense?</p>
+<p t="803429" d="4663">Right, so as you sum up all the values
+here, It'll essentially just get</p>
+<p t="808092" d="4228">summed up also, it doesn't matter
+if you do it in one go or not.</p>
+<p t="812320" d="3615">Just a single layer and that worked
+where you compact in two inputs but</p>
+<p t="815935" d="3815">it's in many cases for recurrent
+neutral networks is written this way.</p>
+<p t="831083" d="1097">All right.</p>
+<p t="832180" d="4240">So now, here are two other ways
+you'll often see these visualized.</p>
+<p t="836420" d="7800">This is kind of a not unrolled version of
+a hidden, of a recurrent neural network.</p>
+<p t="844220" d="4470">And sometimes you'll also see
+sort of this self loop here.</p>
+<p t="848690" d="5840">I actually find these kinds of
+unrolled versions the most intuitive.</p>
+<p t="858038" d="722">All right.</p>
+<p t="858760" d="2620">Now when you start and you.</p>
+<p t="861380" d="500">Yup?</p>
+<p t="865979" d="721">Good question.</p>
+<p t="866700" d="2720">So what is x[t]?</p>
+<p t="869420" d="3714">It's essentially the word vector for</p>
+<p t="873134" d="4176">the word that appears
+at the t_th time step.</p>
+<p t="880184" d="7226">As opposed to x_t and intuitively here
+x_t you could define it in any way.</p>
+<p t="887410" d="4000">It's really just like as you go through
+the lectures you'll actually observe</p>
+<p t="891410" d="6260">different versions but intuitively
+here x_t is just a vector at xt but</p>
+<p t="897670" d="5030">here xt is already an input, and
+what it means in practice is you</p>
+<p t="902700" d="5010">actually have to now go at that t time
+step, find the word identity and pull</p>
+<p t="907710" d="5532">that word vector from your glove or word
+to vec vectors, and get that in there.</p>
+<p t="913242" d="6028">So x_t we used in previous
+lectures as the t_th element for</p>
+<p t="919270" d="5020">instance in the whole embedding matrix,
+all our word vectors.</p>
+<p t="924290" d="3500">So this is just to make it very explicit
+that we look up the identity of the word</p>
+<p t="927790" d="3063">at the tth time step and then get
+the word vector for that identity,</p>
+<p t="930853" d="2259">like the vector in all our word vectors.</p>
+<p t="938620" d="512">Yep.</p>
+<p t="949826" d="3780">So I'm showing here a single layer
+neural network at each time step, and</p>
+<p t="953606" d="4034">then the question is whether that
+is standard or just for simplicity?</p>
+<p t="957640" d="4620">It is actually the simplest and
+still somewhat useful.</p>
+<p t="962260" d="4040">Variant of a recurrent neural network,
+though we'll see a lot of extensions even</p>
+<p t="966300" d="4740">in this class, and then in the lecture
+next week we'll go to even better versions</p>
+<p t="971040" d="1610">of these kinds of
+recurrent neural networks.</p>
+<p t="972650" d="2635">But this is actually a somewhat
+practical neural network,</p>
+<p t="975285" d="1694">though we can improve it in many ways.</p>
+<p t="981074" d="4239">Now, you might be curious when
+you just start your sequence, and</p>
+<p t="985313" d="3987">this is age 0 here and
+there isn't any previous words.</p>
+<p t="989300" d="4032">What you would do and the simplest thing
+is you just initialize the vector for</p>
+<p t="993332" d="4229">the first hidden layer at the first or the
+0 time step as just a vector of all 0s.</p>
+<p t="1002176" d="4556">Right and this is the X[t] definition
+you had just describe through the column</p>
+<p t="1006732" d="4432">vector of L which is our embedding matrix
+at index [t] which the time step t.</p>
+<p t="1011164" d="6056">All right so it's very important to keep
+track properly of all our dimensionality.</p>
+<p t="1017220" d="5950">Here, W(S) to Softmax actually goes
+over the size of our vocabulary,</p>
+<p t="1023170" d="2000">V times the hidden state.</p>
+<p t="1026430" d="3920">So the output here is the same
+as the vector of the length</p>
+<p t="1030350" d="2270">of the number of words that we
+might wanna to be able to predict.</p>
+<p t="1039140" d="1343">All right, any questions for</p>
+<p t="1040483" d="2751">the feed forward definition of
+a recurrent neural network?</p>
+<p t="1048685" d="2365">All right, so how do we train this?</p>
+<p t="1051050" d="880">Well fortunately,</p>
+<p t="1051930" d="5580">we can use all the same machinery we've
+already introduced and carefully derived.</p>
+<p t="1057510" d="3390">So basically here we have probability
+distribution over the vocabulary and</p>
+<p t="1060900" d="5180">we're going to use the same exact cross
+entropy loss function that we had before,</p>
+<p t="1066080" d="4690">but now the classes are essentially
+just the next word.</p>
+<p t="1070770" d="2940">So this actually sometimes
+creates a little confusion on</p>
+<p t="1073710" d="3090">the nomenclature that we have
+'cause now technically this is</p>
+<p t="1076800" d="3560">unsupervised in the sense that
+you just give it raw text.</p>
+<p t="1080360" d="5010">But this is the same kind of objective
+function we use when we have supervised</p>
+<p t="1085370" d="4080">training where we have a specific
+class that we're trying to predict.</p>
+<p t="1089450" d="4233">So the class at each time step is
+just a word index of the next word.</p>
+<p t="1097280" d="2005">And you're already familiar with that,</p>
+<p t="1099285" d="3963">here we're just summing over the entire
+vocabulary for each of the elements of Y.</p>
+<p t="1106902" d="2248">And now, in theory, you could just.</p>
+<p t="1109150" d="4777">To evaluate how well you can predict
+the next word over many different words in</p>
+<p t="1113927" d="4998">longer sequences, you could in theory just
+take this negative of the average log</p>
+<p t="1118925" d="3075">probability is over this entire dataset.</p>
+<p t="1122000" d="5900">But for maybe historical reasons, and also
+reasons like information theory and so</p>
+<p t="1127900" d="4750">on that we don't need to get into, what's
+more common is actually to use perplexity.</p>
+<p t="1132650" d="3600">So that's just 2 to
+the power of this value and,</p>
+<p t="1136250" d="3540">hence, we want to basically
+be less perplexed.</p>
+<p t="1139790" d="3720">So the lower our perplexity is,
+the less the model is perplexed or</p>
+<p t="1143510" d="2520">confused about what the next word is.</p>
+<p t="1146030" d="4046">And we essentially, ideally we'll assign
+a higher probability to the word that</p>
+<p t="1150076" d="2986">actually appears in the longer
+sequence at each time step.</p>
+<p t="1160322" d="624">Yes?</p>
+<p t="1164670" d="2320">Any reason why 2 to the J?</p>
+<p t="1168582" d="4050">Yes, but it's sort of a rat hole
+we can go down, maybe after class.</p>
+<p t="1172632" d="3952">Information theory bits and
+so on, it's not necessary.</p>
+<p t="1176584" d="704">All right.</p>
+<p t="1177288" d="4622">&gt;&gt; [LAUGH]
+&gt;&gt; All right, so</p>
+<p t="1181910" d="4970">now you would think, well this is pretty
+simple, we have a single set of W</p>
+<p t="1186880" d="6420">matrices, and training should
+be relatively straightforward.</p>
+<p t="1193300" d="3627">Sadly, and this is really the main
+drawback of this and a reason of why we</p>
+<p t="1196927" d="3872">introduce all these other more powerful
+recurrent neural network models,</p>
+<p t="1200799" d="3162">training these kinds of models
+is actually incredibly hard.</p>
+<p t="1206402" d="1586">And we can now analyze,</p>
+<p t="1207988" d="4455">using the tools of back propagation and
+chain rule and all of that.</p>
+<p t="1212443" d="4127">Now we can analyze and
+understand why that is.</p>
+<p t="1216570" d="4270">So basically we're multiplying here,
+the same matrix at each time step, right?</p>
+<p t="1220840" d="3770">So you can kind of think of
+this matrix multiplication</p>
+<p t="1224610" d="4820">as amplifying certain patterns over and
+over again at every single time step.</p>
+<p t="1229430" d="2810">And so, in a perfect world,</p>
+<p t="1232240" d="3850">we would want the inputs from many time
+steps ago to actually be able to still</p>
+<p t="1236090" d="5540">modify what we're trying to predict
+at a later, much later, time step.</p>
+<p t="1241630" d="3210">And so, one thing I would like
+to encourage you to do is</p>
+<p t="1244840" d="4290">to try to take the derivatives
+with respect to these Ws,</p>
+<p t="1249130" d="2570">if you just had a two or
+three word sequence.</p>
+<p t="1251700" d="3500">It's a great exercise,
+great preparation for the midterm.</p>
+<p t="1255200" d="3590">And it'll give you some
+interesting insights.</p>
+<p t="1258790" d="5210">Now, as we multiply the same matrix
+at each time step during foreprop,</p>
+<p t="1264000" d="5030">we have to do the same thing during
+back propagation We have, remember,</p>
+<p t="1269030" d="5560">our deltas, our air signals and sort of
+the global elements of the gradients.</p>
+<p t="1274590" d="4130">They will essentially at each time step
+flow through this network backwards.</p>
+<p t="1278720" d="3586">So when we take our cross-entropy
+loss here, we take derivatives,</p>
+<p t="1282306" d="2253">we back propagate we compute our deltas.</p>
+<p t="1284559" d="4664">Now the first time step here that just
+happened close to that output would make</p>
+<p t="1289223" d="3515">a very good update and
+will probably also make a good update</p>
+<p t="1292738" d="3512">to the word vector here if
+we wanted to update those.</p>
+<p t="1296250" d="714">We'll talk about that later.</p>
+<p t="1296964" d="5013">But then as you go backwards in
+time what actually will happen</p>
+<p t="1301977" d="4733">is your signal might get either too weak,
+or too strong.</p>
+<p t="1307720" d="4370">And that is essentially called
+the vanishing gradient problem.</p>
+<p t="1312090" d="4730">As you go backwards through time, and you
+try to send the air signal at time step t,</p>
+<p t="1316820" d="4390">many time steps into the past, you'll
+have the vanishing gradient problem.</p>
+<p t="1321210" d="2990">So, what does that mean and
+how does it happen?</p>
+<p t="1324200" d="5080">Let's define here a simpler, but
+similar recurrent neural network that</p>
+<p t="1329280" d="4550">will allow us to give you an intuition and
+simplify the math downstream.</p>
+<p t="1333830" d="4910">So here we essentially just say, all
+right, instead of our original definition</p>
+<p t="1338740" d="3430">where we had some kind of f
+some kind of non-linearity,</p>
+<p t="1342170" d="2220">here we use the sigma function,
+you could use other one.</p>
+<p t="1344390" d="4528">First introduce the rectified linear units
+and so on instead of applying it here,</p>
+<p t="1348918" d="5272">we'll apply it in the definition
+just right in here.</p>
+<p t="1355430" d="2010">So it's the same thing.</p>
+<p t="1357440" d="2920">And then let's assume, for now,
+we don't have the softmax.</p>
+<p t="1360360" d="4100">We just have here, a standard,
+a bunch of un-normalized scores.</p>
+<p t="1364460" d="3431">Which really doesn't matter for
+the math, but it'll simplify the math.</p>
+<p t="1367891" d="5785">Now if you want to compute the total
+error with respect to an entire sequence,</p>
+<p t="1373676" d="3827">with respect to your W then
+you basically have to sum</p>
+<p t="1377503" d="2941">up all the errors at all the time steps.</p>
+<p t="1380444" d="971">At each time step,</p>
+<p t="1381415" d="3711">we have an error of how incorrect we
+were about predicting the next word.</p>
+<p t="1387810" d="2753">And that's basically the sum here and</p>
+<p t="1390563" d="5027">now we're going to look at the element
+at the t timestamp of that sum.</p>
+<p t="1395590" d="5110">So let's just look at a single time step,
+a single error at a single time step.</p>
+<p t="1400700" d="4780">And now even computing that will
+require us to have a very large</p>
+<p t="1405480" d="4771">chain rule application,
+because essentially this error at</p>
+<p t="1410251" d="4179">time step t will depend on all
+the previous time steps too.</p>
+<p t="1414430" d="7304">So you have here the delta or
+dE_t over dy_t,</p>
+<p t="1421734" d="4906">so the t, the hidden state.</p>
+<p t="1426640" d="4482">Sorry, the soft max output or
+here these unnormalized square output Yt.</p>
+<p t="1431122" d="3960">But then you have to multiply that
+with the partial derivative of yt with</p>
+<p t="1435082" d="2078">respect to the hidden state.</p>
+<p t="1437160" d="4830">So that's just That's just this guy
+right here, or this guy for ht.</p>
+<p t="1441990" d="5290">But now, that one depends on,
+of course, the previous one, right?</p>
+<p t="1447280" d="2860">This one here, but it also depends
+on that one, and that one, and</p>
+<p t="1450140" d="1411">the one before that, and so on.</p>
+<p t="1451551" d="3694">And so that's why you have to sum over
+all the time step from the first one,</p>
+<p t="1455245" d="3945">all the way to the current one, where
+you're trying to predict the next word.</p>
+<p t="1460380" d="4550">And now, each of these was
+also computed with a W, so</p>
+<p t="1464930" d="3060">you have to multiply partial of that,
+as well.</p>
+<p t="1470720" d="3130">Now, let's dig into
+this a little bit more.</p>
+<p t="1473850" d="3470">And you don't have to worry too
+much if this is a little fast.</p>
+<p t="1477320" d="2596">You won't have to really
+go through all of this, but</p>
+<p t="1479916" d="3137">it's very similar to a lot of
+the math that we've done before.</p>
+<p t="1483053" d="5664">So you can kind of feel comfortable for
+the most part going over it at this speed.</p>
+<p t="1488717" d="3707">So now, remember here,
+our definition of h_t.</p>
+<p t="1492424" d="4485">We basically have all these partials
+of all the h_t's with respect to</p>
+<p t="1496909" d="4971">the previous time steps,
+the h's of the previous time steps.</p>
+<p t="1501880" d="4380">Now, to compute each of these,
+we'll have to use the chain rule again.</p>
+<p t="1506260" d="2850">And now, what this means is essentially</p>
+<p t="1509110" d="3430">a partial derivative of a vector
+with respect to another vector.</p>
+<p t="1512540" d="3660">Something that if we're clever with
+our backprop definitions before,</p>
+<p t="1516200" d="2554">we never actually have to do in practice,
+right?</p>
+<p t="1518754" d="2058">'cause this is a very large matrix, and</p>
+<p t="1520812" d="5000">we're combining the computation with the
+flow graph, and our delta messages before</p>
+<p t="1525812" d="4526">such that we don't actually have to
+compute explicitly, these Jacobians.</p>
+<p t="1530338" d="2817">But for the analysis of the math here,</p>
+<p t="1533155" d="3535">we'll basically look at
+all the derivatives.</p>
+<p t="1536690" d="4780">So just because we haven't defined it,
+what's the partial for each of</p>
+<p t="1541470" d="5180">these is essentially called the Jacobian,
+where you have all the partial derivatives</p>
+<p t="1546650" d="6460">with respect to each element of the top
+here ht with respect to the bottom.</p>
+<p t="1554210" d="4471">And so in general, if you have
+a vector valued function output and</p>
+<p t="1558681" d="5041">a vector valued input, and you take
+the partials here, you get this large</p>
+<p t="1563722" d="4667">matrix of all the partial derivatives
+with respect to all outputs.</p>
+<p t="1576661" d="957">Any questions?</p>
+<p t="1580509" d="3079">All right, so basically here,
+a lot of chain rule.</p>
+<p t="1583588" d="4282">And now, we got this beast
+which is essentially a matrix.</p>
+<p t="1587870" d="2580">And we multiply, for each partial here,</p>
+<p t="1590450" d="2190">we actually have to multiply all of these,
+right?</p>
+<p t="1592640" d="4924">So this is a large product
+of a lot of these Jacobians.</p>
+<p t="1597564" d="3756">Now, we can try to simplify this,
+and just say, all right.</p>
+<p t="1601320" d="1834">Let's say, there is an upper bound.</p>
+<p t="1603154" d="4250">And we also,
+the derivative of h with respect to h_j.</p>
+<p t="1607404" d="7574">Actually, with this simple definition of
+each h actually can be computed this way.</p>
+<p t="1614978" d="5254">And now,
+we can essentially upper bound the norm</p>
+<p t="1620232" d="5641">of this matrix with
+the multiplication of basically</p>
+<p t="1625873" d="5016">these equation right here,
+where we have W_t.</p>
+<p t="1630889" d="3513">And if you remember our
+backprop equations,</p>
+<p t="1634402" d="3143">you'll see some common terms here, but</p>
+<p t="1637545" d="5278">we'll actually write this out as
+not just an element wise product.</p>
+<p t="1642823" d="4088">But we can write the same thing as
+a diagonal where we have instead of</p>
+<p t="1646911" d="1172">the element wise.</p>
+<p t="1648083" d="3673">Elements we basically just put them into
+the diagonal of a larger matrix, and</p>
+<p t="1651756" d="2446">with zero path,
+everything that is off diagonal.</p>
+<p t="1654202" d="2539">Now, we multiply these two norms here.</p>
+<p t="1656741" d="5105">And now, we just define beta, W and
+beta h, as essentially the upper bounds.</p>
+<p t="1661846" d="2434">Some number, single scalar for</p>
+<p t="1664280" d="4249">each as like how large they
+could maximally be, right?</p>
+<p t="1668529" d="4737">We have W, we could compute easily
+any kind of norm for our W, right?</p>
+<p t="1673266" d="4547">It's just a matrix, computed matrix norm,
+we get a single number out.</p>
+<p t="1677813" d="4367">And now, basically, when we write
+this all, we put all this together,</p>
+<p t="1682180" d="4081">then we see that an upper bound for
+this Jacobians is essentially for</p>
+<p t="1686261" d="2663">each one of these
+elements as this product.</p>
+<p t="1688924" d="5811">And if we define each of the elements
+here, in terms of their upper bounds beta,</p>
+<p t="1694735" d="5155">then we basically have this product
+beta here taken to the t- k power.</p>
+<p t="1699890" d="4928">And so as the sequence gets longer and
+longer, and t gets larger and</p>
+<p t="1704818" d="5544">larger, it really depends on the value
+of beta to have this either blow up or</p>
+<p t="1710362" d="2382">get very, very small, right?</p>
+<p t="1712744" d="3203">If now the norms of this matrix,
+for instance,</p>
+<p t="1715947" d="4177">that norm, and then you have
+control over that norm, right?</p>
+<p t="1720124" d="2800">You initialize your wait matrix W with</p>
+<p t="1722924" d="5076">some small random values initially
+before you start training.</p>
+<p t="1728000" d="4249">If you initialize this to a matrix that
+has a norm that is larger than one,</p>
+<p t="1732249" d="4336">then at each back propagation step and
+the longer the time sequence goes.</p>
+<p t="1736585" d="4150">You basically will get a gradient
+that is going to explode,</p>
+<p t="1740735" d="4820">cuz you take some value that's larger
+than one to a large power here.</p>
+<p t="1745555" d="3870">Say, you have 100 or something,
+and your norm is just two,</p>
+<p t="1749425" d="5295">then you have two to the 100th as an upper
+bound for that gradient and vice-versa.</p>
+<p t="1754720" d="4865">If you initialize your matrix W in
+the beginning to a bunch of small</p>
+<p t="1759585" d="5309">random values such that the norm of
+your W is actually smaller than one,</p>
+<p t="1764894" d="5485">then the final gradient that will be
+sent from ht to hk could become a very,</p>
+<p t="1770379" d="4450">very small number, right,
+half to the power of 100th.</p>
+<p t="1774829" d="2841">Basically, none of the errors will arrive.</p>
+<p t="1777670" d="3450">None of the error signal, we got small and
+smaller as you go further and</p>
+<p t="1781120" d="1254">further backwards in time.</p>
+<p t="1782374" d="754">Yeah.</p>
+<p t="1796202" d="4571">So if the gradient here is exploding, does
+that mean a word that is further away has</p>
+<p t="1800773" d="2332">a bigger impact on a word that's closer?</p>
+<p t="1803105" d="3217">And the answer is when
+it's exploding like that,</p>
+<p t="1806322" d="2470">you'll get to not a number in no time.</p>
+<p t="1808792" d="5040">And that doesn't even become a practical
+issue because the numbers will</p>
+<p t="1813832" d="4971">literally become not a number,
+cuz it's too large a value to compute.</p>
+<p t="1818803" d="2677">And we'll have to think
+of ways to come back.</p>
+<p t="1821480" d="4339">It turns out the exploding gradient
+problem has some really great hacks that</p>
+<p t="1825819" d="3886">make them easier to deal with than
+the vanishing gradient problem.</p>
+<p t="1829705" d="1411">And we'll get to those in a second.</p>
+<p t="1837880" d="3797">All right, so now,
+you might say this could be a problem.</p>
+<p t="1841677" d="4416">Now, why is the vanishing gradient
+problem, an actual common practice?</p>
+<p t="1846093" d="4527">And again, it basically prevents
+us from allowing a word that</p>
+<p t="1850620" d="4178">appears very much in the past
+to have any influence on what</p>
+<p t="1854798" d="3584">we're trying to break in
+terms of the next word.</p>
+<p t="1860360" d="3865">And so here a couple of examples from just
+language modeling where that is a real</p>
+<p t="1864225" d="535">problem.</p>
+<p t="1865850" d="2470">So let's say, for instance,
+you have Jane walked into the room.</p>
+<p t="1868320" d="1170">John walked in too.</p>
+<p t="1869490" d="1500">It was late in the day.</p>
+<p t="1870990" d="1040">Jane said hi to.</p>
+<p t="1873130" d="5168">Now, you can put an almost
+probability mass of one,</p>
+<p t="1878298" d="4829">that the next word in this blank is John,
+right?</p>
+<p t="1883127" d="2847">But if now,
+each of these words have the word vector,</p>
+<p t="1885974" d="2863">you type it in to the hidden state,
+you compute this.</p>
+<p t="1888837" d="3452">And now, you want the model to pick up
+the pattern that if somebody met somebody</p>
+<p t="1892289" d="2261">else, and your all this complex stuff.</p>
+<p t="1894550" d="3662">And then they said hi too, and
+the next thing is the name.</p>
+<p t="1898212" d="4689">You wanna put a very high probability
+on it, but you can't get your model to</p>
+<p t="1902901" d="4766">actually send that error signal way
+back over here, to now modify the hidden</p>
+<p t="1907667" d="4183">state in a way that would allow you
+to give John a high probability.</p>
+<p t="1911850" d="4984">And really, this is a large problem in
+any kind of time sequence that you have.</p>
+<p t="1916834" d="2944">And many people might
+intuitively say well,</p>
+<p t="1919778" d="3122">language is mostly a Sequence problem,
+right?</p>
+<p t="1922900" d="2840">You have words that appear
+from left to right or</p>
+<p t="1925740" d="3320">in some temporal order as we speak.</p>
+<p t="1929060" d="1840">And so this is a huge problem.</p>
+<p t="1930900" d="3010">And now we'll have a little bit
+of code that we can look into.</p>
+<p t="1933910" d="3202">But before that we'll have
+the awesome Shayne give</p>
+<p t="1937112" d="3280">us a little bit of an intercession,
+intermission.</p>
+<p t="1947061" d="3706">&gt;&gt; Hi, so let's take a short break
+from recurrent neural networks to</p>
+<p t="1950767" d="2979">talk about transition-based
+dependency parsing,</p>
+<p t="1953746" d="4534">which is exactly what you guys saw
+this time last week in lecture.</p>
+<p t="1958280" d="4944">So just as a recap, a transition-based
+dependency parser is a method of</p>
+<p t="1963224" d="4236">taking a sentence and
+turning it into dependence parse tree.</p>
+<p t="1967460" d="4024">And you do this by looking at
+the state of the sentence and</p>
+<p t="1971484" d="3126">then predicting a transition.</p>
+<p t="1974610" d="1280">And you do this over and</p>
+<p t="1975890" d="4730">over again in a greedy fashion until
+you have a full transition sequence</p>
+<p t="1980620" d="4430">which itself encodes, the dependency
+parse tree for that sentence.</p>
+<p t="1985050" d="4721">So I wanna show you how to get from
+the model that you'll be implementing in</p>
+<p t="1989771" d="2285">your assignment two question two,</p>
+<p t="1992056" d="4064">which you're hopefully working
+on right now, to SyntaxNet.</p>
+<p t="1996120" d="1740">So what is SyntaxNet?</p>
+<p t="1998980" d="5060">SyntaxNet is a model that</p>
+<p t="2004040" d="4280">Google came out with and they claim
+it's the world's most accurate parser.</p>
+<p t="2009700" d="2660">And it's new,
+fast performant TensorFlow framework for</p>
+<p t="2012360" d="2880">syntactic parsing is available for
+over 40 languages.</p>
+<p t="2015240" d="3295">The one in English is called
+the Parse McParseface.</p>
+<p t="2018535" d="4675">&gt;&gt; [LAUGH]
+&gt;&gt; So my slide seemed to have been jumbled</p>
+<p t="2023210" d="4000">a little bit here, but
+hopefully you can read through it.</p>
+<p t="2027210" d="4410">So basically the baseline we're
+gonna begin with is the Chen and</p>
+<p t="2031620" d="1780">Manning model which came out in 2014.</p>
+<p t="2033400" d="5689">And Chen and Manning are respectively
+your head TA and instructor.</p>
+<p t="2039089" d="5056">And the models that produce SyntaxNet
+in just two stages of improvements,</p>
+<p t="2044145" d="3225">those directly modified Chen and</p>
+<p t="2047370" d="4230">Manning's model, which is exactly what
+you guys will be doing in assignment two.</p>
+<p t="2051600" d="3340">And so we're going to focus today
+on the main bulk of these changes,</p>
+<p t="2054940" d="4700">modifications which were
+introduced in 2015 by Weiss et al.</p>
+<p t="2059640" d="5090">So without further ado, I'm gonna look
+at their three main contributions.</p>
+<p t="2064730" d="3465">So the first one is they leverage
+unlabeled data using something called</p>
+<p t="2068195" d="985">Tri-Training.</p>
+<p t="2069180" d="3100">The second is that they tuned
+their neural network and</p>
+<p t="2072280" d="2270">made some slight modifications.</p>
+<p t="2074550" d="4310">And the last and probably most important
+is that they added a final layer on top</p>
+<p t="2078860" d="4940">of the model involving a structured
+perceptron with beam search.</p>
+<p t="2083800" d="3000">So each of these seeks to solve a problem.</p>
+<p t="2086800" d="2280">So the first one is tri-training.</p>
+<p t="2089080" d="1700">So as you know, in most supervised models,</p>
+<p t="2090780" d="2490">they perform better the more
+data that they have.</p>
+<p t="2093270" d="2520">And this is especially the case for
+dependency parsing,</p>
+<p t="2095790" d="4430">where as you can imagine there are an
+infinite number of possible sentences with</p>
+<p t="2100220" d="2130">a ton of complexity and
+you're never gonna see all of them,</p>
+<p t="2102350" d="3220">and you're gonna see even some
+of them very, very rarely.</p>
+<p t="2105570" d="2110">So the more data you have, the better.</p>
+<p t="2107680" d="2990">So what they did is they took
+a ton of unlabeled data and</p>
+<p t="2110670" d="4590">two highly performing dependency parsers
+that were very different from each other.</p>
+<p t="2115260" d="3790">And when they agreed, independently
+agreed on a dependency parse tree for</p>
+<p t="2119050" d="3900">a given sentence, then that would
+be added to the labeled data set.</p>
+<p t="2122950" d="2730">And so now you have ten
+million new tokens of data</p>
+<p t="2127140" d="3790">that you can use in addition
+to what you already have.</p>
+<p t="2130930" d="3870">And this by itself improved
+a highly performing network's</p>
+<p t="2134800" d="4140">performance by 1% using
+the unlabeled attachment score.</p>
+<p t="2138940" d="2650">So the problem here was not having
+enough data for the task and</p>
+<p t="2141590" d="2200">they improved it using this.</p>
+<p t="2143790" d="4792">The second augmentation they made
+was by taking the existing model,</p>
+<p t="2148582" d="1498">which is the one you
+guys are implementing,</p>
+<p t="2150080" d="3820">which has an input layer
+consisting of the word vectors.</p>
+<p t="2153900" d="4690">The vectors for the part of speech tags
+and the arc labels with one hidden layer</p>
+<p t="2158590" d="6030">and one soft max layer predicting which
+transition and they changed it to this.</p>
+<p t="2164620" d="5210">Now this is actually pretty much the same
+thing, except for three small changes.</p>
+<p t="2171190" d="1420">The first is that they added,</p>
+<p t="2172610" d="2490">there are two hidden layers
+instead of one hidden layer.</p>
+<p t="2175100" d="3350">The second is that they used
+a RELU nonlinearity function</p>
+<p t="2178450" d="1760">instead of the cube nonlinearity function.</p>
+<p t="2180210" d="3490">And the third and most important is
+that they added a perceptron layer</p>
+<p t="2183700" d="2290">on top of the soft max layer.</p>
+<p t="2185990" d="2800">And notice that the arrows,
+that it takes in</p>
+<p t="2191200" d="5880">as input the outputs from all
+the previous layers in the network.</p>
+<p t="2197080" d="4340">So this perceptron layer wants
+to solve one particular problem,</p>
+<p t="2201420" d="3888">and this problem is that greedy algorithms
+aren't able to really look ahead.</p>
+<p t="2205308" d="1842">They make short term decisions and</p>
+<p t="2207150" d="3950">as a result they can't really
+recover from one incorrect decision.</p>
+<p t="2211100" d="4950">So what they said is, let's allow
+the network then to look ahead and</p>
+<p t="2216050" d="3800">so we're going to have a tree
+which we can search over and</p>
+<p t="2219850" d="4760">this tree is the tree of all the possible
+partial transition sequences.</p>
+<p t="2224610" d="4215">So each edge is a possible transition
+form the state that you're at.</p>
+<p t="2228825" d="830">As you can imagine,</p>
+<p t="2229655" d="3630">even with three transitions your tree
+is gonna blossom very, very quickly and</p>
+<p t="2233285" d="3520">you can't look that far ahead and
+explore all of the possible branches.</p>
+<p t="2236805" d="3010">So what you have to do
+is prune some branches.</p>
+<p t="2239815" d="1600">And for that they use beam search.</p>
+<p t="2241415" d="3805">Now beam search is only
+gonna keep track of the top</p>
+<p t="2245220" d="2960">K partial transition
+sequences up to a depth of M.</p>
+<p t="2248180" d="1490">Now how do you decide which K?</p>
+<p t="2249670" d="5120">You're going to use a score computed
+using the perceptron weights.</p>
+<p t="2254790" d="4080">You guys probably have a decent idea
+at this point of how perceptron works.</p>
+<p t="2258870" d="4130">The exact function they used
+is shown here, and I'm gonna</p>
+<p t="2263000" d="3320">leave up the annotations so you can take
+a look at it later if you're interested.</p>
+<p t="2267730" d="4840">But basically those are the three
+things that they did solve,</p>
+<p t="2272570" d="3040">the problems with the previous
+Chen &amp; Manning model.</p>
+<p t="2275610" d="5310">So in summary, Chen &amp; Manning had
+an unlabeled attachment score of 92%,</p>
+<p t="2280920" d="2310">already phenomenal performance.</p>
+<p t="2283230" d="2450">And with those three changes,
+they boosted it to 94%,</p>
+<p t="2285680" d="4710">and then there's only 0.6%
+left to get you to SyntaxNet,</p>
+<p t="2290390" d="4950">which is Google's 2016
+state of the art model.</p>
+<p t="2295340" d="3970">And if you're curious what the did to get
+that 0.6%, take a look at Andrew All's</p>
+<p t="2299310" d="5470">paper Which uses global normalization
+instead of local normalization.</p>
+<p t="2304780" d="3350">So the main takeaway, and
+it's pretty straight forward but</p>
+<p t="2308130" d="4680">I can't stress it enough, is when you're
+trying to improve upon an existing model,</p>
+<p t="2312810" d="3090">you need to identify the specific
+flaws that are in this model.</p>
+<p t="2315900" d="5180">In this case the greedy algorithm and
+solved those problems specifically.</p>
+<p t="2321080" d="4890">In this case they did that
+using semi-supervised method</p>
+<p t="2325970" d="1730">using unlabeled data.</p>
+<p t="2327700" d="1180">They tune the model better and</p>
+<p t="2328880" d="2770">they use the structured
+perception with beam search.</p>
+<p t="2332660" d="1075">Thank you very much.</p>
+<p t="2333735" d="6600">&gt;&gt; [APPLAUSE]
+&gt;&gt; Kind of awesome.</p>
+<p t="2340335" d="3154">You can now look at these
+kinds of pictures and</p>
+<p t="2343489" d="2494">you totally know what's going on.</p>
+<p t="2345983" d="4940">And in like state of the art stuff
+that the largest companies in</p>
+<p t="2350923" d="1805">the world publishes.</p>
+<p t="2352728" d="990">Exciting times.</p>
+<p t="2353718" d="2062">All right, so</p>
+<p t="2355780" d="5430">we'll gonna through a little bit of
+like a practical Python notebook sort</p>
+<p t="2361210" d="4630">of implementation that shows you a simple
+version of the vanishing gradient problem.</p>
+<p t="2365840" d="3280">Where we don't even have a full recurrent
+real network we just have a simple two</p>
+<p t="2369120" d="3460">layer neural network and even in
+those kinds of networks you will see</p>
+<p t="2372580" d="2980">that the error that you start at
+the top and the norm of the gradients</p>
+<p t="2375560" d="4480">as you go down through your network,
+the norm is already getting smaller.</p>
+<p t="2380040" d="3580">And if you remember these were the two
+equations where I said if you get</p>
+<p t="2383620" d="3710">to the end of those two equations you know
+all the things that you need to know, and</p>
+<p t="2387330" d="4560">you'll actually see these three
+equations in the code as well.</p>
+<p t="2391890" d="3767">So let's jump into this.</p>
+<p t="2395657" d="1152">I don't see it.</p>
+<p t="2396809" d="2311">Let me get out of the presentation</p>
+<p t="2404040" d="3682">All right, better, all right.</p>
+<p t="2407722" d="3120">Now, zoom in.</p>
+<p t="2410842" d="4911">So here, we're going to define
+a super simple problem.</p>
+<p t="2415753" d="4103">This is a code that we started,
+and 231N (with Andrej), and</p>
+<p t="2419856" d="3944">we just modified it to
+make it even simpler.</p>
+<p t="2423800" d="3930">So let's say our data set,
+to keep it also very simple,</p>
+<p t="2427730" d="2450">is just this kind of
+classification data set.</p>
+<p t="2430180" d="4350">Where we have basically three classes,
+the blue, yellow, and red.</p>
+<p t="2434530" d="4720">And they're basically in
+the spiral clusterform.</p>
+<p t="2439250" d="3052">We're going to define our
+simple nonlinearities.</p>
+<p t="2442302" d="5028">You can kind of see it as a solution
+almost to parts of the problem set,</p>
+<p t="2447330" d="2480">which is why we're only showing it now.</p>
+<p t="2449810" d="3210">And we'll put this on the website too,
+so no worries.</p>
+<p t="2453020" d="1820">You can visit later.</p>
+<p t="2454840" d="4105">But basically, you could define here f,
+our different nonlinearities,</p>
+<p t="2458945" d="5355">element-wise, and the gradients for them.</p>
+<p t="2464300" d="3670">So this is f and
+f prime if f is a sigmoid function.</p>
+<p t="2467970" d="4560">We'll also look at the relu, the other
+nonlinearity that's very popular.</p>
+<p t="2472530" d="6050">And here, we just have the maximum between
+0 and x, and very simple function.</p>
+<p t="2478580" d="3916">Now, this is a relatively
+straight forward definition and</p>
+<p t="2482496" d="4004">implementation of this simple
+three layer neural network.</p>
+<p t="2486500" d="4597">Has this input, here our nonlinearity,
+our data x, just these points in two</p>
+<p t="2491097" d="4047">dimensional space, the class,
+it's one of those three classes.</p>
+<p t="2495144" d="4711">We'll have this model here,
+we have our step size for</p>
+<p t="2499855" d="3365">SDG, and our regularization value.</p>
+<p t="2503220" d="4093">Now, these are all our parameters,
+w1, w2 and w3 for</p>
+<p t="2507313" d="3929">all the outputs, and
+variables of the hidden states.</p>
+<p t="2520223" d="1545">Two sets is bigger, all right.</p>
+<p t="2521768" d="6396">&gt;&gt; [LAUGH]
+&gt;&gt; All right, now, if our nonlinearity</p>
+<p t="2528164" d="4689">is the relu, then we have here relu,
+and we just input x, multiply it.</p>
+<p t="2532853" d="2513">And in this case,
+your x can be the entirety of the dataset,</p>
+<p t="2535366" d="3784">cuz the dataset's so small, each
+mini-batch, we can essentially do a batch.</p>
+<p t="2539150" d="4241">Again, if you have realistic datasets,
+you wouldn't wanna do full batch training,</p>
+<p t="2543391" d="1581">but we can get away with it here.</p>
+<p t="2544972" d="1668">It's a very tiny dataset.</p>
+<p t="2546640" d="5030">We multiply w1 times x
+plus our bias terms, and</p>
+<p t="2551670" d="4100">then we have our element-wise
+rectified linear units or relu.</p>
+<p t="2555770" d="2735">Then we've computed in layer two,
+same idea.</p>
+<p t="2558505" d="2745">But now, it's input instead of
+x is the previous hidden layer.</p>
+<p t="2562280" d="4740">And then we compute our scores this way.</p>
+<p t="2567020" d="3861">And then here, we'll normalize
+our scores with the softmax.</p>
+<p t="2570881" d="4107">Just exponentiate our scores,
+some of them.</p>
+<p t="2574988" d="2969">So very similar to the equations
+that we walk through.</p>
+<p t="2577957" d="2583">And now,
+it's just basically an if statement.</p>
+<p t="2580540" d="4950">Either we have used relu
+as our activations, or</p>
+<p t="2585490" d="5214">we use a sigmoid, but
+the math inside is the same.</p>
+<p t="2590704" d="2602">All right, now,
+we're going to compute our loss.</p>
+<p t="2593306" d="6044">Our good friend, the simple average cross
+entropy loss plus the regularization.</p>
+<p t="2599350" d="3410">So here,
+we have negative log of the probabilities,</p>
+<p t="2602760" d="2380">we summed them up overall the elements.</p>
+<p t="2605140" d="4848">And then here, we have our regularization
+as the L2, standard L2 regularization.</p>
+<p t="2609988" d="5666">And we just basically sum up the squares
+of all the elements in all our parameters,</p>
+<p t="2615654" d="2725">and I guess it does cut off a little bit.</p>
+<p t="2618379" d="2481">Let me zoom in.</p>
+<p t="2620860" d="3490">All three have the same of
+amount of regularization, and</p>
+<p t="2624350" d="2800">we add that to our final loss.</p>
+<p t="2627150" d="3080">And now, every 1,000 iterations,
+we'll just print our loss and</p>
+<p t="2630230" d="1086">see what's happening.</p>
+<p t="2631316" d="2149">And this is something you
+always want to do too.</p>
+<p t="2633465" d="2235">You always wanna visualize,
+see what's going on.</p>
+<p t="2635700" d="3124">And hopefully,
+a lot of this now looks very familiar.</p>
+<p t="2638824" d="4229">Maybe if implemented it not quite as
+efficiently, as efficiently in problem set</p>
+<p t="2643053" d="3809">one, but maybe you have, and
+then it's very, very straightforward.</p>
+<p t="2646862" d="3250">Now, that was the forward propagation,
+we can compute our error.</p>
+<p t="2650112" d="2900">Now, we're going to go backwards, and</p>
+<p t="2653012" d="4367">we're computing our delta
+messages first from the scores.</p>
+<p t="2657379" d="2150">Then we have here, back propagation.</p>
+<p t="2659529" d="4890">And now,
+we have the hidden layer activations,</p>
+<p t="2664419" d="5341">transposed times delta
+messages to compute w.</p>
+<p t="2669760" d="5836">Again, remember, we have always for
+each w here, we have this outer product.</p>
+<p t="2675596" d="2436">And that's the outer
+product we see right here.</p>
+<p t="2678032" d="6074">And now, the softmax was the same
+regardless of whether we used a value or</p>
+<p t="2684106" d="1014">a sigmoid.</p>
+<p t="2685120" d="1690">Let's walk through the sigmoid here.</p>
+<p t="2686810" d="5580">We now, basically, have our delta scores,
+and have here the product.</p>
+<p t="2692390" d="4175">So this is exactly computing delta for
+the next layer.</p>
+<p t="2696565" d="4485">And that's exactly this equation here,
+and just Python code.</p>
+<p t="2701050" d="2830">And then again,
+we'll have our updates dw, which is,</p>
+<p t="2703880" d="2580">again, this outer product right there.</p>
+<p t="2706460" d="3865">So it's a very nice
+sort of equations code,</p>
+<p t="2710325" d="4290">almost a nice one to one
+mapping between the two.</p>
+<p t="2714615" d="1425">All right, now,</p>
+<p t="2716040" d="5990">we're going to go through the network
+from the top down to the first layer.</p>
+<p t="2723510" d="1160">Again, here, our outer product.</p>
+<p t="2725670" d="3648">And now, we add the derivatives for
+our regularization.</p>
+<p t="2729318" d="2195">In this case, it's very simple,</p>
+<p t="2731513" d="3491">just matrices themselves
+times the regularization.</p>
+<p t="2735004" d="5965">And we combine all our gradients
+in this data structure.</p>
+<p t="2740969" d="4268">And then we update all our parameters
+with our step_size and SGD.</p>
+<p t="2752745" d="5029">All right, then we can evaluate how
+well we do on the training set, so</p>
+<p t="2757774" d="5886">that we can basically print out
+the training accuracy as we train us.</p>
+<p t="2763660" d="4650">All right, now, we're going to
+initialize all the dimensionality.</p>
+<p t="2768310" d="4653">So we have there just our two
+dimensional inputs, three classes.</p>
+<p t="2772963" d="3487">We compute our hidden sizes
+of the hidden vectors.</p>
+<p t="2776450" d="2839">Let's say, they're 50, it's pretty large.</p>
+<p t="2779289" d="2881">And now, we can run this.</p>
+<p t="2782170" d="3331">All right, we'll train it with both
+sigmoids and rectify linear units.</p>
+<p t="2785501" d="5319">And now,
+once we wanna analyze what's going on,</p>
+<p t="2790820" d="7470">we can essentially now plot some of
+the magnitudes of the gradients.</p>
+<p t="2798290" d="5078">So those are essentially the updates as we
+do back propagation through the snap work.</p>
+<p t="2803368" d="5782">And what we'll see here is
+the some of the gradients for</p>
+<p t="2809150" d="7430">the first and the second layer when
+we use sigmoid non-linearities.</p>
+<p t="2816580" d="5179">And basically here, the main takeaway
+messages that blue is the first layer,</p>
+<p t="2821759" d="2051">and green is the second layer.</p>
+<p t="2823810" d="2441">So the second layer is
+closer to the softmax,</p>
+<p t="2826251" d="2259">closer to what we're trying to predict.</p>
+<p t="2828510" d="3970">And hence, it's gradient is
+usually had larger in magnitude</p>
+<p t="2832480" d="2910">than the one that arrives
+at the first layer.</p>
+<p t="2836590" d="3385">And now, imagine you do this 100 times.</p>
+<p t="2839975" d="3637">And you have intuitively your vanishing
+gradient problem in recurrent neural</p>
+<p t="2843612" d="778">networks.</p>
+<p t="2844390" d="1527">They'll essentially be zero.</p>
+<p t="2845917" d="3559">They're already almost half in size</p>
+<p t="2849476" d="4832">over the iterations when
+you just had two layers.</p>
+<p t="2854308" d="4562">And the problem is a little less strong
+when you use rectified linear units.</p>
+<p t="2858870" d="8005">But even there, you're going to have
+some decrease as you continue to train.</p>
+<p t="2866875" d="5390">All right,
+any questions around this code snippet and</p>
+<p t="2872265" d="3174">vanishing creating problems?</p>
+<p t="2880875" d="1538">No, sure.</p>
+<p t="2882413" d="9347">[LAUGH] That's a good question.</p>
+<p t="2891760" d="2300">The question is why
+are the gradings flatlining.</p>
+<p t="2894060" d="1710">And it's essentially
+because the dataset is so</p>
+<p t="2895770" d="3930">simple that you actually just
+perfectly fitted your training data.</p>
+<p t="2899700" d="4673">And then there's not much else to do
+you're basically in a local optimum and</p>
+<p t="2904373" d="2054">then not much else is happening.</p>
+<p t="2906427" d="5128">So yeah, so these are the outputs where
+if you visualize the decision boundaries,</p>
+<p t="2911555" d="4248">here at the relue and the relue you
+see a little bit more sort of edges,</p>
+<p t="2915803" d="4104">because you have sort of linear
+parts of your decision boundary and</p>
+<p t="2919907" d="3253">the sigmoid is a little smoother,
+little rounder.</p>
+<p t="2928547" d="4431">All right, so now you can implement a very
+quick versions to get an intuition for</p>
+<p t="2932978" d="2672">the vanishing gradient problem.</p>
+<p t="2935650" d="4730">Now the exploding gradient problem is,
+in theory, just as bad.</p>
+<p t="2940380" d="4870">But in practice,
+it turns out we can actually have a hack,</p>
+<p t="2945250" d="4490">that was first introduced by
+Thomas Mikolov, and it's very</p>
+<p t="2949740" d="3920">unmathematical in some ways 'cause say,
+all you have is a large gradient of 100.</p>
+<p t="2953660" d="1450">Let's just cap it to five.</p>
+<p t="2957030" d="1710">That's it,
+you just define the threshold and</p>
+<p t="2958740" d="4450">you say whenever the value is larger
+than a certain value, just cut it.</p>
+<p t="2963190" d="4020">Totally not the right
+mathematical direction anymore.</p>
+<p t="2967210" d="2120">But turns out to work very
+well in practice, yep.</p>
+<p t="2971270" d="3200">So vanishing creating problems,
+how would you cap it?</p>
+<p t="2974470" d="4880">It's like it gets smaller and
+smaller, and you just multiply it?</p>
+<p t="2979350" d="2010">But then it's like, it might overshoot.</p>
+<p t="2981360" d="2330">It might go in the completely
+wrong direction.</p>
+<p t="2983690" d="5590">And you don't want to have the hundredth
+word unless it really matters.</p>
+<p t="2989280" d="3760">You can't just make all
+the hundred words or</p>
+<p t="2993040" d="3120">thousand words of the past
+all matter the same amount.</p>
+<p t="2996160" d="1500">Right?
+Intuitively.</p>
+<p t="2997660" d="2170">That doesn't make that much sense either.</p>
+<p t="2999830" d="6200">So this gradient clipping solution
+is actually really powerful.</p>
+<p t="3006030" d="5537">And then a couple years after it
+was introduced, Yoshua Bengio and</p>
+<p t="3011567" d="4793">one of his students Actually gained
+a little bit of intuition and</p>
+<p t="3016360" d="1870">it's something I encourage
+you always to do too.</p>
+<p t="3018230" d="3460">Not just in the equations, where you
+can write out recurrent neural network,</p>
+<p t="3021690" d="3190">where everything's one dimensional,
+and the math comes out easy and</p>
+<p t="3024880" d="1390">you gain intuition about it.</p>
+<p t="3026270" d="4070">But you can also, and this is what
+they did here, implement a very simple</p>
+<p t="3030340" d="3610">recurrent neural network which
+just had a single hidden unit.</p>
+<p t="3033950" d="3890">Not very useful for anything in practice
+but now, with the single unit W.</p>
+<p t="3037840" d="2788">And you know, at still the bias term,</p>
+<p t="3040628" d="4982">they can actually visualize exactly
+what the air surface looks like.</p>
+<p t="3045610" d="4818">So and oftentimes we call the air
+surface or the energy landscape or so</p>
+<p t="3050428" d="2322">that the landscape of
+our objective function.</p>
+<p t="3053910" d="2920">This error surface and basically.</p>
+<p t="3056830" d="5170">You can see here the size of
+the z axis here is the error</p>
+<p t="3062000" d="2390">that you have when you trained
+us on a very simple problem.</p>
+<p t="3065990" d="1330">I forgot what the problem here was but</p>
+<p t="3067320" d="3440">it's something very simple
+like keep around this unit and</p>
+<p t="3070760" d="3700">remember the value and then just
+return that value 50 times later.</p>
+<p t="3074460" d="1710">Something simple like that.</p>
+<p t="3076170" d="4380">And what they essentially observe
+is that in this air surface or</p>
+<p t="3080550" d="2750">air landscape you have
+these high curvature walls.</p>
+<p t="3083300" d="2500">And so as you do an update each</p>
+<p t="3085800" d="4170">little line here you can interpret as
+what happens at an sg update step.</p>
+<p t="3089970" d="1680">You update your parameters.</p>
+<p t="3091650" d="3862">And you say, in order to minimize
+my objective function right now,</p>
+<p t="3095512" d="3048">I'm going to change the value
+of my one hidden unit and</p>
+<p t="3098560" d="4050">my bias term just like by this amount
+to go over here, go over here.</p>
+<p t="3102610" d="2300">And all of a sudden you hit
+these large curvature walls.</p>
+<p t="3104910" d="5840">And then your gradient basically blows up,
+and it moves you somewhere way different.</p>
+<p t="3110750" d="2520">And so intuitively what happens here is,</p>
+<p t="3113270" d="5770">if you rescale to the thick size with
+the special method, then essentially</p>
+<p t="3119040" d="4280">you're not going to jump to some crazy,
+faraway place, but you're just going to</p>
+<p t="3123320" d="3990">stay in this general area that seemed
+useful before you hit that curvature wall.</p>
+<p t="3128818" d="500">Yeah?</p>
+<p t="3150568" d="3308">So the question is, intuitively,
+why wouldn't such a trick work for</p>
+<p t="3153876" d="3941">the vanishing grading problem but it does
+work for the exploding grading problem.</p>
+<p t="3162828" d="1235">Why does the reason for</p>
+<p t="3164063" d="3528">the vanishing does not apply to
+the exploding grading problem.</p>
+<p t="3167591" d="4199">So intuitively,
+this is exactly the issue here.</p>
+<p t="3171790" d="3840">So the exploding,
+as you move way too far away,</p>
+<p t="3175630" d="4620">you basically jump out of the area
+where you, in this case here for</p>
+<p t="3180250" d="3210">instance, we're getting closer and
+closer to a local optimum, but</p>
+<p t="3183460" d="3130">the local optimum was very
+close to high curvature wall.</p>
+<p t="3186590" d="3200">And without the gradient problem,
+without the clipping trick,</p>
+<p t="3189790" d="1490">you would go way far away.</p>
+<p t="3192300" d="4610">Right, now, on the vanishing grading
+problem, it get's smaller and smaller.</p>
+<p t="3196910" d="2240">So in general clipping doesn't make sense,
+but</p>
+<p t="3199150" d="2500">let's say, so that's the obvious answer.</p>
+<p t="3201650" d="3840">You can't, something gets smaller and
+smaller, it doesn't help to have a maximum</p>
+<p t="3205490" d="3450">and then make it, you know cut it to that
+maximum 'cause that's not the problem.</p>
+<p t="3208940" d="1860">It goes in the opposite direction.</p>
+<p t="3210800" d="1210">And so.</p>
+<p t="3212010" d="2120">That's kind of most
+obvious intuitive answers.</p>
+<p t="3214130" d="1290">Now, you could say.</p>
+<p t="3215420" d="4510">Why couldn't you, if it gets below
+a certain threshold, blow it up?</p>
+<p t="3219930" d="1560">But then that would mean that.</p>
+<p t="3221490" d="2000">Let's say you had.</p>
+<p t="3223490" d="1460">You wanted to predict the word.</p>
+<p t="3224950" d="1700">And now you're 50 time steps away.</p>
+<p t="3226650" d="4020">And really,
+the 51st doesn't actually impact</p>
+<p t="3230670" d="1980">the word you're trying to
+predict at time step T, right?</p>
+<p t="3232650" d="3200">So you're 50 times to 54 and
+it doesn't really modify that word.</p>
+<p t="3235850" d="4550">And now you're artificially going to
+blow up and make it more important.</p>
+<p t="3240400" d="2033">So that's less intuitive than saying,</p>
+<p t="3242433" d="3900">I don't wanna jump into some completely
+different part of my error surface.</p>
+<p t="3251890" d="3260">The wall just comes from this is what
+the error surface looks like for</p>
+<p t="3255150" d="3834">a very very simple recurrent node network
+with a very simple kind of problem that</p>
+<p t="3258984" d="1571">it tries to solve.</p>
+<p t="3260555" d="4000">And you can actually use most
+of the networks that you have,</p>
+<p t="3264555" d="2690">you can try to make them
+have just two parameters and</p>
+<p t="3267245" d="2000">then you can visualize
+something like this too.</p>
+<p t="3269245" d="2285">In fact it's very intuitive
+sometimes to do that.</p>
+<p t="3271530" d="4960">When you try different optimizers,
+we'll get to those in a later lecture</p>
+<p t="3276490" d="3300">like Adam or SGD or achieve momentum,
+we'll talk about those soon.</p>
+<p t="3279790" d="4490">You can actually always try to visualise
+that in some simple kind of landscape.</p>
+<p t="3284280" d="4647">This just happens to be the landscape that
+this particular recurrent neural network</p>
+<p t="3288927" d="2849">problem has with one-hidden unit and
+just a bias term.</p>
+<p t="3306876" d="2434">So the question is, how could we know for</p>
+<p t="3309310" d="4310">sure that this happens with non-linear
+actions and multiple weight.</p>
+<p t="3313620" d="3540">So you also have some
+non-linearity here in this.</p>
+<p t="3317160" d="5500">So that intuitively wouldn't prevent
+us from transferring that knowledge.</p>
+<p t="3322660" d="1430">Now, in general, it's very hard.</p>
+<p t="3324090" d="4060">We can't really visualize
+a very high dimensional spaces.</p>
+<p t="3328150" d="6880">There is actually now an interesting
+new idea that was introduced,</p>
+<p t="3335030" d="4870">I think by Ian Goodfellow
+where you can actually try to,</p>
+<p t="3339900" d="4290">let's say you have your parameter space,
+inside your parameter space,</p>
+<p t="3344190" d="1330">you have some kind of cross function.</p>
+<p t="3345520" d="5600">So you say my w matrices are at this value
+and so on, and I have some error when</p>
+<p t="3351120" d="3780">all my values are here, and then I start
+to optimize and I end up somewhere here.</p>
+<p t="3354900" d="2500">Now the problem is, we can't
+visualize it because it's usually in</p>
+<p t="3357400" d="3340">realistic settings,
+you have the 100 million.</p>
+<p t="3360740" d="640">Workflow.</p>
+<p t="3361380" d="3630">At least a million or so
+parameters, sometimes 100 million.</p>
+<p t="3365010" d="4580">And so, something crazy might be going
+on as you optimize between this.</p>
+<p t="3369590" d="2460">And so, because we can't visualize it and</p>
+<p t="3372050" d="3180">we can't even sub-sample it because
+it's such a high-dimensional space.</p>
+<p t="3375230" d="3660">What they do is they actually
+draw a line between the point</p>
+<p t="3378890" d="4160">from where they started with their random
+initialization before optimization.</p>
+<p t="3383050" d="4870">And end the line all the way to the point</p>
+<p t="3387920" d="2700">where you actually
+finished the optimization.</p>
+<p t="3390620" d="4490">And then you can evaluate along
+this line at a certain intervals,</p>
+<p t="3395110" d="4850">you can evaluate how big your area is.</p>
+<p t="3399960" d="3885">And if that area changes between
+two such intervals a lot,</p>
+<p t="3403845" d="3715">then that means we have very
+high curvature in that area.</p>
+<p t="3407560" d="5040">So that's one trick of how
+you might use this idea and</p>
+<p t="3412600" d="2870">gain some intuition of
+the curvature of the space.</p>
+<p t="3415470" d="3470">But yeah, only in two dimensions can we
+get such nice intuitive visualizations.</p>
+<p t="3420070" d="505">Yeah.</p>
+<p t="3425775" d="3485">So the question is why don't
+we just have less dependence?</p>
+<p t="3429260" d="4310">And the question of course,
+it's a legit question, but</p>
+<p t="3433570" d="2170">ideally we'll let
+the model figure this out.</p>
+<p t="3435740" d="2250">Ideally we're better at
+optimizing the model, and</p>
+<p t="3437990" d="2660">the model has in theory these
+long range dependencies.</p>
+<p t="3440650" d="1750">In practice, they rarely ever do.</p>
+<p t="3443400" d="3417">In fact when you implement these, and
+you can start playing around with this and</p>
+<p t="3446817" d="2050">this is something I
+encourage you all to do too.</p>
+<p t="3448867" d="4271">As you implement your models you can try
+to make it a little bit more interactive.</p>
+<p t="3453138" d="2761">Have some IPython Notebook,
+give it a sequence and</p>
+<p t="3455899" d="2254">look at the probability of the next word.</p>
+<p t="3458153" d="3599">And then give it a different sequence
+where you change words like ten time</p>
+<p t="3461752" d="2568">steps away, and
+look again at the probabilities.</p>
+<p t="3464320" d="4394">And what you'll often observe is that
+after seven words or so, the words before</p>
+<p t="3468714" d="4869">actually don't matter, especially not for
+these simple recurrent neural networks.</p>
+<p t="3473583" d="1946">But because this is a big problem,</p>
+<p t="3475529" d="3381">there are actually a lot of
+different kinds of solutions.</p>
+<p t="3478910" d="5070">And so the biggest and
+best one is one we'll introduce next week.</p>
+<p t="3483980" d="3560">But a simpler one is to use
+rectified linear units and</p>
+<p t="3487540" d="4530">to also initialize both of your w's
+to ones from hidden to hidden and</p>
+<p t="3492070" d="4550">the ones from the input to the hidden
+state with the identity matrix.</p>
+<p t="3496620" d="3188">And this is a trick that I
+introduced a couple years ago and</p>
+<p t="3499808" d="3269">then it was sort of combined
+with rectified linear units.</p>
+<p t="3503077" d="4403">And applied to recurrent
+neural networks by Quoc Le.</p>
+<p t="3507480" d="4975">And so the main idea here is if
+you move around in your space.</p>
+<p t="3512455" d="2897">Let's say you have your h, and</p>
+<p t="3515352" d="5026">usually we have here our whh times h,
+plus whx plus x.</p>
+<p t="3520378" d="6000">And let's assume for now that h and
+x have the same dimensionality.</p>
+<p t="3526378" d="5790">So then all these
+are essentially square matrices.</p>
+<p t="3532168" d="2192">And we have here our different vectors.</p>
+<p t="3536050" d="5210">Now, in the standard initialization,
+what you would do is you'd</p>
+<p t="3541260" d="4890">just have a bunch of small random values
+and all the different elements of w.</p>
+<p t="3546150" d="3690">And what that means is
+as you start optimizing,</p>
+<p t="3549840" d="3050">whatever x is you have some random
+projection into the hidden space.</p>
+<p t="3554110" d="4070">Instead, the idea here is we actually
+have identity initialization.</p>
+<p t="3558180" d="4927">Maybe you can scale it, so instead
+you have a half times the identity,</p>
+<p t="3563107" d="1597">and what does that do?</p>
+<p t="3564704" d="3952">Intuitively when you combine
+the hidden state and the word vector?</p>
+<p t="3577381" d="1252">That's exactly right.</p>
+<p t="3578633" d="2527">If this is an identity initialized matrix.</p>
+<p t="3581160" d="2823">So it's just, 1, 1, 1,
+1, 1, 1 on the diagonal.</p>
+<p t="3583983" d="2527">And you multiply all of these by one half.</p>
+<p t="3586510" d="3370">Same as just having a half,
+a half, a half, and so on.</p>
+<p t="3589880" d="2456">And you multiply this with this vector and
+you do the same thing here.</p>
+<p t="3592336" d="3796">What essentially that means is that
+you have a half, times that vector,</p>
+<p t="3596132" d="1878">plus half times that other vector.</p>
+<p t="3599580" d="3112">And intuitively that means in
+the beginning, if you don't know anything.</p>
+<p t="3602692" d="3150">Let's not do a crazy random projection
+into the middle of nowhere in our</p>
+<p t="3605842" d="1693">parameter space, but just average.</p>
+<p t="3607535" d="4543">And say, well as I move through the space
+my hidden state is just a moving</p>
+<p t="3612078" d="1909">average of the word vectors.</p>
+<p t="3613987" d="1563">And then I start making some updates.</p>
+<p t="3616600" d="3290">And it turns out when you look here and</p>
+<p t="3619890" d="2655">you apply this to the very
+tight problem of MNIST.</p>
+<p t="3622545" d="2516">Which we don't really have to go into,
+but its a bunch of small digits.</p>
+<p t="3625061" d="2771">And they're trying to basically predict</p>
+<p t="3627832" d="4498">what digit it is by going over
+all the pixels in a sequence.</p>
+<p t="3632330" d="810">Instead of using</p>
+<p t="3633140" d="2830">other kinds of neural networks like
+convolutional neural networks.</p>
+<p t="3635970" d="2680">And basically we look
+at the test accuracy.</p>
+<p t="3638650" d="2410">These are very long time sequences.</p>
+<p t="3641060" d="3250">And the test accuracy for
+these is much, much higher.</p>
+<p t="3644310" d="5440">When you use this identity initialization
+instead of random initialization,</p>
+<p t="3649750" d="2850">and also using rectified linear units.</p>
+<p t="3652600" d="5160">Now more importantly for
+real language modeling,</p>
+<p t="3657760" d="3610">we can compare recurrent neural
+networks in this simple form.</p>
+<p t="3661370" d="4000">So we had the question before like,
+do these actually matter or</p>
+<p t="3665370" d="5970">did I just kind of describe single
+layer recurrent neural networks for</p>
+<p t="3671340" d="2330">the class to describe the concept.</p>
+<p t="3673670" d="4210">And here we actually have these
+simple recurrent neural networks, and</p>
+<p t="3677880" d="1530">we basically compare.</p>
+<p t="3679410" d="5073">This one is called Kneser-Ney with 5
+grams, so a lot of counts, and some clever</p>
+<p t="3684483" d="5090">back off and smoothing techniques which
+we won't need to get into for the class.</p>
+<p t="3689573" d="3804">And we compare these on
+two different corpora and</p>
+<p t="3693377" d="3083">we basically look at the perplexity.</p>
+<p t="3696460" d="4421">So these are all perplexity numbers,
+and we look at the neural network or</p>
+<p t="3700881" d="3481">the neural network that's
+combined with Kneser-Ney,</p>
+<p t="3704362" d="2187">assuming probability estimates.</p>
+<p t="3706549" d="3171">And of course when you combine the two
+then you don't really get the advantage of</p>
+<p t="3709720" d="940">having less RAM.</p>
+<p t="3710660" d="3241">So ideally this by itself would do best,
+but</p>
+<p t="3713901" d="4127">in general combining the two
+used to still work better.</p>
+<p t="3718028" d="4282">These are results from five years ago,
+and they failed most very quickly.</p>
+<p t="3722310" d="5560">I think the best results now are pure
+neural network language models.</p>
+<p t="3727870" d="4820">But basically we can see
+that compared to Kneser-Ney,</p>
+<p t="3732690" d="5220">even back then, the neural
+network actually works very well.</p>
+<p t="3737910" d="7235">And has much lower perplexity than just
+the Kneser-Ney or just account based.</p>
+<p t="3748379" d="4059">Now one problem that you'll
+observe in a lot of cases,</p>
+<p t="3752438" d="4202">is that the softmax is really,
+really large.</p>
+<p t="3756640" d="3990">So your word vectors are one
+set of parameters, but</p>
+<p t="3760630" d="2460">your softmax is another set of parameters.</p>
+<p t="3763090" d="2695">And if your hidden state is 1000, and</p>
+<p t="3765785" d="3550">let's say you have
+100,000 different words.</p>
+<p t="3769335" d="4751">Then that's 100,000 times 1000 dimensional
+matrix that you'd have to multiply with</p>
+<p t="3774086" d="2944">the hidden state at
+every single time step.</p>
+<p t="3777030" d="2430">So that's not very efficient, and so</p>
+<p t="3779460" d="6230">one way to improve this is with
+a class-based word prediction.</p>
+<p t="3785690" d="3732">Where we first try to predict some
+class that we can come up, and</p>
+<p t="3789422" d="2278">there are different kinds
+of things we can do.</p>
+<p t="3791700" d="4350">In many cases you can sort,
+just the words by how frequent they are.</p>
+<p t="3796050" d="2255">And say the thousand most frequent
+words are in the first class,</p>
+<p t="3798305" d="2420">the next thousand most frequent
+words in the second class and so on.</p>
+<p t="3800725" d="7622">And so you first basically classify, try
+to predict the class based on the history.</p>
+<p t="3808347" d="3752">And then you predict the word inside
+that class, based on that class.</p>
+<p t="3812099" d="2887">And so this one is only
+a thousand dimensional, and so</p>
+<p t="3814986" d="1485">you can basically do this.</p>
+<p t="3816471" d="3070">And now the more classes
+the better the perplexity, but</p>
+<p t="3819541" d="3729">also the slower the speed
+the less you gain from this.</p>
+<p t="3823270" d="3720">And especially at training time
+which is what we see here,</p>
+<p t="3828170" d="1310">this makes a huge difference.</p>
+<p t="3829480" d="5250">So if you have just very few classes,
+you can actually reduce</p>
+<p t="3834730" d="4280">the number here of seconds
+that each eproc takes.</p>
+<p t="3839010" d="3770">By almost 10x compared to
+having more classes or</p>
+<p t="3843780" d="2830">even more than 10x if you
+have the full softmax.</p>
+<p t="3849050" d="4741">And even the test time, is faster cuz now
+you only essentially evaluate the word</p>
+<p t="3853791" d="4268">probabilities for the classes that
+have a very high probability here.</p>
+<p t="3861988" d="5278">All right, one last trick and
+this is maybe obvious to some but</p>
+<p t="3867266" d="6824">it wasn't obvious to others even in
+the past when people published on this.</p>
+<p t="3874090" d="3200">But you essentially only need
+to do a single backward's pass</p>
+<p t="3877290" d="1290">through the sequence.</p>
+<p t="3878580" d="6620">Once you accumulate all the deltas
+from each error at each time set.</p>
+<p t="3885200" d="5140">So looking at this figure,
+really quick again.</p>
+<p t="3891540" d="3010">Here, essentially you have
+one forward pass where you</p>
+<p t="3894550" d="4300">compute all the hidden states and
+all your errors, and</p>
+<p t="3898850" d="3020">then you only have a single
+backwards pass, and as you go</p>
+<p t="3901870" d="4500">backwards in time you keep accumulating
+all the deltas of each time step.</p>
+<p t="3906370" d="4640">And so originally people said, for this
+time step I'm gonna go all the way back,</p>
+<p t="3911010" d="3000">and then I go to the next time step,
+and then I go all the way back, and</p>
+<p t="3914010" d="2900">then the next step, and all the way back,
+which is really inefficient.</p>
+<p t="3916910" d="2770">And is essentially same as combining</p>
+<p t="3920750" d="3440">all the deltas in one clean
+back propagation step.</p>
+<p t="3924190" d="3050">And again, it's kind of is intuitive.</p>
+<p t="3927240" d="2097">An intuitive sort of
+implementation trick but</p>
+<p t="3929337" d="2643">people gave that the term back
+propagation through time.</p>
+<p t="3938553" d="4456">All right, now that we have these
+simple recurrent neural networks,</p>
+<p t="3943009" d="2881">we can use them for
+a lot of fun applications.</p>
+<p t="3945890" d="3040">In fact, the name entity recognition
+that we're gonna use in example with</p>
+<p t="3948930" d="1220">the Window.</p>
+<p t="3950150" d="6070">In the Window model, you could only
+condition the probability of this being</p>
+<p t="3956220" d="4620">a location, a person, or an organization
+based on the words in that Window.</p>
+<p t="3960840" d="2960">The recurrent neural network
+you can in theory take and</p>
+<p t="3963800" d="4900">condition these probabilities
+on a lot larger context sizes.</p>
+<p t="3968700" d="2360">And so
+you can do Named Entity Recognition (NER),</p>
+<p t="3971060" d="3970">you can do entity level sentiment in
+context, so for instance you can say.</p>
+<p t="3975030" d="3450">I liked the acting, but
+the plot was a little thin.</p>
+<p t="3978480" d="4090">And you can say I want to now for
+acting say positive, and</p>
+<p t="3982570" d="2430">predict the positive class for that word.</p>
+<p t="3985000" d="4774">Predict the null class, and
+all sentiment for all the other words,</p>
+<p t="3989774" d="3372">and then plot should get
+negative class label.</p>
+<p t="3993146" d="6011">Or you can classify opinionated
+expressions, and this is what researchers</p>
+<p t="3999157" d="5497">at Cornell where they
+essentially used RNNs for</p>
+<p t="4004654" d="5040">opinion mining and essentially wanted
+to classify whether each word in</p>
+<p t="4009694" d="5712">a relatively smaller purpose here is
+either the direct subjective expression or</p>
+<p t="4015406" d="5297">the expressive subjective expression,
+so either direct or expressive.</p>
+<p t="4020703" d="4927">So basically this is direct
+subjective expressions,</p>
+<p t="4025630" d="6140">explicitly mention some private state or
+speech event, whereas the ESEs just</p>
+<p t="4031770" d="5180">indicate the sentiment or emotion without
+explicitly stating or conveying them.</p>
+<p t="4036950" d="814">So here's an example,</p>
+<p t="4037764" d="4566">like the committee as usual has
+refused to make any statements.</p>
+<p t="4042330" d="3590">And so you want to classify
+as usual as an ESE, and</p>
+<p t="4045920" d="3660">basically give each of these
+words here a certain label.</p>
+<p t="4049580" d="4390">And this is something you'll actually
+observe a lot in sequence tagging paths.</p>
+<p t="4053970" d="3310">Again, all the same models
+the recurrent neural network.</p>
+<p t="4057280" d="2070">You have the soft max at every time step.</p>
+<p t="4059350" d="3980">But now the soft max actually
+has a set of classes</p>
+<p t="4063330" d="4830">that indicate whether a certain
+expression begins or ends.</p>
+<p t="4068160" d="4830">And so here you would basically
+have this BIO notation</p>
+<p t="4072990" d="4830">scheme where you have the beginning or
+the end, or a null token.</p>
+<p t="4077820" d="2750">It's not any of the expressions
+that I care about.</p>
+<p t="4080570" d="4460">So here you would say for instance,
+as usual is an overall ESE expression, so</p>
+<p t="4085030" d="2770">it begins here, and
+it's in the middle right here.</p>
+<p t="4089500" d="2840">And then these are neither ESEs or DSEs.</p>
+<p t="4092340" d="5780">All right, now they started with
+the standard recurrent neural network, and</p>
+<p t="4098120" d="5410">I want you to at some point be able
+to glance over these equations,</p>
+<p t="4103530" d="2620">and just say I've seen this before.</p>
+<p t="4106150" d="3090">It doesn't have to be W superscript HH,
+and so on.</p>
+<p t="4109240" d="5270">But whenever you see, the summation
+order of course, doesn't matter either.</p>
+<p t="4115530" d="4190">But here, they use W, V, and
+U, but then they defined,</p>
+<p t="4119720" d="3590">instead of writing out softmax,
+they write g here.</p>
+<p t="4123310" d="3270">But once you look at these equations,
+I hope that eventually you're just like</p>
+<p t="4126580" d="1490">it's just a recurrent neural network,
+right?</p>
+<p t="4128070" d="3380">You have here,
+are your hidden to hidden matrix.</p>
+<p t="4131450" d="6040">You have your input to hidden matrix, and
+here you have your softmax waits you.</p>
+<p t="4137490" d="4890">So same idea, but these are the actual
+equations from this real paper that you</p>
+<p t="4142380" d="4610">can now kind of read and immediately sort
+of have the intuition of what happens.</p>
+<p t="4148302" d="5268">All right, you need directional
+recurrent neural network where we,</p>
+<p t="4153570" d="4100">if we try to make the prediction here,
+of whether this is an ESE or</p>
+<p t="4157670" d="4150">whatever name entity recognition,
+any kind of sequence labelling task,</p>
+<p t="4161820" d="3370">what's the problem with
+this kind of model?</p>
+<p t="4165190" d="3250">What do you think as we go
+from left to right only?</p>
+<p t="4168440" d="3406">What do you think could be a problem for
+making the most accurate predictions?</p>
+<p t="4180505" d="1415">That's right.</p>
+<p t="4181920" d="3160">Words that come after
+the current word can't be</p>
+<p t="4185080" d="3330">helping us to make accurate
+predictions at that time step, right?</p>
+<p t="4188410" d="2340">Cuz we only went from left to right.</p>
+<p t="4190750" d="4370">And so one of the most common
+extensions of recurrent neural networks</p>
+<p t="4195120" d="3340">is actually to do bidirectional
+recurrent neural networks</p>
+<p t="4198460" d="4750">where instead of just going from left to
+right, we also go from right to left.</p>
+<p t="4203210" d="1830">And it's essentially the exact same model.</p>
+<p t="4205040" d="3380">In fact, you could implement it by
+changing your input and just reversing all</p>
+<p t="4208420" d="2650">the words of your input, and
+then it's exactly the same thing.</p>
+<p t="4212100" d="3280">And now, here's the reason why they
+don't have superscripts with WHH,</p>
+<p t="4215380" d="3720">cuz now they have these
+arrows that indicate</p>
+<p t="4219100" d="2670">whether you're going from left to right,
+or from right to left.</p>
+<p t="4223440" d="4250">And now, they basically have
+this concatenation here, and</p>
+<p t="4227690" d="6050">in order to make a prediction at a certain
+time step t they essentially concatenate</p>
+<p t="4233740" d="4120">the hidden states from both the left
+direction and the right direction.</p>
+<p t="4237860" d="2080">And those are now the feature vectors.</p>
+<p t="4239940" d="4820">And this vector ht coming from the left,
+has all the context ordinal,</p>
+<p t="4244760" d="3250">again seven plus words,
+depending on how well you train your RNN.</p>
+<p t="4249080" d="1624">From all the words on the left,</p>
+<p t="4250704" d="3623">ht from the right has all the contacts
+from the words on the right, and</p>
+<p t="4254327" d="4458">that is now your feature vector to make an
+accurate prediction at a certain time set.</p>
+<p t="4260612" d="3238">Any questions around bidirectional
+recurrent neural networks?</p>
+<p t="4263850" d="3080">You'll see these a lot in all
+the recent papers you'll be learning,</p>
+<p t="4268200" d="1000">in various modifications.</p>
+<p t="4269200" d="500">Yeah.</p>
+<p t="4274855" d="2815">Have people tried
+Convolutional Neural Networks?</p>
+<p t="4277670" d="3007">They have, and we have a special lecture
+also we will talk a little bit about</p>
+<p t="4280677" d="1399">Convolutional Neural Networks.</p>
+<p t="4291457" d="1953">So you don't necessarily have a cycle,
+right?</p>
+<p t="4293410" d="4480">You just go, basically as you implement
+this, you go once all the way for</p>
+<p t="4297890" d="720">your the left, and</p>
+<p t="4298610" d="3110">you don't have any interactions with
+the step that goes from the right.</p>
+<p t="4301720" d="4310">You can compute your
+feet forward HTs here for</p>
+<p t="4306030" d="3110">that direction,
+are only coming from the left.</p>
+<p t="4309140" d="2190">And the HT from the other direction,
+you can compete,</p>
+<p t="4311330" d="3720">in fact you could paralyze this if
+you want to be super efficient and.</p>
+<p t="4315050" d="2110">Have one core,
+implement the left direction, and</p>
+<p t="4317160" d="1570">one core implement the right direction.</p>
+<p t="4318730" d="3800">So in that sense it doesn't make
+the vanishing create any problem worse.</p>
+<p t="4324120" d="3313">But, of course,
+just like any recurring neural network,</p>
+<p t="4327433" d="2784">it does have the vanishing
+creating problem, and</p>
+<p t="4330217" d="4508">the exploding creating problems and it has
+to be clever about flipping it and so,</p>
+<p t="4334725" d="4949">yeah We call them standard</p>
+<p t="4339674" d="5576">feedforward neural networks or
+Window based feedforward neural networks.</p>
+<p t="4345250" d="2040">And now we have recurrent neural networks.</p>
+<p t="4347290" d="3110">And this is really one of
+the most powerful family and</p>
+<p t="4350400" d="1220">we'll see lots of extensions.</p>
+<p t="4351620" d="3260">In fact, if there's no other
+question we can go even deeper.</p>
+<p t="4354880" d="2540">It is after all deep learning.</p>
+<p t="4357420" d="5080">And so, now you'll observe [LAUGH] we
+definitely had to skip that superscript.</p>
+<p t="4362500" d="5315">And we have different, Characters here for</p>
+<p t="4367815" d="4680">each of our matrices, because,
+instead of just going from left to right,</p>
+<p t="4372495" d="3585">you can also have a deep neural
+network at each time step.</p>
+<p t="4377230" d="5450">And so now, to compute the ith
+layer at a given time step, you</p>
+<p t="4382680" d="4770">essentially again, have only the things
+coming from the left that modify it but,</p>
+<p t="4387450" d="5980">you just don't take in the vector from the
+left, you also take the vector from below.</p>
+<p t="4393430" d="7160">So, in the simplest definition that is
+just your x, your input vector right?</p>
+<p t="4400590" d="5613">But as you go deeper you now also have
+the previous hidden layers input.</p>
+<p t="4416409" d="1794">Instead of why are the,</p>
+<p t="4430648" d="1279">So the question is,</p>
+<p t="4431927" d="5083">why do we feed the hidden layer into
+another hidden layer instead of the y?</p>
+<p t="4437010" d="3270">In fact, you can actually have so
+called short circuit connections,</p>
+<p t="4440280" d="4760">too, where each of these h's can
+go directly to the y as well.</p>
+<p t="4445040" d="4850">And so here in this figure you see
+that only the top ones go into the y.</p>
+<p t="4449890" d="4780">But you can actually have short circuit
+connections where y here has as input</p>
+<p t="4454670" d="4640">not just ht from the top layer,
+noted here as capital L, but</p>
+<p t="4459310" d="2210">the concatenation of all the h's.</p>
+<p t="4461520" d="3778">It's just another way to make
+this monster even more monstrous.</p>
+<p t="4468029" d="4395">And in fact there a lot of modifications,
+in fact, Shayne has a paper,</p>
+<p t="4472424" d="4546">an ArXiv right now on a search based
+odyssey type thing where you have so</p>
+<p t="4476970" d="5009">many different kinds of knobs that you can
+tune for even more sophisticated recurrent</p>
+<p t="4481979" d="4900">neural networks of the type that we'll
+introduce next week that, it gets a little</p>
+<p t="4486879" d="4542">unwieldy and it turns out a lot of
+the things don't matter that much, but</p>
+<p t="4491421" d="3839">each can kind of give you a little
+bit of a boost in many cases.</p>
+<p t="4495260" d="1620">So if you have three layers,
+you have four layers,</p>
+<p t="4496880" d="2190">what's the dimensionality
+of all the layers and</p>
+<p t="4499070" d="3240">the various different kinds of connections
+and short circuit connections.</p>
+<p t="4502310" d="5590">We'll introduce some of these, but
+in general this like a pretty decent model</p>
+<p t="4507900" d="4400">and will eventually extract away from
+how we compute that hidden state, and</p>
+<p t="4512300" d="5550">that will be a more complex kind of cell
+type that we'll introduce next Tuesday.</p>
+<p t="4519490" d="4110">Do we have one more question?</p>
+<p t="4523600" d="2090">So now how do we evaluate this?</p>
+<p t="4525690" d="5030">It's very important to evaluate
+your problems correctly,</p>
+<p t="4530720" d="3790">and we actually talked about this before.</p>
+<p t="4534510" d="5320">When you have a very imbalanced data set,
+where some of the classes appear</p>
+<p t="4539830" d="3040">very frequently and others are not very
+frequent, you don't wanna use accuracy.</p>
+<p t="4542870" d="5080">In fact, in these kinds of sentences,
+you often observe, this is an extreme one</p>
+<p t="4547950" d="5660">where you have a lot of ESEs and
+DSEs but in many cases, just content.</p>
+<p t="4553610" d="5600">Standard sort of non-sentiment context and</p>
+<p t="4559210" d="4380">words, and so a lot of these
+are actually O, have no label.</p>
+<p t="4563590" d="3080">And so it's very important to use F1 and</p>
+<p t="4566670" d="4050">we basically had this question also after
+class, but it's important for all of you</p>
+<p t="4570720" d="4730">to know because the F1 metric is really
+one of the most commonly used metrics.</p>
+<p t="4575450" d="3060">And it's essentially just the harmonic
+mean of precision and recall.</p>
+<p t="4578510" d="2880">Precision is just the true
+positives divided by</p>
+<p t="4581390" d="3400">true positives plus false positives and</p>
+<p t="4584790" d="3810">recall is just true positives divided
+by true positives plus false negatives.</p>
+<p t="4588600" d="3290">And then you have here the harmonic
+mean of these two numbers.</p>
+<p t="4593120" d="5070">So intuitively, you can be very
+accurate by always saying something or</p>
+<p t="4598190" d="2970">have a very high recall for
+a certain class but</p>
+<p t="4601160" d="3880">if you always miss another class
+That would hurt you a lot.</p>
+<p t="4605040" d="4980">And now here's an evaluation
+that you should also be familiar</p>
+<p t="4610020" d="5090">with where basically this is something
+I would like to see in a lot of your</p>
+<p t="4615110" d="4450">project reports too as you analyze the
+various hyper parameters that you have.</p>
+<p t="4619560" d="4430">And so one thing they found here is they
+have two different data set sizes that</p>
+<p t="4623990" d="8590">they train on,
+in many cases if you train with more data,</p>
+<p t="4632580" d="4830">you basically do better but then also it's
+not always the case that more layers.</p>
+<p t="4637410" d="5240">So this is the depth that we had here, the
+number l for all these different layers.</p>
+<p t="4642650" d="2780">It's not always the case
+that more layers are better.</p>
+<p t="4645430" d="4070">In fact here, the highest performance
+they get is with three layers,</p>
+<p t="4649500" d="780">instead of four or five.</p>
+<p t="4651770" d="1170">All right, so let's recap.</p>
+<p t="4652940" d="1400">Recurring neural networks,</p>
+<p t="4654340" d="5060">best deep learning model family that
+you'll learn about in this class.</p>
+<p t="4659400" d="2020">Training them can be very hard.</p>
+<p t="4661420" d="2820">Fortunately, you understand
+back propagation now.</p>
+<p t="4664240" d="3960">You can gain an intuition of
+why that might be the case.</p>
+<p t="4668200" d="4720">We'll in the next lecture extend
+them some much more powerful models</p>
+<p t="4672920" d="4060">the Gated Recurring Units or LSTMs,
+and those are the models you'll see</p>
+<p t="4676980" d="3610">all over the place in all the state
+of the art models these days.</p>
+<p t="4680590" d="620">All right.</p>
+<p t="4681210" d="500">Thank you.</p>
+</body>
+</timedtext>

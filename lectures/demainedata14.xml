@@ -1,0 +1,2547 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="90" d="2400">The following content is
+provided under a Creative</p>
+<p t="2490" d="1540">Commons license.</p>
+<p t="4030" d="2330">Your support will help
+MIT OpenCourseWare</p>
+<p t="6360" d="4360">continue to offer high quality
+educational resources for free.</p>
+<p t="10720" d="2600">To make a donation or
+view additional materials</p>
+<p t="13320" d="3960">from hundreds of MIT courses,
+visit MIT OpenCourseWare</p>
+<p t="17280" d="1170">at ocw.mit.edu.</p>
+<p t="21364" d="2166">ERIK DEMAINE: All right,
+today we continue our theme</p>
+<p t="23530" d="1950">of integer data structures.</p>
+<p t="25480" d="2580">And today we're going to look
+at priority queues instead</p>
+<p t="28060" d="2790">of the predecessor problem, so
+something a little different.</p>
+<p t="30850" d="3130">Insert, delete, and find min.</p>
+<p t="33980" d="4160">It turns out priority queues
+are equivalent to sorting</p>
+<p t="38140" d="15882">in the sense that if you have,
+normally they say f of n,</p>
+<p t="54022" d="2208">but here we're going to
+depend on both n and the word</p>
+<p t="56230" d="2940">size, priority queue.</p>
+<p t="62830" d="2700">Well then, of course you
+get a sorting algorithm.</p>
+<p t="65530" d="2890">Just insert everything
+into the priority queue</p>
+<p t="68420" d="3140">and then find min delete,
+find min delete, and so on.</p>
+<p t="75350" d="4730">So that's the trivial
+direction of the equivalence.</p>
+<p t="80080" d="3470">But it turns out, both
+of these are true.</p>
+<p t="83550" d="4510">If you have a sorting
+algorithm with n times f time,</p>
+<p t="88060" d="2175">then you can convert it
+into a priority queue</p>
+<p t="90235" d="7045">that in the worst case every
+operation takes only f of n, w.</p>
+<p t="97280" d="4270">So that's the equivalence
+as the result of Thorpe</p>
+<p t="101550" d="3340">from a few years ago, 2007.</p>
+<p t="104890" d="1290">Kind of a cool breakthrough.</p>
+<p t="106180" d="2550">There were earlier versions
+that weren't quite as efficient</p>
+<p t="108730" d="2970">but this gives you perfect
+efficiency, turning any sorting</p>
+<p t="111700" d="1350">algorithm into priority queue.</p>
+<p t="113050" d="1560">Rough sketch of
+the data structure</p>
+<p t="114610" d="3180">is you have a bunch of sorting
+algorithms which you run now</p>
+<p t="117790" d="2940">and then to get little
+parts of the input</p>
+<p t="120730" d="2080">in order to build an
+overall priority queue.</p>
+<p t="122810" d="2180">But it's very complicated.</p>
+<p t="124990" d="1500">There was an entire
+class project</p>
+<p t="126490" d="3209">on assimilating it
+and understanding it.</p>
+<p t="129699" d="3311">It's a bit beyond what we
+can cover in the class.</p>
+<p t="133010" d="1760">So I'm going to
+take this as given</p>
+<p t="134770" d="2042">and tell you instead
+about sorting algorithms</p>
+<p t="136812" d="2458">because there's a major open
+problem here which is, can you</p>
+<p t="139270" d="4200">sort n integers, n w bit
+integers in a word ram's,</p>
+<p t="143470" d="2280">word size w in linear time.</p>
+<p t="145750" d="3774">We still don't know but we
+have a bunch of results.</p>
+<p t="149524" d="1416">In particular,
+we're going to talk</p>
+<p t="150940" d="2520">about a couple
+interesting cases where</p>
+<p t="153460" d="2610">we can get linear time sorting.</p>
+<p t="156070" d="2760">If you've seen radix sort you
+know another interesting case</p>
+<p t="158830" d="1665">where linear time
+sorting is possible.</p>
+<p t="164410" d="4150">Interesting open problem here.</p>
+<p t="168560" d="5060">Can you get constant
+time decrease key?</p>
+<p t="173620" d="2530">And ideally, also insertion?</p>
+<p t="176150" d="2444">But decrease key would be
+handy because then this</p>
+<p t="178594" d="666">would be useful.</p>
+<p t="182530" d="2100">In this reduction if you
+have a sorting algorithm,</p>
+<p t="184630" d="1920">like to get a priority queue
+with constant time decrease</p>
+<p t="186550" d="1200">key, that would
+have applications</p>
+<p t="187750" d="1000">to Dijkstra's algorithm.</p>
+<p t="188750" d="2210">Of course, if you can
+sort in linear time</p>
+<p t="190960" d="2170">then everything can be
+done in constant time.</p>
+<p t="193130" d="2300">So this is not the most
+interesting open problem</p>
+<p t="195430" d="3970">but it would be a step
+in that direction.</p>
+<p t="199400" d="500">Cool.</p>
+<p t="199900" d="6465">So let me tell you some
+bounds about sorting.</p>
+<p t="212482" d="6074">So we have n w bit integers.</p>
+<p t="218556" d="1624">And you take any of
+these bounds divide</p>
+<p t="220180" d="6070">by n you get the priority queue
+bound, the best that we know.</p>
+<p t="226250" d="6440">So of course, there's comparison
+sorting, which takes n log n.</p>
+<p t="232690" d="1260">So that's an upper bound.</p>
+<p t="233950" d="1120">Trying to beat that.</p>
+<p t="235070" d="2540">Trying to get rid of the log.</p>
+<p t="237610" d="3690">There's a counting sort from
+undergraduate algorithms.</p>
+<p t="241300" d="3020">That takes n plus u
+time because you need</p>
+<p t="244320" d="1720">to build a table of size u.</p>
+<p t="246040" d="2175">You've got to zero out
+all the initial counts</p>
+<p t="248215" d="3105">so that requires order u time.</p>
+<p t="251320" d="9150">This is interesting when
+the word size equals log n.</p>
+<p t="260470" d="2650">So that's a case of
+potential interest,</p>
+<p t="263120" d="1620">because then 2 to
+the w is just n.</p>
+<p t="264740" d="2020">So this is linear time.</p>
+<p t="266760" d="4120">But even if w is 2 log n,
+radix or 1.1 times log n,</p>
+<p t="270880" d="2370">then this is bigger n log n.</p>
+<p t="273250" d="1570">So, not very good.</p>
+<p t="274820" d="6290">But we have radix sort,
+which is a bit better.</p>
+<p t="281110" d="8200">And this is n times
+w divided by log n.</p>
+<p t="289310" d="4010">If you do it right you
+have some word size w,</p>
+<p t="293320" d="3870">you're using counting sort
+for each digit in the radix.</p>
+<p t="297190" d="4590">So you can afford that the word
+size of doing counting sort</p>
+<p t="301780" d="1230">to be exactly log n.</p>
+<p t="303010" d="2250">Which means you have your
+overall word you're dividing</p>
+<p t="305260" d="1950">into chunks of size log n.</p>
+<p t="307210" d="1930">Each of them you can
+do in linear time.</p>
+<p t="309140" d="3380">So the number of chunks you have
+to do is w divided by log n.</p>
+<p t="312520" d="5520">And this is linear if
+w equals order log n.</p>
+<p t="322490" d="1520">Right, but only then.</p>
+<p t="324010" d="4872">So this buys you a little
+bit, but still not great.</p>
+<p t="328882" d="1708">OK, there's some other
+sorting algorithms</p>
+<p t="330590" d="3270">we've implicitly seen because
+we've seen Van Emde Boas.</p>
+<p t="333860" d="2150">I mean, any predecessor
+data structure</p>
+<p t="336010" d="1750">gives you a priority
+queue data structure.</p>
+<p t="337760" d="4770">Priority queues-- I didn't
+write it, but I mentioned--</p>
+<p t="342530" d="3180">insert, delete, find min.</p>
+<p t="345710" d="4890">Find min is a weaker operation
+than predecessor or successor.</p>
+<p t="350600" d="6750">So we can take Van Emde Boas's
+predecessor data structure</p>
+<p t="357350" d="3960">and convert it into a
+sorting algorithm and we</p>
+<p t="361310" d="5850">get order n times log w.</p>
+<p t="367160" d="2970">Now this is a little
+bit tricky to compare.</p>
+<p t="370130" d="2430">Of course, log w
+sounds better than w.</p>
+<p t="372560" d="2550">But there's just divided
+by log n, which makes</p>
+<p t="375110" d="3510">it a little hard to compare.</p>
+<p t="378620" d="6540">It turns out there's
+another version.</p>
+<p t="385160" d="3360">You can take this
+sorting algorithm</p>
+<p t="388520" d="5000">and achieve a bound
+of m log w over log n.</p>
+<p t="396680" d="2820">OK, so this is a slight
+improvement in here.</p>
+<p t="399500" d="2700">It's similar to your
+problem set this week.</p>
+<p t="402200" d="1650">This specific
+problem was a problem</p>
+<p t="403850" d="3520">set in 2005 of this class.</p>
+<p t="407370" d="1550">So you can check
+it out if you want</p>
+<p t="408920" d="1980">to see how to do this
+slight improvement.</p>
+<p t="410900" d="1914">But now this is clearly
+better than this</p>
+<p t="412814" d="1416">because here we
+have w over log n.</p>
+<p t="414230" d="1840">Here I've got a log in front.</p>
+<p t="416070" d="2470">So this is a win
+over radex sort.</p>
+<p t="418540" d="3280">So Van Emde Boas, here's another
+way in which is interesting.</p>
+<p t="421820" d="4010">It gives us a strict
+improvement over radex sort.</p>
+<p t="425830" d="8190">And in particular,
+actually both of these</p>
+<p t="434020" d="8290">are order n log log n if w
+is not too big, poly log n.</p>
+<p t="446090" d="2040">This doesn't actually
+matter but it's</p>
+<p t="448130" d="2580">clearly better than this one.</p>
+<p t="450710" d="3780">Again, if w is order log n
+you get this to be linear.</p>
+<p t="454490" d="4110">But in particular, it says
+overall you get n log log n up</p>
+<p t="458600" d="2700">to w being poly log.</p>
+<p t="461300" d="3150">OK, why do we care?</p>
+<p t="464450" d="2220">Because there's this
+other nice algorithm,</p>
+<p t="466670" d="4590">signature sort, which
+covers all large word sizes.</p>
+<p t="471260" d="2310">And this is an algorithm
+we will cover today.</p>
+<p t="478370" d="3150">It only works when w is
+large, and large means</p>
+<p t="481520" d="3330">log to the 2 plus epsilon.</p>
+<p t="484850" d="2890">And this is no matter
+what epsilon is.</p>
+<p t="487740" d="2510">In reality, it's probably
+log squared times</p>
+<p t="490250" d="1890">log log n squared.</p>
+<p t="492140" d="2610">But be a little
+sloppy and just say,</p>
+<p t="494750" d="3660">a little bit bigger
+than log squared.</p>
+<p t="498410" d="2230">And then it runs in linear time.</p>
+<p t="500640" d="5000">OK, so if you were graphing this
+in your mind you've got time</p>
+<p t="505640" d="2790">and there's a nice bound
+here which is order n.</p>
+<p t="508430" d="4530">Then we have everything's
+above n log n.</p>
+<p t="512960" d="2240">Maybe here we have--</p>
+<p t="515200" d="1060">is hard to draw--</p>
+<p t="516260" d="3330">n log log n.</p>
+<p t="519590" d="3040">This is asymptotic space,
+which doesn't really exist,</p>
+<p t="522630" d="1700">but you know what I mean.</p>
+<p t="524330" d="5145">And then this is the
+word size versus log n.</p>
+<p t="529475" d="945">Wow, this is hard to--</p>
+<p t="530420" d="1380">this is a really weird picture.</p>
+<p t="531800" d="2040">I've never drawn this before.</p>
+<p t="533840" d="4240">So you know, initially in
+a radex sort, OK log n.</p>
+<p t="538080" d="6045">We could get linear time
+or order log n, great.</p>
+<p t="544125" d="1625">What this is saying
+is once you get out</p>
+<p t="545750" d="4770">to log the 2 plus epsilon
+n you can also do linear.</p>
+<p t="550520" d="2660">And from here over
+we have linear time.</p>
+<p t="553180" d="2660">And here over we
+have linear time.</p>
+<p t="555840" d="2795">So the question is what about
+this middle range between log</p>
+<p t="558635" d="3555">n and log to the 2 plus epsilon?</p>
+<p t="562190" d="5340">Well, one thing we could do
+is use Van Emde Boas sort,</p>
+<p t="567530" d="2234">get an n log log n bound.</p>
+<p t="569764" d="2416">And so that's one way to fill
+in this range in the middle.</p>
+<p t="572180" d="3390">And that means overall you can
+always sort n integers in n log</p>
+<p t="575570" d="1350">log n time.</p>
+<p t="576920" d="2700">If w is big you
+use signature sort,</p>
+<p t="579620" d="2550">if w small use Van
+Emde Boas sort.</p>
+<p t="582170" d="7260">So this implies n
+log log n for all w.</p>
+<p t="589430" d="1650">So that's something.</p>
+<p t="591080" d="2644">It's not the best known.</p>
+<p t="593724" d="6956">Let's see, first result in this
+direction was by Han in 2001.</p>
+<p t="600680" d="9690">And it achieved this bound,
+deterministic and in the ac 0</p>
+<p t="610370" d="4020">ram, so without
+using multiplication.</p>
+<p t="614390" d="2920">Which, I guess Van Emde
+Boas doesn't either,</p>
+<p t="617310" d="2450">unless I'm missing something.</p>
+<p t="619760" d="1990">But it got rid of
+the randomisation</p>
+<p t="621750" d="4050">which is necessary to get
+linear space in Van Emde Boas.</p>
+<p t="625800" d="4458">The current best
+result on sorting</p>
+<p t="630258" d="4072">is by Han and Thorpe in
+2002, so a while ago.</p>
+<p t="634330" d="7820">They achieved n square
+root log w over log n,</p>
+<p t="642150" d="4410">which is similar
+to this bound, just</p>
+<p t="646560" d="3640">has an extra square root here.</p>
+<p t="650200" d="2480">So it's a little bit better
+than Van Emde Boas sort.</p>
+<p t="652680" d="1170">It uses some clever tricks.</p>
+<p t="653850" d="1060">It is randomized.</p>
+<p t="658780" d="5060">So still the best deterministic
+bound is n log log n,</p>
+<p t="663840" d="5950">And let's see, we can plug
+that in for this range here.</p>
+<p t="669790" d="6260">And it will imply that
+you get n square root log</p>
+<p t="676050" d="4080">log n for all w.</p>
+<p t="680130" d="6210">Because in particular,
+if w is poly log n,</p>
+<p t="686340" d="2220">then this is just log log n.</p>
+<p t="688560" d="3220">So you get this bound.</p>
+<p t="691780" d="3270">Of course, for all w because
+large w are already covered.</p>
+<p t="695050" d="4126">So this sorting algorithm is a
+little bit messy, and possibly</p>
+<p t="699176" d="874">not the right answer.</p>
+<p t="700050" d="2490">I would conjecture you
+can sort n integers</p>
+<p t="702540" d="2910">in linear time for all w.</p>
+<p t="705450" d="1365">But that is a big open problem.</p>
+<p t="712590" d="2460">This is the current
+state of the art.</p>
+<p t="715050" d="4250">So this open question is
+really about for small w</p>
+<p t="719300" d="1570">when w is poly
+log n, or actually</p>
+<p t="720870" d="2670">when it's between
+log and poly log.</p>
+<p t="723540" d="2790">So to give you a piece
+of the complete picture</p>
+<p t="726330" d="2604">I want to tell you
+about signature sort.</p>
+<p t="728934" d="2166">Because I think you have
+to use different techniques</p>
+<p t="731100" d="1290">when w is small versus large.</p>
+<p t="732390" d="3150">We know that from fusion
+trees and Van Emde Boas.</p>
+<p t="735540" d="2940">So I'll tell you about the
+slightly large case when</p>
+<p t="738480" d="2610">w is at least log to
+the 2 plus epsilon,</p>
+<p t="741090" d="1510">how to get linear time.</p>
+<p t="742600" d="1110">And this is fun.</p>
+<p t="743710" d="2240">It uses bit tricks, it
+uses a lot of cool ideas,</p>
+<p t="745950" d="2520">uses hashing, lots of things.</p>
+<p t="748470" d="4350">It also uses another sorting
+algorithm called packed sort.</p>
+<p t="752820" d="2490">This doesn't fit in
+the regular table</p>
+<p t="755310" d="3390">because it's for a situation
+when more than one input</p>
+<p t="758700" d="2080">number fits in a word.</p>
+<p t="760780" d="2510">So we're going to let b
+denote the number of bits</p>
+<p t="763290" d="1050">in the inputs.</p>
+<p t="764340" d="2220">So we have b bit integers.</p>
+<p t="766560" d="3900">Then when w is at least
+b times log n log log n,</p>
+<p t="770460" d="4080">so you can fit log n log log
+n integers in a single word,</p>
+<p t="774540" d="2442">then you can sort
+them in linear time.</p>
+<p t="776982" d="2208">So it's like your machine
+is just a little bit bigger</p>
+<p t="779190" d="2660">than what you'd need to
+represent the integers,</p>
+<p t="781850" d="3040">then all sorting can be
+done in a linear time.</p>
+<p t="784890" d="3690">And as you might imagine,
+this log to the 2 plus epsilon</p>
+<p t="788580" d="4080">buys you a little bit of
+room with some tricks,</p>
+<p t="792660" d="2690">namely hashing.</p>
+<p t="795350" d="3790">Right, that's where we're going.</p>
+<p t="799140" d="2047">And we'll use yet another
+sorting algorithm,</p>
+<p t="801187" d="1583">bitonic sort, which
+you may have seen.</p>
+<p t="802770" d="3070">It's a sorting network.</p>
+<p t="805840" d="2000">It's in CLRS up
+to second edition,</p>
+<p t="807840" d="1777">but it got removed
+from third edition.</p>
+<p t="809617" d="2333">I guess they thought people
+didn't use sorting networks,</p>
+<p t="811950" d="1410">but we use sorting
+networks here.</p>
+<p t="816270" d="3420">Because it gives us parallel
+sorting and the word ram</p>
+<p t="819690" d="3600">is all about using the
+parallelism in your word.</p>
+<p t="823290" d="5130">So, we'll get to those.</p>
+<p t="828420" d="4880">I'm going to start at the top
+level, which is signature sort.</p>
+<p t="833300" d="1750">And we're going to
+leave things to be done</p>
+<p t="835050" d="2370">and then pack sorting
+will be one of them.</p>
+<p t="837420" d="2250">And bitonic sorting will
+be used in pack sorting.</p>
+<p t="839670" d="4160">So it's a chain like this.</p>
+<p t="843830" d="1750">Cool.</p>
+<p t="845580" d="5190">So I'm going to
+assume my signature</p>
+<p t="850770" d="5220">sort that w is at least
+log to 2 pulse epsilon n</p>
+<p t="855990" d="2650">times log log n.</p>
+<p t="858640" d="4767">This is really just a change
+in what epsilon means.</p>
+<p t="863407" d="1833">If you're given some
+particular epsilon make</p>
+<p t="865240" d="1666">it a little smaller,
+then you can afford</p>
+<p t="866906" d="1654">to add that log log factor.</p>
+<p t="868560" d="3700">This is just for convenience.</p>
+<p t="872260" d="5667">Now here's the idea.</p>
+<p t="877927" d="1583">It's a pretty cool
+idea I have to say.</p>
+<p t="879510" d="19740">It's by Anderson
+and others in 1998.</p>
+<p t="899250" d="2646">OK, word size is big,
+which is both good and bad.</p>
+<p t="901896" d="1874">It means the numbers we
+have to sort are big.</p>
+<p t="903770" d="3830">They have a lot of bits in
+them, way more than log n bits.</p>
+<p t="907600" d="2490">But also, we have
+this powerful machine</p>
+<p t="910090" d="3704">that can handle words
+of very large size</p>
+<p t="913794" d="1666">and do things and
+constant time on them.</p>
+<p t="919090" d="2070">I'd like to make some slop.</p>
+<p t="921160" d="2160">I want my words to be
+bigger than my items,</p>
+<p t="923320" d="3090">so first few steps
+are about doing that.</p>
+<p t="926410" d="3930">The first idea is, well,
+you've got this giant word</p>
+<p t="930340" d="1680">log to the 2 plus epsilon.</p>
+<p t="932020" d="2820">So let's split it into chunks.</p>
+<p t="934840" d="5340">And the number of chunks
+is log to the epsilon.</p>
+<p t="940180" d="4020">So that means each chunk is--</p>
+<p t="944200" d="1510">well, it could be even bigger.</p>
+<p t="945710" d="2310">So it's at least log squared n.</p>
+<p t="948020" d="3490">But it could be bigger
+than that because w</p>
+<p t="951510" d="2062">is at least log to
+the 2 plus epsilon.</p>
+<p t="953572" d="708">So we don't know.</p>
+<p t="954280" d="3050">These things are of size w
+divided by log to the epsilon</p>
+<p t="957330" d="500">n.</p>
+<p t="957830" d="2640">So it's at least log squared.</p>
+<p t="960470" d="4500">OK, here's the crazy idea.</p>
+<p t="964970" d="2510">We're thinking of our
+number being divided</p>
+<p t="967480" d="2700">into these chunks, you
+know, it's being represented</p>
+<p t="970180" d="4890">in some base, 2 to the w
+divided by log to the epsilon n.</p>
+<p t="975070" d="2440">It's a bit of a mouthful.</p>
+<p t="977510" d="3330">But think about these digits.</p>
+<p t="980840" d="6200">I claim if you look at a digit,
+most values don't appear.</p>
+<p t="987040" d="2880">Because how many values
+are there for a digit?</p>
+<p t="989920" d="3390">Well, it's at least 2
+to the log squared n.</p>
+<p t="993310" d="910">That's a big number.</p>
+<p t="994220" d="2390">That's way bigger
+than polynomial and n.</p>
+<p t="996610" d="3180">But how many different
+digits are there?</p>
+<p t="999790" d="2070">Well, there's n
+numbers, each of them</p>
+<p t="1001860" d="5490">has log to the epsilon n
+digits in it appearing.</p>
+<p t="1007350" d="5520">And so there's roughly a linear
+number of digit values total.</p>
+<p t="1012870" d="1980">But the number of
+possible digit values</p>
+<p t="1014850" d="2160">is 2 to the log log
+squared n, which</p>
+<p t="1017010" d="3570">is huge, super polynomial.</p>
+<p t="1020580" d="4450">So most digit values don't
+appear in our numbers.</p>
+<p t="1025030" d="2329">So what we're going to
+do is hash the digit</p>
+<p t="1027359" d="1818">values to reduce their space.</p>
+<p t="1029177" d="2583">Because they're currently living
+in a universe of 2 to the log</p>
+<p t="1031760" d="2684">squared n, but there's
+only n times log</p>
+<p t="1034444" d="1645">to the epsilon n of them.</p>
+<p t="1036089" d="7111">So we should be able to reduce
+to have a much smaller universe</p>
+<p t="1043200" d="1770">using hashing.</p>
+<p t="1044970" d="5699">Maybe perfect hashing even.</p>
+<p t="1050669" d="2041">I mean, we don't have to
+be too intelligent here.</p>
+<p t="1052710" d="875">Tell you what we get.</p>
+<p t="1061980" d="4140">What I'd like is to reduce
+to a polynomial universe.</p>
+<p t="1066120" d="7260">And another way to say that is
+that the hash values are order</p>
+<p t="1073380" d="860">log n bits.</p>
+<p t="1074240" d="2900">So this lets us go to n
+to the 10, or whatever,</p>
+<p t="1077140" d="1220">which is plenty of room.</p>
+<p t="1078360" d="4690">We take any universal
+hash function,</p>
+<p t="1083050" d="3200">as soon as you get to
+roughly n squared size,</p>
+<p t="1086250" d="2130">I mean the square of
+the number of things,</p>
+<p t="1088380" d="2370">by a birthday paradox, constant
+probability none of them</p>
+<p t="1090750" d="1320">will hit each other.</p>
+<p t="1092070" d="2250">That was the second
+level of perfect hashing.</p>
+<p t="1094320" d="2820">We don't need two levels
+here, just say OK, user order</p>
+<p t="1097140" d="620">log n bits.</p>
+<p t="1097760" d="2560">You can set this
+to 100, whatever.</p>
+<p t="1100320" d="2910">Then with high probability
+you will not get collisions,</p>
+<p t="1103230" d="2070">so none of the chunks
+will hit each other.</p>
+<p t="1105300" d="2580">So I'm omitting a step
+here which is how to--</p>
+<p t="1107880" d="3490">OK, I'm omitting a
+couple of things here.</p>
+<p t="1111370" d="4760">One of them is I want to
+do this in linear time.</p>
+<p t="1116130" d="1837">Everything has to
+be in linear time.</p>
+<p t="1117967" d="1583">So one front part
+is I have to compute</p>
+<p t="1119550" d="3660">the hash value of
+all of these digits</p>
+<p t="1123210" d="4010">in a single word
+in constant time.</p>
+<p t="1127220" d="4330">So a brief aside, how would
+I compute a universal hash</p>
+<p t="1131550" d="3690">function of these digits
+individually in constant time?</p>
+<p t="1135240" d="6990">Well, my personal favorite
+universal hashing scheme</p>
+<p t="1142230" d="1710">is the multiplication method.</p>
+<p t="1143940" d="4300">You just need to multiply
+by a single value m</p>
+<p t="1148240" d="2970">and then take it
+modular something.</p>
+<p t="1151210" d="9480">So if I do
+multiplication, I mean</p>
+<p t="1160690" d="1800">if you think of there
+being something here,</p>
+<p t="1162490" d="2985">something here, something here,
+something here, something here,</p>
+<p t="1165475" d="5006">m does multiply each
+of these individually.</p>
+<p t="1174170" d="2030">Wow, that's a rough sketch.</p>
+<p t="1176200" d="2040">I want to hash each of
+these guys multiply,</p>
+<p t="1178240" d="1980">them by the
+multiplication method.</p>
+<p t="1180220" d="2580">This would work fine,
+except you get overflows,</p>
+<p t="1182800" d="1540">which is a bit messy.</p>
+<p t="1184340" d="2870">So in fact, I'm going to have
+to do it for the odd guys</p>
+<p t="1187210" d="3180">first, multiply them out, mask
+out the bits I care about,</p>
+<p t="1190390" d="3210">then do it for the
+even guys separately.</p>
+<p t="1193600" d="870">So it's a bit messy.</p>
+<p t="1194470" d="4230">But hand-wavy proof you can
+compute the hash function</p>
+<p t="1198700" d="1530">of each of these
+guys individually,</p>
+<p t="1200230" d="1870">but in constant time.</p>
+<p t="1202100" d="1160">So that lets me do this.</p>
+<p t="1203260" d="1380">You have to then
+check for collisions,</p>
+<p t="1204640" d="1083">which is kind of annoying.</p>
+<p t="1205723" d="1177">Let's not worry about that.</p>
+<p t="1206900" d="1850">Set this really high,
+very high probability,</p>
+<p t="1208750" d="3150">there will be no collisions.</p>
+<p t="1211900" d="1740">Cool.</p>
+<p t="1213640" d="3679">So at this point we have
+mucked up all the digits.</p>
+<p t="1217319" d="1541">The annoying thing
+about this hashing</p>
+<p t="1218860" d="1590">is we do not preserve order.</p>
+<p t="1224860" d="1980">It's a little weird for
+a sorting algorithm not</p>
+<p t="1226840" d="1830">preserve order.</p>
+<p t="1228670" d="3180">The whole point is to
+put things in order.</p>
+<p t="1231850" d="2520">But it's going to be
+useful nonetheless.</p>
+<p t="1234370" d="2370">And so each digit
+has been mangled.</p>
+<p t="1236740" d="1830">Each digit is out of order.</p>
+<p t="1238570" d="2340">But of course, the
+sequence of digits</p>
+<p t="1240910" d="4890">has been preserved,
+in some sense</p>
+<p t="1245800" d="1930">So, what?</p>
+<p t="1247730" d="2570">Well, at this point
+we can use packed</p>
+<p t="1250300" d="2340">sorting to sort what remains.</p>
+<p t="1265836" d="2834">In general packed
+sorting can sort n</p>
+<p t="1268670" d="5010">b bit integers provided
+b is small, so w</p>
+<p t="1273680" d="4820">is at least b log n log log n.</p>
+<p t="1278500" d="3400">That's the theorem
+of packed sorting.</p>
+<p t="1281900" d="3180">We're going to delay the
+coverage of this result</p>
+<p t="1285080" d="1250">until later.</p>
+<p t="1286330" d="10500">And I claim that that applies
+here because each chunk is now</p>
+<p t="1296830" d="2460">order log n bits.</p>
+<p t="1299290" d="3910">And there's log to
+the epsilon n bits.</p>
+<p t="1303200" d="8120">So b is theta log to
+the 1 plus epsilon n.</p>
+<p t="1311320" d="10570">And w is at least log to the 2
+plus epsilon times log log n.</p>
+<p t="1321890" d="2780">OK, so the ratio between
+these is as needed.</p>
+<p t="1324670" d="2174">It's at least log
+n times log log n.</p>
+<p t="1329450" d="1770">OK, so that's why this is good.</p>
+<p t="1331220" d="2030">There were these things
+were huge before.</p>
+<p t="1333250" d="2080">We've compressed them a lot.</p>
+<p t="1335330" d="3230">They're at least log square,
+now they're only log.</p>
+<p t="1338560" d="2705">And so now we can
+apply packed sorting.</p>
+<p t="1344080" d="4380">You can fit log times log
+log items into one word.</p>
+<p t="1348460" d="2220">And that's going to make
+sorting easy, somehow.</p>
+<p t="1350680" d="1980">That's to be done.</p>
+<p t="1352660" d="4140">But now the question is,
+suppose we had packed sorting,</p>
+<p t="1356800" d="960">how does this help you?</p>
+<p t="1357760" d="2700">Because this does not sort
+the original integers.</p>
+<p t="1360460" d="1830">It sorts these
+integers that have</p>
+<p t="1362290" d="2850">all of their digits
+permuted in some random way.</p>
+<p t="1365140" d="3930">We have no idea how the hash
+function re-orders things.</p>
+<p t="1369070" d="2907">So we're not done
+with signature sort.</p>
+<p t="1371977" d="2583">It's called signature sort, of
+course, because of the hashing.</p>
+<p t="1374560" d="2830">You're taking signatures
+of each of these digits.</p>
+<p t="1377390" d="2300">Another word for hashes.</p>
+<p t="1379690" d="6265">All right, next step is to
+build a compressed trie.</p>
+<p t="1389380" d="1680">This is a term we
+haven't used yet.</p>
+<p t="1397005" d="1375">So I'm going to
+call these things</p>
+<p t="1398380" d="3510">that we sorted signatures.</p>
+<p t="1401890" d="5070">And how many people know
+what a compressed trie is?</p>
+<p t="1406960" d="860">OK, no one.</p>
+<p t="1407820" d="1049">Wow, just a few.</p>
+<p t="1408869" d="1541">So you haven't seen
+suffix trees yet.</p>
+<p t="1410410" d="2520">We're going to cover where
+compressed tries come</p>
+<p t="1412930" d="1560">from in a couple
+of lectures but we</p>
+<p t="1414490" d="3990">get to see them a little early
+because they're cool and needed</p>
+<p t="1418480" d="3160">in this algorithm.</p>
+<p t="1421640" d="2590">So first notion is
+the notion of a trie.</p>
+<p t="1424230" d="5110">The word trie comes
+from retrieval,</p>
+<p t="1429340" d="2530">from old days when
+information retrieval was</p>
+<p t="1431870" d="4770">what's now called web
+searching, or whatever.</p>
+<p t="1436640" d="3770">So it's now pronounced trie.</p>
+<p t="1440410" d="2220">It's just another word
+for tree, but where</p>
+<p t="1442630" d="3900">the children of the tree
+come from a fixed universe.</p>
+<p t="1450780" d="2505">We've been working
+with tries all the time</p>
+<p t="1453285" d="3705">in pretty much every lecture
+for the last n lectures,</p>
+<p t="1456990" d="2630">last w lectures, I don't
+know, a lot of them.</p>
+<p t="1459620" d="2170">We said oh, OK, well
+let's just consider</p>
+<p t="1461790" d="2471">the space of all possible keys.</p>
+<p t="1464261" d="1999">You know, I've drawn this
+picture zillion times.</p>
+<p t="1466260" d="2370">Even when we weren't doing
+Van Emde Boas, which actually</p>
+<p t="1468630" d="2340">stores all of these
+things, we were</p>
+<p t="1470970" d="1770">thinking about fusion
+trees like, oh yeah,</p>
+<p t="1472740" d="1950">so we're storing
+this value, and we're</p>
+<p t="1474690" d="2970">storing this value,
+and maybe this value.</p>
+<p t="1477660" d="2420">And we understand this
+corresponds to a 0-bit.</p>
+<p t="1480080" d="1170">These are 0 and 1 bits.</p>
+<p t="1481250" d="2310">This is a 1, 0, 1, whatever.</p>
+<p t="1483560" d="3470">So we understand how to convert
+a bit string into this picture.</p>
+<p t="1487030" d="2720">This is what we
+call a binary trie.</p>
+<p t="1489750" d="1810">I want to do the
+same thing over here,</p>
+<p t="1491560" d="1790">except it's not a binary trie.</p>
+<p t="1493350" d="2970">Now each digit is giant
+so we're going to have</p>
+<p t="1496320" d="2250">some huge branching factor.</p>
+<p t="1498570" d="2040">So it's going to be
+more like a b-tree.</p>
+<p t="1500610" d="2670">The first node has a
+whole bunch of children.</p>
+<p t="1503280" d="1260">I'm not going to even--</p>
+<p t="1504540" d="6520">I mean, it's 2 to the w divided
+by log to the epsilon n.</p>
+<p t="1511060" d="2380">That's the branching factor.</p>
+<p t="1513440" d="1990">OK, it's big.</p>
+<p t="1515430" d="4140">That's the number of possible
+values in the first digit.</p>
+<p t="1519570" d="1290">OK.</p>
+<p t="1520860" d="6330">So then maybe this child
+has some node there.</p>
+<p t="1527190" d="2220">And maybe this one.</p>
+<p t="1534130" d="3075">Actually, sorry, I didn't
+want to draw it that way.</p>
+<p t="1537205" d="3245">I have a specific trie
+in mind, or part of it.</p>
+<p t="1549200" d="3345">OK, I mean, trie is going
+to look something like this.</p>
+<p t="1552545" d="3235">It's harder to draw, but
+it's the larger than binary</p>
+<p t="1555780" d="1790">equivalent of this picture.</p>
+<p t="1557570" d="3800">This would be a trie.</p>
+<p t="1561370" d="2360">So let's think about a
+particular situation.</p>
+<p t="1563730" d="5050">Which is, suppose we just have
+two items in this structure.</p>
+<p t="1568780" d="1530">Then it's easier to draw.</p>
+<p t="1570310" d="4040">So let's suppose there's
+some item over here, x1.</p>
+<p t="1574350" d="2160">There's some item over here, x2.</p>
+<p t="1576510" d="2892">Now, generic picture is they
+share some common prefix.</p>
+<p t="1579402" d="1083">This is the common prefix.</p>
+<p t="1584110" d="2315">It's just to understand some
+particular picture here.</p>
+<p t="1586425" d="2625">Then they diverge, and you know,
+then they have their own digit</p>
+<p t="1589050" d="984">values.</p>
+<p t="1590034" d="2166">In some sense, this is the
+digit value we care about</p>
+<p t="1592200" d="2250">because it distinguishes them.</p>
+<p t="1594450" d="5400">So there's this idea of a
+compressed trie, which cleans</p>
+<p t="1599850" d="1320">up this picture a little bit.</p>
+<p t="1604772" d="1958">The idea with the compress
+trie is very simple.</p>
+<p t="1606730" d="1320">You draw this trie.</p>
+<p t="1608050" d="5300">So here, imagine I'm erasing all
+the things that do not appear.</p>
+<p t="1613350" d="1870">Maybe all this is gone.</p>
+<p t="1615220" d="2310">So I'm just keeping this
+part of the structure.</p>
+<p t="1617530" d="2610">Let's do it for the
+binary case first.</p>
+<p t="1620140" d="2650">The idea in a compress
+trie is very simple.</p>
+<p t="1622790" d="7829">I'm going to contract
+every non-branching node</p>
+<p t="1630619" d="666">into its parent.</p>
+<p t="1641930" d="1410">So what that means.</p>
+<p t="1643340" d="5610">So here I'm storing three
+values: 0, 0, 1, 1; 0, 1,</p>
+<p t="1648950" d="5420">0, 0; and 0, 1, 1, 1.</p>
+<p t="1654370" d="2310">So some nodes are
+non-branching, that's</p>
+<p t="1656680" d="2925">this node, this
+node, and this node.</p>
+<p t="1659605" d="1875">And the point is well,
+why store those nodes?</p>
+<p t="1661480" d="2458">I mean, there was nothing being
+distinguished at that node,</p>
+<p t="1663938" d="1442">so contract it.</p>
+<p t="1665380" d="7130">So the new picture if I
+redrew this would be 0, 0, 1--</p>
+<p t="1672510" d="2500">sorry, also this
+is non-branching.</p>
+<p t="1675010" d="3527">So in fact, I'm going
+to contract this</p>
+<p t="1678537" d="1583">into its parent,
+this into its parent.</p>
+<p t="1680120" d="1830">So this whole path,
+this non-branching path</p>
+<p t="1681950" d="4190">will be left with a single edge
+which I will label 0, 1, 1.</p>
+<p t="1686140" d="2430">But it's a single edge
+in this structure.</p>
+<p t="1688570" d="5520">Over here we have an edge 1,
+and now we have 0, 0 here,</p>
+<p t="1694090" d="2550">and 1, 1 here.</p>
+<p t="1696640" d="2010">That is the compressed
+trie representation</p>
+<p t="1698650" d="2010">of these three values.</p>
+<p t="1700660" d="1950">The nice thing
+about this structure</p>
+<p t="1702610" d="2970">is every node is branching
+except the leaves, which</p>
+<p t="1705580" d="1470">means the number
+of nodes here is</p>
+<p t="1707050" d="2180">linear in the number of leaves.</p>
+<p t="1709230" d="3730">That's like twice the number
+of leaves minus 1, roughly.</p>
+<p t="1712960" d="2970">I guess the root might
+not be branching.</p>
+<p t="1715930" d="1580">It has no parent
+to contract into.</p>
+<p t="1717510" d="1150">Whatever.</p>
+<p t="1718660" d="2952">But more and more
+nodes, most 2n nodes.</p>
+<p t="1721612" d="958">That's the binary case.</p>
+<p t="1722570" d="4440">Now over here what we do is in
+the corresponding contracted</p>
+<p t="1727010" d="2170">try a picture of this thing.</p>
+<p t="1729180" d="1735">Let's see, it's a second edge.</p>
+<p t="1730915" d="3075">I'm going to put just a label
+of 2 on this edge to say, well,</p>
+<p t="1733990" d="960">I'm skipping this node.</p>
+<p t="1734950" d="1260">This guy is non-branching.</p>
+<p t="1736210" d="3630">So I want to get rid of it and
+contract it into the parent.</p>
+<p t="1739840" d="2670">So now this corresponds
+to two edges here.</p>
+<p t="1742510" d="2310">There are two digits, which
+I could write the digits</p>
+<p t="1744820" d="870">if I knew what they were.</p>
+<p t="1745690" d="2041">But particularly I want
+to keep track of the fact</p>
+<p t="1747731" d="3369">that there exactly two of them.</p>
+<p t="1751100" d="1640">And then there's
+a branching node.</p>
+<p t="1752740" d="1710">That one stays.</p>
+<p t="1754450" d="2590">But then I actually we'll go
+straight to the leaves here.</p>
+<p t="1757040" d="5320">This will be x1 and x2.</p>
+<p t="1762360" d="1905">And this will have
+a lot of digits.</p>
+<p t="1766960" d="2040">OK, so some large
+number written here.</p>
+<p t="1769000" d="2810">So that's the idea
+with a compress trie.</p>
+<p t="1771810" d="2220">Now the nice thing
+about a compress trie</p>
+<p t="1774030" d="5970">is they have linear size,
+number of edges and vertices</p>
+<p t="1780000" d="2220">is linear in the
+number of leaves,</p>
+<p t="1782220" d="3540">which is the number of
+values we have here.</p>
+<p t="1785760" d="1680">Another nice thing
+about compress tries</p>
+<p t="1787440" d="1620">is they preserve order.</p>
+<p t="1789060" d="1770">So if you look at the
+order of the leaves</p>
+<p t="1790830" d="3457">down here it's the same as the
+order of the leaves over here.</p>
+<p t="1794287" d="1583">We're not really
+changing order, we're</p>
+<p t="1795870" d="3750">just making things a little
+shorter to write down.</p>
+<p t="1799620" d="1200">Same thing over here.</p>
+<p t="1800820" d="1680">I mean, x1 appears
+the left of x2.</p>
+<p t="1818130" d="2862">Say the order of the
+leaves is preserved.</p>
+<p t="1820992" d="1708">The other cool thing
+about compress tries</p>
+<p t="1822700" d="2420">is you can compute
+them in linear time.</p>
+<p t="1825120" d="3240">But let me tell you why
+we're drawing this picture.</p>
+<p t="1828360" d="3960">We've messed up all these
+chunks, all these digits.</p>
+<p t="1832320" d="2410">What does that correspond
+to in this picture?</p>
+<p t="1834730" d="2931">We've permuted all of the
+children in this node.</p>
+<p t="1837661" d="2249">We've permuted all the
+children in this node, permuted</p>
+<p t="1839910" d="1410">all the children in this node.</p>
+<p t="1841320" d="2700">But otherwise, the structure
+of the tree is correct.</p>
+<p t="1844020" d="1980">What we wanted to
+do was compute--</p>
+<p t="1846000" d="2610">if we could compute the
+compress trie representation</p>
+<p t="1848610" d="4410">of the original values just
+having broken the integers</p>
+<p t="1853020" d="2899">into these pieces, then if we
+had that trie we could just</p>
+<p t="1855919" d="2291">do an in order traversal,
+find the order of the leaves,</p>
+<p t="1858210" d="3510">then we'd have the sorted
+order of the integers.</p>
+<p t="1861720" d="3870">Instead what we've computed
+is we didn't compute</p>
+<p t="1865590" d="1260">the correct compress trie.</p>
+<p t="1866850" d="1500">But we computed a
+different compress</p>
+<p t="1868350" d="3870">trie where every node has
+its children permuted.</p>
+<p t="1872220" d="3120">So all we need to do is put
+the children within each node</p>
+<p t="1875340" d="2520">in the correct
+order, then we would</p>
+<p t="1877860" d="2360">have the correct compress trie.</p>
+<p t="1880220" d="2270">OK, that's why we're doing this.</p>
+<p t="1882490" d="4910">But first, how do we compute a
+compress trie in linear time?</p>
+<p t="1892080" d="1870">This is a simple
+amortization argument.</p>
+<p t="1908887" d="1083">Remember what we're given.</p>
+<p t="1913240" d="3830">At this point we are given
+the leaves in sorted order.</p>
+<p t="1917070" d="2800">We've just sorted our things
+so all I'm trying to do</p>
+<p t="1919870" d="3100">is compute the trie of the
+stuff above the things.</p>
+<p t="1922970" d="3436">OK, we're given the leaves of
+the trie in the correct order.</p>
+<p t="1926406" d="1624">I just need to build
+the compress trie.</p>
+<p t="1928030" d="1230">The reason I'm building
+a compress trie</p>
+<p t="1929260" d="1375">is so I can do it
+in linear time.</p>
+<p t="1930635" d="5145">Constructing the uncompressed
+trie would take too long.</p>
+<p t="1935780" d="1910">OK, so how do we do this?</p>
+<p t="1946150" d="2880">We have our items xn in order.</p>
+<p t="1954340" d="7230">I want to just insert it
+into the compress trie.</p>
+<p t="1961570" d="3510">So I start with an
+empty compress trie.</p>
+<p t="1965080" d="2760">First thing I do is add x1,
+so it's just a single leaf.</p>
+<p t="1967840" d="2370">Then I add x2 to the
+trie, x3 to the trie.</p>
+<p t="1970210" d="2820">In general, I'll have computed--</p>
+<p t="1973030" d="1730">I'm going to draw a picture.</p>
+<p t="1974760" d="3300">How to draw a partial
+trie, something like this.</p>
+<p t="1978060" d="2180">I've computed the left
+part of trie already.</p>
+<p t="1980240" d="2840">All these x1's have been done.</p>
+<p t="1983080" d="2700">And now I need to
+add on the next,</p>
+<p t="1985780" d="4150">say xi over here somewhere.</p>
+<p t="1989930" d="2930">So think of how that
+would look in the trie.</p>
+<p t="1992860" d="2855">It has to come off
+of the right side,</p>
+<p t="1995715" d="1375">I guess what would
+you call this?</p>
+<p t="1997090" d="2460">The right spine of the tree.</p>
+<p t="1999550" d="2760">Some right most node over here.</p>
+<p t="2002310" d="4830">We want xi to be a new
+to the right child.</p>
+<p t="2007140" d="3750">So one possible
+picture is there was</p>
+<p t="2010890" d="2940">some node which had
+some other children,</p>
+<p t="2013830" d="3270">maybe this one had xi minus 1.</p>
+<p t="2017100" d="2060">Maybe xi belongs over here.</p>
+<p t="2019160" d="4540">Maybe this leads to xi
+in the uncompressed trie.</p>
+<p t="2023700" d="2410">This could be a
+potential picture.</p>
+<p t="2026110" d="3200">In the compress trie
+this node either exists</p>
+<p t="2029310" d="1650">or got contracted.</p>
+<p t="2030960" d="4290">If it exists maybe there
+was a previous xi minus 2</p>
+<p t="2035250" d="1214">belongs over here.</p>
+<p t="2036464" d="2416">So we already had this node
+because it distinguished these</p>
+<p t="2038880" d="2530">two xj's.</p>
+<p t="2041410" d="1590">To add the xi is really easy.</p>
+<p t="2043000" d="4820">I just add a node here and then
+which points to a leaf of xi.</p>
+<p t="2047820" d="2940">So that could be one situation.</p>
+<p t="2050760" d="2720">The other situation is only
+slightly more complicated.</p>
+<p t="2061980" d="3570">So the other
+possibility is this node</p>
+<p t="2065550" d="3180">didn't exist in the compressed
+trie, which means we jumped</p>
+<p t="2068730" d="4179">over it in the compress trie.</p>
+<p t="2072909" d="2301">Some number bigger
+than 1 here, maybe you</p>
+<p t="2075210" d="3910">skipped three nodes, who knows.</p>
+<p t="2079120" d="1331">So now this node matters.</p>
+<p t="2080451" d="999">It didn't matter before.</p>
+<p t="2081450" d="3120">Before it was non-branching, but
+now we add xi, it's branching.</p>
+<p t="2084570" d="4339">All we do is update,
+add this new guy,</p>
+<p t="2088909" d="3480">add the new pointer to xi.</p>
+<p t="2092389" d="2560">OK, so constant work.</p>
+<p t="2094949" d="4831">Great, constant work per xi
+inserted, linear time overall.</p>
+<p t="2099780" d="1140">Not really.</p>
+<p t="2100920" d="1590">I've cheated a little
+bit here, which</p>
+<p t="2102510" d="3270">is how do we know what we're
+going to do this operation.</p>
+<p t="2105780" d="3150">So the changes we make
+is constant, that's fine.</p>
+<p t="2108930" d="2190">But how did I find that
+this was the edge where</p>
+<p t="2111120" d="1980">I need to put xi in?</p>
+<p t="2113100" d="1890">You can't do it
+in constant time,</p>
+<p t="2114990" d="2850">but we can do it in
+constant amortized time.</p>
+<p t="2117840" d="4860">So what we're going to do
+is start at the right most--</p>
+<p t="2122700" d="3990">that is not very red.</p>
+<p t="2126690" d="3275">Not a red chalk.</p>
+<p t="2129965" d="2245">Red chalk.</p>
+<p t="2132210" d="3420">We start at this leaf, the
+rightmost leaf which you go</p>
+<p t="2135630" d="1750">going right most as possible.</p>
+<p t="2137380" d="4710">We're going to walk up the tree
+until we find the right point.</p>
+<p t="2142090" d="3250">We're going to spend
+linear time this path walk.</p>
+<p t="2145340" d="2192">OK, how could this
+possibly be OK?</p>
+<p t="2147532" d="2458">I think you believe that I can
+do it in linear time, right.</p>
+<p t="2149990" d="1880">Each point I see--</p>
+<p t="2151870" d="1790">what is my common prefix?</p>
+<p t="2153660" d="1810">Actually an easy way
+is right up front.</p>
+<p t="2155470" d="4040">This thing right
+here is xi minus 1.</p>
+<p t="2159510" d="1320">These are single integers.</p>
+<p t="2160830" d="3240">So I can just compute
+their x or, find</p>
+<p t="2164070" d="2490">the most significant one bit,
+which we did with the fusion</p>
+<p t="2166560" d="1620">tree lecture.</p>
+<p t="2168180" d="4710">And boom, I know where they
+differ in bit position.</p>
+<p t="2172890" d="1740">By some rounding
+I can figure out</p>
+<p t="2174630" d="4440">which chunk they differ
+in, just by dividing,</p>
+<p t="2179070" d="810">taking the ceiling.</p>
+<p t="2182950" d="3230">So I know the correct depth.</p>
+<p t="2186180" d="3990">And then these numbers tell
+me how much depth I'm losing.</p>
+<p t="2190170" d="2310">As I walk up at some
+point I'll discover,</p>
+<p t="2192480" d="1680">oops, I just jumped
+over the depth</p>
+<p t="2194160" d="1960">I care about where they differ.</p>
+<p t="2196120" d="2360">And so at that point I
+know to do that operation.</p>
+<p t="2198480" d="4800">So if there are k edges
+here on the compress trie,</p>
+<p t="2203280" d="5110">I can do this in order k
+time, k plus 1, let's say.</p>
+<p t="2208390" d="1700">Why is that OK?</p>
+<p t="2210090" d="5100">Because my potential
+function, amortization</p>
+<p t="2215190" d="7855">is going to be the length
+of the rightmost path.</p>
+<p t="2226030" d="3990">OK, before my rightmost
+path was this thing.</p>
+<p t="2230020" d="3330">Afterwards, my rightmost path
+is going to be this thing.</p>
+<p t="2233350" d="3920">So it got roughly k
+shorter, k minus 1 shorter.</p>
+<p t="2237270" d="2440">OK, so I charged
+this k plus 1 cost</p>
+<p t="2239710" d="5140">to a potential
+decrease of k minus 1.</p>
+<p t="2244850" d="3400">And so the amortize
+cost is only constant.</p>
+<p t="2248250" d="1420">Easy amortization.</p>
+<p t="2249670" d="1950">Another way to see
+this is, overall</p>
+<p t="2251620" d="2430">we're basically doing it in
+order traversal of the tree.</p>
+<p t="2254050" d="3030">So whenever we walk up we'll
+never visit these nodes again,</p>
+<p t="2257080" d="2032">because then we go down
+at a different place.</p>
+<p t="2259112" d="1958">OK, yeah, this guy we're
+going to walk up again</p>
+<p t="2261070" d="2125">because in an in order
+traversal we would have gone</p>
+<p t="2263195" d="2075">left and then come back
+to it and then gone down.</p>
+<p t="2265270" d="1416">So overall we're
+doing an in order</p>
+<p t="2266686" d="4454">traversal of the compress trie,
+so it's linear time total.</p>
+<p t="2276271" d="499">OK.</p>
+<p t="2280510" d="1574">Still not done though.</p>
+<p t="2282084" d="1666">What we have so far--
+what have we done?</p>
+<p t="2283750" d="2700">We've taken our numbers,
+we've split them into digits.</p>
+<p t="2286450" d="3420">We randomly permuted the
+digits via hash function.</p>
+<p t="2289870" d="2790">That magically let us
+sort them in linear time.</p>
+<p t="2292660" d="3240">Now we've built a compress
+trie of that representation.</p>
+<p t="2295900" d="3390">The last thing to do is to
+fix the order of the children</p>
+<p t="2299290" d="1470">from each node.</p>
+<p t="2300760" d="2370">The tree is correct
+except for the order</p>
+<p t="2303130" d="2040">of the children in each node.</p>
+<p t="2305170" d="4890">So we've kind of sorted a little
+bit, but haven't fully sorted.</p>
+<p t="2310060" d="4700">So that's the last step.</p>
+<p t="2314760" d="4560">And we're going to do
+that with recursion.</p>
+<p t="2323430" d="2295">We're only going to recurse
+a constant number of times.</p>
+<p t="2328410" d="1140">Recursively sort.</p>
+<p t="2360970" d="3920">OK, I'm going to walk
+through this compress</p>
+<p t="2364890" d="4560">try trie we've built. And I
+guess it looks more like this.</p>
+<p t="2369450" d="4427">And for each edge I'm going
+to write down this key.</p>
+<p t="2373877" d="1583">First thing you're
+going to write down</p>
+<p t="2375460" d="1260">is the ID of the node.</p>
+<p t="2376720" d="5540">Let's say the ID is the in order
+traversal index of the node.</p>
+<p t="2382260" d="1120">OK, so boom.</p>
+<p t="2383380" d="4530">As we traverse the tree we can
+just increment this counter.</p>
+<p t="2387910" d="3480">Then we also want--</p>
+<p t="2391390" d="6570">what I'm going to put in here
+is the actual chunk value</p>
+<p t="2397960" d="1980">that's at the top of the node.</p>
+<p t="2399940" d="2760">So something like this,
+or I guess this one.</p>
+<p t="2402700" d="2700">This one consists
+of two chunk values.</p>
+<p t="2405400" d="3952">So it's called c1, for
+chunk values, c1 and c2.</p>
+<p t="2409352" d="1958">It's the first chunk
+value and the second chunk</p>
+<p t="2411310" d="2141">value, first digit
+and the second digit.</p>
+<p t="2413451" d="1249">Just write down the first one.</p>
+<p t="2418062" d="1708">That's really the only
+one we care about.</p>
+<p t="2419770" d="2166">The second one wasn't
+branching so it's no big deal.</p>
+<p t="2424440" d="1800">OK, so there's some chunk value.</p>
+<p t="2426240" d="4140">Now, I don't want to write
+down the signature chunk value.</p>
+<p t="2430380" d="1800">I don't want to write
+down the hash value.</p>
+<p t="2432180" d="4860">I want the actual chunk,
+original chunk not the hash.</p>
+<p t="2437040" d="2550">That's why I write
+actual over here</p>
+<p t="2439590" d="1890">and then also, I'm
+going to write down</p>
+<p t="2441480" d="1300">the index of the edge.</p>
+<p t="2442780" d="3460">So this is the second
+edge, for example.</p>
+<p t="2446240" d="3320">OK, now this is in some
+sense the wrong index.</p>
+<p t="2449560" d="2630">And what I want to compute
+is where it's supposed to be.</p>
+<p t="2452190" d="1860">The edges have been permuted.</p>
+<p t="2454050" d="2040">So if I sort this
+thing, I claim that I'll</p>
+<p t="2456090" d="4300">find that all the
+desired permutations.</p>
+<p t="2460390" d="1670">OK, why?</p>
+<p t="2462060" d="5220">Because if I sort by
+this triple, first thing</p>
+<p t="2467280" d="3480">I sort by is by node ID, then
+I'm sorting by actual chunk</p>
+<p t="2470760" d="1359">value, then edge index.</p>
+<p t="2472119" d="1791">I don't care that I'm
+sorting by it, that's</p>
+<p t="2473910" d="1960">just coming along for the ride.</p>
+<p t="2475870" d="4400">So what this tells
+me is for each node</p>
+<p t="2480270" d="2880">it gives me the sorted value
+of the actual chunks, not</p>
+<p t="2483150" d="1410">the hash chunks.</p>
+<p t="2484560" d="3600">And then it tells me the
+order they used to be in.</p>
+<p t="2488160" d="5040">So this is a way to figure
+out the sorted permutation</p>
+<p t="2493200" d="1050">of these things.</p>
+<p t="2494250" d="1704">This gives you the old index.</p>
+<p t="2495954" d="1416">And so once you've
+sorted them you</p>
+<p t="2497370" d="4140">know that new correct
+order is in order by chunk.</p>
+<p t="2501510" d="1530">And so this gives
+you the inverse</p>
+<p t="2503040" d="4380">of the permutation over here,
+of where each edge should be.</p>
+<p t="2507420" d="5250">So once I've done
+this the last step is</p>
+<p t="2512670" d="11670">for each node permute
+the edges as given</p>
+<p t="2524340" d="2850">by this inverse permutation.</p>
+<p t="2527190" d="928">Questions?</p>
+<p t="2528118" d="1541">AUDIENCE: Can you
+explain again that?</p>
+<p t="2529659" d="1671">You were basically
+sorting three times.</p>
+<p t="2531330" d="3426">ERIK DEMAINE: No, I'm sorting
+these single key values.</p>
+<p t="2534756" d="2124">The key value, the most
+significant part of the key</p>
+<p t="2536880" d="900">is this.</p>
+<p t="2537780" d="1560">The next most significant
+part of the key is this.</p>
+<p t="2539340" d="2020">And the least significant
+part of the key is this.</p>
+<p t="2541360" d="1916">So imagine concatenating
+these things together</p>
+<p t="2543276" d="1124">into a single key value.</p>
+<p t="2544400" d="2140">Yeah, good question.</p>
+<p t="2546540" d="2730">What I'll talk about in a
+moment, how big this key is.</p>
+<p t="2549270" d="3120">But if I sort by the
+concatenation of those keys</p>
+<p t="2552390" d="2070">then what happens is
+I'm sorting by this</p>
+<p t="2554460" d="1172">and then sorting by this.</p>
+<p t="2555632" d="1708">But really, I'm doing
+one sort operation.</p>
+<p t="2557340" d="2280">This is one recursion.</p>
+<p t="2559620" d="2910">Other questions?</p>
+<p t="2562530" d="1670">OK.</p>
+<p t="2564200" d="2320">Do you see why this
+gives us what we need?</p>
+<p t="2566520" d="2980">For every node we want
+to sort all those chunks.</p>
+<p t="2569500" d="2306">And so this information
+is just so we</p>
+<p t="2571806" d="1374">can keep track of
+the permutation</p>
+<p t="2573180" d="1740">when we're just sorting
+by value and not</p>
+<p t="2574920" d="1580">keeping the permutation.</p>
+<p t="2576500" d="2150">This let's us keep track of it.</p>
+<p t="2578650" d="3110">But our real goal is to
+sort all the chunk values.</p>
+<p t="2581760" d="2670">And we add in the node
+ID so that we just</p>
+<p t="2584430" d="2310">learn for every node what
+we're supposed to do instead</p>
+<p t="2586740" d="1972">of globally what we need to do.</p>
+<p t="2588712" d="1958">Maybe you don't have to
+do this but it's easier</p>
+<p t="2590670" d="2340">to keep the node ID in there.</p>
+<p t="2593010" d="3994">OK, how many bits
+are in this key?</p>
+<p t="2597004" d="1916">So our whole point was
+to make chunks small so</p>
+<p t="2598920" d="1249">that the keys were small.</p>
+<p t="2600169" d="2291">But I claim this will be a
+little bit smaller than what</p>
+<p t="2602460" d="1270">we started with.</p>
+<p t="2603730" d="2570">So the node ID, well,
+there's only n nodes,</p>
+<p t="2606300" d="3210">so this is log n bits.</p>
+<p t="2609510" d="5580">Chunk value is, I
+guess, w divided by log</p>
+<p t="2615090" d="3540">to the epsilon n bits.</p>
+<p t="2618630" d="3440">Because there are a log
+to the epsilon n chunks,</p>
+<p t="2622070" d="2170">so it's w divided by
+log to the epsilon bits.</p>
+<p t="2624240" d="6150">The edge index, how many
+different things were there?</p>
+<p t="2634822" d="2268">Is it also w divided
+by log to the epsilon?</p>
+<p t="2637090" d="2434">I guess so.</p>
+<p t="2639524" d="916">Depends how you count.</p>
+<p t="2644390" d="2410">Let me think for a second
+how these edge indices should</p>
+<p t="2646800" d="500">be stored.</p>
+<p t="2652140" d="2400">I think I'd like to
+store the edge indices--</p>
+<p t="2654540" d="5610">I don't want to store
+the absent down pointers.</p>
+<p t="2660150" d="3530">The way that I built this
+tree, this compress trie,</p>
+<p t="2663680" d="2240">I was always adding
+things to the right.</p>
+<p t="2665920" d="2634">So it's like OK,
+I'm storing here.</p>
+<p t="2668554" d="1916">Here's the first child,
+here's the next child,</p>
+<p t="2670470" d="1874">here's the next child,
+here's the next child.</p>
+<p t="2672344" d="1106">I just keep appending on.</p>
+<p t="2673450" d="2120">It's like an array that you
+can grow to the right, which</p>
+<p t="2675570" d="1890">you should know how to
+do in constant time,</p>
+<p t="2677460" d="1708">even though linked
+list is probably fine.</p>
+<p t="2681342" d="1458">If there are a
+bunch of values here</p>
+<p t="2682800" d="1458">that are just null
+pointers I don't</p>
+<p t="2684258" d="2212">want to store those
+items in the array.</p>
+<p t="2686470" d="3890">So in fact, the maximum number
+of children of a node is n.</p>
+<p t="2690360" d="2830">I mean, at the worst case you
+have branching everywhere.</p>
+<p t="2693190" d="9860">So this is only log n bits to
+store the index in that array.</p>
+<p t="2703050" d="2190">So it's an extra
+level of compression.</p>
+<p t="2705240" d="7910">I guess I didn't mention
+don't store null pointers,</p>
+<p t="2713150" d="2890">just skip them.</p>
+<p t="2716040" d="3470">And that's easy to do because
+you're always just appending.</p>
+<p t="2719510" d="4790">And in the end what
+do I need to do here?</p>
+<p t="2724300" d="8710">Step seven is in order
+traversal of the compress trie.</p>
+<p t="2737180" d="6474">And I output all the
+leaves I get in order.</p>
+<p t="2743654" d="2166">And the point is we computed
+the compress trie which</p>
+<p t="2745820" d="3090">has the rough correct
+topological structure.</p>
+<p t="2748910" d="1800">Then we fix the order
+within each node,</p>
+<p t="2750710" d="2610">now we have the correctly
+sorted compress trie.</p>
+<p t="2753320" d="2660">And so you're just doing
+in order traversal, output</p>
+<p t="2755980" d="1630">the leave you get in order.</p>
+<p t="2757610" d="3080">Boom, we've sorted
+all the items.</p>
+<p t="2760690" d="625">A little crazy.</p>
+<p t="2763887" d="2333">So if all we need to do in
+the end is in order traversal</p>
+<p t="2766220" d="2333">then it's fine we don't need
+to store the null pointers.</p>
+<p t="2768553" d="2367">So we don't need to be able
+to search in this trie,</p>
+<p t="2770920" d="790">so this is enough.</p>
+<p t="2774590" d="1500">Clear?</p>
+<p t="2776090" d="1860">OK, the remaining
+question is how</p>
+<p t="2777950" d="2020">expensive is this recursion?</p>
+<p t="2779970" d="3200">So I computed the number
+of bits basically w</p>
+<p t="2783170" d="3850">divided by log to the
+epsilon n, plus order log n.</p>
+<p t="2787020" d="2030">That order log n won't hurt us.</p>
+<p t="2789050" d="3610">Now, we started with
+integers of size w,</p>
+<p t="2792660" d="3080">the total size here was w.</p>
+<p t="2795740" d="4110">Now we have integers that
+their size is w divided</p>
+<p t="2799850" d="1060">by log to the epsilon n.</p>
+<p t="2800910" d="958">So we've made progress.</p>
+<p t="2805010" d="1510">Cool.</p>
+<p t="2806520" d="1125">How much progress?</p>
+<p t="2813380" d="830">Over here maybe.</p>
+<p t="2821710" d="3570">After, let's say, 1
+over epsilon plus 1</p>
+<p t="2825280" d="11950">recursions we will
+have reached b will</p>
+<p t="2837230" d="9880">have decreased to order log n.</p>
+<p t="2847110" d="9240">I guess, like 1 over epsilon
+log n plus w over log</p>
+<p t="2856350" d="3450">to the 1 plus epsilon n.</p>
+<p t="2867480" d="1460">OK.</p>
+<p t="2868940" d="1910">Right, if we take
+w and every time we</p>
+<p t="2870850" d="3780">divide by log to the epsilon n,
+then after 1 over epsilon times</p>
+<p t="2874630" d="3070">we have divided by log
+n, get rid of epsilon.</p>
+<p t="2877700" d="2210">Do it one more time,
+we get w divided</p>
+<p t="2879910" d="3570">by log to the 1 plus epsilon n.</p>
+<p t="2883480" d="2240">And at this point
+we're in good shape.</p>
+<p t="2889600" d="2100">If we get the size
+of our integers</p>
+<p t="2891700" d="3660">to be only w divided by log
+to the 1 plus epsilon n,</p>
+<p t="2895360" d="3090">then we can use packed sorting.</p>
+<p t="2898450" d="1860">Because packed sorting,
+conveniently it's</p>
+<p t="2900310" d="2100">the black box at the
+moment, says well,</p>
+<p t="2902410" d="3300">as long as w divided by b is
+a little bigger than log n.</p>
+<p t="2905710" d="2550">So here we've made it quite
+a bit bigger than log n.</p>
+<p t="2908260" d="3300">I mean, log to the 1
+plus epsilon n bigger,</p>
+<p t="2911560" d="1710">then we can use packed sorting.</p>
+<p t="2917680" d="6870">Reach base case, and
+then use packed sorting.</p>
+<p t="2930740" d="2470">OK, the only thing is
+there's this log n.</p>
+<p t="2933210" d="3680">Now, epsilon is a constant here,
+so 1 over epsilon is constant.</p>
+<p t="2936890" d="1850">So this is just order log n.</p>
+<p t="2938740" d="1540">Order log n doesn't hurt you.</p>
+<p t="2940280" d="2750">I mean, if this happened
+to dominate this</p>
+<p t="2943030" d="3270">then you're saying your values
+are order log n bits long,</p>
+<p t="2946300" d="2440">and so you use radex sort.</p>
+<p t="2948740" d="1872">So that's not going to dominate.</p>
+<p t="2950612" d="1458">In fact, you can
+prove in this case</p>
+<p t="2952070" d="2458">it's not going to dominate. w
+is at least log to the 2 plus</p>
+<p t="2954528" d="972">epsilon.</p>
+<p t="2955500" d="1690">So you take w
+divided by log to 1</p>
+<p t="2957190" d="2820">plus epsilon, that's
+still at least log n.</p>
+<p t="2960010" d="1590">So this will always dominate.</p>
+<p t="2967360" d="4140">OK, so we did all
+this work and all</p>
+<p t="2971500" d="3642">we did was reduce our word size
+by a log to the epsilon factor.</p>
+<p t="2975142" d="1458">But that's enough,
+because after we</p>
+<p t="2976600" d="3710">do that 1 over
+epsilon plus 1 times</p>
+<p t="2980310" d="2680">the words are small enough,
+or the items we're sorting</p>
+<p t="2982990" d="2760">are small enough, that we
+can use packed sorting.</p>
+<p t="2985750" d="1950">And boom, we're done.</p>
+<p t="2987700" d="4440">OK, that is the beauty
+of signature sort.</p>
+<p t="2992140" d="2640">Any questions about that?</p>
+<p t="2994780" d="1290">Definitely not easy.</p>
+<p t="2999020" d="2620">But, it works.</p>
+<p t="3001640" d="2954">The crazy idea is, well,
+decompose into these digits.</p>
+<p t="3004594" d="2166">And when we decompose into
+log to the epsilon digits</p>
+<p t="3006760" d="1510">because that would be enough.</p>
+<p t="3008270" d="2000">If we can get things down
+to a single digit life</p>
+<p t="3010270" d="2190">would be easy.</p>
+<p t="3012460" d="4090">Which I guess is kind of
+like Van Emde Boas, right.</p>
+<p t="3016550" d="2240">It's like our lower
+bounds from last time.</p>
+<p t="3018790" d="1110">I don't know.</p>
+<p t="3019900" d="3060">If we can make it to only
+one digit mattered then</p>
+<p t="3022960" d="2790">we could afford to do it because
+each digit is quite a bit</p>
+<p t="3025750" d="540">smaller.</p>
+<p t="3026290" d="4500">It's smaller by a factor
+of log to the epsilon n.</p>
+<p t="3030790" d="1910">So we did that
+splitting and then there</p>
+<p t="3032700" d="3500">was this observation that
+most digit values aren't used.</p>
+<p t="3036200" d="3320">So if we hash then
+things got a lot smaller.</p>
+<p t="3039520" d="1740">Then we can afford to pack sort.</p>
+<p t="3041260" d="2195">Except that hash didn't
+preserve the order.</p>
+<p t="3043455" d="1375">How didn't it
+preserve the order?</p>
+<p t="3044830" d="1830">Well, when you look
+at the compress trie</p>
+<p t="3046660" d="1770">you see how it got messed up.</p>
+<p t="3048430" d="1780">Each node got messed
+up individually,</p>
+<p t="3050210" d="2325">but overall the structure
+of the trie was correct.</p>
+<p t="3052535" d="2375">So we did all this work to
+get the structure of the trie.</p>
+<p t="3054910" d="2040">Then we had to fix
+the node order.</p>
+<p t="3056950" d="2130">But that's really just
+sorting a single digit.</p>
+<p t="3059080" d="2820">And yeah, we have to do it for
+all nodes but you add them up.</p>
+<p t="3061900" d="3300">It's still only n items
+that we need to sort.</p>
+<p t="3065200" d="3300">So I wrote that b went down.</p>
+<p t="3068500" d="2015">n stays the same.</p>
+<p t="3070515" d="1625">The number of things
+we have to sort of</p>
+<p t="3072140" d="3235">stays the same, which is fine.</p>
+<p t="3075375" d="1815">We're not trying
+to reduce n, we're</p>
+<p t="3077190" d="1840">just trying to reduce
+the size of our items</p>
+<p t="3079030" d="1670">to be a little
+bit smaller than w</p>
+<p t="3080700" d="2070">so then we can use
+packed sorting.</p>
+<p t="3082770" d="4030">OK, I think I've gone over
+this algorithm enough times.</p>
+<p t="3086800" d="2520">The next step is packed sorting.</p>
+<p t="3092290" d="4650">If we have integers that are
+much smaller than our word,</p>
+<p t="3096940" d="2420">how do we sort in linear time?</p>
+<p t="3099360" d="3780">And this is going to be
+essentially a fancy merge sort.</p>
+<p t="3129284" d="1291">This is done in the same paper.</p>
+<p t="3146560" d="4350">Before we said omega, I'm
+going to essentially make omega</p>
+<p t="3150910" d="1147">a little bit bigger than 2.</p>
+<p t="3152057" d="1583">So I want to assume
+that w is at least</p>
+<p t="3153640" d="3270">twice b plus 1 log n log log n.</p>
+<p t="3156910" d="1950">That's just to make
+this convenient,</p>
+<p t="3158860" d="3182">but of course it doesn't really
+matter what the constants are.</p>
+<p t="3162042" d="1708">This will make everything
+fit in one word</p>
+<p t="3163750" d="2660">though, instead of a
+constant number of words.</p>
+<p t="3166410" d="16590">OK, step zero of this
+algorithm is the packing part.</p>
+<p t="3187260" d="2520">We can fit more than one
+element into each word.</p>
+<p t="3189780" d="2280">So put them in.</p>
+<p t="3192060" d="1800">Now, we have linear
+time overall.</p>
+<p t="3193860" d="2690">This is easy to do.</p>
+<p t="3196550" d="1390">You have some word already.</p>
+<p t="3200580" d="3360">Take those items, shift them
+left or in the next item,</p>
+<p t="3203940" d="1590">shift them left or
+in the next item,</p>
+<p t="3205530" d="1910">shift them left or
+in the next item.</p>
+<p t="3207440" d="3020">OK, linear time.</p>
+<p t="3210460" d="3150">So in the end what it's
+going to look like--</p>
+<p t="3213610" d="3200">oh, I also want to leave a 0
+bit in between each of them.</p>
+<p t="3216810" d="2580">So we're going to have b.</p>
+<p t="3219390" d="13760">This is going to
+be x1 here, x2, xn.</p>
+<p t="3233150" d="2021">Each of these is b bits long.</p>
+<p t="3235171" d="1249">And then we have one more bit.</p>
+<p t="3238940" d="1770">And in fact, the way
+we set things up this</p>
+<p t="3240710" d="1364">is only half the word.</p>
+<p t="3242074" d="1666">So there's another
+half over here, which</p>
+<p t="3243740" d="2730">is going to be all 0 for now.</p>
+<p t="3246470" d="2420">So we have one word contains--</p>
+<p t="3248890" d="1790">sorry, this is not n items.</p>
+<p t="3250680" d="4249">This is going to
+be log n log log n.</p>
+<p t="3254929" d="1291">Can't fit them all in one word.</p>
+<p t="3256220" d="1974">That would make
+life really easy.</p>
+<p t="3258194" d="2166">You can fit log n log log
+n items in the first word.</p>
+<p t="3260360" d="2580">Then the next word
+is the next log n</p>
+<p t="3262940" d="2320">log log n items and so on.</p>
+<p t="3265260" d="1220">Linear time to do that.</p>
+<p t="3270170" d="3302">Next step, this is an algorithm.</p>
+<p t="3273472" d="958">It's not really a step.</p>
+<p t="3274430" d="3890">I should say these are
+things that we're able to do,</p>
+<p t="3278320" d="2824">and we're going to combine
+them in different ways.</p>
+<p t="3281144" d="1416">So the next thing
+to observe, this</p>
+<p t="3282560" d="3510">is sort of a bottom
+up perspective.</p>
+<p t="3286070" d="2250">So first thing we can do
+is pack things into word.</p>
+<p t="3288320" d="3680">Next thing we can do is
+merge two sorted words.</p>
+<p t="3292000" d="3670">Let's say they each have k items
+and k is at most log n log log</p>
+<p t="3295670" d="500">n.</p>
+<p t="3304480" d="11095">And I want to merge them into
+one sorted word with two k</p>
+<p t="3315575" d="500">elements.</p>
+<p t="3318970" d="3090">So I have two of these
+things and I'll merge them</p>
+<p t="3322060" d="3184">in sorted order.</p>
+<p t="3325244" d="1916">And when I did this
+packing, nothing's sorted.</p>
+<p t="3327160" d="2010">But don't worry about
+that at the moment.</p>
+<p t="3329170" d="2520">Just if I had two
+these words and suppose</p>
+<p t="3331690" d="3300">they were already
+sorted, then I want</p>
+<p t="3334990" d="4620">to merge them and make
+them still sorted.</p>
+<p t="3339610" d="2250">OK, I want x1 to be
+less than x2 and so on.</p>
+<p t="3344470" d="1425">How much time?</p>
+<p t="3345895" d="2445">It'd be cool if you could
+do this in constant time</p>
+<p t="3348340" d="1251">on a transdichotomous rem.</p>
+<p t="3349591" d="1749">You could do anything
+on a constant number</p>
+<p t="3351340" d="1192">of words in constant time.</p>
+<p t="3352532" d="1708">We're not going to
+achieve constant time,</p>
+<p t="3354240" d="1640">but we don't need to.</p>
+<p t="3355880" d="2080">We're going to do
+order log k time.</p>
+<p t="3361235" d="2375">ERIK DEMAINE: This is the
+hardest step of packed sorting,</p>
+<p t="3363610" d="3180">and I'm not going to tell
+you how to do it until later.</p>
+<p t="3366790" d="2100">I will tell you, don't worry.</p>
+<p t="3368890" d="4320">But this is going to
+require bitonic sorting.</p>
+<p t="3373210" d="2440">So I have to delay
+it a little bit.</p>
+<p t="3375650" d="1670">Suppose you had that for now.</p>
+<p t="3377320" d="1710">Let me tell you how
+the rest is easy.</p>
+<p t="3385900" d="2960">So many black boxes, but they're
+all filled in in this lecture.</p>
+<p t="3391660" d="5400">OK, next thing you
+might ask is, well,</p>
+<p t="3397060" d="1800">how do I get a sorted word?</p>
+<p t="3398860" d="3330">I see how to get a single word
+that has log n log log n items.</p>
+<p t="3402190" d="2450">But how would I
+sort those items?</p>
+<p t="3404640" d="1720">Use merge sort.</p>
+<p t="3406360" d="1050">Here's a merger.</p>
+<p t="3407410" d="2189">You have a way to
+merge two sorted lists,</p>
+<p t="3409599" d="1541">so use merge sort,
+that will give you</p>
+<p t="3411140" d="2130">a way to sort the whole thing.</p>
+<p t="3413270" d="4790">So I'm going to merge sort
+k equals log n log log n</p>
+<p t="3418060" d="8240">items into one sorted word.</p>
+<p t="3433050" d="2640">So I start out with a
+word that's unsorted.</p>
+<p t="3435690" d="1800">I do merge sort.</p>
+<p t="3437490" d="2394">And I sort them.</p>
+<p t="3439884" d="1666">So this is not the
+whole sorting problem</p>
+<p t="3441550" d="3750">but it's the one
+word sorting problem.</p>
+<p t="3445300" d="1760">So how long does this take?</p>
+<p t="3447060" d="2960">Well, it's usual
+merge sort recurrence,</p>
+<p t="3450020" d="4075">but then it's plus how long
+it takes me to split the word.</p>
+<p t="3454095" d="1375">Well, splitting
+the word is easy,</p>
+<p t="3455470" d="2840">you just mask out the
+low end or the high end</p>
+<p t="3458310" d="1830">and then maybe shift over.</p>
+<p t="3460140" d="2760">So in constant time I
+can get the left half</p>
+<p t="3462900" d="3330">and the right half of the
+array, which is the word.</p>
+<p t="3466230" d="1620">Then the hard part
+is merging them.</p>
+<p t="3467850" d="6618">And merging them is 1,
+and that takes log k.</p>
+<p t="3474468" d="3242">So this is step one.</p>
+<p t="3477710" d="1300">That's our merger.</p>
+<p t="3479010" d="1550">And so what does this solve to?</p>
+<p t="3480560" d="3040">Well, probably easiest to
+draw the recursion tree.</p>
+<p t="3483600" d="1950">So at the root we pay log k.</p>
+<p t="3485550" d="8340">Then we have 2 times log
+k over 2, log k over 2.</p>
+<p t="3496770" d="3390">So at this level
+we're paying log k.</p>
+<p t="3500160" d="6120">At this level we're paying
+2 log k minus 1, I guess.</p>
+<p t="3508880" d="1840">I'm just going to
+call this maybe--</p>
+<p t="3510720" d="2760">yeah, I do need to do that.</p>
+<p t="3513480" d="2550">I mean everything is constant
+size so you pay a constant.</p>
+<p t="3516030" d="3170">How many leaves are there
+at the bottom level?</p>
+<p t="3519200" d="3060">k of them.</p>
+<p t="3522260" d="1830">OK, so at the root
+we're paying log k,</p>
+<p t="3524090" d="1660">at the leaves we're paying k.</p>
+<p t="3525750" d="1560">This is roughly geometric.</p>
+<p t="3527310" d="3230">There's this minus 1,
+but it's geometric enough</p>
+<p t="3530540" d="3670">and when you add up all these
+levels it's dominated by k.</p>
+<p t="3534210" d="2662">So this ends up
+being order k time.</p>
+<p t="3539450" d="4410">The minus 1 here turns
+out not to matter much.</p>
+<p t="3543860" d="850">Cool.</p>
+<p t="3544710" d="3400">So this linear time sorting
+on log n log log n items.</p>
+<p t="3548110" d="1940">Everything it fits in a word.</p>
+<p t="3550050" d="3010">Cool, but we're not done yet.</p>
+<p t="3553060" d="3260">We need another level.</p>
+<p t="3556320" d="3135">The rest is pretty easy.</p>
+<p t="3559455" d="1555">It's just scaling up.</p>
+<p t="3594660" d="1880">OK, let's see.</p>
+<p t="3596540" d="3990">At this point we're going to
+assume that all of our words</p>
+<p t="3600530" d="1620">are completely full.</p>
+<p t="3602150" d="3120">So this merging and stuff
+was in order to fill up words</p>
+<p t="3605270" d="2040">and to make those words sorted.</p>
+<p t="3607310" d="3330">But once we've done that
+for each cluster of log n</p>
+<p t="3610640" d="2490">log log n items, now
+we can assume each word</p>
+<p t="3613130" d="1520">is sorted and completely full.</p>
+<p t="3614650" d="3500">It has exactly k elements in it.</p>
+<p t="3618150" d="7390">So each of these r sorted
+words has k elements.</p>
+<p t="3625540" d="2560">OK, so now the issue is
+things don't fit in a word.</p>
+<p t="3628100" d="2310">And so now suppose they
+fit in r sorted words.</p>
+<p t="3630410" d="4710">So supposed we've already made
+a sorted list of r times k items</p>
+<p t="3635120" d="3600">which fit in r words,
+each with k items in it.</p>
+<p t="3638720" d="2040">Then I want to take
+two of these lists</p>
+<p t="3640760" d="1830">and merge them
+together and get one</p>
+<p t="3642590" d="2030">sorted list of sorted words.</p>
+<p t="3644620" d="5950">So it's 2 rk items that are
+distributed into 2r words,</p>
+<p t="3650570" d="3390">each of size k.</p>
+<p t="3653960" d="3790">How do I do that
+merge in linear time?</p>
+<p t="3657750" d="5950">And I only need to do it
+in r log k time, only.</p>
+<p t="3663700" d="850">Yeah, question?</p>
+<p t="3664550" d="4310">AUDIENCE: I'm assuming k is
+the number of items per word?</p>
+<p t="3668860" d="3370">ERIK DEMAINE: Yeah, k
+is this from now on.</p>
+<p t="3672230" d="3899">And there are exactly
+k elements per word.</p>
+<p t="3676129" d="2041">We've already filled up
+the word so at this point</p>
+<p t="3678170" d="1150">we can assume that.</p>
+<p t="3679320" d="2107">AUDIENCE: But it's exactly
+equal, not less than.</p>
+<p t="3681427" d="833">ERIK DEMAINE: Right.</p>
+<p t="3682260" d="872">AUDIENCE: Because in one--</p>
+<p t="3683132" d="1698">ERIK DEMAINE: Yeah, over here
+it's less than or equal to.</p>
+<p t="3684830" d="1291">I know it's a little confusing.</p>
+<p t="3686121" d="3159">I use k for different--
+call this k prime.</p>
+<p t="3689280" d="3800">OK, and at this point we've
+filled up to this value of k.</p>
+<p t="3693080" d="2490">Now everything has exactly
+log n log log n items.</p>
+<p t="3695570" d="2550">Thanks.</p>
+<p t="3698120" d="1950">OK, let's see.</p>
+<p t="3702650" d="2940">A regular merging algorithm
+would take r times k time</p>
+<p t="3705590" d="2380">because they're r times k items.</p>
+<p t="3707970" d="4010">But we have this merger
+over here, which will</p>
+<p t="3711980" d="3060">merge two words in log k time.</p>
+<p t="3715040" d="3210">So that's why it's
+going to be r log k.</p>
+<p t="3718250" d="1050">What's the picture?</p>
+<p t="3719300" d="1150">Well, let me draw it.</p>
+<p t="3736900" d="4180">We have a list of words.</p>
+<p t="3741080" d="2960">A list of words.</p>
+<p t="3744040" d="840">How do we merge?</p>
+<p t="3744880" d="3000">Well, we take the first
+two words, merge them.</p>
+<p t="3747880" d="2740">When we merge them and we know
+how to do this n log k time,</p>
+<p t="3750620" d="2600">that's step 1.</p>
+<p t="3753220" d="1734">When we merge them
+we get two words,</p>
+<p t="3754954" d="1041">they just are now sorted.</p>
+<p t="3759100" d="2370">So we've got these
+two guys sorted</p>
+<p t="3761470" d="2040">and then there's the rest.</p>
+<p t="3763510" d="2100">I'd like to say output
+these and repeat,</p>
+<p t="3765610" d="3030">but that wouldn't
+be quite correct.</p>
+<p t="3768640" d="6339">Well, these guys I can output
+because I've got k items here,</p>
+<p t="3774979" d="541">k items here.</p>
+<p t="3775520" d="2070">These are the k smallest
+among all of them.</p>
+<p t="3777590" d="2750">Those must be the
+overall smallest k items.</p>
+<p t="3780340" d="1710">Because I compared k with k.</p>
+<p t="3782050" d="2880">These higher k
+items, I don't know.</p>
+<p t="3784930" d="1630">They might be good or bad.</p>
+<p t="3786560" d="5411">So I have to put this high part
+back into one of these lists.</p>
+<p t="3791971" d="1749">You have to think a
+little bit about which</p>
+<p t="3793720" d="870">list to put it into.</p>
+<p t="3794590" d="2100">Turns out if you
+look at the max item,</p>
+<p t="3796690" d="2667">say where did this come
+from, list one or list two?</p>
+<p t="3799357" d="1083">You put it into that list.</p>
+<p t="3800440" d="2375">Let's say this
+came from list two.</p>
+<p t="3802815" d="3155">And you put it back into
+list two and then repeat.</p>
+<p t="3805970" d="6740">OK, so in log k time here
+we have output k items.</p>
+<p t="3812710" d="4080">And so we end up with an r
+log k running time overall.</p>
+<p t="3816790" d="2700">OK, so it's like
+regular merge algorithm,</p>
+<p t="3819490" d="3930">except we use step
+one to merge words,</p>
+<p t="3823420" d="2270">and then there's a
+little bit of work.</p>
+<p t="3825690" d="1780">This is like old merging
+algorithm, right?</p>
+<p t="3827470" d="3300">You take the min and
+you put the max back in.</p>
+<p t="3830770" d="4270">Except now the max
+is a whole word.</p>
+<p t="3835040" d="2990">OK that's how we merge.</p>
+<p t="3838030" d="1230">Now, why did we do a merger?</p>
+<p t="3839260" d="2510">Because next thing
+we do is merge sort.</p>
+<p t="3860250" d="1910">And this is the
+overall algorithm.</p>
+<p t="3862160" d="910">It's one merge sort.</p>
+<p t="3863070" d="1680">We're going to use
+this is the merger</p>
+<p t="3864750" d="1900">and we're going to use
+this as the base case.</p>
+<p t="3866650" d="3460">So it's actually two recursive
+levels of merge sort.</p>
+<p t="3870110" d="3280">Merge sort is recursive
+within step four for a while,</p>
+<p t="3873390" d="2361">until we get down to the
+level of a single word.</p>
+<p t="3875751" d="2499">Then we use this thing to deal
+with things in a single word.</p>
+<p t="3882580" d="6650">So we end up with t of n
+is 2 times t of n over 2</p>
+<p t="3889230" d="6660">plus n over k log k.</p>
+<p t="3895890" d="4110">And base case of
+t of k is order k.</p>
+<p t="3907350" d="1320">Why is it all this?</p>
+<p t="3908670" d="3080">This thing is r.</p>
+<p t="3915450" d="4980">So we have r log k to do a
+merge. r here is n over k.</p>
+<p t="3920430" d="1040">Why is it n over k?</p>
+<p t="3924250" d="1940">Because n is the
+total number of items.</p>
+<p t="3926190" d="3000">We had r times k
+items, so n equals rk.</p>
+<p t="3929190" d="1850">So r equals n over k.</p>
+<p t="3931040" d="1137">That's that.</p>
+<p t="3932177" d="1083">So this is our merge cost.</p>
+<p t="3933260" d="4900">This is the cost of 3,
+this is the cost of 2.</p>
+<p t="3938160" d="3760">If we have only log
+n log log n items,</p>
+<p t="3941920" d="6230">so k items, then we can
+sort in linear time.</p>
+<p t="3948150" d="2182">So we just need to
+solve this recurrence.</p>
+<p t="3952990" d="3830">Well, how's it going to work?</p>
+<p t="3956820" d="3950">It's going to be kind of like
+merge sort, but not quite.</p>
+<p t="3960770" d="500">Question?</p>
+<p t="3963920" d="2250">AUDIENCE: When you say-- so
+you have-- it's definitely</p>
+<p t="3966170" d="2450">merging two lists
+of sorted words</p>
+<p t="3968620" d="2450">into one sorted
+list of two words.</p>
+<p t="3971070" d="980">[INAUDIBLE]?</p>
+<p t="3976950" d="1960">You may have to do that, right?</p>
+<p t="3981232" d="1208">ERIK DEMAINE: Say that again.</p>
+<p t="3982440" d="1876">AUDIENCE: So you
+have two sorted--</p>
+<p t="3984316" d="3109">two sorted lists
+of R sorted words.</p>
+<p t="3987425" d="1375">ERIK DEMAINE: The
+words are going</p>
+<p t="3988800" d="2730">to change, which elements are
+in which words are changing.</p>
+<p t="3991530" d="4770">But that's thanks to
+step one, for example.</p>
+<p t="3996300" d="2340">I mean, step one can
+merge any two sorted words</p>
+<p t="3998640" d="2430">and make one sorted word.</p>
+<p t="4001070" d="4110">Or actually, one sorted word.</p>
+<p t="4005180" d="3180">In our case, we're going
+to get two sorted words.</p>
+<p t="4008360" d="1480">That was the picture over here.</p>
+<p t="4009840" d="1670">I merge the two guys.</p>
+<p t="4011510" d="3210">I could represent it as one
+word that's kind of double full,</p>
+<p t="4014720" d="2700">and then I can split
+that into two words.</p>
+<p t="4017420" d="1770">So we again need
+the split operation,</p>
+<p t="4019190" d="5430">but split is just a mask
+these guys out and you</p>
+<p t="4024620" d="1140">get the high part.</p>
+<p t="4025760" d="1330">This is all 0.</p>
+<p t="4027090" d="2390">Then you shift it
+over to the left,</p>
+<p t="4029480" d="4650">now you've got the high
+word over the single word.</p>
+<p t="4034130" d="3100">So they're shuffling
+within those two words,</p>
+<p t="4037230" d="3750">or within one word,
+essentially, via this procedure,</p>
+<p t="4040980" d="1879">which we haven't covered.</p>
+<p t="4042859" d="1541">So everything is
+going to mix around.</p>
+<p t="4044400" d="2664">But then there's the low
+items and the high items.</p>
+<p t="4047064" d="1916">And so all the items in
+here are less than all</p>
+<p t="4048980" d="3100">of the items in here.</p>
+<p t="4052080" d="1550">Other questions?</p>
+<p t="4053630" d="1350">Cool.</p>
+<p t="4054980" d="2170">So I need to solve
+this recurrence.</p>
+<p t="4057150" d="2890">So let's draw another
+recursion tree.</p>
+<p t="4060040" d="2210">That's the east way
+to solve recurrences.</p>
+<p t="4062250" d="2720">Root is n over k log k.</p>
+<p t="4064970" d="3780">Next level down, see
+n got divided by 2.</p>
+<p t="4068750" d="8940">So it's going to be 1/2 n over
+k log k, 1/2 n over k log k,</p>
+<p t="4077690" d="1770">because the n gets divided by 2.</p>
+<p t="4079460" d="1950">So if I add up
+everything on this level,</p>
+<p t="4081410" d="2670">I get n over k log k.</p>
+<p t="4084080" d="2790">And in general as I
+go down, all levels</p>
+<p t="4086870" d="3210">are going to sum to this
+same value, n over k log k.</p>
+<p t="4090080" d="3255">So up here we are going
+to have a cost of n</p>
+<p t="4093335" d="4785">over k log k times
+the number of levels.</p>
+<p t="4098120" d="1949">Now, this is where
+it's a little tricky.</p>
+<p t="4100069" d="2011">It's not log n levels
+like regular merge sort.</p>
+<p t="4102080" d="2930">We stop at level k.</p>
+<p t="4105010" d="3040">So it's going to
+be log of n over k.</p>
+<p t="4113050" d="2320">That's the number
+of levels we get to.</p>
+<p t="4115370" d="5569">Now at the leaf level finally
+we have things of size order k,</p>
+<p t="4120939" d="3081">and we only pay order k.</p>
+<p t="4124020" d="2450">Great.</p>
+<p t="4126470" d="2445">And then how many
+leaves are there?</p>
+<p t="4128915" d="1545">There's n over k leaves.</p>
+<p t="4136230" d="499">OK.</p>
+<p t="4136729" d="3321">So, that's an order n cost.</p>
+<p t="4140050" d="5590">This is order k, that's
+n over k, order n.</p>
+<p t="4145640" d="3075">What's this thing?</p>
+<p t="4148715" d="1064">Well, what's k?</p>
+<p t="4149779" d="3061">k was log n log log n.</p>
+<p t="4152840" d="3840">So this is n divided
+by log n log log n.</p>
+<p t="4156680" d="3450">This, therefore, is
+approximately log log n.</p>
+<p t="4160130" d="2200">So that log log n
+cancels this one.</p>
+<p t="4162330" d="3735">This is approximately log n,
+so that cancels with this one.</p>
+<p t="4166065" d="3275">So this is order n.</p>
+<p t="4169340" d="2764">That's why we
+chose these values.</p>
+<p t="4172104" d="2125">So this n over k was not
+actually that significant.</p>
+<p t="4174229" d="1471">We could have called that n.</p>
+<p t="4175700" d="4440">What is important is that this
+recursion doesn't work when</p>
+<p t="4180140" d="2100">you get down to a single word.</p>
+<p t="4182240" d="1560">Can't do the same strategy.</p>
+<p t="4183800" d="3900">You need to use a different
+merger for single words</p>
+<p t="4187700" d="2100">because here we have
+to do bit tricks.</p>
+<p t="4189800" d="1380">For this merge
+strategy we didn't</p>
+<p t="4191180" d="2125">have to do big tricks
+because everything was bigger</p>
+<p t="4193305" d="2551">than a word.</p>
+<p t="4195856" d="1624">The reason why we
+have these two levels</p>
+<p t="4197480" d="3570">is not to make the
+time fast, it's just</p>
+<p t="4201050" d="1590">to make the algorithm work.</p>
+<p t="4202640" d="3240">I mean, to define the algorithm
+there's within a word merging</p>
+<p t="4205880" d="3000">and over many words merging.</p>
+<p t="4208880" d="3030">The hard part is this one,
+within a word merging.</p>
+<p t="4211910" d="2740">So that's our next goal.</p>
+<p t="4214650" d="4910">But if we could do that we
+get linear time sorting for</p>
+<p t="4219560" d="2970">packed sorting when you can fit
+log log log n things in a word.</p>
+<p t="4222530" d="1750">Any questions about
+packed sorting?</p>
+<p t="4227180" d="980">Good.</p>
+<p t="4228160" d="5640">So, last thing is how do
+we merge two sorted words</p>
+<p t="4233800" d="990">into one sorted word.</p>
+<p t="4237562" d="2208">And this is where we're
+going to use bitonic sorting.</p>
+<p t="4239770" d="2624">See, it says right here, bitonic
+sort for merging sorted words.</p>
+<p t="4242394" d="3106">Here we know what to do.</p>
+<p t="4245500" d="1548">Much easier in hindsight.</p>
+<p t="4251660" d="2000">So I'm going to take a
+little diversion tell you</p>
+<p t="4253660" d="2745">about bitonic sorting, briefly.</p>
+<p t="4261240" d="3580">Because it's NCLRS I don't want
+to spend too much time on it,</p>
+<p t="4264820" d="2920">but it is something we need.</p>
+<p t="4267740" d="1640">So you need to
+know how it works.</p>
+<p t="4274310" d="3500">So first thing is the idea
+of a bitonic sequence.</p>
+<p t="4277810" d="8340">This is going to be a cyclic
+shift of a uni-modal sequence.</p>
+<p t="4286150" d="6750">So a non-decreasing plus
+a non-increasing sequence.</p>
+<p t="4296110" d="3540">So I want non-decreasing
+and then non-increasing.</p>
+<p t="4299650" d="1880">So this is a bitonic sequence.</p>
+<p t="4301530" d="2680">I think you know
+what this means.</p>
+<p t="4304210" d="2710">Or it could be a
+cyclic shift thereof.</p>
+<p t="4306920" d="2360">So I could, for example,
+take this part here</p>
+<p t="4309280" d="1990">and shift it over to this side.</p>
+<p t="4311270" d="3950">So then I'd end up with
+this, this, and this.</p>
+<p t="4315220" d="1386">This is also bitonic.</p>
+<p t="4316606" d="1374">or I could shift
+this whole thing</p>
+<p t="4317980" d="3730">and put it over there
+so I end up with that.</p>
+<p t="4321710" d="1760">That's also bitonic.</p>
+<p t="4323470" d="3420">So it basically has one
+max, one min if you're</p>
+<p t="4326890" d="1740">reading it cyclically.</p>
+<p t="4328630" d="2252">One local max, one local min.</p>
+<p t="4330882" d="2208">Except, it's non-decreasing
+so it's a little messier,</p>
+<p t="4333090" d="3140">but same thing.</p>
+<p t="4336230" d="4630">OK, let's go over here.</p>
+<p t="4357900" d="1970">So if you have a
+bitonic sequence</p>
+<p t="4359870" d="3910">there's something called a
+bitonic sorting network, which</p>
+<p t="4363780" d="2630">you can think of as a
+parallel sorting algorithm,</p>
+<p t="4366410" d="1150">to sort such a thing.</p>
+<p t="4367560" d="3140">So it's almost
+sorted, but not quite.</p>
+<p t="4370700" d="1920">And there's this
+way of sorting them.</p>
+<p t="4372620" d="5280">So I'm going to draw a picture
+to make it easier for me.</p>
+<p t="4380692" d="1708">It's a little more
+annoying to write down</p>
+<p t="4382400" d="1050">the general algorithm.</p>
+<p t="4383450" d="2810">But so what I want to do,
+suppose the number of elements</p>
+<p t="4386260" d="754">is a power of 2.</p>
+<p t="4387014" d="1166">Here's what I'm going to do.</p>
+<p t="4388180" d="3879">First I compare the first
+and the midway element.</p>
+<p t="4392059" d="2041">And then the next one with
+the next one, and then</p>
+<p t="4394100" d="2700">the next one with the next one,
+the next one with the next one.</p>
+<p t="4396800" d="1958">For each of these
+comparisons I put those items</p>
+<p t="4398758" d="1322">in the correct order.</p>
+<p t="4400080" d="2170">So if I do that 3 versus
+6, 3 is less than 6,</p>
+<p t="4402250" d="2550">so 3 stays here, 6 stays there.</p>
+<p t="4404800" d="3040">5 is bigger than 4 though,
+so 4 comes over here,</p>
+<p t="4407840" d="1530">5 goes over here.</p>
+<p t="4409370" d="6060">Next is 7 versus 2, so 2 comes
+over here, 7 comes over here.</p>
+<p t="4415430" d="4270">Nine versus 0, so 0 is
+over here, 9 is over there.</p>
+<p t="4419700" d="2780">OK, that's an easy
+set comparisons to do.</p>
+<p t="4422480" d="3230">The nice thing is you can
+do all those in parallel.</p>
+<p t="4425710" d="1690">OK, just to check here.</p>
+<p t="4427400" d="3060">This was a monotone
+increasing sub-sequence</p>
+<p t="4430460" d="3130">and then a monotone decreasing.</p>
+<p t="4433590" d="3680">Now, we have increasing
+then decreasing.</p>
+<p t="4437270" d="4980">And then we have
+decreasing then increasing.</p>
+<p t="4442250" d="3060">But if you look at the left
+half or the right half,</p>
+<p t="4445310" d="1550">they are still bitonic.</p>
+<p t="4446860" d="1750">And that's an invariant.</p>
+<p t="4448610" d="1950">Bitonic will be preserved here.</p>
+<p t="4450560" d="2310">Also notice, all the
+elements in the left</p>
+<p t="4452870" d="2000">are smaller than all the
+elements in the right.</p>
+<p t="4454870" d="1750">That's not true for
+an arbitrary sequence,</p>
+<p t="4456620" d="1708">but it will be true
+for bitonic sequence.</p>
+<p t="4458328" d="3932">Essentially the max
+is somewhere here</p>
+<p t="4462260" d="2790">and so it's going to
+be spanned by some</p>
+<p t="4465050" d="2210">of these intervals, that max.</p>
+<p t="4467260" d="2500">And by spanning those intervals,
+and in particular comparing</p>
+<p t="4469760" d="1744">that guy with
+somebody on the right,</p>
+<p t="4471504" d="1416">the max will get
+over to the right</p>
+<p t="4472920" d="3950">and then the rest of the
+increasing and decreasing</p>
+<p t="4476870" d="1660">sub-sequences will follow.</p>
+<p t="4478530" d="1910">That's a very
+hand-wavy argument.</p>
+<p t="4480440" d="4560">You can see CLRS for a
+way to prove that OK, just</p>
+<p t="4485000" d="1740">take it for granted now.</p>
+<p t="4486740" d="1680">Now, we recurse
+on the two sides.</p>
+<p t="4488420" d="3900">So I compare 3 with 2, 4
+with 0, I compare 6 with 7,</p>
+<p t="4492320" d="1190">and 6 with 9.</p>
+<p t="4493510" d="1480">So what do I get?</p>
+<p t="4494990" d="1770">2 is less than 3.</p>
+<p t="4496760" d="1810">0 is less than 4.</p>
+<p t="4498570" d="3880">Then I compare 6 with
+7, so 6 less than 7.</p>
+<p t="4502450" d="3460">5 is less than 9.</p>
+<p t="4505910" d="5100">So now I've got four chunks,
+this one, this one, this one,</p>
+<p t="4511010" d="660">and this one.</p>
+<p t="4511670" d="1650">I recurse on each of them.</p>
+<p t="4513320" d="4790">So 0 is less than 2, 3 is
+less than 4, 5 is less than 6,</p>
+<p t="4518110" d="1550">7 is less than 9.</p>
+<p t="4519660" d="4269">Now I have all my items in
+sorted order, magically.</p>
+<p t="4523929" d="1541">OK, but if you
+believe that invariant</p>
+<p t="4525470" d="3210">that the smallest
+n over two items</p>
+<p t="4528680" d="2220">get to the left and the
+larger n over two items</p>
+<p t="4530900" d="3840">get to the right, then by
+induction this will sort them.</p>
+<p t="4534740" d="2691">Kind of like quick
+sort in that sense.</p>
+<p t="4537431" d="499">OK.</p>
+<p t="4537930" d="1670">The cool thing is I can
+do all these in parallel,</p>
+<p t="4539600" d="1874">all these in parallel,
+all these in parallel.</p>
+<p t="4541474" d="4666">So the total time is log k,
+if I'm a parallel sorting</p>
+<p t="4546140" d="1890">algorithm or a sorting network.</p>
+<p t="4548030" d="3240">And log k is exactly
+what I can afford.</p>
+<p t="4551270" d="3210">So the last thing to do is to
+implement an operation like</p>
+<p t="4554480" d="3120">this, or like this-- this is
+kind of the generic picture</p>
+<p t="4557600" d="2430">here--</p>
+<p t="4560030" d="1470">in constant time on a word ram.</p>
+<p t="4573380" d="2160">One other thing,
+because I don't want</p>
+<p t="4575540" d="1470">to sort a bitonic sequence.</p>
+<p t="4577010" d="880">That wasn't my goal.</p>
+<p t="4577890" d="3020">My goal was to merge
+two sorted sequences.</p>
+<p t="4580910" d="3736">I have two sorted sequences,
+I want to merge them.</p>
+<p t="4584646" d="1124">How do I make that bitonic?</p>
+<p t="4588460" d="3670">I just flip, like that.</p>
+<p t="4592130" d="2512">I take this sequence
+and I reverse it.</p>
+<p t="4594642" d="1958">If I take a sorted sequence
+and reverse it then</p>
+<p t="4596600" d="791">it looks like this.</p>
+<p t="4597391" d="2209">And so then the
+result is bitonic.</p>
+<p t="4599600" d="2250">Then I can use bitonic
+sorting to sort it.</p>
+<p t="4601850" d="2100">So this is the merge
+problem and I've just</p>
+<p t="4603950" d="3270">reduced it to bitonic sorting.</p>
+<p t="4607220" d="840">Cool.</p>
+<p t="4608060" d="4550">Except, how do I
+reverse a sequence</p>
+<p t="4612610" d="4160">in log k time on a word ram?</p>
+<p t="4616770" d="710">Cute trick.</p>
+<p t="4620735" d="4215">If I have a word and it
+has many items in it--</p>
+<p t="4624950" d="2092">that's our picture,
+that's our set up here--</p>
+<p t="4627042" d="1958">and I want to reverse it
+over all, what I'll do</p>
+<p t="4629000" d="3990">is cut it in half, take all
+these guys put them over here,</p>
+<p t="4632990" d="2880">take all these guys
+put them over here.</p>
+<p t="4635870" d="2445">So I've got the right side--</p>
+<p t="4638315" d="2745">sorry, it's only four--</p>
+<p t="4641060" d="1420">cells over here.</p>
+<p t="4642480" d="2450">I've got the left
+side over here.</p>
+<p t="4644930" d="5490">Then I recursively
+reverse the sequence</p>
+<p t="4650420" d="3880">and recursively
+reverse this sequence.</p>
+<p t="4654300" d="2920">And then I have the
+reverse sequence.</p>
+<p t="4657220" d="1820">Right, this is a standard.</p>
+<p t="4659040" d="3180">One way to reverse items
+is to do the big part</p>
+<p t="4662220" d="1610">and then recursively reverse.</p>
+<p t="4663830" d="4600">Then I will get, I mean
+this is like ab reverse is</p>
+<p t="4668430" d="2750">equal to b reverse a reverse.</p>
+<p t="4671180" d="1390">Just a fun fact.</p>
+<p t="4672570" d="2610">So we're implementing that.</p>
+<p t="4675180" d="1630">Now how do I do this?</p>
+<p t="4676810" d="3050">Well, this is the thing I've
+been talking about over here.</p>
+<p t="4679860" d="2904">You want to take the high part
+you just mask that part out,</p>
+<p t="4682764" d="916">shift it to the right.</p>
+<p t="4683680" d="2920">You want to take the low
+part, just mask that part out.</p>
+<p t="4686600" d="1840">And so I can take
+each of these parts</p>
+<p t="4688440" d="1890">individually, shift
+this one to the left,</p>
+<p t="4690330" d="2280">shift this one to the
+right, order them together,</p>
+<p t="4692610" d="1080">and I've reversed.</p>
+<p t="4693690" d="2310">So this takes constant time.</p>
+<p t="4696000" d="2340">This is recursion but
+the total number of steps</p>
+<p t="4698340" d="5430">will be order log k, which
+is exactly what I can afford.</p>
+<p t="4703770" d="2490">So that's how I do
+the reverse part.</p>
+<p t="4706260" d="3360">So if I want to merge, now
+I have a bitonic sequence.</p>
+<p t="4709620" d="5460">Last thing to do is, how do
+I do this bitonic comparison</p>
+<p t="4715080" d="1216">in constant time.</p>
+<p t="4725970" d="1695">So, that's next page.</p>
+<p t="4732734" d="916">Here's a quick sketch.</p>
+<p t="4741740" d="1950">I'm going to try to draw
+the generic picture.</p>
+<p t="4743690" d="2210">So the generic picture is
+I have this thing which</p>
+<p t="4745900" d="2760">I call a, this thing
+which I call b,</p>
+<p t="4748660" d="3300">and we basically want to compare
+corresponding items in a and b.</p>
+<p t="4751960" d="2370">Though in fact, there's
+another a over here and another</p>
+<p t="4754330" d="990">b over here.</p>
+<p t="4755320" d="2790">In general, there are many
+a's, many b's, but they appear</p>
+<p t="4758110" d="1470">in this nice periodic pattern.</p>
+<p t="4759580" d="2070">And so I'm just going
+to look at one ab pair,</p>
+<p t="4761650" d="2850">but it's going to simultaneously
+work for all of them</p>
+<p t="4764500" d="1686">with the same operations.</p>
+<p t="4766186" d="1374">So that's the dot,
+dot, dot here.</p>
+<p t="4767560" d="1541">There's another a
+and then another b,</p>
+<p t="4769101" d="1759">and another a and another b.</p>
+<p t="4770860" d="1950">So what do I do?</p>
+<p t="4772810" d="7950">First thing I do is
+make 1aa, 1aa, 1aa.</p>
+<p t="4780760" d="1750">In other words, I
+add in these 1 bits.</p>
+<p t="4782510" d="4045">Remember, we had zeros
+there hanging out.</p>
+<p t="4786555" d="1675">That was when we were
+going to use them.</p>
+<p t="4788230" d="2800">So I set them all to
+ones in the a list.</p>
+<p t="4791030" d="3065">I take the b list, I just
+shift it over and leave them</p>
+<p t="4794095" d="500">as zeros.</p>
+<p t="4800300" d="1570">Time for bit tricks.</p>
+<p t="4801870" d="3290">Then I take this number, I
+subtract it from this number.</p>
+<p t="4805160" d="1450">What do I get?</p>
+<p t="4806610" d="3530">I get zeros or ones for
+whether this bit got</p>
+<p t="4810140" d="1890">borrowed, which tells
+me whether little a is</p>
+<p t="4812030" d="1320">bigger than little b.</p>
+<p t="4813350" d="1090">Then I get some junk.</p>
+<p t="4814440" d="860">And then I get 0, 1.</p>
+<p t="4815300" d="1020">Junk.</p>
+<p t="4816320" d="990">So on.</p>
+<p t="4817310" d="3420">0, 1, junk.</p>
+<p t="4820730" d="3150">So 0 corresponds
+to a being smaller</p>
+<p t="4823880" d="2840">than b, and 1 corresponds
+to the reverse.</p>
+<p t="4826720" d="1080">OK, whatever.</p>
+<p t="4827800" d="4020">Then I do my usual masking,
+just the 0, 1 bits,</p>
+<p t="4831820" d="1000">then there's some zeros.</p>
+<p t="4836640" d="2120">OK, here's a new trick
+which we haven't seen yet.</p>
+<p t="4838760" d="3690">I'm going to shift this to the
+right by two, or in general</p>
+<p t="4842450" d="2020">by the size of those items.</p>
+<p t="4844470" d="4340">So now I have 0, 1 here,
+0, 1 here, 0, 1 here.</p>
+<p t="4848810" d="2070">Each of these bits
+might be different.</p>
+<p t="4850880" d="2260">So I take this,
+shift to the right.</p>
+<p t="4853140" d="2420">Now I subtract.</p>
+<p t="4855560" d="1840">What this gives me--</p>
+<p t="4857400" d="3290">so I'm taking 1,
+0, 0, 0, minus 1.</p>
+<p t="4860690" d="3060">What I get is 0, 1, 1, 1.</p>
+<p t="4863750" d="2410">OK, in this case,
+there's just two bits.</p>
+<p t="4866160" d="1070">Except it's not 1, 1.</p>
+<p t="4867230" d="7530">It's either 0, 0 or 1, 1.</p>
+<p t="4874760" d="7360">And then we have here 0, and
+then 0, 0 or 1, 1, and so on.</p>
+<p t="4882120" d="2510">So now these are masks.</p>
+<p t="4884630" d="3780">The zeros correspond to
+when the a's were smaller,</p>
+<p t="4888410" d="2610">the ones correspond to
+when the b's are smaller.</p>
+<p t="4891020" d="7410">So if I take this [? added ?]
+with this, I get the large b's.</p>
+<p t="4898430" d="4050">If I take this [? added ?]
+with this, I get the small a's.</p>
+<p t="4902480" d="3150">Or one of some of
+those combinations.</p>
+<p t="4905630" d="2610">The point is I take--</p>
+<p t="4908240" d="3655">I think here I
+get the small a's.</p>
+<p t="4915080" d="10185">And then if I take this thing
+and negate it and then mask it</p>
+<p t="4925265" d="2475">with this I get the small b's.</p>
+<p t="4931750" d="1370">And then I take this thing--</p>
+<p t="4933120" d="1830">I ran out of room.</p>
+<p t="4934950" d="4260">So I've got small
+a's, small b's.</p>
+<p t="4942240" d="3210">I take this thing I shift it
+over so I have small b's here.</p>
+<p t="4949020" d="4600">And then I OR these together,
+I get all the smalls.</p>
+<p t="4953620" d="3320">OK, these are designed to
+never conflict because I</p>
+<p t="4956940" d="1664">took the inversion here.</p>
+<p t="4958604" d="2166">So I get the smaller of the
+a's, smaller of the b's.</p>
+<p t="4960770" d="3820">So now I put the smaller
+things in the right order.</p>
+<p t="4964590" d="3580">I do exactly the same procedure
+negated, and get the larges.</p>
+<p t="4971210" d="3320">And then I OR these
+together and I get sorted.</p>
+<p t="4977430" d="900">Well, not sorted.</p>
+<p t="4978330" d="3270">I get whatever bitonic
+sort would have done.</p>
+<p t="4981600" d="3540">It's doing these pairwise
+comparisons by doing this shift</p>
+<p t="4985140" d="1830">and it's putting things
+in the right order.</p>
+<p t="4986970" d="1920">The small ones always
+end up on the left,</p>
+<p t="4988890" d="1750">the large ones always
+end up on the right.</p>
+<p t="4990640" d="3150">That's the definition of
+the operation we want to do.</p>
+<p t="4993790" d="2979">Bitonic operated.</p>
+<p t="4996769" d="2291">And because we are just doing
+shifts, and subtractions,</p>
+<p t="4999060" d="2550">and all these things, it works
+even though there's not just</p>
+<p t="5001610" d="2220">one ab pair, but there's
+a whole bunch of ab pairs.</p>
+<p t="5003830" d="4630">They will all be shifted, and
+computed, and sorted together.</p>
+<p t="5008460" d="2750">It's a little hard
+to visualize but this</p>
+<p t="5011210" d="2880">will do one bitonic operation
+and a constant number</p>
+<p t="5014090" d="1800">of word ram operations.</p>
+<p t="5015890" d="2460">And so you pop out
+all these stacks</p>
+<p t="5018350" d="2760">this gives us a merger, that
+gives us packed sorting,</p>
+<p t="5021110" d="4020">and with packed sorting
+we get signature sorting.</p>
+<p t="5025130" d="2221">Easy, right?</p>
+<p t="5027351" d="2249">All right, that's probably
+one of the most complicated</p>
+<p t="5029600" d="1458">algorithms we'll
+see in this class.</p>
+<p t="5031058" d="2172">But from that you get
+a priority queue that</p>
+<p t="5033230" d="2880">runs in constant time provided
+w is a little bigger than log</p>
+<p t="5036110" d="900">squared n.</p>
+<p t="5037010" d="1550">Boom.</p>
+</body>
+</timedtext>

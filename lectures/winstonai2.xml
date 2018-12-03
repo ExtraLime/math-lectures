@@ -1,0 +1,786 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="8119" d="3261">What we're going to
+talk about today, is goals.</p>
+<p t="11389" d="6161">So just by way of a little warm up exercise,
+I'd like you to look at that integration problem</p>
+<p t="17550" d="23200">over there. The one that's disappeared.</p>
+<p t="40750" d="7090">So the question is, can you do it in your
+head? Probably not. The question is, if a</p>
+<p t="47840" d="7420">program can do that, is a program, in any
+sense of the word, intelligent? That's a background</p>
+<p t="55260" d="3620">task I'd like you to work on as I talk today.</p>
+<p t="58880" d="2120">So today we're going to be
+modeling a little bit of human</p>
+<p t="61000" d="1720">problem solving, the kind that</p>
+<p t="62720" d="4380">is required when you do symbolic integration.
+Now, you all learned how to do that. You may</p>
+<p t="67100" d="3479">not be able to do that particular problem
+anymore, but you all learned how to integrate</p>
+<p t="70579" d="6371">in high school 1801, or something like that.
+The question is, how did you do it, and is</p>
+<p t="76950" d="5589">the problem solving technique that we are
+trying to model by building a program that</p>
+<p t="82539" d="7071">does symbolic integration, is that a common
+kind of description of what people do when</p>
+<p t="89610" d="1500">they solve problems.</p>
+<p t="91110" d="3010">So the answer to the question is,
+yes. The kind of problem solving you'll see</p>
+<p t="94150" d="5130">today is like generating tests, which you
+saw last time. It's a very common kind of</p>
+<p t="99280" d="5519">problem solving that we all engage in, that
+we all engage in without thinking about it,</p>
+<p t="104799" d="1851">and without having a name for it.</p>
+<p t="106650" d="4820">But once we get a name for it, we'll get power
+over it. And then we'll be able to deploy</p>
+<p t="111470" d="4188">it, and it will become a skill. We'll not
+just witness it, we'll not just understand</p>
+<p t="115658" d="5292">it, we'll use it instinctively, as a skill.</p>
+<p t="120950" d="3700">So there you are, you've got that problem,
+there's your problem, and what do you do to</p>
+<p t="124650" d="7410">solve it? I don't know, look it up in a table?
+You'll never find it in a table because of</p>
+<p t="132060" d="9610">that minus sign and that 5. So you're going
+to have to do something better than that.</p>
+<p t="141670" d="4970">So what you're going to do, is what you always
+do when you see a problem like that. You try</p>
+<p t="146640" d="4450">to apply a transform, and make it into a different
+problem that's easier to solve. And eventually,</p>
+<p t="151090" d="6950">what you hope is that you'll simplify it sufficiently,
+that the pieces that you've simplified to</p>
+<p t="158040" d="6410">will be found in some small table of integrals.
+So how long is this table? It's not the case</p>
+<p t="164450" d="4240">that we're going to look at a table with 388
+elements, because this is not a big table</p>
+<p t="168690" d="4170">of integrals. This is what a freshman might
+have in a freshman's head, after taking a</p>
+<p t="172860" d="2879">course in integral calculus.</p>
+<p t="175739" d="4661">One of the interesting questions is, how many
+elements have to be in that table to get an</p>
+<p t="180400" d="4780">A in the course? We're interested in how much
+knowledge is involved, that's one of the elements</p>
+<p t="185180" d="4800">of catechism that I've listed over there,
+that will be part of the gold star ideas suite</p>
+<p t="189980" d="2420">of the day.</p>
+<p t="192400" d="7369">So we'd like to take that problem, and find
+a way to make it into another problem that's</p>
+<p t="199769" d="6031">more likely, or closer to being found in the
+table. So what we're going to do is very simple,</p>
+<p t="205800" d="5920">graphically. We're going to take the problem
+we're given, and convert it into another problem</p>
+<p t="211720" d="3859">that's simpler. And we're going to give that
+process and name, and we're going to call</p>
+<p t="215579" d="11321">it problem reduction.</p>
+<p t="226900" d="7369">And so, in the world of integral calculus,
+there are all sorts of simple methods, simple</p>
+<p t="234269" d="5741">transformations, we can try that will take
+a hard problem and make it into an easier</p>
+<p t="240010" d="7649">problem. And some of these transformations
+are extremely simple and always safe. Some</p>
+<p t="247659" d="4970">of them are just, well let's try it and see
+what happens. But some of them are safe, and</p>
+<p t="252629" d="6250">I'd like to make a short list of safe transformations
+right now.</p>
+<p t="258879" d="6611">Now I'm going to be going into some detail.
+And that detail will be grungy. And the question</p>
+<p t="265490" d="4669">is, why do I do it? And it's educational philosophy,
+is why I do it. So here's the educational</p>
+<p t="270159" d="7951">philosophy. At one level, you want to have
+a skill. But if you're going to have a skill,</p>
+<p t="278110" d="9519">you have to understand it. So if you're going
+to have a skill you have to understand it</p>
+<p t="287629" d="6701">one level down. If you're going to understand
+it, you have to have witnessed it on a level</p>
+<p t="294330" d="2059">lower than that.</p>
+<p t="296389" d="4180">So I'm not just going to talk about the idea
+of problem reduction, because if I were just</p>
+<p t="300569" d="5400">going to do that, then we could all go home
+now. So I'm going to show you a particular</p>
+<p t="305969" d="4950">example of it, so you understand it better,
+and I'm going to show you the detail at an</p>
+<p t="310919" d="4280">even lower level than that. So you will witness
+the stuff that makes it possible, to understand</p>
+<p t="315199" d="4220">the stuff that makes it possible, to build
+a skill. So that's why I'm going through the</p>
+<p t="319419" d="2120">grungy detail.</p>
+<p t="321539" d="5810">So I don't know, let's see. Maybe we can get
+some hints from that example, but I wonder</p>
+<p t="327349" d="7220">if somebody could volunteer a simple transformation
+that always is a good thing to do. Yes, Sebastian.</p>
+<p t="334569" d="1160">AUDIENCE: Take the constants out.</p>
+<p t="335729" d="6090">SPEAKER 1: Take the constants out. So we'll
+make that number two. And we'll say that the</p>
+<p t="341819" d="11861">integral c f of x dx is equal to c times the
+integral f of x dx. Other suggestions? Yes.</p>
+<p t="353680" d="2769">AUDIENCE: Trig substitution.</p>
+<p t="356449" d="7120">SPEAKER 1: Trig substitution. Now this is--
+no, that's for day two. We don't do trig substitution</p>
+<p t="363569" d="6660">here under stuff that's safe, always works,
+never any doubt, there are simpler things.</p>
+<p t="370229" d="7090">These are the safe transformations. What you're
+giving me is a heuristic transformation. Often</p>
+<p t="377319" d="5460">is helpful, doesn't necessarily always work.
+We're going to divide our transformations</p>
+<p t="382779" d="3950">into those two categories. So I need another
+safe one.</p>
+<p t="386729" d="3101">AUDIENCE: [INAUDIBLE]</p>
+<p t="389830" d="7910">SPEAKER 1: The architects are sitting over
+there. Divided not only by nationality, but</p>
+<p t="397740" d="2280">by course. What?</p>
+<p t="400020" d="3260">AUDIENCE: The sum of integrals is the integral
+of the sum.</p>
+<p t="403280" d="22080">SPEAKER 1: The sum of integrals is the integral
+of the sum. Now what's missing? What's number</p>
+<p t="425360" d="5860">one? You're probably thinking it's already
+there, because you've given me the transformation</p>
+<p t="431229" d="4930">that involves a constant. And you can think
+of minus 1 as a constant.</p>
+<p t="436159" d="4111">But whether you use a separate transformation
+or not, of course depends on how you represent</p>
+<p t="440270" d="5619">the knowledge. And all of this knowledge,
+all of this whole thing, was written in an</p>
+<p t="445889" d="6860">early form of Lisp. As a consequence, the
+way in which minus was represented is different</p>
+<p t="452749" d="5320">from the way minus 1 is represented. So we
+need one more transformation. Or rather, Jim</p>
+<p t="458069" d="4400">Slagle needed one more transformation, when
+he wrote his famous transformation program.</p>
+<p t="462469" d="11130">And that was that if you have the integral
+of minus f of x, that's equal to, minus the</p>
+<p t="473599" d="3390">integral of f of x.</p>
+<p t="476989" d="4110">So that almost completes our safe transformation
+set. There's one more that I'm going to supply</p>
+<p t="481099" d="4701">you, because I don't think you'd guess it.
+Why should you? It's number four. There are</p>
+<p t="485800" d="5689">more than this, this is a sample. And these
+are the ones we're going to need in order</p>
+<p t="491489" d="3500">to solve that problem, by way of illustration.</p>
+<p t="494989" d="9450">So the fourth one is that, if you have the
+integral of p of x, over q of x, then you</p>
+<p t="504439" d="6720">divide. If you can reach way back into high
+school and figure out how to divide polynomials.</p>
+<p t="511159" d="6020">But if the degree of the numerator is greater
+than the degree of the denominator, then it's</p>
+<p t="517179" d="4941">a knee-jerk always win, you must do it, divide
+it out.</p>
+<p t="522120" d="8139">So this, then, forms the core of an integration
+program, that will integrate almost nothing.</p>
+<p t="530259" d="6231">But actually, almost nothing is integrable
+anyway, so it's a good head start. So let's</p>
+<p t="536490" d="9130">see how we would put this into some kind of
+procedure. Some kind of framework for deploying</p>
+<p t="545620" d="6980">the knowledge that we're beginning to develop.</p>
+<p t="552600" d="20320">What we're going to do is, apply all safe
+transforms. That's our first step. Then we're</p>
+<p t="572920" d="19520">going to look in the table, and then we're
+going to do a test to see if we're done. And</p>
+<p t="592440" d="9960">if we are, we report success. But, we're not
+likely to get done with just that stuff.</p>
+<p t="602410" d="7590">But you know what, there was one transformation
+up here, which breaks my little diagram. Which</p>
+<p t="610000" d="9709">one is it? It's the third one, right? Because
+this picture does not reflect what happens</p>
+<p t="619709" d="4971">when you apply number three. Because it breaks
+the problem up, not into just one problem,</p>
+<p t="624680" d="8560">but into a whole bunch. So we have to extend
+our graphical device for talking about this</p>
+<p t="633240" d="13980">by a little bit, and show what is called an
+"and node".</p>
+<p t="647220" d="8010">So we've got a program core, we've got a table
+of integrals, we've got a few transformations,</p>
+<p t="655230" d="4580">we've got an architecture, a way of putting
+that stuff together. And now we can try it</p>
+<p t="659810" d="6560">out on our sample problem. So let's have a
+go at that.</p>
+<p t="666370" d="13779">Let's see, this one immediately transforms
+into 5x to the fourth over 1 minus x squared</p>
+<p t="680149" d="8500">to the 5/2 dx. And that in turn, immediately
+transforms into the integral of x to the fourth</p>
+<p t="688649" d="7971">over 1 minus x squared to the 5/2, dx.</p>
+<p t="696620" d="6079">This program, by the way, is a dawn-age program.
+This was written by a nearly blind, and subsequently</p>
+<p t="702699" d="5620">completely blind, graduate student by the
+name of James Slagle in 1960, a long time</p>
+<p t="708319" d="6190">ago. The reason I gave it to you today is
+because, that by describing it, I am giving</p>
+<p t="714509" d="6570">you a one-lecture course in artificial intelligence.
+He anticipated so much of the subsequent 20</p>
+<p t="721079" d="7610">years, that talking about his program, which
+is possible in one day, is a miniature introduction</p>
+<p t="728689" d="1700">to the whole field.</p>
+<p t="730389" d="7510">So Slagle, as he was doing this on an antique
+computer, almost no memory, almost no speed,</p>
+<p t="737899" d="7120">only slightly faster than mice running around
+on a treadmill. He was able to write a program</p>
+<p t="745019" d="6750">that did extremely well when benchmarked against
+freshmen. And the way you benchmark against</p>
+<p t="751769" d="7480">freshman, of course, is you give it an examination,
+drawn from the previous MIT finals for four</p>
+<p t="759249" d="6851">or five years, the hardest problems. And this
+was the hardest problem that it solved.</p>
+<p t="766100" d="5669">So at this point, with what we've got so far,
+we would be stuck. We have no transformation</p>
+<p t="771769" d="7771">that can take us further, so we need something
+else. And what we need by way of something</p>
+<p t="779540" d="9399">else, is some transformations that we will
+describe as-- perhaps we'll call them, heuristic</p>
+<p t="788939" d="11340">transformations. A funny word, meaning a method
+that often works isn't guaranteed to work.</p>
+<p t="800279" d="7261">It's not an algorithm in the usual sense that
+we talk about algorithms. But rather, it's</p>
+<p t="807540" d="1890">an attempt.</p>
+<p t="809430" d="6089">So these things I'm going to talk about now,
+are sometimes useful, not always useful. Sometimes</p>
+<p t="815519" d="6690">take you into a blind alley, don' always work.
+But you can't get an A in calculus without</p>
+<p t="822209" d="7170">knowing some of them. So you said, some kind
+of trig substitution. So here is some kind</p>
+<p t="829379" d="6950">of trig substitution. We'll call this heuristic
+transformation A.</p>
+<p t="836329" d="14461">You have a function sine x, cosine x, tangent
+of x, cotangent of x, secant of x, and cosecant</p>
+<p t="850790" d="10109">of x. And we all know from high school trigonometry,
+that we can rewrite that as a function of</p>
+<p t="860899" d="16091">sine x, and cosine x. Or we can rewrite that
+as a function of tangent of x, and cosecant</p>
+<p t="876990" d="14560">of x. Or we can rewrite that as function of
+cotangent of x, and the secant of x. So that's</p>
+<p t="891550" d="5539">a transmission from trigonometric form, into
+another trigonometric form. It's not always</p>
+<p t="897089" d="5901">a good idea, sometimes it helps.</p>
+<p t="902990" d="22380">Well that's just part one of our suite of
+heuristic transformations. Stop. There are</p>
+<p t="925370" d="7089">others that we need to have in our repertoire,
+in order to solve the problem. One of them</p>
+<p t="932459" d="6170">is a family of transformations, which I'll
+show you only one. It goes like this, if you</p>
+<p t="938629" d="15270">have the integral of a function, of the tangent
+of x, then you can rewrite that as the integral</p>
+<p t="953899" d="11951">of a function of y over 1 plus y squared dy.
+So that's a transformation from a trigonometric</p>
+<p t="965850" d="5510">form into a polynomial form. So it gets rid
+of all that trigonometric garbage we don't</p>
+<p t="971360" d="5959">want to deal with. And there's a whole family
+of things like that, just as there's a family</p>
+<p t="977319" d="5380">of transformations like so, but this is enough
+to give you flavor.</p>
+<p t="982699" d="8250">Now there's a C that we need as well. And
+that's going to be your proper knee-jerk reaction</p>
+<p t="990949" d="8691">when you see something of the form 1 minus
+x squared. What do you do when you see that?</p>
+<p t="999640" d="1020">AUDIENCE: [INAUDIBLE]</p>
+<p t="1000660" d="1280">What's that Rhana?</p>
+<p t="1001940" d="2400">Rhana: 1 + 6  * 1 - 6</p>
+<p t="1004380" d="4800">Well wait a second. We could do that.
+But there's another thing we can do.</p>
+<p t="1009180" d="8080">Christian, have you got something you can
+suggest? Where's our Hungarian? Our Turk,</p>
+<p t="1017260" d="5200">our young Turk. Yeah, what do you think?</p>
+<p t="1022460" d="4600">AUDIENCE: I actually don't remember. I mean,
+I think it might have been 10.</p>
+<p t="1027060" d="4799">SPEAKER 1: Well, let's see. Cosine squared
+plus sine squared equals 1. So, what's that</p>
+<p t="1031859" d="10201">suggest to you? So it suggests that we make
+a transformation that involves x equals sine</p>
+<p t="1042060" d="5580">y. So [? Silla ?] doesn't actually have to
+remember that anymore because going forward,</p>
+<p t="1047648" d="3992">she will never have to integrate anything
+personally in her life, she can just simulate</p>
+<p t="1051640" d="17370">the program.</p>
+<p t="1069010" d="4750">So these go from polynomial form, back into
+trigonometric form. So you have three of these</p>
+<p t="1073760" d="5529">heuristic transformations. We've got four
+safe transformations. Let's see if we can</p>
+<p t="1079289" d="11871">make any progress on our integration problem.</p>
+<p t="1091160" d="8440">OK so keeping track of what we've been using,
+this is safe transformation number one, this</p>
+<p t="1099610" d="5280">is safe transformation number two. What do
+we do next? We decided there were no more</p>
+<p t="1104890" d="6300">safe transformations that apply. But now we
+can look at our heuristic transformations</p>
+<p t="1111190" d="3960">and behold, we see what?</p>
+<p t="1115150" d="670">AUDIENCE: C</p>
+<p t="1115820" d="1100">SPEAKER 1: What?</p>
+<p t="1116920" d="1540">AUDIENCE: Applying transformation C.</p>
+<p t="1118470" d="12240">SPEAKER 1: Transformation C suggests that
+we do x equals the sine y.</p>
+<p t="1130710" d="6780">And now we get the integral of sine to the</p>
+<p t="1137490" d="13890">fourth y over cosine to the fourth y dy, right.
+All good, I see some confused, worried, concerned</p>
+<p t="1151380" d="7940">looks. Maybe I've made a mistake, perhaps
+I should use notes. Well no, wait a minute.</p>
+<p t="1159320" d="7109">For those of you who have a concerned look,
+remember that if x equals a sine y, then dx</p>
+<p t="1166429" d="7511">is equal to cosine y dy. That's why it's cosine
+to the fourth not cosine to the fifth, as</p>
+<p t="1173940" d="4640">you were perhaps thinking it might be.</p>
+<p t="1178580" d="7300">So now we've made some progress. We look at
+this, we say, are there any safe transformations</p>
+<p t="1185880" d="6570">that apply? And the answer is, no. Now we
+look for a heuristic transformation that might</p>
+<p t="1192450" d="5579">apply, and I say, what do you see? Which one?
+What's that?</p>
+<p t="1198029" d="7851">AUDIENCE: [INAUDIBLE].</p>
+<p t="1205880" d="3860">SPEAKER 1: She said something unintelligible,
+but what she probably said is, that this looks</p>
+<p t="1209750" d="7279">like a pattern that might match with the heuristic
+transformation A, right? Because we have a</p>
+<p t="1217029" d="5291">function in which the variable is buried,
+universally in sines, or cosines, or tangents,</p>
+<p t="1222320" d="5329">or cotangents, or secants, or cosecants. And
+we know we can rewrite that in one of three</p>
+<p t="1227649" d="7900">ways. It's already written as a function of
+sine and cosine. But we can also rewrite that</p>
+<p t="1235549" d="6260">in terms of tangent and cosecant. Or cotangent
+and secant.</p>
+<p t="1241809" d="8561">So when we do that, we can go this way, and
+we can get the integral of 1 over the cotangent</p>
+<p t="1250370" d="12750">of x dx. That's g3 up there. Or we can do
+it down this path, and get the integral of</p>
+<p t="1263120" d="8080">tangent of x dx. And of course, those are
+both to the fourth.</p>
+<p t="1271200" d="11940">But know what, I've broken my little graphical
+diagram again. Where did it go, it's disappeared.</p>
+<p t="1283140" d="11960">There it is. How have I broken it? Because
+with transformation A, I've introduced a possibility</p>
+<p t="1295110" d="4110">that a particular problem can be transformed
+into more than one kind of problem, any of</p>
+<p t="1299220" d="4250">which will be the solution to my problem.</p>
+<p t="1303470" d="17270">So far I've got an and node, but now I've
+got to introduce an or node. Because now we</p>
+<p t="1320740" d="3470">have an example of something that can be solved
+one of two different ways, and we don't care</p>
+<p t="1324210" d="6189">which one it is. Now you'll notice that there's
+already some confusion here, because how can</p>
+<p t="1330399" d="3571">you tell the difference between an and node
+and an or node. So the universal convention</p>
+<p t="1333970" d="6220">is, you draw an arc over the and nodes. And
+that makes it look like an A, so it's easy</p>
+<p t="1340190" d="2660">to remember. So those are and nodes.</p>
+<p t="1342850" d="7350">And now, we have the method of problem reduction,
+and this is sometimes called a problem reduction</p>
+<p t="1350200" d="15550">tree. Sometimes it's called an and/or tree,
+and sometimes it's called a goal tree, because</p>
+<p t="1365750" d="7350">this tree of problems is a tree that shows
+how our goals are related to one another.</p>
+<p t="1373100" d="4700">So these are items for your vocabulary that
+are all synonymous. Problem reduction tree,</p>
+<p t="1377809" d="4391">and/or tree, goal tree, all the same thing.
+Now you have a name for it, you've got some</p>
+<p t="1382200" d="9079">power over it. So when we get a situation
+like this, unlike the previous situation,</p>
+<p t="1391279" d="20601">which we suggested might come up in transformation
+A. Let's see, we've got one, two, C, and this</p>
+<p t="1411880" d="8130">one is A, it's an or node. Which one of these
+problems do we work on?</p>
+<p t="1420010" d="5350">Well Slegle, who considered himself to be
+modeling a freshman, modeling the intelligence</p>
+<p t="1425360" d="6840">of a freshman, modeling something that, after
+all, you have to be pretty smart to do, right.</p>
+<p t="1432200" d="5260">Most people don't know how to do integration.
+Everybody at MIT knows how to do integration.</p>
+<p t="1437460" d="2640">You would think that somebody, therefore,
+that knows how to do integration is pretty</p>
+<p t="1440100" d="3880">smart. What would a smart person do, when
+faced with this choice?</p>
+<p t="1443980" d="8689">Well, a smart person would say, which of these
+two problems is easier? So how do you think</p>
+<p t="1452669" d="9131">you might determine which of two, or many
+algebraic expressions is the easiest to integrate?</p>
+<p t="1461800" d="1160">What's your name?</p>
+<p t="1462960" d="1160">AUDIENCE: Andrew Carrol.</p>
+<p t="1464120" d="2380">SPEAKER 1: Andrew, what do you think?</p>
+<p t="1466500" d="1539">AUDIENCE: Based on whichever one feels more
+familiar.</p>
+<p t="1468039" d="1971">SPEAKER 1: Feels.</p>
+<p t="1470010" d="1799">AUDIENCE: Yes.</p>
+<p t="1471809" d="531">SPEAKER 1: Feels.</p>
+<p t="1472340" d="230">AUDIENCE: You asked, how would I decide.</p>
+<p t="1472570" d="2190">SPEAKER 1: Yeah, how would you decide? How
+would you feel it?</p>
+<p t="1474760" d="3230">AUDIENCE: I would feel that the tangent is
+more familiar.</p>
+<p t="1477990" d="1689">SPEAKER 1: Which one?</p>
+<p t="1479679" d="3171">AUDIENCE: I feel that the tangent [INAUDIBLE].</p>
+<p t="1482850" d="1559">SPEAKER 1: Yeah, but I wonder how we could
+make it a little bit more precise, this idea</p>
+<p t="1484409" d="7940">of simplicity. The young Turk has a suggestion.
+What?</p>
+<p t="1492349" d="5620">AUDIENCE: I had a suggestion until you said
+this idea of simplicity. So then I realized</p>
+<p t="1497969" d="4940">that what I was about to suggest wasn't going
+to clarify simplicity, but I was going to</p>
+<p t="1502909" d="6371">say, whichever one we've had more encounters
+with, or more experience with.</p>
+<p t="1509289" d="3121">SPEAKER 1: Yeah, if there was something here
+with a hyperbolic tangent, you might say,</p>
+<p t="1512419" d="3531">well, stay away from that. [? Yinid ?]?</p>
+<p t="1515950" d="5449">AUDIENCE: To which one of those the easier
+transformation is applied on the next step.</p>
+<p t="1521399" d="3420">SPEAKER 1: Like, somebody do a little look
+ahead, and see which kind of thing would be</p>
+<p t="1524820" d="4820">next to you? I don't know, maybe. Oh, we've
+got lots of people, all at the same time.</p>
+<p t="1529640" d="3560">I don't know all your names yet. Shoot. Erica,
+I know you.</p>
+<p t="1533200" d="2640">AUDIENCE: What's look it up in the table and
+see [INAUDIBLE].</p>
+<p t="1535840" d="4460">SPEAKER 1: Oh, you could look it up in the
+table and see if something is in it, you could</p>
+<p t="1540300" d="6540">do that. But this is tangent to the fourth,
+so that's not in the table. Ariel?</p>
+<p t="1546840" d="2780">AUDIENCE: I choose the one without the reciprocal.</p>
+<p t="1549620" d="1180">SPEAKER 1: Why?</p>
+<p t="1550800" d="6940">AUDIENCE: It is because when people see one
+it's like, oh man, it jut not going to work.</p>
+<p t="1557740" d="2380">SPEAKER 1: Yeah, we're on the right track.
+Claire?</p>
+<p t="1560120" d="3360">AUDIENCE: On an extremely simple level, I
+choose whichever one has the least symbols</p>
+<p t="1563480" d="1200">in it.</p>
+<p t="1564680" d="2380">SPEAKER 1: The fewest symbols in it. Now we're
+really getting somewhere, because you can</p>
+<p t="1567060" d="5580">measure that, right, there's a little program
+Why Brett, there you are.</p>
+<p t="1572640" d="7160">AUDIENCE: I would say, every [INAUDIBLE] expression
+can be written as, having a number of functions,</p>
+<p t="1579800" d="3700">we could say all these functions, multiplied
+together, divided, and you can just choose</p>
+<p t="1583500" d="3480">with the least amount of [? iterations ?].</p>
+<p t="1586980" d="4780">SPEAKER 1: Well I heard it, perhaps others
+didn't but what Brett said, is he suggested</p>
+<p t="1591769" d="6271">that we should measure depth of functional
+composition. So the number of symbols may</p>
+<p t="1598040" d="4739">not matter, because if you have x plus x plus
+x plus x, out to a hundred, that would not</p>
+<p t="1602779" d="6841">be hard to integrate. But if you've got something
+that is really deeply nested under a lot of</p>
+<p t="1609620" d="5240">functional compositions, that could be a problem.
+And that's in fact, what Slegle decided to</p>
+<p t="1614860" d="5580">use, after trying several alternatives.</p>
+<p t="1620440" d="5930">So if we measure the depth of the functional
+composition, this is the winner, and we put</p>
+<p t="1626370" d="5029">the other one on the shelf, at least for the
+moment. And now we have tangent to the fourth</p>
+<p t="1631399" d="7410">x dx. Do I need the safe transformation supply?
+No. Which of the-- you know something has</p>
+<p t="1638809" d="5631">to apply, otherwise it wouldn't be up here
+as an example. So what of the heuristic transformation</p>
+<p t="1644440" d="849">supply? Elliott.</p>
+<p t="1645289" d="1171">AUDIENCE: [INAUDIBLE]</p>
+<p t="1646460" d="3780">SPEAKER 1: Yeah, B bravo. Military
+background or something like that. Maybe</p>
+<p t="1650240" d="7920">he flies airplanes. OK so B says, it is in
+fact a function of the tangent. And when we</p>
+<p t="1658169" d="5360">do that, we've got to make a substitution,
+that y is equal to the tangent. So that means</p>
+<p t="1663529" d="12270">that this becomes the integral of y to the
+fourth over 1 plus y squared. And that's by</p>
+<p t="1675799" d="12260">transformation B, and the transformation is
+y equals tangent of x. The tangent-- I guess</p>
+<p t="1688059" d="9391">I've lost track of the fact that I've already
+transformed a y, but relabeling doesn't matter.</p>
+<p t="1697450" d="8319">All right so that's progress, maybe. But don't
+see this in any of the heuristic transformations,</p>
+<p t="1705769" d="4571">what do I do now? I didn't have to look in
+the heuristic transformations, because one</p>
+<p t="1710340" d="9030">of the safe transformations applies. Because
+this thing is a rational function and the</p>
+<p t="1719370" d="4750">degree of the numerator is greater that the
+degree of the denominator, so I have to divide.</p>
+<p t="1724120" d="8120">And when I divide, and that by the way is
+number four, I get what? Is anybody good high</p>
+<p t="1732240" d="1720">school algebra that can help me out with that?</p>
+<p t="1733960" d="5780">AUDIENCE: Y squared minus 2 plus negative
+2 over 1 plus y squared</p>
+<p t="1739740" d="15939">SPEAKER 1: Exactly, y squared minus 1 plus
+1 over 1 plus y squared, I think. Now what?</p>
+<p t="1755679" d="15330">Now we're really getting close to getting
+through this, because that is a sum. And by</p>
+<p t="1771009" d="7061">virtue of the fact that it's a sum, that divides
+into three pieces, and the top piece is the</p>
+<p t="1778070" d="6329">integral of y squared, the middle piece is
+the integral of minus 1, and the bottom piece</p>
+<p t="1784399" d="7530">is the integral of 1 over 1 plus y squared
+dy in all cases.</p>
+<p t="1791929" d="15000">Gosh, if I look this up, I've found it. That's
+up there, that's letter B. So I'm done with</p>
+<p t="1806929" d="9480">that. This one I can transform again, by virtue
+of 1, and now I get the integral dy. That's</p>
+<p t="1816409" d="8341">in there, that's B as well. As this one, I
+don't know. But I'd better keep track of what</p>
+<p t="1824750" d="2919">I'm doing here. This is in the and node, so
+I've got to do all of those. I can't give</p>
+<p t="1827669" d="10470">up on that last thing. And that and transformation
+is transformation number 3. So this is in</p>
+<p t="1838139" d="8571">the table, this is in the table, we still
+have this to do, but that's C, heuristic transformation</p>
+<p t="1846710" d="11949">C. We have 1, plus y squared, then with the
+transformation C, with y-- this is y squared--</p>
+<p t="1858659" d="10490">y equals tangent of z And then we get to the
+integral of dz and that's in the table and,</p>
+<p t="1869149" d="1740">we're done.</p>
+<p t="1870889" d="5231">So now we've solved the problem. It's the
+hardest problem that appeared in that half</p>
+<p t="1876120" d="7889">decade on MIT 18 01 finals. This is exactly
+the problem that was given, except that it</p>
+<p t="1884009" d="6071">started here. I put the other two pieces on
+just to illustrate a couple of the transformations.</p>
+<p t="1890080" d="5400">But that's a problem that it solved.</p>
+<p t="1895480" d="6840">And now that we've seen an example, we can
+finish up what we talked about a little bit</p>
+<p t="1902320" d="9459">ago, having to do with the architecture of
+this thing. So far, all we've done is talk</p>
+<p t="1911779" d="6260">about the safe transformations, but now we
+know that if we're not done, we need to find</p>
+<p t="1918040" d="8820">a problem to work on</p>
+<p t="1926860" d="10299">using that depth of functional composition
+business. And then after that we apply heuristic</p>
+<p t="1937159" d="11660">transformation.</p>
+<p t="1948820" d="2720">And the way Slagle
+designed his program is,</p>
+<p t="1951540" d="3060">he found just one problem to work on,
+did one transformation,</p>
+<p t="1954610" d="3990">then went back around the loop. Because these
+heuristic transformations are a little harder</p>
+<p t="1958600" d="6079">to apply than the safe ones. So I'll given
+you an accurate portrayal of what this program</p>
+<p t="1964679" d="6490">did, except for one thing. Which I would like,
+now, to go back and patch up. And that thing</p>
+<p t="1971169" d="17840">is over here. What to do with something like
+this. Well we got to that in a board that's</p>
+<p t="1989009" d="6341">disappeared, but when we tried to deal with
+this, we had to find a heuristic transformation.</p>
+<p t="1995350" d="4939">And when we decided to work on this, it must
+have been the case that this was the simplest</p>
+<p t="2000289" d="4081">problem at a leaf node that has not yet been
+solved.</p>
+<p t="2004370" d="8189">So what's the functional composition depth
+of this? It's 3. Back over here, we have something</p>
+<p t="2012559" d="5090">that has a depth of functional composition
+of 2. So when the program actually ran on</p>
+<p t="2017649" d="6380">this particular problem, it stopped a few
+inches short of the finish line, And went</p>
+<p t="2024029" d="4691">back and screwed around with that other problem
+for a little bit, before it gave up and came</p>
+<p t="2028720" d="2199">back here.</p>
+<p t="2030919" d="4750">So it's always looking across the whole tree,
+the leaves of the tree. Whenever it has to</p>
+<p t="2035669" d="4301">find a place to work on with the heuristic
+transformation, it happened to look at all</p>
+<p t="2039970" d="4189">the leaves of the tree that had not yet been
+dealt with, tried to find the easiest one,</p>
+<p t="2044159" d="4391">and that could involve a lot of backing up
+and starting over on a branch of the tree</p>
+<p t="2048550" d="6160">that it had previously ignored. A small detail,
+not a particularly important one.</p>
+<p t="2054710" d="20910">Now where are we. We've got that guy there.
+We've got our complete architecture. We've</p>
+<p t="2075620" d="8680">got our solved problem. And now we can start
+reflecting on what we've done. We can say,</p>
+<p t="2084300" d="5600">for example, how good an integration program
+is this? And the answer is, it was pretty</p>
+<p t="2089900" d="8070">good. This machine that Slagle was using was
+a machine that was over in building 26. And</p>
+<p t="2097970" d="3930">we were so proud of it, that it was behind
+glass, and you could go there and watch the</p>
+<p t="2101900" d="8710">tape spin, it was really a delight. 32k of
+memory, that's 32k of memory. It's amazing</p>
+<p t="2110610" d="6830">that he was able to do anything with a machine
+of that size.</p>
+<p t="2117440" d="12300">Let's see, let's get us a clean one.
+Can't do board geometry and talk at the same</p>
+<p t="2129740" d="10480">time. We can now ask some questions about
+how well the program performed. It was given</p>
+<p t="2140220" d="8780">56 of the hardest problems, and it got 54
+right. What happened when it didn't get the</p>
+<p t="2149000" d="6310">other two? Well, you might be right if you
+said, oh it probably ran out of memory, since</p>
+<p t="2155310" d="5970">it had 32k. But in fact, it just was lacking
+2 transformations that were needed, in order</p>
+<p t="2161280" d="8650">to solve the whole entire set of final quiz
+problems. So when a program fails, that's</p>
+<p t="2169930" d="5340">often the most interesting question you can
+ask. This is an exception. This failed for</p>
+<p t="2175270" d="5400">uninteresting reasons on 2 of the 56 problems
+that it was given to.</p>
+<p t="2180670" d="10080">And now the next question you can say is,
+what is the depth of the tree in the maximal</p>
+<p t="2190750" d="5620">case? And the answer is, it's that case we
+just worked out. And since I've once again</p>
+<p t="2196370" d="6510">lost the whole tree, I'll tell you that it's
+depth was 7 when you take off that minus 5.</p>
+<p t="2202880" d="8210">So in the worst case, this thing had to get
+down seven levels.</p>
+<p t="2211090" d="9290">That's the worst case, a more interesting
+question is what was the average depth? And</p>
+<p t="2220380" d="9520">that was approximately 3. And now we're beginning
+to say something, not only about Slagle's</p>
+<p t="2229900" d="6550">model of how a freshman works, but we're beginning
+to say something about the nature of the domain.</p>
+<p t="2236450" d="5530">In the domain of calculus problems, integrals
+expressions that are given to freshman, in</p>
+<p t="2241980" d="7690">that domain, the average depth of problem
+reduction needed to solve the problem was</p>
+<p t="2249670" d="5600">3. So that's not very complicated. If it were
+10, you would say, wow, how can anybody ever</p>
+<p t="2255270" d="6990">do those problems? If it were 5, you'd say,
+well only people destined to be math professors</p>
+<p t="2262260" d="6330">are going to get anything right. If it's 3,
+us ordinary mortals can do a pretty good job.</p>
+<p t="2268590" d="17450">Another question of even greater interest
+is, how many branches were unused? Here's</p>
+<p t="2286040" d="4870">a branch that turned out to be unused, it
+didn't pursue that. And so you might say,</p>
+<p t="2290910" d="6940">well maybe there are a lot of unused branches.
+Maybe you have to be pretty smart about your</p>
+<p t="2297850" d="3310">method for determining what problem to work
+on, because otherwise you'll go down a lot</p>
+<p t="2301160" d="2420">of rat holes.</p>
+<p t="2303580" d="6670">And guess what, here's another statement about
+the domain. In the domain of problems that</p>
+<p t="2310250" d="7810">freshmen could work on a final, the number
+of unused branches is about 1. So that means</p>
+<p t="2318060" d="7630">this tree keeps itself together, and doesn't
+run down to a very large, bushy, useless tree.</p>
+<p t="2325690" d="6630">So this means that the depth of functional
+composition, which Brett suggested as a technique</p>
+<p t="2332320" d="7430">for recognizing the right problem work on,
+was a choice that didn't actually matter.</p>
+<p t="2339750" d="5960">Because the tree doesn't grow deep, it doesn't
+go broad. It doesn't matter what you use to</p>
+<p t="2345710" d="4400">decide what to work on, because in the worst
+case, you'll just generate a couple of extra,</p>
+<p t="2350110" d="4040">useless nodes. But they very quickly run to
+find a dead end, so you don't have to do anything</p>
+<p t="2354150" d="4870">more with them.</p>
+<p t="2359020" d="5260">So now the next thing we need to do is back
+even further away from this program, and ask</p>
+<p t="2364280" d="5090">ourselves some questions about the nature
+of what we've been doing. And that brings</p>
+<p t="2369370" d="4800">me to the things I've got on that upper right-hand
+board. One of those things as a catechism</p>
+<p t="2374170" d="2850">having to do with knowledge.</p>
+<p t="2377020" d="4030">And what we've done informally as we went
+through this program was, we've asked questions</p>
+<p t="2381050" d="7480">such as, what kind of knowledge is involved
+in doing this? Well knowledge about transformation.</p>
+<p t="2388530" d="6240">Knowledge about how goal trees work and when
+we're done with a problem. Knowledge about</p>
+<p t="2394770" d="4750">what things don't need to be transformed,
+because you can look them up in a table. That's</p>
+<p t="2399520" d="6370">the kind of knowledge that is involved in
+doing 18 01. And if you do 18 0 circuit theory,</p>
+<p t="2405890" d="5130">6 0 circuit theory or 6 0 Maxwell's equations,
+this is the same thing.</p>
+<p t="2411020" d="3000">You have to ask questions of this sort,</p>
+<p t="2414030" d="3400">about the nature of the knowledge involved,
+and question number one is always, what kind</p>
+<p t="2417430" d="6010">of knowledge is involved? Is it Kirchhoff's
+laws, Maxwell's equations, what is it?</p>
+<p t="2423440" d="4000">The next question is, how is the knowledge
+represented? And our answers here are, well</p>
+<p t="2427440" d="5260">all this stuff, ultimately was represented
+in list best expressions. Some of the</p>
+<p t="2432700" d="4340">knowledge was recorded in a table [? of best
+?] expressions to show what transformations</p>
+<p t="2437040" d="6890">there are. There was a similar table of integrals.
+Knowledge about goal trees was embedded in</p>
+<p t="2443930" d="6040">the procedure, so it was procedurally represented.
+And so for each of the categories of knowledge,</p>
+<p t="2449970" d="6580">there's a way it gets represented. How is
+it used? Straightforward, transformations</p>
+<p t="2456550" d="5840">are used to make the problem simpler. The
+table is used to trim off and to serve as</p>
+<p t="2462390" d="4140">the bottom of the tree. Those are the ways
+in which the knowledge is used.</p>
+<p t="2466530" d="6910">And then there's the question of course of,
+how much knowledge is required. Something</p>
+<p t="2473440" d="5740">that's useful to know if it's late at night,
+you have 2 finals the next day, and you're</p>
+<p t="2479180" d="5460">not sure which course you should study. So
+how much knowledge might you suppose was actually</p>
+<p t="2484640" d="5320">in this program? I've shown you a glimpse
+of the kind of knowledge that's involved in</p>
+<p t="2489960" d="4750">the program. I've answered a little bit of
+question 5, what exactly. But how much knowledge</p>
+<p t="2494710" d="2200">was involved. You might be surprised by the
+answer.</p>
+<p t="2496910" d="7630">First of all, the table of integrals. I've
+listed only 3 things there. There are lots</p>
+<p t="2504540" d="6230">of other things you can think of, like integral
+of e to the x is e to the x. But in the end,</p>
+<p t="2510770" d="7540">what Slagle found is, a table only 26 elements
+was enough to solve all of these problems.</p>
+<p t="2518310" d="13010">How about the transformations here, the safe
+ones, about 12. How about the heuristic ones,</p>
+<p t="2531320" d="6170">about 12. So just a few bits and pieces of
+knowledge, here and there, are sufficient</p>
+<p t="2537490" d="4880">to do everything you need to do, in order
+to do the integration problems on a calculus</p>
+<p t="2542370" d="3150">final. That was a surprise.</p>
+<p t="2545520" d="5620">Another surprise of a similar kind, also about
+knowledge, is that the relationship between</p>
+<p t="2551140" d="9260">the method to be used, and the characteristics
+of the problem, was almost a diagonal table.</p>
+<p t="2560400" d="6450">That means that you could, in this domain,
+make the right transformation almost all the</p>
+<p t="2566850" d="5450">time if you're a little bit smart, and never
+back up. That was an observation made by Joel</p>
+<p t="2572300" d="5910">Moses, who became subsequently our provost
+here at MIT for a while. And he wrote a program</p>
+<p t="2578210" d="7550">that could solve anything. It would beat the
+most dedicated mathematicians at integration.</p>
+<p t="2585760" d="2850">And its descendents are in MATLAB today.</p>
+<p t="2588610" d="3960">But this is how it all works. And now you
+can write one of these things yourself. Partly</p>
+<p t="2592570" d="5730">because you now have this catechism. This
+is the kind of stuff you should ask any time</p>
+<p t="2598300" d="6020">you're dealing with a new domain. It will
+make you smarter. And this is of course, meta</p>
+<p t="2604320" d="6650">knowledge, this is knowledge about knowledge.
+So this tired aphorism isn't quite what we</p>
+<p t="2610970" d="12840">are going to complete ourselves with. We're
+going to say that knowledge about knowledge</p>
+<p t="2623810" d="2040">is where the real power is.</p>
+<p t="2625850" d="6940">Now there's one final thing that this program
+does for us. It tells us something about our</p>
+<p t="2632790" d="5490">appreciation of what it means to be intelligent.
+You know that in the beginning of this hour,</p>
+<p t="2638280" d="5980">I asked you to think about whether a program
+that could do symbolic integration would be,</p>
+<p t="2644260" d="8220">in any way, or should be considered to any
+degree, intelligent. And I'm imagining that</p>
+<p t="2652480" d="5340">even in these days of MATLAB, and whatnot,
+many of you said well, yes, I learned how</p>
+<p t="2657820" d="5370">to do that at MIT, or late in high school,
+so it must be smart.</p>
+<p t="2663190" d="6220">But now that we've completed this discussion,
+I also expect that your feeling of intelligence</p>
+<p t="2669410" d="5330">in this program is somewhat diminished. Because
+what happens is that, when we understand how</p>
+<p t="2674740" d="5150">something works, it's intelligence seems to
+vanish. You've seen this in your friends,</p>
+<p t="2679890" d="6850">right? They solve some problem, they seem
+super smart. Then they tell you how they did</p>
+<p t="2686740" d="4090">it, and they don't seem so smart anymore.</p>
+<p t="2690830" d="9030">So let's conclude our discussion today was
+a little story. A long time ago I was talking</p>
+<p t="2699860" d="8170">with a student who said, computers cannot
+be intelligent. And I said, OK, maybe you're</p>
+<p t="2708030" d="4070">right, but let me show you this program. So
+I showed him the integration program, working</p>
+<p t="2712100" d="6480">on problems like this. And after I showed
+him a couple of those examples, he says, well,</p>
+<p t="2718580" d="4880">all right, I guess maybe they can be intelligent.
+I'm learning how to do that, and it's not</p>
+<p t="2723460" d="7370">always easy. Then I made a fatal mistake.
+I said let me show you how it works, and we</p>
+<p t="2730830" d="4450">spent an hour going through it like this.
+And at the end of that time, he turned to</p>
+<p t="2735280" d="6770">me and said, I take it back, it's not intelligent
+after all. It does integration the same way</p>
+<p t="2742050" d="2790">I do.</p>
+</body>
+</timedtext>

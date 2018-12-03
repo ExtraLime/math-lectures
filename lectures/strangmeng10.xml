@@ -1,0 +1,1347 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="500" d="2263">The following content is
+provided under a Creative</p>
+<p t="2763" d="847">Commons license.</p>
+<p t="3610" d="2160">Your support will help
+MIT OpenCourseWare</p>
+<p t="5770" d="3600">continue to offer high quality
+educational resources for free.</p>
+<p t="9370" d="3160">To make a donation, or to
+view additional materials</p>
+<p t="12530" d="3620">from hundreds of MIT courses
+visit MIT OpenCourseWare</p>
+<p t="16150" d="3240">at ocw.mit.edu.</p>
+<p t="19390" d="3540">PROFESSOR STRANG: Ready?</p>
+<p t="22930" d="4980">So let me recap the
+important lecture</p>
+<p t="27910" d="3740">from last time that gave
+the framework that we'll</p>
+<p t="31650" d="1830">see in Chapter two
+and Chapter three,</p>
+<p t="33480" d="2160">really a major
+part of the course.</p>
+<p t="35640" d="4350">And our example was a line
+of masses and springs.</p>
+<p t="39990" d="3200">So that's like, the first
+example to start with.</p>
+<p t="43190" d="3510">And you remember,
+there were three steps.</p>
+<p t="46700" d="3540">If we want to know how
+much the masses displace</p>
+<p t="50240" d="4110">we have to get to the springs.</p>
+<p t="54350" d="3660">Difference in displacements gave
+the stretching of the springs.</p>
+<p t="58010" d="3650">Then comes the material law,
+Hooke's Law in this case,</p>
+<p t="61660" d="4500">with a matrix C that led to CAu.</p>
+<p t="66160" d="2310">And then finally,
+those spring forces</p>
+<p t="68470" d="2970">are balanced by the
+external forces.</p>
+<p t="71440" d="2120">That brought in A transpose.</p>
+<p t="73560" d="3980">So that's the
+picture to look for.</p>
+<p t="77540" d="9890">And I just mention it again
+because it's so central.</p>
+<p t="87430" d="3230">So we'll be doing
+other examples of that.</p>
+<p t="90660" d="4670">But I wanted to stay with
+springs and masses for today.</p>
+<p t="95330" d="2230">To do another type of problem.</p>
+<p t="97560" d="2800">A problem in which time enters.</p>
+<p t="100360" d="4250">A problem in which we're not
+looking for the steady state.</p>
+<p t="104610" d="2860">But it's Newton's Law
+is going to come in.</p>
+<p t="107470" d="1750">This is actually Newton's Law.</p>
+<p t="109220" d="2570">You recognize mass.</p>
+<p t="111790" d="2300">You recognize acceleration.</p>
+<p t="114090" d="5290">And the force on
+the spring is -Ku.</p>
+<p t="119380" d="6040">So when -Ku, when the force
+came over to that side,</p>
+<p t="125420" d="2700">that's the equation
+we're looking at.</p>
+<p t="128120" d="4690">So it's like time-out
+for a discussion</p>
+<p t="132810" d="3480">of the very important
+subject of time derivatives.</p>
+<p t="136290" d="7790">How do I solve initial
+value problems now?</p>
+<p t="144080" d="4290">So I have some
+starting time, I'm</p>
+<p t="148370" d="4410">given u(0), the starting
+position of the springs,</p>
+<p t="152780" d="4820">and I'm given the
+velocity at zero.</p>
+<p t="157600" d="3520">So I'm given two facts at zero.</p>
+<p t="161120" d="4880">That's very different from
+the steady state problem</p>
+<p t="166000" d="2420">where you're given stuff
+around the boundary.</p>
+<p t="168420" d="1870">Here we're given
+stuff at the start.</p>
+<p t="170290" d="3250">Initial values instead
+of boundary values.</p>
+<p t="173540" d="1460">So what does this mean?</p>
+<p t="175000" d="5130">It means that maybe I pull
+the springs down and I let go.</p>
+<p t="180130" d="1950">And what do they do?</p>
+<p t="182080" d="820">They oscillate.</p>
+<p t="182900" d="2930">And you will have
+studied this equation.</p>
+<p t="185830" d="2770">I hope you've seen
+that equation.</p>
+<p t="188600" d="2430">Because I think of it as
+the fundamental equation</p>
+<p t="191030" d="1860">of mechanics.</p>
+<p t="192890" d="1850">In fact, I've even
+used those words.</p>
+<p t="194740" d="3250">The fundamental equation
+of mechanical engineering.</p>
+<p t="197990" d="6300">Well, it's Newton's
+Law for a system.</p>
+<p t="204290" d="5540">So the matrix M
+now has two masses.</p>
+<p t="209830" d="2970">In this case, it would
+be a two by two system.</p>
+<p t="212800" d="2860">The matrix M would
+have two masses.</p>
+<p t="215660" d="7190">Suppose mass one may be like,
+nine and mass two is one.</p>
+<p t="222850" d="5530">So copying what our problem
+is we'd have a nine and a one</p>
+<p t="228380" d="5170">multiplying u_1'' and u_2''.</p>
+<p t="233550" d="3610">Can I use prime
+for a derivative?</p>
+<p t="237160" d="2270">Rather than dots,
+because I'm never</p>
+<p t="239430" d="2390">too sure if the dot
+is there or not.</p>
+<p t="241820" d="2870">So prime I can see.</p>
+<p t="244690" d="3350">And then plus our Ku.</p>
+<p t="248040" d="5820">And actually you know what K
+will look like for this system.</p>
+<p t="253860" d="3160">It's fixed-fixed.</p>
+<p t="257020" d="3680">Well, let me write down
+what K would look like.</p>
+<p t="260700" d="2570">Just because we saw
+it at the very end.</p>
+<p t="263270" d="3870">What it looks like if there
+are spring constants, c_1, c_2,</p>
+<p t="267140" d="810">and c_3.</p>
+<p t="267950" d="5440">Can I just remind you
+what that will look like?</p>
+<p t="273390" d="2920">So this will multiply
+u and give zero.</p>
+<p t="276310" d="7620">So the mass matrix is
+diagonal in the problem.</p>
+<p t="283930" d="3820">That's, diagonal matrices, we
+certainly expect to be easy.</p>
+<p t="287750" d="3020">Almost as easy as
+the identity matrix</p>
+<p t="290770" d="2550">where we would have
+two equal masses.</p>
+<p t="293320" d="2300">Here it's just that
+little bit more general</p>
+<p t="295620" d="1570">with two different masses.</p>
+<p t="297190" d="3650">And in here, the kind of thing
+that we created just at the end</p>
+<p t="300840" d="4720">of the last lecture was
+something like c_1+c_2</p>
+<p t="305560" d="7270">on the diagonal and a -c_2
+and a -c_2 and a c_2+c_3.</p>
+<p t="316110" d="3310">So c_2 for the middle
+spring is the one</p>
+<p t="319420" d="3480">that's really there with its
+full little element matrix,</p>
+<p t="322900" d="3670">c_2, -c2; -c_2, c_2.</p>
+<p t="326570" d="5590">The c_1 part is only
+coming in at the top</p>
+<p t="332160" d="2570">because it's connected
+to a fixed support.</p>
+<p t="334730" d="2510">And c_3 is only coming
+in at the bottom.</p>
+<p t="337240" d="5130">Anyway, that's the matrix
+K. This is the matrix M.</p>
+<p t="342370" d="3650">And how do we solve the problem?</p>
+<p t="346020" d="4330">You've seen before, and now
+ADINA Professor Bathe's code</p>
+<p t="350350" d="5240">or any other code would offer,
+like, two different ways.</p>
+<p t="355590" d="6880">One way is because we have
+constant coefficients here</p>
+<p t="362470" d="4900">we can expect a pretty clean
+formula for the answer.</p>
+<p t="367370" d="5460">And because we're growing,
+we're oscillating in time,</p>
+<p t="372830" d="3490">things are happening in
+time, we expect eigenvectors,</p>
+<p t="376320" d="1840">eigenvalues to come in.</p>
+<p t="378160" d="1110">Into that formula.</p>
+<p t="379270" d="3710">I think it's worth just
+repeating that formula.</p>
+<p t="382980" d="1720">How do you approach it?</p>
+<p t="384700" d="4160">And then the second,
+the really serious issue</p>
+<p t="388860" d="6030">is how do you solve
+equation like this</p>
+<p t="394890" d="5510">or even more general,
+time-dependent problems.</p>
+<p t="400400" d="3010">I mean this is what finite
+element codes are created for.</p>
+<p t="403410" d="4310">How do you study
+the crash of a car?</p>
+<p t="407720" d="4450">So this isn't quite the
+equation for a car crash.</p>
+<p t="412170" d="5190">What would be different
+in a car crash?</p>
+<p t="417360" d="5010">There's a short section
+later in Chapter two</p>
+<p t="422370" d="2970">called the reality of
+computational engineering.</p>
+<p t="425340" d="5320">And the reality is, cars crash,
+people drop their cell phones.</p>
+<p t="430660" d="4370">And those are very difficult
+problems to compute with.</p>
+<p t="435030" d="3810">And of course, absolutely
+impossible to use eigenvectors</p>
+<p t="438840" d="3200">because, well they're
+not linear at all.</p>
+<p t="442040" d="1150">Right?</p>
+<p t="443190" d="3250">If you crash two cars,
+if you want to study,</p>
+<p t="446440" d="2410">everything's happening
+in like, a hundredth</p>
+<p t="448850" d="1480">of a second or something.</p>
+<p t="450330" d="4280">But what's happening
+there is highly non-linear</p>
+<p t="454610" d="2720">so it's very much
+more complicated.</p>
+<p t="457330" d="2700">And you take thousands
+of time steps</p>
+<p t="460030" d="3020">maybe within the crash time.</p>
+<p t="463050" d="9040">And you're going to use finite
+differences or finite elements.</p>
+<p t="472090" d="3060">So this is a chance
+to say something</p>
+<p t="475150" d="6970">about this special equation
+for finite difference method.</p>
+<p t="482120" d="4750">It's really 18.086 that takes
+up these questions seriously.</p>
+<p t="486870" d="1910">If I choose a finite
+difference method.</p>
+<p t="488780" d="2510">See, the thing is with
+finite differences</p>
+<p t="491290" d="3320">you've got many, many choices.</p>
+<p t="494610" d="3100">There's only one way
+to go in step one.</p>
+<p t="497710" d="4240">Eigenvectors, this thing has
+got eigenvectors, you find them,</p>
+<p t="501950" d="1230">you're in.</p>
+<p t="503180" d="3240">But for the much more
+general, typical problems</p>
+<p t="506420" d="3030">that you'll be solving
+the rest of your lives,</p>
+<p t="509450" d="1930">finite differences
+or finite elements,</p>
+<p t="511380" d="3790">you've got lots of choices.</p>
+<p t="515170" d="6100">And the issues that come up
+are the accuracy of the choice.</p>
+<p t="521270" d="2320">Centered differences
+often gives you</p>
+<p t="523590" d="1970">that extra order of accuracy.</p>
+<p t="525560" d="5260">Stability is something
+we have not seen yet.</p>
+<p t="530820" d="1680">So what does stability mean?</p>
+<p t="532500" d="4400">Stability means that as I follow
+my difference equation forward</p>
+<p t="536900" d="5350">in time it stays near
+the true equation.</p>
+<p t="542250" d="1900">You'll see by example.</p>
+<p t="544150" d="2670">So some methods are
+more stable than others,</p>
+<p t="546820" d="3150">some are completely
+unstable and unusable.</p>
+<p t="549970" d="2500">And then, of course,
+the other condition,</p>
+<p t="552470" d="6760">another desired requirement,
+is speed of calculation.</p>
+<p t="559230" d="2020">So these balance each other.</p>
+<p t="561250" d="1950">It's a beautiful subject.</p>
+<p t="563200" d="5650">And let me just open the
+door to that subject today.</p>
+<p t="568850" d="4050">May I start with the
+eigenvector solution.</p>
+<p t="572900" d="4210">How would I solve this
+equation by eigenvectors?</p>
+<p t="577110" d="5670">Well again, I'm going to
+look for special solutions.</p>
+<p t="582780" d="3680">So let me write that
+equation down again.</p>
+<p t="586460" d="560">Mu''+Ku=0.</p>
+<p t="589590" d="3550">I'm taking zero external force.</p>
+<p t="593140" d="3950">So the springs and masses
+are just oscillating.</p>
+<p t="597090" d="3680">Their total energy won't
+change, it's a closed system.</p>
+<p t="600770" d="3490">The kinetic plus the potential
+energy will stay constant</p>
+<p t="604260" d="3320">and we can show why.</p>
+<p t="607580" d="3800">There's a lot in this section,
+by the way, section 2.2.</p>
+<p t="611380" d="2270">More than I would be able
+to do in the lecture.</p>
+<p t="613650" d="3560">But let me capture
+the key ideas.</p>
+<p t="617210" d="3630">So one key idea is
+the natural idea when</p>
+<p t="620840" d="4070">we have constant coefficients.</p>
+<p t="624910" d="2060">Look for special solutions.</p>
+<p t="626970" d="5300">So let me say look for special
+solutions of the form--</p>
+<p t="632270" d="4610">well, let's keep in mind always
+the simplest model of all.</p>
+<p t="636880" d="5290">Let me put it over here because
+I'll focus on it particularly,</p>
+<p t="642170" d="1200">especially.</p>
+<p t="643370" d="6010">The simplest case would be u'',
+with a mass normalized to one,</p>
+<p t="649380" d="3220">plus u equal 0.</p>
+<p t="652600" d="1490">Just a single equation.</p>
+<p t="654090" d="3820">So that's just a single spring.</p>
+<p t="657910" d="1890">Single mass.</p>
+<p t="659800" d="2770">So the mass is just
+oscillating up and down.</p>
+<p t="662570" d="5370">And we all know that it's
+going to oscillate up and down,</p>
+<p t="667940" d="2770">sines and cosines are
+going to come into here.</p>
+<p t="670710" d="2100">In fact, we know
+that the solution</p>
+<p t="672810" d="6140">to that would be, this
+could have cosine, this</p>
+<p t="678950" d="3400">would have some
+cos(t)'s and some-- u</p>
+<p t="682350" d="6980">could be a combination
+of cos(t) and sin(t).</p>
+<p t="689330" d="920">Right?</p>
+<p t="690250" d="3990">And the A and B would
+be used to match the two</p>
+<p t="694240" d="1430">initial conditions.</p>
+<p t="695670" d="2380">So that's what we've
+got in the scalar case.</p>
+<p t="698050" d="6340">This is one spring. n is one.</p>
+<p t="704390" d="3100">We don't have a matrix
+here, just a number.</p>
+<p t="707490" d="5840">But that's our guide
+to the matrix case.</p>
+<p t="713330" d="1500">So now what am I
+going to look for?</p>
+<p t="714830" d="2110">I'm going to look for u(t).</p>
+<p t="716940" d="7590">I'll look for special
+solutions of the form cos--</p>
+<p t="724530" d="2170">They'll go at
+different frequencies.</p>
+<p t="726700" d="3220">So the frequency
+has to be found.</p>
+<p t="729920" d="2630">So that's the time dependence.</p>
+<p t="732550" d="5090">And then some, if I'm
+lucky all the springs</p>
+<p t="737640" d="3100">will be going together.</p>
+<p t="740740" d="5110">So this x-- Am I going
+to use x for eigenvector?</p>
+<p t="745850" d="1190">I think so, yes.</p>
+<p t="747040" d="3140">Let's use x for eigenvector.</p>
+<p t="750180" d="7510">So this is a vector, this
+is a constant vector.</p>
+<p t="757690" d="11800">And this gives the oscillation.</p>
+<p t="769490" d="6420">Let me just already
+start with that.</p>
+<p t="775910" d="1640">I've got two
+unknowns here, right?</p>
+<p t="777550" d="2210">Two things that
+I'm free to choose.</p>
+<p t="779760" d="2640">I'm free to choose
+the frequency omega</p>
+<p t="782400" d="2920">and I'm free to
+choose this vector x.</p>
+<p t="785320" d="2920">And I've like,
+separated out time.</p>
+<p t="788240" d="4610">The way we've been doing
+it with an e^(lambda*t).</p>
+<p t="792850" d="1890">We used an e^(lambda*t).</p>
+<p t="794740" d="4140">So that was sort of right
+for a first order equation.</p>
+<p t="798880" d="5060">Cosine is right for a second
+order equation like this.</p>
+<p t="803940" d="2830">When is that a solution
+to my equation?</p>
+<p t="806770" d="2590">May I just plug it in?</p>
+<p t="809360" d="4800">So I'm going to just plug it in?</p>
+<p t="814160" d="2750">Substitute is a better
+word than plug in, right?</p>
+<p t="816910" d="5260">So shall I just plug it in?</p>
+<p t="822170" d="4640">So I get M times that
+second derivative.</p>
+<p t="826810" d="2010">So the second
+derivative of the cosine</p>
+<p t="828820" d="5570">is the cosine with a
+minus, M omega squared.</p>
+<p t="834390" d="2190">Is that right?</p>
+<p t="836580" d="1170">Yes?</p>
+<p t="837750" d="1080">Times what?</p>
+<p t="838830" d="2880">So that's what came from
+the time derivative.</p>
+<p t="841710" d="2830">Times cos times
+this, cos(omega*t)x.</p>
+<p t="848040" d="3510">Two time derivatives brought
+down a minus omega squared.</p>
+<p t="851550" d="4890">And the other part is just
+K times u, cos(omega*t)x.</p>
+<p t="859880" d="4390">And that should be zero.</p>
+<p t="864270" d="2860">And this is supposed to
+be a good solution that</p>
+<p t="867130" d="6650">works for all time.</p>
+<p t="873780" d="3690">This is what I want to be zero.</p>
+<p t="877470" d="1860">Do you see what's left?</p>
+<p t="879330" d="5980">Kx from here.</p>
+<p t="885310" d="7930">And putting that on the other
+side, M omega squared x.</p>
+<p t="893240" d="2900">Can I write the omega squared
+that way? omega squared Mx.</p>
+<p t="899510" d="5505">Then if that is satisfied
+then the differential equation</p>
+<p t="905015" d="835">is satisfied.</p>
+<p t="905850" d="1110">I've got a solution.</p>
+<p t="906960" d="4010">So I'm looking for K and
+I'm looking for x and omega.</p>
+<p t="910970" d="5970">And by the way, I could
+also have sin(omega*t) here.</p>
+<p t="916940" d="2720">As well as cosine just
+the way over there.</p>
+<p t="919660" d="2480">Sines and cosines both possible.</p>
+<p t="922140" d="730">So sin(omega*t)x.</p>
+<p t="926320" d="2300">It would be exactly the
+same except that it'd be</p>
+<p t="928620" d="2900">a sin(omega*t) that
+I'd be dividing out.</p>
+<p t="931520" d="2230">And again, I'd
+come back to this.</p>
+<p t="933750" d="5890">This is key problem.</p>
+<p t="939640" d="5120">And do you see that somehow
+here we have an eigenvector x</p>
+<p t="944760" d="4090">and an eigenvalue omega squared?</p>
+<p t="948850" d="5260">An eigenvalue omega
+squared, right.</p>
+<p t="954110" d="1350">But there is one little twist.</p>
+<p t="955460" d="4130">It's not quite our standard
+eigenvalue problem.</p>
+<p t="959590" d="4270">What's the extra guy
+that's present in that box</p>
+<p t="963860" d="3640">that we don't usually see?</p>
+<p t="967500" d="4460">M. M is the new person
+there, new thing.</p>
+<p t="971960" d="1260">The mass matrix.</p>
+<p t="973220" d="4440">Which, if all masses
+where one, the mass matrix</p>
+<p t="977660" d="1080">would be the identity.</p>
+<p t="978740" d="990">We would be back.</p>
+<p t="979730" d="2140">We would just have
+our standard problem.</p>
+<p t="981870" d="3940">I just have to say a
+word about the case</p>
+<p t="985810" d="3970">when the mass matrix is there.</p>
+<p t="989780" d="2590">It's still an
+eigenvalue problem.</p>
+<p t="992370" d="4630">If you like, I can bring
+M inverse over here.</p>
+<p t="997000" d="6180">I could write it as M inverse
+K x equal omega squared x.</p>
+<p t="1003180" d="6310">So I'm looking for the
+eigenvalues of M inverse K.</p>
+<p t="1009490" d="2150">That's really what I'm doing.</p>
+<p t="1011640" d="3590">The eigenvalues and
+eigenvectors of M inverse K.</p>
+<p t="1015230" d="8380">But I'm always trying to be
+like, aesthetically right.</p>
+<p t="1023610" d="5600">And what's-- M inverse K has
+just a little something wrong</p>
+<p t="1029210" d="500">with it.</p>
+<p t="1029710" d="2010">Which is?</p>
+<p t="1031720" d="2900">It's not symmetric.</p>
+<p t="1034620" d="3700">If I take my matrix K, which
+is beautifully symmetric,</p>
+<p t="1038320" d="2210">and my M, which is
+beautifully symmetric,</p>
+<p t="1040530" d="3210">but when I do M inverse K,
+do you see what'll happen?</p>
+<p t="1043740" d="3550">The inverse of that
+matrix will have a 1/9.</p>
+<p t="1047290" d="4360">When I do M inverse*K, that
+row will get divided by nine.</p>
+<p t="1051650" d="3730">And the second row won't
+change because I've got a one.</p>
+<p t="1055380" d="3800">So it just like,
+spoiled things a little.</p>
+<p t="1059180" d="2070">You can deal with it.</p>
+<p t="1061250" d="4780">But actually, in some way
+it's better to keep it right.</p>
+<p t="1066030" d="4090">And MATLAB is totally
+okay with that.</p>
+<p t="1070120" d="4810">So MATLAB would use the command
+eig -- and other systems too --</p>
+<p t="1074930" d="8210">of K, M. Just tell
+MATLAB the two matrices.</p>
+<p t="1083140" d="3160">Then it solves that problem.</p>
+<p t="1086300" d="4150">It will print out the,
+well if you just typed eig,</p>
+<p t="1090450" d="3340">it would print out
+the eigenvalues.</p>
+<p t="1093790" d="3020">If you ask it for the
+eigenvector matrix,</p>
+<p t="1096810" d="1570">it'll print those too.</p>
+<p t="1098380" d="6210">So that has the grand name
+generalized eigenvalue problem.</p>
+<p t="1104590" d="2790">Generalized because
+it's got an M in there.</p>
+<p t="1107380" d="3590">I don't know if you've met
+these problems where there could</p>
+<p t="1110970" d="3740">be an M. It's just a
+natural, and it's not really</p>
+<p t="1114710" d="4290">a big deal, particularly when M
+is a positive diagonal matrix.</p>
+<p t="1119000" d="1850">It's not a big deal at all.</p>
+<p t="1120850" d="5010">It's the same codes essentially
+finding the eigenvalues</p>
+<p t="1125860" d="2370">and eigenvectors.</p>
+<p t="1128230" d="3820">So suppose we have them.</p>
+<p t="1132050" d="9150">We expect n positive
+eigenvalues,</p>
+<p t="1141200" d="3780">and those'll be
+the omega squareds.</p>
+<p t="1144980" d="3690">And each one comes
+with its eigenvector.</p>
+<p t="1148670" d="5440">And complete set,
+everything is good.</p>
+<p t="1154110" d="3350">We're talking about symmetric
+positive definite matrices.</p>
+<p t="1157460" d="3840">Notice that K is
+positive definite.</p>
+<p t="1161300" d="4500">That was what our whole
+last weeks have been about.</p>
+<p t="1165800" d="2970">And M is obviously
+positive definite.</p>
+<p t="1168770" d="5890">So it's a complete--
+it's a perfect set-up</p>
+<p t="1174660" d="2910">for the eigenvalue problem.</p>
+<p t="1177570" d="3590">I just want to think
+through the final step.</p>
+<p t="1181160" d="5400">After we find the eigenvalues,
+lambda, the omega squareds,</p>
+<p t="1186560" d="4810">then we know the omegas and
+we find the eigenvectors, x,</p>
+<p t="1191370" d="5240">how do you write the answer?</p>
+<p t="1196610" d="2390">So what have I done so far?</p>
+<p t="1199000" d="4030">I've looked for some
+special solutions.</p>
+<p t="1203030" d="3140">And I will find them.</p>
+<p t="1206170" d="2970">So I've found these omegas.</p>
+<p t="1209140" d="4320">They can go with sines or
+cosines, I found the x's.</p>
+<p t="1213460" d="3750">Now what's the general solution?</p>
+<p t="1217210" d="3440">If I have these solutions
+to my great equation</p>
+<p t="1220650" d="3060">there, what's the
+general solution? u(t).</p>
+<p t="1223710" d="6450">So this would be
+the big picture.</p>
+<p t="1230160" d="5110">What can I do in
+linear equations?</p>
+<p t="1235270" d="1860">Linear combinations.</p>
+<p t="1237130" d="3140">That's what linear algebra is
+all about, linear combinations.</p>
+<p t="1240270" d="4480">So I could take a linear
+combination of these cosines,</p>
+<p t="1244750" d="4410">so cos(omega_1*t)x_1.</p>
+<p t="1249160" d="2580">So that would be
+a solution coming</p>
+<p t="1251740" d="4820">from the first eigenvector and
+eigenvalue, or the square root,</p>
+<p t="1256560" d="1560">times any constant.</p>
+<p t="1258120" d="3620">And then, of course,
+I could have a b_1.</p>
+<p t="1261740" d="3560">I'll use b's for the sines.</p>
+<p t="1265300" d="3310">(omega_1*t), x_1.</p>
+<p t="1268610" d="2060">So that's just like that.</p>
+<p t="1270670" d="4570">But it's used the sines, which
+would also solve the equation.</p>
+<p t="1275240" d="4530">And then all the
+way down to x_n's.</p>
+<p t="1279770" d="1470">Right?</p>
+<p t="1281240" d="2510">So I've got 2n.</p>
+<p t="1283750" d="7060">2n simple solutions. n cosines
+times eigenvectors and n sines</p>
+<p t="1290810" d="2070">times those same eigenvectors.</p>
+<p t="1292880" d="3480">Why do I want 2n?</p>
+<p t="1296360" d="5000">I've got 2n constants then to
+choose, the a's and the b's.</p>
+<p t="1301360" d="2800">And how do I choose them?</p>
+<p t="1304160" d="8910">What's the next step?</p>
+<p t="1313070" d="10390">Using eigenvectors, maybe I just
+mention again the three steps.</p>
+<p t="1323460" d="5960">The three step method.</p>
+<p t="1329420" d="10290">Step one: find a's and b's.</p>
+<p t="1339710" d="3506">Oh, now you have to
+answer my question.</p>
+<p t="1343216" d="1874">Where are the a's and
+b's going to come from?</p>
+<p t="1345090" d="3470">What's going to determine
+these 2n constants,</p>
+<p t="1348560" d="1540">the a's and the b's?</p>
+<p t="1350100" d="2680">The initial
+conditions, of course.</p>
+<p t="1352780" d="3540">We've got two initial
+conditions, this is a vector.</p>
+<p t="1356320" d="1540">We're talking about
+a system here.</p>
+<p t="1357860" d="4050">I've got position
+of both masses.</p>
+<p t="1361910" d="3970">I've got the initial
+velocity of both masses.</p>
+<p t="1365880" d="6960">And the a's, they come
+from, because the a's go</p>
+<p t="1372840" d="4960">with the cosines and so they're
+going to be the ones associated</p>
+<p t="1377800" d="3530">with u(0), will give this.</p>
+<p t="1381330" d="8450">Will give a combination-- Will
+give the a's. u(0) will be</p>
+<p t="1389780" d="5910">a_1*x_1 + a_n*x_n.</p>
+<p t="1395690" d="980">This is at t=0.</p>
+<p t="1399610" d="2430">So I'm using the
+initial conditions.</p>
+<p t="1402040" d="4130">u(0) is a combination
+of those eigenvectors.</p>
+<p t="1406170" d="6340">So this is from the
+initial conditions.</p>
+<p t="1412510" d="4350">And the b's of course are going
+to come from u'(0), the initial</p>
+<p t="1416860" d="3470">velocity, because
+they go with sines.</p>
+<p t="1420330" d="6690">So sines start at zero but
+they have an initial velocity.</p>
+<p t="1427020" d="3900">So that's step one.</p>
+<p t="1430920" d="2630">That finds the constants.</p>
+<p t="1433550" d="3900">It splits the problem
+into these normal modes.</p>
+<p t="1437450" d="3110">It finds how much
+of each eigenvector</p>
+<p t="1440560" d="3700">is in there at the start.</p>
+<p t="1444260" d="1190">Step two?</p>
+<p t="1445450" d="2370">So it's really worth
+seeing these three steps</p>
+<p t="1447820" d="3270">because they just repeat and
+repeat for all applications</p>
+<p t="1451090" d="1140">of eigenvalues.</p>
+<p t="1452230" d="3440">Step two is what?</p>
+<p t="1455670" d="4630">Step two is follow each of
+these guys forward in time.</p>
+<p t="1460300" d="2510">Follow them to any time.</p>
+<p t="1462810" d="1060">What does that mean?</p>
+<p t="1463870" d="4630">That means just put in
+the cosines and the sines.</p>
+<p t="1468500" d="15760">So the a's go to a*cos(omega*t).</p>
+<p t="1484260" d="4040">So I'm just saying what
+happens to those coefficients.</p>
+<p t="1488300" d="650">Each one.</p>
+<p t="1488950" d="8960">Let's see. a_i, say, goes to
+a_i is multiplied by the cosine.</p>
+<p t="1497910" d="5940">And the b's, b_i's go
+to b_i*sin(omega_i*t).</p>
+<p t="1508170" d="5670">So now we followed the
+coefficients forward in time.</p>
+<p t="1513840" d="1990">And step three?</p>
+<p t="1515830" d="3550">The final step is?</p>
+<p t="1519380" d="2290">So here, we're
+following each one.</p>
+<p t="1521670" d="3590">So the pattern is
+always the same one.</p>
+<p t="1525260" d="6110">Take your starting
+conditions, split them up</p>
+<p t="1531370" d="3620">into eigenvectors.</p>
+<p t="1534990" d="2060">Follow each eigenvector.</p>
+<p t="1537050" d="2470">And then step three is?</p>
+<p t="1539520" d="1270">Reassemble.</p>
+<p t="1540790" d="1220">Put them back together.</p>
+<p t="1542010" d="7964">Step three is the solution.
+u at that later time t is</p>
+<p t="1549974" d="916">a_1*cos(omega_1*t)x_1.</p>
+<p t="1554510" d="2640">And b_1*sin(omega_1*t)x_1.</p>
+<p t="1560720" d="5490">Those are the two guys
+that are reflecting</p>
+<p t="1566210" d="1830">the fundamental mode.</p>
+<p t="1568040" d="6660">And then we have a_2's and b_2's
+multiplied by cosines and sines</p>
+<p t="1574700" d="3950">and times x_2 and so on.</p>
+<p t="1578650" d="3510">Put the pieces together.</p>
+<p t="1582160" d="2760">So it's split the
+initial conditions,</p>
+<p t="1584920" d="6420">follow each
+eigenvector, reassemble.</p>
+<p t="1591340" d="4490">It's the heart of
+Fourier methods,</p>
+<p t="1595830" d="2890">it's the heart of
+using eigenvectors.</p>
+<p t="1598720" d="10890">And there's a little code in
+the book that does exactly that.</p>
+<p t="1609610" d="2310">So let's just pause a moment.</p>
+<p t="1611920" d="2980">This was the
+eigenvector solution.</p>
+<p t="1614900" d="9940">And now I want to talk
+about computational science.</p>
+<p t="1624840" d="1910">For which this
+problem is a model,</p>
+<p t="1626750" d="6120">but the problem has probably got
+more complications and things</p>
+<p t="1632870" d="7000">change in time, whatever.</p>
+<p t="1639870" d="2870">This was an exact solution.</p>
+<p t="1642740" d="5930">That's more than we hope
+for in real computations.</p>
+<p t="1648670" d="4190">We hope for accuracy, but we
+don't hope for 100% accuracy</p>
+<p t="1652860" d="5710">unless we have this
+exact model problem.</p>
+<p t="1658570" d="2110">So we use finite differences.</p>
+<p t="1660680" d="4870">Ready for finite differences?</p>
+<p t="1665550" d="5060">So this is method one, which
+allows you to understand</p>
+<p t="1670610" d="1420">the model problem.</p>
+<p t="1672030" d="4090">And now comes method two,
+which allows you to compute</p>
+<p t="1676120" d="4100">much more, many more problems.</p>
+<p t="1680220" d="3630">And if I do it just for
+this, let me come back</p>
+<p t="1683850" d="2760">to just this model.</p>
+<p t="1686610" d="7780">One spring and one mass.</p>
+<p t="1694390" d="8150">Shall we start the mass at rest?</p>
+<p t="1702540" d="4420">Let me make that the answer.</p>
+<p t="1706960" d="1440">I want that to be the answer.</p>
+<p t="1708400" d="6560">So I'm going to start with u(0)
+to be zero-- to be one, right?</p>
+<p t="1714960" d="5030">I'm going to start with u(0)
+to be one and u'(0) to be zero.</p>
+<p t="1719990" d="2880">Because the cosine starts
+at one and its derivative</p>
+<p t="1722870" d="4160">starts at zero.</p>
+<p t="1727030" d="3060">Apologies that this is
+such a simple model.</p>
+<p t="1730090" d="4300">I'm just pulling this
+this mass down and let go.</p>
+<p t="1734390" d="3920">I just pull it down an
+amount one, I let go,</p>
+<p t="1738310" d="7670">it oscillates forever.</p>
+<p t="1745980" d="8150">How do I draw the
+motion of a single mass?</p>
+<p t="1754130" d="2040">A picture is
+important and we have</p>
+<p t="1756170" d="2310">to think what's in the picture.</p>
+<p t="1758480" d="7670">So I think the picture should
+be, maybe u in this direction</p>
+<p t="1766150" d="3330">and maybe u' in this direction.</p>
+<p t="1769480" d="4120">So it's the u, u' plane.</p>
+<p t="1773600" d="2600">The position-velocity plane.</p>
+<p t="1776200" d="2180">Sometimes called
+the phase plane.</p>
+<p t="1778380" d="4190">I'll just write that
+word down, phase plane.</p>
+<p t="1782570" d="2520">And what will be
+our picture here?</p>
+<p t="1785090" d="5110">It starts there, right? u(0) is
+one, no velocity, starts there.</p>
+<p t="1790200" d="2570">Oh, and then it
+just follows cos(t).</p>
+<p t="1792770" d="2440">And of course, I
+know what u' is.</p>
+<p t="1795210" d="4330">If u is cos(t), u' is -sin(t).</p>
+<p t="1803820" d="3970">Let me put that somewhere where
+my picture won't run over it,</p>
+<p t="1807790" d="2830">up here maybe. u' is -sin(t).</p>
+<p t="1816720" d="1990">Help me out.</p>
+<p t="1818710" d="4800">If as time increases,
+I follow this point,</p>
+<p t="1823510" d="2600">the x-coordinate is cos(t).</p>
+<p t="1826110" d="3510">The y-coordinate is -sin(t).</p>
+<p t="1829620" d="1910">It's a circle.</p>
+<p t="1831530" d="1520">It's a circle.</p>
+<p t="1833050" d="2780">So I just buzz along it,
+because of that minus sign,</p>
+<p t="1835830" d="2150">the circle goes this way around.</p>
+<p t="1837980" d="3390">It's a unit circle.</p>
+<p t="1841370" d="4600">Goes on forever.</p>
+<p t="1845970" d="2790">And actually cos squared
+plus sine squared</p>
+<p t="1848760" d="3660">is one, of course, that's why
+it's a circle of radius one.</p>
+<p t="1852420" d="6030">And that represents the
+total energy actually.</p>
+<p t="1858450" d="1940">I'm trying to draw a circle.</p>
+<p t="1860390" d="7100">Actually how would you get
+your computer to draw a circle?</p>
+<p t="1867490" d="2150">I'm thinking not
+just one circle.</p>
+<p t="1869640" d="2170">I want to refresh it.</p>
+<p t="1871810" d="2270">I mean, I want to
+follow this in time.</p>
+<p t="1874080" d="9360">So I want to draw, I want to
+follow a point around a circle.</p>
+<p t="1883440" d="1940">Well I suppose what
+you would do would be</p>
+<p t="1885380" d="4360">to ask it to plot those points.</p>
+<p t="1889740" d="1750">That's not allowed.</p>
+<p t="1891490" d="6110">I want you to follow the
+solution to the equation.</p>
+<p t="1897600" d="3590">I want to take that equation
+whose exact solution is</p>
+<p t="1901190" d="4760">a circle and I want to use
+finite differences in time.</p>
+<p t="1905950" d="2510">So I'm going to
+take finite steps.</p>
+<p t="1908460" d="1960">Of course that's what
+the computer has to do.</p>
+<p t="1910420" d="3860">The computer will
+take finite steps.</p>
+<p t="1914280" d="4030">So I'd be very happy if
+those finite steps keep me</p>
+<p t="1918310" d="1960">on the circle.</p>
+<p t="1920270" d="3460">And I'd be even happier if
+it came around exactly right</p>
+<p t="1923730" d="9180">at 2pi but it's not going to.</p>
+<p t="1932910" d="2540">I want finite differences.</p>
+<p t="1935450" d="2500">I want to replace that
+differential equation</p>
+<p t="1937950" d="1380">by finite differences.</p>
+<p t="1939330" d="3780">And when we do this
+equation, we're</p>
+<p t="1943110" d="3330">practically doing that
+one at the same time.</p>
+<p t="1946440" d="6690">So this model will be fine.</p>
+<p t="1953130" d="3940">So I'm going to introduce finite
+differences for this equation.</p>
+<p t="1957070" d="1870">And everybody,
+we've been talking</p>
+<p t="1958940" d="2070">about how to replace
+second derivatives</p>
+<p t="1961010" d="2850">by second differences.</p>
+<p t="1963860" d="5740">So that looks good.</p>
+<p t="1969600" d="2980">Let me write down,
+maybe I can write down</p>
+<p t="1972580" d="4840">three or four possible
+finite differences.</p>
+<p t="1977420" d="9880">For u'' I think I'll write
+down u_(n+1) - 2u_n + u_(n-1).</p>
+<p t="1987300" d="1640">That's the second
+difference that</p>
+<p t="1988940" d="3350">replaces the second
+derivative, divided by what?</p>
+<p t="1992290" d="7830">What do you think goes
+in the denominator now?</p>
+<p t="2000120" d="1050">Square of what?</p>
+<p t="2001170" d="2220">Yeah, now what's the right name?</p>
+<p t="2003390" d="2090">It's going to be
+something squared.</p>
+<p t="2005480" d="3300">What do I put down there?</p>
+<p t="2008780" d="2760">The step size.</p>
+<p t="2011540" d="1920">I don't want to call
+it delta x, right?</p>
+<p t="2013460" d="1820">What should I call that?</p>
+<p t="2015280" d="4690">Delta t would be
+natural, delta t.</p>
+<p t="2019970" d="4380">Or h, I could again use h
+just to have a shorthand.</p>
+<p t="2024350" d="2800">That's my second difference.</p>
+<p t="2027150" d="2960">It's centered, it's
+the natural choice.</p>
+<p t="2030110" d="2120">And not the only
+choice, by the way.</p>
+<p t="2032230" d="3050">Oh.</p>
+<p t="2035280" d="4320">If I'm an astronomer or
+like, Professor Wisdom here.</p>
+<p t="2039600" d="6120">So he followed
+Pluto around, right?</p>
+<p t="2045720" d="3170">And discovered that Pluto
+wasn't a planet, right?</p>
+<p t="2048890" d="2140">He discovered that
+the motion of Pluto</p>
+<p t="2051030" d="3940">was not like, regular
+like the Earth.</p>
+<p t="2054970" d="3120">I think the Earth is regular.</p>
+<p t="2058090" d="2210">But Pluto has chaotic motion.</p>
+<p t="2060300" d="1980">So it does crazy stuff.</p>
+<p t="2062280" d="1730">Right.</p>
+<p t="2064010" d="6960">Well we're looking for very
+periodic, circular motion here.</p>
+<p t="2070970" d="4070">So what I was going to
+say, Professor Wisdom, he</p>
+<p t="2075040" d="2890">would sneer at this
+second differences, right?</p>
+<p t="2077930" d="5090">I mean, as we'll see that's
+got decent accuracy, but not</p>
+<p t="2083020" d="2110">accuracy that would
+allow you to follow</p>
+<p t="2085130" d="4890">Pluto for 100 million years.</p>
+<p t="2090020" d="1150">But it'll do for us.</p>
+<p t="2091170" d="3350">We're not going 100
+million years here.</p>
+<p t="2094520" d="4440">So now comes -u.</p>
+<p t="2098960" d="3590">Now, question.</p>
+<p t="2102550" d="2780">I'm taking this,
+the u term and I'm</p>
+<p t="2105330" d="1760">putting it on the other side.</p>
+<p t="2107090" d="3000">So mass is one.</p>
+<p t="2110090" d="2710">Acceleration is this.</p>
+<p t="2112800" d="2650">The force is -u.</p>
+<p t="2115450" d="7960">Now comes the big question.</p>
+<p t="2123410" d="3340">For -u, do I use
+the newest value?</p>
+<p t="2126750" d="1930">Do I use the middle value?</p>
+<p t="2128680" d="3060">Or do I use the oldest value?</p>
+<p t="2131740" d="2580">Or some combination?</p>
+<p t="2134320" d="2780">If I want high
+accuracy, oh, then I</p>
+<p t="2137100" d="3500">go way up in these
+differences and I</p>
+<p t="2140600" d="4410">find tricky combinations
+that get me above first</p>
+<p t="2145010" d="1520">and second order accuracy.</p>
+<p t="2146530" d="1840">But let's not go there.</p>
+<p t="2148370" d="5300">So I've got to make
+one of those choices.</p>
+<p t="2153670" d="4350">And that choice is going
+to decide, so I mean,</p>
+<p t="2158020" d="1440">this is a choice
+you have to make</p>
+<p t="2159460" d="2280">when you have such a problem.</p>
+<p t="2161740" d="3250">Where are you going
+to evaluate this?</p>
+<p t="2164990" d="3560">I guess one choice
+jumps out as natural.</p>
+<p t="2168550" d="8200">What would you think of doing?</p>
+<p t="2176750" d="3310">Well how many would do that one?</p>
+<p t="2180060" d="2940">So those are people, that's
+the conservative choice,</p>
+<p t="2183000" d="5550">the stable.</p>
+<p t="2188550" d="1960">And then, how many
+would do this?</p>
+<p t="2190510" d="2500">Yeah, you would do that, right.</p>
+<p t="2193010" d="2440">I would call that
+the leapfrog choice.</p>
+<p t="2195450" d="3500">Somehow, this
+second difference is</p>
+<p t="2198950" d="2510">leaping over this middle point.</p>
+<p t="2201460" d="2290">So that would be
+the leapfrog method.</p>
+<p t="2203750" d="8870">And then if I use a very
+low-- to use the first value</p>
+<p t="2212620" d="5800">would be-- So my point is those
+are three different choices.</p>
+<p t="2218420" d="6390">And each one has these
+questions of accuracy.</p>
+<p t="2224810" d="3880">The middle one will be more
+accurate because it's centered.</p>
+<p t="2228690" d="2700">Each one has a
+question of stability.</p>
+<p t="2231390" d="3050">Ah, you don't see stability yet.</p>
+<p t="2234440" d="4240">So that's the point of the
+rest of the lecture is to see.</p>
+<p t="2238680" d="2530">What is this stability question?</p>
+<p t="2241210" d="8850">The issue of speed, speed
+would be, this is the slow one.</p>
+<p t="2250060" d="4950">Because it involves, I have
+to bring u_(n+1) over there.</p>
+<p t="2255010" d="4130">And if I've got a system
+of equations and then I,</p>
+<p t="2259140" d="2610">it would take me some time.</p>
+<p t="2261750" d="6290">This would be called
+an implicit method.</p>
+<p t="2268040" d="4730">The new u_(n+1) is only given
+implicitly because it's showing</p>
+<p t="2272770" d="1240">up on the right-hand side.</p>
+<p t="2274010" d="1990">I've got to move it
+over to the left.</p>
+<p t="2276000" d="4670">If it's non-linear I've
+got a system to solve.</p>
+<p t="2280670" d="4680">It's safer, but more expensive.</p>
+<p t="2285350" d="5900">But this would be
+the natural choice.</p>
+<p t="2291250" d="8430">I want to get eigenvalues
+into this picture.</p>
+<p t="2299680" d="3470">So I'm going to do the
+step we often do when</p>
+<p t="2303150" d="3180">we see a second order equation.</p>
+<p t="2306330" d="3960">That is, reduce it to two
+first order equations.</p>
+<p t="2310290" d="3070">Can I do that and
+see the same thing?</p>
+<p t="2313360" d="3370">So what would be my two
+first order equations.</p>
+<p t="2316730" d="1990">My unknowns will be u and u'.</p>
+<p t="2318720" d="7810">So it'll be first order,
+the derivative of u and u'.</p>
+<p t="2326530" d="3160">Shall I call it v for velocity?</p>
+<p t="2329690" d="3980">Let me write down, I don't
+need to write this fancy.</p>
+<p t="2333670" d="11430">The two equations will
+be, u'=v. And v' is what?</p>
+<p t="2345100" d="5190">So u'=v sort of told me what
+v was. v is the velocity,</p>
+<p t="2350290" d="2390">the time derivative of du/dt.</p>
+<p t="2352680" d="2690">And now the derivative
+of the velocity, now that</p>
+<p t="2355370" d="2470">should reflect my true equation.</p>
+<p t="2357840" d="3070">So this is all
+coming from u''+u=0.</p>
+<p t="2364190" d="5490">So v' is what? v' is u''.</p>
+<p t="2369680" d="3050">Do I want -u there?</p>
+<p t="2372730" d="6500">Yeah, that's my equation.
+v', which is u'', is -u.</p>
+<p t="2379230" d="510">Good.</p>
+<p t="2379740" d="2060">That's my system.</p>
+<p t="2381800" d="2470">So I have a matrix here.</p>
+<p t="2384270" d="7400">I have a two by two system with
+a matrix [0, 1; -1, 0] I guess.</p>
+<p t="2391670" d="5640">So while thinking about
+difference methods-- So this,</p>
+<p t="2397310" d="2570">I was thinking about a
+second order equation.</p>
+<p t="2399880" d="1700">I went right to it.</p>
+<p t="2401580" d="2920">Here I'm thinking about
+a first order system.</p>
+<p t="2404500" d="3190">A lot of problems come
+in first order systems.</p>
+<p t="2407690" d="2770">Gas dynamics comes
+as a big first order</p>
+<p t="2410460" d="6460">system for those components
+of mass, momentum, energy,</p>
+<p t="2416920" d="6230">typically five non-linear
+equations in gas dynamics.</p>
+<p t="2423150" d="2820">I mean, that's a very,
+very serious problem,</p>
+<p t="2425970" d="2080">how to solve those.</p>
+<p t="2428050" d="4360">Here we've got a much
+simpler model problem,</p>
+<p t="2432410" d="2250">linear, constant coefficients.</p>
+<p t="2434660" d="6190">But what do we do?</p>
+<p t="2440850" d="2560">Can I propose three
+possibilities here?</p>
+<p t="2443410" d="4800">And actually they are identical
+to these three possibilities.</p>
+<p t="2448210" d="2550">If I just switch over
+to a first order system.</p>
+<p t="2450760" d="10420">So possibility one_
+Possibility one is that u_(n+1)</p>
+<p t="2461180" d="4290">and v_(n+1)-- So the
+u_(n+1) would be,</p>
+<p t="2465470" d="2350">how do I model that equation?</p>
+<p t="2467820" d="7660">u_(n+1) is u_n + delta t*v_n.</p>
+<p t="2475480" d="4360">That would be a natural-- Right?</p>
+<p t="2479840" d="2570">Let me just pause
+there, because that's</p>
+<p t="2482410" d="5410">meant to be the natural
+forward difference.</p>
+<p t="2487820" d="5950">So I replaced u' by
+u_(n+1)-u_n over delta t.</p>
+<p t="2493770" d="4710">And I replaced v by
+the value I know.</p>
+<p t="2498480" d="6530">And do you know whose name
+is associated with that?</p>
+<p t="2505010" d="4410">I'm almost going
+to say his name.</p>
+<p t="2509420" d="3070">It's just, I replace a
+differential equation</p>
+<p t="2512490" d="3040">by a difference
+equation where each step</p>
+<p t="2515530" d="1940">I just could figure
+out what the slope is</p>
+<p t="2517470" d="4660">and I go along a straight line.</p>
+<p t="2522130" d="2890">Delta t further along.</p>
+<p t="2525020" d="2330">Do you know his name?</p>
+<p t="2527350" d="1620">Euler, Euler, right.</p>
+<p t="2528970" d="2010">It's Euler's method.</p>
+<p t="2530980" d="3550">The very first method
+you would think of.</p>
+<p t="2534530" d="2870">Right?</p>
+<p t="2537400" d="5470">So I'm doing the
+same for v. This</p>
+<p t="2542870" d="5010">is my position I've reached.</p>
+<p t="2547880" d="2014">So Euler's method
+is replace this</p>
+<p t="2549894" d="1166">by over delta t equals -u_n.</p>
+<p t="2551060" d="6950">v_(n+1)-v_n over
+delta t equals -u_n.</p>
+<p t="2558010" d="1930">So this is Euler's idea.</p>
+<p t="2559940" d="4940">Predict the new value
+by a forward difference</p>
+<p t="2564880" d="5490">starting from where the slope
+of the line is this old one.</p>
+<p t="2570370" d="5500">That's the first difference
+method you would think of.</p>
+<p t="2575870" d="3480">So now if I multiply up by delta
+t I have a minus delta t*u_n.</p>
+<p t="2589670" d="4350">Good time to pay attention.</p>
+<p t="2594020" d="4850">This is forward Euler.</p>
+<p t="2598870" d="8470">Forward Euler.</p>
+<p t="2607340" d="4180">The time step, you
+follow the derivative,</p>
+<p t="2611520" d="3280">what the derivative is
+at the start of the step.</p>
+<p t="2614800" d="1850">You follow it for a little step.</p>
+<p t="2616650" d="2640">Ah, let me draw what
+the thing would do.</p>
+<p t="2619290" d="3380">Shall I draw what
+forward Euler will do?</p>
+<p t="2622670" d="1230">So we're here.</p>
+<p t="2623900" d="2660">And what's our first step?</p>
+<p t="2626560" d="930">Our first step.</p>
+<p t="2627490" d="3920">So we're starting at v
+is zero at the start.</p>
+<p t="2631410" d="2540">So u won't change in one step.</p>
+<p t="2633950" d="4430">But u is one, so v will go down.</p>
+<p t="2638380" d="6520">I think the first step
+will take us there.</p>
+<p t="2644900" d="3320">That point was (1, 0).</p>
+<p t="2648220" d="5110">And I think the second
+step, u came from the zero,</p>
+<p t="2653330" d="2120">so it'll still be a one.</p>
+<p t="2655450" d="4330">And v came from a
+zero, but minus delta.</p>
+<p t="2659780" d="8060">I think it'll just be 1-delta t.</p>
+<p t="2667840" d="5480">It's left the circle, of course.</p>
+<p t="2673320" d="9460">And what do you think happens
+when I do 1,000 steps?</p>
+<p t="2682780" d="3140">This is two lines in MATLAB.</p>
+<p t="2685920" d="5980">Just write those equations
+for the next u coming</p>
+<p t="2691900" d="5100">from the previous u starting
+at (1, 0) and see what happens.</p>
+<p t="2697000" d="3790">And what do you think?</p>
+<p t="2700790" d="2270">It's going to sort of go around.</p>
+<p t="2703060" d="2750">I mean, it's a reasonable--
+Euler wasn't dumb.</p>
+<p t="2705810" d="4940">Anything true here is the
+fact that Euler was not dumb.</p>
+<p t="2710750" d="2870">He had a bunch of ideas.</p>
+<p t="2713620" d="3260">This wasn't his greatest.</p>
+<p t="2716880" d="4400">But it's the starting
+point of any,</p>
+<p t="2721280" d="2280">if you have to code some
+complicated problem,</p>
+<p t="2723560" d="3060">start with Euler, forward Euler.</p>
+<p t="2726620" d="2110">What'll happen?</p>
+<p t="2728730" d="1280">It'll spiral out.</p>
+<p t="2730010" d="710">Exactly.</p>
+<p t="2730720" d="2080">It'll spiral out.</p>
+<p t="2732800" d="4270">And if I was an
+eigenvalue person,</p>
+<p t="2737070" d="7230">I guess which I probably am,
+I would look at the, there's</p>
+<p t="2744300" d="4020">some matrix here that's finding
+the new u, v from the old u,</p>
+<p t="2748320" d="3350">v. Maybe we can
+even find out, write</p>
+<p t="2751670" d="5440">above what that matrix is.</p>
+<p t="2757110" d="3010">The new u, v come
+from the old u, v,</p>
+<p t="2760120" d="2770">well there is the
+identity matrix.</p>
+<p t="2762890" d="1960">Here is a delta t.</p>
+<p t="2764850" d="2880">And here is our minus delta t.</p>
+<p t="2767730" d="4050">That would be my matrix.</p>
+<p t="2771780" d="2150">That's the forward Euler matrix.</p>
+<p t="2773930" d="5900">The growth matrix for
+forward Euler is that.</p>
+<p t="2779830" d="4370">Now what do you think about
+its eigenvalues before?</p>
+<p t="2784200" d="5760">Spiral out was the right answer.</p>
+<p t="2789960" d="4850">If delta t is small it'll
+stay close to the circle,</p>
+<p t="2794810" d="3980">but it'll spiral out from it.</p>
+<p t="2798790" d="6800">So if we were following a
+planet, it would just be off.</p>
+<p t="2805590" d="2720">So I can't immediately,
+well you could almost</p>
+<p t="2808310" d="2700">see the eigenvalues
+of this matrix.</p>
+<p t="2811010" d="3200">What's the determinant
+of that matrix?</p>
+<p t="2814210" d="1700">What's the determinant of G?</p>
+<p t="2815910" d="2600">I'm just asking you
+to think through.</p>
+<p t="2818510" d="1800">You see a matrix like this.</p>
+<p t="2820310" d="3320">You wonder about its eigenvalues
+so you take the determinant.</p>
+<p t="2823630" d="2850">And what do you get?</p>
+<p t="2826480" d="3850">One, something bigger
+than one or less than one?</p>
+<p t="2830330" d="1090">Bigger.</p>
+<p t="2831420" d="1520">So that tells me what?</p>
+<p t="2832940" d="3660">Since the determinant is the
+product of lambda_1*lambda_2,</p>
+<p t="2836600" d="3960">whatever those guys are, at
+least one of those eigenvalues</p>
+<p t="2840560" d="2980">is bigger than one.</p>
+<p t="2843540" d="2580">This has an
+eigenvalue, actually,</p>
+<p t="2846120" d="5040">the actual eigenvalues of
+this happen to be one from</p>
+<p t="2851160" d="4890">the identity matrix and
+then this guy is what was</p>
+<p t="2856050" d="5650">our example of an imaginary
+eigenvalue, i*delta t.</p>
+<p t="2861700" d="3630">Bigger than one
+in absolute value.</p>
+<p t="2865330" d="3760">It goes out.</p>
+<p t="2869090" d="7930">So that's forward Euler
+corresponding to that choice.</p>
+<p t="2877020" d="3890">Can I change to a second,
+to Euler's other choice?</p>
+<p t="2880910" d="3060">And you can guess
+what its name is.</p>
+<p t="2883970" d="5490">Instead of forward
+Euler it's going to be?</p>
+<p t="2889460" d="4740">Backward Euler.</p>
+<p t="2894200" d="3470">Euler said, if you don't like
+it, I've got another one.</p>
+<p t="2897670" d="2080">And what will happen then?</p>
+<p t="2899750" d="5740">Backward Euler is going to
+use, instead of the old value,</p>
+<p t="2905490" d="4460">it will use the new values here.</p>
+<p t="2909950" d="3520">So these differences,
+you see that this is now</p>
+<p t="2913470" d="5930">a backward difference?</p>
+<p t="2919400" d="1970">So I'm at time n+1.</p>
+<p t="2921370" d="1540">I'm at the new time.</p>
+<p t="2922910" d="2710">And this goes back from that.</p>
+<p t="2925620" d="3610">So this is at the new time and
+this is a difference backward.</p>
+<p t="2929230" d="2790">And what happens now?</p>
+<p t="2932020" d="3340">Well, we could follow
+backward Euler.</p>
+<p t="2935360" d="1830">We could follow its first step.</p>
+<p t="2937190" d="2520">What would its first step be?</p>
+<p t="2939710" d="500">u_n+u_1.</p>
+<p t="2940210" d="7480">This is-- No, I can't follow
+that first step so easily.</p>
+<p t="2947690" d="2200">Help me out by just
+making a guess.</p>
+<p t="2949890" d="4370">What do you think
+backward Euler does?</p>
+<p t="2954260" d="2330">It spirals in.</p>
+<p t="2956590" d="6300">Right, the cover of the book
+has forward Euler, I think,</p>
+<p t="2962890" d="2060">is on the cover of the textbook.</p>
+<p t="2964950" d="1510">Spiraling out in the front.</p>
+<p t="2966460" d="4560">But maybe the back cover
+also has Euler spiraling in.</p>
+<p t="2971020" d="1970">So here is backward Euler.</p>
+<p t="2972990" d="3010">And after I take
+a bunch of steps</p>
+<p t="2976000" d="4780">it comes back somewhere
+there, but it's spiraled in.</p>
+<p t="2980780" d="730">No good.</p>
+<p t="2981510" d="5610">Have we got one minute
+for the good method?</p>
+<p t="2987120" d="5430">You're guessing
+that it's this one?</p>
+<p t="2992550" d="1230">How does that work?</p>
+<p t="2993780" d="4980">Actually, it's pretty neat.</p>
+<p t="2998760" d="4830">So my question is, where
+do I evaluate these guys?</p>
+<p t="3003590" d="4360">So this is like
+forward and backward.</p>
+<p t="3007950" d="6100">The u equation, so I
+know u_n and v_n, right?</p>
+<p t="3014050" d="750">Everybody with me?</p>
+<p t="3014800" d="2870">I've got to time in,
+I know u_n and v_n,</p>
+<p t="3017670" d="4490">the position and velocity,
+approximately at point n.</p>
+<p t="3022160" d="1650">And I want to go n+1.</p>
+<p t="3026950" d="1910">What I know is v_n.</p>
+<p t="3028860" d="2500">So that's great.</p>
+<p t="3031360" d="1830">But what's going to change here?</p>
+<p t="3033190" d="6180">Now I know u_(n+1) from
+the first equation.</p>
+<p t="3039370" d="3150">What shall I do, where
+shall I evaluate u</p>
+<p t="3042520" d="2640">in the second equation?</p>
+<p t="3045160" d="1630">At n+1.</p>
+<p t="3046790" d="1190">Why not?</p>
+<p t="3047980" d="3380">I know it already
+from the first step,</p>
+<p t="3051360" d="2820">from the forward step
+with this equation.</p>
+<p t="3054180" d="1880">I've taken u forward.</p>
+<p t="3056060" d="7770">So I'll use that forward
+value of u in the v equation.</p>
+<p t="3063830" d="4250">So it's forward and
+backward at the same time.</p>
+<p t="3068080" d="8620">And the net result if I go
+back from my system of two</p>
+<p t="3076700" d="3870">first order equations back
+to one second order equation,</p>
+<p t="3080570" d="3670">I'll find the centered guy.</p>
+<p t="3084240" d="9930">And what do you think happens
+with that centered difference?</p>
+<p t="3094170" d="5080">I think MATLAB would
+have to show it.</p>
+<p t="3099250" d="3120">And look in Section
+2.2 for the picture</p>
+<p t="3102370" d="2590">that shows the leapfrog method.</p>
+<p t="3104960" d="4310">So what do you think?</p>
+<p t="3109270" d="8420">I'm having to depend
+on my memory now.</p>
+<p t="3117690" d="3500">It stays almost on the circle.</p>
+<p t="3121190" d="4650">I think it maybe, it stays
+very close to the circle.</p>
+<p t="3125840" d="5810">And comes back almost at the
+right time, but not exactly.</p>
+<p t="3131650" d="2040">Because we have an error here.</p>
+<p t="3133690" d="2260">No, we haven't got
+the real equation.</p>
+<p t="3135950" d="3670">We've got a difference equation.</p>
+<p t="3139620" d="3970">So maybe that's
+the point to say.</p>
+<p t="3143590" d="1890">When you start with a
+differential equation</p>
+<p t="3145480" d="4410">you've got various choices.</p>
+<p t="3149890" d="2540">Backward is actually safer.</p>
+<p t="3152430" d="5170">Probably for a car crash.</p>
+<p t="3157600" d="2400">No, actually I think
+for a car crash</p>
+<p t="3160000" d="3380">they would use
+forward differences</p>
+<p t="3163380" d="2550">because they have
+to take so many.</p>
+<p t="3165930" d="1160">Let me check on that.</p>
+<p t="3167090" d="7340">But for our problem, this
+one, leapfrog is the winner.</p>
+<p t="3174430" d="2260">Actually, if anybody
+does computation</p>
+<p t="3176690" d="2060">in computational
+chemistry, I mean</p>
+<p t="3178750" d="4320">that's a subject that uses
+giant supercomputers to follow</p>
+<p t="3183070" d="4160">molecular dynamics, to follow
+what molecules are doing</p>
+<p t="3187230" d="2540">at high speed, very high speed.</p>
+<p t="3189770" d="3640">So this, there's a giant
+number multiplying that u.</p>
+<p t="3193410" d="5750">And they use leapfrog method.</p>
+<p t="3199160" d="2880">I'll say a little
+more Friday if I can</p>
+<p t="3202040" d="4070">about this general subject,
+because it's so important.</p>
+</body>
+</timedtext>

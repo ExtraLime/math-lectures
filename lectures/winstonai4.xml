@@ -1,0 +1,1430 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="9234" d="986">PATRICK WINSTON: Today
+we're going to be</p>
+<p t="10220" d="810">talking about Search.</p>
+<p t="11030" d="2190">I know you're going to
+turn blue with yet</p>
+<p t="13220" d="2130">another lecture on Search.</p>
+<p t="15350" d="2920">Those of you who are taking
+computer science subjects,</p>
+<p t="18270" d="2090">you've probably seen in 601.</p>
+<p t="20360" d="1910">You'll see it again
+as theory course.</p>
+<p t="22270" d="3300">But we're going to do it for
+a little different purpose.</p>
+<p t="25570" d="3910">I want you to develop some
+intuition about various kinds</p>
+<p t="29480" d="1600">of Search work.</p>
+<p t="31080" d="4720">And I want to talk a little bit
+about Search as a model of</p>
+<p t="35800" d="2280">what goes on in our heads.</p>
+<p t="38080" d="2550">And toward the end, if there's
+time, I'd like to do a</p>
+<p t="40630" d="3030">demonstration for you of
+something never before</p>
+<p t="43660" d="6300">demonstrated to a 603.4 class,
+because it was only completed</p>
+<p t="49960" d="1640">last spring.</p>
+<p t="51600" d="4870">And some finishing touches were
+added by me this morning.</p>
+<p t="56470" d="1980">Always dangerous, but we'll
+see what happens.</p>
+<p t="61430" d="2440">There's Cambridge.</p>
+<p t="63870" d="1280">You all recognize
+it, of course.</p>
+<p t="68230" d="3320">You might want to get from some
+starting position s to</p>
+<p t="71550" d="2730">some goal position g.</p>
+<p t="74280" d="4210">So, you'll hire a cab and
+hope for the best.</p>
+<p t="78490" d="12940">So, here's what might
+happen, not too hot.</p>
+<p t="91430" d="2745">Let's move the starting
+position over here.</p>
+<p t="101250" d="1995">I've had cab drivers
+like this New York.</p>
+<p t="107040" d="1420">But it's not a very good path.</p>
+<p t="108460" d="1940">It's the path of a thief.</p>
+<p t="110400" d="4530">Let's change the way that the
+search is done to that of a</p>
+<p t="114930" d="2045">beginner, an honest beginner.</p>
+<p t="121690" d="2410">Not too bad.</p>
+<p t="124100" d="5260">Now, let's have a look at how
+the Search would happen if the</p>
+<p t="129360" d="4080">cab driver was a Ph.D.
+in physics</p>
+<p t="133440" d="1250">after his third post-doc.</p>
+<p t="145800" d="950">These are not actually
+traverse.</p>
+<p t="146750" d="4300">These are just things that the
+driver is thinking about, and</p>
+<p t="151050" d="3790">that is the very best of
+all possible paths.</p>
+<p t="154840" d="1640">So, the thief does
+a horrible job.</p>
+<p t="156480" d="1630">The beginner does a pretty
+good job, but</p>
+<p t="158110" d="1850">not an optimal job.</p>
+<p t="159960" d="4830">This is the optimal job as
+produced by the Ph.D. in</p>
+<p t="164790" d="4120">physics after his
+third post-doc.</p>
+<p t="168910" d="2320">So, would you like to understand
+how those all work?</p>
+<p t="171230" d="1250">The answer, of course, is yes.</p>
+<p t="176660" d="4410">I'm going to talk to you about
+procedures that are different</p>
+<p t="181070" d="4190">from the way that you just
+solved this problem.</p>
+<p t="185260" d="3160">I imagine that if I said to you,
+please find a path for s</p>
+<p t="188420" d="3600">to g, you would, within
+a few seconds, find</p>
+<p t="192020" d="1050">a pretty good path--</p>
+<p t="193070" d="2640">not the optimal one, but
+a pretty good one--</p>
+<p t="195710" d="2340">using your eyes.</p>
+<p t="198050" d="1890">And we're not going to tell
+you about how that works,</p>
+<p t="199940" d="2600">because we don't know
+how that works.</p>
+<p t="202540" d="4490">But we do know that problem
+solving with the eyes is an</p>
+<p t="207030" d="2230">important part of our
+total intelligence.</p>
+<p t="209260" d="2000">And we'll never have a complete
+theory of human</p>
+<p t="211260" d="3380">intelligence until we can
+understand the contributions</p>
+<p t="214640" d="4350">of the human visual system to
+solving everyday problems like</p>
+<p t="218990" d="4480">finding a pretty good
+path in that map.</p>
+<p t="223470" d="2400">But, alas, we can't talk about
+that, because we don't know</p>
+<p t="225870" d="1230">how to do it.</p>
+<p t="227100" d="1720">We're working on it.</p>
+<p t="228820" d="2630">But we don't know
+how to do it.</p>
+<p t="231450" d="2430">So, I'm not going to use
+Cambridge in my illustrations.</p>
+<p t="233880" d="2980">There's too much there to
+work through in an hour.</p>
+<p t="236860" d="2760">So, we're going to use this map
+over here which has been</p>
+<p t="239620" d="3230">designed to illustrate a
+few important points.</p>
+<p t="242850" d="3670">You, too, can find a path
+through that graph pretty</p>
+<p t="246520" d="2050">easily with your eyes.</p>
+<p t="248570" d="2750">Our programs don't have eyes,
+and they don't have visually</p>
+<p t="251320" d="1960">grounded algorithms, so they're
+going to have to do</p>
+<p t="253280" d="1440">something else.</p>
+<p t="254720" d="2460">And the very first kind of
+search we want to talk about</p>
+<p t="257180" d="2800">is called the British
+Museum approach.</p>
+<p t="259980" d="3120">This is a slur against at least
+the British Museum, if</p>
+<p t="263100" d="3300">not the entire nation, because
+the way you do a British</p>
+<p t="266400" d="3830">Museum search is you find
+every possible path.</p>
+<p t="270230" d="3080">So, it'll be helpful to have a
+diagram of all possible paths</p>
+<p t="273310" d="1100">on the board.</p>
+<p t="274410" d="1790">We're going to start with
+a British Museum search.</p>
+<p t="281930" d="3200">From the starting position, it's
+clear, you can go from my</p>
+<p t="285130" d="2275">s to either a or b.</p>
+<p t="292400" d="2200">And already there's an
+important quiz point.</p>
+<p t="294600" d="3660">Whenever we have these kinds of
+problems on a quiz, we ask</p>
+<p t="298260" d="4460">you to develop the tree
+associated with a search in</p>
+<p t="302720" d="1750">lexical order.</p>
+<p t="304470" d="7130">So, the nodes there under s
+are listed alphabetically,</p>
+<p t="311600" d="3110">just to have an orderly
+way of doing it.</p>
+<p t="314710" d="4120">So, from a we can go
+either b or d.</p>
+<p t="322020" d="2920">And another convention of the
+subject, another thing you</p>
+<p t="324940" d="2590">have to keep in mind in quizzes,
+is it we don't have</p>
+<p t="327530" d="2650">these searches bite
+their own tail.</p>
+<p t="330180" d="3220">So, I could have said that
+if I'm at a, I can</p>
+<p t="333400" d="2170">also go back to s.</p>
+<p t="335570" d="5160">But no path is ever allowed
+them to bite itself, to go</p>
+<p t="340730" d="4460">around and enter and get
+back to a place that's</p>
+<p t="345190" d="2390">already on the path.</p>
+<p t="347580" d="5170">Now if I go on to b first, that
+means that from b I can</p>
+<p t="352750" d="2850">go to either a or c.</p>
+<p t="355600" d="1420">This is getting fat
+pretty fast.</p>
+<p t="357020" d="2550">But let's see, s, a, b.</p>
+<p t="359570" d="4360">The only place I can go
+is c and then to e.</p>
+<p t="363930" d="3430">s, a, d, without biting my own
+tail and going back to a, the</p>
+<p t="367360" d="2930">only place I can go is g.</p>
+<p t="370290" d="6530">s b, a, I can only go
+to d and then to g.</p>
+<p t="376820" d="4220">And finally, s, b, c,
+I can only go to e.</p>
+<p t="381040" d="5150">So, that is a complete set of
+paths as produced by any</p>
+<p t="386190" d="5530">program that you will feel you'd
+like to write that finds</p>
+<p t="391720" d="1750">all possible paths.</p>
+<p t="393470" d="3310">I haven't been very precise
+about how to do that, because</p>
+<p t="396780" d="1570">you don't have to be.</p>
+<p t="398350" d="2430">You can't save much work by
+being clever, because you have</p>
+<p t="400780" d="2790">to find everything.</p>
+<p t="403570" d="2870">So, that's the British Museum
+expansion of the tree.</p>
+<p t="417230" d="1180">So, what have I done?</p>
+<p t="418410" d="1410">I've been playing around
+with a map.</p>
+<p t="419820" d="1730">I showed you an example
+of a map.</p>
+<p t="421550" d="3760">And pretty soon you're
+going to think that</p>
+<p t="425310" d="3306">Search is about maps.</p>
+<p t="428616" d="6204">So, before going even another
+tiny step, I want to emphasize</p>
+<p t="434820" d="3210">that Search is not
+equal to maps.</p>
+<p t="438030" d="1570">Search is about choice.</p>
+<p t="439600" d="3090">And I happen to illustrate
+these searches with maps,</p>
+<p t="442690" d="2700">because they are particularly
+cogent.</p>
+<p t="445390" d="1400">But Search is not about maps.</p>
+<p t="446790" d="2010">It's about the choices you make
+when you're trying to</p>
+<p t="448800" d="2000">make decisions.</p>
+<p t="450800" d="3670">These things I'm going to be
+talking to you about today are</p>
+<p t="454470" d="2702">choices you make when
+you explore the map.</p>
+<p t="457172" d="2458">You can make other kinds of
+choices when you're exploring</p>
+<p t="459630" d="1000">other kinds of things.</p>
+<p t="460630" d="3870">And, in fact, at the end, if
+there's time, I'll show you</p>
+<p t="464500" d="2630">how you do searches when you're
+solving problems in a</p>
+<p t="467130" d="1250">humanities class.</p>
+<p t="471000" d="1410">That's the British
+Museum algorithm.</p>
+<p t="472410" d="1540">Search is not about maps.</p>
+<p t="473950" d="4290">Our first gold star idea,
+Search is about choice.</p>
+<p t="478240" d="2420">But for our illustration,
+Search is about maps.</p>
+<p t="480660" d="2870">So, the first kind of Search we
+want to talk about that's</p>
+<p t="483530" d="3930">real is Depth-first Search.</p>
+<p t="490412" d="5088">And the idea of Depth-first
+Search is that you barrel</p>
+<p t="495500" d="1570">ahead in a single-minded way.</p>
+<p t="500160" d="7672">So, from s, your choices
+are a or b.</p>
+<p t="507832" d="3898">And you always go down the left
+branch by convention.</p>
+<p t="511730" d="3620">So, from s, we go to a.</p>
+<p t="515350" d="1569">From a we have two choices.</p>
+<p t="516919" d="10071">We can go to either b or
+d following our lexical</p>
+<p t="526990" d="2640">convention.</p>
+<p t="529630" d="3030">After that, we can go to c.</p>
+<p t="532660" d="2000">And after that we can go to e.</p>
+<p t="534660" d="4211">And too bad for us,
+we're stuck.</p>
+<p t="538871" d="1649">What are we going to do.</p>
+<p t="540520" d="4270">We've got into a dead
+end, all is lost.</p>
+<p t="544790" d="1850">But of course, all isn't lost.</p>
+<p t="546640" d="4540">Because we have the choice of
+backing up to the place where</p>
+<p t="551180" d="5100">we last made a decision and
+choosing another branch.</p>
+<p t="556280" d="4070">So, that process is called
+variously back-up or</p>
+<p t="560350" d="1250">backtracking.</p>
+<p t="563330" d="3340">At this point, we would
+say, ah, dead end.</p>
+<p t="566670" d="3440">The first place we find when we
+back up the tree where we</p>
+<p t="570110" d="3960">made a choice is when we
+chose b instead of d.</p>
+<p t="574070" d="2350">So, we go back up there and
+take the other route.</p>
+<p t="579060" d="3670">s, a, d now goes to g.</p>
+<p t="582730" d="2490">And we're done.</p>
+<p t="585220" d="2000">We're going to make up a little
+table here of things</p>
+<p t="587220" d="3660">that we can embellish our
+basic searches with.</p>
+<p t="590880" d="2540">And one of the things we can
+embellish our basic searches</p>
+<p t="593420" d="2260">with is this backtracking
+idea.</p>
+<p t="601700" d="2710">Now, backtrack is not relevant
+to the British Museum</p>
+<p t="604410" d="2710">algorithm, because you've
+got to find everything.</p>
+<p t="607120" d="2880">You can't quit when you've
+found one path.</p>
+<p t="610000" d="2940">But you'd always want to use
+backtracking with Depth-first</p>
+<p t="612940" d="3200">Search, because you may plunge
+on down and miss the path that</p>
+<p t="616140" d="1910">gets to the goal.</p>
+<p t="618050" d="4430">Now, you might ask me, is
+backtracking, therefore,</p>
+<p t="622480" d="2850">always part of Depth-first
+Search?</p>
+<p t="625330" d="3020">And you can read textbooks
+that do it either way.</p>
+<p t="628350" d="840">Count on it.</p>
+<p t="629190" d="3310">If we give you a Search problem
+on a quiz, we'll tell</p>
+<p t="632500" d="1900">you whether or not your Search
+is supposed to use</p>
+<p t="634400" d="590">backtracking.</p>
+<p t="634990" d="3210">We consider it to be
+an optional thing.</p>
+<p t="638200" d="2120">You'd be pretty stupid not to
+use this optional thing when</p>
+<p t="640320" d="1605">you're doing Depth-first
+Search.</p>
+<p t="641925" d="2875">But we'll separate these
+ideas out and call</p>
+<p t="644800" d="2500">it an optional add-on.</p>
+<p t="647300" d="4300">so, that's Depth-first
+Search, very simple.</p>
+<p t="651600" d="4070">Now, the natural companion to
+Depth-first Search will be</p>
+<p t="655670" d="6784">Breadth-first Search,
+Breadth-first.</p>
+<p t="667640" d="3980">And the way it works is you
+build up this tree level by</p>
+<p t="671620" d="4540">level, and at some point, when
+you scan across a level,</p>
+<p t="676160" d="1630">you'll find that you've
+completed a path</p>
+<p t="677790" d="2310">that goes to the goal.</p>
+<p t="680100" d="7210">So, level by level, s can
+go to either a or b.</p>
+<p t="687310" d="3360">a can go either to b or d.</p>
+<p t="690670" d="3950">And b can go to either a or c.</p>
+<p t="694620" d="860">So, you see what we're doing.</p>
+<p t="695480" d="2550">We're going level by level.</p>
+<p t="698030" d="2330">And we haven't hit a level
+with a goal in it yet, so</p>
+<p t="700360" d="2150">we've got to keep going.</p>
+<p t="702510" d="2290">Note that we're building up
+quite a bit of stuff here,</p>
+<p t="704800" d="4560">quite a lot of growth in the
+size of the path set that</p>
+<p t="709360" d="2180">we're keeping in mind.</p>
+<p t="711540" d="5310">At the next level, we have b
+going to c, d going to g, a</p>
+<p t="716850" d="4180">going to d, and c going to e.</p>
+<p t="721030" d="4430">And now, when we scan
+across, we do hit g.</p>
+<p t="725460" d="3070">So, we found a path with
+Breadth-first Search, just as</p>
+<p t="728530" d="1455">we found a path with
+Depth-first Search.</p>
+<p t="732650" d="1710">Now, you might say, well,
+why didn't you just quit</p>
+<p t="734360" d="1060">when you hit g?</p>
+<p t="735420" d="2920">Implementation detail.</p>
+<p t="738340" d="2490">We'll talk about a sample
+implementation.</p>
+<p t="740830" d="2160">You can write it in
+any way you want.</p>
+<p t="742990" d="3090">But now that we know what these
+searches are, let's</p>
+<p t="746080" d="5480">speed things up a little bit
+here and do a couple searches</p>
+<p t="751560" d="2970">that now have names.</p>
+<p t="754530" d="4060">The first type will be
+Depth-first, boom.</p>
+<p t="758590" d="5280">That's the one that produces
+the thief path.</p>
+<p t="763870" d="2200">And then we can also do a
+Breadth-first Search, which we</p>
+<p t="766070" d="1240">haven't tried yet.</p>
+<p t="767310" d="2040">What do you suppose is
+going to happen?</p>
+<p t="769350" d="3680">Is it going to be fast, slow,
+produce a good path,</p>
+<p t="773030" d="810">produce a bad path?</p>
+<p t="773840" d="2255">I don't know, let's try it.</p>
+<p t="776095" d="2315">I had to speed it up, you see,
+because it's doing an awful</p>
+<p t="778410" d="1260">lot of Search.</p>
+<p t="779670" d="1740">It's generating an awful
+lot of paths.</p>
+<p t="788420" d="1860">Finally, you got a path.</p>
+<p t="790280" d="750">Is it the best path?</p>
+<p t="791030" d="650">I don't think so.</p>
+<p t="791680" d="2020">But we're not going to talk
+about optimal paths today.</p>
+<p t="793700" d="2030">We're just going to talk
+about pretty good</p>
+<p t="795730" d="2600">paths, heuristic paths.</p>
+<p t="798330" d="3215">Let's move the starting position
+here in the middle.</p>
+<p t="801545" d="3505">Do you think Breadth-first
+Search is going to be stupid?</p>
+<p t="805050" d="1260">I think it's going to
+be pretty stupid.</p>
+<p t="806310" d="2420">Let's see what happens.</p>
+<p t="808730" d="2110">This Search is a lot to the
+left, which you would never do</p>
+<p t="810840" d="955">with you eye.</p>
+<p t="811795" d="3255">Let me slow that down just
+to demonstrate it.</p>
+<p t="815050" d="2140">It finds a shorter path, because
+it's right there in</p>
+<p t="817190" d="1280">the middle.</p>
+<p t="818470" d="3340">But it spends a lot of its time
+looking off to the left.</p>
+<p t="821810" d="2930">It's pretty stupid.</p>
+<p t="824740" d="2070">But that's how it works.</p>
+<p t="826810" d="2950">So, now that we've got two
+examples of searches on the</p>
+<p t="829760" d="2700">table, I'd like to just write
+a little flow chart for how</p>
+<p t="832460" d="2340">the search might work.</p>
+<p t="834800" d="3910">Because if I do that, then it'll
+be easier for us to see</p>
+<p t="838710" d="1890">what kind of small differences
+there are between the</p>
+<p t="840600" d="3950">implementations of these
+various searches.</p>
+<p t="844550" d="2950">So, what we're going to do is
+we're going to develop a</p>
+<p t="847500" d="3520">waiting list, a queue, a
+line, whatever you'd</p>
+<p t="851020" d="160">like to call it.</p>
+<p t="851180" d="1200">Let's call if a queue.</p>
+<p t="852380" d="2210">We're going to develop a queue
+of paths that are under</p>
+<p t="854590" d="2370">consideration.</p>
+<p t="856960" d="3160">So, the first step in our
+algorithm will be to</p>
+<p t="860120" d="6122">initialize our queue.</p>
+<p t="869410" d="4140">And I think what I'll do is
+I'll simulate Depth-first</p>
+<p t="873550" d="4230">Search on this problem
+up there on the</p>
+<p t="877780" d="2720">left using this algorithm.</p>
+<p t="880500" d="3390">I need to have some way of
+representing my paths.</p>
+<p t="883890" d="3070">And what I want to do is I'm
+going to betray my heritage as</p>
+<p t="886960" d="2760">a list programmer, because I'm
+just going to put these up as</p>
+<p t="889720" d="2600">if there were lisp
+s-expressions.</p>
+<p t="892320" d="2820">To begin with, I just
+have one path.</p>
+<p t="895140" d="3570">And it has only one
+node in it, s.</p>
+<p t="898710" d="2690">That's the whole path.</p>
+<p t="901400" d="5490">The next thing I do after I
+initialize the queue is I</p>
+<p t="906890" d="11525">extend first path
+on the queue.</p>
+<p t="924750" d="3035">OK, when I extend s,
+I get two paths.</p>
+<p t="930300" d="8370">I get s goes to a, and
+I get s goes to b.</p>
+<p t="938670" d="2790">I take the first one off
+the front of the queue.</p>
+<p t="941460" d="2860">And I put back the two
+that are produced by</p>
+<p t="944320" d="2750">extending that path.</p>
+<p t="947070" d="3060">Now, after I've extended the
+first path on the queue, I</p>
+<p t="950130" d="6690">have to but those extended
+paths on to the queue.</p>
+<p t="956820" d="2380">In here there's an explicit step
+where I've checked to see</p>
+<p t="959200" d="2420">if that first path
+is a winner.</p>
+<p t="961620" d="2090">If it's not, I extend it.</p>
+<p t="963710" d="4240">And I have to put those
+paths onto the queue.</p>
+<p t="967950" d="2230">So, I'll say that what
+I do is I end queue.</p>
+<p t="978390" d="1560">Now, I've done one step.</p>
+<p t="979950" d="1210">And let's let me do
+another step.</p>
+<p t="981160" d="3030">I'm going to take this
+first path off.</p>
+<p t="984190" d="3390">I'm going to extend that path.</p>
+<p t="987580" d="3180">And where do I put these new
+paths on the queue if I'm</p>
+<p t="990760" d="3560">doing Depth-first Search?</p>
+<p t="994320" d="4070">Well, I want to work with the
+path that I've just generated.</p>
+<p t="998390" d="5410">I'm taking this plunge down
+deep into the search tree.</p>
+<p t="1003800" d="3490">So, since I want to keep going
+down into the stuff that I</p>
+<p t="1007290" d="4150">just generated, where then do I
+want to put these two paths?</p>
+<p t="1011440" d="920">At the end of the queue?</p>
+<p t="1012360" d="2070">I don't think so, because
+it'll be a long</p>
+<p t="1014430" d="940">time getting there.</p>
+<p t="1015370" d="1250">I want to put them on the
+front of the queue.</p>
+<p t="1020920" d="11939">For Depth-first Search, I
+want to put them on the</p>
+<p t="1032859" d="2361">front of the queue.</p>
+<p t="1035220" d="9290">And that's why s, a, b goes
+here, and s, a, d, and then</p>
+<p t="1044510" d="1290">that's s, b.</p>
+<p t="1049770" d="1330">So, s, b is still there.</p>
+<p t="1051100" d="2450">That's still a valid
+possibility.</p>
+<p t="1053550" d="2280">But now I've stuck two paths
+in front of it, both of the</p>
+<p t="1055830" d="3230">ones I generated by taking a
+path off the front of the</p>
+<p t="1059060" d="3250">queue, discovering that it
+doesn't go to the goal,</p>
+<p t="1062310" d="3820">extending it and putting those
+back on the queue.</p>
+<p t="1066130" d="3080">I might as well complete
+this illustration here.</p>
+<p t="1069210" d="7860">While I'm at it, I take the s,
+a, b off, s, a, b, and I can</p>
+<p t="1077070" d="2770">go only there to c.</p>
+<p t="1079840" d="6492">But, of course, I keep s, a,
+d and s, b on the queue.</p>
+<p t="1089170" d="3690">Now, I take the front off the
+queue again, and I get s, a,</p>
+<p t="1092860" d="7641">b, c, e, and not to forget
+s, a, d and s, b.</p>
+<p t="1103330" d="2010">I take the first one
+off the queue.</p>
+<p t="1105340" d="2560">It doesn't go to the goal.</p>
+<p t="1107900" d="2100">I try to extend it, but
+there's nothing there.</p>
+<p t="1110000" d="2080">I've reached a dead end.</p>
+<p t="1112080" d="2590">So, in this operation, all I'm
+doing is taking the front one</p>
+<p t="1114670" d="1950">off the queue and shortening
+the queue.</p>
+<p t="1122030" d="1830">We're almost home.</p>
+<p t="1123860" d="2010">I take s, a,d off of queue.</p>
+<p t="1125870" d="4290">And I get s, a, d, c.</p>
+<p t="1130160" d="4140">And, of course, I
+still have s, b.</p>
+<p t="1134300" d="6350">Now, the next time I visit the
+situation, buried in that</p>
+<p t="1140650" d="3500">first step, I discover a path
+that actually does get to</p>
+<p t="1144150" d="2770">goal, and I'm done.</p>
+<p t="1146920" d="3890">So, each time around I
+visualize the queue.</p>
+<p t="1150810" d="1510">I check to see if I'm done.</p>
+<p t="1152320" d="3520">If not, I take the extensions
+and put them</p>
+<p t="1155840" d="1766">somewhere on the queue.</p>
+<p t="1157606" d="7394">And then I go back in.</p>
+<p t="1165000" d="4900">And then here there's a varied
+test which checks to see if</p>
+<p t="1169900" d="2380">we're done.</p>
+<p t="1172280" d="4370">That's how the Depth-first
+Search algorithm works.</p>
+<p t="1176650" d="2420">And now, would we have to start
+all over again if we did</p>
+<p t="1179070" d="2710">Breadth-first Search?</p>
+<p t="1181780" d="530">Nope.</p>
+<p t="1182310" d="1910">Same algorithm.</p>
+<p t="1184220" d="1890">All the code we've got
+needs one line</p>
+<p t="1186110" d="2950">replaced, one line changed.</p>
+<p t="1189060" d="2020">What do I have to do different
+in order to get a</p>
+<p t="1191080" d="1720">Breadth-first Search out
+of this instead of</p>
+<p t="1192800" d="1780">a Depth-first Search?</p>
+<p t="1194580" d="860">Tanya?</p>
+<p t="1195440" d="1490">TANYA: Change [INAUDIBLE]
+on the queue.</p>
+<p t="1196930" d="1010">PATRICK WINSTON: And where
+do I put it on the queue?</p>
+<p t="1197940" d="900">She says to change it.</p>
+<p t="1198840" d="880">TANYA: On the back?</p>
+<p t="1199720" d="2310">PATRICK WINSTON: Put
+it on the back.</p>
+<p t="1202030" d="12780">So, with Breadth-first Search
+all I have to do</p>
+<p t="1214810" d="1250">is put on the back.</p>
+<p t="1221290" d="7700">Now, if we were content with a
+inefficient search, and didn't</p>
+<p t="1228990" d="2360">care much about how good our
+path was, we'd be done.</p>
+<p t="1231350" d="1980">And we could go home.</p>
+<p t="1233330" d="2360">But we are a little concerned
+about the</p>
+<p t="1235690" d="2050">efficiency of our search.</p>
+<p t="1237740" d="2080">And we would like a
+pretty good path.</p>
+<p t="1239820" d="1810">So, we're going to have
+to stick around</p>
+<p t="1241630" d="1250">for a little while.</p>
+<p t="1245290" d="4480">Now, you may have noticed, up
+there in that the development</p>
+<p t="1249770" d="7410">of the Breadth-first Search,
+that the algorithm is</p>
+<p t="1257180" d="1250">incredibly stupid.</p>
+<p t="1261300" d="1815">Why is the algorithm
+incredibly stupid?</p>
+<p t="1266000" d="1200">Ty, what do you think?</p>
+<p t="1267200" d="1989">TY: It can't tell whether it's
+getting closer or further away</p>
+<p t="1269189" d="351">from the goal.</p>
+<p t="1269540" d="1550">PATRICK WINSTON: It certainly
+can't tell whether it's</p>
+<p t="1271090" d="2240">getting closer or further
+away from the goal.</p>
+<p t="1273330" d="2760">And we're going to deal
+with that in a minute.</p>
+<p t="1276090" d="1550">But it's even stupider
+than that.</p>
+<p t="1280880" d="660">Why is it stupid?</p>
+<p t="1281540" d="934">What's your name?</p>
+<p t="1282474" d="1868">DYLAN: Dylan.</p>
+<p t="1284342" d="2335">It [? hits ?] the same
+nodes twice.</p>
+<p t="1286677" d="3663">PATRICK WINSTON: Dylan said it's
+extending paths that go</p>
+<p t="1290340" d="3320">to the same node
+more than once.</p>
+<p t="1293660" d="1310">Let's see what Dylan's
+talking about.</p>
+<p t="1299410" d="3112">Down here, it extends a.</p>
+<p t="1302522" d="4288">But it's already extended
+a up there.</p>
+<p t="1306810" d="4630">Down here, it extends a
+path that goes to b.</p>
+<p t="1311440" d="3460">And it's already extended
+a path that goes to d.</p>
+<p t="1314900" d="7270">Over here, it could extend a
+path that went through c, but</p>
+<p t="1322170" d="3630">it's already got a path
+that goes through c.</p>
+<p t="1325800" d="3650">So, all of these paths
+are duplicated.</p>
+<p t="1329450" d="2590">And we're still going
+through them.</p>
+<p t="1332040" d="3410">That's incredibly stupid.</p>
+<p t="1335450" d="2010">What we're going to do is
+we're going to amend our</p>
+<p t="1337460" d="1290">algorithm just a little bit.</p>
+<p t="1343940" d="7270">And we're not going to extend
+the first path on the queue</p>
+<p t="1351210" d="18230">unless final node never
+before extended.</p>
+<p t="1376550" d="1830">What we're going to do is we're
+going to look to see if</p>
+<p t="1378380" d="1400">there-- we've got this path.</p>
+<p t="1379780" d="1150">And we're going to extend it.</p>
+<p t="1380930" d="1260">And it's got a final note.</p>
+<p t="1382190" d="3510">If we've ever extended a path
+that goes to that final node,</p>
+<p t="1385700" d="1880">and it was a final node on
+that path, then we're not</p>
+<p t="1387580" d="2050">going to do it again.</p>
+<p t="1389630" d="6890">We got to keep a list of places
+that have already been</p>
+<p t="1396520" d="2986">the last piece of a path
+that was extended.</p>
+<p t="1399506" d="1324">Everybody got that?</p>
+<p t="1400830" d="3300">It's a little awkward to say it,
+because it's the last node</p>
+<p t="1404130" d="740">we care about.</p>
+<p t="1404870" d="5770">If a path terminates in a node,
+and if some other path</p>
+<p t="1410640" d="2840">previously terminated in that
+node and got extended--</p>
+<p t="1413480" d="1090">we're not going to
+do it again.</p>
+<p t="1414570" d="1250">Because it's a waste of time.</p>
+<p t="1419690" d="1570">Now, let's see if this
+actually helps.</p>
+<p t="1431470" d="1730">Now, use the extended list.</p>
+<p t="1433200" d="7105">Let's see, well, gee,
+we got that place</p>
+<p t="1440305" d="745">in the center there.</p>
+<p t="1441050" d="1740">Let's just repeat the
+previous search.</p>
+<p t="1455200" d="2000">Wow, it's taking a long time.</p>
+<p t="1457200" d="5410">But notice it put 103 paths
+back on the queue.</p>
+<p t="1462610" d="3590">Now, let's add a filter
+and try again.</p>
+<p t="1479540" d="2100">A lot less.</p>
+<p t="1481640" d="5310">So, let's speed this up, and
+we'll start way over here.</p>
+<p t="1486950" d="2440">You remember how tedious
+that search was.</p>
+<p t="1489390" d="5850">And now we'll repeat it with
+this list, boom, there it is.</p>
+<p t="1495240" d="2810">That's all because we didn't do
+that silly thing of going</p>
+<p t="1498050" d="3560">back through the final
+node that's</p>
+<p t="1501610" d="2560">already been gone through.</p>
+<p t="1504170" d="3210">So, you would never not
+want to do this.</p>
+<p t="1507380" d="1840">We better list this
+as another option.</p>
+<p t="1519846" d="2574">It doesn't help with a British
+Museum algorithm, because</p>
+<p t="1522420" d="2250">nothing helps with the British
+Museum algorithm.</p>
+<p t="1524670" d="1280">Does it help with Depth-first?</p>
+<p t="1525950" d="850">Yes.</p>
+<p t="1526800" d="1550">Does it help with
+Breadth-first?</p>
+<p t="1528350" d="1330">Yes.</p>
+<p t="1529680" d="2320">Do we do backtracking
+with Breadth-first?</p>
+<p t="1532000" d="6870">No, because backtracking
+can't do us any good.</p>
+<p t="1538870" d="5120">OK, we're almost, except that
+search that's starting in the</p>
+<p t="1543990" d="2100">middle is still pretty stupid.</p>
+<p t="1546090" d="6110">Both the Breadth-first version
+and the Depth-first version</p>
+<p t="1552200" d="1740">are going off to the left.</p>
+<p t="1553940" d="4380">And we would never do that with
+our eyes in any case.</p>
+<p t="1558320" d="3400">The next thing we want to do is
+we want to have ourselves a</p>
+<p t="1561720" d="5300">slightly more informed search
+by taking into consideration</p>
+<p t="1567020" d="1505">whether we seem to be
+getting anywhere.</p>
+<p t="1573490" d="4060">So, in general, it's a good
+thing to get closer to where</p>
+<p t="1577550" d="2340">we want to go.</p>
+<p t="1579890" d="4310">In general, if we've got a
+choice of going to a node</p>
+<p t="1584200" d="3010">that's close to the goal or a
+node that's not so close to</p>
+<p t="1587210" d="1620">the goal, we'll always want
+to go to the one that's</p>
+<p t="1588830" d="2180">close to the goal.</p>
+<p t="1591010" d="4600">And as soon as we add that to
+what we're doing, we have</p>
+<p t="1595610" d="11680">another kind of Search,
+which goes by the</p>
+<p t="1607290" d="1250">name of Hill Climbing.</p>
+<p t="1616900" d="2930">And it's just like Depth-first
+Search, except instead of</p>
+<p t="1619830" d="3710">using lexical order to break
+ties, we're going to break</p>
+<p t="1623540" d="2750">ties according to which node
+is closer to the goal.</p>
+<p t="1629720" d="1540">I went to some trouble
+to talk to you about</p>
+<p t="1631260" d="1420">this enqueued list.</p>
+<p t="1632680" d="1340">And having gone to that
+trouble, I'm now</p>
+<p t="1634020" d="1840">going to ignore it.</p>
+<p t="1635860" d="2400">Not because it isn't a good
+idea, but because trying to</p>
+<p t="1638260" d="2230">keep track of everything
+in the example is</p>
+<p t="1640490" d="820">confusing the example.</p>
+<p t="1641310" d="3040">It won't work out right in the
+small example and all that.</p>
+<p t="1644350" d="3920">Put the queueing thing aside,
+queued list aside, and think</p>
+<p t="1648270" d="4850">instead just about the value
+of going in the direction</p>
+<p t="1653120" d="3700">that's getting us closer
+to the goal.</p>
+<p t="1656820" d="3700">In Hill Climbing Search, just
+like a Depth-first Search, we</p>
+<p t="1660520" d="2270">have a and b.</p>
+<p t="1662790" d="3010">And we're still going to list
+them lexically on underneath</p>
+<p t="1665800" d="1836">the parent node.</p>
+<p t="1667636" d="5994">But now which one is so
+closer to the goal?</p>
+<p t="1673630" d="2990">Now, this time b is closer
+to the goal than a.</p>
+<p t="1676620" d="2720">So, instead of following the
+Depth-first course, which</p>
+<p t="1679340" d="2690">would take us down through a,
+we're going to go to the one</p>
+<p t="1682030" d="2860">that's closest which
+goes through b.</p>
+<p t="1684890" d="3250">And b can either go to a or c.</p>
+<p t="1694670" d="4370">b is six units away from the
+goal. a is about seven plus,</p>
+<p t="1699040" d="1580">not drawn exactly to scale.</p>
+<p t="1700620" d="1863">Use the numbers not your eyes.</p>
+<p t="1705420" d="1320">Now where are we?</p>
+<p t="1706740" d="2250">It's symmetric, so a and
+c are both equally</p>
+<p t="1708990" d="1930">far from the goal.</p>
+<p t="1710920" d="1300">Now we're going to use
+the lexical order</p>
+<p t="1712220" d="1940">to break the tie.</p>
+<p t="1714160" d="7350">Now from s, b, a,
+we'll go to d.</p>
+<p t="1721510" d="2680">And now, which is closest
+to the goal?</p>
+<p t="1724190" d="1150">That's the only choice
+we have.</p>
+<p t="1725340" d="3710">So, now we have no choice but
+to go down to the goal.</p>
+<p t="1729050" d="4200">That's the Hill Climbing way
+of doing the search.</p>
+<p t="1733250" d="1570">And notice that this time
+there's no backtracking.</p>
+<p t="1737740" d="1530">It's not the optimal path.</p>
+<p t="1739270" d="670">It's not the best path.</p>
+<p t="1739940" d="2070">But at least there's
+no backtracking.</p>
+<p t="1742010" d="820">That's not always true.</p>
+<p t="1742830" d="4350">That's just an artifact of
+this particular example.</p>
+<p t="1747180" d="3730">Do you think Hill Climbing would
+produce a faster search?</p>
+<p t="1750910" d="2120">I think so.</p>
+<p t="1753030" d="2010">Let's see what happens
+when we add these</p>
+<p t="1755040" d="2530">things at one at a time.</p>
+<p t="1757570" d="5220">First, let's turn off
+our extended list.</p>
+<p t="1765610" d="1400">We turned off our
+extended list.</p>
+<p t="1767010" d="2970">And we're going to do
+Depth-first again just for the</p>
+<p t="1769980" d="3060">sake of comparison.</p>
+<p t="1773040" d="5420">It produces a very roundabout
+path with 48 enqueueings.</p>
+<p t="1778460" d="2770">Now, let's switch over
+to Hill Climbing.</p>
+<p t="1781230" d="550">And what do think?</p>
+<p t="1781780" d="2850">Do you think it will produce
+a straighter path, fewer</p>
+<p t="1784630" d="2090">enqueueings?</p>
+<p t="1786720" d="1250">Boom.</p>
+<p t="1789930" d="2250">You wouldn't not want to
+do that, would you?</p>
+<p t="1792180" d="3270">If you've got some kind of
+heuristic that tells you that</p>
+<p t="1795450" d="2910">you're getting close to the
+goal, you should use it.</p>
+<p t="1798360" d="4970">Now, it's easy to modify my
+example over there so that</p>
+<p t="1803330" d="2220">getting close to the goal
+gets you trapped in a</p>
+<p t="1805550" d="1140">blind alley on e.</p>
+<p t="1806690" d="2040">That's easy to do.</p>
+<p t="1808730" d="1550">But that's just an artifact
+of the example.</p>
+<p t="1810280" d="2850">In general, you want to go along
+a path that gets you</p>
+<p t="1813130" d="1930">closer to the goal.</p>
+<p t="1815060" d="980">So, that's 23.</p>
+<p t="1816040" d="2360">I don't know, let's see if using
+the extended list filter</p>
+<p t="1818400" d="1250">does any good.</p>
+<p t="1821870" d="1490">Yeah, still 23.</p>
+<p t="1823360" d="7310">So, in that particular case
+the extension list didn't</p>
+<p t="1830670" d="2520">actually do us any good, because
+we're driving so</p>
+<p t="1833190" d="1250">directly toward the goal.</p>
+<p t="1836960" d="1780">OK, that's that.</p>
+<p t="1838740" d="3670">Now, let's see, is there
+any analog to--</p>
+<p t="1842410" d="5170">well, we might say that this
+is yet another way of</p>
+<p t="1847580" d="2170">distinguishing the searches.</p>
+<p t="1849750" d="8240">And that is, is it an
+informed search?</p>
+<p t="1860620" d="2920">Is it making use of any kind
+of heuristic information?</p>
+<p t="1863540" d="2100">Certainly, a British Museum
+is not, Depth is</p>
+<p t="1865640" d="1890">not, Breadth is not.</p>
+<p t="1867530" d="2450">And now let's consider what
+we got for Hill Climbing.</p>
+<p t="1869980" d="1260">Do we want to use
+backtracking?</p>
+<p t="1871240" d="1170">Sure.</p>
+<p t="1872410" d="1600">Do we want to use an
+enqueued list?</p>
+<p t="1874010" d="1640">Sure.</p>
+<p t="1875650" d="2560">And it is informed, because it's
+taking advantage of this</p>
+<p t="1878210" d="590">extra information.</p>
+<p t="1878800" d="1700">It may not be in your problem.</p>
+<p t="1880500" d="4070">It's not often the case you've
+got this information in a map.</p>
+<p t="1884570" d="3470">Your problem may not have any
+heuristic measurement of</p>
+<p t="1888040" d="1285">distance to the goal.</p>
+<p t="1889325" d="1765">In which case, you
+can't do it.</p>
+<p t="1891090" d="2890">But if you've got it,
+you should use it.</p>
+<p t="1893980" d="1570">Oh, yeah, there's one more.</p>
+<p t="1895550" d="4470">And I've already given it away
+by having it on my chart.</p>
+<p t="1900020" d="1090">It's called Beam Search.</p>
+<p t="1901110" d="5100">And just as Hill Climbing is
+an analog of Depth-first</p>
+<p t="1906210" d="5560">Search, Beam Search is a
+complement or addition of an</p>
+<p t="1911770" d="3370">informing heuristic to
+Breadth-first Search.</p>
+<p t="1915140" d="1740">What you do is you start
+off just like</p>
+<p t="1916880" d="1250">Breadth-first Search.</p>
+<p t="1921190" d="4040">But you say I'm going to limit
+the number of paths I'm going</p>
+<p t="1925230" d="4320">to consider at any level to
+some small, fixed number,</p>
+<p t="1929550" d="2980">like, in this case,
+how about two.</p>
+<p t="1932530" d="3440">So, I'm going to say that
+I have a Beam of</p>
+<p t="1935970" d="2110">two for my Beam Search.</p>
+<p t="1945530" d="3550">Otherwise, I proceed just
+like Breadth-first</p>
+<p t="1949080" d="1250">Search, b, d, a, g.</p>
+<p t="1956230" d="2650">And now I've got that stupid
+thing where I'm duplicating my</p>
+<p t="1958880" d="3230">nodes, because I'm forgetting
+about the enqueued list.</p>
+<p t="1962110" d="2650">But to illustrate Beam Search,
+what about I'm going to do now</p>
+<p t="1964760" d="2320">is I'm going to take all these
+paths I've got at the second</p>
+<p t="1967080" d="2110">level, and I'm only going
+to keep the best two.</p>
+<p t="1969190" d="1940">That's my beam width.</p>
+<p t="1971130" d="3090">And the best two are the two
+that get closest to the goal.</p>
+<p t="1974220" d="4210">So, those four, b, c, a,
+and d, which two get</p>
+<p t="1978430" d="1515">closest to the goal?</p>
+<p t="1979945" d="2215">Now, b and d.</p>
+<p t="1982160" d="3370">These guys are trimmed off.</p>
+<p t="1985530" d="2500">I'm only keeping two
+at every level.</p>
+<p t="1988030" d="3660">Now, going down from b and
+d, I have, at the next</p>
+<p t="1991690" d="2560">level, c and g.</p>
+<p t="1994250" d="1610">And now I've found the goal.</p>
+<p t="1995860" d="1930">So, I'm done.</p>
+<p t="1997790" d="1250">We could do that here, too.</p>
+<p t="2002750" d="9600">We could choose a Beam
+Search, not bad.</p>
+<p t="2012350" d="2590">Let's see, let's try this
+thing from the middle.</p>
+<p t="2014940" d="2590">Let's slow my speed
+down a little bit.</p>
+<p t="2017530" d="2323">Now, are we going to see
+anything going off to the left</p>
+<p t="2019853" d="5097">like we did with ordinary
+Breadth-first Search?</p>
+<p t="2024950" d="2690">No, because it's smart.</p>
+<p t="2027640" d="2140">It doesn't say, I want to go to
+a place that's further away</p>
+<p t="2029780" d="1250">from my goal.</p>
+<p t="2033870" d="4070">Now, let's see, maybe we can go
+back to our algorithm now</p>
+<p t="2037940" d="9680">and talk about that enqueueing
+mechanism and</p>
+<p t="2047620" d="1250">talk about Hill Climbing.</p>
+<p t="2057170" d="3890">Can I use the same basic search
+mechanism, just change</p>
+<p t="2061060" d="1139">that one line again?</p>
+<p t="2062199" d="1371">Yes.</p>
+<p t="2063570" d="3629">How do I add new paths to
+the queue this time?</p>
+<p t="2067199" d="2011">Well, it's very much like
+Hill Climbing, right?</p>
+<p t="2069210" d="2670">I want to add them
+to the front but</p>
+<p t="2071880" d="1080">with one little flourish.</p>
+<p t="2072960" d="1250">What's the flourish?</p>
+<p t="2074210" d="2250">[? Krishna, ?] what
+do you think?</p>
+<p t="2076460" d="3040">Remember, I want to use my
+heuristic information.</p>
+<p t="2079500" d="2400">So, I not only add them to the
+front, but amongst the ones</p>
+<p t="2081900" d="1805">I'm adding to the front,
+what do I do?</p>
+<p t="2083705" d="1275">AUDIENCE:Check the distance?</p>
+<p t="2084980" d="870">PATRICK WINSTON: Check
+the distance.</p>
+<p t="2085850" d="1270">And how do you arrange them?</p>
+<p t="2087120" d="838">AUDIENCE:[? You ?]</p>
+<p t="2087958" d="1261">[? keep the ?] minimum
+[? first. ?]</p>
+<p t="2089219" d="2351">PATRICK WINSTON: Yeah, you
+can put the minimum</p>
+<p t="2091570" d="720">first if you like.</p>
+<p t="2092290" d="1449">But let's sort them.</p>
+<p t="2093739" d="2781">We'll sort them, that will
+keep everything straight.</p>
+<p t="2096520" d="6540">So Hill Climbing is
+front-sorted.</p>
+<p t="2113370" d="1210">And, finally, how about Beam?</p>
+<p t="2114580" d="3280">What do we do with Beam Search
+to add them to the queue?</p>
+<p t="2117860" d="3315">Well, it doesn't matter where we
+add them, because all we're</p>
+<p t="2121175" d="4665">going to do is we're going
+to keep the w best.</p>
+<p t="2125840" d="4430">So, with Beam, we'll just
+abbreviate that by</p>
+<p t="2130270" d="4800">saying keep w best.</p>
+<p t="2141330" d="2540">Now, you have some of the basic</p>
+<p t="2143870" d="2580">searches in you're toolkit.</p>
+<p t="2146450" d="2350">There's one more that's
+sometimes talked about.</p>
+<p t="2148800" d="4910">We've got Depth, Breadth, Best,
+and Beam, one more is</p>
+<p t="2153710" d="4010">Best, Best-first Search.</p>
+<p t="2157720" d="6530">It's a variant where you say,
+I've got this tree.</p>
+<p t="2164250" d="4020">It's got a bunch of paths that
+terminate in leaves.</p>
+<p t="2168270" d="2240">Let me just always work on
+the leaf node that's</p>
+<p t="2170510" d="2280">closest to the goal.</p>
+<p t="2172790" d="2720">It can skip around a little bit
+from one place to another.</p>
+<p t="2175510" d="2980">Because as it pursues one path,
+it may not do very well</p>
+<p t="2178490" d="1860">in some other path
+quite distant.</p>
+<p t="2180350" d="1520">And the tree will become
+the best one.</p>
+<p t="2184710" d="4220">We've actually seen an instance
+of that in then</p>
+<p t="2188930" d="1760">integration program.</p>
+<p t="2190690" d="2150">It's capable of skipping all
+over the place, because it's</p>
+<p t="2192840" d="5110">always taking the easiest
+problem in the search tree, in</p>
+<p t="2197950" d="1990">the and/or tree, working
+on that.</p>
+<p t="2199940" d="3360">That's Best-first Search.</p>
+<p t="2203300" d="1040">You can do these sorts
+of things in</p>
+<p t="2204340" d="2440">continuous spaces, too.</p>
+<p t="2206780" d="1050">And you've done the
+mathematics of</p>
+<p t="2207830" d="4750">that in 1802 or something.</p>
+<p t="2212580" d="3610">But in continuous spaces, the
+Hill Climbing sometimes leads</p>
+<p t="2216190" d="3280">to problems or doesn't
+do very well.</p>
+<p t="2219470" d="4670">What kind of a problem can you
+encounter in a continuous</p>
+<p t="2224140" d="4070">space with Hill Climbing?</p>
+<p t="2228210" d="3516">Well, how would you do
+Hill Climbing in</p>
+<p t="2231726" d="1114">a continuous space?</p>
+<p t="2232840" d="3710">Let's say we're in the
+mountains, and a big</p>
+<p t="2236550" d="1950">fog has come up.</p>
+<p t="2238500" d="1970">We're trying to get to the
+top of the hill before</p>
+<p t="2240470" d="2250">we freeze to death.</p>
+<p t="2242720" d="5286">And we take a few steps north,
+a few steps east, west, and</p>
+<p t="2248006" d="2374">south using our compass.</p>
+<p t="2250380" d="3130">And we check to see which
+direction seems to be doing</p>
+<p t="2253510" d="3710">the best job of getting
+us moving upward.</p>
+<p t="2257220" d="1920">And that's our Hill Climbing
+approach, right?</p>
+<p t="2259140" d="4560">We have explored four directions
+we can go and pick</p>
+<p t="2263700" d="1480">the best one.</p>
+<p t="2265180" d="2760">And from there, we pick four,
+try all those, pick the best</p>
+<p t="2267940" d="860">one, and away we go.</p>
+<p t="2268800" d="2380">We've got ourselves a Hill
+Climbing algorithm.</p>
+<p t="2271180" d="2030">What's wrong with it?</p>
+<p t="2273210" d="1500">Or what can be wrong with it?</p>
+<p t="2274710" d="2130">Sometimes it works just fine.</p>
+<p t="2276840" d="490">Yes.</p>
+<p t="2277330" d="2275">SPEAKER 1: You might get stuck
+in a local maximum.</p>
+<p t="2279605" d="2715">PATRICK WINSTON: We might get
+stuck in a local maximum.</p>
+<p t="2282320" d="8270">So, problem letter a is that if
+this is your space, it may</p>
+<p t="2290590" d="860">look like that.</p>
+<p t="2291450" d="5190">And you may get stuck
+on a local maximum.</p>
+<p t="2296640" d="1690">Is there any other kind of
+problem that can come up?</p>
+<p t="2306215" d="2605">Well, it all depends on what
+the space is like.</p>
+<p t="2308820" d="1825">Here's a problem where the
+space has local maxima.</p>
+<p t="2313230" d="1780">Now, a lot of people have
+been killed on Mt.</p>
+<p t="2315010" d="2990">Washington when the
+fog comes up.</p>
+<p t="2318000" d="2270">And they do freeze
+to death, why?</p>
+<p t="2323270" d="4170">The reason they freeze to death
+is the Hill Climbing</p>
+<p t="2327440" d="1640">fails them, and they can't
+get to the top</p>
+<p t="2329080" d="1880">to the ranger station.</p>
+<p t="2330960" d="2700">And the reason is that there
+are large lawns on the</p>
+<p t="2333660" d="570">shoulders of Mt.</p>
+<p t="2334230" d="350">Washington.</p>
+<p t="2334580" d="2560">It's quite flat.</p>
+<p t="2337140" d="1415">So, it's the telephone
+pole problem.</p>
+<p t="2342090" d="4030">That space looks like this.</p>
+<p t="2346120" d="920">Well, this isn't what Mt.</p>
+<p t="2347040" d="870">Washington looks like.</p>
+<p t="2347910" d="2710">But it's the telephone
+pole problem.</p>
+<p t="2350620" d="3750">So, when you're wandering
+around here, the idea of</p>
+<p t="2354370" d="3350">trying a few directions and
+picking the one that's best</p>
+<p t="2357720" d="2490">doesn't help any, because
+it's flat.</p>
+<p t="2360210" d="2880">That can be a problem
+with Hill Climbing.</p>
+<p t="2363090" d="3070">Now, there's one more problem
+with Hill Climbing that most</p>
+<p t="2366160" d="2840">people don't know about.</p>
+<p t="2369000" d="1253">But it works like this.</p>
+<p t="2374600" d="1610">This is a particularly
+acute problem in</p>
+<p t="2376210" d="1070">high dimensional spaces.</p>
+<p t="2377280" d="1830">I'll illustrate it
+here just in two.</p>
+<p t="2379110" d="5260">And I'm going to switch from
+a regular kind of view to a</p>
+<p t="2384370" d="2200">contour map.</p>
+<p t="2386570" d="8380">So, my contour map is going to
+betray the presence of a sharp</p>
+<p t="2394950" d="9100">bridge along the
+45 degree line.</p>
+<p t="2404050" d="3450">Now you see how you can
+get in trouble there.</p>
+<p t="2407500" d="2780">You get in trouble, because
+if you take a step in each</p>
+<p t="2410280" d="3070">direction, every direction
+takes you downhill.</p>
+<p t="2413350" d="2260">And you think you're
+at the top.</p>
+<p t="2415610" d="4216">So, suppose you're right
+here and you go north.</p>
+<p t="2419826" d="4354">That takes you down over
+a contour line.</p>
+<p t="2424180" d="3370">If you go south, that
+also takes you down</p>
+<p t="2427550" d="1450">over contour lines.</p>
+<p t="2429000" d="4870">Likewise, going west and east
+all appear to be taking you</p>
+<p t="2433870" d="4145">down, whereas, in fact, you're
+climbing a ridge.</p>
+<p t="2438015" d="4255">And that contour line is the
+highest that I've shown.</p>
+<p t="2442270" d="1630">So, sometimes you
+can get fooled--</p>
+<p t="2443900" d="2100">not stuck, but fooled-- into
+thinking you're at the top</p>
+<p t="2446000" d="1250">when you're actually not.</p>
+<p t="2449830" d="4580">Now, this is a model
+something.</p>
+<p t="2454410" d="3720">This subject is about modeling
+intelligence.</p>
+<p t="2458130" d="3550">And this is a kind of algorithm
+you frequently need</p>
+<p t="2461680" d="2900">in order to build an
+intelligent system.</p>
+<p t="2464580" d="2780">But do we have any kind of
+Search happening in our heads?</p>
+<p t="2471650" d="2170">If we're going to model what
+goes on inside our heads, do</p>
+<p t="2473820" d="6030">we have to model any kind of
+searching in order to do the</p>
+<p t="2479850" d="4160">kinds of things that
+we humans do?</p>
+<p t="2484010" d="710">I suppose so.</p>
+<p t="2484720" d="3530">Anytime we make a plan, we're
+actually evaluating a bunch of</p>
+<p t="2488250" d="3090">choices and seeing
+how they work.</p>
+<p t="2491340" d="1680">Let me see if I can illustrate
+it another way.</p>
+<p t="2497120" d="5140">This is a system that I showed
+you a little bit of last time.</p>
+<p t="2502260" d="4330">And, shoot, I might as well
+review one or two things here.</p>
+<p t="2511970" d="1670">I showed you a Macbeth story.</p>
+<p t="2513640" d="2580">This is the story
+I showed you.</p>
+<p t="2516220" d="3280">And if you had this in a
+humanities class, the simplest</p>
+<p t="2519500" d="5120">questions that might be asked
+is why did Macduff kill</p>
+<p t="2524620" d="3620">Macbeth down there
+at the bottom?</p>
+<p t="2528240" d="2720">Did I demonstrate the answering
+of questions last</p>
+<p t="2530960" d="2380">time, or just the development
+of the graph?</p>
+<p t="2533340" d="660">I can't remember.</p>
+<p t="2534000" d="2210">But we'll do it again, anyway.</p>
+<p t="2536210" d="3685">This is somewhat stylized
+English.</p>
+<p t="2539895" d="2675">Just so you'll know,
+it doesn't have</p>
+<p t="2542570" d="1090">to be stylized English.</p>
+<p t="2543660" d="3670">This is English that's made
+available to the Genesis</p>
+<p t="2547330" d="4620">system by way of something
+called Story Workbench.</p>
+<p t="2551950" d="850">There's no free lunch.</p>
+<p t="2552800" d="2940">Either you can use your human
+resources to rewrite the plot</p>
+<p t="2555740" d="1800">in third grade English.</p>
+<p t="2557540" d="2400">Or you can use your human
+resources to take a more</p>
+<p t="2559940" d="3300">natural, adult-type version of
+the story and decorate it with</p>
+<p t="2563240" d="3270">annotations that make it
+possible to absorb it.</p>
+<p t="2566510" d="3460">Just this summer, in a miracle
+of summer [? Europe, ?]</p>
+<p t="2569970" d="343">[? Brit ?]</p>
+<p t="2570313" d="343">[? van ?]</p>
+<p t="2570656" d="624">[? Zijp-- ?]</p>
+<p t="2571280" d="1510">one of you--</p>
+<p t="2572790" d="1840">connected these two
+systems together.</p>
+<p t="2574630" d="2400">So, we can now work with stories
+that are expressed in</p>
+<p t="2577030" d="2110">pretty natural English.</p>
+<p t="2579140" d="3750">Everything in our system is
+expressed in English,</p>
+<p t="2582890" d="1340">including common sense
+knowledge--</p>
+<p t="2584230" d="2580">like if somebody kills
+you, you're dead--</p>
+<p t="2586810" d="4070">but more importantly, for
+today's illustration, that</p>
+<p t="2590880" d="4040">reflective level knowledge,
+that knowledge about what</p>
+<p t="2594920" d="2260">revenge is.</p>
+<p t="2597180" d="610">Here you are.</p>
+<p t="2597790" d="2490">You're in the humanities class,
+and someone says,</p>
+<p t="2600280" d="1520">what's really going
+on in the story?</p>
+<p t="2601800" d="2620">Not the details of who
+kills whom, but is</p>
+<p t="2604420" d="2140">there a Pyrrhic victory?</p>
+<p t="2606560" d="1580">Does somebody have a success?</p>
+<p t="2608140" d="1980">Is there an act of revenge?</p>
+<p t="2610120" d="3260">These are all kinds of things
+you might be asked about in</p>
+<p t="2613380" d="1420">some kind of humanities class.</p>
+<p t="2620470" d="2340">So, let me fire up the
+genesis system.</p>
+<p t="2632150" d="1250">Pray for internet
+connectivity.</p>
+<p t="2638730" d="4120">Launch the system on a read of
+that Macbeth story that I</p>
+<p t="2642850" d="2260">showed you just a moment ago.</p>
+<p t="2645110" d="3110">At the moment, it's absorbing
+information about background</p>
+<p t="2648220" d="1740">knowledge, and about reflective
+level knowledge,</p>
+<p t="2649960" d="1250">and all that sort of thing.</p>
+<p t="2655780" d="2230">It's building itself
+this thing we call</p>
+<p t="2658010" d="2090">an elaboration graph.</p>
+<p t="2660100" d="1220">It's not quite there yet.</p>
+<p t="2661320" d="1250">It's still reading background
+knowledge.</p>
+<p t="2670750" d="1390">Now it's reading Macbeth.</p>
+<p t="2672140" d="3960">It's building it's elaboration
+graph, the same thing you saw</p>
+<p t="2676100" d="2960">last time, except not quite.</p>
+<p t="2679060" d="2510">Do you see that stuff
+down at the bottom?</p>
+<p t="2681570" d="2930">Those are higher level concepts
+that it's managed to</p>
+<p t="2684500" d="2430">find in the Macbeth story.</p>
+<p t="2686930" d="1250">So, its found a revenge.</p>
+<p t="2691010" d="2500">How did it do that?</p>
+<p t="2693510" d="2050">It searched.</p>
+<p t="2695560" d="3250">It had a description of what a
+revenge is, and it looked to</p>
+<p t="2698810" d="2460">see if that pattern
+was exhibited in</p>
+<p t="2701270" d="2150">the elaboration graph.</p>
+<p t="2703420" d="2520">So, in a combination of things
+that were said explicitly and</p>
+<p t="2705940" d="2710">things that were produced by
+knee-jerk if/then rules, the</p>
+<p t="2708650" d="2630">elaboration graph was
+sufficiently instantiated that</p>
+<p t="2711280" d="4300">the revenge pattern
+could be found.</p>
+<p t="2715580" d="3450">That's interesting, Pyrrhic
+victory is a little harder.</p>
+<p t="2719030" d="2040">You'd probably get an a if you
+said, oh, there's a Pyrrhic</p>
+<p t="2721070" d="3150">victory in here.</p>
+<p t="2724220" d="2100">There it is.</p>
+<p t="2726320" d="1430">So, I'll blow that up a
+little bit so you can</p>
+<p t="2727750" d="2120">see what that is.</p>
+<p t="2729870" d="2350">You know what a Pyrrhic
+victory is.</p>
+<p t="2732220" d="3970">It's a situation where
+everything seems to be going</p>
+<p t="2736190" d="5720">good at first, and
+then not so hot.</p>
+<p t="2741910" d="4670">So, Macbeth wants to
+be King down here.</p>
+<p t="2746580" d="2395">And eventually that leads
+to becoming King.</p>
+<p t="2748975" d="2635">But too bad for Macbeth, because
+eventually he gets</p>
+<p t="2751610" d="930">killed in consequence.</p>
+<p t="2752540" d="2110">So, it's a Pyrrhic victory.</p>
+<p t="2754650" d="1930">All that produced by Search
+programs who are looking</p>
+<p t="2756580" d="2090">through this graph.</p>
+<p t="2758670" d="2360">Now once you've got the
+capability of doing that, of</p>
+<p t="2761030" d="3440">course, then you can find
+all sorts of things.</p>
+<p t="2764470" d="1350">And you can report
+them in English.</p>
+<p t="2765820" d="3690">But, more interestingly, you
+can answer questions.</p>
+<p t="2769510" d="2550">Why did Macbeth--</p>
+<p t="2772060" d="1460">it cares not a hoot about
+capitalization.</p>
+<p t="2779920" d="2240">ARTIFICIAL INTELLIGENCE: On a
+common sense level, it looks</p>
+<p t="2782160" d="2530">like Dr. Jekyll thinks Macduff
+killed Macbeth because Macbeth</p>
+<p t="2784690" d="1830">angered Macduff on a
+reflective level.</p>
+<p t="2786520" d="2680">It looks like Dr. Jekyll thinks
+Macduff killed Macbeth</p>
+<p t="2789200" d="3520">as part of acts of mistake,
+Pyrrhic victory, and revenge.</p>
+<p t="2792720" d="2690">PATRICK WINSTON: Pretty
+corny speech output.</p>
+<p t="2795410" d="1210">But you see the point.</p>
+<p t="2796620" d="4106">How did it get the stuff on
+the common sense level?</p>
+<p t="2800726" d="2694">The same way all those programs
+that build goal trees</p>
+<p t="2803420" d="3180">report, answers the questions.</p>
+<p t="2806600" d="2087">It's just looking locally around
+in the connections in</p>
+<p t="2808687" d="1723">the goal tree.</p>
+<p t="2810410" d="2470">How did it get the stuff on
+the reflective level?</p>
+<p t="2812880" d="6360">By reporting on the searches
+that produced information--</p>
+<p t="2819240" d="4430">it does that by looking for
+higher level thoughts about</p>
+<p t="2823670" d="3870">its own thoughts and reporting
+in which of those higher level</p>
+<p t="2827540" d="5455">thoughts the incident we asked
+about actually occurs.</p>
+<p t="2832995" d="4025">So, let's see, just for fun, we
+might be interested in why</p>
+<p t="2837020" d="3640">Macbeth murdered Duncan.</p>
+<p t="2840660" d="1940">Wouldn't this be handy if you
+hadn't actually read the play,</p>
+<p t="2842600" d="2676">and here it is, you've got
+to write that paper?</p>
+<p t="2845276" d="1124">ARTIFICIAL INTELLIGENCE:
+On a common sense</p>
+<p t="2846400" d="1390">level, it looks like--</p>
+<p t="2847790" d="1360">PATRICK WINSTON: I'll pull the
+plug on that, because that's</p>
+<p t="2849150" d="1250">just annoying.</p>
+<p t="2852768" d="3572">Yeah, pretty good, Macbeth wants
+to be King, and Duncan</p>
+<p t="2856340" d="1280">is the King.</p>
+<p t="2857620" d="2120">Let's see, why did Macbeth
+become King?</p>
+<p t="2871820" d="1630">Oh, it won't answer
+the question</p>
+<p t="2873450" d="1250">unless I spell it right.</p>
+<p t="2881670" d="2320">I wouldn't be able to show that
+to you until last spring.</p>
+<p t="2883990" d="3490">In fact, I wouldn't have been
+able to show you this today</p>
+<p t="2887480" d="3280">until last week with a
+tweak this morning.</p>
+<p t="2890760" d="4330">Because we've just now connected
+the language output</p>
+<p t="2895090" d="2820">to, of course, [? Cass's ?]</p>
+<p t="2897910" d="2000">parser system, which is running
+in reverse, in order</p>
+<p t="2899910" d="1130">to generate that English.</p>
+<p t="2901040" d="2620">So, that's something that has
+never before been seen by any</p>
+<p t="2903660" d="2170">eyes but me.</p>
+<p t="2905830" d="1820">So, that will conclude what
+we have to do today.</p>
+</body>
+</timedtext>

@@ -1,0 +1,1206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="9070" d="590">Okay.</p>
+<p t="9660" d="4290">This is lecture six
+in linear algebra,</p>
+<p t="13950" d="5840">and we're at the start of this
+new chapter, chapter three</p>
+<p t="19790" d="2710">in the text, which
+is really getting</p>
+<p t="22500" d="2430">to the center of linear algebra.</p>
+<p t="24930" d="6530">And I had time to make
+a first start on it</p>
+<p t="31460" d="2230">at the end of lecture five.</p>
+<p t="33690" d="4740">But now is lecture
+six is officially</p>
+<p t="38430" d="4180">the lecture on vector
+spaces and subspaces.</p>
+<p t="42610" d="4460">And then especially --
+there are two subspaces that</p>
+<p t="47070" d="2770">we're specially interested in.</p>
+<p t="49840" d="2840">One is the column
+space of a matrix,</p>
+<p t="52680" d="2950">the other is the null
+space of the matrix.</p>
+<p t="55630" d="3420">So, I got to tell
+you what those are.</p>
+<p t="59050" d="1090">Okay.</p>
+<p t="60140" d="5000">So, first to remember
+from lecture five,</p>
+<p t="65140" d="3210">what is a vector space?</p>
+<p t="68350" d="6060">It's a bunch of vectors
+that -- where I'm allowed --</p>
+<p t="74410" d="1560">where I can add --</p>
+<p t="75970" d="3720">I can add any two
+vectors in the space</p>
+<p t="79690" d="3610">and the answer
+stays in the space.</p>
+<p t="83300" d="4310">Or I can multiply any vector
+in the space by any constant</p>
+<p t="87610" d="3260">and the result
+stays in the space.</p>
+<p t="90870" d="4080">So that's -- in fact if I
+combine those two into one,</p>
+<p t="94950" d="5760">you can see that -- if I can add
+and I can multiply by numbers,</p>
+<p t="100710" d="4040">that really means that I can
+take linear combinations.</p>
+<p t="104750" d="5470">So the quick way to say it is
+that all linear combinations,</p>
+<p t="110220" d="4030">C -- any multiple of V
+plus any multiple of W stay</p>
+<p t="114250" d="1970">in the space.</p>
+<p t="116220" d="4850">So, can I give you examples
+that are vector spaces and also</p>
+<p t="121070" d="3780">some examples that are not,
+to make that point clear?</p>
+<p t="124850" d="5370">So, suppose I'm in
+three dimensions.</p>
+<p t="130220" d="6730">Then one way to get us one space
+is the whole three dimensional</p>
+<p t="136950" d="1250">space.</p>
+<p t="138200" d="4570">So the whole space R^3,
+three dimensional space,</p>
+<p t="142770" d="4330">would be a vector space, because
+if I have a couple of vectors I</p>
+<p t="147100" d="2940">can add them and I'm certainly
+okay and they follow all</p>
+<p t="150040" d="2200">the rules.</p>
+<p t="152240" d="2360">So R^3 is easy.</p>
+<p t="154600" d="4720">Now I'm interested
+also in subspaces.</p>
+<p t="159320" d="3050">So there's this key
+word, subspaces.</p>
+<p t="162370" d="6160">That's a space -- that's some
+vectors inside the given space,</p>
+<p t="168530" d="5410">inside R three that still make
+up a vector space of their own.</p>
+<p t="173940" d="3050">It's a vector space
+inside a vector space.</p>
+<p t="176990" d="3040">And the simplest
+example was a plane.</p>
+<p t="180030" d="5040">So, like, can I just sketch
+it -- there is a plane.</p>
+<p t="185070" d="2210">It's got to go
+through the origin,</p>
+<p t="187280" d="3110">and of course it
+goes infinitely far.</p>
+<p t="190390" d="2230">That's of that's a subspace now.</p>
+<p t="192620" d="5570">Do you see that if I have
+two vectors on the plane</p>
+<p t="198190" d="4730">and I add them, the
+result stays in the plane.</p>
+<p t="202920" d="3850">If I take a vector in the plane
+and I multiply by minus two,</p>
+<p t="206770" d="1750">I'm still in the plane.</p>
+<p t="208520" d="2720">So that plane is a subspace.</p>
+<p t="211240" d="1880">So let me just make that point.</p>
+<p t="213120" d="11000">Plane through zero, through that
+zero zero zero is a subspace.</p>
+<p t="224120" d="940">Okay.</p>
+<p t="225060" d="6650">And also, another
+subspace would be a line.</p>
+<p t="231710" d="2520">A line through zero
+zero zero -- yeah,</p>
+<p t="234230" d="2010">the line has to go
+through the origin.</p>
+<p t="236240" d="3150">All subspaces have got
+to contain the origin,</p>
+<p t="239390" d="2520">contain zero -- the zero vector.</p>
+<p t="241910" d="5105">So this line is a subspace.</p>
+<p t="249900" d="4010">Really, if I want to
+say it really correctly,</p>
+<p t="253910" d="4989">I should say a subspace of R^3.</p>
+<p t="258899" d="4811">That of R^3 was, like,
+understood there.</p>
+<p t="263710" d="7020">Now -- so let me call this plane
+P. And let me call this line L.</p>
+<p t="270730" d="9810">And let me ask you about
+other sets of vectors.</p>
+<p t="280540" d="2670">Suppose I took --</p>
+<p t="283210" d="2100">yeah -- so here's
+a first question.</p>
+<p t="285310" d="4720">Suppose I take two
+subspaces, like P and L.</p>
+<p t="290030" d="4580">And I just put them
+together, take their union,</p>
+<p t="294610" d="2280">take all the vectors --</p>
+<p t="296890" d="3990">so now you've got P
+and L in mind, here.</p>
+<p t="300880" d="2990">So I have two subspaces.</p>
+<p t="303870" d="6090">I have two subspaces
+and, for example, P --</p>
+<p t="309960" d="2110">a plane and L a line.</p>
+<p t="312070" d="1340">Okay.</p>
+<p t="313410" d="4560">Now I want to ask you
+about the union of those.</p>
+<p t="317970" d="2220">So P union L.</p>
+<p t="320190" d="9800">This is all vectors
+in P or L or both.</p>
+<p t="333120" d="3120">Is that a subspace?</p>
+<p t="336240" d="1800">Is this a subspace?</p>
+<p t="338040" d="10340">This is or is not a subspace?</p>
+<p t="348380" d="3310">Because we're -- I just want
+to be sure that I've got</p>
+<p t="351690" d="2650">the central idea.</p>
+<p t="354340" d="2860">Suppose I take the
+vectors in the plane</p>
+<p t="357200" d="6030">and also the vectors
+on that line,</p>
+<p t="363230" d="2700">put them together, so I've
+got a bunch of vectors,</p>
+<p t="365930" d="1100">is it a subspace?</p>
+<p t="367030" d="2180">Can you give me,
+like, so the camera</p>
+<p t="369210" d="2490">can hear it or maybe the tape.</p>
+<p t="371700" d="2950">Can you say yes or no?</p>
+<p t="374650" d="6120">Do I have a subspace if I put
+-- if I take all the vectors</p>
+<p t="380770" d="4890">on the plane plus all -- and all
+the ones on the line and just</p>
+<p t="385660" d="4860">join them together -- but I'm
+not taking this guy that's --</p>
+<p t="390520" d="1720">actually, I'm not
+taking most of them,</p>
+<p t="392240" d="3440">because most vectors are not
+on the line or the plane,</p>
+<p t="395680" d="1910">they're off somewhere else.</p>
+<p t="397590" d="2380">Do I have a subspace?</p>
+<p t="399970" d="727">STUDENTS: No.</p>
+<p t="400697" d="583">STRANG: Right.</p>
+<p t="401280" d="510">Thank you.</p>
+<p t="401790" d="720">No.</p>
+<p t="402510" d="2470">Because -- why not?</p>
+<p t="404980" d="2150">Because I can't add.</p>
+<p t="407130" d="4960">Because if I that
+requirement isn't satisfied.</p>
+<p t="412090" d="3960">If I take one vector like
+this guy and another vector</p>
+<p t="416050" d="4050">that happens to come from L and
+add, I'm off somewhere else.</p>
+<p t="420100" d="6770">You see that I've gone outside
+the union if I just add</p>
+<p t="426870" d="2200">something from P and
+something from L,</p>
+<p t="429070" d="6480">then normally what'll happen
+is I'm outside the union --</p>
+<p t="435550" d="1220">and I don't have a subspace.</p>
+<p t="436770" d="2350">So the correct answer is --</p>
+<p t="439120" d="2150">is not.</p>
+<p t="441270" d="580">Okay.</p>
+<p t="441850" d="3780">Now let me ask you about --
+the other thing we do is take</p>
+<p t="445630" d="2610">the intersection.</p>
+<p t="448240" d="2170">So what does intersection mean?</p>
+<p t="450410" d="13420">Intersection means all vectors
+that are in both P and L.</p>
+<p t="463830" d="2140">Is this a subspace.</p>
+<p t="465970" d="3760">Yeah, so I guess I want to go
+back up to the same question.</p>
+<p t="469730" d="2630">This is or is not a subspace?</p>
+<p t="472360" d="4550">And you can answer me -- answer
+the question first for this</p>
+<p t="476910" d="3730">particular example,
+this picture I drew.</p>
+<p t="480640" d="3140">What is P intersect
+L for this case?</p>
+<p t="483780" d="1500">STUDENT: It's only zero.</p>
+<p t="485280" d="2530">STRANG: It's only zero.</p>
+<p t="487810" d="3430">At least, sort of this was the
+artist's idea as he drew it</p>
+<p t="491240" d="6010">that, that that line L was
+not in the plane and, went off</p>
+<p t="497250" d="3870">somewhere else -- and then the
+only point that was in common</p>
+<p t="501120" d="1650">was the zero vector.</p>
+<p t="502770" d="2660">Is the zero vector
+by itself a subspace?</p>
+<p t="505430" d="570">STUDENT: Yes.</p>
+<p t="506000" d="1740">STRANG: Yes, absolutely.</p>
+<p t="507740" d="6309">And what about, if I don't
+have this plane and this line</p>
+<p t="514049" d="4740">but any subspace and
+any other subspace?</p>
+<p t="518789" d="4951">So now -- can I ask that
+question for any two subspaces?</p>
+<p t="523740" d="3060">So maybe I'll write it up here.</p>
+<p t="526800" d="3440">If I'm strong enough.</p>
+<p t="530240" d="760">Okay.</p>
+<p t="531000" d="1510">So this is the general question.</p>
+<p t="532510" d="7840">I have subspaces, say S and T.</p>
+<p t="540350" d="8290">And I want to ask you about
+their intersection S intersect</p>
+<p t="548640" d="2660">T and I want --</p>
+<p t="551300" d="1920">it is a subspace.</p>
+<p t="557700" d="1730">Do you see why?</p>
+<p t="559430" d="5180">Do you see why if I take the
+vectors that are in both one-</p>
+<p t="564610" d="3320">th- that are in both
+of the subspaces --</p>
+<p t="567930" d="2560">so that's like a smaller
+set of vectors, probably,</p>
+<p t="570490" d="2050">because it's -- we've
+added requirements.</p>
+<p t="572540" d="3830">It has to be in S and in T.</p>
+<p t="576370" d="1730">How do I know that's a subspace?</p>
+<p t="578100" d="2460">Can we just think through
+that abstract stuff</p>
+<p t="580560" d="3080">and then I get to the examples.</p>
+<p t="583640" d="1230">Okay.</p>
+<p t="584870" d="1070">So why?</p>
+<p t="585940" d="3550">Suppose I take a
+couple of vectors</p>
+<p t="589490" d="1550">that are in the intersection.</p>
+<p t="591040" d="5460">Why is the sum also
+in the intersection?</p>
+<p t="596500" d="4400">Okay, so let me give a name
+to these vectors, say V and W.</p>
+<p t="600900" d="1380">They're in the intersection.</p>
+<p t="602280" d="3030">So that means they're both in S.</p>
+<p t="605310" d="3060">Also means they're both in T.</p>
+<p t="608370" d="3590">So what can I say
+about V plus W?</p>
+<p t="611960" d="2390">Is it in S?</p>
+<p t="614350" d="690">Yes.</p>
+<p t="615040" d="1440">Right?</p>
+<p t="616480" d="4820">If I take two vectors, V
+and W that are both in S,</p>
+<p t="621300" d="3600">then the sum is in S,
+because S was a subspace.</p>
+<p t="624900" d="2930">And if they're both
+in T and I add them,</p>
+<p t="627830" d="4160">then the result is also in
+T, because T was a subspace.</p>
+<p t="631990" d="5110">So the result V plus W
+is in the intersection.</p>
+<p t="637100" d="5590">It's in both and requirement
+one is satisfied.</p>
+<p t="642690" d="1790">Requirement two's the same.</p>
+<p t="644480" d="4600">If I take a vector that's in
+both, I multiply by seven.</p>
+<p t="649080" d="4390">Seven times that vector is in
+S, because the vector was in S.</p>
+<p t="653470" d="3820">Seven times that vector's in T
+because the original one was in</p>
+<p t="657290" d="3790">T. So seven times that vector
+is in the intersection.</p>
+<p t="661080" d="4660">In other words, when you
+take the intersection of two</p>
+<p t="665740" d="3090">subspaces, you get probably
+a smaller subspace,</p>
+<p t="668830" d="1610">but it is a subspace.</p>
+<p t="670440" d="1340">Okay.</p>
+<p t="671780" d="5490">So that's like sort of
+just emphasizing what</p>
+<p t="677270" d="2810">these two requirements mean.</p>
+<p t="680080" d="4620">Again -- Let me circle those,
+because those are so important.</p>
+<p t="684700" d="5790">The sum and the scale of
+multiplication which combines</p>
+<p t="690490" d="3360">into linear combinations.</p>
+<p t="693850" d="3280">That's what you have to
+do inside the subspace.</p>
+<p t="697130" d="850">Okay.</p>
+<p t="697980" d="3550">On to the column space.</p>
+<p t="701530" d="500">Okay.</p>
+<p t="702030" d="4660">So my lecture last time started
+that and I want to continue it.</p>
+<p t="706690" d="500">Okay.</p>
+<p t="707190" d="1490">Column space of a matrix.</p>
+<p t="713690" d="500">Of A.</p>
+<p t="714190" d="1870">Okay.</p>
+<p t="716060" d="3180">Can I take an example?</p>
+<p t="719240" d="3790">Say one two three four.</p>
+<p t="723030" d="3380">One one one one.</p>
+<p t="726410" d="1160">Two three four five.</p>
+<p t="731760" d="2610">Okay.</p>
+<p t="734370" d="5240">That's my matrix A.</p>
+<p t="739610" d="6290">So, it's got columns,
+three columns.</p>
+<p t="745900" d="3800">Those columns are vectors, so
+the column space of this A,</p>
+<p t="749700" d="2000">of this A --</p>
+<p t="751700" d="2270">let's stay with this
+example for a while.</p>
+<p t="753970" d="6550">The column space of this
+matrix is a subspace of R --</p>
+<p t="760520" d="1080">R what?</p>
+<p t="761600" d="2390">So what space are
+we in if I'm looking</p>
+<p t="763990" d="2740">at the columns of this matrix?</p>
+<p t="766730" d="2040">R^4 , right?</p>
+<p t="768770" d="3910">These are vectors in R^4,
+they're four dimensional</p>
+<p t="772680" d="1120">vectors.</p>
+<p t="773800" d="10210">So it's this column space of
+A is a subspace of R^4 here,</p>
+<p t="784010" d="3020">because A was four by --</p>
+<p t="787030" d="2160">A is a four by three matrix.</p>
+<p t="789190" d="2890">This tells me how
+many rows there are,</p>
+<p t="792080" d="3940">how many components in a
+column, and so we're in R^4.</p>
+<p t="796020" d="4010">Okay, now what's
+in that subspace?</p>
+<p t="800030" d="4270">So the column space of A,
+it's a subspace of R^4.</p>
+<p t="804300" d="4490">I call it the column
+space of A, like that.</p>
+<p t="808790" d="5880">So that's my little symbol
+for some subspace of R^4.</p>
+<p t="814670" d="2810">What's in that subspace?</p>
+<p t="817480" d="2530">Well, that column certainly is.</p>
+<p t="820010" d="1340">One two three four.</p>
+<p t="821350" d="1110">This column is in.</p>
+<p t="822460" d="3290">This column is
+in, and what else?</p>
+<p t="825750" d="2730">So it's got the
+columns of A in it,</p>
+<p t="828480" d="3191">but that's not
+enough, certainly.</p>
+<p t="831671" d="499">Right?</p>
+<p t="832170" d="3530">I don't have a subspace if
+I just put in three vectors.</p>
+<p t="835700" d="3510">So how do I fill that
+out to be a subspace?</p>
+<p t="839210" d="6790">I take their linear
+combinations.</p>
+<p t="846000" d="9110">So the column space of A is
+all linear combinations --</p>
+<p t="855110" d="1600">combinations of the columns.</p>
+<p t="859480" d="3410">And that does give
+me a subspace.</p>
+<p t="862890" d="2000">It does give me a vector
+space, because if I</p>
+<p t="864890" d="3150">have one linear combination
+and I multiply by eleven,</p>
+<p t="868040" d="2640">I've got another
+linear combination.</p>
+<p t="870680" d="1510">If I have a linear
+combination, I</p>
+<p t="872190" d="1540">add to another
+linear combination</p>
+<p t="873730" d="2240">I get a third combination.</p>
+<p t="875970" d="4290">So that -- this is like
+the smallest space --</p>
+<p t="880260" d="2780">like, it's got to have
+those three columns in it,</p>
+<p t="883040" d="2230">and it has to have
+their combinations</p>
+<p t="885270" d="1840">and that's where we stop.</p>
+<p t="887110" d="570">Okay.</p>
+<p t="887680" d="6440">Now I'm going to be
+interested in that space.</p>
+<p t="894120" d="2810">So I, like -- get some idea
+of what's in that space.</p>
+<p t="896930" d="1520">How big is that space?</p>
+<p t="898450" d="4430">Is that space the whole
+four dimensional space?</p>
+<p t="902880" d="2410">Or is it a subspace inside?</p>
+<p t="905290" d="8580">Can you -- let me just see if
+we can get a yes or no answer</p>
+<p t="913870" d="6060">sometimes without being
+ready for the complete proof.</p>
+<p t="922660" d="880">What do you think?</p>
+<p t="923540" d="3050">Is the subspace that
+I'm talking about here,</p>
+<p t="926590" d="2110">the combinations of
+those three guys,</p>
+<p t="928700" d="3550">does that fill the full
+four dimensional space?</p>
+<p t="932250" d="2650">Maybe yes or no on that one.</p>
+<p t="934900" d="660">No.</p>
+<p t="935560" d="500">No.</p>
+<p t="936060" d="3580">Somehow our feeling
+is, and it happens</p>
+<p t="939640" d="3090">to be right, that if we
+start with three vectors</p>
+<p t="942730" d="2930">and take their combinations,
+we can't get the whole four</p>
+<p t="945660" d="3020">dimensional space.</p>
+<p t="948680" d="3910">Now -- so somehow we
+get a smaller space.</p>
+<p t="952590" d="2420">But how much smaller?</p>
+<p t="955010" d="2270">That's going to come up here.</p>
+<p t="957280" d="3690">That's not so immediate.</p>
+<p t="960970" d="6980">Let me first make this
+critical connection with --</p>
+<p t="967950" d="8030">with, linear equations, because
+behind our abstract definition,</p>
+<p t="975980" d="1380">we have a purpose.</p>
+<p t="977360" d="2390">And that is to understand Ax=b.</p>
+<p t="979750" d="3200">So suppose I make
+the connection --</p>
+<p t="982950" d="10380">w- w- does A x=b always
+have a solution for every b?</p>
+<p t="993330" d="14520">Have a solution for
+every right-hand side?</p>
+<p t="1007850" d="2030">I guess that's going to
+be a yes or no question.</p>
+<p t="1013220" d="6360">And then I'm going to ask which
+right-hand sides are okay?</p>
+<p t="1019580" d="2470">That's really the
+question I'm after,</p>
+<p t="1022050" d="6850">is which right-hand
+sides (b) do make up --</p>
+<p t="1028900" d="3310">you can see from the way I'm
+speaking what the question --</p>
+<p t="1032210" d="1629">As it is.</p>
+<p t="1033839" d="2181">The answer is no.</p>
+<p t="1036020" d="5690">A x=b does not have a
+solution for every b.</p>
+<p t="1041710" d="4359">Why do I say no?</p>
+<p t="1046069" d="8591">Because A x=b is -- like,
+this is four equations,</p>
+<p t="1054660" d="1280">and only three unknowns.</p>
+<p t="1059590" d="1270">Right?</p>
+<p t="1060860" d="5197">X is -- let me right
+out that whole --</p>
+<p t="1066057" d="1333">what the whole thing looks like.</p>
+<p t="1069940" d="660">Yeah.</p>
+<p t="1070600" d="4080">Let me write out A x=b.</p>
+<p t="1074680" d="4630">A x is --</p>
+<p t="1079310" d="2950">these columns are
+one two three four.</p>
+<p t="1082260" d="4790">One one one one and
+two three four five.</p>
+<p t="1087050" d="5360">Then x, of course, has three
+components, x1, x2, x3.</p>
+<p t="1092410" d="3200">And I'm trying to get the --</p>
+<p t="1095610" d="3647">hit the right-hand
+side, b1,b2,b3 and b4.</p>
+<p t="1105430" d="2420">So my first point is,
+I can't always do it.</p>
+<p t="1110560" d="3580">In a way, that just says again
+what you told me five minutes</p>
+<p t="1114140" d="2080">ago --</p>
+<p t="1116220" d="3320">that the combinations
+of these columns</p>
+<p t="1119540" d="3090">don't fill the whole
+four dimensional space.</p>
+<p t="1122630" d="3560">There's going to be some
+vectors b, a lot of vectors b,</p>
+<p t="1126190" d="4340">that are not combinations
+of these three columns,</p>
+<p t="1130530" d="2670">because the combinations
+of those columns are, like,</p>
+<p t="1133200" d="2930">going to be just a little
+plane or something inside --</p>
+<p t="1136130" d="1920">inside R^4.</p>
+<p t="1138050" d="5940">Now, so and you see that I do
+have four equations and only</p>
+<p t="1143990" d="1220">three unknowns.</p>
+<p t="1145210" d="3900">So, like anybody is going
+to say, no you dope,</p>
+<p t="1149110" d="2540">you can't usually
+solve four equations</p>
+<p t="1151650" d="1680">with only three unknowns.</p>
+<p t="1153330" d="4380">But now I want to say
+sometimes you can.</p>
+<p t="1157710" d="4620">For some right-hand
+sides, I can solve this.</p>
+<p t="1162330" d="3570">So that's the bunch
+of right-hand sides</p>
+<p t="1165900" d="2810">that I'm interested
+in right now.</p>
+<p t="1168710" d="6150">Which right-hand sides
+allow me to solve this?</p>
+<p t="1174860" d="1880">This is the question for today.</p>
+<p t="1176740" d="3500">It's going to have, like,
+a nice clear answer.</p>
+<p t="1180240" d="10560">So my question is -- is
+which bs, which vectors b,</p>
+<p t="1190800" d="4400">allow this system to be solved?</p>
+<p t="1199640" d="3510">And I want to ask you --</p>
+<p t="1203150" d="4940">so that's, like, gets two
+question marks to indicate</p>
+<p t="1208090" d="2260">that's -- this is the
+important question.</p>
+<p t="1210350" d="4680">Okay, first, before we
+give a total answer,</p>
+<p t="1215030" d="2970">give me just a partial answer.</p>
+<p t="1218000" d="2910">Tell me one right-hand
+side that I know</p>
+<p t="1220910" d="2250">I can solve this thing for.</p>
+<p t="1223160" d="1750">So -- all zeroes.</p>
+<p t="1224910" d="500">Okay.</p>
+<p t="1225410" d="2590">That's the, like, guaranteed.</p>
+<p t="1228000" d="3990">If these were all zero,
+then I know I can solve it,</p>
+<p t="1231990" d="3560">let the x-s all be
+zero, no problem.</p>
+<p t="1235550" d="3340">So that's always a -- okay.</p>
+<p t="1238890" d="770">Okay.</p>
+<p t="1239660" d="2800">A x=0 I can always solve.</p>
+<p t="1242460" d="2580">Now tell me another
+right-hand side,</p>
+<p t="1245040" d="7700">just a specific set of numbers
+for which I can solve these</p>
+<p t="1252740" d="2960">three -- these four equations
+with only three unknowns,</p>
+<p t="1255700" d="4430">but if you give me a good
+right-hand side, I can do it.</p>
+<p t="1260130" d="712">So tell me one?</p>
+<p t="1260842" d="708">STUDENT: 1 2 3 4.</p>
+<p t="1261550" d="3190">STRANG: 1 2 3 4?</p>
+<p t="1264740" d="4835">If I -- can I solve -- is
+that a good right-hand side?</p>
+<p t="1272340" d="3000">Can you solve -- can you
+find a solution that --</p>
+<p t="1275340" d="3290">X one plus X two plus
+two X three is one,</p>
+<p t="1278630" d="4000">two X one plus X two plus three
+X three is two and two more</p>
+<p t="1282630" d="1228">equations --</p>
+<p t="1287210" d="3010">so I'm asking you to
+solve in your head in --</p>
+<p t="1290220" d="5530">within five seconds, four
+equations and three unknowns,</p>
+<p t="1295750" d="5560">but you can do it, because
+the right-hand side is, like,</p>
+<p t="1301310" d="3300">showing up here is --
+it's one of the columns.</p>
+<p t="1304610" d="3720">So tell me what's the
+X that does solve it?</p>
+<p t="1308330" d="1810">One zero zero.</p>
+<p t="1310140" d="5820">One zero zero solves
+it, because --</p>
+<p t="1315960" d="5490">well, so you can multiply
+this out by rows, but oh God,</p>
+<p t="1321450" d="4910">it's much nicer to say -- okay,
+this is one of this column,</p>
+<p t="1326360" d="2830">zero of this, zero of this,
+so it's one of that column,</p>
+<p t="1329190" d="2540">which is exactly what we wanted.</p>
+<p t="1331730" d="1560">Okay.</p>
+<p t="1333290" d="3990">So there is a b that's okay.</p>
+<p t="1337280" d="1970">Now tell me another
+B that's okay,</p>
+<p t="1339250" d="3780">another right-hand side
+that would be all right?</p>
+<p t="1343030" d="2025">Well -- all ones?</p>
+<p t="1349480" d="3970">Actually -- and then what's
+the solution in that case?</p>
+<p t="1353450" d="2630">0 1 0, thanks.</p>
+<p t="1356080" d="4110">And, in fact, it's
+much e- like, one way</p>
+<p t="1360190" d="4040">to do it is think of a
+solution first, right,</p>
+<p t="1364230" d="6150">and then just see what
+b turns out to be.</p>
+<p t="1370380" d="2650">What b turns out to be, right.</p>
+<p t="1373030" d="1760">Okay.</p>
+<p t="1374790" d="3430">So I think of a solution
+-- so I think of an x,</p>
+<p t="1378220" d="2160">I think of any --</p>
+<p t="1380380" d="3430">x1, x2, x3, I do
+this multiplication</p>
+<p t="1383810" d="1170">and what have I got?</p>
+<p t="1389640" d="4280">Now I'm ready to answer
+the big question.</p>
+<p t="1393920" d="6910">I can solve A x=b exactly
+when the right-hand side B is</p>
+<p t="1400830" d="4090">a vector in the column space.</p>
+<p t="1404920" d="980">Good.</p>
+<p t="1405900" d="7240">I can solve A x=b when b is
+a combination of the columns,</p>
+<p t="1413140" d="2990">when it's in the column space --</p>
+<p t="1416130" d="3600">so let me write
+that answer down.</p>
+<p t="1419730" d="18180">I can solve Ax=b exactly when
+B is in the column space.</p>
+<p t="1437910" d="4300">Let me just say
+again why that is.</p>
+<p t="1442210" d="4820">Because it -- the column space
+by its definition contains all</p>
+<p t="1447030" d="840">the combinations.</p>
+<p t="1447870" d="2840">It contains all the Ax-s.</p>
+<p t="1450710" d="6650">The column space really consists
+of all vectors A times any X.</p>
+<p t="1457360" d="5540">So those are the bs
+that I can deal with.</p>
+<p t="1462900" d="3230">If b is a combination
+of the columns,</p>
+<p t="1466130" d="5950">then that combination
+tells me what X should be.</p>
+<p t="1472080" d="3550">If b is not a combination of
+the columns, then there is no x.</p>
+<p t="1475630" d="3020">There's no way to
+solve A x equal b.</p>
+<p t="1478650" d="1770">Okay.</p>
+<p t="1480420" d="2280">So the column space --</p>
+<p t="1482700" d="2810">that's really why we're
+interested in this column</p>
+<p t="1485510" d="2660">space, because it's
+the central guy.</p>
+<p t="1488170" d="8220">It says when we can
+solve, and that --</p>
+<p t="1496390" d="2490">we got to understand
+this column space better.</p>
+<p t="1502420" d="580">Let's see.</p>
+<p t="1503000" d="4260">Do I want to think --</p>
+<p t="1507260" d="3340">yeah, somehow -- oh,
+well, let's just --</p>
+<p t="1510600" d="2760">as long as we've got it
+here, what do I get for this</p>
+<p t="1513360" d="1190">particular example?</p>
+<p t="1514550" d="10120">If I take combinations of
+this and this and this,</p>
+<p t="1524670" d="3560">I'll tell you the question
+that's in my mind.</p>
+<p t="1528230" d="2700">It's not even proper
+to use this word yet,</p>
+<p t="1530930" d="2350">but you'll know what it means.</p>
+<p t="1533280" d="4780">Are those three
+columns independent?</p>
+<p t="1538060" d="6310">If I take the combinations
+of the three columns --</p>
+<p t="1544370" d="6180">does each column contribute
+something new or now?</p>
+<p t="1550550" d="2810">So that if I take the
+combinations of those three</p>
+<p t="1553360" d="3800">columns, do I, like, get some
+three dimensional subspace --</p>
+<p t="1557160" d="3470">do I have three vectors
+that are, like, you know,</p>
+<p t="1560630" d="6810">independent,
+whatever that means?</p>
+<p t="1567440" d="2640">Or do I -- is one of
+those columns, like,</p>
+<p t="1570080" d="2290">contributing nothing new --</p>
+<p t="1572370" d="3260">So that actually only
+two of the columns</p>
+<p t="1575630" d="3410">would have given the
+same column space?</p>
+<p t="1579040" d="2040">Yeah -- that's a good
+way to ask the question.</p>
+<p t="1581080" d="1470">Finally I think of it.</p>
+<p t="1582550" d="2790">Can I throw away any columns --</p>
+<p t="1585340" d="1999">and have the same column space?</p>
+<p t="1587339" d="541">STUDENT: Yes.</p>
+<p t="1587880" d="1220">STRANG: Yes.</p>
+<p t="1589100" d="2190">And which one do you
+suggest I throw away?</p>
+<p t="1591290" d="1380">STUDENT: Column three -- three.</p>
+<p t="1592670" d="4680">STRANG: Well, three is the
+natural, like, guy to target.</p>
+<p t="1597350" d="2140">So if I -- and why?</p>
+<p t="1599490" d="5260">Because -- what's so
+bad about three here?</p>
+<p t="1604750" d="1490">Column three?</p>
+<p t="1606240" d="2070">It's the sum of these, right?</p>
+<p t="1608310" d="4060">So it's not -- if I'm taking --
+if I have combinations of these</p>
+<p t="1612370" d="2140">two and I put in
+this one, actually,</p>
+<p t="1614510" d="2270">I don't get anything more.</p>
+<p t="1616780" d="5680">So later on I will call
+these pivot columns.</p>
+<p t="1622460" d="4320">And the third guy will not
+be a pivot column in this --</p>
+<p t="1626780" d="1980">with those numbers.</p>
+<p t="1628760" d="4180">Now actually -- honesty makes
+me ask you this question.</p>
+<p t="1632940" d="3410">Could I have thrown
+away column one?</p>
+<p t="1636350" d="1590">Yes, I could.</p>
+<p t="1637940" d="1980">I could.</p>
+<p t="1639920" d="2990">So when I say pivot
+columns, my convention</p>
+<p t="1642910" d="3800">is, okay, I'll keep the first
+ones as long as they're not</p>
+<p t="1646710" d="880">dependent.</p>
+<p t="1647590" d="3340">So I keep this guy,
+he's fine, he's a line.</p>
+<p t="1650930" d="1170">I keep the second guy.</p>
+<p t="1652100" d="1710">It's in a second direction.</p>
+<p t="1653810" d="5410">But the third one, which is in
+the same plane as the first two</p>
+<p t="1659220" d="1570">gives me nothing new.</p>
+<p t="1660790" d="3770">It's dependent in the
+language that we will use</p>
+<p t="1664560" d="2430">and I don't need it.</p>
+<p t="1666990" d="1170">Okay.</p>
+<p t="1668160" d="5410">So I would describe the column
+space of this matrix as a two</p>
+<p t="1673570" d="2470">dimensional subspace of R^4.</p>
+<p t="1678680" d="2390">A two dimensional
+subspace of R^4.</p>
+<p t="1681070" d="920">Okay.</p>
+<p t="1681990" d="3440">So you're seeing how these
+vector spaces work and you --</p>
+<p t="1685430" d="3330">you're seeing that we --
+some idea of dependence</p>
+<p t="1688760" d="3020">or independence
+is in our future.</p>
+<p t="1691780" d="620">Okay.</p>
+<p t="1692400" d="4190">Now I want to speak
+about another vector</p>
+<p t="1696590" d="3870">space, the null space.</p>
+<p t="1700460" d="3430">So again I'm getting
+a little ahead</p>
+<p t="1703890" d="4301">because it's in section three
+point two, but that's okay.</p>
+<p t="1708191" d="499">All right.</p>
+<p t="1708690" d="3180">Now I'm ready for
+the null space.</p>
+<p t="1711870" d="1470">Let me keep the same matrix.</p>
+<p t="1716830" d="2540">And this is going
+to be a different --</p>
+<p t="1719370" d="2130">totally different subspace.</p>
+<p t="1721500" d="1770">Totally different.</p>
+<p t="1723270" d="1660">Okay.</p>
+<p t="1724930" d="2440">Now -- so let me
+make space for it.</p>
+<p t="1727370" d="2820">Now -- here comes a
+completely different subspace,</p>
+<p t="1730190" d="9930">the null space of A.</p>
+<p t="1740120" d="815">What's in it?</p>
+<p t="1744240" d="5830">It contains not
+right-hand sides b.</p>
+<p t="1750070" d="2680">It contains x-s.</p>
+<p t="1752750" d="3820">It contains all
+x-s that solve --</p>
+<p t="1756570" d="1470">this word null is going to --</p>
+<p t="1758040" d="4540">I mean, that's the key
+word here, meaning zero.</p>
+<p t="1762580" d="8090">So this contains --
+this is all solutions x,</p>
+<p t="1770670" d="5780">and of course x is our
+vectors, x1, x2 and x3,</p>
+<p t="1776450" d="4770">to the equation A x=0.</p>
+<p t="1783800" d="4000">Well, four equations,
+because we've got --</p>
+<p t="1787800" d="2430">so, do you see what I'm doing?</p>
+<p t="1790230" d="3660">I'm now saying, okay,
+columns were great,</p>
+<p t="1793890" d="2120">the column space we understood.</p>
+<p t="1796010" d="3250">Now I'm interested in x-s.</p>
+<p t="1799260" d="3600">I'm not -- the only b I'm
+interested in now is the b</p>
+<p t="1802860" d="810">of all zeroes.</p>
+<p t="1803670" d="2630">The right-hand
+side is now zeroes.</p>
+<p t="1806300" d="2250">And I'm interested in solutions.</p>
+<p t="1812140" d="670">x-s.</p>
+<p t="1812810" d="5930">So t- where is this null
+space for this example?</p>
+<p t="1818740" d="4860">These x-s are -- have
+three components.</p>
+<p t="1823600" d="2710">So the null space
+is a subspace --</p>
+<p t="1826310" d="5080">we still have to show it
+is a subspace -- of R^3.</p>
+<p t="1831390" d="4200">So this is -- and
+we will show --</p>
+<p t="1835590" d="10630">these vectors x, this is in
+R^3, where the column space was</p>
+<p t="1846220" d="4690">in R^4 in our example.</p>
+<p t="1850910" d="7430">For an m by n matrix,
+this is m and this is n,</p>
+<p t="1858340" d="2230">because the number
+of columns, n,</p>
+<p t="1860570" d="2430">tells me how many
+unknowns, how many x-s</p>
+<p t="1863000" d="2950">multiply those
+columns, so it tells me</p>
+<p t="1865950" d="4530">the big space, in this
+case R three that I'm in.</p>
+<p t="1870480" d="3820">Now tell me -- why don't we
+figure out what the null space</p>
+<p t="1874300" d="6010">is for this example,
+just by looking at it.</p>
+<p t="1880310" d="4430">I mean, that's the
+beauty of small examples,</p>
+<p t="1884740" d="5760">that my official way to find
+null spaces and column spaces</p>
+<p t="1890500" d="5700">and get all the facts
+straight would be elimination,</p>
+<p t="1896200" d="1140">and we'll do that.</p>
+<p t="1897340" d="2780">But with a small example,
+we can see that --</p>
+<p t="1900120" d="3030">see what's going on without
+going through the mechanics</p>
+<p t="1903150" d="800">of elimination.</p>
+<p t="1903950" d="4720">So this null space --</p>
+<p t="1908670" d="2870">so I'm talking about --
+again, the null space,</p>
+<p t="1911540" d="1980">and let me copy
+again the matrix.</p>
+<p t="1916530" d="7660">One two three four, one one one
+one and two three four five.</p>
+<p t="1924190" d="1140">What's in the null space?</p>
+<p t="1925330" d="6080">So I'm taking A times x,
+so let me right it again,</p>
+<p t="1931410" d="4605">and I want you to solve
+those four equations.</p>
+<p t="1939500" d="1990">In fact, I want you
+to find all solutions</p>
+<p t="1941490" d="2860">to those four equations.</p>
+<p t="1944350" d="2520">Well, actually, just
+first of all find one.</p>
+<p t="1946870" d="1550">Why should I ask
+you for all of them?</p>
+<p t="1948420" d="2600">Tell me one -- well, tell
+me one solution that y-</p>
+<p t="1951020" d="4640">you don't even have to look at
+the matrix to know one solution</p>
+<p t="1955660" d="2370">to this set of equations.</p>
+<p t="1958030" d="3400">It is zero vector.</p>
+<p t="1961430" d="5380">Whatever that matrix is, its
+null space contains zero --</p>
+<p t="1966810" d="4210">because A times the zero vector
+sure gives the zero right-hand</p>
+<p t="1971020" d="640">side.</p>
+<p t="1971660" d="4040">So the null space
+certainly contains zero.</p>
+<p t="1975700" d="2520">A- so it's got a chance
+to be a vector space now,</p>
+<p t="1978220" d="1980">and it will turn out it is.</p>
+<p t="1980200" d="680">Okay.</p>
+<p t="1980880" d="3300">Tell me another solution.</p>
+<p t="1984180" d="3620">So this particular null space --
+and of course I'm going to call</p>
+<p t="1987800" d="3310">it N(A) for null space --</p>
+<p t="1991110" d="6050">this contains-- well we've
+already located the zero</p>
+<p t="1997160" d="3810">vector, and now you're going
+to tell me another vector</p>
+<p t="2000970" d="3580">that's in the null space,
+another solution, another x,</p>
+<p t="2004550" d="1790">another --</p>
+<p t="2006340" d="1800">you see what I'm
+asking you for is</p>
+<p t="2008140" d="1810">a combination of those columns.</p>
+<p t="2009950" d="3200">That's what I'm always looking
+at combinations of columns,</p>
+<p t="2013150" d="7650">but now I'm looking at the
+weights, the coefficients</p>
+<p t="2020800" d="910">in the combination.</p>
+<p t="2021710" d="4910">So tell me a good set of
+numbers to put in there.</p>
+<p t="2026620" d="3800">One one -- STUDENTS: Minus one.</p>
+<p t="2030420" d="1110">STRANG: One one minus one.</p>
+<p t="2031530" d="1810">Thanks.</p>
+<p t="2033340" d="1940">One one minus one.</p>
+<p t="2035280" d="1450">So there's a vector
+that's in it.</p>
+<p t="2039260" d="990">Okay.</p>
+<p t="2040250" d="2350">But have I got a
+subspace at this point?</p>
+<p t="2042600" d="2090">Certainly not, right?</p>
+<p t="2044690" d="2160">I've got just a
+couple of vectors.</p>
+<p t="2046850" d="2010">No way they make a subspace.</p>
+<p t="2048860" d="4080">Tell me -- actually, why don't
+I jump the whole way now?</p>
+<p t="2052940" d="3900">Tell me -- well, tell
+me one more solution,</p>
+<p t="2056840" d="2620">one more X that would work.</p>
+<p t="2059460" d="1739">Student: 2 2 -2.</p>
+<p t="2061199" d="1321">STRANG: 2 2 -2?</p>
+<p t="2062520" d="5230">Oh, well, tell me all of them,
+that would have been easier.</p>
+<p t="2067750" d="2620">Tell me the whole lot, now.</p>
+<p t="2070370" d="4019">What is the null
+space for this matrix?</p>
+<p t="2074389" d="4281">It's all vectors of the
+form -- what could this be?</p>
+<p t="2078670" d="6230">It could be one one minus one,
+it could be it could be any</p>
+<p t="2084900" d="5980">number C, any number -- the
+same number again and --</p>
+<p t="2090880" d="1130">STUDENTS: Minus.</p>
+<p t="2092010" d="1410">STRANG: Minus C.</p>
+<p t="2093420" d="1590">In other words --</p>
+<p t="2095010" d="4900">actually, any
+multiple of this guy.</p>
+<p t="2099910" d="2360">Oh, that's the
+perfect description,</p>
+<p t="2102270" d="5780">because now the zero vector's
+automatically included</p>
+<p t="2108050" d="1990">because C could be zero.</p>
+<p t="2110040" d="2770">The vector I had is included,
+because C could be one.</p>
+<p t="2112810" d="1940">But now any vector.</p>
+<p t="2114750" d="2110">And that's actually it.</p>
+<p t="2120830" d="3620">And do I have a subspace?</p>
+<p t="2124450" d="1610">And what does it look like?</p>
+<p t="2126060" d="4560">It's in -- how would you
+describe this, the null space,</p>
+<p t="2130620" d="5190">this -- all these vectors of
+this form C C minus C, like,</p>
+<p t="2135810" d="2920">seven seven minus seven.</p>
+<p t="2138730" d="2350">Minus eleven minus
+eleven plus eleven.</p>
+<p t="2141080" d="2730">What have I got here?</p>
+<p t="2143810" d="2310">If -- describe that whole
+null space of -- what --</p>
+<p t="2146120" d="4430">if I drew it, what do I draw?</p>
+<p t="2150550" d="1290">A line, right?</p>
+<p t="2151840" d="1510">The null space is a line.</p>
+<p t="2153350" d="9374">It's the line through -- in R^3
+and the vector one one negative</p>
+<p t="2162724" d="2416">one maybe goes down here, I
+don't know where it goes, say,</p>
+<p t="2165140" d="1390">down here.</p>
+<p t="2166530" d="6130">There's the vector one one
+negative one that you gave me.</p>
+<p t="2172660" d="2950">And where is the
+vector C C negative C?</p>
+<p t="2175610" d="1440">It's on this line.</p>
+<p t="2177050" d="2750">Of course, there's zero
+zero zero that we had.</p>
+<p t="2179800" d="3920">And what we've got is that whole
+-- oops -- that whole line,</p>
+<p t="2183720" d="4920">going both ways,
+through the origin.</p>
+<p t="2188640" d="2390">The null space is a line in R^3.</p>
+<p t="2195970" d="1960">Okay.</p>
+<p t="2197930" d="5110">For that example, we could
+find all the combinations</p>
+<p t="2203040" d="3550">of the columns that
+gave zero at sight.</p>
+<p t="2206590" d="5010">Now, can I just
+take one more time,</p>
+<p t="2211600" d="6260">to go back to the definition
+of subspace, vector space,</p>
+<p t="2217860" d="3200">and ask you --</p>
+<p t="2221060" d="4340">how do I know that the null
+space is a vector space?</p>
+<p t="2225400" d="3210">How I entitled to
+use this word space?</p>
+<p t="2228610" d="4460">I'll never use that word space
+without meaning that the two</p>
+<p t="2233070" d="2730">requirements are satisfied.</p>
+<p t="2235800" d="2450">Can we just check that they are?</p>
+<p t="2238250" d="2560">So I'm going to check that --</p>
+<p t="2240810" d="1850">can I just continue here?</p>
+<p t="2242660" d="16580">Check that -- that the
+solutions to A x=0 always give</p>
+<p t="2259240" d="3500">a subspace.</p>
+<p t="2262740" d="4960">And, of course, the key
+word is that= "Space."</p>
+<p t="2267700" d="2140">So what do I have to check?</p>
+<p t="2273410" d="3930">I have to show that if I
+have one solution, call it x,</p>
+<p t="2277340" d="3900">and another
+solution, call it x*,</p>
+<p t="2281240" d="4730">that their sum is also
+a solution, right?</p>
+<p t="2285970" d="1320">That's a requirement.</p>
+<p t="2287290" d="2720">To use that word
+space, I have to say --</p>
+<p t="2290010" d="8640">I have to convince myself that
+if A x is zero and also --</p>
+<p t="2298650" d="6490">and A x* is zero, or maybe I
+should have said if A v is zero</p>
+<p t="2305140" d="4990">and A w is zero, then
+what about v plus w?</p>
+<p t="2310130" d="2500">Shall I -- let me
+use those letters.</p>
+<p t="2312630" d="14670">If A v is zero and A w is zero,
+then what -- if that and that,</p>
+<p t="2327300" d="1940">then what's my point here?</p>
+<p t="2329240" d="5930">That A times (v+w) must be zero.</p>
+<p t="2335170" d="4420">That says that if v is in the
+null space and w's in the null</p>
+<p t="2339590" d="4090">space, then their sum
+v+w is in the null space.</p>
+<p t="2343680" d="2570">And of course, now that
+I've written it down,</p>
+<p t="2346250" d="5210">it's totally absurd,
+ridiculously simple --</p>
+<p t="2351460" d="5830">because matrix multiplication
+allows me to separate that out</p>
+<p t="2357290" d="2170">into A v plus A w.</p>
+<p t="2362050" d="1510">I shouldn't say absurdly simple.</p>
+<p t="2363560" d="1280">That was a dumb thing to say.</p>
+<p t="2364840" d="4120">Could -- we've used, here,
+a basic law of matrix</p>
+<p t="2368960" d="1620">multiplication.</p>
+<p t="2370580" d="3490">Actually, we've used it without
+proving it, but that's okay.</p>
+<p t="2374070" d="5270">We only live so long,
+we just skip that proof.</p>
+<p t="2379340" d="3480">I think it's called the
+distributive law that I can</p>
+<p t="2382820" d="2950">split these -- split
+this into two pieces.</p>
+<p t="2385770" d="6380">But now you see the point, that
+A v is zero and A w is zero</p>
+<p t="2392150" d="2370">so I have zero plus
+zero and I do get zero.</p>
+<p t="2394520" d="1910">It checks.</p>
+<p t="2396430" d="5640">And, similarly, I have to
+show that if A v is zero,</p>
+<p t="2402070" d="8060">then A times any multiple,
+say 12v is also zero.</p>
+<p t="2410130" d="1460">And how do I know that?</p>
+<p t="2411590" d="3310">Because I'm allowed to s-
+bring that twelve outside.</p>
+<p t="2414900" d="5740">A number, a scaler can move
+outside, so I have twelve A vs,</p>
+<p t="2420640" d="1100">twelve zeroes --</p>
+<p t="2421740" d="2220">I have zero.</p>
+<p t="2423960" d="1590">Okay.</p>
+<p t="2425550" d="7520">Just to -- it's really
+critical to understand the --</p>
+<p t="2433070" d="1320">oh yeah.</p>
+<p t="2434390" d="3830">Here -- I was going to say,
+understand what's the point</p>
+<p t="2438220" d="1250">of a vector space?</p>
+<p t="2439470" d="5320">Let me make that point by
+changing the right-hand side.</p>
+<p t="2444790" d="1130">Oops.</p>
+<p t="2445920" d="500">Okay.</p>
+<p t="2446420" d="3320">Let me change the right-hand
+side to one two three four.</p>
+<p t="2449740" d="1892">Oh, okay.</p>
+<p t="2451632" d="2208">Why don't we do all of linear
+algebra in one lecture,</p>
+<p t="2453840" d="1050">then we --</p>
+<p t="2454890" d="1010">okay.</p>
+<p t="2455900" d="4600">I would like to know the
+solutions to this equation.</p>
+<p t="2460500" d="1170">For those four equations.</p>
+<p t="2465060" d="1600">So I have four equations.</p>
+<p t="2466660" d="2379">I have only three
+unknowns, so if I</p>
+<p t="2469039" d="1791">don't have a pretty
+special right-hand side</p>
+<p t="2470830" d="1810">there won't be any
+solution at all.</p>
+<p t="2472640" d="3430">But that is a very
+special right-hand side.</p>
+<p t="2476070" d="5380">And we know that there is
+a solution, one zero zero.</p>
+<p t="2481450" d="2280">Were there any more solutions?</p>
+<p t="2483730" d="3590">And did they form
+a vector space?</p>
+<p t="2487320" d="1280">Okay.</p>
+<p t="2488600" d="2950">So I'm asking two
+questions there.</p>
+<p t="2491550" d="3980">One is, do -- so my right-hand
+side now is not zero anymore.</p>
+<p t="2495530" d="1570">I'm not looking
+at the null space</p>
+<p t="2497100" d="2970">because I changed from zeroes.</p>
+<p t="2500070" d="5860">So my first question is, do
+the solutions, if there are any</p>
+<p t="2505930" d="4680">and there are, do
+they form a subspace?</p>
+<p t="2510610" d="2660">Let's answer that
+question first.</p>
+<p t="2513270" d="940">Yes or no.</p>
+<p t="2514210" d="5430">Do I get a subspace if I
+look at the solutions to --</p>
+<p t="2519640" d="3660">let me go back to x1 x2 x3.</p>
+<p t="2523300" d="5610">I'm looking at all the x-s, at
+all those vectors in R^3 that</p>
+<p t="2528910" d="1470">solve A x -b.</p>
+<p t="2530380" d="3020">The only thing I've changed
+is b isn't zero anymore.</p>
+<p t="2537360" d="3685">Do the x-s, the solutions,
+form a vector space?</p>
+<p t="2545860" d="6810">The solutions to this
+do not form a subspace.</p>
+<p t="2552670" d="3480">The solutions don't, because --</p>
+<p t="2556150" d="2310">how shall I see that?</p>
+<p t="2558460" d="4490">The zero vector is not a
+solution, so I never even got</p>
+<p t="2562950" d="750">started.</p>
+<p t="2563700" d="2390">The zero vector doesn't
+solve this system.</p>
+<p t="2566090" d="5850">I can't -- solutions
+can't be a vector space.</p>
+<p t="2571940" d="3540">Now what are they like?</p>
+<p t="2575480" d="3330">Well, we'll see this, but
+let's do it for this example.</p>
+<p t="2578810" d="3390">So one zero zero was a solution.</p>
+<p t="2582200" d="1490">You saw that right away.</p>
+<p t="2583690" d="1620">Are there any other solutions?</p>
+<p t="2585310" d="3420">Can you tell me
+a second solution</p>
+<p t="2588730" d="1700">to this system of equations?</p>
+<p t="2590430" d="4540">STUDENTS: 0 -1 1 STRANG: 0 -1 1.</p>
+<p t="2594970" d="4590">Boy, that's -- 0 -1 1.</p>
+<p t="2599560" d="1120">Yes.</p>
+<p t="2600680" d="3410">Because that says I take minus
+this column plus this one</p>
+<p t="2604090" d="700">and sure enough.</p>
+<p t="2604790" d="2940">That's right.</p>
+<p t="2607730" d="3020">So there are -- there's a
+bunch of solutions here.</p>
+<p t="2615160" d="2140">But they're not a subspace.</p>
+<p t="2617300" d="1240">I'll tell you what it's like.</p>
+<p t="2618540" d="2920">It's like a plane that
+doesn't go through the origin,</p>
+<p t="2621460" d="2470">or a line that doesn't
+go through the origin.</p>
+<p t="2623930" d="1940">Maybe in this case
+it's a line that</p>
+<p t="2625870" d="2000">doesn't go through
+the origin, if I graft</p>
+<p t="2627870" d="2700">the solutions to A x equal B.</p>
+<p t="2630570" d="2980">So you -- I think
+you've got the idea.</p>
+<p t="2633550" d="3230">Subspaces have to go
+through the origin.</p>
+<p t="2636780" d="4810">If I'm looking at x-s, then
+they'd better solve Ax=0.</p>
+<p t="2641590" d="3100">In a way I've got --</p>
+<p t="2644690" d="6110">my two subspaces that I --
+talking about today are kind</p>
+<p t="2650800" d="6540">of the two ways I can tell
+you what a -- about subspace.</p>
+<p t="2657340" d="2760">If I want to tell you
+about the column space,</p>
+<p t="2660100" d="4680">I tell you a few columns and
+I say take their combinations.</p>
+<p t="2664780" d="2550">Like I build up this subspace.</p>
+<p t="2667330" d="4110">I put in a few vectors, their
+combinations make a subspace.</p>
+<p t="2671440" d="3570">Now, when I went to -- let me
+come back to the one that is</p>
+<p t="2675010" d="1170">a subspace here.</p>
+<p t="2680980" d="3450">Here, when I talked
+about the null space,</p>
+<p t="2684430" d="2530">I didn't tell you what's in it.</p>
+<p t="2686960" d="2390">We had to figure
+out what was in it.</p>
+<p t="2689350" d="3940">What I told you was the
+equations that I'm --</p>
+<p t="2693290" d="1890">that has to be satisfied.</p>
+<p t="2695180" d="1500">You see those --</p>
+<p t="2696680" d="3210">like, those are the two
+natural ways to tell you</p>
+<p t="2699890" d="2570">what's in a subspace.</p>
+<p t="2702460" d="4270">I can either give you a few
+vectors and say fill it out,</p>
+<p t="2706730" d="1930">take combinations --</p>
+<p t="2708660" d="4140">or I can give you a system of
+equations, the requirements</p>
+<p t="2712800" d="4590">that the x-s have to satisfy.</p>
+<p t="2717390" d="3010">And both of those
+ways produce subspaces</p>
+<p t="2720400" d="4680">and they're the important
+ways to construct subspaces.</p>
+<p t="2725080" d="4650">Okay, so today's
+lecture actually got,</p>
+<p t="2729730" d="3530">the essentials of
+three point two,</p>
+<p t="2733260" d="1990">the idea of the null space.</p>
+<p t="2735250" d="2490">Now we have to
+tackle, Wednesday,</p>
+<p t="2737740" d="2750">the job of how do
+we actually get hold</p>
+<p t="2740490" d="3040">of that subspace in an
+example that's bigger</p>
+<p t="2743530" d="2430">and we can't see it just by eye.</p>
+<p t="2745960" d="2810">Okay.</p>
+<p t="2748770" d="8420">See you Wednesday.</p>
+<p t="2757190" d="1550">Thanks.</p>
+</body>
+</timedtext>

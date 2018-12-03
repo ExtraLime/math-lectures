@@ -1,0 +1,1510 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="9670" d="47">PROF.</p>
+<p t="9717" d="2743">PATRICK WINSTON: Well that's
+the Kodo Drummers.</p>
+<p t="12460" d="4830">They're a group of about 30 or
+40 Japanese people who live in</p>
+<p t="17290" d="3590">a village on some island off
+the coast of Japan, and</p>
+<p t="20880" d="3810">preserve traditional
+Japanese music.</p>
+<p t="24690" d="2140">It's an unusual semi
+communal group.</p>
+<p t="26830" d="6670">They generally run about 10
+kilometers before breakfast,</p>
+<p t="33500" d="3230">which is served at 5:00 AM.</p>
+<p t="36730" d="2000">Strange group.</p>
+<p t="38730" d="2730">Wouldn't miss a concert for
+the world, although they,</p>
+<p t="41460" d="2670">alas, don't seem to be
+coming down to the</p>
+<p t="44130" d="2840">Boston area very soon.</p>
+<p t="46970" d="2160">If you go to a concert
+from the Kodo</p>
+<p t="49130" d="2350">Drummers--and you should--</p>
+<p t="51480" d="4400">and if you're no longer young,
+you'll want to bring earplugs.</p>
+<p t="55880" d="7610">Because, as we humans get
+older the dynamic range</p>
+<p t="63490" d="4090">control in our inner ear tends
+to be less effective.</p>
+<p t="67580" d="5320">So that's why a person of my age
+might find some piece of</p>
+<p t="72900" d="2060">music excruciatingly loud,
+whereas you'll</p>
+<p t="74960" d="1030">think it's just fine.</p>
+<p t="75990" d="2210">Because you have better
+automatic gain control.</p>
+<p t="78200" d="4270">Just like in any kind of
+communication device there's a</p>
+<p t="82470" d="3141">control on how intense
+the sound gets.</p>
+<p t="85611" d="4479">Ah, but I go off on a sidebar.</p>
+<p t="90090" d="4220">Many of you have looked
+at me in astonishment</p>
+<p t="94310" d="3312">as I drink my coffee.</p>
+<p t="97622" d="2023">And you have undoubtedly have
+been saying to yourself, you</p>
+<p t="99645" d="3315">know, Winston doesn't look like
+a professional athlete,</p>
+<p t="102960" d="5020">but he seemed to have no trouble
+drinking his coffee.</p>
+<p t="107980" d="3140">So today's material is going
+to be pretty easy.</p>
+<p t="111120" d="2960">So I want to give you the side
+problem of thinking about how</p>
+<p t="114080" d="4750">it's possible for somebody
+to do that.</p>
+<p t="118830" d="680">How is it possible?</p>
+<p t="119510" d="3630">How would you make a computer
+program that could reach out</p>
+<p t="123140" d="4710">and drink a cup of coffee, if
+it wanted a cup of coffee?</p>
+<p t="127850" d="1520">So that's one puzzle I'd
+like you to work on.</p>
+<p t="129370" d="2660">There's another puzzle, too.</p>
+<p t="132030" d="3630">And that puzzle concerns
+diet drinks.</p>
+<p t="135660" d="2410">This is a so-called Diet Coke.</p>
+<p t="142900" d="3020">Yeah, it's ripe.</p>
+<p t="145920" d="7200">If you take a Diet Coke and ask
+yourself, what would a dog</p>
+<p t="153120" d="3780">think a Diet Coke is for?</p>
+<p t="156900" d="3830">That's another puzzle that you
+can work on while we go</p>
+<p t="160730" d="2070">through the material
+of the day.</p>
+<p t="162800" d="2350">So this is our first lecture
+on learning, and I want to</p>
+<p t="165150" d="2640">spend a minute or two in the
+beginning talking about the</p>
+<p t="167790" d="1200">lay of the land.</p>
+<p t="168990" d="3200">And then we'll race through
+some material on nearest</p>
+<p t="172190" d="720">neighbor learning.</p>
+<p t="172910" d="3940">And then we'll finish up
+with the advertised</p>
+<p t="176850" d="2160">discussion of sleep.</p>
+<p t="179010" d="3810">Because I know many of you think
+that because your MIT</p>
+<p t="182820" d="1550">students you're pretty tough,
+and you don't need</p>
+<p t="184370" d="1485">to sleep and stuff.</p>
+<p t="185855" d="4095">And we need to address that
+question before it's too late</p>
+<p t="189950" d="3370">in the semester to get
+back on track.</p>
+<p t="193320" d="410">All right.</p>
+<p t="193730" d="2990">So here's the story.</p>
+<p t="196720" d="1780">Now the way we're going
+to look at learning is</p>
+<p t="198500" d="2290">there are two kinds.</p>
+<p t="200790" d="3990">There's this kind, and
+there's that kind.</p>
+<p t="204780" d="2860">And we're going to talk a little
+bit about both kinds.</p>
+<p t="207640" d="4700">The kind of the right is
+learning based on observations</p>
+<p t="212340" d="1250">of regularity.</p>
+<p t="219750" d="4440">And computers are particularly
+good at this stuff.</p>
+<p t="224190" d="5130">And amongst the things that
+we'll talk about in connection</p>
+<p t="229320" d="2810">with regularity based learning
+are today's topic, which is</p>
+<p t="232130" d="1250">nearest neighbors.</p>
+<p t="239110" d="4410">Then a little bit downstream
+we'll talk about neural nets.</p>
+<p t="248250" d="3090">And then somewhere near the end
+of the segment, we'll talk</p>
+<p t="251340" d="1560">about boosting.</p>
+<p t="257690" d="2519">And these ideas come from
+all over the place.</p>
+<p t="260209" d="3381">In particular, the stuff we're
+talking about today, nearest</p>
+<p t="263590" d="3420">neighbors, is the stuff of which
+the field of pattern</p>
+<p t="267010" d="1250">recognition--</p>
+<p t="274900" d="2790">it's the stuff of which pattern
+recognition journals</p>
+<p t="277690" d="1220">are filled.</p>
+<p t="278910" d="1540">This stuff has been around
+a long time.</p>
+<p t="280450" d="3520">Does that mean it's not good?</p>
+<p t="283970" d="1880">I hope not, because that would
+mean that everything you</p>
+<p t="285850" d="4210">learned in 1801 is not good,
+because the same course was</p>
+<p t="290060" d="2920">taught 1910.</p>
+<p t="292980" d="2970">So it has been around a while,
+but it's extremely useful.</p>
+<p t="295950" d="2030">And it's the first thing to try
+when you have a learning</p>
+<p t="297980" d="2590">problem, because it's
+the simplest thing.</p>
+<p t="300570" d="2630">And you always want to try the
+simplest thing before you try</p>
+<p t="303200" d="4280">something more complex that
+you will be less likely to</p>
+<p t="307480" d="1800">understand.</p>
+<p t="309280" d="2080">So that's nearest neighbors
+and pattern recognitions.</p>
+<p t="311360" d="2700">And the custodians of knowledge
+about neural nets,</p>
+<p t="314060" d="2030">well this is sort of an attempt
+to mimic biology.</p>
+<p t="321930" d="2440">And I'll cast a lot of calumny
+on that when we get down there</p>
+<p t="324370" d="1630">to talk about it.</p>
+<p t="326000" d="3000">And finally, this is the gift
+of the theoreticians.</p>
+<p t="331610" d="3940">So we in AI have invented some
+stuff, we've borrowed some</p>
+<p t="335550" d="2850">stuff, we've stolen some stuff,
+we've championed some</p>
+<p t="338400" d="2120">stuff, and we've improved
+some stuff.</p>
+<p t="340520" d="2690">That's why our discussion of
+learning will reach around all</p>
+<p t="343210" d="2820">of these topics.</p>
+<p t="346030" d="1380">So that's regularity
+based learning.</p>
+<p t="347410" d="2690">And you can think of
+this as the branch</p>
+<p t="350100" d="1250">of bulldozer computing.</p>
+<p t="354200" d="3550">Because, when doing these kinds
+of things, a computer's</p>
+<p t="357750" d="3676">processing information like a
+bulldozer processes gravel.</p>
+<p t="361426" d="3104">Now that's not necessarily a
+good model for all the kinds</p>
+<p t="364530" d="1610">of learning that humans do.</p>
+<p t="366140" d="2670">And after all, learning is one
+of the things that we think</p>
+<p t="368810" d="2230">characterizes human
+intelligence.</p>
+<p t="371040" d="2270">So if we were to build models
+of it and understand that we</p>
+<p t="373310" d="2490">have to go down this
+other branch, too.</p>
+<p t="375800" d="3730">And down this other branch we
+find learning ideas that are</p>
+<p t="379530" d="1250">based on constraint.</p>
+<p t="385490" d="1050">And let's call this the</p>
+<p t="386540" d="1600">human-like side of the picture.</p>
+<p t="393270" d="5040">And we'll talk about ideas
+that enable, for example,</p>
+<p t="398310" d="3920">one-shot learning, where you
+learn something definite from</p>
+<p t="402230" d="2300">each experience.</p>
+<p t="404530" d="1770">And we'll talk about explanation
+based learning.</p>
+<p t="416870" d="8060">By the way, do you learn
+by self explanation?</p>
+<p t="424930" d="500">I think so.</p>
+<p t="425430" d="3790">I had an advisee once, who got
+nothing but A's and F's.</p>
+<p t="429220" d="3380">And I said, what are the
+subjects that you get A's in?</p>
+<p t="432600" d="1820">And why don't you get A's
+in all of your subjects?</p>
+<p t="434420" d="2940">And he said, oh, I get A's in
+the subjects when I convince</p>
+<p t="437360" d="2440">myself the material is true.</p>
+<p t="439800" d="3260">So the learning was a byproduct
+of self explanation,</p>
+<p t="443060" d="2660">an important kind of learning.</p>
+<p t="445720" d="3140">But alas, that's downstream.</p>
+<p t="448860" d="3770">And what we're going to talk
+about today is this path</p>
+<p t="452630" d="4020">through the tree, nearest
+neighbor learning.</p>
+<p t="456650" d="2630">And here's how it works,
+in general.</p>
+<p t="462310" d="3120">Here's just a general picture
+of what we're talking about.</p>
+<p t="465430" d="1700">When you think of pattern
+recognition, or nearest</p>
+<p t="467130" d="3740">neighbor based learning,
+you've got some sort of</p>
+<p t="470870" d="5070">mechanism that generates
+a vector of features.</p>
+<p t="475940" d="1535">So we'll call this the
+feature detector.</p>
+<p t="482790" d="2862">And out comes a vector
+of values.</p>
+<p t="485652" d="3438">And that vector of values
+goes into a</p>
+<p t="489090" d="1595">comparator of some sort.</p>
+<p t="497070" d="4170">And that comparator compares
+the feature vector with</p>
+<p t="501240" d="2456">feature vectors coming from a
+library of possibilities.</p>
+<p t="506960" d="4480">And by finding the closest
+match the comparator</p>
+<p t="511440" d="4020">determines what some
+object is.</p>
+<p t="515460" d="1250">It does recognition.</p>
+<p t="522360" d="5510">So let me demonstrate that with
+these electrical covers.</p>
+<p t="527870" d="5710">Suppose they arrived on an
+assembly line and some robot</p>
+<p t="533580" d="1240">wants to sort them.</p>
+<p t="534820" d="2010">How would it go about
+doing that?</p>
+<p t="536830" d="1250">Well it could easily
+use the nearest</p>
+<p t="538080" d="2160">neighbor sorting mechanism.</p>
+<p t="540240" d="1200">So how would that work?</p>
+<p t="541440" d="1250">Well here's how if would work.</p>
+<p t="545350" d="2140">You would make some
+measurements.</p>
+<p t="547490" d="2820">And it we'll just make some
+measurements in two</p>
+<p t="550310" d="1640">dimensions.</p>
+<p t="551950" d="5080">And one of those measurements
+might be the total area,</p>
+<p t="557030" d="1750">including the area
+of the holes of</p>
+<p t="558780" d="1660">these electrical covers.</p>
+<p t="560440" d="1990">Just so you can follow what I'm
+doing without craning your</p>
+<p t="562430" d="4672">neck, let me see if I can find
+the electrical covers.</p>
+<p t="567102" d="1938">Yes, there they are.</p>
+<p t="569040" d="4040">So we've got one big blank
+one, and several others.</p>
+<p t="573080" d="1840">So we might also measure
+the hole area.</p>
+<p t="580190" d="5130">And this one here, this guy
+here, this big white one has</p>
+<p t="585320" d="3590">no hole area, and its got the
+maximum amount of total area.</p>
+<p t="588910" d="2500">So it will find itself
+at that point in</p>
+<p t="591410" d="5180">this space of features.</p>
+<p t="596590" d="6120">Then we've got the guy
+here, with room for</p>
+<p t="602710" d="1620">four sockets in it.</p>
+<p t="604330" d="2650">That's got the maximum amount
+of hole area, as well as the</p>
+<p t="606980" d="1380">maximum amount of area.</p>
+<p t="608360" d="5820">So it will be right straight
+up, maybe up here.</p>
+<p t="614180" d="6050">Then we have, in addition to
+those two, a blank cover, like</p>
+<p t="620230" d="4440">this, that's got about 1/2 the
+total area that any cover can</p>
+<p t="624670" d="2040">have, so we'll put
+it right here.</p>
+<p t="626710" d="4850">And finally, we've got one
+more of these guys.</p>
+<p t="631560" d="1030">Oh yes, this one.</p>
+<p t="632590" d="3990">1/2 the hole area, and
+1/2 the total area.</p>
+<p t="636580" d="1100">So I don't know, let's see.</p>
+<p t="637680" d="2690">Where will that go?</p>
+<p t="640370" d="4030">Maybe about right here.</p>
+<p t="644400" d="2930">So now our robot is looking on
+the assembly line and it sees</p>
+<p t="647330" d="2240">something coming along, and
+it measures the area.</p>
+<p t="649570" d="1750">And of course, there's noise.</p>
+<p t="651320" d="2520">There's manufacturing
+variability.</p>
+<p t="653840" d="2120">So it won't be precisely
+on top of anything.</p>
+<p t="655960" d="3130">But suppose it's right there.</p>
+<p t="659090" d="2730">Well it doesn't take any
+genius human, human or</p>
+<p t="661820" d="2540">computer, to figure out that
+this must be one of those guys</p>
+<p t="664360" d="2870">with maximum area and
+maximum hole area.</p>
+<p t="670430" d="2450">But now let's ask some
+other questions.</p>
+<p t="672880" d="8715">Where would
+[TAPPING ON CHALK BOARD], what</p>
+<p t="681595" d="1865">would that be?</p>
+<p t="683460" d="1320">Or what would this be?</p>
+<p t="684780" d="3790">[TAPPING ON CHALK BOARD],
+and so on.</p>
+<p t="688570" d="6410">Well we have to figure out
+what those newly viewed</p>
+<p t="694980" d="4182">objects are closest to in order
+to do an identification.</p>
+<p t="699162" d="1188">But that's easy.</p>
+<p t="700350" d="5700">We just calculate the distance
+to all of those standard,</p>
+<p t="706050" d="3930">platonic, ideal descriptions
+of things, and we find out</p>
+<p t="709980" d="1810">which is nearest.</p>
+<p t="711790" d="3820">But in general, it's a little
+easier to think about</p>
+<p t="715610" d="5970">producing some boundaries
+between these various idealize</p>
+<p t="721580" d="2950">places, so that we can just
+say, well which area</p>
+<p t="724530" d="1010">is the object in?</p>
+<p t="725540" d="3360">And then we'll know
+instantaneously to what</p>
+<p t="728900" d="2350">category it belongs.</p>
+<p t="731250" d="3890">So if we only had two, like the
+purple one and the yellow</p>
+<p t="735140" d="1740">one, it would be easy.</p>
+<p t="736880" d="4640">Because, we would just construct
+a line between the</p>
+<p t="741520" d="5770">two, with a line between the
+purple and yellow as a</p>
+<p t="747290" d="2100">perpendicular bisector.</p>
+<p t="749390" d="3160">And so drawing it out instead of
+talking about it, if there</p>
+<p t="752550" d="2720">were only two, that would
+be the boundary line.</p>
+<p t="755270" d="3000">Anything south of the dotted
+line would be purple, and</p>
+<p t="758270" d="2910">anything north would
+be yellow.</p>
+<p t="761180" d="2390">And now we can do this with
+all the points, right?</p>
+<p t="763570" d="2780">So we can figure out-- oh could
+you, Pierre, could you</p>
+<p t="766350" d="4450">just close the lap top please?</p>
+<p t="770800" d="4820">So if we want to do this with
+all these guys it would go</p>
+<p t="775620" d="1770">something like this--</p>
+<p t="777390" d="2060">I better get rid of these
+dotted x's before</p>
+<p t="779450" d="2150">they confuse me.</p>
+<p t="781600" d="3330">Let's see, if these were the
+only two points, then we would</p>
+<p t="784930" d="2530">want to construct a
+perpendicular bisector between</p>
+<p t="787460" d="2302">the line joining them.</p>
+<p t="789762" d="4098">And if these two were the only
+points, I would want to</p>
+<p t="793860" d="3200">construct this perpendicular
+bisector.</p>
+<p t="797060" d="4460">And if these two were the only
+points, I would want to</p>
+<p t="801520" d="2580">construct a perpendicular
+bisector.</p>
+<p t="804100" d="3080">And if these two points were
+the only ones involved I'd</p>
+<p t="807180" d="780">want to construct--</p>
+<p t="807960" d="2520">oh, you see what I'm doing?</p>
+<p t="810480" d="2930">I'm constructing perpendicular
+bisectors, and those are</p>
+<p t="813410" d="5110">exactly the lines that
+I need in order to</p>
+<p t="818520" d="2010">divide up this space.</p>
+<p t="820530" d="1540">And it's going to divide
+up like this.</p>
+<p t="828240" d="1990">And I won't say we'll give you
+a problem like this on an</p>
+<p t="830230" d="4400">examination, but we have every
+year in the past ten.</p>
+<p t="834630" d="3680">To divide up a space
+and produce--</p>
+<p t="838310" d="1420">something we would like
+to give a name.</p>
+<p t="839730" d="2280">You know, Rumpelstiltskin
+effect, when you have a name</p>
+<p t="842010" d="1380">you get power over it.</p>
+<p t="843390" d="1475">So we're going to call these
+decision boundaries.</p>
+<p t="854160" d="2600">OK so those are the simple
+decision boundaries, produced</p>
+<p t="856760" d="4290">in a sample space,
+by a simple idea.</p>
+<p t="861050" d="4980">But there is a little bit
+more to say about this.</p>
+<p t="866030" d="3420">Because, I've talked about this
+as if we're trying to</p>
+<p t="869450" d="2060">identify something.</p>
+<p t="871510" d="3050">There's another way of thinking
+about it that's</p>
+<p t="874560" d="1940">extremely important.</p>
+<p t="876500" d="1680">And that is this.</p>
+<p t="878180" d="5160">Suppose I come in with a brand
+new cover, never before seen.</p>
+<p t="883340" d="9440">And I only measure, well
+let's say I only</p>
+<p t="892780" d="1930">measure the hole area.</p>
+<p t="894710" d="3985">And the hole area
+has that value.</p>
+<p t="901610" d="2990">What is the most likely
+total area?</p>
+<p t="908610" d="1450">Well I don't know.</p>
+<p t="910060" d="3230">But there's a kind of weak
+principle of, if something is</p>
+<p t="913290" d="1960">similar in some respects,
+it's likely to be</p>
+<p t="915250" d="925">similar in other respects.</p>
+<p t="916175" d="2925">So I'm going to guess, if you
+hold a knife to my throat and</p>
+<p t="919100" d="2990">back me into a corner, that it's
+total area is going to be</p>
+<p t="922090" d="5320">something like that orange
+cover whole, total area.</p>
+<p t="927410" d="1930">So this is a contrived example,
+and I don't make too</p>
+<p t="929340" d="460">much of it.</p>
+<p t="929800" d="3110">But I do want to make
+a lot of that first</p>
+<p t="932910" d="720">principal, over there.</p>
+<p t="933630" d="2570">And that is the idea that, if
+something is similar in some</p>
+<p t="936200" d="3540">respects, it's likely to be
+similar in other respects.</p>
+<p t="939740" d="5380">Because that's what most
+of education is about.</p>
+<p t="945120" d="2870">Fairy tales, legal
+cases, medical</p>
+<p t="947990" d="1770">cases, business cases--</p>
+<p t="949760" d="2410">if you can see that there are
+similar in some respects to a</p>
+<p t="952170" d="2900">situation you've got now, then
+it's likely that they're going</p>
+<p t="955070" d="2790">to be similar in other
+respects, as well.</p>
+<p t="957860" d="2255">So when we're learning, we're
+not just learning to recognize</p>
+<p t="960115" d="2625">a category, we're learning
+because we're attempting to</p>
+<p t="962740" d="3650">apply some kind of precedent.</p>
+<p t="966390" d="2606">That's the story on that.</p>
+<p t="968996" d="2594">Well that's a simple idea but
+does it have any application?</p>
+<p t="971590" d="2220">The answer is sure.</p>
+<p t="973810" d="1660">Here's an example.</p>
+<p t="975470" d="3260">My second example, the example
+of cell identification.</p>
+<p t="978730" d="1330">Suppose you have some
+white blood cells,</p>
+<p t="980060" d="1250">what might you do?</p>
+<p t="983390" d="2570">You might measure the total
+area of the cell.</p>
+<p t="985960" d="2380">And not the hole area, but
+maybe the nucleus area.</p>
+<p t="993290" d="3395">And maybe you might measure four
+or five other things, and</p>
+<p t="996685" d="1615">put this thing in a high
+dimensional space.</p>
+<p t="998300" d="3560">You can still measure
+the nearness in a</p>
+<p t="1001860" d="840">high dimensional space.</p>
+<p t="1002700" d="1320">So you can use the
+idea to do that.</p>
+<p t="1004020" d="1760">It works pretty well.</p>
+<p t="1005780" d="3160">A friend of mine once started a
+company based on this idea.</p>
+<p t="1008940" d="2550">He got wiped out, of course,
+but it wasn't his fault.</p>
+<p t="1011490" d="3180">What happened is that somebody
+invented a better stain and it</p>
+<p t="1014670" d="2000">became much easier
+to just do the</p>
+<p t="1016670" d="3360">recognition by brute force.</p>
+<p t="1020030" d="2810">So let's see, that's
+two examples.</p>
+<p t="1022840" d="3930">the introductory example of the
+holes of the electrical</p>
+<p t="1026770" d="3040">covers, and the example
+of cells.</p>
+<p t="1029810" d="4360">And what I want to do now is
+show you how the idea can</p>
+<p t="1034170" d="3770">reappear in disguised forms in
+areas where you might not</p>
+<p t="1037940" d="2070">expect to see it.</p>
+<p t="1040010" d="2300">So consider the following
+problem.</p>
+<p t="1042310" d="6760">You have a collection of
+articles from magazines.</p>
+<p t="1049070" d="4990">And you're interested in
+learning something about how</p>
+<p t="1054060" d="1860">to address a particular
+question.</p>
+<p t="1055920" d="2590">How do you go about finding the
+articles that are relevant</p>
+<p t="1058510" d="1910">to your question?</p>
+<p t="1060420" d="5750">So this is a puzzle that has
+been studied for decades by</p>
+<p t="1066170" d="2730">people interested in information
+retrieval.</p>
+<p t="1068900" d="1490">And here's the simple
+way to do it.</p>
+<p t="1073390" d="5620">I'm going to illustrate, once
+again, in just two dimensions.</p>
+<p t="1079010" d="3830">But it has to be applied in
+many, many dimensions.</p>
+<p t="1082840" d="5090">The idea is you count up the
+words in the articles in your</p>
+<p t="1087930" d="4440">library, and you compare the
+word counts to the word counts</p>
+<p t="1092370" d="1500">in your probing question.</p>
+<p t="1096500" d="3980">So you might be interested
+in 100 words.</p>
+<p t="1100480" d="3510">I'm only going to write two on
+the board for illustration.</p>
+<p t="1103990" d="5860">So we're going to think about
+articles from two magazines.</p>
+<p t="1109850" d="1650">Well first of all, what words
+are we going to use?</p>
+<p t="1111500" d="6660">One word is going to be hack,
+and that will include all</p>
+<p t="1118160" d="3390">derivatives of hack-- hacker,
+hacking, and so on.</p>
+<p t="1121550" d="2000">And the other word is going
+to be computer.</p>
+<p t="1129390" d="3860">And so it would not be
+surprising for you to see that</p>
+<p t="1133250" d="3230">articles from Wired Magazine
+might appear</p>
+<p t="1136480" d="2310">in places like this.</p>
+<p t="1138790" d="3530">They would involve lots of uses
+of the word computer, and</p>
+<p t="1142320" d="3350">lots of uses of the word hack.</p>
+<p t="1145670" d="2510">And now for the sake of
+illustration, the second</p>
+<p t="1148180" d="3500">magazine from which we are going
+to draw articles is Town</p>
+<p t="1151680" d="2020">and Country.</p>
+<p t="1153700" d="4130">It's a very tony magazine, and
+the people who read out Town</p>
+<p t="1157830" d="3530">and Country tend to be
+social parasites.</p>
+<p t="1161360" d="4570">And they still use
+the word hack.</p>
+<p t="1165930" d="2400">Because you can talk about
+hacking, there's some sort of</p>
+<p t="1168330" d="3750">specialize term of art in
+dealing with horses.</p>
+<p t="1172080" d="5680">So all the Town and Country
+articles would be likely to be</p>
+<p t="1177760" d="3220">down here somewhere.</p>
+<p t="1180980" d="5130">And maybe they would be one like
+that when they talk about</p>
+<p t="1186110" d="2850">hiring some computer expert to
+keep track of the results so</p>
+<p t="1188960" d="4980">the weekly hunt, or something.</p>
+<p t="1193940" d="3010">And now, in you come
+with your probe.</p>
+<p t="1196950" d="2480">And of course your probe
+question is going to be</p>
+<p t="1199430" d="1790">relatively small.</p>
+<p t="1201220" d="2290">It's not going to have
+a lot of words in it.</p>
+<p t="1203510" d="2130">So here's your here's
+your probe question.</p>
+<p t="1205640" d="1250">Here's your unknown.</p>
+<p t="1211670" d="2170">Which article's going
+to be closest?</p>
+<p t="1213840" d="3104">Which articles are going
+to be closest?</p>
+<p t="1216944" d="5636">Well, alas, all those Town and
+Country articles are closest.</p>
+<p t="1222580" d="4940">So you can't use the nearest
+neighbor idea, it would seem.</p>
+<p t="1227520" d="1710">Anybody got a suggestion
+for how we might</p>
+<p t="1229230" d="1340">get out of this dilemma?</p>
+<p t="1230570" d="716">Yes, Christopher.</p>
+<p t="1231286" d="3801">CHRISTOPHER: If you're looking
+for word counts and you want</p>
+<p t="1235087" d="3161">to include some terms of
+computer, then wouldn't you</p>
+<p t="1238248" d="2495">want to use that as a threshold,
+rather than the</p>
+<p t="1240743" d="998">nearest neighbor?</p>
+<p t="1241741" d="83">PROF.</p>
+<p t="1241824" d="916">PATRICK WINSTON: I don't
+know, it's a good idea.</p>
+<p t="1242740" d="3752">It might work, who knows.</p>
+<p t="1246492" d="994">Doug?</p>
+<p t="1247486" d="3479">DOUG: Instead of using decision
+boundaries that are</p>
+<p t="1250965" d="4565">perpendicular bisectors, if you
+treated Wired and Town and</p>
+<p t="1255530" d="3904">Country as sort of this
+like, [INAUDIBLE]</p>
+<p t="1259434" d="976">targets.</p>
+<p t="1260410" d="2928">And they would look like some
+[? great radial ?], here.</p>
+<p t="1263338" d="1952">I guess, some radius
+around curves.</p>
+<p t="1265290" d="2440">If it's within a certain
+radius then--</p>
+<p t="1271634" d="122">PROF.</p>
+<p t="1271756" d="1342">PATRICK WINSTON: Yes?</p>
+<p t="1273098" d="1708">[? SPEAKER 1: Are we, ?]
+necessarily, have it done with</p>
+<p t="1274806" d="1220">some sort of a
+[? politidy distance ?]</p>
+<p t="1276026" d="524">metric?</p>
+<p t="1276550" d="90">PROF.</p>
+<p t="1276640" d="1010">PATRICK WINSTON:
+Oh, here we go.</p>
+<p t="1277650" d="1464">We're not going to use any
+[? politidy distance ?]</p>
+<p t="1279114" d="488">metric.</p>
+<p t="1279602" d="1464">We're going to use some
+other metric.</p>
+<p t="1281066" d="976">SPEAKER 1: Like alogrithmic,
+or whatnot?</p>
+<p t="1282042" d="122">PROF.</p>
+<p t="1282164" d="854">PATRICK WINSTON: Well,
+algorithmic,</p>
+<p t="1283018" d="1464">gees, I don't know.</p>
+<p t="1284482" d="1958">[LAUGHTER]</p>
+<p t="1286440" d="38">PROF.</p>
+<p t="1286478" d="2562">PATRICK WINSTON: Let
+me give you a hint.</p>
+<p t="1289040" d="1840">Let me give you a hint.</p>
+<p t="1290880" d="4840">There are all those articles up
+there, out there, and out</p>
+<p t="1295720" d="3325">there, just for example.</p>
+<p t="1299045" d="2015">And here are the Town and
+Country articles.</p>
+<p t="1301060" d="4150">They're out there, and out
+there, for example.</p>
+<p t="1305210" d="4840">And now our unknown
+is out there.</p>
+<p t="1310050" d="1970">Anybody got an idea now?</p>
+<p t="1312020" d="1090">Hey Brett, what do you think?</p>
+<p t="1313110" d="2760">BRETT: So you sort of
+want the ratio.</p>
+<p t="1315870" d="2770">Or in this case, you can
+take the angle--</p>
+<p t="1318640" d="67">PROF.</p>
+<p t="1318707" d="1563">PATRICK WINSTON: Let's be-- ah,
+there we go, we're getting</p>
+<p t="1320270" d="1790">a little more sophisticated.</p>
+<p t="1322060" d="1260">The angle between what?</p>
+<p t="1323320" d="1940">BRETT: The angle between
+the vectors.</p>
+<p t="1325260" d="121">PROF.</p>
+<p t="1325381" d="1334">PATRICK WINSTON: The vectors.</p>
+<p t="1326715" d="1455">Good.</p>
+<p t="1328170" d="970">So we're going to use
+a different metric.</p>
+<p t="1329140" d="1345">What we're going to do is,
+we're going to forget</p>
+<p t="1330485" d="2325">including a distance, and we're
+going to measure the</p>
+<p t="1332810" d="2340">angle between the vectors.</p>
+<p t="1335150" d="3310">So the angle between the
+vectors, well let's actually</p>
+<p t="1338460" d="3500">measure the cosine of the angle
+between the vectors.</p>
+<p t="1341960" d="2220">Let's see how we can
+calculate that.</p>
+<p t="1344180" d="3790">So we'll take the cosine of the
+angle between the vectors,</p>
+<p t="1347970" d="1600">we'll call it theta.</p>
+<p t="1349570" d="8390">That's going to be equal to the
+sum of the unknown values</p>
+<p t="1357960" d="4700">times the article values.</p>
+<p t="1362660" d="2630">Those are just the values
+in various dimensions.</p>
+<p t="1365290" d="5370">And then we'll divide that
+by the magnitude</p>
+<p t="1370660" d="890">of the other vectors.</p>
+<p t="1371550" d="2880">So we'll divide by the magnitude
+of u, and we'll</p>
+<p t="1374430" d="5860">divide by the magnitude of the
+art vector to the article.</p>
+<p t="1380290" d="2760">So that's just the dot
+product right?</p>
+<p t="1383050" d="2810">That's a very fast
+computation.</p>
+<p t="1385860" d="2215">So with a very fast computation
+you can see if</p>
+<p t="1388075" d="2175">these things are going to be
+in the same direction.</p>
+<p t="1390250" d="5420">By the way, if this vector here
+is actually identical to</p>
+<p t="1395670" d="3310">one of those articles, what
+will the value be?</p>
+<p t="1398980" d="3386">Well then a cosine will be 0 and
+we'll get the maximum die</p>
+<p t="1402366" d="1250">of the cosine, which is 1.</p>
+<p t="1410690" d="1850">Yeah, that will do it.</p>
+<p t="1412540" d="3360">So if we use any of the articles
+to probe the article</p>
+<p t="1415900" d="3330">space, they'll find themselves,
+which is a good</p>
+<p t="1419230" d="3850">thing to have a mechanism do.</p>
+<p t="1423080" d="480">OK.</p>
+<p t="1423560" d="2740">So that's just the dot product
+of those two vectors.</p>
+<p t="1426300" d="2920">And it works like a charm.</p>
+<p t="1429220" d="1610">It's not the most sophisticated
+way of doing</p>
+<p t="1430830" d="790">these things.</p>
+<p t="1431620" d="2530">There are hairy ways.</p>
+<p t="1434150" d="2220">You can get a Ph.D. by doing
+this sort of stuff in some new</p>
+<p t="1436370" d="1140">and sophisticated way.</p>
+<p t="1437510" d="1720">But this is a simple way.</p>
+<p t="1439230" d="1600">It works pretty well.</p>
+<p t="1440830" d="1250">And you don't have to strain
+yourself, much,</p>
+<p t="1442080" d="1910">to implement it.</p>
+<p t="1443990" d="710">So that's cool.</p>
+<p t="1444700" d="2520">That's an example where
+we have a very</p>
+<p t="1447220" d="1250">non-standard metric.</p>
+<p t="1451920" d="2270">Now let's see, what
+else can we do?</p>
+<p t="1454190" d="3790">How about a robotic
+arm control?</p>
+<p t="1457980" d="1450">Here we go.</p>
+<p t="1459430" d="1360">We're going to just
+have a simple arm.</p>
+<p t="1470950" d="5870">And what we want to do is, we
+want to get this arm to move</p>
+<p t="1476820" d="6380">that ball along some trajectory
+at a speed,</p>
+<p t="1483200" d="3840">velocity, and acceleration
+that we have determined.</p>
+<p t="1487040" d="2280">So we've got two
+problems here.</p>
+<p t="1489320" d="3460">Well let's see, we've got two
+problems because, first of</p>
+<p t="1492780" d="6594">all, we've got angles,
+theta 1 and theta 2.</p>
+<p t="1499374" d="5096">It's a 2 degree of 3 of arm, so
+there are only two angles.</p>
+<p t="1504470" d="2750">So the first problem we have
+is the kinematic problem of</p>
+<p t="1507220" d="2370">translating the (x,y)-cordinates
+of the ball,</p>
+<p t="1509590" d="4070">the desired ones, into the
+theta 1, theta 2 space.</p>
+<p t="1513660" d="1970">That's simple kinematic
+problem.</p>
+<p t="1515630" d="1050">No f equals ma there.</p>
+<p t="1516680" d="3430">It Doesn't involve forces,
+or time, or</p>
+<p t="1520110" d="2130">acceleration, anything.</p>
+<p t="1522240" d="2440">Pretty simple.</p>
+<p t="1524680" d="7310">But then we've got the problem
+of getting it to go along that</p>
+<p t="1531990" d="4700">trajectory with positions,
+speeds, and</p>
+<p t="1536690" d="3540">accelerations that we desire.</p>
+<p t="1540230" d="8480">And now you say to me, well I've
+got 801, I can do that.</p>
+<p t="1548710" d="1210">And that's true, you can.</p>
+<p t="1549920" d="2560">Because, it's Newtonian
+mechanics.</p>
+<p t="1552480" d="1330">All you have to do is
+solve the equations.</p>
+<p t="1563830" d="2980">There are the equations.</p>
+<p t="1566810" d="1250">Good luck.</p>
+<p t="1571550" d="1390">Why are they so complicated?</p>
+<p t="1572940" d="2715">Well because of the complicated
+geometry.</p>
+<p t="1575655" d="3195">You notice we've got some
+products of theta 1 and theta</p>
+<p t="1578850" d="1320">2 in there, somewhere,
+I think?</p>
+<p t="1580170" d="1040">You've got theta 2's.</p>
+<p t="1581210" d="2360">I see an acceleration squared.</p>
+<p t="1583570" d="3510">And yeah, there's a theta 1
+dot times a theta 2 dot.</p>
+<p t="1587080" d="2440">A velocity times a velocity.</p>
+<p t="1589520" d="1010">Where the hell did
+that come from?</p>
+<p t="1590530" d="2440">I mean it's supposed to
+be f equals ma, right?</p>
+<p t="1592970" d="1630">Those are Coriolis forces,
+because of</p>
+<p t="1594600" d="3090">the complicated geometry.</p>
+<p t="1597690" d="260">OK.</p>
+<p t="1597950" d="2490">So you hire Berthold Horn, or
+somebody, to work these</p>
+<p t="1600440" d="770">equations out for you.</p>
+<p t="1601210" d="1380">And he comes up with something
+like this.</p>
+<p t="1602590" d="2500">And you try it out and
+it doesn't work.</p>
+<p t="1605090" d="1085">Why doesn't it work?</p>
+<p t="1606175" d="1597">It's Newtonian mechanics,
+I said.</p>
+<p t="1610430" d="4050">It doesn't work because we
+forgot to tell Berthold that</p>
+<p t="1614480" d="2380">there's friction in
+all the joints.</p>
+<p t="1616860" d="1940">And we forgot to tell him that
+they've worn a little bit</p>
+<p t="1618800" d="1670">since yesterday.</p>
+<p t="1620470" d="1680">And we forgot that the
+measurements we make on the</p>
+<p t="1622150" d="2350">lab table are not
+quite precise.</p>
+<p t="1624500" d="2080">So people try to do this.</p>
+<p t="1626580" d="2780">It just doesn't work.</p>
+<p t="1629360" d="1910">As soon as you get a ball of a
+different weight you have to</p>
+<p t="1631270" d="550">start over.</p>
+<p t="1631820" d="2490">It's gross.</p>
+<p t="1634310" d="1250">So I don't know.</p>
+<p t="1635560" d="3430">I can do this sort of thing
+effortlessly, and I couldn't</p>
+<p t="1638990" d="2600">begin to solve those
+equations.</p>
+<p t="1641590" d="820">So let's see.</p>
+<p t="1642410" d="1530">What we're going to do is we're
+going to forget about</p>
+<p t="1643940" d="1370">the problem for a minute.</p>
+<p t="1645310" d="1720">And we're going to talk
+about building</p>
+<p t="1647030" d="3150">ourselves a gigantic table.</p>
+<p t="1650180" d="1390">And here's what's going
+to be on the table.</p>
+<p t="1654320" d="6290">Theta 1, theta 2, theta 3,
+oops, there are only two.</p>
+<p t="1660610" d="2350">So that's theta 1 again,
+but it's the</p>
+<p t="1662960" d="4300">velocity, angular velocity.</p>
+<p t="1667260" d="1310">And then we have the
+accelerations.</p>
+<p t="1673430" d="3255">So we're going to have a big
+table of these things.</p>
+<p t="1676685" d="2095">And what we're going to
+do, is we're going to</p>
+<p t="1678780" d="3360">give this arm a childhood.</p>
+<p t="1682140" d="2130">And we're going to write down
+all the combinations we ever</p>
+<p t="1684270" d="3670">see, every 100 milliseconds,
+or something.</p>
+<p t="1687940" d="3007">And the arm is just going to
+wave around like a kid does in</p>
+<p t="1690947" d="2213">the cradle.</p>
+<p t="1693160" d="3190">And then, we're not
+quite done.</p>
+<p t="1696350" d="2310">Because there are two other
+things we're going to record.</p>
+<p t="1698660" d="2750">Can you guess what they are?</p>
+<p t="1701410" d="2907">There are going to be the torque
+on the first motor, and</p>
+<p t="1704317" d="1522">the torque on the
+second motor.</p>
+<p t="1709970" d="3740">And so now, we've got a whole
+bunch of those records.</p>
+<p t="1716280" d="4680">The question is, what do
+we got to do with it?</p>
+<p t="1720960" d="2660">Well here's what we're
+going to do it.</p>
+<p t="1723620" d="2580">We're going to divide this
+trajectory that we're hoping</p>
+<p t="1726200" d="3170">to achieve, up into
+little pieces.</p>
+<p t="1729370" d="1210">And there's a little piece.</p>
+<p t="1730580" d="2280">And in that little
+piece nothing is</p>
+<p t="1732860" d="1560">going to change much.</p>
+<p t="1734420" d="540">There's going to be an</p>
+<p t="1734960" d="3810">acceleration, velocity, position.</p>
+<p t="1738770" d="3230">And so we can look those
+up in the table that</p>
+<p t="1742000" d="1892">we made in the childhood.</p>
+<p t="1743892" d="4468">And we'll look around and find
+the closest match, and this</p>
+<p t="1748360" d="5600">will be the set of values for
+the positions, velocities, and</p>
+<p t="1753960" d="3270">accelerations that are
+associated with that</p>
+<p t="1757230" d="1650">particular movement.</p>
+<p t="1758880" d="2320">And guess what we can do now?</p>
+<p t="1761200" d="3260">We can say, in the past, the
+torques associated with that</p>
+<p t="1764460" d="3190">particular little piece of
+movement lie right there.</p>
+<p t="1767650" d="2300">So we can just look it up.</p>
+<p t="1769950" d="3740">Now this method was thought
+up and rejected, because</p>
+<p t="1773690" d="2000">computers weren't
+powerful enough.</p>
+<p t="1775690" d="2480">And then, this is the age
+of recycling, right?</p>
+<p t="1778170" d="4455">So the idea got recycled when
+computers got strong enough.</p>
+<p t="1782625" d="3711">And it works pretty well,
+for things like this.</p>
+<p t="1786336" d="4704">But you might say to me, well
+can it do the stuff that we</p>
+<p t="1791040" d="1580">humans can do, like this?</p>
+<p t="1798540" d="4470">And the answer is, let's look.</p>
+<p t="1819070" d="2750">So this is a training
+phase, it's</p>
+<p t="1821820" d="1250">going through its childhood.</p>
+<p t="1842830" d="2110">You see what's happening
+is this.</p>
+<p t="1844940" d="2260">The initial table won't
+be very good.</p>
+<p t="1847200" d="1130">But that's OK.</p>
+<p t="1848330" d="2620">Because there are only a small
+number of things that it's</p>
+<p t="1850950" d="2650">important for you to
+be able to do.</p>
+<p t="1853600" d="1850">So when you try those
+things it's still</p>
+<p t="1855450" d="1890">writing into the table.</p>
+<p t="1857340" d="2320">So the next time you try that
+particular motion, it's going</p>
+<p t="1859660" d="2140">to be better at it, because
+its got better stuff to</p>
+<p t="1861800" d="1010">interpolate [? amongst ?]</p>
+<p t="1862810" d="1490">in that table.</p>
+<p t="1864300" d="2990">So that's why this thing is
+getting better and better as</p>
+<p t="1867290" d="1250">it goes on.</p>
+<p t="1883250" d="1250">That's as good as I was doing.</p>
+<p t="1898290" d="540">Pretty good, don't you think?</p>
+<p t="1898830" d="1630">There's just one thing I want
+to show at the end of this</p>
+<p t="1900460" d="3360">clip just for fun.</p>
+<p t="1903820" d="1650">Maybe you've seen some
+old Zorro movies?</p>
+<p t="1912400" d="1970">So here's a little set up where
+this thing has learned</p>
+<p t="1914370" d="2310">to use a lash.</p>
+<p t="1916680" d="3540">So here's the lash, and there's
+a candle down there.</p>
+<p t="1920220" d="1250">So watch this.</p>
+<p t="1931325" d="1835">Pretty good, don't you think?</p>
+<p t="1933160" d="1680">So how fast does the learning
+take place?</p>
+<p t="1934840" d="3980">Let me go back to that other
+slides and show you.</p>
+<p t="1938820" d="5970">So here's some graphs to show
+you how fast goes, boom.</p>
+<p t="1944790" d="3830">That gives you the curves of how
+well the robot arm can go</p>
+<p t="1948620" d="2670">along a straight line, after
+no practice with just some</p>
+<p t="1951290" d="1910">stuff recorded in the memory.</p>
+<p t="1953200" d="2070">And then with a couple of
+practice runs do give it</p>
+<p t="1955270" d="4850">better values amongst which
+to interpolate.</p>
+<p t="1960120" d="2050">So I think that's pretty cool.</p>
+<p t="1962170" d="3460">So simple, but yet
+so effective.</p>
+<p t="1965630" d="3090">But you still might say, well,
+I don't know, it might be</p>
+<p t="1968720" d="3560">something that can be done
+in special cases.</p>
+<p t="1972280" d="2950">I wonder if old Winston uses
+something like that when he</p>
+<p t="1975230" d="1240">drinks his coffee?</p>
+<p t="1976470" d="1140">Well we' ought to
+do the numbers</p>
+<p t="1977610" d="3440">and see if it's possible.</p>
+<p t="1981050" d="1140">But I don't want to
+use coffee, it's</p>
+<p t="1982190" d="1550">the baseball season.</p>
+<p t="1983740" d="2440">We're approaching the
+World Series.</p>
+<p t="1986180" d="2230">We might as well talk about
+professional athletes.</p>
+<p t="1993640" d="4680">So let's suppose that this
+is a baseball pitcher.</p>
+<p t="1998320" d="2300">And I want to know how much
+memory I'll need to record a</p>
+<p t="2000620" d="1970">whole lot of pitches.</p>
+<p t="2002590" d="1450">Is there a good pitcher
+these days?</p>
+<p t="2004040" d="3670">The Red Socks suck so I
+don't do Red Socks.</p>
+<p t="2007710" d="2530">Clay Buchholz, I guess.</p>
+<p t="2010240" d="2320">I don't know, some pitcher.</p>
+<p t="2012560" d="3820">And what we're going to do, is
+we're going to say for each of</p>
+<p t="2016380" d="3510">these little segments
+were going to record</p>
+<p t="2019890" d="7100">100 bytes per joint.</p>
+<p t="2026990" d="2990">And we've got joints
+all over the place.</p>
+<p t="2029980" d="2250">I don't know how many are
+involved in doing a baseball</p>
+<p t="2032230" d="5940">pitch, but let's just say
+we have had 100 joints.</p>
+<p t="2038170" d="3670">And then we have to divide
+the pitch up</p>
+<p t="2041840" d="2960">into a bunch of segments.</p>
+<p t="2044800" d="2670">So let's just say for sake
+of argument that</p>
+<p t="2047470" d="7749">there are 100 segments.</p>
+<p t="2055219" d="5341">And how many pitches does a
+pitcher throw in a day?</p>
+<p t="2060560" d="319">What?</p>
+<p t="2060879" d="796">SPEAKER 2: In a day?</p>
+<p t="2061675" d="79">PROF.</p>
+<p t="2061754" d="3256">PATRICK WINSTON:
+In a day, yeah.</p>
+<p t="2065010" d="3320">This, we all know,
+is about 100.</p>
+<p t="2068330" d="2280">Everybody knows that
+they take them out</p>
+<p t="2070610" d="6600">after about 100 pitches.</p>
+<p t="2077210" d="2120">So what I want to know is how
+much memory we need to record</p>
+<p t="2079330" d="2670">all the pitches a pitcher
+pitches in his career.</p>
+<p t="2082000" d="2060">So we still have to work on
+this little bit more.</p>
+<p t="2084060" d="2940">How many days a year does
+a pitcher pitch?</p>
+<p t="2087000" d="3750">Well, they've got winter ball,
+and that sort of thing, so</p>
+<p t="2090750" d="6188">let's just approximate
+it as 100.</p>
+<p t="2096938" d="2132">I don't know, some of these may
+be a little high, some of</p>
+<p t="2099070" d="1360">the others may be a low.</p>
+<p t="2100430" d="2220">And of course, the career--</p>
+<p t="2102650" d="1874">just to make things easy--</p>
+<p t="2104524" d="3416">is 100 years.</p>
+<p t="2107940" d="3060">So that's one, two, three,
+four, five, six.</p>
+<p t="2111000" d="4110">So we have 10 to
+the 12th bytes.</p>
+<p t="2115110" d="3230">Is that the hopelessly
+big to store in here?</p>
+<p t="2121184" d="1896">CHRISTOPHER: 10 to 100
+[INAUDIBLE] or</p>
+<p t="2123080" d="2380">just 100 times throwing?</p>
+<p t="2125460" d="35">PROF.</p>
+<p t="2125495" d="1975">PATRICK WINSTON: 100
+pitches in a day--</p>
+<p t="2127470" d="1390">Christopher's asking
+some detail--</p>
+<p t="2128860" d="1930">and what we're gong to do
+is we're going to record</p>
+<p t="2130790" d="2480">everything there is to know
+about one pitch, and then</p>
+<p t="2133270" d="1202">we're going to see how
+many pitches, he</p>
+<p t="2134472" d="1418">pitches in his lifetime.</p>
+<p t="2135890" d="1250">And we're going to
+record all that.</p>
+<p t="2141516" d="928">Trust me.</p>
+<p t="2142444" d="1361">Trust me.</p>
+<p t="2143805" d="3995">OK. so we want to know if this
+is actually a practical scale.</p>
+<p t="2147800" d="1840">And this, by the way, is
+cocktail conversation, who</p>
+<p t="2149640" d="690">knows, right?</p>
+<p t="2150330" d="2840">But it's useful to work out
+these numbers, and know some</p>
+<p t="2153170" d="1610">of these numbers.</p>
+<p t="2154780" d="4910">So the question we have
+to ask is, how much</p>
+<p t="2159690" d="2320">computation is in there?</p>
+<p t="2162010" d="3230">And the first question relevant
+to that is, how many</p>
+<p t="2165240" d="1520">neurons do we have
+in our brain?</p>
+<p t="2169530" d="1120">Volunteer?</p>
+<p t="2170650" d="2090">Neuroscience?</p>
+<p t="2172740" d="2840">No one to volunteer?</p>
+<p t="2175580" d="390">All right.</p>
+<p t="2175970" d="2720">Well this is a number you should
+know, because this is</p>
+<p t="2178690" d="3300">what you've got in there.</p>
+<p t="2181990" d="7880">There are 10 to the 10th neurons
+in the brain, of which</p>
+<p t="2189870" d="2120">10 to the 11th are in the
+cerebellum, alone.</p>
+<p t="2197950" d="1720">What the devil do
+I mean by that?</p>
+<p t="2199670" d="2720">I mean that your cerebellum is
+so full of neurons that it</p>
+<p t="2202390" d="2220">dwarfs the rest of the brain.</p>
+<p t="2204610" d="1830">So if you exclude the
+cerebellum, you've got about</p>
+<p t="2206440" d="1940">10 to 10th neurons.</p>
+<p t="2208380" d="1640">And there about 10 to
+the 11th neurons in</p>
+<p t="2210020" d="730">the cerebellum, alone.</p>
+<p t="2210750" d="2860">What's the cerebellum for?</p>
+<p t="2213610" d="1600">Motor control.</p>
+<p t="2215210" d="2170">Interesting.</p>
+<p t="2217380" d="1310">So we're a little short.</p>
+<p t="2218690" d="2480">Oh, but we forget, that's just
+the number of neurons.</p>
+<p t="2221170" d="3460">We have to count up the
+number of synapses.</p>
+<p t="2224630" d="2430">Because conceivably, we might
+be able to adjust those</p>
+<p t="2227060" d="1590">synapses, right?</p>
+<p t="2228650" d="3020">So how many synapses
+does a neuron have?</p>
+<p t="2231670" d="2350">The answer is, it depends.</p>
+<p t="2234020" d="1835">But the ones in the
+cerebellum--</p>
+<p t="2238940" d="4050">I should be pointing back
+there, I guess--</p>
+<p t="2242990" d="2560">10 to the 5th.</p>
+<p t="2245550" d="6420">So if we add all that up
+we have 10 to the 16th.</p>
+<p t="2251970" d="1250">No problem.</p>
+<p t="2257150" d="1800">It's just that existence proves
+that you don't have to</p>
+<p t="2258950" d="1520">worry too much about
+having storage.</p>
+<p t="2260470" d="3630">So maybe our cerebellum
+functions, in some way, as a</p>
+<p t="2264100" d="2050">gigantic table.</p>
+<p t="2266150" d="3090">And that's maybe how we learn
+motor skills, by filling up</p>
+<p t="2269240" d="6460">that table as we run around
+emerging from the cradle,</p>
+<p t="2275700" d="5070">learning how to manipulate
+ourselves as we go on.</p>
+<p t="2280770" d="4670">So that's the story
+on arm control.</p>
+<p t="2285440" d="5880">Now all this is pretty
+straightforward, easy to</p>
+<p t="2291320" d="1110">understand.</p>
+<p t="2292430" d="3085">And of course, there
+are some problems.</p>
+<p t="2303370" d="11290">Problem number one, what
+if the space of</p>
+<p t="2314660" d="1926">samples looks like this?</p>
+<p t="2316586" d="5834">[TAPPING ON CHALK BOARD]</p>
+<p t="2322420" d="2980">What's going to happen
+in that case?</p>
+<p t="2325400" d="3470">Well what's going to happen
+in that case is that the--</p>
+<p t="2331800" d="1795">let's see, which values are
+going to be more important?</p>
+<p t="2336590" d="2570">The x values, right?</p>
+<p t="2339160" d="2840">The y values are spread out
+all over the place.</p>
+<p t="2342000" d="2470">So you'd like the spread of
+the data to sort of be the</p>
+<p t="2344470" d="2350">same in all the dimensions.</p>
+<p t="2346820" d="1830">So is there anything we
+can do to arrange</p>
+<p t="2348650" d="2060">for that to be true?</p>
+<p t="2350710" d="3110">Sure, we can just normalize
+the data.</p>
+<p t="2353820" d="3650">So we can borrow from our
+statistics course and say,</p>
+<p t="2357470" d="3570">well, let's see, we're
+interested in x.</p>
+<p t="2361040" d="6210">And we know that the variance
+of x is equal to 1 over n</p>
+<p t="2367250" d="7920">times the sum of the values,
+minus the mean value squared.</p>
+<p t="2375170" d="3920">That's a measure of how much
+the data spreads out.</p>
+<p t="2379090" d="4900">So now, instead of using x, we
+can use x prime, which is</p>
+<p t="2383990" d="7390">equal to x over sigma.</p>
+<p t="2391380" d="1740">What's the variance of
+that going to be?</p>
+<p t="2393120" d="4880">x over sigma sub x.</p>
+<p t="2398000" d="1820">Anybody see, instantaneously,
+what the variance of</p>
+<p t="2399820" d="810">that's going be?</p>
+<p t="2400630" d="2350">Or do we have to work it out?</p>
+<p t="2402980" d="3270">It's going to be 1, Work
+out the algebra for me.</p>
+<p t="2406250" d="2220">It's obvious, it's simple.</p>
+<p t="2408470" d="8680">Just substitute x prime into
+this formula for variance, and</p>
+<p t="2417150" d="1395">do the algebraic high
+school manipulation.</p>
+<p t="2418545" d="2175">And you'll see that the variance
+turns out not to be</p>
+<p t="2420720" d="4030">of this new variable, this
+transformed variable you want.</p>
+<p t="2424750" d="5350">So that problem, the non
+uniformity problem, the spread</p>
+<p t="2430100" d="3820">problem, is easy to handle.</p>
+<p t="2448280" d="2980">What about that other problem?</p>
+<p t="2451260" d="1830">No cake without flour?</p>
+<p t="2453090" d="2960">What if it turns out
+that the data--</p>
+<p t="2456050" d="4420">you have two dimensions and the
+answer, actually, doesn't</p>
+<p t="2460470" d="3780">depend on y at all.</p>
+<p t="2464250" d="1250">What will happen?</p>
+<p t="2468500" d="3180">Then you're often going to get
+screwy results, because it'll</p>
+<p t="2471680" d="3770">be measuring a distance
+that is merely</p>
+<p t="2475450" d="2060">confusing the answer.</p>
+<p t="2480160" d="4000">So problem number two is the
+what matters problem.</p>
+<p t="2490722" d="1896">Write it down, what matters.</p>
+<p t="2497360" d="4080">Problem number three is, what
+if the answer doesn't depend</p>
+<p t="2501440" d="1100">on the data at all?</p>
+<p t="2502540" d="3820">Then you've got the trying to
+build a cake without flour.</p>
+<p t="2506360" d="3070">Once somebody asked me--</p>
+<p t="2509430" d="3600">a classmate of mine, who went
+on to become an important</p>
+<p t="2513030" d="2180">executive in an important credit
+card company-- asked me</p>
+<p t="2515210" d="3570">if we could use artificial
+intelligence to determine when</p>
+<p t="2518780" d="2500">somebody was going
+to go bankrupt?</p>
+<p t="2521280" d="1940">And the answer was, no.</p>
+<p t="2523220" d="4710">Because the data available was
+data that was independent of</p>
+<p t="2527930" d="1060">that question.</p>
+<p t="2528990" d="2110">So he was trying to make a cake
+without flour, and you</p>
+<p t="2531100" d="2110">can't do that.</p>
+<p t="2533210" d="1090">So that concludes what
+I want to say</p>
+<p t="2534300" d="740">about nearest neighbors.</p>
+<p t="2535040" d="2710">No I want to talk a little
+bit about sleep.</p>
+<p t="2537750" d="4260">Over there on that left-side
+branch, now disappeared, we</p>
+<p t="2542010" d="2740">talked about the human
+side of learning.</p>
+<p t="2548070" d="3180">And I said something
+about one-shot, an</p>
+<p t="2551250" d="1140">escalation based learning.</p>
+<p t="2552390" d="2720">And what that means is,
+you don't learn</p>
+<p t="2555110" d="1890">without problem solving.</p>
+<p t="2557000" d="2950">And the question is, how is
+problem solving related to how</p>
+<p t="2559950" d="1960">much sleep you get?</p>
+<p t="2561910" d="2420">And to answer questions like
+that, of course, you want to</p>
+<p t="2564330" d="2090">go to the people who are the
+custodians of the kind of</p>
+<p t="2566420" d="1450">knowledge you are
+interested in.</p>
+<p t="2567870" d="2110">And so you would say, who are
+the custodians of knowledge</p>
+<p t="2569980" d="1710">about how much sleep you need?</p>
+<p t="2571690" d="2220">And what happens if
+you don't get it?</p>
+<p t="2573910" d="4110">And the answer is the
+United States Army.</p>
+<p t="2578020" d="2150">Because they're extremely
+interested in what happens</p>
+<p t="2580170" d="4346">when you cross 10 or 12 times
+zones, and have no sleep, and</p>
+<p t="2584516" d="2084">have to perform.</p>
+<p t="2586600" d="1490">So they're very interested
+in that question.</p>
+<p t="2588090" d="1640">And they got even more
+interested after the first</p>
+<p t="2589730" d="2990">Gulf War, which was the
+most studied war in</p>
+<p t="2592720" d="2170">history, up to that time.</p>
+<p t="2594890" d="2860">Because, there were after action
+reports they were full</p>
+<p t="2597750" d="2740">of examples like this.</p>
+<p t="2600490" d="6260">The US Forces, in a certain part
+of the battlefield, and</p>
+<p t="2606750" d="930">drawn up for the night.</p>
+<p t="2607680" d="3360">And those are Bradley fighting
+vehicles, there, and back here</p>
+<p t="2611040" d="2390">Abrams tanks.</p>
+<p t="2613430" d="1340">And they're all just kind
+of settling down for</p>
+<p t="2614770" d="2990">good night's sleep.</p>
+<p t="2617760" d="3350">They've been up for about 36
+hours straight, by the way.</p>
+<p t="2621110" d="7830">When, much to their amazement,
+across their field-of-view</p>
+<p t="2628940" d="4780">came a column of
+Iraqi vehicles.</p>
+<p t="2633720" d="2520">And both sides were enormously
+surprised.</p>
+<p t="2636240" d="2590">A firefight broke out.</p>
+<p t="2638830" d="3770">The lead vehicle, over
+here, on the Iraqi</p>
+<p t="2642600" d="2370">side caught on fire.</p>
+<p t="2644970" d="3140">So these guys, in the Bradley
+fighting vehicles, went around</p>
+<p t="2648110" d="4260">to investigate, whereupon, these
+guys started blasting</p>
+<p t="2652370" d="5220">away, in acts of fratricidal
+fire.</p>
+<p t="2657590" d="5860">And the interesting thing is
+that all these folks here</p>
+<p t="2663450" d="2710">swore in the after action
+reports that they were firing</p>
+<p t="2666160" d="2270">straight ahead.</p>
+<p t="2668430" d="2900">And what happened was their
+ability to put ordnance on</p>
+<p t="2671330" d="1875">target was not impaired
+at all.</p>
+<p t="2673205" d="2885">But their idea of where the
+target was, what the target</p>
+<p t="2676090" d="4010">was, whether it was a target,
+was all screwed up.</p>
+<p t="2680100" d="3850">So this led to a lot of
+experiments in which people</p>
+<p t="2683950" d="860">were sleep deprived.</p>
+<p t="2684810" d="1340">And by the way, you think
+you're a tough</p>
+<p t="2686150" d="870">MIT student, right?</p>
+<p t="2687020" d="1480">These are Army Rangers.</p>
+<p t="2688500" d="3350">It doesn't get any tougher
+than this, believe me.</p>
+<p t="2691850" d="930">So here's one of the</p>
+<p t="2692780" d="2510">experiments that was performed.</p>
+<p t="2695290" d="2450">In those days they had
+what they called</p>
+<p t="2697740" d="3370">fire control teams.</p>
+<p t="2701110" d="2710">And their job is to take
+information from an observer,</p>
+<p t="2703820" d="4960">over here, about a target,
+over here.</p>
+<p t="2711530" d="7350">And tell the artillery, over
+here, where to fire.</p>
+<p t="2718880" d="1290">So they kept some of
+these folks up</p>
+<p t="2720170" d="1850">for 36 hours straight.</p>
+<p t="2722020" d="3760">And after 36 hours they all
+said, we're doing great.</p>
+<p t="2725780" d="2840">And at that time they were
+bringing fire down on</p>
+<p t="2728620" d="6740">hospitals, mosques, churches,
+schools, and themselves.</p>
+<p t="2735360" d="4140">Because, they couldn't do the
+calculations anymore, after 36</p>
+<p t="2739500" d="1810">hours without sleep.</p>
+<p t="2741310" d="3120">And now you say to me, well I'm
+a MIT student, I want to</p>
+<p t="2744430" d="1640">see the data.</p>
+<p t="2746070" d="1320">So let's have a look
+at the data.</p>
+<p t="2761790" d="390">OK.</p>
+<p t="2762180" d="910">So there it goes.</p>
+<p t="2763090" d="8640">That's what happens to you after
+72 hours without sleep.</p>
+<p t="2771730" d="3270">These are simple things to do.</p>
+<p t="2775000" d="2910">Very simple calculations you
+have to do in your head, like</p>
+<p t="2777910" d="3820">adding numbers, spelling words,
+and things like that.</p>
+<p t="2781730" d="2670">So after 72 hours without
+sleep, your performance</p>
+<p t="2784400" d="6460">relative to what you were at
+the beginning is about 30%.</p>
+<p t="2790860" d="1965">So loss of sleep destroys
+ability.</p>
+<p t="2798030" d="10870">[BELL RINGING]</p>
+<p t="2808900" d="1490">Sleep loss accumulates.</p>
+<p t="2810390" d="2440">So you say, well I need
+eight hours of sleep--</p>
+<p t="2812830" d="2315">and what you need, by
+the way, varies--</p>
+<p t="2815145" d="3075">but I'm going to get by was
+seven hours of sleep.</p>
+<p t="2818220" d="4610">So after 20 days of one hour's
+worth of sleep deprivation,</p>
+<p t="2822830" d="2910">you're down about 25%.</p>
+<p t="2825740" d="3920">If you say, well I need eight
+hours of sleep, but I'm going</p>
+<p t="2829660" d="3810">to have to get by with just six,
+after 20 days of that,</p>
+<p t="2833470" d="5980">you're down to about 25% of
+your original capability.</p>
+<p t="2839450" d="1940">So you might say, well
+does caffeine help?</p>
+<p t="2841390" d="2560">Or naps, naps in this case.</p>
+<p t="2843950" d="2350">And the answer is, yes,
+a little bit.</p>
+<p t="2846300" d="3490">Some people argue that you get
+the more affect out of the</p>
+<p t="2849790" d="1830">sleep that you do get if
+you divide it into two.</p>
+<p t="2851620" d="2020">Winston Churchill always
+took a three</p>
+<p t="2853640" d="940">hour nap in the afternoon.</p>
+<p t="2854580" d="2500">He said that way he got a day
+and a half's worth of work out</p>
+<p t="2857080" d="2660">of every day.</p>
+<p t="2859740" d="1190">He got the full amount
+of sleep.</p>
+<p t="2860930" d="1700">But he divided it
+into two pieces.</p>
+<p t="2862630" d="1510">Here's the caffeine one.</p>
+<p t="2864140" d="1290">So caffeine does help.</p>
+<p t="2868540" d="4140">And now you say, well, shoot,
+I think I'm going to take it</p>
+<p t="2872680" d="1030">kind of easy this semester.</p>
+<p t="2873710" d="3390">And I'll just work hard during
+the week before finals.</p>
+<p t="2877100" d="4450">Maybe I won't even bother
+sleeping for the 24 hours</p>
+<p t="2881550" d="3204">before the 6034 final.</p>
+<p t="2884754" d="1166">That's OK.</p>
+<p t="2885920" d="1250">Well let's see what
+will happen.</p>
+<p t="2890780" d="1150">So let's work the numbers.</p>
+<p t="2891930" d="2310">Here is 24 hours.</p>
+<p t="2894240" d="1020">And that's where your</p>
+<p t="2895260" d="3110">effectiveness is after 24 hours.</p>
+<p t="2898370" d="2340">Now let's go over to the same
+amount of effectiveness on the</p>
+<p t="2900710" d="2200">blood alcohol curve.</p>
+<p t="2902910" d="3380">And it's about the level
+at which you</p>
+<p t="2906290" d="2590">would be legally drunk.</p>
+<p t="2908880" d="2490">So I guess what we ought to do
+is to check everybody as they</p>
+<p t="2911370" d="3670">come in for the 6034 final, and
+arrest you if you've been</p>
+<p t="2915040" d="1930">24 hours without sleep.</p>
+<p t="2916970" d="4880">And not let you take any finals
+again, for a year.</p>
+<p t="2921850" d="4860">So if you do all that, you
+might as well get drunk.</p>
+<p t="2926710" d="1690">And now we have one thing
+left to do today.</p>
+<p t="2928400" d="2320">And that is address the original
+question of, why it</p>
+<p t="2930720" d="3800">is that the dogs and cats in the
+world think that the diet</p>
+<p t="2934520" d="3880">drink makes people fat?</p>
+<p t="2938400" d="2200">What's the answer?</p>
+<p t="2940600" d="4560">It's because only fat guys
+like me drink this crap.</p>
+<p t="2945160" d="3420">So since the dogs and cats don't
+have the ability to tell</p>
+<p t="2948580" d="3850">themselves stories, don't have
+that capacity to string</p>
+<p t="2952430" d="2440">together events into narratives,
+they don't have</p>
+<p t="2954870" d="4360">any way of saying, well this is
+a consequence of desiring</p>
+<p t="2959230" d="880">not to be fat.</p>
+<p t="2960110" d="1760">Not a consequence
+of being fat.</p>
+<p t="2961870" d="2100">They don't have that story.</p>
+<p t="2963970" d="1840">And so what they're doing is
+something you have to be very</p>
+<p t="2965810" d="640">careful about.</p>
+<p t="2966450" d="2180">And that thing you have to be
+very careful about is the</p>
+<p t="2968630" d="3300">confusion of correlation
+with cause.</p>
+<p t="2971930" d="2110">They see the correlation, but
+they don't understand the</p>
+<p t="2974040" d="1620">cause, so that's why they
+make a mistake.</p>
+</body>
+</timedtext>

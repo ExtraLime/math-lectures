@@ -1,0 +1,2004 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="500" d="2300">The following content is
+provided under a Creative</p>
+<p t="2800" d="1540">Commons license.</p>
+<p t="4340" d="2320">Your support will help
+MIT OpenCourseWare</p>
+<p t="6660" d="4360">continue to offer high quality
+educational resources for free.</p>
+<p t="11020" d="2620">To make a donation or
+view additional materials</p>
+<p t="13640" d="3725">from hundreds of MIT courses,
+visit MIT OpenCourseWare</p>
+<p t="17365" d="625">at ocw.mit.edu.</p>
+<p t="22802" d="1458">TOM LEIGHTON: This
+week we're going</p>
+<p t="24260" d="2680">to talk about recurrences,
+how to set them up,</p>
+<p t="26940" d="2630">how to model a problem
+as a recurrent problem,</p>
+<p t="29570" d="2380">and then how to solve them.</p>
+<p t="31950" d="3210">This stuff is really useful when
+you get into algorithm design</p>
+<p t="35160" d="1610">and algorithm analysis.</p>
+<p t="36770" d="4290">6006 and 6046, we you
+use this stuff a lot.</p>
+<p t="41060" d="3230">We're going to start with a very
+famous recurrent problem known</p>
+<p t="44290" d="2140">as the Towers of Hanoi problem.</p>
+<p t="46430" d="1490">And I'm guessing
+that many of you</p>
+<p t="47920" d="3380">have seen this problem
+in one form or another.</p>
+<p t="51300" d="2730">In the Tower of
+Hanoi problem, you've</p>
+<p t="54030" d="6230">got three pegs and n disks,
+these little guys here.</p>
+<p t="60260" d="1780">All different sizes.</p>
+<p t="62040" d="5300">And the object is to start
+with a stack like this</p>
+<p t="67340" d="2650">and move the disks
+around so they wind up</p>
+<p t="69990" d="3650">with the stack on another disk.</p>
+<p t="73640" d="5110">Now, the rules are you can
+only move one disk at a time.</p>
+<p t="78750" d="3520">And you can never put a big
+disk over a little disk.</p>
+<p t="82270" d="2450">So that you can't do.</p>
+<p t="84720" d="2180">So that would have to go there.</p>
+<p t="86900" d="2300">Then you could do this.</p>
+<p t="89200" d="5020">And now I've gotten the
+top two moved over to here.</p>
+<p t="94220" d="3430">And the goal is to take
+the minimum number of moves</p>
+<p t="97650" d="3330">to get the whole stack
+moved over to here,</p>
+<p t="100980" d="4030">and to even figure
+out if that's doable.</p>
+<p t="105010" d="6900">Now, this was invented by a
+famous French mathematician</p>
+<p t="111910" d="3560">named Edward Lucas in 1883.</p>
+<p t="115470" d="3280">And in the original
+legend around this puzzle,</p>
+<p t="118750" d="2120">there were 64 disks.</p>
+<p t="120870" d="2900">This one has just seven on it.</p>
+<p t="123770" d="4260">And the story was at
+the beginning of time,</p>
+<p t="128030" d="6360">God placed the 64 disks on
+one of the three golden pegs.</p>
+<p t="134390" d="4510">And he got an order of
+monks whose lifelong mission</p>
+<p t="138900" d="3540">was to move the disks one
+at a time so at the end</p>
+<p t="142440" d="4110">all 64 disks were lined
+up on an adjacent peg.</p>
+<p t="146550" d="3440">And according to legend,
+when that task was done</p>
+<p t="149990" d="4550">the tower would crumble
+and the world would end.</p>
+<p t="154540" d="2980">Sort of explains
+why monks are never</p>
+<p t="157520" d="2230">smiling, because
+they work forever</p>
+<p t="159750" d="2780">and then just
+something bad happens.</p>
+<p t="162530" d="2300">Now, the question we
+want to be able to answer</p>
+<p t="164830" d="3390">is, how long till
+the world ends?</p>
+<p t="168220" d="5080">So we can start with
+a simpler version.</p>
+<p t="173300" d="5640">Say let's take three
+disks and start with that.</p>
+<p t="178940" d="1950">And let's see, is it doable?</p>
+<p t="180890" d="1770">Well, we could.</p>
+<p t="182660" d="14080">That's one, that's two,
+three, four, five, six, seven.</p>
+<p t="196740" d="2080">So it's doable with three disks.</p>
+<p t="198820" d="1360">And we took seven moves.</p>
+<p t="200180" d="2040">Maybe there's a
+better way, and that's</p>
+<p t="202220" d="3200">part of what we'll
+try to study today.</p>
+<p t="205420" d="6092">In fact, what we'd like to know
+is how many moves for n disks?</p>
+<p t="214820" d="1650">And is it even finite?</p>
+<p t="216470" d="5860">So we're going to define t
+sub n to be the minimum number</p>
+<p t="222330" d="7000">of moves for n disks.</p>
+<p t="229330" d="2550">So to take a stack of
+n disks and move them</p>
+<p t="231880" d="2630">to an adjacent peg.</p>
+<p t="234510" d="3500">So, for example, what's t1?</p>
+<p t="238010" d="500">One.</p>
+<p t="238510" d="1350">I got one peg, I just move it.</p>
+<p t="239860" d="1866">That's easy.</p>
+<p t="241726" d="3314">t2, 3.</p>
+<p t="245040" d="2830">Move the little
+guy, move the base,</p>
+<p t="247870" d="2130">move the little guy back on top.</p>
+<p t="250000" d="2090">That's the best you can do.</p>
+<p t="252090" d="4420">And we've seen that
+t3 is at most 7.</p>
+<p t="256510" d="2550">Maybe there's a better way.</p>
+<p t="259060" d="3870">But let's try to first get
+an upper bound on this.</p>
+<p t="262930" d="3290">Any thoughts about how we
+might go about a general upper</p>
+<p t="266220" d="5490">bound for n for this problem?</p>
+<p t="271710" d="3560">Like say I had four disks.</p>
+<p t="275270" d="2270">Any thoughts about
+a strategy where</p>
+<p t="277540" d="1970">we might be able to
+analyze or get an upper</p>
+<p t="279510" d="4060">bound the number of steps
+for four disks here?</p>
+<p t="283570" d="830">Or more disks.</p>
+<p t="284400" d="1156">Any thoughts?</p>
+<p t="285556" d="500">Yeah.</p>
+<p t="287999" d="3413">AUDIENCE: You can look
+at the previous problem</p>
+<p t="291412" d="4478">and then add a certain
+number of [INAUDIBLE].</p>
+<p t="295890" d="1890">TOM LEIGHTON: Look at
+the three disk problem.</p>
+<p t="297780" d="1590">That's a good idea.</p>
+<p t="299370" d="3870">In fact, you know, I could
+look at the three disk problem</p>
+<p t="303240" d="970">recursively.</p>
+<p t="304210" d="1240">I got these three disks.</p>
+<p t="305450" d="4710">Say I move them over a series
+of steps, seven steps at most,</p>
+<p t="310160" d="1875">to put them here.</p>
+<p t="312035" d="1247">What would I do next?</p>
+<p t="316240" d="3760">Move the lower one and then
+do this recurrent problem</p>
+<p t="320000" d="2860">again back.</p>
+<p t="322860" d="3450">All right, so we can take
+a problem with n disks</p>
+<p t="326310" d="3590">and solve it recursively.</p>
+<p t="329900" d="1798">Let's see what happens
+when we do that.</p>
+<p t="335087" d="1583">So let's look at a
+recursive solution.</p>
+<p t="343920" d="2080">And let's draw it for n.</p>
+<p t="346000" d="4220">So the first phase
+that you described</p>
+<p t="350220" d="2210">is I start, here
+are my three pegs,</p>
+<p t="352430" d="3470">and I start with this,
+1, 2, 3 down to end here,</p>
+<p t="355900" d="2270">and nothing on these pegs.</p>
+<p t="358170" d="4350">And I'm going to use recursion
+to take the top and minus 1</p>
+<p t="362520" d="1990">and move them out here.</p>
+<p t="364510" d="1620">So I leave the nth guy there.</p>
+<p t="366130" d="1550">Nothing here.</p>
+<p t="367680" d="5190">And I go 1, 2, to n minus 1.</p>
+<p t="372870" d="5000">How many steps does that move
+take, that series of moves</p>
+<p t="377870" d="2780">take, that phase?</p>
+<p t="380650" d="3090">In terms of t.</p>
+<p t="383740" d="4280">t of n minus 1, because I'm
+taking an n minus 1 disk stack</p>
+<p t="388020" d="960">and moving it.</p>
+<p t="388980" d="3050">So that is tn minus 1 steps.</p>
+<p t="396230" d="4370">All right, now my next
+move is to take this guy</p>
+<p t="400600" d="923">and stick him here.</p>
+<p t="404120" d="2340">So we'll draw that over here.</p>
+<p t="406460" d="3042">So the nth guy moves there and
+I leave all these guys here.</p>
+<p t="412030" d="1430">That's going to be phase two.</p>
+<p t="417840" d="1530">I move the largest disk.</p>
+<p t="424120" d="3470">And how many steps
+did that take?</p>
+<p t="427590" d="910">One step.</p>
+<p t="428500" d="1090">Just move one disk.</p>
+<p t="433430" d="940">One step for that.</p>
+<p t="434370" d="4250">And then my last phase
+is to take all these</p>
+<p t="438620" d="1088">and move them onto here.</p>
+<p t="450240" d="4560">And so then it looks like
+the final result, 1, 2,</p>
+<p t="454800" d="2130">over n minus 1 over n.</p>
+<p t="456930" d="2181">And how many steps
+this phase three take?</p>
+<p t="462200" d="1688">tn minus 1.</p>
+<p t="463888" d="500">Good.</p>
+<p t="467710" d="1950">All right, so we've
+got an algorithm now,</p>
+<p t="469660" d="2420">a recursive algorithm.</p>
+<p t="472080" d="11530">And the total time,
+the number of moves tn</p>
+<p t="483610" d="7210">is at most tn minus 1 plus
+tn minus 1 is 2tn minus 1</p>
+<p t="490820" d="4150">plus the one step up there.</p>
+<p t="494970" d="1960">For example, which
+we already know,</p>
+<p t="496930" d="9140">t3 is at most 2t2 plus 1,
+which is 2 times 3 plus 1 is 7.</p>
+<p t="506070" d="2400">So we already knew we
+could do it in seven.</p>
+<p t="508470" d="4740">What's an upper bound on
+the time to move four disks?</p>
+<p t="513210" d="1349">15.</p>
+<p t="514559" d="1771">OK?</p>
+<p t="516330" d="5060">All right, so t4 is at most 15.</p>
+<p t="521390" d="1680">But maybe there's a better way.</p>
+<p t="523070" d="2670">This is just one way to do it.</p>
+<p t="525740" d="5850">How many people think there's a
+better way than this approach?</p>
+<p t="531590" d="2180">How many people think
+there is no better way?</p>
+<p t="533770" d="1480">All right, very good.</p>
+<p t="535250" d="2320">Yeah, this is the
+best you can do.</p>
+<p t="537570" d="1140">And let's prove that.</p>
+<p t="538710" d="1110">Let's get a lower bound.</p>
+<p t="547500" d="6110">All right, to see why this is
+optimal, think about the step</p>
+<p t="553610" d="3400">where the nth disk moves.</p>
+<p t="557010" d="6590">At some point in our procedure,
+the biggest disk has to move.</p>
+<p t="563600" d="2070">Now, it could move to
+this peg or that peg,</p>
+<p t="565670" d="1030">doesn't really matter.</p>
+<p t="566700" d="3135">But when it moves,
+what do I know</p>
+<p t="569835" d="2415">had to have happened
+before that guy moved?</p>
+<p t="577150" d="5210">Everything on top of it had
+to move to the other peg.</p>
+<p t="582360" d="2480">I started with 1
+through n minus 1 here.</p>
+<p t="584840" d="1570">None of them can be here.</p>
+<p t="586410" d="3270">They all have to be here.</p>
+<p t="589680" d="1290">OK?</p>
+<p t="590970" d="6360">So that means that I have to
+have had tn minus 1 steps.</p>
+<p t="597330" d="10462">So at least tn minus 1 steps
+before the big disk moves.</p>
+<p t="612520" d="1040">All right?</p>
+<p t="613560" d="5290">Then there is the step
+when the big guy moves.</p>
+<p t="618850" d="1720">One step for the
+big guy to move.</p>
+<p t="627954" d="1624">Because it's got to
+move at least once.</p>
+<p t="633490" d="5650">And then after it moves, I got
+to get everything else, one way</p>
+<p t="639140" d="3360">or another, on top of it.</p>
+<p t="642500" d="3610">At some point after the
+last time the big guy moves,</p>
+<p t="646110" d="2780">everything else
+has to go on top.</p>
+<p t="648890" d="2329">And that's another
+tn minus 1 steps.</p>
+<p t="655350" d="8810">So after the last time
+the big guy moves,</p>
+<p t="664160" d="1828">you've got to take
+tn minus 1 steps.</p>
+<p t="670560" d="2080">OK, so that means
+there's a lower bound</p>
+<p t="672640" d="8780">that no matter what you do tn
+is at least 2tn minus 1 plus 1.</p>
+<p t="681420" d="3460">And so in fact, it's equal.</p>
+<p t="684880" d="5850">tn equals 2tn minus 1 plus 1.</p>
+<p t="690730" d="4020">So t3 is 7, t4 is 15.</p>
+<p t="694750" d="4170">Any questions about that?</p>
+<p t="702080" d="2510">All right, well we'd like to
+know how long till the world</p>
+<p t="704590" d="2990">ends, which is t64.</p>
+<p t="707580" d="2860">So we'd like to get
+a formula for t of n.</p>
+<p t="710440" d="3640">We could just compute
+it 64 times and see.</p>
+<p t="714080" d="2157">But much nicer just
+to get a formula.</p>
+<p t="716237" d="2333">And that's what we're going
+to learn how to do this week</p>
+<p t="718570" d="3000">is to get formulas,
+closed form expressions,</p>
+<p t="721570" d="1734">to solve recurrences.</p>
+<p t="723304" d="2166">And there's a bunch of
+different methods you can use</p>
+<p t="725470" d="1910">and we're going to
+talk about them.</p>
+<p t="727380" d="5120">The simplest is to guess the
+answer and then check it.</p>
+<p t="732500" d="4250">It's called guess and
+verify, also known</p>
+<p t="736750" d="1520">as the substitution method.</p>
+<p t="753140" d="3710">Now, what's a good
+guess for t of n?</p>
+<p t="760070" d="1180">2 to the n minus 1.</p>
+<p t="761250" d="7920">You got t of 1 is 1, t of 2 is
+3, t of 3 is 7, t of 4 is 15.</p>
+<p t="769170" d="8560">You won't compute too many
+before you guess that t of n</p>
+<p t="777730" d="1561">is 2 to the n minus 1.</p>
+<p t="782570" d="2330">Now, that doesn't
+mean it's true.</p>
+<p t="784900" d="3860">So how are we going
+to verify that guess?</p>
+<p t="788760" d="2600">What proof technique?</p>
+<p t="791360" d="1240">Induction.</p>
+<p t="792600" d="1460">It just keeps coming back.</p>
+<p t="794060" d="2820">You just never finish
+with induction.</p>
+<p t="796880" d="4292">So we're going to verify
+this by induction.</p>
+<p t="808922" d="1333">What's our induction hypothesis?</p>
+<p t="813020" d="618">Any thoughts?</p>
+<p t="818280" d="910">Right there.</p>
+<p t="819190" d="4480">p of n is going to be that
+tn equals 2 to the n minus 1.</p>
+<p t="823670" d="670">Very typical.</p>
+<p t="827390" d="5280">So the predicate is that t
+of n is 2 to the n minus 1.</p>
+<p t="832670" d="590">Base case.</p>
+<p t="837970" d="2180">We'll pick n equals 1.</p>
+<p t="840150" d="5110">T of 1 is 1 and that
+is 2 to the 1 minus 1.</p>
+<p t="845260" d="1050">So the base case works.</p>
+<p t="849120" d="1716">Now we'll do the inductive step.</p>
+<p t="856950" d="3380">We're going to assume p of n.</p>
+<p t="860330" d="3990">We're going to assume that
+tn equals 2 to the n minus 1</p>
+<p t="864320" d="6620">to prove pn minus 1, which
+is tn plus 1 equals 2</p>
+<p t="870940" d="3030">to the n plus 1 minus 1.</p>
+<p t="873970" d="1990">So a very standard induction.</p>
+<p t="875960" d="3640">So let's look at tn plus 1 now.</p>
+<p t="879600" d="6310">tn plus 1 equals 2n plus 1.</p>
+<p t="885910" d="3310">Yeah, 2tn plus 1.</p>
+<p t="889220" d="2100">Now we plug in here.</p>
+<p t="891320" d="1180">That's just the recurrence.</p>
+<p t="892500" d="3990">Now we plug in using our
+assumption from the induction.</p>
+<p t="896490" d="8090">This is 2 to the
+n minus 1 plus 1.</p>
+<p t="904580" d="750">Multiply the 2.</p>
+<p t="905330" d="2100">That's 2 to the n plus 1.</p>
+<p t="907430" d="4300">Minus 2 plus 1 is minus 1.</p>
+<p t="911730" d="2921">And so we're done.</p>
+<p t="914651" d="1499">All right, so we
+guessed the answer.</p>
+<p t="916150" d="1450">It was a pretty easy guess.</p>
+<p t="917600" d="3487">Very simple to prove
+it by induction.</p>
+<p t="921087" d="583">Any questions?</p>
+<p t="924250" d="1600">All right, how
+long would it take</p>
+<p t="925850" d="5160">me to do all seven disks
+on this puzzle here?</p>
+<p t="931010" d="785">How many steps?</p>
+<p t="935118" d="1942">127 steps.</p>
+<p t="937060" d="3290">How long till the
+end of the world?</p>
+<p t="940350" d="1150">A long time.</p>
+<p t="941500" d="4570">2 to the 64th minus 1 is
+18 billion, billion moves.</p>
+<p t="946070" d="3950">So going to keep those monks
+busy for a little while</p>
+<p t="950020" d="2160">before the world ends.</p>
+<p t="952180" d="4720">Now in general, this method
+is sort of the best method</p>
+<p t="956900" d="1720">for solving a recurrence.</p>
+<p t="958620" d="3330">We'll see lots of examples
+where it works great.</p>
+<p t="961950" d="2580">The only problem is it
+requires that divine insight</p>
+<p t="964530" d="2440">thing, that guess to
+guess the right answer.</p>
+<p t="966970" d="3510">Obviously if we guess the wrong
+answer, it's not going to work.</p>
+<p t="970480" d="5040">Guessing is many times
+easy, but not always.</p>
+<p t="975520" d="2700">So you need other methods
+when you can't guess it.</p>
+<p t="978220" d="3100">The next most common
+method has a lot of names.</p>
+<p t="981320" d="5460">It's called plug and chug,
+expansion, iteration,</p>
+<p t="986780" d="3792">brute force, exhaustion.</p>
+<p t="990572" d="1958">Let me show you how that
+works in this example.</p>
+<p t="1004640" d="1550">OK, so plug and chug.</p>
+<p t="1011040" d="3370">So we'll solve the
+same recurrence.</p>
+<p t="1014410" d="2470">So we've got tn
+equals, and I'm going</p>
+<p t="1016880" d="4150">to write it just
+reversed, 1 plus 2tn.</p>
+<p t="1021030" d="3250">Because I'm going to expand
+out the recurrent term.</p>
+<p t="1024280" d="3829">That's why it's
+called expansion also.</p>
+<p t="1028109" d="3041">Well, that's equal to 1 plus 2.</p>
+<p t="1031150" d="3080">Now I expand this out
+using the recurrence.</p>
+<p t="1034230" d="2836">1 plus 2 tn minus 1.</p>
+<p t="1040048" d="2202">All right, now I do a
+little chugging here.</p>
+<p t="1042250" d="2450">So I plugged here.</p>
+<p t="1044700" d="2389">Now I'll do chug.</p>
+<p t="1047089" d="6331">That's 1 plus 2
+plus 4 tn minus 1.</p>
+<p t="1053420" d="1486">Now I'm going to plug in again.</p>
+<p t="1057580" d="1158">What's that?</p>
+<p t="1058738" d="916">AUDIENCE: [INAUDIBLE].</p>
+<p t="1062700" d="2590">TOM LEIGHTON: You're right.</p>
+<p t="1065290" d="3850">You're right, I've got to get
+minus 1 here and minus 2 here.</p>
+<p t="1069140" d="1170">That is correct.</p>
+<p t="1070310" d="500">Very good.</p>
+<p t="1070810" d="1590">I would have run into trouble.</p>
+<p t="1072400" d="718">That's good.</p>
+<p t="1075730" d="1620">Now I plug in here.</p>
+<p t="1077350" d="7330">1 plus 2 plus 4, 1
+plus 2 tn minus 3.</p>
+<p t="1084680" d="845">Then we do the chug.</p>
+<p t="1099230" d="7540">1 plus 2 plus 4
+plus 8 tn minus 3.</p>
+<p t="1106770" d="2500">All right, and now we're
+going to try to observe</p>
+<p t="1109270" d="1142">the pattern we're getting.</p>
+<p t="1110412" d="2458">So there's a little bit of a
+guess going on in this context</p>
+<p t="1112870" d="980">still.</p>
+<p t="1113850" d="1000">But you see the pattern.</p>
+<p t="1114850" d="1910">We've got powers of 2.</p>
+<p t="1116760" d="930">Pretty easy pattern.</p>
+<p t="1117690" d="2200">So you might say if
+I keep on doing this,</p>
+<p t="1119890" d="3280">I'm going to get 1
+plus 2 plus 4 plus</p>
+<p t="1123170" d="5520">dot dot dot plus 2 to
+the i minus 1 plus 2</p>
+<p t="1128690" d="4274">to the i tn minus i.</p>
+<p t="1132964" d="3966">Got 2 to the 3 tn minus 3 there.</p>
+<p t="1136930" d="4840">And then I take this all the way
+down to i equals n minus 1, 1</p>
+<p t="1141770" d="8460">plus 2 plus 4 plus 2
+to the n minus 2 plus 2</p>
+<p t="1150230" d="2680">to the n minus 1 t1.</p>
+<p t="1155570" d="1730">And t1 is just 1.</p>
+<p t="1161950" d="2710">So I'm just getting the
+sum of the powers of 2</p>
+<p t="1164660" d="2150">up to the n minus 1.</p>
+<p t="1166810" d="3370">And we know what that is
+from last time, for sure.</p>
+<p t="1170180" d="3820">That's just 2 to the n minus 1.</p>
+<p t="1174000" d="2570">So we've derived the answer
+with only a little bit</p>
+<p t="1176570" d="2360">of a-- we had to observe
+the pattern here,</p>
+<p t="1178930" d="1380">which is often easy to do.</p>
+<p t="1180310" d="2670">But now we've
+derived the answer.</p>
+<p t="1182980" d="2190">Now to be really safe,
+we've got to go back</p>
+<p t="1185170" d="2220">and still do verify,
+just to make sure</p>
+<p t="1187390" d="6190">that we didn't make a mistake in
+how we did the derivation here.</p>
+<p t="1193580" d="2030">OK?</p>
+<p t="1195610" d="3600">Any questions about
+that approach?</p>
+<p t="1199210" d="2370">You just keep plugging it
+back into the recurrence,</p>
+<p t="1201580" d="3750">look at the pattern you get, and
+try to guess it from that point</p>
+<p t="1205330" d="2710">and then solve.</p>
+<p t="1208040" d="2876">All right, let's do a little
+more interesting recurrence.</p>
+<p t="1213690" d="1990">This is a fairly famous
+one that comes up</p>
+<p t="1215680" d="4100">in a well known algorithm for
+sorting called merge sort.</p>
+<p t="1219780" d="3110">This is an algorithm
+you'll look at in 6046,</p>
+<p t="1222890" d="1490">one of the many
+sorting algorithms</p>
+<p t="1224380" d="2910">you'll study when you
+take an algorithms class.</p>
+<p t="1239310" d="4430">So you're given n numbers and
+your task is to sort them,</p>
+<p t="1243740" d="1400">put them in order.</p>
+<p t="1245140" d="1750">And you're allowed
+to do comparisons</p>
+<p t="1246890" d="1230">between the numbers.</p>
+<p t="1248120" d="3120">You can think of them as
+you've got a list of names,</p>
+<p t="1251240" d="2140">putting them in
+alphabetical order.</p>
+<p t="1253380" d="3880">How many comparisons do you
+have to do to make that happen?</p>
+<p t="1257260" d="4100">And this is one way to do
+it that's very efficient.</p>
+<p t="1261360" d="3890">So to sort n items.</p>
+<p t="1265250" d="2660">In fact, we're going to look
+at n being a power of 2.</p>
+<p t="1267910" d="5360">Call the items x1, x2, xn.</p>
+<p t="1273270" d="4078">n's going to be a power of
+2 to make it simple for now.</p>
+<p t="1280186" d="1374">The first thing
+we're going to do</p>
+<p t="1281560" d="3120">is recursively
+sort the first half</p>
+<p t="1284680" d="5180">of the items and
+the second half.</p>
+<p t="1289860" d="4100">So we use recursion to short
+the first n over 2 items</p>
+<p t="1293960" d="1680">and the last n over 2 items.</p>
+<p t="1306290" d="2378">And then we're going to
+merge those two sorted lists</p>
+<p t="1308668" d="499">together.</p>
+<p t="1312830" d="2000">So we're going to merge
+this list and that list.</p>
+<p t="1314830" d="4340">So let's see how this works and
+figure out how many comparisons</p>
+<p t="1319170" d="2460">we have to do to sort the list.</p>
+<p t="1329580" d="6560">For example, let's say
+we're sorting this list.</p>
+<p t="1336140" d="9120">10, 7, 23, 5, 2, 4, 3, and 9.</p>
+<p t="1345260" d="4160">So I've got eight numbers
+that I'm going to sort.</p>
+<p t="1349420" d="5690">So the first step is to
+recursively sort that list.</p>
+<p t="1355110" d="9270">And when I do that, I produce,
+so I'm sorting 10, 7, 23, 5.</p>
+<p t="1364380" d="4345">And that produces, let's see,
+I'm going to get 5, 7, 10, 23.</p>
+<p t="1375050" d="4150">And then I recursively
+sort these guys.</p>
+<p t="1379200" d="6230">And that produces
+2, 3, 4, and 9.</p>
+<p t="1388500" d="2350">I've done comparisons,
+but haven't counted them</p>
+<p t="1390850" d="1790">because they're
+in the recursion.</p>
+<p t="1392640" d="3570">Now I'm going to use
+comparisons to merge the lists,</p>
+<p t="1396210" d="5530">And the way I'm
+going to do that is</p>
+<p t="1401740" d="6410">to look at the smallest item
+in each list and compare them.</p>
+<p t="1408150" d="2000">Because I know the
+smallest item overall</p>
+<p t="1410150" d="2070">is either this one or that one.</p>
+<p t="1412220" d="4650">And when I compare 2 to
+5, 2's the smaller one,</p>
+<p t="1416870" d="2280">so I start with 2.</p>
+<p t="1419150" d="3370">And I strike it.</p>
+<p t="1422520" d="4840">What two items do I compare next
+to get the next smallest item?</p>
+<p t="1427360" d="1160">5 and 3.</p>
+<p t="1428520" d="1000">Smallest remaining guys.</p>
+<p t="1429520" d="1590">I get 3.</p>
+<p t="1431110" d="1850">Scratch that guy.</p>
+<p t="1432960" d="2330">And I compare 5 and 4.</p>
+<p t="1435290" d="3020">Get 4, scratch him.</p>
+<p t="1438310" d="2300">And 5 and 9.</p>
+<p t="1440610" d="2110">5 is the smallest.</p>
+<p t="1442720" d="2328">7 and 9.</p>
+<p t="1445048" d="904">7.</p>
+<p t="1445952" d="1048">9 and 10.</p>
+<p t="1449700" d="2220">And actually now I
+don't really have</p>
+<p t="1451920" d="1310">to do any more comparisons.</p>
+<p t="1453230" d="2130">All I've got is one list left.</p>
+<p t="1455360" d="3220">So I can just send
+these guys down.</p>
+<p t="1461330" d="1576">And I produced a sorted list.</p>
+<p t="1467050" d="6360">Now, how many comparisons do
+I have to do in the worst case</p>
+<p t="1473410" d="7210">if this is n over 2 items here
+and this is n over 2 here?</p>
+<p t="1480620" d="3090">How many comparisons
+do I have to do</p>
+<p t="1483710" d="2370">to produce the n item
+sorted list after I</p>
+<p t="1486080" d="3180">have the sub list sorted?</p>
+<p t="1489260" d="1600">What is it?</p>
+<p t="1490860" d="500">n.</p>
+<p t="1491360" d="1980">Very close.</p>
+<p t="1493340" d="4920">n minus 1 is right,
+because every time I</p>
+<p t="1498260" d="4160">do a comparison I pull an
+item and stick it in the list.</p>
+<p t="1502420" d="2600">But once I get down
+to the very last item,</p>
+<p t="1505020" d="2800">just one guy sitting there, I
+don't have to do a comparison.</p>
+<p t="1507820" d="1110">It was just the last guy.</p>
+<p t="1508930" d="2130">I know he's the largest.</p>
+<p t="1511060" d="4230">So it could go up to n
+minus 1 in the worst case.</p>
+<p t="1515290" d="3050">In this situation, I
+actually did n minus 2</p>
+<p t="1518340" d="1840">because I was left with
+two guys at the end,</p>
+<p t="1520180" d="1170">I just bring them down.</p>
+<p t="1521350" d="3130">But it might have been that
+the next largest thing to 23</p>
+<p t="1524480" d="5180">was here and then I would
+have done n minus 1.</p>
+<p t="1529660" d="2080">Any questions?</p>
+<p t="1531740" d="800">Yeah.</p>
+<p t="1532540" d="2840">AUDIENCE: [INAUDIBLE].</p>
+<p t="1535380" d="1765">Would that make it faster?</p>
+<p t="1537145" d="1625">TOM LEIGHTON: Well,
+that's what's going</p>
+<p t="1538770" d="2102">to happen with the recursion.</p>
+<p t="1540872" d="1708">Because the first
+thing we're going to do</p>
+<p t="1542580" d="1708">is when we unfold the
+recursion is you're</p>
+<p t="1544288" d="3322">going to take the first
+half, split it in half,</p>
+<p t="1547610" d="2480">recursively sort them
+and then merge them.</p>
+<p t="1550090" d="2930">So the answer is
+that's going to happen,</p>
+<p t="1553020" d="3130">but we're sort of going to
+hide it by the recursion.</p>
+<p t="1556150" d="4280">All right, you didn't see
+me produce that sorted list.</p>
+<p t="1560430" d="2080">But I would have
+done it by taking</p>
+<p t="1562510" d="2730">10 and 7 sorting them, 5
+and 23 and sorting them</p>
+<p t="1565240" d="2440">and then merging them.</p>
+<p t="1567680" d="1107">OK, any other questions?</p>
+<p t="1571230" d="1750">All right, well let's
+set up the recursion</p>
+<p t="1572980" d="2530">to count how many
+comparisons are</p>
+<p t="1575510" d="3770">needed for the whole thing,
+not just the last merge phase.</p>
+<p t="1594200" d="2025">All right, so let's define.</p>
+<p t="1599250" d="2385">And instead of t sub n,
+I'm going to write t of n</p>
+<p t="1601635" d="985">as a function.</p>
+<p t="1602620" d="1800">Makes no difference,
+but you'll see people</p>
+<p t="1604420" d="2020">do recurrences both ways.</p>
+<p t="1606440" d="2037">t of n or t sub n.</p>
+<p t="1608477" d="1791">It's going to be the
+number of comparisons.</p>
+<p t="1616180" d="6590">Use my merge sort
+to sort n numbers.</p>
+<p t="1622770" d="2083">In the worst case, worst case.</p>
+<p t="1627650" d="6620">All right, so we already
+know that merging</p>
+<p t="1634270" d="9540">takes n minus 1 comparisons
+in the worst case.</p>
+<p t="1643810" d="2405">And you always want to
+prepare for the worst case.</p>
+<p t="1649860" d="5150">How many comparisons are
+used in the recursive</p>
+<p t="1655010" d="6020">steps to sort this list and
+to sort that list, in general.</p>
+<p t="1661030" d="7370">tn over 2 to do
+this list times 2.</p>
+<p t="1668400" d="2120">Because you've got two
+lists of size n over 2.</p>
+<p t="1670520" d="1910">Two sub problems
+besides n over 2.</p>
+<p t="1672430" d="3220">Each takes t of n over 2.</p>
+<p t="1675650" d="8380">All right, so you've got
+2 tn over 2 comparisons</p>
+<p t="1684030" d="1822">for the recursive sorting.</p>
+<p t="1693010" d="11840">That means that t of n equals
+2 t of n over 2 plus n minus 1.</p>
+<p t="1704850" d="2110">And we should say
+what t of 1 is.</p>
+<p t="1706960" d="1848">What's that?</p>
+<p t="1708808" d="2582">What's the time to sort?</p>
+<p t="1711390" d="570">0.</p>
+<p t="1711960" d="2470">You don't do any comparisons
+if there's one item.</p>
+<p t="1714430" d="1586">So we'll set that
+as our base case.</p>
+<p t="1722180" d="4530">All right, so let's
+find the answer.</p>
+<p t="1726710" d="3182">So the first thing to always
+do when you see a recurrence</p>
+<p t="1729892" d="4668">is to take a few values,
+compute a few values,</p>
+<p t="1734560" d="3000">and try to guess the answer.</p>
+<p t="1737560" d="1530">So what's t of 2?</p>
+<p t="1743020" d="640">1.</p>
+<p t="1743660" d="1270">Plug it in.</p>
+<p t="1744930" d="3290">I get 2t of 1, t of
+1's 0, plus 2 minus 1.</p>
+<p t="1748220" d="520">That's 1.</p>
+<p t="1751530" d="1960">And we're only doing
+powers of 4 here.</p>
+<p t="1753490" d="820">Sorry, powers of 2.</p>
+<p t="1754310" d="1410">So I go to t of 4 next.</p>
+<p t="1755720" d="971">What's t of 4?</p>
+<p t="1762420" d="1860">5.</p>
+<p t="1764280" d="4390">Right, because I got double
+this is 2 plus 4 minus 1.</p>
+<p t="1768670" d="1410">That's adding 3.</p>
+<p t="1770080" d="2550">So I get 5.</p>
+<p t="1772630" d="3870">All right, let's look at t of 8.</p>
+<p t="1776500" d="6880">That's twice 5 plus 8 minus 1.</p>
+<p t="1783380" d="500">17.</p>
+<p t="1788320" d="3040">Not so clear what to guess here.</p>
+<p t="1791360" d="3010">We can try one more.</p>
+<p t="1794370" d="5110">T of 16 equals 2 times
+17 plus 16 minus 1</p>
+<p t="1799480" d="7800">equals 34 and 15 is 49.</p>
+<p t="1807280" d="2170">Is that right?</p>
+<p t="1809450" d="1332">34 and 15.</p>
+<p t="1813460" d="1036">Any guesses?</p>
+<p t="1818780" d="1949">You're not going to guess this.</p>
+<p t="1820729" d="1041">That's not going to work.</p>
+<p t="1821770" d="1224">That happens.</p>
+<p t="1822994" d="2166">And a miracle could happen,
+you get a divine insight</p>
+<p t="1825160" d="3570">and guess it, but I
+think it's not likely.</p>
+<p t="1828730" d="4450">All right, so let's
+go to plug and chug.</p>
+<p t="1833180" d="924">See if that works.</p>
+<p t="1844370" d="1887">All right, so now plug and chug.</p>
+<p t="1851620" d="2650">All right, so we
+write down t of n</p>
+<p t="1854270" d="3040">is-- and you always write their
+current part last for plug</p>
+<p t="1857310" d="2520">and chug to keep it simpler.</p>
+<p t="1859830" d="3960">2 t of n over 2.</p>
+<p t="1863790" d="4520">And then I substitute, I
+plug in for t of n over 2.</p>
+<p t="1868310" d="5980">So I have n minus 1
+plus 2 n over 2 minus 1</p>
+<p t="1874290" d="5120">plus 2 t of n over 4.</p>
+<p t="1879410" d="2600">Then I chug.</p>
+<p t="1882010" d="6700">So I have n minus 1
+plus that's n minus 2.</p>
+<p t="1888710" d="2151">Plus 4 tn over 4.</p>
+<p t="1893950" d="1628">All right, then
+we'll plug in here.</p>
+<p t="1901630" d="6075">And I get n over 4 minus
+1 plus 4 tn over 8.</p>
+<p t="1910510" d="855">And now we chug.</p>
+<p t="1917180" d="2970">That's an n here minus a 4.</p>
+<p t="1923080" d="1500">I did something wrong.</p>
+<p t="1924580" d="2090">That should be 2.</p>
+<p t="1926670" d="2982">4 times 2 is 8 tn over 8.</p>
+<p t="1932590" d="4880">All right, can you start to
+guess the pattern here maybe?</p>
+<p t="1937470" d="2350">We probably should do
+one more to be safe.</p>
+<p t="1939820" d="6030">But you got an n minus 1 plus
+an n minus 2 plus an n minus 4.</p>
+<p t="1945850" d="3970">And if we do one more, what's
+the next term going to be?</p>
+<p t="1949820" d="1900">n minus 8.</p>
+<p t="1951720" d="1810">And this is looking
+pretty simple.</p>
+<p t="1953530" d="6300">So we could guess now that
+the pattern is n minus 1</p>
+<p t="1959830" d="5240">plus n minus 2 plus
+n minus 4 all the way</p>
+<p t="1965070" d="4220">out to plus n minus
+2 to the i minus 1</p>
+<p t="1969290" d="6060">plus 2 to the i t
+n over 2 to the i.</p>
+<p t="1975350" d="1810">And now we go all
+the way down where</p>
+<p t="1977160" d="5320">i equals log n, base
+2, and see what we get.</p>
+<p t="1985810" d="5580">1 plus n minus 2 plus all
+the way down n minus 2</p>
+<p t="1991390" d="10880">to the log n minus 1 plus
+2 to the log n t of 1.</p>
+<p t="2002270" d="2800">What's t of 1?</p>
+<p t="2005070" d="710">0.</p>
+<p t="2005780" d="680">That's nice.</p>
+<p t="2006460" d="2220">That goes away.</p>
+<p t="2008680" d="2960">All right, so this is
+not looking so bad.</p>
+<p t="2011640" d="10480">This equals the sum i equals 0
+to log n minus 1 of n minus 2</p>
+<p t="2022120" d="648">to the i.</p>
+<p t="2025102" d="1708">All right, and this
+will be good practice</p>
+<p t="2026810" d="3040">maybe for towards the test.</p>
+<p t="2029850" d="2496">Well, I can split that sum up.</p>
+<p t="2032346" d="9814">i equals 0 to log n minus 1
+of n minus the i equals 0 log</p>
+<p t="2042160" d="1903">n minus 1 of 2 to the i.</p>
+<p t="2046841" d="1099">Well, this is easy.</p>
+<p t="2047940" d="4699">I'm just adding n up a
+total of log n times.</p>
+<p t="2052639" d="1020">So I have n log n.</p>
+<p t="2057150" d="1900">This is just something
+the powers of 2</p>
+<p t="2059050" d="1410">which we know how to do.</p>
+<p t="2060460" d="6199">So that's going to be
+2 to the log n minus 1.</p>
+<p t="2066659" d="7071">And so we get our answer
+is n log n minus 2</p>
+<p t="2073730" d="5980">the log n is just n
+minus 1 is a plus 1.</p>
+<p t="2079710" d="1362">Well, we derived an answer.</p>
+<p t="2083670" d="3390">Let's just go back and
+check some of the values.</p>
+<p t="2087060" d="1810">n equals 1.</p>
+<p t="2088870" d="1980">That's 0 and I get 1 minus 1.</p>
+<p t="2090850" d="1780">It works.</p>
+<p t="2092630" d="2529">n equals 2.</p>
+<p t="2095159" d="4881">2 log 2 is 2 minus 2 plus 1.</p>
+<p t="2100040" d="1320">Works.</p>
+<p t="2101360" d="6540">Plug in 4, I get 4 log 4 is
+8 minus 4 is 4 plus 1 is 5.</p>
+<p t="2107900" d="2160">So it works for those examples.</p>
+<p t="2110060" d="4630">Now, to be really careful we
+should prove it by induction.</p>
+<p t="2114690" d="2480">Because when you do
+enough of these equations,</p>
+<p t="2117170" d="2750">you make mistakes like I
+invariably do even up here.</p>
+<p t="2119920" d="1670">And even though it's
+written down here,</p>
+<p t="2121590" d="2250">I'll make mistakes
+writing it on the board.</p>
+<p t="2123840" d="2405">And so you want to
+check by induction.</p>
+<p t="2130310" d="1570">OK, so this is the answer.</p>
+<p t="2131880" d="4720">This is how many comparisons
+are done in merge sort.</p>
+<p t="2136600" d="3950">And the nice thing is this
+is growing nearly linearly.</p>
+<p t="2140550" d="1260">It grows as n log n.</p>
+<p t="2141810" d="2700">And that's why this algorithm
+is used a lot in practice.</p>
+<p t="2144510" d="1820">Much better than
+comparing every item</p>
+<p t="2146330" d="3670">to every other item, which would
+be more like n squared steps.</p>
+<p t="2150000" d="4270">So much better than a
+naive sorting algorithm.</p>
+<p t="2154270" d="4790">Any questions about
+what we did there?</p>
+<p t="2159060" d="6180">Just one rule of thumb when
+you're doing the plug and chug.</p>
+<p t="2165240" d="5630">Notice that I didn't try to
+collapse terms along the way.</p>
+<p t="2170870" d="2600">It makes it easier sometimes
+to see the pattern.</p>
+<p t="2173470" d="4100">I left it as n minus 1 plus n
+minus 2 and then plus n minus 4</p>
+<p t="2177570" d="1780">rather than saying,
+oh, this is 3 n</p>
+<p t="2179350" d="4210">minus 7, which might have made
+it harder to guess the pattern.</p>
+<p t="2183560" d="2570">So you don't always, when you're
+doing the chugging, collapse</p>
+<p t="2186130" d="680">everything down.</p>
+<p t="2186810" d="1630">You want to try and
+see if there are some.</p>
+<p t="2188440" d="1610">Because this is the amount
+of work done at each step,</p>
+<p t="2190050" d="2208">and you want to see if you
+can see a pattern in that.</p>
+<p t="2197070" d="2180">All right, so let's write
+down our two recurrences</p>
+<p t="2199250" d="2840">and sort of compare them.</p>
+<p t="2212870" d="4130">So first we did Towers of
+Hanoi, which was t of n</p>
+<p t="2217000" d="5380">equals 2 t of n minus 1 plus 1.</p>
+<p t="2222380" d="6075">And the answer was t of
+n is tilde 2 to the n.</p>
+<p t="2228455" d="3225">It was actually 2
+to the n minus 1.</p>
+<p t="2231680" d="8080">Then we did merge sort, which is
+t of n equals 2 t of n over 2.</p>
+<p t="2239760" d="1480">Difference there.</p>
+<p t="2241240" d="2750">Plus n minus 1.</p>
+<p t="2243990" d="2980">And now the answer was t of n.</p>
+<p t="2246970" d="2570">What's the tilde for this one?</p>
+<p t="2249540" d="3060">For merge sort.</p>
+<p t="2252600" d="1000">n log n.</p>
+<p t="2253600" d="2833">Yeah, I can forget the rest
+if I know the tilde, n log n.</p>
+<p t="2260140" d="2220">Wow.</p>
+<p t="2262360" d="2930">These are pretty
+different answers, right?</p>
+<p t="2265290" d="2880">This one's nearly linear,
+that one's exponential.</p>
+<p t="2270810" d="3510">The recurrences
+looks pretty similar,</p>
+<p t="2274320" d="1650">in fact, this one
+sort of looks worse</p>
+<p t="2275970" d="4990">because I'm adding in n minus
+1 every time instead of 1.</p>
+<p t="2280960" d="4100">But the answer's a lot
+better, a lot smaller.</p>
+<p t="2285060" d="3970">What's the critical difference
+between these recurrences?</p>
+<p t="2289030" d="500">Yeah?</p>
+<p t="2292440" d="4761">AUDIENCE: You're dropping the
+argument of t a lot faster.</p>
+<p t="2297201" d="1499">You're cutting it
+in half every time</p>
+<p t="2298700" d="1290">instead of subtracting one.</p>
+<p t="2299990" d="1020">TOM LEIGHTON: Right.</p>
+<p t="2301010" d="1420">AUDIENCE: So it's going
+to go away faster.</p>
+<p t="2302430" d="1125">TOM LEIGHTON: That's right.</p>
+<p t="2303555" d="3005">Here I've got two
+problems of size one less.</p>
+<p t="2306560" d="3670">Here I've got two
+problems of half a size.</p>
+<p t="2310230" d="3220">And that makes an enormous
+difference in the answer.</p>
+<p t="2313450" d="3000">Even though I'm
+doing more work after</p>
+<p t="2316450" d="3250">did the recursive problems,
+much faster running</p>
+<p t="2319700" d="5840">time or answer if these are
+algorithms that I'm analyzing.</p>
+<p t="2325540" d="1980">All right?</p>
+<p t="2327520" d="2810">In fact, let's
+take a look at what</p>
+<p t="2330330" d="4720">happens if I didn't use that n
+minus 1, I just put a 1 there.</p>
+<p t="2335050" d="4540">Let's see what impact
+that n minus 1 had.</p>
+<p t="2339590" d="5490">So let's do the
+following recurrence.</p>
+<p t="2345080" d="4560">This one is going to be a little
+bit different because I'm not</p>
+<p t="2349640" d="1260">going to stick to powers of 2.</p>
+<p t="2350900" d="2230">I'm going to get a little
+messier, because that often</p>
+<p t="2353130" d="2000">happens in reality.</p>
+<p t="2355130" d="5560">And I'm going to
+define s of 1 is 0.</p>
+<p t="2360690" d="8910">s of n is s of the floor
+function of n over 2</p>
+<p t="2369600" d="5940">plus s of the ceiling
+function of n over 2 plus 1.</p>
+<p t="2380120" d="5340">Now, the ceiling function
+means the smallest integer</p>
+<p t="2385460" d="1487">that's at least that big.</p>
+<p t="2386947" d="2083">So you're sort of rounding
+up to the next integer.</p>
+<p t="2400260" d="2590">And the floor function
+means you're rounding down</p>
+<p t="2402850" d="1580">to the next integer.</p>
+<p t="2404430" d="8760">So it's the biggest integer
+less than equal to n over 2.</p>
+<p t="2413190" d="820">All right.</p>
+<p t="2414010" d="3470">Now, if we had just
+powers of 2, this</p>
+<p t="2417480" d="1900">would be much easier to write.</p>
+<p t="2419380" d="5605">It would just be sn
+equals 2 sn over 2 plus 1.</p>
+<p t="2424985" d="2625">So it's analogous to what we're
+doing up there where we're just</p>
+<p t="2427610" d="2136">adding 1 instead of n minus 1.</p>
+<p t="2429746" d="1124">But I'm being careful. now.</p>
+<p t="2430870" d="1375">I'm going to make
+this recurrence</p>
+<p t="2432245" d="3316">work for all natural numbers.</p>
+<p t="2435561" d="1499">Because sometimes
+in reality, you're</p>
+<p t="2437060" d="2190">dealing with non powers of 2.</p>
+<p t="2443440" d="4140">All right, let's see
+if we can solve this.</p>
+<p t="2447580" d="2590">What's the first thing
+to try to solve this?</p>
+<p t="2450170" d="720">What do you do?</p>
+<p t="2456520" d="2540">What's the first step
+when you get a recurrence?</p>
+<p t="2459060" d="1082">You try to solve.</p>
+<p t="2463300" d="3120">What method should you try?</p>
+<p t="2466420" d="1050">Guess.</p>
+<p t="2467470" d="3370">And to guess, well, you
+got to plug some values in.</p>
+<p t="2470840" d="1880">It's sort of hard to guess.</p>
+<p t="2472720" d="3220">I mean, looking at that, I guess
+nothing comes to mind other</p>
+<p t="2475940" d="2880">than panic looking at that.</p>
+<p t="2478820" d="2650">But if we plug in some values,
+then maybe it won't be so bad.</p>
+<p t="2481470" d="3730">So we've got s1 equals 0.</p>
+<p t="2485200" d="826">What's s2?</p>
+<p t="2494040" d="5340">It's not 3, because this is 2
+over 2 is 1, floor of 1 is 1.</p>
+<p t="2499380" d="3210">s of 1 is 0.</p>
+<p t="2502590" d="2870">Ceiling of 1 is 1
+because it's an integer.</p>
+<p t="2505460" d="3170">s of 1 is 0 plus 1.</p>
+<p t="2508630" d="2770">So s of 2 is 1.</p>
+<p t="2511400" d="2130">What's s of 3?</p>
+<p t="2513530" d="1980">Yikes, all right.</p>
+<p t="2515510" d="2000">3 over 2 is 1 and 1/2.</p>
+<p t="2517510" d="2380">What's the floor of 1 and 1/2?</p>
+<p t="2519890" d="570">1.</p>
+<p t="2520460" d="900">s of 1 is 0.</p>
+<p t="2521360" d="1170">That's gone.</p>
+<p t="2522530" d="2560">What's the ceiling of 1 and 1/2?</p>
+<p t="2525090" d="690">2.</p>
+<p t="2525780" d="3690">s of 2 is 1 plus 1.</p>
+<p t="2529470" d="1330">What's the answer for s of 3?</p>
+<p t="2534070" d="6050">2, because I've got 0, 1, and 1.</p>
+<p t="2540120" d="1590">s of 4.</p>
+<p t="2541710" d="3830">This one's easy
+because it's even.</p>
+<p t="2545540" d="5960">I get s of 2, which is 1 plus
+s of two which is 1 plus 1.</p>
+<p t="2551500" d="2000">So what's s of 4?</p>
+<p t="2553500" d="2540">3.</p>
+<p t="2556040" d="2840">You might try a guess.</p>
+<p t="2558880" d="3130">What would you guess?</p>
+<p t="2562010" d="1850">Yeah, n minus 1.</p>
+<p t="2563860" d="7437">So we're going to guess
+s of n equals n minus 1.</p>
+<p t="2571297" d="1333">And that's not so bad, actually.</p>
+<p t="2572630" d="791">It's pretty simple.</p>
+<p t="2573421" d="3479">Looking at that mess, you'd
+never think of that right away.</p>
+<p t="2576900" d="3350">But once you plug in some
+values it's not so bad.</p>
+<p t="2580250" d="1762">All right, let's verify it.</p>
+<p t="2585270" d="1991">And we're going to verify
+by strong induction.</p>
+<p t="2594790" d="1930">The induction
+hypothesis is our guess.</p>
+<p t="2606704" d="1856">The base case is easy.</p>
+<p t="2611870" d="4950">Because I've got s of 1 is 0.</p>
+<p t="2616820" d="3340">And that equals 1 minus 1.</p>
+<p t="2620160" d="1810">So that's good.</p>
+<p t="2621970" d="2154">So let's do the induction step.</p>
+<p t="2640530" d="1810">All right, so the
+induction step.</p>
+<p t="2647690" d="8160">We're going to assume that
+p1 is true, p2 is true,</p>
+<p t="2655850" d="8278">all the way up to pn, to
+prove pn plus 1 is true.</p>
+<p t="2666820" d="1870">For n better than or equal to 1.</p>
+<p t="2668690" d="4190">And then we look at
+the n plus first term.</p>
+<p t="2672880" d="9110">That equals s of floor n plus
+1 over 2 plus s of ceiling n</p>
+<p t="2681990" d="5720">plus 1 over 2 plus 1.</p>
+<p t="2687710" d="4760">All right, now I don't know what
+these are exactly depending on</p>
+<p t="2692470" d="3350">whether n is even a rod.</p>
+<p t="2695820" d="4250">First let me plug in using
+the induction hypothesis.</p>
+<p t="2700070" d="5970">I know that this is n
+plus 1 over 2 minus 1.</p>
+<p t="2706040" d="5810">This is ceiling n
+plus 1 over 2 minus 1.</p>
+<p t="2711850" d="1550">And then I carry
+the plus 1 down.</p>
+<p t="2713400" d="1950">That's by the
+induction hypothesis.</p>
+<p t="2720760" d="2840">All right, now I don't
+know exactly what</p>
+<p t="2723600" d="3040">either of these values is
+unless I know the parity of n.</p>
+<p t="2726640" d="4040">But I do know the sum
+of these two things.</p>
+<p t="2730680" d="3470">The floor of something plus
+the ceiling of that something</p>
+<p t="2734150" d="3450">is twice the something.</p>
+<p t="2737600" d="5340">All right, so this plus
+that equals n plus 1.</p>
+<p t="2742940" d="3800">Minus 1 minus 1
+plus 1 is minus 1.</p>
+<p t="2746740" d="2930">And so in fact, we
+prove that s of n plus 1</p>
+<p t="2749670" d="4370">equals n plus 1 minus 1.</p>
+<p t="2754040" d="4640">So we verified the
+induction hypothesis.</p>
+<p t="2758680" d="911">Yeah?</p>
+<p t="2759591" d="916">AUDIENCE: [INAUDIBLE].</p>
+<p t="2768040" d="1110">Taking the n [INAUDIBLE].</p>
+<p t="2771877" d="1583">TOM LEIGHTON: Let's
+see, I'm not sure.</p>
+<p t="2773460" d="4822">So are you asking why I
+started sn plus 1 here?</p>
+<p t="2778282" d="916">AUDIENCE: [INAUDIBLE].</p>
+<p t="2787332" d="1208">TOM LEIGHTON: Doesn't matter.</p>
+<p t="2788540" d="4600">But the expression
+is s of whatever</p>
+<p t="2793140" d="3240">this is, the induction
+hypothesis would be,</p>
+<p t="2796380" d="3860">s of whatever's inside there
+is what's inside there minus 1.</p>
+<p t="2800240" d="4938">And so the induction hypothesis
+says s of this is that minus 1.</p>
+<p t="2808437" d="833">Any other questions?</p>
+<p t="2815260" d="1826">So let's write that
+on our table up here.</p>
+<p t="2821950" d="6030">So this is sn equals
+s of floor n over 2</p>
+<p t="2827980" d="5946">plus s of ceiling
+n over 2 plus 1.</p>
+<p t="2833926" d="5094">And the answer is, sn is tilde.</p>
+<p t="2839020" d="990">What's the tilde of?</p>
+<p t="2843140" d="540">n.</p>
+<p t="2843680" d="1000">The answer is n minus 1.</p>
+<p t="2844680" d="3170">So it's tilde of n.</p>
+<p t="2847850" d="4460">Now, this is the same expression
+is this if n's a power of 2.</p>
+<p t="2852310" d="5130">I'd have 2 sn over 2 plus
+1 instead of n minus 1.</p>
+<p t="2857440" d="7010">And by going from n minus 1 to
+1, I got rid of the log term.</p>
+<p t="2864450" d="3590">But it's still not exponential.</p>
+<p t="2868040" d="2330">And that's because I'm
+cutting down the insides</p>
+<p t="2870370" d="3018">here by a factor of 2 roughly.</p>
+<p t="2879260" d="4040">All right, so all the
+recurrences we've seen so far</p>
+<p t="2883300" d="2240">have been pretty simple.</p>
+<p t="2885540" d="2790">If guess and verify doesn't
+work after seeing a few terms,</p>
+<p t="2888330" d="3420">you can use plug and chug
+and you can figure it out.</p>
+<p t="2891750" d="3890">The good news is, that
+happens a lot in practice.</p>
+<p t="2895640" d="2660">The bad news is, sometimes
+it doesn't and you</p>
+<p t="2898300" d="1330">can get nasty recurrences.</p>
+<p t="2899630" d="7620">So let me show you a nasty
+one that actually was once</p>
+<p t="2907250" d="10167">asked in 6046, I think, on a
+quiz with disastrous results.</p>
+<p t="2926340" d="11620">All right, so this one is t
+of x equals 2 t of x over 2</p>
+<p t="2937960" d="10300">plus 8/9 t of 3x
+over 4 plus x squared</p>
+<p t="2948260" d="3460">for x bigger and equal
+to 1, and otherwise it's</p>
+<p t="2951720" d="2690">0 when x is less than 1.</p>
+<p t="2958230" d="3660">Now, this is nasty
+for a lot of reasons.</p>
+<p t="2961890" d="3720">First, it's not just a
+find on the integers.</p>
+<p t="2965610" d="3080">We can make an integer version
+by putting floors or ceilings</p>
+<p t="2968690" d="810">here.</p>
+<p t="2969500" d="3230">But the way you set it up now,
+it's defined on real numbers.</p>
+<p t="2976650" d="4500">You can, in theory, solve
+it with plug and chug.</p>
+<p t="2981150" d="3370">The nasty part is, you've got
+a bunch of things going down</p>
+<p t="2984520" d="4890">by powers of 2 and a bunch of
+things going down by 3/4 here.</p>
+<p t="2989410" d="1990">And so you have to keep
+track of all the terms</p>
+<p t="2991400" d="2779">that are decreasing, and that's
+a nightmare plug and chug.</p>
+<p t="2994179" d="2041">Because it's not just one
+thing that's unfolding,</p>
+<p t="2996220" d="2670">it's two things
+that are unfolding.</p>
+<p t="2998890" d="2390">So very painful.</p>
+<p t="3001280" d="4110">Now, it used to be that
+was the state of life.</p>
+<p t="3005390" d="3690">20 years ago, I think we started
+teaching this course sometime</p>
+<p t="3009080" d="2620">around then, there
+just was nothing else</p>
+<p t="3011700" d="3170">to say other than life's
+tough and sometimes you've</p>
+<p t="3014870" d="3160">got to do these things
+and it's a pain.</p>
+<p t="3018030" d="2110">Just had to make the best of it.</p>
+<p t="3020140" d="4590">And then in the mid-90s,
+one day two students</p>
+<p t="3024730" d="4170">at the American University
+in Beirut came by my office.</p>
+<p t="3028900" d="3690">They were named Akra and Bazzi.</p>
+<p t="3032590" d="1540">And they'd actually
+come to Boston</p>
+<p t="3034130" d="1400">to escape the daily bombings.</p>
+<p t="3035530" d="2370">This was when all heck was
+breaking loose in Beirut.</p>
+<p t="3037900" d="1239">It was a mess.</p>
+<p t="3039139" d="1541">And they come into
+my office and they</p>
+<p t="3040680" d="3430">claim to have a simple
+formula for solving</p>
+<p t="3044110" d="2350">any recurrence like this.</p>
+<p t="3046460" d="5130">In fact, you can even
+add a 5 t of x over 7.</p>
+<p t="3051590" d="990">They said no problem.</p>
+<p t="3052580" d="3910">Their simple formula
+just will always work.</p>
+<p t="3056490" d="3610">And the general form
+that they claim to solve</p>
+<p t="3060100" d="1920">was the following.</p>
+<p t="3062020" d="4470">It's the general class of
+divide and conquer recurrences.</p>
+<p t="3066490" d="1970">So any recurrence you
+get from an algorithm</p>
+<p t="3068460" d="3670">where you break it into smaller
+pieces by a constant factor,</p>
+<p t="3072130" d="2260">they claim to solve.</p>
+<p t="3074390" d="2420">So let me define this class.</p>
+<p t="3076810" d="1480">It's a little painful.</p>
+<p t="3088330" d="5938">So a divide and conquer
+recurrence has the form.</p>
+<p t="3098450" d="2840">There's a simple version
+and the hard version.</p>
+<p t="3101290" d="3790">The simple version is
+it looks like that.</p>
+<p t="3105080" d="2130">You got a bunch of terms.</p>
+<p t="3107210" d="3250">Inside each term, you cut
+it down by a constant factor</p>
+<p t="3110460" d="1830">and then you add
+something at the end.</p>
+<p t="3112290" d="2730">That's the simple version
+of what a divide and conquer</p>
+<p t="3115020" d="1110">recurrence is.</p>
+<p t="3116130" d="3726">And you can throw in floors and
+ceilings and other junk too.</p>
+<p t="3119856" d="1874">Now I'm going to give
+you the formal version.</p>
+<p t="3124950" d="6170">So it has the form t of x
+equals some constant a1 times</p>
+<p t="3131120" d="5960">t of a constant less than
+b1 of x, plus some slop</p>
+<p t="3137080" d="3090">you're allowed to have
+like floors and ceilings</p>
+<p t="3140170" d="2000">and who knows what else.</p>
+<p t="3142170" d="1460">And then you get more of these.</p>
+<p t="3143630" d="9820">You get a2, t of b2x plus
+epsilon 2x and so forth.</p>
+<p t="3153450" d="1500">And you can have
+any number of these</p>
+<p t="3154950" d="2170">you want up to a constant.</p>
+<p t="3157120" d="6165">So maybe there's a sub k t
+b sub kx plus epsilon kx.</p>
+<p t="3165860" d="5470">Plus some function of x sitting
+out here, like the x squared.</p>
+<p t="3171330" d="4190">And this happens for x
+bigger than some fixed value,</p>
+<p t="3175520" d="2170">some constant.</p>
+<p t="3177690" d="5406">Now, the constraints are,
+well, the ai's are positive</p>
+<p t="3183096" d="499">constants.</p>
+<p t="3186550" d="6100">The bi's are positive
+and less than 1.</p>
+<p t="3192650" d="2882">You gotta cut it down by a
+constant factor to be a divide</p>
+<p t="3195532" d="958">and conquer recurrence.</p>
+<p t="3196490" d="666">That's critical.</p>
+<p t="3199740" d="1920">k is fixed.</p>
+<p t="3201660" d="670">It's constant.</p>
+<p t="3205720" d="4270">And these epsilon
+functions can't be too big.</p>
+<p t="3209990" d="4400">They can't be bigger than 0
+of x over log squared of x.</p>
+<p t="3214390" d="2710">Almost as big as x, but you
+can't let them be too big</p>
+<p t="3217100" d="5290">or you'll not be cutting things
+down by a constant factor.</p>
+<p t="3222390" d="1870">Now, you don't get
+too hung up over this</p>
+<p t="3224260" d="3770">because you don't get
+too deep in the details.</p>
+<p t="3228030" d="5116">But this is that most 0 of
+x over log squared of x.</p>
+<p t="3235840" d="4710">And finally, the g thing
+has got to be polynomial.</p>
+<p t="3240550" d="1010">It can't be an exponent.</p>
+<p t="3241560" d="2160">You can't put 2 to the x here.</p>
+<p t="3243720" d="1790">And the formal way
+that's expressed</p>
+<p t="3245510" d="6210">is the derivative of
+g of x is less than x</p>
+<p t="3251720" d="2100">to the c for some constant c.</p>
+<p t="3258450" d="570">That's it.</p>
+<p t="3259020" d="1880">So this is a mouthful.</p>
+<p t="3260900" d="2660">But like I said before,
+anything that looks</p>
+<p t="3263560" d="2960">like that, basically.</p>
+<p t="3266520" d="1750">As long as you don't
+throw in exponentials</p>
+<p t="3268270" d="4100">or do something too
+wild to it, it works.</p>
+<p t="3272370" d="4420">So let's see which of our
+guys over here are divide</p>
+<p t="3276790" d="1000">and conquer recurrences.</p>
+<p t="3283390" d="820">How about this one?</p>
+<p t="3284210" d="5090">Towers of Hanoi, is that a
+divide and conquer recurrence?</p>
+<p t="3289300" d="3050">Some yes, some no.</p>
+<p t="3292350" d="2190">Who thinks no can
+tell me why it's not?</p>
+<p t="3294540" d="939">Why isn't that?</p>
+<p t="3295479" d="916">AUDIENCE: [INAUDIBLE].</p>
+<p t="3298936" d="1124">TOM LEIGHTON: That's right.</p>
+<p t="3300060" d="3230">The recurrence
+problem is n minus 1</p>
+<p t="3303290" d="4010">and we've got to make it down
+by a constant factor here.</p>
+<p t="3307300" d="1780">The b1 is less than 1.</p>
+<p t="3309080" d="1740">It can't be equal to 1.</p>
+<p t="3310820" d="3510">And this is not big enough
+to make up for the x over 2</p>
+<p t="3314330" d="2270">term or something we're missing.</p>
+<p t="3316600" d="3090">So whenever you have an
+n minus 1 and minus 2,</p>
+<p t="3319690" d="3000">that is not divide and conquer.</p>
+<p t="3322690" d="2170">We'll discuss those
+next time, on Thursday,</p>
+<p t="3324860" d="1650">how to solve those.</p>
+<p t="3326510" d="3447">So that's not
+divide and conquer.</p>
+<p t="3329957" d="833">What about this one?</p>
+<p t="3330790" d="1390">Is that divide and conquer here?</p>
+<p t="3335480" d="1230">Yes.</p>
+<p t="3336710" d="3040">You've got two problems
+of half the size</p>
+<p t="3339750" d="2310">and you're adding
+a linear function.</p>
+<p t="3342060" d="1250">It's not exponential.</p>
+<p t="3343310" d="1820">It's polynomial.</p>
+<p t="3345130" d="2580">That is divide and conquer.</p>
+<p t="3347710" d="3112">What about this nasty guy?</p>
+<p t="3350822" d="1124">Is that divide and conquer?</p>
+<p t="3354700" d="1240">Yeah.</p>
+<p t="3355940" d="2460">You've got basically
+n over 2 here.</p>
+<p t="3358400" d="1920">Two n over 2 terms now.</p>
+<p t="3360320" d="2880">This is where that epsilon
+thing comes in handy.</p>
+<p t="3363200" d="2400">Because epsilon 1
+of n, in this case,</p>
+<p t="3365600" d="7420">is floor n over
+2 minus n over 2.</p>
+<p t="3373020" d="1856">And that's, at most, 1.</p>
+<p t="3378180" d="3390">So maybe we're adding a half
+here or something like that.</p>
+<p t="3381570" d="1500">And we're allowed
+to add anything up</p>
+<p t="3383070" d="4170">to n over log
+squared of n to fit.</p>
+<p t="3387240" d="3340">So you can mess around with
+the low order terms in here.</p>
+<p t="3390580" d="2980">And adding 1 is fine as well.</p>
+<p t="3393560" d="872">So that qualifies.</p>
+<p t="3397670" d="3160">Let's check that
+this thing qualifies.</p>
+<p t="3400830" d="1036">Let's check that.</p>
+<p t="3410570" d="710">Well, yeah.</p>
+<p t="3411280" d="6560">I got 2 constant a1 t of 1/2 x.</p>
+<p t="3417840" d="1210">That's OK.</p>
+<p t="3419050" d="2400">8/9 t of 3/4 x.</p>
+<p t="3421450" d="1400">That's OK.</p>
+<p t="3422850" d="1840">My g function is a polynomial.</p>
+<p t="3424690" d="1330">The derivative is 2x.</p>
+<p t="3426020" d="3780">That's less than x to a
+power or of x to a power.</p>
+<p t="3429800" d="655">So this fits.</p>
+<p t="3434430" d="2430">Any questions about
+the definition</p>
+<p t="3436860" d="1626">of a divide and
+conquer recurrence?</p>
+<p t="3443722" d="1708">And you can see why
+sort of they come up,</p>
+<p t="3445430" d="3370">because whenever you're solving
+a problem with recursive pieces</p>
+<p t="3448800" d="1980">that are a constant
+factor smaller,</p>
+<p t="3450780" d="3360">you're going to have something
+that looks like that.</p>
+<p t="3454140" d="1960">OK, so getting back
+to Akra and Bazzi.</p>
+<p t="3456100" d="2480">B They show up in my office.</p>
+<p t="3458580" d="2470">They claim to have solved
+anything like this.</p>
+<p t="3461050" d="3767">Now needless to say,
+I'm a little skeptical.</p>
+<p t="3464817" d="2333">I got to tell you, you're a
+professor at MIT, especially</p>
+<p t="3467150" d="2640">mathematics, and
+people are always</p>
+<p t="3469790" d="4230">coming by with proofs of
+the Riemann hypothesis,</p>
+<p t="3474020" d="3190">p equals np, p doesn't equal np.</p>
+<p t="3477210" d="2810">And this was a classic problem.</p>
+<p t="3480020" d="1940">Hundreds of
+researchers had studied</p>
+<p t="3481960" d="3000">recurrences for decades.</p>
+<p t="3484960" d="1710">And not only, it
+wasn't even believed</p>
+<p t="3486670" d="2122">that there was
+possibly a solution.</p>
+<p t="3488792" d="2458">It's not like it's one of these
+open questions where we all</p>
+<p t="3491250" d="2050">believe p doesn't
+equal np and it's just</p>
+<p t="3493300" d="1630">a matter of proving it.</p>
+<p t="3494930" d="3840">People didn't think a solution
+existed that would be clean.</p>
+<p t="3498770" d="2200">I mean, look at just
+the definition's a mess.</p>
+<p t="3500970" d="4090">And how could there possibly
+be a clean solution to that?</p>
+<p t="3505060" d="2960">So it's sort of
+like the holy grail.</p>
+<p t="3508020" d="1920">It doesn't exist, but
+it's fun to think about,</p>
+<p t="3509940" d="5430">that fantasy, maybe there's a
+solution and you could find it.</p>
+<p t="3515370" d="3010">And much less, these aren't
+reputable researchers</p>
+<p t="3518380" d="600">in my office.</p>
+<p t="3518980" d="2880">These are two
+students from Beirut</p>
+<p t="3521860" d="2880">named Akra and Bazzi
+claiming they've figured out</p>
+<p t="3524740" d="2290">this thing that all these
+professors been teaching</p>
+<p t="3527030" d="3800">this stuff in 6046 for
+years said you've got to do</p>
+<p t="3530830" d="2520">plug and chug.</p>
+<p t="3533350" d="3070">Anyway, they'd been kicked out
+of everybody else's office,</p>
+<p t="3536420" d="1900">so I said, OK, let's do it.</p>
+<p t="3538320" d="2330">Show me the solution.</p>
+<p t="3540650" d="1280">And they did.</p>
+<p t="3541930" d="2350">And I go, holy cow.</p>
+<p t="3544280" d="1017">It's right.</p>
+<p t="3545297" d="583">It looks good.</p>
+<p t="3545880" d="1416">Now, they had a
+few details wrong,</p>
+<p t="3547296" d="2264">but my goodness, the
+answer was correct</p>
+<p t="3549560" d="3120">and it's amazingly simple.</p>
+<p t="3552680" d="2580">So now we teach it.</p>
+<p t="3555260" d="3350">And in fact, you can
+write the solution</p>
+<p t="3558610" d="3190">down easier than you can
+write the definition of divide</p>
+<p t="3561800" d="3070">and conquer recurrence.</p>
+<p t="3564870" d="920">Really remarkable.</p>
+<p t="3568870" d="11080">So the theorem by
+Akra and Bazzi in '96.</p>
+<p t="3584290" d="10950">Set p, real number, So that
+the sum i equals 1 to k</p>
+<p t="3595240" d="5480">of ai times bi to
+the p equals 1.</p>
+<p t="3600720" d="3440">So the ai's are
+these things here.</p>
+<p t="3604160" d="3560">The bi's are the fractions here.</p>
+<p t="3607720" d="5820">All right, find a p
+such that this sum is 1.</p>
+<p t="3613540" d="3380">Then the answer is this.</p>
+<p t="3616920" d="4820">Then t of x equals theta.</p>
+<p t="3621740" d="2290">We're going to use our
+asymptotic notation.</p>
+<p t="3624030" d="5150">x to the p plus x to
+the p times the integral</p>
+<p t="3629180" d="3880">from 1 to x g of u.</p>
+<p t="3633060" d="4010">G is that polynomial thing,
+that thing at the end.</p>
+<p t="3637070" d="2950">Over u to the p minus 1 du.</p>
+<p t="3643050" d="2410">That's it.</p>
+<p t="3645460" d="2450">This is really great
+news for you guys,</p>
+<p t="3647910" d="2030">especially if you
+go on to algorithms,</p>
+<p t="3649940" d="1666">because you don't
+have to deal with plug</p>
+<p t="3651606" d="1854">and chug on nasty things.</p>
+<p t="3653460" d="2436">You just solve the answer.</p>
+<p t="3658790" d="4510">Now, the proof is
+by guess and verify.</p>
+<p t="3663300" d="1575">And they made a
+really good guess.</p>
+<p t="3667510" d="2441">You wouldn't think of
+looking at that, oh,</p>
+<p t="3669951" d="999">I'm going to guess this.</p>
+<p t="3670950" d="2120">Probably not.</p>
+<p t="3673070" d="3240">And there's no real numbers
+to try to guess this.</p>
+<p t="3676310" d="2540">It's asymptotic notation.</p>
+<p t="3678850" d="1010">But it works.</p>
+<p t="3679860" d="1780">You can verify it by induction.</p>
+<p t="3681640" d="2280">It's a little painful
+to verify by induction,</p>
+<p t="3683920" d="960">but you can do it.</p>
+<p t="3684880" d="1700">We won't do it in class.</p>
+<p t="3686580" d="2080">I did try one year,
+and it was a disaster,</p>
+<p t="3688660" d="2740">so we don't do it
+in class anymore.</p>
+<p t="3691400" d="2590">But let's see some examples
+of how to apply this.</p>
+<p t="3696750" d="5731">So let's start with merge sort,
+which is the second one here.</p>
+<p t="3702481" d="583">Let's do that.</p>
+<p t="3713190" d="3200">All right, so you
+got an example here.</p>
+<p t="3716390" d="10370">t of x equals 2 t of x over 2
+plus n minus 1, or x minus 1, x</p>
+<p t="3726760" d="1100">now.</p>
+<p t="3727860" d="2770">And I'm not even going to worry
+about powers of 2 anymore.</p>
+<p t="3730630" d="580">I don't care.</p>
+<p t="3731210" d="3000">It's going to be fine.</p>
+<p t="3734210" d="3460">All right, what
+is p in this case?</p>
+<p t="3737670" d="1110">I've only got one term.</p>
+<p t="3738780" d="3480">I don't even need a sum from
+that definition over there.</p>
+<p t="3742260" d="5140">What's the value
+of p for this guy?</p>
+<p t="3747400" d="3360">So I've got a1 is 2.</p>
+<p t="3750760" d="2520">b1 is 1/2.</p>
+<p t="3753280" d="922">Just one term.</p>
+<p t="3757320" d="5580">What's the value of p such that
+2 times 1/2 to the p equals 1?</p>
+<p t="3762900" d="510">1.</p>
+<p t="3763410" d="2610">Doesn't get much simpler.</p>
+<p t="3766020" d="7440">So 2 times 1/2 to the p
+equals 1 implies p is 1.</p>
+<p t="3773460" d="3910">All right, now I just plug
+into the integral over there.</p>
+<p t="3777370" d="1106">All right, let's do that.</p>
+<p t="3792370" d="4840">So t of x equals theta.</p>
+<p t="3797210" d="3410">Well, x to the p is x to
+the 1 plus just take off</p>
+<p t="3800620" d="4340">the 1, plus x times
+the integral 1 to x.</p>
+<p t="3804960" d="4260">What's the g function?</p>
+<p t="3809220" d="1800">What's g of x in this case?</p>
+<p t="3814000" d="1950">x minus 1.</p>
+<p t="3815950" d="6780">So I take the integral of
+g of u is just u minus 1</p>
+<p t="3822730" d="11040">over u to the p
+plus 1 p minus 1.</p>
+<p t="3833770" d="2540">Did I write the formula right?</p>
+<p t="3836310" d="4530">Is it plus 1 or minus 1 here?</p>
+<p t="3840840" d="800">Did I get it?</p>
+<p t="3841640" d="880">p plus 1.</p>
+<p t="3842520" d="2450">Sorry, didn't write that right.</p>
+<p t="3844970" d="2166">p plus 1 over here.</p>
+<p t="3850670" d="4190">All right, so u to the p
+plus 1 is u squared du.</p>
+<p t="3858410" d="9170">This is theta of x plus x
+integral 1 over u minus 1</p>
+<p t="3867580" d="760">over u squared.</p>
+<p t="3880650" d="2320">The integral of 1 over
+u is the log of u.</p>
+<p t="3885500" d="5140">The integral of 1 over
+u squared is 1 over u,</p>
+<p t="3890640" d="3160">but I changed the sign there.</p>
+<p t="3893800" d="880">1 to x.</p>
+<p t="3899860" d="8810">All right, so I get theta of
+x plus x times log of x plus 1</p>
+<p t="3908670" d="4120">over x minus log of 0.</p>
+<p t="3912790" d="3030">That's log of 1 is nothing.</p>
+<p t="3915820" d="938">Minus 1.</p>
+<p t="3921160" d="6710">And I'm doing thetas here so I
+can forget the low order terms.</p>
+<p t="3927870" d="4560">So I get x log x plus 1 minus x.</p>
+<p t="3932430" d="2970">This is the only term
+that survives, x log x.</p>
+<p t="3940040" d="2820">And that's right.</p>
+<p t="3942860" d="5096">t of n is in fact tilde n log n,
+so in fact, it's theta n log n.</p>
+<p t="3953030" d="3120">Now, in this case, going through
+the integral and all that,</p>
+<p t="3956150" d="3270">maybe that was harder than
+just guessing and verifying.</p>
+<p t="3959420" d="4640">And by the way, guess and verify
+got it really the exact answer.</p>
+<p t="3964060" d="5670">The nice thing is this works
+for the nasty guys too.</p>
+<p t="3969730" d="4660">In fact, let's figure
+out the solution</p>
+<p t="3974390" d="3560">to this thing, which I
+guarantee you is a pain</p>
+<p t="3977950" d="3092">to do without this method.</p>
+<p t="3993520" d="3530">The first thing to
+do is compute p.</p>
+<p t="3997050" d="5560">So to do that, we need to
+find a p such that 2 times 1/2</p>
+<p t="4002610" d="12660">to the p plus 8/9 times
+3/4 to the p equals 1.</p>
+<p t="4015270" d="1730">I gotta find a p for
+which that's true.</p>
+<p t="4019700" d="2154">Any guesses what p works?</p>
+<p t="4026140" d="2320">p equals 1 not going to do it.</p>
+<p t="4032170" d="2160">p equals 2?</p>
+<p t="4034330" d="2890">Let's try that.</p>
+<p t="4037220" d="8780">I'd have 2 times 1/4
+plus 8/9 times 9/16.</p>
+<p t="4046000" d="1800">That looks pretty good.</p>
+<p t="4047800" d="4510">I get 1/2 plus 1/2 equals 1.</p>
+<p t="4052310" d="1120">So p equals 2 works.</p>
+<p t="4057500" d="1837">All right, so let's
+do the integral.</p>
+<p t="4062190" d="7450">tx is theta of x to the p plus
+x to the p times the integral.</p>
+<p t="4069640" d="5530">All right, what is g
+of x in this thing?</p>
+<p t="4075170" d="1500">x squared.</p>
+<p t="4076670" d="3570">So the integral
+is 1 to x. g of u</p>
+<p t="4080240" d="7340">is u squared divided
+by u to the 1 plus p.</p>
+<p t="4087580" d="2696">u to the 1 plus 2
+is just u cubed.</p>
+<p t="4095860" d="4970">This is theta x squared
+plus x squared times, well,</p>
+<p t="4100830" d="2310">the integral of 1 over
+u is just log of you.</p>
+<p t="4109069" d="3460">And that's just log of x.</p>
+<p t="4112529" d="2861">So the answer is,
+x square ln of x.</p>
+<p t="4115390" d="2630">Done.</p>
+<p t="4118020" d="3980">So that's pretty good
+what these guys did.</p>
+<p t="4122000" d="5120">In fact, that is
+the correct answer.</p>
+<p t="4127120" d="2909">So really easy to pug in.</p>
+<p t="4130029" d="5901">Any questions on that?</p>
+<p t="4135930" d="1344">Yeah.</p>
+<p t="4137274" d="5795">AUDIENCE: [INAUDIBLE] or does
+it give the actual number?</p>
+<p t="4143069" d="2311">TOM LEIGHTON: It doesn't
+give you the actual number.</p>
+<p t="4145380" d="3490">It just gives you the
+asymptotic growth.</p>
+<p t="4148870" d="4739">All you know is that the limit
+of tx over x squared ln of x</p>
+<p t="4153609" d="3170">is less than infinity
+and bigger than 0.</p>
+<p t="4156779" d="1981">So it's growing as this.</p>
+<p t="4158760" d="1950">You don't know if
+it's 10x squared lnx</p>
+<p t="4160710" d="2300">or a million squared lnx.</p>
+<p t="4163010" d="2594">On the other hand,
+for algorithms usually</p>
+<p t="4165604" d="2416">you're forgetting the constant
+factors anyway because they</p>
+<p t="4168020" d="1806">depend on things
+to do with the CPU</p>
+<p t="4169826" d="1374">you're using and
+stuff like that.</p>
+<p t="4171200" d="2100">What you really
+care about, often,</p>
+<p t="4173300" d="4519">when you're studying algorithms
+is the asymptotic growth, not</p>
+<p t="4177819" d="1641">the actual value.</p>
+<p t="4179460" d="1074">Yeah?</p>
+<p t="4180534" d="3336">AUDIENCE: [INAUDIBLE]
+log base e.</p>
+<p t="4183870" d="1750">And then above I
+see you using log,</p>
+<p t="4185620" d="1205">which I assume is base two?</p>
+<p t="4186825" d="1704">Does it matter?</p>
+<p t="4188529" d="3031">TOM LEIGHTON: It does up there
+because I've got a tilde.</p>
+<p t="4191560" d="2750">And in the tilde, the
+constant factor matters.</p>
+<p t="4194310" d="2500">It doesn't matter
+in here because log</p>
+<p t="4196810" d="3720">base two and log base E are
+within a constant factor,</p>
+<p t="4200530" d="3330">namely log of 2, ln of 2
+is the constant factor.</p>
+<p t="4203860" d="2940">So logs don't
+matter what the base</p>
+<p t="4206800" d="3110">is once you're inside a theta
+or an O or that kind of thing.</p>
+<p t="4209910" d="3750">In a tilde, they matter because
+the constant factor matters.</p>
+<p t="4213660" d="874">Yeah.</p>
+<p t="4214534" d="916">AUDIENCE: [INAUDIBLE].</p>
+<p t="4222685" d="791">TOM LEIGHTON: Yeah.</p>
+<p t="4223476" d="1984">Because x squared
+is small compared</p>
+<p t="4225460" d="3944">to x squared ln of x because
+it's all by the theta.</p>
+<p t="4229404" d="2286">AUDIENCE: [INAUDIBLE].</p>
+<p t="4231690" d="1350">TOM LEIGHTON: No.</p>
+<p t="4233040" d="2800">You could put all sorts
+of other stuff in here</p>
+<p t="4235840" d="2450">and it doesn't matter
+because it still equals</p>
+<p t="4238290" d="1620">theta of x squared ln of x.</p>
+<p t="4239910" d="4470">There's no hidden meanings by
+having extra stuff in here.</p>
+<p t="4244380" d="960">That's important.</p>
+<p t="4245340" d="2920">In this case, when you
+put more stuff into theta,</p>
+<p t="4248260" d="3170">doesn't mean a thing.</p>
+<p t="4251430" d="950">Any other questions?</p>
+<p t="4252380" d="984">Yeah.</p>
+<p t="4253364" d="2826">AUDIENCE: [INAUDIBLE].</p>
+<p t="4256190" d="3290">TOM LEIGHTON: Ah, good question.</p>
+<p t="4259480" d="1435">Well, let's see.</p>
+<p t="4260915" d="2638">It goes back to over here.</p>
+<p t="4273340" d="2050">See, the b's are
+between 0 and 1.</p>
+<p t="4275390" d="3610">By making p big enough,
+I drive the value down.</p>
+<p t="4279000" d="3460">By making p be large and
+negative, I drag the value up.</p>
+<p t="4282460" d="1250">So there is some value of p.</p>
+<p t="4283710" d="1330">But that's a good question.</p>
+<p t="4285040" d="5270">Let's see what happens
+when p is not so nice.</p>
+<p t="4290310" d="2255">Because the examples I gave
+you, in one case p was 1</p>
+<p t="4292565" d="2655">and one p was 2, sort of nice.</p>
+<p t="4295220" d="1955">Let's look at a bad case there.</p>
+<p t="4303130" d="1393">Let's look at this recurrence.</p>
+<p t="4310790" d="10251">3 t of x over 3 plus 4 t
+of x over 4 plus x squared.</p>
+<p t="4321041" d="1499">All right, so that's
+the recurrence.</p>
+<p t="4322540" d="1670">And first step is to compute p.</p>
+<p t="4324210" d="3210">And this time it's
+not going to be nice.</p>
+<p t="4327420" d="4470">So I need to find a p such that
+3 times 1/3 of the p plus 4</p>
+<p t="4331890" d="5710">times 1/4 to the p equals 1.</p>
+<p t="4337600" d="2812">And you might say, OK,
+let's try p equals 1.</p>
+<p t="4344500" d="5040">I get 1 plus 1 is 2.</p>
+<p t="4349540" d="2310">That's too big.</p>
+<p t="4351850" d="2160">So which way do I
+have to go on p?</p>
+<p t="4354010" d="3360">Do I need a bigger
+p or a smaller p?</p>
+<p t="4357370" d="860">Bigger.</p>
+<p t="4358230" d="2570">Because I got to get
+from 2 down to 1.</p>
+<p t="4360800" d="3441">So I know that p
+is bigger than 1.</p>
+<p t="4367190" d="1860">All right, so the
+next thing to try</p>
+<p t="4369050" d="5390">would be hoping the world
+is nice, p equals 2.</p>
+<p t="4374440" d="1360">Maybe I'll do that over here.</p>
+<p t="4375800" d="1180">Let's try p equals 2.</p>
+<p t="4380250" d="6940">So I get three times
+1/9 plus 4 times 1/16</p>
+<p t="4387190" d="5010">and that equals a 1/3 plus 1/4.</p>
+<p t="4392200" d="3390">That's less than 1.</p>
+<p t="4395590" d="710">That didn't work.</p>
+<p t="4396300" d="1333">What do I have to do now with p?</p>
+<p t="4397633" d="3067">Is it bigger than
+2 or less than 2?</p>
+<p t="4400700" d="947">Less than 2.</p>
+<p t="4404940" d="1750">That's sort of a pain.</p>
+<p t="4406690" d="3580">P is between one and two,
+so it's not an integer.</p>
+<p t="4410270" d="2130">Now, you can sort of do
+divide and conquer here.</p>
+<p t="4412400" d="3900">Next I'd try p is 3/2,
+get my calculator out</p>
+<p t="4416300" d="1570">and see which way it goes.</p>
+<p t="4417870" d="2110">And you could sort
+of home in on it.</p>
+<p t="4419980" d="1380">But there's
+something really nice</p>
+<p t="4421360" d="3750">that happens with Akra Bazzi.</p>
+<p t="4425110" d="3340">And that is if you
+ever conclude that p</p>
+<p t="4428450" d="4250">is less than your
+exponent here, you</p>
+<p t="4432700" d="2910">don't even have to compute it.</p>
+<p t="4435610" d="797">Let's see why.</p>
+<p t="4436407" d="833">Let's do an example.</p>
+<p t="4442240" d="3630">This will happen a lot.</p>
+<p t="4445870" d="2940">There's some p, but it's just
+going to be a pain to evaluate.</p>
+<p t="4448810" d="1490">But let's see what happens here.</p>
+<p t="4454226" d="1374">So I'm just going
+to try to solve</p>
+<p t="4455600" d="2210">it, write the solution
+anyway. t of x</p>
+<p t="4457810" d="7610">equals theta x to the p plus
+x to the p integral 1 to x.</p>
+<p t="4465420" d="1946">What's g of x?</p>
+<p t="4467366" d="1034">x squared.</p>
+<p t="4468400" d="4954">So that's u squared
+over u 1 plus p.</p>
+<p t="4473354" d="1416">And I still don't
+know what it is,</p>
+<p t="4474770" d="4250">but I'm going to
+give it a try here.</p>
+<p t="4479020" d="5130">That's theta x to the
+p plus x to the p.</p>
+<p t="4484150" d="7316">Well, this is now the integral
+of u to the 1 minus p du.</p>
+<p t="4491466" d="1659">And p is bigger than 1.</p>
+<p t="4493125" d="2345">I know that.</p>
+<p t="4495470" d="6550">This is theta x to
+the p plus x to the p.</p>
+<p t="4502020" d="5860">Well, the integral here
+is x to the 2 minus p.</p>
+<p t="4507880" d="850">Up to constants.</p>
+<p t="4508730" d="2100">I don't even care about
+dividing by 2 minus p,</p>
+<p t="4510830" d="2260">because I got big theta.</p>
+<p t="4513090" d="2830">Just put that p up here.</p>
+<p t="4515920" d="1330">OK</p>
+<p t="4517250" d="7020">Well, this equals theta x to
+the p plus cancelled there,</p>
+<p t="4524270" d="520">x squared.</p>
+<p t="4527340" d="2940">And what's the
+answer going to be?</p>
+<p t="4530280" d="2960">x squared, because
+p is less than 2.</p>
+<p t="4533240" d="2760">So this is a small order term.</p>
+<p t="4536000" d="1950">So I didn't even
+know what p was, just</p>
+<p t="4537950" d="2070">that it was less than two.</p>
+<p t="4540020" d="1215">And I got the answer.</p>
+<p t="4541235" d="875">And what do you know?</p>
+<p t="4542110" d="3330">The answer was just this thing.</p>
+<p t="4545440" d="2630">That's sort of nice and simple.</p>
+<p t="4548070" d="3680">And in fact, that's a theorem.</p>
+<p t="4551750" d="20150">Which will state, in general, if
+g of x equals theta x to the t,</p>
+<p t="4571900" d="1602">for some t bigger
+and equal to 0.</p>
+<p t="4576320" d="5290">And when you plug that
+value in and take your sum.</p>
+<p t="4581610" d="1250">Trying to compute the p value.</p>
+<p t="4582860" d="3460">So I take ai times bi to the t.</p>
+<p t="4586320" d="2180">And that comes out
+to be less than 1</p>
+<p t="4588500" d="6487">like it did here when I plugged
+in p equals 2 and I computed it</p>
+<p t="4594987" d="1983">and it was less than 1.</p>
+<p t="4596970" d="5970">But if that happens in
+general, then the answer</p>
+<p t="4602940" d="7410">is theta g of x.</p>
+<p t="4610350" d="1550">Plain and simple.</p>
+<p t="4611900" d="6560">It just turns out to be the g of
+x term up to constant factors.</p>
+<p t="4618460" d="1970">So you don't even
+have to compute it.</p>
+<p t="4620430" d="2850">Just do that check on
+the power here to see</p>
+<p t="4623280" d="2689">is it smaller than that.</p>
+<p t="4625969" d="1041">I won't prove that there.</p>
+<p t="4627010" d="1300">It's actually not hard to do.</p>
+<p t="4628310" d="2670">The proof is pretty much
+what I did with this example,</p>
+<p t="4630980" d="1102">so it's not too hard.</p>
+<p t="4635820" d="1040">OK, any questions?</p>
+<p t="4639550" d="1650">I want to show you
+one more thing,</p>
+<p t="4641200" d="2860">but just make sure that's OK.</p>
+<p t="4644060" d="6470">And this is something never to
+do with an asymptotic notation,</p>
+<p t="4650530" d="3330">like we talked about last time.</p>
+<p t="4653860" d="2980">When you're using Akra Bazzi and
+when you're doing occurrences</p>
+<p t="4656840" d="4790">with algorithm, you always
+are using asymptotic notation.</p>
+<p t="4661630" d="2860">Your answer is
+theta of something.</p>
+<p t="4664490" d="1870">And in fact, what will
+start happening is</p>
+<p t="4666360" d="6110">you'll do this stuff because the
+constant factors don't matter.</p>
+<p t="4672470" d="2850">Because you're wiping them
+out in the theta notation,</p>
+<p t="4675320" d="1540">what you'll see is
+things like this.</p>
+<p t="4676860" d="5440">Your recurrence will be set up
+to be t of n is 2 t of n over 2</p>
+<p t="4682300" d="4930">plus o of n or plus theta of n.</p>
+<p t="4687230" d="3900">And then you'll
+conclude that t of n</p>
+<p t="4691130" d="4420">is theta of n log
+n using Akra Bazzi</p>
+<p t="4695550" d="3219">or whatever method you want.</p>
+<p t="4698769" d="1541">Because it doesn't
+really matter what</p>
+<p t="4700310" d="6020">the constant is on g because
+the constants disappear.</p>
+<p t="4706330" d="1080">Doesn't matter.</p>
+<p t="4707410" d="4240">And so people stop
+worrying about it early on.</p>
+<p t="4711650" d="3180">All right, now here's
+the bad example.</p>
+<p t="4719394" d="4836">Let me show you a false
+proof like last time.</p>
+<p t="4724230" d="3112">And this time I think it'll be
+pretty easy to spot the flaw.</p>
+<p t="4741960" d="1100">Theorem not.</p>
+<p t="4748630" d="7420">If t of n equals 2 t of
+n over 2 plus n minus 1,</p>
+<p t="4756050" d="4540">this is the recurrence we had
+for merge sort, and t of 1</p>
+<p t="4760590" d="8528">equals 0, then I'm going to
+prove that t of n is o event.</p>
+<p t="4772360" d="5790">Now, that can't be right
+because we've proved it's theta</p>
+<p t="4778150" d="1900">then log n, tilde then log n.</p>
+<p t="4780050" d="2290">And that is not o of n, right?</p>
+<p t="4782340" d="3850">n log n grows faster than n.</p>
+<p t="4786190" d="1000">But let's see the proof.</p>
+<p t="4792920" d="991">By strong induction.</p>
+<p t="4800720" d="4080">The induction
+hypothesis is going</p>
+<p t="4804800" d="2440">to be what we're
+trying to prove.</p>
+<p t="4816770" d="3060">Base case.</p>
+<p t="4819830" d="1770">n equals 1.</p>
+<p t="4821600" d="2210">t of 1 is 0.</p>
+<p t="4823810" d="2240">0 is surely o of 1.</p>
+<p t="4829360" d="1513">The induction step.</p>
+<p t="4836370" d="5360">We're going to assume p1, p2,
+p3 up to pn minus 1 to prove pn.</p>
+<p t="4855190" d="2000">And let's look at p of n.</p>
+<p t="4857190" d="7630">So I look at tn is 2 t of
+n over 2 plus n minus 1.</p>
+<p t="4864820" d="2410">Induction hypothesis
+on n over 2 says</p>
+<p t="4867230" d="5690">this is 2 times o of n
+over 2 plus n minus 1.</p>
+<p t="4872920" d="5080">Twice o of n over 2 is
+o of n plus n is o of n.</p>
+<p t="4878000" d="1780">This is o of n.</p>
+<p t="4879780" d="2740">And I'm done.</p>
+<p t="4882520" d="3060">I just proved that
+t of n is o of n.</p>
+<p t="4888890" d="1530">What's the bad step?</p>
+<p t="4890420" d="630">What's the bug?</p>
+<p t="4893710" d="1440">See the bug?</p>
+<p t="4895150" d="1364">What is it?</p>
+<p t="4896514" d="916">AUDIENCE: [INAUDIBLE].</p>
+<p t="4897430" d="1460">TOM LEIGHTON:
+Induction hypothesis.</p>
+<p t="4898890" d="1651">What's wrong with that?</p>
+<p t="4900541" d="916">AUDIENCE: [INAUDIBLE].</p>
+<p t="4906017" d="833">TOM LEIGHTON: Right.</p>
+<p t="4906850" d="3410">The end from the predicate
+cannot be in the o of n.</p>
+<p t="4910260" d="4670">Because remember, o of n means,
+this statement here by itself</p>
+<p t="4914930" d="6310">means the limit as n goes
+to infinity of t of n over n</p>
+<p t="4921240" d="2920">is less than infinity.</p>
+<p t="4924160" d="6540">But this makes no sense if I
+specified n in a predicate.</p>
+<p t="4930700" d="1010">So what's the rule?</p>
+<p t="4931710" d="1580">Same rule as last time.</p>
+<p t="4933290" d="880">Same bug.</p>
+<p t="4934170" d="905">What's the rule?</p>
+<p t="4938360" d="3370">Never do asymptotic notation
+in induction hypothesis.</p>
+<p t="4941730" d="2700">Never mix big o and a predicate.</p>
+<p t="4944430" d="1500">Never, ever.</p>
+<p t="4945930" d="4470">It looks so nice to
+do, but it is so wrong.</p>
+<p t="4950400" d="2510">It just makes nonsense.</p>
+<p t="4952910" d="1520">All right, very good.</p>
+<p t="4954430" d="5220">So remember ice cream tonight,
+recitation optional tomorrow.</p>
+<p t="4959650" d="2650">But study session is there.</p>
+</body>
+</timedtext>

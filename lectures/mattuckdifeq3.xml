@@ -1,0 +1,1427 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="9000" d="4000">This time, we started solving
+differential equations.</p>
+<p t="13000" d="3072">This is the third
+lecture of the term,</p>
+<p t="16072" d="3928">and I have yet to solve
+a single differential</p>
+<p t="20000" d="2000">equation in this class.</p>
+<p t="22000" d="2912">Well, that will be
+rectified from now</p>
+<p t="24912" d="2588">until the end of the term.</p>
+<p t="27500" d="3642">So, once you learn
+separation of variables,</p>
+<p t="31142" d="5078">which is the most elementary
+method there is, the single,</p>
+<p t="36220" d="3280">I think the single
+most important equation</p>
+<p t="39500" d="5213">is the one that's called the
+first order linear equation,</p>
+<p t="44713" d="2787">both because it
+occurs frequently</p>
+<p t="47500" d="5225">in models because it's solvable,
+and-- I think that's enough.</p>
+<p t="52725" d="3608">If you drop the
+course after today</p>
+<p t="56333" d="3095">you will still have learned
+those two important methods:</p>
+<p t="59428" d="3572">separation of variables, and
+first order linear equations.</p>
+<p t="63000" d="3750">So, what does such an
+equation look like?</p>
+<p t="66750" d="2250">Well, I'll write it in there.</p>
+<p t="69000" d="2331">There are several
+ways of writing it,</p>
+<p t="71331" d="2569">but I think the
+most basic is this.</p>
+<p t="73900" d="3100">I'm going to use x as
+the independent variable</p>
+<p t="77000" d="3000">because that's what
+your book does.</p>
+<p t="80000" d="2568">But in the
+applications, it's often</p>
+<p t="82568" d="2432">t, time, that is the
+independent variable.</p>
+<p t="85000" d="4000">And, I'll try to give you
+examples which show that.</p>
+<p t="89000" d="2000">So, the equation
+looks like this.</p>
+<p t="91000" d="3328">I'll find some
+function of x times y</p>
+<p t="94328" d="3207">prime plus some other
+function of x times y</p>
+<p t="97535" d="2465">is equal to yet
+another function of x.</p>
+<p t="100000" d="6999">Obviously, the x doesn't
+have the same status</p>
+<p t="106999" d="3751">here that y does, so y is
+extremely limited in how</p>
+<p t="110750" d="2250">it can appear in the equation.</p>
+<p t="113000" d="4000">But, x can be pretty much
+arbitrary in those places.</p>
+<p t="117000" d="3000">So, that's the equation
+we are talking about,</p>
+<p t="120000" d="2270">and I'll put it up.</p>
+<p t="122270" d="5226">This is the first version of
+it, and we'll call them purple.</p>
+<p t="127496" d="3504">Now, why is that called
+the linear equation?</p>
+<p t="131000" d="4998">The word linear is a
+very heavily used word</p>
+<p t="135998" d="2802">in mathematics, science,
+and engineering.</p>
+<p t="138800" d="2864">For the moment, the
+best simple answer</p>
+<p t="141664" d="5907">is because it's linear in y
+and y prime, the variables</p>
+<p t="147571" d="3429">y and y prime.</p>
+<p t="151000" d="2000">Well, y prime is not a variable.</p>
+<p t="153000" d="3000">Well, you will learn,
+in a certain sense,</p>
+<p t="156000" d="5000">it helps to think of it as
+one, not right now perhaps,</p>
+<p t="161000" d="2400">but think of it as linear.</p>
+<p t="163400" d="4264">The most closely analogous thing
+would be a linear equation,</p>
+<p t="167664" d="5336">a real linear equation, the
+kind you studied in high school,</p>
+<p t="173000" d="2500">which would look like this.</p>
+<p t="175500" d="3700">It would have two
+variables, and, I guess,</p>
+<p t="179200" d="2228">constant coefficients, equal c.</p>
+<p t="181428" d="3572">Now, that's a linear equation.</p>
+<p t="185000" d="4000">And that's the sense in
+which this is linear.</p>
+<p t="189000" d="3072">It's linear in y
+prime and y, which</p>
+<p t="192072" d="3704">are the analogs of the
+variables y1 and y2.</p>
+<p t="195776" d="4888">A little bit of terminology,
+if c is equal to zero,</p>
+<p t="200664" d="4336">it's called homogeneous, the
+same way this equation is</p>
+<p t="205000" d="5500">called homogeneous, as you know
+from 18.02, if the right hand</p>
+<p t="210500" d="1500">side is zero.</p>
+<p t="212000" d="5000">So, c of x I should
+write here, but I won't.</p>
+<p t="217000" d="1500">That's called homogeneous.</p>
+<p t="218500" d="4500">Now, this is a common
+form for the equation,</p>
+<p t="223000" d="4142">but it's not what it's
+called standard form.</p>
+<p t="227142" d="4522">The standard form for the
+equation, and since this</p>
+<p t="231664" d="6668">is going to be a prime course
+of confusion, which is probably</p>
+<p t="238332" d="5268">completely correct, but a
+prime source of confusion</p>
+<p t="243600" d="2400">is what I meant.</p>
+<p t="246000" d="3330">The standard linear
+form, and I'll</p>
+<p t="249330" d="4582">underline linear is the
+first co efficient of y prime</p>
+<p t="253912" d="2088">is taken to be one.</p>
+<p t="256000" d="4160">So, you can always convert
+that to a standard form</p>
+<p t="260160" d="2616">by simply dividing
+through by it.</p>
+<p t="262776" d="5776">And if I do that, the equation
+will look like y prime plus,</p>
+<p t="268552" d="6448">now, it's common to not call
+it b anymore, the coefficient,</p>
+<p t="275000" d="3750">because it's really b over a.</p>
+<p t="278750" d="3250">And, therefore, it's
+common to adopt, yet,</p>
+<p t="282000" d="2000">a new letter for it.</p>
+<p t="284000" d="4000">And, the standard one
+that many people use is p.</p>
+<p t="288000" d="2496">How about the right hand side?</p>
+<p t="290496" d="2704">We needed a letter
+for that, too.</p>
+<p t="293200" d="2615">It's c over a, but
+we'll call it q.</p>
+<p t="295815" d="3850">So, when I talk about
+the standard linear form</p>
+<p t="299665" d="3335">for a linear first
+order equation,</p>
+<p t="303000" d="5000">it's absolutely that
+that I'm talking about.</p>
+<p t="308000" d="3000">Now, you immediately
+see that there</p>
+<p t="311000" d="3166">is a potential
+for confusion here</p>
+<p t="314166" d="7084">because what did I call the
+standard form for a first order</p>
+<p t="321250" d="625">equation?</p>
+<p t="321875" d="4267">So, I'm going to say, not this.</p>
+<p t="326142" d="5258">The standard first order
+form, what would that be?</p>
+<p t="331400" d="5376">Well, it would be y prime
+equals, and everything else</p>
+<p t="336776" d="2224">on the left hand side.</p>
+<p t="339000" d="2304">So, it would be y prime.</p>
+<p t="341304" d="5001">And now, if I turn this into
+the standard first order form,</p>
+<p t="346305" d="6695">it would be negative
+p of x y plus q of x.</p>
+<p t="353000" d="4750">But, of course, nobody
+would write negative p of x.</p>
+<p t="357750" d="2634">So, now, I explicitly
+want to say</p>
+<p t="360384" d="5393">that this is a form which I will
+never use for this equation,</p>
+<p t="365777" d="6223">although half the
+books of the world do.</p>
+<p t="372000" d="2400">In short, this poor little
+first order equation</p>
+<p t="374400" d="1725">belongs to two ethnic groups.</p>
+<p t="376125" d="2250">It's both a first
+order equation,</p>
+<p t="378375" d="3750">and therefore, its standard
+form should be written this way,</p>
+<p t="382125" d="4539">but it's also a linear equation,
+and therefore its standard form</p>
+<p t="386664" d="1906">should be used this way.</p>
+<p t="388570" d="3830">Well, it has to decide,
+and I have decided for it.</p>
+<p t="392400" d="3475">It is, above all, a
+linear equation, not just</p>
+<p t="395875" d="1725">a first order equation.</p>
+<p t="397600" d="5400">And, in this course, this will
+always be the standard form.</p>
+<p t="403000" d="3000">Now, well, what on
+earth is the difference?</p>
+<p t="406000" d="3744">If you don't do it that
+way, the difference</p>
+<p t="409744" d="2056">is entirely in the sin(p).</p>
+<p t="411800" d="5016">But, if you get the sign
+of p wrong in the answers,</p>
+<p t="416816" d="4184">it is just a disaster
+from that point on.</p>
+<p t="421000" d="4500">A trivial little change
+of sign in the answer</p>
+<p t="425500" d="3000">produces solutions and
+functions which have</p>
+<p t="428500" d="1388">totally different behavior.</p>
+<p t="429888" d="4564">And, you are going to be
+really lost in this course.</p>
+<p t="434452" d="3436">So, maybe I should
+draw a line through it</p>
+<p t="437888" d="3112">to indicate, please
+don't pay any attention</p>
+<p t="441000" d="4856">to this whatsoever, except that
+we are not going to do that.</p>
+<p t="445856" d="4142">Okay, well, what's so
+important about this equation?</p>
+<p t="449998" d="4502">Well, number one, it
+can always be solved.</p>
+<p t="454500" d="4500">That's a very, very big thing
+in differential equations.</p>
+<p t="459000" d="2724">But, it's also
+the equation which</p>
+<p t="461724" d="2776">arises in a variety of models.</p>
+<p t="464500" d="4400">Now, I'm just going
+to list a few of them.</p>
+<p t="468900" d="5327">All of them I think you will
+need either in part one or part</p>
+<p t="474227" d="6273">two of problem sets over these
+first couple of problem sets,</p>
+<p t="480500" d="3500">or second and third maybe.</p>
+<p t="484000" d="7152">But, of them, I'm going to put
+at the very top of the list</p>
+<p t="491152" d="5648">of what I'll call here,
+I'll give it two names:</p>
+<p t="496800" d="4800">the temperature
+diffusion model, well, it</p>
+<p t="501600" d="5970">would be better to call it
+temperature concentration</p>
+<p t="507570" d="7430">by analogy, temperature
+concentration model.</p>
+<p t="515000" d="5000">There's the mixing model,
+which is hardly less important.</p>
+<p t="520000" d="3000">In other words, it's
+almost as important.</p>
+<p t="523000" d="3000">You have that in
+your problem set.</p>
+<p t="526000" d="6000">And then, there are other,
+slightly less important models.</p>
+<p t="532000" d="3000">There is the model
+of radioactive decay.</p>
+<p t="535000" d="5000">There's the model of a bank
+interest, bank account,</p>
+<p t="540000" d="4428">various motion models, you
+know, Newton's Law type problems</p>
+<p t="544428" d="3852">if you can figure
+out a way of getting</p>
+<p t="548280" d="6720">rid of the second derivative,
+some motion problems.</p>
+<p t="555000" d="8000">A classic example is the motion
+of a rocket being fired off,</p>
+<p t="563000" d="1500">etc., etc., etc.</p>
+<p t="564500" d="4125">Now, today I have
+to pick a model.</p>
+<p t="568625" d="8575">And, the one I'm going to
+pick is this temperature</p>
+<p t="577200" d="2800">concentration model.</p>
+<p t="580000" d="3000">So, this is going
+to be today's model.</p>
+<p t="583000" d="2500">Tomorrow's model
+in the recitation,</p>
+<p t="585500" d="4500">I'm asking the recitations
+to, among other things,</p>
+<p t="590000" d="4224">make sure they do a mixing
+problem, A) to show you</p>
+<p t="594224" d="5776">how to do it, and B) because
+it's on the problem sets.</p>
+<p t="600000" d="4000">That's not a good reason,
+but it's not a bad one.</p>
+<p t="604000" d="2688">The others are
+either in part one</p>
+<p t="606688" d="3764">or we will take them
+up later in the term.</p>
+<p t="610452" d="5548">This is not going to be the only
+lecture on the linear equation.</p>
+<p t="616000" d="5000">There will be another one
+next week of equal importance.</p>
+<p t="621000" d="3000">But, we can't do
+everything today.</p>
+<p t="624000" d="3500">So, let's talk about the
+temperature concentration</p>
+<p t="627500" d="4500">model, except I'm going
+to change its name.</p>
+<p t="632000" d="7000">I'm going to change its name to
+the conduction diffusion model.</p>
+<p t="639000" d="5000">I'll put conduction over
+there, and diffusion over here,</p>
+<p t="644000" d="4428">let's say, since, as you
+will see, the similarities,</p>
+<p t="648428" d="4000">they are practically
+the same model.</p>
+<p t="652428" d="3822">All that's changed
+from one to the other</p>
+<p t="656250" d="3750">is the name of the ideas.</p>
+<p t="660000" d="3000">In one case, you
+call it temperature,</p>
+<p t="663000" d="3800">and the other, you should
+call it concentration.</p>
+<p t="666800" d="4532">But, the actual mathematics
+isn't identical.</p>
+<p t="671332" d="3168">So, let's begin with conduction.</p>
+<p t="674500" d="4830">All right, so, I need a
+simple physical situation</p>
+<p t="679330" d="1670">that I'm modeling.</p>
+<p t="681000" d="3000">So, imagine a tank
+of some liquid.</p>
+<p t="684000" d="3000">Water will do as
+well as anything.</p>
+<p t="687000" d="3500">And, in the inside
+is a suspended,</p>
+<p t="690500" d="2750">somehow, is a chamber.</p>
+<p t="693250" d="5415">A metal cube will
+do, and let's suppose</p>
+<p t="698665" d="4667">that its walls are partly
+insulated, not so much</p>
+<p t="703332" d="2668">that no heat can get through.</p>
+<p t="706000" d="4440">There is no such thing
+as perfect insulation</p>
+<p t="710440" d="5560">anyway, except maybe an
+absolute perfect vacuum.</p>
+<p t="716000" d="3500">Now, inside, so here on
+the outside is liquid.</p>
+<p t="719500" d="4900">Okay, on the inside
+is, what I'm interested</p>
+<p t="724400" d="5600">in is the temperature
+of this thing.</p>
+<p t="730000" d="3666">I'll call that T. Now, that's
+different from the temperature</p>
+<p t="733666" d="3334">of the external water bath.</p>
+<p t="737000" d="4000">So, I'll call that T
+sub e, T for temperature</p>
+<p t="741000" d="4500">measured in Celsius, let's say,
+for the sake of definiteness.</p>
+<p t="745500" d="3125">But, this is the
+external temperature.</p>
+<p t="748625" d="4375">So, I'll indicate it with an e.</p>
+<p t="753000" d="2775">Now, what is the model?</p>
+<p t="755775" d="7553">Well, in other words, how do I
+set up a differential equation</p>
+<p t="763328" d="2672">to model the situation?</p>
+<p t="766000" d="7000">Well, it's based on a physical
+law, which I think you know,</p>
+<p t="773000" d="4362">you've had simple
+examples like this,</p>
+<p t="777362" d="5638">the so called Newton's
+Law of cooling, -- --</p>
+<p t="783000" d="3545">which says that
+the rate of change,</p>
+<p t="786545" d="6455">the temperature of the heat goes
+from the outside to the inside</p>
+<p t="793000" d="1500">by conduction only.</p>
+<p t="794500" d="3640">Heat, of course, can
+travel in various ways,</p>
+<p t="798140" d="4860">by convection, by conduction,
+as here, or by radiation,</p>
+<p t="803000" d="2270">are the three most common.</p>
+<p t="805270" d="6062">Of these, I only want one,
+namely transmission of heat</p>
+<p t="811332" d="1668">by conduction.</p>
+<p t="813000" d="3267">And, that's the way it's
+probably a little better</p>
+<p t="816267" d="4733">to call it the conduction model,
+rather than the temperature</p>
+<p t="821000" d="4086">model, which might involve
+other ways for the heat</p>
+<p t="825086" d="1514">to be traveling.</p>
+<p t="826600" d="2733">So, dt, the
+independent variable,</p>
+<p t="829333" d="3667">is not going to be x,
+as it was over there.</p>
+<p t="833000" d="2688">It's going to be t for time.</p>
+<p t="835688" d="3312">So, maybe I should write
+that down. t equals time.</p>
+<p t="839000" d="6000">Capital T equals temperature
+in degrees Celsius.</p>
+<p t="845000" d="3000">So, you can put in the
+degrees Celsius if you want.</p>
+<p t="848000" d="4375">So, it's proportional to
+the temperature difference</p>
+<p t="852375" d="1375">between these two.</p>
+<p t="853750" d="2678">Now, how shall I
+write the difference?</p>
+<p t="856428" d="4572">Write it this way because if you
+don't you will be in trouble.</p>
+<p t="861000" d="3000">Now, why do I write it that way?</p>
+<p t="864000" d="2664">Well, I write it
+that way because I</p>
+<p t="866664" d="5336">want this constant to be
+positive, a positive constant.</p>
+<p t="872000" d="3800">In general, any constant, so,
+parameters which are physical,</p>
+<p t="875800" d="3926">have some physical
+significance, one always</p>
+<p t="879726" d="4416">wants to arrange the equation so
+that they are positive numbers,</p>
+<p t="884142" d="3713">the way people normally
+think of these things.</p>
+<p t="887855" d="1745">This is called the conductivity.</p>
+<p t="889600" d="2400">The conductivity of what?</p>
+<p t="892000" d="2800">Well, I don't
+know, of the system</p>
+<p t="894800" d="3280">of the situation, the
+conductivity of the wall,</p>
+<p t="898080" d="3919">or the wall if the metal
+were just by itself.</p>
+<p t="901999" d="2333">At any rate, it's a constant.</p>
+<p t="904332" d="2668">It's thought of as a constant.</p>
+<p t="907000" d="4142">And, why positive, well, because
+if the external temperature is</p>
+<p t="911142" d="2858">bigger than the
+internal temperature,</p>
+<p t="914000" d="4666">I expect T to rise, the
+internal temperature to rise.</p>
+<p t="918666" d="5554">That means dT / dt, its
+slope, should be positive.</p>
+<p t="924220" d="3280">So, in other words, if
+Te is bigger than T,</p>
+<p t="927500" d="1875">I expect this number
+to be positive.</p>
+<p t="929375" d="4077">And, that tells you that k
+must be a positive constant.</p>
+<p t="933452" d="3548">If I had turned it the
+other way, expressed</p>
+<p t="937000" d="3000">the difference in
+the reverse order,</p>
+<p t="940000" d="4000">K would then be negative,
+have to be negative in order</p>
+<p t="944000" d="3000">that this turn out to be
+positive in that situation I</p>
+<p t="947000" d="600">described.</p>
+<p t="947600" d="3600">And, since nobody wants
+negative values of k,</p>
+<p t="951200" d="2799">you have to write the
+equation in this form</p>
+<p t="953999" d="2001">rather than the
+other way around.</p>
+<p t="956000" d="3000">So, there's our
+differential equation.</p>
+<p t="959000" d="3000">It will probably have
+an initial condition.</p>
+<p t="962000" d="3663">So, it could be the temperature
+at the starting time should</p>
+<p t="965663" d="4337">be some given number, T zero.</p>
+<p t="970000" d="3000">But, the condition could
+be given in other ways.</p>
+<p t="973000" d="2000">One can ask, what's
+the temperature as time</p>
+<p t="975000" d="2000">goes to infinity, for example?</p>
+<p t="977000" d="4000">There are different ways of
+getting that initial condition.</p>
+<p t="981000" d="2000">Okay, that's the
+conduction model.</p>
+<p t="983000" d="2000">What would the
+diffusion model be?</p>
+<p t="985000" d="3142">The diffusion model,
+mathematically, would be,</p>
+<p t="988142" d="2858">word for word, the same.</p>
+<p t="991000" d="2912">The only difference
+is that now, what</p>
+<p t="993912" d="4358">I imagine is I'll draw
+the picture the same way,</p>
+<p t="998270" d="5271">except now I'm going to put,
+label the inside not with a T</p>
+<p t="1003541" d="3124">but with a C, C
+for concentration.</p>
+<p t="1006665" d="4191">It's in an external
+water bath, let's say.</p>
+<p t="1010856" d="2715">So, there is an
+external concentration.</p>
+<p t="1013571" d="4317">And, what I'm talking
+about is some chemical,</p>
+<p t="1017888" d="4362">let's say salt will do
+as well as anything.</p>
+<p t="1022250" d="5250">So, C is equal to salt
+concentration inside,</p>
+<p t="1027500" d="6214">and Ce would be the salt
+concentration outside,</p>
+<p t="1033714" d="4286">outside in the water bath.</p>
+<p t="1038000" d="8000">Now, I imagine some mechanism,
+so this is a salt solution.</p>
+<p t="1046000" d="2664">That's a salt solution.</p>
+<p t="1048664" d="5514">And, I imagine some mechanism
+by which the salt can diffuse,</p>
+<p t="1054178" d="2821">it's a diffusion model
+now, diffuse from here</p>
+<p t="1056999" d="3001">into the air or possibly
+out the other way.</p>
+<p t="1060000" d="3500">And that's usually done
+by vaguely referring</p>
+<p t="1063500" d="3640">to the outside as a
+semi permeable membrane,</p>
+<p t="1067140" d="2940">semi permeable, so
+that the salt will</p>
+<p t="1070080" d="3670">have a little hard time
+getting through but permeable,</p>
+<p t="1073750" d="3050">so that it won't be
+blocked completely.</p>
+<p t="1076800" d="3200">So, there's a membrane.</p>
+<p t="1080000" d="6000">You write the semi
+permeable membrane outside,</p>
+<p t="1086000" d="1713">outside the inside.</p>
+<p t="1087713" d="2287">Well, I give up.</p>
+<p t="1090000" d="4000">You know, membrane somewhere.</p>
+<p t="1094000" d="3000">Sorry, membrane wall.</p>
+<p t="1097000" d="1332">How's that?</p>
+<p t="1098332" d="2668">Now, what's the equation?</p>
+<p t="1101000" d="5600">Well, the equation is
+the same, except it's</p>
+<p t="1106600" d="2900">called the diffusion equation.</p>
+<p t="1109500" d="5784">I don't think Newton
+got his name on this.</p>
+<p t="1115284" d="4894">The diffusion equation says
+that the rate at which the salt</p>
+<p t="1120178" d="2206">diffuses across
+the membrane, which</p>
+<p t="1122384" d="4616">is the same up to a constant
+as the rate at which</p>
+<p t="1127000" d="4000">the concentration inside
+changes, is some constant,</p>
+<p t="1131000" d="3000">usually called k still, okay.</p>
+<p t="1134000" d="1332">Do I contradict?</p>
+<p t="1135332" d="2668">Okay, let's keep calling it k1.</p>
+<p t="1138000" d="3000">Now it's different,
+times Ce minus C.</p>
+<p t="1141000" d="2800">And, for the same
+reason as before,</p>
+<p t="1143800" d="3342">if the external
+concentration is bigger</p>
+<p t="1147142" d="5582">than the internal concentration,
+we expect salt to flow in.</p>
+<p t="1152724" d="2276">That will make C rise.</p>
+<p t="1155000" d="3307">It will make this
+positive, and therefore, we</p>
+<p t="1158307" d="2763">want k to be positive,
+just k1 to be</p>
+<p t="1161070" d="3930">positive for the same reason
+it had to be positive before.</p>
+<p t="1165000" d="3600">So, in each case, the model
+that I'm talking about</p>
+<p t="1168600" d="2400">is the differential equation.</p>
+<p t="1171000" d="3500">So, maybe I should, let's
+put that, make that clear.</p>
+<p t="1174500" d="5213">Or, I would say that this first
+order differential equation</p>
+<p t="1179713" d="3619">models this physical
+situation, and the same thing</p>
+<p t="1183332" d="2668">is true on the other
+side over here.</p>
+<p t="1186000" d="2800">This is the diffusion
+equation, and this</p>
+<p t="1188800" d="1575">is the conduction equation.</p>
+<p t="1190375" d="4845">Now, if you are in any doubt
+about the power of differential</p>
+<p t="1195220" d="3622">equations, the point is,
+when I talk about this thing,</p>
+<p t="1198842" d="4033">I don't have to say which
+of these I'm following.</p>
+<p t="1202875" d="4409">I'll use neutral
+variables like Y and X</p>
+<p t="1207284" d="1716">to solve these equations.</p>
+<p t="1209000" d="3600">But, with a single
+stroke, I will be handling</p>
+<p t="1212600" d="1150">those situations together.</p>
+<p t="1213750" d="2750">And, that's the
+power of the method.</p>
+<p t="1216500" d="3700">Now, you obviously must
+be wondering, look,</p>
+<p t="1220200" d="2466">these look very, very special.</p>
+<p t="1222666" d="4474">He said he was going to talk
+about the first, general first</p>
+<p t="1227140" d="860">order equation.</p>
+<p t="1228000" d="3000">But, these look
+rather special to me.</p>
+<p t="1231000" d="2220">Well, not too special.</p>
+<p t="1233220" d="2780">How should we write it?</p>
+<p t="1236000" d="5332">Suppose I write, let's take
+the temperature equation just</p>
+<p t="1241332" d="2668">to have something definite.</p>
+<p t="1244000" d="4000">Notice that it's in a form
+corresponding to Newton's Law.</p>
+<p t="1248000" d="4000">But it is not in the
+standard linear form.</p>
+<p t="1252000" d="2688">Let's put it in
+standard linear form,</p>
+<p t="1254688" d="4392">so at least you could see
+that it's a linear equation.</p>
+<p t="1259080" d="3304">So, if I put it
+in standard form,</p>
+<p t="1262384" d="3840">it's going to look like
+DTDTD little t plus KT</p>
+<p t="1266224" d="2996">is equal to K times TE.</p>
+<p t="1269220" d="3980">Now, compare that with
+the general, the way</p>
+<p t="1273200" d="2800">the general equation
+is supposed to look,</p>
+<p t="1276000" d="4000">the yellow box over there,
+the standard linear form.</p>
+<p t="1280000" d="1998">How are they going to compare?</p>
+<p t="1281998" d="2502">Well, this is a pretty
+general function.</p>
+<p t="1284500" d="1500">This is general.</p>
+<p t="1286000" d="3840">This is a general function
+of T because I can</p>
+<p t="1289840" d="1588">make the external temperature.</p>
+<p t="1291428" d="5572">I could suppose it behaves in
+anyway I like, steadily rising,</p>
+<p t="1297000" d="2000">decaying exponentially,
+maybe oscillating</p>
+<p t="1299000" d="3180">back and forth for some reason.</p>
+<p t="1302180" d="4320">The only way in which
+it's not general</p>
+<p t="1306500" d="3500">is that this K is a constant.</p>
+<p t="1310000" d="3000">So, I will ask you
+to be generous.</p>
+<p t="1313000" d="4000">Let's imagine the conductivity
+is changing over time.</p>
+<p t="1317000" d="3815">So, this is usually
+constant, but there's</p>
+<p t="1320815" d="4405">no law which says it has to be.</p>
+<p t="1325220" d="3922">How could a conductivity
+change over time?</p>
+<p t="1329142" d="3746">Well, we could
+suppose that this wall</p>
+<p t="1332888" d="4254">was made of slowly congealing
+Jell O, for instance.</p>
+<p t="1337142" d="5858">It starts out as liquid,
+and then it gets solid.</p>
+<p t="1343000" d="3444">And, Jell O doesn't
+transmit heat,</p>
+<p t="1346444" d="5736">I believe, quite as well as
+liquid does, as a liquid would.</p>
+<p t="1352180" d="3820">Is Jell O a solid or liquid?</p>
+<p t="1356000" d="1713">I don't know.</p>
+<p t="1357713" d="2287">Let's forget about that.</p>
+<p t="1360000" d="6000">So, with this understanding,
+so let's say not necessarily</p>
+<p t="1366000" d="5500">here, but not necessarily, I
+can think of this, therefore,</p>
+<p t="1371500" d="3500">by allowing K to vary with time.</p>
+<p t="1375000" d="5000">And the external temperature
+to vary with time.</p>
+<p t="1380000" d="7000">I can think of it as a
+general, linear equation.</p>
+<p t="1387000" d="2000">So, these models
+are not special.</p>
+<p t="1389000" d="1452">They are fairly general.</p>
+<p t="1390452" d="3832">Well, I did promise you I
+would solve an equation,</p>
+<p t="1394284" d="3716">and that this lecture, I still
+have not solved any equations.</p>
+<p t="1398000" d="3000">OK, time to stop
+temporizing and solve.</p>
+<p t="1401000" d="3000">So, I'm going to, in order
+not to play favorites</p>
+<p t="1404000" d="3000">with these two models,
+I'll go back to,</p>
+<p t="1407000" d="4000">and to get you used to thinking
+of the variables all the time,</p>
+<p t="1411000" d="4444">that is, you know, be eclectic
+switching from one variable</p>
+<p t="1415444" d="3108">to another according to
+which particular lecture</p>
+<p t="1418552" d="4083">you happened to be sitting in.</p>
+<p t="1422635" d="10077">So, let's take our equation in
+the form, Y prime plus P of XY,</p>
+<p t="1432712" d="5288">the general form using
+the old variables</p>
+<p t="1438000" d="6000">equals Q of X. Solve me.</p>
+<p t="1444000" d="2928">Well, there are different ways
+of describing the solution</p>
+<p t="1446928" d="500">process.</p>
+<p t="1447428" d="3186">No matter how you
+do it, it amounts</p>
+<p t="1450614" d="3070">to the same amount of
+work and there is always</p>
+<p t="1453684" d="2647">a trick involved
+at each one of them</p>
+<p t="1456331" d="2794">since you can't suppress
+a trick by doing</p>
+<p t="1459125" d="1875">the problem some other way.</p>
+<p t="1461000" d="3000">The way I'm going to do
+it, I think, is the best.</p>
+<p t="1464000" d="2000">That's why I'm giving it to you.</p>
+<p t="1466000" d="1815">It's the easiest to remember.</p>
+<p t="1467815" d="3185">It leads to the
+least work, but I</p>
+<p t="1471000" d="5000">have colleagues who would
+fight with me about that point.</p>
+<p t="1476000" d="3330">So, since they are not
+here to fight with me</p>
+<p t="1479330" d="3002">I am free to do whatever I like.</p>
+<p t="1482332" d="3068">One of the main
+reasons for doing</p>
+<p t="1485400" d="4000">it the way I'm going
+to do is because I</p>
+<p t="1489400" d="6155">want you to get what our word
+into your consciousness, two</p>
+<p t="1495555" d="1665">words, integrating factor.</p>
+<p t="1497220" d="5280">I'm going to solve this equation
+by finding and integrating</p>
+<p t="1502500" d="6500">factor of the form U of X.
+What's an integrating factor?</p>
+<p t="1509000" d="4000">Well, I'll show you not by
+writing an elaborate definition</p>
+<p t="1513000" d="3666">on the board, but showing
+you what its function is.</p>
+<p t="1516666" d="2666">It's a certain
+function, U of X, I</p>
+<p t="1519332" d="3868">don't know what it is, but
+here's what I wanted to do.</p>
+<p t="1523200" d="3563">I want to multiply, I'm going
+to drop the X's a just so</p>
+<p t="1526763" d="2347">that the thing looks
+less complicated.</p>
+<p t="1529110" d="5015">So, what I want to do is
+multiply this equation</p>
+<p t="1534125" d="1875">through by U of X.</p>
+<p t="1536000" d="4360">That's why it's called
+a factor because you're</p>
+<p t="1540360" d="3456">going to multiply
+everything through by it.</p>
+<p t="1543816" d="5404">So, it's going to look like
+UY prime plus PUY equals QU,</p>
+<p t="1549220" d="3556">and now, so far,
+it's just a factor.</p>
+<p t="1552776" d="2599">What makes it an
+integrating factor</p>
+<p t="1555375" d="5391">is that this, after I do
+that, I want this to turn out</p>
+<p t="1560766" d="3734">to be the derivative of
+something with respect</p>
+<p t="1564500" d="3750">to X. You see the
+motivation for that.</p>
+<p t="1568250" d="2875">If this turns out to be the
+derivative of something,</p>
+<p t="1571125" d="2238">because I've chosen
+U so cleverly,</p>
+<p t="1573363" d="3637">then I will be able to solve
+the equation immediately</p>
+<p t="1577000" d="2000">just by integrating
+this with respect to X,</p>
+<p t="1579000" d="2000">and integrating that
+with respect to X.</p>
+<p t="1581000" d="3750">You just, then, integrate
+both sides with respect to X,</p>
+<p t="1584750" d="1250">and the equation is solved.</p>
+<p t="1586000" d="5000">Now, the only question is,
+what should I choose for U?</p>
+<p t="1591000" d="3000">Well, if you think of
+the product formula,</p>
+<p t="1594000" d="3000">there might be many
+things to try here.</p>
+<p t="1597000" d="3000">But there's only one
+reasonable thing to try.</p>
+<p t="1600000" d="5000">Try to pick U so that it's
+the derivative of U times Y.</p>
+<p t="1605000" d="1665">See how reasonable that is?</p>
+<p t="1606665" d="2668">If I use the product
+rule on this,</p>
+<p t="1609333" d="2667">the first term is
+U times Y prime.</p>
+<p t="1612000" d="4000">The second term would
+be U prime times Y.</p>
+<p t="1616000" d="3000">Well, I've got the Y there.</p>
+<p t="1619000" d="2000">So, this will work.</p>
+<p t="1621000" d="4888">It works if, what's the
+condition that you must satisfy</p>
+<p t="1625888" d="3112">in order for that to be true?</p>
+<p t="1629000" d="6000">Well, it must be that after
+it to the differentiation,</p>
+<p t="1635000" d="4000">U prime turns out
+to be P times U.</p>
+<p t="1639000" d="1816">So, is it clear?</p>
+<p t="1640816" d="5809">This is something we want to be
+equal to, and the thing I will</p>
+<p t="1646625" d="5706">try to do it is by
+choosing U in such a way</p>
+<p t="1652331" d="4669">that this equality
+will take place.</p>
+<p t="1657000" d="3000">And then I will be able
+to solve the equation.</p>
+<p t="1660000" d="3000">And so, here's what my
+U prime must satisfy.</p>
+<p t="1663000" d="1815">Hey, we can solve that.</p>
+<p t="1664815" d="2407">But please don't
+forget that P is</p>
+<p t="1667222" d="1778">P of X. It's a function of X.</p>
+<p t="1669000" d="4000">So, if you separate variables,
+I'm going to do this.</p>
+<p t="1673000" d="3600">So, what is it, DU over
+U equals P of X times DX.</p>
+<p t="1676600" d="3900">If I integrate that,
+so, separate variables,</p>
+<p t="1680500" d="4165">integrate, and you're going
+to get DU over U integrates</p>
+<p t="1684665" d="3763">to the be the log of
+U, and the other side</p>
+<p t="1688428" d="3572">integrates to be the
+integral of P of X DX.</p>
+<p t="1692000" d="4000">Now, you can put an
+arbitrary constant there,</p>
+<p t="1696000" d="2448">or you can think of
+it as already implied</p>
+<p t="1698448" d="1694">by the indefinite integral.</p>
+<p t="1700142" d="4358">Well, that doesn't tell
+us, yet, what U is.</p>
+<p t="1704500" d="1500">What should U be?</p>
+<p t="1706000" d="4250">Notice, I don't have to find
+every possible U, which works.</p>
+<p t="1710250" d="3750">All I'm looking for is one.</p>
+<p t="1714000" d="4000">All I want is a single view
+which satisfies that equation.</p>
+<p t="1718000" d="4000">Well, U equals the integral,
+E to the integral of PDX.</p>
+<p t="1722000" d="2500">That's not too
+beautiful looking,</p>
+<p t="1724500" d="2226">but by differential
+equations, things</p>
+<p t="1726726" d="3728">can get so complicated
+that in a week or two,</p>
+<p t="1730454" d="4546">you will think of this as
+an extremely simple formula.</p>
+<p t="1735000" d="5000">So, there is a formula for
+our integrating factor.</p>
+<p t="1740000" d="1500">We found it.</p>
+<p t="1741500" d="5750">We will always be able to
+write an integrating factor.</p>
+<p t="1747250" d="7500">Don't worry about the arbitrary
+constant because you only need</p>
+<p t="1754750" d="2250">one such U.</p>
+<p t="1757000" d="6000">So: no arbitrary constant
+since only one U needed.</p>
+<p t="1763000" d="3600">And, that's the
+solution, the way</p>
+<p t="1766600" d="3600">we solve the linear equation.</p>
+<p t="1770200" d="7344">OK, let's take over,
+and actually do it.</p>
+<p t="1777544" d="6170">I think it would be
+better to summarize it</p>
+<p t="1783714" d="4286">as a clear cut method.</p>
+<p t="1788000" d="3000">So, let's do that.</p>
+<p t="1791000" d="3000">So, what's our method?</p>
+<p t="1794000" d="10000">It's the method for solving
+Y prime plus PY equals Q.</p>
+<p t="1804000" d="3800">Well, the first place, make sure
+it's in standard linear form.</p>
+<p t="1807800" d="3531">If it isn't, you must
+put it in that form.</p>
+<p t="1811331" d="3381">Notice, the formula for the
+integrating factor, the formula</p>
+<p t="1814712" d="2144">for the integrating
+factor involves</p>
+<p t="1816856" d="2144">P, the integral of PDX.</p>
+<p t="1819000" d="2000">So, you'd better
+get the right P.</p>
+<p t="1821000" d="1600">Otherwise, you are sunk.</p>
+<p t="1822600" d="3150">OK, so put it in
+standard linear form.</p>
+<p t="1825750" d="3582">That way, you will have
+the right P. Notice</p>
+<p t="1829332" d="3212">that if you wrote
+it in that form,</p>
+<p t="1832544" d="2831">and all you remembered
+was E to the integral PDX,</p>
+<p t="1835375" d="2625">the P would have the wrong sign.</p>
+<p t="1838000" d="3070">If you're going to write, that
+P should have a negative sign</p>
+<p t="1841070" d="500">there.</p>
+<p t="1841570" d="2930">So, do it this way,
+and no other way.</p>
+<p t="1844500" d="3165">Otherwise, you will get
+confused and get wrong signs.</p>
+<p t="1847665" d="3666">And, as I say, that will
+produce wrong answers, and not</p>
+<p t="1851331" d="2669">just slightly wrong
+answers, but disastrously</p>
+<p t="1854000" d="3664">wrong answers from the point
+of view of the modeling</p>
+<p t="1857664" d="4444">if you really want answers
+to physical problems.</p>
+<p t="1862108" d="4492">So, here's a
+standard linear form.</p>
+<p t="1866600" d="3066">Then, find the
+integrating factor.</p>
+<p t="1869666" d="7334">So, calculate E to the integral,
+PDX, the integrating factor,</p>
+<p t="1877000" d="5000">and that multiply both,
+I'm putting this as both,</p>
+<p t="1882000" d="9000">underlined that as many times
+as you have room in your notes.</p>
+<p t="1891000" d="7362">Multiply both sides by this
+integrating factor by E</p>
+<p t="1898362" d="4038">to the integral PDX.</p>
+<p t="1902400" d="3600">And then, integrate.</p>
+<p t="1906000" d="5000">OK, let's take a simple example.</p>
+<p t="1911000" d="6400">Suppose we started with
+the equation XY prime</p>
+<p t="1917400" d="8600">minus Y equals, I had X2,
+X3, something like that,</p>
+<p t="1926000" d="6000">X3, I think, yeah, X2.</p>
+<p t="1932000" d="4000">OK, what's the
+first thing to do?</p>
+<p t="1936000" d="2915">Put it in standard form.</p>
+<p t="1938915" d="7000">So, step zero will be to
+write it as Y prime minus</p>
+<p t="1945915" d="4085">one over X times Y equals X2.</p>
+<p t="1950000" d="4833">Let's do the work first, and
+then I'll talk about mistakes.</p>
+<p t="1954833" d="5055">Well, we now calculate
+the integrating factor.</p>
+<p t="1959888" d="3112">So, I would do it in steps.</p>
+<p t="1963000" d="5000">You can integrate negative
+one over X, right?</p>
+<p t="1968000" d="3500">That integrates to
+minus log X. So,</p>
+<p t="1971500" d="5500">the integrating factor is E
+to the integral of this, DX.</p>
+<p t="1977000" d="5000">So, it's E to the
+negative log X.</p>
+<p t="1982000" d="4500">Now, in real life, that's
+not the way to leave that.</p>
+<p t="1986500" d="3833">What is E to the negative log X?</p>
+<p t="1990333" d="5667">Well, think of it as E to
+the log X to the minus one.</p>
+<p t="1996000" d="5570">Or, in other words, it is
+E to the log X is X. So,</p>
+<p t="2001570" d="1430">it's one over X.</p>
+<p t="2003000" d="4000">So, the integrating
+factor is one over X.</p>
+<p t="2007000" d="7000">OK, multiply both sides
+by the integrating factor.</p>
+<p t="2014000" d="1500">Both sides of what?</p>
+<p t="2015500" d="5500">Both sides of this: the equation
+written in standard form,</p>
+<p t="2021000" d="1200">and both sides.</p>
+<p t="2022200" d="5600">So, it's going to be one over
+XY prime minus one over X2 Y</p>
+<p t="2027800" d="5015">is equal to X2 times one over
+X, which is simply X. Now,</p>
+<p t="2032815" d="2730">if you have done
+the work correctly,</p>
+<p t="2035545" d="5455">you should be able, now,
+to integrate the left hand</p>
+<p t="2041000" d="1110">side directly.</p>
+<p t="2042110" d="4318">So, I'm going to
+write it this way.</p>
+<p t="2046428" d="4387">I always recommend that you
+put it as extra step, well,</p>
+<p t="2050815" d="3327">put it as an extra
+step the reason</p>
+<p t="2054142" d="2858">for using that
+integrating factor,</p>
+<p t="2057000" d="4200">in other words, that the left
+hand side is supposed to be,</p>
+<p t="2061200" d="2800">now, one over X times Y prime.</p>
+<p t="2064000" d="3328">I always put it that
+because there's always</p>
+<p t="2067328" d="4447">a chance you made a mistake
+or forgot something.</p>
+<p t="2071775" d="2780">Look at it, mentally
+differentiated</p>
+<p t="2074555" d="5300">using the product rule just
+to check that, in fact, it</p>
+<p t="2079855" d="3145">turns out to be the same
+as the left hand side.</p>
+<p t="2083000" d="1535">So, what do we get?</p>
+<p t="2084535" d="3965">One over X times Y prime
+plus Y times the derivative</p>
+<p t="2088500" d="5300">of one over X, which indeed
+is negative one over X2.</p>
+<p t="2093800" d="4200">And now, finally, that's 3A,
+continue, do the integration.</p>
+<p t="2098000" d="2149">So, you're going
+to get, let's see</p>
+<p t="2100149" d="4755">if we can do it all on one
+board, one over X times Y</p>
+<p t="2104904" d="3000">is equal to X plus a
+constant, X, sorry, X2</p>
+<p t="2107904" d="1953">over two plus a constant.</p>
+<p t="2109857" d="6475">And, the final step
+will be, therefore, now</p>
+<p t="2116332" d="4668">I want to isolate Y by itself.</p>
+<p t="2121000" d="5000">So, Y will be equal to
+multiply through by X.</p>
+<p t="2126000" d="8000">X3 over two plus C times X.
+And, that's the solution.</p>
+<p t="2134000" d="6000">OK, let's do one a little
+slightly more complicated.</p>
+<p t="2140000" d="1816">Let's try this one.</p>
+<p t="2141816" d="3729">Now, my equation
+is going to be one,</p>
+<p t="2145545" d="5455">I'll still keep two, Y
+and X, as the variables.</p>
+<p t="2151000" d="6000">I'll use T and F
+for a minute or two.</p>
+<p t="2157000" d="4360">One plus cosine X,
+so, I'm not going</p>
+<p t="2161360" d="5640">to give you this one in
+standard form either.</p>
+<p t="2167000" d="2332">It's a trick question.</p>
+<p t="2169332" d="8000">Y prime minus sine X times Y is
+equal to anything reasonable,</p>
+<p t="2177332" d="1668">I guess.</p>
+<p t="2179000" d="5000">I think X, 2X, make
+it more exciting.</p>
+<p t="2184000" d="4920">OK, now, I think
+I should warn you</p>
+<p t="2188920" d="9080">where the mistakes are just so
+that you can make all of them.</p>
+<p t="2198000" d="3000">So, this is mistake number one.</p>
+<p t="2201000" d="3750">You don't put it
+in standard form.</p>
+<p t="2204750" d="6250">Mistake number two: generally
+people can do step one fine.</p>
+<p t="2211000" d="6000">Mistake number two is, this
+is my most common mistake,</p>
+<p t="2217000" d="3000">so I'm very sensitive to it.</p>
+<p t="2220000" d="3750">But that doesn't
+mean if you make it,</p>
+<p t="2223750" d="2250">you'll get any sympathy from me.</p>
+<p t="2226000" d="2000">I don't give sympathy to myself.</p>
+<p t="2228000" d="2400">You are so intense,
+so happy at having</p>
+<p t="2230400" d="1932">found the integrating
+factor, you</p>
+<p t="2232332" d="4000">forget to multiply Q by the
+integrating factor also.</p>
+<p t="2236332" d="4000">You just handle the left
+hand side of the equation,</p>
+<p t="2240332" d="2667">if you forget about
+the right hand side.</p>
+<p t="2242999" d="4221">So, the emphasis on the
+both here is the right hand,</p>
+<p t="2247220" d="1780">please include the Q.</p>
+<p t="2249000" d="4000">Please include the
+right hand side.</p>
+<p t="2253000" d="1332">Any other mistakes?</p>
+<p t="2254332" d="2918">Well, nothing that
+I can think of.</p>
+<p t="2257250" d="2414">Well, maybe only,
+anyway, we are not</p>
+<p t="2259664" d="3906">going to make any mistakes
+the rest of this lecture.</p>
+<p t="2263570" d="1430">So, what do we do?</p>
+<p t="2265000" d="2304">We write this in standard form.</p>
+<p t="2267304" d="4296">So, it's going to look
+like Y prime minus sine X,</p>
+<p t="2271600" d="4216">sine X divided by one
+plus cosine X times Y</p>
+<p t="2275816" d="3184">equals, my heart
+sinks because I know</p>
+<p t="2279000" d="5000">I'm supposed to integrate
+something like this.</p>
+<p t="2284000" d="3000">And, boy, that's going
+to give me problems.</p>
+<p t="2287000" d="1713">Well, not yet.</p>
+<p t="2288713" d="2287">With the integrating factor?</p>
+<p t="2291000" d="3000">The integrating
+factor is, well, we</p>
+<p t="2294000" d="4220">want to calculate the
+integral of negative sine X</p>
+<p t="2298220" d="1780">over one plus cosine.</p>
+<p t="2300000" d="1875">That's the integral of PDX.</p>
+<p t="2301875" d="3625">And, after that, we
+have to exponentiate it.</p>
+<p t="2305500" d="2500">Well, can you do this?</p>
+<p t="2308000" d="3000">Yeah, but if you stare
+at it a little while,</p>
+<p t="2311000" d="7000">you can see that the top is
+the derivative of the bottom.</p>
+<p t="2318000" d="1332">That is great.</p>
+<p t="2319332" d="4268">That means it integrates
+to be the log of one</p>
+<p t="2323600" d="3762">plus cosine X. Is that
+right, one over one</p>
+<p t="2327362" d="4263">plus cosine X times the
+derivative of this, which</p>
+<p t="2331625" d="4750">is negative cosine X. Therefore,
+the integrating factor</p>
+<p t="2336375" d="1500">is E to that.</p>
+<p t="2337875" d="4395">In other words, it
+is one plus cosine X.</p>
+<p t="2342270" d="3230">Therefore, so this
+was step zero.</p>
+<p t="2345500" d="3832">Step one, we found the
+integrating factor.</p>
+<p t="2349332" d="7668">And now, step two, we multiply
+through the integrating factor.</p>
+<p t="2357000" d="2220">And what do we get?</p>
+<p t="2359220" d="3922">We multiply through the
+standard for equation</p>
+<p t="2363142" d="5858">by the integrating factor, if
+you do that, what you get is,</p>
+<p t="2369000" d="6000">well, Y prime gets the
+coefficient one plus cosine X,</p>
+<p t="2375000" d="3885">Y prime minus sign X equals 2X.</p>
+<p t="2378885" d="1115">Oh, dear.</p>
+<p t="2380000" d="5000">Well, I hope somebody
+would giggle at this point.</p>
+<p t="2385000" d="2270">What's giggle able about it?</p>
+<p t="2387270" d="3730">Well, that all this was
+totally wasted work.</p>
+<p t="2391000" d="2500">It's called spinning
+your wheels.</p>
+<p t="2393500" d="3000">No, it's not
+spinning your wheels.</p>
+<p t="2396500" d="3500">It's doing what
+you're supposed to do,</p>
+<p t="2400000" d="5000">and finding out that you
+wasted the entire time doing</p>
+<p t="2405000" d="3000">what you were supposed to do.</p>
+<p t="2408000" d="4140">Well, in other words,
+that net effect of this</p>
+<p t="2412140" d="4716">is to end up with the same
+equation we started with.</p>
+<p t="2416856" d="2144">But, what is the point?</p>
+<p t="2419000" d="3178">The point of having
+done all this</p>
+<p t="2422178" d="4597">was because now the left
+hand side is exactly</p>
+<p t="2426775" d="5495">the derivative of something,
+and the left hand side should</p>
+<p t="2432270" d="2730">be the derivative of what?</p>
+<p t="2435000" d="2904">Well, it should be
+the derivative of one</p>
+<p t="2437904" d="2696">plus cosine X
+times Y, all prime.</p>
+<p t="2440600" d="4176">Now, you can check that
+that's in fact the case.</p>
+<p t="2444776" d="4039">It's one plus cosine X,
+Y prime, plus minus sine</p>
+<p t="2448815" d="3041">X, the derivative of
+this side times Y.</p>
+<p t="2451856" d="4364">So, if you had thought, in
+looking at the equation,</p>
+<p t="2456220" d="4504">to say to yourself, this
+is a derivative of that,</p>
+<p t="2460724" d="3524">maybe I'll just check
+right away to see</p>
+<p t="2464248" d="4323">if it's the derivative of
+one plus cosine X sine.</p>
+<p t="2468571" d="3429">You would have saved that work.</p>
+<p t="2472000" d="4000">Well, you don't have to
+be brilliant or clever,</p>
+<p t="2476000" d="1332">or anything like that.</p>
+<p t="2477332" d="2868">You can follow your
+nose, and it's just,</p>
+<p t="2480200" d="4675">I want to give you a positive
+experience in solving</p>
+<p t="2484875" d="3125">linear equations,
+not too negative.</p>
+<p t="2488000" d="3000">Anyway, so we got to this point.</p>
+<p t="2491000" d="6000">So, now this is 2X, and
+now we are ready to solve</p>
+<p t="2497000" d="6500">the equation, which is the
+solution now will be one plus</p>
+<p t="2503500" d="5500">cosine X times Y is equal
+to X2 plus a constant,</p>
+<p t="2509000" d="6524">and so Y is equal to X2 divided
+by X2 plus a constant divided</p>
+<p t="2515524" d="5876">by one plus cosine X. Suppose
+I have given you an initial</p>
+<p t="2521400" d="1600">condition, which I didn't.</p>
+<p t="2523000" d="4000">But, suppose the initial
+condition said that Y of zero</p>
+<p t="2527000" d="1332">were one, for instance.</p>
+<p t="2528332" d="3333">Then, the solution would
+be, so, this is an if,</p>
+<p t="2531665" d="3833">I'm throwing in at the end just
+to make it a little bit more</p>
+<p t="2535498" d="1902">of a problem, how
+would I put, then</p>
+<p t="2537400" d="4000">I could evaluate the constant
+by using the initial condition.</p>
+<p t="2541400" d="1600">What would it be?</p>
+<p t="2543000" d="2454">This would be, on the
+left hand side, one,</p>
+<p t="2545454" d="4546">on the right hand side
+would be C over two.</p>
+<p t="2550000" d="4000">So, I would get one
+equals C over two.</p>
+<p t="2554000" d="1875">Is that correct?</p>
+<p t="2555875" d="6305">Cosine of zero is one,
+so that's two down below.</p>
+<p t="2562180" d="6676">Therefore, C is equal to
+two, and that would then</p>
+<p t="2568856" d="2144">complete the solution.</p>
+<p t="2571000" d="6000">We would be X2 plus two
+over one plus cosine X.</p>
+<p t="2577000" d="6000">Now, you can do this
+in general, of course,</p>
+<p t="2583000" d="3180">and get a general formula.</p>
+<p t="2586180" d="5532">And, we will have occasion
+to use that next week.</p>
+<p t="2591712" d="3508">But for now, why
+don't we concentrate</p>
+<p t="2595220" d="3335">on the most interesting
+case, namely</p>
+<p t="2598555" d="3330">that of the most
+linear equation,</p>
+<p t="2601885" d="2447">with constant
+coefficient, that is,</p>
+<p t="2604332" d="3382">so let's look at
+the linear equation</p>
+<p t="2607714" d="3570">with constant coefficient,
+because that's</p>
+<p t="2611284" d="5716">the one that most closely models
+the conduction and diffusion</p>
+<p t="2617000" d="666">equations.</p>
+<p t="2617666" d="5334">So, what I'm interested in, is
+since this is the, of them all,</p>
+<p t="2623000" d="2400">probably it's the
+most important case</p>
+<p t="2625400" d="3100">is the one where P
+is a constant because</p>
+<p t="2628500" d="1500">of its application to that.</p>
+<p t="2630000" d="3500">And, many of the other, the
+bank account, for example,</p>
+<p t="2633500" d="2166">all of those will use
+a constant coefficient.</p>
+<p t="2635666" d="2762">So, how is the
+thing going to look?</p>
+<p t="2638428" d="2572">Well, I will use the cooling.</p>
+<p t="2641000" d="4000">Let's use the temperature
+model, for example.</p>
+<p t="2645000" d="2220">The temperature
+model, the equation</p>
+<p t="2647220" d="3380">will be DTDT plus
+KT is equal to.</p>
+<p t="2650600" d="4200">Now, notice on the right hand
+side, this is a common error.</p>
+<p t="2654800" d="1200">You don't put TE.</p>
+<p t="2656000" d="5000">You have to put KTE because
+that's what the equation says.</p>
+<p t="2661000" d="4000">If you think units, you
+won't have any trouble.</p>
+<p t="2665000" d="5000">Units have to be compatible on
+both sides of a differential</p>
+<p t="2670000" d="666">equation.</p>
+<p t="2670666" d="3665">And therefore, whatever the
+units were for capital KT,</p>
+<p t="2674331" d="4210">I'd have to have the same
+units on the right hand side,</p>
+<p t="2678541" d="4123">which indicates I cannot have KT
+on the left of the differential</p>
+<p t="2682664" d="2334">equation, and just
+T on the right,</p>
+<p t="2684998" d="2502">and expect the units
+to be compatible.</p>
+<p t="2687500" d="1500">That's not possible.</p>
+<p t="2689000" d="2100">So, that's a good
+way of remembering</p>
+<p t="2691100" d="2900">that if you're modeling
+temperature or concentration,</p>
+<p t="2694000" d="3000">you have to have
+the K on both sides.</p>
+<p t="2697000" d="5080">OK, let's do, now, a lot of this
+we are going to do in our head</p>
+<p t="2702080" d="2920">now because this
+is really too easy.</p>
+<p t="2705000" d="2220">What's the integrating factor?</p>
+<p t="2707220" d="6007">Well, the integrating factor is
+going to be the integral of K,</p>
+<p t="2713227" d="2773">the coefficient now is just K.</p>
+<p t="2716000" d="5284">P is a constant, K, and if
+I integrate KDT, I get KT,</p>
+<p t="2721284" d="1716">and I exponentiate that.</p>
+<p t="2723000" d="5000">So, the integrating
+factor is E to the KT.</p>
+<p t="2728000" d="6000">I multiply through both sides,
+multiply by E to the KT,</p>
+<p t="2734000" d="4000">and what's the
+resulting equation?</p>
+<p t="2738000" d="6333">Well, it's going to be , I'll
+write it in the compact form.</p>
+<p t="2744333" d="5667">It's going to be E to the
+KT times T, all prime.</p>
+<p t="2750000" d="5284">The differentiation is now,
+of course, with respect</p>
+<p t="2755284" d="1716">to the time.</p>
+<p t="2757000" d="3750">And, that's equal
+to KTE, whatever</p>
+<p t="2760750" d="3975">that is, times E to the KT.</p>
+<p t="2764725" d="4275">This is a function
+of T, of course,</p>
+<p t="2769000" d="4500">the function of little
+time, sorry, little T time.</p>
+<p t="2773500" d="4500">OK, and now, finally, we
+are going to integrate.</p>
+<p t="2778000" d="1332">What's the answer?</p>
+<p t="2779332" d="6892">Well, it is E to the, so, are we
+going to get E to the KT times</p>
+<p t="2786224" d="5526">T is, sorry, K little t, K
+times time times the temperature</p>
+<p t="2791750" d="5250">is equal to the integral of KTE.</p>
+<p t="2797000" d="3840">I'll put the fact that
+it's a function of T</p>
+<p t="2800840" d="3158">inside just to remind
+you, E to the KT,</p>
+<p t="2803998" d="2502">and now I'll put the
+arbitrary constant.</p>
+<p t="2806500" d="3642">Let's put in the arbitrary
+constant explicitly.</p>
+<p t="2810142" d="2858">So, what will T be?</p>
+<p t="2813000" d="3000">OK, T will look
+like this, finally.</p>
+<p t="2816000" d="3000">It will be E to the negative KT.</p>
+<p t="2819000" d="2500">That's on the outside.</p>
+<p t="2821500" d="2500">Then, you will integrate.</p>
+<p t="2824000" d="3552">Of course, the difficulty
+of doing this integral</p>
+<p t="2827552" d="4448">depends entirely upon how this
+external temperature varies.</p>
+<p t="2832000" d="4726">But anyways, it's going to be
+K times that function, which</p>
+<p t="2836726" d="3274">I haven't specified,
+E to the KT plus C</p>
+<p t="2840000" d="2664">times E to the negative KT.</p>
+<p t="2842664" d="4336">Now, some people, many, in
+fact, that almost always,</p>
+<p t="2847000" d="3750">in the engineering
+literature, almost never</p>
+<p t="2850750" d="5535">write indefinite integrals
+because an indefinite integral</p>
+<p t="2856285" d="1715">is indefinite.</p>
+<p t="2858000" d="2400">In other words, this covers
+not just one function,</p>
+<p t="2860400" d="2400">but a whole multitude
+of functions</p>
+<p t="2862800" d="3200">which differ from each other
+by an arbitrary constant.</p>
+<p t="2866000" d="3000">So, in a formula like this,
+there's a certain vagueness,</p>
+<p t="2869000" d="2541">and it's further
+compounded by the fact</p>
+<p t="2871541" d="3459">that I don't know whether the
+arbitrary constant is here.</p>
+<p t="2875000" d="3571">I seem to have put it explicitly
+on the outside the way</p>
+<p t="2878571" d="3429">you're used to
+doing from calculus.</p>
+<p t="2882000" d="2570">Many people, therefore,
+prefer, and I</p>
+<p t="2884570" d="1995">think you should
+learn this, to do</p>
+<p t="2886565" d="5320">what is done in the very first
+section of the notes called</p>
+<p t="2891885" d="1615">definite integral solutions.</p>
+<p t="2893500" d="2900">If there's an initial
+condition saying</p>
+<p t="2896400" d="2800">that the internal
+temperature at time zero</p>
+<p t="2899200" d="3712">is some given value,
+what they like to do</p>
+<p t="2902912" d="3336">is make this thing definite
+by integrating here</p>
+<p t="2906248" d="4377">from zero to T, and making
+this a dummy variable.</p>
+<p t="2910625" d="5647">You see, what that
+does is it gives you</p>
+<p t="2916272" d="3180">a particular
+function, whereas, I'm</p>
+<p t="2919452" d="5314">sorry I didn't put in
+the DT one minus two.</p>
+<p t="2924766" d="4788">What it does is that
+when time is zero,</p>
+<p t="2929554" d="3108">all this automatically
+disappears,</p>
+<p t="2932662" d="7338">and the arbitrary constant
+will then be, it's T.</p>
+<p t="2940000" d="3125">So, in other words, C
+times this, which is one,</p>
+<p t="2943125" d="1875">is that equal to [T?].</p>
+<p t="2945000" d="2000">In other words, if
+I make this zero,</p>
+<p t="2947000" d="5000">that I can write C as equal to
+this arbitrary starting value.</p>
+<p t="2952000" d="3000">Now, when you do this,
+the essential thing,</p>
+<p t="2955000" d="3000">and we're going to come
+back to this next week,</p>
+<p t="2958000" d="3000">but right away,
+because K is positive,</p>
+<p t="2961000" d="4400">I want to emphasize that so much
+at the beginning of the period,</p>
+<p t="2965400" d="5028">I want to conclude by showing
+you what its significance is.</p>
+<p t="2970428" d="4904">This part disappears
+because K is positive.</p>
+<p t="2975332" d="2668">The conductivity is positive.</p>
+<p t="2978000" d="3000">This part disappears
+as T goes to zero.</p>
+<p t="2981000" d="4000">This goes to zero as
+T goes to infinity.</p>
+<p t="2985000" d="3000">So, this is a
+solution that remains.</p>
+<p t="2988000" d="4625">This, therefore, is called
+the steady state solution,</p>
+<p t="2992625" d="4375">the thing which the
+temperature behaves like,</p>
+<p t="2997000" d="2000">as T goes to infinity.</p>
+<p t="2999000" d="2000">This is called the transient.</p>
+<p t="3001000" d="6000">because it disappears
+as T goes to infinity.</p>
+<p t="3007000" d="2664">It depends on the
+initial condition,</p>
+<p t="3009664" d="2536">but it disappears,
+which shows you,</p>
+<p t="3012200" d="4465">then, in the long run
+for this type of problem</p>
+<p t="3016665" d="3335">the initial condition
+makes no difference.</p>
+<p t="3020000" d="4550">The function behaves always the
+same way as T goes to infinity.</p>
+</body>
+</timedtext>

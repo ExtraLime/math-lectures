@@ -1,0 +1,2509 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="120" d="2340">The following content is
+provided under a Creative</p>
+<p t="2460" d="1390">Commons license.</p>
+<p t="3850" d="2240">Your support will help
+MIT OpenCourseWare</p>
+<p t="6090" d="4090">continue to offer high-quality
+educational resources for free.</p>
+<p t="10180" d="2540">To make a donation or to
+view additional materials</p>
+<p t="12720" d="3960">from hundreds of MIT courses,
+visit MIT OpenCourseWare</p>
+<p t="16680" d="2855">at ocw.mit.edu.</p>
+<p t="19535" d="1875">PHILIPPE RIGOLLET: We're
+talking about tests.</p>
+<p t="21410" d="3310">And to be fair, we
+spend most of our time</p>
+<p t="24720" d="3750">talking about new
+jargon that we're using.</p>
+<p t="28470" d="3240">The main goal is to take a
+binary decision, yes and no.</p>
+<p t="31710" d="4650">So just so that we're clear
+and we make sure that we all</p>
+<p t="36360" d="1620">speak the same
+language, let me just</p>
+<p t="37980" d="4590">remind you what the key
+words are for tests.</p>
+<p t="42570" d="5740">So the first thing is
+that we split theta</p>
+<p t="48310" d="5380">in theta 0 and theta 1.</p>
+<p t="53690" d="3920">Both are included in theta,
+and they are disjoint.</p>
+<p t="60970" d="3120">So I have my set of
+possible parameters.</p>
+<p t="64090" d="6680">And then I have theta 0
+is here, theta 1 is here.</p>
+<p t="70770" d="3400">And there might be
+something that I leave out.</p>
+<p t="74170" d="3900">And so what we're doing
+is, we have two hypotheses.</p>
+<p t="78070" d="2730">So here's our hypothesis
+testing problem.</p>
+<p t="80800" d="7110">And it's h0 theta belongs
+to theta 0 versus h1 theta</p>
+<p t="87910" d="1950">belongs to theta 1.</p>
+<p t="89860" d="2760">This guy was called
+the null, and this guy</p>
+<p t="92620" d="3790">was called the alternative.</p>
+<p t="96410" d="1500">And why we give
+them special names</p>
+<p t="97910" d="3320">is because we saw that they
+have an asymmetric role.</p>
+<p t="101230" d="1840">The null represents
+the status quo,</p>
+<p t="103070" d="3220">and data is here to bring
+evidence against this guy.</p>
+<p t="106290" d="3440">And we can really never
+conclude that h0 is true</p>
+<p t="109730" d="6690">because all we could conclude is
+that h1 is not true, or may not</p>
+<p t="116420" d="2610">be true.</p>
+<p t="119030" d="1810">So that was the first thing.</p>
+<p t="120840" d="2180">The second thing
+was the hypothesis.</p>
+<p t="123020" d="2710">The third thing
+is, what is a test?</p>
+<p t="125730" d="11370">Well, psi, it's a statistic,
+and it takes the data,</p>
+<p t="137100" d="4400">and it maps it into 0 or 1.</p>
+<p t="141500" d="2500">And I didn't really mention it,
+but there's some things such</p>
+<p t="144000" d="3390">as called randomized
+tests, which is, well,</p>
+<p t="147390" d="1530">if I cannot really
+make a decision,</p>
+<p t="148920" d="1950">I might as well flip a coin.</p>
+<p t="150870" d="2082">That tends to be biased,
+but that's really--</p>
+<p t="152952" d="1458">I mean, think about
+it in practice.</p>
+<p t="154410" d="1708">You probably don't
+want to make decisions</p>
+<p t="156118" d="1262">based on flipping a coin.</p>
+<p t="157380" d="1890">And so what people
+typically do--</p>
+<p t="159270" d="2560">this is happening, typically,
+at one specific value.</p>
+<p t="161830" d="2509">So rather than flipping a coin
+for this very specific value,</p>
+<p t="164339" d="1541">what people typically
+do is they say,</p>
+<p t="165880" d="2208">OK, I'm going to side with
+h0 because that's the most</p>
+<p t="168088" d="2046">conservative choice I can make.</p>
+<p t="170134" d="1916">So in a way, they think
+of flipping this coin,</p>
+<p t="172050" d="3330">but always falling
+on heads, say.</p>
+<p t="175380" d="3030">So associated to this test
+was something called, well,</p>
+<p t="178410" d="7180">the rejection
+region r psi, which</p>
+<p t="185590" d="9770">is just the set of data x1
+xn such that psi of x1 xn</p>
+<p t="195360" d="1360">is equal to 1.</p>
+<p t="196720" d="2450">So that means we rejected
+h0 when the test is 1.</p>
+<p t="199170" d="2100">And those are the
+set of data points</p>
+<p t="201270" d="3870">that actually are going to
+lead me to reject the test.</p>
+<p t="208777" d="2083">And then the things that
+we're actually, slightly,</p>
+<p t="210860" d="4800">a little more important and
+really peculiar to test,</p>
+<p t="215660" d="4800">specific to tests, were the
+type I and type II error.</p>
+<p t="220460" d="4360">So the type I
+error arises when--</p>
+<p t="224820" d="16570">so type I error is when you
+reject, whereas h0 is correct.</p>
+<p t="241390" d="5530">And the type II error
+is the opposite,</p>
+<p t="246920" d="10434">so it's failed to reject,
+whereas h1 is correct--</p>
+<p t="257354" d="3096">h is correct, yeah.</p>
+<p t="260450" d="3320">So those are the two types
+of errors you can make.</p>
+<p t="263770" d="3050">And we quantified their
+probability of type I error.</p>
+<p t="266820" d="4900">So alpha psi is
+the probability--</p>
+<p t="271720" d="6600">so that's the probability
+of type I error.</p>
+<p t="281470" d="7720">So psi is just the probability
+for theta that psi rejects</p>
+<p t="289190" d="5170">and that's defined
+for theta and theta 0,</p>
+<p t="294360" d="2030">so for different
+values of theta 0.</p>
+<p t="296390" d="3990">So h0 being correct means
+there exists a theta in theta 0</p>
+<p t="300380" d="3000">for which that actually
+is the right distribution.</p>
+<p t="303380" d="1680">So for different
+values of theta,</p>
+<p t="305060" d="2280">I might make different errors.</p>
+<p t="307340" d="5100">So if you think, for example,
+about the coin example,</p>
+<p t="312440" d="4110">I'm testing if the coin
+is biased towards heads</p>
+<p t="316550" d="2220">or biased towards tails.</p>
+<p t="318770" d="3060">So if I'm testing
+whether p is larger</p>
+<p t="321830" d="3315">than 1/2 or less than 1/2,
+then when the true p-- let's</p>
+<p t="325145" d="2145">say our h0 is larger than 1/2.</p>
+<p t="327290" d="2610">When p is equal to 1, it's
+actually very difficult for me</p>
+<p t="329900" d="3670">to make a mistake,
+because I only see heads.</p>
+<p t="333570" d="2210">So when p is getting
+closer to 1/2,</p>
+<p t="335780" d="3070">I'm going to start making more
+and more probability of error.</p>
+<p t="338850" d="3320">And so the type II error-- so
+that's the probability of type</p>
+<p t="342170" d="1500">II--</p>
+<p t="343670" d="2880">is denoted by beta psi.</p>
+<p t="346550" d="4200">And it's the function,
+well, that does the opposite</p>
+<p t="350750" d="7320">and, this time, is defined
+for theta in theta 1.</p>
+<p t="358070" d="15340">And finally, we define something
+called the power, pi of psi.</p>
+<p t="373410" d="2770">And this time, this
+is actually a number.</p>
+<p t="376180" d="7040">And so this number is equal to
+the maximum over theta n theta</p>
+<p t="383220" d="659">0.</p>
+<p t="383879" d="2041">I mean, that could be a
+supremum, but think of it</p>
+<p t="385920" d="7020">as being a maximum of p
+theta of psi is equal--</p>
+<p t="392940" d="4640">sorry, that's n0, right?</p>
+<p t="397580" d="2060">Give me one sec.</p>
+<p t="399640" d="2630">No, sorry, that's the min.</p>
+<p t="406190" d="2550">So this is not making a mistake.</p>
+<p t="408740" d="4200">Theta 0 is in theta 2 So
+if theta is in theta 1</p>
+<p t="412940" d="2339">and I conclude 1, so
+this is a good thing.</p>
+<p t="415279" d="1291">I want this number to be large.</p>
+<p t="416570" d="2290">And I'm looking at
+the worst house--</p>
+<p t="418860" d="3910">what is the smallest
+value this number can be?</p>
+<p t="422770" d="3270">So what I want to show you
+a little bit is a picture.</p>
+<p t="429410" d="3360">So now I'm going to take theta,
+and think of it as being a p.</p>
+<p t="432770" d="5570">So I'm going to take p for some
+variable in the experiment.</p>
+<p t="438340" d="2350">So p can range between 0
+and 1, that's for sure.</p>
+<p t="443516" d="1374">And what I'm going
+to try to test</p>
+<p t="444890" d="5310">is whether p is less than
+1/2 or larger than 1/2.</p>
+<p t="450200" d="4140">So this is going to
+be, let's say, theta 0.</p>
+<p t="454340" d="2680">And this guy here is theta 1.</p>
+<p t="457020" d="3880">Just trying to give you a
+picture of what those guys are.</p>
+<p t="460900" d="5340">So I have my y-axis, and now I'm
+going to start drawing number.</p>
+<p t="466240" d="2520">All these things--
+this function,</p>
+<p t="468760" d="2490">this function, and
+this number-- are</p>
+<p t="471250" d="1350">all numbers between 0 and 1.</p>
+<p t="476990" d="2760">So now I'm claiming that--</p>
+<p t="479750" d="3600">so when I move
+from left to right,</p>
+<p t="483350" d="5080">what is my probability
+of rejecting going to do?</p>
+<p t="488430" d="3500">So what I'm going to plot is
+the probability under theta.</p>
+<p t="491930" d="2810">The first thing I want to plot
+is the probability under theta</p>
+<p t="494740" d="4660">that psi is equal to 1.</p>
+<p t="499400" d="1480">And let's say psi--</p>
+<p t="500880" d="4260">think of psi as being
+just this indicator</p>
+<p t="505140" d="10130">that square root on n xn bar
+minus p over square root xn</p>
+<p t="515270" d="5149">bar 1 minus xn bar is
+larger than some constant c</p>
+<p t="520419" d="3421">for a probability chosen c.</p>
+<p t="523840" d="4440">So what we choose is that c
+is in such a way that, at 1/2,</p>
+<p t="528280" d="2100">when we're testing
+for 1/2, what we</p>
+<p t="530380" d="6120">wanted was this number to be
+equal to alpha, basically.</p>
+<p t="536500" d="3615">So we fix this alpha
+number so that this guy--</p>
+<p t="540115" d="9315">so if I want alpha of psi
+of theta less than alpha</p>
+<p t="549430" d="2930">given in advanced--</p>
+<p t="552360" d="2839">so think of it as being
+equal to, say, 5%.</p>
+<p t="555199" d="1541">So I'm fixing this
+number, and I want</p>
+<p t="556740" d="2310">this to be controlled for
+all theta and theta 0.</p>
+<p t="563400" d="3040">So if you're going to
+give me this budget,</p>
+<p t="566440" d="3204">well, I'm actually going to
+make it equal where I can.</p>
+<p t="569644" d="2166">If you're telling me you
+can make it equal to alpha,</p>
+<p t="571810" d="2840">we know that if I
+increase my type I error,</p>
+<p t="574650" d="1940">I'm going to decrease
+my type II error.</p>
+<p t="576590" d="2690">If I start putting
+everyone in jail</p>
+<p t="579280" d="2582">or if I start letting
+everyone go free,</p>
+<p t="581862" d="1708">that's what we were
+discussing last time.</p>
+<p t="583570" d="1890">So since we have this
+trade-off and you're</p>
+<p t="585460" d="3912">giving me a budget for one guy,
+I'm just going to max it out.</p>
+<p t="589372" d="1458">And where am I
+going to max it out?</p>
+<p t="590830" d="2340">Exactly at 1/2 at the boundary.</p>
+<p t="593170" d="1230">So this is going to be 5%.</p>
+<p t="600970" d="2490">So what I know is that
+since alpha of theta</p>
+<p t="603460" d="3090">is less than alpha
+for all theta in theta</p>
+<p t="606550" d="6030">0-- sorry, that's for theta 0,
+that's where alpha is defined.</p>
+<p t="612580" d="2096">So for theta and theta 0,
+I knew that my function</p>
+<p t="614676" d="1124">is going to look like this.</p>
+<p t="615800" d="2580">It's going to be somewhere
+in this rectangle.</p>
+<p t="618380" d="2046">Everybody agrees?</p>
+<p t="620426" d="2374">So this function for this guy
+is going to look like this.</p>
+<p t="622800" d="2790">When I'm at 0, when
+p is equal to 0,</p>
+<p t="625590" d="4030">which means I only
+observe 0's, then I</p>
+<p t="629620" d="2730">know that p is going to be
+0, and I will certainly not</p>
+<p t="632350" d="2160">conclude that p is equal to 1.</p>
+<p t="634510" d="4590">This test will never conclude
+that p is equal to 1--</p>
+<p t="642630" d="2140">that p is larger than
+1/2, just because xn bar</p>
+<p t="644770" d="1350">is going to be equal to 0.</p>
+<p t="646120" d="2070">Well, this is actually
+not well-defined,</p>
+<p t="648190" d="2850">so maybe I need to do
+something-- put it equal to 0</p>
+<p t="651040" d="1860">if xn bar is equal to 0.</p>
+<p t="652900" d="2971">So I guess, basically, I get
+something which is negative,</p>
+<p t="655871" d="2249">and so it's never going to
+be larger than what I want.</p>
+<p t="658120" d="2250">And so here, I'm
+actually starting at 0.</p>
+<p t="660370" d="3930">So now, this is this function
+here that increases--</p>
+<p t="664300" d="2310">I mean, it should
+increase smoothly.</p>
+<p t="666610" d="5010">This function here is
+alpha psi of theta--</p>
+<p t="671620" d="3660">or alpha psi of p, let's say,
+because we're talking about p.</p>
+<p t="675280" d="2636">Then it reaches alpha here.</p>
+<p t="677916" d="1374">Now, when I go on
+the other side,</p>
+<p t="679290" d="2220">I'm actually looking at beta.</p>
+<p t="681510" d="2220">When I'm on theta 1, the
+function that matters</p>
+<p t="683730" d="4810">is the probability of type II
+error, which is beta of psi.</p>
+<p t="688540" d="2235">And this beta of psi is
+actually going to increase.</p>
+<p t="694130" d="1370">So beta of psi is what?</p>
+<p t="695500" d="2160">Well, beta of psi should also--</p>
+<p t="697660" d="2280">sorry, that's the probability
+of being equal to alpha.</p>
+<p t="699940" d="1500">So what I'm going
+to do is I'm going</p>
+<p t="701440" d="2520">to look at the
+probability of rejecting.</p>
+<p t="703960" d="2542">So let me draw this
+functional all the way.</p>
+<p t="706502" d="2398">It's going to look like this.</p>
+<p t="708900" d="3850">Now here, if I look at
+this function here or here,</p>
+<p t="712750" d="4570">this is the probability under
+theta that psi is equal to 1.</p>
+<p t="717320" d="2300">And we just said
+that, in this region,</p>
+<p t="719620" d="2980">this function is
+called alpha of psi.</p>
+<p t="722600" d="4390">In that region, it's
+not called alpha of psi.</p>
+<p t="726990" d="1350">It's not called anything.</p>
+<p t="728340" d="2690">It's just the
+probability of rejection.</p>
+<p t="731030" d="1740">So it's not any
+error, it's actually</p>
+<p t="732770" d="1540">what you should be doing.</p>
+<p t="734310" d="5370">What we're looking at in this
+region is 1 minus this guy.</p>
+<p t="739680" d="2100">We're looking at the
+probability of not rejecting.</p>
+<p t="741780" d="2040">So I need to actually,
+basically, look at the 1</p>
+<p t="743820" d="3520">minus this thing, which
+here is going to be 95%.</p>
+<p t="747340" d="4460">So I'm going to do 95%.</p>
+<p t="754510" d="2130">And this is my probability.</p>
+<p t="756640" d="1740">Ability And I'm just
+basically drawing</p>
+<p t="758380" d="1950">the symmetric of this guy.</p>
+<p t="760330" d="4560">So this here is the
+probability under theta</p>
+<p t="764890" d="5500">that psi is equal to 0,
+which is 1 minus p theta</p>
+<p t="770390" d="1970">that psi is equal to 1.</p>
+<p t="772360" d="4100">So it's just 1 minus
+the wide curve.</p>
+<p t="776460" d="2550">And it's actually,
+by definition, equal</p>
+<p t="779010" d="1350">to beta of psi of theta.</p>
+<p t="786670" d="2690">Now, where do I read pi psi?</p>
+<p t="800330" d="1920">What is pi psi on this picture?</p>
+<p t="806130" d="1890">Is pi psi a number
+or a function?</p>
+<p t="812242" d="708">AUDIENCE: Number.</p>
+<p t="812950" d="720">PHILIPPE RIGOLLET:
+It's a number, right?</p>
+<p t="813670" d="1774">It's the minimum of a function.</p>
+<p t="815444" d="916">What is this function?</p>
+<p t="816360" d="3090">It's the probability under
+theta that theta is equal to 1.</p>
+<p t="819450" d="4620">I drew this entire function for
+between theta 0 and theta 1.</p>
+<p t="824070" d="2610">I drew-- this is this
+entire white curve.</p>
+<p t="826680" d="1472">This is this probability.</p>
+<p t="828152" d="2458">Now I'm saying, look at the
+smallest value this probability</p>
+<p t="830610" d="3690">can take on the set theta 1.</p>
+<p t="834300" d="760">What is this?</p>
+<p t="840332" d="1728">This guy.</p>
+<p t="842060" d="1740">This is where my pi--</p>
+<p t="843800" d="4950">this thing here is pi psi,
+and so it's equal to 5%.</p>
+<p t="851462" d="2048">So that's for this
+particular test,</p>
+<p t="853510" d="5525">because this test has a
+continuous curve for this psi.</p>
+<p t="859035" d="1765">And so if I want to
+make sure that I'm</p>
+<p t="860800" d="3510">at 5% when I come to the
+right of the theta 0,</p>
+<p t="864310" d="2070">if it touches theta
+1, then I'd better</p>
+<p t="866380" d="3840">have 5% on the other side if
+the function is continuous.</p>
+<p t="870220" d="2910">So basically, if
+this function is</p>
+<p t="873130" d="5059">increasing, which will be
+the case for most tests,</p>
+<p t="878189" d="1791">and continuous, then
+what's going to happen</p>
+<p t="879980" d="2519">is that the level of the
+test, which is alpha,</p>
+<p t="882499" d="2291">is actually going to be equal
+to the power of the test.</p>
+<p t="888260" d="1850">Now, there's something
+I didn't mention,</p>
+<p t="890110" d="2700">and I'm just mentioning
+it passing by.</p>
+<p t="892810" d="2950">Here, I define the power itself.</p>
+<p t="895760" d="3660">This function, this
+entire white curve here,</p>
+<p t="899420" d="2090">is actually called
+the power function--</p>
+<p t="906690" d="510">this thing.</p>
+<p t="907200" d="2140">That's the entire white curve.</p>
+<p t="909340" d="2860">And what you could
+have is tests that</p>
+<p t="912200" d="4470">have the entire curve which
+is dominated by another test.</p>
+<p t="916670" d="2090">So here, if I look
+at this test--</p>
+<p t="918760" d="2920">and let's assume I can
+build another test that</p>
+<p t="921680" d="1390">has this curve.</p>
+<p t="923070" d="5954">Let's say it's the same
+here, but then here, it</p>
+<p t="929024" d="666">looks like this.</p>
+<p t="934600" d="3530">What is the power of this test?</p>
+<p t="938130" d="1000">AUDIENCE: It's the same.</p>
+<p t="939130" d="1375">PHILIPPE RIGOLLET:
+It's the same.</p>
+<p t="940505" d="2825">It's 5%, because this
+point touches here exactly</p>
+<p t="943330" d="1200">at the same point.</p>
+<p t="944530" d="4440">However, for any other value
+than the worst possible,</p>
+<p t="948970" d="2700">this guy is doing
+better than this guy.</p>
+<p t="951670" d="1080">Can you see that?</p>
+<p t="952750" d="2670">Having a curve higher
+on the right-hand side</p>
+<p t="955420" d="1890">is a good thing because
+it means that you</p>
+<p t="957310" d="5930">tend to reject more when
+you're actually in h1.</p>
+<p t="963240" d="3276">So this guy is definitely
+better than this guy.</p>
+<p t="966516" d="1374">And so what we
+say, in this case,</p>
+<p t="967890" d="1770">is that the test
+with the dashed line</p>
+<p t="969660" d="3890">is uniformly more powerful
+than the other tests.</p>
+<p t="973550" d="1840">But we're not going to
+go into those details</p>
+<p t="975390" d="3390">because, basically, all the
+tests that we will describe</p>
+<p t="978780" d="3230">are already the
+most powerful ones.</p>
+<p t="982010" d="2080">In particular, this guy is--</p>
+<p t="984090" d="930">there's no such thing.</p>
+<p t="985020" d="1320">All the other guys
+you can come up with</p>
+<p t="986340" d="1291">are going to actually be below.</p>
+<p t="993910" d="2700">So we saw a couple
+tests, then we</p>
+<p t="996610" d="3840">saw how to pick this threshold,
+and we defined those two</p>
+<p t="1000450" d="877">things.</p>
+<p t="1001327" d="791">AUDIENCE: Question.</p>
+<p t="1002118" d="958">PHILIPPE RIGOLLET: Yes?</p>
+<p t="1003076" d="2465">AUDIENCE: But in that
+case, the dashed line,</p>
+<p t="1005541" d="3423">if it were also higher
+in the region of theta 0,</p>
+<p t="1008964" d="1934">do you still consider it better?</p>
+<p t="1010898" d="1000">PHILIPPE RIGOLLET: Yeah.</p>
+<p t="1011898" d="992">AUDIENCE: OK.</p>
+<p t="1012890" d="2510">PHILIPPE RIGOLLET: Because
+you're given this budget of 5%.</p>
+<p t="1015400" d="2770">So in this paradigm
+where you're given the--</p>
+<p t="1018170" d="3280">actually, if the dashed
+line was this dashed line,</p>
+<p t="1021450" d="1580">I would still be happy.</p>
+<p t="1023030" d="2010">I mean, I don't care what
+this thing does here,</p>
+<p t="1025040" d="1740">as long as it's below 5%.</p>
+<p t="1026780" d="1950">But here, I'm going
+to try to discover.</p>
+<p t="1028730" d="2730">Think about, again, the
+drug discovery example.</p>
+<p t="1031460" d="2609">You're trying to find--
+let's say you're a scientist</p>
+<p t="1034069" d="3071">and you're trying to prove
+that your drug works.</p>
+<p t="1037140" d="1000">What do you want to see?</p>
+<p t="1038140" d="4310">Well, FDA puts on
+you this constraint</p>
+<p t="1042450" d="4469">that your probability of type
+I error should never exceed 5%.</p>
+<p t="1046919" d="1791">You're going to work
+under this assumption.</p>
+<p t="1048710" d="1583">But what you're going
+to do is, you're</p>
+<p t="1050293" d="3427">going to try to find a test that
+will make you find something</p>
+<p t="1053720" d="1730">as often as possible.</p>
+<p t="1055450" d="2950">And so you're going to
+max this constraint of 5%.</p>
+<p t="1058400" d="3420">And then you're going to try to
+make this curve, that means--</p>
+<p t="1061820" d="3960">this is, basically, this
+number here, for any point</p>
+<p t="1065780" d="2210">here, is the probability
+that you publish your paper.</p>
+<p t="1067990" d="2470">That's the probability
+that you can</p>
+<p t="1070460" d="1230">release to market your drug.</p>
+<p t="1071690" d="2020">That's the probability
+that it works.</p>
+<p t="1073710" d="3210">And so you want this curve
+to be as high as possible.</p>
+<p t="1076920" d="5630">You want to make sure that if
+there's evidence in the data</p>
+<p t="1082550" d="3120">that h1 is the truth, you
+want to squeeze as much</p>
+<p t="1085670" d="1440">of this evidence as possible.</p>
+<p t="1087110" d="2670">And the test that has the
+highest possible curve</p>
+<p t="1089780" d="1710">is the most powerful one.</p>
+<p t="1091490" d="4320">Now, you have to also understand
+that having two curves that</p>
+<p t="1095810" d="3380">are on top of each other
+completely, everywhere,</p>
+<p t="1099190" d="3370">is a rare phenomenon.</p>
+<p t="1102560" d="1890">It's not always
+the case that there</p>
+<p t="1104450" d="3392">is a test that's uniformly more
+powerful than any other test.</p>
+<p t="1107842" d="1708">It might be that you
+have some trade-off,</p>
+<p t="1109550" d="1560">that it might be better
+here, but then you're</p>
+<p t="1111110" d="917">losing power here.</p>
+<p t="1112027" d="1583">Maybe it's-- I mean,
+things like this.</p>
+<p t="1113610" d="1500">Well, actually, maybe
+it should not go down.</p>
+<p t="1115110" d="2480">But let's say it goes like
+this, and then, maybe, this guy</p>
+<p t="1117590" d="2070">goes like this.</p>
+<p t="1119660" d="3900">Then you have to, basically,
+make an educated guess</p>
+<p t="1123560" d="2610">whether you think that the theta
+you're going to find is here</p>
+<p t="1126170" d="1710">or is here, and then
+you pick your test.</p>
+<p t="1131089" d="791">Any other question?</p>
+<p t="1131880" d="704">Yes?</p>
+<p t="1132584" d="1392">AUDIENCE: Can you explain
+the green curve again?</p>
+<p t="1133976" d="1279">That's just the type II error?</p>
+<p t="1135255" d="2125">PHILIPPE RIGOLLET: So the
+green curve is-- exactly.</p>
+<p t="1137380" d="1450">So that's beta psi of theta.</p>
+<p t="1138830" d="1790">So it's really
+the type II error.</p>
+<p t="1140620" d="2110">And it's defined only here.</p>
+<p t="1142730" d="2690">So here, it's not
+a definition, it's</p>
+<p t="1145420" d="2795">really I'm just mapping
+it to this point.</p>
+<p t="1148215" d="2125">So it's defined only here,
+and it's the probability</p>
+<p t="1150340" d="708">of type II error.</p>
+<p t="1155510" d="2045">So here, it's pretty large.</p>
+<p t="1157555" d="1975">I'm making it,
+basically, as large</p>
+<p t="1159530" d="2800">as I could because
+I'm at the boundary,</p>
+<p t="1162330" d="4080">and that means, at the boundary,
+since the status quo is h0,</p>
+<p t="1166410" d="2984">I'm always going
+to go for h0 if I</p>
+<p t="1169394" d="2541">don't have any evidence, which
+means that what's going to pay</p>
+<p t="1171935" d="2333">is the type II error that's
+going to basically pay this.</p>
+<p t="1178059" d="791">Any other question?</p>
+<p t="1181680" d="1320">So let's move on.</p>
+<p t="1183000" d="4190">So did we do this?</p>
+<p t="1187190" d="3030">No, I think we
+stopped here, right?</p>
+<p t="1190220" d="2900">I didn't cover that part.</p>
+<p t="1193120" d="2190">So as I said, in
+this paradigm, we're</p>
+<p t="1195310" d="2730">going to actually fix
+this guy to be something.</p>
+<p t="1198040" d="3580">And this thing is actually
+called the level of the test.</p>
+<p t="1201620" d="1790">I'm sorry, this is,
+again, more words.</p>
+<p t="1203410" d="3510">Actually, the good news is that
+we split it into two lectures.</p>
+<p t="1206920" d="2415">So we have, what is a test?</p>
+<p t="1209335" d="1917">What is a hypothesis?</p>
+<p t="1211252" d="708">What is the null?</p>
+<p t="1211960" d="2469">What is the alternative?</p>
+<p t="1214429" d="1041">What is the type I error?</p>
+<p t="1215470" d="1083">What is the type II error?</p>
+<p t="1216553" d="2097">And now, I'm telling you
+there's another thing.</p>
+<p t="1218650" d="4020">So we define the power, which
+was some sort of a lower bound</p>
+<p t="1222670" d="1470">on the--</p>
+<p t="1224140" d="2250">or it's 1 minus the upper
+bound on the type II</p>
+<p t="1226390" d="2150">error, basically.</p>
+<p t="1228540" d="3940">And so it's alternative--
+so the power</p>
+<p t="1232480" d="2490">is the smallest
+probability of rejecting</p>
+<p t="1234970" d="1320">when you're in the null.</p>
+<p t="1236290" d="4910">And it's alternative when you're
+in theta 1, so that's my power.</p>
+<p t="1241200" d="2560">I looked here, and I looked
+at the smallest value.</p>
+<p t="1243760" d="2010">And I can look at this
+side and say, well,</p>
+<p t="1245770" d="3116">what is the largest probability
+that I make a type I error?</p>
+<p t="1248886" d="2374">Again, this largest probability
+is the level of the test.</p>
+<p t="1258460" d="4680">So this is alpha
+equal, by definition,</p>
+<p t="1263140" d="12350">to the maximum for theta in
+theta 0 of alpha psi of theta.</p>
+<p t="1275490" d="2850">So here, I just put
+the level itself.</p>
+<p t="1278340" d="2610">As you can see, here,
+it essentially says</p>
+<p t="1280950" d="2940">that if I'm of level of
+5%, I'm also of level 10%,</p>
+<p t="1283890" d="1710">I'm also of level 15%.</p>
+<p t="1285600" d="1560">So here, it's really
+an upper bound.</p>
+<p t="1287160" d="2820">Whatever you guys want to
+take, this is what it is.</p>
+<p t="1289980" d="4881">But as we said, if
+this number is 4.5%,</p>
+<p t="1294861" d="1499">you're losing in
+your type II error.</p>
+<p t="1296360" d="1840">So if you're allowed to have--</p>
+<p t="1298200" d="5220">if this maximum here is 4.5% and
+FDA told you you can go to 5%,</p>
+<p t="1303420" d="1500">you're losing in
+your type II error.</p>
+<p t="1304920" d="1375">So you actually
+want to make sure</p>
+<p t="1306295" d="2105">that this is the 5%
+that's given to you.</p>
+<p t="1308400" d="3300">So the way it works is
+that you give me the alpha,</p>
+<p t="1311700" d="4710">then I'm going to go back, pick
+c that depends on alpha here,</p>
+<p t="1316410" d="1890">so that this thing is
+actually equal to 5%.</p>
+<p t="1321590" d="3210">And so of course,
+in many instances,</p>
+<p t="1324800" d="2040">we do not know the probability.</p>
+<p t="1326840" d="2450">We do not know how to compute
+the probability of type I</p>
+<p t="1329290" d="1010">error.</p>
+<p t="1330300" d="2630">This is a maximum value for the
+probability of type I error.</p>
+<p t="1332930" d="990">We don't know how to compute it.</p>
+<p t="1333920" d="1980">I mean, it might be a very
+complicated random variable.</p>
+<p t="1335900" d="1400">Maybe it's a weird binomial.</p>
+<p t="1337300" d="2200">We could compute it,
+but it would be painful.</p>
+<p t="1339500" d="2460">But we know how to compute
+is its asymptotic value.</p>
+<p t="1341960" d="2370">Just because of the central
+limit theorem, convergence</p>
+<p t="1344330" d="3690">and distribution tells me that
+the probability of type I error</p>
+<p t="1348020" d="2630">is basically going
+towards the probability</p>
+<p t="1350650" d="2460">that some Gaussian
+is in some region.</p>
+<p t="1353110" d="3130">And so we're going to
+compute, not the level itself,</p>
+<p t="1356240" d="1260">but the asymptotic level.</p>
+<p t="1363700" d="4620">And that's basically
+the limit as n</p>
+<p t="1368320" d="8510">goes to infinity of
+alpha psi of theta.</p>
+<p t="1376830" d="1710">And then I'm going
+to make the max here.</p>
+<p t="1386300" d="1940">So how am I going
+to compute this?</p>
+<p t="1388240" d="5200">Well, if I take a test that has
+rejection region of the form</p>
+<p t="1393440" d="1470">tn--</p>
+<p t="1394910" d="3060">because it depends on the
+data, that's tn of x1 xn--</p>
+<p t="1397970" d="5470">my observation's larger
+than some number c.</p>
+<p t="1403440" d="2990">Of course, I can
+almost always write</p>
+<p t="1406430" d="1972">tests like that,
+except that sometimes,</p>
+<p t="1408402" d="2458">it's going to be an absolute
+value, which essentially means</p>
+<p t="1410860" d="1692">I'm going away from some value.</p>
+<p t="1412552" d="1708">Maybe, actually, I'm
+less than something,</p>
+<p t="1414260" d="2830">but I can always put a negative
+sign in front of everything.</p>
+<p t="1417090" d="2690">So this is not without
+much of generality.</p>
+<p t="1419780" d="8110">So this includes something
+that looks like--</p>
+<p t="1431520" d="4770">something is larger than the
+constants, so that means--</p>
+<p t="1436290" d="6040">which is equivalent to--
+well, let me write that as tq,</p>
+<p t="1442330" d="3180">because then that means that--</p>
+<p t="1445510" d="2430">so that's tn.</p>
+<p t="1447940" d="2100">But this actually
+encompasses the fact</p>
+<p t="1450040" d="11330">that qn is larger than c or qn
+is less than c and n minus c.</p>
+<p t="1461370" d="1110">So that includes this guy.</p>
+<p t="1462480" d="3840">That also includes
+qn less than c,</p>
+<p t="1466320" d="6520">because this is equivalent
+to qn is larger than minus c.</p>
+<p t="1472840" d="990">And minus qn is--</p>
+<p t="1473830" d="1410">and so that's going to be my tn.</p>
+<p t="1477810" d="4620">So I can actually encode
+several type of things--</p>
+<p t="1482430" d="1800">rejection regions.</p>
+<p t="1484230" d="2790">So here, in this case, I
+have a rejection region</p>
+<p t="1487020" d="3090">that looks like this,
+or a rejection region</p>
+<p t="1490110" d="3270">that looks like
+this, or a rejection</p>
+<p t="1493380" d="1170">region that looks like this.</p>
+<p t="1497209" d="1541">And here, I don't
+really represent it</p>
+<p t="1498750" d="3670">for the whole data, but maybe
+for the average, for example,</p>
+<p t="1502420" d="1598">or the normalized average.</p>
+<p t="1517950" d="6000">So if I write this, then--</p>
+<p t="1523950" d="1520">yeah.</p>
+<p t="1525470" d="7500">And in this case,
+this tn that shows up</p>
+<p t="1532970" d="2198">is called test statistic.</p>
+<p t="1541460" d="2270">I mean, this is
+not set in stone.</p>
+<p t="1543730" d="3200">Here, for example, q could
+be the test statistic.</p>
+<p t="1546930" d="1710">It doesn't have to
+be minus q itself</p>
+<p t="1548640" d="2110">that's the test statistic.</p>
+<p t="1550750" d="1250">So what is the test statistic?</p>
+<p t="1552000" d="3170">Well, it's what you're going
+to build from your data</p>
+<p t="1555170" d="2620">and then compare to
+some fixed value.</p>
+<p t="1557790" d="3377">So in the example we had here,
+what is our test statistic?</p>
+<p t="1561167" d="833">Well, it's this guy.</p>
+<p t="1565620" d="3580">This was our test statistic.</p>
+<p t="1569200" d="3630">And is this thing a statistic?</p>
+<p t="1572830" d="1680">What are the criteria
+for a statistic?</p>
+<p t="1574510" d="1300">What is the statistic?</p>
+<p t="1581046" d="2587">I know you know the answer.</p>
+<p t="1583633" d="1417">AUDIENCE: Measurable function.</p>
+<p t="1585050" d="1030">PHILIPPE RIGOLLET: Yeah,
+it's a measurable function</p>
+<p t="1586080" d="2984">of the data that does not
+depend on the parameter.</p>
+<p t="1589064" d="3931">Is this guy a statistic?</p>
+<p t="1592995" d="986">AUDIENCE: It's not.</p>
+<p t="1595949" d="1541">PHILIPPE RIGOLLET:
+Let's think again.</p>
+<p t="1600490" d="4870">When I implemented the
+test, what did I do?</p>
+<p t="1605360" d="2130">I was able to compute my test.</p>
+<p t="1607490" d="2310">My test did not depend on
+some unknown parameter.</p>
+<p t="1609800" d="2840">How did we do it?</p>
+<p t="1612640" d="4547">We just plugged in
+0.5 here, remember?</p>
+<p t="1617187" d="1833">That was the value for
+which we computed it,</p>
+<p t="1619020" d="3130">because under h0, that was
+the value we're seeing.</p>
+<p t="1622150" d="3760">And if theta 0 is
+actually an entire set,</p>
+<p t="1625910" d="4025">I'm just going to take the
+value that's the closest to h1.</p>
+<p t="1629935" d="1125">We'll see that in a second.</p>
+<p t="1631060" d="2340">I mean, I did not
+guarantee that to you.</p>
+<p t="1633400" d="5550">But just taking the worst type
+I error and bounded by alpha</p>
+<p t="1638950" d="3360">is equivalent to taking p and
+taking the value of p that's</p>
+<p t="1642310" d="4526">the closest to theta 1, which
+is completely intuitive.</p>
+<p t="1646836" d="2624">The worst type I error is going
+to be attained for the p that's</p>
+<p t="1649460" d="2800">the closest to the alternative.</p>
+<p t="1652260" d="4250">So even if the null is
+actually just an entire set,</p>
+<p t="1656510" d="2430">it's as if it was
+just the point that's</p>
+<p t="1658940" d="2900">the closest to the alternative.</p>
+<p t="1661840" d="2680">So now we can compute
+this, because there's</p>
+<p t="1664520" d="1920">no unknown parameters
+that shows up.</p>
+<p t="1666440" d="1770">We replace p by 0.5.</p>
+<p t="1668210" d="2196">And so that was
+our test statistic.</p>
+<p t="1673952" d="1458">So when you're
+building a test, you</p>
+<p t="1675410" d="2590">want to first build
+a test statistic,</p>
+<p t="1678000" d="3230">and then see what threshold
+you should be getting.</p>
+<p t="1681230" d="7410">So now, let's go back to our
+example where we want to have--</p>
+<p t="1688640" d="7700">we have x1 xn, their
+IID [INAUDIBLE] p.</p>
+<p t="1696340" d="8710">And I want to test if p is
+1/2 versus p not equal to 1/2,</p>
+<p t="1705050" d="2580">which, as I said, is what
+you want to do if you</p>
+<p t="1707630" d="5930">want to test if a coin is fair.</p>
+<p t="1713560" d="3000">And so here, I'm going to
+build a test statistic.</p>
+<p t="1716560" d="2620">And we concluded
+last time that--</p>
+<p t="1719180" d="2610">what do we want
+for this statistic?</p>
+<p t="1721790" d="2910">We want it to have a
+distribution which,</p>
+<p t="1724700" d="5120">under the null, does not
+depend on the parameters,</p>
+<p t="1729820" d="4830">a distribution that I can
+actually compute quintiles of.</p>
+<p t="1734650" d="1500">So what we did
+is, we said, well,</p>
+<p t="1736150" d="3060">if I look at-- the central limit
+theorem tells me that square</p>
+<p t="1739210" d="4290">root of n xn bar
+minus p divided by--</p>
+<p t="1743500" d="3371">so if I do central limit theorem
+plus Slutsky, for example,</p>
+<p t="1746871" d="1249">I'm going to have square root.</p>
+<p t="1752006" d="1874">And we've had this
+discussion whether we want</p>
+<p t="1753880" d="1124">to use Slutsky or not here.</p>
+<p t="1755004" d="2896">But let's assume we're taking
+Slutsky wherever we can.</p>
+<p t="1757900" d="2160">So this thing tells me
+that, by the central limit</p>
+<p t="1760060" d="3450">theorem, as n goes to
+infinity, this thing converges</p>
+<p t="1763510" d="1680">in distribution to some n01.</p>
+<p t="1768260" d="3290">Now, as we said, this guy
+is not something we know.</p>
+<p t="1771550" d="2470">But under the null,
+we actually know it.</p>
+<p t="1774020" d="3080">And we can actually
+replace it by 1/2.</p>
+<p t="1777100" d="4200">So this thing holds under h0.</p>
+<p t="1781300" d="3000">When I write under h0, it
+means when this is the truth.</p>
+<p t="1787120" d="2150">So now I have something
+that converges</p>
+<p t="1789270" d="3300">to something that has no
+dependence on anything I</p>
+<p t="1792570" d="600">don't know.</p>
+<p t="1793170" d="3720">And in particular, if you have
+any statistics textbook, which</p>
+<p t="1796890" d="2370">you don't because I
+didn't require one--</p>
+<p t="1799260" d="5184">and you should be thankful,
+because these things cost $350.</p>
+<p t="1804444" d="1416">Actually, if you
+look at the back,</p>
+<p t="1805860" d="6390">you actually have a table
+for a standard Gaussian.</p>
+<p t="1812250" d="1530">I could have anything else here.</p>
+<p t="1813780" d="1980">I could have an
+exponential distribution.</p>
+<p t="1815760" d="1800">I could have a--</p>
+<p t="1817560" d="2760">I don't know-- well,
+we'll see the chi squared</p>
+<p t="1820320" d="1710">distribution in a minute.</p>
+<p t="1822030" d="2010">Any distribution from
+which you can actually</p>
+<p t="1824040" d="1560">see a table that
+somebody actually</p>
+<p t="1825600" d="1916">computed this thing for
+which you can actually</p>
+<p t="1827516" d="2914">draw the pdf and start computing
+whatever probability you want</p>
+<p t="1830430" d="1980">on them, then this
+is what you want</p>
+<p t="1832410" d="2700">to see at the right-hand side.</p>
+<p t="1835110" d="1390">This is any distribution.</p>
+<p t="1836500" d="1880">It's called pivotal.</p>
+<p t="1838380" d="1500">I think we've
+mentioned that before.</p>
+<p t="1839880" d="1833">Pivotal means it does
+not depend on anything</p>
+<p t="1841713" d="1897">that you don't know.</p>
+<p t="1843610" d="2006">And maybe it's easy to
+compute those things.</p>
+<p t="1845616" d="2374">Probably, typically, you need
+a computer to simulate them</p>
+<p t="1847990" d="2995">for you because computing
+probabilities for Gaussians</p>
+<p t="1850985" d="875">is not an easy thing.</p>
+<p t="1851860" d="2125">We don't know how to solve
+those integrals exactly,</p>
+<p t="1853985" d="2535">we have to do it numerically.</p>
+<p t="1856520" d="11900">So now I want to do this test.</p>
+<p t="1868420" d="4530">My test statistic will
+be declared to be what?</p>
+<p t="1872950" d="4790">Well, I'm going
+to reject if what</p>
+<p t="1877740" d="1230">is larger than some number?</p>
+<p t="1884140" d="3360">The absolute value of this guy.</p>
+<p t="1887500" d="2050">So my test statistic
+is going to be</p>
+<p t="1889550" d="6240">square root of n minus 0.5
+divided by square root of xn</p>
+<p t="1895790" d="2450">bar 1 minus xn bar.</p>
+<p t="1901160" d="2310">That's my test statistic,
+absolute value of this guy,</p>
+<p t="1903470" d="2430">because I want to reject either
+when this guy is too large</p>
+<p t="1905900" d="1250">or when this guy is too small.</p>
+<p t="1910260" d="1500">I don't know ahead
+whether I'm going</p>
+<p t="1911760" d="3710">to see p larger than
+1/2 or less than 1/2.</p>
+<p t="1915470" d="3720">So now I need to compute c
+such that the probability</p>
+<p t="1919190" d="6020">that tn is larger than c.</p>
+<p t="1925210" d="6080">So that's the probability
+under p, which is unknown.</p>
+<p t="1931290" d="5940">I want this probability to be
+less than some level alpha,</p>
+<p t="1937230" d="1180">asymptotically.</p>
+<p t="1938410" d="6330">So I want the limit of this
+guy to be less than alpha,</p>
+<p t="1944740" d="2070">and that's the level of my test.</p>
+<p t="1946810" d="5200">So that's the given level.</p>
+<p t="1952010" d="1710">So I want this thing to happen.</p>
+<p t="1953720" d="1560">Now, what I know is
+that this limit--</p>
+<p t="1958090" d="2307">actually, I should say
+given asymptotic level.</p>
+<p t="1968520" d="1610">So what is this thing?</p>
+<p t="1974300" d="6300">Well, OK, that's the
+probability that something</p>
+<p t="1980600" d="2400">that looks like under p.</p>
+<p t="1983000" d="2520">So under p, this guy--</p>
+<p t="1985520" d="3210">so what I know is that
+tn is square root of n</p>
+<p t="1988730" d="6760">minus xn bar minus 0.5 divided
+by square root of xn bar</p>
+<p t="1995490" d="3210">1 minus xn bar exceeds.</p>
+<p t="2003770" d="3112">Is this true that
+as n to infinity,</p>
+<p t="2006882" d="1958">this probability is the
+same as the probability</p>
+<p t="2008840" d="1620">that the absolute
+value of a Gaussian</p>
+<p t="2010460" d="3150">exceeds c of a
+standard Gaussian?</p>
+<p t="2013610" d="741">Is this true?</p>
+<p t="2017281" d="2249">AUDIENCE: The absolute value
+of the standard Gaussian.</p>
+<p t="2019530" d="1583">PHILIPPE RIGOLLET:
+Yeah, the absolute.</p>
+<p t="2021113" d="2717">So you're saying that this, as
+n becomes large enough, this</p>
+<p t="2023830" d="4670">should be the probability that
+some absolute value of n01</p>
+<p t="2028500" d="1398">exceeds c, right?</p>
+<p t="2029898" d="2092">AUDIENCE: Yes.</p>
+<p t="2031990" d="2790">PHILIPPE RIGOLLET: So I claim
+that this is not correct.</p>
+<p t="2034780" d="1297">Somebody tell me why.</p>
+<p t="2036077" d="1283">AUDIENCE: Even in the
+limit it's not correct?</p>
+<p t="2037360" d="2291">PHILIPPE RIGOLLET: Even in
+the limit, it's not correct.</p>
+<p t="2043164" d="1170">AUDIENCE: OK.</p>
+<p t="2044334" d="1583">PHILIPPE RIGOLLET:
+So what do you see?</p>
+<p t="2045917" d="1708">AUDIENCE: It's because,
+at the beginning,</p>
+<p t="2047625" d="3743">we picked the worst possible
+true parameter, 0.5.</p>
+<p t="2051368" d="2547">So we don't actually know
+that this 0.5 is the mean.</p>
+<p t="2053915" d="1125">PHILIPPE RIGOLLET: Exactly.</p>
+<p t="2055040" d="4460">So we pick this 0.5 here,
+but this is for any p.</p>
+<p t="2059500" d="1860">But what is the
+only p I can get?</p>
+<p t="2061360" d="5589">So what I want is that this
+is true for all p in theta 0.</p>
+<p t="2066949" d="4801">But the only p that's in theta
+0 is actually p is equal to 0.5.</p>
+<p t="2071750" d="2030">So yes, what you
+said was true, but it</p>
+<p t="2073780" d="4350">required to specify
+p to be equal to 0.5.</p>
+<p t="2078130" d="2279">So this, in general,
+is not true.</p>
+<p t="2080409" d="7500">But it happens to be true if
+p belongs to theta 0, which</p>
+<p t="2087909" d="5580">is strictly equivalent
+to p is equal to 0.5,</p>
+<p t="2093489" d="5831">because theta 0 is really
+just this one point, 0.5.</p>
+<p t="2099320" d="2500">So now, this becomes true.</p>
+<p t="2101820" d="1940">And so what I need to
+do is to find c such</p>
+<p t="2103760" d="1380">that this guy is equal to what?</p>
+<p t="2111650" d="2370">I mean, let's just follow.</p>
+<p t="2114020" d="2930">So I want this to
+be less than alpha.</p>
+<p t="2116950" d="2900">But then we said that
+this was equal to this,</p>
+<p t="2119850" d="2120">which is equal to this.</p>
+<p t="2121970" d="2990">So all I want is that this
+guy is less than alpha.</p>
+<p t="2124960" d="3270">But we said we might as well
+just make it equal to alpha</p>
+<p t="2128230" d="2310">if you allow me to make
+it as big as I want,</p>
+<p t="2130540" d="1510">as long as it's less than alpha.</p>
+<p t="2132050" d="1740">AUDIENCE: So this
+is a true statement.</p>
+<p t="2133790" d="1958">PHILIPPE RIGOLLET: So
+this is a true statement.</p>
+<p t="2135748" d="2606">But it's under this condition.</p>
+<p t="2138354" d="750">AUDIENCE: Exactly.</p>
+<p t="2143010" d="5670">PHILIPPE RIGOLLET: So I'm
+going to set it equal to alpha,</p>
+<p t="2148680" d="3630">and then I'm going to
+try to solve for c.</p>
+<p t="2170390" d="3150">So what I'm looking
+for is a c such that</p>
+<p t="2173540" d="3850">if I draw a standard Gaussian--</p>
+<p t="2177390" d="3140">so that's pdf of some n01--</p>
+<p t="2180530" d="2670">I want the probability that the
+absolute value of my Gaussian</p>
+<p t="2183200" d="2430">exceeding this guy--</p>
+<p t="2185630" d="3720">so that means being
+either here or here.</p>
+<p t="2189350" d="1870">So that's minus c and c.</p>
+<p t="2191220" d="4980">I want the sum of those two
+things to be equal to alpha.</p>
+<p t="2196200" d="17370">So I want the sum of these
+areas to equal alpha.</p>
+<p t="2213570" d="2670">So by symmetry,
+each of them should</p>
+<p t="2216240" d="1950">be equal to alpha over 2.</p>
+<p t="2222710" d="5600">And so what I'm looking for
+is c such that the probability</p>
+<p t="2228310" d="7100">that my n01 exceeds c, which
+is just this area to the right,</p>
+<p t="2235410" d="5420">now, equals alpha, which is
+equivalent to taking c, which</p>
+<p t="2240830" d="5190">is q equals alpha over 2,
+and that's q alpha over 2</p>
+<p t="2246020" d="2220">by definition of q alpha over 2.</p>
+<p t="2248240" d="2130">That's just what
+q alpha over 2 is.</p>
+<p t="2250370" d="4050">And that's what the tables at
+the back of the book give you.</p>
+<p t="2254420" d="7980">Who has already seen a table
+for Gaussian probabilities?</p>
+<p t="2262400" d="1800">What it does, it's just a table.</p>
+<p t="2264200" d="1496">I mean, it's pretty ancient.</p>
+<p t="2265696" d="1624">I mean, of course,
+you can actually ask</p>
+<p t="2267320" d="1920">Google to do it for you now.</p>
+<p t="2269240" d="2940">I mean, it's basically
+standard issue.</p>
+<p t="2272180" d="3930">But back in the day, they
+actually had to look at tables.</p>
+<p t="2276110" d="3030">And since the values alphas
+were pretty standard,</p>
+<p t="2279140" d="2370">the values alpha that
+people were requesting</p>
+<p t="2281510" d="3300">were typically 1%,
+5%, 10%, all you</p>
+<p t="2284810" d="2190">could do is to compute
+these different values</p>
+<p t="2287000" d="1560">for different values of alpha.</p>
+<p t="2288560" d="1830">That was it.</p>
+<p t="2290390" d="3060">So there's really
+not much to give you.</p>
+<p t="2293450" d="2300">So for the Gaussian,
+I can tell you</p>
+<p t="2295750" d="4460">that alpha is equal to--
+if alpha is equal to 5%,</p>
+<p t="2300210" d="6890">then q alpha over 2, q 2.5%
+is equal to 1.96, for example.</p>
+<p t="2307100" d="1740">So those are just
+fixed numbers that</p>
+<p t="2308840" d="2190">are functions of the Gaussian.</p>
+<p t="2311030" d="1380">So everybody agrees?</p>
+<p t="2312410" d="5033">We've done that before for
+our confidence intervals.</p>
+<p t="2320350" d="1690">And so now we know
+that if I actually</p>
+<p t="2322040" d="6420">plug in this guy to be
+q alpha over 2, then</p>
+<p t="2328460" d="2970">this limit is actually
+equal to alpha.</p>
+<p t="2331430" d="1817">And so now I've actually
+constrained this.</p>
+<p t="2341040" d="6760">So q alpha over 2 here for alpha
+equals 5%, as I said, is 1.96.</p>
+<p t="2347800" d="5990">So in the example 1, the
+number that we found was 3.54,</p>
+<p t="2353790" d="5010">I think, or something
+like that, 3.55 for t.</p>
+<p t="2358800" d="10490">So if we scroll back
+very quickly, 3.45--</p>
+<p t="2369290" d="1690">that was example 1.</p>
+<p t="2370980" d="2790">Example two-- negative 0.77.</p>
+<p t="2373770" d="7200">So if I look at tn
+in example 1, tn</p>
+<p t="2380970" d="5070">was just the absolute
+value of 3.45, which--</p>
+<p t="2386040" d="4350">don't pull out your
+calculators-- is equal to 3.45.</p>
+<p t="2390390" d="4110">Example 2, absolute
+value of negative 0.77</p>
+<p t="2394500" d="2550">was equal to 0.77.</p>
+<p t="2397050" d="2400">And so all I need to
+check is, is this number</p>
+<p t="2399450" d="2160">larger or smaller than 1.96?</p>
+<p t="2401610" d="4920">That's what my
+test ends up being.</p>
+<p t="2406530" d="6330">So in example 1,
+3.45 being larger</p>
+<p t="2412860" d="6025">than 1.96, that
+means that I reject.</p>
+<p t="2418885" d="3905">Fairness of my
+coins, in example 2,</p>
+<p t="2422790" d="4440">0.77 being smaller than 1.96--</p>
+<p t="2427230" d="2140">what do I do?</p>
+<p t="2429370" d="900">I fail to reject.</p>
+<p t="2444084" d="916">So here is a question.</p>
+<p t="2447730" d="6540">In example 1, for what level
+alpha would psi alpha--</p>
+<p t="2457530" d="2560">OK, so here, what's
+going to happen</p>
+<p t="2460090" d="4260">if I start decreasing my level?</p>
+<p t="2464350" d="2670">When I decrease my
+level, I'm actually</p>
+<p t="2467020" d="2080">making this area
+smaller and smaller,</p>
+<p t="2469100" d="4260">which means that I push
+this c to the right.</p>
+<p t="2473360" d="3720">So now I'm asking,
+what is the smallest c</p>
+<p t="2477080" d="5280">I should pick so that now,
+I actually do not reject h0?</p>
+<p t="2482360" d="7282">What is the smallest c
+I should be taking here?</p>
+<p t="2489642" d="958">What is the smallest c?</p>
+<p t="2497520" d="5780">So c here, in the example I
+gave you for 5%, was 1.96.</p>
+<p t="2503300" d="6030">What is the smallest c I
+should be taking so that now,</p>
+<p t="2509330" d="1400">this inequality is reversed?</p>
+<p t="2514980" d="1010">3.45.</p>
+<p t="2515990" d="2910">I ask only trivial
+questions, don't be worried.</p>
+<p t="2518900" d="3990">So 3.45 is the smallest
+c that I'm actually</p>
+<p t="2522890" d="1980">willing to tolerate.</p>
+<p t="2524870" d="3000">So let's say this was my 5%.</p>
+<p t="2527870" d="1860">If this was 2.5--</p>
+<p t="2529730" d="1500">if here, let's say,
+in this picture,</p>
+<p t="2531230" d="5260">alpha is 5%, that means
+maybe I need to push here.</p>
+<p t="2536490" d="1660">And this number should be what?</p>
+<p t="2538150" d="2430">So this is going to be 1.96.</p>
+<p t="2540580" d="5880">And this number here is going
+to be 3.45, clearly to scale.</p>
+<p t="2546460" d="3870">And so now, what I
+want to ask you is,</p>
+<p t="2550330" d="3240">well, there's two ways I can
+understand this number 3.45.</p>
+<p t="2553570" d="2550">It is the number
+3.45, but I can also</p>
+<p t="2556120" d="4220">try to understand what is the
+area to the right of this guy.</p>
+<p t="2560340" d="2440">And if I understand what the
+area to the right of this guy</p>
+<p t="2562780" d="4920">is, this is actually
+some alpha prime over 2.</p>
+<p t="2567700" d="1860">And that means
+that if I actually</p>
+<p t="2569560" d="4280">fix this level alpha
+prime, that would</p>
+<p t="2573840" d="3420">be exactly the tipping
+point at which I would</p>
+<p t="2577260" d="4160">go from accepting to rejecting.</p>
+<p t="2581420" d="2970">So I knew, in terms of
+absolute thresholds,</p>
+<p t="2584390" d="2910">3.45 is the trivial
+answer to the question.</p>
+<p t="2587300" d="1740">That's the tipping
+point, because I'm</p>
+<p t="2589040" d="2310">comparing a number to 3.45.</p>
+<p t="2591350" d="1980">But now, if I try
+to map this back</p>
+<p t="2593330" d="3240">and understand what level
+would have been giving me</p>
+<p t="2596570" d="2340">this particular
+tipping point, that's</p>
+<p t="2598910" d="2520">a number between 0 and 1.</p>
+<p t="2601430" d="4400">The smaller the number, the
+larger this number here,</p>
+<p t="2605830" d="2450">which means that the more
+evidence I have in my data</p>
+<p t="2608280" d="2710">against h0.</p>
+<p t="2610990" d="5150">And so this number is actually
+something called the p-value.</p>
+<p t="2616140" d="2500">And so saying, for
+example 2, there's</p>
+<p t="2618640" d="2240">the tipping point
+alpha at which I</p>
+<p t="2620880" d="3270">go from failing to
+reject to rejecting.</p>
+<p t="2624150" d="3840">And that's exactly the number,
+the area under the curve,</p>
+<p t="2627990" d="6000">such that here, I see 0.77.</p>
+<p t="2633990" d="2720">And this is this alpha
+prime prime over 2.</p>
+<p t="2639660" d="4430">Alpha prime prime is
+clearly larger than 5%.</p>
+<p t="2644090" d="2540">So what's the advantage of
+thinking and mapping back</p>
+<p t="2646630" d="1540">these numbers?</p>
+<p t="2648170" d="3620">Well, now, I'm actually going
+to spit out some number which</p>
+<p t="2651790" d="1110">is between 0 and 1.</p>
+<p t="2652900" d="5927">And that should be the only
+scale you should have in mind.</p>
+<p t="2658827" d="1583">Remember, we discussed
+that last time.</p>
+<p t="2660410" d="2340">I was like, well, if
+I actually spit out</p>
+<p t="2662750" d="3450">a number which is 3.45,
+maybe you can try to think,</p>
+<p t="2666200" d="3030">is 3.45 a large
+number for a Gaussian?</p>
+<p t="2669230" d="667">That's a number.</p>
+<p t="2669897" d="2458">But if I had another random
+variable that was not Gaussian,</p>
+<p t="2672355" d="1555">maybe it was a
+double exponential,</p>
+<p t="2673910" d="2310">you would have to have
+another scale in your mind.</p>
+<p t="2676220" d="6660">Is 3.45 so large that
+it's unlikely for it</p>
+<p t="2682880" d="1800">to come from a
+double exponential.</p>
+<p t="2684680" d="1620">If I had a gamma distribution--</p>
+<p t="2686300" d="2208">I can think of any distribution,
+and then that means,</p>
+<p t="2688508" d="2532">for each distribution, you would
+have to have scale in mind.</p>
+<p t="2691040" d="2250">So of course, you can have
+the Gaussian scale in mind.</p>
+<p t="2693290" d="1980">I mean, I have the
+Gaussian scale in mind.</p>
+<p t="2695270" d="4470">But then, if I map it back into
+this number between 0 and 1,</p>
+<p t="2699740" d="2520">all the distributions
+play the same role.</p>
+<p t="2702260" d="3660">So whether I'm talking about
+if my limiting distribution is</p>
+<p t="2705920" d="3954">normal or exponential or
+gamma, or whatever you want,</p>
+<p t="2709874" d="1416">for all these guys,
+I'm just going</p>
+<p t="2711290" d="2160">to map it into one
+number between 0 and 1.</p>
+<p t="2713450" d="2760">Small number means lots
+of evidence against h1.</p>
+<p t="2716210" d="4830">Large number means lots
+of evidence against h0.</p>
+<p t="2721040" d="4170">Small number means very
+few evidence against h9.</p>
+<p t="2725210" d="2590">And this is the only number
+you need to keep in mind.</p>
+<p t="2727800" d="1910">And the question
+is, am I willing</p>
+<p t="2729710" d="4860">to tolerate this number between
+5%, 6%, or maybe 10%, 12%?</p>
+<p t="2734570" d="3150">And this is the only scale
+you have to have in mind.</p>
+<p t="2737720" d="3310">And this scale is the
+scale of p-values.</p>
+<p t="2741030" d="7090">So the p-value is the tipping
+point in terms of alpha.</p>
+<p t="2748120" d="3930">In words, I can make it
+formal, because tipping point,</p>
+<p t="2752050" d="2460">as far as I know, is
+not a mathematical term.</p>
+<p t="2754510" d="4440">So a p-value of a
+test is the smallest,</p>
+<p t="2758950" d="2790">potentially asymptotic level
+if I talk about an asymptotic</p>
+<p t="2761740" d="1170">p-value--</p>
+<p t="2762910" d="2610">and that's what we do when we
+talk about central theorem--</p>
+<p t="2765520" d="3890">at which the test rejects h0.</p>
+<p t="2769410" d="1410">If I were to go any smaller--</p>
+<p t="2774640" d="3110">sorry, it's the smallest level--</p>
+<p t="2777750" d="1610">yeah, if I were
+to go any smaller,</p>
+<p t="2779360" d="1890">I would fail to reject.</p>
+<p t="2781250" d="3950">The smaller the level, the less
+likely it is for me to reject.</p>
+<p t="2785200" d="1510">And if I were to
+go any smaller, I</p>
+<p t="2786710" d="4300">would start failing to reject.</p>
+<p t="2791010" d="2200">And so it is a random number.</p>
+<p t="2793210" d="2580">It depends on what
+I actually observe.</p>
+<p t="2795790" d="3450">So here, of course, I
+instantiated those two numbers,</p>
+<p t="2799240" d="4962">3.45 and 0.77, as realizations
+of random variables.</p>
+<p t="2804202" d="2208">But if you think of those
+as being the random numbers</p>
+<p t="2806410" d="3780">before I see my data,
+this was a random number,</p>
+<p t="2810190" d="3360">and therefore, the area under
+the curve to the right of it</p>
+<p t="2813550" d="2280">is also a random area.</p>
+<p t="2815830" d="3090">If this thing fluctuates,
+then the area under the curve</p>
+<p t="2818920" d="1170">fluctuates.</p>
+<p t="2820090" d="2060">And that's what the p-value is.</p>
+<p t="2822150" d="3800">That's what-- what is his name?</p>
+<p t="2825950" d="830">I forget.</p>
+<p t="2826780" d="3690">John Oliver talks about when
+he talks about p-hacking.</p>
+<p t="2830470" d="3680">And so we talked about
+this in the first lecture.</p>
+<p t="2834150" d="4044">So p-hacking is, how do I
+do-- oh, if I'm a scientist,</p>
+<p t="2838194" d="2166">do I want to see a small
+p-value or a large p-value?</p>
+<p t="2840360" d="667">AUDIENCE: Small.</p>
+<p t="2841027" d="1332">PHILIPPE RIGOLLET: Small, right?</p>
+<p t="2842359" d="2601">Scientists want to see small
+p-values because small p-values</p>
+<p t="2844960" d="3060">equals rejecting,
+which equals discovery,</p>
+<p t="2848020" d="3210">which equals publications,
+which equals promotion.</p>
+<p t="2851230" d="3320">So that's what
+people want to see.</p>
+<p t="2854550" d="3420">So people are tempted
+to see small p-values.</p>
+<p t="2857970" d="3690">And what's called p-hacking
+is, well, find a way to cheat.</p>
+<p t="2861660" d="2790">Maybe look at your data,
+formulate your hypothesis</p>
+<p t="2864450" d="5390">in such a way that you will
+actually have a smaller</p>
+<p t="2869840" d="1535">p-value than you should have.</p>
+<p t="2871375" d="1625">So here, for example,
+there's one thing</p>
+<p t="2873000" d="1958">I did not insist on
+because, again, this is not</p>
+<p t="2874958" d="2242">a particular course on
+statistical thinking,</p>
+<p t="2877200" d="2220">but one thing that
+we implicitly did</p>
+<p t="2879420" d="5330">was set those theta 0 and
+theta 1 ahead of time.</p>
+<p t="2884750" d="3628">I fixed them, and I'm
+trying to test this.</p>
+<p t="2888378" d="2902">This is to be contrasted
+with the following approach.</p>
+<p t="2891280" d="2070">I draw my data.</p>
+<p t="2893350" d="1874">So I draw--</p>
+<p t="2895224" d="1666">I run this experiment,
+which is probably</p>
+<p t="2896890" d="1950">going to get me a
+publication in nature.</p>
+<p t="2898840" d="4170">I'm trying to test
+if a coin is fair.</p>
+<p t="2903010" d="1750">And I draw my data,
+and I see that there's</p>
+<p t="2904760" d="6260">13 out of 30 of my
+observations that are heads.</p>
+<p t="2911020" d="1590">That means that,
+from this data, it</p>
+<p t="2912610" d="4240">looks like p is less than 1/2.</p>
+<p t="2916850" d="1710">So if I look at
+this data and then</p>
+<p t="2918560" d="4310">decide that my alternative
+is not p not equal to 1/2,</p>
+<p t="2922870" d="4430">but rather p less than
+1/2, that's p-hacking.</p>
+<p t="2927300" d="3250">I'm actually making my
+p-value strictly smaller</p>
+<p t="2930550" d="2580">by first looking at the
+data, and then deciding what</p>
+<p t="2933130" d="1530">my alternative is going to be.</p>
+<p t="2934660" d="4110">And that's cheating, because
+all the things we did,</p>
+<p t="2938770" d="4200">we're assuming that this
+0.5, or the alternative,</p>
+<p t="2942970" d="2270">was actually a fixed--
+everything was deterministic.</p>
+<p t="2945240" d="1924">The only randomness
+came from the data.</p>
+<p t="2947164" d="1416">But if I start
+looking at the data</p>
+<p t="2948580" d="2550">and designing my experiment
+or my alternatives</p>
+<p t="2951130" d="2102">and null hypothesis
+based on the data,</p>
+<p t="2953232" d="2458">it's as if I started putting
+randomness all over the place.</p>
+<p t="2955690" d="2610">And then I cannot control it
+because I don't know how it</p>
+<p t="2958300" d="4660">just intermingles
+with each other.</p>
+<p t="2962960" d="3210">So that was for the
+John Oliver moment.</p>
+<p t="2969940" d="2400">So the p-value is nice.</p>
+<p t="2972340" d="3160">So maybe I mentioned
+that, before, my wife</p>
+<p t="2975500" d="1110">works in market research.</p>
+<p t="2976610" d="3630">And maybe every two
+years, she seems</p>
+<p t="2980240" d="2130">to run into a statistician
+in the hallway,</p>
+<p t="2982370" d="2700">and she comes home and says,
+what is a p-value again?</p>
+<p t="2985070" d="3120">And for her, a p-value
+is just the number</p>
+<p t="2988190" d="1890">in an Excel spreadsheet.</p>
+<p t="2990080" d="5280">And actually, small equals
+good and large equals bad.</p>
+<p t="2995360" d="2460">And that's all she needs
+to know at this point.</p>
+<p t="2997820" d="3490">Actually, they do the job
+for her-- small is green,</p>
+<p t="3001310" d="980">large is red.</p>
+<p t="3002290" d="4300">And so for her, a p-value
+is just green or red.</p>
+<p t="3006590" d="2150">But so what she's
+really implicitly doing</p>
+<p t="3008740" d="4240">with this color code is just
+applying the golden rule.</p>
+<p t="3012980" d="3230">What the statisticians do for
+her in the Excel spreadsheet</p>
+<p t="3016210" d="2550">is that they take the
+numbers for the p-values that</p>
+<p t="3018760" d="1680">are less than some fixed level.</p>
+<p t="3020440" d="1950">So depending on the field
+in which she works--</p>
+<p t="3022390" d="2020">so she works for
+pharmaceutical companies--</p>
+<p t="3024410" d="2150">so the p-values are
+typically compared--</p>
+<p t="3026560" d="4470">the tests are usually performed
+at level 1%, rather than 5%.</p>
+<p t="3031030" d="2010">So 5% is maybe
+your gold standard</p>
+<p t="3033040" d="3510">if you're doing
+sociology or trying to--</p>
+<p t="3036550" d="3420">I don't know-- release
+a new blueberry flavor</p>
+<p t="3039970" d="1020">for your toothpaste.</p>
+<p t="3040990" d="2640">Something that's not going
+to change the life of people,</p>
+<p t="3043630" d="1410">maybe you're going to run at 5%.</p>
+<p t="3045040" d="1110">It's OK to make a mistake.</p>
+<p t="3046150" d="1708">See, people are just
+going to feel gross,</p>
+<p t="3047858" d="2912">but that's about
+it, whereas here,</p>
+<p t="3050770" d="2526">if you have this p-value
+which is less than 1%,</p>
+<p t="3053296" d="2124">it might be more important
+for some drug discovery,</p>
+<p t="3055420" d="1130">for example.</p>
+<p t="3056550" d="3260">And so let's say you run at 1%.</p>
+<p t="3059810" d="2660">And so what they do in
+this Excel spreadsheet is</p>
+<p t="3062470" d="3330">that all the numbers that
+are below 1% show up in green</p>
+<p t="3065800" d="3210">and all the numbers that
+are above 1% show up in red.</p>
+<p t="3069010" d="780">And that's it.</p>
+<p t="3069790" d="1920">That's just applying
+the golden rule.</p>
+<p t="3071710" d="1930">If the number is green, reject.</p>
+<p t="3073640" d="4384">If the number is
+red, fail to reject.</p>
+<p t="3078024" d="500">Yeah?</p>
+<p t="3078524" d="1988">AUDIENCE: So going
+back to example 2</p>
+<p t="3080512" d="3479">where the prior
+example where you</p>
+<p t="3083991" d="2485">want to cheat by
+looking after beta</p>
+<p t="3086476" d="5974">and then formulating, say,
+theta 1 to be p less than 1/2.</p>
+<p t="3092450" d="1464">PHILIPPE RIGOLLET: Yeah.</p>
+<p t="3093914" d="4392">AUDIENCE: So how would
+you achieve your goal</p>
+<p t="3098306" d="2498">by changing the theta--</p>
+<p t="3100804" d="1666">PHILIPPE RIGOLLET:
+By achieving my goal,</p>
+<p t="3102470" d="3356">you mean letting
+ethics aside, right?</p>
+<p t="3105826" d="874">AUDIENCE: Yeah, yeah.</p>
+<p t="3106700" d="1230">PHILIPPE RIGOLLET: Ah,
+you want to be published.</p>
+<p t="3107930" d="625">AUDIENCE: Yeah.</p>
+<p t="3108555" d="5855">PHILIPPE RIGOLLET: [LAUGHS]
+So let me teach you how, then.</p>
+<p t="3114410" d="3750">So well, here, what do you do?</p>
+<p t="3118160" d="5220">You want to-- at
+the end of the day,</p>
+<p t="3123380" d="2820">a test is only telling you
+whether you found evidence</p>
+<p t="3126200" d="4950">in your data that h1 was more
+likely than h0, basically.</p>
+<p t="3131150" d="1680">How do you make h1 more likely?</p>
+<p t="3132830" d="5670">Well, you just basically
+target h1 to be what it is--</p>
+<p t="3138500" d="3240">what the data is going to
+make it more likely to be.</p>
+<p t="3141740" d="4470">So if, for example, I say
+h1 can be on both sides,</p>
+<p t="3146210" d="2967">then my data is going to have to
+take into account fluctuations</p>
+<p t="3149177" d="2583">on both sides, and I'm going to
+lose a factor or two somewhere</p>
+<p t="3151760" d="1930">because things
+are not symmetric.</p>
+<p t="3153690" d="4550">Here is the ultimate
+way of making this work.</p>
+<p t="3158240" d="4680">I'm going back to my
+example of flipping coins.</p>
+<p t="3162920" d="2870">And now, so here,
+what I did is, I said,</p>
+<p t="3165790" d="8900">oh, this number 0.43 is
+actually smaller than 0.5,</p>
+<p t="3174690" d="1950">so I'm just going to
+test whether I'm 0.5</p>
+<p t="3176640" d="2140">or I'm less than 0.5.</p>
+<p t="3178780" d="2270">But here is something
+that I can promise you</p>
+<p t="3181050" d="3330">I did not make the
+computation will reject.</p>
+<p t="3184380" d="1800">So here, this one actually--</p>
+<p t="3186180" d="2100">yeah, this one fails to reject.</p>
+<p t="3188280" d="2800">So here is one that
+will certainly reject.</p>
+<p t="3191080" d="13870">h0 is 0.5, p is
+0.5, h1p is 0.43.</p>
+<p t="3204950" d="2880">Now, you can try,
+but I can promise you</p>
+<p t="3207830" d="4200">that your data will tell you
+that h1 is the right one.</p>
+<p t="3212030" d="4080">I mean, you can check very
+quickly that this is really</p>
+<p t="3216110" d="1670">extremely likely to happen.</p>
+<p t="3220795" d="875">Actually, what am I--</p>
+<p t="3225050" d="7170">no, actually, that's
+not true, because here,</p>
+<p t="3232220" d="4110">the test that I derive that's
+based on this kind of stuff,</p>
+<p t="3236330" d="3630">here at some point,
+somewhere under some layers,</p>
+<p t="3239960" d="4490">I assume that all our tests
+are going to have this form.</p>
+<p t="3244450" d="1580">But here, this is
+only when you're</p>
+<p t="3246030" d="3000">trying to test one region versus
+another region next to it,</p>
+<p t="3249030" d="2000">or one point versus
+a region around it,</p>
+<p t="3251030" d="2110">or something like this,
+whereas for this guy,</p>
+<p t="3253140" d="2500">there's another test
+that could come up with,</p>
+<p t="3255640" d="3080">which is, what is the
+probability that I get 0.43,</p>
+<p t="3258720" d="3066">and what is the
+probability that I get 0.5?</p>
+<p t="3261786" d="1374">Now, what I'm
+going to do is, I'm</p>
+<p t="3263160" d="2520">going to just conclude
+it's whichever</p>
+<p t="3265680" d="1927">has the largest probability.</p>
+<p t="3267607" d="2333">Then maybe I'm going to have
+to make some adjustments so</p>
+<p t="3269940" d="2370">that the level is actually 5%.</p>
+<p t="3272310" d="1380">But I can make this happen.</p>
+<p t="3273690" d="3200">I can make the level be 5%
+and always conclude this guy,</p>
+<p t="3276890" d="1720">but I would have to
+use a different test.</p>
+<p t="3278610" d="1680">Now, the test that
+I described, again,</p>
+<p t="3280290" d="2580">those tn larger
+than c are built in</p>
+<p t="3282870" d="3300">to be tests that are resilient
+to these kind of manipulations</p>
+<p t="3286170" d="2670">because they're
+oblivious towards what</p>
+<p t="3288840" d="1650">the alternative looks like.</p>
+<p t="3290490" d="1470">I mean, they're just saying
+it's either to the left</p>
+<p t="3291960" d="1374">or to the right,
+but whether it's</p>
+<p t="3293334" d="2106">a point or an entire
+half-line doesn't matter.</p>
+<p t="3299170" d="2030">So if you try to
+look at your data</p>
+<p t="3301200" d="4320">and just put the data itself
+into your hypothesis testing</p>
+<p t="3305520" d="5225">problem, then you're failing
+the statistical principle.</p>
+<p t="3310745" d="1375">And that's what
+people are doing.</p>
+<p t="3312120" d="1452">I mean, how can I check?</p>
+<p t="3313572" d="1458">I mean, of course,
+here, it's going</p>
+<p t="3315030" d="1458">to be pretty blatant
+if you publish</p>
+<p t="3316488" d="1332">a paper that looks like this.</p>
+<p t="3317820" d="1830">But there's ways to
+do it differently.</p>
+<p t="3319650" d="2084">For example, one way to
+do it is to just do mult--</p>
+<p t="3321734" d="1499">so typically, what
+people do is they</p>
+<p t="3323233" d="1547">do multiple hypothesis testing.</p>
+<p t="3324780" d="2790">They're doing 100
+tests at a time.</p>
+<p t="3327570" d="3144">Then you have random
+fluctuations every time.</p>
+<p t="3330714" d="1416">And so they just
+pick the one that</p>
+<p t="3332130" d="2292">has the random fluctuations
+that go their way.</p>
+<p t="3334422" d="1708">I mean, sometimes it's
+going in your way,</p>
+<p t="3336130" d="1749">and sometimes it's
+going the opposite way,</p>
+<p t="3337879" d="1901">so you just pick the
+one that works for you.</p>
+<p t="3339780" d="2210">We'll talk about multiple
+hypothesis testing soon</p>
+<p t="3341990" d="2870">if you want to increase
+your publication count.</p>
+<p t="3349779" d="1041">There's actually papers--</p>
+<p t="3350820" d="2220">I think it was a big
+news that some papers,</p>
+<p t="3353040" d="1680">I think, in psychology
+or psychometrics</p>
+<p t="3354720" d="3180">papers that actually refused
+to publish p-values now.</p>
+<p t="3363630" d="2250">Where were we?</p>
+<p t="3365880" d="1350">Here's the golden rule.</p>
+<p t="3367230" d="4740">So one thing that I like
+to show is this thing,</p>
+<p t="3371970" d="2370">just so you know how you
+apply the golden rule</p>
+<p t="3374340" d="1710">and how you apply
+the standard tests.</p>
+<p t="3376050" d="9400">So the standard paradigm
+is the following.</p>
+<p t="3385450" d="3980">You have a black box,
+which is your test.</p>
+<p t="3389430" d="2800">For my wife, this is the
+4th floor of the building.</p>
+<p t="3392230" d="1610">That's where the
+statisticians sit.</p>
+<p t="3393840" d="2140">What she sends there is data--</p>
+<p t="3398620" d="2520">let's say x1 xn.</p>
+<p t="3401140" d="2730">And she says, well, this
+one is about toothpaste,</p>
+<p t="3403870" d="1320">so here's a level--</p>
+<p t="3405190" d="2030">let's say 5%.</p>
+<p t="3407220" d="3670">What the 4th floor brings
+back is that answer-- yes,</p>
+<p t="3410890" d="2400">no, green, red, just an answer.</p>
+<p t="3418050" d="1620">So that's the standard testing.</p>
+<p t="3419670" d="2370">You just feed it the data
+and the level at which you</p>
+<p t="3422040" d="2290">want to perform the
+test, maybe asymptotic,</p>
+<p t="3424330" d="2250">and it spits out
+a yes, no answer.</p>
+<p t="3426580" d="8760">What p-value does, you just
+feed it the data itself.</p>
+<p t="3438380" d="3830">And what it spits
+out is the p-value.</p>
+<p t="3442210" d="1660">And now it's just up to you.</p>
+<p t="3443870" d="4040">I mean, hopefully your brain
+has the computational power</p>
+<p t="3447910" d="3180">of deciding whether a number
+is larger or smaller than 5%</p>
+<p t="3451090" d="2700">without having to call
+a statistician for this.</p>
+<p t="3453790" d="1570">And that's what it does.</p>
+<p t="3455360" d="2240">So now we're on 1 scale.</p>
+<p t="3457600" d="3900">Now, I see some of you nodding
+when I talk about p-hacking,</p>
+<p t="3461500" d="1595">so that means you've
+seen p-values.</p>
+<p t="3463095" d="2125">If you've seen more than
+100 p-values in your life,</p>
+<p t="3465220" d="2110">you have an entire scale.</p>
+<p t="3467330" d="3440">A good p-value is less
+than 10 to the minus 4.</p>
+<p t="3470770" d="2670">That's the ultimate sweet spot.</p>
+<p t="3473440" d="3390">Actually, statistical
+software spits out</p>
+<p t="3476830" d="4540">an output which says less
+than 10 to the minus 4.</p>
+<p t="3481370" d="1460">But then maybe
+you want a p-val--</p>
+<p t="3485870" d="3090">if you tell me my p-value
+was 4.65, then I will say,</p>
+<p t="3488960" d="2010">you've been doing some
+p-hacking until you found</p>
+<p t="3490970" d="1710">a number that was below 5%.</p>
+<p t="3492680" d="1980">That's typically
+what people will do.</p>
+<p t="3494660" d="1930">But if you tell me--</p>
+<p t="3496590" d="2210">if you're doing the
+test, if you're saying,</p>
+<p t="3498800" d="2790">I published my
+result, my test at 5%</p>
+<p t="3501590" d="5430">said yes, that means that
+maybe you're p-value was 4.99,</p>
+<p t="3507020" d="2742">or you're p-value was 10 to
+the minus 4, I will never know.</p>
+<p t="3509762" d="1458">I will never know
+how much evidence</p>
+<p t="3511220" d="3090">you had against the null.</p>
+<p t="3514310" d="1950">But if you tell me
+what the p-value is,</p>
+<p t="3516260" d="1232">I can make my own decision.</p>
+<p t="3517492" d="1958">I don't have to tell me
+whether it's a yes, no.</p>
+<p t="3519450" d="3170">You tell me it's 4.99, I'm
+going to say, well, maybe yes,</p>
+<p t="3522620" d="2500">but I'm going to take
+it with a grain of salt.</p>
+<p t="3525120" d="2980">And so that's why p-values are
+good numbers to have in mind.</p>
+<p t="3528100" d="3840">Now, I should, as if it
+was like an old trick</p>
+<p t="3531940" d="2370">that you start mastering
+when you're 45 years old.</p>
+<p t="3534310" d="3180">No, it's just, how small is
+the number between 0 and 1?</p>
+<p t="3537490" d="3180">That's really what
+you need to know.</p>
+<p t="3540670" d="2715">Maybe on the log scale--
+if it's 10 to the minus 1,</p>
+<p t="3543385" d="3855">10 to the minus 2, 10 to
+the minus 3, et cetera--</p>
+<p t="3547240" d="2550">that's probably the extent
+of the mastery here.</p>
+<p t="3552820" d="3600">So this traditional standard
+paradigm that I showed</p>
+<p t="3556420" d="4740">is actually commonly referred to
+as the Neyman-Pearson paradigm.</p>
+<p t="3561160" d="2160">So here, it says name
+Neyman-Pearson's theory,</p>
+<p t="3563320" d="2650">so there's an entire
+theory that comes with it.</p>
+<p t="3565970" d="1160">But it's really a paradigm.</p>
+<p t="3567130" d="2166">It's a way of thinking about
+hypothesis testing that</p>
+<p t="3569296" d="3234">says, well, if I'm not going
+to be able to optimize both</p>
+<p t="3572530" d="2220">my type I and type II
+error, I'm actually</p>
+<p t="3574750" d="3030">going to lock in my type
+I error below some level</p>
+<p t="3577780" d="4770">and just minimize the type II
+error under this constraint.</p>
+<p t="3582550" d="2550">That's what the
+Neyman-Pearson paradigm is.</p>
+<p t="3585100" d="3390">And it sort of makes sense for
+hypothesis testing problems.</p>
+<p t="3588490" d="2070">Now, if you were doing
+some other applications</p>
+<p t="3590560" d="1650">with multi-objective
+optimization,</p>
+<p t="3592210" d="2100">you would maybe come up
+with something different.</p>
+<p t="3594310" d="4290">For example, machine learning
+is not performing typically</p>
+<p t="3598600" d="2520">under Neyman-Pearson paradigm.</p>
+<p t="3601120" d="4240">So if you do spam filtering,
+you could say, well,</p>
+<p t="3605360" d="3290">I want to constrain the
+probability as much as I can</p>
+<p t="3608650" d="2160">of taking somebody's
+important emails</p>
+<p t="3610810" d="3780">and throwing them out as spam,
+and under this constraint,</p>
+<p t="3614590" d="2760">not send too much
+spam to that person.</p>
+<p t="3617350" d="1940">That sort of makes
+sense for spams.</p>
+<p t="3619290" d="4330">Now, if you're labeling cats
+versus dogs, that's probably</p>
+<p t="3623620" d="3480">not like you want to make
+sure that no more than 5%</p>
+<p t="3627100" d="3570">of the dogs are labeled
+cat because, I mean,</p>
+<p t="3630670" d="799">it doesn't matter.</p>
+<p t="3631469" d="1541">So what you typically
+do is, you just</p>
+<p t="3633010" d="1800">sum up the two types
+of errors you can make,</p>
+<p t="3634810" d="2041">and you minimize the sum
+without putting any more</p>
+<p t="3636851" d="1409">weight on one or the other.</p>
+<p t="3638260" d="4620">So here's an example where doing
+a binary decision, one or two</p>
+<p t="3642880" d="2190">of the errors you
+can make, you don't</p>
+<p t="3645070" d="2770">have to actually be like that.</p>
+<p t="3647840" d="2460">So this example here, I did not.</p>
+<p t="3650300" d="4900">The trivial test psi is
+equal to 0, what was it</p>
+<p t="3655200" d="5150">in the US trial court example?</p>
+<p t="3660350" d="3180">What is psi equals 0?</p>
+<p t="3663530" d="1970">That was concluding
+always to the null.</p>
+<p t="3665500" d="2500">What was the null?</p>
+<p t="3668000" d="930">AUDIENCE: Innocent.</p>
+<p t="3668930" d="1458">PHILIPPE RIGOLLET:
+Innocent, right?</p>
+<p t="3670388" d="952">That's the status quo.</p>
+<p t="3671340" d="3450">So that means that this
+guy never rejects h0.</p>
+<p t="3674790" d="2120">Everybody's going away free.</p>
+<p t="3676910" d="1890">So you're sure
+you're not actually</p>
+<p t="3678800" d="6450">going against the constitution
+because alpha is 0%, which</p>
+<p t="3685250" d="1690">is certainly less than 5%.</p>
+<p t="3686940" d="3320">But the power, the fact
+that a lot of criminals</p>
+<p t="3690260" d="3870">go back outside
+in the free world</p>
+<p t="3694130" d="3450">is actually formulated in
+terms of low power, which,</p>
+<p t="3697580" d="1520">in this case, is actually 0.</p>
+<p t="3699100" d="2590">Again, the power is the
+number between 0 and 1.</p>
+<p t="3701690" d="1410">Close to 0, good.</p>
+<p t="3703100" d="2127">Close to 1, bad.</p>
+<p t="3705227" d="6283">Now, what is the
+definition of the p-value?</p>
+<p t="3711510" d="2790">That's going to be
+something-- it's a mouthful.</p>
+<p t="3714300" d="4220">The definition of the
+p-value is a mouthful.</p>
+<p t="3718520" d="1720">It's the tipping point.</p>
+<p t="3720240" d="2380">It is the smallest level at
+which blah, blah, blah, blah,</p>
+<p t="3722620" d="500">blah.</p>
+<p t="3723120" d="2290">It's complicated to remember it.</p>
+<p t="3725410" d="4500">Now, I think that my 6th
+explanation, my wife,</p>
+<p t="3729910" d="3084">after saying, oh, so it's the
+probability of making an error,</p>
+<p t="3732994" d="1916">I said, yeah, that's the
+probability of making</p>
+<p t="3734910" d="1960">an error because,
+of course, she can</p>
+<p t="3736870" d="5400">think probability of making an
+error small, good, large, bad.</p>
+<p t="3742270" d="2670">So that's actually a
+good way to remember.</p>
+<p t="3744940" d="1581">I'm pretty sure
+that at least 50%</p>
+<p t="3746521" d="1749">of people who are using
+p-values out there</p>
+<p t="3748270" d="2950">think that the p-value is the
+probability of making an error.</p>
+<p t="3751220" d="1820">Now, for all
+matters of purposes,</p>
+<p t="3753040" d="2580">if your goal is to just
+threshold the p-value,</p>
+<p t="3755620" d="2280">this is OK to have this in y.</p>
+<p t="3757900" d="4320">But when comes, at
+least until December 22,</p>
+<p t="3762220" d="2610">I would recommend trying
+to actually memorize</p>
+<p t="3764830" d="1950">the right definition
+for the p-value.</p>
+<p t="3773020" d="2220">So the idea, again,
+is fix the level</p>
+<p t="3775240" d="1872">and try to optimize the power.</p>
+<p t="3781360" d="4010">So we're going to try to compute
+some p-values from now on.</p>
+<p t="3785370" d="1530">How do you compute the p-value?</p>
+<p t="3786900" d="3770">Well, you can actually see it
+from this picture over there.</p>
+<p t="3794047" d="2083">One thing I didn't show
+on this picture-- so here,</p>
+<p t="3796130" d="2880">it was my q alpha over
+2 that had alpha here,</p>
+<p t="3799010" d="2220">alpha over 2 here.</p>
+<p t="3801230" d="1350">That was my q alpha over 2.</p>
+<p t="3802580" d="4290">And I said, if tn is to
+the right of this guy,</p>
+<p t="3806870" d="876">I'm going to reject.</p>
+<p t="3807746" d="1374">If tn is to the
+left of this guy,</p>
+<p t="3809120" d="2430">I'm going to fail to reject.</p>
+<p t="3811550" d="3170">Pictorially, you can actually
+represent the p-value.</p>
+<p t="3814720" d="2050">It's when I replace
+this guy by tn itself.</p>
+<p t="3821170" d="3600">Sorry, that's p-value over 2.</p>
+<p t="3824770" d="2590">No, actually, that's p-value.</p>
+<p t="3827360" d="3930">So let me just keep it like
+that and put the absolute value</p>
+<p t="3831290" d="500">here.</p>
+<p t="3834530" d="4030">So if you replace the role of
+q alpha over 2, by your test</p>
+<p t="3838560" d="3070">statistic, the area
+under the curve</p>
+<p t="3841630" d="1530">is actually the
+p-value itself up</p>
+<p t="3843160" d="3570">to a scale because of
+the symmetric thing.</p>
+<p t="3846730" d="2550">So there's a good way
+to see, pictorially,</p>
+<p t="3849280" d="1650">what the p-value is.</p>
+<p t="3850930" d="2820">It's just the probability
+that some Gaussians--</p>
+<p t="3853750" d="3930">it's just the probability that
+some absolute value of n01</p>
+<p t="3857680" d="690">exceeds tn.</p>
+<p t="3862480" d="1904">That's what the p-value is.</p>
+<p t="3864384" d="1916">Now, this guy has nothing
+to do with this guy,</p>
+<p t="3866300" d="6380">so this is really just 1
+minus the Gaussian cdf of tn,</p>
+<p t="3872680" d="1970">and that's it.</p>
+<p t="3874650" d="1810">So that's how I would
+compute p-values.</p>
+<p t="3876460" d="3750">Now, as I said, the
+p-value is a beauty</p>
+<p t="3880210" d="3120">because you don't
+have to understand</p>
+<p t="3883330" d="3720">the fact that your limiting
+distribution is a Gaussian.</p>
+<p t="3887050" d="2214">It's already factored
+in this construction.</p>
+<p t="3889264" d="1416">The fact that I'm
+actually looking</p>
+<p t="3890680" d="4200">at this cumulative distribution
+function of a standard Gaussian</p>
+<p t="3894880" d="2422">makes my p-value
+automatically adjust to what</p>
+<p t="3897302" d="1208">the limiting distribution is.</p>
+<p t="3898510" d="1950">And if this was the
+cumulative distribution</p>
+<p t="3900460" d="3060">function of a
+exponential, I would just</p>
+<p t="3903520" d="2535">have a different function here
+denoted by f, for example,</p>
+<p t="3906055" d="1811">and I would just compute
+a different value.</p>
+<p t="3907866" d="2374">But in the end, regardless of
+what the limiting value is,</p>
+<p t="3910240" d="3300">my p-value would still be
+a number between 0 and 1.</p>
+<p t="3913540" d="3110">And so to illustrate
+that, let's look</p>
+<p t="3916650" d="3690">at other weird distributions
+that we could get in place</p>
+<p t="3920340" d="2280">of the standard Gaussian.</p>
+<p t="3922620" d="2360">And we're not going to see
+many, but we'll see one.</p>
+<p t="3924980" d="2331">And it's not called the
+chi squared distribution.</p>
+<p t="3927311" d="1999">It's actually called the
+Student's distribution,</p>
+<p t="3929310" d="2610">but it involves the chi
+squared distribution</p>
+<p t="3931920" d="2400">as a building block.</p>
+<p t="3934320" d="4500">So I don't know if my phonetics
+are not really right there,</p>
+<p t="3938820" d="4230">so I try to say, well,
+it's chi squared.</p>
+<p t="3943050" d="4140">Maybe it's "kee" squared
+above, in Canada, who knows.</p>
+<p t="3947190" d="3399">So for a positive integer,
+so there's only 1 parameter.</p>
+<p t="3950589" d="1791">So for the Gaussian,
+you have 2 parameters,</p>
+<p t="3952380" d="1800">which are mu and sigma squared.</p>
+<p t="3954180" d="1170">Those are real numbers.</p>
+<p t="3955350" d="1740">Sigma squared's positive.</p>
+<p t="3957090" d="2190">Here, I have 1
+integer parameter.</p>
+<p t="3963030" d="2130">Then the chi
+squared distribution</p>
+<p t="3965160" d="2482">with d degrees of freedom--</p>
+<p t="3967642" d="1958">so the parameter is called
+a degree of freedom,</p>
+<p t="3969600" d="2100">just like mu is called the
+expected value and sigma</p>
+<p t="3971700" d="900">squared is called the variance.</p>
+<p t="3972600" d="1770">Here, we call it
+degrees of freedom.</p>
+<p t="3974370" d="2920">You don't have to
+really understand why.</p>
+<p t="3977290" d="2510">So that's the law
+that you would get--</p>
+<p t="3979800" d="1500">that's the random
+variable you would</p>
+<p t="3981300" d="4960">get if you were to sum d
+squares of independent standard</p>
+<p t="3986260" d="630">Gaussians.</p>
+<p t="3989570" d="4110">So I take the square of an
+independent random Gaussian.</p>
+<p t="3993680" d="1050">I take another one.</p>
+<p t="3994730" d="1650">I sum them, and
+that's a chi squared</p>
+<p t="3996380" d="2990">with 2 degrees of freedom.</p>
+<p t="3999370" d="1370">That's how you get it.</p>
+<p t="4000740" d="6220">Now, I could define it using its
+probability density function.</p>
+<p t="4006960" d="2190">I mean, after all,
+this is the sum</p>
+<p t="4009150" d="2580">of positive random
+variables, so it</p>
+<p t="4011730" d="2070">is a positive random variable.</p>
+<p t="4013800" d="2880">It has a density on
+the positive real line.</p>
+<p t="4016680" d="6740">And the pdf of chi squared with
+d degrees of freedom is what?</p>
+<p t="4023420" d="4480">Well, it's fd of x is--</p>
+<p t="4027900" d="6030">what is it?-- x to the d/2
+minus 1 e to the minus x/2.</p>
+<p t="4033930" d="2580">And then here, I
+have a gamma of d/2.</p>
+<p t="4036510" d="3960">And the other one is, I
+think, 2 to the d/2 minus 1.</p>
+<p t="4043158" d="3372">No, 2 to the d/2.</p>
+<p t="4046530" d="2160">That's what it is.</p>
+<p t="4048690" d="1890">That's the density.</p>
+<p t="4050580" d="1530">If you are very
+good at probability,</p>
+<p t="4052110" d="1530">you can make the
+change of variable</p>
+<p t="4053640" d="2149">and write your Jacobian
+and do all this stuff</p>
+<p t="4055789" d="1541">and actually check
+that this is true.</p>
+<p t="4057330" d="3210">I do not recommend doing that.</p>
+<p t="4060540" d="3530">So this is the density, but it's
+better understood like that.</p>
+<p t="4064070" d="2200">I think it was just
+something that you</p>
+<p t="4066270" d="1890">built from standard Gaussian.</p>
+<p t="4068160" d="2640">So for example, an
+example of a chi</p>
+<p t="4070800" d="2070">squared with 2
+degrees of freedom</p>
+<p t="4072870" d="1920">is actually the following thing.</p>
+<p t="4074790" d="2070">Let's assume I have
+a target like this.</p>
+<p t="4080170" d="2790">And I don't aim very well.</p>
+<p t="4082960" d="3036">And I'm trying to
+hit the center.</p>
+<p t="4085996" d="1374">And I'm not going
+to have, maybe,</p>
+<p t="4087370" d="3010">a deviation, which is
+standard Gaussian left, right</p>
+<p t="4090380" d="6140">and standard Gaussian
+north, south.</p>
+<p t="4096520" d="2190">So I'm throwing,
+and then I'm here,</p>
+<p t="4098710" d="3569">and I'm claiming that this
+number here, by Pythagoras</p>
+<p t="4102279" d="2011">theorem, the square
+distance here</p>
+<p t="4104290" d="1500">is the sum of this
+square distance</p>
+<p t="4105790" d="4270">here, which is the square
+of a Gaussian by assumption.</p>
+<p t="4110060" d="1794">This is plus the square
+of this distance,</p>
+<p t="4111854" d="2166">which is the square of
+another independent Gaussian.</p>
+<p t="4114020" d="1466">I assume those are independent.</p>
+<p t="4115486" d="2333">And so the square distance
+from this point to this point</p>
+<p t="4117819" d="2761">is the chi squared with
+2 degrees of freedom.</p>
+<p t="4120580" d="4449">So this guy here is n01 squared.</p>
+<p t="4125029" d="3111">This is n01 squared.</p>
+<p t="4128140" d="1980">And so this guy here,
+this distance here,</p>
+<p t="4130120" d="3165">is chi squared with
+2 degrees of freedom.</p>
+<p t="4133285" d="1125">I mean the square distance.</p>
+<p t="4134410" d="4159">I'm talking about
+square distances here.</p>
+<p t="4138569" d="3811">So now you can see that,
+actually, Pythagoras</p>
+<p t="4142380" d="3519">is basically why chi
+squared [? arrives. ?]</p>
+<p t="4145899" d="1911">That's why it has its own name.</p>
+<p t="4147810" d="2669">I mean, I could define
+this random variable.</p>
+<p t="4150479" d="2596">I mean, it's actually
+a gamma distribution.</p>
+<p t="4153075" d="2625">It's a special case of something
+called the gamma distribution.</p>
+<p t="4155700" d="1958">The fact that the special
+case has its own name</p>
+<p t="4157658" d="1417">is because there's
+many times what</p>
+<p t="4159075" d="1416">we're going to
+take sum of squares</p>
+<p t="4160491" d="2649">of independent Gaussians because
+Gaussians, the sum of squares</p>
+<p t="4163140" d="2190">is really the norm, the
+Euclidean norm squared,</p>
+<p t="4165330" d="1500">just by Pythagoras theorem.</p>
+<p t="4166830" d="1489">If I'm in higher
+dimension, I can</p>
+<p t="4168319" d="2051">start to sum more
+squared coordinates,</p>
+<p t="4170370" d="1749">and I'm going to measure
+the norm squared.</p>
+<p t="4174240" d="3640">So if you want to draw this
+picture, it looks like this.</p>
+<p t="4177880" d="1740">Again, it's the sum
+of positive numbers,</p>
+<p t="4179620" d="3380">so it's going to be
+on 0 plus infinity.</p>
+<p t="4183000" d="1680">That's fd.</p>
+<p t="4184680" d="8170">And so f1 looks like
+this, f2 looks like this.</p>
+<p t="4192850" d="4520">So the tails become heavier
+and heavier as d increases.</p>
+<p t="4197370" d="3190">And then at [INAUDIBLE]
+to 3, it starts</p>
+<p t="4200560" d="1400">to have a different shape.</p>
+<p t="4201960" d="2250">It starts from 0 and
+it looks like this.</p>
+<p t="4204210" d="2640">And then, as d
+increases, it's basically</p>
+<p t="4206850" d="2360">as if you were to push
+this thing to the right.</p>
+<p t="4209210" d="5769">It's just like, psh, so it's
+just falling like a big blob.</p>
+<p t="4214979" d="1291">Everybody sees what's going on?</p>
+<p t="4216270" d="3367">So there's just this fat
+thing that's just going there.</p>
+<p t="4219637" d="1833">What is the expected
+value of a chi squared?</p>
+<p t="4228670" d="2230">So it's the expected
+value of the sum</p>
+<p t="4230900" d="7038">of Gaussian random
+variables, squared.</p>
+<p t="4237938" d="2420">I know I said that.</p>
+<p t="4240358" d="2432">AUDIENCE: So it's the sum of
+their second moments, right?</p>
+<p t="4242790" d="1166">PHILIPPE RIGOLLET: Which is?</p>
+<p t="4246240" d="1330">Those are n01.</p>
+<p t="4247570" d="2816">AUDIENCE: It's
+like-- oh, I see, 1.</p>
+<p t="4250386" d="1000">PHILIPPE RIGOLLET: Yeah.</p>
+<p t="4251386" d="1908">AUDIENCE: So n times
+1 or d times 1.</p>
+<p t="4253294" d="1776">PHILIPPE RIGOLLET:
+Yeah, which is d.</p>
+<p t="4255070" d="1920">So one thing you
+can check quickly</p>
+<p t="4256990" d="3290">is that the expected value
+of a chi squared is d.</p>
+<p t="4260280" d="4000">And so you see, that's why the
+mass is shifting to the right</p>
+<p t="4264280" d="960">as d increases.</p>
+<p t="4265240" d="1110">It's just going there.</p>
+<p t="4266350" d="1970">Actually, the variance
+is also increasing.</p>
+<p t="4268320" d="1860">The variance is 2d.</p>
+<p t="4274070" d="2060">So this is one thing.</p>
+<p t="4276130" d="3100">And so why do we
+care about this?</p>
+<p t="4279230" d="3410">In basic statistics,
+it's not like we actually</p>
+<p t="4282640" d="2500">have statistics much
+about throwing darts</p>
+<p t="4285140" d="3450">at high-dimensional boards.</p>
+<p t="4288590" d="2790">So what's happening is that if
+I look at the sample variance,</p>
+<p t="4291380" d="5210">the average of the sum of
+squared centered by their mean,</p>
+<p t="4296590" d="1890">then I can actually
+expend this as the sum</p>
+<p t="4298480" d="3840">of the squares minus
+the average squared</p>
+<p t="4302320" d="2360">It's just the same
+trick that we have</p>
+<p t="4304680" d="4680">for the variance-- second moment
+minus first moment square.</p>
+<p t="4309360" d="4425">And then I claim that
+Cochran's theorem--</p>
+<p t="4313785" d="2855">and I will tell you in a second
+what Cochran's theorem tells me</p>
+<p t="4316640" d="1750">is that this sample
+variance is actually--</p>
+<p t="4318390" d="2940">so if I had only this--</p>
+<p t="4321330" d="3230">look at those guys.</p>
+<p t="4324560" d="2610">Those guys are Gaussian
+with mean mu and variance</p>
+<p t="4327170" d="1200">sigma squared.</p>
+<p t="4328370" d="4920">Think for 1 second mu being
+0 and sigma squared being 1.</p>
+<p t="4333290" d="3630">Now, this part would be a
+chi squared with n degrees</p>
+<p t="4336920" d="2242">of freedom divided by n.</p>
+<p t="4339162" d="2138">Now I get another
+thing here, which</p>
+<p t="4341300" d="3550">is the square of something that
+looks like a Gaussian as well.</p>
+<p t="4344850" d="2900">So it looks like I have
+something else here, which</p>
+<p t="4347750" d="1830">looks also like a chi squared.</p>
+<p t="4349580" d="2310">Now, Cochran's theorem is
+essentially telling you</p>
+<p t="4351890" d="3240">that those things
+are independent,</p>
+<p t="4355130" d="4590">and so that in a way, you can
+think of those guys as being,</p>
+<p t="4359720" d="4060">here, n degrees of freedom
+minus 1 degree of freedom.</p>
+<p t="4363780" d="4040">Now, here, as I said, this
+does not mean 0 and variance 1.</p>
+<p t="4367820" d="2910">The fact that it's not
+mean 0 is not a problem</p>
+<p t="4370730" d="4060">because I can remove the mean
+here and remove the mean here.</p>
+<p t="4374790" d="2340">And so this thing has
+the same distribution,</p>
+<p t="4377130" d="1970">regardless of what
+the actual mean is.</p>
+<p t="4379100" d="1500">So without loss of
+generality, I can</p>
+<p t="4380600" d="1497">assume that mu is equal to 0.</p>
+<p t="4382097" d="1833">Now, the variance, I'm
+going to have to pay,</p>
+<p t="4383930" d="2730">because if I multiply
+all these numbers by 10,</p>
+<p t="4386660" d="2987">then this sn is going
+to multiplied by 100.</p>
+<p t="4389647" d="2083">So this thing is going to
+scale with the variance.</p>
+<p t="4391730" d="2083">And not surprisingly, it's
+scaling like the square</p>
+<p t="4393813" d="1737">of the variance.</p>
+<p t="4395550" d="2570">So if I look at sn,
+it's distributed</p>
+<p t="4398120" d="3840">as sigma squared
+times the chi squared</p>
+<p t="4401960" d="3100">with n minus 1 degrees
+of freedom divided by n.</p>
+<p t="4405060" d="3170">And we don't really write
+that, because a chi squared</p>
+<p t="4408230" d="2420">times sigma squared divided
+by n is not a distribution,</p>
+<p t="4410650" d="1642">so we put everything
+to the left,</p>
+<p t="4412292" d="2208">and we say that this is
+actually a chi squared with n</p>
+<p t="4414500" d="2380">minus 1 degrees of freedom.</p>
+<p t="4416880" d="3690">So here, I'm actually
+dropping a fact on you,</p>
+<p t="4420570" d="3240">but you can see
+the building block.</p>
+<p t="4423810" d="2940">What is the thing that's
+fuzzy at this point,</p>
+<p t="4426750" d="2070">but the rest should be
+crystal clear to you?</p>
+<p t="4428820" d="3240">The thing that's fuzzy is
+that removing this squared guy</p>
+<p t="4432060" d="3710">here is actually removing
+1 degree of freedom.</p>
+<p t="4435770" d="3352">That should be weird, but that's
+what Cochran's theorem tells.</p>
+<p t="4439122" d="1678">It's essentially
+stating something</p>
+<p t="4440800" d="3960">about orthogonality of
+subspaces with the span</p>
+<p t="4444760" d="2820">of the constant vector,
+something like that.</p>
+<p t="4447580" d="2190">So you don't have to
+think about it too much,</p>
+<p t="4449770" d="1860">but that's what it's telling me.</p>
+<p t="4451630" d="3540">But the rest, if you plug in--
+so the scaling in sigma squared</p>
+<p t="4455170" d="3280">and in n, so that should
+be completely clear to you.</p>
+<p t="4458450" d="2360">So in particular, if
+I remove that part,</p>
+<p t="4460810" d="4140">it should be clear to you
+that this thing, if mean is 0,</p>
+<p t="4464950" d="2290">this thing is
+actually distributed.</p>
+<p t="4467240" d="2913">Well, if mu is 0, what is
+the distribution of this guy?</p>
+<p t="4475810" d="1929">So I remove that
+part, just this part.</p>
+<p t="4486840" d="3860">So I have xi, which
+are n0 sigma squared.</p>
+<p t="4490700" d="2805">And I'm asking, what is the
+distribution of 1/n sum from i</p>
+<p t="4493505" d="3877">equal 1 to n of xi squared?</p>
+<p t="4497382" d="2968">So it is the sum of their IID.</p>
+<p t="4500350" d="3270">So it's the sum of independent
+Gaussians, but not standard.</p>
+<p t="4503620" d="1680">So the first thing
+to make them standard</p>
+<p t="4505300" d="2150">is that I divide all of
+them by sigma squared.</p>
+<p t="4510690" d="6360">Now, this guy is of the form
+zi squared where zi is n01.</p>
+<p t="4520710" d="5030">So now, this thing here
+has what distribution?</p>
+<p t="4525740" d="1680">AUDIENCE: Chi squared n.</p>
+<p t="4527420" d="2778">PHILIPPE RIGOLLET:
+Chi squared n.</p>
+<p t="4530198" d="3252">And now, sigma squared over
+n times chi squared n--</p>
+<p t="4533450" d="2490">so if I have sigma squared
+divided by n times chi</p>
+<p t="4535940" d="1890">squared--</p>
+<p t="4537830" d="4140">sorry, so n times n
+divided by sigma squared.</p>
+<p t="4541970" d="3600">So if I take this
+thing and I multiply it</p>
+<p t="4545570" d="2790">by n divided by sigma squared,
+it means I remove this term,</p>
+<p t="4548360" d="1500">and now I am left
+with a chi squared</p>
+<p t="4549860" d="1270">with n degrees of freedom.</p>
+<p t="4551130" d="4190">Now, the effect of centering
+with the sample mean here</p>
+<p t="4555320" d="2130">is only to lose 1
+degree of freedom.</p>
+<p t="4557450" d="658">That's it.</p>
+<p t="4561460" d="3750">So if I want to do a test
+about variance, since this</p>
+<p t="4565210" d="2790">is supposedly a good
+estimator of variance,</p>
+<p t="4568000" d="2880">this could be my
+pivotal distribution.</p>
+<p t="4570880" d="1830">This could play the
+role of a Gaussian.</p>
+<p t="4572710" d="3390">If I want to know if my variance
+is equal to 1 or larger than 1,</p>
+<p t="4576100" d="5620">I could actually build a test
+based on this only statement</p>
+<p t="4581720" d="2190">and test if the variance
+is larger than 1 or not.</p>
+<p t="4583910" d="1541">Now, this is not
+asymptotic because I</p>
+<p t="4585451" d="3019">started with the very
+assumption that my data was</p>
+<p t="4588470" d="690">Gaussian itself.</p>
+<p t="4592390" d="1440">Now, just a side
+remark-- you can</p>
+<p t="4593830" d="3390">check that this chi squared 2,
+2 is an exponential with 1/2</p>
+<p t="4597220" d="1770">degrees of freedom,
+which is certainly not</p>
+<p t="4598990" d="3360">clear from the fact that
+z1 squared plus z2 squared</p>
+<p t="4602350" d="2340">is a chi squared with
+2 degrees of freedom.</p>
+<p t="4604690" d="1750">if I give you the
+sum of the square</p>
+<p t="4606440" d="4100">of 2 independent Gaussian, this
+is actually an exponential.</p>
+<p t="4610540" d="2600">That's not super clear, right?</p>
+<p t="4613140" d="7120">But if you look
+at what was here--</p>
+<p t="4620260" d="3170">I don't know if you took notes,
+but let me rewrite it for you.</p>
+<p t="4623430" d="5330">So it was x to the d/2 minus
+1 e to the minus x/2 divided</p>
+<p t="4628760" d="5710">by 2 to the d/2 gamma of d/2.</p>
+<p t="4634470" d="3730">So if I plug in d is
+equal to 2, gamma of 2/2</p>
+<p t="4638200" d="3720">is gamma of 1, which is 1.</p>
+<p t="4641920" d="1830">It's factorial of 0.</p>
+<p t="4643750" d="2540">So it's 1, so this
+guy goes away.</p>
+<p t="4646290" d="7020">2 to the d/2 is 2 to
+1, so that's just 1.</p>
+<p t="4653310" d="3180">No, that's just 2.</p>
+<p t="4656490" d="4500">Then x the d/2 minus 1
+is x the 0, goes away.</p>
+<p t="4660990" d="6090">And so I have x minus x/2
+1/2, which is really, indeed,</p>
+<p t="4667080" d="2970">of the form lambda e
+to the minus lambda</p>
+<p t="4670050" d="3240">x for lambda is equal
+to 1/2, which was</p>
+<p t="4673290" d="1561">our exponential distribution.</p>
+<p t="4679200" d="6090">Well, next week is,
+well, Columbus Day?</p>
+<p t="4685290" d="3220">So not next Monday--</p>
+<p t="4688510" d="3800">so next week, we'll talk
+about Student's distribution.</p>
+<p t="4692310" d="3120">And so that was
+discovered by a guy</p>
+<p t="4695430" d="3970">who pretended his name was
+Student, but was not Student.</p>
+<p t="4699400" d="3860">And I challenge you to
+find why in the meantime.</p>
+<p t="4703260" d="1680">So I'll see you next week.</p>
+<p t="4704940" d="3150">Your homework is
+going to be outside</p>
+<p t="4708090" d="3643">so we can release the room.</p>
+</body>
+</timedtext>

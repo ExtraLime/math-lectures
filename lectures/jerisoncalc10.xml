@@ -1,0 +1,1482 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="90" d="2240">The following content is
+provided under a Creative</p>
+<p t="2330" d="1280">Commons license.</p>
+<p t="3610" d="3100">Your support will help MIT
+OpenCourseWare continue to</p>
+<p t="6710" d="3300">offer high quality educational
+resources for free.</p>
+<p t="10010" d="2840">To make a donation or to view
+additional materials from</p>
+<p t="12850" d="4030">hundreds of MIT courses, visit
+MIT OpenCourseWare at</p>
+<p t="16880" d="5300">ocw.mit.edu.</p>
+<p t="22180" d="60">PROF.</p>
+<p t="22240" d="3700">JERISON: So, we're ready to
+begin Lecture 10, and what I'm</p>
+<p t="25940" d="3120">going to begin with is
+by finishing up some</p>
+<p t="29060" d="4820">things from last time.</p>
+<p t="33880" d="8930">We'll talk about approximations,
+and I want to</p>
+<p t="42810" d="7610">fill in a number of comments and
+get you a little bit more</p>
+<p t="50420" d="3930">oriented in the point of view
+that I'm trying to express</p>
+<p t="54350" d="1630">about approximations.</p>
+<p t="55980" d="3760">So, first of all, I want to
+remind you of the actual</p>
+<p t="59740" d="4060">applied example that I
+wrote down last time.</p>
+<p t="63800" d="4930">So that was this
+business here.</p>
+<p t="68730" d="2860">There was something from
+special relativity.</p>
+<p t="71590" d="4400">And the approximation that
+we used was the linear</p>
+<p t="75990" d="4370">approximation, with a - 1/2
+power that comes out to be t(</p>
+<p t="80360" d="3370">1 1/2 v^2 / C^2).</p>
+<p t="87340" d="2950">I want to reiterate why
+this is a useful way</p>
+<p t="90290" d="1640">of thinking of things.</p>
+<p t="91930" d="2900">And why this is that this
+comes up in real life.</p>
+<p t="94830" d="2370">Why this is maybe more important
+than everything that</p>
+<p t="97200" d="2620">I've taught you about
+technically so far.</p>
+<p t="99820" d="6930">So, first of all, what this is
+telling us is the change in t</p>
+<p t="106750" d="4690">/ t, if you do the arithmetic
+here and subtract t that's</p>
+<p t="111440" d="4530">using the change in
+t is t' - t here.</p>
+<p t="115970" d="5470">If you work that out, this is
+approximately the same as 1/2</p>
+<p t="121440" d="2700">(v^2 / C^2).</p>
+<p t="124140" d="2130">So what is this saying?</p>
+<p t="126270" d="2400">This is saying that if you have
+this satellite, which is</p>
+<p t="128670" d="4610">going at speed v, and little c
+is the speed of light, then</p>
+<p t="133280" d="4940">the change in the watch down
+here on earth, relative to the</p>
+<p t="138220" d="4050">time on the satellite, is going
+to be proportional to</p>
+<p t="142270" d="1780">this ratio here.</p>
+<p t="144050" d="1660">So, physically, this
+makes sense.</p>
+<p t="145710" d="2410">This is time divided by time.</p>
+<p t="148120" d="2550">And this is velocity squared
+divided by velocity squared.</p>
+<p t="150670" d="1950">So, in each case, the
+units divide out.</p>
+<p t="152620" d="2260">So this is a dimensionless
+quantity.</p>
+<p t="154880" d="2080">And this is a dimensionless
+quantity.</p>
+<p t="156960" d="4600">And the only point here that
+we're trying to make is just</p>
+<p t="161560" d="1880">this notion of proportionality.</p>
+<p t="163440" d="2030">So I want to write this down.</p>
+<p t="165470" d="2540">Just, in summary.</p>
+<p t="168010" d="3090">So the error fraction, if you
+like, which is sort of the</p>
+<p t="171100" d="3930">number of significant digits
+that we have in our</p>
+<p t="175030" d="5360">measurement, is proportional,
+in this</p>
+<p t="180390" d="4470">case, to this quantity.</p>
+<p t="184860" d="4170">It happens to be proportional
+to this quantity here.</p>
+<p t="189030" d="7950">And the factor is, happens
+to be, 1/2.</p>
+<p t="196980" d="3470">So these proportionality
+factors are what</p>
+<p t="200450" d="900">we're looking for.</p>
+<p t="201350" d="1240">Their rates of change.</p>
+<p t="202590" d="1790">Their rates of change of
+something with respect to</p>
+<p t="204380" d="1170">something else.</p>
+<p t="205550" d="3250">Now, on your homework,
+you have something</p>
+<p t="208800" d="1940">rather similar to this.</p>
+<p t="210740" d="8140">So in Problem, on Part 2b, Part
+II, Problem 1, there's</p>
+<p t="218880" d="2700">the speed of a pitch, right?</p>
+<p t="221580" d="3060">And the speed of the pitch is
+changing depending on how high</p>
+<p t="224640" d="960">the mound is.</p>
+<p t="225600" d="2790">And the point here is that
+that's approximately</p>
+<p t="228390" d="3930">proportional to the change in
+the height of the mound.</p>
+<p t="232320" d="3070">In that problem, we had this
+delta h, that was the x</p>
+<p t="235390" d="1500">variable in that problem.</p>
+<p t="236890" d="1890">And what you're trying to
+figure out is what the</p>
+<p t="238780" d="4570">constant of proportionality
+is.</p>
+<p t="243350" d="1470">That's what you're aiming
+for in this problem.</p>
+<p t="244820" d="3250">So there's a linear
+relationship, approximately,</p>
+<p t="248070" d="3820">to all intents and purposes
+this is an equality.</p>
+<p t="251890" d="1400">Because the lower
+order terms are</p>
+<p t="253290" d="1430">unimportant for the problem.</p>
+<p t="254720" d="2400">Just as over here, this function
+is a little bit</p>
+<p t="257120" d="900">complicated.</p>
+<p t="258020" d="1780">This function is a little
+more simple.</p>
+<p t="259800" d="3000">For the purposes of this
+problem, they are the same.</p>
+<p t="262800" d="5440">Because the errors are
+negligible for the particular</p>
+<p t="268240" d="1520">problem that we're working on.</p>
+<p t="269760" d="4450">So we might as well work with
+the simpler relationship.</p>
+<p t="274210" d="3710">And similarly, over here, so
+you could do this with, in</p>
+<p t="277920" d="2360">this case with square roots,
+it's not so hard here with</p>
+<p t="280280" d="1700">reciprocals of square roots.</p>
+<p t="281980" d="3320">It's also not terribly hard
+to do it numerically.</p>
+<p t="285300" d="3730">And the reason why we're not
+doing it numerically is that,</p>
+<p t="289030" d="3540">as I say, this is something
+that happens all across</p>
+<p t="292570" d="990">engineering.</p>
+<p t="293560" d="2480">People are looking for these
+linear relationships between</p>
+<p t="296040" d="4200">the change in some input and
+the change in the output.</p>
+<p t="300240" d="3670">And if you don't make these
+simplifications, then when you</p>
+<p t="303910" d="3770">get, say, a dozen of them
+together, you can't figure out</p>
+<p t="307680" d="1860">what's going on.</p>
+<p t="309540" d="1550">In this case the design of the</p>
+<p t="311090" d="1550">satellite, it's very important.</p>
+<p t="312640" d="2520">The speed actually isn't
+just one speed.</p>
+<p t="315160" d="3910">Because it's the relative speed
+of u to the satellite.</p>
+<p t="319070" d="2680">And you might be, it depends
+on your angle of sight with</p>
+<p t="321750" d="1140">the satellite what
+the speed is.</p>
+<p t="322890" d="1410">So it varies quite a bit.</p>
+<p t="324300" d="1980">So you really need this
+rule of thumb.</p>
+<p t="326280" d="1360">Then there are all
+kinds of other</p>
+<p t="327640" d="1440">considerations in this question.</p>
+<p t="329080" d="2450">Like, for example, there's the
+fact that we're sitting on</p>
+<p t="331530" d="2720">Earth and so we're rotating
+around on what's called a</p>
+<p t="334250" d="2000">non-inertial frame.</p>
+<p t="336250" d="2540">So there's the question
+of that acceleration.</p>
+<p t="338790" d="2430">There's the question that the
+gravity that I experience here</p>
+<p t="341220" d="3610">on Earth is not the same
+as up at the satellite.</p>
+<p t="344830" d="3240">And that also creates a
+difference in time, as a</p>
+<p t="348070" d="1510">result of general relativity.</p>
+<p t="349580" d="4890">So all of these considerations
+come down to formulas which</p>
+<p t="354470" d="2440">are this complicated or
+maybe a tiny bit more.</p>
+<p t="356910" d="1420">Not really that much.</p>
+<p t="358330" d="2370">And then people simplify them
+enormously to these very</p>
+<p t="360700" d="1390">simple-minded rules.</p>
+<p t="362090" d="3040">And they don't keep track
+of what's going on.</p>
+<p t="365130" d="2940">So in order to design the
+system, you must make these</p>
+<p t="368070" d="2370">simplifications, otherwise you
+can't even think about</p>
+<p t="370440" d="2190">what's going on.</p>
+<p t="372630" d="1230">This comes up in everything.</p>
+<p t="373860" d="3820">In weather forecasting,
+economic forecasting.</p>
+<p t="377680" d="2200">Figuring out whether there's
+going to be an asteroid that's</p>
+<p t="379880" d="2260">going to hit the Earth.</p>
+<p t="382140" d="2440">Every single one of these things
+involves dozens of</p>
+<p t="384580" d="3320">these considerations.</p>
+<p t="387900" d="2150">OK, there was a question
+that I saw, here.</p>
+<p t="390050" d="400">Yes.</p>
+<p t="390450" d="8470">STUDENT: [INAUDIBLE]</p>
+<p t="398920" d="400">PROF.</p>
+<p t="399320" d="800">JERISON: Yeah.</p>
+<p t="400120" d="2480">Basically, any problem where
+you have a derivative, the</p>
+<p t="402600" d="3500">rate of change also depends upon
+what the base point is.</p>
+<p t="406100" d="750">That's the question.</p>
+<p t="406850" d="3210">You're saying, doesn't this
+delta v also depend, I had a</p>
+<p t="410060" d="990">base point in that problem.</p>
+<p t="411050" d="2240">I happened to decide that
+pitchers pitch on average</p>
+<p t="413290" d="2060">about 90 miles an hour.</p>
+<p t="415350" d="3040">Whereas, in fact, some pitchers
+pitch at 100 miles an</p>
+<p t="418390" d="2020">hour, some pitch at 80 miles
+an hour, and of course they</p>
+<p t="420410" d="1630">vary the speed of the pitch.</p>
+<p t="422040" d="1470">And so, this varies
+a little bit.</p>
+<p t="423510" d="1655">In fact, that's sort of
+a second order effect.</p>
+<p t="425165" d="3055">It does change the constant
+of proportionality.</p>
+<p t="428220" d="3570">It's a rate of change at
+a different base point.</p>
+<p t="431790" d="2440">Which we're considering fixed.</p>
+<p t="434230" d="2830">In fact, that's sort of
+a second order effect.</p>
+<p t="437060" d="2190">When you actually do the
+computations, what you</p>
+<p t="439250" d="2690">discover is that it doesn't
+make that much difference.</p>
+<p t="441940" d="690">To the a.</p>
+<p t="442630" d="2410">And that's something that
+you get from experience.</p>
+<p t="445040" d="3230">That it turns out, which
+things matter and</p>
+<p t="448270" d="710">which things don't.</p>
+<p t="448980" d="2840">And yet again, that's exactly
+the same sort of consideration</p>
+<p t="451820" d="2850">but at the next order of what
+I'm talking about here is.</p>
+<p t="454670" d="1870">You have to have enough
+experience with numbers to</p>
+<p t="456540" d="2670">know that if you take, if you
+vary something a little bit</p>
+<p t="459210" d="1740">it's not going to change
+the answer that you're</p>
+<p t="460950" d="1730">looking for very much.</p>
+<p t="462680" d="2850">And that's exactly the point
+that I'm making.</p>
+<p t="465530" d="6300">So I can't make them all at
+once, all such points.</p>
+<p t="471830" d="3760">So that's my pitch for
+understanding things from this</p>
+<p t="475590" d="880">point of view.</p>
+<p t="476470" d="3620">Now, we're going to go
+on, now, to quadratic</p>
+<p t="480090" d="13200">approximations, which are a
+little more complicated.</p>
+<p t="493290" d="2820">So, we talked a little bit about
+this last time but I</p>
+<p t="496110" d="740">didn't finish.</p>
+<p t="496850" d="3080">So I want to finish this up.</p>
+<p t="499930" d="6990">And the first thing that I
+should say is that you use the</p>
+<p t="506920" d="8760">when the linear approximation
+is not enough.</p>
+<p t="515680" d="2980">OK, so, that's something that
+you really need to get a</p>
+<p t="518660" d="1730">little experience with.</p>
+<p t="520390" d="4090">In economics, I told you they
+use logarithms. So sometimes</p>
+<p t="524480" d="1550">they use log linear functions.</p>
+<p t="526030" d="2160">Sometimes they use log quadratic
+functions when the</p>
+<p t="528190" d="1670">log linear ones don't work.</p>
+<p t="529860" d="1980">So most modeling in
+economics is with</p>
+<p t="531840" d="1890">log quadratic functions.</p>
+<p t="533730" d="1520">And if you've made it
+any more complicated</p>
+<p t="535250" d="1490">than that, it's useless.</p>
+<p t="536740" d="1110">And it's a mess.</p>
+<p t="537850" d="960">And people don't do it.</p>
+<p t="538810" d="3980">So they stick with the quadratic
+ones, typically.</p>
+<p t="542790" d="4220">So the basic formula here, and
+I'm going to take the base</p>
+<p t="547010" d="3735">point to be 0, is that f (
+x ) is approximately f</p>
+<p t="550745" d="3635">( 0 ) f' ( 0 )x.</p>
+<p t="554380" d="1720">That's the linear part.</p>
+<p t="556100" d="1420">Plus this extra term.</p>
+<p t="557520" d="3920">Which is f'' ( 0 ) / 2x^2.</p>
+<p t="561440" d="6300">And this is supposed to
+work for x near 0.</p>
+<p t="567740" d="6570">So it shows in the base point
+as simply as possible.</p>
+<p t="574310" d="3750">So here's more or less where
+we left off last time.</p>
+<p t="578060" d="3890">And one thing that I said I was
+going to explain, which I</p>
+<p t="581950" d="6440">will now, is why it's
+(1/2) f'' ( 0 ).</p>
+<p t="588390" d="3220">So we need to know that.</p>
+<p t="591610" d="3160">So let's work that out
+here first of all.</p>
+<p t="594770" d="2520">So I'm just going to
+do it by example.</p>
+<p t="597290" d="3430">So if you like, the answer is
+just, well, what happens when</p>
+<p t="600720" d="2880">you have a parabola?</p>
+<p t="603600" d="3040">A parabola's a quadratic.</p>
+<p t="606640" d="2110">It had better, its quadratic
+approximation</p>
+<p t="608750" d="1700">had better be itself.</p>
+<p t="610450" d="1030">It's got to be the best one.</p>
+<p t="611480" d="1530">So it's got to be itself.</p>
+<p t="613010" d="2490">So this formula, if it's
+going to work, has</p>
+<p t="615500" d="4050">to work on the nose.</p>
+<p t="619550" d="2340">For quadratic functions.</p>
+<p t="621890" d="1880">So, let's take a look.</p>
+<p t="623770" d="4360">If I differentiate,
+I get b 2cx.</p>
+<p t="628130" d="4100">If I differentiate a second
+time, I get 2c.</p>
+<p t="632230" d="2350">And now let's plug it in.</p>
+<p t="634580" d="4870">Well, we can recover, what is
+it that we want to recover?</p>
+<p t="639450" d="3200">We want to recover these numbers
+a, b and c using the</p>
+<p t="642650" d="3280">derivatives evaluated at 0.</p>
+<p t="645930" d="3570">So let's see.</p>
+<p t="649500" d="3180">It's pretty easy, actually.
+f ( 0 ) = a.</p>
+<p t="652680" d="680">That's on the nose.</p>
+<p t="653360" d="2960">If you plug in x = 0 here,
+these terms drop</p>
+<p t="656320" d="1750">out and you get a.</p>
+<p t="658070" d="4150">And now, f' ( 0 ), whoops
+that was wrong.</p>
+<p t="662220" d="2880">So I wrote f' but what
+I meant was f.</p>
+<p t="665100" d="2850">So f ( 0 ) is a.</p>
+<p t="667950" d="5180">Let's back up. f ( 0 ) is a, so
+if I plug in x = 0 I get a.</p>
+<p t="673130" d="5740">Now, f' ( 0 ), that's this next
+formula here, f' ( 0 ), I</p>
+<p t="678870" d="2310">plug in 0 here, and I get b.</p>
+<p t="681180" d="1050">That's also good.</p>
+<p t="682230" d="2390">And that's exactly what the
+linear approximation is</p>
+<p t="684620" d="920">supposed to be.</p>
+<p t="685540" d="2940">But now you notice, f'' is 2c.</p>
+<p t="688480" d="5960">So to recover c, I better
+take half of it.</p>
+<p t="694440" d="680">And that's it.</p>
+<p t="695120" d="2890">That's the reason.</p>
+<p t="698010" d="2680">There's no chance that any
+other formula could work.</p>
+<p t="700690" d="4360">And this one does.</p>
+<p t="705050" d="5260">So that's the explanation
+for the formula.</p>
+<p t="710310" d="3390">And now I remind you that I
+had a collection of basic</p>
+<p t="713700" d="1390">formulas written on the board.</p>
+<p t="715090" d="5610">And I want to just make sure
+we know all of them again.</p>
+<p t="720700" d="6880">So, first of all, there was
+sine x is approximately x.</p>
+<p t="727580" d="5030">Cosine x is approximately
+1 - 1/2 x^2.</p>
+<p t="732610" d="6620">And e ^ x is approximately
+1 x 1/2 x^2.</p>
+<p t="739230" d="3000">So those were three that
+I mentioned last time.</p>
+<p t="742230" d="6750">And, again, this is
+all for x near 0.</p>
+<p t="748980" d="2180">All for x near 0 only.</p>
+<p t="751160" d="4600">These are wildly wrong, Far
+away, but near 0 they're nice,</p>
+<p t="755760" d="1970">good, quadratic approximations.</p>
+<p t="757730" d="2070">Now, the other two
+approximations that I want to</p>
+<p t="759800" d="7160">mention are the logarithm and we
+use the base point shifted.</p>
+<p t="766960" d="3540">So we can put it at x near 0.</p>
+<p t="770500" d="1130">And this one - sorry,
+this is an</p>
+<p t="771630" d="3790">approximately equals sign there.</p>
+<p t="775420" d="3990">Turns out to be x - 1/2 x^2.</p>
+<p t="779410" d="7940">And the last one is one (1 x)
+^ r, which turns out to be 1</p>
+<p t="787350" d="7130">rx r ( r - 1) / 2x^2.</p>
+<p t="794480" d="5500">Now, eventually, your mind will
+converge on all of these</p>
+<p t="799980" d="3400">and you'll find them relatively
+easy to memorize.</p>
+<p t="803380" d="2440">But it'll take some
+getting used to.</p>
+<p t="805820" d="4180">And I'm not claiming that you
+should recognize them and</p>
+<p t="810000" d="2370">understand them all now.</p>
+<p t="812370" d="3260">But I'm going to put a giant
+box around this.</p>
+<p t="815630" d="6520">STUDENT: [INAUDIBLE]</p>
+<p t="822150" d="143">PROF.</p>
+<p t="822293" d="287">JERISON: Yes.</p>
+<p t="822580" d="3045">So the question was, you get all
+of these if you use that</p>
+<p t="825625" d="150">equation there.</p>
+<p t="825775" d="3145">That's exactly what are you
+going to do. so I already did</p>
+<p t="828920" d="3430">it actually for these
+three, last time.</p>
+<p t="832350" d="3530">But I didn't do it yet
+for these two.</p>
+<p t="835880" d="2610">But I will do it in
+about two minutes.</p>
+<p t="838490" d="1915">Well, maybe five minutes.</p>
+<p t="840405" d="10005">But first I want to explain just
+a few things about these.</p>
+<p t="850410" d="2440">They all follow from
+the basic formula.</p>
+<p t="852850" d="3930">In fact, that one deserves a
+pink box too, doesn't it.</p>
+<p t="856780" d="1240">That one's pretty important.</p>
+<p t="858020" d="1750">Alright.</p>
+<p t="859770" d="3250">Yeah.</p>
+<p t="863020" d="2080">Maybe even some little
+sparkles.</p>
+<p t="865100" d="7730">Alright.</p>
+<p t="872830" d="600">OK.</p>
+<p t="873430" d="2960">So that's pretty important.</p>
+<p t="876390" d="2060">Almost as important as
+the more basic one</p>
+<p t="878450" d="2740">without this term here.</p>
+<p t="881190" d="6690">So now, let me just tell you
+a little bit more about the</p>
+<p t="887880" d="6860">significance.</p>
+<p t="894740" d="2310">Again, this is just to reinforce
+something that we've</p>
+<p t="897050" d="590">already done.</p>
+<p t="897640" d="2140">But it's closely related to
+what you're doing on your</p>
+<p t="899780" d="1100">problem set.</p>
+<p t="900880" d="4350">So it's worth your while
+to recall this.</p>
+<p t="905230" d="5640">So, there's this expression
+that we were dealing with.</p>
+<p t="910870" d="2500">And we talked about
+it in lecture.</p>
+<p t="913370" d="6530">And we showed that this tends
+to e as k goes to infinity.</p>
+<p t="919900" d="1210">So that's what we showed
+in lecture.</p>
+<p t="921110" d="4350">And the way that we did that
+was, we took the logarithm and</p>
+<p t="925460" d="7070">we wrote it as k times, sorry,
+the ln of 1 (1 / k).</p>
+<p t="932530" d="3250">And then we evaluated
+the limit of this.</p>
+<p t="935780" d="3440">And I want to do this limit
+again, using linear</p>
+<p t="939220" d="1000">approximation.</p>
+<p t="940220" d="1630">To show you how easy it is.</p>
+<p t="941850" d="2970">If you just remember the
+linear approximation.</p>
+<p t="944820" d="1810">And then we'll explain
+where the quadratic</p>
+<p t="946630" d="1760">approximation comes in.</p>
+<p t="948390" d="3380">So I claim that this
+is approximately</p>
+<p t="951770" d="7530">equal to k ( 1 / k).</p>
+<p t="959300" d="1450">Now, why is that?</p>
+<p t="960750" d="3600">Well, that's just this
+linear approximation.</p>
+<p t="964350" d="1150">So what did I use here?</p>
+<p t="965500" d="5100">I used ln of 1 x is
+approximately x.</p>
+<p t="970600" d="4160">For x = 1 / k.</p>
+<p t="974760" d="3840">That's what I used in this
+approximation here.</p>
+<p t="978600" d="1730">And that's the linear
+approximation</p>
+<p t="980330" d="3680">to the natural logarithm.</p>
+<p t="984010" d="3240">And this number is relatively
+easy to evaluate.</p>
+<p t="987250" d="900">I know how to do it.</p>
+<p t="988150" d="2860">It's equal to 1.</p>
+<p t="991010" d="3670">That's the same, well, so
+where does this work?</p>
+<p t="994680" d="2770">This works where this
+thing is near 0.</p>
+<p t="997450" d="4160">Which is when k is going
+to infinity.</p>
+<p t="1001610" d="2560">This thing is working only when
+k is going to infinity.</p>
+<p t="1004170" d="2490">So what it's really saying, this
+approximation formula,</p>
+<p t="1006660" d="4250">it's really saying that as we
+go to infinity, in k, this</p>
+<p t="1010910" d="3810">thing is going to 1.</p>
+<p t="1014720" d="4170">As k goes to infinity.</p>
+<p t="1018890" d="1520">So that's what it's saying.</p>
+<p t="1020410" d="1330">That's the substance there.</p>
+<p t="1021740" d="3460">And that's how we want to use
+it, in many instances.</p>
+<p t="1025200" d="1380">Just to evaluate limits.</p>
+<p t="1026580" d="3420">We also want to realize that
+it's nearby when k is pretty</p>
+<p t="1030000" d="2800">large, like 100 or something
+like that.</p>
+<p t="1032800" d="3860">Now, so that's the idea of
+the linear approximation.</p>
+<p t="1036660" d="5460">Now, if you want to get the rate
+of convergence here, so</p>
+<p t="1042120" d="5830">the rate of what's called
+convergence.</p>
+<p t="1047950" d="6310">So convergence means how fast
+this is going towards that.</p>
+<p t="1054260" d="1960">What I have to do is take
+the difference.</p>
+<p t="1056220" d="4450">I have to take ln ak, and I have
+to subtract 1 from it.</p>
+<p t="1060670" d="3190">And I know that this is going to
+0, and the question is how</p>
+<p t="1063860" d="4010">big is this.</p>
+<p t="1067870" d="3890">We want it to be very small.</p>
+<p t="1071760" d="5050">And the answer we're going to
+get, so the answer just uses</p>
+<p t="1076810" d="6760">the quadratic approximation.</p>
+<p t="1083570" d="3180">So if I just have a little bit
+more detail, then this</p>
+<p t="1086750" d="3830">expression here, in other words,
+I have the next higher</p>
+<p t="1090580" d="630">order term.</p>
+<p t="1091210" d="4210">This is like 1 / k, this
+is like 1 / k^2.</p>
+<p t="1095420" d="5680">Then I can understand how big
+the difference is between the</p>
+<p t="1101100" d="3160">expression that I've
+got and its limit.</p>
+<p t="1104260" d="1940">And so that's what's
+on your homework.</p>
+<p t="1106200" d="5410">This is on your problem set.</p>
+<p t="1111610" d="3600">OK, so that is more or less an
+explanation for one of the</p>
+<p t="1115210" d="3650">things that quadratic
+approximations are good for.</p>
+<p t="1118860" d="4040">And I'm going to give you
+one more illustration.</p>
+<p t="1122900" d="2460">One more illustration.</p>
+<p t="1125360" d="2220">And then we'll actually
+check these formulas.</p>
+<p t="1127580" d="850">Yeah, another question.</p>
+<p t="1128430" d="7510">STUDENT: [INAUDIBLE]</p>
+<p t="1135940" d="80">PROF.</p>
+<p t="1136020" d="2450">JERISON: That's a very
+good question here.</p>
+<p t="1138470" d="4050">When they, which in this case
+means maybe, me, when I give</p>
+<p t="1142520" d="8500">you a question, does one specify
+whether you want to</p>
+<p t="1151020" d="3410">use a linear or a quadratic
+approximation.</p>
+<p t="1154430" d="4490">The answer is, in real life
+when you're faced with a</p>
+<p t="1158920" d="4210">problem like this, where some
+satellite is orbiting and you</p>
+<p t="1163130" d="2200">want to know the effects of
+gravity or something like</p>
+<p t="1165330" d="3450">that, nobody is going to
+tell you anything.</p>
+<p t="1168780" d="1540">They're not even going to tell
+you whether a linear</p>
+<p t="1170320" d="3420">approximation is relevant, or
+a quadratic or anything.</p>
+<p t="1173740" d="2430">So you're on your own.</p>
+<p t="1176170" d="4120">When I give you a question, at
+least for right now, I'm</p>
+<p t="1180290" d="2350">always going to tell you.</p>
+<p t="1182640" d="4410">But as time goes on I'd like you
+to get used to when it's</p>
+<p t="1187050" d="2790">enough to get away with a
+linear approximation.</p>
+<p t="1189840" d="3880">And you should only use a
+quadratic approximation if</p>
+<p t="1193720" d="1970">somebody forces you to.</p>
+<p t="1195690" d="2270">You should always start trying
+with a linear one.</p>
+<p t="1197960" d="2520">Because the quadratic ones are
+much more complicated as</p>
+<p t="1200480" d="2910">you'll see in this
+next example.</p>
+<p t="1203390" d="3270">OK, so the example that I want
+to use is, you're going to be</p>
+<p t="1206660" d="2450">stuck with it because I'm asking
+for the quadratic.</p>
+<p t="1209110" d="8340">So we're going to find the
+quadratic approximation near,</p>
+<p t="1217450" d="6290">for x near 0.</p>
+<p t="1223740" d="785">To what?</p>
+<p t="1224525" d="4965">Well, this is the same function
+that we used in the</p>
+<p t="1229490" d="1350">last lecture.</p>
+<p t="1230840" d="6620">I think this was it. e
+^ - 3x (1 x) ^ - 1/2.</p>
+<p t="1237460" d="3210">OK.</p>
+<p t="1240670" d="4720">So, unfortunately, I stuck it in
+the wrong place to be able</p>
+<p t="1245390" d="2230">to fit this very long
+formula here.</p>
+<p t="1247620" d="3480">So I'm going to switch it.</p>
+<p t="1251100" d="5970">I'm just going to
+write it here.</p>
+<p t="1257070" d="3070">And we're going to just
+do the approximation.</p>
+<p t="1260140" d="3690">So we're going to say quadratic,
+in parentheses.</p>
+<p t="1263830" d="4620">And we'll say x near 0.</p>
+<p t="1268450" d="3710">So that's what I want.</p>
+<p t="1272160" d="3360">So now, here's what
+I have to do.</p>
+<p t="1275520" d="2790">Well, I have to write in the
+quadratic approximation for e</p>
+<p t="1278310" d="7400">^ - 3x, and I'm going to use
+this formula right here.</p>
+<p t="1285710" d="8260">And so that's (1 (-
+3x) (- 3x)^2 / 2).</p>
+<p t="1293970" d="4700">And the other factor, I'm going
+to have to use this</p>
+<p t="1298670" d="4790">formula down here. because
+r is - 1/2.</p>
+<p t="1303460" d="9580">And so that's (1 - 1/2 x 1/2
+( - 1/2)( - 3/2)x^2).</p>
+<p t="1319090" d="10880">So this is the r term, and
+this is the r - 1 term.</p>
+<p t="1329970" d="2780">And now I'm going to do
+something which is the only</p>
+<p t="1332750" d="2800">good thing about quadratic
+approximations.</p>
+<p t="1335550" d="2950">They're messy, they're long,
+there's nothing particularly</p>
+<p t="1338500" d="950">good about them.</p>
+<p t="1339450" d="2220">But there is one good
+thing about them.</p>
+<p t="1341670" d="3440">Which is that you always get
+to ignore the higher order</p>
+<p t="1345110" d="2870">terms. So even though this
+looks like a very ugly</p>
+<p t="1347980" d="3610">multiplication, I can
+do it in my head.</p>
+<p t="1351590" d="2350">Just watching it.</p>
+<p t="1353940" d="4770">Because I get a 1 * 1, I'm
+forced with that term here.</p>
+<p t="1358710" d="3360">And then I get the cross terms
+which are linear, which is -</p>
+<p t="1362070" d="2080">3x - 1/2 x.</p>
+<p t="1364150" d="2770">We already did that when we
+calculated the linear</p>
+<p t="1366920" d="3340">approximation, so that's
+this times the 1 and</p>
+<p t="1370260" d="1410">this times that 1.</p>
+<p t="1371670" d="1430">And now I have three</p>
+<p t="1373100" d="2130">cross-terms which are quadratic.</p>
+<p t="1375230" d="3650">So one of them is these two
+linear terms are multiplying.</p>
+<p t="1378880" d="3280">So that's plus 3/2 x^2.</p>
+<p t="1382160" d="3050">That's (- 3)( - 1/2).</p>
+<p t="1385210" d="2950">And then there's this term,
+multiplying the 1,</p>
+<p t="1388160" d="3570">that's plus 9/2 x^2.</p>
+<p t="1391730" d="1360">And then there's one
+last term, which is</p>
+<p t="1393090" d="1990">this monster here.</p>
+<p t="1395080" d="8180">Multiplying 1, and
+that is - 3/8.</p>
+<p t="1403260" d="14670">So the great thing is, we drop
+x^3, x ^ 4, etc., terms. Yeah?</p>
+<p t="1417930" d="2030">STUDENT: [INAUDIBLE]</p>
+<p t="1419960" d="196">PROF.</p>
+<p t="1420156" d="2344">JERISON: OK, well
+so copy it down.</p>
+<p t="1422500" d="3120">And you work it out as
+I'm doing it now.</p>
+<p t="1425620" d="2310">So what I did is, I
+multiplied 1 by 1.</p>
+<p t="1427930" d="2360">I'm using the distributive
+law here.</p>
+<p t="1430290" d="1270">That was this one.</p>
+<p t="1431560" d="3560">I multiplied this 3x by this
+one, that was that term.</p>
+<p t="1435120" d="3430">I multiplied this by this,
+that's that term.</p>
+<p t="1438550" d="2570">And then I multiplied
+this by this.</p>
+<p t="1441120" d="2740">In other words, 2 x terms
+that gave me an x^2</p>
+<p t="1443860" d="3080">and a (- 3)( - 1/2).</p>
+<p t="1446940" d="1780">And I'm going to stop
+at that point.</p>
+<p t="1448720" d="1720">Because the point is it's
+just all the rest of the</p>
+<p t="1450440" d="1790">terms that come up.</p>
+<p t="1452230" d="2370">Now, the reason, the only reason
+why it's easy is that I</p>
+<p t="1454600" d="1570">only have to go up to
+x squared term.</p>
+<p t="1456170" d="5430">I don't have to do
+the higher ones.</p>
+<p t="1461600" d="1195">Another question,
+way back here.</p>
+<p t="1462795" d="625">Yeah, right there.</p>
+<p t="1463420" d="5600">STUDENT: [INAUDIBLE]</p>
+<p t="1469020" d="176">PROF.</p>
+<p t="1469196" d="354">JERISON: OK.</p>
+<p t="1469550" d="9140">So somebody can check
+my arithmetic, too.</p>
+<p t="1478690" d="780">Good.</p>
+<p t="1479470" d="1160">STUDENT: [INAUDIBLE]</p>
+<p t="1480630" d="231">PROF.</p>
+<p t="1480861" d="2605">JERISON: Why do I get to drop
+all the higher-order terms.</p>
+<p t="1483466" d="3134">So, that's because the situation
+where I'm going to</p>
+<p t="1486600" d="6010">apply this is the situation
+in which x is, say, 1/100.</p>
+<p t="1492610" d="2420">So if here's about 1/100.</p>
+<p t="1495030" d="2180">Here's something which is
+on the order of 100.</p>
+<p t="1497210" d="2920">This is on the order
+of 1/100^2.</p>
+<p t="1500130" d="5090">1/100^2, all of these terms.
+Now, these cubic and quartic</p>
+<p t="1505220" d="5300">terms are of the order
+of 1/100^3.</p>
+<p t="1510520" d="1900">That's 10 ^ - 6.</p>
+<p t="1512420" d="2450">And the point is that I'm
+not claiming that I</p>
+<p t="1514870" d="1360">have an exact answer.</p>
+<p t="1516230" d="3720">And I'm going to drop things
+of that order of magnitude.</p>
+<p t="1519950" d="2940">So I'm saving everything
+up to 4 decimal places.</p>
+<p t="1522890" d="6410">I'm throwing away things which
+are 6 decimal places out.</p>
+<p t="1529300" d="1570">Does that answer
+your question?</p>
+<p t="1530870" d="4510">STUDENT: [INAUDIBLE]</p>
+<p t="1535380" d="330">PROF.</p>
+<p t="1535710" d="660">JERISON: So.</p>
+<p t="1536370" d="3480">That's the situation, and now
+you can combine the terms. I</p>
+<p t="1539850" d="3930">mean, it's not very
+impressive here.</p>
+<p t="1543780" d="10520">This is equal to 1 - 7/2
+x, maybe 51/8 x^2.</p>
+<p t="1554300" d="3310">If I've made that, if those
+minus signs hadn't canceled, I</p>
+<p t="1557610" d="1950">would have gotten the
+wrong answer here.</p>
+<p t="1559560" d="580">Anyway.</p>
+<p t="1560140" d="3290">So, this is a 2 here, sorry.</p>
+<p t="1563430" d="1490">7/2.</p>
+<p t="1564920" d="3020">This is the linear approximation
+we got last time</p>
+<p t="1567940" d="2030">and here's the extra information
+that we got from</p>
+<p t="1569970" d="1570">this calculation.</p>
+<p t="1571540" d="6110">Which is this 51/8 term.</p>
+<p t="1577650" d="2850">Right, you have to accept that
+there's a certain degree of</p>
+<p t="1580500" d="2720">complexity to this problem and
+the answer is sufficiently</p>
+<p t="1583220" d="2680">complicated so it can't be less
+arithmetic because we get</p>
+<p t="1585900" d="3480">this peculiar 51/8
+there, right.</p>
+<p t="1589380" d="3710">So one of the things to realize
+is that these kinds of</p>
+<p t="1593090" d="3960">problems, because they involve
+many, many terms are always</p>
+<p t="1597050" d="6910">going to involve a little bit
+of complicated arithmetic.</p>
+<p t="1603960" d="4780">Last little bit, I did promise
+you that I was going to derive</p>
+<p t="1608740" d="2620">these two relations,
+as I said.</p>
+<p t="1611360" d="1660">Did the ones in the
+left column.</p>
+<p t="1613020" d="3620">So let's carry that out.</p>
+<p t="1616640" d="4200">And as someone just pointed out,
+it all comes from this</p>
+<p t="1620840" d="1060">formula here.</p>
+<p t="1621900" d="5810">So let's just check it.</p>
+<p t="1627710" d="4450">So we'll start with
+the ln function.</p>
+<p t="1632160" d="6650">This is the function, f,
+and then f' is 1/1 x.</p>
+<p t="1638810" d="6220">And f'', so this is f', this
+is f'', is - 1/1 x^2.</p>
+<p t="1648160" d="3570">And now I have to
+plug in x = 0.</p>
+<p t="1651730" d="3450">So at x = 0 this is
+ln 1, which is 0.</p>
+<p t="1655180" d="2680">So this is at x = 0.</p>
+<p t="1657860" d="3990">I'm getting 0 here, I plug
+in 0 and I get 1.</p>
+<p t="1661850" d="3870">And here, I plug in
+0 and I get - 1.</p>
+<p t="1665720" d="3390">So now I go and I look up at
+that formula, which is way in</p>
+<p t="1669110" d="1160">that upper corner there.</p>
+<p t="1670270" d="3150">And I see that the coefficient
+on the constant is 0.</p>
+<p t="1673420" d="1840">The coefficient on x is 1.</p>
+<p t="1675260" d="1900">And then the other coefficient,
+the very last</p>
+<p t="1677160" d="2130">one, is - 1/2.</p>
+<p t="1679290" d="1720">So this is the - 1 here.</p>
+<p t="1681010" d="3710">And then in the formula,
+there's a 2 in the</p>
+<p t="1684720" d="620">denominator.</p>
+<p t="1685340" d="2480">So it's half of whatever
+I get for this second</p>
+<p t="1687820" d="2770">derivative, at 0.</p>
+<p t="1690590" d="3280">So this is the approximation
+formula, which is way up in</p>
+<p t="1693870" d="3390">that corner there.</p>
+<p t="1697260" d="4330">Similarly, if I do it for
+(1 x) ^ r, I have to</p>
+<p t="1701590" d="6040">differentiate that I get r( 1
+x) ^ r - 1, and then r ( r -</p>
+<p t="1707630" d="3640">1( x 1) ^ r - 2.</p>
+<p t="1711270" d="2560">So here are the derivatives.</p>
+<p t="1713830" d="7280">And so if I evaluate them
+at x = 0, I get 1.</p>
+<p t="1721110" d="2130">That's 1 ^ r = 1.</p>
+<p t="1723240" d="6340">And here I get r.
+(1 ^ r - 1)r.</p>
+<p t="1729580" d="10210">And here, I plug in x = 0
+and I get r ( r - 1).</p>
+<p t="1739790" d="3090">So again, the pattern is
+right above it here.</p>
+<p t="1742880" d="2420">The 1 is there, the
+r is there.</p>
+<p t="1745300" d="3620">And then instead of r ( r
+- 1), I have half that.</p>
+<p t="1748920" d="12560">For the coefficient.</p>
+<p t="1761480" d="1180">So these are just examples.</p>
+<p t="1762660" d="2315">Obviously if we had a more
+complicated functional, we</p>
+<p t="1764975" d="1075">might carry this out.</p>
+<p t="1766050" d="3760">But as a practical matter, we
+try to stick with the ones in</p>
+<p t="1769810" d="12650">the pink box and just use
+algebra to get other formulas.</p>
+<p t="1782460" d="3970">So I want to shift gears now and
+treat the subject that was</p>
+<p t="1786430" d="2480">supposed to be this lecture.</p>
+<p t="1788910" d="4170">And we're not quite caught up,
+but we will try to do our best</p>
+<p t="1793080" d="1810">to do as much as we can today.</p>
+<p t="1794890" d="4990">So the next topic is
+curve sketching.</p>
+<p t="1799880" d="18240">And so let's get started
+with that.</p>
+<p t="1818120" d="5510">So now, happily in this subject,
+there are more</p>
+<p t="1823630" d="3250">pictures and it's a little
+bit more geometric.</p>
+<p t="1826880" d="3540">And there's relatively
+little computation.</p>
+<p t="1830420" d="3180">So let's hope we can do this.</p>
+<p t="1833600" d="3290">So I want to, so here
+we go, we'll</p>
+<p t="1836890" d="8040">start with curve sketching.</p>
+<p t="1844930" d="2590">And the goal here</p>
+<p t="1847520" d="9340">STUDENT: [INAUDIBLE]</p>
+<p t="1856860" d="50">PROF.</p>
+<p t="1856910" d="3970">JERISON: So that's like,
+liner, the last time.</p>
+<p t="1860880" d="8720">That's kind of sketchy
+spelling, isn't it?</p>
+<p t="1869600" d="3200">Yeah, there are certain kinds of
+things which I can't spell.</p>
+<p t="1872800" d="3840">But, alright.</p>
+<p t="1876640" d="2330">Sketching.</p>
+<p t="1878970" d="270">Alright.</p>
+<p t="1879240" d="2110">So here's our goal.</p>
+<p t="1881350" d="16930">Our goal is to draw the graph
+of f, using f' and f''.</p>
+<p t="1902380" d="4810">Whether they're positive
+or negative.</p>
+<p t="1907190" d="1250">So that's it.</p>
+<p t="1908440" d="3960">This is the goal here.</p>
+<p t="1912400" d="3720">However, there is a
+big warning that I</p>
+<p t="1916120" d="900">want to give you.</p>
+<p t="1917020" d="9150">And this is one that
+unfortunately I now have to</p>
+<p t="1926170" d="1870">make you unlearn, especially
+those that you that have</p>
+<p t="1928040" d="2870">actually had a little bit of
+calculus before, I want to</p>
+<p t="1930910" d="2810">make you unlearn some of your
+instincts that you developed.</p>
+<p t="1933720" d="1950">So this will be harder for those
+of you who have actually</p>
+<p t="1935670" d="4170">done this before.</p>
+<p t="1939840" d="2810">But for the rest of you, it
+will be relatively easy.</p>
+<p t="1942650" d="12840">Which is, don't abandon your
+precalculus skills.</p>
+<p t="1955490" d="6890">And common sense.</p>
+<p t="1962380" d="4380">So there's a great deal of
+common sense in this.</p>
+<p t="1966760" d="3795">And it actually trumps
+some of the calculus.</p>
+<p t="1970555" d="3295">The calculus just fills
+in what you</p>
+<p t="1973850" d="2340">didn't quite know yet.</p>
+<p t="1976190" d="3470">So I will try to illustrate
+this.</p>
+<p t="1979660" d="3030">And because we're running a bit
+late, I won't get to the</p>
+<p t="1982690" d="3280">some of the main punchlines
+until next lecture.</p>
+<p t="1985970" d="1410">But I want you to do it.</p>
+<p t="1987380" d="2740">So for now, I'm just going to
+tell you about the general</p>
+<p t="1990120" d="500">principles.</p>
+<p t="1990620" d="3480">And in the process I'm going to
+introduce the terminology.</p>
+<p t="1994100" d="3370">Just, the words that we need
+to use to describe what is</p>
+<p t="1997470" d="530">that we're doing.</p>
+<p t="1998000" d="2150">And there's also a certain
+amount of carelessness with</p>
+<p t="2000150" d="2920">that in many of the treatments
+that you'll see.</p>
+<p t="2003070" d="1680">And a lot of hastiness.</p>
+<p t="2004750" d="4600">So just be a little patient
+and we will do this.</p>
+<p t="2009350" d="4390">So, the first principle
+is the following.</p>
+<p t="2013740" d="6930">If f' is positive, then
+f is increasing.</p>
+<p t="2020670" d="3960">That's a straightforward idea,
+and it's closely related to</p>
+<p t="2024630" d="2700">this tangent line approximation
+or the linear</p>
+<p t="2027330" d="1890">approximation that I just did.</p>
+<p t="2029220" d="1010">You can just imagine.</p>
+<p t="2030230" d="2820">Here's the tangent line,
+here's the function.</p>
+<p t="2033050" d="3260">And if the tangent line is
+pointing up, then the function</p>
+<p t="2036310" d="2180">is also going up, too.</p>
+<p t="2038490" d="1820">So that's all that's
+going on here.</p>
+<p t="2040310" d="10060">Similarly, if f' is negative,
+then f is decreasing.</p>
+<p t="2050370" d="1850">And that's the basic idea.</p>
+<p t="2052220" d="4950">Now, the second step is also
+fairly straightforward.</p>
+<p t="2057170" d="3960">It's just a second order effect
+of the same type.</p>
+<p t="2061130" d="8060">If you have f'' as positive,
+then that means that f' is</p>
+<p t="2069190" d="3960">increasing.</p>
+<p t="2073150" d="3590">That's the same principle
+applied one step up.</p>
+<p t="2076740" d="580">Right?</p>
+<p t="2077320" d="4150">Because if f'' is positive,
+that means it's the</p>
+<p t="2081470" d="1240">derivative of f'.</p>
+<p t="2082710" d="3260">So it's the same principle
+just repeated.</p>
+<p t="2085970" d="3740">And now I just want to draw
+a picture of this.</p>
+<p t="2089710" d="2760">Here's a picture
+of it, I claim.</p>
+<p t="2092470" d="2320">And it looks like something's
+going down.</p>
+<p t="2094790" d="1640">And I did that on purpose.</p>
+<p t="2096430" d="2220">But there is something that's
+increasing here.</p>
+<p t="2098650" d="3820">Which is, the slope is very
+steep negative here.</p>
+<p t="2102470" d="3860">And it's less steep negative
+over here.</p>
+<p t="2106330" d="2610">So we have the slope which
+is some negative</p>
+<p t="2108940" d="1195">number, say, - 4.</p>
+<p t="2110135" d="3365">And here it's - 3.</p>
+<p t="2113500" d="1300">So it's increasing.</p>
+<p t="2114800" d="3450">It's getting less negative,
+and maybe eventually it'll</p>
+<p t="2118250" d="1430">curve up the other way.</p>
+<p t="2119680" d="3500">And this is a picture of what
+I'm talking about here.</p>
+<p t="2123180" d="2450">That's what it means to say
+that f' is increasing.</p>
+<p t="2125630" d="2390">The slope is getting larger.</p>
+<p t="2128020" d="4590">And the way to describe a curve
+like this is that it's</p>
+<p t="2132610" d="9010">concave. So f is concave up.</p>
+<p t="2141620" d="6900">And similarly, f'' negative is
+going to be the same thing as</p>
+<p t="2148520" d="11250">f concave, or implies
+f concave down.</p>
+<p t="2159770" d="5080">So those are the ways in which
+derivatives will help us</p>
+<p t="2164850" d="3420">qualitatively to draw graphs.</p>
+<p t="2168270" d="2680">But as I said before, we still
+have to use a little bit of</p>
+<p t="2170950" d="2410">common sense when we
+draw the graphs.</p>
+<p t="2173360" d="2440">These are just the additional
+bits of help that</p>
+<p t="2175800" d="2050">we have from calculus.</p>
+<p t="2177850" d="7560">In drawing pictures.</p>
+<p t="2185410" d="8850">So I'm going to go through
+one example to</p>
+<p t="2194260" d="1930">introduce all the notations.</p>
+<p t="2196190" d="4780">And then eventually, so probably
+at the beginning of</p>
+<p t="2200970" d="4540">next time, I'll give you a
+systematic strategy that's</p>
+<p t="2205510" d="4380">going to work when what I'm
+describing now goes wrong, or</p>
+<p t="2209890" d="2470">a little bit wrong.</p>
+<p t="2212360" d="6370">So let's begin with a
+straightforward example.</p>
+<p t="2218730" d="2630">So, the first example that I'll
+give you is the function</p>
+<p t="2221360" d="3330">f (x) = 3x - x^3.</p>
+<p t="2227520" d="3610">Just, as I said, to be able to
+introduce all the notations.</p>
+<p t="2231130" d="6510">Now, if you differentiate
+it, you get 3 - 3x^2.</p>
+<p t="2237640" d="3330">And I can factor that.</p>
+<p t="2240970" d="5470">This is 3 ( 1 - x)( 1 x).</p>
+<p t="2246440" d="1310">OK?</p>
+<p t="2247750" d="5390">And so, I can decide whether
+the derivative</p>
+<p t="2253140" d="4250">is positive or negative.</p>
+<p t="2257390" d="1440">Easily enough.</p>
+<p t="2258830" d="10690">Namely, just staring at this,
+I can see that when -1 &lt; x &lt;</p>
+<p t="2269520" d="3630">1, in that range there, both
+these numbers, both these</p>
+<p t="2273150" d="2210">factors, are positive.</p>
+<p t="2275360" d="3930">1 - x is a positive number and
+1 x is a positive number.</p>
+<p t="2279290" d="5420">So, in this range, f'
+( x ) is positive.</p>
+<p t="2284710" d="4990">So this thing is, so
+f is increasing.</p>
+<p t="2289700" d="4840">And similarly, in the other
+ranges, if x is very, very</p>
+<p t="2294540" d="2750">large, this becomes, if it
+crosses 1, in fact, this</p>
+<p t="2297290" d="2280">becomes, this factor becomes
+negative and</p>
+<p t="2299570" d="1740">this one stays positive.</p>
+<p t="2301310" d="8370">So when x &gt; 1, we have that
+f ' (x) is negative.</p>
+<p t="2309680" d="5830">And so f is decreasing.</p>
+<p t="2315510" d="4030">And the same thing goes
+for the other side.</p>
+<p t="2319540" d="2960">When it's less than - 1, that
+also works this way.</p>
+<p t="2322500" d="2450">Because when it's less
+than - 1, this</p>
+<p t="2324950" d="1470">number factors positive.</p>
+<p t="2326420" d="3880">But the other one is negative.</p>
+<p t="2330300" d="5990">So in both of these cases, we
+get that it's decreasing.</p>
+<p t="2336290" d="11010">So now, here's the schematic
+picture of this function.</p>
+<p t="2347300" d="5650">So here's - 1, here's 1.</p>
+<p t="2352950" d="6890">It's going to go
+down, up, down.</p>
+<p t="2359840" d="1750">That's what it's doing.</p>
+<p t="2361590" d="2120">Maybe I'll just leave
+it alone like this.</p>
+<p t="2363710" d="4410">That's what it looks like.</p>
+<p t="2368120" d="3930">So, this is the kind of
+information we can get right</p>
+<p t="2372050" d="930">off the bat.</p>
+<p t="2372980" d="5435">And you notice immediately that
+it's very important, from</p>
+<p t="2378415" d="2145">the features of the function,
+the sort of key features of</p>
+<p t="2380560" d="4130">the function that we see here,
+are these two places.</p>
+<p t="2384690" d="4580">Maybe I'll even mark them
+in a, like this.</p>
+<p t="2389270" d="9820">And these things are
+turning points.</p>
+<p t="2399090" d="1340">So what are they?</p>
+<p t="2400430" d="3560">Well, they're just the
+points where the</p>
+<p t="2403990" d="1810">derivative changes sign.</p>
+<p t="2405800" d="2305">Where it's negative here and
+it's positive there, so there</p>
+<p t="2408105" d="1745">it must be 0.</p>
+<p t="2409850" d="2980">So we have a definition, and
+this is the most important</p>
+<p t="2412830" d="8280">definition in this subject,
+which is that is if f' (x0) =</p>
+<p t="2421110" d="12260">0, we call x0 a critical
+point.</p>
+<p t="2433370" d="2990">The word 'turning point' is
+not used just because, in</p>
+<p t="2436360" d="2520">fact, it doesn't have to turn
+around at those points.</p>
+<p t="2438880" d="3830">But certainly, if it turns
+around then this will happen.</p>
+<p t="2442710" d="3450">And we also have another
+notation, which is the number</p>
+<p t="2446160" d="12940">y0 which is f ( x0 ) is called
+a critical value.</p>
+<p t="2459100" d="3580">So these are the key numbers
+that we're going to have to</p>
+<p t="2462680" d="3330">work out in order to understand
+what the function</p>
+<p t="2466010" d="12740">looks like.</p>
+<p t="2478750" d="9240">So what I'm going to do
+is just plot them.</p>
+<p t="2487990" d="1230">We're going to plot
+the critical</p>
+<p t="2489220" d="1220">points and the values.</p>
+<p t="2490440" d="4210">Well, we found the critical
+points relatively easily.</p>
+<p t="2494650" d="2590">I didn't write it down here
+but it's pretty obvious.</p>
+<p t="2497240" d="7990">If you set f(x) = 0, that
+implies that (1 - x)( 1 x) =</p>
+<p t="2505230" d="5340">0, which implies that
+x is or - 1.</p>
+<p t="2510570" d="2140">So those are known as
+the critical points.</p>
+<p t="2512710" d="4010">And now, in order to get the
+critical values here, I have</p>
+<p t="2516720" d="5560">to plug in f (1), for instance,
+the function is 3x -</p>
+<p t="2522280" d="5200">x^2, so there's this 3 *
+1 - 1^3, which is 2.</p>
+<p t="2527480" d="9700">And f ( - 1), which is 3 ( -
+1) - (- 1)^3, which is - 2.</p>
+<p t="2537180" d="4600">And so I can plot the
+function here.</p>
+<p t="2541780" d="4380">So here's the point - 1 and
+here's, up here, is 2.</p>
+<p t="2546160" d="2460">So this is - whoops,
+which one is it?</p>
+<p t="2548620" d="540">Yeah.</p>
+<p t="2549160" d="3400">This is - 1, so it's
+down here.</p>
+<p t="2552560" d="2600">So it's (- 1, - 2).</p>
+<p t="2555160" d="6410">And then over here, I have
+the point (1, 2).</p>
+<p t="2561570" d="5750">Alright, now, what information
+do I get from - so I've now</p>
+<p t="2567320" d="3310">plotted two, I claim, very
+interesting points.</p>
+<p t="2570630" d="4370">What information do
+I get from this?</p>
+<p t="2575000" d="4680">The answer is, I know something
+very nearby.</p>
+<p t="2579680" d="2950">Because I've already checked
+that the thing is coming down</p>
+<p t="2582630" d="2140">from the left, and
+coming back up.</p>
+<p t="2584770" d="2600">And so it must be shaped
+like this.</p>
+<p t="2587370" d="960">Over here.</p>
+<p t="2588330" d="3290">The tangent line is 0, it's
+going to be level there.</p>
+<p t="2591620" d="2870">And similarly over here,
+it's going to do that.</p>
+<p t="2594490" d="2790">So this is what we know
+so far, based</p>
+<p t="2597280" d="4970">on what we've computed.</p>
+<p t="2602250" d="460">Question.</p>
+<p t="2602710" d="14520">STUDENT: [INAUDIBLE]</p>
+<p t="2617230" d="186">PROF.</p>
+<p t="2617416" d="824">JERISON: The question
+is, what happens if</p>
+<p t="2618240" d="360">there's a sharp corner.</p>
+<p t="2618600" d="6450">The answer is, calculus, it's
+not called a critical point.</p>
+<p t="2625050" d="2040">It's a something else.</p>
+<p t="2627090" d="3350">And it's a very important
+point, too.</p>
+<p t="2630440" d="2130">And we will be discussing
+those kinds of points.</p>
+<p t="2632570" d="1970">There are much more dramatic
+instances of that.</p>
+<p t="2634540" d="2100">That's part of what we're
+going to say.</p>
+<p t="2636640" d="2030">But I just want to save
+that, alright.</p>
+<p t="2638670" d="3820">We will be discussing.</p>
+<p t="2642490" d="520">Yeah.</p>
+<p t="2643010" d="530">Question.</p>
+<p t="2643540" d="4600">STUDENT: [INAUDIBLE]</p>
+<p t="2648140" d="376">PROF.</p>
+<p t="2648516" d="2814">JERISON: The question that was
+asked was, how did I know at</p>
+<p t="2651330" d="3630">the critical point that it's
+concave down over here and</p>
+<p t="2654960" d="2230">concave up over here.</p>
+<p t="2657190" d="5670">The answer is that I actually
+did not use the second</p>
+<p t="2662860" d="1440">derivative yet.</p>
+<p t="2664300" d="2210">What I used is another
+piece of information.</p>
+<p t="2666510" d="2250">I used the information that
+I derived over here.</p>
+<p t="2668760" d="3740">That f' is positive, where
+f' is positive</p>
+<p t="2672500" d="1170">and where it's negative.</p>
+<p t="2673670" d="3550">So what I know is that the graph
+is going down to the</p>
+<p t="2677220" d="2250">left of - 1.</p>
+<p t="2679470" d="2060">It's going up to the
+right, here.</p>
+<p t="2681530" d="3390">It's going up here and it's
+going down there.</p>
+<p t="2684920" d="2140">I did not use the second
+derivative.</p>
+<p t="2687060" d="2900">I used the first derivative.</p>
+<p t="2689960" d="3450">OK, but I didn't just use the
+fact that there was a turning</p>
+<p t="2693410" d="2630">point here.</p>
+<p t="2696040" d="1320">So, actually, I was using
+the fact that it</p>
+<p t="2697360" d="850">was a turning point.</p>
+<p t="2698210" d="1990">I wasn't using the fact
+that it had the</p>
+<p t="2700200" d="1530">second derivative, though.</p>
+<p t="2701730" d="250">OK.</p>
+<p t="2701980" d="1140">For now.</p>
+<p t="2703120" d="6380">You can also see it by the
+second derivative as well.</p>
+<p t="2709500" d="4720">So now, the next thing that
+I'd like to do, I need to</p>
+<p t="2714220" d="1950">finish off this graph.</p>
+<p t="2716170" d="3780">And I just want to do it a
+little bit carefully here.</p>
+<p t="2719950" d="2760">In the order that
+is reasonable.</p>
+<p t="2722710" d="4600">Now, you might happen to notice,
+and there's nothing</p>
+<p t="2727310" d="7810">wrong with this, so let's
+even fill in a guess.</p>
+<p t="2735120" d="2070">In order to fill in a guess,
+though, and have it be even</p>
+<p t="2737190" d="1890">vaguely right, I do have to
+notice that this thing</p>
+<p t="2739080" d="2720">crosses, this function
+crosses the origin.</p>
+<p t="2741800" d="6860">The function f(x) = 3x - x^3
+happens also have the property</p>
+<p t="2748660" d="2120">that f ( 0 ) = 0.</p>
+<p t="2750780" d="1780">Again, common sense.</p>
+<p t="2752560" d="2030">You're allowed to use
+your common sense.</p>
+<p t="2754590" d="1660">You're allowed to notice
+a value of the</p>
+<p t="2756250" d="2070">function and put it in.</p>
+<p t="2758320" d="1950">So there's nothing
+wrong with that.</p>
+<p t="2760270" d="3690">If you happen to have
+such a value.</p>
+<p t="2763960" d="2100">So, now we can guess what
+our function is</p>
+<p t="2766060" d="590">going to look like.</p>
+<p t="2766650" d="3360">It's going to maybe come
+down like this.</p>
+<p t="2770010" d="1660">Come up like this.</p>
+<p t="2771670" d="1460">And come down like this.</p>
+<p t="2773130" d="2100">That could be what
+it looks like.</p>
+<p t="2775230" d="2160">But, you know, another
+possibility is it sort of</p>
+<p t="2777390" d="2430">comes along here and
+goes out that way.</p>
+<p t="2779820" d="2440">Comes along here and goes
+out that way, who knows?</p>
+<p t="2782260" d="3020">It happens, by the way, that
+it's an odd function.</p>
+<p t="2785280" d="290">Right?</p>
+<p t="2785570" d="1070">Those are all odd powers.</p>
+<p t="2786640" d="2070">So, actually, it's symmetric
+on the right half</p>
+<p t="2788710" d="1150">and the left half.</p>
+<p t="2789860" d="1750">And crosses at 0.</p>
+<p t="2791610" d="1700">So everything that we do on the
+right is going to be the</p>
+<p t="2793310" d="1220">same as what happens
+on the left.</p>
+<p t="2794530" d="2090">That's another piece
+of common sense.</p>
+<p t="2796620" d="2380">You want to make use of that as
+much as possible, whenever</p>
+<p t="2799000" d="1060">you're drawing anything.</p>
+<p t="2800060" d="2280">Don't want to throw
+out information.</p>
+<p t="2802340" d="4200">So this function happens
+to be odd.</p>
+<p t="2806540" d="2160">Odd, and f ( 0 ) = 0.</p>
+<p t="2808700" d="3820">I'm considering those to be
+kinds of precalculus skills</p>
+<p t="2812520" d="8090">that I want you to use
+as much as you can.</p>
+<p t="2820610" d="3380">So now, here's the first feature
+which is unfortunately</p>
+<p t="2823990" d="4890">ignored in most discussions
+of functions.</p>
+<p t="2828880" d="2460">And it's strange, because
+nowadays we</p>
+<p t="2831340" d="2040">have graphing things.</p>
+<p t="2833380" d="6030">And it's really the only part
+of the exercise that you</p>
+<p t="2839410" d="7010">couldn't do, at least on this
+relatively simpleminded level,</p>
+<p t="2846420" d="1760">with a graphing calculator.</p>
+<p t="2848180" d="5610">And that is what I would call
+the ends of the problem.</p>
+<p t="2853790" d="3210">So what happens off the screen,
+is the question.</p>
+<p t="2857000" d="2600">And that basically is the
+theoretical part of the</p>
+<p t="2859600" d="1830">problem that you have
+to address.</p>
+<p t="2861430" d="1490">You can program this.</p>
+<p t="2862920" d="2490">You can draw all the pictures
+that you want.</p>
+<p t="2865410" d="2780">But what you won't see is
+what's off the screen.</p>
+<p t="2868190" d="2070">You need to know something
+to figure out</p>
+<p t="2870260" d="1520">what's off the screen.</p>
+<p t="2871780" d="2780">So, in this case, I'm talking
+about what's off the screen</p>
+<p t="2874560" d="7370">going to the right, or
+going to the left.</p>
+<p t="2881930" d="4170">So let's check the ends.</p>
+<p t="2886100" d="1580">So here, let's just
+take a look.</p>
+<p t="2887680" d="4600">We have the function f(x), which
+is, sorry, 3x - x^3.</p>
+<p t="2892280" d="2340">Again this is a precalculus
+sort of thing.</p>
+<p t="2894620" d="2030">And we're imagining now,
+let's just do x</p>
+<p t="2896650" d="1710">goes to plus infinity.</p>
+<p t="2898360" d="1310">So what happens here.</p>
+<p t="2899670" d="5790">When x is gigantic, this term
+is completely negligible.</p>
+<p t="2905460" d="3950">And it just behaves like -
+x^3, which goes to minus</p>
+<p t="2909410" d="3190">infinity as x goes
+to plus infinity.</p>
+<p t="2912600" d="9570">And similarly, f (x) goes to
+plus infinity if x goes to</p>
+<p t="2922170" d="3980">minus infinity.</p>
+<p t="2926150" d="3910">Now let me pull down this
+picture again, and show you</p>
+<p t="2930060" d="3080">what piece of the information
+we've got.</p>
+<p t="2933140" d="2470">We now know that it is
+heading up this way.</p>
+<p t="2935610" d="2950">It doesn't go like this,
+it goes up like that.</p>
+<p t="2938560" d="1910">And I'm going to put an
+arrow for it, And it's</p>
+<p t="2940470" d="2110">going down like this.</p>
+<p t="2942580" d="3630">Heading down to minus infinity
+as x goes out</p>
+<p t="2946210" d="1100">farther to the right.</p>
+<p t="2947310" d="7810">And going out to plus infinity
+as x goes farther to the left.</p>
+<p t="2955120" d="4150">So now there's hardly
+anything left of</p>
+<p t="2959270" d="2640">this function to describe.</p>
+<p t="2961910" d="5210">There's really nothing left
+except maybe decoration.</p>
+<p t="2967120" d="4420">And we kind of like that
+decoration, so we will pay</p>
+<p t="2971540" d="1020">attention to it.</p>
+<p t="2972560" d="3020">And to do that, we'll have to
+check the second derivative.</p>
+<p t="2975580" d="2620">So if we differentiate a
+second time, the first</p>
+<p t="2978200" d="4480">derivative was, remember,
+3 - 3x^2.</p>
+<p t="2982680" d="10860">So the second derivative
+is - 6x.</p>
+<p t="2993540" d="8930">So now we notice that f'' (x) is
+negative if x is positive.</p>
+<p t="3002470" d="5840">And f'' ( x) is positive
+if x is negative.</p>
+<p t="3008310" d="4860">And so in this part
+it's concave down.</p>
+<p t="3013170" d="5820">And in this part it's
+concave up.</p>
+<p t="3018990" d="2180">And now I'm going to switch
+the boards so that</p>
+<p t="3021170" d="3690">you'll, and draw it.</p>
+<p t="3024860" d="5770">And you see that it was begging
+to be this way.</p>
+<p t="3030630" d="2330">So we'll fill in the
+rest of it here.</p>
+<p t="3032960" d="2600">Maybe in a nice color here.</p>
+<p t="3035560" d="2540">So this is the whole graph and
+this is the correct graph.</p>
+<p t="3038100" d="3350">It comes down in one swoop down
+here, and comes up here.</p>
+<p t="3041450" d="5170">And then it changes to concave
+down right at the origin.</p>
+<p t="3046620" d="3050">So this point is of interest,
+not only because it's the</p>
+<p t="3049670" d="2960">place where it crosses the axis,
+but it's also what's</p>
+<p t="3052630" d="8060">called an inflection point.</p>
+<p t="3060690" d="3480">Inflection point, that's a point
+where because f'' at</p>
+<p t="3064170" d="3450">that place is equal to 0.</p>
+<p t="3067620" d="3350">So it's a place where the
+second derivative is 0.</p>
+<p t="3070970" d="4190">We also consider those to
+be interesting points.</p>
+<p t="3075160" d="5850">Now, so let me just making
+one closing remark here.</p>
+<p t="3081010" d="5580">Which is that all of this
+information fits together.</p>
+<p t="3086590" d="3020">And we're going to have much,
+much harder examples of this</p>
+<p t="3089610" d="2960">where you'll actually have to
+think about what's going on.</p>
+<p t="3092570" d="2620">But there's a lot of stuff
+protecting you.</p>
+<p t="3095190" d="4800">And functions will behave
+themselves and turn around</p>
+<p t="3099990" d="930">appropriately.</p>
+<p t="3100920" d="2650">Anyway, we'll talk about
+it next time.</p>
+</body>
+</timedtext>

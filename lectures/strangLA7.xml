@@ -1,0 +1,1119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="9870" d="4980">OK, here's linear
+algebra lecture seven.</p>
+<p t="14850" d="4690">I've been talking
+about vector spaces</p>
+<p t="19540" d="4510">and specially the
+null space of a matrix</p>
+<p t="24050" d="2270">and the column
+space of a matrix.</p>
+<p t="26320" d="1890">What's in those spaces.</p>
+<p t="28210" d="4730">Now I want to actually
+describe them.</p>
+<p t="32940" d="3110">How do you describe
+all the vectors</p>
+<p t="36050" d="1150">that are in those spaces?</p>
+<p t="37200" d="2370">How do you compute these things?</p>
+<p t="39570" d="6810">So this is the, turning
+the idea, the definition,</p>
+<p t="46380" d="2210">into an algorithm.</p>
+<p t="48590" d="4820">What's the algorithm
+for solving A x =0?</p>
+<p t="53410" d="3510">So that's the null space
+that I'm interested in.</p>
+<p t="56920" d="4710">So can I take a particular
+matrix A and describe</p>
+<p t="61630" d="5210">the natural algorithm, and I'll
+execute it for that matrix --</p>
+<p t="66840" d="1900">here we go.</p>
+<p t="68740" d="4000">So let me take the
+matrix as an example.</p>
+<p t="72740" d="3820">So we're definitely talking
+rectangular matrices in this</p>
+<p t="76560" d="790">chapter.</p>
+<p t="77350" d="4700">So I'll make, I'll
+have four columns.</p>
+<p t="82050" d="2140">And three rows.</p>
+<p t="84190" d="4860">Two four six eight and
+three six eight ten.</p>
+<p t="92960" d="500">OK.</p>
+<p t="96450" d="5880">If I just look at those
+columns, and rows, well,</p>
+<p t="102330" d="2680">I notice right away
+that column two</p>
+<p t="105010" d="2850">is a multiple of column one.</p>
+<p t="107860" d="2850">It's in the same
+direction as column one.</p>
+<p t="110710" d="2130">It's not independent.</p>
+<p t="112840" d="3540">I'll expect to discover
+that in the process.</p>
+<p t="116380" d="4980">Actually, with rows, I notice
+that that row plus this row</p>
+<p t="121360" d="2410">gives the third row.</p>
+<p t="123770" d="3730">So the third row
+is not independent.</p>
+<p t="127500" d="5100">So, all that should
+come out of elimination.</p>
+<p t="132600" d="2020">So now what I --</p>
+<p t="134620" d="4970">my algorithm is elimination,
+but extended now</p>
+<p t="139590" d="3830">to the rectangular
+case, where we</p>
+<p t="143420" d="6900">have to continue even if there's
+zeros in the pivot position,</p>
+<p t="150320" d="1370">we go on.</p>
+<p t="151690" d="5190">OK, so let me execute
+elimination for that matrix.</p>
+<p t="156880" d="5280">My goal is always, while
+I'm doing elimination --</p>
+<p t="162160" d="2490">I'm not changing the null space.</p>
+<p t="164650" d="1870">That's very important, right?</p>
+<p t="166520" d="4320">I'm solving A x equals
+zero by elimination,</p>
+<p t="170840" d="3120">and when I do these operations
+that you already know,</p>
+<p t="173960" d="2160">when I subtract
+a multiple of one</p>
+<p t="176120" d="6210">equation from another equation,
+I'm not changing the solutions.</p>
+<p t="182330" d="2520">So I'm not changing
+the null space.</p>
+<p t="184850" d="4000">Actually, I changing the
+column space, as you'll see.</p>
+<p t="188850" d="1280">So you have to pay attention.</p>
+<p t="190130" d="3140">What does elimination
+leave unchanged?</p>
+<p t="193270" d="5040">And the answer is the solutions
+to the system are not changed</p>
+<p t="198310" d="2580">because I'm doing
+the same thing to --</p>
+<p t="200890" d="3730">I'm doing a legitimate
+operations on the equations.</p>
+<p t="204620" d="2510">Of course, on the right
+hand side it's always zero,</p>
+<p t="207130" d="3730">and I don't plan to
+write zero all the time.</p>
+<p t="210860" d="2480">OK, so I'm really just
+working on the left side,</p>
+<p t="213340" d="5990">but the right side is, is
+keeping up always zeros.</p>
+<p t="219330" d="2420">OK, so what's elimination?</p>
+<p t="221750" d="2720">Well, you know where
+the first pivot is</p>
+<p t="224470" d="1590">and you know what to do</p>
+<p t="226060" d="500">with it.</p>
+<p t="226560" d="5020">So can I just take the
+first step below here?</p>
+<p t="231580" d="4360">So that pivot row is fine.</p>
+<p t="235940" d="4360">I take two times that row away
+from this one and I get zero</p>
+<p t="240300" d="840">zero.</p>
+<p t="241140" d="2430">That's signaling a difficulty.</p>
+<p t="243570" d="4090">Two, two twos away from the
+six leaves me with a two.</p>
+<p t="247660" d="3080">Two twos away from the
+eight leaves me with a four.</p>
+<p t="250740" d="2300">And now three of
+those away from here</p>
+<p t="253040" d="4590">is zero, again another
+zero, three twos away</p>
+<p t="257630" d="2630">from that eight is the
+two, three twos away</p>
+<p t="260260" d="1940">from that ten is a four.</p>
+<p t="262200" d="1050">OK.</p>
+<p t="263250" d="3530">That's the first
+stage of elimination.</p>
+<p t="266780" d="4370">I've got the first
+column straight.</p>
+<p t="271150" d="4380">So of course I move on
+to the second column.</p>
+<p t="275530" d="4180">I look in that
+position, I see a zero.</p>
+<p t="279710" d="3790">I look below it,
+hoping for a non-zero</p>
+<p t="283500" d="1480">that I can do a row exchange.</p>
+<p t="284980" d="2740">But it's zero below.</p>
+<p t="287720" d="5610">So that's telling me that
+that column is -- well,</p>
+<p t="293330" d="2990">what it's really going to be
+telling me is that that column</p>
+<p t="296320" d="3520">is a combination of
+the earlier columns.</p>
+<p t="299840" d="4240">It's that second column is
+dependent on the earlier</p>
+<p t="304080" d="590">columns.</p>
+<p t="304670" d="4610">But I don't stop to think here.</p>
+<p t="309280" d="2400">In that column
+there's nothing to do.</p>
+<p t="311680" d="1290">I go on to the next.</p>
+<p t="312970" d="2270">So here's the next pivot.</p>
+<p t="315240" d="2840">So there's the first pivot
+and there's the second pivot,</p>
+<p t="318080" d="4580">and I just keep this
+elimination going downwards.</p>
+<p t="322660" d="8060">So, so the next step
+keeps the first row,</p>
+<p t="330720" d="3880">keeps the second
+row with its pivot,</p>
+<p t="334600" d="5910">so I've got my two pivots,
+and does elimination</p>
+<p t="340510" d="4220">to clear out the column
+below that pivot.</p>
+<p t="344730" d="2800">So actually you see
+the multiplier is one.</p>
+<p t="347530" d="2570">It subtracts row
+two from row three</p>
+<p t="350100" d="3380">and produces a row of zeros.</p>
+<p t="353480" d="710">OK.</p>
+<p t="354190" d="4860">That I would call
+that matrix U, right?</p>
+<p t="359050" d="2820">That's our upper --</p>
+<p t="361870" d="3270">well, I can't quite
+say upper triangular.</p>
+<p t="365140" d="3120">Maybe upper -- I don't
+know -- upper something.</p>
+<p t="372680" d="4470">It's in this so-called
+echelon form.</p>
+<p t="377150" d="4550">The word echelon means,
+like, staircase form.</p>
+<p t="381700" d="4260">It's the, the non-zeros
+come in that staircase form.</p>
+<p t="385960" d="4760">If there was another pivot
+here, then the staircase</p>
+<p t="390720" d="1540">would include that.</p>
+<p t="392260" d="5610">But here's a case where
+we have two pivots only.</p>
+<p t="397870" d="3450">OK, so actually we've already
+discovered the most important</p>
+<p t="401320" d="2890">number about this matrix.</p>
+<p t="404210" d="4330">The number of pivots is two.</p>
+<p t="408540" d="3390">That number we will call
+the rank of the matrix.</p>
+<p t="411930" d="2590">So let me put immediately.</p>
+<p t="414520" d="4176">The rank of A --</p>
+<p t="418696" d="1374">so I'm telling
+you what this word</p>
+<p t="420070" d="4210">rank means in the algorithm.</p>
+<p t="424280" d="4370">It's equal to the
+number of pivots.</p>
+<p t="428650" d="4250">And in this case, two.</p>
+<p t="432900" d="4420">OK, for me that number
+two is the crucial number.</p>
+<p t="437320" d="4990">OK, now I go to -- you remember
+I'm always solving A x equals</p>
+<p t="442310" d="3930">zero, but now I can solve
+U x equals zero, right?</p>
+<p t="446240" d="3410">Same solution, same null space.</p>
+<p t="449650" d="500">OK.</p>
+<p t="450150" d="2680">So I could stop here --</p>
+<p t="452830" d="3980">why don't I stop here and
+do the back substitution.</p>
+<p t="456810" d="5940">So now I have to ask you, how
+do I describe the solutions?</p>
+<p t="462750" d="3130">There are solutions,
+right, to A x equals zero.</p>
+<p t="465880" d="1190">I knew there would be.</p>
+<p t="467070" d="3040">I had three equations
+in four unknowns.</p>
+<p t="470110" d="2740">I certainly expected
+some solutions.</p>
+<p t="472850" d="2390">Now I want to see what are they.</p>
+<p t="475240" d="1560">OK, here's the critical step.</p>
+<p t="479920" d="4940">I refer to it up here
+as separating out</p>
+<p t="484860" d="5130">the pivot variables, the pivot
+columns, which are these two.</p>
+<p t="489990" d="3090">Here I have two pivot columns.</p>
+<p t="493080" d="2450">Those, obviously, they're
+the columns with the pivots.</p>
+<p t="495530" d="3206">So I have two pivot columns.</p>
+<p t="502110" d="5640">And I have the other
+columns, I'll call free.</p>
+<p t="507750" d="2485">These are free columns, OK.</p>
+<p t="512950" d="2520">Why do I use those words?</p>
+<p t="515470" d="2640">Why do I use that word free?</p>
+<p t="518110" d="5179">Because now I want to write, I
+want to find the solutions to U</p>
+<p t="523289" d="1921">x equals zero.</p>
+<p t="525210" d="2880">Here is the way I do it.</p>
+<p t="528090" d="9950">These free columns I can assign
+any number freely to those --</p>
+<p t="538040" d="5860">to the variables x2 and
+x4, the ones that multiply</p>
+<p t="543900" d="2670">columns two and four.</p>
+<p t="546570" d="4050">So I can assign anything
+I like to x2 and x4.</p>
+<p t="550620" d="6810">And then I can solve the
+equations for x1 and x3.</p>
+<p t="557430" d="2020">Let me say that again.</p>
+<p t="559450" d="2940">If I give -- let
+me, let me assign.</p>
+<p t="562390" d="6930">So, so one particular x is
+to assign, say, the value one</p>
+<p t="569320" d="4320">to the, to x2, and zero to x4.</p>
+<p t="573640" d="2210">Those are -- that
+was a free choice,</p>
+<p t="575850" d="2181">but it's a convenient choice.</p>
+<p t="578031" d="499">OK.</p>
+<p t="578530" d="2610">Now I want to solve
+U x equals zero</p>
+<p t="581140" d="6640">and find numbers one and
+three, complete the solution.</p>
+<p t="587780" d="1701">Can I write down --</p>
+<p t="589481" d="499">let's see.</p>
+<p t="589980" d="500">OK.</p>
+<p t="590480" d="2740">Shall we just remember what
+U x equals zero represents?</p>
+<p t="593220" d="1510">What are my equations?</p>
+<p t="594730" d="6170">That first equation
+is x1 plus just --</p>
+<p t="600900" d="4870">I'm just saying what are
+these matrices meaning.</p>
+<p t="605770" d="1810">That's the first equation.</p>
+<p t="607580" d="6460">And the second equation
+was 2x3 + 4x4=0.</p>
+<p t="614040" d="2290">Those are my two equations.</p>
+<p t="616330" d="690">OK.</p>
+<p t="617020" d="7580">Now the point is I can find x1
+and x3 by back substitution.</p>
+<p t="624600" d="2900">So we're building on
+what we already know.</p>
+<p t="627500" d="4470">The new thing is that there
+were some free variables that I</p>
+<p t="631970" d="2150">could give any numbers to.</p>
+<p t="634120" d="4140">And I'm systematically going
+to make a choice like this, Now</p>
+<p t="638260" d="500">what is x3?</p>
+<p t="638760" d="1160">1 and 0.</p>
+<p t="639920" d="3050">Let's, let's go
+backwards, back up.</p>
+<p t="642970" d="2390">I look at the last equation.</p>
+<p t="645360" d="5380">x3 is zero, from
+the last equation,</p>
+<p t="650740" d="5050">because, because x4
+we've set x4 to zero,</p>
+<p t="655790" d="2390">and then we get x3 as zero.</p>
+<p t="658180" d="500">OK.</p>
+<p t="658680" d="4720">Now we set x2 to be
+one, so what is x1?</p>
+<p t="663400" d="2650">Negative two, right?</p>
+<p t="666050" d="4100">So then I have negative two
+plus two, zero and zero,</p>
+<p t="670150" d="1250">correctly giving zero.</p>
+<p t="671400" d="3410">There is a vector
+in the null space.</p>
+<p t="674810" d="2720">There is a solution
+to A x equals zero.</p>
+<p t="677530" d="2210">In fact, what solution is that?</p>
+<p t="679740" d="4620">That simply says that minus
+two times the first column</p>
+<p t="684360" d="4142">plus one times the second
+column is the zero column.</p>
+<p t="688502" d="958">Of course that's right.</p>
+<p t="689460" d="3850">Minus two of that column plus
+one of that, or minus two</p>
+<p t="693310" d="2270">of that plus one of that.</p>
+<p t="695580" d="4040">That solution is -- that, that's
+just what we saw immediately,</p>
+<p t="699620" d="4070">that the second column is twice
+as big as the first column.</p>
+<p t="703690" d="4710">OK, tell me some more
+vectors in the null space.</p>
+<p t="708400" d="3180">I found one.</p>
+<p t="711580" d="6450">Tell me, how to get a bunch more
+immediately out of that one.</p>
+<p t="718030" d="1590">Just take multiples of it.</p>
+<p t="719620" d="1820">Any multiple of --</p>
+<p t="721440" d="2760">I could multiply
+this by anything.</p>
+<p t="724200" d="4230">I might as well call it, I could
+say, C, some multiple of this.</p>
+<p t="728430" d="1950">So let me --</p>
+<p t="730380" d="4510">so X could be any
+multiple of this one.</p>
+<p t="734890" d="2810">OK, that, that
+describes now a line,</p>
+<p t="737700" d="5730">an infinitely long line
+in four dimensional space.</p>
+<p t="743430" d="3290">But -- which is
+in the null space.</p>
+<p t="746720" d="2670">Is that the whole null space?</p>
+<p t="749390" d="1070">No.</p>
+<p t="750460" d="3760">I've got two free
+variables here.</p>
+<p t="754220" d="3110">I made this choice, one and
+zero, for the free variables,</p>
+<p t="757330" d="2760">but I could have
+made another choice.</p>
+<p t="760090" d="4330">Let me make the other
+choice zero and one.</p>
+<p t="764420" d="2720">You see my system.</p>
+<p t="767140" d="1440">So let me repeat the system.</p>
+<p t="768580" d="5507">This is the algorithm that
+you, you just learned to do.</p>
+<p t="776890" d="2210">Do elimination.</p>
+<p t="779100" d="1960">Decide which are
+the pivot columns</p>
+<p t="781060" d="1360">and which are the free columns.</p>
+<p t="782420" d="3180">That tells you that, that
+variables one and three</p>
+<p t="785600" d="4160">are pivot variables, two
+and four are free variables.</p>
+<p t="789760" d="5040">Then those free variables,
+you assign them --</p>
+<p t="794800" d="3070">you give one of them the value
+one and the others the value</p>
+<p t="797870" d="4200">zero -- in this case, we
+had a one and a zero --</p>
+<p t="802070" d="2010">and complete the solution.</p>
+<p t="804080" d="4470">And you do -- you give the other
+one the value one and zero.</p>
+<p t="808550" d="1610">And now complete the solution.</p>
+<p t="810160" d="2150">So let's complete that solution.</p>
+<p t="812310" d="3480">I'm looking for a vector
+in the null space,</p>
+<p t="815790" d="2760">and it's absolutely going to
+be different from this guy,</p>
+<p t="818550" d="3800">because, because any
+multiple of that zero</p>
+<p t="822350" d="1570">is never going to give the one.</p>
+<p t="823920" d="2130">So I have somebody
+new in the null space,</p>
+<p t="826050" d="880">and let me finish it</p>
+<p t="826930" d="500">out.</p>
+<p t="827430" d="2710">What's x3 here?</p>
+<p t="830140" d="2220">So we're going by
+back substitution,</p>
+<p t="832360" d="1430">looking at this equation.</p>
+<p t="833790" d="5890">Now x4 we've changed, we're
+doing the other possibility,</p>
+<p t="839680" d="3190">where x2 is zero and x4 is one.</p>
+<p t="842870" d="3720">So x3 will happen
+to be minus two.</p>
+<p t="846590" d="3920">And now what do I get
+for that first equation?</p>
+<p t="850510" d="1910">x1 -- let's see.</p>
+<p t="852420" d="7010">Two x3s is minus four plus
+two -- do I get a two there?</p>
+<p t="859430" d="840">Perhaps, yeah.</p>
+<p t="860270" d="5230">Two for x1, minus four, and two.</p>
+<p t="865500" d="520">OK.</p>
+<p t="866020" d="2340">That's in the null space.</p>
+<p t="868360" d="3860">What does that say
+about the columns?</p>
+<p t="872220" d="5100">That says that two of
+this column minus two</p>
+<p t="877320" d="4580">of this column plus this column
+gives zero, which it does.</p>
+<p t="881900" d="4190">Two of that minus two
+of that and one of that</p>
+<p t="886090" d="1430">gives the zero column.</p>
+<p t="887520" d="4900">OK, now, now I've found another
+vector in the null space.</p>
+<p t="892420" d="3460">Now we're ready to tell
+me the whole null space.</p>
+<p t="895880" d="4280">What are all the
+solutions to Ax=0?</p>
+<p t="900160" d="5500">I've got this guy
+and when I have him,</p>
+<p t="905660" d="5000">what else is, goes into the
+null space along with that?</p>
+<p t="910660" d="3100">These are my two
+special solutions.</p>
+<p t="913760" d="950">I call them special --</p>
+<p t="914710" d="1540">I just invented that name.</p>
+<p t="916250" d="1860">Special solutions.</p>
+<p t="918110" d="3070">What's special about them
+is the special numbers</p>
+<p t="921180" d="6180">I gave to the free variables,
+the values zero and one</p>
+<p t="927360" d="1940">for the free variables.</p>
+<p t="929300" d="3260">I could have given the
+free variables any values</p>
+<p t="932560" d="2880">and got vectors
+in the null space.</p>
+<p t="935440" d="4770">But this was a good way to be
+sure I got t- got everybody.</p>
+<p t="940210" d="5270">OK, so once I have him, I
+also have any multiple, right?</p>
+<p t="945480" d="3220">So I could take any
+multiple of that</p>
+<p t="948700" d="2210">and it's in the null space.</p>
+<p t="950910" d="1240">And now what else --</p>
+<p t="952150" d="2940">I left a little space for what?</p>
+<p t="955090" d="3820">What -- a plus sign.</p>
+<p t="958910" d="1670">I can take any combination.</p>
+<p t="960580" d="3470">Here is a line of vectors
+in the null space.</p>
+<p t="964050" d="2060">A bunch of solutions.</p>
+<p t="966110" d="3430">Would you rather I say in the
+null space or would you rather</p>
+<p t="969540" d="3790">I say, OK, I'm solving Ax=0?</p>
+<p t="973330" d="2215">Well, really I'm solving Ux=0.</p>
+<p t="979540" d="3750">Well, OK, let me put in
+that crucial plus sign.</p>
+<p t="983290" d="6130">I'm taking all the combinations
+of my two special solutions.</p>
+<p t="989420" d="2720">That's my conclusion there.</p>
+<p t="992140" d="5160">The null space contains,
+contains exactly</p>
+<p t="997300" d="4970">all the combinations of
+the special solutions.</p>
+<p t="1002270" d="3750">And how many special
+solutions are there?</p>
+<p t="1006020" d="3630">There's one for
+every free variable.</p>
+<p t="1009650" d="1680">And how many free
+variables are there?</p>
+<p t="1011330" d="3530">Oh, I mean, we can see
+all the whole picture now.</p>
+<p t="1014860" d="4970">If the rank R was
+two, this is the,</p>
+<p t="1019830" d="4430">this is the number of
+pivot variables, right,</p>
+<p t="1024260" d="1309">because it counted the pivots.</p>
+<p t="1028800" d="3160">So how many free variables?</p>
+<p t="1031960" d="3010">Well, you know it's two, right?</p>
+<p t="1034970" d="5290">What is it in -- for a matrix
+that's m rows, n columns,</p>
+<p t="1040260" d="4750">n variables that
+means, with rank r?</p>
+<p t="1045010" d="3410">How many free variables
+have we got left?</p>
+<p t="1048420" d="6020">If r of the variables are
+pivot variables, we have n-r --</p>
+<p t="1054440" d="3960">in this case four minus
+two -- free variables.</p>
+<p t="1058400" d="14990">Do you see that first of all
+we get clean answers here?</p>
+<p t="1073390" d="5910">We get r pivot variables -- so
+there really were r equations</p>
+<p t="1079300" d="870">here.</p>
+<p t="1080170" d="1820">There looked like
+three equations,</p>
+<p t="1081990" d="3740">but there were really only
+two independent equations.</p>
+<p t="1085730" d="6090">And there were n-r variables
+that we could choose freely,</p>
+<p t="1091820" d="4580">and we gave them those
+special zero one values,</p>
+<p t="1096400" d="2780">and we got the
+special solutions.</p>
+<p t="1099180" d="500">OK.</p>
+<p t="1102260" d="3450">For me -- we could
+stop at that point.</p>
+<p t="1105710" d="2870">That gives you a
+complete algorithm</p>
+<p t="1108580" d="6110">for finding all the
+solutions to A x equals zero.</p>
+<p t="1114690" d="500">OK.</p>
+<p t="1118300" d="3420">Again, you do elimination --</p>
+<p t="1121720" d="4330">going onward when a column,
+when there's nothing</p>
+<p t="1126050" d="4520">to be done on one column,
+you just continue.</p>
+<p t="1130570" d="4790">There's this number r, the
+number of pivots, is crucial,</p>
+<p t="1135360" d="5790">and it leaves n-r free
+variables, which you</p>
+<p t="1141150" d="1950">give values zero and one to.</p>
+<p t="1143100" d="2290">I would like to
+take one more step.</p>
+<p t="1148210" d="3810">I would like to clean up
+this matrix even more.</p>
+<p t="1152020" d="2910">So now I'm going to go
+to -- this is in its,</p>
+<p t="1154930" d="5490">this is in echelon form,
+upper triangular if you like.</p>
+<p t="1160420" d="5240">I want to go one more step to
+make it as good as it can be.</p>
+<p t="1165660" d="5650">OK, so now I'm going to speak
+about the reduced row echelon</p>
+<p t="1171310" d="890">form.</p>
+<p t="1172200" d="3340">OK, so now I'm going to speak
+about the matrix R, which is</p>
+<p t="1175540" d="9140">the reduced row echelon form.</p>
+<p t="1184680" d="2020">So what does that mean?</p>
+<p t="1186700" d="2770">That means I just --</p>
+<p t="1189470" d="2900">I can, I can work harder on U.</p>
+<p t="1192370" d="2940">So let me start, let
+me suppose I got as far</p>
+<p t="1195310" d="2815">as U, which was good.</p>
+<p t="1208230" d="3220">Notice how that row
+of zeros appeared.</p>
+<p t="1211450" d="3910">I didn't comment on
+that, but I should have.</p>
+<p t="1215360" d="5270">That row of zeros up here
+is because row three was</p>
+<p t="1220630" d="2430">a combination of
+rows one and two,</p>
+<p t="1223060" d="4330">and elimination
+discovered that fact.</p>
+<p t="1227390" d="5220">When we get a row of zeros,
+that's telling us that the --</p>
+<p t="1232610" d="5970">original row that was there was
+a combination of other rows,</p>
+<p t="1238580" d="4050">and elimination knocked it out.</p>
+<p t="1242630" d="2080">OK, so we got this far.</p>
+<p t="1244710" d="2550">Now how can I clean
+that up further?</p>
+<p t="1247260" d="4170">I can do, elimination upwards.</p>
+<p t="1251430" d="2960">I can get zero above the pivots.</p>
+<p t="1254390" d="4350">So this reduced row
+echelon form has zeros</p>
+<p t="1258740" d="7005">above and below the pivots.</p>
+<p t="1268530" d="2930">So let me do that.</p>
+<p t="1271460" d="3480">So now I'll subtract one
+of this from the row above.</p>
+<p t="1274940" d="5210">That will leave a zero
+and a minus two in there.</p>
+<p t="1280150" d="2390">And that's good.</p>
+<p t="1286670" d="4040">OK, and I can clean it
+up even one more step.</p>
+<p t="1290710" d="2690">I can make the pivots --</p>
+<p t="1293400" d="3900">the pivots I'm going to make
+equal to one, because I can</p>
+<p t="1297300" d="4080">divide equation
+two by the pivot.</p>
+<p t="1301380" d="2730">That won't change the solutions.</p>
+<p t="1304110" d="1830">So let me do that.</p>
+<p t="1305940" d="930">And then I really --</p>
+<p t="1306870" d="1040">I'm ready to stop.</p>
+<p t="1307910" d="5320">One, two, zero, minus
+two, zero, zero, one, two.</p>
+<p t="1313230" d="4770">I divided the second
+equation by two,</p>
+<p t="1318000" d="7560">because now I have a one in
+the pivot and zeros below.</p>
+<p t="1325560" d="500">OK.</p>
+<p t="1326060" d="8730">This is my matrix R.</p>
+<p t="1334790" d="3020">I guess I'm hoping
+that you could now</p>
+<p t="1337810" d="3900">execute the whole algorithm.</p>
+<p t="1341710" d="5808">Matlab will do it immediately
+with the command --</p>
+<p t="1350870" d="3620">reduced row echelon form of A.</p>
+<p t="1354490" d="3140">So if I input that
+original matrix A</p>
+<p t="1357630" d="5730">and then I write, then I type
+that command, press return,</p>
+<p t="1363360" d="2850">that matrix will appear.</p>
+<p t="1366210" d="2930">That's the reduced
+row echelon form,</p>
+<p t="1369140" d="11000">and it's got all the
+information as clear as can be.</p>
+<p t="1380140" d="1750">What, what information
+has it got?</p>
+<p t="1381890" d="2110">Well, of course it
+immediately tells me</p>
+<p t="1384000" d="4530">the pivot rows, pivot
+rows, one and two,</p>
+<p t="1388530" d="2960">pivot columns, one and three.</p>
+<p t="1391490" d="3750">And in fact it's got the
+identity matrix in there,</p>
+<p t="1395240" d="3580">It's, it's got zeros above
+and below the pivots, right?</p>
+<p t="1398820" d="3640">and the pivots are one,
+so it's, so it's got a --</p>
+<p t="1402460" d="7720">so notice the two by two
+identity matrix that's sitting</p>
+<p t="1410180" d="3190">in the pivot rows
+and pivot columns.</p>
+<p t="1413370" d="9340">it's I in the pivot
+rows and columns.</p>
+<p t="1426590" d="2340">It's got zero rows below.</p>
+<p t="1432120" d="4460">Those are always indicating
+that original rows were,</p>
+<p t="1436580" d="2160">were combinations of other rows.</p>
+<p t="1438740" d="3360">So we really only
+had two rows there.</p>
+<p t="1442100" d="3640">And now it also -- so
+there's the identity.</p>
+<p t="1445740" d="5000">Now it's also got
+its free columns.</p>
+<p t="1450740" d="6420">And, they're cleaned
+up as much as possible.</p>
+<p t="1457160" d="4560">Actually, actually it's now
+so cleaned up that the special</p>
+<p t="1461720" d="4350">solutions, I can read off --
+you remember I went through</p>
+<p t="1466070" d="4150">the steps of computing this --</p>
+<p t="1470220" d="2540">doing back substitution?</p>
+<p t="1472760" d="4630">Let me, let me,
+instead of that system,</p>
+<p t="1477390" d="2210">let me take this
+improved system.</p>
+<p t="1479600" d="4250">So I'm going to use
+these numbers, right.</p>
+<p t="1483850" d="2000">In these equations,
+what did I do?</p>
+<p t="1485850" d="6970">I divided this equation
+by two and, oh yeah</p>
+<p t="1492820" d="1720">and I had subtracted
+two of this,</p>
+<p t="1494540" d="3750">which knocked out this guy
+and made that a minus sign.</p>
+<p t="1498290" d="3210">Is that what --</p>
+<p t="1501500" d="3070">I've now written Rx equals zero.</p>
+<p t="1510350" d="4220">Now I guess I'm hoping everybody
+in this room understands</p>
+<p t="1514570" d="4580">the solutions to the
+original A x equals zero,</p>
+<p t="1519150" d="3900">the midway, halfway,
+U x equals zero,</p>
+<p t="1523050" d="4930">and the final R x equals
+zero are all the same.</p>
+<p t="1527980" d="2920">Because going from one
+of those to another one</p>
+<p t="1530900" d="2430">I didn't mess up.</p>
+<p t="1533330" d="2950">I just multiplied
+equations and subtracted</p>
+<p t="1536280" d="3560">from other equations,
+which I'm allowed to do.</p>
+<p t="1539840" d="500">OK.</p>
+<p t="1540340" d="7190">But my point is that now
+if I do this free variables</p>
+<p t="1547530" d="4880">and back substitution, it's
+just, the numbers are there.</p>
+<p t="1552410" d="8630">When I let x -- so in this guy,
+I let x2 be one and x4 be zero.</p>
+<p t="1561040" d="3340">I, I guess, what I seeing here?</p>
+<p t="1564380" d="2690">Let me, let me sort of
+separate this out here.</p>
+<p t="1567070" d="5030">I'm seeing in the pivot,
+in the pivot columns,</p>
+<p t="1572100" d="4810">if I, if I put the pivot
+columns here, I'm seeing those.</p>
+<p t="1576910" d="5060">And I'm -- in the free
+columns I'm seeing --</p>
+<p t="1581970" d="1600">what I seeing in
+the free columns?</p>
+<p t="1583570" d="5460">A two, zero in that first
+free column, the x2 column,</p>
+<p t="1589030" d="4890">and a minus two, two
+in the fourth column,</p>
+<p t="1593920" d="2090">the other free column.</p>
+<p t="1596010" d="5740">And the row of zeros below,
+which of course have no --</p>
+<p t="1601750" d="2110">that equation is
+zero equals zero.</p>
+<p t="1603860" d="2220">That's satisfied.</p>
+<p t="1606080" d="2450">Here's my point.</p>
+<p t="1608530" d="2690">That when I do
+back substitution,</p>
+<p t="1611220" d="4480">these numbers are
+exactly what shows up --</p>
+<p t="1615700" d="2780">oh, their signs get switched.</p>
+<p t="1618480" d="3070">I was going to say those
+numbers, two, minus two, zero,</p>
+<p t="1621550" d="4690">two, can I just circle the
+-- this is the free part</p>
+<p t="1626240" d="880">of the matrix.</p>
+<p t="1627120" d="3100">This is the identity part.</p>
+<p t="1630220" d="4490">This is the free part,
+maybe I'll call it F.</p>
+<p t="1634710" d="3940">This, of course, I call I,
+because it's the identity.</p>
+<p t="1638650" d="6370">The free part is a, I mean, I'm
+just doing back substitution.</p>
+<p t="1645020" d="4320">And those free numbers will
+show up, with a minus sign,</p>
+<p t="1649340" d="2700">because they pop onto the
+other side of the equation --</p>
+<p t="1652040" d="3830">so I see minus two, zero,
+and I see two, minus two.</p>
+<p t="1659670" d="1640">So that wasn't magic.</p>
+<p t="1661310" d="2230">It had to happen.</p>
+<p t="1663540" d="4700">Let me, show you
+clearly why it happened.</p>
+<p t="1668240" d="2100">OK, so that's --</p>
+<p t="1670340" d="2950">this is what I'm
+interested in here.</p>
+<p t="1673290" d="6120">And now let me, let me just,
+like, do it, do it for --</p>
+<p t="1679410" d="5120">let's suppose we've,
+we've got to --</p>
+<p t="1687750" d="4190">let's suppose we've got
+this system already in,</p>
+<p t="1691940" d="6260">in rref form.</p>
+<p t="1698200" d="4380">So my matrix R is --
+what does it look like?</p>
+<p t="1702580" d="2550">OK, and I'll --</p>
+<p t="1705130" d="5440">let me pretend that the
+pivot columns come first</p>
+<p t="1710570" d="2650">and then whatever's
+in the free columns.</p>
+<p t="1713220" d="4750">And there might be
+some zero rows below.</p>
+<p t="1717970" d="2630">There's a typical --</p>
+<p t="1720600" d="5150">a pretty typical reduced
+row echelon form.</p>
+<p t="1729450" d="2060">You see what's typical.</p>
+<p t="1731510" d="3920">It's got -- this is r by r.</p>
+<p t="1735430" d="2520">This is r pivot rows.</p>
+<p t="1742610" d="3440">This is r pivot columns.</p>
+<p t="1749780" d="6510">And here are n-r free columns.</p>
+<p t="1756290" d="1190">OK.</p>
+<p t="1757480" d="4170">Tell me what are the
+special solutions?</p>
+<p t="1761650" d="1700">What are the --</p>
+<p t="1763350" d="710">what's x?</p>
+<p t="1764060" d="3380">If I want to solve
+R x equals zero --</p>
+<p t="1767440" d="3730">in fact, let me --</p>
+<p t="1771170" d="4940">I'm really going to, do
+the whole -- since these --</p>
+<p t="1776110" d="2920">this is now block matrices,
+I might as well do all</p>
+<p t="1779030" d="2270">of the special
+solutions at once.</p>
+<p t="1781300" d="3440">So I want to solve
+R x equals zero,</p>
+<p t="1784740" d="4920">and I'll have some
+special solutions.</p>
+<p t="1789660" d="3170">Let me, actually --</p>
+<p t="1792830" d="1950">can I do them all at once?</p>
+<p t="1794780" d="5970">I'm going to create a
+null space matrix, OK.</p>
+<p t="1800750" d="1040">A matrix.</p>
+<p t="1804970" d="8160">Its, its, its columns
+are the special --</p>
+<p t="1813130" d="1955">the columns are the
+special solutions.</p>
+<p t="1819080" d="1990">This is, I'm making
+it sound harder,</p>
+<p t="1821070" d="1600">it's going to be totally easy.</p>
+<p t="1822670" d="3130">N will be this
+null space matrix.</p>
+<p t="1825800" d="5270">I want R N to be
+the zero matrix.</p>
+<p t="1831070" d="2760">These columns of N are
+supposed to multipl-</p>
+<p t="1833830" d="3470">to get multiplied by R
+and give zero columns.</p>
+<p t="1837300" d="2800">So what N will do the job?</p>
+<p t="1840100" d="1350">Let me put --</p>
+<p t="1841450" d="3840">I'm going to put the identity
+in the free variable part</p>
+<p t="1845290" d="8730">and then minus F will show up
+in the pivot variables, just</p>
+<p t="1854020" d="1960">the way it did in that example.</p>
+<p t="1855980" d="2990">There we had the identity and F.</p>
+<p t="1858970" d="3190">Here -- in the special solution.</p>
+<p t="1862160" d="3240">So these columns are --
+there's the matrix of special</p>
+<p t="1865400" d="1030">solutions.</p>
+<p t="1866430" d="3030">And actually, there -- so
+there's a Matlab command</p>
+<p t="1869460" d="4900">or a teaching code
+command, NULL --</p>
+<p t="1874360" d="5100">N equal, so this is the --</p>
+<p t="1879460" d="5250">produces the null basis, the
+null space matrix, NULL of A,</p>
+<p t="1884710" d="1520">and there it is.</p>
+<p t="1890450" d="3180">And how does that
+command actually work?</p>
+<p t="1893630" d="4960">It uses Matlab to
+compute R, then</p>
+<p t="1898590" d="4510">it picks out the pivot
+variables, the free variables,</p>
+<p t="1903100" d="4880">puts, puts ones and zeros
+in for the free variables,</p>
+<p t="1907980" d="3870">and copies out the
+pivot variables.</p>
+<p t="1911850" d="2910">It, it does back substitution,
+but back substitution</p>
+<p t="1914760" d="2420">for this system
+is totally simple.</p>
+<p t="1917180" d="2890">What is this system?</p>
+<p t="1920070" d="2960">R x equals zero.</p>
+<p t="1923030" d="8590">So this is R is I F, and
+x is the pivot variables</p>
+<p t="1931620" d="6620">and the free variables, and
+it's supposed to give zero.</p>
+<p t="1938240" d="2000">So what does that mean?</p>
+<p t="1940240" d="4720">That means that the
+pivot variables plus F</p>
+<p t="1944960" d="3680">times the free
+variables give zero.</p>
+<p t="1948640" d="3310">So let me put F times the free
+variables on the other side.</p>
+<p t="1951950" d="6000">I get minus F times
+the free variables.</p>
+<p t="1957950" d="5580">There's my, equation,
+as simple as it can be.</p>
+<p t="1963530" d="2310">That's what back
+substitution comes</p>
+<p t="1965840" d="3440">to when I've reduced and
+reduced and reduced this system</p>
+<p t="1969280" d="2810">to the, to the best form, OK.</p>
+<p t="1972090" d="4590">And, then if the
+free variables, I</p>
+<p t="1976680" d="3390">make this special
+choice of the identity,</p>
+<p t="1980070" d="2500">then the pivot variables are</p>
+<p t="1982570" d="6140">minus F. OK, can I
+do, another example?</p>
+<p t="1988710" d="1470">Could you do another example?</p>
+<p t="1990180" d="2120">Can I -- let me just
+take another matrix</p>
+<p t="1992300" d="5030">and, and let's go through
+this algorithm once more, OK.</p>
+<p t="1997330" d="1850">Here we go.</p>
+<p t="1999180" d="5920">Here's a blackboard
+for another matrix, OK.</p>
+<p t="2005100" d="6080">So I'll call the matrix A
+again, but let me make it --</p>
+<p t="2011180" d="2500">yeah, how big shall
+we make it this time?</p>
+<p t="2016480" d="2140">Why don't I do this?</p>
+<p t="2018620" d="1300">Just for the heck of it.</p>
+<p t="2019920" d="4940">Let me take the transpose of
+this A and see what happens to</p>
+<p t="2024860" d="810">that.</p>
+<p t="2025670" d="10150">Two four six eight and
+three six eight ten.</p>
+<p t="2040250" d="6130">Before we do the calculations,
+tell me what's coming?</p>
+<p t="2046380" d="5790">How many pivot variables
+do you expect here?</p>
+<p t="2052170" d="4730">How many columns are
+going to have pivots?</p>
+<p t="2056900" d="5160">How many -- we have three
+columns in that matrix,</p>
+<p t="2062060" d="3679">but are we going to, are we
+going to have three pivots?</p>
+<p t="2065739" d="5690">No, because this third columns
+is the sum of the first two</p>
+<p t="2071429" d="671">columns.</p>
+<p t="2072100" d="6250">I'm totally expecting, totally
+expecting that these will be</p>
+<p t="2078350" d="2650">pivot columns --</p>
+<p t="2081000" d="4949">because they're independent,
+but that this third guy,</p>
+<p t="2085949" d="3710">the third column, which is
+dependent on the first two,</p>
+<p t="2089659" d="2560">is going to be a free column.</p>
+<p t="2092219" d="2670">Elimination better
+discover that.</p>
+<p t="2094889" d="3381">And elimination will
+also straighten out</p>
+<p t="2098270" d="6900">the rows, dependent rows
+and some independent rows.</p>
+<p t="2105170" d="4340">What's the, what's the row
+reduced echelon form for this?</p>
+<p t="2109510" d="2460">Let's just do it, OK.</p>
+<p t="2111970" d="4740">So, so that's the first pivot.</p>
+<p t="2116710" d="3650">Two times that away from
+that gives me a row of zeros.</p>
+<p t="2120360" d="4610">Two times that away from
+that gives me a zero two two.</p>
+<p t="2124970" d="3895">And two times that away from
+that gives me a zero four four.</p>
+<p t="2132300" d="3450">OK, first column is straight.</p>
+<p t="2135750" d="2030">First variable is
+a pivot variable.</p>
+<p t="2137780" d="1230">No problem.</p>
+<p t="2139010" d="1360">On to the second column.</p>
+<p t="2140370" d="3510">I look at the second
+pivot, it's a zero.</p>
+<p t="2143880" d="1550">I look below it.</p>
+<p t="2145430" d="1310">There's a two.</p>
+<p t="2146740" d="1150">OK, I do a row exchange.</p>
+<p t="2150530" d="3100">So this zero is now there.</p>
+<p t="2153630" d="5080">I now have a perfectly
+good pivot, and I use it.</p>
+<p t="2158710" d="4320">OK, and I subtract two of
+that row away from this row.</p>
+<p t="2163030" d="2600">All right if I do it like that?</p>
+<p t="2165630" d="2680">I've got to the form U now.</p>
+<p t="2168310" d="2150">This was my A.</p>
+<p t="2170460" d="6800">Now there's my U.
+I can see now --</p>
+<p t="2177260" d="1370">I have to stop, right?</p>
+<p t="2178630" d="1710">I would go on to
+the third column.</p>
+<p t="2180340" d="2310">I should have tried.</p>
+<p t="2182650" d="1470">I quit, but without trying.</p>
+<p t="2184120" d="1320">I shouldn't have done that.</p>
+<p t="2185440" d="3370">On to the third column,
+look at the pivot position.</p>
+<p t="2188810" d="1290">It's got a zero in it.</p>
+<p t="2190100" d="2200">Look below, all zeros.</p>
+<p t="2192300" d="3360">Now I'm entitled to stop, OK.</p>
+<p t="2195660" d="1785">So the rank is two again.</p>
+<p t="2205860" d="2580">What about the null space?</p>
+<p t="2208440" d="4010">How many special solutions
+are there this time?</p>
+<p t="2212450" d="4540">How many special
+solutions for this matrix?</p>
+<p t="2216990" d="2610">I've got -- and which are the
+free variables and which are</p>
+<p t="2219600" d="1800">the pivot variables and so on?</p>
+<p t="2221400" d="3210">Pivot columns, I've
+got two pivot columns,</p>
+<p t="2224610" d="2280">and that's no accident.</p>
+<p t="2226890" d="4310">The number of pivot columns
+for a matrix A, that's</p>
+<p t="2231200" d="4920">a great fact, that the
+number of pivot columns for A</p>
+<p t="2236120" d="3130">and A transpose are the same.</p>
+<p t="2239250" d="2430">And then I have a free column.</p>
+<p t="2241680" d="2560">There's a free column.</p>
+<p t="2244240" d="6090">One free column, because the
+count is three minus two.</p>
+<p t="2250330" d="3660">Three minus two gives
+me one free column.</p>
+<p t="2257760" d="9650">OK, so now let me solve,
+what's in the null space.</p>
+<p t="2267410" d="1980">OK, so how do I --</p>
+<p t="2269390" d="1140">let's see.</p>
+<p t="2270530" d="2270">These vectors have length three.</p>
+<p t="2272800" d="1680">They only have three components.</p>
+<p t="2274480" d="3720">I'm making too much space
+for the, to write x.</p>
+<p t="2278200" d="5120">x has just got three
+components, and what are they?</p>
+<p t="2283320" d="3020">I'm looking for the null space.</p>
+<p t="2289660" d="2770">OK, so how do I start?</p>
+<p t="2292430" d="5280">I give the free variable
+some convenient value.</p>
+<p t="2297710" d="2580">And what's that?</p>
+<p t="2300290" d="2710">I set it to one.</p>
+<p t="2303000" d="1970">I set the free variable to one.</p>
+<p t="2304970" d="3550">If I set the free
+variable to zero and solve</p>
+<p t="2308520" d="4780">for the pivot variables, I'll
+get all zeros: no progress.</p>
+<p t="2313300" d="3130">But by setting the
+free variable to one --</p>
+<p t="2316430" d="3250">you see w- my two
+equations now are --</p>
+<p t="2319680" d="5550">my equations are x1+
+2x2+ 3 x3 is zero,</p>
+<p t="2325230" d="1970">that's my first equation.</p>
+<p t="2327200" d="3930">And my second equation is
+now 2x2+2x3 equals zero.</p>
+<p t="2331130" d="4980">And, OK.</p>
+<p t="2336110" d="6290">So if x3 is one,
+then x2 is minus one.</p>
+<p t="2342400" d="5030">And if x3 is one and x2 is
+minus one, then maybe x1</p>
+<p t="2347430" d="1080">is minus one.</p>
+<p t="2352080" d="2280">And actually I go
+back to check now.</p>
+<p t="2354360" d="3050">I don't, like --</p>
+<p t="2357410" d="2000">I did a quick
+calculation mentally.</p>
+<p t="2359410" d="2160">Can I mentally do a quick check?</p>
+<p t="2361570" d="2610">That matrix, that
+solution x says</p>
+<p t="2364180" d="4530">that minus this column minus
+this column plus this one</p>
+<p t="2368710" d="2850">is the zero column.</p>
+<p t="2371560" d="1300">And it is.</p>
+<p t="2372860" d="2650">Minus that minus that
+plus that is zero.</p>
+<p t="2375510" d="2210">So that's in the null space.</p>
+<p t="2377720" d="3070">And now you can tell me what
+else is in the null space.</p>
+<p t="2380790" d="3290">What's, what's the
+whole null space now?</p>
+<p t="2384080" d="2490">I multiply by C, right.</p>
+<p t="2386570" d="5150">The whole null space is a line.</p>
+<p t="2391720" d="1250">So that's the description.</p>
+<p t="2392970" d="4550">You know, if I ask you on a
+homework or a quiz or the final</p>
+<p t="2397520" d="4110">what -- give me, describe,
+tell me the null space,</p>
+<p t="2401630" d="2780">find the null space
+of this matrix,</p>
+<p t="2404410" d="2930">you can take those steps.</p>
+<p t="2407340" d="3450">And that's the answer
+I'm looking for.</p>
+<p t="2410790" d="4400">And I'm looking for that C
+too, because that's telling me</p>
+<p t="2415190" d="3170">that you're remembering that
+it's a whole space and not</p>
+<p t="2418360" d="2280">just one vector.</p>
+<p t="2420640" d="3320">Later I will ask you for a
+basis for the null space.</p>
+<p t="2423960" d="2890">Then I just want this vector.</p>
+<p t="2426850" d="1990">But if I ask for the
+whole null space,</p>
+<p t="2428840" d="2670">then there's the whole
+line through that vector.</p>
+<p t="2431510" d="4830">OK, now one more natural thing
+to do with this example, right,</p>
+<p t="2436340" d="6960">is keep going to the
+reduced matrix, R.</p>
+<p t="2443300" d="2880">So can I push onwards to R?</p>
+<p t="2446180" d="3160">That should be quick,
+but let's just practice.</p>
+<p t="2449340" d="4660">Let me keep going to R.
+OK, so what do I do here?</p>
+<p t="2454000" d="1970">I subtract --</p>
+<p t="2455970" d="1860">I clear out above
+the pivot, so I</p>
+<p t="2457830" d="5040">subtract that from that, that's
+one zero one is left, right?</p>
+<p t="2462870" d="1870">When I subtracted
+this row from this</p>
+<p t="2464740" d="2650">it produced a zero
+above this pivot.</p>
+<p t="2467390" d="4680">And now I want that
+pivot to be a one.</p>
+<p t="2472070" d="6090">So for the R matrix, I'll
+divide this equation by two,</p>
+<p t="2478160" d="5110">and of course these zero, zeros
+are great, they don't change.</p>
+<p t="2483270" d="1430">There's R.</p>
+<p t="2484700" d="2670">That's R.</p>
+<p t="2487370" d="1060">You see what R is?</p>
+<p t="2488430" d="3670">You see the identity
+matrix sitting up here?</p>
+<p t="2492100" d="4270">You see the free part
+F, the F part here?</p>
+<p t="2496370" d="2000">And you see the zeros below.</p>
+<p t="2498370" d="4090">This is I F zero zero.</p>
+<p t="2502460" d="2720">And what's the x?</p>
+<p t="2505180" d="3480">The x has the identity --</p>
+<p t="2508660" d="2800">well, it's only a
+single number one,</p>
+<p t="2511460" d="4630">but it's the identity matrix
+in the free, in the free part.</p>
+<p t="2516090" d="4680">And what does it have
+in the pivot variables?</p>
+<p t="2520770" d="2850">What did back substitution give?</p>
+<p t="2523620" d="3290">It gave minus these guys.</p>
+<p t="2526910" d="4250">You see that what this
+is is any multiple of --</p>
+<p t="2531160" d="3200">this is the identity there,
+and this is minus F here.</p>
+<p t="2539190" d="5520">This is our null space
+matrix N for this.</p>
+<p t="2544710" d="3780">Our, our null space matrix
+is the guy whose columns</p>
+<p t="2548490" d="2190">are the special solutions.</p>
+<p t="2550680" d="2890">So their free variables
+have the special values</p>
+<p t="2553570" d="5940">one and, pivot
+variables have minus F.</p>
+<p t="2559510" d="2700">So do you see, though,
+how the minus F just</p>
+<p t="2562210" d="3330">automatically shows up
+in the special solutions.</p>
+<p t="2569390" d="999">That's it really.</p>
+<p t="2570389" d="1541">I don't think there's
+anything more I</p>
+<p t="2571930" d="4050">can say about A x equals zero.</p>
+<p t="2575980" d="3660">There's more I can
+say about A x equal b,</p>
+<p t="2579640" d="3440">but that'll be on Friday.</p>
+<p t="2583080" d="2290">OK, so that's, that's
+the null space.</p>
+<p t="2585370" d="1550">Thanks.</p>
+</body>
+</timedtext>

@@ -1,0 +1,1415 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="500" d="2444">The following content is
+provided under a Creative</p>
+<p t="2944" d="666">Commons license.</p>
+<p t="3610" d="3120">Your support will help
+MIT OpenCourseWare</p>
+<p t="6730" d="3190">offer high quality educational
+resources for free.</p>
+<p t="9920" d="2670">To make a donation or to
+view additional materials</p>
+<p t="12590" d="3560">from hundreds of MIT courses,
+visit MIT OpenCourseWare</p>
+<p t="16150" d="3840">at ocw.mit.edu.</p>
+<p t="19990" d="2760">PROFESSOR STRANG: Starting
+with a differential equation.</p>
+<p t="22750" d="2070">So key point here
+in this lecture</p>
+<p t="24820" d="4030">is how do you start with
+a differential equation</p>
+<p t="28850" d="9690">and end up with a discrete
+problem that you can solve?</p>
+<p t="38540" d="2280">But simple
+differential equation.</p>
+<p t="40820" d="3770">It's got a second derivative and
+I put a minus sign for a reason</p>
+<p t="44590" d="2220">that you will see.</p>
+<p t="46810" d="3950">Second derivatives are
+essentially negative</p>
+<p t="50760" d="3950">definite things so that
+minus sign is to really</p>
+<p t="54710" d="2010">make it positive definite.</p>
+<p t="56720" d="4400">And notice we have
+boundary conditions.</p>
+<p t="61120" d="3870">At one end the solution is zero,
+at the other end it's zero.</p>
+<p t="64990" d="2860">So this is fixed-fixed.</p>
+<p t="67850" d="2410">And it's a boundary
+value problem.</p>
+<p t="70260" d="4130">That's different from an
+initial value problem.</p>
+<p t="74390" d="2950">We have x space, not time.</p>
+<p t="77340" d="2100">So we're not starting
+from some thing</p>
+<p t="79440" d="4640">and oscillating or growing
+or decaying in time.</p>
+<p t="84080" d="1190">We have a fixed thing.</p>
+<p t="85270" d="2200">Think of an elastic bar.</p>
+<p t="87470" d="3110">An elastic bar
+fixed at both ends,</p>
+<p t="90580" d="2440">maybe hanging by its own weight.</p>
+<p t="93020" d="4860">So that load f(x) could
+represent the weight.</p>
+<p t="97880" d="2020">Maybe the good place
+to sit is over there,</p>
+<p t="99900" d="3300">there are tables
+just, how about that?</p>
+<p t="103200" d="4930">It's more comfortable.</p>
+<p t="108130" d="3340">So we can solve that equation.</p>
+<p t="111470" d="3230">Especially when I
+change f(x) to be one.</p>
+<p t="114700" d="2190">As I plan to do.</p>
+<p t="116890" d="1455">So I'm going to
+change, I'm going</p>
+<p t="118345" d="2855">to make it-- it's a
+uniform bar because there's</p>
+<p t="121200" d="3330">no variable coefficient in
+there and let me make it</p>
+<p t="124530" d="2560">a uniform load, just one.</p>
+<p t="127090" d="5430">So it actually shows you
+that, I mentioned differential</p>
+<p t="132520" d="3440">equations and we'll certainly
+get onto Laplace's equation,</p>
+<p t="135960" d="3140">but essentially our differential
+equations will not--</p>
+<p t="139100" d="4320">this isn't a course in
+how to solve ODEs or PDEs.</p>
+<p t="143420" d="1850">Especially not ODEs.</p>
+<p t="145270" d="3670">It's a course in how
+to compute solutions.</p>
+<p t="148940" d="3710">So the key idea will be to
+replace the differential</p>
+<p t="152650" d="2330">equation by a
+difference equation.</p>
+<p t="154980" d="2370">So there's the
+difference equation.</p>
+<p t="157350" d="2690">And I have to talk about that.</p>
+<p t="160040" d="6460">That's the sort of key
+point, that-- up here you</p>
+<p t="166500" d="4070">see what I would call
+a second difference.</p>
+<p t="170570" d="3700">Actually with a minus sign.</p>
+<p t="174270" d="5680">And on the right-hand side
+you see the load, still f(x).</p>
+<p t="179950" d="4000">Can I move to this board
+to explain differences?</p>
+<p t="183950" d="3020">Because this is
+like, key step is</p>
+<p t="186970" d="2750">given the differential
+equation replace it</p>
+<p t="189720" d="2140">by difference equation.</p>
+<p t="191860" d="4040">And the interesting point
+is you have many choices.</p>
+<p t="195900" d="1550">There's one
+differential equation</p>
+<p t="197450" d="5670">but even for a first
+derivative, so this,</p>
+<p t="203120" d="3030">if you remember from
+calculus, how did you</p>
+<p t="206150" d="2060">start with the derivative?</p>
+<p t="208210" d="4690">You started by something
+before going to the limit.</p>
+<p t="212900" d="6070">h or delta x goes to zero in
+the end to get the derivative.</p>
+<p t="218970" d="2710">But this was a
+finite difference.</p>
+<p t="221680" d="3010">You moved a finite amount.</p>
+<p t="224690" d="3520">And this is the one you always
+see in calculus courses.</p>
+<p t="228210" d="6930">u(x+h) - u(x), just how
+much did that step go.</p>
+<p t="235140" d="3180">You divide by the
+delta x, the h,</p>
+<p t="238320" d="5080">and that's approximately
+the derivative, u'(x).</p>
+<p t="247160" d="3910">Let me just continue
+with these others.</p>
+<p t="251070" d="4100">I don't remember if calculus
+mentions a backward difference.</p>
+<p t="255170" d="5980">But you won't be surprised that
+another possibility, equally</p>
+<p t="261150" d="3250">good more or less, would
+be to take the point</p>
+<p t="264400" d="4770">and the point before, take the
+difference, divide by delta x.</p>
+<p t="269170" d="3720">So again all these
+approximate u'.</p>
+<p t="272890" d="5110">And now here's one that
+actually is really important.</p>
+<p t="278000" d="1910">A center difference.</p>
+<p t="279910" d="3350">It's the average of
+the forward and back.</p>
+<p t="283260" d="4180">If I take that plus that,
+the u(x)'s cancel and I'm</p>
+<p t="287440" d="3410">left with, I'm centering it.</p>
+<p t="290850" d="2970">This idea of centering
+is a good thing actually.</p>
+<p t="293820" d="4110">And of course I have to divide
+by 2h because this step is now</p>
+<p t="297930" d="2730">2h, two delta x's.</p>
+<p t="300660" d="2230">So that again is
+going to represent u'.</p>
+<p t="305720" d="5190">But so we have a choice if
+we have a first derivative.</p>
+<p t="310910" d="4300">And actually that's a big issue.</p>
+<p t="315210" d="3580">You know, one might
+be called upwind,</p>
+<p t="318790" d="2700">one might be called downwind,
+one may be called centered.</p>
+<p t="321490" d="3630">It comes up constantly in aero,
+in mechanical engineering,</p>
+<p t="325120" d="1540">everywhere.</p>
+<p t="326660" d="2210">You have these choices to make.</p>
+<p t="328870" d="1960">Especially for the
+first difference.</p>
+<p t="330830" d="4760">We don't have, I didn't
+allow a first derivative</p>
+<p t="335590" d="4820">in that equation because I
+wanted to keep it symmetric</p>
+<p t="340410" d="3130">and first derivatives,
+first differences</p>
+<p t="343540" d="2210">tend to be anti-symmetric.</p>
+<p t="345750" d="3560">So if we want to get
+our good matrix K,</p>
+<p t="349310" d="3360">and I better remember
+to divide by h squared,</p>
+<p t="352670" d="3830">because the K just has those
+that I introduced last time</p>
+<p t="356500" d="6230">and will repeat, the K just
+has the numbers -1, 2, -1.</p>
+<p t="362730" d="8650">Now, first point before we leave
+these guys what's up with them?</p>
+<p t="371380" d="2580">How do we decide
+which one is better?</p>
+<p t="373960" d="3150">There's something called
+the order of accuracy.</p>
+<p t="377110" d="4480">How close is the difference
+to the derivative?</p>
+<p t="381590" d="5290">And the answer is the
+error is of size h.</p>
+<p t="386880" d="6510">So I would call that
+first order accurate.</p>
+<p t="393390" d="3630">And I can repeat here
+but the text does it,</p>
+<p t="397020" d="6560">how you recognize what-- This
+is the sort of local error,</p>
+<p t="403580" d="4470">truncation error, whatever,
+you've chopped off</p>
+<p t="408050" d="3850">the exact answer and
+just did differences.</p>
+<p t="411900" d="3410">This one is also order h.</p>
+<p t="415310" d="4890">And in fact, the h
+terms, the leading error,</p>
+<p t="420200" d="2280">which is going to
+multiply the h,</p>
+<p t="422480" d="3050">has opposite sign in
+these two and that's</p>
+<p t="425530" d="2700">the reason centered
+differences are great.</p>
+<p t="428230" d="5150">Because when you average
+them your center things--</p>
+<p t="433380" d="2470">this is correct to
+order h squared.</p>
+<p t="439240" d="5520">And I may come back and find
+out why that h squared term is.</p>
+<p t="444760" d="951">Maybe I'll do that.</p>
+<p t="445711" d="499">Yeah.</p>
+<p t="446210" d="1190">Why don't I just?</p>
+<p t="447400" d="1870">Second differences
+are so important.</p>
+<p t="449270" d="2000">Why don't we just see.</p>
+<p t="451270" d="1710">And centered differences.</p>
+<p t="452980" d="1710">So let me see.</p>
+<p t="454690" d="1580">How do you figure u(x+h)?</p>
+<p t="460850" d="8050">This is a chance to remember
+something called Taylor series.</p>
+<p t="468900" d="2730">But that was in calculus.</p>
+<p t="471630" d="3510">If you forgot it,
+you're a normal person.</p>
+<p t="475140" d="3410">So but what does it say?</p>
+<p t="478550" d="2450">That's the whole point
+of calculus, in a way.</p>
+<p t="481000" d="6000">That if I move a little
+bit, I start from the point</p>
+<p t="487000" d="1770">x and then there's
+a little correction</p>
+<p t="488770" d="3220">and that's given
+by the derivative</p>
+<p t="491990" d="2010">and then there's a
+further correction</p>
+<p t="494000" d="1630">if I want to go
+further and that's</p>
+<p t="495630" d="3530">given by half of h squared,
+you see the second order</p>
+<p t="499160" d="4110">correction, times the
+second derivative.</p>
+<p t="503270" d="2230">And then, of course, more.</p>
+<p t="505500" d="2930">But that's all you
+ever have to remember.</p>
+<p t="508430" d="1190">It's pretty rare.</p>
+<p t="509620" d="5490">Second order accuracy
+is often the goal</p>
+<p t="515110" d="3040">in scientific computing.</p>
+<p t="518150" d="3270">First order accuracy is,
+like, the lowest level.</p>
+<p t="521420" d="3500">You start there, you write a
+code, you test it and so on.</p>
+<p t="524920" d="3220">But if you want production,
+if you want accuracy,</p>
+<p t="528140" d="2060">get to second order if possible.</p>
+<p t="530200" d="3380">Now, what about this u(x-h)?</p>
+<p t="533580" d="3120">Well, that's a step
+backwards, so that's u(x),</p>
+<p t="536700" d="5510">now the step is -h, but
+then when I square that step</p>
+<p t="542210" d="5820">I'm back to +h^2
+u''(x) and so on.</p>
+<p t="548030" d="1520">Ooh!</p>
+<p t="549550" d="4580">Am I going to find
+even more accuracy?</p>
+<p t="554130" d="3660">I could tell you what
+the next term is.</p>
+<p t="557790" d="7690">Plus h^3 upon 6, that's
+3*2*1, u triple-prime.</p>
+<p t="565480" d="3900">And this would be, since
+this step is -h now,</p>
+<p t="569380" d="1370">it would be -h^3 / 6 u'''.</p>
+<p t="574070" d="3270">So what happens when I take
+the difference of these two?</p>
+<p t="577340" d="3470">Remember now that centered
+differences subtract this</p>
+<p t="580810" d="1240">from this.</p>
+<p t="582050" d="9120">So now that u(x+h)
+- u(x-h) is zero,</p>
+<p t="591170" d="7200">2hu' subtracting that from
+that is zero, two of these,</p>
+<p t="598370" d="4020">so I guess that we really
+have an h^3 / 3 u'''.</p>
+<p t="605760" d="5970">And now when I divide by the 2h,
+can I just divide by 2h here?</p>
+<p t="611730" d="2720">Oh yeah, it's coming
+out right, divide by 2h,</p>
+<p t="614450" d="5500">divide this by 2h, that'll
+make it an h squared over six.</p>
+<p t="619950" d="2490">I've done what looks
+like a messy computation.</p>
+<p t="622440" d="4360">I'm a little sad to start a
+good lecture, important lecture</p>
+<p t="626800" d="2340">by such grungy stuff.</p>
+<p t="629140" d="4370">But it makes the key point.</p>
+<p t="633510" d="4910">That the centered difference
+gives the correct derivative</p>
+<p t="638420" d="3440">with an error of order h^2.</p>
+<p t="641860" d="4760">Where the error for
+the first differences,</p>
+<p t="646620" d="2880">the h would have been there.</p>
+<p t="649500" d="1680">And we can test it.</p>
+<p t="651180" d="3250">Actually we'll test it.</p>
+<p t="654430" d="860">Okay for that?</p>
+<p t="655290" d="2130">This is first differences.</p>
+<p t="657420" d="2160">And that's a big
+question: what do you</p>
+<p t="659580" d="3930">replace the first derivative
+by if there is one?</p>
+<p t="663510" d="1760">And you've got
+these three choices.</p>
+<p t="665270" d="3150">And usually this
+is the best choice.</p>
+<p t="668420" d="2570">Now to second derivatives.</p>
+<p t="670990" d="6280">Because our equation
+has got u'' in it.</p>
+<p t="677270" d="2770">So what's a second derivative?</p>
+<p t="680040" d="2960">It's the derivative
+of the derivative.</p>
+<p t="683000" d="1980">So what's the second difference?</p>
+<p t="684980" d="2100">It's the difference,
+first difference</p>
+<p t="687080" d="2070">of the first difference.</p>
+<p t="689150" d="3230">So the second difference,
+the natural second difference</p>
+<p t="692380" d="3980">would be-- so now
+let me use this space</p>
+<p t="696360" d="3150">for second differences.</p>
+<p t="699510" d="2790">Second differences.</p>
+<p t="702300" d="3970">I could take the
+forward difference</p>
+<p t="706270" d="2410">of the backward difference.</p>
+<p t="708680" d="2410">Or I could take the
+backward difference</p>
+<p t="711090" d="1530">of the forward difference.</p>
+<p t="712620" d="3160">Or you may say why don't I
+take the centered difference</p>
+<p t="715780" d="1330">of the centered difference.</p>
+<p t="717110" d="5830">All those, in some sense
+it's delta squared,</p>
+<p t="722940" d="2780">but which to take?</p>
+<p t="725720" d="7350">Well actually those are the
+same and that's the good choice,</p>
+<p t="733070" d="3450">that's the 1, -2, 1 choice.</p>
+<p t="736520" d="2040">So let me show you that.</p>
+<p t="738560" d="1710">Let me say what's
+the matter with that.</p>
+<p t="740270" d="5460">Because now having said how
+great centered differences are,</p>
+<p t="745730" d="3200">first differences, why
+don't I just repeat them</p>
+<p t="748930" d="2110">for second differences?</p>
+<p t="751040" d="4480">Well the trouble is, let me say
+in a word without even writing,</p>
+<p t="755520" d="4800">well I could even write a
+little, the center difference,</p>
+<p t="760320" d="3190">suppose I'm at a
+typical mesh point here.</p>
+<p t="763510" d="1850">The center difference
+is going to take</p>
+<p t="765360" d="2860">that value minus that value.</p>
+<p t="768220" d="2800">But then if I take the
+center difference of that</p>
+<p t="771020" d="1360">I'm going to be out here.</p>
+<p t="772380" d="3770">I'm going to take this value,
+this value, and this value.</p>
+<p t="776150" d="1980">I'll get something correct.</p>
+<p t="778130" d="2670">Its accuracy will be
+second order, good.</p>
+<p t="780800" d="4250">But it stretches too far.</p>
+<p t="785050" d="4270">We want compact
+difference molecules.</p>
+<p t="789320" d="6010">We don't want this one, minus
+two of this, plus one of that.</p>
+<p t="795330" d="7140">So this would give
+us a 1, 0, -2 , 0, 1.</p>
+<p t="802470" d="3950">I'm just saying this and then
+I'll never come back to it</p>
+<p t="806420" d="3540">because I don't like
+this one, these guys</p>
+<p t="809960" d="6060">give 1, -2, 1 without any gaps.</p>
+<p t="816020" d="1530">And that's the right choice.</p>
+<p t="817550" d="3150">And that's the choice made here.</p>
+<p t="820700" d="5100">So I'm not thinking you
+can see it in your head,</p>
+<p t="825800" d="3050">that the difference
+of the difference--</p>
+<p t="828850" d="2350">But well, you almost can.</p>
+<p t="831200" d="2230">If I take this, yeah.</p>
+<p t="833430" d="2930">Can you sort of see this
+without my writing it?</p>
+<p t="836360" d="3520">If I take the forward
+difference and then</p>
+<p t="839880" d="6600">I subtract the forward
+difference to the left,</p>
+<p t="846480" d="1970">do you see that
+I'll have minus two.</p>
+<p t="848450" d="2440">So there is what I started with.</p>
+<p t="850890" d="8750">I subtract u(x) - U(x-h) and I
+get two -u(x)'s This is what I</p>
+<p t="859640" d="2530">get.</p>
+<p t="862170" d="1700">Now I'm calling that u_i.</p>
+<p t="869600" d="4240">I better make completely
+clear about the minus sign.</p>
+<p t="873840" d="2190">The forward difference or
+the backward difference,</p>
+<p t="876030" d="5200">what this leads is 1, -2, 1.</p>
+<p t="881230" d="2850">That's the second difference.</p>
+<p t="884080" d="4820">Very important to remember, the
+second difference of a function</p>
+<p t="888900" d="5210">is the function, the value
+ahead, minus two of the center,</p>
+<p t="894110" d="2220">plus one of the left.</p>
+<p t="896330" d="3280">It's centered obviously,
+symmetric, right?</p>
+<p t="899610" d="3020">Second differences
+are symmetric.</p>
+<p t="902630" d="3670">And because I want
+a minus sign I</p>
+<p t="906300" d="2700">want minus the second
+difference and that's</p>
+<p t="909000" d="5090">why you see here -1, 2, -1.</p>
+<p t="914090" d="3980">Because I wanted
+positive two there.</p>
+<p t="918070" d="810">Are you okay?</p>
+<p t="918880" d="7860">This is the natural
+replacement for -u''.</p>
+<p t="926740" d="3145">And I claim that this
+second difference</p>
+<p t="929885" d="4335">is like the second
+derivative, of course.</p>
+<p t="934220" d="2380">And why don't we just
+check some examples</p>
+<p t="936600" d="3430">to see how like the
+second derivative it is.</p>
+<p t="940030" d="1750">So I'm going to take
+the second difference</p>
+<p t="941780" d="5780">of some easy functions.</p>
+<p t="947560" d="3540">It's very important that
+these come out so well.</p>
+<p t="951100" d="3480">So I'm going to take
+the second difference.</p>
+<p t="954580" d="2260">I'm going to write it
+as sort of a matrix.</p>
+<p t="956840" d="2040">So this is like the
+second difference.</p>
+<p t="958880" d="3730">Yeah, because this is good.</p>
+<p t="962610" d="2080">I'm inside the region, here.</p>
+<p t="964690" d="2900">I'm not worried about
+the boundaries now.</p>
+<p t="967590" d="2110">Let me just think
+of myself as inside.</p>
+<p t="969700" d="3230">So I have second
+differences and suppose</p>
+<p t="972930" d="5350">I'm applying it to a
+vector of all ones.</p>
+<p t="978280" d="4160">What answer should I get?</p>
+<p t="982440" d="6470">So if I think of calculus, it's
+the second derivative of one,</p>
+<p t="988910" d="1700">of the constant function.</p>
+<p t="990610" d="1890">So what answer am
+I going to get?</p>
+<p t="992500" d="550">Zero.</p>
+<p t="993050" d="1270">And do I get zero?</p>
+<p t="994320" d="820">Of course.</p>
+<p t="995140" d="500">I get zero.</p>
+<p t="995640" d="1250">Right?</p>
+<p t="996890" d="2950">All these second
+differences are zero.</p>
+<p t="999840" d="3660">Because I'm not worrying
+about the boundary yet.</p>
+<p t="1003500" d="3010">So that's like, check one.</p>
+<p t="1006510" d="1950">It passed that simple test.</p>
+<p t="1008460" d="8550">Now let me move up from
+constant to linear.</p>
+<p t="1017010" d="1700">And so on.</p>
+<p t="1018710" d="1860">So let me apply
+second differences</p>
+<p t="1020570" d="3870">to a vector that's
+growing linearly.</p>
+<p t="1024440" d="4080">What answer do I
+expect to get for that?</p>
+<p t="1028520" d="2690">So remember I'm doing
+second differences,</p>
+<p t="1031210" d="1810">like second
+derivatives, or minus</p>
+<p t="1033020" d="3860">second derivatives, actually.</p>
+<p t="1036880" d="3760">So what do second derivatives
+do to a linear function?</p>
+<p t="1040640" d="2610">If I take a straight
+line I take the-- sorry,</p>
+<p t="1043250" d="1920">second derivatives.</p>
+<p t="1045170" d="4300">If I take second derivatives
+of a linear function I get?</p>
+<p t="1049470" d="1040">Zero, right.</p>
+<p t="1050510" d="4120">So I would hope to get
+zero again here and I do.</p>
+<p t="1054630" d="1020">Right?</p>
+<p t="1055650" d="500">-1+4-3=0.</p>
+<p t="1058780" d="5490">Minus one, sorry, let
+me do it here, -2+6-4.</p>
+<p t="1064270" d="3730">And actually, that's consistent
+with our little Taylor series</p>
+<p t="1068000" d="1690">stuff.</p>
+<p t="1069690" d="2580">The function x should
+come out right.</p>
+<p t="1072270" d="2910">Now what about-- now
+comes the moment.</p>
+<p t="1075180" d="1960">What about x squared?</p>
+<p t="1077140" d="3080">So I'm going to
+put squares in now.</p>
+<p t="1080220" d="3860">Do I expect to get zeroes?</p>
+<p t="1084080" d="2470">I don't think so.</p>
+<p t="1086550" d="3370">Because let me again
+test it by thinking</p>
+<p t="1089920" d="2470">about what second derivative.</p>
+<p t="1092390" d="5970">So now I'm sort of copying
+second derivative of x squared,</p>
+<p t="1098360" d="2110">which is?</p>
+<p t="1100470" d="3880">Second derivative
+of x squared is?</p>
+<p t="1104350" d="1630">Two, right?</p>
+<p t="1105980" d="3220">First derivative's 2x, second
+derivative is just two.</p>
+<p t="1109200" d="1970">So it's a constant.</p>
+<p t="1111170" d="4000">And remember I put in a
+minus sign so I'm wondering,</p>
+<p t="1115170" d="4350">do I get the answer minus two?</p>
+<p t="1119520" d="2900">All the way down.</p>
+<p t="1122420" d="600">-4+8-9.</p>
+<p t="1125650" d="2290">Whoops.</p>
+<p t="1127940" d="2600">What's that?</p>
+<p t="1130540" d="1940">What do I get there?</p>
+<p t="1132480" d="5160">What do I get from that second
+difference of these squares?</p>
+<p t="1137640" d="3000">-4+8-9 is?</p>
+<p t="1140640" d="2500">Minus two, good.</p>
+<p t="1143140" d="1691">So can we keep going?</p>
+<p t="1144831" d="499">-4+18-16.</p>
+<p t="1148650" d="2080">What's that?</p>
+<p t="1150730" d="4470">-4+18-16, so I've got -20+18.</p>
+<p t="1159190" d="2140">I got minus two again.</p>
+<p t="1161330" d="3610">-9, 32, -25, it's right.</p>
+<p t="1164940" d="7730">The second differences
+of the vector of squares,</p>
+<p t="1172670" d="4620">you could say, is a constant
+vector with the right number.</p>
+<p t="1177290" d="2225">And that's because
+that second difference</p>
+<p t="1179515" d="1745">is second order accurate.</p>
+<p t="1181260" d="4140">It not only got constants
+right and linears right,</p>
+<p t="1185400" d="3460">it got quadratics right.</p>
+<p t="1188860" d="4050">So that's, you're seeing
+second differences.</p>
+<p t="1192910" d="4150">We'll soon see that second
+differences are also</p>
+<p t="1197060" d="4120">on the ball when you apply
+them to other vectors.</p>
+<p t="1201180" d="4890">Like vectors of sines or vectors
+of cosines or exponentials,</p>
+<p t="1206070" d="2080">they do well.</p>
+<p t="1208150" d="4740">So that's just a useful check
+which will help us over here.</p>
+<p t="1212890" d="4330">Okay, can I come back to
+the part of the lecture now?</p>
+<p t="1217220" d="5840">Having prepared
+the way for this.</p>
+<p t="1223060" d="3210">Well, let's start right off
+by solving the differential</p>
+<p t="1226270" d="2850">equation.</p>
+<p t="1229120" d="4530">So I'm bringing you back years
+and years and years, right?</p>
+<p t="1233650" d="4510">Solve that differential
+equation with these two boundary</p>
+<p t="1238160" d="2130">conditions.</p>
+<p t="1240290" d="2670">How would you do that
+in a systematic way?</p>
+<p t="1242960" d="2290">You could almost
+guess after a while,</p>
+<p t="1245250" d="3700">but systematically
+if I have a linear,</p>
+<p t="1248950" d="2350">I notice-- What do I
+notice about this thing?</p>
+<p t="1251300" d="2650">It's linear.</p>
+<p t="1253950" d="1460">So what am I expecting?</p>
+<p t="1255410" d="3120">I'm expecting, like,
+a particular solution</p>
+<p t="1258530" d="6630">that gives the correct answer,
+one, and some null space</p>
+<p t="1265160" d="2120">solution or whatever
+I want to call it,</p>
+<p t="1267280" d="4010">homogeneous solution
+that gives zero</p>
+<p t="1271290" d="2630">and has some arbitrary
+constants in it.</p>
+<p t="1273920" d="1870">Give me a particular solution.</p>
+<p t="1275790" d="2310">So this is going
+to be our answer.</p>
+<p t="1278100" d="5750">This'll be the general solution
+to this differential equation.</p>
+<p t="1283850" d="3660">What functions have minus the
+second derivative equal one,</p>
+<p t="1287510" d="1360">that's all I'm asking.</p>
+<p t="1288870" d="2110">What are they?</p>
+<p t="1290980" d="2420">So what is one of them?</p>
+<p t="1293400" d="5110">One function that has its
+second derivative is a constant</p>
+<p t="1298510" d="3340">and that constant is minus one.</p>
+<p t="1301850" d="2560">So if I want the second
+derivative to be a constant,</p>
+<p t="1304410" d="2990">what am I looking at? x squared.</p>
+<p t="1307400" d="1790">I'm looking at x squared.</p>
+<p t="1309190" d="2320">And I just want to
+figure out how many x</p>
+<p t="1311510" d="1870">squareds to get a one.</p>
+<p t="1313380" d="5130">So some number of x squareds
+and how many do I want?</p>
+<p t="1318510" d="1430">-1/2, good.</p>
+<p t="1319940" d="1470">Good.</p>
+<p t="1321410" d="560">-1/2.</p>
+<p t="1321970" d="2060">Because x squared
+would give me two</p>
+<p t="1324030" d="3830">but I want minus
+one so I need -1/2.</p>
+<p t="1327860" d="2730">Okay that's the
+particular solution.</p>
+<p t="1330590" d="7730">Now throw in all the solutions,
+I can add in any solution</p>
+<p t="1338320" d="2100">that has a zero
+on the right side,</p>
+<p t="1340420" d="8710">so what functions have second
+derivatives equals zero?</p>
+<p t="1349130" d="1850">x is good.</p>
+<p t="1350980" d="3330">I'm looking for two because
+it's a second derivative, second</p>
+<p t="1354310" d="1200">order equation.</p>
+<p t="1355510" d="1590">What's the other guy?</p>
+<p t="1357100" d="1380">Constant, good.</p>
+<p t="1358480" d="5110">So let me put the constant
+first, C, say, and Dx.</p>
+<p t="1363590" d="3070">Two constants that I can
+play with and what use</p>
+<p t="1366660" d="2480">am I going to make of them?</p>
+<p t="1369140" d="3570">I'm going to use those to
+satisfy the two boundary</p>
+<p t="1372710" d="3560">conditions.</p>
+<p t="1376270" d="4560">And it won't be difficult.
+You could say plug</p>
+<p t="1380830" d="3080">in the first boundary
+condition, get</p>
+<p t="1383910" d="1970">an equation for the
+constants, plug in</p>
+<p t="1385880" d="2070">the second, got
+another equation,</p>
+<p t="1387950" d="1670">we'll have two
+boundary conditions,</p>
+<p t="1389620" d="2170">two equations, two constants.</p>
+<p t="1391790" d="3260">Everything's going to come out.</p>
+<p t="1395050" d="7210">So if I plug in u(0)=0,
+what do I learn?</p>
+<p t="1402260" d="1450">C is zero, right?</p>
+<p t="1403710" d="2010">If I plug in, is that right?</p>
+<p t="1405720" d="2780">If I plug in zero, then
+that's zero already,</p>
+<p t="1408500" d="3690">this is zero already, so I
+just learned that C is zero.</p>
+<p t="1412190" d="4530">So C is zero.</p>
+<p t="1416720" d="5600">So I'm down to one constant,
+one unused boundary condition.</p>
+<p t="1422320" d="1230">Plug that in. u(1) = -1/2.</p>
+<p t="1428550" d="2080">What's D?</p>
+<p t="1430630" d="1310">It's 1/2, right.</p>
+<p t="1431940" d="2350">D is 1/2.</p>
+<p t="1434290" d="2050">So can I close this up?</p>
+<p t="1436340" d="2580">There's 1/2.</p>
+<p t="1438920" d="1460">Dx is 1/2.</p>
+<p t="1440380" d="3070">Now it just always
+pays to look back.</p>
+<p t="1443450" d="2650">At x=0, that's obviously zero.</p>
+<p t="1446100" d="5620">At x=1 it's zero because those
+are the same and I get zero.</p>
+<p t="1451720" d="2450">So -1/2 x squared plus 1/2 x.</p>
+<p t="1459950" d="3670">That's the kind of differential
+equation and solution</p>
+<p t="1463620" d="1450">that we're looking for.</p>
+<p t="1465070" d="3780">Not complicated nonlinear stuff.</p>
+<p t="1468850" d="6630">So now I'm ready to move
+to the difference equation.</p>
+<p t="1475480" d="5870">So again, this is a major step.</p>
+<p t="1481350" d="5430">I'll draw a picture of
+this from zero to one.</p>
+<p t="1486780" d="4220">And if I graph that I think
+I get a parabola, right?</p>
+<p t="1491000" d="2550">A parabola that has
+to go through here.</p>
+<p t="1493550" d="3390">So it's some parabola like that.</p>
+<p t="1496940" d="4600">That would be always good, to
+draw a graph of the solution.</p>
+<p t="1501540" d="2250">Now, what do I get here?</p>
+<p t="1503790" d="2470">Moving to the
+difference equation.</p>
+<p t="1506260" d="6220">So that's the equation, and
+notice its boundary conditions.</p>
+<p t="1512480" d="3060">Those boundary conditions
+just copied this one</p>
+<p t="1515540" d="4620">because I've chopped this up.</p>
+<p t="1520160" d="6760">I've got i = 1, 2, 3,
+4, 5, and this is one,</p>
+<p t="1526920" d="4610">the last point then is 6h.</p>
+<p t="1531530" d="790">h is 1/6.</p>
+<p t="1535080" d="2370">What's going to be
+the size of my matrix</p>
+<p t="1537450" d="4150">and my vector and
+my unknown u here?</p>
+<p t="1541600" d="1790">How many unknowns
+am I going to have?</p>
+<p t="1543390" d="2954">Let's just get the
+overall picture right.</p>
+<p t="1546344" d="1416">What are the
+unknowns going to be?</p>
+<p t="1547760" d="1833">They're going to be
+u_1, u_2, u_3, u_4, u_5.</p>
+<p t="1551930" d="770">Those are unknown.</p>
+<p t="1552700" d="1660">Those will be some
+values, I don't</p>
+<p t="1554360" d="4620">know where, maybe something
+like this because they'll</p>
+<p t="1558980" d="2080">be sort of like that one.</p>
+<p t="1561060" d="5370">And this is not an unknown, u_6;
+this is not an unknown, u_0;</p>
+<p t="1566430" d="1920">those are the ones we know.</p>
+<p t="1568350" d="6040">So this is what the solution
+to a difference equation</p>
+<p t="1574390" d="790">looks like.</p>
+<p t="1575180" d="3300">It gives you a discrete
+set of unknowns.</p>
+<p t="1578480" d="2510">And then, of course
+MATLAB or any code</p>
+<p t="1580990" d="3030">could connect them
+up by straight lines</p>
+<p t="1584020" d="4390">and give you a function.</p>
+<p t="1588410" d="5220">But the heart of it
+is these five values.</p>
+<p t="1593630" d="5260">Okay, good.</p>
+<p t="1598890" d="5510">And those five values
+come from these equations.</p>
+<p t="1604400" d="2040">I'm introducing
+this subscript stuff</p>
+<p t="1606440" d="3520">but I won't need it all the time
+because you'll see the picture.</p>
+<p t="1609960" d="6290">This equation applies for
+i equal one up to five.</p>
+<p t="1616250" d="5030">Five inside points and then
+you notice how when i is one,</p>
+<p t="1621280" d="3030">this needs u_0, but we know u_0.</p>
+<p t="1624310" d="4600">And when i is five, this
+needs u_6, but we know u_6.</p>
+<p t="1628910" d="3390">So it's a closed
+five by five system</p>
+<p t="1632300" d="4920">and it will be our matrix.</p>
+<p t="1637220" d="3830">That -1, 2, -1 is what
+sits on the matrix.</p>
+<p t="1641050" d="3440">When we close it with the
+two boundary conditions</p>
+<p t="1644490" d="3700">it chops off the
+zero column, you</p>
+<p t="1648190" d="2320">could say and chops
+off the six column</p>
+<p t="1650510" d="7140">and leaves us with a five
+by five problem and yeah.</p>
+<p t="1657650" d="6650">I guess this is a step not
+to jump past because it</p>
+<p t="1664300" d="4070">takes a little practice.</p>
+<p t="1668370" d="2900">You see I've written
+the same thing two ways.</p>
+<p t="1671270" d="1810">Let me write it a third way.</p>
+<p t="1673080" d="2190">Let me write it out clearly.</p>
+<p t="1675270" d="3940">So now here I'm going to
+complete this matrix with a two</p>
+<p t="1679210" d="5160">and a minus one and a two and
+a minus one and now it's five</p>
+<p t="1684370" d="1180">by five.</p>
+<p t="1685550" d="3930">And those might
+be u, but I don't</p>
+<p t="1689480" d="9170">know if they are, so let me put
+in u_1, u_2, u_3, u_4, and u_5.</p>
+<p t="1703200" d="3500">Oh and divide by h squared.</p>
+<p t="1706700" d="4460">I'll often forget that.</p>
+<p t="1711160" d="1580">So I'm asking you
+to see something</p>
+<p t="1712740" d="2790">that if you haven't, after
+you get the hang of it</p>
+<p t="1715530" d="2540">it's like, automatic.</p>
+<p t="1718070" d="2191">But I have to remember
+it's not automatic.</p>
+<p t="1720261" d="1499">Things aren't
+automatic until you've</p>
+<p t="1721760" d="1390">done them a couple of times.</p>
+<p t="1723150" d="10280">So do you see that that is a
+concrete statement of this?</p>
+<p t="1733430" d="3290">This delta x squared
+is the h squared.</p>
+<p t="1736720" d="3130">And do you see those
+differences when</p>
+<p t="1739850" d="4440">I do that multiplication that
+they produce those differences?</p>
+<p t="1744290" d="3010">And now, what's my
+right-hand side?</p>
+<p t="1747300" d="5420">Well I've changed the right-hand
+side to one to make it easy.</p>
+<p t="1752720" d="4680">So this right-hand
+side is all ones.</p>
+<p t="1757400" d="8260">And this is the problem
+that MATLAB would solve</p>
+<p t="1765660" d="2140">or whatever code.</p>
+<p t="1767800" d="2530">Find a difference code.</p>
+<p t="1770330" d="4570">I've got to a linear
+system, five by five,</p>
+<p t="1774900" d="4740">it's fortunately-- the
+matrix is not singular,</p>
+<p t="1779640" d="4380">there is a solution.</p>
+<p t="1784020" d="1380">How does MATLAB find it?</p>
+<p t="1785400" d="5140">It does not find it by finding
+the inverse of that matrix.</p>
+<p t="1790540" d="2780">Monday's lecture
+will quickly review</p>
+<p t="1793320" d="5400">how to solve five equations
+and five unknowns.</p>
+<p t="1798720" d="3720">It's by elimination, I'll
+tell you the key word.</p>
+<p t="1802440" d="2940">And that's what every code does.</p>
+<p t="1805380" d="2940">And sometimes you would
+have to exchange rows,</p>
+<p t="1808320" d="2670">but not for a positive
+definite matrix like that.</p>
+<p t="1810990" d="2270">It'll just go bzzz,
+right through.</p>
+<p t="1813260" d="4730">When it's tridiagonal it'll go
+like with the speed of light</p>
+<p t="1817990" d="2020">and you'll get the answer.</p>
+<p t="1820010" d="3002">And those five answers will
+be these five heights. u_1,</p>
+<p t="1823012" d="958">u_2, u_3, u_4, and u_5.</p>
+<p t="1829160" d="2360">And we could figure it out.</p>
+<p t="1831520" d="3910">Actually I think section
+1.2 gives the formula</p>
+<p t="1835430" d="5830">for this particular model
+problem for any size,</p>
+<p t="1841260" d="3120">in particular for five by five.</p>
+<p t="1844380" d="11060">And there is something
+wonderful for this special case.</p>
+<p t="1855440" d="4790">The five points fall right
+on the correct parabola,</p>
+<p t="1860230" d="1680">they're exactly right.</p>
+<p t="1861910" d="4400">So for this particular case when
+the solution was a quadratic,</p>
+<p t="1866310" d="3520">the exact solution was
+a quadratic, a parabola,</p>
+<p t="1869830" d="4710">it will turn out-- and
+that quadratic matches</p>
+<p t="1874540" d="2670">these boundary conditions,
+it will turn out</p>
+<p t="1877210" d="8200">that those points are
+right on the money.</p>
+<p t="1885410" d="2560">So that's, you
+could call, is like,</p>
+<p t="1887970" d="1540">super-convergence or something.</p>
+<p t="1889510" d="3170">I mean that won't
+happen every time,</p>
+<p t="1892680" d="7060">otherwise life would
+be like, too easy.</p>
+<p t="1899740" d="6620">It's a good life, but it's
+not that good as a rule.</p>
+<p t="1906360" d="10000">So they fall right
+on that curve.</p>
+<p t="1916360" d="3460">And we can say what
+those numbers are.</p>
+<p t="1919820" d="1970">Actually, we know what they are.</p>
+<p t="1921790" d="2070">Actually, I guess
+I could find them.</p>
+<p t="1923860" d="6080">What are those numbers then?</p>
+<p t="1929940" d="2360">And of course,
+one over h squared</p>
+<p t="1932300" d="3840">is-- What's one over h
+squared, just to not forget?</p>
+<p t="1936140" d="4730">One over h squared
+there, h is what?</p>
+<p t="1940870" d="1530">1/6.</p>
+<p t="1942400" d="2030">Squared, it's going to be a 36.</p>
+<p t="1944430" d="5610">So if I bring it up here,
+bring the h squared up here,</p>
+<p t="1950040" d="3530">it would be times a 36.</p>
+<p t="1953570" d="4110">Well let me leave it here, 36.</p>
+<p t="1957680" d="3370">And I'm just saying that these
+numbers would come out right.</p>
+<p t="1961050" d="1920">Maybe I'll just
+do the first one.</p>
+<p t="1962970" d="2600">What's the exact u_1, u_2?</p>
+<p t="1965570" d="2800">u_1 and u_2 would be what?</p>
+<p t="1968370" d="2790">The exact u_1, ooh!</p>
+<p t="1971160" d="2760">Oh shoot, I've got
+to figure it out.</p>
+<p t="1973920" d="4360">If I plug in x=1/6...</p>
+<p t="1978280" d="6180">Do we want to do this?</p>
+<p t="1984460" d="1520">Plug in x=1/6?</p>
+<p t="1985980" d="2330">No, we don't.</p>
+<p t="1988310" d="530">We don't.</p>
+<p t="1988840" d="2530">We've got something better
+to do with our lives.</p>
+<p t="1991370" d="3370">But if we put that
+number in, whatever</p>
+<p t="1994740" d="4720">the heck it is, in this one, we
+would find out came out right.</p>
+<p t="1999460" d="3120">The fact that it comes
+out right is important.</p>
+<p t="2002580" d="11850">But I'd like to move on
+to a similar problem.</p>
+<p t="2014430" d="3970">But this one is going
+to be free-fixed.</p>
+<p t="2018400" d="6450">So if this problem was like
+having an elastic bar hanging</p>
+<p t="2024850" d="2490">under its own weight
+and these would</p>
+<p t="2027340" d="6050">be the displacements points on
+the bar and fixed at the ends,</p>
+<p t="2033390" d="3020">now I'm freeing up the top end.</p>
+<p t="2036410" d="5840">I'm not making u_0 zero anymore.</p>
+<p t="2042250" d="3160">I better maybe use a
+different blackboard</p>
+<p t="2045410" d="6600">because that's so important
+that I don't want to erase it.</p>
+<p t="2052010" d="8840">So let me take the same problem,
+uniform bar, uniform load,</p>
+<p t="2060850" d="6550">but I'm going to fix
+u(1), that's fixed,</p>
+<p t="2067400" d="2760">but I'm going to free this end.</p>
+<p t="2070160" d="2290">And from a differential
+equation point of view,</p>
+<p t="2072450" d="6551">that means I'm going to set
+the slope at zero to be zero.</p>
+<p t="2079001" d="499">u'(0)=0.</p>
+<p t="2084930" d="3200">That's going to have
+a different solution.</p>
+<p t="2088130" d="2870">Change the boundary conditions
+is going to change the answer.</p>
+<p t="2091000" d="1470">Let's find the solution.</p>
+<p t="2092470" d="3530">So here's another
+differential equation.</p>
+<p t="2096000" d="2330">Same equation, different
+boundary conditions,</p>
+<p t="2098330" d="2350">so how do we go?</p>
+<p t="2100680" d="3490">Well I had the general
+solution over there.</p>
+<p t="2104170" d="6400">It still works, right? u(x)
+is still -1/2 of x squared.</p>
+<p t="2110570" d="3120">The particular solution
+that gives me the one.</p>
+<p t="2113690" d="5610">Plus the Cx plus D that
+gives me zero and zero</p>
+<p t="2119300" d="2820">for second derivatives
+but gives me</p>
+<p t="2122120" d="5100">the possibility to satisfy
+the two boundary conditions.</p>
+<p t="2127220" d="2540">And now again, plug in
+the boundary conditions</p>
+<p t="2129760" d="5620">to find C and D.
+Slope is 0 at 0.</p>
+<p t="2135380" d="2580">What does that tell me?</p>
+<p t="2137960" d="1490">I have to plug that in.</p>
+<p t="2139450" d="3740">Here's my solution, I have
+to take its derivative</p>
+<p t="2143190" d="3430">and set x to zero.</p>
+<p t="2146620" d="3790">So its derivative
+is a 2x or a minus x</p>
+<p t="2150410" d="3150">or something which is zero.</p>
+<p t="2153560" d="6830">The derivative of that is C and
+the derivative of that is zero.</p>
+<p t="2160390" d="3110">What am I learning from
+that left, the free boundary</p>
+<p t="2163500" d="3190">condition?</p>
+<p t="2166690" d="2130">C is zero, right?</p>
+<p t="2168820" d="2910">C is zero because
+the slope here is C</p>
+<p t="2171730" d="1250">and it's supposed to be zero.</p>
+<p t="2172980" d="3230">So C is zero.</p>
+<p t="2176210" d="2860">Now the other
+boundary condition.</p>
+<p t="2179070" d="2810">Plug in x=1.</p>
+<p t="2181880" d="2960">I want to get the answer zero.</p>
+<p t="2184840" d="7250">The answer I do get is -1/2 at
+x=1, plus D. So what is D then?</p>
+<p t="2192090" d="1060">What's D?</p>
+<p t="2193150" d="3590">Let me raise that.</p>
+<p t="2196740" d="3580">What do I learn about D?</p>
+<p t="2200320" d="3360">It's 1/2.</p>
+<p t="2203680" d="1500">I need 1/2.</p>
+<p t="2205180" d="12800">So the answer is -1/2
+of x squared plus 1/2.</p>
+<p t="2217980" d="6960">Not 1/2 x as it was
+over there, but 1/2.</p>
+<p t="2224940" d="1310">And now let's graph it.</p>
+<p t="2226250" d="2100">Always pays to
+graph these things</p>
+<p t="2228350" d="4410">between x equals zero and one.</p>
+<p t="2232760" d="2930">What does this looks like?</p>
+<p t="2235690" d="1860">It starts at 1/2, right?</p>
+<p t="2237550" d="2180">At x=0.</p>
+<p t="2239730" d="1950">And it's a parabola, right?</p>
+<p t="2241680" d="930">It's a parabola.</p>
+<p t="2242610" d="2210">And I know it goes
+through this point.</p>
+<p t="2244820" d="4150">What else do I know?</p>
+<p t="2248970" d="3280">Slope starts at?</p>
+<p t="2252250" d="1510">The slope starts at zero.</p>
+<p t="2253760" d="1710">The other, the
+boundary condition,</p>
+<p t="2255470" d="2330">the free condition
+at the left-hand end,</p>
+<p t="2257800" d="4730">so slope starts at zero, so the
+parabola comes down like that.</p>
+<p t="2262530" d="2900">It's like half
+a-- where that was</p>
+<p t="2265430" d="5730">a symmetric bit of a parabola,
+this is just half of it.</p>
+<p t="2271160" d="5510">The slope is zero.</p>
+<p t="2276670" d="3420">And so that's a graph of u(x) .</p>
+<p t="2280090" d="7280">Now I'm ready to replace it
+by a difference equation.</p>
+<p t="2287370" d="2070">So what'll be the
+difference equation?</p>
+<p t="2289440" d="4340">It'll be the same
+equation for the -u''.</p>
+<p t="2293780" d="3100">No change.</p>
+<p t="2296880" d="8740">So minus u_(i+1) minus 2u_i,
+minus u_(i-1) over h squared</p>
+<p t="2305620" d="9030">equals-- I'm taking f(x) to be
+one, so let's stay with one.</p>
+<p t="2314650" d="3740">Okay, big moment.</p>
+<p t="2318390" d="2540">What boundary conditions?</p>
+<p t="2320930" d="1630">What boundary conditions?</p>
+<p t="2322560" d="3140">Well, this guy is pretty clear.</p>
+<p t="2325700" d="6060">That says u_(n+1) is zero.</p>
+<p t="2331760" d="4030">What do I do for zero slope?</p>
+<p t="2335790" d="1690">What do I do for a zero slope?</p>
+<p t="2337480" d="2720">Okay, let me suggest
+one possibility.</p>
+<p t="2340200" d="5320">It's not the greatest, but one
+possibility for zero slope is</p>
+<p t="2345520" d="6280">(u_1-u_0)/h -- that's
+the approximate slope --</p>
+<p t="2351800" d="2860">should be zero.</p>
+<p t="2354660" d="6800">So that's my choice for the
+left-hand boundary condition.</p>
+<p t="2361460" d="3360">It says u_1 is u_0 .</p>
+<p t="2364820" d="3570">It says that u_1 is u_0 .</p>
+<p t="2368390" d="9202">So now I've got
+again five equations</p>
+<p t="2377592" d="1958">for five unknowns, u_1,
+u_2, u_3, u_4, and u_5.</p>
+<p t="2384930" d="1710">I'll write down what they are.</p>
+<p t="2386640" d="3320">Well, you know what they are.</p>
+<p t="2389960" d="2950">So this thing
+divided by h squared</p>
+<p t="2392910" d="5060">is all ones, just like before.</p>
+<p t="2397970" d="7240">And of course all these
+rows are not changed.</p>
+<p t="2405210" d="2650">But the first row is changed
+because we have a new boundary</p>
+<p t="2407860" d="2020">condition at the left end.</p>
+<p t="2409880" d="1740">And it's this.</p>
+<p t="2411620" d="2510">So u_1, well u_0
+isn't in the picture,</p>
+<p t="2414130" d="5770">but previously what
+happened to u_0, when</p>
+<p t="2419900" d="2280">i is one, I'm in the
+first equation here,</p>
+<p t="2422180" d="2410">that's where I'm
+looking. i is one.</p>
+<p t="2424590" d="1620">It had a u_0.</p>
+<p t="2426210" d="1980">Gone.</p>
+<p t="2428190" d="6610">In this case it's not gone.
+u_0 comes back in, u_0 is u_1.</p>
+<p t="2434800" d="1800">That might-- Ooh!</p>
+<p t="2436600" d="1490">Don't let me do this wrong.</p>
+<p t="2438090" d="500">Ah!</p>
+<p t="2438590" d="3760">Don't let me do it worse!</p>
+<p t="2442350" d="790">All right.</p>
+<p t="2443140" d="640">There we go.</p>
+<p t="2443780" d="500">Good.</p>
+<p t="2444280" d="3540">Okay.</p>
+<p t="2447820" d="4760">Please, last time I
+videotaped lecture 10</p>
+<p t="2452580" d="3730">had to fix up lecture 9,
+because I don't go in.</p>
+<p t="2456310" d="3410">Professor Lewin in the
+physics lectures, he cheats,</p>
+<p t="2459720" d="4040">doesn't cheat, but he goes
+into the lectures afterwards</p>
+<p t="2463760" d="1580">and fixes them.</p>
+<p t="2465340" d="5580">But you get exactly
+what it looks like.</p>
+<p t="2470920" d="2240">So now it's fixed, I hope.</p>
+<p t="2473160" d="3670">But don't let me screw up.</p>
+<p t="2476830" d="5490">So now, what's on this top row?</p>
+<p t="2482320" d="940">When i is one.</p>
+<p t="2483260" d="3450">I have minus u_2, that's fine.</p>
+<p t="2486710" d="4880">I have 2u_1 as before,
+but now I have a minus</p>
+<p t="2491590" d="2800">u_1 because u_0 and
+u_1 are the same.</p>
+<p t="2494390" d="2710">So I just have a one in there.</p>
+<p t="2497100" d="5710">That's our matrix that we called
+T. The top row is changed,</p>
+<p t="2502810" d="1620">the top row is free.</p>
+<p t="2504430" d="4480">This is the equation T
+times u divided by h squared</p>
+<p t="2508910" d="8260">is the right-hand side, ones.
+ones(5), I would call that.</p>
+<p t="2517170" d="3260">Properly I would
+call it ones(5, 1),</p>
+<p t="2520430" d="3980">because the MATLAB command
+'ones' wants matrix</p>
+<p t="2524410" d="4580">and it's a matrix with
+five rows, one column.</p>
+<p t="2528990" d="3950">But it's T, that's
+the important thing.</p>
+<p t="2532940" d="8030">And would you like to guess
+what the solution looks like?</p>
+<p t="2540970" d="4550">In particular, is it
+again exactly right?</p>
+<p t="2545520" d="3940">Is it right on the money?</p>
+<p t="2549460" d="6330">Or if not, why not?</p>
+<p t="2555790" d="2820">The computer will
+tell us, of course.</p>
+<p t="2558610" d="2780">It will tell us whether we
+get agreement with this.</p>
+<p t="2561390" d="6670">This is the exact solution here
+and this is the exact parabola</p>
+<p t="2568060" d="3660">starting with zero slope.</p>
+<p t="2571720" d="2710">So but I solved this problem.</p>
+<p t="2574430" d="3822">Oh, let me see, I didn't get
+u_1, u_2 to u_5 in there.</p>
+<p t="2578252" d="2208">So it didn't look right.
+u_1, u_2, u_3, u_4, and u_5.</p>
+<p t="2584830" d="1560">And that's the right-hand side.</p>
+<p t="2586390" d="1860">Sorry about that.</p>
+<p t="2588250" d="4060">So that's T divided
+by h squared.</p>
+<p t="2592310" d="6780">T, with that top row changed,
+times U is the right-hand side.</p>
+<p t="2599090" d="4870">By the way, I
+better just say what</p>
+<p t="2603960" d="7030">was the reason that we came out
+exactly right on this problem?</p>
+<p t="2610990" d="4060">Would we come out exactly right
+if it was some general load</p>
+<p t="2615050" d="1860">f(x)?</p>
+<p t="2616910" d="1210">No.</p>
+<p t="2618120" d="4120">Finite differences
+can't do miracles.</p>
+<p t="2622240" d="2580">They have no way to know
+what's happening to f(x)</p>
+<p t="2624820" d="2940">between the mesh points, right?</p>
+<p t="2627760" d="5100">If I took this to be f(x) and
+took this at the five points,</p>
+<p t="2632860" d="2910">at these five
+points, this wouldn't</p>
+<p t="2635770" d="4820">know what f(x) is in between,
+couldn't be exactly right.</p>
+<p t="2640590" d="5310">It's exactly right in
+this lucky special case</p>
+<p t="2645900" d="5170">because, of course,
+it has the right ones.</p>
+<p t="2651070" d="3390">But also because, the
+reason it's exactly right</p>
+<p t="2654460" d="5210">is that second differences of
+quadratics are exactly right.</p>
+<p t="2659670" d="5070">That's what we checked on this
+board that's underneath there.</p>
+<p t="2664740" d="4680">Second differences of
+squares came out perfectly.</p>
+<p t="2669420" d="4410">And that's why the second
+differences of this guy</p>
+<p t="2673830" d="4150">give the right
+answer, so that guy</p>
+<p t="2677980" d="3630">is the answer to both the
+differential and the difference</p>
+<p t="2681610" d="2350">equation.</p>
+<p t="2683960" d="2750">I had to say that word about
+why was that exactly right.</p>
+<p t="2686710" d="2680">It was exactly right because
+second differences of squares</p>
+<p t="2689390" d="1330">are exactly right.</p>
+<p t="2690720" d="3050">Now, again, we have second
+differences of squares.</p>
+<p t="2693770" d="4145">So you could say
+exactly right or no?</p>
+<p t="2697915" d="875">What are you betting?</p>
+<p t="2698790" d="4470">How many think, yeah, it's going
+to come out on the parabola?</p>
+<p t="2703260" d="1190">Nobody.</p>
+<p t="2704450" d="2140">Right.</p>
+<p t="2706590" d="3520">Everybody thinks there's
+something going to miss here.</p>
+<p t="2710110" d="1580">And why?</p>
+<p t="2711690" d="2650">Why am I going to
+miss something?</p>
+<p t="2714340" d="3190">Yes?</p>
+<p t="2717530" d="2960">It's a first-order approximation
+at the left boundary.</p>
+<p t="2720490" d="2200">Exactly right, exactly right.</p>
+<p t="2722690" d="4200">It's a first-order
+approximation to take this</p>
+<p t="2726890" d="2710">and I'm not going
+to get it right.</p>
+<p t="2729600" d="3540">That first-order approximation,
+that error of size h</p>
+<p t="2733140" d="6260">is going to penetrate
+over the whole interval.</p>
+<p t="2739400" d="1030">It'll be biggest here.</p>
+<p t="2740430" d="2820">Actually I think it turns
+out, and the book has a graph,</p>
+<p t="2743250" d="4710">I think it comes out
+wrong by 1/2 h there.</p>
+<p t="2747960" d="1680">1/2 h, first order.</p>
+<p t="2749640" d="4130">And then it, of
+course, it's discrete</p>
+<p t="2753770" d="2300">and of course it's straight
+across because that's</p>
+<p t="2756070" d="1760">the boundary condition, right?</p>
+<p t="2757830" d="5920">And then it starts down, it gets
+sort of closer, closer, closer</p>
+<p t="2763750" d="2530">and gets, of course,
+that's right at the end.</p>
+<p t="2766280" d="2570">But there's an error.</p>
+<p t="2768850" d="7120">The difference between u, the
+true u, and the computed u</p>
+<p t="2775970" d="6710">is of order h.</p>
+<p t="2782680" d="5660">So you could say alright, if h
+is small I can live with that.</p>
+<p t="2788340" d="3810">But as I said in
+the end you really</p>
+<p t="2792150" d="2500">want to get second order
+accuracy if you can.</p>
+<p t="2794650" d="1730">And in a simple
+problem like this</p>
+<p t="2796380" d="2940">we should be able to do it.</p>
+<p t="2799320" d="5310">What I've done already
+covers section 1.2</p>
+<p t="2804630" d="3490">but then there's a
+note, a worked example</p>
+<p t="2808120" d="8700">at the end of 1.2 that tells you
+how to upgrade to second order.</p>
+<p t="2816820" d="4040">And maybe we've got a moment
+to see how would we do it.</p>
+<p t="2820860" d="3370">What would you suggest
+that I do differently?</p>
+<p t="2824230" d="3060">I'll get a different matrix.</p>
+<p t="2827290" d="2350">I'll get a different
+discrete problem.</p>
+<p t="2829640" d="1220">But that'll be okay.</p>
+<p t="2830860" d="2070">I can solve that just as well.</p>
+<p t="2832930" d="3980">And what shall I
+replace that by?</p>
+<p t="2836910" d="2570">because that was the
+guilty party, as you said.</p>
+<p t="2839480" d="1790">That was guilty.</p>
+<p t="2841270" d="2130">That's only a first
+order approximation</p>
+<p t="2843400" d="5270">to zero slope at zero.</p>
+<p t="2848670" d="1840">A couple of ways we could go.</p>
+<p t="2850510" d="3410">This is a correct second
+order approximation</p>
+<p t="2853920" d="4150">at what mesh point?</p>
+<p t="2858070" d="5990">That is a correct second order
+approximation to u'=0, but not</p>
+<p t="2864060" d="4410">at that point or at
+that point where?</p>
+<p t="2868470" d="2290">Halfway between.</p>
+<p t="2870760" d="1790">If I was looking
+at a point halfway</p>
+<p t="2872550" d="2420">between that, that
+would be centered there,</p>
+<p t="2874970" d="1610">that would be a
+centered difference</p>
+<p t="2876580" d="1060">and it would be good.</p>
+<p t="2877640" d="2710">But we're not looking there.</p>
+<p t="2880350" d="1930">So I'm looking here.</p>
+<p t="2882280" d="4700">So what do you suggest I do?</p>
+<p t="2886980" d="3900">Well I've got to center it.</p>
+<p t="2890880" d="2020">Essentially I'm
+going to use u_(-1).</p>
+<p t="2895990" d="1430">I'm going to use u_(-1).</p>
+<p t="2897420" d="5630">And let me just say
+what the effect is.</p>
+<p t="2903050" d="4870">You remember we started with
+the usual second difference</p>
+<p t="2907920" d="3810">here, 2, -1, -1.</p>
+<p t="2911730" d="2940">This is what got chopped
+off for the fixed method.</p>
+<p t="2914670" d="3320">It got brought back here
+by our first order method.</p>
+<p t="2917990" d="3580">Our second order
+method will-- You</p>
+<p t="2921570" d="2330">see what's likely to happen?</p>
+<p t="2923900" d="4400">That minus one is
+going to show up where?</p>
+<p t="2928300" d="2480">Over here.</p>
+<p t="2930780" d="1750">To center it around zero.</p>
+<p t="2932530" d="6770">So that guy will make
+this into a minus two.</p>
+<p t="2939300" d="4190">Now that matrix is still fine.</p>
+<p t="2943490" d="4030">It's not one of our
+special matrices.</p>
+<p t="2947520" d="2530">When I say fine, it's
+not beautiful is it?</p>
+<p t="2950050" d="7590">It's got one, like,
+flaw, it needs</p>
+<p t="2957640" d="2830">what do you call it when
+you have your face--</p>
+<p t="2960470" d="2520">cosmetic surgery or something.</p>
+<p t="2962990" d="2360">It needs a small improvement.</p>
+<p t="2965350" d="2610">So what's the matter with it?</p>
+<p t="2967960" d="2810">It's not symmetric.</p>
+<p t="2970770" d="2290">It's not symmetric
+and a person isn't</p>
+<p t="2973060" d="3570">happy with a un-symmetric
+problem, approximation</p>
+<p t="2976630" d="2180">to a perfectly symmetric thing.</p>
+<p t="2978810" d="3040">So I could just divide
+that row by two.</p>
+<p t="2981850" d="4170">If I divide that row by 2, which
+you won't mind if I do that,</p>
+<p t="2986020" d="4880">make that one, minus
+one and makes this 1/2.</p>
+<p t="2990900" d="4120">I divided the first
+equation by two.</p>
+<p t="2995020" d="7940">Look in the notes in
+the text if you can.</p>
+<p t="3002960" d="2910">And the result is
+now it's right on.</p>
+<p t="3005870" d="1600">It's exactly on.</p>
+<p t="3007470" d="4670">Because again, the solution,
+the true solution is squares.</p>
+<p t="3012140" d="5120">This is now second order and
+we'll get it exactly right.</p>
+<p t="3017260" d="4530">And I say all this
+for two reasons.</p>
+<p t="3021790" d="3510">One is to emphasize again that
+the boundary conditions are</p>
+<p t="3025300" d="4790">critical and that they
+penetrate into the region.</p>
+<p t="3030090" d="2790">The second reason
+for my saying this</p>
+<p t="3032880" d="4660">is looking forward
+way into October.</p>
+<p t="3037540" d="4130">So let me just say the
+finite element method, which</p>
+<p t="3041670" d="3120">you may know a little about,
+you may have heard about,</p>
+<p t="3044790" d="3720">it's another-- this
+was finite differences.</p>
+<p t="3048510" d="2000">Courses starting with
+finite differences,</p>
+<p t="3050510" d="1750">because that's the
+most direct way.</p>
+<p t="3052260" d="1070">You just go for it.</p>
+<p t="3053330" d="4130">You've got derivatives, you
+replace them by differences.</p>
+<p t="3057460" d="11430">But another approach which turns
+out to be great for big codes</p>
+<p t="3068890" d="3280">and also turns out to
+be great for making,</p>
+<p t="3072170" d="4050">for keeping the properties of
+the problem, the finite element</p>
+<p t="3076220" d="5300">method, you'll see it, it's
+weeks away, but when it comes,</p>
+<p t="3081520" d="3260">notice, the finite element
+method automatically</p>
+<p t="3084780" d="2760">produces that first equation.</p>
+<p t="3087540" d="2340">Automatically gets it right.</p>
+<p t="3089880" d="3130">So that's pretty special.</p>
+<p t="3093010" d="3660">And so, the finite
+element method just has,</p>
+<p t="3096670" d="2490">it produces that
+second order accuracy</p>
+<p t="3099160" d="9170">that we didn't get automatically
+for finite differences.</p>
+<p t="3108330" d="4470">Okay, questions on today
+or on the homework.</p>
+<p t="3112800" d="2960">So the homework is
+really wide open.</p>
+<p t="3115760" d="3790">It's really just a
+chance to start to see.</p>
+<p t="3119550" d="4100">I mean, the real homework
+is read those two sections</p>
+<p t="3123650" d="5660">of the book to capture what
+these two lectures have done.</p>
+<p t="3129310" d="2560">So Monday I'll see.</p>
+<p t="3131870" d="1510">We'll do elimination.</p>
+<p t="3133380" d="4150">We'll solve these equations
+quickly and then move on</p>
+<p t="3137530" d="4070">to the inverse matrix.</p>
+<p t="3141600" d="3790">More understanding
+of these problems.</p>
+<p t="3145390" d="788">Thanks.</p>
+</body>
+</timedtext>

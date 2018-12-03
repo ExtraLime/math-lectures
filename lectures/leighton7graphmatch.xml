@@ -1,0 +1,2161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="500" d="2160">The following content is
+provided under a Creative</p>
+<p t="2660" d="1510">Commons license.</p>
+<p t="4170" d="2350">Your support will help
+MIT OpenCourseWare</p>
+<p t="6520" d="4360">continue to offer high quality
+educational resources for free.</p>
+<p t="10880" d="2620">To make a donation or
+view additional materials</p>
+<p t="13500" d="3872">from hundreds of MIT courses,
+visit MIT OpenCourseWare</p>
+<p t="17372" d="625">at ocw.mit.edu.</p>
+<p t="23530" d="4970">PROFESSOR: OK, on Tuesday
+we talked about sex,</p>
+<p t="28500" d="4020">so today we're going
+to talk about marriage.</p>
+<p t="32520" d="3250">Now, in terms of
+graph theory, marriage</p>
+<p t="35770" d="3200">is expressed as a
+matching problem,</p>
+<p t="38970" d="5100">and today we're going to talk
+about a matching algorithm that</p>
+<p t="44070" d="2000">is used in all sorts
+of applications.</p>
+<p t="46070" d="2930">It's used by online
+dating agencies</p>
+<p t="49000" d="2720">to match compatible
+people together.</p>
+<p t="51720" d="3110">It's used for
+assignment problems,</p>
+<p t="54830" d="4070">for example, matching interns
+to hospitals on match day.</p>
+<p t="58900" d="2730">It's used for resource
+allocation problems,</p>
+<p t="61630" d="3389">for example, load balancing
+traffic on the internet.</p>
+<p t="65019" d="1551">And we'll talk about
+the applications</p>
+<p t="66570" d="2500">at the end of class.</p>
+<p t="69070" d="2890">In its simplest form
+of a matching problem,</p>
+<p t="71960" d="3730">you have a graph where the
+edges represent compatibility.</p>
+<p t="75690" d="3600">Two nodes can be paired
+together, or married,</p>
+<p t="79290" d="2850">and the goal is to
+create the maximum number</p>
+<p t="82140" d="2330">of compatible pairs.</p>
+<p t="84470" d="11620">So let's define a
+matching, given a graph, G,</p>
+<p t="96090" d="9740">with nodes, V, and
+edges, E. In matching,</p>
+<p t="105830" d="2070">you can think of it as
+a collection of edges,</p>
+<p t="107900" d="10320">or a subgraph of G where
+every node has degree 1.</p>
+<p t="118220" d="2490">So everybody can be
+married just to one person.</p>
+<p t="133960" d="22615">So let's draw an example,
+maybe not put that edge in.</p>
+<p t="160752" d="13418">And let's label these nodes x1,
+x2, x3, x4, x5, x6, x7, and x8.</p>
+<p t="174170" d="12460">Now x1, x6 and x2, x5 is a
+matching, so x1, x6 and x2,</p>
+<p t="186630" d="6930">x5 is a matching with two edges,
+so we say it has size two.</p>
+<p t="199930" d="5060">All right, so I can pair these
+guys up and pair these guys up.</p>
+<p t="204990" d="1900">Is there any bigger
+matching in this graph?</p>
+<p t="211420" d="2850">So I found one with
+two marriages, here</p>
+<p t="214270" d="1590">and here, two edges.</p>
+<p t="215860" d="984">Yeah?</p>
+<p t="216844" d="1476">AUDIENCE: x1, x7.</p>
+<p t="218320" d="1820">PROFESSOR: x1, x7.</p>
+<p t="220140" d="1530">AUDIENCE: x2, x6.</p>
+<p t="221670" d="1320">PROFESSOR: x2, x6.</p>
+<p t="222990" d="1054">AUDIENCE: [INAUDIBLE].</p>
+<p t="224044" d="666">PROFESSOR: Good.</p>
+<p t="224710" d="2620">All right, that's a
+matching of size three.</p>
+<p t="227330" d="2510">So I got three couples together.</p>
+<p t="229840" d="1950">Good.</p>
+<p t="231790" d="6378">Can I make a bigger matching,
+one with size four--</p>
+<p t="238168" d="1202">four marriages here?</p>
+<p t="243000" d="1130">No.</p>
+<p t="244130" d="900">Why not?</p>
+<p t="245030" d="2590">Can anybody give me a
+reason why it can't be done?</p>
+<p t="252480" d="1594">Yeah?</p>
+<p t="254074" d="6736">AUDIENCE: x8 and x7 would have
+to be matched with someone.</p>
+<p t="260810" d="1647">PROFESSOR: Yeah, so if-- Yeah?</p>
+<p t="262457" d="1833">AUDIENCE: They could
+only be paired with x1,</p>
+<p t="264290" d="1534">but x1 can't be
+paired with both.</p>
+<p t="265824" d="666">PROFESSOR: Good.</p>
+<p t="266490" d="3590">If I were to have a
+matching with four edges,</p>
+<p t="270080" d="2170">well, there's only
+eight nodes, so I'd</p>
+<p t="272250" d="3550">have to have all eight nodes
+involved in the matching.</p>
+<p t="275800" d="3120">And that means x7 and x8 would
+have to be in the matching,</p>
+<p t="278920" d="3010">but they could only
+be paired with x1,</p>
+<p t="281930" d="3124">and so it's not
+possible to do that.</p>
+<p t="285054" d="1416">All right, so there
+is no matching</p>
+<p t="286470" d="1340">of size four in this graph.</p>
+<p t="287810" d="2500">Three is the best I can do.</p>
+<p t="290310" d="3380">Now, when you get every
+node in a matching,</p>
+<p t="293690" d="2770">then it's called a
+perfect matching.</p>
+<p t="296460" d="3040">And so in this case, it doesn't
+exist, but sometimes it does.</p>
+<p t="305010" d="10450">So a matching is
+perfect if it has</p>
+<p t="315460" d="6320">size half the number of nodes.</p>
+<p t="321780" d="2270">In other words, if the
+number of edges is v over 2,</p>
+<p t="324050" d="1600">then every node is
+in the matching.</p>
+<p t="329389" d="2291">All right, so that one doesn't
+have a perfect matching.</p>
+<p t="331680" d="920">What about this graph?</p>
+<p t="336270" d="11470">So I got b1, b2, b3,
+b4, g1, g2, g3, g4,</p>
+<p t="347740" d="1895">and I'll put in the
+compatibility edges here.</p>
+<p t="364510" d="6530">OK, Does that graph
+have a perfect matching?</p>
+<p t="371040" d="2320">Can you pair up
+every boy with a girl</p>
+<p t="373360" d="4250">here so that everybody is
+compatible with their mate,</p>
+<p t="377610" d="3338">and you have just one spouse?</p>
+<p t="380948" d="1047">Can you do that?</p>
+<p t="384717" d="583">AUDIENCE: Yes.</p>
+<p t="385300" d="666">PROFESSOR: Yeah?</p>
+<p t="385966" d="1764">All right, who do
+I start pairing up?</p>
+<p t="387730" d="1620">AUDIENCE: 1, 1.</p>
+<p t="389350" d="2780">AUDIENCE: 1, 1.</p>
+<p t="392130" d="1060">AUDIENCE: b2, g3.</p>
+<p t="393190" d="750">PROFESSOR: b2, g3.</p>
+<p t="396762" d="708">AUDIENCE: b3, g2.</p>
+<p t="397470" d="1912">PROFESSOR: b3, g2</p>
+<p t="399382" d="708">AUDIENCE: b4, g4.</p>
+<p t="400090" d="958">PROFESSOR: There we go.</p>
+<p t="401048" d="3052">All right, so there is a
+perfect matching in this graph.</p>
+<p t="404100" d="2900">Very good.</p>
+<p t="407000" d="3790">Now, in some cases,
+some pairings</p>
+<p t="410790" d="2770">are more desirable than
+others, and this can</p>
+<p t="413560" d="1787">be represented with a weight.</p>
+<p t="415347" d="1833">And so you might have
+a weighted graph where</p>
+<p t="417180" d="3220">every edge has a weight on it.</p>
+<p t="420400" d="7110">For example, we might
+weight b1, g2 with 5,</p>
+<p t="427510" d="3660">and b1, g1 gets a 10.</p>
+<p t="431170" d="2120">And usually when you
+see weighted graphs</p>
+<p t="433290" d="2620">in the matching
+context, a lower weight</p>
+<p t="435910" d="5090">means it's more desirable, so
+that b1 and g2 would get along</p>
+<p t="441000" d="3510">better than b1 and g1.</p>
+<p t="444510" d="3230">And then the goal is to find a
+matching with minimum weight.</p>
+<p t="452270" d="12470">Now, the weight of a
+matching, call it M,</p>
+<p t="464740" d="16660">is the sum of the weights
+on the edges of M. Now,</p>
+<p t="481400" d="2540">usually when you're looking
+at weighted matchings,</p>
+<p t="483940" d="4190">you require yourself to
+have a perfect matching so</p>
+<p t="488130" d="1800">that everybody gets paired up.</p>
+<p t="489930" d="3900">And often in that case, you'll
+see all the edges present,</p>
+<p t="493830" d="3090">some of them with very big
+weights, maybe even infinity</p>
+<p t="496920" d="1940">if they just can't
+be put together.</p>
+<p t="498860" d="2679">Because otherwise you just say,
+don't match anybody together,</p>
+<p t="501539" d="1041">and you have weight zero.</p>
+<p t="502580" d="3040">So for when you look at
+minimum weight matchings,</p>
+<p t="505620" d="2500">you're looking for the perfect
+matching with minimum weight.</p>
+<p t="512450" d="14730">So we say a min-weight
+matching for a graph, G,</p>
+<p t="527180" d="12230">is a perfect matching for
+G with the minimum weight,</p>
+<p t="539410" d="1135">overall perfect matchings.</p>
+<p t="548560" d="1130">Let's try an example.</p>
+<p t="554140" d="7640">Say I've got this graph,
+and call this node Brad,</p>
+<p t="561780" d="6846">here's Billy Bob, here's
+Jennifer, and then Angelina.</p>
+<p t="572320" d="2550">And the weights are as
+follows-- I put a 10 here,</p>
+<p t="574870" d="3840">a 10 down here, a 5
+here, because Brad really</p>
+<p t="578710" d="4080">likes Angelina and vice versa,
+and a 16 between Jennifer</p>
+<p t="582790" d="2280">and Billy Bob.</p>
+<p t="585070" d="5910">What is the weight of the min
+weight matching in that graph?</p>
+<p t="590980" d="1100">20.</p>
+<p t="592080" d="2680">And who gets paired
+with who there?</p>
+<p t="597680" d="2030">Who does Brad get
+hooked up with?</p>
+<p t="599710" d="1500">AUDIENCE: Jan.</p>
+<p t="601210" d="7270">PROFESSOR: Jan, and that
+leaves Billy Bob with Angelina,</p>
+<p t="608480" d="2550">and the weight is 20.</p>
+<p t="611030" d="4670">So even though Brad really likes
+Angelina, if I go that route,</p>
+<p t="615700" d="3030">my weight is 21,
+which is not as good.</p>
+<p t="618730" d="2510">So the min-weight matching
+would be this one.</p>
+<p t="624121" d="499">OK.</p>
+<p t="624620" d="4270">Now, it turns out that
+finding the maximum matching--</p>
+<p t="628890" d="2690">the maximum number of edges
+you can put together--</p>
+<p t="631580" d="4000">or finding the minimum
+weight perfect matching,</p>
+<p t="635580" d="2530">those are both solvable,
+tractable problems.</p>
+<p t="638110" d="3800">You don't get a million
+dollar prize for solving that.</p>
+<p t="641910" d="3530">The algorithm is run in
+quadratic to cubic time,</p>
+<p t="645440" d="3890">so not terrible, but
+they're not NP-complete,</p>
+<p t="649330" d="1390">so people know how to do it.</p>
+<p t="650720" d="2070">Now, they are
+pretty complicated,</p>
+<p t="652790" d="2520">so we're not going to
+cover them in 6042.</p>
+<p t="655310" d="2870">What we're going to do is look
+at a slightly different version</p>
+<p t="658180" d="2234">of the problem that
+actually turns out</p>
+<p t="660414" d="1916">to be more useful in
+practice, because there's</p>
+<p t="662330" d="2640">a very nice algorithm for it.</p>
+<p t="664970" d="2010">Now, in the version of
+the problem that we're</p>
+<p t="666980" d="4740">going to look at, everybody
+has preferences-- a preference</p>
+<p t="671720" d="840">list.</p>
+<p t="672560" d="2930">It's not weighted, but
+it's a priority order</p>
+<p t="675490" d="4050">of who they want to get
+mated to, or matched up with.</p>
+<p t="679540" d="2114">So it would look
+not quite like that,</p>
+<p t="681654" d="1166">but it would look like this.</p>
+<p t="688630" d="11850">So Brad, Billy Bob, Jennifer,
+and Angelina-- same players,</p>
+<p t="700480" d="4570">but what we do is we know that
+Brad really likes Angelina,</p>
+<p t="705050" d="3390">and Angelina really likes Brad,
+so they are first choices,</p>
+<p t="708440" d="2220">at least was.</p>
+<p t="710660" d="4330">Number two for Brad is Jennifer,
+but Jennifer really likes Brad</p>
+<p t="714990" d="2910">first, and Billy Bob second.</p>
+<p t="717900" d="4300">Billy Bob likes Angelina
+first, then Jennifer.</p>
+<p t="722200" d="3170">Angelina thinks Billy
+Bob is number two.</p>
+<p t="725370" d="3370">So it's not
+necessarily symmetric.</p>
+<p t="728740" d="1980">Jennifer has Brad
+as the first choice.</p>
+<p t="730720" d="2630">Brad has Angelina
+as the first choice.</p>
+<p t="733350" d="500">All right?</p>
+<p t="733850" d="3570">So it's an asymmetric situation.</p>
+<p t="737420" d="4540">Now, what would happen if we set
+up our marriages so that Brad</p>
+<p t="741960" d="3350">is married to Jen, and Billy
+Bob is married to Angelina?</p>
+<p t="748280" d="2690">What might happen if we
+made those as our pairings,</p>
+<p t="750970" d="2450">and we put them on a desert
+island, all four of them?</p>
+<p t="753420" d="3049">What's likely to happen there?</p>
+<p t="756469" d="2541">AUDIENCE: Brad and Angelina are
+going to cheat on each other.</p>
+<p t="759010" d="2210">PROFESSOR: Yeah, we're
+going to have a problem.</p>
+<p t="761220" d="3460">Because Brad and Angelina have
+the hots for each other here,</p>
+<p t="764680" d="3180">and they like each other
+better than their spouse.</p>
+<p t="767860" d="1500">So before you know
+it, they're going</p>
+<p t="769360" d="4509">to be doing their 6042 homework
+together late at night.</p>
+<p t="773869" d="1301">All right?</p>
+<p t="775170" d="3160">Now, when this happens, we have
+what's called a rogue couple.</p>
+<p t="785380" d="9500">Given a matching, x and
+y, a boy and a girl,</p>
+<p t="794880" d="24760">say, form a rogue couple
+if they prefer each other</p>
+<p t="819640" d="13830">over their mates
+in M. All right.</p>
+<p t="833470" d="2670">So here, if we married
+Brad to Jennifer,</p>
+<p t="836140" d="2720">and Billy Bob to Angelina,
+Brad and Angelina</p>
+<p t="838860" d="1420">form a rogue
+couple, because they</p>
+<p t="840280" d="3479">like each other better than
+who they were hooked up with.</p>
+<p t="843759" d="1291">And that's sort of a bad thing.</p>
+<p t="845050" d="2760">It creates instability
+if you were</p>
+<p t="847810" d="2720">to make the matchings that way.</p>
+<p t="850530" d="14710">In fact, we say that
+a matching is stable</p>
+<p t="865240" d="2995">if there aren't
+any rogue couples.</p>
+<p t="878890" d="4520">And now, one thing to make
+clear is that your preferences</p>
+<p t="883410" d="1920">can't change over time.</p>
+<p t="885330" d="2764">So it's not a situation where
+you get bored with your spouse,</p>
+<p t="888094" d="1416">and you change
+your mind, and then</p>
+<p t="889510" d="2220">you go off and create
+a rogue couple.</p>
+<p t="891730" d="3110">You're fixed in your
+preferences over all time,</p>
+<p t="894840" d="2310">no playing the field, none
+of that stuff here, OK?</p>
+<p t="897150" d="4440">So it's fixed once and for
+all, and your goal, of course,</p>
+<p t="901590" d="5130">is to create or find a perfect
+matching that's stable.</p>
+<p t="906720" d="690">That's the goal.</p>
+<p t="911060" d="3010">So get everybody married
+up and make it stable.</p>
+<p t="926820" d="2930">All right, is it
+doable in that example?</p>
+<p t="929750" d="2140">If I put those four
+people on a desert island,</p>
+<p t="931890" d="5360">could I make a stable matching?</p>
+<p t="937250" d="2180">Yeah, who would I match Brad to?</p>
+<p t="939430" d="900">AUDIENCE: Angelina.</p>
+<p t="940330" d="874">PROFESSOR: All right.</p>
+<p t="941204" d="2446">Good, and then Billy
+Bob gets Jennifer.</p>
+<p t="943650" d="4600">Now, I'm not saying that
+you make everybody happy,</p>
+<p t="948250" d="3570">because Billy Bob and Jennifer
+are probably not happy there.</p>
+<p t="951820" d="1940">They each got their
+number two choice.</p>
+<p t="953760" d="3390">But it's stable, because
+Brad and Angelina</p>
+<p t="957150" d="1127">aren't going anywhere.</p>
+<p t="958277" d="1833">They are going to stay
+together because they</p>
+<p t="960110" d="3122">like each other best, and so
+there's no chance that Jennifer</p>
+<p t="963232" d="3578">is going to-- that Angelina
+is going to sneak off, sorry,</p>
+<p t="966810" d="4180">with Billy Bob, or
+that Brad's going</p>
+<p t="970990" d="1510">to sneak off with Jennifer.</p>
+<p t="972500" d="500">All right?</p>
+<p t="973000" d="1040">So it's stable.</p>
+<p t="974040" d="5470">Not everybody's happy, but
+it's a stable set of marriages.</p>
+<p t="979510" d="2510">OK.</p>
+<p t="982020" d="2340">Any questions about what
+we're trying to do here now?</p>
+<p t="984360" d="852">Yeah?</p>
+<p t="985212" d="5080">AUDIENCE: [INAUDIBLE] the edges?</p>
+<p t="990292" d="1458">PROFESSOR: That's
+a great question.</p>
+<p t="991750" d="2450">You'll see it
+referred to both ways.</p>
+<p t="994200" d="3295">Technically, it's a subgraph,
+so it has nodes and edges,</p>
+<p t="997495" d="2375">but you'll see me, and you'll
+see everybody say, oh, it's</p>
+<p t="999870" d="2295">a bunch of edges that
+don't share any nodes,</p>
+<p t="1002165" d="1875">and you'll see them
+refer to it as the edges.</p>
+<p t="1004040" d="4280">But really, underlying that,
+it's a subgraph, technically.</p>
+<p t="1008320" d="3270">Any other questions
+about what we're</p>
+<p t="1011590" d="3510">trying to do here to find
+stable, perfect matching?</p>
+<p t="1017842" d="918">All right.</p>
+<p t="1018760" d="4140">Well, in this example, there
+was a stable, perfect matching.</p>
+<p t="1022900" d="1388">But what about in general?</p>
+<p t="1024288" d="1541">If I have a lot more
+people, and they</p>
+<p t="1025829" d="3081">have arbitrary preferences,
+how many people</p>
+<p t="1028910" d="5189">think you can always find
+a stable perfect matching?</p>
+<p t="1034099" d="1675">There's one optimistic person.</p>
+<p t="1035774" d="2416">How many people think there's
+some cases where you're just</p>
+<p t="1038190" d="2600">not going to be able to do it?</p>
+<p t="1040790" d="539">Wow.</p>
+<p t="1041329" d="2121">OK, it's a pessimistic view.</p>
+<p t="1043450" d="3649">Well, in some sense
+you're both right.</p>
+<p t="1047099" d="6721">If you allow boys to prefer
+boys and girls to prefer girls,</p>
+<p t="1053820" d="2780">then it is not possible, and
+I'll give you an example.</p>
+<p t="1056600" d="2960">You can find examples where
+there's always a rogue couple,</p>
+<p t="1059560" d="4440">but if you require boys to only
+get matched to girls and vice</p>
+<p t="1064000" d="4920">versa, then it is possible to
+always find stable marriages,</p>
+<p t="1068920" d="1374">stable matchings.</p>
+<p t="1070294" d="2166">And we're going to talk
+about an algorithm for that.</p>
+<p t="1072460" d="2410">But before I show
+you the algorithm,</p>
+<p t="1074870" d="4170">let me show you the bad case
+when boys can prefer boys,</p>
+<p t="1079040" d="4420">or what's sort of
+a unisex scenario.</p>
+<p t="1083460" d="3670">So here's a bad example
+with four people,</p>
+<p t="1087130" d="3770">and the idea is to
+create a love triangle.</p>
+<p t="1090900" d="9120">So we have Alex, who prefers
+Bobby Joe, Bobby Joe prefers</p>
+<p t="1100020" d="5600">Robin, and Robin prefers Alex.</p>
+<p t="1105620" d="2440">And their second choices
+go in the opposite order</p>
+<p t="1108060" d="790">there, all right?</p>
+<p t="1108850" d="2250">So Alex wants to
+be with Bobby Joe.</p>
+<p t="1111100" d="1250">Bobby Joe wants be with Robin.</p>
+<p t="1112350" d="1400">Robin wants to be with Alex.</p>
+<p t="1113750" d="1667">And then there's Mergatoid--</p>
+<p t="1115417" d="499">[LAUGHTER]</p>
+<p t="1118260" d="2050">--and nobody likes Mergatoid.</p>
+<p t="1120310" d="5470">So that's choice three
+for all of them here.</p>
+<p t="1125780" d="2740">And Mergatoid's
+choices, preferences</p>
+<p t="1128520" d="2150">don't really matter
+in this case.</p>
+<p t="1130670" d="500">[LAUGHTER]</p>
+<p t="1133420" d="3800">I hope nobody is named
+Mergatoid in the class.</p>
+<p t="1137220" d="2000">I would get complaints here.</p>
+<p t="1139220" d="3300">All right, so I want
+to claim and prove</p>
+<p t="1142520" d="3610">a theorem that says there
+is no stable matching</p>
+<p t="1146130" d="2830">for this group of preferences.</p>
+<p t="1148960" d="2376">So we'll state that
+as the theorem.</p>
+<p t="1151336" d="6724">There does not exist a stable
+matching for this graph.</p>
+<p t="1163030" d="3400">The proof is by contradiction--
+assume there is one.</p>
+<p t="1176260" d="3952">All right, so assume there
+exists a stable matching.</p>
+<p t="1180212" d="1708">We're going to find
+a rogue couple in it.</p>
+<p t="1184570" d="10220">So call the stable
+matching M. Well,</p>
+<p t="1194790" d="2150">if there's a stable
+matching, Mergatoid's got</p>
+<p t="1196940" d="1125">to get married to somebody.</p>
+<p t="1210620" d="2015">Mergatoid will be
+matched with someone.</p>
+<p t="1219630" d="500">All right.</p>
+<p t="1220130" d="1660">Now, here I'm going
+to do something</p>
+<p t="1221790" d="1750">that you can do in
+your proofs, but you've</p>
+<p t="1223540" d="1375">got to be careful
+when you do it.</p>
+<p t="1224915" d="3535">I'm going to say, without
+loss of generality,</p>
+<p t="1228450" d="5800">assume Mergatoid is
+matched to Alex, all right?</p>
+<p t="1234250" d="1360">And I can do that.</p>
+<p t="1235610" d="1730">So this is the
+abbreviation, without loss</p>
+<p t="1237340" d="1835">of generality by symmetry.</p>
+<p t="1243080" d="3185">And really, I should explain
+what I mean here in the proof.</p>
+<p t="1246265" d="3241">Well, that love
+triangle is symmetric.</p>
+<p t="1249506" d="1874">Each one has a preference
+for the next person</p>
+<p t="1251380" d="2290">around the triangle.</p>
+<p t="1253670" d="2940">In terms of graph isomorphism,
+with the weights on that,</p>
+<p t="1256610" d="1420">every node looks the same.</p>
+<p t="1258030" d="1850">So I can use symmetry.</p>
+<p t="1259880" d="3690">So we're going to say,
+without loss of generality,</p>
+<p t="1263570" d="8445">we're going to assume
+Mergatoid is matched to Alex.</p>
+<p t="1276410" d="2730">And I'm implying the argument
+is going to be the same.</p>
+<p t="1279140" d="2590">What I say next is
+the same no matter</p>
+<p t="1281730" d="3935">who Mergatoid is matched
+to, because it's symmetric.</p>
+<p t="1285665" d="500">All right.</p>
+<p t="1286165" d="2345">If Mergatoid is
+matched to Alex, do you</p>
+<p t="1288510" d="1410">see a rogue couple up there?</p>
+<p t="1296410" d="2110">So you have Robin
+matched to Bobby Joe.</p>
+<p t="1298520" d="2956">Mergatoid is matched to Alex.</p>
+<p t="1301476" d="1854">AUDIENCE: Alex to Bobby Joe?</p>
+<p t="1303330" d="3426">PROFESSOR: Alex
+and Bobby Joe, no.</p>
+<p t="1306756" d="1374">AUDIENCE: Between
+Alex and Robin.</p>
+<p t="1308130" d="1670">PROFESSOR: Alex and Robin, yeah.</p>
+<p t="1309800" d="6760">Alex and Bobby Joe aren't rogue,
+because Bobby Joe likes Robin.</p>
+<p t="1316560" d="3480">He likes the person he
+or she is married to.</p>
+<p t="1320040" d="2530">All right, so they're not
+going to go off with Alex,</p>
+<p t="1322570" d="1880">but Alex and Robin
+are a rogue couple,</p>
+<p t="1324450" d="3610">because Robin likes Alex
+the best, and Alex for sure</p>
+<p t="1328060" d="2570">likes Robin better
+than Mergatoid.</p>
+<p t="1330630" d="500">All right?</p>
+<p t="1331130" d="3600">So they both prefer each
+other to their mates,</p>
+<p t="1334730" d="2090">and so they form a rogue couple.</p>
+<p t="1339640" d="11440">All right, so Alex and
+Robin form a rogue couple,</p>
+<p t="1351080" d="2680">and that means that
+M was not stable.</p>
+<p t="1357540" d="3710">The matching was not stable.</p>
+<p t="1361250" d="2260">And that's a contradiction,
+because we assumed it was.</p>
+<p t="1366290" d="3245">So we have a contradiction,
+and the proof is done.</p>
+<p t="1372250" d="2960">Any questions about that?</p>
+<p t="1375210" d="3160">And I'm sort of implying
+here that you could match,</p>
+<p t="1378370" d="3470">you could have had Mergatoid
+matched to Bobby Joe,</p>
+<p t="1381840" d="3120">and then Bobby Joe and Alex
+would have been a rogue couple,</p>
+<p t="1384960" d="4530">or Mergatoid matched to Robin,
+and then Robin and Bobby Joe</p>
+<p t="1389490" d="4367">would be a rogue couple by the
+without loss of generality.</p>
+<p t="1393857" d="2083">So it's OK to use that,
+but you want to be careful</p>
+<p t="1395940" d="2985">that you're doing it OK.</p>
+<p t="1398925" d="500">Questions?</p>
+<p t="1402241" d="499">Yeah?</p>
+<p t="1402740" d="2290">AUDIENCE: So the without
+loss of generality only</p>
+<p t="1405030" d="2290">works if it's, like,
+perfectly symmetric?</p>
+<p t="1407320" d="1017">PROFESSOR: Yeah.</p>
+<p t="1408337" d="1833">Basically, the argument
+you're going to make</p>
+<p t="1410170" d="2540">is just going to be the same
+argument done in all three</p>
+<p t="1412710" d="3134">cases, and to save yourself
+some effort, you're saying,</p>
+<p t="1415844" d="2166">don't do the three cases,
+do one, the other two look</p>
+<p t="1418010" d="980">the same.</p>
+<p t="1418990" d="2640">So technically, you could add
+case one, case two, case three,</p>
+<p t="1421630" d="2610">and they would've
+looked symmetric.</p>
+<p t="1424240" d="2060">OK?</p>
+<p t="1426300" d="500">All right.</p>
+<p t="1426800" d="3500">Now, this is not very
+surprising, as you all voted.</p>
+<p t="1430300" d="2787">Almost all of you said it's
+hard to find stable matchings.</p>
+<p t="1433087" d="1583">You might not be
+able to do it always.</p>
+<p t="1434670" d="3210">And in fact, you can't
+in the unisex world.</p>
+<p t="1437880" d="4370">The surprising thing is, you can
+always find a stable matching</p>
+<p t="1442250" d="3160">in the world where boys
+could only be paired</p>
+<p t="1445410" d="2930">with girls and vice versa.</p>
+<p t="1448340" d="4410">Now, this statement, this
+result is pretty famous.</p>
+<p t="1452750" d="6550">The problem itself is known as
+the stable marriage problem.</p>
+<p t="1459300" d="3830">So let me just define
+it here, and then we'll</p>
+<p t="1463130" d="4230">talk about an algorithm
+to find the matching.</p>
+<p t="1484030" d="3755">So we have N boys and N girls.</p>
+<p t="1491110" d="3080">And it's important we have
+the same number of each.</p>
+<p t="1494190" d="1920">Now, actually, tomorrow,
+in recitation, you're</p>
+<p t="1496110" d="3430">going to look at the
+scenario where there's more</p>
+<p t="1499540" d="2470">girls than boys, or vice versa.</p>
+<p t="1502010" d="2320">And you'll be using
+a similar algorithm,</p>
+<p t="1504330" d="1420">but it'll be a
+different context,</p>
+<p t="1505750" d="1780">and that's the
+context that comes up</p>
+<p t="1507530" d="3547">in matching interns to
+hospitals, and stuff like that.</p>
+<p t="1511077" d="2458">But for our version it's an
+equal number of boys and girls.</p>
+<p t="1517690" d="11270">Each boy has his own
+ranked preference</p>
+<p t="1528960" d="6230">list of all the girls.</p>
+<p t="1535190" d="2660">So every boy sort of
+has his dance card</p>
+<p t="1537850" d="2931">of the girls that
+he likes in order.</p>
+<p t="1540781" d="499">All right?</p>
+<p t="1541280" d="2300">The orders can be different
+for different boys.</p>
+<p t="1543580" d="3240">And each girl has
+the same thing.</p>
+<p t="1546820" d="5690">She has her own list, ranked
+1 to n of all the boys.</p>
+<p t="1555670" d="2720">The lists are complete,
+and there's no ties,</p>
+<p t="1558390" d="3540">so all the ties have
+to be broken here.</p>
+<p t="1561930" d="1954">And the goal is to
+find a perfect matching</p>
+<p t="1563884" d="916">without rogue couples.</p>
+<p t="1585840" d="2310">OK, so let's try an example.</p>
+<p t="1588150" d="4580">Before we do the algorithm,
+let me just do a bigger example</p>
+<p t="1592730" d="3800">with five boys and
+five girls, and we'll</p>
+<p t="1596530" d="3340">get some feel for, this is
+not completely obvious how</p>
+<p t="1599870" d="890">to find it.</p>
+<p t="1622910" d="5450">OK, so let's put
+the boys over here.</p>
+<p t="1628360" d="4890">And here's boy 1, and
+his preference list</p>
+<p t="1633250" d="9890">is going to be-- the girls
+will be C, B, E, A, D, and boy</p>
+<p t="1643140" d="5320">2 is going to have
+the preference list</p>
+<p t="1648460" d="19260">A, B, E, C, D, and boy 3 is
+going to have D, C, B, A, E.</p>
+<p t="1667720" d="9625">Boy 4 is going to be A,
+C, D, B, E, and boy 5,</p>
+<p t="1677345" d="6755">I have to write his across
+like this, A, B, D, E, C.</p>
+<p t="1684100" d="3870">And the girls also have their
+lists, so let's put those up.</p>
+<p t="1694870" d="10610">So girl A likes the boys
+in order 3, 5, 2, 1, 4.</p>
+<p t="1705480" d="7110">Girl B likes them in
+order 5, 2, 1, 4, 3.</p>
+<p t="1717880" d="7120">Girl C has the
+order 4, 3, 5, 1, 2.</p>
+<p t="1725000" d="10200">Girl D, 1, 2, 3, 4, 5,
+and then the last girl, E,</p>
+<p t="1735200" d="4930">has 2, 3, 4, 1, 5.</p>
+<p t="1740130" d="3090">All right, so say that's
+our matching problem,</p>
+<p t="1743220" d="3360">and those are the
+preference lists.</p>
+<p t="1746580" d="2380">Any ideas for how we might
+try to make an algorithm</p>
+<p t="1748960" d="500">to do this?</p>
+<p t="1749460" d="2205">Any thoughts about
+what you'd do?</p>
+<p t="1751665" d="1625">What are some approaches
+we could take?</p>
+<p t="1753290" d="420">Yeah?</p>
+<p t="1753710" d="1400">AUDIENCE: Use the
+mating algorithm.</p>
+<p t="1755110" d="1060">PROFESSOR: Use the
+greedy algorithm?</p>
+<p t="1756170" d="1520">AUDIENCE: The mating algorithm.</p>
+<p t="1757690" d="810">PROFESSOR: Oh, the
+mating algorithm.</p>
+<p t="1758500" d="2520">Well, yeah, the mating algorithm
+is going to do very well,</p>
+<p t="1761020" d="1500">but I haven't told
+you what that is,</p>
+<p t="1762520" d="1800">and it's a little complicated.</p>
+<p t="1764320" d="2560">So I sort of want to explore
+the things you might know</p>
+<p t="1766880" d="3120">from what we've done so far.</p>
+<p t="1770000" d="4830">What approaches have we seen
+so far for solving problems?</p>
+<p t="1774830" d="775">Yeah?</p>
+<p t="1775605" d="1425">AUDIENCE: The greedy algorithm?</p>
+<p t="1777030" d="1880">PROFESSOR: The greedy
+algorithm-- yep.</p>
+<p t="1778910" d="2590">And let's try that.</p>
+<p t="1781500" d="4490">So let's choose the
+first boy, and we'll just</p>
+<p t="1785990" d="2865">go down and give each boy
+the best choice available</p>
+<p t="1788855" d="875">and see what happens.</p>
+<p t="1792370" d="2170">First thing to try usually
+is the greedy algorithm,</p>
+<p t="1794540" d="2680">and about half the time
+it'll work in life,</p>
+<p t="1797220" d="1380">and half the time it won't.</p>
+<p t="1802620" d="1145">So let's try greedy.</p>
+<p t="1807530" d="6710">So boy 1 is going to get his
+first choice, girl C. Who</p>
+<p t="1814240" d="1070">does boy 2 get?</p>
+<p t="1818560" d="4430">A. Who does boy 3 get?</p>
+<p t="1822990" d="2350">D. Huh, this is going well.</p>
+<p t="1825340" d="1050">Who does boy 4 get?</p>
+<p t="1829460" d="3990">Boy 4, oh yeah, boy 4 has got
+to go all the way down to B,</p>
+<p t="1833450" d="2410">because A, C, and D
+got taken, so boy 4</p>
+<p t="1835860" d="4980">gets B. And boy 5-- who's left?</p>
+<p t="1840840" d="2950">E, fourth choice again.</p>
+<p t="1843790" d="5530">All right, well, maybe
+that's a stable matching.</p>
+<p t="1849320" d="1425">All right, well let's see.</p>
+<p t="1850745" d="1625">To see if it's stable,
+we've got to see</p>
+<p t="1852370" d="3030">are there any rogue couples.</p>
+<p t="1855400" d="4630">Well, is there any rogue
+couple involving boy 1?</p>
+<p t="1860030" d="2040">No, boy 1 got his first choice.</p>
+<p t="1862070" d="1930">You're not going anywhere.</p>
+<p t="1864000" d="1670">Boy 2?</p>
+<p t="1865670" d="2410">No-- first choice,
+same with boy 3.</p>
+<p t="1868080" d="1570">These boys are quite happy.</p>
+<p t="1869650" d="2120">They're not doing anything.</p>
+<p t="1871770" d="2780">Boy 4 may not be
+so happy though,</p>
+<p t="1874550" d="3960">because boy 4 got paired
+with B, so there's</p>
+<p t="1878510" d="1440">possible rogue couples.</p>
+<p t="1879950" d="2140">Let's see, is 4,
+A a rogue couple?</p>
+<p t="1885650" d="1270">No.</p>
+<p t="1886920" d="2740">A hates boy 4, all right?</p>
+<p t="1889660" d="2906">No chance she's
+running off with boy 4.</p>
+<p t="1892566" d="976">AUDIENCE: 4, C?</p>
+<p t="1893542" d="1178">PROFESSOR: 4, C?</p>
+<p t="1894720" d="1610">All right, let's see that.</p>
+<p t="1896330" d="3240">Where's C-- whoa, yeah.</p>
+<p t="1899570" d="3940">C has the hots for
+boy 4, so she likes</p>
+<p t="1903510" d="2480">him better than
+whoever her mate was,</p>
+<p t="1905990" d="3390">and boy 4 likes C better
+than who he got matched with,</p>
+<p t="1909380" d="2460">boy B. That is now
+a rogue couple,</p>
+<p t="1911840" d="2710">so the greedy
+algorithm did not work.</p>
+<p t="1914550" d="1310">That's too bad.</p>
+<p t="1915860" d="1540">Well, it would be short
+lecture, I guess, if it worked.</p>
+<p t="1917400" d="500">[LAUGHTER]</p>
+<p t="1921310" d="5540">Well, what would you do next,
+sort of, if you were-- I mean,</p>
+<p t="1926850" d="4910">you could try to match 4 with
+C, and then try to patch things</p>
+<p t="1931760" d="2310">up, and you could
+start doing that,</p>
+<p t="1934070" d="2230">but you might create
+other rogue couples.</p>
+<p t="1936300" d="2018">In fact, I don't know
+an approach-- yeah?</p>
+<p t="1938318" d="1708">AUDIENCE: You could
+let it evolve and see</p>
+<p t="1940026" d="1344">if it gets it more stable.</p>
+<p t="1941370" d="1000">PROFESSOR: Say it again.</p>
+<p t="1942370" d="483">AUDIENCE: You could
+let it evolve,</p>
+<p t="1942853" d="2415">let all the rogue
+couples evolve and see</p>
+<p t="1945268" d="1449">if it ends up any more stable.</p>
+<p t="1946717" d="2363">PROFESSOR: Yes, you could
+start swapping around</p>
+<p t="1949080" d="2280">to get rid of rogue couples.</p>
+<p t="1951360" d="3210">In doing that, you might
+create other rogue couples.</p>
+<p t="1954570" d="1810">In fact, I don't know
+of an algorithm that</p>
+<p t="1956380" d="2270">works like this, that
+works, that's known to work,</p>
+<p t="1958650" d="1919">where you start
+patching things up,</p>
+<p t="1960569" d="1541">because as you're
+patching things up,</p>
+<p t="1962110" d="3500">you might make other things
+much worse by doing that.</p>
+<p t="1965610" d="2050">So I don't know of
+an approach that way.</p>
+<p t="1970040" d="1000">What's another approach?</p>
+<p t="1971040" d="510">Yeah?</p>
+<p t="1971550" d="5940">AUDIENCE: [INAUDIBLE]
+pertaining to what order</p>
+<p t="1977490" d="990">they have each other.</p>
+<p t="1978480" d="1485">PROFESSOR: And then do?</p>
+<p t="1979965" d="2475">AUDIENCE: And then do the
+highest ordered [INAUDIBLE]</p>
+<p t="1982440" d="1980">PROFESSOR: Min-weight
+matching kind of thing?</p>
+<p t="1984420" d="495">AUDIENCE: Maybe.</p>
+<p t="1984915" d="708">PROFESSOR: Maybe?</p>
+<p t="1985623" d="3577">I don't of an approach
+like that that works.</p>
+<p t="1989200" d="1990">Also, min-weight
+matching, that algorithm</p>
+<p t="1991190" d="1690">is going to be more
+complicated than the one I'm</p>
+<p t="1992880" d="1250">going to show you, in the end.</p>
+<p t="1994130" d="2214">It takes more time to run.</p>
+<p t="1996344" d="1416">And I don't even
+know if it works.</p>
+<p t="1997760" d="2010">Like, I don't know if you
+can take these numbers</p>
+<p t="1999770" d="2345">and make weights on the edges
+get a min-weight matching.</p>
+<p t="2002115" d="2957">AUDIENCE: Could you do like
+a merge sort [INAUDIBLE]</p>
+<p t="2005072" d="2588">PROFESSOR: Oh, a merge sort,
+so you take the minimum weight</p>
+<p t="2007660" d="3789">edge, put that in, and
+recurse on that kind of thing.</p>
+<p t="2011449" d="541">I don't know.</p>
+<p t="2011990" d="1867">It's possible.</p>
+<p t="2013857" d="1833">In fact, you know what,
+a recursive approach</p>
+<p t="2015690" d="1490">is a good idea.</p>
+<p t="2017180" d="3030">I don't know of a nice
+recursive algorithm for this.</p>
+<p t="2020210" d="2240">It's true that if you
+found a boy and a girl who</p>
+<p t="2022450" d="2980">liked each other
+best, you could then</p>
+<p t="2025430" d="2559">match them safely and recurse,
+because you know they're not</p>
+<p t="2027989" d="1791">going to be in a rogue
+couple, because they</p>
+<p t="2029780" d="1210">like each other best.</p>
+<p t="2030990" d="1620">Then you could recurse.</p>
+<p t="2032610" d="2225">But that might not exist here.</p>
+<p t="2034835" d="1375">You might not have
+a boy and girl</p>
+<p t="2036210" d="3240">that like each other best, in
+which case it's hard to know.</p>
+<p t="2039450" d="2900">I don't know now if you pick the
+minimum weight in some sense,</p>
+<p t="2042350" d="2940">like add the preference list or
+something to make a min-weight</p>
+<p t="2045290" d="1950">and recurse on
+that, if that works.</p>
+<p t="2047240" d="2430">I don't know of an
+approach like that.</p>
+<p t="2049670" d="1968">But those are the kinds
+of things you try.</p>
+<p t="2051638" d="1791">And as far as I know,
+all the simple things</p>
+<p t="2053429" d="1770">fail for this problem.</p>
+<p t="2055199" d="4690">But there is something that's
+a little more involved,</p>
+<p t="2059889" d="3091">but does work, and that's
+the mating algorithm.</p>
+<p t="2062980" d="2457">And does everybody
+have the handout?</p>
+<p t="2065437" d="1083">There, it's back up there.</p>
+<p t="2066520" d="3717">I got some copies down here if
+you need it, but pull that out.</p>
+<p t="2070237" d="2322">So we're going to
+read this and talk</p>
+<p t="2072559" d="1541">about what the
+algorithm is, and then</p>
+<p t="2074100" d="3440">prove that it performs well.</p>
+<p t="2077540" d="4659">So the initial condition is
+you have each of the N boys</p>
+<p t="2082199" d="4911">has an ordered list of the
+N girls and vice versa,</p>
+<p t="2087110" d="3350">and the ritual, we're going to
+view this is a mating ritual,</p>
+<p t="2090460" d="1676">and really, the
+program is doing it.</p>
+<p t="2092136" d="874">The code is doing it.</p>
+<p t="2093010" d="2050">But think of it as real life.</p>
+<p t="2095060" d="3070">It takes place
+over several days.</p>
+<p t="2098130" d="3130">Now, the day is broken up into
+three parts-- the morning,</p>
+<p t="2101260" d="1500">the afternoon, and the evening.</p>
+<p t="2102760" d="3090">In the morning, each girl
+comes out to her balcony</p>
+<p t="2105850" d="2440">and stands on the balcony.</p>
+<p t="2108290" d="5900">Each boy goes to the balcony
+of his favorite girl who</p>
+<p t="2114190" d="2610">is still on his list that
+hasn't been crossed off.</p>
+<p t="2116800" d="1750">Now, initially, every
+girl is on his list.</p>
+<p t="2118550" d="3280">So he goes to his favorite
+girl, goes under her balcony,</p>
+<p t="2121830" d="2240">and serenades her.</p>
+<p t="2124070" d="1920">Now, if, over the
+course of the algorithm,</p>
+<p t="2125990" d="4480">the boy has nobody left on
+his list, he's out of luck.</p>
+<p t="2130470" d="1860">He just stays home
+and does homework.</p>
+<p t="2132330" d="500">All right?</p>
+<p t="2132830" d="2410">There's no serenade
+anymore for him.</p>
+<p t="2135240" d="3080">Now, in the afternoon,
+the girls who</p>
+<p t="2138320" d="3100">have at least one suitor--
+a boy down there serenading</p>
+<p t="2141420" d="4710">her-- looks at all the
+suitors, picks her favorite,</p>
+<p t="2146130" d="3250">and to the favorite she
+says, maybe I'll marry you.</p>
+<p t="2149380" d="2430">Come back tomorrow.</p>
+<p t="2151810" d="2910">Girls don't want to make it
+too easy here for the boys.</p>
+<p t="2154720" d="3050">Now, to all the other boys who
+are lower priority she says,</p>
+<p t="2157770" d="1900">I will never marry you.</p>
+<p t="2159670" d="1390">Go away.</p>
+<p t="2161060" d="3330">So she writes them off for good.</p>
+<p t="2164390" d="3950">Now, that night, any boy who
+heard a no-- like the girl</p>
+<p t="2168340" d="4300">said no, I'll never marry you--
+crosses that girl off his list.</p>
+<p t="2172640" d="2240">Because, you know, it's
+the only practical thing</p>
+<p t="2174880" d="1850">to do at that point.</p>
+<p t="2176730" d="2999">Now, if the boy heard
+the maybe I'll marry you,</p>
+<p t="2179729" d="1541">well, he's going to
+go back tomorrow,</p>
+<p t="2181270" d="2430">because that's still
+his favorite girl that's</p>
+<p t="2183700" d="1040">not crossed off.</p>
+<p t="2184740" d="1710">So he goes back and
+serenades her again</p>
+<p t="2186450" d="4200">the next day in the hopes that
+eventually, she'll say yes.</p>
+<p t="2190650" d="3500">Now, we keep doing
+this every day, OK?</p>
+<p t="2194150" d="4490">And if we ever encounter a
+day where every girl has,</p>
+<p t="2198640" d="5010">at most, one suitor, the
+algorithm stops, and then</p>
+<p t="2203650" d="4210">every girl who has a suitor
+says, yes, I will marry you.</p>
+<p t="2207860" d="1610">Now, if a girl
+doesn't have a suitor,</p>
+<p t="2209470" d="1580">there's no one to marry her.</p>
+<p t="2211050" d="2050">We're going to prove
+that doesn't happen, OK?</p>
+<p t="2213100" d="2780">But determination
+condition is, you no longer</p>
+<p t="2215880" d="3930">have a situation with two or
+more boys under one balcony.</p>
+<p t="2219810" d="2310">OK?</p>
+<p t="2222120" d="8977">All right, so let's run that
+algorithm on this example,</p>
+<p t="2231097" d="1583">just so we make sure
+we understand it,</p>
+<p t="2232680" d="2670">because I'm going to try
+to prove theorems about it.</p>
+<p t="2235350" d="5040">So here are the serenades
+that are going on,</p>
+<p t="2240390" d="5750">and here's the
+girls, and the days.</p>
+<p t="2246140" d="2700">It's going to work over
+four days in this case.</p>
+<p t="2255280" d="5170">And then we're also going to
+keep track of the boy's lists--</p>
+<p t="2260450" d="1240">who's gotten crossed off.</p>
+<p t="2272180" d="2840">All right, so these will be
+the cross outs down here.</p>
+<p t="2275020" d="1962">Actually, maybe I'll
+fit it up here if I can.</p>
+<p t="2282390" d="3950">Girls, let's see, A, B-- no, I'm
+going to have to space it out.</p>
+<p t="2295900" d="2980">And the boys have
+their lists here,</p>
+<p t="2298880" d="3170">and we have boys 1, 2, 3, 4, 5.</p>
+<p t="2302050" d="2030">And here I'm going to
+record the cross outs.</p>
+<p t="2308980" d="2240">All right, so let's
+look at day one.</p>
+<p t="2314300" d="5578">Who is under girl A's
+balcony on day one?</p>
+<p t="2319878" d="916">AUDIENCE: 2, 4, and 5?</p>
+<p t="2320794" d="2686">PROFESSOR: 2, 4, and 5--
+each like girl A the best,</p>
+<p t="2323480" d="2320">so she's got a lot of activity.</p>
+<p t="2325800" d="2100">These three boys show up.</p>
+<p t="2327900" d="3570">Anybody under girl B's balcony?</p>
+<p t="2331470" d="2910">No, nope, no, nothing there.</p>
+<p t="2334380" d="3990">C, does C have anybody?</p>
+<p t="2338370" d="1080">Boy 1, yeah.</p>
+<p t="2339450" d="2150">D?</p>
+<p t="2341600" d="5250">3, and E, I don't think
+there's any action, right?</p>
+<p t="2346850" d="1116">Nope.</p>
+<p t="2347966" d="4254">All right, so that's
+the status on day one.</p>
+<p t="2352220" d="3512">So the action is all up here.</p>
+<p t="2355732" d="3938">All right, so what
+does girl A do?</p>
+<p t="2359670" d="2043">Who does she tell
+to hang around?</p>
+<p t="2361713" d="1166">AUDIENCE: Number 5.</p>
+<p t="2362879" d="1041">PROFESSOR: Number 5, yes.</p>
+<p t="2363920" d="3290">She's got 5, 4, and 2,
+and she likes 5 the best.</p>
+<p t="2367210" d="3120">She tells 5 to come back,
+and she says to these guys,</p>
+<p t="2370330" d="1850">we're not going to marry him.</p>
+<p t="2372180" d="6530">That means that boys 2 and 4
+cross girl A off their list.</p>
+<p t="2378710" d="4735">So they say A is no
+longer possible for them.</p>
+<p t="2383445" d="5165">All right, now we go to
+day two, and 5 goes back</p>
+<p t="2388610" d="3150">to girl A, and, of course,
+boys 1 and 3 stay there.</p>
+<p t="2391760" d="4270">Where does boy 2 go on day two?</p>
+<p t="2396030" d="1300">B.</p>
+<p t="2397330" d="4132">All right, so boy 2
+shows up here on day two,</p>
+<p t="2401462" d="3438">and, let's see, boy
+5 is already there,</p>
+<p t="2404900" d="1645">and then we've got to get boy 4.</p>
+<p t="2406545" d="2315">Where does he go now?</p>
+<p t="2408860" d="5300">C. All right, boy
+4 shows up here.</p>
+<p t="2414160" d="4420">All right, so now the
+action is with girl C.</p>
+<p t="2418580" d="1653">And what does she do?</p>
+<p t="2420233" d="2457">AUDIENCE: [INAUDIBLE]</p>
+<p t="2422690" d="3630">PROFESSOR: Yeah, she keeps
+4, and she boots poor 1.</p>
+<p t="2426320" d="1860">You know, led him
+along for a day,</p>
+<p t="2428180" d="3340">and then he gets the boot
+because boy 4 showed up, right?</p>
+<p t="2431520" d="4880">Because girl C likes 4
+better than 1, so bad</p>
+<p t="2436400" d="2050">luck for 1 there.</p>
+<p t="2438450" d="7920">So now one goes home that
+night and crosses off girl C.</p>
+<p t="2446370" d="1730">OK.</p>
+<p t="2448100" d="4240">All right, and where
+does 1 go on day three?</p>
+<p t="2452340" d="4680">All right, so he goes to-- he
+crossed off C-- he goes to B.</p>
+<p t="2457020" d="1480">All right, so this is left over.</p>
+<p t="2458500" d="9320">We have 5, 2, 4, 3-- boy
+1 now goes to B, right?</p>
+<p t="2467820" d="2790">OK.</p>
+<p t="2470610" d="2480">And then what does girl B do?</p>
+<p t="2473090" d="2940">Who does she keep around?</p>
+<p t="2476030" d="4550">Keeps 2, boots poor 1.</p>
+<p t="2480580" d="3550">All right, so 1 says, all right,
+I'm crossing B off my list,</p>
+<p t="2484130" d="2240">got the message.</p>
+<p t="2486370" d="2300">And now where does
+boy 1 go on day four?</p>
+<p t="2488670" d="1410">AUDIENCE: Girl E?</p>
+<p t="2490080" d="1360">PROFESSOR: E-- third choice.</p>
+<p t="2491440" d="1030">OK.</p>
+<p t="2492470" d="5730">So 1 shows up down here, and
+these guys keep returning.</p>
+<p t="2498200" d="4460">Wow, so on day four
+there's no more fighting.</p>
+<p t="2502660" d="2040">Every girl has at most one.</p>
+<p t="2504700" d="2410">The termination
+condition is invoked,</p>
+<p t="2507110" d="2380">and these are the
+marriages that take place.</p>
+<p t="2509490" d="1060">The girls say yes.</p>
+<p t="2513712" d="1208">All right, now is everybody--</p>
+<p t="2514920" d="1800">[LAUGHTER]</p>
+<p t="2516720" d="3420">--does everybody understand
+the algorithm we used?</p>
+<p t="2520140" d="1380">Any questions on the algorithm?</p>
+<p t="2524026" d="499">Yeah?</p>
+<p t="2524525" d="3361">AUDIENCE: [INAUDIBLE] the
+first case [INAUDIBLE] or</p>
+<p t="2527886" d="3194">is that just in
+case the [INAUDIBLE]</p>
+<p t="2531080" d="2865">PROFESSOR: That's in case
+the algorithm doesn't work.</p>
+<p t="2533945" d="1625">Because we haven't
+proved it works yet,</p>
+<p t="2535570" d="3260">and I gotta have
+a possibility for,</p>
+<p t="2538830" d="1730">a boy crosses every
+girl off his list,</p>
+<p t="2540560" d="1714">he gets rejected everywhere.</p>
+<p t="2542274" d="1416">That is a possibility,
+so I've got</p>
+<p t="2543690" d="2460">to say what would happen
+in that possibility.</p>
+<p t="2546150" d="2100">Now, we will prove
+in a few minutes</p>
+<p t="2548250" d="4180">that condition never arises, OK?</p>
+<p t="2552430" d="1650">But I'm giving you
+what might happen,</p>
+<p t="2554080" d="2500">in which so it never
+does, so no boy ends up</p>
+<p t="2556580" d="3030">having to stay home
+and do homework here.</p>
+<p t="2559610" d="2490">All right, so that's
+the algorithm.</p>
+<p t="2562100" d="4670">Now let's see if we can see
+if there's any rogue couples.</p>
+<p t="2566770" d="6150">All right, so, for example,
+let's look at boy 1.</p>
+<p t="2572920" d="4485">Boy 1 got paired to his
+third choice, E, so 1,</p>
+<p t="2577405" d="3855">C might be a rogue couple.</p>
+<p t="2581260" d="2840">Is that possible?</p>
+<p t="2584100" d="4490">No, because C got 4 here,
+which is her first choice.</p>
+<p t="2588590" d="1660">She's not going with boy 1.</p>
+<p t="2590250" d="1200">That's not working.</p>
+<p t="2591450" d="2740">What about 1, B?</p>
+<p t="2594190" d="2280">Could that be rogue?</p>
+<p t="2596470" d="7275">No, B got 2, and B likes 2
+better than 1, so 1, C and 1,</p>
+<p t="2603745" d="765">B are not rogue.</p>
+<p t="2604510" d="3300">And 1 got E, so there's no
+other possibility for boy 1,</p>
+<p t="2607810" d="3030">so boy 1 is not
+in a rogue couple.</p>
+<p t="2610840" d="2502">What about boy 2?</p>
+<p t="2613342" d="6068">2 got B, and that's
+2's second choice.</p>
+<p t="2619410" d="830">What about 2, A?</p>
+<p t="2623860" d="8320">Let's see, A got 5, and
+A likes 5 better than 2,</p>
+<p t="2632180" d="1060">so that's not rogue.</p>
+<p t="2633240" d="2470">Boy 2 is not rogue.</p>
+<p t="2635710" d="9130">All right, boy 3-- boy 3
+got his first choice, right?</p>
+<p t="2644840" d="4880">3 got D, so 3 is
+not going anywhere.</p>
+<p t="2649720" d="9314">Boy 4 got-- who did boy 4 get--
+got C. 4 got his second choice.</p>
+<p t="2659034" d="666">What about 4, A?</p>
+<p t="2663370" d="1670">A hates 4.</p>
+<p t="2665040" d="3720">A is not gonna get caught dead
+with 4, so that's not rogue.</p>
+<p t="2668760" d="1006">So 4 is OK.</p>
+<p t="2669766" d="1124">4 is not in a rogue couple.</p>
+<p t="2670890" d="6405">And finally, boy 5--
+boy 5 is paired with A,</p>
+<p t="2677295" d="2965">and that is boy
+5's first choice,</p>
+<p t="2680260" d="2500">so he's not wandering off here.</p>
+<p t="2682760" d="500">All right?</p>
+<p t="2683260" d="2800">So in fact, we've
+just argued that this</p>
+<p t="2686060" d="6660">is a stable set of marriages,
+a stable matching in this case.</p>
+<p t="2692720" d="3631">Any questions now about
+what we're trying to do?</p>
+<p t="2696351" d="1749">OK, because we're going
+to try to show now</p>
+<p t="2698100" d="3940">it always produces
+a stable matching.</p>
+<p t="2702040" d="3980">And to do that, we need
+to do a few things.</p>
+<p t="2716355" d="1375">All right, so what
+are the things</p>
+<p t="2717730" d="2720">we need to show to
+prove everything</p>
+<p t="2720450" d="2907">is going to be good here?</p>
+<p t="2723357" d="1333">What are some facts we to prove?</p>
+<p t="2724690" d="772">Yeah?</p>
+<p t="2725462" d="2953">AUDIENCE: Don't we need to show
+that the algorithm, it does</p>
+<p t="2728415" d="630">come to an end?</p>
+<p t="2729045" d="625">PROFESSOR: Yes.</p>
+<p t="2729670" d="499">[LAUGHTER]</p>
+<p t="2730750" d="2900">The algorithm
+terminates, so we need</p>
+<p t="2733650" d="5430">to show that the marriage
+algorithm, TMA, terminates.</p>
+<p t="2739080" d="2410">Otherwise, the boys
+are serenading forever,</p>
+<p t="2741490" d="2870">and that's not too good.</p>
+<p t="2744360" d="1740">All right, what else
+do we want to show?</p>
+<p t="2746100" d="955">Yeah?</p>
+<p t="2747055" d="2854">AUDIENCE: If it does terminate,
+then one is left empty.</p>
+<p t="2749909" d="666">PROFESSOR: Then?</p>
+<p t="2750575" d="1595">AUDIENCE: Everyone gets someone.</p>
+<p t="2752170" d="1993">PROFESSOR: Everyone
+gets married.</p>
+<p t="2756790" d="2910">Yep.</p>
+<p t="2759700" d="1850">Stability is easy if
+nobody gets married.</p>
+<p t="2765820" d="2090">All right, what else do
+we want to show here?</p>
+<p t="2767910" d="275">Yeah?</p>
+<p t="2768185" d="1205">AUDIENCE: There are
+no rogue couples.</p>
+<p t="2769390" d="1250">PROFESSOR: No rogue couples.</p>
+<p t="2779000" d="3280">All right, what else
+might we like to show?</p>
+<p t="2782280" d="1430">These are the three main ones.</p>
+<p t="2783710" d="1520">There's a couple of other
+things you might like.</p>
+<p t="2785230" d="438">Yeah?</p>
+<p t="2785668" d="1083">AUDIENCE: It runs quickly.</p>
+<p t="2786751" d="1908">PROFESSOR: It runs quickly.</p>
+<p t="2788659" d="1666">Well, you can only
+serenade for so long.</p>
+<p t="2795174" d="1666">In fact, it does run
+quickly, and that's</p>
+<p t="2796840" d="2010">why it's useful in practice.</p>
+<p t="2798850" d="3142">Anything else you might want
+to show about this algorithm?</p>
+<p t="2801992" d="1764">AUDIENCE: How many
+people you crossed out?</p>
+<p t="2803756" d="2434">PROFESSOR: How many people
+you crossed out-- yeah,</p>
+<p t="2806190" d="3180">you could, and that'll tie
+into how long it takes.</p>
+<p t="2809370" d="1897">Yeah.</p>
+<p t="2811267" d="583">Anything else?</p>
+<p t="2811850" d="499">Yeah?</p>
+<p t="2812349" d="5881">AUDIENCE: The average
+likeness between the couples.</p>
+<p t="2818230" d="1740">PROFESSOR: The
+average likeness, oh.</p>
+<p t="2819970" d="3015">So yeah, we haven't
+had a notion here</p>
+<p t="2822985" d="2625">of how happy people
+are at the end,</p>
+<p t="2825610" d="2106">because we don't have a
+weighting on the edges,</p>
+<p t="2827716" d="1624">but you might want
+to think about that.</p>
+<p t="2829340" d="1208">That's actually a good point.</p>
+<p t="2830548" d="1019">Yeah?</p>
+<p t="2831567" d="1785">AUDIENCE: If they
+[INAUDIBLE] if it</p>
+<p t="2833352" d="3085">matters who serenades
+[INAUDIBLE] girls or boys</p>
+<p t="2836437" d="974">to get her.</p>
+<p t="2837411" d="1709">PROFESSOR: That's a great point.</p>
+<p t="2839120" d="4240">Is this algorithm good for
+girls, or good for boys?</p>
+<p t="2843360" d="3400">Yeah, that's a good
+point-- fairness.</p>
+<p t="2846760" d="3150">All right, so we'll take
+a look at fairness also.</p>
+<p t="2849910" d="2850">Is it better to be a serenader,
+or be on the balcony making</p>
+<p t="2852760" d="2300">your choices?</p>
+<p t="2855060" d="1620">OK, so this is what
+we've got to do.</p>
+<p t="2860030" d="2385">So let's start by
+showing TMA terminates,</p>
+<p t="2862415" d="1583">and that it terminates
+pretty quickly.</p>
+<p t="2873460" d="2400">Now, in fact, I'm going to
+prove a fairly crude bound</p>
+<p t="2875860" d="5700">on the time, but it
+actually does fairly well.</p>
+<p t="2881560" d="2620">So our first theorem
+is going to be</p>
+<p t="2884180" d="10890">that TMA terminates in, at
+most, N squared plus 1 days.</p>
+<p t="2898090" d="2493">N is the number
+of boys and girls.</p>
+<p t="2900583" d="1750">The proof is going to
+be by contradiction.</p>
+<p t="2905252" d="1458">This is probably
+the only day where</p>
+<p t="2906710" d="2416">we'll do a bunch of proofs and
+none of them use induction.</p>
+<p t="2911380" d="3370">They're pretty much
+all by contradiction.</p>
+<p t="2914750" d="15899">Suppose TMA does not terminate
+in N squared plus 1 days,</p>
+<p t="2930649" d="2416">because we're going to show
+that leads to a contradiction.</p>
+<p t="2941050" d="2620">We need to show that
+some kind of progress</p>
+<p t="2943670" d="2750">is made each day to
+show that it terminates.</p>
+<p t="2946420" d="786">Yeah?</p>
+<p t="2947206" d="2704">AUDIENCE: [INAUDIBLE] the
+number of causes that have</p>
+<p t="2949910" d="2772">[INAUDIBLE], so if it
+has not terminated,</p>
+<p t="2952682" d="3105">then at least one girl is seeing
+a group of at least one guy--</p>
+<p t="2955787" d="625">PROFESSOR: Yes.</p>
+<p t="2956412" d="2410">AUDIENCE: --so the number
+of crosses cannot be defined</p>
+<p t="2958822" d="964">[INAUDIBLE]</p>
+<p t="2959786" d="964">PROFESSOR: Very good.</p>
+<p t="2960750" d="2710">OK, let's state that
+as a claim, and you've</p>
+<p t="2963460" d="3430">given the proof of the
+claim, which is great.</p>
+<p t="2966890" d="11270">If we don't terminate,
+on a day, that</p>
+<p t="2978160" d="4610">must be because a girl had two
+boys there, or more, therefore</p>
+<p t="2982770" d="2460">she rejected some, at least one.</p>
+<p t="2985230" d="4490">And that night, the rejected
+boy crosses a girl off his list.</p>
+<p t="2992440" d="3720">So if we don't terminate,
+then at least one boy</p>
+<p t="2996160" d="2570">crosses at least one
+girl off his list.</p>
+<p t="3006000" d="4820">And so we're going to measure
+progress by the cross outs.</p>
+<p t="3015220" d="2930">So every day we don't
+terminate, a boy</p>
+<p t="3018150" d="2520">crossed a girl off his list,
+so if we didn't terminate</p>
+<p t="3020670" d="1980">at N squared plus
+1 days, we must</p>
+<p t="3022650" d="7740">have crossed off N squared plus
+1 girls across all the lists.</p>
+<p t="3030390" d="3000">Well, is that possible?</p>
+<p t="3033390" d="2280">To have done N squared
+plus 1 cross outs?</p>
+<p t="3040130" d="1470">What do you think?</p>
+<p t="3041600" d="1910">How many names are on each list?</p>
+<p t="3043510" d="1390">AUDIENCE: N.</p>
+<p t="3044900" d="2866">PROFESSOR: N, and how
+many lists are there?</p>
+<p t="3047766" d="854">AUDIENCE: N.</p>
+<p t="3048620" d="7500">PROFESSOR: N, so there's N
+lists with N names implies</p>
+<p t="3056120" d="4750">there's, at most, N
+squared cross outs ever.</p>
+<p t="3060870" d="2660">But we just said we had N
+squared plus 1 cross outs.</p>
+<p t="3066220" d="5346">But we have also N
+squared plus 1 cross outs,</p>
+<p t="3071566" d="1124">and that's a contradiction.</p>
+<p t="3075930" d="1280">All right?</p>
+<p t="3077210" d="1510">So we're done.</p>
+<p t="3078720" d="4562">It has to terminate within
+N squared plus 1 days.</p>
+<p t="3083282" d="583">Any questions?</p>
+<p t="3086500" d="4130">This is a very common proof
+technique in computer science.</p>
+<p t="3090630" d="2930">You're analyzing some
+system, and every step</p>
+<p t="3093560" d="2540">or every day or
+every time period,</p>
+<p t="3096100" d="2334">you want to argue
+progress got made,</p>
+<p t="3098434" d="1916">and then after you've
+made enough progress you</p>
+<p t="3100350" d="5780">have to be done, and therefore,
+the algorithm is completed.</p>
+<p t="3106130" d="2837">All right, so we know
+that TMA terminates.</p>
+<p t="3108967" d="1833">Now, we've still got
+to get everyone married</p>
+<p t="3110800" d="2890">and have them all be
+happy, or at least stable.</p>
+<p t="3116400" d="2740">Now, to do this, we're
+going to use an invariant.</p>
+<p t="3119140" d="1443">Yeah?</p>
+<p t="3120583" d="2725">AUDIENCE: If a girl
+has some guy in front</p>
+<p t="3123308" d="2566">of [INAUDIBLE] on
+something, then she</p>
+<p t="3125874" d="2896">will always have [INAUDIBLE]</p>
+<p t="3128770" d="1630">PROFESSOR: That is true.</p>
+<p t="3130400" d="3660">Something even stronger is true.</p>
+<p t="3134060" d="1430">AUDIENCE: All the [INAUDIBLE]</p>
+<p t="3135490" d="2066">PROFESSOR: Have a--</p>
+<p t="3137556" d="2360">PROFESSOR: If she has a
+preference for someone who</p>
+<p t="3139916" d="4254">[INAUDIBLE] only better guys.</p>
+<p t="3144170" d="2690">PROFESSOR: Yeah, that's
+a great invariant.</p>
+<p t="3146860" d="2530">As the girl is sitting
+there on her balcony,</p>
+<p t="3149390" d="3340">things only get better,
+because she always</p>
+<p t="3152730" d="3190">keeps the best one
+around that's there.</p>
+<p t="3155920" d="1690">And when new ones
+come in, they've</p>
+<p t="3157610" d="3500">got to be better than the
+last one for her to keep them.</p>
+<p t="3161110" d="3700">So as she rejects boys, she
+only does that because she's</p>
+<p t="3164810" d="2520">got better ones there, and
+whoever she says maybe to</p>
+<p t="3167330" d="1450">always comes back.</p>
+<p t="3168780" d="2640">So an invariant
+of this algorithm</p>
+<p t="3171420" d="4980">is that when a girl has
+a suitor, going forward,</p>
+<p t="3176400" d="3320">she only has suitors she
+likes at least as well.</p>
+<p t="3179720" d="2590">And if she ever rejects
+a boy, then she's</p>
+<p t="3182310" d="3470">got somebody better
+there forever.</p>
+<p t="3185780" d="3641">All right, so let's state that
+as an invariant and prove that.</p>
+<p t="3206610" d="3370">OK, so we're going to let
+P be our invariant here.</p>
+<p t="3209980" d="13710">P is the statement that if a
+girl, G, ever rejected a boy,</p>
+<p t="3223690" d="9524">B, then the girl,
+G, has a suitor,</p>
+<p t="3233214" d="1416">or if the algorithm
+is terminated,</p>
+<p t="3234630" d="14066">a husband who she
+prefers to B. All right,</p>
+<p t="3248696" d="1374">that's going to
+be our invariant,</p>
+<p t="3250070" d="2430">and now we've got to
+prove it's an invariant.</p>
+<p t="3252500" d="2720">So we'll do that with a
+lemma called lemma one.</p>
+<p t="3258230" d="5670">P is an invariant for TMA.</p>
+<p t="3268990" d="3084">All right, let's prove that.</p>
+<p t="3272074" d="1416">Now, what's the
+first thing you've</p>
+<p t="3273490" d="4190">got to prove when you're proving
+something as an invariant?</p>
+<p t="3277680" d="3000">There's two things you've got
+to do to establish a variant.</p>
+<p t="3280680" d="1220">What's the first one?</p>
+<p t="3281900" d="833">AUDIENCE: Base case?</p>
+<p t="3282733" d="947">PROFESSOR: Base case.</p>
+<p t="3283680" d="2630">Show it holds true
+at the beginning.</p>
+<p t="3286310" d="3070">Proof is going to
+be by induction,</p>
+<p t="3289380" d="2924">and so we've got to show that
+P holds true at the beginning.</p>
+<p t="3292304" d="1666">But what are we going
+to induct on here?</p>
+<p t="3293970" d="1980">What's the parameter
+we're inducting on?</p>
+<p t="3295950" d="740">AUDIENCE: Time?</p>
+<p t="3296690" d="1499">PROFESSOR: Time,
+the number of days.</p>
+<p t="3300810" d="2230">Good.</p>
+<p t="3303040" d="4460">The base case is day
+zero, the beginning.</p>
+<p t="3313630" d="1710">All right.</p>
+<p t="3315340" d="3775">Well, is that statement
+true on day zero?</p>
+<p t="3322030" d="2730">Yeah, it's true for
+sort of a weird reason.</p>
+<p t="3324760" d="3030">Nobody's been
+rejected yet, so it's</p>
+<p t="3327790" d="2110">what's called vacuously true.</p>
+<p t="3329900" d="5040">Because no girl, G, has
+rejected any boy, so it's true.</p>
+<p t="3338380" d="1620">So no one is rejected yet.</p>
+<p t="3345360" d="1400">So it's vacuously true.</p>
+<p t="3352293" d="1987">All right, next we have
+the induction step.</p>
+<p t="3362860" d="13800">So we'll assume P holds
+at the end of day d,</p>
+<p t="3376660" d="2570">and we need to argue
+that it holds now</p>
+<p t="3379230" d="3620">at the end of day d plus 1.</p>
+<p t="3382850" d="2720">So say it's true up
+to now, up to day d.</p>
+<p t="3385570" d="2560">Why Is it true at the
+end of the next day?</p>
+<p t="3388130" d="5190">Well, there's two cases
+to look at here, depending</p>
+<p t="3393320" d="13090">on when G rejected B. So if
+she rejects B on this day, day</p>
+<p t="3406410" d="8407">d plus 1, well, why would
+she reject B on day d plus 1?</p>
+<p t="3414817" d="1083">There's only one scenario.</p>
+<p t="3415900" d="928">Yeah?</p>
+<p t="3416828" d="1392">AUDIENCE: There's a better boy.</p>
+<p t="3418220" d="1630">PROFESSOR: There's a better boy.</p>
+<p t="3419850" d="4030">And so she says maybe to him,
+and he becomes her suitor.</p>
+<p t="3423880" d="4130">So, in fact, P is true.</p>
+<p t="3428010" d="12660">So then there was
+someone better,</p>
+<p t="3440670" d="7280">and that implies P is
+true on day d plus 1.</p>
+<p t="3447950" d="1960">Case two is very similar.</p>
+<p t="3449910" d="3250">It's a very simple proof.</p>
+<p t="3453160" d="8160">G rejected B before
+day d, before d plus 1.</p>
+<p t="3465030" d="5100">Well, now we use the fact that
+P was true at the end of day</p>
+<p t="3470130" d="7495">d, which means P now implies
+that G had at least as good</p>
+<p t="3477625" d="500">a suitor.</p>
+<p t="3481377" d="1958">Actually, it's better,
+because it was rejected.</p>
+<p t="3486900" d="11440">A better suitor on day d,
+that's what the hypothesis says,</p>
+<p t="3498340" d="1470">the invariant says.</p>
+<p t="3499810" d="2725">And now we just have to look
+at what happens on d plus 1.</p>
+<p t="3505360" d="3420">Well, either she has the
+same suitor on d plus 1,</p>
+<p t="3508780" d="3004">or somebody better came along.</p>
+<p t="3511784" d="1250">And so we're going to be done.</p>
+<p t="3525150" d="10700">She has the same or better
+suitor on day d plus 1,</p>
+<p t="3535850" d="7480">and that implies P is true
+on d plus 1, and we're done.</p>
+<p t="3545954" d="1666">All right, so I went
+through this proof.</p>
+<p t="3547620" d="2000">It was sort of
+obvious, but this is</p>
+<p t="3549620" d="2010">the careful way
+you'd write it down</p>
+<p t="3551630" d="3000">to show that the
+invariant holds.</p>
+<p t="3554630" d="3385">Any questions about
+the invariant dilemma?</p>
+<p t="3560930" d="2140">All right, so things only
+get better for the girls.</p>
+<p t="3563070" d="3190">If she ever rejected somebody,
+she's got somebody better.</p>
+<p t="3566260" d="4970">So now we can prove
+the main result,</p>
+<p t="3571230" d="1130">that everyone is married.</p>
+<p t="3582380" d="1875">And again the proof will
+be by contradiction.</p>
+<p t="3592720" d="2660">So we assume not
+everyone was married.</p>
+<p t="3600362" d="1708">Assume, for the purpose
+of contradiction,</p>
+<p t="3602070" d="9580">that some boy, B, we'll
+call him, is not married.</p>
+<p t="3611650" d="2630">Because if everyone is not
+married then some boy is not.</p>
+<p t="3614280" d="2570">If not everyone is married
+then some boy is not married.</p>
+<p t="3619530" d="2420">So when it terminates,
+B is not married.</p>
+<p t="3624790" d="2930">Well, what do you know
+about B if he was not</p>
+<p t="3627720" d="990">married at the end?</p>
+<p t="3633680" d="1990">PROFESSOR: He was
+rejected by everyone.</p>
+<p t="3635670" d="2310">PROFESSOR: He was
+rejected by everyone,</p>
+<p t="3637980" d="2820">because if at the end,
+he's still under a balcony,</p>
+<p t="3640800" d="3840">if he still had somebody
+on his list, he'd be there.</p>
+<p t="3644640" d="4200">And he'd be getting married,
+because it's the end.</p>
+<p t="3648840" d="2395">So this means that
+if B is not married,</p>
+<p t="3651235" d="1125">he's rejected by everybody.</p>
+<p t="3652360" d="500">Yeah?</p>
+<p t="3652860" d="2644">AUDIENCE: [INAUDIBLE] list?</p>
+<p t="3655504" d="1666">PROFESSOR: Oh, he's
+on everybody's list.</p>
+<p t="3657170" d="2364">AUDIENCE: Yeah.</p>
+<p t="3659534" d="1416">PROFESSOR: Everybody
+has everybody</p>
+<p t="3660950" d="2290">of the opposite
+sex on their list,</p>
+<p t="3663240" d="2620">but he had to cross
+everybody off.</p>
+<p t="3665860" d="870">That's true.</p>
+<p t="3666730" d="500">Yeah?</p>
+<p t="3667230" d="1892">AUDIENCE: That would mean
+that everyone had somebody</p>
+<p t="3669122" d="2365">better on the same day that
+[INAUDIBLE] telling him she</p>
+<p t="3671487" d="1565">didn't want to be with him.</p>
+<p t="3673052" d="958">PROFESSOR: That's true.</p>
+<p t="3674010" d="3380">That means that B
+crossed every girl off.</p>
+<p t="3677390" d="2250">B is rejected by
+every girl, which</p>
+<p t="3679640" d="1630">means every girl
+has somebody better</p>
+<p t="3681270" d="3750">than B, which is not
+possible, because that would</p>
+<p t="3685020" d="4186">mean every girl was married.</p>
+<p t="3689206" d="2624">And therefore, the equal number
+of boys and girls, that means B</p>
+<p t="3691830" d="1360">would have been married.</p>
+<p t="3693190" d="500">Good.</p>
+<p t="3693690" d="3400">All right, let's
+write that down.</p>
+<p t="3697090" d="2190">This means that B was
+rejected by every girl.</p>
+<p t="3707980" d="5340">OK, that means that
+every girl, by lemma 1,</p>
+<p t="3713320" d="8745">has a better suitor, and
+that's where we use lemma 1.</p>
+<p t="3727400" d="9240">And that means that
+every girl is married,</p>
+<p t="3736640" d="6857">and that means that every
+boy is married, including B,</p>
+<p t="3743497" d="1583">and that's a
+contradiction, because we</p>
+<p t="3745080" d="1140">said B wasn't married.</p>
+<p t="3748983" d="499">OK?</p>
+<p t="3752290" d="2353">Everybody buy that proof?</p>
+<p t="3754643" d="1041">Any questions about that?</p>
+<p t="3758890" d="2827">Yeah, proof by contradiction
+is a pretty powerful technique.</p>
+<p t="3761717" d="2083">Once you assume something
+is not going to be true,</p>
+<p t="3763800" d="3770">it gives you a lot of power
+to find a contradiction.</p>
+<p t="3770820" d="2486">All right, so now we know
+that the algorithm ends,</p>
+<p t="3773306" d="1124">and everybody gets married.</p>
+<p t="3774430" d="5750">All's we got to do is show
+that there's no rogue couples,</p>
+<p t="3780180" d="1050">so let's do that.</p>
+<p t="3788830" d="6015">TMA produces a stable matching.</p>
+<p t="3802210" d="2970">Now, how do you suppose
+we're going to prove this?</p>
+<p t="3805180" d="2202">What's going to be the
+approach to prove this?</p>
+<p t="3807382" d="500">Yeah?</p>
+<p t="3807882" d="1458">AUDIENCE: Assume that
+there's a rogue couple.</p>
+<p t="3809340" d="1916">PROFESSOR: Assume that
+there's a rogue couple,</p>
+<p t="3811256" d="4024">that namely this is not true,
+so there must be rogue couple.</p>
+<p t="3815280" d="15430">So let Bob and Gail be any
+pair that are not married.</p>
+<p t="3838480" d="3072">I need to prove the Bob
+and Gail are not rogue,</p>
+<p t="3841552" d="958">and then we'll be fine.</p>
+<p t="3842510" d="2750">Because if it says everybody
+who is not married is not rogue,</p>
+<p t="3845260" d="4101">then we know we have
+a stable matching.</p>
+<p t="3849361" d="1499">Now, there's a
+couple of cases here.</p>
+<p t="3850860" d="3379">Bob and Gail weren't
+married, so there's two ways</p>
+<p t="3854239" d="1041">that could have happened.</p>
+<p t="3857960" d="820">What's one of them?</p>
+<p t="3861392" d="1458">What's one reason
+they might not be</p>
+<p t="3862850" d="2730">married, something that happened
+that made that impossible?</p>
+<p t="3865580" d="1430">Yeah?</p>
+<p t="3867010" d="1470">AUDIENCE: Gail rejected Bob.</p>
+<p t="3868480" d="666">PROFESSOR: Good.</p>
+<p t="3869146" d="1534">Case one-- Gail rejected Bob.</p>
+<p t="3881330" d="4324">Well, what do we know in that
+case, if Gail rejected Bob?</p>
+<p t="3885654" d="1416">AUDIENCE: Gail had
+better suitors.</p>
+<p t="3887070" d="4360">PROFESSOR: Gail has another
+suitor that she likes better.</p>
+<p t="3891430" d="5244">And, in fact, what do we
+know about who Gail married?</p>
+<p t="3896674" d="1160">AUDIENCE: Better than Bob.</p>
+<p t="3897834" d="1666">PROFESSOR: Better
+than Bob-- things only</p>
+<p t="3899500" d="2280">get better for the girls.</p>
+<p t="3901780" d="1850">That's the lemma one.</p>
+<p t="3903630" d="11630">All right, so this means that
+Gail marries someone that she</p>
+<p t="3915260" d="1200">thinks is better than Bob.</p>
+<p t="3920240" d="1130">And that's by lemma one.</p>
+<p t="3926460" d="4850">Well, can Gail and Bob
+be a rogue couple here?</p>
+<p t="3931310" d="3660">No, because Gail likes her
+spouse better than Bob,</p>
+<p t="3934970" d="2710">so she's not going to be
+in a rogue affair with Bob.</p>
+<p t="3940410" d="9540">So that means that Gail
+and Bob are not rogue.</p>
+<p t="3957380" d="7510">All right, case two is
+Gail did not reject Bob.</p>
+<p t="3964890" d="690">She never did.</p>
+<p t="3969792" d="3708">That's the other case,
+she didn't reject Bob.</p>
+<p t="3973500" d="4600">Could Bob have ever
+serenaded Gail in this case?</p>
+<p t="3978100" d="3120">No, because if he did and
+he was never rejected,</p>
+<p t="3981220" d="2650">they would have
+ended up married.</p>
+<p t="3983870" d="920">All right?</p>
+<p t="3984790" d="9705">So that means the Bob
+never serenaded Gail.</p>
+<p t="4001390" d="3613">What does that mean about
+how Bob feels about Gail?</p>
+<p t="4005003" d="499">Yeah?</p>
+<p t="4005502" d="3168">AUDIENCE: Bob must have
+never serenaded for Gail.</p>
+<p t="4008670" d="2930">PROFESSOR: Yeah, Bob
+never got far enough down</p>
+<p t="4011600" d="3180">on his list to serenade Gail.</p>
+<p t="4014780" d="5050">He got married before
+he got down there.</p>
+<p t="4019830" d="7020">All right, so that
+means that Gail is lower</p>
+<p t="4026850" d="5080">on Bob's list than Bob's wife.</p>
+<p t="4036990" d="3950">And that means that
+they're not rogue,</p>
+<p t="4040940" d="1920">because Bob likes his
+wife better than Gail.</p>
+<p t="4053380" d="3040">All right, so in each case, the
+cases clearly cover everything.</p>
+<p t="4056420" d="2150">Gail rejected Bob,
+or she didn't.</p>
+<p t="4058570" d="3460">Either way, Gail and
+Bob are not rogue.</p>
+<p t="4062030" d="7770">So that means there's
+no rogue couples,</p>
+<p t="4069800" d="3390">and that implies M is
+stable, TMA is stable.</p>
+<p t="4076336" d="2894">OK?</p>
+<p t="4079230" d="2470">All right, so TMA
+terminates, everyone</p>
+<p t="4081700" d="4837">gets married, no rogue
+couples, nice outlook.</p>
+<p t="4086537" d="583">So we're done.</p>
+<p t="4087120" d="2250">We actually proved it works.</p>
+<p t="4089370" d="2620">One issue left to
+think about here.</p>
+<p t="4091990" d="4058">Any questions on that before we
+launch off into the last issue?</p>
+<p t="4096048" d="976">AUDIENCE: Is it unique?</p>
+<p t="4099960" d="1689">PROFESSOR: Is it unique?</p>
+<p t="4101649" d="5781">TMA gives you a unique answer
+because it's an algorithm.</p>
+<p t="4107430" d="1880">It's deterministic.</p>
+<p t="4109310" d="4339">But there may be other
+stable matchings.</p>
+<p t="4113649" d="3080">OK, so there's not just one
+stable matching, necessarily.</p>
+<p t="4116729" d="3441">You could make examples with
+multiple stable matchings.</p>
+<p t="4120170" d="2354">That's a great question.</p>
+<p t="4122524" d="970">Any other questions?</p>
+<p t="4126410" d="746">All right.</p>
+<p t="4127156" d="500">Oh, yeah?</p>
+<p t="4127656" d="2232">AUDIENCE: Is there
+generally any other way</p>
+<p t="4129888" d="3720">to assess optimality besides
+the fact that it's stable, or--</p>
+<p t="4133608" d="2986">PROFESSOR: Yeah, you can
+make up lots of them.</p>
+<p t="4136594" d="1416">You could put
+weights on the edges</p>
+<p t="4138010" d="1740">and get a min-weight matching.</p>
+<p t="4139750" d="5050">You could try to get
+the perfect matching</p>
+<p t="4144800" d="3260">with the least unfavorable
+marriage kind of thing.</p>
+<p t="4148060" d="2589">There's a lot of
+criteria you can make.</p>
+<p t="4150649" d="4071">This one turns out to be useful
+in practice in a variety ways</p>
+<p t="4154720" d="1889">that we'll talk
+about, and also have</p>
+<p t="4156609" d="2710">a nice, fast, simple
+algorithm that can actually</p>
+<p t="4159319" d="1750">run in a distributed
+environment, which</p>
+<p t="4161069" d="1761">is really nice.</p>
+<p t="4162830" d="2699">So it is probably the
+most practical approach</p>
+<p t="4165529" d="2750">to matching out there.</p>
+<p t="4168279" d="1051">Any other questions?</p>
+<p t="4171930" d="1816">OK, the last
+issue-- I don't know</p>
+<p t="4173746" d="4903">if we still have the issues
+up there-- is fairness.</p>
+<p t="4178649" d="4745">So who thinks the TMA is
+favorable to the boys?</p>
+<p t="4186040" d="590">Just a couple.</p>
+<p t="4186630" d="3360">Who thinks it's
+favorable to the girls?</p>
+<p t="4189990" d="1909">More, that's the
+common response.</p>
+<p t="4191899" d="2611">Who thinks you can't even
+define it one way or the other?</p>
+<p t="4194510" d="2940">It's unclear and
+hopeless to decide.</p>
+<p t="4197450" d="4820">OK, well, it seems like
+maybe the girls, because they</p>
+<p t="4202270" d="1900">get the best of their suitors.</p>
+<p t="4204170" d="1750">They sit back, and
+they just take the best</p>
+<p t="4205920" d="1850">as they come along.</p>
+<p t="4207770" d="1930">On the other hand,
+the boys do try</p>
+<p t="4209700" d="1990">to go out and get
+their first choice.</p>
+<p t="4211690" d="1390">The girls have to wait.</p>
+<p t="4213080" d="2322">And Mr. Right may
+never come along.</p>
+<p t="4215402" d="958">The boys are out there.</p>
+<p t="4216360" d="3800">I'm going to my first choice,
+and they get denied, OK, they</p>
+<p t="4220160" d="2510">just move right on
+to the next choice.</p>
+<p t="4222670" d="1950">So this is actually
+one of these questions</p>
+<p t="4224620" d="2160">of study in sociology.</p>
+<p t="4226780" d="4770">In the animal species, which is
+better, proposers or acceptors?</p>
+<p t="4231550" d="2250">What's the more powerful result?</p>
+<p t="4233800" d="2690">Who has the better
+power in courtship?</p>
+<p t="4236490" d="3510">It turns out that we can
+answer this question in a very</p>
+<p t="4240000" d="2540">clear way, and prove it here.</p>
+<p t="4242540" d="4030">And the answer is the boys
+have all the power here.</p>
+<p t="4246570" d="3730">This is very favorable to
+the boys, and we'll see why.</p>
+<p t="4250300" d="2960">Now, to prove that, we
+need some definitions.</p>
+<p t="4274190" d="3839">OK, so I've got to define
+a couple things here</p>
+<p t="4278029" d="1041">to be able to prove this.</p>
+<p t="4279070" d="3470">The first is, for any
+collection of preference lists,</p>
+<p t="4282540" d="6740">we're going to let S be the
+set of all stable matchings.</p>
+<p t="4296500" d="3590">Now, we know that S
+is not empty, right?</p>
+<p t="4300090" d="2924">How do we know that
+S is not empty here?</p>
+<p t="4303014" d="1893">AUDIENCE: [INAUDIBLE] stable.</p>
+<p t="4304907" d="2333">PROFESSOR: Yeah, because TMA
+produces a stable matching,</p>
+<p t="4307240" d="2110">so we know that S is not empty.</p>
+<p t="4309350" d="2430">There's at least one.</p>
+<p t="4311780" d="3110">And, in fact, there
+could be many.</p>
+<p t="4314890" d="24420">Now, for each person, P, we
+define the realm of possibility</p>
+<p t="4339310" d="8220">for P to be the set of
+mates that you might</p>
+<p t="4347530" d="2510">have in a stable matching.</p>
+<p t="4350040" d="2480">So it's a set queue
+of people for which</p>
+<p t="4352520" d="5140">there exists a matching
+that's stable such that you're</p>
+<p t="4357660" d="3230">mated to that person.</p>
+<p t="4360890" d="1670">So I've written this
+in some-- that's</p>
+<p t="4362560" d="2930">sort of complicated
+mathematics, but somebody</p>
+<p t="4365490" d="3960">is in your realm of possibility
+if there is a stable matching</p>
+<p t="4369450" d="1090">where you married them.</p>
+<p t="4370540" d="1625">If it exists, there's
+a stable matching</p>
+<p t="4372165" d="1665">where you could marry them.</p>
+<p t="4373830" d="3709">And this is vaguely like
+you see sometimes, you're</p>
+<p t="4377539" d="2541">going out with somebody and your
+parents say, oh, they're not</p>
+<p t="4380080" d="2270">in your league, or something.</p>
+<p t="4382350" d="1710">This is a mathematical
+formulation</p>
+<p t="4384060" d="4480">for that, that there is some way
+in the world to marry everybody</p>
+<p t="4388540" d="2070">up, so it's all
+stable, and you could</p>
+<p t="4390610" d="2070">be married to that person.</p>
+<p t="4392680" d="2080">OK?</p>
+<p t="4394760" d="3835">Let's do an example
+with four people.</p>
+<p t="4411090" d="8830">All right, so for example, say
+we have Brad, Jen, and Angelina</p>
+<p t="4419920" d="2500">again.</p>
+<p t="4422420" d="3380">And of course Brad likes
+Angelina and vice versa.</p>
+<p t="4425800" d="3560">Gen likes Brad, and then
+there's Billy Bob here.</p>
+<p t="4432720" d="1070">All right.</p>
+<p t="4433790" d="4540">Now, Brad is not
+realistic for Jen.</p>
+<p t="4438330" d="4020">Brad Is not in Jen's
+realm of possibility,</p>
+<p t="4442350" d="4770">because in any perfect matching
+where Brad marries Jen,</p>
+<p t="4447120" d="3370">you're going to
+have a rogue couple.</p>
+<p t="4450490" d="2330">Brad's going to go for Angelina.</p>
+<p t="4452820" d="4350">So Brad is not within
+Jen's realm of possibility.</p>
+<p t="4457170" d="2180">And similarly, vice
+versa-- Jen is not</p>
+<p t="4459350" d="3329">in Brad's realm of possibility,
+because there's no stable</p>
+<p t="4462679" d="2041">matching where they're
+married, in this scenario,</p>
+<p t="4464720" d="2190">for this problem.</p>
+<p t="4466910" d="2390">All right?</p>
+<p t="4469300" d="1600">Now that we have
+that notion, we can</p>
+<p t="4470900" d="4928">define who your optimal mate is,
+and who your pessimal mate is,</p>
+<p t="4475828" d="976">the worst case.</p>
+<p t="4491950" d="14850">All right, so we define
+a person's optimal mate</p>
+<p t="4506800" d="5490">is his or her favorite in
+the realm of possibility.</p>
+<p t="4522890" d="3840">So your optimal mate is
+not your favorite overall,</p>
+<p t="4526730" d="3000">it's just your favorite
+among those who are possible,</p>
+<p t="4529730" d="2430">that there is a stable
+matching that you could</p>
+<p t="4532160" d="2170">be matched to that person.</p>
+<p t="4534330" d="9530">And similarly, you have
+a person's pessimal mate</p>
+<p t="4543860" d="7590">is your least favorite from
+the realm of possibility.</p>
+<p t="4551450" d="500">OK?</p>
+<p t="4551950" d="1530">Because you have
+all the people you</p>
+<p t="4553480" d="3309">might be married to
+in stable matchings.</p>
+<p t="4556789" d="2041">Your favorite is the
+optimal, your least favorite</p>
+<p t="4558830" d="1760">is the pessimal.</p>
+<p t="4560590" d="1500">Any questions about that?</p>
+<p t="4562090" d="2157">Does that make sense?</p>
+<p t="4564247" d="1583">And you don't count
+the ones you can't</p>
+<p t="4565830" d="2480">be married to, because if you
+were, it would be unstable.</p>
+<p t="4571270" d="5530">OK, now we can state the
+blockbuster theorems here.</p>
+<p t="4576800" d="11570">Theorem four says
+TMA marries every boy</p>
+<p t="4588370" d="3230">with his optimal mate.</p>
+<p t="4596630" d="4510">Theorem five,
+probably can guess,</p>
+<p t="4601140" d="7090">TMA marries every girl
+with her pessimal mate.</p>
+<p t="4613900" d="2710">All right, so it is
+optimal for every boy.</p>
+<p t="4616610" d="3350">They get the best possible they
+could have in stable marriages,</p>
+<p t="4619960" d="3346">and every girl gets the
+worst possible mate.</p>
+<p t="4623306" d="2804">Now, you wouldn't necessarily
+think that when you first</p>
+<p t="4626110" d="3210">look at that algorithm, where
+the boys are working down</p>
+<p t="4629320" d="2750">their list, and the girls are
+just getting better and better.</p>
+<p t="4632070" d="1020">But that's the case.</p>
+<p t="4633090" d="3130">Now, let's see, I'm not going
+to have time to prove them both,</p>
+<p t="4636220" d="3495">but I will prove theorem five.</p>
+<p t="4639715" d="1625">And I'm going to
+assume theorem four is</p>
+<p t="4641340" d="2520">true to prove theorem five.</p>
+<p t="4643860" d="2800">Maybe we'll do theorem four
+tomorrow in recitation.</p>
+<p t="4646660" d="1000">I don't know.</p>
+<p t="4647660" d="2679">So let's do theorem five so
+you can see how this works.</p>
+<p t="4653300" d="14367">The proof is by
+contradiction, so we'll</p>
+<p t="4667667" d="1583">assume theorem four
+is true, and we'll</p>
+<p t="4669250" d="5760">prove the proof of theorem
+five by contradiction.</p>
+<p t="4683040" d="6000">So assume there was a stable
+matching where a girl got</p>
+<p t="4689040" d="3250">worse off than in TMA.</p>
+<p t="4692290" d="1770">All right?</p>
+<p t="4694060" d="1840">Assume three and
+five is not true,</p>
+<p t="4695900" d="3780">then there's some girl
+in some stable matching.</p>
+<p t="4699680" d="2590">So suppose, for the
+purpose of contradiction,</p>
+<p t="4702270" d="7960">that there exists
+a stable matching,</p>
+<p t="4710230" d="10530">we'll call it M,
+where some girl,</p>
+<p t="4720760" d="1855">and she fares worse than in TMA.</p>
+<p t="4728202" d="1958">I want to show that
+results in a contradiction.</p>
+<p t="4733120" d="2862">And the proof is pretty
+simple, just a simple picture.</p>
+<p t="4740820" d="3475">So G did worse in M than in TMA.</p>
+<p t="4754480" d="9995">All right, so let's let B
+prime be the mate of G in M.</p>
+<p t="4764475" d="6075">So girl G did worse in M than
+in TMA, so here's her mate in M,</p>
+<p t="4770550" d="2385">and let B be her mate in TMA.</p>
+<p t="4778080" d="4430">Who does she like
+better, B or B prime?</p>
+<p t="4782510" d="3090">B, because we're saying that
+she did worse in M than she did</p>
+<p t="4785600" d="3270">in TMA, so she likes B better.</p>
+<p t="4791540" d="9040">And let G prime be the mate
+of B in M. Now, who does</p>
+<p t="4800580" d="2327">B like better, G or G prime?</p>
+<p t="4802907" d="833">[INTERPOSING VOICES]</p>
+<p t="4807500" d="1340">PROFESSOR: Not G prime.</p>
+<p t="4808840" d="6900">B got married to G prime in M,
+but what does theorem four say?</p>
+<p t="4815740" d="3820">Yeah, G. Theorem four
+says that across all</p>
+<p t="4819560" d="5220">the stable matchings, B gets
+his favorite mate in TMA.</p>
+<p t="4824780" d="3700">So G prime is in the realm
+of possibility, and so is G,</p>
+<p t="4828480" d="2410">and we know from
+theorem four B likes G</p>
+<p t="4830890" d="4210">best, better than G prime,
+because of theorem four.</p>
+<p t="4835100" d="3160">So what happened here?</p>
+<p t="4838260" d="11360">There's a rogue couple in M. B
+and G are a rogue couple in M.</p>
+<p t="4849620" d="3639">And that means that
+M is not stable,</p>
+<p t="4853259" d="1166">and that is a contradiction.</p>
+<p t="4857550" d="500">All right?</p>
+<p t="4858050" d="5960">And so theorem five
+is true, because we</p>
+<p t="4864010" d="3080">assumed we had a stable
+matching M where there's</p>
+<p t="4867090" d="3720">a girl who did worse off.</p>
+<p t="4870810" d="3750">So it really pays off to be
+aggressive party in courtship.</p>
+<p t="4874560" d="1660">Everybody lives
+happily ever after,</p>
+<p t="4876220" d="2810">especially the boys in TMA.</p>
+<p t="4879030" d="3030">Now, TMA arises in
+lots of applications.</p>
+<p t="4882060" d="2850">The most famous is
+the matching program</p>
+<p t="4884910" d="3570">that's used to match MDs
+to residency programs.</p>
+<p t="4888480" d="3110">So how many pre-meds are here?</p>
+<p t="4891590" d="1790">There's one, at least.</p>
+<p t="4893380" d="2196">So you're going to go to
+medical school some day,</p>
+<p t="4895576" d="1374">and at the end of
+medical school,</p>
+<p t="4896950" d="2030">there's a big day
+called match day,</p>
+<p t="4898980" d="3510">where you get assigned to a
+hospital for your internship,</p>
+<p t="4902490" d="3580">and the way that works
+is using this algorithm.</p>
+<p t="4906070" d="2320">And who do you suppose is
+the boy in this algorithm?</p>
+<p t="4908390" d="958">AUDIENCE: The hospital.</p>
+<p t="4909348" d="1692">PROFESSOR: The hospital.</p>
+<p t="4911040" d="2520">And they want it so that
+when they make the matchings,</p>
+<p t="4913560" d="4000">that there's not some pair of an
+intern or doctor in a hospital</p>
+<p t="4917560" d="3250">where they'd like each other
+better than what they got.</p>
+<p t="4920810" d="3440">This is used in online dating
+for the obvious reasons,</p>
+<p t="4924250" d="2420">and we actually use this
+algorithm lot at Akamai</p>
+<p t="4926670" d="2660">to load balance
+traffic on the web.</p>
+<p t="4929330" d="4090">And here you have the
+boys are web servers,</p>
+<p t="4933420" d="3780">and the girls are
+requests for service.</p>
+<p t="4937200" d="3760">And the goals are to
+balance performance,</p>
+<p t="4940960" d="2400">getting a server that's
+nearby you that's fast.</p>
+<p t="4943360" d="3830">And on the other side,
+our cost, and by who</p>
+<p t="4947190" d="4500">we make a boy and a girl, we can
+trade off cost for performance</p>
+<p t="4951690" d="1520">in a very nice, distributed way.</p>
+<p t="4953210" d="2690">All right, so
+that's it for today.</p>
+</body>
+</timedtext>

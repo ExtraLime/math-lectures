@@ -1,0 +1,2348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="120" d="2340">The following content is
+provided under a Creative</p>
+<p t="2460" d="1420">Commons license.</p>
+<p t="3880" d="2210">Your support will help
+MIT OpenCourseWare</p>
+<p t="6090" d="4090">continue to offer high quality
+educational resources for free.</p>
+<p t="10180" d="2540">To make a donation or to
+view additional materials</p>
+<p t="12720" d="3960">from hundreds of MIT courses,
+visit MIT OpenCourseWare</p>
+<p t="16680" d="940">at ocw.mit.edu.</p>
+<p t="74980" d="2520">PHILIPPE RIGOLLET: --bunch
+of x's and a bunch of y's.</p>
+<p t="77500" d="2640">The y's were univariate,
+just one real</p>
+<p t="80140" d="1320">valued random variable.</p>
+<p t="81460" d="3300">And the x's were vectors that
+described a bunch of attributes</p>
+<p t="84760" d="2970">for each of our individuals
+or each of our observations.</p>
+<p t="87730" d="2620">Let's assume now that we're
+given essentially only the x's.</p>
+<p t="90350" d="3620">This is sometimes referred
+to as unsupervised learning.</p>
+<p t="93970" d="1950">There is just the x's.</p>
+<p t="95920" d="2720">Usually, supervision
+is done by the y's.</p>
+<p t="98640" d="3070">And so what you're trying to do
+is to make sense of this data.</p>
+<p t="101710" d="1980">You're going to try to
+understand this data,</p>
+<p t="103690" d="3372">represent this data,
+visualize this data,</p>
+<p t="107062" d="1458">try to understand
+something, right?</p>
+<p t="108520" d="3676">So, if I give you a
+d-dimensional random vectors,</p>
+<p t="112196" d="1874">and you're going to have
+n independent copies</p>
+<p t="114070" d="3240">of this individual-- of
+this random vector, OK?</p>
+<p t="117310" d="2220">So you will see that
+I'm going to have--</p>
+<p t="119530" d="2670">I'm going to very quickly
+run into some limitations</p>
+<p t="122200" d="2070">about what I can actually
+draw on the board</p>
+<p t="124270" d="1710">because I'm using
+[? boldface ?] here.</p>
+<p t="125980" d="2200">I'm also going to use the
+blackboard [? boldface. ?]</p>
+<p t="128180" d="1640">So it's going to
+be a bit difficult.</p>
+<p t="129820" d="5610">So tell me if you're actually
+a little confused by what</p>
+<p t="135430" d="2280">is a vector, what is a
+number, and what is a matrix.</p>
+<p t="137710" d="2010">But we'll get there.</p>
+<p t="139720" d="2730">So I have X in Rd, and
+that's a random vector.</p>
+<p t="146230" d="4420">And I have X1 to
+Xn that are IID.</p>
+<p t="150650" d="6985">They're independent
+copies of X. OK,</p>
+<p t="157635" d="2691">so you can think
+of those as being--</p>
+<p t="160326" d="1374">the realization
+of these guys are</p>
+<p t="161700" d="9390">going to be a cloud of
+n points in R to the d.</p>
+<p t="171090" d="3120">And we're going to think
+of d as being fairly large.</p>
+<p t="174210" d="1500">And for this to
+start to make sense,</p>
+<p t="175710" d="4050">we're going to think of d
+as being at least 4, OK?</p>
+<p t="179760" d="2070">And meaning that you're
+going to have a hard time</p>
+<p t="181830" d="1650">visualizing those things.</p>
+<p t="183480" d="3050">If it was 3 or 2, you would
+be able to draw these points.</p>
+<p t="186530" d="1510">And that's pretty
+much as much sense</p>
+<p t="188040" d="1791">you're going to be
+making about those guys,</p>
+<p t="189831" d="2199">just looking at the [INAUDIBLE]</p>
+<p t="192030" d="4830">All right, so I'm going to
+write each of those X's, right?</p>
+<p t="196860" d="3660">So this vector, X,
+has d coordinate.</p>
+<p t="200520" d="5130">And I'm going to write
+them as X1, to Xd.</p>
+<p t="210730" d="4050">And I'm going to stack
+them into a matrix, OK?</p>
+<p t="214780" d="3320">So once I have those guys,
+I'm going to have a matrix.</p>
+<p t="218100" d="2130">But here, I'm going
+to use the double bar.</p>
+<p t="220230" d="7650">And it's X1 transpose,
+Xn transpose.</p>
+<p t="227880" d="3370">So what it means is that
+the coordinates of this guy,</p>
+<p t="231250" d="1790">of course, are X1,1.</p>
+<p t="233040" d="1670">Here, I have--</p>
+<p t="234710" d="3160">I'm of size d, so I have X1d.</p>
+<p t="237870" d="3420">And here, I have Xn1.</p>
+<p t="241290" d="1650">Xnd.</p>
+<p t="242940" d="3720">And so the i-th, j-th--</p>
+<p t="246660" d="4290">i-th row and j-th column
+is the matrix, Xij, right--</p>
+<p t="250950" d="1830">is the entry, Xi to-- sorry.</p>
+<p t="263540" d="4690">OK, so each-- so the rows
+here are the observations.</p>
+<p t="268230" d="3810">And the columns are the
+covariance over attributes.</p>
+<p t="272040" d="600">OK?</p>
+<p t="272640" d="1420">So this is an n by d matrix.</p>
+<p t="279220" d="2100">All right, this is really
+just some bookkeeping.</p>
+<p t="281320" d="2520">How do we store
+this data somehow?</p>
+<p t="283840" d="2417">And the fact that we use a
+matrix just like for regression</p>
+<p t="286257" d="2207">is going to be convenient
+because we're going to able</p>
+<p t="288464" d="1586">to talk about projections--</p>
+<p t="290050" d="3260">going to be able to talk
+about things like this.</p>
+<p t="293310" d="3000">All right, so everything
+I'm going to say now</p>
+<p t="296310" d="2880">is about variances
+or covariances</p>
+<p t="299190" d="2755">of those things, which means
+that I need two moments, OK?</p>
+<p t="301945" d="1625">If the variance does
+not exist, there's</p>
+<p t="303570" d="1750">nothing I can say
+about this problem.</p>
+<p t="305320" d="2300">So I'm going to assume
+that the variance exists.</p>
+<p t="307620" d="1470">And one way to
+just put it to say</p>
+<p t="309090" d="3300">that the two norm
+of those guys is</p>
+<p t="312390" d="2640">finite, which is another
+way to say that each of them</p>
+<p t="315030" d="660">is finite.</p>
+<p t="315690" d="2520">I mean, you can think
+of it the way you want.</p>
+<p t="318210" d="2790">All right, so now,
+the mean of X, right?</p>
+<p t="321000" d="1530">So I have a random vector.</p>
+<p t="322530" d="3900">So I can talk about
+the expectation of X.</p>
+<p t="326430" d="2610">That's a vector that's in Rd.</p>
+<p t="329040" d="4788">And that's just taking
+the expectation entrywise.</p>
+<p t="333828" d="500">Sorry.</p>
+<p t="342265" d="3275">X1, Xd.</p>
+<p t="345540" d="4100">OK, so I should say it out loud.</p>
+<p t="349640" d="2250">For this, the purpose
+of this class,</p>
+<p t="351890" d="3960">I will denote by
+subscripts the indices that</p>
+<p t="355850" d="1320">corresponds to observations.</p>
+<p t="357170" d="5520">And superscripts, the
+indices that correspond to</p>
+<p t="362690" d="1590">coordinates of a variable.</p>
+<p t="364280" d="3060">And I think that's the
+same convention that we</p>
+<p t="367340" d="3259">took for the regression case.</p>
+<p t="370599" d="1791">Of course, you could
+use whatever you want.</p>
+<p t="372390" d="1541">If you want to put
+commas, et cetera,</p>
+<p t="373931" d="2141">it becomes just a
+bit more complicated.</p>
+<p t="376072" d="1998">All right, and so
+now, once I have this,</p>
+<p t="378070" d="3310">so this tells me where my cloud
+of point is centered, right?</p>
+<p t="381380" d="3000">So if I have a bunch of points--</p>
+<p t="384380" d="3060">OK, so now I have a
+distribution on Rd,</p>
+<p t="387440" d="2550">so maybe I should
+talk about this--</p>
+<p t="389990" d="1620">I'll talk about
+this when we talk</p>
+<p t="391610" d="1350">about the empirical version.</p>
+<p t="392960" d="1500">But if you think
+that you have, say,</p>
+<p t="394460" d="2220">a two-dimensional
+Gaussian random variable,</p>
+<p t="396680" d="2250">then you have a center
+in two dimension, which</p>
+<p t="398930" d="2642">is where it peaks, basically.</p>
+<p t="401572" d="1708">And that's what we're
+talking about here.</p>
+<p t="403280" d="1458">But the other thing
+we want to know</p>
+<p t="404738" d="2807">is how much does it spread
+in every direction, right?</p>
+<p t="407545" d="2125">So in every direction of
+the two dimensional thing,</p>
+<p t="409670" d="2550">I can then try to understand
+how much spread I'm getting.</p>
+<p t="412220" d="2680">And the way you measure this
+is by using covariance, right?</p>
+<p t="414900" d="7250">So the covariance
+matrix, sigma--</p>
+<p t="422150" d="3750">that's a matrix which is d by d.</p>
+<p t="425900" d="2250">And it records-- in
+the j, k-th entry,</p>
+<p t="428150" d="2470">it records the covariance
+between the j-th coordinate</p>
+<p t="430620" d="2870">of X and the k-th
+coordinate of X, OK?</p>
+<p t="433490" d="1080">So with entries--</p>
+<p t="441300" d="9210">OK, so I have sigma, which is
+sigma 1,1, sigma dd, sigma 1d,</p>
+<p t="450510" d="665">sigma d1.</p>
+<p t="454750" d="4940">OK, and here I have
+sigma jk And sigma jk</p>
+<p t="459690" d="9240">is just the covariance between
+Xj, the j-th coordinate</p>
+<p t="468930" d="3230">and the k-th coordinate.</p>
+<p t="472160" d="709">OK?</p>
+<p t="472869" d="2291">So in particular, it's
+symmetric because the covariance</p>
+<p t="475160" d="2620">between Xj and Xk is the same
+as the covariance between Xk</p>
+<p t="477780" d="500">and Xj.</p>
+<p t="478280" d="2950">I should not put those
+parentheses here.</p>
+<p t="481230" d="4100">I do not use them in this, OK?</p>
+<p t="485330" d="1570">Just the covariance matrix.</p>
+<p t="486900" d="2150">So that's just something
+that records everything.</p>
+<p t="489050" d="1916">And so what's nice about
+the covariance matrix</p>
+<p t="490966" d="2074">is that if I actually
+give you X as a vector,</p>
+<p t="493040" d="2130">you actually can
+build the matrix just</p>
+<p t="495170" d="2970">by looking at vectors
+times vectors transpose,</p>
+<p t="498140" d="2070">rather than actually
+thinking about building</p>
+<p t="500210" d="1672">it coordinate by coordinate.</p>
+<p t="501882" d="1958">So for example, if you're
+used to using MATLAB,</p>
+<p t="503840" d="2166">that's the way you want to
+build a covariance matrix</p>
+<p t="506006" d="3594">because MATLAB is good
+at manipulating vectors</p>
+<p t="509600" d="3449">and matrices rather than just
+entering it entry by entry.</p>
+<p t="513049" d="1771">OK, so, right?</p>
+<p t="514820" d="7770">So, what is the covariance
+between Xj and Xk?</p>
+<p t="522590" d="8770">Well by definition, it's
+the expectation of Xj and Xk</p>
+<p t="531360" d="9970">minus the expectation of Xj
+times the expectation of Xk,</p>
+<p t="541330" d="500">right?</p>
+<p t="541830" d="1666">That's the definition
+of the covariance.</p>
+<p t="543496" d="2274">I hope everybody's seeing that.</p>
+<p t="545770" d="2510">And so, in particular,
+I can actually</p>
+<p t="548280" d="2340">see that this thing
+can be written as--</p>
+<p t="550620" d="3720">sigma can now be written
+as the expectation</p>
+<p t="554340" d="6700">of XX transpose minus
+the expectation of X</p>
+<p t="561040" d="4620">times the expectation
+of X transpose.</p>
+<p t="565660" d="840">Why?</p>
+<p t="566500" d="2970">Well, let's look at the jk-th
+coefficient of this guy, right?</p>
+<p t="569470" d="6180">So here, if I look at the
+jk-th coefficient, I see what?</p>
+<p t="575650" d="3330">Well, I see that
+it's the expectation</p>
+<p t="578980" d="11860">of XX transpose jk, which is
+equal to the expectation of XX</p>
+<p t="590840" d="3080">transpose jk.</p>
+<p t="593920" d="2650">And what are the
+entries of XX transpose?</p>
+<p t="596570" d="3560">Well, they're of the
+form, Xj times Xk exactly.</p>
+<p t="600130" d="2810">So this is actually equal to
+the expectation of Xj times Xk.</p>
+<p t="609060" d="2190">And this is actually not
+the way I want to write it.</p>
+<p t="611250" d="833">I want to write it--</p>
+<p t="615530" d="1060">OK?</p>
+<p t="616590" d="1000">Is that clear?</p>
+<p t="617590" d="2830">That when I have a rank 1 matrix
+of this form, XX transpose,</p>
+<p t="620420" d="1530">the entries are of
+this form, right?</p>
+<p t="621950" d="1570">Because if I take--</p>
+<p t="623520" d="5345">for example, think
+about x, y, z, and then</p>
+<p t="628865" d="3945">I multiply by x, y, z.</p>
+<p t="632810" d="3570">What I'm getting here is x--</p>
+<p t="636380" d="3970">maybe I should actually
+use indices here.</p>
+<p t="640350" d="2385">x1, x2, x3.</p>
+<p t="642735" d="2015">x1, x2, x3.</p>
+<p t="644750" d="12268">The entries are x1x1, x1x2,
+x1x3; x2x1, x2x2, x2x3; x3x1,</p>
+<p t="657018" d="7752">x3x2, x3x3, OK?</p>
+<p t="664770" d="3570">So indeed, this is exactly of
+the form if you look at jk,</p>
+<p t="668340" d="4226">you get exactly Xj times Xk, OK?</p>
+<p t="672566" d="3119">So that's the beauty
+of those matrices.</p>
+<p t="675685" d="3695">So now, once I have this, I
+can do exactly the same thing,</p>
+<p t="679380" d="4100">except that here, if I
+take the jk-th entry,</p>
+<p t="683480" d="1564">I will get exactly
+the same thing,</p>
+<p t="685044" d="2666">except that it's not going to be
+the expectation of the product,</p>
+<p t="687710" d="2070">but the product of the
+expectation, right?</p>
+<p t="689780" d="7030">So I get that the jk-th entry
+of E of X, E of X transpose,</p>
+<p t="696810" d="11500">is just the j-th entry of E of X
+times the k-th entry of E of X.</p>
+<p t="708310" d="4230">So if I put those two together,
+it's actually telling me</p>
+<p t="712540" d="4450">that if I look at the
+j, k-th entry of sigma,</p>
+<p t="716990" d="2700">which I called
+little sigma jk, then</p>
+<p t="719690" d="1650">this is actually equal to what?</p>
+<p t="721340" d="2830">It's equal to the first
+term minus the second term.</p>
+<p t="724170" d="7250">The first term is the
+expectation of Xj, Xk</p>
+<p t="731420" d="7480">minus the expectation of Xj,
+expectation of Xk, which--</p>
+<p t="738900" d="2000">oh, by the way, I forgot
+to say this is actually</p>
+<p t="740900" d="5122">equal to the expectation of
+Xj times the expectation of Xk</p>
+<p t="746022" d="2208">because that's just the
+definition of the expectation</p>
+<p t="748230" d="749">of random vectors.</p>
+<p t="748979" d="2481">So my j and my k are now inside.</p>
+<p t="751460" d="5715">And that's by definition the
+covariance between Xj and Xk,</p>
+<p t="757175" d="2375">OK?</p>
+<p t="759550" d="3810">So just if you've seen those
+manipulations between vectors,</p>
+<p t="763360" d="2040">hopefully you're bored
+out of your mind.</p>
+<p t="765400" d="2400">And if you have not,
+then that's something</p>
+<p t="767800" d="3210">you just need to get
+comfortable with, right?</p>
+<p t="771010" d="1650">So one thing that's
+going to be useful</p>
+<p t="772660" d="3190">is to know very
+quickly what's called</p>
+<p t="775850" d="2000">the outer product of a
+vector with itself, which</p>
+<p t="777850" d="2147">is the vector of times
+the vector transpose, what</p>
+<p t="779997" d="1333">the entries of these things are.</p>
+<p t="781330" d="5180">And that's what we've been using
+on this second set of boards.</p>
+<p t="786510" d="1780">OK, so everybody
+agrees now that we've</p>
+<p t="788290" d="3570">sort of showed that the
+covariance matrix can</p>
+<p t="791860" d="2430">be written in this vector form.</p>
+<p t="794290" d="3210">So expectation of XX
+transpose minus expectation</p>
+<p t="797500" d="1812">of X, expectation
+of X transpose.</p>
+<p t="802264" d="5796">OK, just like the covariance
+can be written in two ways,</p>
+<p t="808060" d="2010">right we know that the
+covariance can also</p>
+<p t="810070" d="9390">be written as the expectation
+of Xj minus expectation of Xj</p>
+<p t="819460" d="6040">times Xk minus
+expectation of Xk, right?</p>
+<p t="825500" d="4720">That's the-- sometimes, this
+is the original definition</p>
+<p t="830220" d="630">of covariance.</p>
+<p t="830850" d="1640">This is the second
+definition of covariance.</p>
+<p t="832490" d="1541">Just like you have
+the variance which</p>
+<p t="834031" d="3209">is the expectation of the
+square of X minus c of X,</p>
+<p t="837240" d="3150">or the expectation X squared
+minus the expectation of X</p>
+<p t="840390" d="770">squared.</p>
+<p t="841160" d="2260">It's the same thing
+for covariance.</p>
+<p t="843420" d="7770">And you can actually see this
+in terms of vectors, right?</p>
+<p t="851190" d="3080">So this actually implies that
+you can also rewrite sigma</p>
+<p t="854270" d="7510">as the expectation of X
+minus expectation of X</p>
+<p t="861780" d="2065">times the same thing transpose.</p>
+<p t="872191" d="499">Right?</p>
+<p t="872690" d="3260">And the reason is because if
+you just distribute those guys,</p>
+<p t="875950" d="7810">this is just the
+expectation of XX transpose</p>
+<p t="883760" d="11040">minus X, expectation of X
+transpose minus expectation</p>
+<p t="894800" d="4950">of XX transpose.</p>
+<p t="899750" d="3858">And then I have plus
+expectation of X,</p>
+<p t="903608" d="2020">expectation of X transpose.</p>
+<p t="909930" d="3180">Now, things could go wrong
+because the main difference</p>
+<p t="913110" d="5550">between matrices slash
+vectors and numbers is</p>
+<p t="918660" d="3270">that multiplication
+does not commute, right?</p>
+<p t="921930" d="3680">So in particular, those two
+things are not the same thing.</p>
+<p t="925610" d="2250">And so that's the main
+difference that we have before,</p>
+<p t="927860" d="2476">but it actually does not
+matter for our problem.</p>
+<p t="930336" d="1874">It's because what's
+happening is that if when</p>
+<p t="932210" d="2760">I take the expectation
+of this guy, then</p>
+<p t="934970" d="3970">it's actually the same as the
+expectation of this guy, OK?</p>
+<p t="938940" d="4600">And so just because the
+expectation is linear--</p>
+<p t="948230" d="2320">so what we have
+is that sigma now</p>
+<p t="950550" d="5010">becomes equal to the
+expectation of XX transpose</p>
+<p t="955560" d="3570">minus the expectation
+of X, expectation</p>
+<p t="959130" d="4040">of X transpose minus
+expectation of X,</p>
+<p t="963170" d="3940">expectation of X transpose.</p>
+<p t="967110" d="2920">And then I have--</p>
+<p t="970030" d="4040">well, really, what
+I have is this guy.</p>
+<p t="974070" d="1920">And then I have
+plus the expectation</p>
+<p t="975990" d="3690">of X, expectation
+of X transpose.</p>
+<p t="983970" d="4600">And now, those three things are
+actually equal to each other</p>
+<p t="988570" d="2130">just because the
+expectation of X transpose</p>
+<p t="990700" d="3445">is the same as the
+expectation of X transpose.</p>
+<p t="994145" d="1375">And so what I'm
+left with is just</p>
+<p t="995520" d="8844">the expectation of XX transpose
+minus the expectation of X,</p>
+<p t="1004364" d="5286">expectation of X transpose, OK?</p>
+<p t="1009650" d="1960">So same thing that's
+happening when</p>
+<p t="1011610" d="1500">you want to prove
+that you can write</p>
+<p t="1013110" d="4650">the covariance either
+this way or that way.</p>
+<p t="1017760" d="3220">The same thing happens for
+matrices, or for vectors,</p>
+<p t="1020980" d="1360">right, or a covariance matrix.</p>
+<p t="1022340" d="2269">They go together.</p>
+<p t="1024609" d="1311">Is there any questions so far?</p>
+<p t="1025920" d="3540">And if you have some, please
+tell me, because I want to--</p>
+<p t="1029460" d="3030">I don't know to which extent you
+guys are comfortable with this</p>
+<p t="1032490" d="930">at all or not.</p>
+<p t="1036700" d="3110">OK, so let's move on.</p>
+<p t="1039810" d="3650">All right, so of
+course, this is what</p>
+<p t="1043460" d="2960">I'm describing in terms of
+the distribution right here.</p>
+<p t="1046420" d="1939">I took expectations.</p>
+<p t="1048359" d="1781">Covariances are
+also expectations.</p>
+<p t="1050140" d="2420">So those depend on some
+distribution of X, right?</p>
+<p t="1052560" d="2070">If I wanted to compute
+that, I would basically</p>
+<p t="1054630" d="1971">need to know what the
+distribution of X is.</p>
+<p t="1056601" d="1374">Now, we're doing
+statistics, so I</p>
+<p t="1057975" d="3205">need to [INAUDIBLE] my question
+is going to be to say, well,</p>
+<p t="1061180" d="3200">how well can I estimate the
+covariance matrix itself,</p>
+<p t="1064380" d="2880">or some properties of
+this covariance matrix</p>
+<p t="1067260" d="1145">based on data?</p>
+<p t="1068405" d="1735">All right, so if I
+want to understand</p>
+<p t="1070140" d="2850">what my covariance matrix
+looks like based on data,</p>
+<p t="1072990" d="1950">I'm going to have
+to basically form</p>
+<p t="1074940" d="2820">its empirical
+counterparts, which</p>
+<p t="1077760" d="4440">I can do by doing the age-old
+statistical trick, which</p>
+<p t="1082200" d="2500">is replace your expectation
+by an average, all right?</p>
+<p t="1084700" d="1958">So let's just-- everything
+that's on the board,</p>
+<p t="1086658" d="2652">you see expectation, just
+replace it by an average.</p>
+<p t="1089310" d="4920">OK, so, now I'm going
+to be given X1, Xn.</p>
+<p t="1094230" d="2321">So, I'm going to define
+the empirical mean.</p>
+<p t="1099780" d="2510">OK so, really, the idea
+is take your expectation</p>
+<p t="1102290" d="2680">and replace it by 1
+over n sum, right?</p>
+<p t="1104970" d="3260">And so the empirical
+mean is just 1 over n.</p>
+<p t="1108230" d="3280">Some of the Xi's--</p>
+<p t="1111510" d="2560">I'm guessing everybody knows
+how to average vectors.</p>
+<p t="1114070" d="2040">It's just the average
+of the coordinates.</p>
+<p t="1116110" d="3620">So I will write this as X bar.</p>
+<p t="1119730" d="11710">And the empirical covariance
+matrix, often called</p>
+<p t="1131440" d="6080">sample covariance matrix,
+hence the notation, S.</p>
+<p t="1137520" d="2280">Well, this is my
+covariance matrix, right?</p>
+<p t="1139800" d="2850">Let's just replace the
+expectations by averages.</p>
+<p t="1142650" d="9510">1 over n, sum from i equal 1 to
+n, of Xi, Xi transpose, minus--</p>
+<p t="1152160" d="2130">this is the expectation
+of X. I will replace it</p>
+<p t="1154290" d="7090">by the average, which I just
+called X bar, X bar transpose,</p>
+<p t="1161380" d="1210">OK?</p>
+<p t="1162590" d="2890">And that's when I
+want to use the--</p>
+<p t="1165480" d="2950">that's when I want
+to use the notation--</p>
+<p t="1168430" d="2240">the second definition,
+but I could actually</p>
+<p t="1170670" d="4860">do exactly the same thing
+using this definition here.</p>
+<p t="1175530" d="3220">Sorry, using this
+definition right here.</p>
+<p t="1178750" d="3590">So this is actually
+1 over n, sum from i</p>
+<p t="1182340" d="12900">equal 1 to n, of Xi minus X
+bar, Xi minus X bar transpose.</p>
+<p t="1195240" d="1320">And those are actually--</p>
+<p t="1196560" d="1807">I mean, in a way,
+it looks like I</p>
+<p t="1198367" d="1583">could define two
+different estimators,</p>
+<p t="1199950" d="1680">but you can actually check.</p>
+<p t="1201630" d="2070">And I do encourage
+you to do this.</p>
+<p t="1203700" d="2220">If you're not comfortable
+making those manipulations,</p>
+<p t="1205920" d="2374">you can actually check that
+those two things are actually</p>
+<p t="1208294" d="6922">exactly the same, OK?</p>
+<p t="1220540" d="4530">So now, I'm going to want
+to talk about matrices, OK?</p>
+<p t="1225070" d="2190">And remember, we defined
+this big matrix, X,</p>
+<p t="1227260" d="1530">with the double bar.</p>
+<p t="1228790" d="2370">And the question
+is, can I express</p>
+<p t="1231160" d="4200">both X bar and the
+sample covariance matrix</p>
+<p t="1235360" d="2100">in terms of this big matrix, X?</p>
+<p t="1237460" d="2280">Because right now,
+it's still expressed</p>
+<p t="1239740" d="1080">in terms of the vectors.</p>
+<p t="1240820" d="2400">I'm summing those vectors,
+vectors transpose.</p>
+<p t="1243220" d="2830">The question is, can I just
+do that in a very compact way,</p>
+<p t="1246050" d="4060">in a way that I can actually
+remove this sum term,</p>
+<p t="1250110" d="500">all right?</p>
+<p t="1250610" d="2380">That's going to be the goal.</p>
+<p t="1252990" d="1860">I mean, that's not
+a notational goal.</p>
+<p t="1254850" d="3241">That's really something
+that we want--</p>
+<p t="1258091" d="1499">that's going to be
+convenient for us</p>
+<p t="1259590" d="3150">just like it was convenient
+to talk about matrices when</p>
+<p t="1262740" d="1459">we did linear regression.</p>
+<p t="1283180" d="3160">OK, X bar.</p>
+<p t="1286340" d="3660">We just said it's 1 over
+n, sum from I equal 1 to n</p>
+<p t="1290000" d="2730">of Xi, right?</p>
+<p t="1292730" d="2370">Now remember, what does
+this matrix look like?</p>
+<p t="1295100" d="3910">We said that X bar--</p>
+<p t="1299010" d="1260">X is this guy.</p>
+<p t="1300270" d="5660">So if I look at X transpose,
+the columns of this guy</p>
+<p t="1305930" d="5500">becomes X1, my first
+observation, X2,</p>
+<p t="1311430" d="3410">my second observation, all the
+way to Xn, my last observation,</p>
+<p t="1314840" d="1440">right?</p>
+<p t="1316280" d="570">Agreed?</p>
+<p t="1316850" d="1620">That's what X transpose is.</p>
+<p t="1318470" d="2490">So if I want to
+sum those guys, I</p>
+<p t="1320960" d="1740">can multiply by the
+all-ones vector.</p>
+<p t="1326284" d="2416">All right, so that's what the
+definition of the all-ones 1</p>
+<p t="1328700" d="550">vector is.</p>
+<p t="1331840" d="8030">Well, it's just a bunch of
+1's in Rn, in this case.</p>
+<p t="1339870" d="3750">And so when I do X transpose 1,
+what I get is just the sum from</p>
+<p t="1343620" d="4070">i equal 1 to n of the Xi's.</p>
+<p t="1347690" d="8770">So if I divide by n,
+I get my average, OK?</p>
+<p t="1356460" d="6740">So here, I definitely
+removed the sum term.</p>
+<p t="1363200" d="4730">Let's see if with the covariance
+matrix, we can do the same.</p>
+<p t="1367930" d="5350">Well, and that's actually a
+little more difficult to see,</p>
+<p t="1373280" d="2000">I guess.</p>
+<p t="1375280" d="10230">But let's use this
+definition for S, OK?</p>
+<p t="1385510" d="2030">And one thing that's
+actually going to be--</p>
+<p t="1387540" d="2720">so, let's see for
+one second, what--</p>
+<p t="1390260" d="2250">so it's going to be
+something that involves X,</p>
+<p t="1392510" d="1867">multiplying X with itself, OK?</p>
+<p t="1394377" d="1583">And the question is,
+is it going to be</p>
+<p t="1395960" d="3072">multiplying X with X transpose,
+or X tranpose with X?</p>
+<p t="1399032" d="1458">To answer this
+question, you can go</p>
+<p t="1400490" d="3470">the easy route, which says,
+well, my covariance matrix is</p>
+<p t="1403960" d="910">of size, what?</p>
+<p t="1404870" d="2812">What is the size of S?</p>
+<p t="1407682" d="988">AUDIENCE: d by d.</p>
+<p t="1408670" d="1590">PHILIPPE RIGOLLET: d by d, OK?</p>
+<p t="1410260" d="3940">X is of size n by d.</p>
+<p t="1414200" d="1560">So if I do X times
+X transpose, I'm</p>
+<p t="1415760" d="2000">going to have something
+which is of size n by n.</p>
+<p t="1417760" d="1666">If I do X transpose
+X, I'm going to have</p>
+<p t="1419426" d="1368">something which is d by d.</p>
+<p t="1420794" d="916">That's the easy route.</p>
+<p t="1421710" d="2440">And there's basically
+one of the two guys.</p>
+<p t="1424150" d="1980">You can actually open
+the box a little bit</p>
+<p t="1426130" d="2040">and see what's
+going on in there.</p>
+<p t="1428170" d="4590">If you do X transpose X, which
+we know gives you a d by d,</p>
+<p t="1432760" d="2160">you'll see that X is
+going to have vectors that</p>
+<p t="1434920" d="2545">are of the form,
+Xi, and X transpose</p>
+<p t="1437465" d="4765">is going to have vectors that
+are of the form, Xi transpose,</p>
+<p t="1442230" d="1480">right?</p>
+<p t="1443710" d="3100">And so, this is actually
+probably the right way to go.</p>
+<p t="1446810" d="4880">So let's look at what's X
+transpose X is giving us.</p>
+<p t="1451690" d="5160">So I claim that it's actually
+going to give us what we want,</p>
+<p t="1456850" d="2860">but rather than actually
+going there, let's--</p>
+<p t="1459710" d="2990">to actually-- I mean, we
+could check it entry by entry,</p>
+<p t="1462700" d="2700">but there's actually a
+nice thing we can do.</p>
+<p t="1465400" d="2690">Before we go there,
+let's write X transpose</p>
+<p t="1468090" d="5170">as the following sum of
+variables, X1 and then</p>
+<p t="1473260" d="3010">just a bunch of 0's
+everywhere else.</p>
+<p t="1476270" d="3140">So it's still d by n.</p>
+<p t="1479410" d="3060">So n minus 1 of the columns
+are equal to 0 here.</p>
+<p t="1482470" d="3390">Then I'm going to put
+a 0 and then put X2.</p>
+<p t="1485860" d="2690">And then just a
+bunch of 0's, right?</p>
+<p t="1488550" d="11390">So that's just 0, 0 plus 0,
+0, all the way to Xn, OK?</p>
+<p t="1499940" d="1320">Everybody agrees with it?</p>
+<p t="1501260" d="2390">See what I'm doing here?</p>
+<p t="1503650" d="2500">I'm just splitting it into
+a sum of matrices that</p>
+<p t="1506150" d="2580">only have one nonzero columns.</p>
+<p t="1508730" d="2480">But clearly, that's true.</p>
+<p t="1511210" d="4400">Now let's look at the product
+of this guy with itself.</p>
+<p t="1515610" d="7786">So, let's call these
+matrices M1, M2, Mn.</p>
+<p t="1526890" d="3860">So when I do X
+transpose X, what I</p>
+<p t="1530750" d="7220">do is the sum of the
+Mi's for i equal 1 to n,</p>
+<p t="1537970" d="10650">times the sum of the
+Mi transpose, right?</p>
+<p t="1548620" d="2220">Now, the sum of
+the Mi's transpose</p>
+<p t="1550840" d="4434">is just the sum of each
+of the Mi's transpose, OK?</p>
+<p t="1558190" d="2430">So now I just have this
+product of two sums,</p>
+<p t="1560620" d="2670">so I'm just going to
+re-index the second one by j.</p>
+<p t="1563290" d="9360">So this is sum for i equal
+1 to n, j equal 1 to n of Mi</p>
+<p t="1572650" d="2950">Mj transpose.</p>
+<p t="1575600" d="500">OK?</p>
+<p t="1579036" d="1374">And now what we
+want to notice is</p>
+<p t="1580410" d="5590">that if i is different
+from j, what's happening?</p>
+<p t="1586000" d="8380">Well if i is different from j,
+let's look at say, M1 times XM2</p>
+<p t="1594380" d="660">transpose.</p>
+<p t="1614067" d="2083">So what is the product
+between those two matrices?</p>
+<p t="1624404" d="5466">AUDIENCE: It's a new
+entry and [INAUDIBLE]</p>
+<p t="1629870" d="1500">PHILIPPE RIGOLLET:
+There's an entry?</p>
+<p t="1631370" d="1431">AUDIENCE: Well, it's an entry.</p>
+<p t="1632801" d="4315">It's like a dot product in that
+form next to [? transpose. ?]</p>
+<p t="1637116" d="2374">PHILIPPE RIGOLLET: You mean
+a dot product is just getting</p>
+<p t="1639490" d="870">[INAUDIBLE] number, right?</p>
+<p t="1640360" d="1708">So I want-- this is
+going to be a matrix.</p>
+<p t="1642068" d="2482">It's the product of
+two matrices, right?</p>
+<p t="1644550" d="2550">This is a matrix times a matrix.</p>
+<p t="1647100" d="4110">So this should be a matrix,
+right, of size d by d.</p>
+<p t="1655960" d="1650">Yeah, I should
+see a lot of hands</p>
+<p t="1657610" d="1450">that look like this, right?</p>
+<p t="1659060" d="1140">Because look at this.</p>
+<p t="1660200" d="2250">So let's multiply the first--</p>
+<p t="1662450" d="2765">let's look at what's going
+on in the first column here.</p>
+<p t="1665215" d="3625">I'm multiplying this column
+with each of those rows.</p>
+<p t="1668840" d="1640">The only nonzero
+coefficient is here,</p>
+<p t="1670480" d="3710">and it only hits
+this column of 0's.</p>
+<p t="1674190" d="2846">So every time, this is going
+to give you 0, 0, 0, 0.</p>
+<p t="1677036" d="2984">And it's going to be the same
+for every single one of them.</p>
+<p t="1680020" d="4400">So this matrix is just
+full of 0's, right?</p>
+<p t="1684420" d="1710">They never hit each
+other when I do</p>
+<p t="1686130" d="2220">the matrix-matrix
+multiplication.</p>
+<p t="1688350" d="3461">There's no-- every
+non-zero hits a 0.</p>
+<p t="1691811" d="1749">So what it means is--
+and this, of course,</p>
+<p t="1693560" d="2460">you can check for every
+i different from j.</p>
+<p t="1696020" d="6270">So this means that Mi times
+Mj transpose is actually</p>
+<p t="1702290" d="4860">equal to 0 when i is
+different from j, Right?</p>
+<p t="1707150" d="2220">Everybody is OK with this?</p>
+<p t="1709370" d="3300">So what that means is that when
+I do this double sum, really,</p>
+<p t="1712670" d="1000">it's a simple sum.</p>
+<p t="1713670" d="3640">There's only just the
+sum from i equal 1</p>
+<p t="1717310" d="4510">to n of Mi Mi transpose.</p>
+<p t="1721820" d="3000">Because this is the only
+terms in this double sum</p>
+<p t="1724820" d="4160">that are not going to be 0 when
+[INAUDIBLE] [? M1 ?] with M1</p>
+<p t="1728980" d="1512">itself.</p>
+<p t="1730492" d="1458">Now, let's see
+what's going on when</p>
+<p t="1731950" d="1980">I do M1 times M1 transpose.</p>
+<p t="1733930" d="3960">Well, now, if I do Mi
+times and Mi transpose,</p>
+<p t="1737890" d="2410">now this guy becomes [? X1 ?]
+[INAUDIBLE] it's here.</p>
+<p t="1740300" d="3530">And so now, I really have
+X1 times X1 transpose.</p>
+<p t="1743830" d="2955">So this is really
+just the sum from i</p>
+<p t="1746785" d="13295">equal 1 to n of Xi Xi transpose,
+just because Mi Mi transpose</p>
+<p t="1760080" d="1636">is Xi Xi transpose.</p>
+<p t="1761716" d="1124">There's nothing else there.</p>
+<p t="1766190" d="2330">So that's the good news, right?</p>
+<p t="1768520" d="8580">This term here is really just
+X transpose X divided by n.</p>
+<p t="1783460" d="2280">OK, I can use that
+guy again, I guess.</p>
+<p t="1785740" d="520">Well, no.</p>
+<p t="1786260" d="22342">Let's just-- OK, so
+let me rewrite S.</p>
+<p t="1808602" d="1708">All right, that's the
+definition we have.</p>
+<p t="1810310" d="4680">And we know that this guy
+already is equal to 1 over n X</p>
+<p t="1814990" d="5970">transpose X. x bar
+x bar transpose--</p>
+<p t="1820960" d="4990">we know that x bar-- we
+just proved that x bar--</p>
+<p t="1825950" d="5130">sorry, little x
+bar was equal to 1</p>
+<p t="1831080" d="5572">over n X bar transpose
+times the all-ones vector.</p>
+<p t="1836652" d="1208">So I'm just going to do that.</p>
+<p t="1837860" d="1480">So that's just
+going to be minus.</p>
+<p t="1839340" d="1659">I'm going to pull
+my two 1 over n's--</p>
+<p t="1840999" d="1541">one from this guy,
+one from this guy.</p>
+<p t="1842540" d="1990">So I'm going to get
+1 over n squared.</p>
+<p t="1844530" d="2540">And then I'm going
+to get X bar--</p>
+<p t="1847070" d="1620">sorry, there's no X bar here.</p>
+<p t="1848690" d="2218">It's just X. Yeah.</p>
+<p t="1850908" d="8953">X transpose all ones times X
+transpose all ones transpose,</p>
+<p t="1859861" d="499">right?</p>
+<p t="1864580" d="3000">And X transpose all
+ones transpose--</p>
+<p t="1871800" d="2400">right, the rule-- if I
+have A times B transpose,</p>
+<p t="1874200" d="1980">it's B transpose times
+A transpose, right?</p>
+<p t="1883460" d="1600">That's just the rule
+of transposition.</p>
+<p t="1885060" d="6340">So this is 1
+transpose X transpose.</p>
+<p t="1891400" d="2720">And so when I put all
+these guys together,</p>
+<p t="1894120" d="4245">this is actually equal to 1
+over n X transpose X minus one</p>
+<p t="1898365" d="9305">over n squared X transpose
+1, 1 transpose X. Because X</p>
+<p t="1907670" d="2796">transpose transposes X, OK?</p>
+<p t="1913700" d="2250">So now, I can actually--</p>
+<p t="1915950" d="3485">I have something which is
+of the form, X transpose X--</p>
+<p t="1919435" d="2365">[INAUDIBLE] to the left, X
+transpose; to the right, X.</p>
+<p t="1921800" d="3130">Here, I have X transpose to
+the left, X to the right.</p>
+<p t="1924930" d="2760">So it can factor out
+whatever's in there.</p>
+<p t="1927690" d="3950">So I can write S as 1 over n--</p>
+<p t="1931640" d="5590">sorry, X transpose times 1 over
+n times the identity of Rd.</p>
+<p t="1941610" d="11500">And then I have minus 1
+over n, 1, 1 transpose X.</p>
+<p t="1953110" d="1380">OK, because if you--</p>
+<p t="1954490" d="2280">I mean, you can
+distribute it back, right?</p>
+<p t="1956770" d="1320">So here, I'm going to get what?</p>
+<p t="1958090" d="3720">X transpose identity times X,
+the whole thing divided by n.</p>
+<p t="1961810" d="967">That's this term.</p>
+<p t="1962777" d="2333">And then the second one is
+going to be-- sorry, 1 over n</p>
+<p t="1965110" d="1000">squared.</p>
+<p t="1966110" d="4730">And then I'm going to get 1 over
+n squared times X transpose 1,</p>
+<p t="1970840" d="3150">1 transpose which is
+this guy, times X,</p>
+<p t="1973990" d="4590">and that's the [? right ?]
+[? thing, ?] OK?</p>
+<p t="1978580" d="3240">So, the way it's written, I
+factored out one of the 1 over</p>
+<p t="1981820" d="500">n's.</p>
+<p t="1982320" d="3180">So I'm just going to do the
+same thing as on this slide.</p>
+<p t="1985500" d="2610">So I'm just factoring
+out this 1 over n here.</p>
+<p t="1988110" d="8170">So it's 1 over n times
+X transpose identity</p>
+<p t="1996280" d="4730">of our d divided by n
+divided by 1 this time,</p>
+<p t="2001010" d="5770">minus 1 over n 1, 1
+transpose times X, OK?</p>
+<p t="2006780" d="1615">So that's just
+what's on the slides.</p>
+<p t="2011720" d="4154">What does the matrix, 1,
+1 transpose, look like?</p>
+<p t="2015874" d="916">AUDIENCE: All 1's.</p>
+<p t="2016790" d="1833">PHILIPPE RIGOLLET: It's
+just all 1's, right?</p>
+<p t="2018623" d="2437">Because the entries are the
+products of the all-ones--</p>
+<p t="2021060" d="1690">of the coordinates of
+the all-ones vectors with</p>
+<p t="2022750" d="2458">the coordinates of the all-ones
+vectors, so I only get 1's.</p>
+<p t="2025208" d="4402">So it's a d by d
+matrix with only 1's.</p>
+<p t="2029610" d="2560">So this matrix, I can
+actually write exactly, right?</p>
+<p t="2032170" d="3540">H, this matrix that
+I called H which</p>
+<p t="2035710" d="3720">is what's sandwiched in-between
+this X transpose and X.</p>
+<p t="2039430" d="3330">By definition, I said this
+is the definition of H. Then</p>
+<p t="2042760" d="3300">this thing, I can write
+its coordinates exactly.</p>
+<p t="2058880" d="4230">We know it's identity
+divided by n minus--</p>
+<p t="2063110" d="2220">sorry, I don't know
+why I keep [INAUDIBLE]..</p>
+<p t="2065330" d="3780">Minus 1 over n 1, 1 transpose--</p>
+<p t="2069110" d="1830">so it's this matrix
+with the only 1's</p>
+<p t="2070940" d="3449">on the diagonals and 0's and
+elsewhere-- minus a matrix that</p>
+<p t="2074389" d="2098">only has 1 over n everywhere.</p>
+<p t="2081469" d="8351">OK, so the whole thing is 1
+minus 1 over n on the diagonals</p>
+<p t="2089820" d="7610">and then minus 1
+over n here, OK?</p>
+<p t="2097430" d="4490">And now I claim that this matrix
+is an orthogonal projector.</p>
+<p t="2101920" d="3660">Now, I'm writing this, but
+it's completely useless.</p>
+<p t="2105580" d="2610">This is just a way for you to
+see that it's actually very</p>
+<p t="2108190" d="3240">convenient now to think
+about this problem</p>
+<p t="2111430" d="3420">as being a matrix
+problem, because things</p>
+<p t="2114850" d="3040">are much nicer when you
+think about the actual form</p>
+<p t="2117890" d="1000">of your matrices, right?</p>
+<p t="2118890" d="2200">They could tell you,
+here is the matrix.</p>
+<p t="2121090" d="2250">I mean, imagine you're
+sitting at a midterm,</p>
+<p t="2123340" d="2570">and I say, here's the
+matrix that has 1 minus 1</p>
+<p t="2125910" d="2730">over n on the diagonals
+and minus 1 over n</p>
+<p t="2128640" d="1370">on the [INAUDIBLE] diagonal.</p>
+<p t="2130010" d="2845">Prove to me that it's
+a projector matrix.</p>
+<p t="2132855" d="1375">You're going to
+have to basically</p>
+<p t="2134230" d="1290">take this guy times itself.</p>
+<p t="2135520" d="1977">It's going to be really
+complicated, right?</p>
+<p t="2137497" d="1083">So we know it's symmetric.</p>
+<p t="2138580" d="1350">That's for sure.</p>
+<p t="2139930" d="2190">But the fact that it
+has this particular way</p>
+<p t="2142120" d="1980">of writing it is
+going to make my life</p>
+<p t="2144100" d="1499">super easy to check this.</p>
+<p t="2145599" d="1541">That's the definition
+of a projector.</p>
+<p t="2147140" d="1790">It has to be
+symmetric and it has</p>
+<p t="2148930" d="2340">to square to itself
+because we just</p>
+<p t="2151270" d="3030">said in the chapter
+on linear regression</p>
+<p t="2154300" d="3060">that once you project, if you
+apply the projection again,</p>
+<p t="2157360" d="2250">you're not moving because
+you're already there.</p>
+<p t="2159610" d="4859">OK, so why is H
+squared equal to H?</p>
+<p t="2164469" d="1291">Well let's just write H square.</p>
+<p t="2165760" d="3540">It's the identity
+minus 1 over n 1, 1</p>
+<p t="2169300" d="7310">transpose times the
+identity minus 1 over n 1, 1</p>
+<p t="2176610" d="2760">transpose, right?</p>
+<p t="2179370" d="3120">Let's just expand this now.</p>
+<p t="2182490" d="2860">This is equal to
+the identity minus--</p>
+<p t="2185350" d="3930">well, the identity times 1, 1
+transpose is just the identity.</p>
+<p t="2189280" d="2620">So it's 1, 1 transpose, sorry.</p>
+<p t="2191900" d="6940">So 1 over n 1, 1 transpose
+minus 1 over n 1, 1 transpose.</p>
+<p t="2198840" d="1560">And then there's
+going to be what</p>
+<p t="2200400" d="2310">makes the deal is that
+I get this 1 over n</p>
+<p t="2202710" d="2040">squared this time.</p>
+<p t="2204750" d="2200">And then I get the product
+of 1 over n trans--</p>
+<p t="2206950" d="1250">oh, let's write it completely.</p>
+<p t="2208200" d="9810">I get 1, 1 transpose
+times 1, 1 transpose, OK?</p>
+<p t="2218010" d="3250">But this thing here--</p>
+<p t="2221260" d="2580">what is this?</p>
+<p t="2223840" d="2519">n, right, is the end product
+of the all-ones vector</p>
+<p t="2226359" d="1041">with the all-ones vector.</p>
+<p t="2227400" d="3340">So I'm just summing n times
+1 squared, which is n.</p>
+<p t="2230740" d="1240">So this is equal to n.</p>
+<p t="2231980" d="1940">So I pull it out,
+cancel one of the ends,</p>
+<p t="2233920" d="1950">and I'm back to
+what I had before.</p>
+<p t="2235870" d="5850">So I had identity minus 2
+over n 1, 1 transpose plus 1</p>
+<p t="2241720" d="5810">over n 1, 1 transpose
+which is equal to H.</p>
+<p t="2247530" d="3170">Because one of the 1
+over n's cancel, OK?</p>
+<p t="2256264" d="1166">So it's a projection matrix.</p>
+<p t="2257430" d="3600">It's projecting onto
+some linear space, right?</p>
+<p t="2261030" d="1420">It's taking a matrix.</p>
+<p t="2262450" d="2030">Sorry, it's taking
+a vector and it's</p>
+<p t="2264480" d="2055">projecting onto a
+certain space of vectors.</p>
+<p t="2269255" d="974">What is this space?</p>
+<p t="2273160" d="1760">Right, so, how do
+you-- so I'm only</p>
+<p t="2274920" d="2580">asking the answer to this
+question in words, right?</p>
+<p t="2277500" d="2330">So how would you
+describe the vectors</p>
+<p t="2279830" d="3120">onto which this
+matrix is projecting?</p>
+<p t="2282950" d="2100">Well, if you want to
+answer this question,</p>
+<p t="2285050" d="2820">the way you would tackle
+it is first by saying, OK,</p>
+<p t="2287870" d="5820">what does a vector which is of
+the form, H times something,</p>
+<p t="2293690" d="1270">look like, right?</p>
+<p t="2294960" d="1910">What can I say about
+this vector that's</p>
+<p t="2296870" d="2670">going to be definitely
+giving me something</p>
+<p t="2299540" d="2220">about the space on
+which it projects?</p>
+<p t="2301760" d="3040">I need to know a little more to
+know that it projects exactly</p>
+<p t="2304800" d="1020">onto this.</p>
+<p t="2305820" d="3230">But one way we can
+do this is just</p>
+<p t="2309050" d="1390">see how it acts on a vector.</p>
+<p t="2310440" d="1930">What does it do to a
+vector to apply H, right?</p>
+<p t="2312370" d="12180">So I take v. And let's see what
+taking v and applying H to it</p>
+<p t="2324550" d="1860">looks like.</p>
+<p t="2326410" d="2340">Well, it's the identity
+minus something.</p>
+<p t="2328750" d="1890">So it takes v and
+it removes something</p>
+<p t="2330640" d="3520">from v. What does it remove?</p>
+<p t="2334160" d="6430">Well, it's 1 over n
+times v transpose 1 times</p>
+<p t="2340590" d="3271">the all-ones vector, right?</p>
+<p t="2343861" d="499">Agreed?</p>
+<p t="2344360" d="9210">I just wrote v transpose 1
+instead of 1 transpose v,</p>
+<p t="2353570" d="2680">which are the same thing.</p>
+<p t="2356250" d="1060">What is this thing?</p>
+<p t="2365160" d="2605">What should I call it in
+mathematical notation?</p>
+<p t="2370720" d="740">v bar, right?</p>
+<p t="2371460" d="3690">I should all it v bar because
+this is exactly the average</p>
+<p t="2375150" d="3690">of the entries of v, agreed?</p>
+<p t="2378840" d="2720">This is summing the entries
+of v's, and this is dividing</p>
+<p t="2381560" d="1610">by the number of those v's.</p>
+<p t="2383170" d="1690">Sorry, now v is in our--</p>
+<p t="2389162" d="1912">sorry, why do I divide by--</p>
+<p t="2393950" d="5120">I'm just-- OK, I need to check
+what my dimensions are now.</p>
+<p t="2399070" d="1320">No, it's in Rd, right?</p>
+<p t="2400390" d="2270">So why do I divide by n?</p>
+<p t="2405520" d="2200">So it's not really v bar.</p>
+<p t="2407720" d="6190">It's the sum of the
+v's divided by--</p>
+<p t="2413910" d="960">right, so it's v bar.</p>
+<p t="2424024" d="1139">AUDIENCE: [INAUDIBLE]</p>
+<p t="2425163" d="833">[INTERPOSING VOICES]</p>
+<p t="2425996" d="1972">AUDIENCE: Yeah, v
+has to be [INAUDIBLE]</p>
+<p t="2427968" d="1482">PHILIPPE RIGOLLET: Oh, yeah.</p>
+<p t="2429450" d="1670">OK, thank you.</p>
+<p t="2431120" d="3630">So everywhere I wrote
+Hd, that was actually Hn.</p>
+<p t="2434750" d="540">Oh, man.</p>
+<p t="2435290" d="1930">I wish I had a computer now.</p>
+<p t="2437220" d="500">All right.</p>
+<p t="2437720" d="5510">So-- yeah, because the--</p>
+<p t="2443230" d="510">yeah, right?</p>
+<p t="2443740" d="2035">So why it's not--</p>
+<p t="2445775" d="2375">well, why I thought it was
+this is because I was thinking</p>
+<p t="2448150" d="1740">about the outer
+dimension of X, really</p>
+<p t="2449890" d="1890">of X transpose, which is
+really the inner dimension,</p>
+<p t="2451780" d="1134">didn't matter to me, right?</p>
+<p t="2452914" d="2166">So the thing that I can
+sandwich between X transpose</p>
+<p t="2455080" d="1710">and X has to be n by n.</p>
+<p t="2456790" d="2010">So this was actually n by n.</p>
+<p t="2458800" d="1680">And so that's actually n by n.</p>
+<p t="2460480" d="2850">Everything is n by n.</p>
+<p t="2463330" d="978">Sorry about that.</p>
+<p t="2468220" d="1180">So this is n.</p>
+<p t="2469400" d="1040">This is n.</p>
+<p t="2470440" d="1690">This is-- well, I
+didn't really tell you</p>
+<p t="2472130" d="4160">what the all-ones vector
+was, but it's also in our n.</p>
+<p t="2476290" d="2140">Yeah, OK.</p>
+<p t="2482190" d="1540">Thank you.</p>
+<p t="2483730" d="4209">And n-- actually, I used the
+fact that this was of size n</p>
+<p t="2487939" d="541">here already.</p>
+<p t="2491690" d="1650">OK, and so that's indeed v bar.</p>
+<p t="2498996" d="1874">So what is this projection
+doing to a vector?</p>
+<p t="2507470" d="4460">It's removing its average
+on each coordinate, right?</p>
+<p t="2511930" d="2640">And the effect of this
+is that v is a vector.</p>
+<p t="2514570" d="3785">What is the average of Hv?</p>
+<p t="2518355" d="985">AUDIENCE: 0.</p>
+<p t="2519340" d="1500">PHILIPPE RIGOLLET:
+Right, so it's 0.</p>
+<p t="2520840" d="3210">It's the average of v, which
+is v bar, minus the average</p>
+<p t="2524050" d="3180">of something that only has v
+bar's entry, which is v bar.</p>
+<p t="2527230" d="1260">So this thing is actually 0.</p>
+<p t="2531560" d="1280">So let me repeat my question.</p>
+<p t="2532840" d="2860">Onto what subspace
+does H project?</p>
+<p t="2542700" d="3970">Onto the subspace of
+vectors that have mean 0.</p>
+<p t="2546670" d="3340">A vector that has
+mean 0 is a vector.</p>
+<p t="2550010" d="4960">So if you want to talk more
+linear algebra, v bar--</p>
+<p t="2554970" d="1780">for a vector you
+have mean 0, it means</p>
+<p t="2556750" d="6690">that v is orthogonal to the
+span of the all-ones vector.</p>
+<p t="2563440" d="840">That's it.</p>
+<p t="2564280" d="1800">It projects to this space.</p>
+<p t="2566080" d="1850">So in words, it
+projects onto the space</p>
+<p t="2567930" d="1950">of vectors that have 0 mean.</p>
+<p t="2569880" d="2500">In linear algebra,
+it says it projects</p>
+<p t="2572380" d="3380">onto the hyperplane
+which is orthogonal</p>
+<p t="2575760" d="2600">to the all-ones vector, OK?</p>
+<p t="2578360" d="3500">So that's all.</p>
+<p t="2581860" d="2900">Can you guys still
+see the screen?</p>
+<p t="2584760" d="1180">Are you good over there?</p>
+<p t="2585940" d="1480">OK.</p>
+<p t="2587420" d="4610">All right, so now, what it
+means is that, well, I'm</p>
+<p t="2592030" d="1250">doing this weird thing, right?</p>
+<p t="2593280" d="2080">I'm taking the inner product--</p>
+<p t="2595360" d="4670">so S is taking X. And then
+it's removing its mean of each</p>
+<p t="2600030" d="1410">of the columns of X, right?</p>
+<p t="2601440" d="3090">When I take H times X, I'm
+basically applying this</p>
+<p t="2604530" d="2250">projection which consists
+in removing the mean of all</p>
+<p t="2606780" d="1650">the X's.</p>
+<p t="2608430" d="2910">And then I multiply
+by H transpose.</p>
+<p t="2611340" d="2210">But what's actually
+nice is that, remember,</p>
+<p t="2613550" d="2380">H is a projector.</p>
+<p t="2615930" d="2070">Sorry, I don't
+want to keep that.</p>
+<p t="2618000" d="9010">Which means that when I
+look at X transpose HX,</p>
+<p t="2627010" d="5400">it's the same as looking
+at X transpose H squared X.</p>
+<p t="2632410" d="2010">But since H is equal
+to its transpose,</p>
+<p t="2634420" d="3600">this is actually the same
+as looking at X transpose H</p>
+<p t="2638020" d="9126">transpose HX, which is the
+same as looking at HX transpose</p>
+<p t="2647146" d="3854">HX, OK?</p>
+<p t="2651000" d="3300">So what it's doing, it's
+first applying this projection</p>
+<p t="2654300" d="4650">matrix, H, which removes the
+mean of each of your columns,</p>
+<p t="2658950" d="4050">and then looks at the inner
+products between those guys,</p>
+<p t="2663000" d="586">right?</p>
+<p t="2663586" d="1874">Each entry of this guy
+is just the covariance</p>
+<p t="2665460" d="1860">between those centered things.</p>
+<p t="2667320" d="1590">That's all it's doing.</p>
+<p t="2668910" d="6540">All right, so those are actually
+going to be the key statements.</p>
+<p t="2675450" d="1820">So everything we've
+done so far is really</p>
+<p t="2677270" d="1650">mainly linear algebra, right?</p>
+<p t="2678920" d="3030">I mean, looking at expectations
+and covariances was just--</p>
+<p t="2681950" d="2250">we just used the fact that
+the expectation was linear.</p>
+<p t="2684200" d="1320">We didn't do much.</p>
+<p t="2685520" d="1930">But now there's a nice
+thing that's happening.</p>
+<p t="2687450" d="2600">And that's why we're
+going to switch</p>
+<p t="2690050" d="1500">from the language
+of linear algebra</p>
+<p t="2691550" d="2160">to more statistical,
+because what's happening</p>
+<p t="2693710" d="3300">is that if I look at this
+quadratic form, right?</p>
+<p t="2697010" d="2070">So I take sigma.</p>
+<p t="2699080" d="1382">So I take a vector, u.</p>
+<p t="2703630" d="5550">And I'm going to look at
+u-- so let's say, in Rd.</p>
+<p t="2709180" d="5616">And I'm going to look
+at u transpose sigma u.</p>
+<p t="2714796" d="499">OK?</p>
+<p t="2718510" d="1210">What is this doing?</p>
+<p t="2719720" d="4910">Well, we know that u transpose
+sigma u is equal to what?</p>
+<p t="2724630" d="7090">Well, sigma is the
+expectation of XX transpose</p>
+<p t="2731720" d="3890">minus the expectation of X
+expectation of X transpose,</p>
+<p t="2735610" d="500">right?</p>
+<p t="2739460" d="1488">So I just substitute in there.</p>
+<p t="2746100" d="3270">Now, u is deterministic.</p>
+<p t="2749370" d="2880">So in particular, I can push
+it inside the expectation</p>
+<p t="2752250" d="2930">here, agreed?</p>
+<p t="2755180" d="2020">And I can do the
+same from the right.</p>
+<p t="2757200" d="3600">So here, when I push u
+transpose here, and u here,</p>
+<p t="2760800" d="5370">what I'm left with is the
+expectation of u transpose X</p>
+<p t="2766170" d="3820">times X transpose u.</p>
+<p t="2769990" d="1446">OK?</p>
+<p t="2771436" d="2614">And now, I can do the
+same thing for this guy.</p>
+<p t="2774050" d="3360">And this tells me that this is
+the expectation of u transpose</p>
+<p t="2777410" d="3930">X times the expectation
+of X transpose u.</p>
+<p t="2784640" d="4620">Of course, u transpose X
+is equal to X transpose u.</p>
+<p t="2789260" d="2070">And u-- yeah.</p>
+<p t="2791330" d="2580">So what it means is
+that this is actually</p>
+<p t="2793910" d="9790">equal to the expectation
+of u transpose X squared</p>
+<p t="2803700" d="4320">minus the expectation
+of u transpose X,</p>
+<p t="2808020" d="1045">the whole thing squared.</p>
+<p t="2816900" d="2000">But this is something
+that should look familiar.</p>
+<p t="2818900" d="2416">This is really just the variance
+of this particular random</p>
+<p t="2821316" d="2044">variable which is of
+the form, u transpose X,</p>
+<p t="2823360" d="3540">right? u transpose
+X is a number.</p>
+<p t="2826900" d="3210">It involves a random vector,
+so it's a random variable.</p>
+<p t="2830110" d="1470">And so it has a variance.</p>
+<p t="2831580" d="3850">And this variance is exactly
+given by this formula.</p>
+<p t="2835430" d="4165">So this is just the
+variance of u transpose X.</p>
+<p t="2839595" d="2125">So what we've proved is
+that if I look at this guy,</p>
+<p t="2841720" d="8052">this is really just the
+variance of u transpose X, OK?</p>
+<p t="2857580" d="3350">I can do the same thing
+for the sample variance.</p>
+<p t="2860930" d="840">So let's do this.</p>
+<p t="2868240" d="3900">And as you can
+see, spoiler alert,</p>
+<p t="2872140" d="4194">this is going to be
+the sample variance.</p>
+<p t="2879590" d="9840">OK, so remember, S is 1 over n,
+sum of Xi Xi transpose minus X</p>
+<p t="2889430" d="2670">bar X bar transpose.</p>
+<p t="2892100" d="3960">So when I do u
+transpose, Su, what</p>
+<p t="2896060" d="3340">it gives me is 1 over
+n sum from i equal 1</p>
+<p t="2899400" d="6380">to n of u transpose Xi times
+Xi transpose u, all right?</p>
+<p t="2905780" d="2100">So those are two numbers
+that multiply each other</p>
+<p t="2907880" d="2490">and that happen to be
+equal to each other,</p>
+<p t="2910370" d="6060">minus u transpose X
+bar X bar transpose u,</p>
+<p t="2916430" d="2340">which is also the product
+of two numbers that happen</p>
+<p t="2918770" d="1227">to be equal to each other.</p>
+<p t="2919997" d="1458">So I can rewrite
+this with squares.</p>
+<p t="2935120" d="2270">So we're almost there.</p>
+<p t="2937390" d="2970">All I need to know to check
+is that this thing is actually</p>
+<p t="2940360" d="1650">the average of
+those guys, right?</p>
+<p t="2942010" d="2520">So u transpose X bar.</p>
+<p t="2944530" d="500">What is it?</p>
+<p t="2945030" d="5950">It's 1 over n sum from i equal
+1 to n of u transpose Xi.</p>
+<p t="2950980" d="6070">So it's really something that I
+can write as u transpose X bar,</p>
+<p t="2957050" d="500">right?</p>
+<p t="2957550" d="1833">That's the average of
+those random variables</p>
+<p t="2959383" d="1857">of the form, u transpose Xi.</p>
+<p t="2963880" d="6030">So what it means is that u
+transpose Su, I can write as 1</p>
+<p t="2969910" d="8150">over n sum from i equal 1 to
+n of u transpose Xi squared</p>
+<p t="2978060" d="8660">minus u transpose X
+bar squared, which</p>
+<p t="2986720" d="4940">is the empirical variance
+that we need noted by small</p>
+<p t="2991660" d="2940">s squared, right?</p>
+<p t="2994600" d="12250">So that's the empirical variance
+of u transpose X1 all the way</p>
+<p t="3006850" d="1359">to u transpose Xn.</p>
+<p t="3012430" d="1480">OK, and here, same thing.</p>
+<p t="3013910" d="1300">I use exactly the same thing.</p>
+<p t="3015210" d="2780">I just use the fact that here,
+the only thing I use is really</p>
+<p t="3017990" d="2800">the linearity of this
+guy, of 1 over n sum</p>
+<p t="3020790" d="3230">or the linearity of expectation,
+that I can push things</p>
+<p t="3024020" d="2720">in there, OK?</p>
+<p t="3030224" d="1416">AUDIENCE: So what
+you have written</p>
+<p t="3031640" d="2204">at the end of that
+sum for uT Su?</p>
+<p t="3033844" d="1166">PHILIPPE RIGOLLET: This one?</p>
+<p t="3035010" d="370">AUDIENCE: Yeah.</p>
+<p t="3035380" d="1910">PHILIPPE RIGOLLET: Yeah, I
+said it's equal to small s,</p>
+<p t="3037290" d="2140">and I want to make a
+difference between the big S</p>
+<p t="3039430" d="1230">that I'm using here.</p>
+<p t="3040660" d="1990">So this is equal to small--</p>
+<p t="3042650" d="2540">I don't know, I'm
+trying to make it look</p>
+<p t="3045190" d="2360">like a calligraphic s squared.</p>
+<p t="3056870" d="3170">OK, so this is nice, right?</p>
+<p t="3060040" d="4080">This covariance matrix-- so
+let's look at capital sigma</p>
+<p t="3064120" d="1090">itself right now.</p>
+<p t="3065210" d="1860">This covariance matrix,
+we know that if we</p>
+<p t="3067070" d="4620">read its entries, what
+we get is the covariance</p>
+<p t="3071690" d="3570">between the coordinates
+of the X's, right,</p>
+<p t="3075260" d="3880">of the random vector, X.
+And the coordinates, well,</p>
+<p t="3079140" d="3390">by definition, are attached
+to a coordinate system.</p>
+<p t="3082530" d="3300">So I only know
+what the covariance</p>
+<p t="3085830" d="4740">of X in of those two things are,
+or the covariance of those two</p>
+<p t="3090570" d="750">things are.</p>
+<p t="3091320" d="2250">But what if I want to find
+coordinates between linear</p>
+<p t="3093570" d="1506">combination of the X's?</p>
+<p t="3095076" d="2124">Sorry, if I want to find
+covariances between linear</p>
+<p t="3097200" d="1366">combination of those X's.</p>
+<p t="3098566" d="1874">And that's exactly what
+this allows me to do.</p>
+<p t="3100440" d="4200">It says, well, if I pre-
+and post-multiply by u,</p>
+<p t="3104640" d="2370">this is actually telling
+me what the variance</p>
+<p t="3107010" d="4940">of X along direction u is, OK?</p>
+<p t="3111950" d="1994">So there's a lot of
+information in there,</p>
+<p t="3113944" d="1666">and it's just really
+exploiting the fact</p>
+<p t="3115610" d="4990">that there is some linearity
+going on in the covariance.</p>
+<p t="3120600" d="1460">So, why variance?</p>
+<p t="3122060" d="1810">Why is variance
+interesting for us, right?</p>
+<p t="3123870" d="500">Why?</p>
+<p t="3124370" d="1390">I started by saying,
+here, we're going</p>
+<p t="3125760" d="1290">to be interested
+in having something</p>
+<p t="3127050" d="1101">to do dimension reduction.</p>
+<p t="3128151" d="2499">We have-- think of your points
+as [? being in a ?] dimension</p>
+<p t="3130650" d="3340">larger than 4, and we're going
+to try to reduce the dimension.</p>
+<p t="3133990" d="1490">So let's just think
+for one second,</p>
+<p t="3135480" d="3840">what do we want about a
+dimension reduction procedure?</p>
+<p t="3139320" d="4107">If I have all my points that
+live in, say, three dimensions,</p>
+<p t="3143427" d="1833">and I have one point
+here and one point here</p>
+<p t="3145260" d="2760">and one point here and one
+point here and one point here,</p>
+<p t="3148020" d="2070">and I decide to project
+them onto some plane--</p>
+<p t="3150090" d="2042">that I take a plane that's
+just like this, what's</p>
+<p t="3152132" d="2541">going to happen is that those
+points are all going to project</p>
+<p t="3154673" d="1357">to the same point, right?</p>
+<p t="3156030" d="2040">I'm just going to
+not see anything.</p>
+<p t="3158070" d="2340">However, if I take a
+plane which is like this,</p>
+<p t="3160410" d="2522">they're all going to
+project into some nice line.</p>
+<p t="3162932" d="1708">Maybe I can even
+project them onto a line</p>
+<p t="3164640" d="2520">and they will still be
+far apart from each other.</p>
+<p t="3167160" d="1000">So that's what you want.</p>
+<p t="3168160" d="3770">You want to be able to
+say, when I take my points</p>
+<p t="3171930" d="2680">and I say I project them
+onto lower dimensions,</p>
+<p t="3174610" d="2660">I do not want them to collapse
+into one single point.</p>
+<p t="3177270" d="3270">I want them to be spread as
+possible in the direction</p>
+<p t="3180540" d="1711">on which I project.</p>
+<p t="3182251" d="1749">And this is what we're
+going to try to do.</p>
+<p t="3184000" d="2510">And of course, measuring
+spread between points</p>
+<p t="3186510" d="1650">can be done in many ways, right?</p>
+<p t="3188160" d="1800">I mean, you could
+look at, I don't know,</p>
+<p t="3189960" d="2940">sum of pairwise distances
+between those guys.</p>
+<p t="3192900" d="1890">You could look at
+some sort of energy.</p>
+<p t="3194790" d="1590">You can look at
+many ways to measure</p>
+<p t="3196380" d="1819">of spread in a direction.</p>
+<p t="3198199" d="1541">But variance is a
+good way to measure</p>
+<p t="3199740" d="1410">of spread between points.</p>
+<p t="3201150" d="2577">If you have a lot of
+variance between your points,</p>
+<p t="3203727" d="1833">then chances are they're
+going to be spread.</p>
+<p t="3205560" d="2160">Now, this is not
+always the case, right?</p>
+<p t="3207720" d="2760">If I have a direction in which
+all my points are clumped</p>
+<p t="3210480" d="2754">onto one big point and
+one other big point,</p>
+<p t="3213234" d="1666">it's going to choose
+this because that's</p>
+<p t="3214900" d="2280">the direction that
+has a lot of variance.</p>
+<p t="3217180" d="1850">But hopefully, the
+variance is going</p>
+<p t="3219030" d="2530">to spread things out nicely.</p>
+<p t="3221560" d="6170">So the idea of principal
+component analysis</p>
+<p t="3227730" d="3600">is going to try to
+identify those variances--</p>
+<p t="3231330" d="4410">those directions along which
+we have a lot of variance.</p>
+<p t="3235740" d="2130">Reciprocally, we're
+going to try to eliminate</p>
+<p t="3237870" d="4020">the directions along which we do
+not have a lot of variance, OK?</p>
+<p t="3241890" d="750">And let's see why.</p>
+<p t="3242640" d="5490">Well, if-- so here's
+the first claim.</p>
+<p t="3248130" d="5870">If you transpose Su is equal
+to 0, what's happening?</p>
+<p t="3254000" d="3159">Well, I know that an empirical
+variance is equal to 0.</p>
+<p t="3257159" d="1791">What does it mean for
+an empirical variance</p>
+<p t="3258950" d="3106">to be equal to 0?</p>
+<p t="3262056" d="1624">So I give you a bunch
+of points, right?</p>
+<p t="3263680" d="2740">So those points are those
+points-- u transpose</p>
+<p t="3266420" d="2670">X1, u transpose-- those
+are a bunch of numbers.</p>
+<p t="3269090" d="2000">What does it mean to have
+the empirical variance</p>
+<p t="3271090" d="2189">of those points
+being equal to 0?</p>
+<p t="3273279" d="1291">AUDIENCE: They're all the same.</p>
+<p t="3274570" d="2020">PHILIPPE RIGOLLET:
+They're all the same.</p>
+<p t="3276590" d="7090">So what it means is that
+when I have my points, right?</p>
+<p t="3283680" d="2790">So, can you find a direction
+for those points in which they</p>
+<p t="3286470" d="2380">project to all the same point?</p>
+<p t="3291400" d="960">No, right?</p>
+<p t="3292360" d="1230">There's no such thing.</p>
+<p t="3293590" d="2280">For this to happen, you have
+to have your points which</p>
+<p t="3295870" d="1979">are perfectly aligned.</p>
+<p t="3297849" d="1541">And then when you're
+going to project</p>
+<p t="3299390" d="2440">onto the orthogonal
+of this guy, they're</p>
+<p t="3301830" d="1860">going to all project
+to the same point</p>
+<p t="3303690" d="2760">here, which means that
+the empirical variance is</p>
+<p t="3306450" d="2340">going to be 0.</p>
+<p t="3308790" d="1480">Now, this is an extreme case.</p>
+<p t="3310270" d="1490">This will never
+happen in practice,</p>
+<p t="3311760" d="2080">because if that
+happens, well, I mean,</p>
+<p t="3313840" d="3010">you can basically figure
+that out very quickly.</p>
+<p t="3316850" d="4670">So in the same way,
+it's very unlikely</p>
+<p t="3321520" d="2190">that you're going to have
+u transpose sigma u, which</p>
+<p t="3323710" d="2520">is equal to 0, which means
+that, essentially, all</p>
+<p t="3326230" d="2280">your points are [INAUDIBLE]
+or let's say all of them</p>
+<p t="3328510" d="1559">are orthogonal to u, right?</p>
+<p t="3330069" d="1291">So it's exactly the same thing.</p>
+<p t="3331360" d="1970">It just says that in
+the population case,</p>
+<p t="3333330" d="3630">there's no probability that your
+points deviate from this guy</p>
+<p t="3336960" d="550">here.</p>
+<p t="3337510" d="3632">This happens with
+zero probability, OK?</p>
+<p t="3341142" d="1458">And that's just
+because if you look</p>
+<p t="3342600" d="4090">at the variance of this
+guy, it's going to be 0.</p>
+<p t="3346690" d="2220">And then that means that
+there's no deviation.</p>
+<p t="3348910" d="2520">By the way, I'm using
+the name projection</p>
+<p t="3351430" d="4080">when I talk about u
+transpose X, right?</p>
+<p t="3355510" d="3660">So let's just be
+clear about this.</p>
+<p t="3359170" d="4920">If you-- so let's say I
+have a bunch of points,</p>
+<p t="3364090" d="1960">and u is a vector
+in this direction.</p>
+<p t="3366050" d="2600">And let's say that u has the--</p>
+<p t="3368650" d="1470">so this is 0.</p>
+<p t="3370120" d="600">This is u.</p>
+<p t="3370720" d="6840">And let's say that
+u has norm, 1, OK?</p>
+<p t="3377560" d="3580">When I look, what is the
+coordinate of the projection?</p>
+<p t="3381140" d="2720">So what is the length
+of this guy here?</p>
+<p t="3383860" d="1709">Let's call this guy X1.</p>
+<p t="3385569" d="1291">What is the length of this guy?</p>
+<p t="3391150" d="1180">In terms of inner products?</p>
+<p t="3395990" d="3688">This is exactly u transpose X1.</p>
+<p t="3399678" d="3052">This length here,
+if this is X2, this</p>
+<p t="3402730" d="3850">is exactly u transpose X2, OK?</p>
+<p t="3406580" d="5850">So those-- u transpose X
+measure exactly the distance</p>
+<p t="3412430" d="3270">to the origin of those--</p>
+<p t="3415700" d="2610">I mean, it's really--</p>
+<p t="3418310" d="2577">think of it as being
+just an x-axis thing.</p>
+<p t="3420887" d="1333">You just have a bunch of points.</p>
+<p t="3422220" d="740">You have an origin.</p>
+<p t="3422960" d="1560">And it's really just
+telling you what</p>
+<p t="3424520" d="3150">the coordinate on this
+axis is going to be, right?</p>
+<p t="3427670" d="3150">So in particular, if the
+empirical variance is 0,</p>
+<p t="3430820" d="1650">it means that all
+these points project</p>
+<p t="3432470" d="2370">to the same point, which
+means that they have</p>
+<p t="3434840" d="2072">to be orthogonal to this guy.</p>
+<p t="3436912" d="2458">And you can think of it as
+being also maybe an entire plane</p>
+<p t="3439370" d="4620">that's orthogonal
+to this line, OK?</p>
+<p t="3443990" d="2600">So that's why I talk
+about projection,</p>
+<p t="3446590" d="2970">because the inner
+products, u transpose X,</p>
+<p t="3449560" d="6660">is really measuring
+the coordinates of X</p>
+<p t="3456220" d="3190">when u becomes the x-axis.</p>
+<p t="3459410" d="3410">Now, if u does not have
+norm 1, then you just</p>
+<p t="3462820" d="1545">have a change of scale here.</p>
+<p t="3464365" d="2425">You just have a
+change of unit, right?</p>
+<p t="3466790" d="4770">So this is really u times X1.</p>
+<p t="3471560" d="2484">The coordinates should really
+be divided by the norm of u.</p>
+<p t="3479150" d="5820">OK, so now, just in
+the same way-- so</p>
+<p t="3484970" d="2190">we're never going
+to have exactly 0.</p>
+<p t="3487160" d="1650">But if we [INAUDIBLE]
+the other end,</p>
+<p t="3488810" d="3240">if u transpose Su is
+large, what does it mean?</p>
+<p t="3494990" d="2750">It means that when
+I look at my points</p>
+<p t="3497740" d="4454">as projected onto the
+axis generated by u,</p>
+<p t="3502194" d="1666">they're going to have
+a lot of variance.</p>
+<p t="3503860" d="2070">They're going to be far away
+from each other in average,</p>
+<p t="3505930" d="500">right?</p>
+<p t="3506430" d="2470">That's what large variance
+means, or at least</p>
+<p t="3508900" d="2410">large empirical variance means.</p>
+<p t="3511310" d="3380">And same thing for u.</p>
+<p t="3514690" d="1440">So what we're going
+to try to find</p>
+<p t="3516130" d="3740">is a u that maximizes this.</p>
+<p t="3519870" d="2360">If I can find a u
+that maximizes this</p>
+<p t="3522230" d="2560">so I can look in
+every direction,</p>
+<p t="3524790" d="3530">and suddenly I find a direction
+in which the spread is massive,</p>
+<p t="3528320" d="1750">then that's a point
+on which I'm basically</p>
+<p t="3530070" d="2190">the less likely
+to have my points</p>
+<p t="3532260" d="2564">project onto each other
+and collide, right?</p>
+<p t="3534824" d="1666">At least I know they're
+going to project</p>
+<p t="3536490" d="3220">at least onto two points.</p>
+<p t="3539710" d="2580">So the idea now is
+to say, OK, let's try</p>
+<p t="3542290" d="2340">to maximize this spread, right?</p>
+<p t="3544630" d="4500">So we're going to try to
+find the maximum over all u's</p>
+<p t="3549130" d="3756">of u transpose Su.</p>
+<p t="3552886" d="2124">And that's going to be the
+direction that maximizes</p>
+<p t="3555010" d="958">the empirical variance.</p>
+<p t="3555968" d="6107">Now of course, if I read it
+like that for all u's in Rd,</p>
+<p t="3562075" d="1591">what is the value
+of this maximum?</p>
+<p t="3568060" d="1160">It's infinity, right?</p>
+<p t="3569220" d="2940">Because I can always
+multiply u by 10,</p>
+<p t="3572160" d="2502">and this entire thing is
+going to multiplied by 100.</p>
+<p t="3574662" d="1958">So I'm just going to take
+u as large as I want,</p>
+<p t="3576620" d="2041">and this thing is going
+to be as large as I want,</p>
+<p t="3578661" d="1389">and so I need to constrain u.</p>
+<p t="3580050" d="2790">And as I said, I need
+to have u of size 1</p>
+<p t="3582840" d="3150">to talk about coordinates
+in the system generated</p>
+<p t="3585990" d="1350">by u like this.</p>
+<p t="3587340" d="3390">So I'm just going to
+constrain u to have</p>
+<p t="3590730" d="4737">Euclidean norm equal to 1, OK?</p>
+<p t="3595467" d="1583">So that's going to
+be my goal-- trying</p>
+<p t="3597050" d="4050">to find the largest
+possible u transpose Su,</p>
+<p t="3601100" d="2580">or in other words, empirical
+variance of the points</p>
+<p t="3603680" d="3840">projected onto the direction
+u when u is of norm 1,</p>
+<p t="3607520" d="3519">which justifies to use
+the word, "direction,"</p>
+<p t="3611039" d="1791">and because there's no
+magnitude to this u.</p>
+<p t="3617770" d="4640">OK, so how am I
+going to do this?</p>
+<p t="3622410" d="2820">I could just fold and
+say, let's just optimize</p>
+<p t="3625230" d="1470">this thing, right?</p>
+<p t="3626700" d="1840">Let's just take this problem.</p>
+<p t="3628540" d="3710">It says maximize a function
+onto some constraints.</p>
+<p t="3632250" d="1875">Immediately, the constraint
+is sort of nasty.</p>
+<p t="3634125" d="3087">I'm on a sphere, and I'm trying
+to move points on the sphere.</p>
+<p t="3637212" d="1458">And I'm maximizing
+this thing which</p>
+<p t="3638670" d="1512">actually happens to be convex.</p>
+<p t="3640182" d="2208">And we know we know how to
+minimize convex functions,</p>
+<p t="3642390" d="2890">but maximize them is
+a different question.</p>
+<p t="3645280" d="2060">And so this problem
+might be super hard.</p>
+<p t="3647340" d="1680">So I can just say,
+OK, here's what</p>
+<p t="3649020" d="3930">I want to do, and let me
+give that to an optimizer</p>
+<p t="3652950" d="3060">and just hope that the optimizer
+can solve this problem for me.</p>
+<p t="3656010" d="1620">That's one thing we can do.</p>
+<p t="3657630" d="2462">Now as you can imagine, PCA
+is so well spread, right?</p>
+<p t="3660092" d="1708">Principal component
+analysis is something</p>
+<p t="3661800" d="1900">that people do constantly.</p>
+<p t="3663700" d="2490">And so that means that we
+know how to do this fast.</p>
+<p t="3666190" d="1410">So that's one thing.</p>
+<p t="3667600" d="3140">The other thing that you should
+probably question about why--</p>
+<p t="3670740" d="2370">if this thing is actually
+difficult, why in the world</p>
+<p t="3673110" d="3090">would you even choose the
+variance as a measure of spread</p>
+<p t="3676200" d="2820">if there's so many
+measures of spread, right?</p>
+<p t="3679020" d="2202">The variance is one
+measure of spread.</p>
+<p t="3681222" d="1458">It's not guaranteed
+that everything</p>
+<p t="3682680" d="3686">is going to project nicely
+far apart from each other.</p>
+<p t="3686366" d="1624">So we could choose
+the variance, but we</p>
+<p t="3687990" d="810">could choose something else.</p>
+<p t="3688800" d="2190">If the variance does
+not help, why choose it?</p>
+<p t="3690990" d="1530">Turns out the variance helps.</p>
+<p t="3692520" d="3035">So this is indeed a
+non-convex problem.</p>
+<p t="3695555" d="2785">I'm maximizing, so
+it's actually the same.</p>
+<p t="3698340" d="3510">I can make this
+constraint convex</p>
+<p t="3701850" d="2070">because I'm maximizing
+a convex function,</p>
+<p t="3703920" d="1800">so it's clear that
+the maximum is going</p>
+<p t="3705720" d="1500">to be attained at the boundary.</p>
+<p t="3707220" d="4320">So I can actually just fill
+this ball into some convex ball.</p>
+<p t="3711540" d="1890">However, I'm still
+maximizing, so this</p>
+<p t="3713430" d="1740">is a non-convex problem.</p>
+<p t="3715170" d="2380">And this turns out to be the
+fanciest non-convex problem</p>
+<p t="3717550" d="1451">we know how to solve.</p>
+<p t="3719001" d="1749">And the reason why we
+know how to solve it</p>
+<p t="3720750" d="3660">is not because of optimization
+or using gradient-type things</p>
+<p t="3724410" d="2280">or anything of the
+algorithms that I mentioned</p>
+<p t="3726690" d="2660">during the maximum likelihood.</p>
+<p t="3729350" d="1650">It's because of linear algebra.</p>
+<p t="3731000" d="2980">Linear algebra guarantees that
+we know how to solve this.</p>
+<p t="3733980" d="3905">And to understand this, we
+need to go a little deeper</p>
+<p t="3737885" d="4475">in linear algebra, and we
+need to understand the concept</p>
+<p t="3742360" d="2230">of diagonalization of a matrix.</p>
+<p t="3744590" d="5260">So who has ever seen the
+concept of an eigenvalue?</p>
+<p t="3749850" d="940">Oh, that's beautiful.</p>
+<p t="3750790" d="1090">And if you're not
+raising your hand,</p>
+<p t="3751880" d="1708">you're just playing
+"Candy Crush," right?</p>
+<p t="3753588" d="2342">All right, so, OK.</p>
+<p t="3764930" d="1710">This is great.</p>
+<p t="3766640" d="1520">Everybody's seen it.</p>
+<p t="3768160" d="3070">For my live audience of
+millions, maybe you have not,</p>
+<p t="3771230" d="2370">so I will still go through it.</p>
+<p t="3773600" d="5240">All right, so one
+of the basic facts--</p>
+<p t="3778840" d="3650">and I remember when
+I learned this in--</p>
+<p t="3782490" d="1600">I mean, when I was
+an undergrad, I</p>
+<p t="3784090" d="1770">learned about the
+spectral decomposition</p>
+<p t="3785860" d="1590">and this diagonalization
+of matrices.</p>
+<p t="3787450" d="1620">And for me, it was just
+a structural property</p>
+<p t="3789070" d="2375">of matrices, but it turns out
+that it's extremely useful,</p>
+<p t="3791445" d="1849">and it's useful for
+algorithmic purposes.</p>
+<p t="3793294" d="1416">And so what this
+theorem tells you</p>
+<p t="3794710" d="2055">is that if you take
+a symmetric matrix--</p>
+<p t="3802860" d="1480">well, with real
+entries, but that</p>
+<p t="3804340" d="3880">really does not matter so much.</p>
+<p t="3808220" d="2510">And here, I'm
+going to actually--</p>
+<p t="3810730" d="2470">so I take a symmetric matrix,
+and actually S and sigma</p>
+<p t="3813200" d="2990">are two such symmetric
+matrices, right?</p>
+<p t="3816190" d="8310">Then there exists P
+and D, which are both--</p>
+<p t="3824500" d="2500">so let's say d by d.</p>
+<p t="3827000" d="8960">Which are both d by d
+such that P is orthogonal.</p>
+<p t="3838960" d="3460">That means that P transpose
+P is equal to PP transpose</p>
+<p t="3842420" d="3940">is equal to the identity.</p>
+<p t="3846360" d="1270">And D is diagonal.</p>
+<p t="3851840" d="8290">And sigma, let's say, is
+equal to PDP transpose, OK?</p>
+<p t="3860130" d="1950">So it's a diagonalization
+because it's</p>
+<p t="3862080" d="1890">finding a nice transformation.</p>
+<p t="3863970" d="1290">P has some nice properties.</p>
+<p t="3865260" d="2790">It's really just the change
+of coordinates in which</p>
+<p t="3868050" d="2994">your matrix is diagonal, right?</p>
+<p t="3871044" d="1416">And the way you
+want to see this--</p>
+<p t="3872460" d="3150">and I think it sort of helps
+to think about this problem</p>
+<p t="3875610" d="1110">as being--</p>
+<p t="3876720" d="1556">sigma being a covariance matrix.</p>
+<p t="3878276" d="1624">What does a covariance
+matrix tell you?</p>
+<p t="3879900" d="1590">Think of a
+multivariate Gaussian.</p>
+<p t="3881490" d="2170">Can everybody visualize a
+three-dimensional Gaussian</p>
+<p t="3883660" d="1490">density?</p>
+<p t="3885150" d="3050">Right, so it's going to be some
+sort of a bell-shaped curve,</p>
+<p t="3888200" d="3670">but it might be more elongated
+in one direction than another.</p>
+<p t="3891870" d="2440">And then going to chop
+it like that, all right?</p>
+<p t="3894310" d="1810">So I'm going to chop it off.</p>
+<p t="3896120" d="3950">And I'm going to look at
+how it bleeds, all right?</p>
+<p t="3900070" d="2217">So I'm just going to look
+at where the blood is.</p>
+<p t="3902287" d="1333">And what it's going to look at--</p>
+<p t="3903620" d="5100">it's going to look like some
+sort of ellipsoid, right?</p>
+<p t="3908720" d="2932">In high dimension, it's
+just going to be an olive.</p>
+<p t="3911652" d="1958">And that is just going
+to be bigger and bigger.</p>
+<p t="3913610" d="2850">And then I chop it
+off a little lower,</p>
+<p t="3916460" d="3690">and I get something a
+little bigger like this.</p>
+<p t="3920150" d="2920">And so it turns out that sigma
+is capturing exactly this,</p>
+<p t="3923070" d="500">right?</p>
+<p t="3923570" d="3750">The matrix sigma-- so the
+center of your covariance matrix</p>
+<p t="3927320" d="1920">of your Gaussian is
+going to be this thing.</p>
+<p t="3929240" d="4450">And sigma is going to tell you
+which direction it's elongated.</p>
+<p t="3933690" d="2450">And so in particular, if you
+look, if you knew an ellipse,</p>
+<p t="3936140" d="2020">you know there's something
+called principal axis, right?</p>
+<p t="3938160" d="1583">So you could actually
+define something</p>
+<p t="3939743" d="3447">that looks like this, which is
+this axis, the one along which</p>
+<p t="3943190" d="1200">it's the most elongated.</p>
+<p t="3944390" d="2955">Then the axis along which
+is orthogonal to it,</p>
+<p t="3947345" d="2025">along which it's
+slightly less elongated,</p>
+<p t="3949370" d="3510">and you go again and again
+along the orthogonal ones.</p>
+<p t="3952880" d="3620">It turns out that
+those things here</p>
+<p t="3956500" d="3120">is the new coordinate system
+in which this transformation, P</p>
+<p t="3959620" d="3570">and P transpose, is
+putting you into.</p>
+<p t="3963190" d="3200">And D has entries
+on the diagonal</p>
+<p t="3966390" d="3589">which are exactly this length
+and this length, right?</p>
+<p t="3969979" d="1291">So that's just what it's doing.</p>
+<p t="3971270" d="1650">It's just telling
+you, well, if you</p>
+<p t="3972920" d="3840">think of having this Gaussian
+or this high-dimensional</p>
+<p t="3976760" d="3230">ellipsoid, it's elongated
+along certain directions.</p>
+<p t="3979990" d="3030">And these directions are
+actually maybe not well aligned</p>
+<p t="3983020" d="2250">with your original coordinate
+system, which might just</p>
+<p t="3985270" d="2160">be the usual one, right--</p>
+<p t="3987430" d="2310">north, south, and east, west.</p>
+<p t="3989740" d="1060">Maybe I need to turn it.</p>
+<p t="3990800" d="2374">And that's exactly what this
+orthogonal transformation is</p>
+<p t="3993174" d="3646">doing for you, all right?</p>
+<p t="3996820" d="2807">So, in a way, this is actually
+telling you even more.</p>
+<p t="3999627" d="2083">It's telling you that any
+matrix that's symmetric,</p>
+<p t="4001710" d="3480">you can actually
+turn it somewhere.</p>
+<p t="4005190" d="2340">And that'll start to dilate
+things in the directions</p>
+<p t="4007530" d="1530">that you have, and
+then turn it back</p>
+<p t="4009060" d="1740">to what you originally had.</p>
+<p t="4010800" d="2310">And that's actually
+exactly the effect</p>
+<p t="4013110" d="4070">of applying a symmetric matrix
+through a vector, right?</p>
+<p t="4017180" d="1740">And it's pretty impressive.</p>
+<p t="4018920" d="5730">It says if I take sigma
+times v. Any sigma that's</p>
+<p t="4024650" d="2910">of this form, what I'm
+doing is-- that's symmetric.</p>
+<p t="4027560" d="1800">What I'm really
+doing to v is I'm</p>
+<p t="4029360" d="2790">changing its coordinate
+system, so I'm rotating it.</p>
+<p t="4032150" d="2820">Then I'm changing-- I'm
+multiplying its coordinates,</p>
+<p t="4034970" d="1986">and then I'm rotating it back.</p>
+<p t="4036956" d="1374">That's all it's
+doing, and that's</p>
+<p t="4038330" d="3220">what all symmetric
+matrices do, which</p>
+<p t="4041550" d="2520">means that this is doing a lot.</p>
+<p t="4044070" d="3060">All right, so OK.</p>
+<p t="4047130" d="2107">So, what do I know?</p>
+<p t="4049237" d="1583">So I'm not going to
+prove that this is</p>
+<p t="4050820" d="1320">the so-called spectral theorem.</p>
+<p t="4059270" d="6580">And the diagonal entries of
+D is of the form, lambda 1,</p>
+<p t="4065850" d="4130">lambda 2, lambda d, 0, 0.</p>
+<p t="4069980" d="11820">And the lambda j's are
+called eigenvalues of D.</p>
+<p t="4081800" d="3370">Now in general, those numbers
+can be positive, negative,</p>
+<p t="4085170" d="1490">or equal to 0.</p>
+<p t="4086660" d="5340">But here, I know that
+sigma and S are--</p>
+<p t="4092000" d="3290">well, they're
+symmetric for sure,</p>
+<p t="4095290" d="2177">but they are positive
+semidefinite.</p>
+<p t="4103939" d="1901">What does it mean?</p>
+<p t="4105840" d="5090">It means that when I take u
+transpose sigma u for example,</p>
+<p t="4110930" d="2262">this number is
+always non-negative.</p>
+<p t="4115910" d="810">Why is this true?</p>
+<p t="4122770" d="839">What is this number?</p>
+<p t="4127670" d="2180">It's the variance of--
+and actually, I don't even</p>
+<p t="4129850" d="1379">need to finish this sentence.</p>
+<p t="4131229" d="2728">As soon as I say that
+this is a variance, well,</p>
+<p t="4133957" d="1083">it has to be non-negative.</p>
+<p t="4135040" d="2950">We know that a variance
+is not negative.</p>
+<p t="4137990" d="2542">And so, that's also a
+nice way you can use that.</p>
+<p t="4140532" d="1708">So it's just to say,
+well, OK, this thing</p>
+<p t="4142240" d="2440">is positive semidefinite because
+it's a covariance matrix.</p>
+<p t="4144680" d="2240">So I know it's a variance, OK?</p>
+<p t="4146920" d="1859">So I get this.</p>
+<p t="4148779" d="1781">Now, if I had some
+negative numbers--</p>
+<p t="4150560" d="4790">so the effect of that is that
+when I draw this picture,</p>
+<p t="4155350" d="3690">those axes are always positive,
+which is kind of a weird thing</p>
+<p t="4159040" d="910">to say.</p>
+<p t="4159950" d="3890">But what it means is that when
+I take a vector, v, I rotate it,</p>
+<p t="4163840" d="4410">and then I stretch it in the
+directions of the coordinate,</p>
+<p t="4168250" d="2010">I cannot flip it.</p>
+<p t="4170260" d="4000">I can only stretch or shrink,
+but I cannot flip its sign,</p>
+<p t="4174260" d="500">all right?</p>
+<p t="4174760" d="2610">But in general, for
+any symmetric matrices,</p>
+<p t="4177370" d="1470">I could do this.</p>
+<p t="4178840" d="2070">But when it's positive
+symmetric definite,</p>
+<p t="4180910" d="2110">actually what turns out
+is that all the lambda</p>
+<p t="4183020" d="5330">j's are non-negative.</p>
+<p t="4188350" d="3020">I cannot flip it, OK?</p>
+<p t="4191370" d="2408">So all the eigenvalues
+are non-negative.</p>
+<p t="4196590" d="1879">That's a property
+of positive semidef.</p>
+<p t="4198469" d="2041">So when it's symmetric,
+you have the eigenvalues.</p>
+<p t="4200510" d="1160">They can be any number.</p>
+<p t="4201670" d="2110">And when it's positive
+semidefinite, in particular</p>
+<p t="4203780" d="1440">that's the case of
+the covariance matrix</p>
+<p t="4205220" d="1890">and the empirical
+covariance matrix, right?</p>
+<p t="4207110" d="1830">Because the empirical
+covariance matrix</p>
+<p t="4208940" d="3210">is an empirical variance,
+which itself is non-negative.</p>
+<p t="4212150" d="5750">And so I get that the
+eigenvalues are non-negative.</p>
+<p t="4217900" d="5130">All right, so principal
+component analysis is saying,</p>
+<p t="4223030" d="9340">OK, I want to find
+the direction, u,</p>
+<p t="4232370" d="6460">that maximizes u
+transpose Su, all right?</p>
+<p t="4238830" d="1590">I've just introduced
+in one slide</p>
+<p t="4240420" d="1270">something about eigenvalues.</p>
+<p t="4241690" d="3050">So hopefully, they should help.</p>
+<p t="4244740" d="2820">So what is it that I'm
+going to be getting?</p>
+<p t="4247560" d="3886">Well, let's just
+see what happens.</p>
+<p t="4251446" d="2124">Oh, I forgot to mention
+that-- and I will use this.</p>
+<p t="4253570" d="2450">So the lambda j's are
+called eigenvectors.</p>
+<p t="4256020" d="12670">And then the matrix, P,
+has columns v1 to vd, OK?</p>
+<p t="4268690" d="4680">The fact that it's orthogonal--
+that P transpose P is equal</p>
+<p t="4273370" d="2100">to the identity--</p>
+<p t="4275470" d="5340">means that those guys
+satisfied that vi transpose</p>
+<p t="4280810" d="6675">vj is equal to 0 if i
+is different from j.</p>
+<p t="4287485" d="3555">And vi transpose vi is
+actually equal to 1,</p>
+<p t="4291040" d="2880">right, because the
+entries of PP transpose</p>
+<p t="4293920" d="5070">are exactly going to be of
+the form, vi transpose vj, OK?</p>
+<p t="4298990" d="1900">So those v's are
+called eigenvectors.</p>
+<p t="4306000" d="6020">And v1 is attached to lambda 1,
+and v2 is attached to lambda 2,</p>
+<p t="4312020" d="1160">OK?</p>
+<p t="4313180" d="3100">So let's see what's
+happening with those things.</p>
+<p t="4316280" d="1765">What happens if I take sigma--</p>
+<p t="4318045" d="2125">so if you know eigenvalues,
+you know exactly what's</p>
+<p t="4320170" d="1410">going to happen.</p>
+<p t="4321580" d="5340">If I look at, say, sigma
+times v1, well, what is sigma?</p>
+<p t="4326920" d="8520">We know that sigma
+is PDP transpose v1.</p>
+<p t="4335440" d="1980">What is P transpose times v1?</p>
+<p t="4337420" d="4140">Well, P transpose has
+rows v1 transpose,</p>
+<p t="4341560" d="5290">v2 transpose, all the
+way to vd transpose.</p>
+<p t="4346850" d="4060">So when I multiply
+this by v1, what</p>
+<p t="4350910" d="1910">I'm left with is
+the first coordinate</p>
+<p t="4352820" d="5190">is going to be equal to 1
+and the second coordinate is</p>
+<p t="4358010" d="2970">going to be equal to 0, right?</p>
+<p t="4360980" d="1930">Because they're
+orthogonal to each other--</p>
+<p t="4362910" d="2900">0 all the way to the end.</p>
+<p t="4365810" d="3080">So that's when I
+do P transpose v1.</p>
+<p t="4368890" d="6360">Now I multiply by
+D. Well, I'm just</p>
+<p t="4375250" d="3700">multiplying this guy by lambda
+1, this guy by lambda 2,</p>
+<p t="4378950" d="3200">and this guy by lambda d, so
+this is really just lambda 1.</p>
+<p t="4384720" d="7360">And now I need to
+post-multiply by P.</p>
+<p t="4392080" d="2110">So what is P times this guy?</p>
+<p t="4394190" d="5540">Well, P is v1 all the way to vd.</p>
+<p t="4399730" d="1560">And now I multiply
+by a vector that</p>
+<p t="4401290" d="3330">only has 0's except
+lambda 1 on the first guy.</p>
+<p t="4404620" d="1890">So this is just
+lambda 1 times v1.</p>
+<p t="4409470" d="5160">So what we've proved is that
+sigma times v1 is lambda 1 v1,</p>
+<p t="4414630" d="2700">and that's probably the
+notion of eigenvalue you're</p>
+<p t="4417330" d="1680">most comfortable with, right?</p>
+<p t="4419010" d="2610">So just when I
+multiply by v1, I get</p>
+<p t="4421620" d="3820">v1 back multiplied by something,
+which is the eigenvalue.</p>
+<p t="4425440" d="9010">So in particular, if I look
+at v1, transpose sigma v1,</p>
+<p t="4434450" d="730">what do I get?</p>
+<p t="4435180" d="3620">Well, I get lambda
+1 v1 transpose v1,</p>
+<p t="4438800" d="1380">which is 1, right?</p>
+<p t="4440180" d="3870">So this is actually
+lambda 1 v1 transpose v1,</p>
+<p t="4444050" d="4310">which is lambda 1, OK?</p>
+<p t="4448360" d="2580">And if I do the same
+with v2, clearly I'm</p>
+<p t="4450940" d="2510">going to get v2 transpose sigma.</p>
+<p t="4453450" d="3460">v2 is equal to lambda 2.</p>
+<p t="4456910" d="3000">So for each of the
+vj's, I know that if I</p>
+<p t="4459910" d="1740">look at the variance
+along the vj,</p>
+<p t="4461650" d="6110">it's actually exactly given by
+those eigenvalues, all right?</p>
+<p t="4467760" d="10730">Which proves this, because the
+variance along the eigenvectors</p>
+<p t="4478490" d="1780">is actually equal
+to the eigenvalues.</p>
+<p t="4480270" d="3490">So since they're variances,
+they have to be non-negative.</p>
+<p t="4483760" d="4200">So now, I'm looking for
+the one direction that</p>
+<p t="4487960" d="2490">has the most variance, right?</p>
+<p t="4490450" d="2590">But that's not only
+among the eigenvectors.</p>
+<p t="4493040" d="2480">That's also among
+the other directions</p>
+<p t="4495520" d="1680">that are in-between
+the eigenvectors.</p>
+<p t="4497200" d="2190">If I were to look only
+at the eigenvectors,</p>
+<p t="4499390" d="3030">it would just tell me, well,
+just pick the eigenvector, vj,</p>
+<p t="4502420" d="3570">that's associated to the
+largest of the lambda j's.</p>
+<p t="4505990" d="3090">But it turns out that that's
+also true for any vector--</p>
+<p t="4509080" d="2730">that the maximum direction is
+actually one direction which</p>
+<p t="4511810" d="1999">is among the eigenvectors.</p>
+<p t="4513809" d="2291">And among the eigenvectors,
+we know that the one that's</p>
+<p t="4516100" d="980">the largest--</p>
+<p t="4517080" d="1660">that carries the
+largest variance is</p>
+<p t="4518740" d="5040">the one that's associated to the
+largest eigenvalue, all right?</p>
+<p t="4523780" d="3210">And so this is what PCA is
+going to try to do for me.</p>
+<p t="4526990" d="2430">So in practice, that's what
+I mentioned already, right?</p>
+<p t="4529420" d="2550">We're trying to
+project the point cloud</p>
+<p t="4531970" d="2760">onto a low-dimensional
+space, D prime,</p>
+<p t="4534730" d="2070">by keeping as much
+information as possible.</p>
+<p t="4536800" d="2430">And by "as much information,"
+I mean we do not</p>
+<p t="4539230" d="2310">want points to collide.</p>
+<p t="4541540" d="3990">And so what PCA is
+going to do is just</p>
+<p t="4545530" d="2701">going to try to project
+[? on two ?] directions.</p>
+<p t="4548231" d="1499">So there's going
+to be a u, and then</p>
+<p t="4549730" d="2291">there's going to be something
+orthogonal to u, and then</p>
+<p t="4552021" d="3529">the third one, et cetera, so
+that once we project on those,</p>
+<p t="4555550" d="4050">we're keeping as much of the
+covariance as possible, OK?</p>
+<p t="4559600" d="3259">And in particular,
+those directions</p>
+<p t="4562859" d="1541">that we're going to
+pick are actually</p>
+<p t="4564400" d="2520">a subset of the vj's that
+are associated to the largest</p>
+<p t="4566920" d="1660">eigenvalues.</p>
+<p t="4568580" d="2720">So I'm going to
+stop here for today.</p>
+<p t="4571300" d="3720">We'll finish this on Tuesday.</p>
+<p t="4575020" d="3240">But basically, the idea is
+it's just the following.</p>
+<p t="4578260" d="4330">You're just going to--
+well, let me skip one more.</p>
+<p t="4582590" d="2222">Yeah, this is the idea.</p>
+<p t="4584812" d="2208">You're first going to pick
+the eigenvector associated</p>
+<p t="4587020" d="3270">to the largest eigenvalue.</p>
+<p t="4590290" d="3600">Then you're going to pick
+the direction that orthogonal</p>
+<p t="4593890" d="3240">to the vector that
+you've picked,</p>
+<p t="4597130" d="1854">and that's carrying
+the most variance.</p>
+<p t="4598984" d="1666">And that's actually
+the second largest--</p>
+<p t="4600650" d="3380">the eigenvector associated to
+the second largest eigenvalue.</p>
+<p t="4604030" d="2490">And you're going to go all
+the way to the number of them</p>
+<p t="4606520" d="3600">that you actually want to pick,
+which is in this case, d, OK?</p>
+<p t="4610120" d="3060">And wherever you choose
+to chop this process,</p>
+<p t="4613180" d="3210">not going all the way to d,
+is going to actually give you</p>
+<p t="4616390" d="1500">a lower-dimensional
+representation</p>
+<p t="4617890" d="3348">in the coordinate system
+that's given by v1, v2, v3, et</p>
+<p t="4621238" d="1182">cetera, OK?</p>
+<p t="4622420" d="2171">So we'll see that in
+more details on Tuesday.</p>
+<p t="4624591" d="1499">But I don't want
+to get into it now.</p>
+<p t="4626090" d="1410">We don't have enough time.</p>
+<p t="4627500" d="2500">Are there any questions?</p>
+</body>
+</timedtext>

@@ -1,0 +1,1612 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="80" d="1690">The following
+content is provided</p>
+<p t="1770" d="2240">under a Creative
+Commons license.</p>
+<p t="4010" d="2850">Your support will help MIT
+OpenCourseWare continue</p>
+<p t="6860" d="3860">to offer high quality
+educational resources for free.</p>
+<p t="10720" d="2610">To make a donation or
+view additional materials</p>
+<p t="13330" d="3877">from hundreds of MIT courses,
+visit MIT OpenCourseWare</p>
+<p t="17207" d="625">at ocw.mit.edu.</p>
+<p t="22080" d="2580">PROFESSOR: Last
+lecture on sorting.</p>
+<p t="24660" d="2690">Yay.</p>
+<p t="27350" d="2530">And it's one of the coolest
+lectures on sorting,</p>
+<p t="29880" d="990">I would say.</p>
+<p t="30870" d="2530">We're going to talk about
+linear-time sorting, when it's</p>
+<p t="33400" d="2710">possible and when
+it's not possible,</p>
+<p t="36110" d="4260">and this lecture sort of
+follows the tried and tested</p>
+<p t="40370" d="5550">mathematical structure which is
+theorem, proof, counterexample.</p>
+<p t="45920" d="2450">So we're going to start
+with a theorem which</p>
+<p t="48370" d="5120">is that sorting requires n lg n
+time at least in the worst case</p>
+<p t="53490" d="2970">and we're going to then prove
+that in fact, you can get away</p>
+<p t="56460" d="3560">with linear time sometimes.</p>
+<p t="60020" d="2570">Both of these terms are
+correct, but they're slightly</p>
+<p t="62590" d="1570">different models of computation.</p>
+<p t="64160" d="2730">Remember models of
+computation from lecture two?</p>
+<p t="66890" d="2910">So we're going to talk about a
+new model of computation, which</p>
+<p t="69800" d="3200">we've sort of been using
+for most algorithms lately,</p>
+<p t="73000" d="2030">called the comparison model.</p>
+<p t="75030" d="1720">And it's a model of
+computations that's</p>
+<p t="76750" d="1930">really useful for proving
+lower bounds which</p>
+<p t="78680" d="1497">we haven't done much of yet.</p>
+<p t="80177" d="2083">We're going to prove two
+very simple lower bounds.</p>
+<p t="82260" d="2580">One is that searching
+requires lg n time.</p>
+<p t="84840" d="2400">This is basically binary
+search is optimal.</p>
+<p t="87240" d="2190">And the other is that
+sorting requires n lg n time.</p>
+<p t="89430" d="2520">This is that merge
+sort is optimal.</p>
+<p t="91950" d="2600">And then we're going to break
+outside of that comparison</p>
+<p t="94550" d="2410">model, work in a different
+model of computation, our more</p>
+<p t="96960" d="4130">usual RAM model, and show
+that in certain situations,</p>
+<p t="101090" d="1330">we can get linear time.</p>
+<p t="102420" d="3020">So that's the plan.</p>
+<p t="105440" d="4165">Let's start with this
+comparison model.</p>
+<p t="116390" d="2180">So the idea in the
+comparison model</p>
+<p t="118570" d="2130">is to restrict what
+kind of operations</p>
+<p t="120700" d="2970">we can do to be comparisons.</p>
+<p t="123670" d="2420">It's very straightforward.</p>
+<p t="126090" d="9992">All input items are black
+boxes, you could say,</p>
+<p t="136082" d="3838">in that you don't really
+know what they are.</p>
+<p t="139920" d="2326">And a formal notion
+of black boxes</p>
+<p t="142246" d="1624">is something we talked
+about last class</p>
+<p t="143870" d="2127">at the end, abstract data type.</p>
+<p t="145997" d="1583">So it's a data
+structure, if you will.</p>
+<p t="147580" d="3280">Every item that you're
+given is a data structure.</p>
+<p t="150860" d="1770">You want to sort them.</p>
+<p t="152630" d="2220">And the data structure
+supports a single operation</p>
+<p t="154850" d="1430">which is compared
+to another one.</p>
+<p t="158850" d="13570">Only operation allowed-- I guess
+I should say plural actually--</p>
+<p t="172420" d="725">are comparisons.</p>
+<p t="176990" d="4070">I'm going to be nice and I'll
+let you do less than, less than</p>
+<p t="181060" d="3430">or equal to, greater
+than, whatever.</p>
+<p t="184490" d="1540">I guess there's only one other.</p>
+<p t="186030" d="3520">Well, there's two more, greater
+than or equal to and equals.</p>
+<p t="189550" d="2220">So you can do all the
+usual comparisons.</p>
+<p t="191770" d="1850">You get a binary
+answer, yes or no,</p>
+<p t="193620" d="2000">and those the only
+operations you're given.</p>
+<p t="198640" d="3640">And basically the
+last four lectures</p>
+<p t="202280" d="2480">have all been about
+algorithms in this model.</p>
+<p t="204760" d="2830">So merge sort, it
+moves items around.</p>
+<p t="207590" d="3200">It's changing pointers to
+items, but the only way</p>
+<p t="210790" d="3190">it manipulates items
+or evaluates them</p>
+<p t="213980" d="3110">is to compare one
+against the other.</p>
+<p t="217090" d="3450">Heaps and heaps sort
+also only compare.</p>
+<p t="220540" d="1826">Binary search
+trees only compare.</p>
+<p t="222366" d="2374">Everything we've been seeing
+so far is about comparisons.</p>
+<p t="227570" d="2640">And so all the algorithms we've
+seen so far are in this model</p>
+<p t="230210" d="2950">and we're going to prove that
+they are optimal in this model.</p>
+<p t="233160" d="2380">That's the plan.</p>
+<p t="235540" d="3420">I should also define the
+cost of an algorithm.</p>
+<p t="238960" d="2850">Time cost is just going to
+be the number of comparisons.</p>
+<p t="241810" d="2240">This is the weird part,
+I guess, of the model.</p>
+<p t="246820" d="4210">So in everything we've done so
+far, we've been in, I guess,</p>
+<p t="251030" d="3240">pointer machine or
+RAM, either way.</p>
+<p t="254270" d="3249">We've been showing binary
+search trees or AVL trees,</p>
+<p t="257519" d="3570">you can do order lg n time,
+in the regular notion of time.</p>
+<p t="261089" d="3561">But in particular they do
+order lg n comparisons.</p>
+<p t="264650" d="2124">And what we're going
+to show on the-- this</p>
+<p t="266774" d="2166">is only interesting from a
+lower bound perspective--</p>
+<p t="268940" d="2499">we're going to show that even
+if you just count comparisons,</p>
+<p t="271439" d="2371">you can do whatever other
+crazy things you want.</p>
+<p t="273810" d="1290">You need lg n time to search.</p>
+<p t="275100" d="3110">You need n lg n time to sort.</p>
+<p t="278210" d="2010">So that's our goal.</p>
+<p t="289160" d="4860">So to prove that we're
+going to introduce</p>
+<p t="294020" d="1610">the notion of a decision tree.</p>
+<p t="309210" d="3050">So the idea is the following: if
+we know that our algorithms are</p>
+<p t="312260" d="5410">only comparing items, we
+can actually sort of draw</p>
+<p t="317670" d="4860">all the possible things
+that an algorithm could do,</p>
+<p t="322530" d="1870">so any comparison algorithm.</p>
+<p t="331180" d="2300">So this focusing
+in on comparisons</p>
+<p t="333480" d="36250">lets us take a tree perspective
+of what our algorithm does--</p>
+<p t="369730" d="16410">all possible comparisons
+and their outcomes</p>
+<p t="386140" d="2545">and the resulting answer.</p>
+<p t="392242" d="1708">I think this would be
+a lot clearer if we</p>
+<p t="393950" d="8550">look at an example--
+binary search,</p>
+<p t="402500" d="1894">how you search a
+simple algorithm.</p>
+<p t="404394" d="1916">Look at the middle
+compared to the item you're</p>
+<p t="406310" d="3580">searching for go
+left or go right.</p>
+<p t="409890" d="7930">And our idea-- I
+didn't write it here--</p>
+<p t="417820" d="4440">is to look at a
+particular value of n,</p>
+<p t="422260" d="2740">n being the size of your
+problem, so binary search,</p>
+<p t="425000" d="4670">you're searching among n
+items for another item.</p>
+<p t="429670" d="5850">And I'm going to keep it
+simple, n equals three.</p>
+<p t="435520" d="7270">I think I'm going to go a little
+wide, use the whole board.</p>
+<p t="442790" d="6010">So n equals 3 we've
+got array, say</p>
+<p t="448800" d="4770">index turning at zero-- pretty
+simple binary search-- look</p>
+<p t="453570" d="2580">in the middle, go
+left or go right.</p>
+<p t="456150" d="3130">But I'm going to write out this
+algorithm explicitly to say,</p>
+<p t="459280" d="8210">all right, first thing I do
+is compare is A 1 less than x?</p>
+<p t="467490" d="1506">That's in all cases,
+no matter what</p>
+<p t="468996" d="1624">the array is as long
+as n equals three,</p>
+<p t="470620" d="1950">this is the first
+operation you do.</p>
+<p t="472570" d="1490">The answer is either yes or no.</p>
+<p t="477970" d="6280">If the answer is no, that means
+x is less than or equal to A 1,</p>
+<p t="484250" d="1420">so it's to the left.</p>
+<p t="485670" d="2010">Then we compare with A 0.</p>
+<p t="487680" d="4140">Is A 0 less than x?</p>
+<p t="491820" d="1530">Answer is either yes or no.</p>
+<p t="496410" d="2760">If the answer is no,
+we're kind of done.</p>
+<p t="499170" d="2310">We know that x is over
+here or it might actually</p>
+<p t="501480" d="2737">be equal to A 0.</p>
+<p t="504217" d="1583">If you want to figure
+out whether it's</p>
+<p t="505800" d="2120">equal or less than, there
+will be one more step.</p>
+<p t="507920" d="1410">But I'll just stop it here.</p>
+<p t="509330" d="4180">We'll say, well in this case,
+x is less than or equal to A 0.</p>
+<p t="513510" d="1899">I'm going to put it in
+a box, say that's done</p>
+<p t="515409" d="2561">where the circles
+are the decisions.</p>
+<p t="517970" d="959">OK?</p>
+<p t="518929" d="3961">If the answer is yes-- there's
+no to this question, yes</p>
+<p t="522890" d="4060">to this question-- then you know
+that x falls in between here.</p>
+<p t="526950" d="2490">Probably need a
+wider box for this.</p>
+<p t="529440" d="6630">So we have A 0 is less than
+x-- that was the yes to this--</p>
+<p t="536070" d="3710">and the note of this means that
+x is less than or equal to A 1,</p>
+<p t="539780" d="2530">and so we basically
+identified where x fits.</p>
+<p t="542310" d="1480">It's in between
+those two values,</p>
+<p t="543790" d="1411">possibly equal to this one.</p>
+<p t="545201" d="2249">Again, one more comparison,
+you could figure that out.</p>
+<p t="550220" d="5000">And then if x is to the right
+of A 1, so this is true,</p>
+<p t="555220" d="13100">then we check x against A 2 and
+the answer is either no or yes.</p>
+<p t="568320" d="4930">And in the no case-- well I've
+conveniently laid things out</p>
+<p t="573250" d="4290">here, it's sequential-- in the
+yes case, x is bigger than A 2</p>
+<p t="577540" d="2380">so it's outside the array.</p>
+<p t="579920" d="1780">It's to the right.</p>
+<p t="581700" d="2410">That's the answer.</p>
+<p t="584110" d="1750">Set.</p>
+<p t="585860" d="2700">Yeah.</p>
+<p t="588560" d="2190">And in the other case, it's
+in between A 1 and A 2.</p>
+<p t="596640" d="3180">It's a tedious process to write
+out an algorithm like this</p>
+<p t="599820" d="5410">because a binary search-- it's
+not so bad-- but if you tried</p>
+<p t="605230" d="2080">to write a sorting
+algorithm out like this</p>
+<p t="607310" d="2250">where the answers are
+down the bottom, here's</p>
+<p t="609560" d="3630">the sorted order, and all
+the comparisons you do here,</p>
+<p t="613190" d="2410">the tree will actually
+be of exponential size.</p>
+<p t="615600" d="2470">So you don't actually want
+to represent an algorithm</p>
+<p t="618070" d="3230">like this unless you're
+just trying to analyze it.</p>
+<p t="621300" d="2080">But it's nice to think
+of an algorithm this way</p>
+<p t="623380" d="3100">because you see all possible
+executions all at once.</p>
+<p t="632430" d="2440">Let me talk about some
+features of this tree</p>
+<p t="634870" d="2540">versus the algorithm.</p>
+<p t="637410" d="7674">So every internal
+node-- actually,</p>
+<p t="645084" d="1936">I'm going to go over here.</p>
+<p t="652340" d="6300">So we have a
+decision tree and we</p>
+<p t="658640" d="5150">have an algorithm that
+decision tree represents.</p>
+<p t="663790" d="6080">And so when we have an internal
+node in the decision tree,</p>
+<p t="669870" d="5870">that corresponds to a binary
+decision in the algorithm.</p>
+<p t="675740" d="3095">In this case, we're only
+looking at comparisons.</p>
+<p t="682490" d="1830">Slight technical
+detail, decision trees</p>
+<p t="684320" d="2830">are a little more
+general than comparisons.</p>
+<p t="687150" d="2590">Could be any binary decision
+here and everything I say</p>
+<p t="689740" d="3414">will be true about any
+binary decision you make.</p>
+<p t="693154" d="1916">Comparisons are the ones
+we kind of care about</p>
+<p t="695070" d="3970">because all of our
+algorithms are doing that.</p>
+<p t="699040" d="10180">And then a leaf in this tree
+corresponds to-- it stores</p>
+<p t="709220" d="2535">or it represents that
+you've found the answer.</p>
+<p t="714730" d="1477">Maybe I'll say found.</p>
+<p t="721460" d="2910">When the algorithm terminates,
+returns some answer</p>
+<p t="724370" d="3680">to the problem, that's
+what we write down here.</p>
+<p t="728050" d="8566">Here's where x is in this
+array and, yeah, we're done.</p>
+<p t="736616" d="874">What else do we have?</p>
+<p t="740120" d="1410">Here's some puzzles for you.</p>
+<p t="745470" d="2470">If I just wanted to look
+at a single execution</p>
+<p t="747940" d="3660">of the algorithm, what does
+that correspond to in the tree?</p>
+<p t="755901" d="499">Yeah.</p>
+<p t="756400" d="2270">AUDIENCE: Going from the root
+all the way down to the leaf.</p>
+<p t="758670" d="1916">PROFESSOR: Going from
+the root down to a leaf.</p>
+<p t="760586" d="3334">This is what I normally call a
+root-to-leaf path, technically</p>
+<p t="763920" d="4160">a downward root-to-leaf path.</p>
+<p t="768080" d="4520">How about the running
+time of that execution?</p>
+<p t="772600" d="1010">How long does it take?</p>
+<p t="776650" d="865">Keep going?</p>
+<p t="777515" d="1215">AUDIENCE: Lg n.</p>
+<p t="778730" d="4024">PROFESSOR: Lg n in binary
+search, but in general.</p>
+<p t="782754" d="1416">AUDIENCE: The
+length of that path.</p>
+<p t="784170" d="990">PROFESSOR: The
+length of that path.</p>
+<p t="785160" d="500">Yeah.</p>
+<p t="791365" d="2625">Got to make sure we get n cases
+right but I think it's correct,</p>
+<p t="793990" d="4640">so if here is an execution of
+the algorithm, when x happens</p>
+<p t="798630" d="3500">to be between A 0 and A 1,
+we do one comparison here,</p>
+<p t="802130" d="2680">a second comparison here,
+and then we're done.</p>
+<p t="804810" d="3500">So the cost was two and indeed
+the length of this path is two.</p>
+<p t="808310" d="5050">So it works out, no
+off-by-one errors.</p>
+<p t="813360" d="3590">All right, now
+exciting one for us,</p>
+<p t="816950" d="2930">what we care about all
+the time in this class</p>
+<p t="819880" d="3190">is worst-case running time.</p>
+<p t="823070" d="2220">This is a feature of
+the entire algorithm.</p>
+<p t="825290" d="4885">What is the worst-case running
+time of a given decision tree?</p>
+<p t="830175" d="500">Yeah.</p>
+<p t="830675" d="2374">AUDIENCE: The height of the
+root, the height of the tree.</p>
+<p t="833049" d="1981">PROFESSOR: The height
+of the root also called</p>
+<p t="835030" d="720">the height of the tree.</p>
+<p t="835750" d="500">Yep.</p>
+<p t="843230" d="2460">Or the depth of the
+deepest leaf, whatever.</p>
+<p t="845690" d="2180">So in this case all the
+leaves have the same level,</p>
+<p t="847870" d="2720">but in general we care
+about the overall height.</p>
+<p t="850590" d="2780">How many levels in
+this tree are there?</p>
+<p t="853370" d="2770">It's the number of levels
+minus one, technically.</p>
+<p t="856140" d="3800">But the length of
+longest root-to-leaf path</p>
+<p t="859940" d="1840">is the definition of height.</p>
+<p t="861780" d="1260">Here it's two.</p>
+<p t="863040" d="4340">In general we know for
+binary search it's lg n,</p>
+<p t="867380" d="1650">but given an arbitrary
+decision tree,</p>
+<p t="869030" d="1750">we just have to figure out
+what the height of the tree</p>
+<p t="870780" d="2166">is and we'll figure out the
+worst-case running time.</p>
+<p t="872946" d="2564">So this is why decision
+trees are interesting.</p>
+<p t="875510" d="4350">Not because it means they're
+pretty I guess, but the reason</p>
+<p t="879860" d="3380">they're going to be useful is we
+have this kind of hard question</p>
+<p t="883240" d="3400">which is how much time do
+you need to solve a problem?</p>
+<p t="886640" d="3750">And we're translating
+it into how low can you</p>
+<p t="890390" d="2820">make your tree, which is a
+problem we know a lot about.</p>
+<p t="893210" d="1090">Trees are pretty simple.</p>
+<p t="894300" d="1610">These are binary trees.</p>
+<p t="895910" d="4620">They're rooted, and so we
+know lots of good things.</p>
+<p t="903420" d="1515">So let's prove
+some lower bounds.</p>
+<p t="925320" d="4700">So I claim that for
+searching-- maybe I</p>
+<p t="930020" d="2180">should define the problem
+a little more formally--</p>
+<p t="932200" d="2800">I want to claim a
+lg n lower bound.</p>
+<p t="935000" d="7355">So let's say for searching
+I have n preprocessed items.</p>
+<p t="949040" d="16315">Then finding a given item among
+them in the comparison model,</p>
+<p t="965355" d="4724">so all you're allowed to do are
+compare items and other stuff,</p>
+<p t="970079" d="2291">but the only things you're
+allowed to do with the items</p>
+<p t="972370" d="700">is compare them.</p>
+<p t="978180" d="7117">Requires omega lg n
+comparisons in the worst case.</p>
+<p t="985297" d="2083">It's kind of tedious to
+write down these theorems,</p>
+<p t="987380" d="2120">but for our first
+lower bounds, I</p>
+<p t="989500" d="1590">thought I'd be super explicit.</p>
+<p t="993990" d="3101">I mentioned here that the
+items are preprocessed</p>
+<p t="997091" d="2249">to mean you could do whatever
+you want the items ahead</p>
+<p t="999340" d="1700">of time, that's for free.</p>
+<p t="1001040" d="1650">So I can sort them
+in particular,</p>
+<p t="1002690" d="1510">which lets me do binary search.</p>
+<p t="1004200" d="3780">I could build them into an AVL
+tree, could do lots of things,</p>
+<p t="1007980" d="3460">but no matter what I do to find
+another item takes lg n time.</p>
+<p t="1017851" d="999">Can someone tell me why?</p>
+<p t="1022125" d="2291">Who doesn't have the lecture
+notes right in front them,</p>
+<p t="1024416" d="3644">that would make it easy.</p>
+<p t="1028060" d="4539">This is a little
+more interesting,</p>
+<p t="1032599" d="2861">but we had all the tools
+at our disposal now.</p>
+<p t="1035460" d="2060">We want to show that
+this at least lg n.</p>
+<p t="1040950" d="880">Why?</p>
+<p t="1041830" d="500">Yeah.</p>
+<p t="1042330" d="4249">AUDIENCE: [INAUDIBLE]
+have a no or yes, right?</p>
+<p t="1046579" d="500">So it's--</p>
+<p t="1047079" d="708">PROFESSOR: Right.</p>
+<p t="1047787" d="1330">AUDIENCE: --omega lg n tree.</p>
+<p t="1049117" d="583">PROFESSOR: OK.</p>
+<p t="1049700" d="1860">At each step, we only
+have a no or yes.</p>
+<p t="1051560" d="1000">That's a binary tree.</p>
+<p t="1055310" d="1560">So that makes you think lg n.</p>
+<p t="1056870" d="2309">AUDIENCE: That's possible,
+it could be lg n.</p>
+<p t="1059179" d="2291">PROFESSOR: Maximum actually
+could be arbitrarily large.</p>
+<p t="1061470" d="3460">You could do a linear search
+and the height will be m.</p>
+<p t="1064930" d="2860">We care about the
+minimum of course.</p>
+<p t="1067790" d="2250">Why does it have to be-- why
+does the height of a tree</p>
+<p t="1070040" d="1390">have to be at least lg n?</p>
+<p t="1071430" d="1602">There's one more
+thing we need to say.</p>
+<p t="1073032" d="499">Yeah.</p>
+<p t="1073531" d="2599">AUDIENCE: The tree has
+to contain all possible--</p>
+<p t="1076130" d="1749">PROFESSOR: Because the
+tree has to contain</p>
+<p t="1077879" d="2231">all possible--
+answers, let's say.</p>
+<p t="1080110" d="2530">Yeah, exactly.</p>
+<p t="1082640" d="2930">I think that's worth a pillow.</p>
+<p t="1085570" d="3310">See if I can do this-- oh!</p>
+<p t="1088880" d="1130">Ouch.</p>
+<p t="1090010" d="2080">I knew it was only
+a matter of time.</p>
+<p t="1092090" d="2100">Sorry.</p>
+<p t="1094190" d="2475">I'll pay you later.</p>
+<p t="1096665" d="500">Damages.</p>
+<p t="1100627" d="1833">At least I didn't hit
+a laptop or something.</p>
+<p t="1106330" d="7760">All right, so decision
+tree is binary--</p>
+<p t="1114090" d="3440">that was the first
+thing-- and it</p>
+<p t="1117530" d="10440">must have at least n
+leaves, one for each answer.</p>
+<p t="1134330" d="980">At least.</p>
+<p t="1135310" d="3600">Now, at the leaf you have
+to know what the answer is,</p>
+<p t="1138910" d="2640">but there may be many leaves
+that have the same answer.</p>
+<p t="1141550" d="1880">That's possible.</p>
+<p t="1143430" d="2400">And indeed that will happen
+not for binary search</p>
+<p t="1145830" d="1800">but typical algorithm.</p>
+<p t="1147630" d="3330">There's multiple paths
+to get the same answer,</p>
+<p t="1150960" d="3030">so there may be
+more leaves than n.</p>
+<p t="1153990" d="3680">And in fact, if you want to
+know this kind of thing, where</p>
+<p t="1157670" d="3979">x fits in this perspective,
+there's n plus 1 answers.</p>
+<p t="1161649" d="1541">If you want to know
+is it equal or is</p>
+<p t="1163190" d="3180">it strictly between two things
+there's 2n plus 1 answers.</p>
+<p t="1166370" d="2490">But in all cases, there's
+at least n answers</p>
+<p t="1168860" d="2000">and that's all I need.</p>
+<p t="1170860" d="4130">In particular there's--
+say x exactly matches one</p>
+<p t="1174990" d="2040">of the given items--
+there's n items--</p>
+<p t="1177030" d="3830">so you need to have
+at least n leaves.</p>
+<p t="1180860" d="1840">Maybe have more, I don't care.</p>
+<p t="1182700" d="2890">But it I have a binary tree
+with at least n leaves,</p>
+<p t="1185590" d="1880">the height has to
+be at least lg n.</p>
+<p t="1195360" d="800">We're done.</p>
+<p t="1196160" d="3630">The height is the
+worst-case running time.</p>
+<p t="1199790" d="2150">Super, super easy proof.</p>
+<p t="1204540" d="3120">So easy, it's never been
+taught in 006 before.</p>
+<p t="1207660" d="3105">But I think it's a good warm
+up for the next one which</p>
+<p t="1210765" d="1385">is sorting.</p>
+<p t="1212150" d="3480">Sorting is really
+the same thing.</p>
+<p t="1215630" d="5650">It's not going to be any harder
+except that it's a little more</p>
+<p t="1221280" d="2830">math but really not much more.</p>
+<p t="1227510" d="4220">So now we know-- we just
+proved two useful facts--</p>
+<p t="1231730" d="3470">one is that binary search is
+optimal in a comparison model,</p>
+<p t="1235200" d="3370">the other is that binary search
+trees are actually a good way</p>
+<p t="1238570" d="1550">to solve a problem.</p>
+<p t="1240120" d="2500">If your goal is to solve search
+and all you're allowed to do</p>
+<p t="1242620" d="3650">is comparisons, then
+you need lg n time.</p>
+<p t="1246270" d="4760">And so the search or next larger
+or next smaller, predecessor,</p>
+<p t="1251030" d="1940">successor, in
+binary search trees</p>
+<p t="1252970" d="2900">need to take at least lg n time.</p>
+<p t="1255870" d="3320">No matter how you do it,
+even if you don't use a tree.</p>
+<p t="1259190" d="3160">So this justifies why binary
+search trees are interesting,</p>
+<p t="1262350" d="1810">because again the
+comparison model, that's</p>
+<p t="1264160" d="3590">the best you can hope to do.</p>
+<p t="1267750" d="1320">So that's comforting.</p>
+<p t="1269070" d="3552">That's why I like lower bounds
+and theoretical computer</p>
+<p t="1272622" d="2208">science in general because
+you know when you're done,</p>
+<p t="1274830" d="1770">at least in a given model.</p>
+<p t="1276600" d="2520">Whenever-- we're
+never actually done,</p>
+<p t="1279120" d="2885">because we can always
+change the model.</p>
+<p t="1282005" d="2955">At least we understand the
+limitations of comparisons.</p>
+<p t="1284960" d="4028">So for sorting, we claim
+a lower bound of n lg n.</p>
+<p t="1288988" d="2413">You've heard n lg
+n a zillion times.</p>
+<p t="1291401" d="1749">You probably know this
+is true, but now we</p>
+<p t="1293150" d="3270">actually get to
+prove that it's true.</p>
+<p t="1296420" d="2680">So we just follow
+the same strategy.</p>
+<p t="1299100" d="1850">Decision tree is binary.</p>
+<p t="1300950" d="4290">The question is how many
+leaves does it have to have?</p>
+<p t="1305240" d="5669">So for sorting-- I didn't
+draw up an example--</p>
+<p t="1310909" d="1791">I'm not going to draw
+an example of sorting</p>
+<p t="1312700" d="2390">because the trees get ginormous.</p>
+<p t="1315090" d="500">Right?</p>
+<p t="1315590" d="6020">Because of the depth is n
+log n, the height is n log n,</p>
+<p t="1321610" d="2910">then there's binary
+branching everywhere.</p>
+<p t="1324520" d="2090">That's a lot of nodes.</p>
+<p t="1326610" d="3420">Two to the n lg n is big.</p>
+<p t="1330030" d="3110">More than two to
+the n even, so it's</p>
+<p t="1333140" d="2097">hard to draw a picture
+even for n equals 3.</p>
+<p t="1335237" d="583">You can do it.</p>
+<p t="1335820" d="2270">People have done it.</p>
+<p t="1338090" d="930">I don't want to.</p>
+<p t="1339020" d="1570">I'm lazy.</p>
+<p t="1340590" d="3090">But the internal nodes
+look just the same.</p>
+<p t="1343680" d="2760">You're comparing two
+items, A I verses</p>
+<p t="1346440" d="3720">A J. I'll just draw
+the generic version.</p>
+<p t="1350160" d="3920">You have A I less than
+A J, question mark.</p>
+<p t="1354080" d="2030">And then you'll
+have a no and a yes.</p>
+<p t="1356110" d="2210">So that's what a typical
+comparison looks like.</p>
+<p t="1358320" d="3690">Swaps don't appear
+here, because we're just</p>
+<p t="1362010" d="1760">looking at the comparisons.</p>
+<p t="1363770" d="3210">And then when you get
+down to a leaf, a leaf--</p>
+<p t="1366980" d="7460">this is the interesting part--
+the leaf will look like this.</p>
+<p t="1374440" d="3250">Well I took the original
+A 5 and that turned out</p>
+<p t="1377690" d="1510">to be the smallest element.</p>
+<p t="1379200" d="2670">Then-- maybe I'll
+write it this way--</p>
+<p t="1381870" d="4150">then I have A 7, that turned
+out to be the next smallest</p>
+<p t="1386020" d="7000">element, then A 1
+then A 0, whatever.</p>
+<p t="1393020" d="3590">Hey, right at the end, somehow
+you know the sorted order</p>
+<p t="1396610" d="1544">and you can just write it down.</p>
+<p t="1398154" d="1166">We're not charging for this.</p>
+<p t="1399320" d="1499">We're only charging
+for comparisons.</p>
+<p t="1400819" d="2911">So however, maybe
+you've done swaps,</p>
+<p t="1403730" d="2200">in the end you know
+what the final order is</p>
+<p t="1405930" d="2420">and so you just write it down.</p>
+<p t="1408350" d="2740">And your goal is to make enough
+comparisons that you figure out</p>
+<p t="1411090" d="1490">what the sorted order is.</p>
+<p t="1412580" d="1890">We claim the number
+of comparisons</p>
+<p t="1414470" d="1390">here has to be at least n lg n.</p>
+<p t="1418410" d="800">OK, why?</p>
+<p t="1419210" d="13440">Because the decision tree is
+binary and the number of leaves</p>
+<p t="1432650" d="4420">has to be at least the
+number of possible answers.</p>
+<p t="1437070" d="1920">Could be more because
+each answer could appear</p>
+<p t="1438990" d="2460">in several leaves
+and it probably will</p>
+<p t="1441450" d="2350">in a typical sorting algorithm.</p>
+<p t="1443800" d="1840">And how many possible
+answers are there?</p>
+<p t="1448400" d="500">Batter?</p>
+<p t="1448900" d="916">AUDIENCE: n factorial.</p>
+<p t="1449816" d="3064">PROFESSOR: n factorial,
+number of permutations.</p>
+<p t="1452880" d="2650">This is a permutation
+of the input sequence</p>
+<p t="1455530" d="2670">and if all the items
+you're given are distinct,</p>
+<p t="1458200" d="3690">there will be n factorial
+permutations of them.</p>
+<p t="1461890" d="3460">So that's the worst case.</p>
+<p t="1465350" d="1650">So n factorial.</p>
+<p t="1467000" d="5870">Now the tricky part
+is the algebra.</p>
+<p t="1472870" d="2560">Say, oh, well then
+the height is at least</p>
+<p t="1475430" d="2330">lg base 2 of n
+factorial-- lg base 2</p>
+<p t="1477760" d="3709">because it's a binary tree.</p>
+<p t="1481469" d="1791">You can put a parentheses
+here if you want,</p>
+<p t="1483260" d="3250">they're not necessary.</p>
+<p t="1486510" d="2970">So now I want to claim
+that this is n lg n.</p>
+<p t="1489480" d="790">How do I do that?</p>
+<p t="1493100" d="2910">Maybe you just know?</p>
+<p t="1496010" d="500">Yeah.</p>
+<p t="1496510" d="2166">AUDIENCE: We can either use
+Stirling's approximation</p>
+<p t="1498676" d="5234">or we could write it
+out as a sum [INAUDIBLE]</p>
+<p t="1503910" d="1240">PROFESSOR: Wow, cool.</p>
+<p t="1505150" d="2669">All right, you could either
+use Stirling's approximation</p>
+<p t="1507819" d="1041">or write it out as a sum.</p>
+<p t="1508860" d="1291">I've never done it with it sum.</p>
+<p t="1510151" d="2969">Let's do that, that
+sounds like fun.</p>
+<p t="1513120" d="1680">So, right?</p>
+<p t="1514800" d="2707">I like that because you
+know Stirling's-- it's like</p>
+<p t="1517507" d="2333">you've got to know Stirling
+and that's kind of annoying.</p>
+<p t="1519840" d="1860">What if you don't know Sterling?</p>
+<p t="1521700" d="1950">But we all know the
+definition of factorial.</p>
+<p t="1523650" d="1290">I mean, we learned
+in grade school</p>
+<p t="1524940" d="1208">just because it's fun, right?</p>
+<p t="1526148" d="4842">Oh, I guess we-- I mean we
+did because we're geeks.</p>
+<p t="1530990" d="4810">And then we know the lg of our
+product is the sum of the lg's.</p>
+<p t="1535800" d="8580">So this is lg n plus lg n
+minus 1 plus lg 2 plus lg 1.</p>
+<p t="1547800" d="1430">I think at this
+point it's easier</p>
+<p t="1549230" d="3270">to use summation
+notation, so sum of lg i.</p>
+<p t="1552500" d="5450">OK now we've got to do sum,
+this is 1 to n I guess.</p>
+<p t="1557950" d="2640">Now we need to know something
+about lg's, so it's not</p>
+<p t="1560590" d="2140">so easy.</p>
+<p t="1562730" d="3900">It's easy to show-- I mean,
+certainly this is at most n lg</p>
+<p t="1566630" d="3120">n, but we need show that
+it's at least n lg n.</p>
+<p t="1569750" d="1680">That's a little trickier.</p>
+<p t="1571430" d="1125">I happen to know it's true.</p>
+<p t="1575240" d="2390">But I'd know it even
+in the summation form</p>
+<p t="1577630" d="5730">because I know that lg-- lg
+looks like this basically,</p>
+<p t="1583360" d="2546">and so if you're
+adding up, you're</p>
+<p t="1585906" d="1624">taking the area under
+this curve right?</p>
+<p t="1587530" d="1166">Oh, look at these integrals.</p>
+<p t="1588696" d="1554">Oh, integrals.</p>
+<p t="1590250" d="1760">Brings back memories.</p>
+<p t="1592010" d="3545">This is discrete math class,
+though, continuous stuff.</p>
+<p t="1595555" d="1875">So you're adding up all
+these numbers, right?</p>
+<p t="1597430" d="3630">This is lg i over all the
+i's and basically all of them</p>
+<p t="1601060" d="1790">have the same length.</p>
+<p t="1602850" d="2730">Like if you look at
+the last half, that</p>
+<p t="1605580" d="1450">would be one way to prove it.</p>
+<p t="1607030" d="4430">Ah, it's fun, haven't done
+summations in so long.</p>
+<p t="1611460" d="4490">Good stuff. [? IS042 ?] material
+but applied to algorithms</p>
+<p t="1615950" d="2530">and in algorithms it's fun
+because you could throw away</p>
+<p t="1618480" d="3210">constant factors
+and life is good.</p>
+<p t="1621690" d="1820">We don't need exact
+answers really.</p>
+<p t="1623510" d="2150">You can find an exact
+answer, but let's say</p>
+<p t="1625660" d="2620">you look at the last half.</p>
+<p t="1628280" d="2610">Those are all going
+to be basically lg n.</p>
+<p t="1630890" d="1295">You can prove that.</p>
+<p t="1632185" d="2935">So this is going to be
+at least the sum where</p>
+<p t="1635120" d="6430">i equals n over 2 n of lg i.</p>
+<p t="1641550" d="3160">Here I just throw away the
+first out of our two terms.</p>
+<p t="1644710" d="3950">And this is going to be at
+least sum i equals n over 2</p>
+<p t="1648660" d="3060">to n of lg n over 2.</p>
+<p t="1654650" d="2090">Each of these terms is
+bigger than lg n over 2</p>
+<p t="1656740" d="3150">so if I just say, well,
+they're all lg n over 2 that's</p>
+<p t="1659890" d="2170">going to give me
+something even smaller.</p>
+<p t="1662060" d="2310">Now the lg n over 2,
+that's just lg n minus 1.</p>
+<p t="1668760" d="620">I love this.</p>
+<p t="1669380" d="2550">It's going to give
+the right answer even.</p>
+<p t="1671930" d="6840">So that's an equals and so
+this equals n lg n minus n.</p>
+<p t="1678770" d="2180">That summation I can do.</p>
+<p t="1680950" d="4120">All the terms are the
+same, sorry n over 2.</p>
+<p t="1685070" d="1700">Not quite what I wanted.</p>
+<p t="1686770" d="590">Close enough.</p>
+<p t="1690344" d="1416">Sorry there is
+only n over 2 terms</p>
+<p t="1691760" d="2820">here, ignoring
+floors and ceilings.</p>
+<p t="1694580" d="3730">So I get n lg n divided by 2.</p>
+<p t="1698310" d="4380">This is omega n lg n
+because this n term</p>
+<p t="1702690" d="2030">is smaller than n lg n.</p>
+<p t="1704720" d="1300">So this one dominates.</p>
+<p t="1706020" d="3530">Doesn't matter if this one's
+negative, because it's smaller.</p>
+<p t="1709550" d="1570">This is omega n lg n.</p>
+<p t="1711120" d="550">We're done.</p>
+<p t="1711670" d="2220">Sorting is omega n lg n.</p>
+<p t="1713890" d="550">Very easy.</p>
+<p t="1714440" d="2650">Who said summations?</p>
+<p t="1717090" d="570">All right.</p>
+<p t="1717660" d="1500">Why don't you come
+collect a pillow,</p>
+<p t="1719160" d="1750">I'm not going to throw that far.</p>
+<p t="1720910" d="1600">Afterwards.</p>
+<p t="1722510" d="930">OK.</p>
+<p t="1723440" d="1180">That's one way to do it.</p>
+<p t="1724620" d="1458">Another way to do
+it, if you happen</p>
+<p t="1726078" d="4462">to know Stirling's formula
+for n factorial-- n factorial</p>
+<p t="1730540" d="6020">is about n over e to the n
+times square root of 2 pi n.</p>
+<p t="1736560" d="1180">Right?</p>
+<p t="1737740" d="3590">If you do Taylor series
+approximation of n factorial,</p>
+<p t="1741330" d="2670">the first term, which is the
+most important term for us</p>
+<p t="1744000" d="1670">because as the
+asymptotically dominating</p>
+<p t="1745670" d="3720">term is square root of 2 pi
+n times n over e to the n.</p>
+<p t="1749390" d="2810">Hope I got that right.</p>
+<p t="1752200" d="3400">Yeah, clearly I've
+been studying.</p>
+<p t="1755600" d="2890">You take lg's of that and
+you do the same thing of lg</p>
+<p t="1758490" d="2950">of a product is sum of
+the lg's and you end up</p>
+<p t="1761440" d="6710">with-- the right answer is
+actually n lg n minus order n.</p>
+<p t="1768150" d="3830">So I was off by a
+factor of 2 here.</p>
+<p t="1771980" d="2840">The linear term--
+it does appear,</p>
+<p t="1774820" d="3222">but it's smaller than this
+and this is also omega n lg n.</p>
+<p t="1778042" d="2208">If you don't care about
+constants, it doesn't matter.</p>
+<p t="1780250" d="2790">If you care about constants,
+the constant is 1.</p>
+<p t="1783040" d="1310">Kind of nice.</p>
+<p t="1784350" d="2010">Easy to prove a one half.</p>
+<p t="1786360" d="3260">And if you look at the lecture
+notes it works through that.</p>
+<p t="1789620" d="3680">But I think we've seen
+enough of that lower bound.</p>
+<p t="1793300" d="2280">And that's the end of
+our lower bound topic.</p>
+<p t="1795580" d="1940">Any questions on that?</p>
+<p t="1797520" d="2060">So it's really easy.</p>
+<p t="1799580" d="6010">Once you set up this framework
+of comparison trees and now</p>
+<p t="1805590" d="2490">it becomes just a question
+of the height of a comparison</p>
+<p t="1808080" d="1730">tree.</p>
+<p t="1809810" d="1370">Comparison trees are binary.</p>
+<p t="1811180" d="1960">Just count how many leaves
+do you have to have,</p>
+<p t="1813140" d="3436">take lg of that and you
+get a lower bound of that.</p>
+<p t="1816576" d="4964">AUDIENCE: What is meant
+by n preprocessed items?</p>
+<p t="1821540" d="1250">PROFESSOR: Oh, yeah.</p>
+<p t="1822790" d="2920">For searching I was trying
+to be careful and say, well,</p>
+<p t="1825710" d="2240">if I have n preprocessed items.</p>
+<p t="1827950" d="1950">AUDIENCE: [INAUDIBLE]</p>
+<p t="1829900" d="2610">PROFESSOR: It means you can
+do whatever the heck you want.</p>
+<p t="1832510" d="1390">So here's the model.</p>
+<p t="1833900" d="990">I give you n items.</p>
+<p t="1834890" d="3230">You can do all pairwise
+comparisons between those items</p>
+<p t="1838120" d="3060">for free and then I
+give you a new item</p>
+<p t="1841180" d="2080">and then I start
+charging for comparisons.</p>
+<p t="1843260" d="2010">So another way to
+say it is I only</p>
+<p t="1845270" d="5530">charge between for comparisons
+between x and the other items.</p>
+<p t="1850800" d="2473">And even then you need lg n.</p>
+<p t="1853273" d="2402">AUDIENCE: [INAUDIBLE]
+case for sorting, right?</p>
+<p t="1855675" d="2125">PROFESSOR: With sorting
+they were not preprocessed.</p>
+<p t="1857800" d="1620">Yeah, I didn't
+write the theorem.</p>
+<p t="1859420" d="2250">It's just sorting and given
+items, no preprocessing.</p>
+<p t="1861670" d="1520">AUDIENCE: What if there
+were preprocessing?</p>
+<p t="1863190" d="940">PROFESSOR: If they
+were preprocessed,</p>
+<p t="1864130" d="1520">you'd be done in
+zero comparisons.</p>
+<p t="1865650" d="1990">Yeah, exactly.</p>
+<p t="1867640" d="3940">This theorem is also true
+if I remove preprocessed,</p>
+<p t="1871580" d="2664">but in fact then
+you need n time.</p>
+<p t="1874244" d="1416">Unfortunately this
+proof technique</p>
+<p t="1875660" d="2010">will only prove a
+lower bound of log n,</p>
+<p t="1877670" d="3400">because even if these items
+were not preprocessed, then</p>
+<p t="1881070" d="2034">you have to do linear
+search basically.</p>
+<p t="1883104" d="1916">So if you don't know
+anything about the items,</p>
+<p t="1885020" d="1650">you need linear time.</p>
+<p t="1886670" d="3280">But this proof will only
+prove a lower bound of log n.</p>
+<p t="1889950" d="2570">So this technique,
+while cool and simple,</p>
+<p t="1892520" d="1750">does not always give
+you the right answer.</p>
+<p t="1894270" d="1900">It just gives you a lower bound.</p>
+<p t="1896170" d="3630">May not be the right lower
+bound, may not be tight.</p>
+<p t="1899800" d="3070">So searching always requires lg
+n time and what's interesting</p>
+<p t="1902870" d="3110">is it requires it even when
+you preprocess the items.</p>
+<p t="1905980" d="3070">Sorting, if you haven't
+preprocessed the items,</p>
+<p t="1909050" d="2000">then it takes n lg n.</p>
+<p t="1911050" d="1610">Clear?</p>
+<p t="1912660" d="850">Good.</p>
+<p t="1913510" d="2333">Now we get to the algorithms
+part of the lecture, always</p>
+<p t="1915843" d="807">the most fun.</p>
+<p t="1916650" d="2080">The moments you've
+been waiting for.</p>
+<p t="1918730" d="1310">Let me erase comparison trees.</p>
+<p t="1923950" d="3820">Henceforth and I mean not
+only this lecture, but also</p>
+<p t="1927770" d="2610">the next three lectures
+which are about hashing,</p>
+<p t="1930380" d="3100">we will not be in
+the comparison model</p>
+<p t="1933480" d="3280">because for comparison
+model, we're done.</p>
+<p t="1936760" d="3720">We solved search, we solved
+sorting, n lg n three ways.</p>
+<p t="1940480" d="2290">I mean, how much more can we do?</p>
+<p t="1942770" d="3580">So it's time to
+bump it up a notch,</p>
+<p t="1946350" d="2780">increase our model power.</p>
+<p t="1949130" d="3750">We've talked about the RAM
+in particular, Random Access</p>
+<p t="1952880" d="2780">Machine, where
+memory is in array,</p>
+<p t="1955660" d="2570">you can access anything in
+the array in constant time.</p>
+<p t="1958230" d="6955">We're going to use that power of
+the RAM to sort in linear time,</p>
+<p t="1965185" d="500">sometimes.</p>
+<p t="1972490" d="4060">A more appropriate title for
+this section of this lecture</p>
+<p t="1976550" d="1300">would be integer sorting.</p>
+<p t="1981950" d="2170">OK, so far we've been
+talking about comparison</p>
+<p t="1984120" d="3020">sorting where the items you're
+given-- the only thing you</p>
+<p t="1987140" d="3970">know about them is that you can
+compare them in constant time.</p>
+<p t="1991110" d="2020">But now we're going to
+think about the situation</p>
+<p t="1993130" d="3180">where the things that
+you're sorting are integers.</p>
+<p t="1996310" d="4250">That's a big assumption but it's
+a practical assumption a lot</p>
+<p t="2000560" d="660">of the time.</p>
+<p t="2001220" d="2500">If you're not sorting integers
+you can map whatever the heck</p>
+<p t="2003720" d="1900">you're sorting into integers.</p>
+<p t="2005620" d="1590">And usually it's
+already been done</p>
+<p t="2007210" d="1930">because you're representing
+it on a computer.</p>
+<p t="2009140" d="3910">You've already represented your
+thing is an integer of sorts.</p>
+<p t="2013050" d="520">Bad pun.</p>
+<p t="2016870" d="1190">This is an assumption.</p>
+<p t="2018060" d="5330">So we assume-- going to
+be a little more precise.</p>
+<p t="2023390" d="5810">The keys you're
+sorting are integers.</p>
+<p t="2029200" d="2520">There's still-- I'm going
+to put a little n here,</p>
+<p t="2031720" d="1075">remember there's n keys.</p>
+<p t="2038100" d="3826">I'm also going to assume
+that they're in some range.</p>
+<p t="2041926" d="2374">And for convenience, I'm going
+to assume that they're all</p>
+<p t="2044300" d="3200">non-negative-- it's not hard
+to deal with negative numbers,</p>
+<p t="2047500" d="2219">but it's just
+convenient to think</p>
+<p t="2049719" d="2631">about non-negative numbers.</p>
+<p t="2052350" d="2910">So if you start at zero,
+there's some maximum value,</p>
+<p t="2055260" d="970">say k minus 1.</p>
+<p t="2056230" d="2670">So there's k different
+values they could be.</p>
+<p t="2058900" d="900">K could be anything.</p>
+<p t="2059800" d="839">It's a parameter.</p>
+<p t="2060639" d="1500">We've always had
+n as a parameter,</p>
+<p t="2062139" d="1916">now we're going to also
+have k as a parameter.</p>
+<p t="2067750" d="8909">And just for completeness--
+and each fits in a word.</p>
+<p t="2076659" d="5783">Remember the machine
+word of your RAM machine?</p>
+<p t="2082442" d="1458">Words were the
+things that we could</p>
+<p t="2083900" d="1274">manipulate in constant time.</p>
+<p t="2085174" d="1666">Now this is a very
+reasonable assumption</p>
+<p t="2086840" d="1440">because we've been
+assuming so far</p>
+<p t="2088280" d="4534">you can compare two keys
+to items in constant time.</p>
+<p t="2092814" d="1416">To get that for
+integers, you need</p>
+<p t="2094230" d="1900">to assume that your integers
+are fitting in words.</p>
+<p t="2096130" d="1625">We usually don't
+state this assumption,</p>
+<p t="2097755" d="1990">but I thought I'd throw
+it in just for kicks.</p>
+<p t="2099745" d="1375">So we've got a
+bunch of integers,</p>
+<p t="2101120" d="999">each one fits in a word.</p>
+<p t="2102119" d="2541">I could compare them,
+that takes constant time,</p>
+<p t="2104660" d="4850">or I could add them or subtract
+them or multiply them or divide</p>
+<p t="2109510" d="3650">them or do whatever
+the heck I want.</p>
+<p t="2113160" d="11422">It turns out you can do a
+lot more than comparisons</p>
+<p t="2124582" d="1458">and it turns out
+this will help us.</p>
+<p t="2140950" d="2200">I don't know if I want to
+tell you the answer here.</p>
+<p t="2143150" d="6790">For k-- not too big-- you
+can sort in linear time.</p>
+<p t="2153510" d="2990">Believe it or not, this
+topic, integer sorting,</p>
+<p t="2156500" d="1780">is still a major
+area of research.</p>
+<p t="2158280" d="2790">People are still trying
+to solve this problem.</p>
+<p t="2161070" d="4570">One conjecture is that
+even in all cases,</p>
+<p t="2165640" d="1820">you can sort in
+linear time given</p>
+<p t="2167460" d="2045">any integers that fit in words.</p>
+<p t="2169505" d="2155">This is not yet solved.</p>
+<p t="2171660" d="3120">Best algorithm is n
+times square root lg lg</p>
+<p t="2174780" d="3030">n with high probability.</p>
+<p t="2177810" d="2610">So it's almost-- almost n.</p>
+<p t="2180420" d="2120">It's a lot better than n lg n.</p>
+<p t="2182540" d="6080">I'll just write that for fun
+case you can't parse in words.</p>
+<p t="2188620" d="3260">This is the best
+algorithms to date.</p>
+<p t="2191880" d="2620">I would conjecture you can do
+linear time in all situations.</p>
+<p t="2194500" d="1666">We're not going to
+cover this algorithm.</p>
+<p t="2196166" d="1544">That's a little beyond us.</p>
+<p t="2197710" d="4650">It's in advanced algorithms
+if you're interested, 6854.</p>
+<p t="2202360" d="2800">But we're going to show that
+for a lot of cases of interest</p>
+<p t="2205160" d="2270">when k is not
+ginormous, it's really</p>
+<p t="2207430" d="3171">easy to sort in linear time.</p>
+<p t="2210601" d="499">All right?</p>
+<p t="2211100" d="4910">And our first algorithm to
+achieve this is counting sort.</p>
+<p t="2221000" d="2680">Counting sort does not
+make any comparisons.</p>
+<p t="2223680" d="3300">It only does other stuff.</p>
+<p t="2226980" d="2780">And it's going to depend on n.</p>
+<p t="2229760" d="1150">It's going to depend on k.</p>
+<p t="2230910" d="3910">We'll get some running times not
+bad as long as k is not giant.</p>
+<p t="2234820" d="2680">So as the name might
+suggest, what you</p>
+<p t="2237500" d="3640">do is count all the items.</p>
+<p t="2241140" d="9430">So imagine I give you a bunch
+of keys like 3, 5 7, 5, 5, 3, 6,</p>
+<p t="2250570" d="1954">whatever.</p>
+<p t="2252524" d="1416">I'd like to run
+through this array</p>
+<p t="2253940" d="3500">and say, ah, I see there
+are two 3's and there</p>
+<p t="2257440" d="7230">are three 5's and there's one 6,
+and one 7, so how do I sort it?</p>
+<p t="2264670" d="2260">I'd like to say, well
+3 is smallest key</p>
+<p t="2266930" d="2500">and there's two of them, so
+I'll write two 3's, then there's</p>
+<p t="2269430" d="3590">three 5's so I'll write three
+5's, and then there's a 6</p>
+<p t="2273020" d="1790">and then there's a 7.</p>
+<p t="2274810" d="1220">That's the intuition.</p>
+<p t="2276030" d="4140">Now how do I-- how I do
+that with an algorithm?</p>
+<p t="2280170" d="2530">Suggestions?</p>
+<p t="2282700" d="565">Yeah?</p>
+<p t="2283265" d="875">AUDIENCE: [INAUDIBLE]</p>
+<p t="2290870" d="680">PROFESSOR: Yeah.</p>
+<p t="2291550" d="1480">Allocate an array
+of memory, which</p>
+<p t="2293030" d="2870">is my counters-- I'm
+going to count each k.</p>
+<p t="2295900" d="1940">I need an array of
+size k because there</p>
+<p t="2297840" d="1950">are k possible keys.</p>
+<p t="2299790" d="3670">Convenient those two terms
+start with the same letter.</p>
+<p t="2303460" d="1830">And then I'll just--
+whenever I see</p>
+<p t="2305290" d="2050">an-- I'm going to run
+through the items in order,</p>
+<p t="2307340" d="2800">when I see an item, I say,
+OK, well that's key 3.</p>
+<p t="2310140" d="4920">I will look at index 3 of this
+array, increment that counter.</p>
+<p t="2315060" d="1560">Then I see 5,
+increment that counter.</p>
+<p t="2316620" d="2850">I see 7, I see 5, I
+see 5, and by the end,</p>
+<p t="2319470" d="4389">I'll know that there are three
+5's and two 3's and so on.</p>
+<p t="2323859" d="791">That's how I count.</p>
+<p t="2324650" d="1535">And then how do
+output the items?</p>
+<p t="2328890" d="1170">You want to keep going?</p>
+<p t="2330060" d="875">AUDIENCE: [INAUDIBLE]</p>
+<p t="2336300" d="2200">PROFESSOR: Yeah, just
+traverse the array</p>
+<p t="2338500" d="4750">of counters and the
+array is already</p>
+<p t="2343250" d="3690">written in order by key,
+so it's really easy.</p>
+<p t="2346940" d="3280">I mean I could draw this array
+for you if you like at 0, 1,</p>
+<p t="2350220" d="650">2 3.</p>
+<p t="2350870" d="4400">Here's the 3 position, it
+ends up with the value 2.</p>
+<p t="2355270" d="3090">And if I just go through, a lot
+of these will have 0's in them,</p>
+<p t="2358360" d="1510">just skip those.</p>
+<p t="2359870" d="1620">When I find a
+non-zero entry, just</p>
+<p t="2361490" d="4606">write-- oh, that means there's
+two 3's there, so I write 3, 3.</p>
+<p t="2366096" d="1824">OK, that algorithm
+would work but I'm not</p>
+<p t="2367920" d="2870">going to even write it down,
+not even going to dignify it,</p>
+<p t="2370790" d="5130">because all it does
+is sort integers.</p>
+<p t="2375920" d="1680">But there's a
+subtlety here which</p>
+<p t="2377600" d="2700">we're going to need in a moment,
+which is why I stress it,</p>
+<p t="2380300" d="2450">that really we have n items.</p>
+<p t="2382750" d="2800">Each of them has a key, but
+it might have other stuff</p>
+<p t="2385550" d="2740">too that we'd like to
+bring along for the ride.</p>
+<p t="2388290" d="2180">We'll see why we care
+about that in a moment.</p>
+<p t="2390470" d="2220">But it's also a
+typical situation,</p>
+<p t="2392690" d="4750">like you have a spreadsheet and
+you click sort by this column.</p>
+<p t="2397440" d="2550">Well every row has a
+whole bunch of data</p>
+<p t="2399990" d="2450">but you're only trying to
+sort by one of those fields,</p>
+<p t="2402440" d="1800">that one column.</p>
+<p t="2404240" d="1962">And that one field
+may be an integer,</p>
+<p t="2406202" d="2458">but there's all this other
+stuff you'd like to bring along.</p>
+<p t="2408660" d="3250">And when you say, oh,
+there are two 3's,</p>
+<p t="2411910" d="3540">you know there's this
+3, which you know maybe</p>
+<p t="2415450" d="1820">has a cloud around it.</p>
+<p t="2417270" d="2050">There's this 3 which maybe
+has a heart around it.</p>
+<p t="2419320" d="2520">That's about the limit
+of my drawing abilities.</p>
+<p t="2421840" d="2952">And now say, oh, there
+are two 3's but which 3?</p>
+<p t="2424792" d="2208">Should the cloud go first,
+should the heart go first?</p>
+<p t="2427000" d="1541">I mean I don't care
+which goes first,</p>
+<p t="2428541" d="3789">maybe-- I do, actually--
+but I will in a moment.</p>
+<p t="2432330" d="1780">That's another topic.</p>
+<p t="2434110" d="1974">But I'd like to bring
+that cloud somewhere.</p>
+<p t="2436084" d="1416">I want to put the
+cloud somewhere,</p>
+<p t="2437500" d="1470">want to put the heart somewhere.</p>
+<p t="2438970" d="3120">All right, so here's
+a way to do all that.</p>
+<p t="2442090" d="11470">Basically the same algorithm
+but I'm just going to use lists.</p>
+<p t="2458110" d="2590">Still have an array of k
+things but no longer counters,</p>
+<p t="2460700" d="590">now lists.</p>
+<p t="2461290" d="2330">They could be linked lists,
+they could be python lists.</p>
+<p t="2463620" d="2610">It won't matter for my purposes.</p>
+<p t="2466230" d="8710">And then I'll say for j
+and range of n-- that'd</p>
+<p t="2474940" d="5000">be super pythonic here-- I
+want to look at the list who's</p>
+<p t="2479940" d="12560">at index a of j
+and append a of j.</p>
+<p t="2492500" d="7265">And then the output is going
+to be an empty list initially.</p>
+<p t="2503220" d="4380">And then I iterate through the
+array their k values for that,</p>
+<p t="2507600" d="10570">and I just say output,
+extend, list i.</p>
+<p t="2518170" d="560">OK.</p>
+<p t="2518730" d="2419">This is counting sort or a
+version of counting sort.</p>
+<p t="2521149" d="2291">In your textbook, you'll find
+a different version which</p>
+<p t="2523440" d="2566">does not use lists, So it's
+probably more practical</p>
+<p t="2526006" d="1874">because it uses no data
+structures whatsoever</p>
+<p t="2527880" d="2490">except three arrays.</p>
+<p t="2530370" d="1740">But it runs in the
+same amount of time</p>
+<p t="2532110" d="2260">and this is a lot easier
+I think to think about.</p>
+<p t="2534370" d="4550">This is more modern
+perspective, if you well.</p>
+<p t="2538920" d="1970">For every item, if
+you'd look at them</p>
+<p t="2540890" d="1920">in the given order
+of your array,</p>
+<p t="2542810" d="1600">you see what it's key value is.</p>
+<p t="2544410" d="2290">Maybe that's not exactly
+the same as the item,</p>
+<p t="2546700" d="2502">so it could be key
+of x is just x.</p>
+<p t="2549202" d="1708">But you know in python
+sort, for example,</p>
+<p t="2550910" d="2536">you're given a key function.</p>
+<p t="2553446" d="1124">So you take that key value.</p>
+<p t="2554570" d="2060">The key is guaranteed to
+be an integer between 0</p>
+<p t="2556630" d="4610">and k minus 1, so you look at
+the list, that numbered list,</p>
+<p t="2561240" d="3080">and you just add this
+item to the list.</p>
+<p t="2564320" d="500">OK.</p>
+<p t="2564820" d="1375">But the item is
+not just the key,</p>
+<p t="2566195" d="3265">it's everything-- whatever
+that data structure is--</p>
+<p t="2569460" d="3960">and then you just go through the
+list and you concatenate them.</p>
+<p t="2573420" d="500">OK.</p>
+<p t="2573920" d="1010">How long does this take?</p>
+<p t="2577480" d="3660">How long does this step take?</p>
+<p t="2581140" d="740">N?</p>
+<p t="2581880" d="2110">Nope.</p>
+<p t="2583990" d="670">Constant?</p>
+<p t="2584660" d="1450">Nope.</p>
+<p t="2586110" d="1235">OK.</p>
+<p t="2587345" d="1000">Look at all the actions.</p>
+<p t="2588345" d="1212">It's order k time.</p>
+<p t="2589557" d="1833">To create an empty list
+takes constant time.</p>
+<p t="2591390" d="1210">They're k of them.</p>
+<p t="2592600" d="1800">OK?</p>
+<p t="2594400" d="2450">How long does this step
+take, just the append?</p>
+<p t="2600330" d="800">Constant?</p>
+<p t="2601130" d="940">Good.</p>
+<p t="2602070" d="3050">Remember, append is constant
+time from the Python model</p>
+<p t="2605120" d="2550">or your favorite
+model, anything.</p>
+<p t="2607670" d="1920">We're assuming the key
+takes constant time</p>
+<p t="2609590" d="3780">because that's the word,
+so that's an assumption,</p>
+<p t="2613370" d="2530">but in the normal assumption.</p>
+<p t="2615900" d="3740">So total time here is order n.</p>
+<p t="2619640" d="4040">And this thing, well this
+takes basically the length</p>
+<p t="2623680" d="2680">of Li time.</p>
+<p t="2626360" d="4550">And so when you add
+it up, maybe plus 1--</p>
+<p t="2630910" d="1750">because to look at an
+empty list you still</p>
+<p t="2632660" d="2290">need to look at it--
+so you add it up</p>
+<p t="2634950" d="5712">and you get order sum of all
+the Li's is all the items.</p>
+<p t="2640662" d="1708">And then you get plus
+1 for each of them,</p>
+<p t="2642370" d="3010">so you get n plus k. n
+plus k is the running</p>
+<p t="2645380" d="2670">time of this algorithm.</p>
+<p t="2648050" d="2330">Add those up.</p>
+<p t="2650380" d="2230">OK, so counting sort
+is order n plus k.</p>
+<p t="2652610" d="4260">So if k happens to be order
+n, this is linear time.</p>
+<p t="2656870" d="3020">But as soon as it's a little
+bit bigger, you're in trouble.</p>
+<p t="2659890" d="1480">So counting sort's
+a good warm up,</p>
+<p t="2661370" d="1750">but it's not ultimately
+what we want.</p>
+<p t="2671060" d="9290">And a much cooler algorithm
+is called radix sort.</p>
+<p t="2685467" d="2333">It's going to use counting
+sort as the subroutine, which</p>
+<p t="2687800" d="4350">is why spent all this time
+on a mediocre algorithm.</p>
+<p t="2692150" d="4650">And it's going to get a
+much larger range of k</p>
+<p t="2696800" d="3940">and it will still
+be linear time.</p>
+<p t="2700740" d="1090">I'll tell you the answer.</p>
+<p t="2709040" d="2810">K can be polynomial in n.</p>
+<p t="2711850" d="6150">So like if all your integers
+are between 0 and n to the 100,</p>
+<p t="2718000" d="2800">you can sort them
+in n lg n time.</p>
+<p t="2720800" d="1620">That's a lot bigger.</p>
+<p t="2722420" d="1770">It's not just like 10 n.</p>
+<p t="2724190" d="3280">I mean you could do 10 n here
+as well with counting sort.</p>
+<p t="2727470" d="3010">And it's not just like n lg
+n, but they can go all the way</p>
+<p t="2730480" d="4280">to n to the 100,
+still be linear time.</p>
+<p t="2734760" d="3530">So that's what we're
+going to achieve.</p>
+<p t="2738290" d="3040">The idea of radix
+sort is simple.</p>
+<p t="2741330" d="3490">It's actually kind of the
+Excel spreadsheet approach.</p>
+<p t="2744820" d="4910">We're going to imagine
+we want to break</p>
+<p t="2749730" d="1910">each integer into
+a bunch of columns.</p>
+<p t="2763530" d="1380">How do we do that?</p>
+<p t="2764910" d="2140">Well, the way we normally
+write down numbers,</p>
+<p t="2767050" d="2990">except not necessarily in
+decimal, in some arbitrary base</p>
+<p t="2770040" d="1240">b.</p>
+<p t="2771280" d="1680">So I say, oh, an
+integer in base b.</p>
+<p t="2772960" d="2050">Well then there's the
+least significant digit</p>
+<p t="2775010" d="1583">and then the next
+one and the next one</p>
+<p t="2776593" d="2127">and the next one, some
+sequence of digits.</p>
+<p t="2778720" d="3840">And if I know that the
+maximum value is k,</p>
+<p t="2782560" d="2930">I know that the
+number of digits,</p>
+<p t="2785490" d="2720">which I'm going to call--
+for each number which I'm</p>
+<p t="2788210" d="9301">going to call d, is just lg
+base b of k plus one, whatever.</p>
+<p t="2797511" d="2899">We've got to be
+super precise here</p>
+<p t="2800410" d="3736">because if I'm in base b then
+that's what lg is, right?</p>
+<p t="2804146" d="1374">So normally we
+think of lg base 2</p>
+<p t="2805520" d="1940">because we're writing
+things in binary.</p>
+<p t="2807460" d="2990">Computer scientists
+normally think that way.</p>
+<p t="2810450" d="2499">And fine, so now we
+decomposed our integer.</p>
+<p t="2812949" d="1791">I'm not going to actually
+compute this base</p>
+<p t="2814740" d="2990">b representation, because
+it would take a long time.</p>
+<p t="2817730" d="4050">I'd have to spend n times
+lg k time to do that.</p>
+<p t="2821780" d="2050">I don't want to do that.</p>
+<p t="2823830" d="3120">OK, but just
+imagine it that way.</p>
+<p t="2826950" d="2030">And then the
+algorithm as follows,</p>
+<p t="2828980" d="6370">sort the integers, all of them,
+by the least significant digit.</p>
+<p t="2840540" d="1860">Sort by the next least
+significant digit.</p>
+<p t="2842400" d="6600">Dot, dot, dot, sort by the
+most significant digit.</p>
+<p t="2849000" d="4460">So there are d iterations
+here, for d digits.</p>
+<p t="2853460" d="2110">Sort all the integers by
+the least significant,</p>
+<p t="2855570" d="3440">all the integers by
+the next, and so on.</p>
+<p t="2859010" d="2660">It's like in your-- this is
+a useful technique in Excel,</p>
+<p t="2861670" d="2069">if you want to sort
+by several columns--</p>
+<p t="2863739" d="2291">or your favorite spreadsheet,
+doesn't have to be Excel,</p>
+<p t="2866030" d="4450">sorry-- you click on the least
+significant column first,</p>
+<p t="2870480" d="2650">and then click on all the other
+columns in increasing order,</p>
+<p t="2873130" d="2420">you will sort by all
+of them, it turns out.</p>
+<p t="2875550" d="1875">It's kind of magical
+that this works.</p>
+<p t="2880512" d="2518">I don't have a ton of
+time for an example.</p>
+<p t="2883030" d="1630">Let me first analyze
+the algorithm.</p>
+<p t="2884660" d="2500">We'll see if we have
+time for an example.</p>
+<p t="2887160" d="5080">So there are d
+digits-- oh, and I'm</p>
+<p t="2892240" d="6295">going to sort each of these
+sorts of using counting sort.</p>
+<p t="2907450" d="6050">This is I guess sort by
+digit using counting sort.</p>
+<p t="2913500" d="2320">So how long does it
+take to sort using</p>
+<p t="2915820" d="1450">counting sort in this setting?</p>
+<p t="2923310" d="1460">Normally, it's n plus k.</p>
+<p t="2928510" d="3240">Here it is, n plus b.</p>
+<p t="2931750" d="500">Good.</p>
+<p t="2937300" d="4250">Because all of our digits
+are between 0 and b minus 1.</p>
+<p t="2941550" d="1680">So we're just sorting by digit.</p>
+<p t="2943230" d="3200">Now here is where we're
+using this idea of a key.</p>
+<p t="2946430" d="2280">When we say key, I
+wanted our integers.</p>
+<p t="2948710" d="3620">What we do is compute
+the digit we care about.</p>
+<p t="2952330" d="3020">So if we're in this
+step, the key function</p>
+<p t="2955350" d="2180">will be compute the least
+significant digit, which</p>
+<p t="2957530" d="3540">is like taking it mod
+b to compute the most</p>
+<p t="2961070" d="5870">significant digits like dividing
+by b to the power of d minus 1</p>
+<p t="2966940" d="1510">or so.</p>
+<p t="2968450" d="1220">OK but it's a constant.</p>
+<p t="2969670" d="2780">You do one divide and one
+mod, the constant number</p>
+<p t="2972450" d="1120">of operations.</p>
+<p t="2973570" d="1860">You can extract the
+digit in constant time.</p>
+<p t="2975430" d="3200">So the key function is constant
+time and so this works.</p>
+<p t="2978630" d="2580">We don't have to actually
+write them all down,</p>
+<p t="2981210" d="3720">just compute them
+as we need them.</p>
+<p t="2984930" d="2050">Cool I guess we could
+compute them ahead of time.</p>
+<p t="2986980" d="2700">It's not a big deal.</p>
+<p t="2989680" d="1690">Fine.</p>
+<p t="2991370" d="1520">So that's each digit.</p>
+<p t="2992890" d="4250">So the total time
+is just that times</p>
+<p t="2997140" d="2260">d because we have d steps.</p>
+<p t="2999400" d="3694">So it's n plus b times d.</p>
+<p t="3003094" d="6746">Now d was that lg
+thing, lg base b of n.</p>
+<p t="3009840" d="1190">I have this b.</p>
+<p t="3011030" d="3810">What should be b?</p>
+<p t="3014840" d="2400">You gotta love the
+English language.</p>
+<p t="3017240" d="5270">What should I choose
+b to be, or not to be?</p>
+<p t="3022510" d="1390">That's the question.</p>
+<p t="3023900" d="1460">Any suggestions?</p>
+<p t="3025360" d="1310">I want to minimize this, right?</p>
+<p t="3026670" d="2090">I want minimum running time.</p>
+<p t="3028760" d="3690">So I'd like b to kind of
+large to make this base large.</p>
+<p t="3032450" d="2715">Sorry, this is not n, this is k.</p>
+<p t="3035165" d="2665">I copied that wrong
+out of excitement.</p>
+<p t="3037830" d="2600">Just copying this over.</p>
+<p t="3040430" d="1410">OK, I'd like b to
+be large, but I</p>
+<p t="3041840" d="2570">don't want it to be so
+large because I don't want</p>
+<p t="3044410" d="2480">it to be bigger than n so
+what should I set b to be?</p>
+<p t="3046890" d="820">AUDIENCE: N.</p>
+<p t="3047710" d="1800">PROFESSOR: N, good choice.</p>
+<p t="3049510" d="1870">It's a good trick
+whenever you have</p>
+<p t="3051380" d="1580">a sum of things you
+want to minimize,</p>
+<p t="3052960" d="2270">usually it's when they're equal.</p>
+<p t="3055230" d="3470">Occasionally it's the extreme
+like when b is 0 or something.</p>
+<p t="3058700" d="2000">B as 0 not a good plan.</p>
+<p t="3060700" d="4520">Base 0 is pretty slow.</p>
+<p t="3065220" d="3420">So if I set-- I'll
+write it here--</p>
+<p t="3068640" d="2330">you can prove it with a
+derivative or whatever.</p>
+<p t="3070970" d="3020">This is going to
+be minimized when</p>
+<p t="3073990" d="4990">b is-- I'll be vague-- theta n.</p>
+<p t="3078980" d="8010">So then it's going to come
+out to n times lg base n of k.</p>
+<p t="3086990" d="4380">And lo and behold, when
+k is polynomial in n,</p>
+<p t="3091370" d="5550">it's k to some constant,
+then that will be linear.</p>
+<p t="3096920" d="1610">So let me write that.</p>
+<p t="3098530" d="8140">If k equals n to the c, or
+say is at most n to the c,</p>
+<p t="3106670" d="3990">then this is going to
+be order n times c.</p>
+<p t="3110660" d="2410">So if your integers
+are reasonably small,</p>
+<p t="3113070" d="1850">you get a linear time
+sorting algorithm.</p>
+<p t="3114920" d="4630">And reasonably small means
+polynomial in n, in value.</p>
+<p t="3119550" d="1260">That's kind of cool.</p>
+<p t="3120810" d="1014">That's radix sort.</p>
+<p t="3121824" d="916">And we're out of time.</p>
+<p t="3122740" d="1416">There's an example
+in the textbook</p>
+<p t="3124156" d="1544">or in the notes how this works.</p>
+<p t="3125700" d="2153">You could prove it by
+a simple induction.</p>
+</body>
+</timedtext>

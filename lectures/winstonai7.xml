@@ -1,0 +1,1487 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="10110" d="2550">PATRICK WINSTON: Many of you,
+maybe most of you, will never</p>
+<p t="12660" d="2190">have to work another search
+problem by hand in your</p>
+<p t="14850" d="2660">natural life.</p>
+<p t="17510" d="2360">Others will want to
+take another run</p>
+<p t="19870" d="2230">at it on the final.</p>
+<p t="22100" d="2930">I've been much criticized
+for this way of doing</p>
+<p t="25030" d="970">grading in the class.</p>
+<p t="26000" d="5490">But the way I look at it is that
+the relationship between</p>
+<p t="31490" d="2840">students and instructors ought
+to be less adversarial than it</p>
+<p t="34330" d="5580">used to be in the good old days
+when I was a student.</p>
+<p t="39910" d="4190">I especially remember an
+examination we took--</p>
+<p t="44100" d="2350">all of us took-- on Rayleigh
+scattering.</p>
+<p t="46450" d="2220">That was 803, I think.</p>
+<p t="48670" d="3050">And back in the old days, we
+had to take four physics</p>
+<p t="51720" d="1920">courses, not just two.</p>
+<p t="53640" d="3460">And we had to take four math
+courses, not just two.</p>
+<p t="57100" d="2730">Back in the days when--</p>
+<p t="59830" d="1620">well, I was going to
+say men were men.</p>
+<p t="61450" d="1680">But most of us were
+men in those days.</p>
+<p t="63130" d="2980">I think we only had 20
+women in our class.</p>
+<p t="66110" d="3840">Anyway, we had a quiz on
+Rayleigh scattering.</p>
+<p t="69950" d="1960">And I thought, well, this
+is pretty hard.</p>
+<p t="71910" d="4880">And then I got my quiz back.</p>
+<p t="76790" d="2580">26.</p>
+<p t="79370" d="3360">I thought, well, I've
+been found out.</p>
+<p t="82730" d="2300">I'm going to flunk out.</p>
+<p t="85030" d="3320">My father will make me
+go to law school.</p>
+<p t="88350" d="3460">I'll never attract
+anyone to marry.</p>
+<p t="91810" d="2670">Horrible things will happen.</p>
+<p t="94480" d="2405">Then the instructor announced
+the class average was 18.</p>
+<p t="96885" d="2335">I was two standard deviations
+above that.</p>
+<p t="101960" d="2460">They gave us the same exam
+two weeks later,</p>
+<p t="104420" d="1610">and accounts vary.</p>
+<p t="106030" d="3310">Some people say that the class
+average went down.</p>
+<p t="109340" d="2380">Anyway, today we're going
+to study some stuff.</p>
+<p t="114760" d="2020">We're going to study some
+stuff that will make it</p>
+<p t="116780" d="3450">possible for you to understand
+how you can do that</p>
+<p t="120230" d="2760">computation in just a couple
+of seconds, even with the</p>
+<p t="122990" d="3620">delays introduced by
+the redrawing.</p>
+<p t="126610" d="3050">Now this particular program--</p>
+<p t="129660" d="2310">I'm not real sure and I don't
+have a proof, but I think it</p>
+<p t="131970" d="3560">will take more than the lifetime
+of the universe to</p>
+<p t="135530" d="4380">find a legitimate coloring of
+the continental United States.</p>
+<p t="139910" d="1950">But by the end of the next
+class, you'll see how to do</p>
+<p t="141860" d="2960">that lickety-split in just
+couple of seconds, even with</p>
+<p t="144820" d="1760">the re-display delays.</p>
+<p t="151750" d="4840">Now we could, of course,
+do this in two ways.</p>
+<p t="156590" d="3360">One way is I could start off
+by saying, let C be a</p>
+<p t="159950" d="2540">constraint satisfaction
+problem and just</p>
+<p t="162490" d="2680">give you the result.</p>
+<p t="165170" d="1780">And anybody can do that.</p>
+<p t="166950" d="1456">That's great.</p>
+<p t="168406" d="4624">And you needed to learn
+some stuff that way.</p>
+<p t="173030" d="2710">But there are some things that
+you needed to learn, I think,</p>
+<p t="175740" d="890">a different way.</p>
+<p t="176630" d="2470">And that different way involves
+my telling you the</p>
+<p t="179100" d="2650">story of how it all
+came to be.</p>
+<p t="181750" d="4690">This is a new field, pretty
+much, and therefore I know</p>
+<p t="186440" d="1290">most of the people in it.</p>
+<p t="187730" d="2000">And I know all of the people
+who did the work that I'm</p>
+<p t="189730" d="990">going to tell you about today.</p>
+<p t="190720" d="2500">I'm going to tell you a little
+bit about the struggle for</p>
+<p t="193220" d="9940">coming up with the ideas that
+led to one of the most</p>
+<p t="203160" d="2970">powerful methods you'll learn
+about in the subject.</p>
+<p t="206130" d="3540">It all has to do, originally,
+with an attempt to make a</p>
+<p t="209670" d="2162">computer capable of seeing.</p>
+<p t="211832" d="2058">And everybody said to
+themselves, well, let's start</p>
+<p t="213890" d="3390">with seeing simple things,
+like children's blocks.</p>
+<p t="217280" d="2760">And so Adolfo Guzman, a graduate
+student of Marvin</p>
+<p t="220040" d="3440">Minsky's, was charged with the
+summer project, which led to</p>
+<p t="223480" d="4110">his Ph.D. thesis, of writing a
+program that could look at a</p>
+<p t="227590" d="2850">line drawing and determine
+how many objects</p>
+<p t="230440" d="2290">are in the line drawing.</p>
+<p t="232730" d="8140">So for example, there behind my
+outline is a line drawing.</p>
+<p t="240870" d="5530">And you believe instantly that
+there are two objects there,</p>
+<p t="246400" d="2290">even though in some deep
+sense, it's ambiguous.</p>
+<p t="248690" d="3850">There are all sorts of ways
+that you could, through</p>
+<p t="252540" d="4039">trickery, arrange something with
+even seven objects that</p>
+<p t="256579" d="1130">look that way.</p>
+<p t="257709" d="3560">But most people would say
+there are two objects.</p>
+<p t="261269" d="2081">So Guzman set about the
+problem of figuring</p>
+<p t="263350" d="1300">out how to do that.</p>
+<p t="264650" d="2210">And then his work was followed
+by Dave Huffman.</p>
+<p t="266860" d="2580">And his work was followed
+up by Dave Waltz.</p>
+<p t="269440" d="2410">And his work was followed up by
+Jane [? Froyter ?], who's</p>
+<p t="271850" d="2030">not listed there quite yet.</p>
+<p t="273880" d="1700">And I want to tell you a little
+bit of story how that</p>
+<p t="275580" d="1930">all happened.</p>
+<p t="277510" d="2930">So Guzman took a lot
+of pictures.</p>
+<p t="280440" d="4430">He went to Boston Baby, the
+precursor to Toys R Us,</p>
+<p t="284870" d="7120">purchased a large block set on
+a government contract, and</p>
+<p t="291990" d="2650">went about the business of
+taking a lot of pictures of</p>
+<p t="294640" d="2750">them so he'd get a feel
+for the domain.</p>
+<p t="297390" d="2980">And eventually he decided that
+he could build a program that</p>
+<p t="300370" d="3540">could determine that there are
+two objects here by using the</p>
+<p t="303910" d="6890">lines as a quanta of evidence
+about which faces belong</p>
+<p t="310800" d="2290">together in an object.</p>
+<p t="313090" d="3780">So he said, after studying these
+for a long time, that</p>
+<p t="316870" d="3190">these drawings tend to have a
+lot of arrow-type junctions</p>
+<p t="320060" d="2400">and a lot of fork-type
+junctions.</p>
+<p t="322460" d="2520">And when you see an arrow, it's
+a little bit of evidence</p>
+<p t="324980" d="2510">that the objects on either
+side of the shaft are the</p>
+<p t="327490" d="2520">same-- the face on either side
+of the shaft belong to the</p>
+<p t="330010" d="1870">same object.</p>
+<p t="331880" d="5710">And over here, the fork-type
+junction suggests that</p>
+<p t="337590" d="3000">pairwise, three pairs
+of faces seem to</p>
+<p t="340590" d="2320">belong to the same object.</p>
+<p t="342910" d="3750">So with that idea, he could come
+back to a drawing like</p>
+<p t="346660" d="2910">this and start decorating it
+with these so-called links,</p>
+<p t="349570" d="3520">these quanta of evidence
+that faces</p>
+<p t="353090" d="1250">belong to the same object.</p>
+<p t="360408" d="1792">And if I've done it right,
+you get something</p>
+<p t="362200" d="2030">that looks like so.</p>
+<p t="364230" d="2420">It's a little hard to
+see what's going on</p>
+<p t="366650" d="1270">on the drawing itself.</p>
+<p t="367920" d="1250">So let me number these.</p>
+<p t="386550" d="2630">Now I have an
+easier-to-deal-with picture.</p>
+<p t="389180" d="5900">There are two links between
+1 and 2 and 1 and 3.</p>
+<p t="395080" d="2810">One link between 2 and 3.</p>
+<p t="397890" d="1930">One between 2 and 4.</p>
+<p t="399820" d="1650">Two here.</p>
+<p t="401470" d="1650">Two here.</p>
+<p t="403120" d="3580">And one each from
+all of these.</p>
+<p t="406700" d="3060">So Guzman produces this evidence
+for how the problem</p>
+<p t="409760" d="3200">ought to be solved and then he
+begins to think about various</p>
+<p t="412960" d="2090">ways of using the evidence.</p>
+<p t="415050" d="6780">So he could, and did, decide
+that one link is enough to</p>
+<p t="421830" d="2890">presume that the faces belong
+to the same object.</p>
+<p t="424720" d="3010">And you can see that that's
+a little bit too liberal.</p>
+<p t="427730" d="1110">Because that says
+that the whole</p>
+<p t="428840" d="2870">thing is just one object.</p>
+<p t="431710" d="5985">So Guzman rejected the one-link
+theory and went to</p>
+<p t="437695" d="1250">the two-link theory.</p>
+<p t="442330" d="4780">And the two-link theory says,
+oh, well, let's see.</p>
+<p t="447110" d="3280">If we insist that two links
+should be there before we are</p>
+<p t="450390" d="5520">willing to decide that it's the
+same object, then these</p>
+<p t="455910" d="3180">three faces are pulled together
+into one object.</p>
+<p t="459090" d="2700">These three are pulled together
+into one object.</p>
+<p t="461790" d="2620">But alas, 7 doesn't share two
+links with anything, so it's</p>
+<p t="464410" d="2420">left dangling out there.</p>
+<p t="466830" d="4160">So plainly, the two-link theory
+is too conservative.</p>
+<p t="470990" d="3120">So that as you would soon
+discover in any [INAUDIBLE]</p>
+<p t="474110" d="2920">project, would lead you to a
+third theory, which is two</p>
+<p t="477030" d="4930">lengths repeated.</p>
+<p t="481960" d="5470">So now that we've formed these
+super regions, we can come</p>
+<p t="487430" d="3840">back and say we'll merge super
+regions if they're connected</p>
+<p t="491270" d="2860">together by two or more links.</p>
+<p t="494130" d="2110">So nothing new happens
+up here.</p>
+<p t="496240" d="3200">But this super region
+is joined at 7</p>
+<p t="499440" d="2000">by two or more links.</p>
+<p t="501440" d="3830">So it pulls everything
+together like so.</p>
+<p t="505270" d="1210">So that worked fine.</p>
+<p t="506480" d="1000">Well, it didn't work fine.</p>
+<p t="507480" d="2140">There were lots of examples
+of situations</p>
+<p t="509620" d="3230">where it didn't work--</p>
+<p t="512850" d="3380">in situations that were
+considered nonsensical by us</p>
+<p t="516230" d="5390">humans because it seemed silly,
+the kind of conclusions</p>
+<p t="521620" d="3150">that it reached.</p>
+<p t="524770" d="4100">So when Guzman presented this
+work in his Ph.D. thesis</p>
+<p t="528870" d="3960">defense, it's said--</p>
+<p t="532830" d="1940">and who knows if it's true--
+but it's said that Marvin</p>
+<p t="534770" d="1860">Minsky thought it was
+great work and we</p>
+<p t="536630" d="2620">should make him a professor.</p>
+<p t="539250" d="3820">It happens that Dave Huffman was
+also on the committee and</p>
+<p t="543070" d="4370">said that it was ad hoc and the
+thesis should be rejected.</p>
+<p t="547440" d="3140">So we had two polar opposites
+of impressions there.</p>
+<p t="550580" d="1340">Dave Huffman, by the way--</p>
+<p t="551920" d="3240">you've heard that name
+before, I imagine.</p>
+<p t="555160" d="3670">It's the guy who invented
+Huffman coating as a term</p>
+<p t="558830" d="3890">paper in a information theory
+course taught by Bob Fano.</p>
+<p t="562720" d="1250">He got an A, they say.</p>
+<p t="566720" d="1120">So Huffman didn't like it.</p>
+<p t="567840" d="2020">He thought it was a little
+bit too ad hoc.</p>
+<p t="569860" d="1570">It was too heuristic.</p>
+<p t="571430" d="1935">It didn't take advantage
+of anything we</p>
+<p t="573365" d="1755">might know about physics.</p>
+<p t="575120" d="2380">And so people began to say,
+well, why does it work?</p>
+<p t="577500" d="2070">And when does it not work?</p>
+<p t="579570" d="2560">And that's just about the best
+question you can answer in a</p>
+<p t="582130" d="1702">situation like this.</p>
+<p t="583832" d="4468">And by playing with some more
+of Guzman's pictures and</p>
+<p t="588300" d="2570">reflecting on them, it turned
+out that it worked because the</p>
+<p t="590870" d="2800">world is full of three-face
+junctions.</p>
+<p t="598350" d="2830">Or let me say three-face
+vertexes because they're out</p>
+<p t="601180" d="1760">there in the world.</p>
+<p t="602940" d="4010">We'll reserve the word junction
+for something else.</p>
+<p t="606950" d="5590">And three-face vertexes
+generally project into either</p>
+<p t="612540" d="3890">an arrow or a fork.</p>
+<p t="616430" d="4980">So Guzman's whole program worked
+on the weak backward</p>
+<p t="621410" d="3290">conclusion that if you see one
+of those, it probably came</p>
+<p t="624700" d="1190">from one of these.</p>
+<p t="625890" d="1430">So this is in the drawing.</p>
+<p t="627320" d="1840">That's in the world.</p>
+<p t="629160" d="2970">So by a process that's neither
+deduction or induction, but</p>
+<p t="632130" d="3280">rather abduction, you see
+one of those guys.</p>
+<p t="635410" d="3430">And you say, well, they often
+come from three-face vertexes</p>
+<p t="638840" d="2770">in the world, so if you see one,
+it probably came from a</p>
+<p t="641610" d="1060">three-face vertex
+in the world.</p>
+<p t="642670" d="2850">That's abduction.</p>
+<p t="645520" d="6150">So once Huffman saw all that,
+being a mathematician, he</p>
+<p t="651670" d="3465">began to think about how one
+might develop a different and</p>
+<p t="655135" d="1295">better theory.</p>
+<p t="656430" d="6080">But we have to recognize that
+all this work started off with</p>
+<p t="662510" d="2986">the efforts of Guzman, who
+was an experimentalist.</p>
+<p t="673610" d="3165">And Huffman was a
+mathematician.</p>
+<p t="680460" d="5060">So naturally, they approached
+the problem differently.</p>
+<p t="685520" d="3620">So Huffman says, I'm not going
+to concern myself too much</p>
+<p t="689140" d="3460">with the actual problem that
+Guzman was trying to solve.</p>
+<p t="692600" d="3150">Rather, I'm going to work in a
+very simple world, which I can</p>
+<p t="695750" d="2640">deal with mathematically.</p>
+<p t="698390" d="3170">So he decided that he was going
+to work in a world which</p>
+<p t="701560" d="2930">had several characteristics.</p>
+<p t="704490" d="3270">Characteristic number one was
+that the world would be</p>
+<p t="707760" d="1790">presented in general position.</p>
+<p t="718969" d="3221">That is to say, no
+screw cases.</p>
+<p t="722190" d="3730">So if you see a cube, it's
+going to look like this.</p>
+<p t="729660" d="4880">And it's not going to
+look like this.</p>
+<p t="734540" d="1430">So that's out.</p>
+<p t="735970" d="1390">And this is in.</p>
+<p t="737360" d="2190">And the idea here is that that's
+not general position,</p>
+<p t="739550" d="2380">because if you perturb your
+point of view a little bit,</p>
+<p t="741930" d="1410">you'll change those T junctions</p>
+<p t="743340" d="2470">into forks and arrows.</p>
+<p t="745810" d="1620">So we know it had to deal
+with those kinds of</p>
+<p t="747430" d="3780">weird kinds of cases.</p>
+<p t="751210" d="3610">So that's presumption
+number one.</p>
+<p t="754820" d="3940">Presumption number two is that
+we're going to be dealing with</p>
+<p t="758760" d="1250">a world that's trihedral.</p>
+<p t="765650" d="3430">That means all vertexes out
+there are going to be formed</p>
+<p t="769080" d="1250">from three planes.</p>
+<p t="772770" d="2950">So you're going to have the
+intersection of three planes.</p>
+<p t="775720" d="3120">So how many kinds of junctions
+can you see if the world is</p>
+<p t="778840" d="5200">composed that way is the
+question that Huffman sent</p>
+<p t="784040" d="2185">himself upon.</p>
+<p t="786225" d="4765">The next assumption was that
+there are going to be four</p>
+<p t="790990" d="850">kinds of lines.</p>
+<p t="791840" d="2980">See, Guzman only recognized
+two kinds of lines-- lines</p>
+<p t="794820" d="2530">that have a length and lines
+that don't have a link.</p>
+<p t="797350" d="2810">And they don't have very much to
+do with the physical world.</p>
+<p t="800160" d="1900">So Huffman says, I want to get
+the constraint out of the</p>
+<p t="802060" d="1550">physical world.</p>
+<p t="803610" d="2980">So I'm going to deal with
+four kinds of lines--</p>
+<p t="806590" d="8070">concave, convex, and boundary.</p>
+<p t="822820" d="3210">So each of those kinds
+of lines is going to</p>
+<p t="826030" d="1210">have its own notation.</p>
+<p t="827240" d="4840">We'll call the convex lines
+plus, the concave lines minus,</p>
+<p t="832080" d="2520">and a boundary lines are going
+to get an arrow on them,</p>
+<p t="834600" d="5730">depending on which side
+of the object--</p>
+<p t="840330" d="2180">which side you would see the
+object if you walk along the</p>
+<p t="842510" d="2854">direction of this
+little arrow.</p>
+<p t="845364" d="1250">STUDENT: Question.</p>
+<p t="851220" d="1464">Which is concave and
+which is convex?</p>
+<p t="852684" d="1952">You said something and you
+wrote the opposite.</p>
+<p t="854636" d="976">PATRICK WINSTON: Yeah, sorry.</p>
+<p t="855612" d="2448">Thank you.</p>
+<p t="858060" d="1420">So concave, convex,
+and boundary.</p>
+<p t="859480" d="790">Thank you.</p>
+<p t="860270" d="3075">So this down here, that's
+a concave line.</p>
+<p t="863345" d="3205">And that would get
+a minus label.</p>
+<p t="866550" d="1640">Oh, I don't know.</p>
+<p t="868190" d="3100">These lines you're seeing here,
+if there were stuff</p>
+<p t="871290" d="2150">behind them instead of
+me, then all those</p>
+<p t="873440" d="3520">would be convex lines.</p>
+<p t="876960" d="1260">Many times you see
+a boundary line.</p>
+<p t="878220" d="3500">For example, now you don't see
+both sides of that line down</p>
+<p t="881720" d="650">here at the bottom.</p>
+<p t="882370" d="1380">So that's a boundary line.</p>
+<p t="883750" d="2500">And the arrow would point in
+that direction, so as to keep</p>
+<p t="886250" d="3080">the stuff of the object on the
+right as you walk along a kind</p>
+<p t="889330" d="2830">of mathematical convention.</p>
+<p t="892160" d="2550">So three kinds of lines,
+four kinds of labels.</p>
+<p t="894710" d="1910">And there's some things
+left out.</p>
+<p t="896620" d="3240">That's because Huffman wanted
+to keep his problem simple,</p>
+<p t="899860" d="1830">something he could
+manage by hand.</p>
+<p t="901690" d="1090">What's left out?</p>
+<p t="902780" d="1280">Cracks are left out.</p>
+<p t="904060" d="3100">Shadows are left out.</p>
+<p t="907160" d="3590">There's a presumption that
+there's nothing of interest</p>
+<p t="910750" d="1250">here with respect to that.</p>
+<p t="914940" d="5320">So let's have a little
+vocabulary before I go on.</p>
+<p t="920260" d="1300">And I'll try to stick to it.</p>
+<p t="921560" d="2540">But there's the stuff out there,
+and that consists of</p>
+<p t="924100" d="5440">vertexes and edges.</p>
+<p t="932570" d="3130">And over here, on the
+blackboard, we'll have</p>
+<p t="935700" d="7250">junctions and lines.</p>
+<p t="942950" d="1540">And I'll try to stick
+to that vocabulary.</p>
+<p t="944490" d="380">All right?</p>
+<p t="944870" d="790">Yes, Christopher?</p>
+<p t="945660" d="1930">STUDENT: Didn't you say there
+were four types of lines?</p>
+<p t="947590" d="2040">PATRICK WINSTON: Yeah, there
+are four kinds of--</p>
+<p t="949630" d="1310">the question is, didn't
+I say there were</p>
+<p t="950940" d="900">four kinds of lines?</p>
+<p t="951840" d="2020">There are three kinds of lines,
+but since we can label</p>
+<p t="953860" d="1240">a boundary line in
+either direction,</p>
+<p t="955100" d="880">we have four labels.</p>
+<p t="955980" d="2030">OK?</p>
+<p t="958010" d="3200">It depends on which side of the
+object the stuff is on.</p>
+<p t="961210" d="1555">And that will be clear,
+I think, as</p>
+<p t="962765" d="2905">soon as I do an example.</p>
+<p t="965670" d="2980">So one, two, three
+assumptions.</p>
+<p t="968650" d="2520">A little bit of vocabulary.</p>
+<p t="971170" d="5110">So we have the possibility of
+making a complete catalog.</p>
+<p t="976280" d="940">This is so simple.</p>
+<p t="977220" d="2980">We have the possibility of
+making a complete catalog of</p>
+<p t="980200" d="2310">all the ways that lines can
+come together to form a</p>
+<p t="982510" d="4066">junction with respect to
+these four labels.</p>
+<p t="986576" d="5154">Now at first you might say, oh
+my god, that will take a</p>
+<p t="991730" d="2500">couple of years.</p>
+<p t="994230" d="2150">But maybe it won't take
+a couple of years.</p>
+<p t="996380" d="6940">And in the end, to perhaps your
+surprise, you discover</p>
+<p t="1003320" d="4340">that there are only 18 ways to
+arrange the labels around a</p>
+<p t="1007660" d="2100">junction in this world.</p>
+<p t="1009760" d="2460">Everything else is excluded.</p>
+<p t="1012220" d="1820">If you have something that's not
+in the set we're going to</p>
+<p t="1014040" d="4890">produce now, it can't be built
+with trihedral vertexes.</p>
+<p t="1021600" d="8800">So I've listed up there six L's,
+five forks, four T's, and</p>
+<p t="1030400" d="2250">three arrows.</p>
+<p t="1032650" d="3669">Let's see if I can figure out
+why there are those 18 and</p>
+<p t="1036319" d="1250">nothing else.</p>
+<p t="1039910" d="5390">Well, if we have three vertexes
+coming together, that</p>
+<p t="1045300" d="2710">means there are eight
+octants, right?</p>
+<p t="1048010" d="4830">And the stuff of the object may
+fill 1, 2, 3, 4, 5, 6, 7</p>
+<p t="1052840" d="2190">or all eight octants.</p>
+<p t="1055030" d="1420">Now of course, if you
+fill all eight</p>
+<p t="1056450" d="880">octants, there's no junction.</p>
+<p t="1057330" d="2920">So we don't consider
+that case.</p>
+<p t="1060250" d="2830">If we don't fill any the
+octants, there's no junction.</p>
+<p t="1063080" d="810">There's no vertex.</p>
+<p t="1063890" d="2650">So we don't consider
+that case.</p>
+<p t="1066540" d="4540">But if just one of the eight
+octants is filled with stuff,</p>
+<p t="1071080" d="2050">then we can look at
+it from any of the</p>
+<p t="1073130" d="2630">seven remaining octants.</p>
+<p t="1075760" d="3600">So right now, you're looking
+at it from one of the seven</p>
+<p t="1079360" d="1520">remaining octants.</p>
+<p t="1080880" d="1870">And if I'm not mistaken,
+you're going to see a</p>
+<p t="1082750" d="3050">fork-style junction
+there, right?</p>
+<p t="1085800" d="1800">And you're going to see a
+fork-style junction in which</p>
+<p t="1087600" d="2305">all of the edges are convex.</p>
+<p t="1094350" d="2500">An unfortunate selection of
+names, because the linguists</p>
+<p t="1096850" d="1750">tell me that we index
+all of our words</p>
+<p t="1098600" d="900">by the first forename.</p>
+<p t="1099500" d="1710">And those have the same
+first forename, so</p>
+<p t="1101210" d="2630">they're easily confused.</p>
+<p t="1103840" d="1990">So here's a fork-style
+junction.</p>
+<p t="1105830" d="3330">And we know that one way that's
+legitimate for the</p>
+<p t="1109160" d="3890">lines to come in is
+with four pluses.</p>
+<p t="1113050" d="2070">Now that's not the only
+way you can see that.</p>
+<p t="1115120" d="2050">And here's another way.</p>
+<p t="1117170" d="2030">There's an L-style
+junction, right?</p>
+<p t="1119200" d="2450">And both of those are
+boundary lines.</p>
+<p t="1121650" d="4160">And we want to draw the boundary
+line indicators on</p>
+<p t="1125810" d="3740">there so that if we walk along
+the arrows, the stuff of the</p>
+<p t="1129550" d="2630">object would be on the right.</p>
+<p t="1132180" d="2550">So I suppose, to make it easier
+to me do my drawing, I</p>
+<p t="1134730" d="1790">should look at it this way.</p>
+<p t="1136520" d="4130">And then I would say, well, that
+has to be a legitimate</p>
+<p t="1140650" d="2700">way of labeling a junction.</p>
+<p t="1143350" d="1810">Are there any more?</p>
+<p t="1145160" d="3070">Well, there's seven altogether,
+but many of them</p>
+<p t="1148230" d="1530">are the same.</p>
+<p t="1149760" d="2250">There is one more that's a
+little different, though.</p>
+<p t="1152010" d="2460">I can hold this guy
+up like so.</p>
+<p t="1154470" d="2600">And if I'm holding at the right
+angle for you, you see</p>
+<p t="1157070" d="1950">an arrow-style junction,
+right?</p>
+<p t="1159020" d="2255">Two boundaries, and the
+barb is convex.</p>
+<p t="1164430" d="2713">So in this particular
+case, I've got that.</p>
+<p t="1167143" d="1222">I've got that.</p>
+<p t="1168365" d="3475">And I've got a plus there.</p>
+<p t="1171840" d="2510">And that's there happen to be
+for the one octant filled with</p>
+<p t="1174350" d="1750">stuff case.</p>
+<p t="1176100" d="1790">I happen to be able to
+reverse this, though.</p>
+<p t="1177890" d="3310">And here's the seven octants
+filled case.</p>
+<p t="1181200" d="3740">So that tells us that it's
+possible to have a vertex out</p>
+<p t="1184940" d="3400">there in a space that when
+reduced to a junction on the</p>
+<p t="1188340" d="3420">board deserves three minus
+labels, because all of these</p>
+<p t="1191760" d="2920">that you're seeing
+now are concave.</p>
+<p t="1194680" d="6240">So another fork-style junction
+looks like so.</p>
+<p t="1200920" d="5290">And since there's only one
+octant to look at from, that</p>
+<p t="1206210" d="5070">completes our analysis of the
+seven octants filled case.</p>
+<p t="1211280" d="3080">Now we have a couple of other
+possibilities here.</p>
+<p t="1214360" d="2080">We might have five octants
+filled with stuff.</p>
+<p t="1222770" d="4650">So that means there are three
+octants that we can look from.</p>
+<p t="1227420" d="1610">So let's suppose that
+these little chalk</p>
+<p t="1229030" d="3830">pieces are little people.</p>
+<p t="1232860" d="5720">And they're looking at this
+junction down there, where</p>
+<p t="1238580" d="3350">this white object is fused
+with the table.</p>
+<p t="1241930" d="1830">I'm fusing it with the table
+because I want to consider it</p>
+<p t="1243760" d="1340">to be one object.</p>
+<p t="1245100" d="2180">We can view it from the three
+objects indicated by those</p>
+<p t="1247280" d="1910">three little chalk pieces.</p>
+<p t="1249190" d="3390">And ask ourselves, well, in the
+event that we look at it</p>
+<p t="1252580" d="2530">from those three places,
+what do we see?</p>
+<p t="1255110" d="3890">And if we look at it from the
+perspective of the piece of</p>
+<p t="1259000" d="780">purple chalk--</p>
+<p t="1259780" d="1830">I'll have to walk around
+and be sure--</p>
+<p t="1261610" d="2350">looks like an arrow
+junction with two</p>
+<p t="1263960" d="1615">concaves and a convex.</p>
+<p t="1269020" d="1250">Did I get that right?</p>
+<p t="1272460" d="1620">So I'm looking at it from
+this perspective.</p>
+<p t="1274080" d="1130">It's an arrow.</p>
+<p t="1275210" d="3250">This is convex and these two
+are concave because I fused</p>
+<p t="1278460" d="3890">the paper box with the table.</p>
+<p t="1282350" d="2490">Looking at it from the
+perspective of this blue guy--</p>
+<p t="1284840" d="2740">let me rotate it so you can have
+a better understanding of</p>
+<p t="1287580" d="1030">the blue guy--</p>
+<p t="1288610" d="3640">it looks like a concave
+line and a boundary.</p>
+<p t="1292250" d="4500">So it's an L. And this
+one is a boundary.</p>
+<p t="1296750" d="1650">And that's concave.</p>
+<p t="1298400" d="3310">And by a kind of symmetry, we're
+also going to get that</p>
+<p t="1301710" d="4540">one from the other side, the
+third of the three octants.</p>
+<p t="1306250" d="1050">Well, we're off and running.</p>
+<p t="1307300" d="3360">But we still have an
+awful lot to go.</p>
+<p t="1310660" d="6100">And we could manage to deal with
+it by thinking about this</p>
+<p t="1316760" d="2880">object once again.</p>
+<p t="1319640" d="6650">But instead of this situation
+out here, to turn it around</p>
+<p t="1326290" d="3020">and look at this vertex.</p>
+<p t="1329310" d="2270">Think about the junctions
+that it can produce.</p>
+<p t="1331580" d="1280">I think I'll do that for you.</p>
+<p t="1332860" d="1750">Because you really have to play
+with this and move it</p>
+<p t="1334610" d="4390">around a little bit to see how
+things are going to look.</p>
+<p t="1339000" d="4480">So let me think about how that's
+going to work out.</p>
+<p t="1343480" d="3670">I know that one of the
+possibilities is going</p>
+<p t="1347150" d="2330">to look like so.</p>
+<p t="1349480" d="2350">I might as well not hide
+that from you.</p>
+<p t="1351830" d="2250">It's going to be what happens
+when there's a little man</p>
+<p t="1354080" d="2690">looking up at the junction.</p>
+<p t="1356770" d="2950">And this one's going
+to be minus.</p>
+<p t="1359720" d="4234">And now we've got two more
+that are just like that.</p>
+<p t="1363954" d="1250">Look like so.</p>
+<p t="1370980" d="1290">And you say, oops.</p>
+<p t="1381820" d="2410">You say, aren't those
+just a rotational</p>
+<p t="1384230" d="1550">variance of each other?</p>
+<p t="1385780" d="1750">And the answer is sure.</p>
+<p t="1387530" d="3750">I write them all down, because
+if you get a fork-style</p>
+<p t="1391280" d="2590">junction in space, there are
+three different ways it could</p>
+<p t="1393870" d="430">be labeled.</p>
+<p t="1394300" d="4340">Depending on which of
+the lines you put</p>
+<p t="1398640" d="1520">the minus label on.</p>
+<p t="1405680" d="1240">So that takes care of that.</p>
+<p t="1406920" d="3390">And then there's one more of
+these fork-style junctions.</p>
+<p t="1410310" d="5890">And that's plus, plus, minus
+that derives from this case.</p>
+<p t="1416200" d="2950">And there appear to
+be three more of</p>
+<p t="1419150" d="1970">these L-style junctions.</p>
+<p t="1421120" d="9160">And they look like, let's
+see, plus, then plus.</p>
+<p t="1430280" d="3580">I'm having to think this
+through as I go.</p>
+<p t="1433860" d="1250">And then--</p>
+<p t="1437910" d="2580">and that's it.</p>
+<p t="1440490" d="1490">Well, what about the T's?</p>
+<p t="1441980" d="3440">Well, in this world, the only
+way you can get a T is if some</p>
+<p t="1445420" d="2185">object is obscuring
+another object.</p>
+<p t="1447605" d="2445">And if an object is obscuring
+a line, it can</p>
+<p t="1450050" d="2080">be any line at all.</p>
+<p t="1452130" d="3850">So that's why the four remaining
+ones are easy beyond</p>
+<p t="1455980" d="3490">description to label.</p>
+<p t="1459470" d="3350">And of course, the cross
+pieces of the T are all</p>
+<p t="1462820" d="3110">boundary lines, with the
+obscuring object on the right.</p>
+<p t="1469720" d="800">Now let's see.</p>
+<p t="1470520" d="6590">We've taken care now of the one,
+three, five, and seven</p>
+<p t="1477110" d="1370">octants filled cases.</p>
+<p t="1478480" d="3580">What about two, four, and six?</p>
+<p t="1482060" d="4420">Well, it turns out you can have
+vertexes that are made</p>
+<p t="1486480" d="1450">that way too.</p>
+<p t="1487930" d="2250">But they will have more
+than three faces.</p>
+<p t="1490180" d="1550">They'll have six faces.</p>
+<p t="1491730" d="5525">They'll be like what happens
+when an object comes together</p>
+<p t="1497255" d="1250">at a point, like so.</p>
+<p t="1501308" d="1452">Like that.</p>
+<p t="1502760" d="1740">You can play with it a little
+bit and see that if you have</p>
+<p t="1504500" d="2590">two, four, or six objects filled
+with stuff, there are</p>
+<p t="1507090" d="920">more than three faces.</p>
+<p t="1508010" d="1680">So we're going to
+ignore those.</p>
+<p t="1509690" d="6350">So our constraint is going to
+be a little more severe than</p>
+<p t="1516040" d="2600">would be suggested by the
+terminology Huffman uses.</p>
+<p t="1518640" d="2210">They're going to be trihedral
+all right, but they're also</p>
+<p t="1520850" d="1250">going to be three faces.</p>
+<p t="1525620" d="1210">So we went to a lot
+of work there.</p>
+<p t="1526830" d="840">But what have we discovered?</p>
+<p t="1527670" d="3450">We've discovered that in this
+world, this is a complete,</p>
+<p t="1531120" d="2850">100% percent, nothing excluded,
+nothing else can be</p>
+<p t="1533970" d="4710">there, catalog of all possible
+ways the junctions can have</p>
+<p t="1538680" d="3090">line labels arranged
+around them.</p>
+<p t="1541770" d="2240">There's nothing else
+in this world.</p>
+<p t="1544010" d="2960">So that's a very powerful
+constraint.</p>
+<p t="1546970" d="1650">So now let's see what
+we can do with it.</p>
+<p t="1553770" d="2570">This example is usually more fun
+when the Red Sox are doing</p>
+<p t="1556340" d="2000">better, but they're not.</p>
+<p t="1558340" d="1530">Yet we'll use it any way.</p>
+<p t="1559870" d="2000">We're going to start
+with an object that</p>
+<p t="1561870" d="1250">looks like home plate.</p>
+<p t="1570990" d="1910">And I'll ask you the question.</p>
+<p t="1572900" d="3310">Can you build one of those?</p>
+<p t="1576210" d="1730">I don't know.</p>
+<p t="1577940" d="2700">Let's give it a shot.</p>
+<p t="1580640" d="2150">We're going to assume that
+this object is hanging,</p>
+<p t="1582790" d="1460">floating in space.</p>
+<p t="1584250" d="3880">So therefore, all of these lines
+around the boundary are</p>
+<p t="1588130" d="3360">boundary lines, like so.</p>
+<p t="1591490" d="2650">Now that gets us off to a good--
+it's just hanging in</p>
+<p t="1594140" d="900">space, Christopher, all right?</p>
+<p t="1595040" d="530">You look confused.</p>
+<p t="1595570" d="2660">It's just hanging in space so
+that all the lines around the</p>
+<p t="1598230" d="7540">edges are places where you see
+only one side has stuff on it.</p>
+<p t="1605770" d="3880">So that enables us to just
+quickly run around the</p>
+<p t="1609650" d="4560">periphery and put arrow labels
+on all those outside lines.</p>
+<p t="1614210" d="1480">Now we have a lot
+of arrow-style</p>
+<p t="1615690" d="1330">junctions on the boundary.</p>
+<p t="1617020" d="2320">That's commonly the case.</p>
+<p t="1619340" d="3560">So we can run over to our
+catalog of all possible</p>
+<p t="1622900" d="4510">labels, and we see that if we
+have an arrow with boundaries</p>
+<p t="1627410" d="3080">on its barbs, there's
+only one of those.</p>
+<p t="1630490" d="4300">So I know instantly that there
+must be a plus on the shaft.</p>
+<p t="1634790" d="3280">So we can come back here and
+take all these arrows here.</p>
+<p t="1638070" d="4240">And label them with plus
+lines on their shafts.</p>
+<p t="1642310" d="3500">Now a line can't change its
+nature along its length.</p>
+<p t="1645810" d="2580">So if it's a plus line on one
+end, it's going to be a plus</p>
+<p t="1648390" d="1315">line on the other end.</p>
+<p t="1649705" d="3265">All right?</p>
+<p t="1652970" d="1250">So what else can we do?</p>
+<p t="1654220" d="3620">Here deep inside is a
+fork-style junction.</p>
+<p t="1657840" d="6000">It's got convex markers on
+both of those two lines.</p>
+<p t="1663840" d="3290">So we go over to our catalog and
+say, what can we say about</p>
+<p t="1667130" d="3530">it, given that there are pluses
+on two of its lines?</p>
+<p t="1670660" d="1570">Whoop, that means that
+the third one has to</p>
+<p t="1672230" d="1250">be a plus as well.</p>
+<p t="1677820" d="570">And now we're done.</p>
+<p t="1678390" d="980">We've labeled everything.</p>
+<p t="1679370" d="1460">Except--</p>
+<p t="1680830" d="1710">look at this.</p>
+<p t="1682540" d="3390">What about that guy?</p>
+<p t="1685930" d="2210">There's an L-style junction
+with pluses on</p>
+<p t="1688140" d="2100">both of its two lines.</p>
+<p t="1690240" d="2780">Is there one of those
+in my catalog?</p>
+<p t="1693020" d="1260">No.</p>
+<p t="1694280" d="3900">Therefore, I haven't passed
+a necessary condition for</p>
+<p t="1698180" d="2840">constructability in the
+world that I've made.</p>
+<p t="1701020" d="1060">You can't make it.</p>
+<p t="1702080" d="1250">You can't construct it.</p>
+<p t="1705950" d="4520">So Huffman's ideas give us a
+way of testing something to</p>
+<p t="1710470" d="5130">see if it's not possible for
+it to be in this world.</p>
+<p t="1721360" d="3840">If it passes the test, does
+that mean it's possible?</p>
+<p t="1725200" d="540">No.</p>
+<p t="1725740" d="3000">It's a necessary but not
+sufficient condition.</p>
+<p t="1728740" d="2990">On this one--</p>
+<p t="1731730" d="1850">blue-collar occupation--</p>
+<p t="1733580" d="2330">on this one, maybe it
+will help if we</p>
+<p t="1735910" d="2150">put in another line.</p>
+<p t="1738060" d="3040">For example, we could
+put a line like so.</p>
+<p t="1741100" d="2660">You feel better about it now?</p>
+<p t="1743760" d="770">I don't know.</p>
+<p t="1744530" d="1760">Let's see.</p>
+<p t="1746290" d="3100">This has to be a plus for the
+same argument we used on</p>
+<p t="1749390" d="1810">several other arrows before.</p>
+<p t="1751200" d="3920">That gives us an arrow-style
+junction here with a plus on</p>
+<p t="1755120" d="2020">everything.</p>
+<p t="1757140" d="3158">Is there such a junction
+label?</p>
+<p t="1760298" d="1212">No.</p>
+<p t="1761510" d="935">We lose.</p>
+<p t="1762445" d="1225">It doesn't help.</p>
+<p t="1763670" d="3962">You think you can make
+it, but you can't.</p>
+<p t="1767632" d="1640">STUDENT: You could actually
+construct it as</p>
+<p t="1769272" d="1312">a 3-D object, though.</p>
+<p t="1774260" d="640">PATRICK WINSTON: He
+thinks you can</p>
+<p t="1774900" d="2670">construct it as a 3-D object.</p>
+<p t="1777570" d="3220">Let me show you the next
+example, Christopher.</p>
+<p t="1780790" d="1250">Consider this example.</p>
+<p t="1792956" d="3614">Can you make that?</p>
+<p t="1796570" d="1730">Your intuition is yes.</p>
+<p t="1798300" d="1250">So let's label it.</p>
+<p t="1811126" d="1354">Oh, I've already lost.</p>
+<p t="1816500" d="2390">We just boost that up a
+little bit to make the</p>
+<p t="1818890" d="1250">situation more clear.</p>
+<p t="1825780" d="2890">So already, I've got myself in
+a situation where I can't</p>
+<p t="1828670" d="2560">label that.</p>
+<p t="1831230" d="1860">But you feel like
+you can make it.</p>
+<p t="1833090" d="3200">So what's wrong?</p>
+<p t="1836290" d="1270">What's wrong is--</p>
+<p t="1837560" d="660">what, Elliott?</p>
+<p t="1838220" d="1130">STUDENT: You have
+an obscured--</p>
+<p t="1839350" d="4776">or, we're presuming that we have
+an obscured [INAUDIBLE]</p>
+<p t="1844126" d="7274">alley from the upper-left corner
+to the [INAUDIBLE].</p>
+<p t="1851400" d="2090">PATRICK WINSTON: Putting a
+little interpretation on what</p>
+<p t="1853490" d="2170">Elliott has said.</p>
+<p t="1855660" d="3750">If you look at this situation
+back here, you get a</p>
+<p t="1859410" d="3190">four-faced junction there.</p>
+<p t="1862600" d="1100">So you can make it.</p>
+<p t="1863700" d="2300">But not with three faces.</p>
+<p t="1866000" d="4030">So some of these look like
+you could make it.</p>
+<p t="1870030" d="2870">But they can't be labeled
+because you need more than</p>
+<p t="1872900" d="3400">four faces at a junction.</p>
+<p t="1876300" d="2350">And we can carry that
+idea back here.</p>
+<p t="1878650" d="1130">You can make this OK.</p>
+<p t="1879780" d="3030">But this junction, you've got
+two in the back and two here.</p>
+<p t="1882810" d="2160">So it has four faces.</p>
+<p t="1884970" d="2750">Same idea.</p>
+<p t="1887720" d="10250">So that's Guzman's
+contribution.</p>
+<p t="1897970" d="2110">That's Huffman's contribution.</p>
+<p t="1900080" d="1820">Huffman was a mathematician.</p>
+<p t="1901900" d="2000">But we wanted to build robots
+back in those days.</p>
+<p t="1903900" d="2890">And neither one of these guys
+solved the problem of dealing</p>
+<p t="1906790" d="4740">with natural objects with
+shadows, with cracks, with</p>
+<p t="1911530" d="4180">more than trihedral vertexes
+in space, and</p>
+<p t="1915710" d="1875">what to do about that?</p>
+<p t="1917585" d="4525">Well, that was a problem that
+another graduate student,</p>
+<p t="1922110" d="1730">David Waltz, set
+about to solve.</p>
+<p t="1926820" d="8490">So Waltz decided that he would
+not be content unless he added</p>
+<p t="1935310" d="9860">cracks, shadows, non-trihedral
+vertexes.</p>
+<p t="1949123" d="1437">Uh--</p>
+<p t="1950560" d="1250">yeah, non-trihedral vertexes.</p>
+<p t="1958330" d="1250">And light.</p>
+<p t="1962210" d="6420">These considerations led
+Waltz to go from</p>
+<p t="1968630" d="4820">four labels to 50-plus.</p>
+<p t="1973450" d="2360">Because he had to pack a lot
+of information into each of</p>
+<p t="1975810" d="1950">the labels he put on a line.</p>
+<p t="1977760" d="1350">What kind of light
+was on the right?</p>
+<p t="1979110" d="1200">What kind of light
+was on the left?</p>
+<p t="1980310" d="830">Maybe it's a crack.</p>
+<p t="1981140" d="1490">Maybe it's a crack that--</p>
+<p t="1982630" d="3220">all sorts of considerations.</p>
+<p t="1985850" d="2510">Here we had 18 ways that
+lines can come</p>
+<p t="1988360" d="1250">together around junctions.</p>
+<p t="1992060" d="6070">That went to thousands of
+junctions in Waltz's world.</p>
+<p t="1998130" d="1250">So here's Guzman.</p>
+<p t="2002630" d="1780">He writes a program that
+sort of works.</p>
+<p t="2007500" d="2000">Down below, we have Huffman.</p>
+<p t="2021990" d="6100">Huffman, who has a theory but
+solves the wrong problem.</p>
+<p t="2028090" d="2410">So here comes Waltz, and he's
+trying to solve the right</p>
+<p t="2030500" d="5310">problem with a satisfying
+theory that has a</p>
+<p t="2035810" d="1910">generalizable principle.</p>
+<p t="2037720" d="2990">So when we get all through
+this, we'll talk about</p>
+<p t="2040710" d="1250">criteria for success.</p>
+<p t="2041960" d="2100">And we'll conclude that to
+have a really successful</p>
+<p t="2044060" d="3610">thing, you need a problem,
+to start with.</p>
+<p t="2047670" d="1120">You need a method that works.</p>
+<p t="2048790" d="1060">And you have to show
+that it works</p>
+<p t="2049850" d="2190">because of some principal.</p>
+<p t="2052040" d="5000">So Guzman had the problem and
+something that worked.</p>
+<p t="2057040" d="3179">Huffman had a method which
+worked on the wrong problem.</p>
+<p t="2060219" d="2571">And it's left to Waltz to
+bring it all together.</p>
+<p t="2062790" d="1980">So Waltz does all this work.</p>
+<p t="2064770" d="3760">And now he has, instead at 18
+labels, he has thousands.</p>
+<p t="2068530" d="3939">Instead of four-line labels,
+he has more than 50.</p>
+<p t="2072469" d="1811">So naturally, it becomes
+difficult to</p>
+<p t="2074280" d="2379">work these by hand.</p>
+<p t="2076659" d="5980">We were able to work those
+Huffman examples by hand.</p>
+<p t="2082639" d="2380">We started with labeling
+everything on the boundary and</p>
+<p t="2085019" d="561">worked our way in.</p>
+<p t="2085580" d="1380">There's no particular
+method there.</p>
+<p t="2086960" d="3690">It was just easy to work
+out the puzzle.</p>
+<p t="2090650" d="4850">But poor Waltz, he didn't
+have that luxury.</p>
+<p t="2095500" d="3410">So he might have, in a typical
+scene, he might have tens or</p>
+<p t="2098910" d="5220">even hundreds of junctions to
+label and no easy way of</p>
+<p t="2104130" d="800">dealing with it.</p>
+<p t="2104930" d="6130">So naturally writes himself a
+depth-first search program.</p>
+<p t="2111060" d="8360">So here is vertex, or rather
+junction number 1.</p>
+<p t="2119420" d="5660">There are many choices for which
+label can be used on it.</p>
+<p t="2125080" d="3990">And for each of those choices,
+whatever he's decided junction</p>
+<p t="2129070" d="5020">number 2 is has its own suite
+of possibilities.</p>
+<p t="2134090" d="1580">And so it becomes a
+simple depth-first</p>
+<p t="2135670" d="3370">search problem, right?</p>
+<p t="2139040" d="3540">So in actuality, as
+soon as Waltz--</p>
+<p t="2142580" d="1360">he was my office mate
+at the time.</p>
+<p t="2143940" d="2020">I can tell you this
+for a fact.</p>
+<p t="2145960" d="2120">As soon as he wrote this
+program, he kept looking over</p>
+<p t="2148080" d="820">at the computer--</p>
+<p t="2148900" d="1390">they were big in those days.</p>
+<p t="2150290" d="1250">They all had lights.</p>
+<p t="2151540" d="1730">So you looked over at the
+computer to see if the lights</p>
+<p t="2153270" d="1590">were still blinking.</p>
+<p t="2154860" d="3430">Because he'd start this
+depth-first search program up</p>
+<p t="2158290" d="1790">and nothing would happen.</p>
+<p t="2160080" d="2740">He thought the computer
+had crashed.</p>
+<p t="2162820" d="1700">Nothing happened.</p>
+<p t="2164520" d="3030">Why did nothing happen?</p>
+<p t="2167550" d="3800">Because the search base is
+exponential and much too big</p>
+<p t="2171350" d="2220">for an ordinary computer,
+or maybe</p>
+<p t="2173570" d="2400">even an ordinary universe.</p>
+<p t="2175970" d="4520">So Waltz has to do
+something else.</p>
+<p t="2180490" d="3640">He has to come up with a new
+method for using all these</p>
+<p t="2184130" d="2950">labels that he's--</p>
+<p t="2187080" d="2330">after about a year and a half's
+worth of hard work,</p>
+<p t="2189410" d="2580">with lots of paper on his
+desk in little blocks.</p>
+<p t="2191990" d="3240">After year and a half of hard
+work getting all these</p>
+<p t="2195230" d="2330">junction labels figured out, he
+then has to come up with a</p>
+<p t="2197560" d="3290">method for figuring out
+how to use them.</p>
+<p t="2200850" d="2360">And so we don't know whether
+to think his biggest</p>
+<p t="2203210" d="3180">contribution was that label
+set or his method.</p>
+<p t="2206390" d="3938">And probably both deserve
+about equal billing.</p>
+<p t="2210328" d="4382">Oh, I don't know how to explain
+what Waltz did.</p>
+<p t="2214710" d="2760">Well, one way is to
+do an example.</p>
+<p t="2217470" d="1405">And I think I will hazard
+an example.</p>
+<p t="2231560" d="440">Let's see.</p>
+<p t="2232000" d="1165">Let me find some space.</p>
+<p t="2233165" d="1835">I think I'm reduced to
+going over here.</p>
+<p t="2235000" d="1835">But that will be convenient,
+since the</p>
+<p t="2236835" d="1250">line labels are here.</p>
+<p t="2244380" d="1250">Here's my example.</p>
+<p t="2256372" d="3278">And you say, how can I give you
+just part of a picture?</p>
+<p t="2259650" d="2490">Well, you can assume
+I'm looking at</p>
+<p t="2262140" d="1550">this through a window.</p>
+<p t="2263690" d="2600">So the edge of the window form
+boundary lines, and they exert</p>
+<p t="2266290" d="3060">no constraint whatsoever
+on what's behind them.</p>
+<p t="2269350" d="1410">So this is a legitimate
+drawing to</p>
+<p t="2270760" d="2710">have to think about.</p>
+<p t="2273470" d="1480">By the way, is this ambiguous?</p>
+<p t="2274950" d="2680">Or do you get a firm sense
+that there's a unique</p>
+<p t="2277630" d="3020">interpretation of
+all those lines?</p>
+<p t="2280650" d="2110">I think there's a unique
+interpretation</p>
+<p t="2282760" d="1880">of all those lines.</p>
+<p t="2284640" d="2490">What I'm going to do is I'm
+actually going to solve this</p>
+<p t="2287130" d="4380">problem using Huffman's labels
+but Waltz's method.</p>
+<p t="2291510" d="3390">Because I can't simulate on the
+blackboard something with</p>
+<p t="2294900" d="2750">50 line types and thousands
+of line junctions.</p>
+<p t="2297650" d="3300">So I'm going to use
+Huffman's set to</p>
+<p t="2300950" d="2440">demonstrate Waltz's algorithm.</p>
+<p t="2303390" d="8650">So Waltz's algorithm involves
+starting out by plopping on</p>
+<p t="2312040" d="7040">some junction all of the
+possible labels that the</p>
+<p t="2319080" d="2040">answer has to be drawn from.</p>
+<p t="2321120" d="2550">So let me number these in the
+order that we're going to</p>
+<p t="2323670" d="2206">visit them.</p>
+<p t="2325876" d="1194">Like so.</p>
+<p t="2327070" d="6010">And so far, I've just put down
+the three fork options that</p>
+<p t="2333080" d="3930">are resident on that
+first junction.</p>
+<p t="2337010" d="3640">And I have to take note of
+exactly what they do with the</p>
+<p t="2340650" d="3010">lines that come out
+of the junction.</p>
+<p t="2343660" d="500">So let's see.</p>
+<p t="2344160" d="1760">I'll just copy them down.</p>
+<p t="2345920" d="2840">One possibility is this one.</p>
+<p t="2348760" d="2590">Another possibility
+is this one.</p>
+<p t="2351350" d="6240">And another possibility
+is plus, plus, minus.</p>
+<p t="2357590" d="1250">Oops, I've got plus, plus.</p>
+<p t="2358840" d="1180">No, that's right.</p>
+<p t="2360020" d="1390">So that right so far?</p>
+<p t="2361410" d="2430">All I've done is copy
+the junction</p>
+<p t="2363840" d="3205">labelings from my library.</p>
+<p t="2367045" d="4715">And at this point, Waltz's
+algorithm says there's nothing</p>
+<p t="2371760" d="3050">else to do but go on to
+junction number two.</p>
+<p t="2374810" d="5820">And unfortunately, sadly, there
+are lots of labelings</p>
+<p t="2380630" d="2630">that have to be considered
+on junction number 2.</p>
+<p t="2383260" d="2910">Six of them.</p>
+<p t="2386170" d="3790">1, 2, 3, 4, 5, 6.</p>
+<p t="2389960" d="2130">So one of them looks
+like that.</p>
+<p t="2392090" d="2160">Another one looks like that.</p>
+<p t="2394250" d="2930">One of them is plus
+here, arrow in.</p>
+<p t="2399840" d="7050">Another one is plus
+here, arrow out.</p>
+<p t="2406890" d="7240">Another one is minus
+here, arrow down.</p>
+<p t="2414130" d="1890">And minus here, arrow up.</p>
+<p t="2416020" d="3595">I think I've copied
+those all right.</p>
+<p t="2419615" d="4335">But now, having copied those
+down, Waltz's algorithm looks</p>
+<p t="2423950" d="3810">around at the neighboring
+junctions and says, are any of</p>
+<p t="2427760" d="4370">the things that I just placed on
+junction two disallowed by</p>
+<p t="2432130" d="4120">what I've already placed on
+a neighboring junction?</p>
+<p t="2436250" d="5850">So it looks over here
+in step number two.</p>
+<p t="2442100" d="6950">And it sees that these three
+arrows require the line that</p>
+<p t="2449050" d="5490">joins junctions 1 and 2 to
+be either minus or plus.</p>
+<p t="2457480" d="4210">So of the six possibilities, I
+can only keep the ones that</p>
+<p t="2461690" d="3040">are likewise content to put
+a plus on that line</p>
+<p t="2464730" d="2430">that joins the two.</p>
+<p t="2467160" d="5600">So that means that the influence
+flowing from</p>
+<p t="2472760" d="7110">junction 1 eliminates that
+one, eliminates that one,</p>
+<p t="2479870" d="3720">eliminates that one, and
+eliminates that one.</p>
+<p t="2483590" d="3080">So half of them are gone.</p>
+<p t="2486670" d="4870">All the ones that try to put a
+boundary line on that line</p>
+<p t="2491540" d="2795">between 1 and 2 are
+disallowed.</p>
+<p t="2494335" d="2405">All right?</p>
+<p t="2496740" d="2990">Now likewise, we could say,
+well, of the remaining ones,</p>
+<p t="2499730" d="3820">do they restrict what I
+can do at junction 1?</p>
+<p t="2503550" d="500">So let's see.</p>
+<p t="2504050" d="1470">Here's a minus.</p>
+<p t="2505520" d="1160">And here's a plus.</p>
+<p t="2506680" d="7620">So all these possibilities over
+here are still alive.</p>
+<p t="2514300" d="4390">So now, continuing on, we have
+to see what we can do at</p>
+<p t="2518690" d="1860">junction 3.</p>
+<p t="2520550" d="2810">These are arrow labels again.</p>
+<p t="2523360" d="2670">So we have to copy exactly
+the same labels</p>
+<p t="2526030" d="1250">set as we had before.</p>
+<p t="2533980" d="4830">And now we look down at junction
+2 and say, well, what</p>
+<p t="2538810" d="4110">does that tell me about the
+three that I've just placed?</p>
+<p t="2542920" d="3900">If we look up from junction
+2 to see what kind of</p>
+<p t="2546820" d="4180">constraints it puts on here,
+we have this one alive and</p>
+<p t="2551000" d="710">this one alive.</p>
+<p t="2551710" d="2330">I guess we've eliminated
+four of the six.</p>
+<p t="2554040" d="1970">So we have these two alive.</p>
+<p t="2556010" d="2980">And they both but
+boundary lines--</p>
+<p t="2558990" d="2930">I think I must have had this
+boundary line wrong, right?</p>
+<p t="2561920" d="1250">No, that's right.</p>
+<p t="2565510" d="1250">Oh yes, I see.</p>
+<p t="2569370" d="1760">Plus.</p>
+<p t="2571130" d="1790">This one goes--</p>
+<p t="2572920" d="1735">hang on a second.</p>
+<p t="2574655" d="1365">You let me do something wrong.</p>
+<p t="2578840" d="3556">So plus is out.</p>
+<p t="2582396" d="1374">And that must be
+one that goes--</p>
+<p t="2583770" d="2590">this minus goes up.</p>
+<p t="2586360" d="1680">Oh, yes.</p>
+<p t="2588040" d="3940">I'm too hasty and uncertain
+about what I was doing.</p>
+<p t="2591980" d="1590">So let's see.</p>
+<p t="2593570" d="2090">This guy has a boundary
+going down.</p>
+<p t="2595660" d="2480">And this guy has a boundary
+going up.</p>
+<p t="2598140" d="2250">All of the others have
+been eliminated.</p>
+<p t="2600390" d="2390">So that means that something
+that tries to put a concave</p>
+<p t="2602780" d="1800">line there is gone.</p>
+<p t="2604580" d="3760">And something that tries to put
+a plus line there is gone.</p>
+<p t="2608340" d="4150">So the influence flowing up in
+this direction in the third</p>
+<p t="2612490" d="3810">step eliminates that guy and
+eliminates that guy, leaving</p>
+<p t="2616300" d="3160">only this guy.</p>
+<p t="2619460" d="1740">But now, the thing I was worried
+about is you have to</p>
+<p t="2621200" d="3610">also at this point go down to
+2 and see if there's any</p>
+<p t="2624810" d="5220">further constraint on what can
+survive down there, based on</p>
+<p t="2630030" d="3410">what has happened over
+here at junction 3.</p>
+<p t="2633440" d="1730">Now let's see.</p>
+<p t="2635170" d="3020">This one goes up, which is
+compatible with a survivor.</p>
+<p t="2638190" d="1670">But this one goes down,
+which is not</p>
+<p t="2639860" d="2160">compatible with a survivor.</p>
+<p t="2642020" d="3910">So when I bring this down in
+step three, this guy is</p>
+<p t="2645930" d="1540">eliminated.</p>
+<p t="2647470" d="5120">So now I'm down to just one
+interpretation for what can be</p>
+<p t="2652590" d="2550">going on at vertex number 2.</p>
+<p t="2655140" d="5150">And one interpretation
+for vertex number 3.</p>
+<p t="2660290" d="900">Now let's see.</p>
+<p t="2661190" d="1170">This can propagate.</p>
+<p t="2662360" d="3480">So now that I've made a change
+on vertex number 2, I have to</p>
+<p t="2665840" d="4800">also see if that causes a change
+at vertex number 1.</p>
+<p t="2670640" d="1900">So it's propagating through.</p>
+<p t="2672540" d="3490">And now I can see that the only
+possibility here is a</p>
+<p t="2676030" d="3700">minus, the label that's coming
+down from our survivor.</p>
+<p t="2679730" d="3000">So that eliminates these two.</p>
+<p t="2682730" d="890">Whew!</p>
+<p t="2683620" d="2940">It's hard to do this by hand,
+but I've got three of the four</p>
+<p t="2686560" d="1970">things labeled.</p>
+<p t="2688530" d="3410">And even with just three of the
+four labeled, I'm down to</p>
+<p t="2691940" d="2930">a single interpretation for all
+of the junctions and the</p>
+<p t="2694870" d="2250">lines between them.</p>
+<p t="2697120" d="1250">So there's one left.</p>
+<p t="2701250" d="1830">We have to deal with
+that fork vertex.</p>
+<p t="2703080" d="2160">We better deal with it, because
+for all we know, this</p>
+<p t="2705240" d="3900">is not a legal drawing
+in this world.</p>
+<p t="2709140" d="6040">We have five fork vertexes
+to place.</p>
+<p t="2715180" d="1190">But you know what?</p>
+<p t="2716370" d="2490">I don't have to draw much here,
+because I know this is</p>
+<p t="2718860" d="1780">forced to be a plus now.</p>
+<p t="2720640" d="2200">And this is forced
+to be a plus now.</p>
+<p t="2722840" d="1890">And there's only one fork
+vertex with any</p>
+<p t="2724730" d="2210">pluses on it at all.</p>
+<p t="2726940" d="2860">So now I can come through and
+say, well, the only possible</p>
+<p t="2729800" d="2780">survivor is this one.</p>
+<p t="2732580" d="1860">These are gone.</p>
+<p t="2734440" d="2100">And now I have an
+interpretation</p>
+<p t="2736540" d="3310">for all of the junctions.</p>
+<p t="2739850" d="2980">And I see that the winners
+are this one.</p>
+<p t="2742830" d="2480">And this one.</p>
+<p t="2745310" d="2590">And this one.</p>
+<p t="2747900" d="2340">And this one.</p>
+<p t="2750240" d="1880">So I've got a unique
+interpretation.</p>
+<p t="2752120" d="2140">This line is convex.</p>
+<p t="2754260" d="1360">This one is concave.</p>
+<p t="2755620" d="1210">This is a boundary.</p>
+<p t="2756830" d="730">That's a boundary.</p>
+<p t="2757560" d="2044">And this line is convex,
+and that's convex.</p>
+<p t="2762770" d="1885">Now that's a lot of work.</p>
+<p t="2764655" d="2365">So I better check and make
+sure I got it right.</p>
+<p t="2767020" d="1820">You'd like to see this
+demonstrated to make sure I</p>
+<p t="2768840" d="1000">haven't made a mistake.</p>
+<p t="2769840" d="1250">I'm sure of that.</p>
+<p t="2775440" d="3105">Let's see.</p>
+<p t="2778545" d="1250">That it?</p>
+<p t="2784380" d="4560">So each of the places where a
+line is obscured has four</p>
+<p t="2788940" d="3250">possibilities, labeled E. The
+arrow junctions are labeled A.</p>
+<p t="2792190" d="3520">The forks-- there are five of
+them-- at the fork junction 5.</p>
+<p t="2795710" d="4180">So let's just step through here
+and see what happens.</p>
+<p t="2799890" d="450">Boom.</p>
+<p t="2800340" d="1980">I've got it.</p>
+<p t="2802320" d="1250">I did do it right.</p>
+<p t="2809080" d="1250">So let's try some more.</p>
+<p t="2814010" d="1810">What do you think will
+happen with this one?</p>
+<p t="2815820" d="1250">Unique solution?</p>
+<p t="2823000" d="1746">It stopped.</p>
+<p t="2824746" d="2644">Bug in my program?</p>
+<p t="2827390" d="2110">Unthinkable.</p>
+<p t="2829500" d="1780">What's happened?</p>
+<p t="2831280" d="2940">It is genuinely ambiguous.</p>
+<p t="2834220" d="3570">It can be something hanging
+down from the ceiling.</p>
+<p t="2837790" d="5130">Or it could be something that
+we can think of as a step</p>
+<p t="2842920" d="3250">going up from left to right.</p>
+<p t="2846170" d="1250">Let's look at something
+more complicated.</p>
+<p t="2853910" d="2580">You think it'll work?</p>
+<p t="2856490" d="2470">Not enough constraint for us
+to figure that one out.</p>
+<p t="2858960" d="4570">It's equally ambiguous, but a
+little bit larger example.</p>
+<p t="2863530" d="1250">What about this one?</p>
+<p t="2868250" d="1880">Yeah, but the stuff is creeping
+up from the lower</p>
+<p t="2870130" d="3580">left up to the upper right.</p>
+<p t="2873710" d="790">Yeah, bingo.</p>
+<p t="2874500" d="710">It worked.</p>
+<p t="2875210" d="1590">It's unambiguous.</p>
+<p t="2876800" d="2610">It's variation on the same
+theme we had before.</p>
+<p t="2879410" d="2570">But let me, just for fun, take
+these two lines out.</p>
+<p t="2885260" d="1250">What do you think
+will happen now?</p>
+<p t="2889190" d="4620">Seems to be doing just fine
+until it hits the upper</p>
+<p t="2893810" d="1750">right-hand corner and discovers</p>
+<p t="2895560" d="1680">it can't label stuff.</p>
+<p t="2897240" d="2290">So it propagates back down.</p>
+<p t="2899530" d="2670">And what looked OK in
+the lower left is</p>
+<p t="2902200" d="990">no good after all.</p>
+<p t="2903190" d="5320">So these results are kind of
+consistent with what we humans</p>
+<p t="2908510" d="2000">do when we look at these
+kinds of things.</p>
+<p t="2910510" d="3610">So it's very likely that we,
+in our heads, do have some</p>
+<p t="2914120" d="1620">constraint propagation
+apparatus</p>
+<p t="2915740" d="1850">that we use in vision.</p>
+<p t="2917590" d="2610">But putting that aside, we can
+think about other kinds of</p>
+<p t="2920200" d="2740">intelligence different from
+human, that might use this</p>
+<p t="2922940" d="3130">kind of mechanism to solve
+problems that involve a lot of</p>
+<p t="2926070" d="2410">constraint in finding
+a solution.</p>
+<p t="2928480" d="4300">So here, we saw the constraint
+propagation activity at work</p>
+<p t="2932780" d="1600">on line drawing analysis.</p>
+<p t="2934380" d="1400">But next time, what we're going
+do is we're going to see</p>
+<p t="2935780" d="1130">at work in map coloring.</p>
+<p t="2936910" d="2060">And who cares about
+map coloring?</p>
+<p t="2938970" d="2130">People who do scheduling,
+because that turns out to be</p>
+<p t="2941100" d="1250">the same problem.</p>
+</body>
+</timedtext>

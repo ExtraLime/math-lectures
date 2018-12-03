@@ -1,0 +1,1391 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="30" d="2300">The following content is
+provided under a Creative</p>
+<p t="2330" d="1280">Commons license.</p>
+<p t="3610" d="2160">Your support will help
+MIT OpenCourseWare</p>
+<p t="5770" d="4160">continue to offer high quality
+educational resources for free.</p>
+<p t="9930" d="2600">To make a donation or to
+view additional materials</p>
+<p t="12530" d="3090">from hundreds of MIT courses
+visit MIT OpenCourseWare</p>
+<p t="15620" d="5300">at ocw.mit.edu.</p>
+<p t="20920" d="4750">PROFESSOR STRANG: Finally we get
+to positive definite matrices.</p>
+<p t="25670" d="3510">I've used the word and now
+it's time to pin it down.</p>
+<p t="29180" d="4440">And so this would be my
+thank you for staying with it</p>
+<p t="33620" d="3870">while we do this important
+preliminary stuff</p>
+<p t="37490" d="2290">about linear algebra.</p>
+<p t="39780" d="2070">So starting the
+next lecture we'll</p>
+<p t="41850" d="4810">really make a big start on
+engineering applications.</p>
+<p t="46660" d="4590">But these matrices are going
+to be the key to everything.</p>
+<p t="51250" d="7040">And I'll call these matrices
+K. And positive definite,</p>
+<p t="58290" d="4910">I will only use that word
+about a symmetric matrix.</p>
+<p t="63200" d="3930">So the matrix is
+already symmetric</p>
+<p t="67130" d="2600">and that means it
+has real eigenvalues</p>
+<p t="69730" d="3090">and many other
+important properties,</p>
+<p t="72820" d="2110">orthogonal eigenvectors.</p>
+<p t="74930" d="3030">And now we're asking for more.</p>
+<p t="77960" d="7670">And it's that extra
+bit that is terrific</p>
+<p t="85630" d="2630">in all kinds of applications.</p>
+<p t="88260" d="2830">So if I can do this
+bit of linear algebra.</p>
+<p t="91090" d="7790">So what's coming then, my review
+session this afternoon at four,</p>
+<p t="98880" d="2580">I'm very happy that
+we've got, I think,</p>
+<p t="101460" d="5690">the best MATLAB problem ever
+invented, in 18.085 anyway.</p>
+<p t="107150" d="4260">So that should get onto the
+website probably by tomorrow.</p>
+<p t="111410" d="4260">And Peter Buchak is
+like the MATLAB person.</p>
+<p t="115670" d="3920">So his review sessions
+are Friday at noon.</p>
+<p t="119590" d="3300">And I just saw him and
+suggested Friday at noon</p>
+<p t="122890" d="3860">he might as well
+just stay in here.</p>
+<p t="126750" d="2990">And knowing that
+that isn't maybe</p>
+<p t="129740" d="1310">a good hour for everybody.</p>
+<p t="131050" d="5340">So you could see him also
+outside of that hour.</p>
+<p t="136390" d="3280">But that's the hour
+he will be ready</p>
+<p t="139670" d="3850">for all kinds of questions about
+MATLAB or about the homeworks.</p>
+<p t="143520" d="5200">Actually you'll be probably
+thinking more about, also</p>
+<p t="148720" d="6960">about the homework
+questions on this topic.</p>
+<p t="155680" d="5230">Ready for positive definite?</p>
+<p t="160910" d="2840">You said yes, right?</p>
+<p t="163750" d="6430">And you have a hint
+about these things.</p>
+<p t="170180" d="4700">So we have a symmetric
+matrix and the beauty</p>
+<p t="174880" d="3310">is that it brings together
+all of linear algebra.</p>
+<p t="178190" d="3480">Including elimination,
+that's when we see pivots.</p>
+<p t="181670" d="4260">Including determinants which are
+closely related to the pivots.</p>
+<p t="185930" d="2250">And what do I mean
+by upper left?</p>
+<p t="188180" d="5130">I mean that if I have a three
+by three symmetric matrix</p>
+<p t="193310" d="3040">and I want to test it
+for positive definite,</p>
+<p t="196350" d="2340">and I guess actually
+this would be the easiest</p>
+<p t="198690" d="4450">test if I had a tiny
+matrix, three by three,</p>
+<p t="203140" d="3980">and I had numbers, then
+this would be a good test.</p>
+<p t="207120" d="4293">The determinants-- By upper left
+determinants I mean that one</p>
+<p t="211413" d="1757">by one determinant.</p>
+<p t="213170" d="3050">So just that first number
+has to be positive.</p>
+<p t="216220" d="3680">Then the two by two determinant,
+that times that minus that</p>
+<p t="219900" d="2330">times that has to be positive.</p>
+<p t="222230" d="2190">Oh I've already
+been saying that.</p>
+<p t="224420" d="1870">Let me just put in some letters.</p>
+<p t="226290" d="1810">So a has to be positive.</p>
+<p t="228100" d="3520">This is symmetric,
+so a times c has</p>
+<p t="231620" d="2690">to be bigger than b squared.</p>
+<p t="234310" d="3030">So that will tell us.</p>
+<p t="237340" d="1890">And then for two
+by two we finish.</p>
+<p t="239230" d="4026">For three by three we would
+also require the three</p>
+<p t="243256" d="2624">by three determinant
+to be positive.</p>
+<p t="245880" d="2560">But already here
+you're seeing one point</p>
+<p t="248440" d="3030">about a positive
+definite matrix.</p>
+<p t="251470" d="2960">Its diagonal will
+have to be positive.</p>
+<p t="254430" d="5590">And somehow its diagonal has
+to be not just above zero,</p>
+<p t="260020" d="5120">but somehow it has
+to defeat b squared.</p>
+<p t="265140" d="5550">So the diagonal has to
+be somehow more positive</p>
+<p t="270690" d="3200">than whatever
+negative stuff might</p>
+<p t="273890" d="1890">come from off the diagonal.</p>
+<p t="275780" d="5470">That's why I would need
+a*c &amp;gt; b squared.</p>
+<p t="281250" d="1870">So both of those
+will be positive</p>
+<p t="283120" d="5480">and their product has to be
+bigger than the other guy.</p>
+<p t="288600" d="4050">And then finally, a third test
+is that all the eigenvalues</p>
+<p t="292650" d="1320">are positive.</p>
+<p t="293970" d="2530">And of course if I give you
+a three by three matrix,</p>
+<p t="296500" d="1840">that's probably not
+the easiest test</p>
+<p t="298340" d="2330">since you'd have to
+find the eigenvalues.</p>
+<p t="300670" d="4820">Much easier to find the
+determinants or the pivots.</p>
+<p t="305490" d="4910">Actually, just while I'm at it,
+so the first pivot of course</p>
+<p t="310400" d="1770">is a itself.</p>
+<p t="312170" d="2970">No difficulty there.</p>
+<p t="315140" d="4440">The second pivot turns out
+to be the ratio of a*c -</p>
+<p t="319580" d="2560">b squared to a.</p>
+<p t="322140" d="3700">So the connection between
+pivots and determinants</p>
+<p t="325840" d="2370">is just really close.</p>
+<p t="328210" d="2110">Pivots are ratios
+of determinants,</p>
+<p t="330320" d="930">if you work it out.</p>
+<p t="331250" d="3680">The second pivot, maybe
+I would call that d_2,</p>
+<p t="334930" d="5180">is the ratio of a*c
+- b squared over a.</p>
+<p t="340110" d="2930">In other words it's
+c minus b^2 / a.</p>
+<p t="348250" d="3540">Determinants are
+positive and vice versa.</p>
+<p t="351790" d="2340">Then it's fantastic
+that the eigenvalues</p>
+<p t="354130" d="2610">come into the picture.</p>
+<p t="356740" d="3770">So those are three ways,
+three important properties</p>
+<p t="360510" d="2360">of a positive definite matrix.</p>
+<p t="362870" d="5900">But I'd like to make the
+definition something different.</p>
+<p t="368770" d="2430">Now I'm coming to the meaning.</p>
+<p t="371200" d="3220">If I think of those as
+the tests, that's done.</p>
+<p t="374420" d="9950">Now the meaning of
+positive definite.</p>
+<p t="384370" d="2860">The meaning of positive
+definite and the applications</p>
+<p t="387230" d="5310">are closely related to
+looking for a minimum.</p>
+<p t="392540" d="7360">And so what I'm going to bring
+in here-- So it's symmetric.</p>
+<p t="399900" d="7710">Now for a symmetric matrix I
+want to introduce the energy.</p>
+<p t="407610" d="3970">So this is the reason why
+it has so many applications</p>
+<p t="411580" d="3170">and such important
+physical meaning is</p>
+<p t="414750" d="2160">that what I'm
+about to introduce,</p>
+<p t="416910" d="4690">which is a function
+of x, and here</p>
+<p t="421600" d="6340">it is, it's x transpose
+times A, not A,</p>
+<p t="427940" d="8830">I'm sticking with K
+for my matrix, times x.</p>
+<p t="436770" d="4100">I think of that as some f(x).</p>
+<p t="440870" d="3560">And let's just see what it
+would be if the matrix was</p>
+<p t="444430" d="5080">two by two, [a, b; b, c].</p>
+<p t="449510" d="3820">Suppose that's my matrix.</p>
+<p t="453330" d="3440">We want to get a handle on
+what, this is the first time</p>
+<p t="456770" d="5270">I've ever written something
+that has x's times x's.</p>
+<p t="462040" d="3150">So it's going to be quadratic.</p>
+<p t="465190" d="3140">They're going to
+be x's times x's.</p>
+<p t="468330" d="3860">And x is a general
+vector of the right size</p>
+<p t="472190" d="2910">so it's got components x_1, x_2.</p>
+<p t="475100" d="2750">And there it's
+transposed, so it's a row.</p>
+<p t="477850" d="4070">And now I put in
+the [a, b; b,  c].</p>
+<p t="481920" d="3760">And then I put in x again.</p>
+<p t="485680" d="3410">This is going to give me a
+very nice, simple, important</p>
+<p t="489090" d="2740">expression.</p>
+<p t="491830" d="2640">Depending on x_1 and x_2.</p>
+<p t="494470" d="3620">Now what is, can we do
+that multiplication?</p>
+<p t="498090" d="7120">Maybe above I'll do the
+multiplication of this pair</p>
+<p t="505210" d="3160">and then I have the
+other guy to bring in.</p>
+<p t="508370" d="2860">So here, that
+would be ax_1+bx_2.</p>
+<p t="515040" d="1810">And this would be bx_1+cx_2.</p>
+<p t="519550" d="5172">So that's the first,
+that's this times this.</p>
+<p t="524722" d="958">What am I going to get?</p>
+<p t="525680" d="3230">What shape, what size is
+this result going to be?</p>
+<p t="528910" d="7230">This K is n by n. x is a column
+vector. n by one. x transpose,</p>
+<p t="536140" d="2660">what's the shape of x transpose?</p>
+<p t="538800" d="1270">One by n?</p>
+<p t="540070" d="2330">So what's the total result?</p>
+<p t="542400" d="700">One by one.</p>
+<p t="543100" d="1170">Just a number.</p>
+<p t="544270" d="800">Just a function.</p>
+<p t="545070" d="1490">It's a number.</p>
+<p t="546560" d="4890">But it depends on the x's
+and the matrix inside.</p>
+<p t="551450" d="1380">Can we do it now?</p>
+<p t="552830" d="3450">So I've got this to
+multiply by this.</p>
+<p t="556280" d="3620">Do you see an x_1
+squared showing up?</p>
+<p t="559900" d="1690">Yes, from there times there.</p>
+<p t="561590" d="3180">And what's it multiplied by?</p>
+<p t="564770" d="1490">The a.</p>
+<p t="566260" d="4570">The first term is this times
+the ax_1 is a x_1 squared.</p>
+<p t="570830" d="2650">So that's our first quadratic.</p>
+<p t="573480" d="2880">Now there'd be an x_1, x_2.</p>
+<p t="576360" d="3460">Let me leave that for a minute
+and find the x_2 squared</p>
+<p t="579820" d="1530">because it's easy.</p>
+<p t="581350" d="2090">So where am I going
+to get x_2 squared?</p>
+<p t="583440" d="3210">I'm going to get that
+from x_2, second guy</p>
+<p t="586650" d="2500">here times second guy here.</p>
+<p t="589150" d="5680">There's a c x_2 squared.</p>
+<p t="594830" d="3800">So you're seeing already
+where the diagonal shows up.</p>
+<p t="598630" d="3700">The diagonal a, c,
+whatever, is multiplying</p>
+<p t="602330" d="2270">the perfect squares.</p>
+<p t="604600" d="4220">And it'll be the off-diagonal
+that multiplies the x_1 x_2.</p>
+<p t="608820" d="2390">We might call those
+the cross terms.</p>
+<p t="611210" d="1950">And what do we
+get for that then?</p>
+<p t="613160" d="3020">We have x_1 times this guy.</p>
+<p t="616180" d="4020">So that's a cross
+term. bx_1*x_2, right?</p>
+<p t="620200" d="4070">And here's another one coming
+from x_2 times this guy.</p>
+<p t="624270" d="3510">And what's that one?</p>
+<p t="627780" d="2300">It's also bx_1*x_2.</p>
+<p t="630080" d="3670">So x_1, multiply that,
+x_2 multiply that,</p>
+<p t="633750" d="3460">and so what do we have
+for this cross term here?</p>
+<p t="637210" d="2390">Two of them.</p>
+<p t="639600" d="1070">2bx_1*x_2.</p>
+<p t="643350" d="4810">In other words, that b
+and that b came together</p>
+<p t="648160" d="2330">in the 2bx_1*x_2.</p>
+<p t="650490" d="5790">So here's my energy.</p>
+<p t="656280" d="2120">Can I just loosely
+call it energy?</p>
+<p t="658400" d="4560">And then as we get to
+applications we'll see why.</p>
+<p t="662960" d="3440">So I'm interested
+in that because it</p>
+<p t="666400" d="5990">has important meaning.</p>
+<p t="672390" d="4380">Well, so now I'm ready to define
+positive definite matrices.</p>
+<p t="676770" d="2920">So I'll call that number four.</p>
+<p t="679690" d="4170">But I'm going to
+give it a big star.</p>
+<p t="683860" d="5810">Even more because
+it's the sort of key.</p>
+<p t="689670" d="4340">So the test will be, you
+can probably guess it,</p>
+<p t="694010" d="7620">I look at this expression,
+that x transpose Ax.</p>
+<p t="701630" d="3620">And if it's a positive
+definite matrix</p>
+<p t="705250" d="2090">and this represents
+energy, the key</p>
+<p t="707340" d="3410">will be that this
+should be positive.</p>
+<p t="710750" d="6370">This one should be
+positive for all x's.</p>
+<p t="717120" d="2580">Well, with one
+exception, of course.</p>
+<p t="719700" d="7830">All x's except, which vector
+is it? x=0 would just give me--</p>
+<p t="727530" d="9860">See, I put K. My default for a
+matrix, but should be, it's K.</p>
+<p t="737390" d="4950">Except x=0, except
+the zero vector.</p>
+<p t="742340" d="1390">Of course.</p>
+<p t="743730" d="6210">If x_1 and x_2 are both zero.</p>
+<p t="749940" d="4780">Now that looks a little
+maybe less straightforward,</p>
+<p t="754720" d="3040">I would say, because it's
+a statement about this</p>
+<p t="757760" d="4180">is true for all x_1 and x_2.</p>
+<p t="761940" d="2820">And we better do some
+examples and draw a picture.</p>
+<p t="764760" d="6910">Let me draw a
+picture right away.</p>
+<p t="771670" d="3080">So here's x_1 direction.</p>
+<p t="774750" d="1670">Here's x_2 direction.</p>
+<p t="776420" d="9540">And here is the x
+transpose Ax, my function.</p>
+<p t="785960" d="3200">So this depends
+on two variables.</p>
+<p t="789160" d="4210">So it's going to be a sort
+of a surface if I draw it.</p>
+<p t="793370" d="3280">Now, what point do
+we absolutely know?</p>
+<p t="796650" d="4400">And I put A again.</p>
+<p t="801050" d="8510">I am so sorry.</p>
+<p t="809560" d="1280">Well, we know one point.</p>
+<p t="810840" d="3820">It's there whatever
+that matrix might be.</p>
+<p t="814660" d="1020">It's there.</p>
+<p t="815680" d="1560">Zero, right?</p>
+<p t="817240" d="3060">You just told me that if
+both x's are zero then</p>
+<p t="820300" d="2460">we automatically get zero.</p>
+<p t="822760" d="4340">Now what do you think
+the shape of this curve,</p>
+<p t="827100" d="4180">the shape of this graph
+is going to look like?</p>
+<p t="831280" d="3640">The point is, if we're
+positive definite now.</p>
+<p t="834920" d="4060">So I'm drawing the picture
+for positive definite.</p>
+<p t="838980" d="5630">So my definition is
+that the energy goes up.</p>
+<p t="844610" d="2040">It's positive, right?</p>
+<p t="846650" d="3670">When I leave, when I move away
+from that point I go upwards.</p>
+<p t="850320" d="3220">That point will be a minimum.</p>
+<p t="853540" d="4200">Let me just draw it roughly.</p>
+<p t="857740" d="5760">So it sort of goes up like this.</p>
+<p t="863500" d="7170">These cheap 2-D boards and I've
+got a three-dimensional picture</p>
+<p t="870670" d="3700">here.</p>
+<p t="874370" d="1410">But you see it somehow?</p>
+<p t="875780" d="4520">What word or what's
+your visualization?</p>
+<p t="880300" d="2800">It has a minimum there.</p>
+<p t="883100" d="2740">That's why minimization,
+which was like,</p>
+<p t="885840" d="3300">the core problem in
+calculus, is here now.</p>
+<p t="889140" d="5730">But for functions
+of two x's or n x's.</p>
+<p t="894870" d="4060">We're up the dimension over
+the basic minimum problem</p>
+<p t="898930" d="4800">of calculus.</p>
+<p t="903730" d="1530">It's sort of like a parabola.</p>
+<p t="905260" d="2700">Its cross-sections cutting
+down through the thing</p>
+<p t="907960" d="2590">would be just parabolas
+because of the x squared.</p>
+<p t="910550" d="2340">I'm going to call this a bowl.</p>
+<p t="912890" d="3160">It's a short word.</p>
+<p t="916050" d="790">Do you see it?</p>
+<p t="916840" d="1440">It opens up.</p>
+<p t="918280" d="2590">That's the key point,
+that it opens upward.</p>
+<p t="920870" d="2050">And let's do some examples.</p>
+<p t="922920" d="3080">Tell me some positive definite.</p>
+<p t="926000" d="3170">So positive definite
+and then let</p>
+<p t="929170" d="6740">me here put some not
+positive definite cases.</p>
+<p t="935910" d="2450">Tell me a matrix.</p>
+<p t="938360" d="2690">Well, what's the
+easiest, first matrix</p>
+<p t="941050" d="3660">that occurs to you as a
+positive definite matrix?</p>
+<p t="944710" d="4520">The identity.</p>
+<p t="949230" d="2860">That passes all our tests,
+its eigenvalues are one,</p>
+<p t="952090" d="2800">its pivots are one, the
+determinants are one.</p>
+<p t="954890" d="3940">And the function is
+x_1 squared plus x_2</p>
+<p t="958830" d="6690">squared with no b in it.</p>
+<p t="965520" d="3070">It's just a perfect bowl,
+perfectly symmetric,</p>
+<p t="968590" d="3600">the way it would come
+off a potter's wheel.</p>
+<p t="972190" d="4000">Now let me take one
+that's maybe not so,</p>
+<p t="976190" d="2220">let me put a nine there.</p>
+<p t="978410" d="1900">So I'm off to a
+reasonable start.</p>
+<p t="980310" d="3780">I have an x_1 squared
+and a nine x_2 squared.</p>
+<p t="984090" d="1800">And now I want to
+ask you, what could I</p>
+<p t="985890" d="4520">put in there that would
+leave it positive definite?</p>
+<p t="990410" d="3020">Well, give me a couple
+of possibilities.</p>
+<p t="993430" d="4370">What's a nice, not too
+big now, that's the thing.</p>
+<p t="997800" d="750">Two.</p>
+<p t="998550" d="1300">Two would be fine.</p>
+<p t="999850" d="2690">So if I had a two there and
+a two there I would have</p>
+<p t="1002540" d="4460">a 4x_1*x_2 and it
+would, like, this,</p>
+<p t="1007000" d="7720">instead of being a circle,
+which it was for the identity,</p>
+<p t="1014720" d="4510">the plane there would cut
+out a ellipse instead.</p>
+<p t="1019230" d="3520">But it would be a good ellipse.</p>
+<p t="1022750" d="2980">Because we're doing
+squares, we're really,</p>
+<p t="1025730" d="3230">the Greeks understood
+these second degree things</p>
+<p t="1028960" d="9580">and they would have known this
+would have been an ellipse.</p>
+<p t="1038540" d="4530">How high can I go with that
+two or where do I have to stop?</p>
+<p t="1043070" d="4590">Where would I have to, if
+I wanted to change the two,</p>
+<p t="1047660" d="5420">let me just focus on that one,
+suppose I wanted to change it.</p>
+<p t="1053080" d="3430">First of all, give
+me one that's,</p>
+<p t="1056510" d="2390">how about the borderline.</p>
+<p t="1058900" d="1710">Three would be the borderline.</p>
+<p t="1060610" d="800">Why's that?</p>
+<p t="1061410" d="6690">Because at three we have nine
+minus nine for the determinant.</p>
+<p t="1068100" d="3400">So the determinant is zero.</p>
+<p t="1071500" d="1850">Of course it passed
+the first test.</p>
+<p t="1073350" d="1570">One by one was okay.</p>
+<p t="1074920" d="8920">But two by two was not,
+was at the borderline.</p>
+<p t="1083840" d="4010">What else should I think?</p>
+<p t="1087850" d="3380">Oh, that's a very
+interesting case.</p>
+<p t="1091230" d="2090">The borderline.</p>
+<p t="1093320" d="2340">You know, it almost makes it.</p>
+<p t="1095660" d="6200">But can you tell me the
+eigenvalues of that matrix?</p>
+<p t="1101860" d="3240">Don't do any
+quadratic equations.</p>
+<p t="1105100" d="3120">How do I know, what's one
+eigenvalue of a matrix?</p>
+<p t="1108220" d="2110">You made it singular, right?</p>
+<p t="1110330" d="1440">You made that matrix singular.</p>
+<p t="1111770" d="960">Determinant zero.</p>
+<p t="1112730" d="3300">So one of its
+eigenvalues is zero.</p>
+<p t="1116030" d="4150">And the other one is visible
+by looking at the trace.</p>
+<p t="1120180" d="3910">I just quickly mentioned
+that if I add the diagonal,</p>
+<p t="1124090" d="3760">I get the same answer as if
+I add the two eigenvalues.</p>
+<p t="1127850" d="3330">So that other
+eigenvalue must be ten.</p>
+<p t="1131180" d="3760">And this is entirely
+typical, that ten and zero,</p>
+<p t="1134940" d="3700">the extreme eigenvalues,
+lambda_max and lambda_min,</p>
+<p t="1138640" d="5660">are bigger than-- these
+diagonal guys are inside.</p>
+<p t="1144300" d="3880">They're inside,
+between zero and ten</p>
+<p t="1148180" d="4400">and it's these terms that
+enter somehow and gave us</p>
+<p t="1152580" d="3300">an eigenvalue of ten and
+an eigenvalue of zero.</p>
+<p t="1155880" d="4440">I guess I'm tempted to
+try to draw that figure.</p>
+<p t="1160320" d="5240">Just to get a feeling
+of what's with that one.</p>
+<p t="1165560" d="4580">It always helps to get
+the borderline case.</p>
+<p t="1170140" d="2180">So what's with this one?</p>
+<p t="1172320" d="3310">Let me see what my
+quadratic would be.</p>
+<p t="1175630" d="2130">Can I just change it up here?</p>
+<p t="1177760" d="1210">Rather than rewriting it.</p>
+<p t="1178970" d="3030">So I'm going to,
+I'll put it up here.</p>
+<p t="1182000" d="4240">So I have to change
+that four to what?</p>
+<p t="1186240" d="2570">Now that I'm looking
+at this matrix.</p>
+<p t="1188810" d="3150">That four is now a six.</p>
+<p t="1191960" d="1940">Six.</p>
+<p t="1193900" d="2980">This is my guy for this one.</p>
+<p t="1196880" d="1982">Which is not positive definite.</p>
+<p t="1198862" d="1458">Let me tell you
+right away the word</p>
+<p t="1200320" d="1940">that I would use for this one.</p>
+<p t="1202260" d="4560">I would call it positive
+semi-definite because it's</p>
+<p t="1206820" d="2680">almost there, but not quite.</p>
+<p t="1209500" d="5800">So semi-definite allows
+the matrix to be singular.</p>
+<p t="1215300" d="2880">So semi-definite,
+maybe I'll do it</p>
+<p t="1218180" d="4170">in green what
+semi-definite would be.</p>
+<p t="1222350" d="9350">Semi-def would be eigenvalues
+greater than or equal zero.</p>
+<p t="1231700" d="3460">Determinants greater
+than or equal zero.</p>
+<p t="1235160" d="4280">Pivots greater than zero
+if they're there or then</p>
+<p t="1239440" d="1970">we run out of pivots.</p>
+<p t="1241410" d="3080">You could say greater than
+or equal to zero then.</p>
+<p t="1244490" d="4250">And energy, greater
+than or equal to zero</p>
+<p t="1248740" d="4370">for semi-definite.</p>
+<p t="1253110" d="5270">And when would the energy, what
+x's, what would be the like,</p>
+<p t="1258380" d="2710">you could say the ground
+states or something,</p>
+<p t="1261090" d="3330">what x's-- So greater
+than or equal to zero,</p>
+<p t="1264420" d="3660">emphasize that possibility
+of equal in the semi-definite</p>
+<p t="1268080" d="2020">case.</p>
+<p t="1270100" d="7200">Suppose I have a semi-definite
+matrix, yeah, I've got one.</p>
+<p t="1277300" d="2390">But it's singular.</p>
+<p t="1279690" d="6470">So that means a singular matrix
+takes some vector x to zero.</p>
+<p t="1286160" d="1540">Right?</p>
+<p t="1287700" d="2380">If my matrix is
+actually singular,</p>
+<p t="1290080" d="2910">then there'll be an
+x where Kx is zero.</p>
+<p t="1292990" d="2010">And then, of course,
+multiplying by x transpose,</p>
+<p t="1295000" d="1350">I'm still at zero.</p>
+<p t="1296350" d="5550">So the x's, the zero energy
+guys, this is straightforward,</p>
+<p t="1301900" d="7280">the zero energy guys, the ones
+where x transpose Kx is zero,</p>
+<p t="1309180" d="7550">will happen when Kx is zero.</p>
+<p t="1316730" d="6480">If Kx is zero, and we'll
+see it in that example.</p>
+<p t="1323210" d="1930">Let's see it in that example.</p>
+<p t="1325140" d="7160">What's the x for
+which, I could say</p>
+<p t="1332300" d="2870">in the null space,
+what's the vector x</p>
+<p t="1335170" d="3660">that that matrix kills?</p>
+<p t="1341490" d="1656">[3, -1], right?</p>
+<p t="1343146" d="1624">The vector [3, -1].</p>
+<p t="1344770" d="5830">[3, -1] gives me [0, 0].</p>
+<p t="1350600" d="4760">That's the vector that-- So
+I get 3-3, the zero, 9-9,</p>
+<p t="1355360" d="1350">the zero.</p>
+<p t="1356710" d="3990">So I believe that
+this thing will</p>
+<p t="1360700" d="4050">be-- Is it zero at [3, -1]?</p>
+<p t="1364750" d="2780">I think that it
+has to be, right?</p>
+<p t="1367530" d="4510">If I take x_1 to be three
+and x_2 to be minus one,</p>
+<p t="1372040" d="2360">I think I've got
+zero energy here.</p>
+<p t="1374400" d="5230">Do I? x_1 squared will be
+nine and nine x_2 squared</p>
+<p t="1379630" d="1580">will be nine more.</p>
+<p t="1381210" d="2950">And what will be this 6x_1*x_2?</p>
+<p t="1384160" d="5090">What will that come out
+for this x_1 and x_2?</p>
+<p t="1389250" d="1280">Minus 18.</p>
+<p t="1390530" d="1420">Had to, right?</p>
+<p t="1391950" d="3670">So I'd get nine from there,
+nine from there, minus 18, zero.</p>
+<p t="1395620" d="3040">So the graph for this
+positive semi-definite</p>
+<p t="1398660" d="2390">will look a bit like this.</p>
+<p t="1401050" d="5010">There'll be a direction
+in which it doesn't climb.</p>
+<p t="1406060" d="3500">It doesn't go below
+the base, right?</p>
+<p t="1409560" d="1780">It's never negative.</p>
+<p t="1411340" d="1850">This is now the
+semi-definite picture.</p>
+<p t="1413190" d="3070">But it can run along the base.</p>
+<p t="1416260" d="4130">And it will for the
+vector x_1=3, x_2=-1,</p>
+<p t="1420390" d="2130">I don't know where that
+is, one, two, three,</p>
+<p t="1422520" d="3390">and then maybe minus one.</p>
+<p t="1425910" d="5610">Along some line here
+the graph doesn't go up.</p>
+<p t="1431520" d="5420">It's sitting, can you imagine
+that sitting in the base?</p>
+<p t="1436940" d="8930">I'm not Rembrandt here, but in
+the other direction it goes up.</p>
+<p t="1445870" d="2370">Oh, the hell with that one.</p>
+<p t="1448240" d="2410">Do you see, sort of?</p>
+<p t="1450650" d="3620">It's like a trough,
+would you say?</p>
+<p t="1454270" d="2470">I mean, it's like
+a, you know, a bit</p>
+<p t="1456740" d="2980">of a drainpipe or something.</p>
+<p t="1459720" d="7580">It's running along the ground,
+along this [3, -1] direction</p>
+<p t="1467300" d="2880">and in the other
+directions it does go up.</p>
+<p t="1470180" d="5300">So it's shaped like this
+with the base not climbing.</p>
+<p t="1475480" d="3540">Whereas here, there's
+no bad direction.</p>
+<p t="1479020" d="1880">Climbs every way you go.</p>
+<p t="1480900" d="4540">So that's positive definite and
+that's positive semi-definite.</p>
+<p t="1485440" d="5330">Well suppose I push
+it a little further.</p>
+<p t="1490770" d="5740">Let me make a place here
+for a matrix that isn't</p>
+<p t="1496510" d="4840">even positive semi-definite.</p>
+<p t="1501350" d="3830">Now it's just going
+to go down somewhere.</p>
+<p t="1505180" d="1830">I'll start again
+with one and nine</p>
+<p t="1507010" d="2840">and tell me what to put in now.</p>
+<p t="1509850" d="3630">So this is going to be a case
+where the off-diagonal is</p>
+<p t="1513480" d="2260">too big, it wins.</p>
+<p t="1515740" d="2420">And prevents positive definite.</p>
+<p t="1518160" d="3250">So what number
+would you like here?</p>
+<p t="1521410" d="1360">Five?</p>
+<p t="1522770" d="5190">Five is certainly plenty.</p>
+<p t="1527960" d="2640">So now I have [1, 5; 5, 9].</p>
+<p t="1530600" d="6840">Let me take a little space
+on a board just to show you.</p>
+<p t="1537440" d="4750">Sorry about that.</p>
+<p t="1542190" d="2260">So I'm going to do
+the [1, 5; 5,  9]</p>
+<p t="1544450" d="2350">just because they're
+all important,</p>
+<p t="1546800" d="2680">but then we're coming
+back to positive definite.</p>
+<p t="1549480" d="8030">So if it's [1, 5; 5, 9] and
+I do that usual x transpose</p>
+<p t="1557510" d="6380">Kx and I do the multiplication
+out, I see the one x_1 squared</p>
+<p t="1563890" d="2860">and I see the nine x_2 squareds.</p>
+<p t="1566750" d="4940">And how many x_1*x_2's do I see?</p>
+<p t="1571690" d="3790">Five from there,
+five from there, ten.</p>
+<p t="1575480" d="5320">And I believe that
+can be negative.</p>
+<p t="1580800" d="2420">The fact of having
+all nice plus signs</p>
+<p t="1583220" d="2750">is not going to help it
+because we can choose,</p>
+<p t="1585970" d="4060">as we already did, x_1 to be
+like a negative number and x_2</p>
+<p t="1590030" d="1320">to be a positive.</p>
+<p t="1591350" d="3830">And we can get this guy to
+be negative and make it,</p>
+<p t="1595180" d="5860">in this case we can make it
+defeat these positive parts.</p>
+<p t="1601040" d="2550">What choice would do it?</p>
+<p t="1603590" d="2970">Let me take x_1 to be
+minus one and tell me</p>
+<p t="1606560" d="7200">an x_2 that's good enough to
+show that this thing is not</p>
+<p t="1613760" d="2760">positive definite or
+even semi-definite,</p>
+<p t="1616520" d="1840">it goes downhill.</p>
+<p t="1618360" d="1210">Take x_2 equal?</p>
+<p t="1619570" d="4460">What do you say?</p>
+<p t="1624030" d="1430">1/2?</p>
+<p t="1625460" d="1790">Yeah, I don't want
+too big an x_2</p>
+<p t="1627250" d="3660">because if I have too big an
+x_2, then this'll be important.</p>
+<p t="1630910" d="3640">Does 1/2 do it?</p>
+<p t="1634550" d="3490">So I've got 1/4, that's
+positive, but not very.</p>
+<p t="1638040" d="5570">9/4, so I'm up to 10/4,
+but this guy is what?</p>
+<p t="1643610" d="2921">Ten and the minus is minus five.</p>
+<p t="1646531" d="499">Yeah.</p>
+<p t="1647030" d="8340">So that absolutely goes, at this
+one I come out less than zero.</p>
+<p t="1655370" d="1800">And I might as well complete.</p>
+<p t="1657170" d="6720">So this is the case where
+I would call it indefinite.</p>
+<p t="1663890" d="1300">Indefinite.</p>
+<p t="1665190" d="4050">It goes up, like if
+x_2 is zero, then</p>
+<p t="1669240" d="2930">it's just got x_1
+squared, that's up.</p>
+<p t="1672170" d="3580">If x_1 is zero, it's only
+got x_2 squared, that's up.</p>
+<p t="1675750" d="3140">But there are other directions
+where it goes downhill.</p>
+<p t="1678890" d="3210">So it goes either up-- it
+goes both up in some ways</p>
+<p t="1682100" d="1060">and down in others.</p>
+<p t="1683160" d="4600">And what kind of a graph,
+what kind of a surface</p>
+<p t="1687760" d="4400">would I now have for x
+transpose for this x transpose,</p>
+<p t="1692160" d="3530">this indefinite guy?</p>
+<p t="1695690" d="10710">So up in some ways
+and down in others.</p>
+<p t="1706400" d="8750">This gets really hard to draw.</p>
+<p t="1715150" d="4740">I believe that if
+you ride horses</p>
+<p t="1719890" d="3200">you have an edge on
+visualizing this.</p>
+<p t="1723090" d="2670">So it's called, what kind
+of a point's it called?</p>
+<p t="1725760" d="4500">Saddle point, it's
+called a saddle point.</p>
+<p t="1730260" d="3630">So what's a saddle point?</p>
+<p t="1733890" d="2570">That's not bad, right?</p>
+<p t="1736460" d="2190">So this is a direction
+where it went up.</p>
+<p t="1738650" d="3560">This is a direction
+where it went down.</p>
+<p t="1742210" d="7230">And so it sort of
+fills in somehow.</p>
+<p t="1749440" d="8890">Or maybe, if you don't, I
+mean, who rides horses now?</p>
+<p t="1758330" d="6860">Actually maybe something we
+do do is drive over mountains.</p>
+<p t="1765190" d="10190">So the path, if the road
+is sort of well-chosen,</p>
+<p t="1775380" d="3870">the road will go,
+it'll look for the,</p>
+<p t="1779250" d="4290">this would be-- Yeah,
+here's our road.</p>
+<p t="1783540" d="2770">We would do as little
+climbing as possible.</p>
+<p t="1786310" d="2550">The mountain would go
+like this, sort of.</p>
+<p t="1788860" d="3460">So this would be
+like, the bottom part</p>
+<p t="1792320" d="3310">looking along the
+peaks of the mountains.</p>
+<p t="1795630" d="3780">But it's the top part looking
+along the driving direction.</p>
+<p t="1799410" d="6180">So driving, it's a maximum, but
+in the mountain range direction</p>
+<p t="1805590" d="730">it's a minimum.</p>
+<p t="1806320" d="4180">So it's a saddle point.</p>
+<p t="1810500" d="4310">So that's what you get from
+a typical symmetric matrix.</p>
+<p t="1814810" d="4200">And if it was minus five it
+would still be the same saddle</p>
+<p t="1819010" d="4470">point, would still be
+9-25, it would still</p>
+<p t="1823480" d="3650">be negative and a saddle.</p>
+<p t="1827130" d="3070">Positive guys are our thing.</p>
+<p t="1830200" d="1800">Alright.</p>
+<p t="1832000" d="4230">So now back to
+positive definite.</p>
+<p t="1836230" d="4420">With these four tests
+and then the discussion</p>
+<p t="1840650" d="5030">of semi-definite.</p>
+<p t="1845680" d="3470">Very key, that energy.</p>
+<p t="1849150" d="2820">Let me just look ahead a moment.</p>
+<p t="1851970" d="6680">Most physical problems,
+many, many physical problems,</p>
+<p t="1858650" d="1360">you have an option.</p>
+<p t="1860010" d="4800">Either you solve some equations,
+either you find the solution</p>
+<p t="1864810" d="5230">from our equations,
+Ku=f, typically.</p>
+<p t="1870040" d="2630">Matrix equation or
+differential equation.</p>
+<p t="1872670" d="8270">Or there's another option
+of minimizing some function.</p>
+<p t="1880940" d="2700">Some energy.</p>
+<p t="1883640" d="2210">And it gives the same equations.</p>
+<p t="1885850" d="4830">So this minimizing energy
+will be a second way</p>
+<p t="1890680" d="6040">to describe the applications.</p>
+<p t="1896720" d="4040">Now can I get a number five?</p>
+<p t="1900760" d="1900">There's an important
+number five and then</p>
+<p t="1902660" d="5470">you know really all you need to
+know about symmetric matrices.</p>
+<p t="1908130" d="3500">This gives me, about
+positive definite matrices,</p>
+<p t="1911630" d="10120">this gives me a chance to recap.</p>
+<p t="1921750" d="4650">So I'm going to put
+down a number five.</p>
+<p t="1926400" d="10140">Because this is where
+the matrices come from.</p>
+<p t="1936540" d="940">Really important.</p>
+<p t="1937480" d="2910">And it's where they'll come
+from in all these applications</p>
+<p t="1940390" d="2840">that chapter two is going
+to be all about, that we're</p>
+<p t="1943230" d="2370">going to start.</p>
+<p t="1945600" d="2900">So they come, these
+positive definite matrices,</p>
+<p t="1948500" d="5790">so this is another
+way to, it's a test</p>
+<p t="1954290" d="4890">for positive definite matrices
+and it's, actually, it's</p>
+<p t="1959180" d="1750">where they come from.</p>
+<p t="1960930" d="3410">So here's a positive
+definite matrix.</p>
+<p t="1964340" d="9930">They come from A transpose
+A. A fundamental message is</p>
+<p t="1974270" d="2820">that if I have just
+an average matrix,</p>
+<p t="1977090" d="4750">possibly rectangular, could
+be a square but not symmetric,</p>
+<p t="1981840" d="5380">then sooner or later,
+in fact usually sooner,</p>
+<p t="1987220" d="3210">you end up looking
+at A transpose A.</p>
+<p t="1990430" d="1510">We've seen that already.</p>
+<p t="1991940" d="3450">And we already know that
+A transpose A is square,</p>
+<p t="1995390" d="2560">we already know it's
+symmetric and now</p>
+<p t="1997950" d="3030">we're going to know that
+it's positive definite.</p>
+<p t="2000980" d="4160">So matrices like A transpose
+A are positive definite</p>
+<p t="2005140" d="3000">or possibly semi-definite.</p>
+<p t="2008140" d="1520">There's that possibility.</p>
+<p t="2009660" d="2260">If A was the zero
+matrix, of course,</p>
+<p t="2011920" d="1900">we would just get
+the zero matrix which</p>
+<p t="2013820" d="3640">would be only
+semi-definite, or other ways</p>
+<p t="2017460" d="4660">to get a semi-definite.</p>
+<p t="2022120" d="4600">So I'm saying that if K, if
+I have a matrix, any matrix,</p>
+<p t="2026720" d="4050">and I form A transpose A, I
+get a positive definite matrix</p>
+<p t="2030770" d="6010">or maybe just semi-definite,
+but not indefinite.</p>
+<p t="2036780" d="5070">Can we see why?</p>
+<p t="2041850" d="10050">Why is this positive
+definite or semi-?</p>
+<p t="2051900" d="1840">So that's my question.</p>
+<p t="2053740" d="2750">And the answer is
+really worth-- it's</p>
+<p t="2056490" d="2580">just neat and worth seeing.</p>
+<p t="2059070" d="4900">So do I want to look at the
+pivots of A transpose A?</p>
+<p t="2063970" d="2000">No.</p>
+<p t="2065970" d="1940">They're something,
+but whatever they are,</p>
+<p t="2067910" d="2550">I can't really
+follow those well.</p>
+<p t="2070460" d="4410">Or the eigenvalues very
+well, or the determinants.</p>
+<p t="2074870" d="1920">None of those come out nicely.</p>
+<p t="2076790" d="4900">But the real guy
+works perfectly.</p>
+<p t="2081690" d="4370">So look at x transpose Kx.</p>
+<p t="2088580" d="8610">So I'm just doing--
+following my instinct here.</p>
+<p t="2097190" d="3400">So if K is A
+transpose A, my claim</p>
+<p t="2100590" d="6460">is, what am I saying
+then about this energy?</p>
+<p t="2107050" d="6040">What is it that I want to
+discover and understand?</p>
+<p t="2113090" d="2540">Why it's positive.</p>
+<p t="2115630" d="3190">Why does taking any
+matrix, multiplying</p>
+<p t="2118820" d="8850">by its transpose produce
+something that's positive?</p>
+<p t="2127670" d="2850">Can you see any reason
+why that quantity,</p>
+<p t="2130520" d="3410">which looks kind
+of messy, I just</p>
+<p t="2133930" d="3600">want to look at it
+the right way to see</p>
+<p t="2137530" d="3980">why that should be positive,
+that should come out positive.</p>
+<p t="2141510" d="3310">So I'm not going to
+get into numbers,</p>
+<p t="2144820" d="2820">I'm not going to get into
+diagonals and off-diagonals.</p>
+<p t="2147640" d="4620">I'm just going to do
+one thing to understand</p>
+<p t="2152260" d="5730">that particular combination,
+x transpose A transpose Ax.</p>
+<p t="2157990" d="1880">What shall I do?</p>
+<p t="2159870" d="6260">Anybody see what I might do?</p>
+<p t="2166130" d="4060">Yeah, you're seeing here
+if you look at it again,</p>
+<p t="2170190" d="2020">what are you seeing here?</p>
+<p t="2172210" d="2010">Tell me again.</p>
+<p t="2174220" d="6280">If I take Ax together,
+then what's the other half?</p>
+<p t="2180500" d="2590">It's the transpose of Ax.</p>
+<p t="2183090" d="2810">So I just want to write
+that as, I just want</p>
+<p t="2185900" d="3100">to think of it that way, as Ax.</p>
+<p t="2189000" d="3270">And here's the transpose of Ax.</p>
+<p t="2192270" d="770">Right?</p>
+<p t="2193040" d="3010">Because transposes
+of Ax, so transpose</p>
+<p t="2196050" d="3840">guys in the opposite order,
+and the multiplication--</p>
+<p t="2199890" d="1340">This is the great.</p>
+<p t="2201230" d="3150">I call these proof
+by parenthesis</p>
+<p t="2204380" d="2770">because I'm just putting
+parentheses in the right place,</p>
+<p t="2207150" d="6790">but the key law of
+matrix multiplication</p>
+<p t="2213940" d="4980">is that, that I can put
+(AB)C is the same as A(BC).</p>
+<p t="2221810" d="2360">That rule, which is
+just multiply it out</p>
+<p t="2224170" d="1980">and you see that
+parentheses are not</p>
+<p t="2226150" d="2280">needed because if you keep
+them in the right order</p>
+<p t="2228430" d="3870">you can do this first,
+or you can do this first.</p>
+<p t="2232300" d="1420">Same answer.</p>
+<p t="2233720" d="1760">What do I learn from that?</p>
+<p t="2235480" d="1540">What was the point?</p>
+<p t="2237020" d="3490">This is some vector, I don't
+know especially what it is,</p>
+<p t="2240510" d="1390">times its transpose.</p>
+<p t="2241900" d="3010">So that's the length squared.</p>
+<p t="2244910" d="2300">What's the key fact about that?</p>
+<p t="2247210" d="2790">That it is never negative.</p>
+<p t="2250000" d="11070">It's always greater than
+zero or possibly equal.</p>
+<p t="2261070" d="3210">When does that
+quantity equal zero?</p>
+<p t="2264280" d="1300">When Ax is zero.</p>
+<p t="2265580" d="1480">When Ax is zero.</p>
+<p t="2267060" d="1990">Because this is a vector.</p>
+<p t="2269050" d="1780">That's the same
+vector transposed.</p>
+<p t="2270830" d="1670">And everybody's
+got that picture.</p>
+<p t="2272500" d="4470">When I take any y
+transpose y, I get</p>
+<p t="2276970" d="3470">y_1 squared plus y_2
+squared through y_n squared.</p>
+<p t="2280440" d="5010">And I get a positive answer
+except if the vector is zero.</p>
+<p t="2285450" d="6270">So it's zero when Ax is zero.</p>
+<p t="2291720" d="2270">So that's going to be the key.</p>
+<p t="2293990" d="2690">If I pick any matrix
+A, and I can just</p>
+<p t="2296680" d="4990">take an example, but
+chapter-- the applications</p>
+<p t="2301670" d="2060">are just going to
+be full of examples.</p>
+<p t="2303730" d="5380">Where the problem begins
+with a matrix A and then</p>
+<p t="2309110" d="5850">A transpose shows up and it's
+the combination A transpose A</p>
+<p t="2314960" d="1140">that we work with.</p>
+<p t="2316100" d="4050">And we're just learning
+that it's positive definite.</p>
+<p t="2320150" d="6290">Unless, shall I just hang
+on since I've got here,</p>
+<p t="2326440" d="7030">I have to say when is it, have
+to get these two possibilities.</p>
+<p t="2333470" d="3480">Positive definite or
+only semi-definite.</p>
+<p t="2336950" d="8870">So what's the key to
+that borderline question?</p>
+<p t="2345820" d="3860">This thing will be
+only semi-definite</p>
+<p t="2349680" d="2590">if there's a solution to Ax=0.</p>
+<p t="2356000" d="7560">If there is an x, well,
+there's always the zero vector.</p>
+<p t="2363560" d="3170">Zero vector I can't
+expect to be positive.</p>
+<p t="2366730" d="4570">So I'm looking for
+if there's an x so</p>
+<p t="2371300" d="10830">that Ax is zero
+but x is not zero,</p>
+<p t="2382130" d="6290">then I'll only be semi-definite.</p>
+<p t="2388420" d="1900">That's the test.</p>
+<p t="2390320" d="2410">If there is a solution to Ax=0.</p>
+<p t="2395420" d="2900">When we see applications
+that'll mean</p>
+<p t="2398320" d="4790">there's a displacement
+with no stretching.</p>
+<p t="2403110" d="6470">We might have a line
+of springs and when</p>
+<p t="2409580" d="6990">could the line of springs
+displace with no stretching?</p>
+<p t="2416570" d="1820">When it's free-free, right?</p>
+<p t="2418390" d="5620">If I have a line of springs
+and no supports at the ends,</p>
+<p t="2424010" d="2850">then that would be the case
+where it could shift over</p>
+<p t="2426860" d="2490">by the [1, 1, 1] vector.</p>
+<p t="2429350" d="3880">So that would be the case where
+the matrix is only singular.</p>
+<p t="2433230" d="1180">We know that.</p>
+<p t="2434410" d="3030">The matrix is now
+positive semi-definite.</p>
+<p t="2437440" d="1440">We just learned that.</p>
+<p t="2438880" d="4450">So the free-free
+matrix, like B, both</p>
+<p t="2443330" d="5360">ends free, or C.
+So our answer is</p>
+<p t="2448690" d="7480">going to be that K and
+T are positive definite.</p>
+<p t="2456170" d="3300">And our other two guys, the
+singular ones, of course,</p>
+<p t="2459470" d="1120">just don't make it.</p>
+<p t="2460590" d="3410">B at both ends, the
+free-free line of springs,</p>
+<p t="2464000" d="3040">it can shift without stretching.</p>
+<p t="2467040" d="3770">Since Ax will measure the
+stretching when it just</p>
+<p t="2470810" d="2820">shifts rigid motion,
+the Ax is zero</p>
+<p t="2473630" d="2480">and we see only
+positive definite.</p>
+<p t="2476110" d="2920">And also C, the circular one.</p>
+<p t="2479030" d="2430">There it can displace
+with no stretching</p>
+<p t="2481460" d="2900">because it can just
+turn in the circle.</p>
+<p t="2484360" d="20860">So these guys will be only
+positive semi-definite.</p>
+<p t="2505220" d="4120">Maybe I better say
+this another way.</p>
+<p t="2509340" d="2450">When is this positive definite?</p>
+<p t="2511790" d="3140">Can I use just a
+different sentence</p>
+<p t="2514930" d="2340">to describe this possibility?</p>
+<p t="2517270" d="6560">This is positive
+definite provided,</p>
+<p t="2523830" d="4440">so what I'm going to write now
+is to remove this possibility</p>
+<p t="2528270" d="1870">and get positive definite.</p>
+<p t="2530140" d="5870">This is positive
+definite provided, now,</p>
+<p t="2536010" d="1480">I could say it this way.</p>
+<p t="2537490" d="7640">The A has independent columns.</p>
+<p t="2545130" d="3950">So I just needed to give you
+another way of looking at this</p>
+<p t="2549080" d="4320">Ax=0 question.</p>
+<p t="2553400" d="3820">If A has independent
+columns, what does that mean?</p>
+<p t="2557220" d="3700">That means that the only
+solution to Ax=0 is the zero</p>
+<p t="2560920" d="1880">solution.</p>
+<p t="2562800" d="4840">In other words, it means that
+this thing works perfectly</p>
+<p t="2567640" d="2880">and gives me positive.</p>
+<p t="2570520" d="2560">When A has independent columns.</p>
+<p t="2573080" d="12390">Let's just remember our K,
+T, B, C. So here's a matrix,</p>
+<p t="2585470" d="5680">so let me take the T matrix,
+that's this one, this guy.</p>
+<p t="2591150" d="4450">And then the third
+column is [0,  -1, 2].</p>
+<p t="2595600" d="4360">Those three columns
+are independent.</p>
+<p t="2599960" d="1290">They point off.</p>
+<p t="2601250" d="1860">They don't lie in a plane.</p>
+<p t="2603110" d="4030">They point off in three
+different directions.</p>
+<p t="2607140" d="7680">And then there are no solutions
+to, no x's that go Kx=0.</p>
+<p t="2619140" d="2700">So that would be a case
+of independent columns.</p>
+<p t="2621840" d="3160">Let me make a case
+of dependent columns.</p>
+<p t="2625000" d="2730">So, and I'm going
+to make it B now.</p>
+<p t="2627730" d="4020">Now the columns of that
+matrix are dependent.</p>
+<p t="2631750" d="2530">There's a combination
+of them that give zero.</p>
+<p t="2634280" d="2250">They all lie in the same plane.</p>
+<p t="2636530" d="3680">There's a solution to that
+matrix times x equal zero.</p>
+<p t="2640210" d="2230">What combination
+of those columns</p>
+<p t="2642440" d="3410">shows me that they
+are dependent?</p>
+<p t="2645850" d="3150">That some combination
+of those three columns,</p>
+<p t="2649000" d="1880">some amount of this
+plus some amount</p>
+<p t="2650880" d="1750">of this plus some
+amount of that column</p>
+<p t="2652630" d="2720">gives me the zero vector.</p>
+<p t="2655350" d="2250">You see the combination.</p>
+<p t="2657600" d="3950">What should I take?
+[1, 1, 1] again.</p>
+<p t="2661550" d="750">No surprise.</p>
+<p t="2662300" d="3750">That's the vector
+[1, 1, 1] that we</p>
+<p t="2666050" d="3790">know is in the-- everything
+shifting the same amount,</p>
+<p t="2669840" d="6840">nothing stretching.</p>
+<p t="2676680" d="3750">Talking fast here about
+positive definite matrices.</p>
+<p t="2680430" d="1930">This is the key.</p>
+<p t="2682360" d="2620">Let's just ask a few questions
+about positive definite</p>
+<p t="2684980" d="4530">matrices as a way to practice.</p>
+<p t="2689510" d="1430">Suppose I had one.</p>
+<p t="2690940" d="1620">Positive definite.</p>
+<p t="2692560" d="4830">What about its inverse?</p>
+<p t="2697390" d="4950">Is that positive
+definite or not?</p>
+<p t="2702340" d="3820">So I've got a positive definite
+one, it's not singular,</p>
+<p t="2706160" d="3830">it's got positive
+eigenvalues, everything else.</p>
+<p t="2709990" d="4250">It's inverse will
+be symmetric, so I'm</p>
+<p t="2714240" d="2090">allowed to think about it.</p>
+<p t="2716330" d="4200">Will it be positive definite?</p>
+<p t="2720530" d="3140">What do you think?</p>
+<p t="2723670" d="3330">Well, you've got a
+whole bunch of tests</p>
+<p t="2727000" d="3090">to sort of mentally run through.</p>
+<p t="2730090" d="5490">Pivots of the inverse, you
+don't want to touch that stuff.</p>
+<p t="2735580" d="1110">Determinants, no.</p>
+<p t="2736690" d="2540">What about eigenvalues?</p>
+<p t="2739230" d="1860">What would be the
+eigenvalues if I</p>
+<p t="2741090" d="2550">have this positive
+definite symmetric matrix,</p>
+<p t="2743640" d="3160">its eigenvalues are
+one, four, five.</p>
+<p t="2746800" d="2900">What can you tell me
+about the eigenvalues</p>
+<p t="2749700" d="3330">of the inverse matrix?</p>
+<p t="2753030" d="1050">They're the inverses.</p>
+<p t="2754080" d="2610">So those three eigenvalues are?</p>
+<p t="2756690" d="4200">1, 1/4, 1/5, what's
+the conclusion here?</p>
+<p t="2760890" d="1190">It is positive definite.</p>
+<p t="2762080" d="2350">Those are all positive,
+it is positive definite.</p>
+<p t="2764430" d="3510">So if I invert a
+positive definite matrix,</p>
+<p t="2767940" d="3410">I'm still positive definite.</p>
+<p t="2771350" d="2310">All the tests
+would have to pass.</p>
+<p t="2773660" d="4060">It's just I'm looking each
+time for the easiest test.</p>
+<p t="2777720" d="4660">Let me look now, for the
+easiest test on K_1+K_2.</p>
+<p t="2785470" d="4510">Suppose that's positive definite
+and that's positive definite.</p>
+<p t="2789980" d="3690">What if I add them?</p>
+<p t="2793670" d="2270">What do you think?</p>
+<p t="2795940" d="2740">Well, we hope so.</p>
+<p t="2798680" d="4160">But we have to say which of
+my one, two, three, four, five</p>
+<p t="2802840" d="2820">would be a good way to see it.</p>
+<p t="2805660" d="2640">Would be a good way to see it.</p>
+<p t="2808300" d="2530">Good question.</p>
+<p t="2810830" d="2730">Four?</p>
+<p t="2813560" d="1720">We certainly don't
+want to touch pivots</p>
+<p t="2815280" d="3580">and now we don't want to
+touch eigenvalues either.</p>
+<p t="2818860" d="4540">Of course, if number four
+works, others will also work.</p>
+<p t="2823400" d="2250">The eigenvalues will
+come out positive.</p>
+<p t="2825650" d="2520">But not too easy to
+say what they are.</p>
+<p t="2828170" d="6280">Let's try test number four.</p>
+<p t="2834450" d="610">So K_1.</p>
+<p t="2838760" d="1260">What's the test?</p>
+<p t="2840020" d="3410">So test number four
+tells us that this part,</p>
+<p t="2843430" d="5240">x transpose K_1*x, that that
+part is positive, right?</p>
+<p t="2848670" d="2230">That that part is positive.</p>
+<p t="2850900" d="2140">If we know that's
+positive definite.</p>
+<p t="2853040" d="3990">Now, about K_2 we also know
+that for every x, you see it's</p>
+<p t="2857030" d="1690">for every x, that helps.</p>
+<p t="2858720" d="2180">Don't let me put x_2 there.</p>
+<p t="2860900" d="6770">For every x, this
+will be positive.</p>
+<p t="2867670" d="5000">And now what's the
+step I want to take?</p>
+<p t="2872670" d="4360">To get some information
+on the matrix K_1+K_2.</p>
+<p t="2879590" d="1690">I should add.</p>
+<p t="2881280" d="5050">If I add these guys, you
+see that it just, then I</p>
+<p t="2886330" d="7830">can write that as, I
+can write that this way.</p>
+<p t="2894160" d="3490">And what have I learned?</p>
+<p t="2897650" d="2240">I've learned that that's
+positive, even greater than,</p>
+<p t="2899890" d="1790">except for the zero vector.</p>
+<p t="2901680" d="2250">Because this was greater
+than, this is greater than.</p>
+<p t="2903930" d="3240">If I add two positive numbers,
+the energies are positive</p>
+<p t="2907170" d="2210">and the energies just add.</p>
+<p t="2909380" d="5280">The energies just add.</p>
+<p t="2914660" d="5510">So that definition four was the
+good way, just nice, easy way</p>
+<p t="2920170" d="4790">to see that if I have a couple
+of positive definite matrices,</p>
+<p t="2924960" d="2060">a couple of positive
+energies, I'm really</p>
+<p t="2927020" d="2550">coupling the two systems.</p>
+<p t="2929570" d="3460">This is associated somehow.</p>
+<p t="2933030" d="2160">I've got two systems,
+I'm putting them together</p>
+<p t="2935190" d="5070">and the energy is just
+even more positive.</p>
+<p t="2940260" d="5600">It's more positive either of
+these guys because I'm adding.</p>
+<p t="2945860" d="3210">As I'm speaking
+here, will you allow</p>
+<p t="2949070" d="5800">me to try test number five,
+this A transpose A business?</p>
+<p t="2954870" d="6401">Suppose K_1 was A transpose
+A. If it's positive definite,</p>
+<p t="2961271" d="499">it will.</p>
+<p t="2961770" d="9420">Be And suppose K_2
+is B transpose B.</p>
+<p t="2971190" d="2090">If it's positive
+definite, it will be.</p>
+<p t="2973280" d="8110">Now I would like to
+write the sum somehow as,</p>
+<p t="2981390" d="2600">in this something
+transpose something.</p>
+<p t="2983990" d="2230">And I just do it
+now because I think</p>
+<p t="2986220" d="3800">it's like, you won't perhaps
+have thought of this way</p>
+<p t="2990020" d="3980">to do it.</p>
+<p t="2994000" d="2070">Watch.</p>
+<p t="2996070" d="5760">Suppose I create
+the matrix [A;  B].</p>
+<p t="3001830" d="1380">That'll be my new matrix.</p>
+<p t="3003210" d="7890">Say, call it C. Am I
+allowed to do that?</p>
+<p t="3011100" d="2110">I mean, that creates a matrix?</p>
+<p t="3013210" d="4900">These A and B, they had the
+same number of columns, n.</p>
+<p t="3018110" d="2190">So I can put one over
+the other and I still</p>
+<p t="3020300" d="2070">have something with n columns.</p>
+<p t="3022370" d="4430">So that's my new matrix C.
+And now I want C transpose.</p>
+<p t="3026800" d="4690">By the way, I'd call
+that a block matrix.</p>
+<p t="3031490" d="4500">You know, instead of numbers,
+it's got two blocks in there.</p>
+<p t="3035990" d="1990">Block matrices are really handy.</p>
+<p t="3037980" d="5330">Now what's the transpose
+of that block matrix?</p>
+<p t="3043310" d="4180">You just have faith, just
+have faith with blocks.</p>
+<p t="3047490" d="1390">It's just like numbers.</p>
+<p t="3048880" d="7090">If I had a matrix [1; 5]
+then I'd get a row one, five.</p>
+<p t="3055970" d="1840">But what do you think?</p>
+<p t="3057810" d="3460">This is worth thinking
+about even after class.</p>
+<p t="3061270" d="4200">What would be, if this C
+matrix is this block A above B,</p>
+<p t="3065470" d="2400">what do you think
+for C transpose?</p>
+<p t="3067870" d="3640">A transpose, B
+transpose side by side.</p>
+<p t="3071510" d="4210">Just put in numbers
+and you'd see it.</p>
+<p t="3075720" d="2270">And now I'm going
+to take C transpose</p>
+<p t="3077990" d="5890">times C. I'm calling
+it C now instead of A</p>
+<p t="3083880" d="2480">because I've used the
+A in the first guy</p>
+<p t="3086360" d="5420">and I've used B in the second
+one and now I'm ready for C.</p>
+<p t="3091780" d="3710">How do you multiply
+block matrices?</p>
+<p t="3095490" d="2490">Again, you just have faith.</p>
+<p t="3097980" d="1770">What do you think?</p>
+<p t="3099750" d="2070">Tell me the answer.</p>
+<p t="3101820" d="2060">A transpose, I
+multiply that by that</p>
+<p t="3103880" d="3300">just as if they were numbers.</p>
+<p t="3107180" d="4840">And I add that times that
+just as if they were numbers.</p>
+<p t="3112020" d="3052">And what do I have?</p>
+<p t="3115072" d="708">I've got K_1+K_2.</p>
+<p t="3118600" d="6400">So I've written K_1, this is
+K_1+K_2 and this is in my form</p>
+<p t="3125000" d="4080">C transpose C that I was looking
+for, that number five was</p>
+<p t="3129080" d="1780">looking for.</p>
+<p t="3130860" d="2060">So it's done it.</p>
+<p t="3132920" d="740">It's done it.</p>
+<p t="3133660" d="5650">The fact of getting A-- K_1 in
+this form, K_2 in this form.</p>
+<p t="3139310" d="2410">And I just made a block
+matrix and I got K_1+K_2.</p>
+<p t="3145730" d="4000">That's not a big deal in
+itself, but block matrices</p>
+<p t="3149730" d="2330">are really handy.</p>
+<p t="3152060" d="4200">It's good to take that
+step with matrices.</p>
+<p t="3156260" d="3670">Think of, possibly, the
+entries as coming in blocks</p>
+<p t="3159930" d="2670">and not just one at a time.</p>
+<p t="3162600" d="1730">Well, thank you, okay.</p>
+<p t="3164330" d="6370">I swear Friday we'll
+start applications</p>
+<p t="3170700" d="2300">in all kinds of
+engineering problems</p>
+<p t="3173000" d="2277">and you'll have
+new applications.</p>
+</body>
+</timedtext>

@@ -1,0 +1,1263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="9760" d="3690">OK, here is lecture
+ten in linear algebra.</p>
+<p t="13450" d="3950">Two important things
+to do in this lecture.</p>
+<p t="17400" d="4440">One is to correct an
+error from lecture nine.</p>
+<p t="21840" d="5410">So the blackboard with that
+awful error is still with us.</p>
+<p t="27250" d="2330">And the second,
+the big thing to do</p>
+<p t="29580" d="4620">is to tell you about
+the four subspaces that</p>
+<p t="34200" d="1730">come with a matrix.</p>
+<p t="35930" d="3100">We've seen two subspaces,
+the column space</p>
+<p t="39030" d="870">and the null space.</p>
+<p t="39900" d="2590">There's two to go.</p>
+<p t="42490" d="3270">First of all, and
+this is a great way to</p>
+<p t="45760" d="4930">OK. recap and correct
+the previous lecture --</p>
+<p t="50690" d="3500">so you remember I
+was just doing R^3.</p>
+<p t="54190" d="4430">I couldn't have taken a
+simpler example than R^3.</p>
+<p t="58620" d="3610">And I wrote down
+the standard basis.</p>
+<p t="62230" d="1715">That's the standard basis.</p>
+<p t="66780" d="4970">The basis -- the obvious basis
+for the whole three dimensional</p>
+<p t="71750" d="1070">space.</p>
+<p t="72820" d="3680">And then I wanted
+to make the point</p>
+<p t="76500" d="6440">that there was nothing special,
+nothing about that basis</p>
+<p t="82940" d="2190">that another basis
+couldn't have.</p>
+<p t="85130" d="1840">It could have
+linear independence,</p>
+<p t="86970" d="1560">it could span a space.</p>
+<p t="88530" d="1820">There's lots of other bases.</p>
+<p t="90350" d="3930">So I started with these vectors,
+one one two and two two five,</p>
+<p t="94280" d="2430">and those were independent.</p>
+<p t="96710" d="2490">And then I said
+three three seven</p>
+<p t="99200" d="3790">wouldn't do, because three
+three seven is the sum of those.</p>
+<p t="102990" d="4930">So in my innocence, I
+put in three three eight.</p>
+<p t="107920" d="5230">I figured probably if three
+three seven is on the plane,</p>
+<p t="113150" d="3060">is -- which I know, it's in
+the plane with these two,</p>
+<p t="116210" d="2890">then probably three three
+eight sticks a little bit out</p>
+<p t="119100" d="2910">of the plane and it's
+independent and it gives</p>
+<p t="122010" d="520">a basis.</p>
+<p t="122530" d="7280">But after class, to my
+sorrow, a student tells me,</p>
+<p t="129810" d="2810">"Wait a minute, that ba- that
+third vector, three three</p>
+<p t="132620" d="2070">eight, is not independent."</p>
+<p t="134690" d="2930">And why did she say that?</p>
+<p t="137620" d="4940">She didn't actually take
+the time, didn't have to,</p>
+<p t="142560" d="5330">to find w- w- what combination
+of this one and this one</p>
+<p t="147890" d="2150">gives three three eight.</p>
+<p t="150040" d="3130">She did something else.</p>
+<p t="153170" d="1920">In other words,
+she looked ahead,</p>
+<p t="155090" d="5990">because she said, wait a minute,
+if I look at that matrix,</p>
+<p t="161080" d="2350">it's not invertible.</p>
+<p t="163430" d="4100">That third column can't be
+independent of the first two,</p>
+<p t="167530" d="1740">because when I look
+at that matrix,</p>
+<p t="169270" d="3840">it's got two identical rows.</p>
+<p t="173110" d="3380">I have a square matrix.</p>
+<p t="176490" d="4750">Its rows are
+obviously dependent.</p>
+<p t="181240" d="5430">And that makes the
+columns dependent.</p>
+<p t="186670" d="1950">So there's my error.</p>
+<p t="188620" d="5180">When I look at the matrix A
+that has those three columns,</p>
+<p t="193800" d="2290">those three columns
+can't be independent</p>
+<p t="196090" d="2080">because that matrix
+is not invertible</p>
+<p t="198170" d="3750">because it's got two equal rows.</p>
+<p t="201920" d="5340">And today's lecture will
+reach the conclusion,</p>
+<p t="207260" d="5850">the great conclusion,
+that connects the column</p>
+<p t="213110" d="2195">space with the row space.</p>
+<p t="218030" d="4990">So those are -- the row space
+is now going to be another one</p>
+<p t="223020" d="2490">of my fundamental subspaces.</p>
+<p t="225510" d="3920">The row space of this matrix,
+or of this one -- well,</p>
+<p t="229430" d="5450">the row space of this one is OK,
+but the row space of this one,</p>
+<p t="234880" d="3360">I'm looking at the rows of
+the matrix -- oh, anyway,</p>
+<p t="238240" d="4380">I'll have two equal rows and
+the row space will be only two</p>
+<p t="242620" d="1440">dimensional.</p>
+<p t="244060" d="4260">The rank of the matrix with
+these columns will only be two.</p>
+<p t="248320" d="5410">So only two of those columns,
+columns can be independent too.</p>
+<p t="253730" d="4000">The rows tell me something about
+the columns, in other words,</p>
+<p t="257730" d="2830">something that I should
+have noticed and I didn't.</p>
+<p t="260560" d="940">OK.</p>
+<p t="261500" d="5970">So now let me pin down these
+four fundamental subspaces.</p>
+<p t="267470" d="3030">So here are the four
+fundamental subspaces.</p>
+<p t="276510" d="3960">This is really the heart of
+this approach to linear algebra,</p>
+<p t="280470" d="4050">to see these four subspaces,
+how they're related.</p>
+<p t="284520" d="1310">So what are they?</p>
+<p t="285830" d="7710">The column space, C of A.</p>
+<p t="293540" d="6880">The null space, N of A.</p>
+<p t="300420" d="4770">And now comes the row
+space, something new.</p>
+<p t="305190" d="3510">The row space, what's in that?</p>
+<p t="308700" d="3490">It's all combinations
+of the rows.</p>
+<p t="312190" d="1430">That's natural.</p>
+<p t="313620" d="2820">We want a space, so we have
+to take all combinations,</p>
+<p t="316440" d="1800">and we start with the rows.</p>
+<p t="318240" d="4210">So the rows span the row space.</p>
+<p t="322450" d="3750">Are the rows a basis
+for the row space?</p>
+<p t="326200" d="2940">Maybe so, maybe no.</p>
+<p t="329140" d="3940">The rows are a basis for the row
+space when they're independent,</p>
+<p t="333080" d="6170">but if they're dependent,
+as in this example,</p>
+<p t="339250" d="4250">my error from last
+time, they're not --</p>
+<p t="343500" d="1940">those three rows
+are not a basis.</p>
+<p t="345440" d="2840">The row space wouldn't --
+would only be two dimensional.</p>
+<p t="348280" d="2000">I only need two
+rows for a basis.</p>
+<p t="350280" d="2710">So the row space,
+now what's in it?</p>
+<p t="352990" d="2620">It's all combinations
+of the rows of A.</p>
+<p t="355610" d="5720">All combinations
+of the rows of A.</p>
+<p t="361330" d="3280">But I don't like working
+with row vectors.</p>
+<p t="364610" d="2070">All my vectors have
+been column vectors.</p>
+<p t="366680" d="3030">I'd like to stay
+with column vectors.</p>
+<p t="369710" d="4820">How can I get to column
+vectors out of these rows?</p>
+<p t="374530" d="2270">I transpose the matrix.</p>
+<p t="376800" d="3220">So if that's OK with you,
+I'm going to transpose the</p>
+<p t="380020" d="570">matrix.</p>
+<p t="380590" d="3860">I'm, I'm going to
+say all combinations</p>
+<p t="384450" d="7425">of the columns of A transpose.</p>
+<p t="394990" d="5760">And that allows me to use the
+convenient notation, the column</p>
+<p t="400750" d="2005">space of A transpose.</p>
+<p t="407310" d="3010">Nothing, no mathematics
+went on there.</p>
+<p t="410320" d="4810">We just got some vectors that
+were lying down to stand up.</p>
+<p t="415130" d="4600">But it means that we
+can use this column</p>
+<p t="419730" d="4390">space of A transpose, that's
+telling me in a nice matrix</p>
+<p t="424120" d="4830">notation what the row space is.</p>
+<p t="428950" d="520">OK.</p>
+<p t="429470" d="6430">And finally is
+another null space.</p>
+<p t="435900" d="4000">The fourth fundamental
+space will be</p>
+<p t="439900" d="2220">the null space of A transpose.</p>
+<p t="442120" d="8020">The fourth guy is the
+null space of A transpose.</p>
+<p t="450140" d="3255">And of course my notation
+is N of A transpose.</p>
+<p t="456230" d="3780">That's the null
+space of A transpose.</p>
+<p t="460010" d="6240">Eh, we don't have a perfect
+name for this space as a --</p>
+<p t="466250" d="5520">connecting with A, but our usual
+name is the left null space,</p>
+<p t="471770" d="2350">and I'll show you
+why in a moment.</p>
+<p t="474120" d="3360">So often I call this the --</p>
+<p t="477480" d="13090">just to write that word --
+the left null space of A.</p>
+<p t="490570" d="2850">So just the way we
+have the row space of A</p>
+<p t="493420" d="3390">and we switch it to the
+column space of A transpose,</p>
+<p t="496810" d="4780">so we have this space
+of guys l- that I</p>
+<p t="501590" d="3450">call the left null space
+of A, but the good notation</p>
+<p t="505040" d="2870">is it's the null
+space of A transpose.</p>
+<p t="507910" d="500">OK.</p>
+<p t="508410" d="1360">Those are four spaces.</p>
+<p t="512980" d="2300">Where are those spaces?</p>
+<p t="515280" d="4779">What, what big space are they
+in for -- when A is m by n?</p>
+<p t="527720" d="4650">In that case, the
+null space of A,</p>
+<p t="532370" d="1730">what's in the null space of A?</p>
+<p t="534100" d="4750">Vectors with n components,
+solutions to A x equals zero.</p>
+<p t="538850" d="2813">So the null space
+of A is in R^n.</p>
+<p t="544800" d="1680">What's in the column space of A?</p>
+<p t="546480" d="1740">Well, columns.</p>
+<p t="548220" d="3100">How many components
+dothose columns have?</p>
+<p t="551320" d="1030">m.</p>
+<p t="552350" d="3490">So this column space is in R^m.</p>
+<p t="559680" d="2330">What about the column
+space of A transpose,</p>
+<p t="562010" d="4950">which are just a disguised
+way of saying the rows of A?</p>
+<p t="566960" d="4080">The rows of A, in this
+three by six matrix,</p>
+<p t="571040" d="5640">have six components,
+n components.</p>
+<p t="576680" d="1740">The column space is in R^n.</p>
+<p t="582790" d="3160">And the null space
+of A transpose,</p>
+<p t="585950" d="5850">I see that this fourth space
+is already getting second,</p>
+<p t="591800" d="3840">you know, second class
+citizen treatment</p>
+<p t="595640" d="1910">and it doesn't deserve it.</p>
+<p t="597550" d="3280">It's, it should be
+there, it is there,</p>
+<p t="600830" d="2600">and shouldn't be squeezed.</p>
+<p t="603430" d="3220">The null space of A transpose --</p>
+<p t="606650" d="3870">well, if the null space of A
+had vectors with n components,</p>
+<p t="610520" d="4450">the null space of A
+transpose will be in R^m.</p>
+<p t="614970" d="4290">I want to draw a picture
+of the four spaces.</p>
+<p t="619260" d="500">OK.</p>
+<p t="624580" d="550">OK.</p>
+<p t="625130" d="1250">Here are the four spaces.</p>
+<p t="632450" d="6130">OK, Let me put n dimensional
+space over on this side.</p>
+<p t="638580" d="4180">Then which were the
+subspaces in R^n?</p>
+<p t="642760" d="4730">The null space was
+and the row space was.</p>
+<p t="647490" d="5981">So here we have the -- can I
+make that picture of the row</p>
+<p t="653471" d="499">space?</p>
+<p t="657180" d="3700">And can I make this kind of
+picture of the null space?</p>
+<p t="666140" d="1740">That's just meant
+to be a sketch,</p>
+<p t="667880" d="5920">to remind you that they're in
+this -- which you know, how --</p>
+<p t="673800" d="2620">what type of vectors are in it?</p>
+<p t="676420" d="2140">Vectors with n components.</p>
+<p t="678560" d="7000">Over here, inside, consisting
+of vectors with m components,</p>
+<p t="685560" d="8330">is the column space
+and what I'm calling</p>
+<p t="693890" d="5710">the null space of A transpose.</p>
+<p t="699600" d="3010">Those are the ones
+with m components.</p>
+<p t="702610" d="2210">OK.</p>
+<p t="704820" d="3940">To understand these spaces
+is our, is our job now.</p>
+<p t="708760" d="2120">Because by understanding
+those spaces,</p>
+<p t="710880" d="5850">we know everything about
+this half of linear algebra.</p>
+<p t="716730" d="2910">What do I mean by
+understanding those spaces?</p>
+<p t="719640" d="3610">I would like to know a
+basis for those spaces.</p>
+<p t="727640" d="2450">For each one of those
+spaces, how would I create --</p>
+<p t="730090" d="1350">construct a basis?</p>
+<p t="731440" d="3820">What systematic way
+would produce a basis?</p>
+<p t="735260" d="1920">And what's their dimension?</p>
+<p t="744611" d="499">OK.</p>
+<p t="748380" d="1690">So for each of
+the four spaces, I</p>
+<p t="750070" d="2430">have to answer those questions.</p>
+<p t="752500" d="2280">How do I produce a basis?</p>
+<p t="754780" d="3840">And then -- which has
+a somewhat long answer.</p>
+<p t="758620" d="3590">And what's the dimension,
+which is just a number,</p>
+<p t="762210" d="1820">so it has a real short answer.</p>
+<p t="764030" d="2220">Can I give you the
+short answer first?</p>
+<p t="766250" d="4680">I shouldn't do it,
+but here it is.</p>
+<p t="770930" d="5276">I can tell you the dimension
+of the column space.</p>
+<p t="776206" d="1124">Let me start with this guy.</p>
+<p t="777330" d="1260">What's its dimension?</p>
+<p t="778590" d="2770">I have an m by n matrix.</p>
+<p t="781360" d="7681">The dimension of the
+column space is the rank,</p>
+<p t="789041" d="499">r.</p>
+<p t="793600" d="3610">We actually got to that at
+the end of the last lecture,</p>
+<p t="797210" d="2360">but only for an example.</p>
+<p t="799570" d="4950">So I really have to say,
+OK, what's going on there.</p>
+<p t="804520" d="3820">I should produce
+a basis and then I</p>
+<p t="808340" d="2920">just look to see how many
+vectors I needed in that basis,</p>
+<p t="811260" d="3100">and the answer will be r.</p>
+<p t="814360" d="4620">Actually, I'll do that,
+before I get on to the others.</p>
+<p t="818980" d="2070">What's a basis for
+the columns space?</p>
+<p t="823770" d="3210">We've done all the
+work of row reduction,</p>
+<p t="826980" d="3830">identifying the pivot
+columns, the ones that</p>
+<p t="830810" d="3130">have pivots, the ones
+that end up with pivots.</p>
+<p t="833940" d="3560">But now I -- the pivot columns
+I'm interested in are columns</p>
+<p t="837500" d="3030">of A, the original A.</p>
+<p t="840530" d="3080">And those pivot columns,
+there are r of them.</p>
+<p t="843610" d="2230">The rank r counts those.</p>
+<p t="845840" d="1710">Those are a basis.</p>
+<p t="847550" d="4970">So if I answer this question
+for the column space,</p>
+<p t="852520" d="5580">the answer will be a
+basis is the pivot columns</p>
+<p t="858100" d="5690">and the dimension is the rank
+r, and there are r pivot columns</p>
+<p t="863790" d="2570">and everything great.</p>
+<p t="866360" d="590">OK.</p>
+<p t="866950" d="2970">So that space we
+pretty well understand.</p>
+<p t="872560" d="3530">I probably have a little
+going back to see that --</p>
+<p t="876090" d="3660">to prove that this
+is a right answer,</p>
+<p t="879750" d="2710">but you know it's
+the right answer.</p>
+<p t="882460" d="2795">Now let me look
+at the row space.</p>
+<p t="889340" d="2490">OK.</p>
+<p t="891830" d="3360">Shall I tell you the
+dimension of the row space?</p>
+<p t="895190" d="640">Yes.</p>
+<p t="895830" d="2350">Before we do even an
+example, let me tell you</p>
+<p t="898180" d="2040">the dimension of the row space.</p>
+<p t="900220" d="3430">Its dimension is also r.</p>
+<p t="903650" d="3180">The row space and the column
+space have the same dimension.</p>
+<p t="906830" d="1610">That's a wonderful fact.</p>
+<p t="908440" d="4510">The dimension of the column
+space of A transpose --</p>
+<p t="912950" d="4220">that's the row space -- is r.</p>
+<p t="917170" d="2260">That, that space
+is r dimensional.</p>
+<p t="922100" d="2690">Snd so is this one.</p>
+<p t="924790" d="2780">OK.</p>
+<p t="927570" d="7860">That's the sort of insight
+that got used in this example.</p>
+<p t="935430" d="5560">If those -- are the three
+columns of a matrix --</p>
+<p t="940990" d="3730">let me make them the three
+columns of a matrix by just</p>
+<p t="944720" d="2280">erasing some brackets.</p>
+<p t="947000" d="4320">OK, those are the three
+columns of a matrix.</p>
+<p t="951320" d="2810">The rank of that matrix,
+if I look at the columns,</p>
+<p t="954130" d="3430">it wasn't obvious to me anyway.</p>
+<p t="957560" d="3690">But if I look at the
+rows, now it's obvious.</p>
+<p t="961250" d="2610">The row space of
+that matrix obviously</p>
+<p t="963860" d="3520">is two dimensional, because
+I see a basis for the row</p>
+<p t="967380" d="3270">space, this row and that row.</p>
+<p t="970650" d="1720">And of course,
+strictly speaking,</p>
+<p t="972370" d="3920">I'm supposed to transpose
+those guys, make them stand up.</p>
+<p t="976290" d="2980">But the rank is two, and
+therefore the column space</p>
+<p t="979270" d="2670">is two dimensional by
+this wonderful fact</p>
+<p t="981940" d="3160">that the row space and column
+space have the same dimension.</p>
+<p t="985100" d="4030">And therefore there are only
+two pivot columns, not three,</p>
+<p t="989130" d="5180">and, those, the three
+columns are dependent.</p>
+<p t="994310" d="1120">OK.</p>
+<p t="995430" d="10040">Now let me bury that error
+and talk about the row space.</p>
+<p t="1005470" d="3220">Well, I'm going to give you the
+dimensions of all the spaces.</p>
+<p t="1008690" d="3790">Because that's
+such a nice answer.</p>
+<p t="1012480" d="620">OK.</p>
+<p t="1013100" d="3360">So let me come back here.</p>
+<p t="1016460" d="3180">So we have this great
+fact to establish,</p>
+<p t="1019640" d="7150">that the row space, its
+dimension is also the rank.</p>
+<p t="1026790" d="1120">What about the null space?</p>
+<p t="1027910" d="2110">OK.</p>
+<p t="1030020" d="3610">What's a basis for
+the null space?</p>
+<p t="1033630" d="2340">What's the dimension
+of the null space?</p>
+<p t="1035970" d="4304">Let me, I'll put that answer
+up here for the null space.</p>
+<p t="1044200" d="3649">Well, how have we
+constructed the null space?</p>
+<p t="1047849" d="4411">We took the matrix A, we
+did those row operations</p>
+<p t="1052260" d="3910">to get it into a form
+U or, or even further.</p>
+<p t="1056170" d="3560">We got it into the
+reduced form R.</p>
+<p t="1059730" d="3760">And then we read off
+special solutions.</p>
+<p t="1063490" d="1090">Special solutions.</p>
+<p t="1064580" d="3530">And every special solution
+came from a free variable.</p>
+<p t="1068110" d="2610">And those special solutions
+are in the null space,</p>
+<p t="1070720" d="3640">and the great thing is
+they're a basis for it.</p>
+<p t="1074360" d="5085">So for the null space, a basis
+will be the special solutions.</p>
+<p t="1083280" d="3970">And there's one for every
+free variable, right?</p>
+<p t="1087250" d="3940">For each free variable, we give
+that variable the value one,</p>
+<p t="1091190" d="2160">the other free variables zero.</p>
+<p t="1093350" d="4490">We get the pivot variables,
+we get a vector in the --</p>
+<p t="1097840" d="2840">we get a special solution.</p>
+<p t="1100680" d="3460">So we get altogether
+n-r of them,</p>
+<p t="1104140" d="6200">because that's the
+number of free variables.</p>
+<p t="1110340" d="2550">If we have r --</p>
+<p t="1112890" d="5600">this is the dimension is r, is
+the number of pivot variables.</p>
+<p t="1118490" d="2320">This is the number
+of free variables.</p>
+<p t="1120810" d="3370">So the beauty is that those
+special solutions do form</p>
+<p t="1124180" d="7200">a basis and tell us immediately
+that the dimension of the null</p>
+<p t="1131380" d="4190">space is n --</p>
+<p t="1135570" d="5020">I better write this well,
+because it's so nice -- n-r.</p>
+<p t="1140590" d="4320">And do you see the nice thing?</p>
+<p t="1144910" d="3410">That the two dimensions in
+this n dimensional space,</p>
+<p t="1148320" d="3980">one subspace is r dimensional --</p>
+<p t="1152300" d="3100">to be proved, that's
+the row space.</p>
+<p t="1155400" d="3280">The other subspace
+is n-r dimensional,</p>
+<p t="1158680" d="2470">that's the null space.</p>
+<p t="1161150" d="4400">And the two dimensions
+like together give n.</p>
+<p t="1165550" d="3320">The sum of r and n-R is n.</p>
+<p t="1168870" d="2400">And that's just great.</p>
+<p t="1171270" d="4450">It's really copying the fact
+that we have n variables,</p>
+<p t="1175720" d="4030">r of them are pivot variables
+and n-r are free variables,</p>
+<p t="1179750" d="1630">and n altogether.</p>
+<p t="1181380" d="500">OK.</p>
+<p t="1181880" d="5210">And now what's the dimension
+of this poor misbegotten fourth</p>
+<p t="1187090" d="1410">subspace?</p>
+<p t="1188500" d="5200">It's got to be m-r.</p>
+<p t="1193700" d="6410">The dimension of this left null
+space, left out practically,</p>
+<p t="1200110" d="1430">is m-r.</p>
+<p t="1204120" d="4570">Well, that's really just
+saying that this -- again,</p>
+<p t="1208690" d="6450">the sum of that plus that
+is m, and m is correct,</p>
+<p t="1215140" d="6040">it's the number of
+columns in A transpose.</p>
+<p t="1221180" d="4630">A transpose is just
+as good a matrix as A.</p>
+<p t="1225810" d="3780">It just happens to be n by m.</p>
+<p t="1229590" d="8770">It happens to have m columns,
+so it will have m variables</p>
+<p t="1238360" d="3630">when I go to A x
+equals 0 and m of them,</p>
+<p t="1241990" d="4960">and r of them will be pivot
+variables and m-r will</p>
+<p t="1246950" d="2970">be free variables.</p>
+<p t="1249920" d="2730">A transpose is as
+good a matrix as A.</p>
+<p t="1252650" d="4760">It follows the same rule that
+the this plus the dimension --</p>
+<p t="1257410" d="3420">this dimension plus this
+dimension adds up to the number</p>
+<p t="1260830" d="2300">of columns.</p>
+<p t="1263130" d="3640">And over here, A
+transpose has m columns.</p>
+<p t="1266770" d="2520">OK.</p>
+<p t="1269290" d="500">OK.</p>
+<p t="1269790" d="3790">So I gave you the easy
+answer, the dimensions.</p>
+<p t="1273580" d="7580">Now can I go back
+to check on a basis?</p>
+<p t="1281160" d="4380">We would like to think
+that -- say the row space,</p>
+<p t="1285540" d="3740">because we've got a basis
+for the column space.</p>
+<p t="1289280" d="4290">The pivot columns give a
+basis for the column space.</p>
+<p t="1293570" d="3270">Now I'm asking you to
+look at the row space.</p>
+<p t="1296840" d="3950">And I -- you could say, OK, I
+can produce a basis for the row</p>
+<p t="1300790" d="4750">space by transposing my
+matrix, making those columns,</p>
+<p t="1305540" d="3130">then doing elimination,
+row reduction,</p>
+<p t="1308670" d="6020">and checking out the pivot
+columns in this transposed</p>
+<p t="1314690" d="660">matrix.</p>
+<p t="1315350" d="2410">But that means you
+had to do all that row</p>
+<p t="1317760" d="2990">reduction on A transpose.</p>
+<p t="1320750" d="4840">It ought to be possible,
+if we take a matrix A --</p>
+<p t="1325590" d="3030">let me take the matrix -- maybe
+we had this matrix in the last</p>
+<p t="1328620" d="500">lecture.</p>
+<p t="1329120" d="6410">1 1 1, 2 1 2, 3 2 3, 1 1 1.</p>
+<p t="1341950" d="720">OK.</p>
+<p t="1342670" d="2100">That, that matrix was so easy.</p>
+<p t="1344770" d="4330">We spotted its pivot columns,
+one and two, without actually</p>
+<p t="1349100" d="1830">doing row reduction.</p>
+<p t="1350930" d="4140">But now let's do
+the job properly.</p>
+<p t="1355070" d="3910">So I subtract this away
+from this to produce a zero.</p>
+<p t="1358980" d="3830">So one 2 3 1 is fine.</p>
+<p t="1362810" d="4609">Subtracting that away leaves
+me minus 1 -1 0, right?</p>
+<p t="1367419" d="2541">And subtracting that from the
+last row, oh, well that's easy.</p>
+<p t="1373140" d="550">OK?</p>
+<p t="1373690" d="2990">I'm doing row reduction.</p>
+<p t="1376680" d="4020">Now I've -- the first
+column is all set.</p>
+<p t="1380700" d="3530">The second column I
+now see the pivot.</p>
+<p t="1384230" d="3570">And I can clean up, if I --</p>
+<p t="1387800" d="680">actually,</p>
+<p t="1388480" d="1380">OK.</p>
+<p t="1389860" d="3210">Why don't I make
+the pivot into a 1.</p>
+<p t="1393070" d="5735">I'll multiply that row through
+by by -1, and then I have 1 1.</p>
+<p t="1402200" d="2170">That was an elementary
+operation I'm allowed,</p>
+<p t="1404370" d="2420">multiply a row by a number.</p>
+<p t="1406790" d="1360">And now I'll do elimination.</p>
+<p t="1408150" d="3150">Two of those away from that
+will knock this guy out</p>
+<p t="1411300" d="1820">and make this into a 1.</p>
+<p t="1413120" d="3440">So that's now a 0 and that's a</p>
+<p t="1416560" d="1060">OK.</p>
+<p t="1417620" d="1610">Done.</p>
+<p t="1419230" d="3240">That's R.</p>
+<p t="1422470" d="3460">I'm seeing the
+identity matrix here.</p>
+<p t="1425930" d="2600">I'm seeing zeros below.</p>
+<p t="1428530" d="1460">And I'm seeing F there.</p>
+<p t="1433151" d="499">OK.</p>
+<p t="1436340" d="3770">What about its row space?</p>
+<p t="1440110" d="2540">What happened to its row space
+-- well, what happened --</p>
+<p t="1442650" d="1960">let me first ask, just
+because this is, is --</p>
+<p t="1444610" d="2170">sometimes something does happen.</p>
+<p t="1446780" d="2230">Its column space changed.</p>
+<p t="1449010" d="9810">The column space of R is not
+the column space of A, right?</p>
+<p t="1458820" d="3180">Because 1 1 1 is certainly
+in the column space of A</p>
+<p t="1462000" d="4460">and certainly not in
+the column space of R.</p>
+<p t="1466460" d="3310">I did row operations.</p>
+<p t="1469770" d="3980">Those row operations
+preserve the row space.</p>
+<p t="1473750" d="2890">So the row, so the column
+spaces are different.</p>
+<p t="1476640" d="2910">Different column spaces,
+different column spaces.</p>
+<p t="1485950" d="4530">But I believe that they
+have the same row space.</p>
+<p t="1495080" d="800">Same row space.</p>
+<p t="1500030" d="4010">I believe that the row space of
+that matrix and the row space</p>
+<p t="1504040" d="2170">of this matrix are identical.</p>
+<p t="1506210" d="3430">They have exactly the
+same vectors in them.</p>
+<p t="1509640" d="4760">Those vectors are vectors
+with four components, right?</p>
+<p t="1514400" d="3540">They're all combinations
+of those rows.</p>
+<p t="1517940" d="1860">Or I believe you
+get the same thing</p>
+<p t="1519800" d="2230">by taking all combinations
+of these rows.</p>
+<p t="1524690" d="5270">And if true, what's a basis?</p>
+<p t="1529960" d="2470">What's a basis for
+the row space of R,</p>
+<p t="1532430" d="10020">and it'll be a basis for the
+row space of the original A,</p>
+<p t="1542450" d="2670">but it's obviously a basis
+for the row space of R.</p>
+<p t="1545120" d="2720">What's a basis for the
+row space of that matrix?</p>
+<p t="1547840" d="980">The first two rows.</p>
+<p t="1551930" d="5620">So a basis for the
+row -- so a basis is,</p>
+<p t="1557550" d="17950">for the row space of A or of R,
+is, is the first R rows of R.</p>
+<p t="1575500" d="2550">Not of A.</p>
+<p t="1578050" d="3910">Sometimes it's true for
+A, but not necessarily.</p>
+<p t="1581960" d="7320">But R, we definitely have a
+matrix here whose row space we</p>
+<p t="1589280" d="2780">can, we can identify.</p>
+<p t="1592060" d="4730">The row space is spanned
+by the three rows,</p>
+<p t="1596790" d="3790">but if we want a basis
+we want independence.</p>
+<p t="1600580" d="2800">So out goes row three.</p>
+<p t="1603380" d="3440">The row space is also spanned
+by the first two rows.</p>
+<p t="1606820" d="2100">This guy didn't
+contribute anything.</p>
+<p t="1608920" d="3786">And of course over here
+this 1 2 3 1 in the bottom</p>
+<p t="1612706" d="1124">didn't contribute anything.</p>
+<p t="1613830" d="2680">We had it already.</p>
+<p t="1616510" d="1750">So this, here is a basis.</p>
+<p t="1618260" d="3000">1 0 1 1 and 0 1 1 0.</p>
+<p t="1624710" d="2150">I believe those are
+in the row space.</p>
+<p t="1626860" d="1230">I know they're independent.</p>
+<p t="1628090" d="2590">Why are they in the row space?</p>
+<p t="1630680" d="3040">Why are those two
+vectors in the row space?</p>
+<p t="1633720" d="3720">Because all those
+operations we did,</p>
+<p t="1637440" d="5240">which started with these rows
+and took combinations of them</p>
+<p t="1642680" d="1220">--</p>
+<p t="1643900" d="5010">I took this row minus this
+row, that gave me something</p>
+<p t="1648910" d="1870">that's still in the row space.</p>
+<p t="1650780" d="1620">That's the point.</p>
+<p t="1652400" d="4360">When I took a row minus a
+multiple of another row,</p>
+<p t="1656760" d="1620">I'm staying in the row space.</p>
+<p t="1658380" d="2950">The row space is not changing.</p>
+<p t="1661330" d="1910">My little basis
+for it is changing,</p>
+<p t="1663240" d="3440">and I've ended up with,
+sort of the best basis.</p>
+<p t="1669380" d="3860">If the columns of the identity
+matrix are the best basis</p>
+<p t="1673240" d="7250">for R^3 or R^n, the rows of
+this matrix are the best basis</p>
+<p t="1680490" d="2020">for the row space.</p>
+<p t="1682510" d="3740">Best in the sense of being
+as clean as I can make it.</p>
+<p t="1686250" d="3060">Starting off with the
+identity and then finishing up</p>
+<p t="1689310" d="2110">with whatever has
+to be in there.</p>
+<p t="1691420" d="1310">OK.</p>
+<p t="1692730" d="3990">Do you see then that
+the dimension is r?</p>
+<p t="1696720" d="6610">For sure, because we've got
+r pivots, r non-zero rows.</p>
+<p t="1703330" d="3090">We've got the right
+number of vectors, r.</p>
+<p t="1706420" d="3660">They're in the row space,
+they're independent.</p>
+<p t="1710080" d="1520">That's it.</p>
+<p t="1711600" d="2560">They are a basis
+for the row space.</p>
+<p t="1714160" d="2060">And we can even pin
+that down further.</p>
+<p t="1716220" d="5120">How do I know that every
+row of A is a combination?</p>
+<p t="1721340" d="3770">How do I know they
+span the row space?</p>
+<p t="1725110" d="3000">Well, somebody says, I've
+got the right number of them,</p>
+<p t="1728110" d="630">so they must.</p>
+<p t="1728740" d="1130">But -- and that's true.</p>
+<p t="1729870" d="4530">But let me just say, how
+do I know that this row is</p>
+<p t="1734400" d="2900">a combination of these?</p>
+<p t="1737300" d="4570">By just reversing the
+steps of row reduction.</p>
+<p t="1741870" d="5890">If I just reverse the steps and
+go from A -- from R back to A,</p>
+<p t="1747760" d="2250">then what do I, what I doing?</p>
+<p t="1750010" d="2020">I'm starting with
+these rows, I'm</p>
+<p t="1752030" d="3700">taking combinations of them.</p>
+<p t="1755730" d="3940">After a couple of steps,
+undoing the subtractions</p>
+<p t="1759670" d="3040">that I did before, I'm
+back to these rows.</p>
+<p t="1762710" d="2790">So these rows are
+combinations of those rows.</p>
+<p t="1765500" d="2520">Those rows are
+combinations of those rows.</p>
+<p t="1768020" d="3720">The two row spaces are the same.</p>
+<p t="1771740" d="3090">The bases are the same.</p>
+<p t="1774830" d="3710">And the natural
+basis is this guy.</p>
+<p t="1778540" d="2990">Is that all right
+for the row space?</p>
+<p t="1781530" d="3500">The row space is
+sitting there in R</p>
+<p t="1785030" d="2720">in its cleanest possible form.</p>
+<p t="1787750" d="1050">OK.</p>
+<p t="1788800" d="8075">Now what about the fourth guy,
+the null space of A transpose?</p>
+<p t="1799630" d="3810">First of all, why do I call
+that the left null space?</p>
+<p t="1803440" d="8170">So let me save that
+and bring that down.</p>
+<p t="1811610" d="2440">OK.</p>
+<p t="1814050" d="6890">So the fourth space is the
+null space of A transpose.</p>
+<p t="1823700" d="3500">So it has in it vectors,
+let me call them y,</p>
+<p t="1827200" d="3270">so that A transpose y equals 0.</p>
+<p t="1830470" d="4890">If A transpose y
+equals 0, then y</p>
+<p t="1835360" d="4530">is in the null space of
+A transpose, of course.</p>
+<p t="1839890" d="7880">So this is a matrix times
+a column equaling zero.</p>
+<p t="1850480" d="6070">And now, because I want
+y to sit on the left</p>
+<p t="1856550" d="3650">and I want A instead
+of A transpose,</p>
+<p t="1860200" d="3180">I'll just transpose
+that equation.</p>
+<p t="1863380" d="2800">Can I just transpose that?</p>
+<p t="1866180" d="4525">On the right, it makes
+the zero vector lie down.</p>
+<p t="1874590" d="6920">And on the left, it's a
+product, A, A transpose times y.</p>
+<p t="1881510" d="3000">If I take the transpose, then
+they come in opposite order,</p>
+<p t="1884510" d="1030">right?</p>
+<p t="1885540" d="4616">So that's y transpose times
+A transpose transpose.</p>
+<p t="1893210" d="2330">But nobody's going to
+leave it like that.</p>
+<p t="1895540" d="4080">That's -- A transpose
+transpose is just A, of course.</p>
+<p t="1899620" d="3740">When I transposed A
+transpose I got back to A.</p>
+<p t="1903360" d="2510">Now do you see what I have now?</p>
+<p t="1905870" d="5950">I have a row
+vector, y transpose,</p>
+<p t="1911820" d="6720">multiplying A, and
+multiplying from the left.</p>
+<p t="1918540" d="3640">That's why I call it
+the left null space.</p>
+<p t="1922180" d="3410">But by making it --
+putting it on the left,</p>
+<p t="1925590" d="4130">I had to make it into a row
+instead of a column vector,</p>
+<p t="1929720" d="5530">and so my convention is
+I usually don't do that.</p>
+<p t="1935250" d="3710">I usually stay with A
+transpose y equals 0.</p>
+<p t="1938960" d="1330">OK.</p>
+<p t="1940290" d="7700">And you might ask, how do we
+get a basis -- or I might ask,</p>
+<p t="1947990" d="3480">how do we get a basis
+for this fourth space,</p>
+<p t="1951470" d="1140">this left null space?</p>
+<p t="1956150" d="570">OK.</p>
+<p t="1956720" d="3330">I'll do it in the example.</p>
+<p t="1960050" d="3300">As always -- not that one.</p>
+<p t="1969880" d="3430">The left null space is not
+jumping out at me here.</p>
+<p t="1977060" d="3160">I know which are the
+free variables --</p>
+<p t="1980220" d="3670">the special solutions, but those
+are special solutions to A x</p>
+<p t="1983890" d="2340">equals zero, and now I'm
+looking at A transpose,</p>
+<p t="1986230" d="2190">and I'm not seeing it here.</p>
+<p t="1988420" d="4340">So -- but somehow you feel that
+the work that you did which</p>
+<p t="1992760" d="6550">simplified A to R should have
+revealed the left null space</p>
+<p t="1999310" d="1450">too.</p>
+<p t="2000760" d="5210">And it's slightly less
+immediate, but it's there.</p>
+<p t="2005970" d="5040">So from A to R, I
+took some steps,</p>
+<p t="2011010" d="3870">and I guess I'm interested
+in what were those steps,</p>
+<p t="2014880" d="1720">or what were all
+of them together.</p>
+<p t="2016600" d="6560">I don't -- I'm not interested in
+what particular ones they were.</p>
+<p t="2023160" d="2750">I'm interested in what
+was the whole matrix that</p>
+<p t="2025910" d="5710">took me from A to R.</p>
+<p t="2031620" d="1260">How would you find that?</p>
+<p t="2035640" d="3330">Do you remember
+Gauss-Jordan, where you</p>
+<p t="2038970" d="3290">tack on the identity matrix?</p>
+<p t="2042260" d="1550">Let's do that again.</p>
+<p t="2043810" d="2830">So I, I'll do it above, here.</p>
+<p t="2046640" d="6980">So this is now, this
+is now the idea of --</p>
+<p t="2053620" d="3950">I take the matrix
+A, which is m by n.</p>
+<p t="2060389" d="2250">In Gauss-Jordan, when
+we saw him before --</p>
+<p t="2062639" d="2511">A was a square
+invertible matrix and we</p>
+<p t="2065150" d="2750">were finding its inverse.</p>
+<p t="2067900" d="1509">Now the matrix isn't square.</p>
+<p t="2069409" d="2951">It's probably rectangular.</p>
+<p t="2072360" d="4629">But I'll still tack on the
+identity matrix, and of course</p>
+<p t="2076989" d="5190">since these have length
+m it better be m by m.</p>
+<p t="2082179" d="7195">And now I'll do the reduced row
+echelon form of this matrix.</p>
+<p t="2092480" d="3640">And what do I get?</p>
+<p t="2101640" d="3310">The reduced row echelon form
+starts with these columns,</p>
+<p t="2104950" d="6730">starts with the first columns,
+works like mad, and produces R.</p>
+<p t="2111680" d="2240">Of course, still that
+same size, m by n.</p>
+<p t="2113920" d="1780">And we did it before.</p>
+<p t="2115700" d="3440">And then whatever
+it did to get R,</p>
+<p t="2119140" d="3380">something else is
+going to show up here.</p>
+<p t="2122520" d="4170">Let me call it E, m by m.</p>
+<p t="2126690" d="3480">It's whatever -- do you see
+that E is just going to contain</p>
+<p t="2130170" d="2470">a record of what we did?</p>
+<p t="2132640" d="6140">We did whatever it took
+to get A to become R.</p>
+<p t="2138780" d="2150">And at the same time,
+we were doing it</p>
+<p t="2140930" d="3480">to the identity matrix.</p>
+<p t="2144410" d="4180">So we started with the identity
+matrix, we buzzed along.</p>
+<p t="2148590" d="2600">So we took some --</p>
+<p t="2151190" d="4670">all this row reduction amounted
+to multiplying on the left</p>
+<p t="2155860" d="4180">by some matrix, some series
+of elementary matrices</p>
+<p t="2160040" d="5740">that altogether gave us one
+matrix, and that matrix is E.</p>
+<p t="2165780" d="5670">So all this row reduction stuff
+amounted to multiplying by E.</p>
+<p t="2171450" d="1670">How do I know that?</p>
+<p t="2173120" d="3560">It certainly amounted to
+multiply it by something.</p>
+<p t="2176680" d="4980">And that something took I to
+E, so that something was E.</p>
+<p t="2181660" d="8130">So now look at the
+first part, E A is R.</p>
+<p t="2189790" d="1730">No big deal.</p>
+<p t="2191520" d="7190">All I've said is that the row
+reduction steps that we all</p>
+<p t="2198710" d="6970">know -- well, taking A to
+R, are in a, in some matrix,</p>
+<p t="2205680" d="3660">and I can find out what that
+matrix is by just tacking I</p>
+<p t="2209340" d="2470">on and seeing what comes out.</p>
+<p t="2211810" d="2760">What comes out is E.</p>
+<p t="2214570" d="3830">Let's just review the
+invertible square case.</p>
+<p t="2218400" d="2460">What happened then?</p>
+<p t="2220860" d="3490">Because I was interested
+in it in chapter two also.</p>
+<p t="2224350" d="3910">When A was square and
+invertible, I took A I,</p>
+<p t="2228260" d="2220">I did row, row elimination.</p>
+<p t="2230480" d="1730">And what was the
+R that came out?</p>
+<p t="2232210" d="2560">It was I.</p>
+<p t="2234770" d="9760">So in chapter two, in
+chapter two, R was I.</p>
+<p t="2244530" d="2780">The row the, the
+reduced row echelon</p>
+<p t="2247310" d="4420">form of a nice invertible
+square matrix is the identity.</p>
+<p t="2251730" d="9780">So if R was I in that case, then
+E was -- then E was A inverse,</p>
+<p t="2261510" d="2920">because E A is I.</p>
+<p t="2264430" d="770">Good.</p>
+<p t="2265200" d="3340">That's, that was good and easy.</p>
+<p t="2268540" d="4450">Now what I'm saying is
+that there still is an E.</p>
+<p t="2272990" d="2750">It's not A inverse any more,
+because A is rectangular.</p>
+<p t="2275740" d="1990">It hasn't got an inverse.</p>
+<p t="2277730" d="7280">But there is still some matrix
+E that connected this to this --</p>
+<p t="2285010" d="4250">oh, I should have figured
+out in advanced what it was.</p>
+<p t="2289260" d="2550">Shoot.</p>
+<p t="2291810" d="990">I didn't --</p>
+<p t="2292800" d="3820">I did those steps and sort
+of erased as I went --</p>
+<p t="2296620" d="3750">and, I should have done
+them to the identity too.</p>
+<p t="2300370" d="2130">Can I do that?</p>
+<p t="2302500" d="960">Can I do that?</p>
+<p t="2303460" d="2680">I'll keep the identity matrix,
+like I'm supposed to do,</p>
+<p t="2306140" d="3610">and I'll do the same operations
+on it, and see what I end up</p>
+<p t="2309750" d="590">with.</p>
+<p t="2310340" d="960">OK.</p>
+<p t="2311300" d="1510">So I'm starting
+with the identity --</p>
+<p t="2312810" d="7701">which I'll write in light,
+light enough, but --</p>
+<p t="2320511" d="499">OK.</p>
+<p t="2321010" d="1510">What did I do?</p>
+<p t="2322520" d="3430">I subtracted that row from that
+one and that row from that one.</p>
+<p t="2325950" d="2000">OK, I'll do that
+to the identity.</p>
+<p t="2327950" d="5040">So I subtract that first row
+from row two and row three.</p>
+<p t="2332990" d="2320">Good.</p>
+<p t="2335310" d="1640">Then I think I multiplied --</p>
+<p t="2336950" d="670">Do you remember?</p>
+<p t="2337620" d="4270">I multiplied row
+two by minus one.</p>
+<p t="2341890" d="3380">Let me just do that.</p>
+<p t="2345270" d="1340">Then what did I do?</p>
+<p t="2346610" d="8270">I subtracted two of row
+two away from row one.</p>
+<p t="2354880" d="890">I better do that.</p>
+<p t="2355770" d="1950">Subtract two of
+this away from this.</p>
+<p t="2357720" d="6460">That's minus one, two of these
+away leaves a plus 2 and 0.</p>
+<p t="2364180" d="4260">I believe that's E.</p>
+<p t="2368440" d="7430">The way to check is to see,
+multiply that E by this A,</p>
+<p t="2375870" d="1550">just to see did I do it right.</p>
+<p t="2380570" d="8715">So I believe E was -1 2
+0, 1 -1 0, and -1 0 1.</p>
+<p t="2393020" d="500">OK.</p>
+<p t="2393520" d="4510">That's my E, that's
+my A, and that's R.</p>
+<p t="2398030" d="2080">All right.</p>
+<p t="2400110" d="2840">All I'm struggling
+to do is right,</p>
+<p t="2402950" d="6710">the reason I wanted this blasted
+E was so that I could figure</p>
+<p t="2409660" d="4910">out the left null space,
+not only its dimension,</p>
+<p t="2414570" d="2450">which I know --</p>
+<p t="2417020" d="2407">actually, what is the dimension
+of the left null space?</p>
+<p t="2419427" d="833">So here's my matrix.</p>
+<p t="2423180" d="1285">What's the rank of the matrix?</p>
+<p t="2427560" d="3080">And the dimension of the null
+-- of the left null space is</p>
+<p t="2430640" d="2830">supposed to be m-r.</p>
+<p t="2433470" d="1460">It's 3 -2, 1.</p>
+<p t="2434930" d="4160">I believe that the left null
+space is one dimensional.</p>
+<p t="2439090" d="3900">There is one combination
+of those three rows</p>
+<p t="2442990" d="3850">that produces the zero row.</p>
+<p t="2446840" d="5430">There's a basis -- a basis for
+the left null space has only</p>
+<p t="2452270" d="1930">got one vector in it.</p>
+<p t="2454200" d="1590">And what is that vector?</p>
+<p t="2455790" d="2920">It's here in the last row of E.</p>
+<p t="2458710" d="2690">But we could have
+seen it earlier.</p>
+<p t="2461400" d="3820">What combination of those
+rows gives the zero row?</p>
+<p t="2465220" d="3890">-1 of that plus one of that.</p>
+<p t="2469110" d="5350">So a basis for the left
+null space of this matrix --</p>
+<p t="2474460" d="3890">I'm looking for combinations
+of rows that give the zero row</p>
+<p t="2478350" d="3730">if I'm looking at
+the left null space.</p>
+<p t="2482080" d="2900">For the null space, I'm looking
+at combinations of columns</p>
+<p t="2484980" d="1800">to get the zero column.</p>
+<p t="2486780" d="2980">Now I'm looking at combinations
+of these three rows</p>
+<p t="2489760" d="4610">to get the zero row, and of
+course there is my zero row,</p>
+<p t="2494370" d="2790">and here is my vector
+that produced it.</p>
+<p t="2497160" d="2850">-1 of that row and one of that</p>
+<p t="2500010" d="500">row.</p>
+<p t="2500510" d="1140">Obvious.</p>
+<p t="2501650" d="560">OK.</p>
+<p t="2502210" d="3730">So in that example -- and
+actually in all examples,</p>
+<p t="2505940" d="5370">we have seen how to produce a
+basis for the left null space.</p>
+<p t="2511310" d="3490">I won't ask you that
+all the time, because --</p>
+<p t="2514800" d="3990">it didn't come out
+immediately from R.</p>
+<p t="2518790" d="5060">We had to keep track of E
+for that left null space.</p>
+<p t="2523850" d="3670">But at least it didn't require
+us to transpose the matrix</p>
+<p t="2527520" d="2700">and start all over again.</p>
+<p t="2530220" d="2170">OK, those are the
+four subspaces.</p>
+<p t="2532390" d="3130">Can I review them?</p>
+<p t="2535520" d="3430">The row space and the
+null space are in R^n.</p>
+<p t="2538950" d="3270">Their dimensions add to n.</p>
+<p t="2542220" d="5250">The column space and the
+left null space are in R^m,</p>
+<p t="2547470" d="3430">and their dimensions add to m.</p>
+<p t="2550900" d="2800">OK.</p>
+<p t="2553700" d="5380">So let me close
+these last minutes</p>
+<p t="2559080" d="10540">by pushing you a little bit more
+to a new type of vector space.</p>
+<p t="2569620" d="3610">All our vector spaces, all the
+ones that we took seriously,</p>
+<p t="2573230" d="8340">have been subspaces of some real
+three or n dimensional space.</p>
+<p t="2581570" d="3310">Now I'm going to write
+down another vector</p>
+<p t="2584880" d="1840">space, a new vector space.</p>
+<p t="2594120" d="4490">Say all three by three matrices.</p>
+<p t="2606420" d="1570">My matrices are the vectors.</p>
+<p t="2611830" d="1410">Is that all right?</p>
+<p t="2613240" d="890">I'm just naming them.</p>
+<p t="2614130" d="2440">You can put quotes
+around vectors.</p>
+<p t="2616570" d="3480">Every three by three matrix
+is one of my vectors.</p>
+<p t="2620050" d="3010">Now how I entitled to
+call those things vectors?</p>
+<p t="2623060" d="3320">I mean, they look very
+much like matrices.</p>
+<p t="2626380" d="3600">But they are vectors in my
+vector space because they obey</p>
+<p t="2629980" d="660">the rules.</p>
+<p t="2630640" d="5210">All I'm supposed to be able to
+do with vectors is add them --</p>
+<p t="2635850" d="2340">I can add matrices --</p>
+<p t="2638190" d="3390">I'm supposed to be able to
+multiply them by scalar numbers</p>
+<p t="2641580" d="7710">like seven -- well, I can
+multiply a matrix by And that</p>
+<p t="2649290" d="2670">-- and I can take
+combinations of matrices,</p>
+<p t="2651960" d="3100">I can take three of one
+matrix minus five of another</p>
+<p t="2655060" d="930">matrix.</p>
+<p t="2655990" d="5270">And those combinations, there's
+a zero matrix, the matrix</p>
+<p t="2661260" d="2310">that has all zeros in it.</p>
+<p t="2663570" d="2480">If I add that to another
+matrix, it doesn't change it.</p>
+<p t="2666050" d="910">All the good stuff.</p>
+<p t="2666960" d="3310">If I multiply a matrix by
+one it doesn't change it.</p>
+<p t="2670270" d="2530">All those eight rules
+for a vector space</p>
+<p t="2672800" d="4660">that we never wrote down,
+all easily satisfied.</p>
+<p t="2677460" d="3690">So now we have a different --</p>
+<p t="2681150" d="5300">now of course you can say you
+can multiply those matrices.</p>
+<p t="2686450" d="790">I don't care.</p>
+<p t="2687240" d="2830">For the moment, I'm only
+thinking of these matrices</p>
+<p t="2690070" d="7890">as forming a vector space --
+so I only doing A plus B and c</p>
+<p t="2697960" d="1390">times A.</p>
+<p t="2699350" d="3700">I'm not interested
+in A B for now.</p>
+<p t="2706580" d="2760">The fact that I
+can multiply is not</p>
+<p t="2709340" d="4381">relevant to th-
+to a vector space.</p>
+<p t="2713721" d="499">OK.</p>
+<p t="2714220" d="1416">So I have three
+by three matrices.</p>
+<p t="2718180" d="3420">And how about subspaces?</p>
+<p t="2721600" d="4820">What's -- tell me a subspace
+of this matrix space.</p>
+<p t="2726420" d="3850">Let me call this matrix space M.</p>
+<p t="2730270" d="4000">That's my matrix space, my space
+of all three by three matrices.</p>
+<p t="2734270" d="3460">Tell me a subspace of it.</p>
+<p t="2737730" d="2940">What about the upper
+triangular matrices?</p>
+<p t="2740670" d="590">OK.</p>
+<p t="2741260" d="2070">So subspaces.</p>
+<p t="2743330" d="7330">Subspaces of M.</p>
+<p t="2750660" d="3015">All, all upper
+triangular matrices.</p>
+<p t="2760370" d="1380">Another subspace.</p>
+<p t="2761750" d="1335">All symmetric matrices.</p>
+<p t="2771610" d="2120">The intersection
+of two subspaces</p>
+<p t="2773730" d="1360">is supposed to be a subspace.</p>
+<p t="2775090" d="5220">We gave a little effort
+to the proof of that fact.</p>
+<p t="2780310" d="2840">If I look at the matrices
+that are in this subspace --</p>
+<p t="2783150" d="3270">they're symmetric, and
+they're also in this subspace,</p>
+<p t="2786420" d="4860">they're upper triangular,
+what do they look like?</p>
+<p t="2791280" d="2270">Well, if they're
+symmetric but they</p>
+<p t="2793550" d="2110">have zeros below the
+diagonal, they better</p>
+<p t="2795660" d="2990">have zeros above the
+diagonal, so the intersection</p>
+<p t="2798650" d="1635">would be diagonal matrices.</p>
+<p t="2804820" d="3610">That's another subspace,
+smaller than those.</p>
+<p t="2810970" d="2770">How can I use the word smaller?</p>
+<p t="2813740" d="2650">Well, I'm now entitled
+to use the word smaller.</p>
+<p t="2816390" d="4020">I mean, well, one way
+to say is, OK, these</p>
+<p t="2820410" d="2160">are contained in those.</p>
+<p t="2822570" d="2640">These are contained in those.</p>
+<p t="2825210" d="3995">But more precisely, I could give
+the dimension of these spaces.</p>
+<p t="2831710" d="3030">So I could -- we can compute
+-- let's compute it next time,</p>
+<p t="2834740" d="3130">the dimension of all upper
+-- of the subspace of upper</p>
+<p t="2837870" d="2620">triangular three
+by three matrices.</p>
+<p t="2840490" d="3300">The dimension of symmetric
+three by three matrices.</p>
+<p t="2843790" d="3840">The dimension of diagonal
+three by three matrices.</p>
+<p t="2847630" d="2060">Well, to produce
+dimension, that means</p>
+<p t="2849690" d="3680">I'm supposed to produce
+a basis, and then</p>
+<p t="2853370" d="3860">I just count how many vecto-
+how many I needed in the basis.</p>
+<p t="2857230" d="2650">Let me give you the
+answer for this one.</p>
+<p t="2859880" d="1550">What's the dimension?</p>
+<p t="2861430" d="3180">The dimension of this
+-- say, this subspace,</p>
+<p t="2864610" d="2910">let me call it D, all
+diagonal matrices.</p>
+<p t="2867520" d="7090">The dimension of
+this subspace is --</p>
+<p t="2874610" d="3000">as I write you're
+working it out --</p>
+<p t="2877610" d="1360">three.</p>
+<p t="2878970" d="10180">Because here's a matrix in
+this -- it's a diagonal matrix.</p>
+<p t="2889150" d="890">Here's another one.</p>
+<p t="2895560" d="1050">Here's another one.</p>
+<p t="2900350" d="2405">Better make it diagonal,
+let me put a seven there.</p>
+<p t="2905970" d="2160">That was not a
+very great choice,</p>
+<p t="2908130" d="2890">but it's three
+diagonal matrices,</p>
+<p t="2911020" d="2930">and I believe that
+they're a basis.</p>
+<p t="2913950" d="3240">I believe that those three
+matrices are independent</p>
+<p t="2917190" d="3490">and I believe that
+any diagonal matrix is</p>
+<p t="2920680" d="1540">a combination of those three.</p>
+<p t="2922220" d="5090">So they span the subspace
+of diagonal matrices.</p>
+<p t="2927310" d="1730">Do you see that idea?</p>
+<p t="2929040" d="6130">It's like stretching the
+idea from R^n to R^(n by n),</p>
+<p t="2935170" d="2190">three by three.</p>
+<p t="2937360" d="4950">But the -- we can still add, we
+can still multiply by numbers,</p>
+<p t="2942310" d="4060">and we just ignore the fact that
+we can multiply two matrices</p>
+<p t="2946370" d="1180">together.</p>
+<p t="2947550" d="1830">OK, thank you.</p>
+<p t="2949380" d="2550">That's lecture ten.</p>
+</body>
+</timedtext>

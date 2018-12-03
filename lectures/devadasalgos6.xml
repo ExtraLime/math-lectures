@@ -1,0 +1,1574 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="80" d="1690">The following
+content is provided</p>
+<p t="1770" d="2230">under a Creative
+Commons license.</p>
+<p t="4000" d="2860">Your support will help MIT
+OpenCourseWare continue</p>
+<p t="6860" d="3860">to offer high-quality
+educational resources for free.</p>
+<p t="10720" d="2610">To make a donation or
+view additional materials</p>
+<p t="13330" d="3877">from hundreds of MIT courses,
+visit MIT OpenCourseWare</p>
+<p t="17207" d="625">at ocw.mit.edu.</p>
+<p t="22080" d="1630">PROFESSOR: Continuing
+in the theme</p>
+<p t="23710" d="3480">of sorting in general, but
+in particular, binary search</p>
+<p t="27190" d="1720">trees, which are a
+kind of way of doing</p>
+<p t="28910" d="2300">dynamic sorting,
+if you will, where</p>
+<p t="31210" d="1549">the elements are
+coming and going.</p>
+<p t="32759" d="3261">And at all times, you want
+to know the sorted order</p>
+<p t="36020" d="5150">of your elements by storing them
+in a nice binary search tree.</p>
+<p t="41170" d="5190">Remember, in general, a
+binary search tree is a tree.</p>
+<p t="46360" d="3680">It's binary, and it has
+the search property.</p>
+<p t="50040" d="1260">Those three things.</p>
+<p t="51300" d="1360">This is a rooted binary tree.</p>
+<p t="52660" d="1155">It has a root.</p>
+<p t="53815" d="3055">It's binary, so there's a
+left child and a right child.</p>
+<p t="56870" d="2400">Some nodes lack a
+right or left child.</p>
+<p t="59270" d="2770">Some nodes lack both.</p>
+<p t="62040" d="1740">Every node has a key.</p>
+<p t="63780" d="1330">This is the search part.</p>
+<p t="65110" d="3740">You store key in every node,
+and you have this BST property,</p>
+<p t="68850" d="1930">or also called the
+search property,</p>
+<p t="70780" d="3500">that every node-- if you
+have a node the stores key x,</p>
+<p t="74280" d="3319">everybody in the left subtree
+stores a key that's less than</p>
+<p t="77599" d="2291">or equal to x, and everyone
+that's in the right subtree</p>
+<p t="79890" d="2240">stores a key that's
+greater than or equal to x.</p>
+<p t="82130" d="2240">So not just the left
+and right children,</p>
+<p t="84370" d="3500">but every descendant way
+down there is smaller than x.</p>
+<p t="87870" d="2500">Every descendent way down
+there is greater than x.</p>
+<p t="90370" d="2000">So when you have a binary
+search tree like this,</p>
+<p t="92370" d="1800">if you want to know
+the sorted order,</p>
+<p t="94170" d="3299">you do what's called
+an in-order traversal.</p>
+<p t="97469" d="791">You look at a node.</p>
+<p t="98260" d="2490">You recursively
+visit the left child.</p>
+<p t="100750" d="1990">Then you print out the root.</p>
+<p t="102740" d="2040">Then you recursively
+visit the right child.</p>
+<p t="104780" d="2962">So in this case, we'd
+go left, left, print 11.</p>
+<p t="107742" d="1388">Print 20.</p>
+<p t="109130" d="500">Go right.</p>
+<p t="109630" d="500">Go left.</p>
+<p t="110130" d="870">Print 26.</p>
+<p t="111000" d="980">Print 29.</p>
+<p t="111980" d="1640">Go up.</p>
+<p t="113620" d="1160">Print 41.</p>
+<p t="114780" d="720">Go right.</p>
+<p t="115500" d="1140">Print 50.</p>
+<p t="116640" d="990">Print 65.</p>
+<p t="117630" d="1820">Then check that's
+in sorted order.</p>
+<p t="119450" d="2730">If you're not familiar
+with in-order traversal,</p>
+<p t="122180" d="1060">look at the textbook.</p>
+<p t="123240" d="2110">It's a very simple operation.</p>
+<p t="125350" d="2500">I'm not going to talk
+about it more here,</p>
+<p t="127850" d="3900">except we're going to use it.</p>
+<p t="131750" d="2280">All right, we'll get to the
+topic of today's lecture</p>
+<p t="134030" d="2590">in a moment, which is balance.</p>
+<p t="136620" d="2600">What we saw in last
+lecture and recitation</p>
+<p t="139220" d="2000">is that these
+basic binary search</p>
+<p t="141220" d="2289">trees, where when you insert
+a node you just walk down</p>
+<p t="143509" d="2541">the tree to find where that item
+fits-- like if you're trying</p>
+<p t="146050" d="3310">to insert 30, you go left here,
+go right here, go right here,</p>
+<p t="149360" d="1100">and say, oh 30 fits here.</p>
+<p t="150460" d="980">Let's put 30 there.</p>
+<p t="151440" d="3980">If you keep doing that,
+you can do insert.</p>
+<p t="155420" d="1140">You can do delete.</p>
+<p t="156560" d="1776">You can do these
+kinds of searches,</p>
+<p t="158336" d="2414">which we saw, finding
+the next larger element</p>
+<p t="160750" d="2602">or finding the next
+smaller element, also known</p>
+<p t="163352" d="1208">as successor and predecessor.</p>
+<p t="164560" d="3290">These are actually the typical
+names for those operations.</p>
+<p t="167850" d="2670">You can solve them
+in order h time.</p>
+<p t="170520" d="2770">Anyone remember what h was?</p>
+<p t="173290" d="860">The height.</p>
+<p t="174150" d="640">Yeah, good.</p>
+<p t="174790" d="2670">The height of the tree.</p>
+<p t="177460" d="7340">So h is the height of the BST.</p>
+<p t="184800" d="1760">What is the height of the tree?</p>
+<p t="186560" d="1640">AUDIENCE: [INAUDIBLE].</p>
+<p t="188200" d="714">PROFESSOR: Sorry?</p>
+<p t="188914" d="916">AUDIENCE: [INAUDIBLE].</p>
+<p t="189830" d="708">PROFESSOR: Log n?</p>
+<p t="190538" d="2672">Log n would be great,
+but not always.</p>
+<p t="193210" d="2320">So this is the issue
+of being balance.</p>
+<p t="202050" d="2820">So in an ideal
+world, your tree's</p>
+<p t="204870" d="3320">going to look
+something like this.</p>
+<p t="208190" d="4040">I've drawn this picture probably
+the most in my academic career.</p>
+<p t="212230" d="2950">This is a nice, perfectly
+balanced binary search tree.</p>
+<p t="215180" d="3510">The height is log n.</p>
+<p t="218690" d="1890">This would be the balance case.</p>
+<p t="220580" d="1100">I mean, roughly log n.</p>
+<p t="221680" d="4700">Let's just put theta
+to be approximate.</p>
+<p t="226380" d="2180">But as we saw at the
+end of last class,</p>
+<p t="228560" d="5460">you can have a very unbalanced
+tree, which is just a path.</p>
+<p t="234020" d="3637">And there the height is n.</p>
+<p t="237657" d="1333">What's the definition of height?</p>
+<p t="238990" d="1625">That's actually what
+I was looking for.</p>
+<p t="243280" d="2307">Should be 6.042 material.</p>
+<p t="245587" d="994">Yeah?</p>
+<p t="246581" d="1988">AUDIENCE: Is it the
+length of the longest path</p>
+<p t="248569" d="1258">always going down?</p>
+<p t="249827" d="2583">PROFESSOR: Yeah, length of the
+longest path always going down.</p>
+<p t="252410" d="3200">So length of the longest path
+from the root to some leaf.</p>
+<p t="255610" d="1300">That's right.</p>
+<p t="256910" d="1150">OK, so this is--</p>
+<p t="275870" d="1650">I highlight this
+because we're going</p>
+<p t="277520" d="3320">to be working a lot
+with height today.</p>
+<p t="280840" d="4000">All that's happening here, all
+of the paths are length log n.</p>
+<p t="284840" d="1989">Here, there is a
+path of length n.</p>
+<p t="286829" d="2291">Some of them are shorter,
+but in fact, the average path</p>
+<p t="289120" d="590">is n over 2.</p>
+<p t="289710" d="1130">It's really bad.</p>
+<p t="290840" d="1950">So this is very unbalanced.</p>
+<p t="296980" d="1940">I'll put "very."</p>
+<p t="298920" d="2670">It's not a very formal
+term, but that's</p>
+<p t="301590" d="2580">like the worst case for BSTs.</p>
+<p t="304170" d="560">This is good.</p>
+<p t="304730" d="1920">This does have a
+formal definition.</p>
+<p t="306650" d="8760">We call a tree balanced if
+the height is order log n.</p>
+<p t="318170" d="1080">So you're storing n keys.</p>
+<p t="319250" d="1720">If your height is
+always order log n,</p>
+<p t="320970" d="2160">we get a constant factor here.</p>
+<p t="323130" d="3300">Here, it's basically exactly
+log n, 1 times log n.</p>
+<p t="326430" d="2500">It's always going to
+be at least log n,</p>
+<p t="328930" d="2496">because if you're storing
+n things in a binary tree,</p>
+<p t="331426" d="1624">you need to have
+height at least log n.</p>
+<p t="333050" d="3120">So in fact, it will be theta
+log n if your tree is balanced.</p>
+<p t="336170" d="2370">And today's goal is
+to always maintain</p>
+<p t="338540" d="2220">that your trees are balanced.</p>
+<p t="340760" d="1930">And we're going to do
+that using the structure</p>
+<p t="342690" d="4150">called AVL trees, which
+I'll define in a moment.</p>
+<p t="346840" d="2790">They're the original
+way people found</p>
+<p t="349630" d="3350">to keep trees balanced
+back in the '60s,</p>
+<p t="352980" d="1740">but they're still
+kind of the simplest.</p>
+<p t="354720" d="1958">There are lots of ways
+to keep a tree balanced,</p>
+<p t="356678" d="3022">so I'll mention some other
+balance trees later on.</p>
+<p t="359700" d="3210">In particular, your textbook
+covers two other ways to do it.</p>
+<p t="362910" d="2810">It does not cover AVL
+trees, so pay attention.</p>
+<p t="372974" d="1416">One more thing I
+wanted to define.</p>
+<p t="374390" d="5840">We talked about the
+height of the tree,</p>
+<p t="380230" d="7120">but I'd also like to talk about
+the height of a node in a tree.</p>
+<p t="389780" d="1250">Can anyone define this for me?</p>
+<p t="393940" d="1940">Yeah?</p>
+<p t="395880" d="2642">AUDIENCE: It's the level
+that the node is at.</p>
+<p t="398522" d="1708">PROFESSOR: The level
+that the node is at.</p>
+<p t="400230" d="1024">That is roughly right.</p>
+<p t="401254" d="916">I mean, that is right.</p>
+<p t="402170" d="2343">It's all about, what
+is the level of a node?</p>
+<p t="404513" d="3911">AUDIENCE: Like how many
+levels of children it has.</p>
+<p t="408424" d="1916">PROFESSOR: How many
+levels of children it has.</p>
+<p t="410340" d="1490">That's basically right, yeah.</p>
+<p t="411830" d="2280">AUDIENCE: The distance
+from it to the root.</p>
+<p t="414110" d="1666">PROFESSOR: Distance
+from it to the root.</p>
+<p t="415776" d="1154">That would be the depth.</p>
+<p t="416930" d="2250">So depth is counting from above.</p>
+<p t="419180" d="780">Height is--</p>
+<p t="419960" d="916">AUDIENCE: [INAUDIBLE].</p>
+<p t="424660" d="4268">PROFESSOR: Yes, longest path
+from that node to the leaf.</p>
+<p t="428928" d="2928">Note that's why I wrote
+this definition actually,</p>
+<p t="431856" d="976">to give you a hint.</p>
+<p t="440650" d="6350">Here I should probably
+say down to be precise.</p>
+<p t="447000" d="2026">You're not allowed to
+go up in these paths.</p>
+<p t="455650" d="2835">[INAUDIBLE]</p>
+<p t="458485" d="962">All right.</p>
+<p t="459447" d="1443">Sorry.</p>
+<p t="460890" d="1560">I've got to learn how to throw.</p>
+<p t="462450" d="500">All right.</p>
+<p t="462950" d="3545">So for example, over here I'm
+going to write depths in red.</p>
+<p t="469340" d="1480">If you're taking notes it's OK.</p>
+<p t="470820" d="1670">Don't worry.</p>
+<p t="472490" d="2990">So length off the longest
+path from it down to a leaf.</p>
+<p t="475480" d="4260">Well, this is a leaf,
+so its height is 0.</p>
+<p t="479740" d="2154">OK.</p>
+<p t="481894" d="3066">Yeah, I'll just
+leave it at that.</p>
+<p t="484960" d="4040">It takes 0 steps to get
+from a leaf to a leaf.</p>
+<p t="489000" d="1260">This guy's not a leaf.</p>
+<p t="490260" d="6640">It has a child, but it has a
+path of length one to a leaf.</p>
+<p t="496900" d="2680">So it's one.</p>
+<p t="499580" d="1050">This guy has a choice.</p>
+<p t="500630" d="4200">You could go left and you
+get a path of length 1,</p>
+<p t="504830" d="2890">or you could go right and
+get a path of length 2.</p>
+<p t="507720" d="3770">We take the max, so
+this guy has height 2.</p>
+<p t="511490" d="2760">This node has height 1.</p>
+<p t="514250" d="4370">This node has height 3.</p>
+<p t="518620" d="2252">How do you compute
+the height of a node?</p>
+<p t="520872" d="1607">Anyone?</p>
+<p t="522479" d="940">Yeah.</p>
+<p t="523419" d="2125">AUDIENCE: Max of the height
+of the children plus 1.</p>
+<p t="525544" d="708">PROFESSOR: Right.</p>
+<p t="526252" d="2078">You take the max of the
+height of the children.</p>
+<p t="528330" d="1370">Here, 2 and 1.</p>
+<p t="529700" d="1030">Max is 2.</p>
+<p t="530730" d="810">Add 1.</p>
+<p t="531540" d="1230">You get 3.</p>
+<p t="532770" d="3340">So it's going to always
+be-- this is just a formula.</p>
+<p t="536110" d="10530">The height of the
+left child maxed</p>
+<p t="546640" d="11220">with the height of the
+right child plus 1.</p>
+<p t="557860" d="2520">This is obviously
+useful for computing.</p>
+<p t="560380" d="3710">And in particular, in
+lecture and recitation</p>
+<p t="564090" d="3020">last time, we saw
+how to maintain</p>
+<p t="567110" d="5650">the size of every tree using
+data structure augmentation.</p>
+<p t="572760" d="1643">Data structure augmentation.</p>
+<p t="577210" d="3690">And then we started with a
+regular vanilla binary search</p>
+<p t="580900" d="2640">tree, and then we
+maintained-- every time</p>
+<p t="583540" d="2620">we did an operation
+on the tree, we also</p>
+<p t="586160" d="2900">updated the size of
+the subtree rooted</p>
+<p t="589060" d="3200">at that node, the size field.</p>
+<p t="592260" d="2460">Here, I want to
+store a height field,</p>
+<p t="594720" d="2450">and because I have this nice
+local rule that tells me</p>
+<p t="597170" d="2241">how to compute the height
+of a node using just</p>
+<p t="599411" d="2499">local information-- the height
+of its left child, the height</p>
+<p t="601910" d="840">of its right child.</p>
+<p t="602750" d="3537">Do a constant
+amount of work here.</p>
+<p t="606287" d="1083">There's a general theorem.</p>
+<p t="607370" d="1810">Whenever you have a
+nice local formula</p>
+<p t="609180" d="2120">like this for updating
+your information in terms</p>
+<p t="611300" d="2710">of your children,
+then you can maintain</p>
+<p t="614010" d="1880">it using constant overhead.</p>
+<p t="615890" d="3610">So we can store the height
+of every node for free.</p>
+<p t="619500" d="890">Why do I care?</p>
+<p t="620390" d="2920">Because AVL trees are going to
+use the heights of the nodes.</p>
+<p t="623310" d="1950">Our goal is to keep
+the heights small.</p>
+<p t="625260" d="1490">We don't want this.</p>
+<p t="626750" d="1450">We want this.</p>
+<p t="628200" d="2060">So a natural thing to
+do is store the heights.</p>
+<p t="630260" d="3840">When they get too big, fix it.</p>
+<p t="634100" d="2450">So that's what
+we're going to do.</p>
+<p t="652140" d="4223">Maybe one more thing to mention
+over here for convenience.</p>
+<p t="661260" d="3100">Leaves, for example, have
+children that are-- I mean,</p>
+<p t="664360" d="3190">they have null pointers to
+their left and right children.</p>
+<p t="667550" d="2700">You could draw them
+explicitly like this.</p>
+<p t="670250" d="2670">Also some nodes just
+lack a single child.</p>
+<p t="672920" d="3440">I'm going to define the
+depths of these things</p>
+<p t="676360" d="3230">to be negative 1.</p>
+<p t="679590" d="2680">This will be
+convenient later on.</p>
+<p t="682270" d="800">Why negative 1?</p>
+<p t="683070" d="1804">Because then this formula works.</p>
+<p t="684874" d="1166">You can just think about it.</p>
+<p t="686040" d="2145">Like leaves, for example,
+have two children,</p>
+<p t="688185" d="875">which are negative 1.</p>
+<p t="689060" d="690">You take the max.</p>
+<p t="689750" d="500">You add 1.</p>
+<p t="690250" d="1210">You get 0.</p>
+<p t="691460" d="2045">So that just makes
+things work out.</p>
+<p t="693505" d="1875">We don't normally draw
+these in the pictures,</p>
+<p t="695380" d="3810">but it's convenient that I don't
+have to do special cases when</p>
+<p t="699190" d="2906">the left child doesn't exist and
+the right child doesn't exist.</p>
+<p t="702096" d="1374">You could either
+do special cases</p>
+<p t="703470" d="1440">or you could make
+this definition.</p>
+<p t="704910" d="2600">Up to you.</p>
+<p t="707510" d="2270">OK.</p>
+<p t="709780" d="755">AVL trees.</p>
+<p t="714960" d="5970">So the idea with an AVL
+tree is the following.</p>
+<p t="756660" d="2551">We'd like to keep the
+height order log n.</p>
+<p t="759211" d="2499">It's a little harder to think
+about keeping the height order</p>
+<p t="761710" d="4400">log n than it is to think
+about keeping the tree balance,</p>
+<p t="766110" d="2985">meaning the left and right
+sides are more or less equal.</p>
+<p t="769095" d="1875">In this case, we're
+going to think about them</p>
+<p t="770970" d="2750">as being more or
+less equal in height.</p>
+<p t="773720" d="1560">You could also think
+about them being</p>
+<p t="775280" d="2320">more or less equal
+in subtree size.</p>
+<p t="777600" d="1040">That would also work.</p>
+<p t="778640" d="2380">It's a different
+balanced search tree.</p>
+<p t="781020" d="2590">Height is kind of the
+easiest thing to work with.</p>
+<p t="783610" d="3960">So if we have a node,
+it has a left subtree.</p>
+<p t="787570" d="2100">It has a right subtree,
+which we traditionally</p>
+<p t="789670" d="1640">draw as triangles.</p>
+<p t="791310" d="2146">This subtree has a height.</p>
+<p t="793456" d="3984">We'll call it HL for left.</p>
+<p t="797440" d="3270">By the height of the subtree,
+I mean the height of its root.</p>
+<p t="800710" d="3570">And the right subtree
+has some height, r.</p>
+<p t="804280" d="2580">I've drawn them as the
+same, but in general they</p>
+<p t="806860" d="1400">might be different.</p>
+<p t="808260" d="2990">And what we would like
+is that h sub l and h</p>
+<p t="811250" d="1640">sub r are more or less the same.</p>
+<p t="812890" d="2780">They differ by at
+most an additive 1.</p>
+<p t="815670" d="5570">So if I look at h sub l minus
+h sub r in absolute value,</p>
+<p t="821240" d="4450">this is at most
+1, for every node.</p>
+<p t="825690" d="2090">So I have some node x.</p>
+<p t="827780" d="2590">For every node x, I want
+the left and right subtrees</p>
+<p t="830370" d="2040">to be almost balanced.</p>
+<p t="832410" d="2430">Now, I could say
+differ by at most 0,</p>
+<p t="834840" d="3190">that the left and right have
+exactly the same heights.</p>
+<p t="838030" d="2260">That's difficult,
+because that really</p>
+<p t="840290" d="2840">forces you to have
+exactly the perfect tree.</p>
+<p t="843130" d="4770">And in fact, it's not even
+possible for odd n or even n</p>
+<p t="847900" d="1380">or something.</p>
+<p t="849280" d="1530">Because at the very
+end you're going</p>
+<p t="850810" d="3940">to have one missing child, and
+then you're unbalanced there.</p>
+<p t="854750" d="3320">So 0's just not
+possible to maintain,</p>
+<p t="858070" d="3330">but 1 is almost as
+good, hopefully.</p>
+<p t="861400" d="2550">We're going to prove
+that in a second.</p>
+<p t="863950" d="6110">And it turns out to be easy
+to maintain in log n time.</p>
+<p t="870060" d="4145">So let's prove some stuff.</p>
+<p t="878870" d="4655">So first claim is that
+AVL trees are balanced.</p>
+<p t="892880" d="2120">Balanced, remember, means
+that the height of them</p>
+<p t="895000" d="1820">is always order log n.</p>
+<p t="896820" d="2480">So we're just going to assume
+for now that we can somehow</p>
+<p t="899300" d="1550">achieve this property.</p>
+<p t="900850" d="4250">We want to prove that it
+implies that the height is</p>
+<p t="905100" d="1630">at most some
+constant times log n.</p>
+<p t="906730" d="3010">We know it's at
+least log n, but also</p>
+<p t="909740" d="2720">like it to be not much bigger.</p>
+<p t="912460" d="3580">So what do you think
+is the worst case?</p>
+<p t="916040" d="1980">Say I have n nodes.</p>
+<p t="918020" d="3350">How could I make the
+tree as high as possible?</p>
+<p t="921370" d="2200">Or conversely, if I have
+a particular height,</p>
+<p t="923570" d="3030">how could I make it have
+as few nodes as possible?</p>
+<p t="926600" d="3190">That'd be like the
+sparsest, the least balanced</p>
+<p t="929790" d="1080">situation for AVL trees.</p>
+<p t="934488" d="500">Yeah?</p>
+<p t="934988" d="2166">AUDIENCE: You could have
+one node on the last level.</p>
+<p t="937154" d="2586">PROFESSOR: One node on the last
+level, yeah, in particular.</p>
+<p t="939740" d="950">Little more.</p>
+<p t="940690" d="3270">What do the other
+levels look like?</p>
+<p t="943960" d="2720">That is correct, but I want
+to know the whole tree.</p>
+<p t="950320" d="3170">It's hard to explain
+the tree, but you</p>
+<p t="953490" d="1750">can explain the core
+property of the tree.</p>
+<p t="955240" d="463">Yeah?</p>
+<p t="955703" d="916">AUDIENCE: [INAUDIBLE].</p>
+<p t="958769" d="1541">PROFESSOR: For every
+node, let's make</p>
+<p t="960310" d="3420">the right side have a height of
+one larger than the left side.</p>
+<p t="963730" d="2540">I think that's worth a cushion.</p>
+<p t="966270" d="1180">See if I can throw better.</p>
+<p t="970402" d="2460">Good catch.</p>
+<p t="972862" d="1968">Better than hitting your eye.</p>
+<p t="977790" d="4749">So I'm going to not
+prove this formally,</p>
+<p t="982539" d="2041">but I think if you stare
+at this long enough it's</p>
+<p t="984580" d="2420">pretty obvious.</p>
+<p t="987000" d="5809">Worst case is when-- there
+are multiple worst cases,</p>
+<p t="992809" d="1541">because right and
+left are symmetric.</p>
+<p t="994350" d="1330">We don't really care.</p>
+<p t="995680" d="4360">But let's say that
+the right subtree</p>
+<p t="1000040" d="12310">has height one more than
+the left for every node.</p>
+<p t="1016860" d="3920">OK, this is a little
+tricky to draw.</p>
+<p t="1020780" d="2307">Not even sure I want
+to try to draw it.</p>
+<p t="1023087" d="1583">But you basically
+draw it recursively.</p>
+<p t="1024670" d="2880">So, OK, somehow I've
+figured out this</p>
+<p t="1027550" d="2539">where the height
+difference here is 1.</p>
+<p t="1030089" d="2171">Then I take two copies of it.</p>
+<p t="1032260" d="960">It's like a fractal.</p>
+<p t="1033220" d="2349">You should know all
+about fractals by now.</p>
+<p t="1035569" d="2280">Problem set two.</p>
+<p t="1037849" d="2699">And then you just-- well,
+that's not quite right.</p>
+<p t="1040548" d="2041">In fact, I need to somehow
+make this one a little</p>
+<p t="1042589" d="6111">bit taller and then
+glue these together.</p>
+<p t="1048700" d="1630">Little tricky.</p>
+<p t="1050330" d="1680">Let's not even try
+to draw the tree.</p>
+<p t="1052010" d="1870">Let's just imagine
+this is possible.</p>
+<p t="1053880" d="2860">It is possible.</p>
+<p t="1056740" d="3450">And instead, I'm going
+to use mathematics</p>
+<p t="1060190" d="2970">to understand how
+high that tree is.</p>
+<p t="1063160" d="2910">Or actually, it's
+a little easier</p>
+<p t="1066070" d="2130">to think about-- let
+me get this right.</p>
+<p t="1068200" d="2150">It's so easy that I
+have to look at my notes</p>
+<p t="1070350" d="3200">to remember what to write.</p>
+<p t="1073550" d="2910">Really, no problem.</p>
+<p t="1076460" d="5300">All right, so I'm
+going to define n sub h</p>
+<p t="1081760" d="6820">is the minimum number
+of nodes that's</p>
+<p t="1088580" d="7110">possible in an AVL
+tree of height h.</p>
+<p t="1100380" d="2710">This is sort of the inverse
+of what we care about,</p>
+<p t="1103090" d="2350">but if we can solve the
+inverse, we can solve the thing.</p>
+<p t="1105440" d="3200">What we really care about
+is, for n nodes, how large</p>
+<p t="1108640" d="750">can the height be?</p>
+<p t="1109390" d="1842">We want to prove
+that's order log n.</p>
+<p t="1111232" d="2458">But it'll be a lot easier to
+think about the reverse, which</p>
+<p t="1113690" d="3555">is, if I fix the height to
+be h, what's the fewest nodes</p>
+<p t="1117245" d="1345">that I can pack in?</p>
+<p t="1118590" d="4470">Because for the very unbalanced
+tree, I have a height of n,</p>
+<p t="1123060" d="2480">and I only need to put n nodes.</p>
+<p t="1125540" d="2760">That would be really bad.</p>
+<p t="1128300" d="5790">What I prefer is a situation
+like this, where with height h,</p>
+<p t="1134090" d="2270">I have to put in
+2 to the h nodes.</p>
+<p t="1136360" d="1740">That would be perfect balance.</p>
+<p t="1138100" d="1740">Any constant to the h will do.</p>
+<p t="1139840" d="2394">So when you take the
+inverse, you get a log.</p>
+<p t="1142234" d="1416">OK, we'll get to
+that in a moment.</p>
+<p t="1153950" d="2010">How should we analyze n sub h?</p>
+<p t="1160163" d="1237">I hear something.</p>
+<p t="1161400" d="500">Yeah?</p>
+<p t="1161900" d="5190">AUDIENCE: [INAUDIBLE] 2 to
+the h minus 1 [INAUDIBLE].</p>
+<p t="1175890" d="5010">PROFESSOR: Maybe, but I don't
+think that will quite work out.</p>
+<p t="1185210" d="2029">Any-- yeah?</p>
+<p t="1187239" d="3353">AUDIENCE: So you have only
+1 node in the last level,</p>
+<p t="1190592" d="5269">so it would be 1/2
+to the h plus 1.</p>
+<p t="1195861" d="2639">PROFESSOR: That turns out
+to be approximately correct,</p>
+<p t="1198500" d="4550">but I don't know where you
+got 1/2 to the h plus 1.</p>
+<p t="1203050" d="1660">It's not exactly correct.</p>
+<p t="1204710" d="3780">I'll tell you that, so that
+your analysis isn't right.</p>
+<p t="1208490" d="1122">It's a lot easier.</p>
+<p t="1209612" d="1708">You guys are worried
+about the last level</p>
+<p t="1211320" d="2496">and actually what the tree looks
+like, but in fact, all you need</p>
+<p t="1213816" d="500">is this.</p>
+<p t="1218100" d="1924">All you need is love, yeah.</p>
+<p t="1220024" d="916">AUDIENCE: [INAUDIBLE].</p>
+<p t="1220940" d="1577">PROFESSOR: No, it's not a half.</p>
+<p t="1222517" d="1083">It's a different constant.</p>
+<p t="1223600" d="360">Yeah?</p>
+<p t="1223960" d="2610">AUDIENCE: Start with base cases
+and write a recursive formula.</p>
+<p t="1226570" d="1700">PROFESSOR: Ah,
+recursive formula.</p>
+<p t="1228270" d="899">Good.</p>
+<p t="1229169" d="1291">You said start with base cases.</p>
+<p t="1230460" d="2400">I always forget that part, so
+it's good that you remember.</p>
+<p t="1232860" d="1260">You should start
+with the base case,</p>
+<p t="1234120" d="1916">but I'm not going to
+worry about the base case</p>
+<p t="1236036" d="1174">because it won't matter.</p>
+<p t="1237210" d="3120">Because I know the base case
+is always going to be n order 1</p>
+<p t="1240330" d="1380">is order 1.</p>
+<p t="1241710" d="1840">So for algorithms,
+that's usually all</p>
+<p t="1243550" d="2140">you need for base case, but it's
+good that you think about it.</p>
+<p t="1245690" d="1950">What I was looking for
+is recursive formula,</p>
+<p t="1247640" d="2100">aka, recurrence.</p>
+<p t="1249740" d="3100">So can someone tell me--
+maybe even you-- could tell me</p>
+<p t="1252840" d="3850">a recurrence for n sub h,
+in terms of n sub smaller h?</p>
+<p t="1259660" d="1485">Yeah?</p>
+<p t="1261145" d="1485">AUDIENCE: 1 plus [INAUDIBLE].</p>
+<p t="1265600" d="3880">PROFESSOR: 1 plus
+n sub h minus 1.</p>
+<p t="1273570" d="750">Not quite.</p>
+<p t="1274320" d="876">Yeah?</p>
+<p t="1275196" d="3974">AUDIENCE: N sub h minus
+1 plus n sub h minus 2.</p>
+<p t="1279170" d="3195">PROFESSOR: N plus-- do
+you want the 1 plus?</p>
+<p t="1282365" d="3355">AUDIENCE: I don't think so.</p>
+<p t="1285720" d="2840">PROFESSOR: You do.</p>
+<p t="1288560" d="1480">It's a collaboration.</p>
+<p t="1290040" d="1430">To combine your
+two answers, this</p>
+<p t="1291470" d="1250">should be the correct formula.</p>
+<p t="1292720" d="1260">Let me double check.</p>
+<p t="1293980" d="1280">Yes, whew.</p>
+<p t="1295260" d="500">Good.</p>
+<p t="1295760" d="1290">OK, why?</p>
+<p t="1297050" d="4850">Because the one thing we know is
+that our tree looks like this.</p>
+<p t="1305510" d="1620">The total height here is h.</p>
+<p t="1307130" d="2130">That's what we're
+trying to figure out.</p>
+<p t="1309260" d="2790">How many nodes are in
+this tree of height h?</p>
+<p t="1312050" d="5610">Well, the height is the
+max of the two directions.</p>
+<p t="1317660" d="4600">So that means that the
+larger has height h minus 1,</p>
+<p t="1322260" d="2600">because the longest
+path to a leaf</p>
+<p t="1324860" d="1890">is going to be down this way.</p>
+<p t="1326750" d="1360">What's the height of this?</p>
+<p t="1328110" d="2030">Well, it's one less
+than the height of this.</p>
+<p t="1330140" d="3130">So it's going to be h minus 2.</p>
+<p t="1333270" d="4280">This is where the n sub h minus
+1 plus n sub h minus 2 come in.</p>
+<p t="1337550" d="1850">But there's also this node.</p>
+<p t="1339400" d="3180">It doesn't actually make a big
+difference in this recurrence.</p>
+<p t="1342580" d="1360">This is the exponential part.</p>
+<p t="1343940" d="2430">This is like itty bitty thing.</p>
+<p t="1346370" d="2710">But it matters for the
+base case is pretty much</p>
+<p t="1349080" d="1770">where it matters.</p>
+<p t="1350850" d="1070">Back to your base case.</p>
+<p t="1351920" d="2580">There's one guy here, plus
+all the nodes on the left,</p>
+<p t="1354500" d="1910">plus all the nodes on the right.</p>
+<p t="1356410" d="1700">And for whatever
+reason, I put the left</p>
+<p t="1358110" d="3694">over here and the
+right over here.</p>
+<p t="1361804" d="1916">And of course, you could
+reverse this picture.</p>
+<p t="1363720" d="660">It doesn't really matter.</p>
+<p t="1364380" d="1240">You get the same formula.</p>
+<p t="1365620" d="1580">That's the point.</p>
+<p t="1367200" d="2050">So this is the recurrence.</p>
+<p t="1369250" d="2120">Now we need to solve it.</p>
+<p t="1371370" d="2700">What we would like is
+for it to be exponential,</p>
+<p t="1374070" d="3760">because that means there's a
+lot of nodes in a height h AVL</p>
+<p t="1377830" d="1950">tree.</p>
+<p t="1379780" d="2680">So any suggestions on
+how we could figure out</p>
+<p t="1382460" d="1830">this recurrence?</p>
+<p t="1384290" d="1985">Does it look like anything
+you've seen before?</p>
+<p t="1386275" d="1185">AUDIENCE: Fibonacci.</p>
+<p t="1387460" d="875">PROFESSOR: Fibonacci.</p>
+<p t="1388335" d="1595">It's almost Fibonacci.</p>
+<p t="1389930" d="3360">If I hid this plus 1,
+which you wanted to do,</p>
+<p t="1393290" d="2920">then it would be
+exactly Fibonacci.</p>
+<p t="1396210" d="4980">Well, that's actually good,
+because in particular, n sub h</p>
+<p t="1401190" d="2430">is bigger than Fibonacci.</p>
+<p t="1403620" d="1600">If you add one at
+every single level,</p>
+<p t="1405220" d="1830">the certainly you
+get something bigger</p>
+<p t="1407050" d="1510">than the base
+Fibonacci sequence.</p>
+<p t="1411479" d="2041">Now, hopefully you know
+Fibonacci is exponential.</p>
+<p t="1419570" d="1000">I have an exact formula.</p>
+<p t="1425100" d="3890">If you take the golden ratio to
+the power h, divide by root 5,</p>
+<p t="1428990" d="1610">and round to the
+nearest integer,</p>
+<p t="1430600" d="1720">you get exactly the
+Fibonacci number.</p>
+<p t="1432320" d="987">Crazy stuff.</p>
+<p t="1433307" d="1583">We don't need to
+know why that's true.</p>
+<p t="1434890" d="1910">Just take it as fact.</p>
+<p t="1436800" d="2492">And conveniently phi
+is bigger than 1.</p>
+<p t="1439292" d="1458">You don't need to
+remember what phi</p>
+<p t="1440750" d="1490">is, except it is bigger than 1.</p>
+<p t="1442240" d="2660">And so this is an
+exponential bound.</p>
+<p t="1444900" d="2660">This is good news.</p>
+<p t="1447560" d="5600">So I'll tell you
+it's about 1.618.</p>
+<p t="1453160" d="3260">And so we get is that--
+if we invert this,</p>
+<p t="1456420" d="4990">this says n sub h is bigger
+than some phi to the h.</p>
+<p t="1461410" d="1924">This is our n, basically.</p>
+<p t="1463334" d="1416">What we really
+want to know is how</p>
+<p t="1464750" d="4670">h relates to n, which is
+just inverting this formula.</p>
+<p t="1469420" d="2670">So we have, on the
+other hand, the phi</p>
+<p t="1472090" d="5170">to the h divided by
+root 5 is less than n.</p>
+<p t="1480960" d="4760">So I got a log base
+phi on both sides.</p>
+<p t="1485720" d="1920">Seems like a good thing to do.</p>
+<p t="1490560" d="1640">This is actually quite annoying.</p>
+<p t="1492200" d="3010">I've got h minus a
+tiny little thing.</p>
+<p t="1495210" d="6710">It's less than
+log base phi of n.</p>
+<p t="1501920" d="6980">And I will tell you that is
+about 1.440 times log base 2</p>
+<p t="1508900" d="2800">of n, because after all,
+log base 2 is what computer</p>
+<p t="1511700" d="2100">scientists care about.</p>
+<p t="1513800" d="2890">So just to put it
+into perspective.</p>
+<p t="1516690" d="2480">We want it to be
+theta log base 2 of n.</p>
+<p t="1519170" d="1200">And here's the bound.</p>
+<p t="1520370" d="3162">The height is always less
+than 1.44 times log n.</p>
+<p t="1523532" d="1458">All we care about
+is some constant,</p>
+<p t="1524990" d="2810">but this is a pretty
+good constant.</p>
+<p t="1527800" d="1100">We'd like one.</p>
+<p t="1528900" d="4140">There are binary search tress
+that achieve 1, plus very,</p>
+<p t="1533040" d="6320">very tiny thing, arbitrarily
+tiny, but this is pretty good.</p>
+<p t="1539360" d="2470">Now, if you don't know
+Fibonacci numbers,</p>
+<p t="1541830" d="3980">I pull a rabbit out of a hat
+and I've got this phi to the h.</p>
+<p t="1545810" d="2720">It's kind of magical.</p>
+<p t="1548530" d="2525">There's a much easier way
+to analyze this recurrence.</p>
+<p t="1553690" d="4120">I'll just tell you because
+it's good to know but not</p>
+<p t="1557810" d="740">super critical.</p>
+<p t="1569880" d="1950">So we have this
+recurrence, n sub h.</p>
+<p t="1575960" d="3150">This is the computer scientist
+way to solve the recurrence.</p>
+<p t="1579110" d="2080">We don't care about
+the constants.</p>
+<p t="1581190" d="1750">This is the theoretical
+computer scientist</p>
+<p t="1582940" d="1510">way to solve this recurrence.</p>
+<p t="1584450" d="1250">We don't care about constants.</p>
+<p t="1585700" d="2320">And so we say, aw, this is hard.</p>
+<p t="1588020" d="3590">I've got n sub h minus
+1 and n sub h minus 2.</p>
+<p t="1591610" d="1750">So asymmetric.</p>
+<p t="1593360" d="2540">Let's symmetrify.</p>
+<p t="1595900" d="3130">Could I make them
+both n sub h minus 1.</p>
+<p t="1599030" d="2410">Or could I make them
+both n sub h minus 2?</p>
+<p t="1604310" d="1610">Suggestions?</p>
+<p t="1605920" d="1680">AUDIENCE: [INAUDIBLE].</p>
+<p t="1607600" d="1620">PROFESSOR: Minus
+2 is the right way</p>
+<p t="1609220" d="2910">to go because I want to know n
+sub h is greater than something</p>
+<p t="1612130" d="2270">in order to get a
+less than down here.</p>
+<p t="1614400" d="2810">By the way, I use that
+log is monatomic here,</p>
+<p t="1617210" d="1560">but it is, so we're good.</p>
+<p t="1618770" d="2310">So this is going to
+be greater than 1</p>
+<p t="1621080" d="6800">plus 2 times n sub h minus 2.</p>
+<p t="1627880" d="2552">Because if I have
+a larger height</p>
+<p t="1630432" d="1208">I'm going to have more nodes.</p>
+<p t="1631640" d="3500">That's an easy
+proof by induction.</p>
+<p t="1635140" d="1980">So I can combine
+these into one term.</p>
+<p t="1637120" d="790">It's simpler.</p>
+<p t="1637910" d="3130">I can get rid of this 1 because
+that only makes things bigger.</p>
+<p t="1641040" d="1920">So I just have this.</p>
+<p t="1642960" d="1840">OK, now I need a
+base case, but this</p>
+<p t="1644800" d="3000">looks like 2 the something.</p>
+<p t="1647800" d="1390">What's the something?</p>
+<p t="1649190" d="1000">H over 2.</p>
+<p t="1652780" d="2550">So I'll just write theta
+to avoid the base case.</p>
+<p t="1655330" d="1850">2 to the h over 2.</p>
+<p t="1657180" d="4600">Every two steps of h, I
+get another factor of 2.</p>
+<p t="1661780" d="2190">So when you invert
+and do the log,</p>
+<p t="1663970" d="6160">this means that h is also
+less than log base 2 of n.</p>
+<p t="1670130" d="1560">Log base 2 because of that.</p>
+<p t="1671690" d="3370">Factor 2 out here
+because of that factor 2</p>
+<p t="1675060" d="1940">when you take the log.</p>
+<p t="1677000" d="2730">And so the real answer is 1.44.</p>
+<p t="1679730" d="3460">This is the correct--
+this is the worst case.</p>
+<p t="1683190" d="2590">But it's really easy to prove
+that it's, at most, 2 log n.</p>
+<p t="1685780" d="1760">So keep this in
+mind in case we ask</p>
+<p t="1687540" d="3300">you to analyze
+variance of AVL trees,</p>
+<p t="1690840" d="2060">like in problem set three.</p>
+<p t="1692900" d="2060">This is the easy way
+to do it and just get</p>
+<p t="1694960" d="3110">some constant times log n.</p>
+<p t="1698070" d="1530">Clear?</p>
+<p t="1699600" d="3990">All right, so that's AVL
+trees, why they're balanced.</p>
+<p t="1703590" d="3480">And so if we can
+achieve this property,</p>
+<p t="1707070" d="3020">that the left and right subtrees
+have about the same height,</p>
+<p t="1710090" d="1800">we'll be done.</p>
+<p t="1711890" d="3480">So how the heck do we
+maintain that property?</p>
+<p t="1722090" d="1720">Let's go over here.</p>
+<p t="1738980" d="1600">Mobius trees are
+supposed to support</p>
+<p t="1740580" d="2690">a whole bunch of operations,
+but in particular, insert</p>
+<p t="1743270" d="1860">and delete.</p>
+<p t="1745130" d="3930">I'm just going to worry
+about insert today.</p>
+<p t="1749060" d="2350">Delete is almost identical.</p>
+<p t="1751410" d="2930">And it's in the code that
+corresponds to this lecture,</p>
+<p t="1754340" d="2080">so you can take a look at it.</p>
+<p t="1756420" d="960">Very, very similar.</p>
+<p t="1764930" d="1000">Let's start with insert.</p>
+<p t="1769790" d="3400">Well, it's pretty
+straightforward.</p>
+<p t="1773190" d="2200">Our algorithm is as follows.</p>
+<p t="1775390" d="7390">We do the simple BST insertion,
+which we already saw,</p>
+<p t="1782780" d="2500">which is you walk down the tree
+to find where that key fits.</p>
+<p t="1785280" d="1670">You search for that key.</p>
+<p t="1786950" d="2880">And wherever it isn't,
+you insert a node there,</p>
+<p t="1789830" d="2180">insert a new leaf,
+and add it in.</p>
+<p t="1792010" d="2680">Now, this will not
+preserve the AVL property.</p>
+<p t="1794690" d="2310">So the second step is
+fix the AVL property.</p>
+<p t="1803460" d="3060">And there's a nice concise
+description of AVL insertion.</p>
+<p t="1806520" d="4180">Of course, how do you do step
+two is the interesting part.</p>
+<p t="1810700" d="3740">All right, maybe let's
+start with an example.</p>
+<p t="1814440" d="940">That could be fun.</p>
+<p t="1822296" d="2399">Hey, look, here's an example.</p>
+<p t="1824695" d="1375">And to match the
+notes, I'm going</p>
+<p t="1826070" d="7160">to do insert 23 as
+a first example.</p>
+<p t="1833230" d="3490">OK, I'm also going to annotate
+this tree a little bit.</p>
+<p t="1836720" d="2440">So I said we store
+the heights, but what</p>
+<p t="1839160" d="5210">I care about is which height is
+larger, the left or the right.</p>
+<p t="1844370" d="1720">In fact, you could
+just store that,</p>
+<p t="1846090" d="1740">just store whether
+it's plus 1, minus 1,</p>
+<p t="1847830" d="2440">or 0, the difference between
+left and right sides.</p>
+<p t="1850270" d="2570">So I'm going to draw that
+with a little icon, which</p>
+<p t="1852840" d="3900">is a left arrow, a
+descending left arrow if this</p>
+<p t="1856740" d="3008">is the bigger side.</p>
+<p t="1859748" d="2162">And this is a right arrow.</p>
+<p t="1861910" d="820">This is even.</p>
+<p t="1862730" d="1600">Left and right are the same.</p>
+<p t="1864330" d="3090">Here, the left is heavier,
+or higher, I guess.</p>
+<p t="1867420" d="820">Here it's even.</p>
+<p t="1868240" d="3480">Here it's left.</p>
+<p t="1871720" d="2860">This is AVL, because
+it's only one</p>
+<p t="1874580" d="2430">heavier wherever
+I have an arrow.</p>
+<p t="1877010" d="2210">OK, now I insert 23.</p>
+<p t="1879220" d="4810">23 belongs-- it's less than 41,
+greater than 20, less than 29,</p>
+<p t="1884030" d="1110">less than 26.</p>
+<p t="1885140" d="2660">So it belongs here.</p>
+<p t="1887800" d="3519">Here's 23, a brand-new node.</p>
+<p t="1891319" d="1291">OK, now all the heights change.</p>
+<p t="1892610" d="4070">And it's annoying to draw
+what the heights are,</p>
+<p t="1896680" d="2470">but I'll do it.</p>
+<p t="1899150" d="2170">This one changes to 1.</p>
+<p t="1901320" d="2050">This is 0.</p>
+<p t="1903370" d="1480">This changes to 2.</p>
+<p t="1904850" d="1600">This changes to 3.</p>
+<p t="1906450" d="2710">This changes to 4.</p>
+<p t="1909160" d="2730">Anyway, never mind
+what the heights are.</p>
+<p t="1911890" d="2070">What's bad is, well,
+this guy's even.</p>
+<p t="1913960" d="1630">This guy's left heavy.</p>
+<p t="1915590" d="2500">This guy's now
+doubly left heavy.</p>
+<p t="1918090" d="2560">Bad news.</p>
+<p t="1920650" d="1760">OK, let's not worry
+about above that.</p>
+<p t="1922410" d="1100">Let's just start.</p>
+<p t="1923510" d="1760">The algorithm is going
+to walk up the tree</p>
+<p t="1925270" d="2950">and say, oh, when do
+I get something bad?</p>
+<p t="1928220" d="3430">So now I have 23,
+26, 29 in a path.</p>
+<p t="1931650" d="3190">I'd like to fix it.</p>
+<p t="1934840" d="3183">Hmm, how to fix it?</p>
+<p t="1938023" d="3477">I don't think we know how to
+fix it, so I will tell you how.</p>
+<p t="1946824" d="1416">Actually, I wasn't
+here last week.</p>
+<p t="1948240" d="1240">So did we cover rotations?</p>
+<p t="1949480" d="880">AUDIENCE: No.</p>
+<p t="1950360" d="1120">PROFESSOR: OK, good.</p>
+<p t="1951480" d="1340">Then you don't know.</p>
+<p t="1952820" d="2720">Let me tell you about rotations.</p>
+<p t="1955540" d="770">Super cool.</p>
+<p t="1967280" d="900">It's just a tool.</p>
+<p t="1992598" d="1800">That's x and y.</p>
+<p t="2001254" d="1166">I always get these mixed up.</p>
+<p t="2002420" d="10835">So this is called
+left rotate of x.</p>
+<p t="2017342" d="2458">OK, so here's the thing we can
+do with binary search trees.</p>
+<p t="2019800" d="1836">It's like the only
+thing you need to know.</p>
+<p t="2021636" d="2044">Because you've got search
+in binary search trees</p>
+<p t="2023680" d="2530">and you've got rotations.</p>
+<p t="2026210" d="2667">So when I have a tree like this,
+I've highlighted two nodes,</p>
+<p t="2028877" d="2083">and then there's the
+children hanging off of them.</p>
+<p t="2030960" d="2430">Some of these might be
+empty, but they're trees,</p>
+<p t="2033390" d="3120">so we draw them as triangles.</p>
+<p t="2036510" d="3300">If I just do this,
+which is like changing</p>
+<p t="2039810" d="3170">which is higher, x or y, and
+whatever the parent of x was</p>
+<p t="2042980" d="2180">becomes the parent of y.</p>
+<p t="2045160" d="1490">And vice versa, in fact.</p>
+<p t="2046650" d="3690">The parent of y was x, and
+now the parent of x is y.</p>
+<p t="2050340" d="3690">OK, the parent of a is still x.</p>
+<p t="2054030" d="1240">The parent of b changes.</p>
+<p t="2055270" d="850">It used to be y.</p>
+<p t="2056120" d="1390">Now it's x.</p>
+<p t="2057510" d="1720">The parent of c was y.</p>
+<p t="2059230" d="1140">It's still y.</p>
+<p t="2060370" d="2630">So in a constant number
+of pointer changes,</p>
+<p t="2063000" d="1663">I can go from this to this.</p>
+<p t="2064663" d="1207">This is constant time.</p>
+<p t="2069600" d="2780">And more importantly, it
+satisfies the BST order</p>
+<p t="2072380" d="690">property.</p>
+<p t="2073070" d="2399">If you do an in-order
+traversal of this,</p>
+<p t="2075469" d="3626">you will get a, x, b, y, c.</p>
+<p t="2082437" d="4341">If I do an in-order traversal
+over here, I get a, x, b, y, c.</p>
+<p t="2090600" d="1510">So they're the same.</p>
+<p t="2092110" d="2029">So it still has BST ordering.</p>
+<p t="2094139" d="1191">You can check more formally.</p>
+<p t="2095330" d="2240">b has all the nodes
+between x and y.</p>
+<p t="2097570" d="3830">Still all the nodes
+between x and y, and so on.</p>
+<p t="2101400" d="2440">You can check it at
+home, but this works.</p>
+<p t="2103840" d="4416">We call it a left rotate because
+the root moves to the left.</p>
+<p t="2108256" d="1874">You can go straight back
+where you came from.</p>
+<p t="2110130" d="2180">This would be a
+right rotate of y.</p>
+<p t="2117440" d="2140">OK, it's a reversible operation.</p>
+<p t="2119580" d="1610">It lets you manipulate the tree.</p>
+<p t="2121190" d="1780">So when we have this
+picture and we're</p>
+<p t="2122970" d="3480">really sad because this
+looks like a mess, what</p>
+<p t="2126450" d="1360">we'd like to do is fix it.</p>
+<p t="2127810" d="3240">This is a path of three nodes.</p>
+<p t="2131050" d="3395">We'd really prefer
+it to look like this.</p>
+<p t="2134445" d="3215">If we could make that
+transformation, we'd be happy.</p>
+<p t="2137660" d="1080">And we can.</p>
+<p t="2138740" d="5345">It is a right rotate of 29.</p>
+<p t="2144085" d="1375">So that's what
+we're going to do.</p>
+<p t="2161810" d="1890">So let me quickly copy.</p>
+<p t="2174690" d="2120">I want to rotate 29
+to the right, which</p>
+<p t="2176810" d="2120">means 29 and 26-- this is x.</p>
+<p t="2178930" d="1100">This is y.</p>
+<p t="2180030" d="4220">I turn them, and so
+I get 26 here now,</p>
+<p t="2184250" d="2850">and 29 is the new right child.</p>
+<p t="2187100" d="1500">And then whatever
+was the left child</p>
+<p t="2188600" d="2970">of x becomes the left
+child of x in the picture.</p>
+<p t="2191570" d="1070">You can check it.</p>
+<p t="2192640" d="2150">So this used to
+be the triangle a.</p>
+<p t="2194790" d="4040">And in this case,
+it's just the node 23.</p>
+<p t="2198830" d="1555">And we are happy.</p>
+<p t="2200385" d="2085">Except I didn't
+draw the whole tree.</p>
+<p t="2202470" d="3780">Now we're happy because
+we have an AVL tree again.</p>
+<p t="2206250" d="2000">Good news.</p>
+<p t="2208250" d="2060">So just check.</p>
+<p t="2210310" d="660">This is even.</p>
+<p t="2210970" d="1030">This is right heavy.</p>
+<p t="2212000" d="970">This is even.</p>
+<p t="2212970" d="3390">This is left heavy still.</p>
+<p t="2216360" d="5170">This is left heavy,
+even, even, even.</p>
+<p t="2221530" d="5795">OK, so now we have an AVL tree
+and our beauty is restored.</p>
+<p t="2227325" d="1315">I'll do one more example.</p>
+<p t="2235830" d="925">Insert 55.</p>
+<p t="2243090" d="1600">We want to insert 55 here.</p>
+<p t="2247260" d="2590">And what changes is
+now this is even.</p>
+<p t="2249850" d="3140">This is right heavy.</p>
+<p t="2252990" d="2190">This is doubly left heavy.</p>
+<p t="2255180" d="1320">We're super sad.</p>
+<p t="2256500" d="2820">And then we don't look
+above that until later.</p>
+<p t="2263890" d="4350">This is more
+annoying, because you</p>
+<p t="2268240" d="4330">look at this thing,
+this little path.</p>
+<p t="2272570" d="2790">It's a zigzag path, if you will.</p>
+<p t="2275360" d="3010">If I do a right rotation
+where this is x and this</p>
+<p t="2278370" d="4890">is y, what I'll get is
+x, y, and then this is b.</p>
+<p t="2283260" d="2830">This is what's in
+between x and y.</p>
+<p t="2286090" d="2420">And so it'll go here.</p>
+<p t="2288510" d="3000">And now it's a zag zig
+path, which is no better.</p>
+<p t="2291510" d="1880">The height's the same.</p>
+<p t="2293390" d="650">And we're sad.</p>
+<p t="2297910" d="1750">I told you, though,
+that somehow rotations</p>
+<p t="2299660" d="1100">are all we need to do.</p>
+<p t="2304086" d="964">What can I do?</p>
+<p t="2308130" d="3010">How could I fix
+this little zigzag?</p>
+<p t="2311140" d="1970">Just need to think
+about those three nodes,</p>
+<p t="2313110" d="2790">but all I give
+you are rotations.</p>
+<p t="2315900" d="2500">AUDIENCE: Perhaps rotate 50.</p>
+<p t="2318400" d="1220">PROFESSOR: Maybe rotate 50.</p>
+<p t="2319620" d="1510">That seems like a good idea.</p>
+<p t="2321130" d="678">Let's try it.</p>
+<p t="2324440" d="1980">If you don't mind, I'm
+just going to write 41,</p>
+<p t="2326420" d="2370">and then there's all
+the stuff on the left.</p>
+<p t="2328790" d="1200">Now we rotate 50.</p>
+<p t="2329990" d="3200">So 65 remains where it is.</p>
+<p t="2333190" d="2620">And we rotate 50 to the left.</p>
+<p t="2335810" d="1240">So 50 and its child.</p>
+<p t="2337050" d="500">This is x.</p>
+<p t="2337550" d="1770">This is y.</p>
+<p t="2339320" d="5415">And so I get 55 and I get 50.</p>
+<p t="2347800" d="1910">Now, this is bad from
+an AVL perspective.</p>
+<p t="2349710" d="3760">This is still doubly left
+heavy, this is left heavy,</p>
+<p t="2353470" d="2350">and this is even.</p>
+<p t="2355820" d="2870">But it looks like this case.</p>
+<p t="2358690" d="3770">And so now I can do a
+right rotation on 65,</p>
+<p t="2362460" d="4630">and I will get-- so let me
+order the diagrams here.</p>
+<p t="2367090" d="4390">I do a right rotate on
+65, and I will get 41.</p>
+<p t="2371480" d="2780">And to the right I get 55.</p>
+<p t="2374260" d="2752">And to the right I get 65.</p>
+<p t="2377012" d="1793">To the left I get 50.</p>
+<p t="2381930" d="2670">And then I get the left subtree.</p>
+<p t="2384600" d="3800">And so now this is
+even, even, even.</p>
+<p t="2388400" d="1550">Wow.</p>
+<p t="2389950" d="1190">How high was left subtree?</p>
+<p t="2391140" d="3640">I think it's still left heavy.</p>
+<p t="2394780" d="1070">Cool.</p>
+<p t="2395850" d="2750">This is what some people
+call double rotation,</p>
+<p t="2398600" d="2770">but I like to call
+it two rotations.</p>
+<p t="2401370" d="2317">It's whatever you prefer.</p>
+<p t="2403687" d="1333">It's not really a new operation.</p>
+<p t="2405020" d="1770">It's just doing two rotations.</p>
+<p t="2406790" d="1220">So that's an example.</p>
+<p t="2408010" d="1450">Let's do the general case.</p>
+<p t="2409460" d="1704">It's no harder.</p>
+<p t="2411164" d="2166">You might say, oh, gosh,
+why do you do two examples?</p>
+<p t="2413330" d="1420">Well, because they
+were different.</p>
+<p t="2414750" d="1791">And they're are two
+cases on the algorithm.</p>
+<p t="2416541" d="1649">You need to know both of them.</p>
+<p t="2418190" d="2971">OK, so AVL insert.</p>
+<p t="2421161" d="499">Here we go.</p>
+<p t="2421660" d="1040">Fix AVL property.</p>
+<p t="2433459" d="9041">I'm just going to call this
+from the changed node up.</p>
+<p t="2442500" d="2400">So the one thing that's
+missing from these examples</p>
+<p t="2444900" d="3260">is that you might have to
+do more than two rotations.</p>
+<p t="2448160" d="2930">What we did was look at the
+lowest violation of the AVL</p>
+<p t="2451090" d="1434">property and we fixed it.</p>
+<p t="2452524" d="1416">When we do that,
+there's still may</p>
+<p t="2453940" d="4900">be violations higher up,
+because when you add a node,</p>
+<p t="2458840" d="1780">you change the height
+of this subtree,</p>
+<p t="2460620" d="2291">the height of this subtree,
+the height of this subtree,</p>
+<p t="2462911" d="1929">and the height of this
+subtree, potentially.</p>
+<p t="2464840" d="2330">What happened in these
+cases when I was done,</p>
+<p t="2467170" d="1497">what I did fixed one violation.</p>
+<p t="2468667" d="833">They were all fixed.</p>
+<p t="2469500" d="4420">But in general, there might be
+several violations up the tree.</p>
+<p t="2473920" d="2590">So that's what we do.</p>
+<p t="2480440" d="1560">Yeah, I'll leave it at that.</p>
+<p t="2485510" d="8275">So suppose x is the lowest
+node that is not AVL.</p>
+<p t="2500879" d="2041">The way we find that node
+is we start at the node</p>
+<p t="2502920" d="1120">that we changed.</p>
+<p t="2504040" d="1760">We check if that's OK.</p>
+<p t="2505800" d="5100">We update the heights as we
+go up using our simple rule.</p>
+<p t="2510900" d="4220">And that's actually not our
+simple rule, but it's erased.</p>
+<p t="2515120" d="2505">We update the height based on
+the heights of its children.</p>
+<p t="2517625" d="1375">And you keep
+walking up until you</p>
+<p t="2519000" d="5010">see, oh, the left is twice,
+two times-- or not two times,</p>
+<p t="2524010" d="3860">but plus 2 larger than
+the left, or vice versa.</p>
+<p t="2527870" d="2360">Then you say, oh, that's bad.</p>
+<p t="2530230" d="2750">And so we fix it.</p>
+<p t="2532980" d="1080">Yeah, question.</p>
+<p t="2534060" d="2835">AUDIENCE: So here we
+continue to [INAUDIBLE].</p>
+<p t="2536895" d="625">PROFESSOR: Yes.</p>
+<p t="2537520" d="916">AUDIENCE: [INAUDIBLE].</p>
+<p t="2543102" d="4374">add n to the level
+[INAUDIBLE] than 1.</p>
+<p t="2547476" d="3414">So add [INAUDIBLE].</p>
+<p t="2550890" d="3360">PROFESSOR: AVL property's
+not about levels.</p>
+<p t="2554250" d="2750">It's about left subtrees
+and right subtrees.</p>
+<p t="2557000" d="2720">So the trouble is that 65--
+you have a left subtree, which</p>
+<p t="2559720" d="4530">has height 2-- or sorry,
+height 1, I guess--</p>
+<p t="2564250" d="3130">because the longest path
+from here to a leaf is 1.</p>
+<p t="2567380" d="2250">The right subtree
+has height negative 1</p>
+<p t="2569630" d="1120">because it doesn't exist.</p>
+<p t="2570750" d="1060">So it's one versus negative 1.</p>
+<p t="2571810" d="1541">So that's why there's
+a double arrow.</p>
+<p t="2573351" d="789">Yeah, good to ask.</p>
+<p t="2574140" d="1890">It's weird with the negative 1s.</p>
+<p t="2576030" d="2530">That's also why I wanted to
+define those negative 1s to be</p>
+<p t="2578560" d="3860">there, so the AVL property
+is easier to state.</p>
+<p t="2582420" d="2760">Other questions?</p>
+<p t="2585180" d="2390">All right.</p>
+<p t="2587570" d="500">Good.</p>
+<p t="2588070" d="2740">I think I want a
+symmetry assumption here.</p>
+<p t="2601750" d="2300">I don't know why I
+wrote right of x.</p>
+<p t="2604050" d="4760">I guess in modern days
+we write x dot right.</p>
+<p t="2608810" d="2210">Same thing.</p>
+<p t="2611020" d="3070">OK, I'm going to assume that
+the right child is the heavier</p>
+<p t="2614090" d="3260">one like we did before.</p>
+<p t="2617350" d="770">Could be the left.</p>
+<p t="2618120" d="1311">It's symmetric.</p>
+<p t="2619431" d="749">It doesn't matter.</p>
+<p t="2636950" d="1750">So now there are two
+cases, like I said.</p>
+<p t="2654570" d="1670">I'm going to use
+this term right heavy</p>
+<p t="2656240" d="1250">because it's super convenient.</p>
+<p t="2662735" d="1375">OK, right heavy
+is what I've been</p>
+<p t="2664110" d="1930">drawing by a
+descending right arrow.</p>
+<p t="2666040" d="3240">Balance is what I've been
+drawing by a horizontal line.</p>
+<p t="2669280" d="3160">OK, so we're just distinguishing
+between these two cases.</p>
+<p t="2672440" d="3560">This turns out to
+be the easy case.</p>
+<p t="2676000" d="7227">So we have x, y, a, b, c.</p>
+<p t="2683227" d="1583">Why are we looking
+at the right child?</p>
+<p t="2684810" d="2920">Because we assumed that the
+right one is higher, so that x</p>
+<p t="2687730" d="1650">was right heavy.</p>
+<p t="2689380" d="2810">So this subtree as I've drawn
+it is higher than the left one</p>
+<p t="2692190" d="2850">by 2, in fact.</p>
+<p t="2695040" d="4760">And what we do in this
+case is right rotate of x.</p>
+<p t="2699800" d="7362">And so we get x, y, a, b, c.</p>
+<p t="2707162" d="2208">I could have drawn this no
+matter what case we're in,</p>
+<p t="2709370" d="2780">so we need to check
+this actually works.</p>
+<p t="2712150" d="1200">That's the interesting part.</p>
+<p t="2713350" d="1820">And that's over here.</p>
+<p t="2717700" d="3750">OK, so I said x is right
+heavy, in fact doubly so.</p>
+<p t="2721450" d="3800">y is either right
+heavy or balanced.</p>
+<p t="2725250" d="3010">Let's start with right heavy.</p>
+<p t="2728260" d="5450">So when we do this rotation,
+what happens to the heights?</p>
+<p t="2733710" d="5721">Well, it's hard to tell.</p>
+<p t="2739431" d="2499">It's a lot easier to think about
+what the actual heights are</p>
+<p t="2741930" d="1510">than just these arrows.</p>
+<p t="2743440" d="1590">So let's suppose x has height k.</p>
+<p t="2745030" d="1040">That's pretty generic.</p>
+<p t="2748640" d="1590">And it's right
+heavy, so that means</p>
+<p t="2750230" d="4220">the y has height k minus 1.</p>
+<p t="2754450" d="4170">And then this is right heavy,
+so this has height k minus 2.</p>
+<p t="2758620" d="2846">And this is something
+smaller then k minus 2.</p>
+<p t="2761466" d="2401">In fact, because this
+is AVL, we assume</p>
+<p t="2763867" d="1583">that x was the lowest
+that is not AVL.</p>
+<p t="2765450" d="2050">So y is AVL.</p>
+<p t="2767500" d="3420">And so this is going
+to be k minus 3,</p>
+<p t="2770920" d="4235">and this is going to be k minus
+3 because these differ by 2.</p>
+<p t="2775155" d="1875">You can prove by a simple
+induction you never</p>
+<p t="2777030" d="4280">get more than 2 out of whack
+because we're just adding 1,</p>
+<p t="2781310" d="1160">off by 1.</p>
+<p t="2782470" d="1430">So we got off by 2.</p>
+<p t="2783900" d="1380">So this is the bad situation.</p>
+<p t="2785280" d="2430">Now we can just update
+the heights over here.</p>
+<p t="2787710" d="5060">So k minus 3 for a, k minus
+3 for b, k minus 2 for c.</p>
+<p t="2792770" d="2650">Those don't change because
+we didn't touch those trees,</p>
+<p t="2795420" d="2630">and height is about
+going down, not up.</p>
+<p t="2798050" d="5140">And so this becomes k minus
+2, and this becomes k minus 1.</p>
+<p t="2803190" d="2380">And so we changed the
+height of the root,</p>
+<p t="2805570" d="1890">but now you can see
+that life is good.</p>
+<p t="2807460" d="2820">This is now balanced between
+k minus 3 and k minus 3.</p>
+<p t="2810280" d="3530">This is now balanced between
+k minus 2 and k minus 2.</p>
+<p t="2813810" d="2480">And now the parent of
+y may be messed up,</p>
+<p t="2816290" d="3760">and that's why after this
+we go to the parent of y,</p>
+<p t="2820050" d="2250">see if it's messed up, but
+keep working our way up.</p>
+<p t="2824830" d="690">But it worked.</p>
+<p t="2828220" d="1880">And in the interest
+of time, I will not</p>
+<p t="2830100" d="2690">check the case
+where y is balanced,</p>
+<p t="2832790" d="1610">but it works out, too.</p>
+<p t="2834400" d="1765">And see the notes.</p>
+<p t="2838670" d="34490">So the other case is
+where we do two rotations.</p>
+<p t="2873160" d="5510">And in general, so here
+x was doubly right heavy.</p>
+<p t="2878670" d="4340">And the else case is
+when the right child</p>
+<p t="2883010" d="3840">of x, which I'm going to
+call z here, is left heavy.</p>
+<p t="2886850" d="2740">That's the one
+remaining situation.</p>
+<p t="2889590" d="2030">You do the same
+thing, and you check</p>
+<p t="2891620" d="1940">that right rotating and
+left rotating, which</p>
+<p t="2893560" d="4650">makes the nice picture,
+which is x, y, z,</p>
+<p t="2898210" d="4320">actually balances everything and
+you restore the AVL property.</p>
+<p t="2902530" d="4140">So again, check
+the notes on that.</p>
+<p t="2906670" d="2705">I have a couple minutes
+left, and instead I'd</p>
+<p t="2909375" d="1625">like to tell you a
+little bit about how</p>
+<p t="2911000" d="1680">this fits into big-picture land.</p>
+<p t="2918107" d="1333">Two things I want to talk about.</p>
+<p t="2919440" d="3740">One is you could
+use this, of course,</p>
+<p t="2923180" d="5490">to sort, which is, if you
+want to sort n numbers,</p>
+<p t="2928670" d="6230">you insert them and you
+do in-order traversal.</p>
+<p t="2938740" d="2320">How long does this take?</p>
+<p t="2941060" d="4310">In-order traversal
+takes linear time.</p>
+<p t="2945370" d="3000">That's the sense in which we're
+storing things in sorted order.</p>
+<p t="2948370" d="4530">Inserting n items-- well,
+each insert takes h time,</p>
+<p t="2952900" d="2240">but now we're guaranteed
+that h is order log n.</p>
+<p t="2955140" d="5320">So all the insertions take log
+n time each, n log n total.</p>
+<p t="2960460" d="2930">So this is yet another way to
+sort n items in n log n time,</p>
+<p t="2963390" d="3410">in some ways the
+most powerful way.</p>
+<p t="2966800" d="2600">We've seen heaps, and
+we've seen merge sort.</p>
+<p t="2969400" d="1680">They all sort.</p>
+<p t="2971080" d="4630">Heaps let you do two operations,
+insert and delete min, which</p>
+<p t="2975710" d="4040">a lot of times is all you
+care about, like in p set two.</p>
+<p t="2979750" d="3170">But these guys,
+AVL trees, let you</p>
+<p t="2982920" d="4210">do insert, delete,
+and delete min.</p>
+<p t="2987130" d="2230">So they're the same
+in those senses,</p>
+<p t="2989360" d="2060">but we have the new
+operation, which</p>
+<p t="2991420" d="5150">is that we can do find next
+larger and next smaller, aka</p>
+<p t="2996570" d="2510">successor and predecessor.</p>
+<p t="2999080" d="7040">So you can think about what
+we call an abstract data type.</p>
+<p t="3006120" d="2750">These are the operations
+that you support,</p>
+<p t="3008870" d="2390">or that you're
+supposed to support.</p>
+<p t="3011260" d="3084">If you're into Java, you
+call this an interface.</p>
+<p t="3014344" d="1666">But this is an
+algorithmic specification</p>
+<p t="3016010" d="2620">of what your data structure
+is supposed to do.</p>
+<p t="3018630" d="5450">So we have operations
+like insert and delete.</p>
+<p t="3024080" d="2552">We have operations
+like find the min</p>
+<p t="3026632" d="4208">and things like successor
+and predecessor,</p>
+<p t="3030840" d="3470">or next larger, next smaller.</p>
+<p t="3034310" d="3690">You can take any subset of these
+and it's an abstract data type.</p>
+<p t="3038000" d="3492">Insert, delete, and min is
+called a priority queue.</p>
+<p t="3041492" d="1948">So if you just take
+these first two,</p>
+<p t="3043440" d="3060">it's called a priority queue.</p>
+<p t="3046500" d="2640">And there are many
+priority queues.</p>
+<p t="3049140" d="3170">This is a generic thing
+that you might want to do.</p>
+<p t="3052310" d="2760">And then the data
+structure on the other side</p>
+<p t="3055070" d="1950">is how you actually do it.</p>
+<p t="3057020" d="3020">This is the analog
+of the algorithm.</p>
+<p t="3060040" d="1330">OK, this is the specification.</p>
+<p t="3061370" d="1210">You want a priority queue.</p>
+<p t="3062580" d="2120">One way to do it is a heap.</p>
+<p t="3064700" d="3520">Another way to do
+it is an AVL tree.</p>
+<p t="3068220" d="1500">You could do it
+with a sorted array.</p>
+<p t="3069720" d="2510">You could do lots of
+sub-optimal things, too,</p>
+<p t="3072230" d="2720">but in particular, heaps
+get these two operations.</p>
+<p t="3074950" d="2820">If you want all
+three, you basically</p>
+<p t="3077770" d="2240">need a balanced
+binary search tree.</p>
+<p t="3083530" d="2480">There are probably a dozen
+balanced binary search trees</p>
+<p t="3086010" d="2670">out there, at least a dozen
+balanced search trees,</p>
+<p t="3088680" d="1690">not all binary.</p>
+<p t="3090370" d="1390">They all achieve log n.</p>
+<p t="3091760" d="1230">So it doesn't really matter.</p>
+<p t="3092990" d="2640">There are various practical
+issues, constant factors,</p>
+<p t="3095630" d="1050">things like that.</p>
+<p t="3096680" d="2580">The main reason you prefer a
+heap is that it's in place.</p>
+<p t="3099260" d="1535">It doesn't use any extra space.</p>
+<p t="3100795" d="1875">Here, you've got pointers
+all over the place.</p>
+<p t="3102670" d="3410">You lose a constant
+factor in space.</p>
+<p t="3106080" d="1600">But from a theoretical
+standpoint,</p>
+<p t="3107680" d="1708">if you don't care
+about constant factors,</p>
+<p t="3109388" d="4372">AVL trees are really good
+because they get everything</p>
+<p t="3113760" d="2920">that we've seen
+so far and log n.</p>
+<p t="3116680" d="2810">And I'll stop there.</p>
+</body>
+</timedtext>

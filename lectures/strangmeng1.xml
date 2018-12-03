@@ -1,0 +1,1488 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="47" d="2083">The following content is
+provided under a Creative</p>
+<p t="2130" d="1480">Commons license.</p>
+<p t="3610" d="2160">Your support will help
+MIT OpenCourseWare</p>
+<p t="5770" d="4280">continue to offer high quality
+educational resources for free.</p>
+<p t="10050" d="2540">To make a donation or to
+view additional materials</p>
+<p t="12590" d="3590">from hundreds of MIT courses,
+visit MIT OpenCourseWare</p>
+<p t="16180" d="6050">at ocw.mit.edu.</p>
+<p t="22230" d="5350">PROFESSOR STRANG: Just to give
+an overview in three lines:</p>
+<p t="27580" d="5200">the text is the book of that
+name, Computational Science</p>
+<p t="32780" d="790">and Engineering.</p>
+<p t="33570" d="2820">That was completed
+just last year,</p>
+<p t="36390" d="4650">so it really ties pretty
+well with the course.</p>
+<p t="41040" d="2850">I don't cover everything
+in the book, by all means.</p>
+<p t="43890" d="3740">And I don't, certainly, don't
+stand here and read the book.</p>
+<p t="47630" d="2660">That would be no good.</p>
+<p t="50290" d="5140">But you'll be able, if
+you miss a class -- well,</p>
+<p t="55430" d="1100">don't miss a class.</p>
+<p t="56530" d="4890">But if you miss a class,
+you'll be able, probably,</p>
+<p t="61420" d="3770">to see roughly what we did.</p>
+<p t="65190" d="2910">OK, so the first
+part of the semester</p>
+<p t="68100" d="2560">is applied linear algebra.</p>
+<p t="70660" d="3330">And I don't know how many of
+you have had a linear algebra</p>
+<p t="73990" d="2480">course, and that's
+why I thought I would</p>
+<p t="76470" d="3020">start with a quick review.</p>
+<p t="79490" d="4010">And you'll catch on.</p>
+<p t="83500" d="3170">I want matrices to
+come to life, actually.</p>
+<p t="86670" d="4084">You know, instead
+of just being a four</p>
+<p t="90754" d="2856">by four array of numbers,
+there are four by four,</p>
+<p t="93610" d="3360">or n by n or m by n
+array of special numbers.</p>
+<p t="96970" d="1430">They have a meaning.</p>
+<p t="98400" d="3380">When they multiply a
+vector, they do something.</p>
+<p t="101780" d="3920">And so it's just, part
+of this first step</p>
+<p t="105700" d="3490">is just, like,
+getting to recognize,</p>
+<p t="109190" d="1570">what's that matrix doing?</p>
+<p t="110760" d="1420">Where does it come from?</p>
+<p t="112180" d="1730">What are its properties?</p>
+<p t="113910" d="3300">So that's a theme at the start.</p>
+<p t="117210" d="6840">Then differential equations,
+like Laplace's equation,</p>
+<p t="124050" d="2480">are beautiful examples.</p>
+<p t="126530" d="4770">So here we get, especially,
+to numerical methods,</p>
+<p t="131300" d="3470">finite differences, finite
+elements, above all.</p>
+<p t="134770" d="1740">So I think in this
+class you'll really</p>
+<p t="136510" d="3880">see how finite elements
+work, and other ideas.</p>
+<p t="140390" d="1500">All sorts of ideas.</p>
+<p t="141890" d="4100">And then the last part of
+the course is about Fourier.</p>
+<p t="145990" d="3410">That's Fourier series,
+that you may have seen,</p>
+<p t="149400" d="1140">and Fourier integrals.</p>
+<p t="150540" d="4460">But also, highly important,
+Discrete Fourier Transform,</p>
+<p t="155000" d="1190">DFT.</p>
+<p t="156190" d="3220">That's a fundamental
+step for understanding</p>
+<p t="159410" d="3360">what a signal contains.</p>
+<p t="162770" d="3290">Yeah, so that's
+great stuff, Fourier.</p>
+<p t="166060" d="6560">OK, what else should
+I say before I start?</p>
+<p t="172620" d="2390">I said this was my
+favorite course,</p>
+<p t="175010" d="6720">and maybe I'll
+elaborate a little.</p>
+<p t="181730" d="4460">Well, I think what I want
+to say is that I really</p>
+<p t="186190" d="6550">feel my life is here to teach
+you and not to grade you.</p>
+<p t="192740" d="3300">I'm not going to spend this
+semester worrying about grades,</p>
+<p t="196040" d="2000">and please don't.</p>
+<p t="198040" d="1570">They come out fine.</p>
+<p t="199610" d="2590">We've got lots to learn.</p>
+<p t="202200" d="4430">And I'll do my very best
+to explain it clearly.</p>
+<p t="206630" d="3460">And I know you'll do your best.</p>
+<p t="210090" d="1290">I know from experience.</p>
+<p t="211380" d="5020">This class goes for
+it and does it right.</p>
+<p t="216400" d="4110">So that's what makes it so good.</p>
+<p t="220510" d="900">OK.</p>
+<p t="221410" d="4430">Homeworks, by the way,
+well, the first homework</p>
+<p t="225840" d="5030">will simply be a way to get a
+grade list, a list of everybody</p>
+<p t="230870" d="1310">taking the course.</p>
+<p t="232180" d="3640">They won't be graded
+in great detail.</p>
+<p t="235820" d="3790">Too large a class.</p>
+<p t="239610" d="3910">And you're allowed to talk
+to each other about homework.</p>
+<p t="243520" d="2450">So homework is not
+an exam at all.</p>
+<p t="245970" d="4480">So let me just leave any
+discussion of exams and grades</p>
+<p t="250450" d="1730">for the future.</p>
+<p t="252180" d="3830">I'll tell you, you'll see how
+informally the first homework</p>
+<p t="256010" d="2360">will be.</p>
+<p t="258370" d="2750">And I hope it'll go
+up on the website.</p>
+<p t="261120" d="2580">The first homework
+will be for Monday.</p>
+<p t="263700" d="5640">So it's a bit early, but
+it's pretty open-ended.</p>
+<p t="269340" d="3730">If you could take three
+problems from 1.1,</p>
+<p t="273070" d="3850">the first section of
+the book, any three,</p>
+<p t="276920" d="7040">and any three problems from
+1.2, and print your name</p>
+<p t="283960" d="2960">on the homework -- because we're
+going to use that to create</p>
+<p t="286920" d="3110">the grade list -- I'll
+be completely happy.</p>
+<p t="290030" d="1780">Well, especially if
+you get them right</p>
+<p t="291810" d="2010">and do them neatly and so on.</p>
+<p t="293820" d="5290">But actually we won't know.</p>
+<p t="299110" d="3650">So that's for Monday.</p>
+<p t="302760" d="560">OK.</p>
+<p t="303320" d="2110">And we'll talk more about it.</p>
+<p t="305430" d="5320">I'll announce the TA on the
+website and the TA hours,</p>
+<p t="310750" d="2200">the office hours,
+and everything.</p>
+<p t="312950" d="4260">There'll be a Friday
+afternoon office hour,</p>
+<p t="317210" d="3031">because homeworks will
+typically come Monday.</p>
+<p t="320241" d="499">OK.</p>
+<p t="320740" d="6310">Questions about the course
+before I just start?</p>
+<p t="327050" d="3090">OK.</p>
+<p t="330140" d="1520">Another time for questions, too.</p>
+<p t="331660" d="9790">OK, so can we just
+start with that matrix?</p>
+<p t="341450" d="3680">So I said about matrices, I'm
+interested in their properties.</p>
+<p t="345130" d="2860">Like, I'm going to
+ask you about that.</p>
+<p t="347990" d="3060">And then, I'm interested
+in their meaning.</p>
+<p t="351050" d="2150">Where do they come from?</p>
+<p t="353200" d="3330">You know, why that matrix
+instead of some other?</p>
+<p t="356530" d="4560">And then, the numerical part
+is how do we deal with them?</p>
+<p t="361090" d="4310">How do we solve a linear system
+with that coefficient matrix?</p>
+<p t="365400" d="2000">What can we say
+about the solution?</p>
+<p t="367400" d="2430">So the purpose.</p>
+<p t="369830" d="500">Right.</p>
+<p t="370330" d="4710">OK, now help me out.</p>
+<p t="375040" d="2480">So I guess my plan
+with the video taping</p>
+<p t="377520" d="2890">is, whatever you
+say, I'll repeat.</p>
+<p t="380410" d="5730">So say it as clearly
+as possible, and it's</p>
+<p t="386140" d="4670">fantastic to have discussion,
+conversation here.</p>
+<p t="390810" d="3320">So I'll just repeat it so that
+it safely gets on the tape.</p>
+<p t="394130" d="1750">So tell me its properties.</p>
+<p t="395880" d="5430">Tell me the first property that
+you notice about that matrix.</p>
+<p t="401310" d="500">Symmetric.</p>
+<p t="401810" d="1100">Symmetric.</p>
+<p t="402910" d="1240">Right.</p>
+<p t="404150" d="1580">I could have slowed
+down a little</p>
+<p t="405730" d="2580">and everybody probably would
+have said that at once.</p>
+<p t="408310" d="3480">So that's a symmetric matrix.</p>
+<p t="411790" d="2980">Now we might as well pick
+up some matrix notation.</p>
+<p t="414770" d="4200">How do I express the fact
+that this a symmetric matrix?</p>
+<p t="418970" d="2920">In simple matrix
+notation, I would</p>
+<p t="421890" d="5370">say that K is the
+same as K transpose.</p>
+<p t="427260" d="4450">The transpose, everybody
+knows, it comes from -- oh,</p>
+<p t="431710" d="3160">I shouldn't say this --
+flipping it across the diagonal.</p>
+<p t="434870" d="2960">That's not a very
+"math" thing to do.</p>
+<p t="437830" d="4130">But that's the way
+to visualize it.</p>
+<p t="441960" d="5600">And let me use a
+capital T for transpose.</p>
+<p t="447560" d="2900">So it's symmetric.</p>
+<p t="450460" d="880">Very important.</p>
+<p t="451340" d="1320">Very, very important.</p>
+<p t="452660" d="2190">That's the most important
+class of matrices,</p>
+<p t="454850" d="990">symmetric matrices.</p>
+<p t="455840" d="2050">We'll see them all
+the time, because they</p>
+<p t="457890" d="3420">come from equilibrium problems.</p>
+<p t="461310" d="3560">They come from all sorts
+of -- they come everywhere</p>
+<p t="464870" d="2190">in applications.</p>
+<p t="467060" d="2740">And we will be
+doing applications.</p>
+<p t="469800" d="3380">The first week or
+week and a half,</p>
+<p t="473180" d="3360">you'll see pretty
+much discussion</p>
+<p t="476540" d="4170">of matrices and the reasons,
+what their meaning is.</p>
+<p t="480710" d="2730">And then we'll get to
+physical applications:</p>
+<p t="483440" d="2310">mechanics and more.</p>
+<p t="485750" d="930">OK.</p>
+<p t="486680" d="2040">All right.</p>
+<p t="488720" d="3510">Now I'm looking for
+properties, other properties,</p>
+<p t="492230" d="1200">of that matrix.</p>
+<p t="493430" d="4910">Let me write "2" here so that
+you got a spot to put it.</p>
+<p t="498340" d="3080">What are you going to tell
+me next about that matrix?</p>
+<p t="501420" d="620">Periodic.</p>
+<p t="502040" d="1230">Well, okay.</p>
+<p t="503270" d="1930">Actually, that's
+a good question.</p>
+<p t="505200" d="6080">Let me write periodic down here.</p>
+<p t="511280" d="4830">You're using that word,
+because somehow that pattern</p>
+<p t="516110" d="1370">is suggesting something.</p>
+<p t="517480" d="2670">But you'll see I
+have a little more</p>
+<p t="520150" d="4270">to add before I would
+use the word periodic.</p>
+<p t="524420" d="2640">So that's great
+to see that here.</p>
+<p t="527060" d="500">What else?</p>
+<p t="527560" d="2700">Somebody else was
+going to say something.</p>
+<p t="530260" d="1110">Please.</p>
+<p t="531370" d="670">Sparse!</p>
+<p t="532040" d="1200">Oh, very good.</p>
+<p t="533240" d="1260">Sparse.</p>
+<p t="534500" d="4850">That's also an obvious
+property that you</p>
+<p t="539350" d="1870">see from looking at the matrix.</p>
+<p t="541220" d="2330">What does sparse mean?</p>
+<p t="543550" d="1650">Mostly zeros.</p>
+<p t="545200" d="2670">Well that isn't
+mostly zeros, I guess.</p>
+<p t="547870" d="3970">I mean, that's got what,
+out of sixteen entries,</p>
+<p t="551840" d="1720">it's got six zeros.</p>
+<p t="553560" d="1370">That doesn't sound like sparse.</p>
+<p t="554930" d="5536">But when I grow the matrix --
+because this is just a four</p>
+<p t="560466" d="574">by four.</p>
+<p t="561040" d="3510">I would even call this one K_4.</p>
+<p t="564550" d="5030">When the matrix
+grows to 100 by 100,</p>
+<p t="569580" d="2330">then you really
+see it as sparse.</p>
+<p t="571910" d="4580">So if that matrix was 100
+by 100, how many non-zeros</p>
+<p t="576490" d="940">would it have?</p>
+<p t="577430" d="6580">So if n is 100, then the
+number of non-zeros -- wow,</p>
+<p t="584010" d="2520">that's the first MATLAB
+command I've written.</p>
+<p t="586530" d="4090">A number of non-zeros
+of K would be --</p>
+<p t="590620" d="2540">anybody know what it would be?</p>
+<p t="593160" d="7590">I'm just asking to go
+up to five by five.</p>
+<p t="600750" d="3110">I'm asking you to keep
+that pattern alive.</p>
+<p t="603860" d="4470">Twos on the diagonal,
+minus ones above and below.</p>
+<p t="608330" d="5310">So yeah, so 298, would it be?</p>
+<p t="613640" d="6380">A hundred diagonal entries,
+99 and 99, maybe 298?</p>
+<p t="620020" d="7570">298 out of 100 by
+100 would be what?</p>
+<p t="627590" d="1550">It's been a long summer.</p>
+<p t="629140" d="2950">Yeah, a lot of zeros.</p>
+<p t="632090" d="620">A lot.</p>
+<p t="632710" d="500">Right.</p>
+<p t="633210" d="4550">Because the matrix has got what
+100 by 100, 10,000 entries.</p>
+<p t="637760" d="1860">Out of 10,000.</p>
+<p t="639620" d="2680">So that's sparse.</p>
+<p t="642300" d="3790">But we see those all the
+time, and fortunately we do.</p>
+<p t="646090" d="2960">Because, of course, this
+matrix, or even 100 by 100,</p>
+<p t="649050" d="3950">we could deal with
+if it was dense.</p>
+<p t="653000" d="4640">But 10,000, 100,000,
+or 1 million,</p>
+<p t="657640" d="4750">which happens all the time
+now in scientific computation.</p>
+<p t="662390" d="2120">A million by
+million dense matrix</p>
+<p t="664510" d="2660">is not a nice thing
+to think about.</p>
+<p t="667170" d="6610">A million by million matrix
+like this is a cinch.</p>
+<p t="673780" d="500">OK.</p>
+<p t="674280" d="1660">So sparse.</p>
+<p t="675940" d="2610">What else do you want to say?</p>
+<p t="678550" d="940">Toeplitz.</p>
+<p t="679490" d="3110">Holy Moses.</p>
+<p t="682600" d="1320">Exactly right.</p>
+<p t="683920" d="4630">But I want to say,
+before I use that word,</p>
+<p t="688550" d="1990">so that'll be my
+second MATLAB command.</p>
+<p t="690540" d="520">Thanks.</p>
+<p t="691060" d="2720">Toeplitz.</p>
+<p t="693780" d="2070">What's that mean?</p>
+<p t="695850" d="3830">So this matrix has
+a property that we</p>
+<p t="699680" d="7260">see right away, which is?</p>
+<p t="706940" d="4510">I want to stay with Toeplitz
+but everybody tell me</p>
+<p t="711450" d="3410">something more about
+properties of that matrix.</p>
+<p t="714860" d="1240">Tridiagonal.</p>
+<p t="716100" d="6780">Tridiagonal, so that's almost
+a special subcase of sparse.</p>
+<p t="722880" d="2650">It has just three diagonals.</p>
+<p t="725530" d="2910">Tridiagonal matrices
+are truly important.</p>
+<p t="728440" d="1630">They come in all
+the time, we'll see</p>
+<p t="730070" d="4010">that they come from second order
+differential equations, which</p>
+<p t="734080" d="3280">are, thanks to
+Newton, the big ones.</p>
+<p t="737360" d="5730">Ok, now it's more than
+tridiagonal and what more?</p>
+<p t="743090" d="3760">So what further, we're
+getting deeper now.</p>
+<p t="746850" d="5120">What patterns do you see
+beyond just tridiagonal,</p>
+<p t="751970" d="2980">because tridiagonal would
+allow any numbers there</p>
+<p t="754950" d="4200">but those are not, there's more
+of a pattern than just three</p>
+<p t="759150" d="3340">diagonals, what is it?</p>
+<p t="762490" d="3280">Those diagonals are constant.</p>
+<p t="765770" d="3010">If I run down each of
+those three diagonals,</p>
+<p t="768780" d="1570">I see the same number.</p>
+<p t="770350" d="3020">Twos, minus ones,
+minus ones, and that's</p>
+<p t="773370" d="2300">what the word Toeplitz means.</p>
+<p t="775670" d="9610">Toeplitz is constant diagonal.</p>
+<p t="785280" d="570">Ok.</p>
+<p t="785850" d="3990">And that kind of
+matrix is so important.</p>
+<p t="789840" d="7890">It corresponds, yeah,
+if we were in EE,</p>
+<p t="797730" d="5510">I would use the words
+time-invariant filter, linear,</p>
+<p t="803240" d="680">time-invariant.</p>
+<p t="803920" d="3920">So it's linear because
+we're dealing with a matrix.</p>
+<p t="807840" d="3910">And it's time-invariant,
+shift-invariant.</p>
+<p t="811750" d="3150">I just use all these
+equivalent words</p>
+<p t="814900" d="3400">to mean that we're
+seeing the same thing row</p>
+<p t="818300" d="5700">by row, except of course, at,
+shall I call that the boundary?</p>
+<p t="824000" d="2370">That's like, the end
+of the system and this</p>
+<p t="826370" d="5370">is like the other end and
+there it's chopped off.</p>
+<p t="831740" d="4330">But if it was ten by ten I
+would see that row eight times.</p>
+<p t="836070" d="2910">100 by 100 I'd see it 98 times.</p>
+<p t="838980" d="6050">So it's constant diagonals
+and the guy who first</p>
+<p t="845030" d="3320">studied that was Toeplitz.</p>
+<p t="848350" d="5120">And we wouldn't need that
+great historical information</p>
+<p t="853470" d="5230">except that MATLAB created a
+command to create that matrix.</p>
+<p t="858700" d="7050">K, MATLAB is all set to
+create Toeplitz matrices.</p>
+<p t="865750" d="4360">Yeah, so I'll have to put
+what MATLAB would put.</p>
+<p t="870110" d="7350">I realize I'm already
+using the word MATLAB.</p>
+<p t="877460" d="4570">I think that MATLAB language
+is really convenient</p>
+<p t="882030" d="2020">to talk about linear algebra.</p>
+<p t="884050" d="2500">And how many know
+MATLAB or have used it?</p>
+<p t="886550" d="2570">Yeah.</p>
+<p t="889120" d="4530">You know it better than I. I
+talk a good line with MATLAB</p>
+<p t="893650" d="3110">but I -- the code never runs.</p>
+<p t="896760" d="1540">Never!</p>
+<p t="898300" d="4260">I always forget some
+stupid semicolon.</p>
+<p t="902560" d="2410">You may have had
+that experience.</p>
+<p t="904970" d="6549">And I just want to say it now
+that there are other languages,</p>
+<p t="911519" d="1666">and if you want to
+do homeworks and want</p>
+<p t="913185" d="5155">to do your own work in other
+languages, that makes sense.</p>
+<p t="918340" d="2950">So the older
+established alternatives</p>
+<p t="921290" d="4510">were Mathematica and
+Maple and those two</p>
+<p t="925800" d="4430">have symbolic-- they can
+deal with algebra as well</p>
+<p t="930230" d="3090">as numbers.</p>
+<p t="933320" d="1670">But there are newer languages.</p>
+<p t="934990" d="2050">I don't know if you know them.</p>
+<p t="937040" d="4230">I just know my friends
+say, yes they're terrific.</p>
+<p t="941270" d="4780">Python is one.</p>
+<p t="946050" d="3100">And R. I've just
+had a email saying,</p>
+<p t="949150" d="4140">tell your class
+about R. And others.</p>
+<p t="953290" d="6380">Ok, so but we'll use MATLAB
+language because that's really</p>
+<p t="959670" d="1390">a good common language.</p>
+<p t="961060" d="2310">Ok, so what is a
+Toeplitz matrix?</p>
+<p t="963370" d="2680">A Toeplitz matrix is one
+with constant diagonals.</p>
+<p t="966050" d="3170">You could use the
+word time-invariant,</p>
+<p t="969220" d="2040">linear time-invariant filter.</p>
+<p t="971260" d="5600">And to create K, this
+is an 18.085 command.</p>
+<p t="976860" d="2540">It's just set up for us.</p>
+<p t="979400" d="6950">I can create K by telling
+the system the first row.</p>
+<p t="986350" d="6010">Two, minus one, zero, zero.</p>
+<p t="992360" d="4980">That would, then if
+it wasn't symmetric</p>
+<p t="997340" d="3030">I would have to give
+the first column also.</p>
+<p t="1000370" d="1620">Toeplitz would be
+constant diagonal,</p>
+<p t="1001990" d="2140">it doesn't have to be symmetric.</p>
+<p t="1004130" d="2920">But if it's symmetric, then
+the first row and first column</p>
+<p t="1007050" d="3420">are the same vector, so I
+just have to give that vector.</p>
+<p t="1010470" d="5100">Okay, so that's the
+quickest way to create K.</p>
+<p t="1015570" d="4530">And of course, if it
+was bigger then I would,</p>
+<p t="1020100" d="8020">rather than writing 100 zeros,
+I could put zeros of 98 and one.</p>
+<p t="1028120" d="1810">Wouldn't I have to say that?</p>
+<p t="1029930" d="1480">Or is it one and 98?</p>
+<p t="1031410" d="4500">You see why it doesn't run.</p>
+<p t="1035910" d="2830">Well I guess I'm thinking
+of that as a row.</p>
+<p t="1038740" d="870">I don't know.</p>
+<p t="1039610" d="4950">Anyway.</p>
+<p t="1044560" d="2270">I realize getting this
+videotaped means I'm</p>
+<p t="1046830" d="1260">supposed to get things right!</p>
+<p t="1048090" d="3320">Usually it's like, we'll
+get it right later.</p>
+<p t="1051410" d="4760">But anyway, that might work.</p>
+<p t="1056170" d="1170">Okay.</p>
+<p t="1057340" d="2530">So there's a command
+that you know.</p>
+<p t="1059870" d="4380">"zeros", that creates a matrix
+of this size with all zeros.</p>
+<p t="1064250" d="1310">Okay.</p>
+<p t="1065560" d="2820">That would create
+the 100 by 100.</p>
+<p t="1068380" d="530">Good.</p>
+<p t="1068910" d="1200">Ok.</p>
+<p t="1070110" d="3240">Oh, by the way, as long as
+we're speaking about computation</p>
+<p t="1073350" d="2360">I've gotta say something more.</p>
+<p t="1075710" d="3580">We said that the
+matrix is sparse.</p>
+<p t="1079290" d="3070">And this 100 by 100 matrix
+is certainly sparse.</p>
+<p t="1082360" d="5520">But if I create it this way,
+I've created all those zeros</p>
+<p t="1087880" d="5670">and if I ask MATLAB to work
+with that matrix, to square it</p>
+<p t="1093550" d="5260">or whatever, it would
+carry all those zeros</p>
+<p t="1098810" d="2520">and do all those
+zero computations.</p>
+<p t="1101330" d="3507">In other words, it would
+treat K like a dense matrix</p>
+<p t="1104837" d="2333">and it would just, it wouldn't
+know the zeros were there</p>
+<p t="1107170" d="2250">until it looked.</p>
+<p t="1109420" d="4420">So I just want to say that if
+you have really big systems</p>
+<p t="1113840" d="4900">sparse MATLAB is the way to go.</p>
+<p t="1118740" d="4190">Because sparse MATLAB keeps
+track only of the non-zeros.</p>
+<p t="1122930" d="2490">So it knows-- and their
+locations, of course.</p>
+<p t="1125420" d="2550">What the numbers are
+and their location.</p>
+<p t="1127970" d="2820">So I could create a
+sparse matrix out of that,</p>
+<p t="1130790" d="2910">like KS for K sparse.</p>
+<p t="1133700" d="5920">I think if I just
+did sparse(K) that</p>
+<p t="1139620" d="1780">would create a sparse matrix.</p>
+<p t="1141400" d="3340">And then if I do
+stuff to it, MATLAB</p>
+<p t="1144740" d="3540">would automatically know
+those zeros were there</p>
+<p t="1148280" d="4340">and not spend it's time
+multiplying by zero.</p>
+<p t="1152620" d="1600">But of course,
+this isn't perfect</p>
+<p t="1154220" d="3740">because I've created the big
+matrix before sparsifying it.</p>
+<p t="1157960" d="2740">And better to have created
+it in the first place</p>
+<p t="1160700" d="1390">as a sparse matrix.</p>
+<p t="1162090" d="5420">Ok.</p>
+<p t="1167510" d="4500">So those were properties
+that you could see.</p>
+<p t="1172010" d="4270">Now I'm looking
+for little deeper.</p>
+<p t="1176280" d="3510">What's the first question I
+would ask about a matrix if I</p>
+<p t="1179790" d="2040">have to solve a
+system of equations,</p>
+<p t="1181830" d="4270">say KU=F or something.</p>
+<p t="1186100" d="7670">I got a 4 by 4 matrix, four
+equations, four unknowns.</p>
+<p t="1193770" d="3300">What would I want to know next?</p>
+<p t="1197070" d="2710">Is it invertible?</p>
+<p t="1199780" d="4360">Is the matrix invertible?</p>
+<p t="1204140" d="2890">And that's an important
+question and how</p>
+<p t="1207030" d="3610">do you recognize an
+invertible matrix?</p>
+<p t="1210640" d="1460">This one is invertible.</p>
+<p t="1212100" d="3260">So let me say K is invertible.</p>
+<p t="1215360" d="1750">And what does that mean?</p>
+<p t="1217110" d="2300">That means that
+there's another matrix,</p>
+<p t="1219410" d="8220">K inverse such that K times K
+inverse is the identity matrix.</p>
+<p t="1227630" d="4560">The identity matrix in
+MATLAB would be eye(n)</p>
+<p t="1232190" d="3530">and it's the diagonal
+matrix of ones.</p>
+<p t="1235720" d="4760">It's the unit matrix; it's the
+matrix that doesn't do anything</p>
+<p t="1240480" d="2880">to a vector.</p>
+<p t="1243360" d="5150">So this K has an inverse.</p>
+<p t="1248510" d="1400">But how do you know?</p>
+<p t="1249910" d="3530">How can you recognize that
+a matrix is invertible?</p>
+<p t="1253440" d="3090">Because obviously that's a
+critical question and many,</p>
+<p t="1256530" d="2540">many-- since our
+matrices are not--</p>
+<p t="1259070" d="3960">a random matrix would
+be invertible, for sure,</p>
+<p t="1263030" d="3640">but our matrices have
+patterns, they're</p>
+<p t="1266670" d="3480">created out of a
+problem and the question</p>
+<p t="1270150" d="3700">of whether that matrix is
+invertible is fundamental.</p>
+<p t="1273850" d="3410">I mean finite
+elements has these,</p>
+<p t="1277260" d="3640">zero-energy modes that you have
+to watch out for because, what</p>
+<p t="1280900" d="3680">are they?</p>
+<p t="1284580" d="3550">They produce non-invertible
+stiffness matrix.</p>
+<p t="1288130" d="540">Ok.</p>
+<p t="1288670" d="2270">So how did we know,
+or how could we</p>
+<p t="1290940" d="3540">know that this K is invertible?</p>
+<p t="1294480" d="3160">Somebody said invertible
+and I wrote it down.</p>
+<p t="1297640" d="1960">Yeah?</p>
+<p t="1299600" d="2280">Well ok.</p>
+<p t="1301880" d="3200">Now I get to make a
+speech about determinants.</p>
+<p t="1305080" d="1810">Don't deal with them!</p>
+<p t="1306890" d="2120">Don't touch determinants.</p>
+<p t="1309010" d="4170">I mean this particular
+four by four</p>
+<p t="1313180" d="3050">happens to have a
+nice determinant.</p>
+<p t="1316230" d="1870">I think it's five.</p>
+<p t="1318100" d="4380">But if it was a 100
+by 100 how would</p>
+<p t="1322480" d="4420">we show that the
+matrix was invertible?</p>
+<p t="1326900" d="4080">And what I mean by this is the
+whole family is invertible.</p>
+<p t="1330980" d="2670">All sizes are invertible.</p>
+<p t="1333650" d="2990">K_n is invertible
+for every n, not just</p>
+<p t="1336640" d="3370">this particular guy, whose
+determinant we could take.</p>
+<p t="1340010" d="2360">But as five by
+five, six by six, we</p>
+<p t="1342370" d="5730">would be up in the-- but
+you're completely right.</p>
+<p t="1348100" d="5830">The determinant is a test.</p>
+<p t="1353930" d="2060">Alright.</p>
+<p t="1355990" d="9540">But I guess I'm saying that it's
+not the test that I would use.</p>
+<p t="1365530" d="3650">So what I do?</p>
+<p t="1369180" d="3360">I would row reduce.</p>
+<p t="1372540" d="5790">That's the default
+option in linear algebra.</p>
+<p t="1378330" d="2330">If you don't know what
+to do with a matrix,</p>
+<p t="1380660" d="3120">if you want to see what's
+going on, row reduce.</p>
+<p t="1383780" d="1130">What does that mean?</p>
+<p t="1384910" d="4140">That means-- shall I try it?</p>
+<p t="1389050" d="6040">So let me just start it,
+just so I'm not using</p>
+<p t="1395090" d="9500">a word that we don't need.</p>
+<p t="1404590" d="800">Ok.</p>
+<p t="1405390" d="3730">And actually, maybe the third
+lecture, maybe next Monday</p>
+<p t="1409120" d="4000">we'll come back to row reduce.</p>
+<p t="1413120" d="5060">So I won't make heavy weather
+of that, certainly not now.</p>
+<p t="1418180" d="1530">So what is row reduce?</p>
+<p t="1419710" d="3800">Just so you know.</p>
+<p t="1423510" d="3370">I want to get that
+minus one to be a zero.</p>
+<p t="1426880" d="3330">I'm aiming for a
+triangular matrix.</p>
+<p t="1430210" d="3750">I want to clean out
+below the diagonal</p>
+<p t="1433960" d="2250">because if my matrix
+is triangular then</p>
+<p t="1436210" d="3350">I can see immediately
+everything.</p>
+<p t="1439560" d="1770">Right?</p>
+<p t="1441330" d="5560">Ultimately I'll reach a matrix
+U that'll be upper triangular</p>
+<p t="1446890" d="4900">and that first row won't change
+but the second row will change.</p>
+<p t="1451790" d="1550">And what does it change to?</p>
+<p t="1453340" d="4120">How do I clean out, get
+a zero in that, where</p>
+<p t="1457460" d="4470">the minus one is right now?</p>
+<p t="1461930" d="7960">Well I want to use the first
+row, the first equation.</p>
+<p t="1469890" d="3440">I want to add some
+multiple of the first row</p>
+<p t="1473330" d="2800">to the second row.</p>
+<p t="1476130" d="2840">And what should
+that multiple be?</p>
+<p t="1478970" d="2360">I want to multiply
+that row by something.</p>
+<p t="1481330" d="2260">And I'll say "add" today.</p>
+<p t="1483590" d="2690">Later I'll say "subtract."</p>
+<p t="1486280" d="1080">But what shall I do?</p>
+<p t="1487360" d="2770">Just tell me what
+the heck to do.</p>
+<p t="1490130" d="2340">I've got that row
+and I want to use it,</p>
+<p t="1492470" d="2910">I want to take a combination
+of these two rows.</p>
+<p t="1495380" d="3630">This row and some multiple
+of this one that'll</p>
+<p t="1499010" d="1920">produce a zero.</p>
+<p t="1500930" d="1740">This is called the pivot.</p>
+<p t="1502670" d="4660">That's the first pivot
+P-I-V-O-T. Pivot.</p>
+<p t="1507330" d="3960">And then that's the pivot row.</p>
+<p t="1511290" d="2880">And what do I do?</p>
+<p t="1514170" d="1760">Tell me what to do.</p>
+<p t="1515930" d="2250">Add half this row to this one.</p>
+<p t="1518180" d="3450">When I add half of that row
+to that one, what do I get?</p>
+<p t="1521630" d="980">I get that zero.</p>
+<p t="1522610" d="3830">What do I get here
+for the second pivot?</p>
+<p t="1526440" d="1380">What is it?</p>
+<p t="1527820" d="2870">1.5, 3/2.</p>
+<p t="1530690" d="1980">Because half of that is, so 3/2.</p>
+<p t="1532670" d="7250">And the rest won't change.</p>
+<p t="1539920" d="3120">So I'm happy with that zero.</p>
+<p t="1543040" d="5100">Now I've got a couple more
+entries below that first pivot,</p>
+<p t="1548140" d="1200">but they're already zero.</p>
+<p t="1549340" d="2730">That's where the
+sparseness pays off.</p>
+<p t="1552070" d="2820">The tridiagonal really pays off.</p>
+<p t="1554890" d="4520">So those zeros say the
+first column is finished.</p>
+<p t="1559410" d="3260">So I'm ready to go on
+to the second column.</p>
+<p t="1562670" d="5890">It's like I got to this smaller
+problem with the 3/2 here.</p>
+<p t="1568560" d="3610">And a zero there.</p>
+<p t="1572170" d="1700">What do I do now?</p>
+<p t="1573870" d="2330">There is the second pivot, 3/2.</p>
+<p t="1576200" d="1520">Below it is a non-zero.</p>
+<p t="1577720" d="2310">I gotta get rid of it.</p>
+<p t="1580030" d="3370">What do I multiply by now?</p>
+<p t="1583400" d="1220">2/3.</p>
+<p t="1584620" d="3840">2/3 of that new second
+row added to the third row</p>
+<p t="1588460" d="2360">will clean out the third row.</p>
+<p t="1590820" d="2030">This was already cleaned out.</p>
+<p t="1592850" d="1740">This is already a zero.</p>
+<p t="1594590" d="4240">But I want to have 2/3 of
+this row added to this one so</p>
+<p t="1598830" d="2460">what's my new third row?</p>
+<p t="1601290" d="2700">Starts with zero and
+what's the third pivot now?</p>
+<p t="1603990" d="2880">You see the pivots appearing?</p>
+<p t="1606870" d="5600">The third pivot will be 4/3
+because I've got 2/3 this -1</p>
+<p t="1612470" d="6900">and 2 is 6/3 so I have 6/3,
+I'm taking 2/3 away, I get 4/3</p>
+<p t="1619370" d="2400">and that -1 is still there.</p>
+<p t="1621770" d="5290">So you see that
+I'm-- this is fast.</p>
+<p t="1627060" d="1840">This is really fast.</p>
+<p t="1628900" d="3610">And the next step, maybe you
+can see the beautiful patterns</p>
+<p t="1632510" d="790">that are coming.</p>
+<p t="1633300" d="3690">Do you want to just
+guess the fourth pivot?</p>
+<p t="1636990" d="4080">5/4, good guess, right.</p>
+<p t="1641070" d="3880">5/4.</p>
+<p t="1644950" d="4930">Now this is actually how MATLAB
+would find the determinant.</p>
+<p t="1649880" d="2780">It would do elimination.</p>
+<p t="1652660" d="1730">I call that
+elimination because it</p>
+<p t="1654390" d="3460">eliminated all those
+numbers below the diagonal</p>
+<p t="1657850" d="2020">and got zeros.</p>
+<p t="1659870" d="2640">Now what's the determinant?</p>
+<p t="1662510" d="2490">If I asked you for
+the determinant,</p>
+<p t="1665000" d="5820">and I will very rarely
+use the word determinant,</p>
+<p t="1670820" d="4800">but I guess I'm into it now,
+so tell me the determinant.</p>
+<p t="1675620" d="2400">Five.</p>
+<p t="1678020" d="1490">Why's that?</p>
+<p t="1679510" d="2140">I guess I did say five earlier.</p>
+<p t="1681650" d="4770">But how do you know it's five?</p>
+<p t="1686420" d="3940">Whatever the determinant of
+that matrix is, why is it five?</p>
+<p t="1690360" d="2170">Because it's a
+triangular matrix.</p>
+<p t="1692530" d="4130">Triangular matrices,
+you've got all these zeros.</p>
+<p t="1696660" d="1680">You can see what's happening.</p>
+<p t="1698340" d="2950">And the determinant
+of a triangular matrix</p>
+<p t="1701290" d="3020">is just the product
+down the diagonal.</p>
+<p t="1704310" d="1610">The product of these pivots.</p>
+<p t="1705920" d="3350">The determinant is the
+product of the pivots.</p>
+<p t="1709270" d="3080">And that's how MATLAB would
+compute a determinant.</p>
+<p t="1712350" d="3540">And it would take 2 times
+3/2 times 4/3 times 5/4</p>
+<p t="1715890" d="4230">and it would give
+the answer five.</p>
+<p t="1720120" d="5420">My friend Alan Edelman told
+me something yesterday.</p>
+<p t="1725540" d="9070">MATLAB computes
+in floating point.</p>
+<p t="1734610" d="8350">So 4/3, that's 1.3333, etc.</p>
+<p t="1742960" d="3700">So MATLAB would not, when
+it does that multiplication,</p>
+<p t="1746660" d="1910">get a whole number.</p>
+<p t="1748570" d="1330">Right?</p>
+<p t="1749900" d="4310">Because in MATLAB that
+would be 1.333 and probably</p>
+<p t="1754210" d="4080">it would make that last pivot
+a decimal, a long decimal.</p>
+<p t="1758290" d="4270">And then when it multiplies
+that it gets whatever it gets.</p>
+<p t="1762560" d="2840">But it's not exactly
+five I think.</p>
+<p t="1765400" d="4710">Nevertheless MATLAB will
+print the answer five.</p>
+<p t="1770110" d="1800">It's cheated actually.</p>
+<p t="1771910" d="3600">It's done that
+calculation and I don't</p>
+<p t="1775510" d="4010">know if it takes the
+nearest integer when</p>
+<p t="1779520" d="3560">it knows that the-- I
+shouldn't tell you this,</p>
+<p t="1783080" d="3240">this isn't even interesting.</p>
+<p t="1786320" d="3630">If the determinant of an
+integer matrix, whole number</p>
+<p t="1789950" d="2280">is a whole number,
+so MATLAB says,</p>
+<p t="1792230" d="2450">better get a whole number.</p>
+<p t="1794680" d="3380">And somehow it gets one.</p>
+<p t="1798060" d="3180">Actually, it doesn't
+always get the right one.</p>
+<p t="1801240" d="8430">So maybe later I'll know
+the matrix whose determinant</p>
+<p t="1809670" d="1860">might not come out right.</p>
+<p t="1811530" d="3640">But ours is right, five.</p>
+<p t="1815170" d="4530">Now where was this going?</p>
+<p t="1819700" d="3720">It got thrown off track
+by the determinant.</p>
+<p t="1823420" d="1950">What's the real test?</p>
+<p t="1825370" d="2460">Well so I said there
+are two ways to see</p>
+<p t="1827830" d="2860">that a matrix is invertible.</p>
+<p t="1830690" d="1470">Or not invertible.</p>
+<p t="1832160" d="2830">Here we're talking
+about the first way.</p>
+<p t="1834990" d="4140">How do I know that this matrix--
+I've got an upper triangular</p>
+<p t="1839130" d="600">matrix.</p>
+<p t="1839730" d="1920">When is it invertible?</p>
+<p t="1841650" d="5660">When is an upper triangular
+matrix invertible?</p>
+<p t="1847310" d="1192">Upper triangular is great.</p>
+<p t="1848502" d="1458">When you've got it
+in that form you</p>
+<p t="1849960" d="1930">should be able to see stuff.</p>
+<p t="1851890" d="3180">So this key question
+of invertible,</p>
+<p t="1855070" d="8400">which is not obvious
+for a typical matrix</p>
+<p t="1863470" d="2530">is obvious for a
+triangular matrix.</p>
+<p t="1866000" d="780">And why?</p>
+<p t="1866780" d="3400">What's the test?</p>
+<p t="1870180" d="1450">Well, we could do
+the determinant</p>
+<p t="1871630" d="3700">but we can say it without
+using that long word.</p>
+<p t="1875330" d="3400">The diagonal is non-zero.</p>
+<p t="1878730" d="3610">K as invertible because
+the diagonal-- no,</p>
+<p t="1882340" d="2210">it's got a full set of pivots.</p>
+<p t="1884550" d="2260">It's got four non-zero pivots.</p>
+<p t="1886810" d="1300">That's what it takes.</p>
+<p t="1888110" d="2970">That's what it's going
+to take to solve systems.</p>
+<p t="1891080" d="2800">So this is the first step
+in solving this system.</p>
+<p t="1893880" d="4410">In other words, to decide
+if a matrix is invertible,</p>
+<p t="1898290" d="2860">you just go ahead and use it.</p>
+<p t="1901150" d="4930">You don't stop first necessarily
+to check invertibility.</p>
+<p t="1906080" d="2240">You go forward, you
+get to this point</p>
+<p t="1908320" d="2750">and you see non-zeros
+there and then</p>
+<p t="1911070" d="4730">you're practically got
+to the answer here.</p>
+<p t="1915800" d="5730">I'll leave for another day the
+final back-- going back upwards</p>
+<p t="1921530" d="2230">that gives you the answer.</p>
+<p t="1923760" d="1510">So K is invertible.</p>
+<p t="1925270" d="9890">That means full set of
+pivots. n non-zero pivots.</p>
+<p t="1935160" d="5100">And here they are,
+two, 3/2, 4/3 and 5/4.</p>
+<p t="1940260" d="3010">Worth knowing because this
+matrix K is so important.</p>
+<p t="1943270" d="1480">We'll see it over
+and over again.</p>
+<p t="1944750" d="6200">Part of my purpose today
+is to give some matrices</p>
+<p t="1950950" d="4430">a name because we'll see them
+again and you'll know them</p>
+<p t="1955380" d="3260">and you'll recognize them.</p>
+<p t="1958640" d="5260">While I'm on this invertible
+or not invertible business</p>
+<p t="1963900" d="8120">I want to ask you to change
+K. To make it not invertible.</p>
+<p t="1972020" d="2630">Change that matrix.</p>
+<p t="1974650" d="2060">How could I change that matrix?</p>
+<p t="1976710" d="1720">Well, of course, many ways.</p>
+<p t="1978430" d="2520">But I'm interested
+in another matrix</p>
+<p t="1980950" d="3930">and this'll be among
+my special matrices.</p>
+<p t="1984880" d="2780">And it will start out the same.</p>
+<p t="1987660" d="6900">It'll have these same diagonals.</p>
+<p t="1994560" d="2340">It'll be Toeplitz.</p>
+<p t="1996900" d="3700">I'm going to call
+it C and I want</p>
+<p t="2000600" d="5000">to say the reason I'm talking
+about it now is that it's not</p>
+<p t="2005600" d="3600">going to be invertible.</p>
+<p t="2009200" d="8950">And I'm going to tell you a
+C and see if you can tell me</p>
+<p t="2018150" d="2170">why it is not invertible.</p>
+<p t="2020320" d="2950">So here's the difference:
+I'm going to put minus one</p>
+<p t="2023270" d="1960">in the corners.</p>
+<p t="2025230" d="4650">Still zeros there.</p>
+<p t="2029880" d="6300">So that matrix C still
+has that pattern.</p>
+<p t="2036180" d="2560">It's still a Toeplitz
+matrix, actually.</p>
+<p t="2038740" d="9230">That would still be the matrix
+Toeplitz of 2, -1, 0, -1.</p>
+<p t="2047970" d="3470">I claim that matrix
+is not invertible</p>
+<p t="2051440" d="7260">and I claim that we can see that
+without computing determinants,</p>
+<p t="2058700" d="3590">we can see it without
+doing elimination, too.</p>
+<p t="2062290" d="2090">MATLAB would see it
+by doing elimination.</p>
+<p t="2064380" d="6340">We can see it by just
+human intelligence.</p>
+<p t="2070720" d="3000">Now why?</p>
+<p t="2073720" d="5390">How do I recognize a matrix
+that's not invertible?</p>
+<p t="2079110" d="5340">And then, by converse, how
+a matrix that is invertible.</p>
+<p t="2084450" d="4240">I claim-- and let
+may say first, let</p>
+<p t="2088690" d="8140">me say why that letter C. That
+letter C stands for circulant.</p>
+<p t="2096830" d="5180">It's because-- This word
+circulant, why circulant,</p>
+<p t="2102010" d="3510">it's because that diagonal
+which only had three guys</p>
+<p t="2105520" d="3540">circled around to the fourth.</p>
+<p t="2109060" d="2310">This diagonal that
+only had three entries</p>
+<p t="2111370" d="2700">circled around to
+the fourth entry.</p>
+<p t="2114070" d="2670">This diagonal with two
+zeros circled around</p>
+<p t="2116740" d="1100">to the other two zeros.</p>
+<p t="2117840" d="4710">The diagonal are not only
+constant, they loop around.</p>
+<p t="2122550" d="2240">And you use the word periodic.</p>
+<p t="2124790" d="4670">Now for me, that's
+the periodic matrix.</p>
+<p t="2129460" d="5680">See, a circulant matrix comes
+from a periodic problem.</p>
+<p t="2135140" d="3040">Because it loops around.</p>
+<p t="2138180" d="3790">It brings numbers,
+zero is the same</p>
+<p t="2141970" d="3430">as number four or something.</p>
+<p t="2145400" d="5920">And why is that not invertible?</p>
+<p t="2151320" d="4250">The thing is can
+you find a vector?</p>
+<p t="2155570" d="1530">Because matrices
+multiply vectors,</p>
+<p t="2157100" d="2040">that's their whole point.</p>
+<p t="2159140" d="3920">Can you see a vector
+that it takes to zero?</p>
+<p t="2163060" d="3460">Can you see a solution to Cu=0?</p>
+<p t="2166520" d="4470">I'm looking for a
+u with four entries</p>
+<p t="2170990" d="7690">so that I get four zeros.</p>
+<p t="2178680" d="2130">Do you see it?</p>
+<p t="2180810" d="1180">All ones.</p>
+<p t="2181990" d="1720">All ones.</p>
+<p t="2183710" d="1750">That will do it.</p>
+<p t="2185460" d="7770">So that's a nice, natural
+entry, a constant.</p>
+<p t="2193230" d="4130">And do you see why
+when I-- we haven't</p>
+<p t="2197360" d="4810">spoken about multiplying
+matrices times vectors.</p>
+<p t="2202170" d="1840">And most people
+will do it this way.</p>
+<p t="2204010" d="2270">And let's do this one this way.</p>
+<p t="2206280" d="2862">You take row one times that,
+you get two, minus one, zero,</p>
+<p t="2209142" d="1878">minus one.</p>
+<p t="2211020" d="2710">You get the zero because
+of that new number.</p>
+<p t="2213730" d="5190">Here we always got zero from
+the all ones vector and now</p>
+<p t="2218920" d="5270">over here that minus one,
+you see it's just right.</p>
+<p t="2224190" d="5100">If all the rows add to zero
+then this vector of all ones</p>
+<p t="2229290" d="4820">will be, I would use the
+word "in the null space"</p>
+<p t="2234110" d="4170">if you wanted a fancy word,
+a linear algebra word.</p>
+<p t="2238280" d="1110">What does that mean?</p>
+<p t="2239390" d="1940">It solves Cu=0.</p>
+<p t="2244770" d="4310">And why does that show that
+the matrix isn't invertible?</p>
+<p t="2249080" d="2260">Because that's our point here.</p>
+<p t="2251340" d="3870">I have a solution to Cu=0.</p>
+<p t="2255210" d="3840">I claim that the existence
+of such a solution</p>
+<p t="2259050" d="6160">has wiped out the possibility
+that the matrix is invertible</p>
+<p t="2265210" d="3910">because if it was invertible,
+what would this lead to?</p>
+<p t="2269120" d="6730">If invertible, if C
+inverse exists what would</p>
+<p t="2275850" d="5910">I do to that equation
+that would show me</p>
+<p t="2281760" d="2600">that C inverse can't exist?</p>
+<p t="2284360" d="4120">Multiply both
+sides by C inverse.</p>
+<p t="2288480" d="2750">So you're seeing, just
+this first day you're</p>
+<p t="2291230" d="3100">seeing some of the natural
+steps of linear algebra.</p>
+<p t="2294330" d="2810">Row reduction,
+multiply-- when you</p>
+<p t="2297140" d="3390">want to see what's happening,
+multiply both sides</p>
+<p t="2300530" d="930">by C inverse.</p>
+<p t="2301460" d="2870">That's the same as
+in ordinary language,</p>
+<p t="2304330" d="3000">do the same thing to
+all the equations.</p>
+<p t="2307330" d="2770">So I multiply both sides
+by the same matrix.</p>
+<p t="2310100" d="2570">And here I would get
+C^(-1) C u = C^(-1) 0.</p>
+<p t="2316050" d="4140">So what does that tell me?</p>
+<p t="2320190" d="3780">I made it long, I threw
+in this extra step.</p>
+<p t="2323970" d="7380">You were going to jump
+immediately to C^(-1) C is I,</p>
+<p t="2331350" d="3190">is the identity matrix and when
+the identity matrix multiplies</p>
+<p t="2334540" d="3240">a vector u, you get u.</p>
+<p t="2337780" d="1920">And on the right
+side, C inverse,</p>
+<p t="2339700" d="2590">whatever it is, if it
+existed, times zero</p>
+<p t="2342290" d="2870">would have to be zero.</p>
+<p t="2345160" d="3220">So this would say that
+if C inverse exists,</p>
+<p t="2348380" d="4640">then the only solution
+is u equals zero.</p>
+<p t="2353020" d="2640">That's a good way to
+recognize invertible matrices.</p>
+<p t="2355660" d="6110">If it is invertible then the
+only solution to Cu=0 is u=0.</p>
+<p t="2361770" d="2850">And that wasn't true here.</p>
+<p t="2364620" d="3540">So we conclude C
+is not invertible.</p>
+<p t="2368160" d="4240">C is therefore not invertible.</p>
+<p t="2372400" d="3640">Now can I even jump in.</p>
+<p t="2376040" d="1760">I've got two more
+matrices that I</p>
+<p t="2377800" d="5450">want to tell you about that are
+also close cousins of K and C.</p>
+<p t="2383250" d="7000">But let me just explain
+physically a little bit</p>
+<p t="2390250" d="3800">about where these
+matrices are coming from.</p>
+<p t="2394050" d="5710">So maybe next to K-- so I'm not
+going to put periodic there.</p>
+<p t="2399760" d="1810">Right?</p>
+<p t="2401570" d="2200">That's the one that I
+would call periodic.</p>
+<p t="2403770" d="4680">This one is fixed at the ends.</p>
+<p t="2408450" d="5310">Can I draw a little picture
+that aims to show that?</p>
+<p t="2413760" d="4970">Aims to show where
+this is coming from.</p>
+<p t="2418730" d="3880">It's coming from I think
+of this as controlling</p>
+<p t="2422610" d="1380">like four masses.</p>
+<p t="2423990" d="3670">Mass one, mass two,
+mass three and mass four</p>
+<p t="2427660" d="12730">with springs attached
+and with endpoints fixed.</p>
+<p t="2440390" d="6900">So if I put some weights on
+those masses-- we'll do this;</p>
+<p t="2447290" d="4460">masses and springs is going to
+be the very first application</p>
+<p t="2451750" d="3620">and it will connect
+to all these matrices.</p>
+<p t="2455370" d="9680">And all I'm doing now is just
+asking to draw the system.</p>
+<p t="2465050" d="1440">Draw the mechanical system.</p>
+<p t="2466490" d="3460">Actually I'll usually
+draw it vertically.</p>
+<p t="2469950" d="4630">But anyway, it's got
+four masses and the fact</p>
+<p t="2474580" d="2670">that this minus one
+here got chopped off,</p>
+<p t="2477250" d="2570">what would I call that end?</p>
+<p t="2479820" d="2010">I'd call that a fixed end.</p>
+<p t="2481830" d="4080">So this is a fixed,
+fixed matrix.</p>
+<p t="2485910" d="2650">Both ends are fixed.</p>
+<p t="2488560" d="2060">And it's the matrix
+that would govern--</p>
+<p t="2490620" d="3650">and the springs and
+masses all the same</p>
+<p t="2494270" d="4260">is what tells me that
+the thing is Toeplitz.</p>
+<p t="2498530" d="4440">Now what's the picture
+that goes with C?</p>
+<p t="2502970" d="3710">What's the picture with C?</p>
+<p t="2506680" d="2840">Do you have an instinct of that?</p>
+<p t="2509520" d="2560">So C is periodic.</p>
+<p t="2512080" d="5360">So again we've got four
+masses connected by springs.</p>
+<p t="2517440" d="5770">But what's up with those masses
+to make the problem cyclic,</p>
+<p t="2523210" d="3930">periodic, circular,
+whatever word you like.</p>
+<p t="2527140" d="6050">They're arranged in a ring.</p>
+<p t="2533190" d="3260">The fourth guy comes
+back to the first one.</p>
+<p t="2536450" d="5670">So the four masses would be,
+so in some kind of a ring,</p>
+<p t="2542120" d="5380">the springs would connect them.</p>
+<p t="2547500" d="4440">I don't know if that's
+suggestive, but I hope so.</p>
+<p t="2551940" d="5050">And what's the point
+of, can we just</p>
+<p t="2556990" d="2540">speak about
+mechanics one moment?</p>
+<p t="2559530" d="6550">How does that system differ
+from this fixed system?</p>
+<p t="2566080" d="7260">Here the whole system
+can't move, right?</p>
+<p t="2573340" d="2540">If there no force, then
+nothing can happen.</p>
+<p t="2575880" d="4680">Here the whole system can turn.</p>
+<p t="2580560" d="2190">They can all displace
+the same amount</p>
+<p t="2582750" d="3010">and just turn without any
+compression of the springs,</p>
+<p t="2585760" d="3130">without any force
+having to do anything.</p>
+<p t="2588890" d="4390">And that's why the solution
+that kills this matrix is</p>
+<p t="2593280" d="1770">[1, 1, 1, 1].</p>
+<p t="2595050" d="4310">So [1, 1, 1, 1] would
+describe a case where all</p>
+<p t="2599360" d="2480">the displacements were equal.</p>
+<p t="2601840" d="4100">In a way it's like the
+arbitrary constant in calculus.</p>
+<p t="2605940" d="4310">You're always adding
+plus C. So here we've</p>
+<p t="2610250" d="6100">got a solution of all ones
+that produces zero the way</p>
+<p t="2616350" d="5260">the derivative of a constant
+function is the zero function.</p>
+<p t="2621610" d="7940">So this is just
+like an indication.</p>
+<p t="2629550" d="1540">Yes, perfect.</p>
+<p t="2631090" d="1660">I've got two more matrices.</p>
+<p t="2632750" d="6020">Are you okay for two more?</p>
+<p t="2638770" d="5040">Yes okay, what are they?</p>
+<p t="2643810" d="6300">Okay a different blackboard
+for the last two.</p>
+<p t="2650110" d="7530">So one of them is going to
+come by freeing up this end.</p>
+<p t="2657640" d="6940">So I'm going to take
+that support away.</p>
+<p t="2664580" d="5400">And you might imagine like a
+tower oscillating up and down</p>
+<p t="2669980" d="4040">or you might turn it upside
+down and like a hanging spring,</p>
+<p t="2674020" d="5140">or rather four springs with
+four masses hanging onto them.</p>
+<p t="2679160" d="4310">But this end is fixed and
+this is not fixed anymore,</p>
+<p t="2683470" d="2690">this is now free.</p>
+<p t="2686160" d="4430">And can I tell you the
+matrix, the free-fixed matrix.</p>
+<p t="2690590" d="3000">Free-fixed.</p>
+<p t="2693590" d="2780">Because it's the top
+end that I changed,</p>
+<p t="2696370" d="3310">I'm going to call it T.
+So all the other guys</p>
+<p t="2699680" d="11660">are going to be the same but
+the top one, the top row,</p>
+<p t="2711340" d="1890">the boundary row,
+boundary conditions</p>
+<p t="2713230" d="4640">are always the tough
+part, the tricky part,</p>
+<p t="2717870" d="3080">the key part of
+a model, and here</p>
+<p t="2720950" d="4170">the natural boundary condition
+is to have a 1 there.</p>
+<p t="2725120" d="9490">That two changed to a one.</p>
+<p t="2734610" d="3290">Now if I asked you for the
+properties of that matrix--</p>
+<p t="2737900" d="3110">so that's the third.
+shall I do the fourth one?</p>
+<p t="2741010" d="3470">So you have them all, you'll
+have the whole picture.</p>
+<p t="2744480" d="1460">The fourth one,
+well you can guess.</p>
+<p t="2745940" d="3010">What's the fourth?</p>
+<p t="2748950" d="2520">What am I going to do?</p>
+<p t="2751470" d="1910">Free up the other end.</p>
+<p t="2753380" d="6040">So this guy had one free
+end and the other guy</p>
+<p t="2759420" d="2150">has B for both ends.</p>
+<p t="2761570" d="2480">B for both ends are
+going to be free.</p>
+<p t="2764050" d="2790">So this is free-fixed.</p>
+<p t="2766840" d="2090">This'll be free-free.</p>
+<p t="2768930" d="3310">So that means I
+have this free end,</p>
+<p t="2772240" d="4770">the usual stuff in
+the middle, no change,</p>
+<p t="2777010" d="6500">and the last row is what?</p>
+<p t="2783510" d="4050">What am I going to put
+in the last row? -1, 1.</p>
+<p t="2787560" d="1600">-1, 1.</p>
+<p t="2789160" d="5580">So I've changed the diagonal.</p>
+<p t="2794740" d="3410">There I put a single one in
+because I freed up one end.</p>
+<p t="2798150" d="3750">With B I freed both ends
+and I got two minus ones.</p>
+<p t="2801900" d="2520">Now what do you think?</p>
+<p t="2804420" d="8440">So we've drawn the free-fixed
+one and what's your guess?</p>
+<p t="2812860" d="2460">They're all symmetric.</p>
+<p t="2815320" d="1880">That's no accident.</p>
+<p t="2817200" d="3490">They're all tridiagonal,
+no accident again.</p>
+<p t="2820690" d="1520">Why are they tridiagonal?</p>
+<p t="2822210" d="3810">Physically they're tridiagonal
+because that mass is only</p>
+<p t="2826020" d="1870">connected to its
+two neighbors, it's</p>
+<p t="2827890" d="3050">not connected to that mass.</p>
+<p t="2830940" d="5450">That's why we get a zero
+in the two, four position.</p>
+<p t="2836390" d="2790">Because two is not
+connected to four.</p>
+<p t="2839180" d="2740">So it's tridiagonal.</p>
+<p t="2841920" d="3110">And it's not Toeplitz
+anymore, right?</p>
+<p t="2845030" d="2690">Toeplitz says constant
+diagonals and these are not</p>
+<p t="2847720" d="1590">quite constant.</p>
+<p t="2849310" d="4680">I would create K, I
+would take T equal K,</p>
+<p t="2853990" d="2840">if I was going to create this
+matrix and then I would say</p>
+<p t="2856830" d="500">T(1, 1) = 1.</p>
+<p t="2860060" d="8960">That command would fix
+up the first entry.</p>
+<p t="2869020" d="1560">Yeah, that's a serious question.</p>
+<p t="2870580" d="3150">Maybe, can I hang on
+until Friday, and even</p>
+<p t="2873730" d="980">maybe next week.</p>
+<p t="2874710" d="1600">Because it's very important.</p>
+<p t="2876310" d="4670">When I said boundary conditions
+are the key to problems,</p>
+<p t="2880980" d="1780">I'm serious.</p>
+<p t="2882760" d="4030">If I had to think okay, what
+do people come in my office</p>
+<p t="2886790" d="1990">ask about questions,
+I say right away,</p>
+<p t="2888780" d="1250">what's the boundary condition?</p>
+<p t="2890030" d="2880">Because I know that's
+where the problem is.</p>
+<p t="2892910" d="4000">And so here we'll see
+these guys clearly.</p>
+<p t="2896910" d="6450">Fixed and free, very important.</p>
+<p t="2903360" d="2970">But also let me say two more
+words, I never can resist.</p>
+<p t="2906330" d="4180">So fixed means the
+displacement is zero.</p>
+<p t="2910510" d="2280">Something was set to zero.</p>
+<p t="2912790" d="3750">The fifth guy, the fifth over
+here, that fifth column was</p>
+<p t="2916540" d="2730">knocked out.</p>
+<p t="2919270" d="8030">Free means that in here it
+could mean that the fifth guy is</p>
+<p t="2927300" d="2150">the same as the fourth.</p>
+<p t="2929450" d="2630">The slope is zero.</p>
+<p t="2932080" d="3680">Fixed is u is zero.</p>
+<p t="2935760" d="3250">Free is slope is zero.</p>
+<p t="2939010" d="5700">So here I have a slope
+of zero at that end,</p>
+<p t="2944710" d="1250">here I have it at both ends.</p>
+<p t="2945960" d="3480">So maybe that's a
+sort of part answer.</p>
+<p t="2949440" d="3200">Now I wanted to get to the
+difference between these two</p>
+<p t="2952640" d="2500">matrices.</p>
+<p t="2955140" d="3890">And the main properties.</p>
+<p t="2959030" d="930">So what are we see?</p>
+<p t="2959960" d="2250">Symmetric again,
+tridiagonal again,</p>
+<p t="2962210" d="5550">not quite Toeplitz, but almost,
+sort of morally Toeplitz.</p>
+<p t="2967760" d="4830">But then the key question
+was invertible or not.</p>
+<p t="2972590" d="2000">Key question was
+invertible or not.</p>
+<p t="2974590" d="500">Right.</p>
+<p t="2975090" d="2590">And what's your
+guess on these two?</p>
+<p t="2977680" d="3350">Do you think that one's
+invertible or not?</p>
+<p t="2981030" d="740">Make a guess.</p>
+<p t="2981770" d="4370">You're allowed to guess.</p>
+<p t="2986140" d="1410">Yeah it is.</p>
+<p t="2987550" d="910">Why's that?</p>
+<p t="2988460" d="4280">Because this thing has
+still got a support.</p>
+<p t="2992740" d="3520">It's not free to shift forever.</p>
+<p t="2996260" d="1600">It's held in there.</p>
+<p t="2997860" d="3160">So that gives you a
+hint about this guy.</p>
+<p t="3001020" d="3870">Invertible or not for B?</p>
+<p t="3004890" d="1320">No.</p>
+<p t="3006210" d="3570">And now prove that it's not.</p>
+<p t="3009780" d="3020">Physically you were
+saying, well this free guy</p>
+<p t="3012800" d="6840">with this thing gone now,
+this is now free-free.</p>
+<p t="3019640" d="2070">Physically we're saying
+the whole thing can move,</p>
+<p t="3021710" d="2420">there's nothing holding it.</p>
+<p t="3024130" d="3550">But now, for linear algebra,
+that's not the proper language.</p>
+<p t="3027680" d="3360">You have to say something
+about that matrix.</p>
+<p t="3031040" d="1970">Maybe tell me
+something about Bu=0.</p>
+<p t="3036820" d="2130">What are you going
+to take for u?</p>
+<p t="3038950" d="820">Yeah.</p>
+<p t="3039770" d="1650">Same u.</p>
+<p t="3041420" d="5320">We're lucky in this course, u =
+[1, 1, 1, 1] is the guilty main</p>
+<p t="3046740" d="2060">vector many times.</p>
+<p t="3048800" d="6290">Because again the rows are all
+adding to zero and the all ones</p>
+<p t="3055090" d="7270">vector is in the null space.</p>
+<p t="3062360" d="3840">If I could just close
+with one more word.</p>
+<p t="3066200" d="1610">Because it's the most important.</p>
+<p t="3067810" d="2350">Two words, two words.</p>
+<p t="3070160" d="1730">Because they're the
+most important words,</p>
+<p t="3071890" d="3310">they're the words that we're
+leading to in this chapter.</p>
+<p t="3075200" d="3570">And I'm assuming that for most
+people they will be new words,</p>
+<p t="3078770" d="2710">but not for all.</p>
+<p t="3081480" d="2810">It's a further property
+of this matrix.</p>
+<p t="3084290" d="1090">So we've got, how many?</p>
+<p t="3085380" d="2250">Four properties, or five?</p>
+<p t="3087630" d="2270">I'm going to go for one more.</p>
+<p t="3089900" d="3780">And I'm just going to
+say that name first</p>
+<p t="3093680" d="2720">so you know it's coming.</p>
+<p t="3096400" d="1710">And then I'll say,
+I can't resist</p>
+<p t="3098110" d="3000">saying a tiny bit about it.</p>
+<p t="3101110" d="4870">I'll use a whole
+blackboard for this.</p>
+<p t="3105980" d="8550">So I'm going to say that K
+and T are -- here it comes,</p>
+<p t="3114530" d="13160">take a breath -- positive
+definite matrices.</p>
+<p t="3127690" d="2700">So if you don't know what
+that means, I'm happy.</p>
+<p t="3130390" d="500">Right?</p>
+<p t="3130890" d="2530">Because well, I can
+tell you one way</p>
+<p t="3133420" d="3410">to recognize a positive
+definite matrix.</p>
+<p t="3136830" d="4360">And while we're at it, let
+me tell you about C and B.</p>
+<p t="3141190" d="10970">Those are positive semi-definite
+because they hit zero somehow.</p>
+<p t="3152160" d="3670">Positive means up there,
+greater than zero.</p>
+<p t="3155830" d="4440">And what is greater than
+zero that we've already seen?</p>
+<p t="3160270" d="2630">And we'll say more.</p>
+<p t="3162900" d="1650">The pivots were.</p>
+<p t="3164550" d="6070">So if I have a symmetric matrix
+and the pivots are all positive</p>
+<p t="3170620" d="4080">then that matrix is not
+only invertible, because I'm</p>
+<p t="3174700" d="2220">in good shape, the
+determinant isn't zero,</p>
+<p t="3176920" d="3770">I can go backwards
+and do everything,</p>
+<p t="3180690" d="3850">those positive numbers are
+telling me that more than that,</p>
+<p t="3184540" d="3270">the matrix is positive definite.</p>
+<p t="3187810" d="3430">So that's a test.</p>
+<p t="3191240" d="2260">We'll say more about
+positive definite,</p>
+<p t="3193500" d="4260">but one way to recognize
+it is compute the pivots</p>
+<p t="3197760" d="1170">by elimination.</p>
+<p t="3198930" d="1700">Are they positive?</p>
+<p t="3200630" d="3350">We'll see that all the
+eigenvalues are positive.</p>
+<p t="3203980" d="3540">The word positive definite
+just brings the whole</p>
+<p t="3207520" d="2220">of linear algebra together.</p>
+<p t="3209740" d="3700">It connects to pivots, it
+connects to eigenvalues,</p>
+<p t="3213440" d="3090">it connects to least squares,
+it's all over the place.</p>
+<p t="3216530" d="3260">Determinants too.</p>
+<p t="3219790" d="2260">Questions or discussion.</p>
+<p t="3222050" d="2920">It's a big class and we're
+just meeting for the first time</p>
+<p t="3224970" d="4770">but there's lots of time
+to, chance to ask me.</p>
+<p t="3229740" d="2850">I'll always be here after class.</p>
+<p t="3232590" d="1170">So shall we stop today?</p>
+<p t="3233760" d="5130">I'll see you Friday
+or this afternoon.</p>
+<p t="3238890" d="4820">If this wasn't familiar, this
+afternoon would be a good idea.</p>
+<p t="3243710" d="1510">Thank you.</p>
+</body>
+</timedtext>

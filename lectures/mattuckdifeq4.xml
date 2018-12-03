@@ -1,0 +1,1436 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<timedtext format="3">
+<body>
+<p t="4000" d="6000">The topic for today is how to
+change variables.</p>
+<p t="8000" d="6000">So, we're talking about
+substitutions and differential</p>
+<p t="13000" d="6000">equations, or changing
+variables.</p>
+<p t="16000" d="6000">That might seem like a sort of
+fussy thing to talk about in the</p>
+<p t="22000" d="6000">third or fourth lecture,
+but the reason is that so far,</p>
+<p t="27000" d="6000">you know how to solve two kinds
+of differential equations,</p>
+<p t="32000" d="6000">two kinds of first-order
+differential equations,</p>
+<p t="36000" d="6000">one where you can separate
+variables, and the linear</p>
+<p t="41000" d="6000">equation that we talked about
+last time.</p>
+<p t="47000" d="6000">Now, the sad fact is that in
+some sense, those are the only</p>
+<p t="51000" d="6000">two general methods there are,
+that those are the only two</p>
+<p t="56000" d="6000">kinds of equations that can
+always be solved.</p>
+<p t="60000" d="6000">Well, what about all the
+others?</p>
+<p t="62000" d="6000">The answer is that to a great
+extent, all the other equations</p>
+<p t="66000" d="6000">that can be solved,
+the solution can be done by</p>
+<p t="69000" d="6000">changing the variables in the
+equation to reduce it to one of</p>
+<p t="74000" d="6000">the cases that we can already
+do.</p>
+<p t="76000" d="6000">Now, I'm going to give you two
+examples of that,</p>
+<p t="79000" d="6000">two significant examples of
+that today.</p>
+<p t="82000" d="6000">But, ultimately,
+as you will see,</p>
+<p t="84000" d="6000">the way the equations are
+solved is by changing them into</p>
+<p t="88000" d="6000">a linear equation,
+or an equation where the</p>
+<p t="91000" d="6000">variables are separable.
+However, that's for a few</p>
+<p t="96000" d="6000">minutes.
+The first change of variables</p>
+<p t="99000" d="6000">that I want to talk about is an
+almost trivial one.</p>
+<p t="103000" d="6000">But it's the most common kind
+there is, and you've already had</p>
+<p t="107000" d="6000">it in physics class.
+But I think it's so important</p>
+<p t="111000" d="6000">in the science and engineering
+subjects that it's a good idea,</p>
+<p t="115000" d="6000">even in 18.03,
+to call attention to it</p>
+<p t="118000" d="6000">explicitly.
+So, in that sense,</p>
+<p t="121000" d="6000">the most common change of
+variables is the one simple one</p>
+<p t="126000" d="6000">called scaling.
+So, again, the kind of equation</p>
+<p t="131000" d="6000">I'm talking about is a general
+first-order equation.</p>
+<p t="135000" d="6000">And, scaling simply means to
+change the coordinates,</p>
+<p t="140000" d="6000">in effect, or axes,
+to change the coordinates on</p>
+<p t="144000" d="6000">the axes to scale the axes,
+to either stretch them or</p>
+<p t="149000" d="6000">contract them.
+So, what does the change of</p>
+<p t="154000" d="6000">variable actually look like?
+Well, it means you introduce</p>
+<p t="159000" d="6000">new variables,
+where x1 is equal to x times</p>
+<p t="162000" d="6000">something or times a constant.
+I'll write it as divided by a</p>
+<p t="168000" d="6000">constant, since that tends to be
+a little bit more the way people</p>
+<p t="173000" d="6000">think of it.
+And y, the same.</p>
+<p t="176000" d="6000">So, the new variable y1 is
+related to the old one by an</p>
+<p t="180000" d="6000">equation of that form.
+So, a, b are constants.</p>
+<p t="186000" d="6000">So, those are the equations.
+Why does one do this?</p>
+<p t="192000" d="6000">Well, for a lot of reasons.
+But, maybe we can list them.</p>
+<p t="199000" d="6000">You, for example,
+could be changing units.</p>
+<p t="204000" d="6000">That's a common reason in
+physics.</p>
+<p t="208000" d="6000">Changing the units that he
+used, you would have to make a</p>
+<p t="215000" d="6000">change of coordinates of this
+form.</p>
+<p t="221000" d="6000">Perhaps the even more important
+reason is to,</p>
+<p t="225000" d="6000">sometimes it's used to make the
+variables dimensionless.</p>
+<p t="230000" d="6000">In other words,
+so that the variables become</p>
+<p t="235000" d="6000">pure numbers,
+with no units attached to them.</p>
+<p t="239000" d="6000">Since you are well aware of the
+tortures involved in dealing</p>
+<p t="245000" d="6000">with units in physics,
+the point of making variables,</p>
+<p t="250000" d="6000">I'm sorry, dimensionless,
+I don't have to sell that.</p>
+<p t="257000" d="6000">Dimensionless,
+i.e.</p>
+<p t="258000" d="6000">no units, without any units
+attached.</p>
+<p t="261000" d="6000">It just represents the number
+three, not three seconds,</p>
+<p t="266000" d="6000">or three grahams,
+or anything like that.</p>
+<p t="270000" d="6000">And, the third reason is to
+reduce or simplify the</p>
+<p t="274000" d="6000">constants: reduce the number or
+simplify the constants in the</p>
+<p t="280000" d="6000">equation.
+Reduce their number is self</p>
+<p t="284000" d="6000">explanatory.
+Simplify means make them less,</p>
+<p t="288000" d="6000">either dimensionless also,
+or if you can't do that,</p>
+<p t="293000" d="6000">at least less dependent upon
+the critical units than the old</p>
+<p t="299000" d="6000">ones were.
+Let me give you a very simple</p>
+<p t="304000" d="6000">example which will illustrate
+most of these things.</p>
+<p t="308000" d="6000">It's the equation.
+It's a version of the cooling</p>
+<p t="312000" d="6000">law, which applies at very high
+temperatures,</p>
+<p t="316000" d="6000">and it runs.
+So, it's like Newton's cooling</p>
+<p t="320000" d="6000">laws, except it's the internal
+and external temperatures vary,</p>
+<p t="325000" d="6000">what's important is not the
+first power as in Newton's Law,</p>
+<p t="330000" d="6000">but the fourth power.
+So, it's a constant.</p>
+<p t="334000" d="6000">And, the difference is,
+now, it's the external</p>
+<p t="338000" d="6000">temperature, which,
+just so there won't be so many</p>
+<p t="342000" d="6000">capital T's in the equation,
+I'm going to call M,</p>
+<p t="346000" d="6000">to the forth power minus T to
+the forth power.</p>
+<p t="350000" d="6000">So, T is the internal</p>
+<p t="353000" d="6000">temperature, the thing we are
+interested in.</p>
+<p t="357000" d="6000">And, M is the external
+constant, which I'll assume,</p>
+<p t="361000" d="6000">now, is a constant external
+temperature.</p>
+<p t="366000" d="6000">So, this is valid if big
+temperature differences,</p>
+<p t="370000" d="6000">Newton's Law,
+breaks down and one needs a</p>
+<p t="374000" d="6000">different one.
+Now, you are free to solve that</p>
+<p t="379000" d="6000">equation just as it stands,
+if you can.</p>
+<p t="383000" d="6000">There are difficulties
+connected with it because you're</p>
+<p t="388000" d="6000">dealing with the fourth powers,
+of course.</p>
+<p t="394000" d="6000">But, before you do that,
+one should scale.</p>
+<p t="397000" d="6000">How should I scale?
+Well, I'm going to scale by</p>
+<p t="402000" d="6000">relating T to M.
+So, that is very likely to use</p>
+<p t="406000" d="6000">is T1 equals T divided by M.</p>
+<p t="410000" d="6000">This is now dimensionless
+because M, of course,</p>
+<p t="415000" d="6000">has the units of temperature,
+degrees Celsius,</p>
+<p t="419000" d="6000">degrees absolute,
+whatever it is,</p>
+<p t="422000" d="6000">as does T.
+And therefore,</p>
+<p t="426000" d="6000">by taking the ratio of the two,
+there are no units attached to</p>
+<p t="431000" d="6000">it.
+So, this is dimensionless.</p>
+<p t="434000" d="6000">Now, how actually do I change
+the variable in the equation?</p>
+<p t="439000" d="6000">Well, watch this.
+It's an utterly trivial idea,</p>
+<p t="443000" d="6000">and utterly important.
+Don't slog around doing it this</p>
+<p t="447000" d="6000">way, trying to stuff it in,
+and divide first.</p>
+<p t="451000" d="6000">Instead, do the inverse.
+In other words,</p>
+<p t="456000" d="6000">write it instead as T equals
+MT1, the reason being that it's</p>
+<p t="461000" d="6000">T that's facing you in that
+equation, and therefore T you</p>
+<p t="466000" d="6000">want to substitute for.
+So, let's do it.</p>
+<p t="469000" d="6000">The new equation will be what?
+Well, dT-- Since this is a</p>
+<p t="474000" d="6000">constant, the left-hand side
+becomes dT1 / dt times M equals</p>
+<p t="479000" d="6000">k times M to the forth minus M
+to the forth T1 to the forth,</p>
+<p t="484000" d="6000">so I'm going to factor</p>
+<p t="489000" d="6000">out that M to the forth,
+and make it one minus T1 to the</p>
+<p t="494000" d="6000">forth, okay?</p>
+<p t="498000" d="6000">Now, I could divide through by
+M and get rid of one of those,</p>
+<p t="503000" d="6000">and so, the new equation,
+now, is dT1 / dt,</p>
+<p t="507000" d="6000">d time, is equal to-- Now,
+I have k M cubed out</p>
+<p t="512000" d="6000">front here.
+I'm going to just give that a</p>
+<p t="516000" d="6000">new name, k1.
+Essentially,</p>
+<p t="519000" d="6000">it's the same equation.
+It's no harder to solve and no</p>
+<p t="524000" d="6000">easier to solve than the
+original one.</p>
+<p t="527000" d="6000">But it's been simplified.
+For one, I think it looks</p>
+<p t="532000" d="6000">better.
+So, to compare the two,</p>
+<p t="535000" d="6000">I'll put this one up in green,
+and this one in green,</p>
+<p t="540000" d="6000">too, just to convince you it's
+the same, but indicate that it's</p>
+<p t="546000" d="6000">the same equation.
+Notice, so, T1 has been</p>
+<p t="551000" d="6000">rendered, is now dimensionless.
+So, I don't have to even ask</p>
+<p t="556000" d="6000">when I solve this equation,
+oh, please tell me what the</p>
+<p t="560000" d="6000">units of temperature are.
+How you are measuring</p>
+<p t="564000" d="6000">temperature makes no difference
+to this equation.</p>
+<p t="567000" d="6000">k1 still has units.
+What units does it have?</p>
+<p t="572000" d="6000">It's been simplified because it
+now has the units of,</p>
+<p t="577000" d="6000">since this is dimensionless and
+this is dimensionless,</p>
+<p t="582000" d="6000">it has the units of inverse
+time.</p>
+<p t="585000" d="6000">So, k1, whereas it had units
+involving both degrees and</p>
+<p t="591000" d="6000">seconds before,
+now it has inverse time as its</p>
+<p t="595000" d="6000">units.
+And, moreover,</p>
+<p t="597000" d="6000">there's one less constant.
+So, one less constant in the</p>
+<p t="602000" d="6000">equation.
+It just looks better.</p>
+<p t="607000" d="6000">This business,
+I think you know that k1,</p>
+<p t="611000" d="6000">the process of forming k1 out
+of k M cubed is</p>
+<p t="618000" d="6000">called lumping constants.
+I think they use standard</p>
+<p t="623000" d="6000">terminology in physics and
+engineering courses.</p>
+<p t="630000" d="6000">Try to get all the constants
+together like this.</p>
+<p t="633000" d="6000">And then you lump them there.
+They are lumped for you,</p>
+<p t="636000" d="6000">and then you just give the lump
+a new name.</p>
+<p t="639000" d="6000">So, that's an example of
+scaling.</p>
+<p t="641000" d="6000">Watch out for when you can use
+that.</p>
+<p t="643000" d="6000">For example,
+it would have probably been a</p>
+<p t="646000" d="6000">good thing to use in the first
+problem set when you were</p>
+<p t="650000" d="6000">handling this problem of drug
+elimination and hormone</p>
+<p t="653000" d="6000">elimination production inside of
+the thing.</p>
+<p t="656000" d="6000">You could lump constants,
+and as was done to some extent</p>
+<p t="660000" d="6000">on the solutions to get a neater
+looking answer,</p>
+<p t="663000" d="6000">one without so many constants
+in it.</p>
+<p t="667000" d="6000">Okay, let's now go to serious
+stuff, where we are actually</p>
+<p t="671000" d="6000">going to make changes of
+variables which we hope will</p>
+<p t="676000" d="6000">render unsolvable equations
+suddenly solvable.</p>
+<p t="680000" d="6000">Now, I'm going to do that by
+making substitutions.</p>
+<p t="684000" d="6000">But, it's, I think,
+quite important to watch up</p>
+<p t="688000" d="6000">there are two kinds of
+substitutions.</p>
+<p t="691000" d="6000">There are direct substitutions.
+That's where you introduce a</p>
+<p t="697000" d="6000">new variable.
+I don't know how to write this</p>
+<p t="701000" d="6000">on the board.
+I'll just write it</p>
+<p t="703000" d="6000">schematically.
+So, it's one which says that</p>
+<p t="707000" d="6000">the new variable is equal to
+some combination of the old</p>
+<p t="712000" d="6000">variables.
+The other kind of substitution</p>
+<p t="716000" d="6000">is inverse.
+It's just the reverse.</p>
+<p t="720000" d="6000">Here, you say that the old
+variables are some combination</p>
+<p t="724000" d="6000">of the new.
+Now, often you'll have to stick</p>
+<p t="727000" d="6000">in a few old variables,
+too.</p>
+<p t="729000" d="6000">But the basic,
+it's what appears on the</p>
+<p t="732000" d="6000">left-hand side.
+Is it a new variable that</p>
+<p t="735000" d="6000">appears on the left-hand side by
+itself, or is it the old</p>
+<p t="739000" d="6000">variable that appears on the
+left-hand side?</p>
+<p t="743000" d="6000">Now, right here,
+we have an example.</p>
+<p t="745000" d="6000">If I did it as a direct
+substitution,</p>
+<p t="748000" d="6000">I would have written T1 equals
+T over M.</p>
+<p t="754000" d="6000">That's the way I define the new
+variable, which of course you</p>
+<p t="758000" d="6000">have to do if you're introducing
+it.</p>
+<p t="761000" d="6000">But when I actually did the
+substitution,</p>
+<p t="764000" d="6000">I did the inverse substitution.
+Namely, I used T equals T1,</p>
+<p t="768000" d="6000">M times T1. And,</p>
+<p t="770000" d="6000">the reason for doing that was
+because it was the capital T's</p>
+<p t="775000" d="6000">that faced me in the equation
+and I had to have something to</p>
+<p t="779000" d="6000">replace them with.
+Now, you see this already in</p>
+<p t="783000" d="6000">calculus, this distinction.
+But that might have been a year</p>
+<p t="787000" d="6000">and a half ago.
+Just let me remind you,</p>
+<p t="790000" d="6000">typically in calculus,
+for example,</p>
+<p t="792000" d="6000">when you want to do this kind
+of integral, let's say,</p>
+<p t="795000" d="6000">x times the square root of one
+minus x squared dx,</p>
+<p t="799000" d="6000">the substitution you'd use for</p>
+<p t="803000" d="6000">that is u equals one minus x
+squared,</p>
+<p t="806000" d="6000">right?
+And then, you calculate,</p>
+<p t="808000" d="6000">and then you would observe that
+this, the x dx,</p>
+<p t="811000" d="6000">more or less makes up du,
+apart from a constant factor,</p>
+<p t="815000" d="6000">there.
+So, this would be an example of</p>
+<p t="819000" d="6000">direct substitution.
+You put it in and convert the</p>
+<p t="822000" d="6000">integral into an integral of u.
+What would be an example of</p>
+<p t="826000" d="6000">inverse substitution?
+Well, if I take away the x and</p>
+<p t="830000" d="6000">ask you, instead,
+to do this integral,</p>
+<p t="832000" d="6000">then you know that the right
+thing to do is not to start with</p>
+<p t="836000" d="6000">u, but to start with the x and
+write x equals sine or cosine u.</p>
+<p t="842000" d="6000">So, this is a direct
+substitution in that integral,</p>
+<p t="845000" d="6000">but this integral calls for an
+inverse substitution in order to</p>
+<p t="849000" d="6000">be able to do it.
+And notice, they would look</p>
+<p t="852000" d="6000">practically the same.
+But, of course,</p>
+<p t="855000" d="6000">as you know from your
+experience, they are not.</p>
+<p t="858000" d="6000">They're very different.
+Okay, so I'm going to watch for</p>
+<p t="861000" d="6000">that distinction as I do these
+examples.</p>
+<p t="864000" d="6000">The first one I want to do is
+an example as a direct</p>
+<p t="868000" d="6000">substitution.</p>
+<p t="887000" d="6000">So, it applies to the equation
+of the form y prime equals,</p>
+<p t="892000" d="6000">there are two kinds of terms on
+the right-hand side.</p>
+<p t="896000" d="6000">Let's use p of x,
+p of x times y plus q of x</p>
+<p t="900000" d="6000">times any power
+whatsoever of y.</p>
+<p t="905000" d="6000">Well, notice,
+for example,</p>
+<p t="907000" d="6000">if n were zero,
+what kind of equation would</p>
+<p t="911000" d="6000">this be?
+y to the n would be</p>
+<p t="914000" d="6000">one, and this would be a linear
+equation, which you know how to</p>
+<p t="920000" d="6000">solve.
+So, n equals zero we already</p>
+<p t="923000" d="6000">know how to do.
+So, let's assume that n is not</p>
+<p t="927000" d="6000">zero, so that we're in new
+territory.</p>
+<p t="933000" d="6000">Well, if n were equal to one,
+you could separate variables.</p>
+<p t="938000" d="6000">So, that too is not exciting.
+But, nonetheless,</p>
+<p t="942000" d="6000">it will be included in what I'm
+going to say now.</p>
+<p t="946000" d="6000">If n is two or three,
+or n could be one half.</p>
+<p t="950000" d="6000">So anything:
+even zero is all right.</p>
+<p t="953000" d="6000">It's just silly.
+Any number: it could be</p>
+<p t="957000" d="6000">negative.
+n equals minus five.</p>
+<p t="959000" d="6000">That would be fine also.
+This kind of equation,</p>
+<p t="964000" d="6000">to give it its name,
+is called the Bernoulli</p>
+<p t="968000" d="6000">equation, named after which
+Bernoulli, I haven't the</p>
+<p t="971000" d="6000">faintest idea.
+There were, I think,</p>
+<p t="974000" d="6000">three or four of them.
+And, they fought with each</p>
+<p t="978000" d="6000">other.
+But, they were all smart.</p>
+<p t="980000" d="6000">Now, the key trick,
+if you like,</p>
+<p t="983000" d="6000">method, to solving any
+Bernoulli equation,</p>
+<p t="986000" d="6000">let me call another thing.
+Most important is what's</p>
+<p t="990000" d="6000">missing.
+It must not have a pure x term</p>
+<p t="994000" d="6000">in it.
+And that goes for a constant</p>
+<p t="997000" d="6000">term.
+In other words,</p>
+<p t="998000" d="6000">it must look exactly like this.
+Everything multiplied by y,</p>
+<p t="1003000" d="6000">or a power of y,
+two terms.</p>
+<p t="1005000" d="6000">So, for example,
+if I add one to this,</p>
+<p t="1008000" d="6000">the equation becomes
+non-doable.</p>
+<p t="1011000" d="6000">Right, it's very easy to
+contaminate it into an equation</p>
+<p t="1015000" d="6000">that's unsolvable.
+It's got to look just like</p>
+<p t="1019000" d="6000">that.
+Now, you've got one on your</p>
+<p t="1023000" d="6000">homework.
+You've got several.</p>
+<p t="1025000" d="6000">Both part one and part two have
+Bernoulli equations on them.</p>
+<p t="1030000" d="6000">So, this is practical,
+in some sense.</p>
+<p t="1033000" d="6000">What do we got?
+The idea is to divide by y to</p>
+<p t="1037000" d="6000">the n.
+Ignore all formulas that you're</p>
+<p t="1040000" d="6000">given.
+Just remember that when you see</p>
+<p t="1043000" d="6000">something that looks like this,
+or something that you can turn</p>
+<p t="1048000" d="6000">into something that looks like
+this, divide through by y to the</p>
+<p t="1054000" d="6000">nth power, no matter what n is.
+All right, so y prime over y to</p>
+<p t="1060000" d="6000">the n is equal to p of x times
+one over y to the n minus one,</p>
+<p t="1064000" d="6000">right, plus q of x.</p>
+<p t="1069000" d="6000">Well, that certainly doesn't
+look any better than what I</p>
+<p t="1073000" d="6000">started with.
+And, in your terms,</p>
+<p t="1075000" d="6000">it probably looks somewhat
+worse because it's got all those</p>
+<p t="1079000" d="6000">Y's at the denominator,
+and who wants to see them</p>
+<p t="1083000" d="6000">there?
+But, look at it.</p>
+<p t="1086000" d="6000">In this very slightly
+transformed Bernoulli equation</p>
+<p t="1090000" d="6000">is a linear equation struggling
+to be free.</p>
+<p t="1094000" d="6000">Where is it?
+Why is it trying to be a linear</p>
+<p t="1097000" d="6000">equation?
+Make a new variable,</p>
+<p t="1100000" d="6000">call this hunk of it in new
+variable.</p>
+<p t="1103000" d="6000">Let's call it V.
+So, V is equal to one over y to</p>
+<p t="1107000" d="6000">the n minus one.</p>
+<p t="1110000" d="6000">Or, if you like,
+you can think of that as y to</p>
+<p t="1114000" d="6000">the one minus n.
+What's V prime?</p>
+<p t="1119000" d="6000">So, this is the direct
+substitution I am going to use,</p>
+<p t="1124000" d="6000">but of course,
+the problem is,</p>
+<p t="1126000" d="6000">what am I going to use on this?
+Well, the little miracle</p>
+<p t="1131000" d="6000">happens.
+What's the derivative of this?</p>
+<p t="1134000" d="6000">It is one minus n times y to
+the negative n times y prime</p>
+<p t="1139000" d="6000">In other words,</p>
+<p t="1144000" d="6000">up to a constant,
+this constant factor,</p>
+<p t="1147000" d="6000">one minus n,
+it's exactly the left-hand side</p>
+<p t="1151000" d="6000">of the equation.
+Well, let's make N not equal</p>
+<p t="1155000" d="6000">one either.
+As I said, you could separate</p>
+<p t="1158000" d="6000">variables if n equals one.
+What's the equation,</p>
+<p t="1162000" d="6000">then, turned into?
+A Bernoulli equation,</p>
+<p t="1168000" d="6000">divided through in this way,
+is then turned into the</p>
+<p t="1176000" d="6000">equation one minus n,
+sorry, V prime divided by one</p>
+<p t="1184000" d="6000">minus n is equal to p of x times
+V plus q of x.</p>
+<p t="1195000" d="6000">It's linear.</p>
+<p t="1201000" d="6000">And now, solve it as a linear
+equation.</p>
+<p t="1203000" d="6000">Solve it as a linear equation.
+You notice, it's not in</p>
+<p t="1206000" d="6000">standard form,
+not in standard linear form.</p>
+<p t="1209000" d="6000">To do that, you're going to
+have to put the p on the other</p>
+<p t="1213000" d="6000">side.
+That's okay,</p>
+<p t="1214000" d="6000">that term, on the other side,
+solve it, and at the end,</p>
+<p t="1217000" d="6000">don't forget that you put in
+the V.</p>
+<p t="1219000" d="6000">It wasn't in the original
+problem.</p>
+<p t="1222000" d="6000">So, you have to convert the
+problem, the answer,</p>
+<p t="1225000" d="6000">back in terms of y.
+It'll come out in terms of V,</p>
+<p t="1228000" d="6000">but you must put it back in
+terms of y.</p>
+<p t="1232000" d="6000">Let's do a really simple
+example just to illustrate the</p>
+<p t="1238000" d="6000">method, and to illustrate the
+fact that I don't want you to</p>
+<p t="1245000" d="6000">memorize formulas.
+Learn methods,</p>
+<p t="1249000" d="6000">not final formulas.
+So, suppose the equation is,</p>
+<p t="1254000" d="6000">let's say, y prime equals y
+over x minus y squared.</p>
+<p t="1261000" d="6000">That's a Bernoulli equation.</p>
+<p t="1266000" d="6000">I could, of course,
+have concealed it by writing xy</p>
+<p t="1269000" d="6000">prime plus xy prime minus xy
+equals negative y squared.</p>
+<p t="1273000" d="6000">Then, it wouldn't look
+instantly like a Bernoulli</p>
+<p t="1276000" d="6000">equation.
+You would have to stare at it a</p>
+<p t="1279000" d="6000">while and say,
+hey, that's a Bernoulli</p>
+<p t="1282000" d="6000">equation.
+Okay, but so I'm handing it to</p>
+<p t="1285000" d="6000">you a silver platter,
+as it were.</p>
+<p t="1287000" d="6000">So, what do we do?
+Divide through by y squared.</p>
+<p t="1292000" d="6000">So, it's y prime over y squared
+equals one over x times one over</p>
+<p t="1298000" d="6000">y minus one.</p>
+<p t="1301000" d="6000">And now, the substitution,
+then, I'm going to make,</p>
+<p t="1306000" d="6000">is for this thing.
+V equals one over y.</p>
+<p t="1311000" d="6000">It's a direct substitution.</p>
+<p t="1313000" d="6000">V prime is going to be negative
+one over y squared</p>
+<p t="1319000" d="6000">times y prime.
+Don't forget to use the chain</p>
+<p t="1325000" d="6000">rule when you differentiate with
+respect-- because the</p>
+<p t="1328000" d="6000">differentiation is with respect
+to x, of course,</p>
+<p t="1332000" d="6000">not with respect to y.
+Okay, so what's this thing?</p>
+<p t="1335000" d="6000">That's the left-hand side.
+The only thing is it's got a</p>
+<p t="1339000" d="6000">negative sign.
+So, this is minus V prime</p>
+<p t="1342000" d="6000">equals, one over x stays one
+over x, one over y.</p>
+<p t="1346000" d="6000">So, it's V over x minus one.</p>
+<p t="1350000" d="6000">So, let's put that in standard
+form.</p>
+<p t="1352000" d="6000">In standard form,
+it will look like,</p>
+<p t="1355000" d="6000">first imagine multiplying it
+through by negative one,</p>
+<p t="1359000" d="6000">and then putting this term on
+the other side.</p>
+<p t="1362000" d="6000">And, it will turn into V prime
+plus V over X is equal to one.</p>
+<p t="1367000" d="6000">So, that's the linear equation</p>
+<p t="1371000" d="6000">in standard linear form that we
+are asked to solve.</p>
+<p t="1374000" d="6000">And, the solution isn't very
+hard.</p>
+<p t="1377000" d="6000">The integrating factor is,
+well, I integrate one over x.</p>
+<p t="1383000" d="6000">That makes log x.
+And, e to the log x,</p>
+<p t="1385000" d="6000">so, it's e to the log x,
+which is, of course,</p>
+<p t="1389000" d="6000">just x itself.
+So, I should multiply this</p>
+<p t="1392000" d="6000">through by x squared,
+be able to integrate it.</p>
+<p t="1395000" d="6000">Now, some of you,
+I would hope,</p>
+<p t="1397000" d="6000">just can see that right away,
+that if you multiply this</p>
+<p t="1401000" d="6000">through by x,
+it's going to look good.</p>
+<p t="1404000" d="6000">So, after we multiply through
+by x, which I get?</p>
+<p t="1407000" d="6000">(xV) prime for the-- maybe I
+shouldn't skip a step.</p>
+<p t="1413000" d="6000">You are still learning this
+stuff, so let's not skip a step.</p>
+<p t="1418000" d="6000">So, it becomes x V prime plus V
+equals x,</p>
+<p t="1424000" d="6000">okay?
+After I multiplied through by</p>
+<p t="1427000" d="6000">the integrating factor,
+this now says this is xV prime,</p>
+<p t="1433000" d="6000">and I quickly check that that,
+in fact, is what it's equal to,</p>
+<p t="1439000" d="6000">equals x, and therefore xV is
+equal to one half x squared plus</p>
+<p t="1445000" d="6000">a constant. And,</p>
+<p t="1448000" d="6000">therefore, V is equal to one
+half x plus C over x.</p>
+<p t="1454000" d="6000">You can leave it at that form,</p>
+<p t="1459000" d="6000">or you can combine terms.
+It doesn't matter much.</p>
+<p t="1463000" d="6000">Am I done?
+The answer is,</p>
+<p t="1465000" d="6000">no I am not done,
+because nobody reading this</p>
+<p t="1469000" d="6000">answer would know what V was.
+V wasn't in the original</p>
+<p t="1473000" d="6000">problem.
+It was y that was in the</p>
+<p t="1475000" d="6000">original problem.
+And therefore,</p>
+<p t="1477000" d="6000">the relation is,
+one is the reciprocal of the</p>
+<p t="1480000" d="6000">other.
+And therefore,</p>
+<p t="1481000" d="6000">I have to turn this expression
+upside down.</p>
+<p t="1484000" d="6000">Well, if you're going to have
+to turn it upside down,</p>
+<p t="1487000" d="6000">you probably should make it
+look a little better.</p>
+<p t="1490000" d="6000">Let's rewrite it as x squared
+plus 2c,</p>
+<p t="1493000" d="6000">combining fractions,
+I think they call it in high</p>
+<p t="1496000" d="6000">school or elementary school,
+plus 2c.</p>
+<p t="1500000" d="6000">How's that? x squared
+plus 2c divided by 2x.</p>
+<p t="1503000" d="6000">Now, 2c, you don't call it</p>
+<p t="1507000" d="6000">constant 2c because this is just
+as arbitrary to call it c1.</p>
+<p t="1512000" d="6000">So, I'll call that,
+so, my answer will be y equals</p>
+<p t="1516000" d="6000">2x divided by x squared plus an
+arbitrary constant.</p>
+<p t="1520000" d="6000">But, to indicate it's different
+from that one,</p>
+<p t="1523000" d="6000">I'll call it C1. C1 is</p>
+<p t="1527000" d="6000">two times the old one,
+but that doesn't really matter.</p>
+<p t="1531000" d="6000">So, there's the solution.
+It has an arbitrary constant in</p>
+<p t="1537000" d="6000">it, but you note it's not an
+additive arbitrary constant.</p>
+<p t="1540000" d="6000">The arbitrary constant is
+tucked into the solution.</p>
+<p t="1544000" d="6000">If you had to satisfy an
+initial condition,</p>
+<p t="1547000" d="6000">you would take this form,
+and starting from this form,</p>
+<p t="1550000" d="6000">figure out what C1 was in order
+to satisfy that initial</p>
+<p t="1554000" d="6000">condition.
+Thus, Bernoulli equation is</p>
+<p t="1557000" d="6000">solved.
+Our first Bernoulli equation:</p>
+<p t="1559000" d="6000">isn't that exciting?
+So, here was the equation,</p>
+<p t="1565000" d="6000">and there is its solution.
+Now, the one I'm asking you to</p>
+<p t="1571000" d="6000">solve on the problem set in part
+two is no harder than this,</p>
+<p t="1578000" d="6000">except I ask you some hard
+questions about it,</p>
+<p t="1584000" d="6000">not very hard,
+but a little hard about it.</p>
+<p t="1590000" d="6000">I hope you will find them
+interesting questions.</p>
+<p t="1593000" d="6000">You already have the
+experimental evidence from the</p>
+<p t="1597000" d="6000">first problem set,
+and the problem is to explain</p>
+<p t="1600000" d="6000">the experimental evidence by
+actually solving the equation in</p>
+<p t="1605000" d="6000">the scene.
+I think you'll find it</p>
+<p t="1607000" d="6000">interesting.
+But, maybe that's just a pious</p>
+<p t="1611000" d="6000">hope.
+Okay, I like,</p>
+<p t="1612000" d="6000">now, to turn to the second
+method, where a second class of</p>
+<p t="1616000" d="6000">equations which require inverse
+substitution,</p>
+<p t="1620000" d="6000">and those are equations,
+which are called homogeneous,</p>
+<p t="1624000" d="6000">a highly overworked word in
+differential equations,</p>
+<p t="1628000" d="6000">and in mathematics in general.
+But, it's unfortunately just</p>
+<p t="1634000" d="6000">the right word to describe them.
+So, these are homogeneous,</p>
+<p t="1639000" d="6000">first-order ODE's.
+Now, I already used the word in</p>
+<p t="1643000" d="6000">one context in talking about the
+linear equations when zero is</p>
+<p t="1648000" d="6000">the right hand side.
+This is different,</p>
+<p t="1652000" d="6000">but nonetheless,
+the two uses of the word have</p>
+<p t="1655000" d="6000">the same common source.
+The homogeneous differential</p>
+<p t="1659000" d="6000">equation, homogeneous newspeak,
+is y prime equals,</p>
+<p t="1663000" d="6000">it's a question of what the
+right hand side looks like.</p>
+<p t="1667000" d="6000">And, now, the supposed way to
+say it is, you should be able to</p>
+<p t="1672000" d="6000">write the right-hand side as a
+function of a combined variable,</p>
+<p t="1677000" d="6000">y divided by x.
+In other words,</p>
+<p t="1681000" d="6000">after fooling around with the
+right hand side a little bit,</p>
+<p t="1686000" d="6000">you should be able to write it
+so that every time a variable</p>
+<p t="1691000" d="6000">appears, it's always in the
+combination y over x.</p>
+<p t="1695000" d="6000">Let me give some examples.
+For example,</p>
+<p t="1699000" d="6000">suppose y prime were,
+let's say, x squared y divided</p>
+<p t="1703000" d="6000">by x cubed plus y cubed.</p>
+<p t="1709000" d="6000">Well, that doesn't look in that
+form.</p>
+<p t="1711000" d="6000">Well, yes it is.
+Imagine dividing the top and</p>
+<p t="1714000" d="6000">bottom by x cubed.
+What would you get?</p>
+<p t="1717000" d="6000">The top would be y over x,
+if you divided it by x</p>
+<p t="1720000" d="6000">cubed.
+And, if I divide the bottom by</p>
+<p t="1723000" d="6000">x cubed, also,
+which, of course,</p>
+<p t="1725000" d="6000">doesn't change the value of the
+fraction, as they say in</p>
+<p t="1729000" d="6000">elementary school,
+one plus (y over x) cubed.</p>
+<p t="1732000" d="6000">So, this is the way it started</p>
+<p t="1735000" d="6000">out looking, but you just said
+ah-ha, that was a homogeneous</p>
+<p t="1739000" d="6000">equation because I could see it
+could be written that way.</p>
+<p t="1745000" d="6000">How about another homogeneous
+equation?</p>
+<p t="1750000" d="6000">How about x y prime?
+Is that a homogeneous equation?</p>
+<p t="1758000" d="6000">Of course it is:
+otherwise, why would I be</p>
+<p t="1764000" d="6000">talking about it?
+If you divide through by x,</p>
+<p t="1769000" d="6000">you can tuck it inside the
+radical, the square root,</p>
+<p t="1773000" d="6000">if you remember to square it
+when you do that.</p>
+<p t="1776000" d="6000">And, it becomes the square root
+of x squared over x squared,</p>
+<p t="1781000" d="6000">which is one,
+plus y squared over x squared.</p>
+<p t="1784000" d="6000">It's homogeneous.</p>
+<p t="1787000" d="6000">Now, you might say,
+hey, this looks like you had to</p>
+<p t="1790000" d="6000">be rather clever to figure out
+if an equation is homogeneous.</p>
+<p t="1795000" d="6000">Is there some other way?
+Yeah, there is another way,</p>
+<p t="1798000" d="6000">and it's the other way which
+explains why it's called</p>
+<p t="1802000" d="6000">homogeneous.
+You can think of it this way.</p>
+<p t="1807000" d="6000">It's an equation which is,
+in modern speak,</p>
+<p t="1812000" d="6000">invariant, invariant under the
+operation zoom.</p>
+<p t="1818000" d="6000">What is zoom?
+Zoom is, you increase the scale</p>
+<p t="1823000" d="6000">equally on both axes.
+So, the zoom operation is the</p>
+<p t="1830000" d="6000">one which sends x into
+a times x,</p>
+<p t="1836000" d="6000">and y into a times y.</p>
+<p t="1842000" d="6000">In other words,
+you change the scale on both</p>
+<p t="1846000" d="6000">axes by the same factor,
+a.</p>
+<p t="1848000" d="6000">Now, what I say is,
+gee, maybe you shouldn't write</p>
+<p t="1853000" d="6000">it like this.
+Why don't we say,</p>
+<p t="1856000" d="6000">we introduce,
+how about this?</p>
+<p t="1860000" d="6000">So, think of it as a change of
+variables.</p>
+<p t="1862000" d="6000">We will write it like that.
+So, you can put here an equals</p>
+<p t="1866000" d="6000">sign, if you don't know what
+this meaningless arrow means.</p>
+<p t="1870000" d="6000">So, I'm making this change of
+variables, and I'm describing it</p>
+<p t="1874000" d="6000">as an inverse substitution.
+But of course,</p>
+<p t="1876000" d="6000">it wouldn't make any
+difference.</p>
+<p t="1879000" d="6000">It's exactly the same as the
+direct substitution I started</p>
+<p t="1882000" d="6000">out with underscaling.
+The only difference is,</p>
+<p t="1885000" d="6000">I'm not using different scales
+on both axes.</p>
+<p t="1888000" d="6000">I'm expanding them both
+equally.</p>
+<p t="1892000" d="6000">That's what I mean by zoom.
+Now, what happens to the</p>
+<p t="1896000" d="6000">equation?
+Well, what happens to dy over</p>
+<p t="1900000" d="6000">dx?
+Well, dx is a dx1.</p>
+<p t="1903000" d="6000">dy is a dy1.</p>
+<p t="1907000" d="6000">And therefore,
+the ratio, dy by dx is the same</p>
+<p t="1911000" d="6000">as dy1 over dx1.</p>
+<p t="1914000" d="6000">So, the left-hand side becomes
+dy1 over dx1,</p>
+<p t="1918000" d="6000">and the right-hand side becomes
+F of, well, y over x is the same</p>
+<p t="1924000" d="6000">as y over, since I've scaled
+them equally,</p>
+<p t="1928000" d="6000">this is the same as y1 over x1.</p>
+<p t="1934000" d="6000">So, it's y1 over x1,
+and the net effect is I simply,</p>
+<p t="1938000" d="6000">everywhere I have an x,
+I change it to x1,</p>
+<p t="1942000" d="6000">and wherever I have a y,
+I change it to y1,</p>
+<p t="1945000" d="6000">which, what's in a name?
+It's the identical equation.</p>
+<p t="1951000" d="6000">So, I haven't changed the
+equation at all via zoom</p>
+<p t="1955000" d="6000">transformation.
+And, that's what makes it</p>
+<p t="1958000" d="6000">homogeneous.
+That's not an uncommon use of</p>
+<p t="1962000" d="6000">the word homogeneous.
+When you say space is</p>
+<p t="1965000" d="6000">homogeneous, every direction,
+well, that means,</p>
+<p t="1969000" d="6000">I don't know.
+It means, okay,</p>
+<p t="1971000" d="6000">I'm getting into trouble there.
+I'll let it go since I can't</p>
+<p t="1976000" d="6000">prepare any better,
+I haven't prepared any better</p>
+<p t="1980000" d="6000">explanation, but this is a
+pretty good one.</p>
+<p t="1986000" d="6000">Okay, so, suppose we've got a
+homogeneous equation.</p>
+<p t="1993000" d="6000">How do we solve it?
+So, here's our equation,</p>
+<p t="2000000" d="6000">F of y over x.
+Well, what substitution would</p>
+<p t="2009000" d="6000">you like to make?
+Obviously, we should make a</p>
+<p t="2014000" d="6000">direct substitution,
+z equals y over x.</p>
+<p t="2018000" d="6000">So, why did he say that this
+was going to be an example of</p>
+<p t="2022000" d="6000">inverse substitution?
+Because I wanted to confuse</p>
+<p t="2025000" d="6000">you.
+But look, that's fine.</p>
+<p t="2027000" d="6000">If you write it in that form,
+you'll know exactly what to do</p>
+<p t="2031000" d="6000">with the right-hand side.
+And, this is why everybody</p>
+<p t="2035000" d="6000">loves to do that.
+But for Charlie,</p>
+<p t="2037000" d="6000">you have to substitute into the
+left-hand side as well.</p>
+<p t="2043000" d="6000">And, I can testify,
+for many years of looking with</p>
+<p t="2046000" d="6000">sinking heart at examination
+papers, what happens if you try</p>
+<p t="2050000" d="6000">to make a direct substitution
+like this?</p>
+<p t="2053000" d="6000">You say, oh,
+I need z prime.</p>
+<p t="2055000" d="6000">z prime equals,
+well, I better use the quotient</p>
+<p t="2058000" d="6000">rule for differentiating that.
+And, it comes out this long,</p>
+<p t="2062000" d="6000">and then either a long pause,
+what do I do now?</p>
+<p t="2066000" d="6000">Because it's not at all obvious
+what to do at that point.</p>
+<p t="2070000" d="6000">Or, much worse,
+two pages of frantic</p>
+<p t="2072000" d="6000">calculations,
+and giving up in total despair.</p>
+<p t="2077000" d="6000">Now, the reason for that is
+because you tried to do it</p>
+<p t="2080000" d="6000">making a direct substitution.
+All you have to do instead is</p>
+<p t="2085000" d="6000">use it, treat it as an inverse
+substitution,</p>
+<p t="2088000" d="6000">write y equals zx.
+What's the motivation for doing</p>
+<p t="2091000" d="6000">that?
+It's clear from the equation.</p>
+<p t="2094000" d="6000">This goes through all of
+mathematics.</p>
+<p t="2097000" d="6000">Whenever you have to change a
+variable, excuse me,</p>
+<p t="2100000" d="6000">whenever you have to change a
+variable, look at what you have</p>
+<p t="2105000" d="6000">to substitute for,
+and focus your attention on</p>
+<p t="2108000" d="6000">that.
+I need to know what y prime is.</p>
+<p t="2112000" d="6000">Okay, well, then I better know
+what y is.</p>
+<p t="2115000" d="6000">If I know what y is,
+do I know what y prime is?</p>
+<p t="2119000" d="6000">Oh, of course.
+y prime is z prime x plus z</p>
+<p t="2122000" d="6000">times the derivative of this
+factor, which is one.</p>
+<p t="2126000" d="6000">And now, I turned with that one</p>
+<p t="2131000" d="6000">stroke, the equation has now
+become z prime x plus z is equal</p>
+<p t="2136000" d="6000">to F of z.
+Well, I don't know.</p>
+<p t="2140000" d="6000">Can I solve that?
+Sure.</p>
+<p t="2142000" d="6000">That can be solved because this
+is x times dz / dx.</p>
+<p t="2148000" d="6000">Just put the z on the other
+side, it's F of z minus z.</p>
+<p t="2153000" d="6000">And now, this side is just a</p>
+<p t="2155000" d="6000">function of z.
+Separate variables.</p>
+<p t="2160000" d="6000">And, the only thing to watch
+out for is, at the end,</p>
+<p t="2163000" d="6000">the z was your business.
+You've got to put the answer</p>
+<p t="2167000" d="6000">back in terms of z and y.
+Okay, let's work an example of</p>
+<p t="2171000" d="6000">this.
+Since I haven't done any</p>
+<p t="2173000" d="6000">modeling yet this period,
+let's make a little model,</p>
+<p t="2177000" d="6000">differential equations model.
+It's a physical situation,</p>
+<p t="2181000" d="6000">which will be solved by an
+equation.</p>
+<p t="2184000" d="6000">And, guess what?
+The equation will turn out to</p>
+<p t="2187000" d="6000">be homogeneous.
+Okay, so the situation is as</p>
+<p t="2192000" d="6000">follows.
+We are in the Caribbean</p>
+<p t="2194000" d="6000">somewhere, a little isolated
+island somewhere with a little</p>
+<p t="2199000" d="6000">lighthouse on it at the origin,
+and a beam of light shines from</p>
+<p t="2204000" d="6000">the lighthouse.
+The beam of light can rotate</p>
+<p t="2208000" d="6000">the way the lighthouse beams.
+But, this particular beam is</p>
+<p t="2213000" d="6000">being controlled by a guy in the
+lighthouse who can aim it</p>
+<p t="2217000" d="6000">wherever he wants.
+And, the reason he's interested</p>
+<p t="2221000" d="6000">in aiming it wherever he wants
+is there's a drug boat here,</p>
+<p t="2226000" d="6000">[LAUGHTER] which has just been
+caught in the beam of light.</p>
+<p t="2233000" d="6000">So, the drug boat,
+which has just been caught in a</p>
+<p t="2236000" d="6000">beam of light,
+and feels it'd a better escape.</p>
+<p t="2240000" d="6000">Now, the lighthouse keeper
+wants to keep the drug boat;</p>
+<p t="2244000" d="6000">the light is shining on it so
+that the U.S.</p>
+<p t="2247000" d="6000">Coast Guard helicopters can
+zoom over it and do whatever</p>
+<p t="2251000" d="6000">they do to drug boats,
+--</p>
+<p t="2254000" d="6000">-- I don't know.
+So, the drug boat immediately</p>
+<p t="2257000" d="6000">has to follow an escape
+strategy.</p>
+<p t="2259000" d="6000">And, the only one that occurs
+to him is, well,</p>
+<p t="2262000" d="6000">he wants to go further away,
+of course, from the lighthouse.</p>
+<p t="2267000" d="6000">On the other hand,
+it doesn't seem sensible to do</p>
+<p t="2270000" d="6000">it in a straight line because
+the beam will keep shining on</p>
+<p t="2274000" d="6000">him.
+So, he fixes the boat at some</p>
+<p t="2277000" d="6000">angle, let's say,
+and goes off so that the angle</p>
+<p t="2280000" d="6000">stays 45 degrees.
+So, it goes so that the angle</p>
+<p t="2285000" d="6000">between the beam and maybe,
+draw the beam a little less</p>
+<p t="2291000" d="6000">like a 45 degree angle.
+So, the angle between the beam</p>
+<p t="2296000" d="6000">and the boat,
+the boat's path is always 45</p>
+<p t="2300000" d="6000">degrees, goes at a constant 45
+degree angle to the beam,</p>
+<p t="2306000" d="6000">hoping thereby to escape.
+On the other hand,</p>
+<p t="2310000" d="6000">of course, the lighthouse guy
+keeps the beam always on the</p>
+<p t="2316000" d="6000">boat.
+So, it's not clear it's a good</p>
+<p t="2320000" d="6000">strategy, but this is a
+differential equations class.</p>
+<p t="2324000" d="6000">The question is,
+what's the path of the boat?</p>
+<p t="2328000" d="6000">What's the boat's path?
+Now, an obvious question is,</p>
+<p t="2332000" d="6000">why is this a problem in
+differential equations at all?</p>
+<p t="2337000" d="6000">In other words,
+looking at this,</p>
+<p t="2339000" d="6000">you might scratch your head and
+try to think of different ways</p>
+<p t="2344000" d="6000">to solve it.
+But, what suggests that it's</p>
+<p t="2349000" d="6000">going to be a problem in
+differential equations?</p>
+<p t="2353000" d="6000">The answer is,
+you're looking for a path.</p>
+<p t="2357000" d="6000">The answer is going to be a
+curve.</p>
+<p t="2360000" d="6000">A curve means a function.
+We are looking for an unknown</p>
+<p t="2364000" d="6000">function, in other words.
+And, what type of information</p>
+<p t="2369000" d="6000">do we have about the function?
+The only information we have</p>
+<p t="2374000" d="6000">about the function is something
+about its slope,</p>
+<p t="2378000" d="6000">that its slope makes a constant
+45° angle with the lighthouse</p>
+<p t="2384000" d="6000">beam.
+Its slope makes a constant</p>
+<p t="2393000" d="6000">known angle to a known angle.
+Well, if you are trying to find</p>
+<p t="2404000" d="6000">a function, and all you know is
+something about its slope,</p>
+<p t="2409000" d="6000">that is a problem in
+differential equations.</p>
+<p t="2413000" d="6000">Well, let's try to solve it.
+Well, let's see.</p>
+<p t="2416000" d="6000">Well, let me draw just a little
+bit.</p>
+<p t="2419000" d="6000">So, here's the horizontal.
+Let's introduce the</p>
+<p t="2423000" d="6000">coordinates.
+In other words,</p>
+<p t="2425000" d="6000">there's the horizontal and
+here's the boat to indicate</p>
+<p t="2430000" d="6000">where I am with respect to the
+picture.</p>
+<p t="2435000" d="6000">So, here's the boat.
+Here's the beam,</p>
+<p t="2438000" d="6000">and the path of the boat is
+going to make a 45° angle with</p>
+<p t="2444000" d="6000">it.
+So, this is the path that we</p>
+<p t="2447000" d="6000">are talking about.
+And now, let's label what I</p>
+<p t="2451000" d="6000">know.
+Well, this angle is 45°.</p>
+<p t="2454000" d="6000">This angle, I don't know,
+but of course I can calculate</p>
+<p t="2460000" d="6000">it easily enough because it has
+to do with, if I know the</p>
+<p t="2465000" d="6000">coordinates of this point,
+(x, y), then of course that</p>
+<p t="2471000" d="6000">horizontal angle,
+I know the slope of this line,</p>
+<p t="2475000" d="6000">and that angle will be related
+to the slope.</p>
+<p t="2482000" d="6000">So, let's call this alpha.
+And now, what I want to know is</p>
+<p t="2489000" d="6000">what the slope of the whole path
+is.</p>
+<p t="2495000" d="6000">So, y prime-- let's call y
+equals y of x,</p>
+<p t="2502000" d="6000">the unknown function whose
+path, whose graph is going to be</p>
+<p t="2510000" d="6000">the boat's path,
+unknown graph.</p>
+<p t="2514000" d="6000">What's its slope?
+Well, its slope is the tangent</p>
+<p t="2520000" d="6000">of the sum of these two angles,
+alpha plus 45°.</p>
+<p t="2528000" d="6000">Now, what do I know?
+Well, I know that the tangent</p>
+<p t="2531000" d="6000">of alpha is how much?
+That's y over x.</p>
+<p t="2534000" d="6000">In other words,</p>
+<p t="2536000" d="6000">if this was the point,
+x over y, this is the angle it</p>
+<p t="2539000" d="6000">makes with a horizontal,
+if you think of it over here.</p>
+<p t="2543000" d="6000">So, this angle is the same as
+that one, and it's y over,</p>
+<p t="2546000" d="6000">its slope of that line is y
+over x.</p>
+<p t="2550000" d="6000">So, the tangent of the angle is
+y over x.</p>
+<p t="2552000" d="6000">How about the tangent of 45°?
+That's one, and there's a</p>
+<p t="2556000" d="6000">formula.
+This is the hard part.</p>
+<p t="2558000" d="6000">All you have to know is that
+the formula exists,</p>
+<p t="2561000" d="6000">and then you will look it up if
+you have forgotten it,</p>
+<p t="2564000" d="6000">relating the tangent or giving
+you the tangent of the sum of</p>
+<p t="2568000" d="6000">two angles, and you can,
+if you like,</p>
+<p t="2570000" d="6000">clever, derive it from the
+formula for the sign and cosine</p>
+<p t="2574000" d="6000">of the sum of two angles.
+But, one peak is worth a</p>
+<p t="2577000" d="6000">thousand finesses.
+So, it is the tangent of alpha</p>
+<p t="2582000" d="6000">plus the tangent of 45°.
+Let me read it out in all its</p>
+<p t="2586000" d="6000">gory details,
+divided by one,</p>
+<p t="2588000" d="6000">so you'll at least learn the
+formula, one minus tangent alpha</p>
+<p t="2592000" d="6000">times tangent 45°.</p>
+<p t="2595000" d="6000">This would work for the tangent
+of the sum of any two angles.</p>
+<p t="2600000" d="6000">That's the formula.
+So, what do I get then?</p>
+<p t="2603000" d="6000">y prime is equal to the tangent
+of alpha, which is y over x,</p>
+<p t="2607000" d="6000">oh, I like that combination,
+plus one, divided by (one minus</p>
+<p t="2612000" d="6000">y over x times one).</p>
+<p t="2617000" d="6000">Now, there is no reason for
+doing anything to it,</p>
+<p t="2620000" d="6000">but let's make it look a little
+prettier, and thereby,</p>
+<p t="2624000" d="6000">make it less obvious that it's
+a homogeneous equation.</p>
+<p t="2628000" d="6000">If I multiply top and bottom by
+x, it looks prettier.</p>
+<p t="2632000" d="6000">x plus y over x minus y equals
+y prime.</p>
+<p t="2635000" d="6000">That's our
+differential equation.</p>
+<p t="2640000" d="6000">But, notice,
+that let step to make it look</p>
+<p t="2642000" d="6000">pretty has undone the good work.
+It's fine if you immediately</p>
+<p t="2646000" d="6000">recognize this as being a
+homogeneous equation because you</p>
+<p t="2650000" d="6000">can divide the top and bottom by
+x.</p>
+<p t="2652000" d="6000">But here, it's a lot clearer
+that it's a homogeneous equation</p>
+<p t="2656000" d="6000">because it's already been
+written in the right form.</p>
+<p t="2660000" d="6000">Okay, let's solve it now,
+since we know what to do.</p>
+<p t="2663000" d="6000">We're going to use as the new
+variable, z equals y over x.</p>
+<p t="2667000" d="6000">And, as I wrote up there for y</p>
+<p t="2673000" d="6000">prime, we'll substitute z prime
+x plus z.</p>
+<p t="2680000" d="6000">And, with that,
+let's solve.</p>
+<p t="2684000" d="6000">Let's solve it.
+The equation becomes z prime x</p>
+<p t="2690000" d="6000">plus z is equal to z plus one
+over one minus z.</p>
+<p t="2697000" d="6000">We want to separate variables,</p>
+<p t="2704000" d="6000">so you have to put all the z's
+on one side.</p>
+<p t="2707000" d="6000">So, this is going to be x,
+dz / dx equals this thing minus</p>
+<p t="2711000" d="6000">z, which is (z plus one) over
+(one minus z) minus z.</p>
+<p t="2714000" d="6000">And now, as you realize,</p>
+<p t="2718000" d="6000">putting it on the other side,
+I'm going to have to turn it</p>
+<p t="2722000" d="6000">upside down.
+Just as before,</p>
+<p t="2724000" d="6000">if you have to turn something
+upside down, it's better to</p>
+<p t="2728000" d="6000">combine the terms,
+and make it one tiny little</p>
+<p t="2731000" d="6000">fraction.
+Otherwise, you are in for quite</p>
+<p t="2735000" d="6000">a lot of mess if you don't do
+this nicely.</p>
+<p t="2739000" d="6000">So, z plus one minus z,
+that gets rid of the z's.</p>
+<p t="2743000" d="6000">The numerator is one minus z
+squared over one minus z,</p>
+<p t="2748000" d="6000">I hope, one,
+is that right,</p>
+<p t="2750000" d="6000">(one plus z squared) over (one
+minus z).</p>
+<p t="2756000" d="6000">And so, the question is dz,</p>
+<p t="2758000" d="6000">and put this on the other side
+and turn it upside down.</p>
+<p t="2765000" d="6000">So, that will be (one minus z)
+over (one plus z squared) on the</p>
+<p t="2770000" d="6000">left-hand side and on the
+right-hand side,</p>
+<p t="2774000" d="6000">dx over x.
+Well, that's ready to be</p>
+<p t="2777000" d="6000">integrated just as it stands.
+The right-hand side integrates</p>
+<p t="2783000" d="6000">to be log x.
+The left-hand side is the sum</p>
+<p t="2786000" d="6000">of two terms.
+The integral of one over one</p>
+<p t="2790000" d="6000">plus z squared is the arc
+tangent of z,</p>
+<p t="2794000" d="6000">maybe?
+The derivative of this is one</p>
+<p t="2797000" d="6000">over one plus z squared.</p>
+<p t="2800000" d="6000">How about the term z over one
+plus z squared?</p>
+<p t="2804000" d="6000">Well, that integrates to be a</p>
+<p t="2806000" d="6000">logarithm.
+It is more or less the</p>
+<p t="2808000" d="6000">logarithm of one plus
+z squared.</p>
+<p t="2811000" d="6000">If I differentiate this,
+I get one over one plus z^2</p>
+<p t="2814000" d="6000">times 2z,
+but I wish I had negative z</p>
+<p t="2818000" d="6000">there instead.
+Therefore, I should put a minus</p>
+<p t="2821000" d="6000">sign, and I should multiply that
+by half to make it come out</p>
+<p t="2825000" d="6000">right.
+And, this is log x on the right</p>
+<p t="2829000" d="6000">hand side plus,
+put in that arbitrary constant.</p>
+<p t="2833000" d="6000">And now what?
+Well, let's now fool around</p>
+<p t="2836000" d="6000">with it a little bit.
+The arc tangent,</p>
+<p t="2839000" d="6000">I'm going to simultaneously,
+no, two steps.</p>
+<p t="2842000" d="6000">I have to remember your
+innocence, although probably a</p>
+<p t="2846000" d="6000">lot of you are better
+calculators than I am.</p>
+<p t="2851000" d="6000">I'm going to change this,
+use as many laws of logarithms</p>
+<p t="2855000" d="6000">as possible.
+I'm going to put this in the</p>
+<p t="2858000" d="6000">exponent, and put this on the
+other side.</p>
+<p t="2861000" d="6000">That's going to turn it into
+the log of the square root of</p>
+<p t="2865000" d="6000">one plus z squared.</p>
+<p t="2868000" d="6000">And, this is going to be plus
+the log of x plus c.</p>
+<p t="2873000" d="6000">And, now I'm going to make,</p>
+<p t="2875000" d="6000">go back and remember that z
+equals y over x.</p>
+<p t="2880000" d="6000">So, this becomes the arc
+tangent of y over x equals.</p>
+<p t="2884000" d="6000">Now, I combine the logarithms.</p>
+<p t="2889000" d="6000">This is the log of x times this
+square root, right,</p>
+<p t="2892000" d="6000">make one logarithm out of it,
+and then put z equals y over z.</p>
+<p t="2896000" d="6000">And, you see that if you do</p>
+<p t="2899000" d="6000">that, it'll be the log of x
+times the square root of one</p>
+<p t="2903000" d="6000">plus (y over x) squared,</p>
+<p t="2907000" d="6000">and what is that?
+Well, if I put this over x</p>
+<p t="2910000" d="6000">squared and take it out,
+it cancels that.</p>
+<p t="2914000" d="6000">And, what you are left with is
+the log of the square root of x</p>
+<p t="2918000" d="6000">squared plus y squared plus a
+constant.</p>
+<p t="2922000" d="6000">Now, technically,</p>
+<p t="2923000" d="6000">you have solved the equation,
+but not morally because,</p>
+<p t="2927000" d="6000">I mean, my God,
+what a mess!</p>
+<p t="2929000" d="6000">Incredible path.
+It tells me absolutely nothing.</p>
+<p t="2932000" d="6000">Wow, what is the screaming?
+Change me to polar coordinates.</p>
+<p t="2936000" d="6000">What's the arc tangent of y
+over x?</p>
+<p t="2940000" d="6000">Theta.
+In polar coordinates it's</p>
+<p t="2942000" d="6000">theta.
+This is r.</p>
+<p t="2944000" d="6000">So, the curve is theta equals
+the log of r plus a constant.</p>
+<p t="2949000" d="6000">And, I can make even that
+little better if I exponentiate</p>
+<p t="2954000" d="6000">everything, exponentiate both
+sides, combine this in the usual</p>
+<p t="2959000" d="6000">way, the and what you get is
+that r is equal to some other</p>
+<p t="2964000" d="6000">constant times e to the theta.</p>
+<p t="2970000" d="6000">That's the curve.
+It's called an exponential</p>
+<p t="2973000" d="6000">spiral, and that's what our
+little boat goes in.</p>
+<p t="2977000" d="6000">And notice, probably if I had
+set up the problem in polar</p>
+<p t="2982000" d="6000">coordinates from the beginning,
+nobody would have been able to</p>
+<p t="2988000" d="6000">solve it.
+But, anyone who did would have</p>
+<p t="2991000" d="6000">gotten that answer immediately.
+Thanks.</p>
+</body>
+</timedtext>
