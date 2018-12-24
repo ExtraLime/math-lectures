@@ -1,6 +1,7 @@
 # unit-4-NLP-capstone
 Using machine learning to cluster and classify math lectures
 this repository is for my NLP project.
+https://slides.com/will-m/using-nlp-to-classfy-math-lectures#/
 
 93 lectures
 clustering
